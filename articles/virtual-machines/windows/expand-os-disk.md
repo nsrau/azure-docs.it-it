@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 692046070ffc04942a5d8a73825f6cb59e462f8b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979497"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147200"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
 
@@ -32,13 +31,13 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
 
 
 > [!IMPORTANT]
-> Il ridimensionamento del disco del sistema operativo di una macchina virtuale di Azure ne determinerà il riavvio.
+> Il ridimensionamento del disco del sistema operativo di una macchina virtuale di Azure richiede la deallocazione della macchina virtuale.
 >
 > Dopo l'espansione dei dischi è necessario [espandere il volume all'interno del sistema operativo](#expand-the-volume-within-the-os) per sfruttare i vantaggi del disco più grande.
 > 
 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="resize-a-managed-disk"></a>Ridimensionare un disco gestito

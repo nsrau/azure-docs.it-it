@@ -5,20 +5,17 @@ services: ''
 author: KumudD
 ms.service: ''
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/09/2019
 ms.author: ''
 ms.custom: include file
-ms.openlocfilehash: 301ea649f127be1650b0d2236421d9110f19b50e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 37748258b1e9b7f922934edd715202cacbb793e0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553764"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67180519"
 ---
-| Risorsa | Limite predefinito |
+| Risorsa | Limite predefinito/massimo |
 | --- | --- |
-| Profili per ogni sottoscrizione |200<sup>1</sup> |
+| Profili per ogni sottoscrizione |200 |
 | Endpoint per ogni profilo |200 |
-
-<sup>1</sup>se è necessario aumentare questi limiti, contattare il supporto tecnico di Azure.
-

@@ -4,24 +4,23 @@ description: Scollegare un disco dati da una macchina virtuale in Azure usando i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329900"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103222"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
@@ -32,7 +31,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Scollegare un disco dati tramite PowerShell
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ee8302a026cf7584996bca481e79190586b77b3
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848814"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838844"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creare un'area di lavoro Log Analytics con l'interfaccia della riga di comando di Azure 2.0
 
@@ -41,10 +41,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo avvio rapido richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
-Creare un'area di lavoro con [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). L'esempio seguente crea un'area di lavoro denominata *TestWorkspace* nel gruppo di risorse *Lab* in posizione *eastus* usando un modello di Resource Manager dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+## <a name="create-a-workspace"></a>Crea un'area di lavoro
+Creare un'area di lavoro con [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di gestione risorse dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Per informazioni sulle aree supportate, vedere [aree è disponibile nel Log Analitica](https://azure.microsoft.com/regions/services/) e cercare il monitoraggio di Azure dalle **ricerca di un prodotto** campo. 
+Per informazioni sulle aree supportate, vedere [aree log Analytics è disponibile in](https://azure.microsoft.com/regions/services/) e cercare monitoraggio di Azure dal campo **ricerca di un prodotto** . 
 
 I parametri seguenti impostano un valore predefinito:
 
@@ -115,7 +115,7 @@ I parametri seguenti impostano un valore predefinito:
 
 2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.   
-4. A questo punto è possibile distribuire il modello. Usare i comandi seguenti dalla cartella che contiene il modello:
+4. A questo punto è possibile distribuire il modello. Usare i comandi seguenti dalla cartella che contiene il modello. Quando viene richiesto un nome dell'area di lavoro, specificare un nome univoco a livello globale in tutte le sottoscrizioni di Azure.
 
     ```azurecli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json

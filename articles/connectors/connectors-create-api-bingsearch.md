@@ -1,21 +1,22 @@
 ---
-title: Connettersi a ricerca di Bing - App per la logica di Azure
+title: Connettersi a Ricerca Bing-app per la logica di Azure
 description: Trovare notizie con le API REST di Ricerca Bing e App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313550"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050993"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Trovare notizie con Ricerca Bing e App per la logica di Azure
 
@@ -23,8 +24,8 @@ Questo articolo illustra come trovare novità, video e altri elementi tramite Ri
 
 Ad esempio, è possibile trovare novità in base ai criteri di ricerca e postare tali elementi su Twitter sotto forma di tweet nel feed Twitter.
 
-Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">informazioni di riferimento sul connettore Ricerca Bing</a>.
+Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore Ricerca Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +45,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 2. Nella casella di ricerca digitare "Ricerca Bing" come filtro. Nell'elenco di trigger selezionare il trigger desiderato.
 
-   Questo esempio viene usato questo trigger: **Ricerca Bing - nel nuovo articolo di notizie**
+   Questo esempio usa questo trigger: **Ricerca Bing-nuovo articolo di notizie**
 
    ![Trovare un trigger di Ricerca Bing](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -57,18 +58,18 @@ Se la connessione è già presente, fornire le informazioni necessarie per il tr
    |----------|----------|-------|-------------|
    | Search Query | Sì | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Safe Search | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Count | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
-   | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Configurare trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
 4. Selezionare la frequenza e l'intervallo in base a cui si vuole che il trigger controlli i risultati.
 
-5. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+5. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
 
 6. Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger.
 
@@ -80,23 +81,23 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel portale di Azure o in Visual Studio aprire l'app per la logica in Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nel trigger o nell'azione scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+2. Nel trigger o nell'azione selezionare **nuovo passaggio** > **Aggiungi un'azione**.
 
-   Questo esempio viene usato questo trigger:
+   Questo esempio usa questo trigger:
 
-   **Ricerca Bing - nel nuovo articolo di notizie**
+   **Ricerca Bing-nuovo articolo di notizie**
 
    ![Aggiungere un'azione](./media/connectors-create-api-bing-search/add-action.png)
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
-   Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
+   Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca digitare "Ricerca Bing" come filtro.
 Nell'elenco delle azioni, scegliere l'azione desiderata.
 
-   Questo esempio Usa questa azione:
+   Questo esempio usa questa azione:
 
-   **Ricerca Bing - notizie elenco dalla query**
+   **Ricerca Bing-elenca le notizie per query**
 
    ![Trovare un'azione di Ricerca Bing](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
@@ -108,21 +109,21 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    |----------|----------|-------|-------------|
    | Search Query | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Safe Search | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Count | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
-   | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
    Si supponga, ad esempio, che si desideri visualizzare i risultati il cui nome di categoria include il termine "tech".
 
    1. Fare clic all'interno della casella **Query di ricerca** in modo che venga visualizzato l'elenco di contenuto dinamico. 
-   Dall'elenco, scegliere **Espressione** in modo da visualizzare il Generatore di espressioni. 
+   Da tale elenco selezionare **espressione** in modo che il generatore di espressioni venga visualizzato. 
 
       ![Trigger di Ricerca Bing](./media/connectors-create-api-bing-search/bing-search-action.png)
 
       È ora possibile iniziare a creare l'espressione.
 
-   2. Nell'elenco di funzioni, selezionare la funzione **contiene()**, che verrà quindi visualizzata nella casella dell'espressione. Fare clic su **Contenuto dinamico** in modo che venga nuovamente visualizzato l'elenco dei campi, assicurandosi tuttavia che il cursore rimanga all'interno delle parentesi.
+   2. Nell'elenco di funzioni, selezionare la funzione **contiene()** , che verrà quindi visualizzata nella casella dell'espressione. Fare clic su **Contenuto dinamico** in modo che venga nuovamente visualizzato l'elenco dei campi, assicurandosi tuttavia che il cursore rimanga all'interno delle parentesi.
 
       ![Selezionare una funzione](./media/connectors-create-api-bing-search/expression-select-function.png)
 
@@ -131,7 +132,7 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
 
       ![Selezionare un campo](./media/connectors-create-api-bing-search/expression-select-field.png)
 
-   4. Al termine dell'operazione, scegliere **OK**.
+   4. Al termine, fare clic su **OK**.
 
       L'espressione viene ora visualizzata nella casella **Query di ricerca** nel formato seguente:
 
@@ -141,7 +142,7 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+5. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
 
 <a name="create-connection"></a>
 
@@ -158,20 +159,15 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    | API key | Sì | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Creare la connessione](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. Al termine dell'operazione, scegliere **Crea**.
+2. Al termine, selezionare **Crea**.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/bingsearch/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

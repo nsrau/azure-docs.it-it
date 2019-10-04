@@ -1,25 +1,18 @@
 ---
-title: Creare gli asset tecnici dell'immagine dei contenitori di Azure | Microsoft Docs
+title: Creare immagini di contenitori di Azure gli asset tecnici | Azure Marketplace
 description: Creare gli asset tecnici per un contenitore di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65794333"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparare gli asset tecnici del contenitore
 
@@ -60,9 +53,10 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 ## <a name="create-the-container-image"></a>Creare l'immagine del contenitore
 
-- Creare e configurare il disco rigido virtuale (VHD) per la macchina virtuale contenitore. Questo disco rigido virtuale contiene il sistema operativo per il contenitore che può essere Windows, Linux o Ubuntu. Potrebbero essere necessari altri dischi dati.
-- Configurare il sistema operativo della macchina virtuale, la dimensione di questa, le porte da aprire e i dischi dati collegati.
-- Installare l'applicazione e l'altro software necessario per l'offerta. Ad esempio software di database, software di terze parti o un'applicazione personalizzata.
+Per altre informazioni, vedere quanto segue:
+
+* [Esercitazione: Creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Esercitazione: Compilare e distribuire immagini del contenitore nel cloud con le attività del Registro di sistema di contenitore di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881784"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996313"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
-È possibile usare l'attività di eliminazione in Azure Data Factory per eliminare i file o cartelle da un archivio locale archivia o archivi di archiviazione cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
+È possibile usare l'attività Delete in Azure Data Factory per eliminare file o cartelle da archivi di archiviazione locali o da archivi di archiviazione cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
 
 > [!WARNING]
 > Le cartelle o i file eliminati non possono più essere ripristinati. Prestare attenzione quando si usa l'attività Delete per eliminare file o cartelle.
@@ -37,13 +37,14 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 -   Assicurarsi di non eliminare file di cui è contemporaneamente in corso la scrittura. 
 
--   Se si desidera eliminare i file o cartella da un sistema di on-premise, assicurarsi che si usa un runtime di integrazione self-hosted con una versione maggiore di 3.14.
+-   Se si vuole eliminare i file o la cartella da un sistema locale, assicurarsi di usare un runtime di integrazione self-hosted con una versione maggiore di 3,14.
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
 -   [Archivio BLOB di Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Archiviazione file di Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Archivi dati del file system
 
@@ -51,6 +52,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintassi
 
@@ -79,15 +81,15 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | dataset | Fornisce il riferimento al set di dati per determinare quali file o cartelle eliminare | Sì |
-| ricorsiva | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  |  No. Il valore predefinito è `false`. |
-| maxConcurrentConnections | Numero di connessioni cui connettere l'archivio simultaneamente per eliminare la cartella o i file.   |   No. Il valore predefinito è `1`. |
-| enablelogging | Indica se è necessario registrare i nomi di cartella o di file che sono stati eliminati. Se è true, è necessario fornire un account di archiviazione per salvare il file di log, in modo da poter monitorare i comportamenti dell'attività Delete leggendo il file di log. | No  |
-| logStorageSettings | Applicabile solo quando enablelogging = true.<br/><br/>Gruppo di proprietà di archiviazione che può essere specificato e in cui si vuole salvare il file di log che contiene i nomi di cartella o di file eliminati tramite l'attività Delete. | No  |
-| linkedServiceName | Applicabile solo quando enablelogging = true.<br/><br/>Servizio collegato di [archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties), [Gen1 di archiviazione di Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), o [Gen2 di archiviazione di Azure Data Lake](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare il file di log che contiene la cartella o i nomi file essere stato eliminato da attività di eliminazione. | No  |
-| path | Applicabile solo quando enablelogging = true.<br/><br/>Percorso in cui salvare il file di log nell'account di archiviazione. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No  |
+| recursive | Indica se i file devono essere eliminati in modo ricorsivo dalle sottocartelle o solo dalla cartella specificata.  | No. Il valore predefinito è `false`. |
+| maxConcurrentConnections | Numero di connessioni cui connettere l'archivio simultaneamente per eliminare la cartella o i file.   |  No. Il valore predefinito è `1`. |
+| enablelogging | Indica se è necessario registrare i nomi di cartella o di file che sono stati eliminati. Se è true, è necessario fornire un account di archiviazione per salvare il file di log, in modo da poter monitorare i comportamenti dell'attività Delete leggendo il file di log. | No |
+| logStorageSettings | Applicabile solo quando enablelogging = true.<br/><br/>Gruppo di proprietà di archiviazione che può essere specificato e in cui si vuole salvare il file di log che contiene i nomi di cartella o di file eliminati tramite l'attività Delete. | No |
+| linkedServiceName | Applicabile solo quando enablelogging = true.<br/><br/>Il servizio collegato di [archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)o [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare il file di log che contiene la cartella o i nomi di file che sono stati eliminati dall'attività di eliminazione. Tenere presente che deve essere configurato con lo stesso tipo di Integration Runtime da quello utilizzato dall'attività Delete per eliminare i file. | No |
+| path | Applicabile solo quando enablelogging = true.<br/><br/>Percorso in cui salvare il file di log nell'account di archiviazione. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No |
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -115,12 +117,12 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>File di log di esempio dell'attività Delete
 
-| NOME | Categoria | Stato | Tipi di errore |
+| Name | Category | Stato | Errore |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | File | Deleted |  |
-| test2/hello789.txt | File | Deleted |  |
-| test2/test3/hello000.txt | File | Deleted |  |
-| test2/test3/zzz.json | File | Deleted |  |
+| test1/yyy. JSON | File | Eliminata |  |
+| test2/hello789.txt | File | Eliminata |  |
+| test2/test3/hello000.txt | File | Eliminata |  |
+| test2/test3/zzz.json | File | Eliminata |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Esempi dell'uso dell'attività Delete
 
@@ -135,9 +137,9 @@ Viene ora usata l'attività Delete per eliminare cartelle o file attraverso la c
 | folderPath (dal set di dati) | fileName (dal set di dati) | recursive (dall'attività Delete) | Output |
 |:--- |:--- |:--- |:--- |
 | Root/Cartella_A_2 | NULL | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
-| Root/Cartella_A_2 | NULL | True  | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
+| Root/Cartella_A_2 | NULL | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Cartella_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
 | Root/Cartella_A_2 | *.txt | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
-| Root/Cartella_A_2 | *.txt | True  | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
+| Root/Cartella_A_2 | *.txt | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Cartella_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartella_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
 
 ### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Pulire periodicamente le cartelle o i file partizionati in base al tempo
 
@@ -323,7 +325,7 @@ Viene ora usata l'attività Delete per eliminare cartelle o file attraverso la c
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Spostare file mediante il concatenamento dell'attività Copy e dell'attività Delete
 
-È possibile spostare un file usando un'attività di copia per copiare un file e quindi un'attività di eliminazione per eliminare un file in una pipeline.  Quando si vuole spostare più file, è possibile usare le attività GetMetadata + Filter + Foreach + Copy + Delete come nell'esempio seguente:
+È possibile spostare un file utilizzando un'attività di copia per copiare un file e quindi un'attività di eliminazione per eliminare un file in una pipeline.  Quando si vuole spostare più file, è possibile usare le attività GetMetadata + Filter + Foreach + Copy + Delete come nell'esempio seguente:
 
 > [!NOTE]
 > Se si desidera spostare l'intera cartella definendo un set di dati che contiene solo un percorso di cartella e quindi usando l'attività Copy e l'attività Delete per fare riferimento allo stesso set di dati che rappresenta una cartella, è necessario fare molta attenzione. Il motivo è che è necessario assicurarsi che NON arrivino nuovi file nella cartella tra l'operazione di copia e quella di eliminazione.  Se nuovi file arrivano nella cartella proprio quando l'attività Copy ha completato il processo di copia, ma l'attività Delete non è ancora stata avviata, è possibile che l'attività Delete elimini il file appena arrivato che NON è stato ancora copiato nella destinazione eliminando l'intera cartella. 
@@ -563,14 +565,17 @@ Set di dati per la destinazione dei dati usata dall'attività Copy.
     }
 }
 ```
+
+È anche possibile ottenere il modello per spostare i file da [qui](solution-template-move-files.md).
+
 ## <a name="known-limitation"></a>Limitazioni note
 
--   Eliminare l'attività non supporta l'eliminazione di elenco di cartelle descritto dal carattere jolly.
+-   L'attività Delete non supporta l'eliminazione di un elenco di cartelle descritto da un carattere jolly.
 
--   Quando si usa il filtro di attributi file: modifiedDatetimeStart e modifiedDatetimeEnd per selezionare i file da eliminare, assicurarsi di impostare "fileName": "*" nel set di dati.
+-   Quando si usa il filtro degli attributi di file: modifiedDatetimeStart e modifiedDatetimeEnd per selezionare i file da eliminare, assicurarsi di impostare "fileName": "*" nel set di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sullo spostamento di file in Azure Data Factory.
+Altre informazioni sullo trasferimento di file in Azure Data Factory.
 
 -   [Strumento Copia dati in Azure Data Factory](copy-data-tool.md)

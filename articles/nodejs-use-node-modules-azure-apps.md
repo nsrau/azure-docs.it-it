@@ -3,8 +3,8 @@ title: Uso di moduli Node.js
 description: Informazioni su come usare i moduli Node.js con Servizio app di Azure e Servizi cloud.
 services: ''
 documentationcenter: nodejs
-author: TomArcher
-manager: routlaw
+author: rloutlaw
+manager: rloutlaw
 editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: tarcher
-ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: routlaw
+ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036466"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309283"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Utilizzo di moduli Node.js con le applicazioni Azure
-In questo documento vengono fornite le linee guida per l'utilizzo dei moduli Node.js con le applicazioni ospitate in Azure. Queste indicazioni consentono di garantire che l'applicazione utilizzi una versione specifica di moduli, nonché di utilizzare i moduli nativi con Azure.
+In questo documento vengono fornite le linee guida per l'utilizzo dei moduli Node.js con le applicazioni ospitate in Azure. Queste indicazioni consentono di garantire che l'applicazione usi una versione specifica di moduli, nonché di usare i moduli nativi con Azure.
 
 Se si ha familiarità con l'uso dei moduli Node.js e dei file **package.json** e **npm-shrinkwrap.json**, le informazioni seguenti offrono un breve riepilogo degli argomenti illustrati in questo articolo:
 
@@ -38,7 +38,7 @@ Se si ha familiarità con l'uso dei moduli Node.js e dei file **package.json** e
 ## <a name="nodejs-modules"></a>Moduli Node.js
 I moduli sono pacchetti JavaScript caricabili che forniscono funzionalità specifiche per l'applicazione. I moduli vengono in genere installati usando lo strumento da riga di comando **npm**, tuttavia, alcuni moduli, ad esempio il modulo HTTP, sono forniti nel pacchetto Node.js di base.
 
-Quando i moduli sono installati, vengono archiviati nella directory **node\_modules** nella radice della struttura di directory dell'applicazione. Ogni modulo nella directory **node\_modules** mantiene la propria directory **node\_modules** che contiene i moduli da cui dipende e questo comportamento si ripete per tutti i moduli fino alla fine della catena delle dipendenze. Questo ambiente consente a ogni modulo installato di avere requisiti di versione specifici per i moduli da cui dipende, anche se ciò può determinare una struttura di directory molto grande.
+Quando i moduli sono installati, vengono archiviati nella directory **node\_modules** nella radice della struttura di directory dell'applicazione. Ogni modulo nella directory **node\_modules** mantiene la propria directory che contiene i moduli da cui dipende e questo comportamento si ripete per tutti i moduli fino alla fine della catena delle dipendenze. Questo ambiente consente a ogni modulo installato di avere requisiti di versione specifici per i moduli da cui dipende, anche se ciò può determinare una struttura di directory molto grande.
 
 La distribuzione della directory **node\_modules** come parte dell'applicazione aumenta le dimensioni della distribuzione rispetto a quando si usa un file **package.json** o **npm-shrinkwrap.json**, ma questa soluzione garantisce che le versioni dei moduli usate in fase di produzione siano le stesse dei moduli usati in fase di sviluppo.
 
@@ -51,7 +51,7 @@ Servizio app di Azure non supporta tutti i moduli nativi e potrebbe non riuscire
 
   * Prima di eseguire la compilazione, verificare che l'installazione locale di Node.js disponga di un'architettura corrispondente e che la versione sia molto simile a quella usata in Azure (i valori correnti possono essere verificati in fase di esecuzione tramite le proprietà **process.arch** e **process.version**).
 
-* È possibile configurare Servizio app di Azure per l'esecuzione di script bash o della shell durante la distribuzione, offrendo la possibilità di eseguire comandi personalizzati e di configurare con precisione la modalità di esecuzione di **npm install** . Per un video che illustra come configurare tale ambiente, vedere [Custom Website Deployment Scripts with Kudu] (Script di distribuzione di un sito Web personalizzato con Kudu).
+* È possibile configurare Servizio app di Azure per l'esecuzione di script bash o della shell durante la distribuzione, offrendo la possibilità di eseguire comandi personalizzati e di configurare con precisione la modalità di esecuzione di **npm install** . Per un video che illustra come configurare tale ambiente, vedere [Custom Website Deployment Scripts with Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/) (Script di distribuzione di un sito Web personalizzato con Kudu).
 
 ### <a name="using-a-packagejson-file"></a>Utilizzare un file package.json
 
@@ -85,10 +85,10 @@ Quando l'applicazione è pronta per la produzione, è possibile bloccare i requi
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere imparato a usare i moduli Node.js con Azure, per altre informazioni vedere gli articoli che illustrano come [specificare una versione di Node.js], [compilare e distribuire un'App Web Node.js](app-service/app-service-web-get-started-nodejs.md) e [usare l'interfaccia della riga di comando di Azure per Mac e Linux].
+Dopo avere imparato a usare i moduli Node.js con Azure, per altre informazioni vedere gli articoli che illustrano come [specificare una versione di Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [compilare e distribuire un'App Web Node.js](app-service/app-service-web-get-started-nodejs.md) e [usare l'interfaccia della riga di comando di Azure per Mac e Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/nodejs/azure/).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/azure/javascript/).
 
-[specificare una versione di Node.js]: nodejs-specify-node-version-azure-apps.md
-[usare l'interfaccia della riga di comando di Azure per Mac e Linux]:cli-install-nodejs.md
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
 [Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

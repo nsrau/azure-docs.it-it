@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370816"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718754"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
 
@@ -39,7 +39,7 @@ Authorization: Bearer
 
 Il parametro `{subscriptionID}` è obbligatorio e identifica la sottoscrizione di destinazione.
 
-Il parametro `{billingPeriod}` è obbligatorio e specifica un [periodo di fatturazione](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod) corrente.
+Il parametro `{billingPeriod}` è obbligatorio e specifica un [periodo di fatturazione](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) corrente.
 
 Il parametri `${startDate}` e `${endDate}` sono necessari per questo esempio, ma facoltativi per l'endpoint. Specificano l'intervallo di date come stringhe nel formato AAAA-MM-GG (esempi: `'20180501'` e `'20180615'`).
 

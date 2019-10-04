@@ -1,25 +1,18 @@
 ---
-title: Cloud management Portal Partner - Azure Marketplace | Microsoft Docs
+title: Gestione di portale per Partner cloud | Azure Marketplace
 description: Descrive i tipi di operazioni disponibili per gestire gli account per il portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66257497"
 ---
 # <a name="cloud-partner-portal-management"></a>Gestione del portale per Partner cloud
 
@@ -31,7 +24,7 @@ In questa sezione vengono descritti i tipi di operazioni disponibili per creare 
 Prima di usare il portale Cloud Partner, è consigliabile acquisire familiarità con gli articoli seguenti:
 
 - [I criteri di Marketplace di Azure e i termini](../../policies-terms.md) Elenca i vari requisiti tecnici e legali e regole che si applicano agli utenti di e i server di pubblicazione per il [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com).
-- [Diventare un editore di Marketplace Cloud](../../become-publisher.md) offre una panoramica di tutti i passaggi necessari per diventare un editore di cloud di Microsoft ufficiale.
+- [Diventare un editore di Marketplace Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher) offre una panoramica di tutti i passaggi necessari per diventare un editore di cloud di Microsoft ufficiale.
 
 
 ## <a name="account-creation-and-management"></a>Gestione e la creazione dell'account

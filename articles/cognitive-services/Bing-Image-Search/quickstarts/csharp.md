@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: b48d9a9d8c28173de90ed3d27bc67a383563550d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551197"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034661"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e C#
 
@@ -24,7 +24,7 @@ Usare questa guida introduttiva per iniziare a inviare richieste di ricerca all'
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
@@ -206,11 +206,11 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) delle API Ricerca Bing. 
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

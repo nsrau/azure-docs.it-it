@@ -4,7 +4,7 @@ description: Informazioni su come configurare indirizzi IP privati per macchine 
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 tags: azure-service-management
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aae74d8077a75e5ab556703b1c1531f540bbdb4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 9de9fd2eb7a46719b841a885ac173f8d9c1271c1
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698565"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059117"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurare indirizzi IP privati per una macchina virtuale (classica) mediante il portale di Azure
 
@@ -61,7 +61,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
 Per visualizzare le informazioni dell’indirizzo IP privato statico per la macchina virtuale creata con la procedura descritta sopra, eseguire la procedura seguente.
 
-1. Nel portale di Azure selezionare **ESPLORA TUTTO** > **Macchine virtuali (classico)** > **DNS01** > **Tutte le impostazioni** > **Indirizzi IP** e notare l'assegnazione di indirizzi IP e l'indirizzo IP come indicato di seguito.
+1. Nel portale di Azure selezionare **ESPLORA TUTTO** > **Macchine virtuali (classico)**  > **DNS01** > **Tutte le impostazioni** > **Indirizzi IP** e notare l'assegnazione di indirizzi IP e l'indirizzo IP come indicato di seguito.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

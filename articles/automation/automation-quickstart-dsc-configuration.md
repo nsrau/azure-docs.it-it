@@ -11,14 +11,14 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449104"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850556"
 ---
-# <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale Linux con Desired State Configuration
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale con Desired State Configuration
 
 Abilitando DSC (Desired State Configuration), è possibile gestire e monitorare le configurazioni dei server Windows e Linux. Si possono identificare o correggere automaticamente le configurazioni che deviano dalla configurazione desiderata. Questa guida introduttiva illustra l'onboarding di una VM Linux e la distribuzione di uno stack LAMP con DSC.
 
@@ -38,7 +38,7 @@ Ci sono molti metodi diversi per caricare un computer e abilitare Desired State 
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Account di Automazione**. Se non è visibile nel riquadro sinistro, fare clic su **Tutti i servizi** e cercarlo nella visualizzazione risultante.
 1. Nell'elenco selezionare un account di Automazione.
-1. Nel riquadro sinistro dell'account di Automazione selezionare **Configurazione dello stato (DSC)**.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Configurazione dello stato (DSC)** .
 2. Fare clic su **Aggiungi** per aprire la pagina di selezione della macchina virtuale.
 3. Trovare la macchina virtuale per che si vuole abilitare DSC. È possibile usare il campo di ricerca e le opzioni di filtro per trovare una macchina virtuale specifica.
 4. Fare clic sulla macchina virtuale e quindi selezionare **Connetti**

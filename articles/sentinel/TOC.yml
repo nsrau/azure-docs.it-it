@@ -1,4 +1,4 @@
-- name: Documentazione dell'anteprima di Azure Sentinel
+- name: Documentazione di Azure Sentinel
   href: index.yml
 - name: Panoramica
   href: overview.md
@@ -11,12 +11,22 @@
       href: quickstart-get-visibility.md
 - name: Esercitazioni
   items:
-    - name: Rilevare minacce sospette
-      href: tutorial-detect-threats.md
-    - name: Analizzare i casi
+    - name: Usare l'analisi predefinita per rilevare minacce
+      href: tutorial-detect-threats-built-in.md
+    - name: Creare regole personalizzate per rilevare minacce
+      href: tutorial-detect-threats-custom.md
+    - name: Monitorare i dati
+      href: tutorial-monitor-your-data.md
+    - name: Analizzare gli eventi imprevisti
       href: tutorial-investigate-cases.md
     - name: Rispondere alle minacce
       href: tutorial-respond-threats-playbook.md
+- name: Concetti
+  items:
+    - name: Assegnare autorizzazioni tramite ruoli
+      href: roles.md
+    - name: Rilevamento avanzato di attacchi in più fasi
+      href: fusion.md
 - name: Guide alle procedure
   items:
     - name: Connettere le origini dati
@@ -40,6 +50,8 @@
               href: connect-azure-atp.md
             - name: Connettere il Centro sicurezza di Azure
               href: connect-azure-security-center.md
+            - name: Connettere il Domain Name Server
+              href: connect-dns.md
             - name: Connettere Microsoft web application firewall
               href: connect-microsoft-waf.md
             - name: Connettere Windows Firewall
@@ -50,6 +62,8 @@
           items:
             - name: Connettere il CEF generico
               href: connect-common-event-format.md
+            - name: Connettere AWS
+              href: connect-aws.md
             - name: Connettere Barracuda
               href: connect-barracuda.md
             - name: Connettere Check Point
@@ -68,6 +82,12 @@
               href: connect-cisco.md
         - name: Connettere Threat Intelligence
           href: connect-threat-intelligence.md
+        - name: Connettere le VM di Azure Stack
+          href: connect-azure-stack.md
+    - name: Più tenant (MSSP)
+      href: multiple-tenants-service-providers.md
+    - name: Creare eventi imprevisti dagli avvisi
+      href: create-incidents-from-alerts.md
     - name: Ricerca
       href: hunting.md
       items:
@@ -75,8 +95,8 @@
           href: notebooks.md
         - name: Usare i segnalibri per la ricerca
           href: bookmarks.md
-    - name: Abilitare Fusion
-      href: connect-fusion.md
+    - name: Rimuovere Azure Sentinel
+      href: offboard.md
 - name: Risorse
   items:
     - name: Risorse utili

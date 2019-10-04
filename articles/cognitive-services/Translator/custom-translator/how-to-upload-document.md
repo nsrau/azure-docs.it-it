@@ -2,19 +2,19 @@
 title: Come caricare un documento - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Usando la funzionalità di caricamento dei documenti è possibile caricare documenti paralleli per il training. I documenti paralleli sono coppie di documenti in cui uno è la traduzione dell'altro. Un documento della coppia contiene frasi nella lingua di origine, mentre l'altro contiene le stesse frasi tradotte nella lingua di destinazione.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7df7dd44716e98c74282bd0f0700ec7881ef31ef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766947"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595638"
 ---
 # <a name="upload-a-document"></a>Caricare un documento
 

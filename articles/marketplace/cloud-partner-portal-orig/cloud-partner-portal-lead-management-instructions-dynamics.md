@@ -1,25 +1,18 @@
 ---
-title: Dynamics CRM | Microsoft Docs
+title: Dynamics CRM | Azure Marketplace
 description: Configurare la gestione dei lead per Dynamics CRM.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.author: pabutler
+ms.openlocfilehash: 6fdab26bb5a4da5402a3a0a895a7c8835ef22c2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935792"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurare la gestione dei lead per Dynamics CRM online
 
@@ -146,7 +139,7 @@ Il passaggio finale consente all'utente creato di scrivere i lead.
 
 ## <a name="wrap-up"></a>Eseguire il wrapping
 
-Completare la configurazione di Dynamics CRM per la gestione dei lead aggiungendo le informazioni sull'account generato al portale Cloud Partner. Ad esempio: 
+Completare la configurazione di Dynamics CRM per la gestione dei lead aggiungendo le informazioni sull'account generato al portale Cloud Partner. Ad esempio:
 
--   **Azure Active Directory** - **Id applicazione** (esempio: *23456052-aaaa-bbbb-8662-1234df56788f*), **Id Directory** (esempio: *12345678-8af1-4asf-1234-12234d01db47*), e **chiave applicazione** (esempio: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **Url** (esempio: *https://contoso.crm4.dynamics.com*), **nome utente** (esempio: *contoso\@ Contoso.onmicrosoft.com*), e **Password** (esempio: *P\@ssw0rd*).
+-   **Azure Active Directory** - **Id applicazione** (esempio: *23456052-aaaa-bbbb-8662-1234df56788f*), **Id Directory** (esempio: *12345678-8af1-4asf-1234-12234d01db47*), e **chiave applicazione** (esempio: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Office 365** - **Url** (esempio: *https://contoso.crm4.dynamics.com* ), **nome utente** (esempio: *contoso\@ Contoso.onmicrosoft.com*), e **Password** (esempio: *P\@ ssw0rd*).

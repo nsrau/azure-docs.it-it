@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
-ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: juliako
+ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839781"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015831"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
 > [!div class="op_single_selector"]
@@ -28,13 +28,17 @@ ms.locfileid: "57839781"
 > 
 > 
 
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+
 Questa esercitazione illustra come usare l'SDK di Servizi multimediali di Azure per .NET per creare un **canale** configurato per la distribuzione pass-through. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure.
-* Account di Servizi multimediali.    Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
+* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
+* Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
 * Configurare l'ambiente di sviluppo. Per ulteriori informazioni, vedere [Configurare l'ambiente](media-services-set-up-computer.md).
 * Una webcam. Ad esempio, [codificatore Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
 
@@ -48,10 +52,11 @@ Per completare l'esercitazione è necessario quanto segue:
 Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Esempio
+
 Il seguente esempio di codice illustra come ottenere le attività seguenti:
 
 * Connettersi a Servizi multimediali
-* Creare un canale
+* Crea un canale
 * Aggiornare il canale
 * Recuperare l'endpoint di input del canale. È necessario fornire l'endpoint di input al codificatore live locale. Il codificatore live converte i segnali dalla fotocamera ai flussi che vengono inviati all'endpoint di input del canale (inserimento).
 * Recuperare l'endpoint di anteprima del canale
@@ -60,9 +65,6 @@ Il seguente esempio di codice illustra come ottenere le attività seguenti:
 * Creare e avviare uno StreamingEndpoint
 * Aggiornare l'endpoint di streaming
 * Arresto delle risorse
-
->[!IMPORTANT]
->Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
     
 >[!NOTE]
 >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
@@ -397,7 +399,7 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>passaggio successivo
+## <a name="next-step"></a>Passo successivo
 Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

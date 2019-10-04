@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Creare una knowledge base in REST, Python - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva per Python basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 01/24/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 766fe32736ae0d8ea23805ea017d93b32119636a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 43ae6e7100efd923c81a0f9b94867a9101549d9b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559864"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Avvio rapido: Creare una knowledge base in QnA Maker con Python
 
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
-* [Create Knowledgebase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
-* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
+* [Create Knowledgebase](https://go.microsoft.com/fwlink/?linkid=2092179) (Creare la knowledge base)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -128,4 +128,4 @@ Dopo aver creato la knowledge base, è possibile visualizzarla nella pagina [My 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

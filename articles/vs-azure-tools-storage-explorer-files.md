@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456727"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
@@ -203,7 +203,7 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
         ![Caricare file](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella **File** per selezionare i file da caricare.
+        b. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella **File** per selezionare i file da caricare.
 
         ![Aggiunta di file](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
         ![Menu di Upload Folder (Carica cartella)](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
+        b. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
 
         c. È possibile specificare una cartella di destinazione in cui verrà caricato il contenuto della cartella selezionata. Se la cartella di destinazione non esiste, verrà creata.
 

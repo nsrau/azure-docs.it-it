@@ -10,66 +10,154 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/02/2016
+ms.date: 08/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117232"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562848"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
-Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi, la creazione di una risorsa può essere eseguita automaticamente dall'IDE. In alcuni casi si crea tuttavia una risorsa manualmente, ad esempio per disporre di risorse separate per le compilazioni di sviluppo e produzione dell'applicazione.
 
-Dopo aver creato la risorsa, si ottiene la relativa chiave di strumentazione, che consente di configurare l'SDK nell'applicazione. La chiave della risorsa collega i dati di telemetria alla risorsa.
+Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa quindi parte della [configurazione di Application Insights per il monitoraggio di una nuova applicazione][start]. Dopo aver creato la nuova risorsa, è possibile ottenere la relativa chiave di strumentazione e usarla per configurare il Application Insights SDK. La chiave di strumentazione collega i dati di telemetria alla risorsa.
 
-## <a name="sign-up-to-microsoft-azure"></a>Iscriversi a Microsoft Azure
-Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](https://live.com). (se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, si ha già un account Microsoft).
+## <a name="sign-in-to-microsoft-azure"></a>Accedi per Microsoft Azure
 
-È necessaria anche una sottoscrizione di [Microsoft Azure](https://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID. Si paga solo l'uso effettivo. Il piano Basic predefinito consente di accedere a un certo uso sperimentale gratuito.
-
-Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [https://portal.azure.com](https://portal.azure.com) e usare il proprio Live ID.
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
-In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di Application Insights:
 
-![Fare clic su Nuovo, Application Insights](./media/create-new-resource/01-new.png)
+Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa Application Insights:
 
-* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il tipo dell'app non è visualizzato, scegliere Generale.
-* **sottoscrizione** è il proprio account di pagamento in Azure.
-* **gruppo di risorse** è utile per gestire le proprietà come il controllo di accesso. Se sono già state create altre risorse di Azure, è possibile inserire questa nuova risorsa nello stesso gruppo.
-* Il **percorso** è la posizione in cui vengono conservati i dati.
-* **Aggiungi al dashboard** inserisce un riquadro di accesso rapido alla risorsa nella home page di Azure. Consigliato.
+![Fare clic sul segno "+" nell'angolo superiore sinistro. Selezionare Strumenti di sviluppo seguito da Application Insights](./media/create-new-resource/new-app-insights.png)
 
-Dopo aver creato l'app, verrà visualizzato un nuovo pannello che mostra i dati sulle prestazioni e l'utilizzo dell'app. 
+   | Impostazioni        |  Value           | DESCRIZIONE  |
+   | ------------- |:-------------|:-----|
+   | **Nome**      | Valore globalmente univoco | Nome che identifica l'app che si sta monitorando. |
+   | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights. |
+   | **Location** | East US | Scegliere una località nelle vicinanze o in prossimità della posizione in cui è ospitata l'app. |
 
-Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, cercare il riquadro di avvio rapido dell'app nella schermata iniziale. In alternativa, fare clic su Sfoglia per cercarlo.
+Immettere i valori appropriati nei campi obbligatori e quindi selezionare **Verifica + crea**.
+
+![Immettere i valori nei campi obbligatori e quindi selezionare "verifica + crea".](./media/create-new-resource/review-create.png)
+
+Quando l'app è stata creata, viene aperto un nuovo riquadro. In questo riquadro vengono visualizzati i dati sulle prestazioni e sull'utilizzo dell'applicazione monitorata. 
 
 ## <a name="copy-the-instrumentation-key"></a>Eseguire una copia della chiave di strumentazione
-La chiave di strumentazione identifica la risorsa creata. È necessario fornirla all'SDK.
 
-![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/create-new-resource/02-props.png)
+La chiave di strumentazione identifica la risorsa a cui si vuole associare i dati di telemetria. Sarà necessario copiare per aggiungere la chiave di strumentazione al codice dell'applicazione.
+
+![Fare clic e copiare la chiave di strumentazione](./media/create-new-resource/instrumentation-key.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>Installare l’SDK nell'app
-Installare Application Insights SDK nell'app. Questo passaggio dipende dal tipo di applicazione. 
 
-Usare la chiave di strumentazione per configurare l'[SDK installato nell'applicazione][start].
+Installare Application Insights SDK nell'app. Questo passaggio dipende dal tipo di applicazione.
 
-L'SDK include i moduli standard che inviano dati di telemetria senza che occorra scrivere codice. Per rilevare le azioni degli utenti o diagnosticare i problemi in modo più dettagliato, [usare l'API][api] per inviare dati di telemetria personalizzati.
+Usare la chiave di strumentazione per configurare [l'SDK installato nell'applicazione][start].
 
-## <a name="monitor"></a>Visualizzare i dati di telemetria
-Chiudere il pannello di avvio rapido per tornare al pannello dell'applicazione nel portale di Azure.
-
-Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca diagnostica), ovvero la finestra in cui vengono visualizzati i primi eventi. 
-
-Se si prevedono più dati, fare clic su **Aggiorna** dopo pochi secondi.
+L'SDK include moduli standard che inviano dati di telemetria senza dover scrivere codice aggiuntivo. Per tenere traccia delle azioni degli utenti o diagnosticare i problemi in modo più dettagliato, [usare l'API][api] per inviare i dati di telemetria.
 
 ## <a name="creating-a-resource-automatically"></a>Creazione automatica di una risorsa
-È possibile scrivere uno [script di PowerShell](../../azure-monitor/app/powershell.md) per creare automaticamente una risorsa.
+
+### <a name="powershell"></a>PowerShell
+
+Creare una nuova risorsa di Application Insights
+
+```powershell
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+#### <a name="example"></a>Esempio
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+```
+#### <a name="results"></a>Risultati
+
+```powershell
+Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
+ResourceGroupName  : testgroup
+Name               : test1027
+Kind               : web
+Location           : eastus
+Type               : microsoft.insights/components
+AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
+ApplicationType    : web
+Tags               : {}
+CreationDate       : 10/27/2017 4:56:40 PM
+FlowType           :
+HockeyAppId        :
+HockeyAppToken     :
+InstrumentationKey : 00000000-aaaa-bbbb-cccc-dddddddddddd
+ProvisioningState  : Succeeded
+RequestSource      : AzurePowerShell
+SamplingPercentage :
+TenantId           : {subid}
+```
+
+Per la documentazione completa di PowerShell per questo cmdlet e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+
+### <a name="azure-cli-preview"></a>INTERFACCIA della riga di comando di Azure (anteprima)
+
+Per accedere all'anteprima Application Insights comandi dell'interfaccia della riga di comando di Azure, è prima necessario eseguire:
+
+```azurecli
+ az extension add -n application-insights
+```
+
+Se non si esegue il `az extension add` comando, verrà visualizzato un messaggio di errore che indica:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+
+A questo punto è possibile eseguire il comando seguente per creare la risorsa Application Insights:
+
+```azurecli
+az monitor app-insights component create --app
+                                         --location
+                                         --resource-group
+                                         [--application-type]
+                                         [--kind]
+                                         [--tags]
+```
+
+#### <a name="example"></a>Esempio
+
+```azurecli
+az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+```
+
+#### <a name="results"></a>Risultati
+
+```azurecli
+az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+{
+  "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
+  "applicationId": "demoApp",
+  "applicationType": "web",
+  "creationDate": "2019-08-16T18:15:59.740014+00:00",
+  "etag": "\"0300edb9-0000-0100-0000-5d56f2e00000\"",
+  "flowType": "Bluefield",
+  "hockeyAppId": null,
+  "hockeyAppToken": null,
+  "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
+  "kind": "web",
+  "location": "eastus",
+  "name": "demoApp",
+  "provisioningState": "Succeeded",
+  "requestSource": "rest",
+  "resourceGroup": "demoApp",
+  "samplingPercentage": null,
+  "tags": {},
+  "tenantId": {tenantID},
+  "type": "microsoft.insights/components"
+}
+```
+
+Per la documentazione completa dell'interfaccia della riga di comando di Azure per questo comando e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione di Azure CLI](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un dashboard](../../azure-monitor/app/app-insights-dashboards.md)
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
 * [Esplorare le metriche](../../azure-monitor/app/metrics-explorer.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
@@ -80,4 +168,3 @@ Se si prevedono più dati, fare clic su **Aggiorna** dopo pochi secondi.
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

@@ -3,18 +3,17 @@ title: Introduzione a hub IoT di Azure | Microsoft Docs
 description: Informazioni sull'hub IoT di Azure Questo servizio IoT è stato compilato per l'inserimento di dati scalabili, per la gestione dei dispositivi e per la sicurezza.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726738"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950454"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
@@ -26,7 +25,7 @@ Le funzionalità dell'Hub IoT consentono di compilare soluzioni IoT scalabili co
 
 ## <a name="scale-your-solution"></a>Ridimensionare una soluzione
 
-L'hub IoT è adattabile a milioni di dispositivi simultaneamente connessi e a milioni di eventi al secondo per supportare i carichi di lavoro IoT del cliente. Hub IoT offre vari livelli di servizio per adattarsi nel migliore dei modi alle necessità di scalabilità. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
+L'hub IoT è adattabile a milioni di dispositivi simultaneamente connessi e a milioni di eventi al secondo per supportare i carichi di lavoro IoT del cliente. Per altre informazioni sul ridimensionamento dell'hub IoT, vedere [Ridimensionamento dell'hub IoT](iot-hub-scaling.md?branch=release-iotbasic). Per altre informazioni sui diversi livelli di servizio offerti dall'hub IoT e su come soddisfare al meglio le esigenze di scalabilità, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Proteggere le comunicazioni dell'utente
 
@@ -50,7 +49,7 @@ L'Hub IoT consente un canale di comunicazione sicuro per i dispositivi per l'inv
 
 La funzionalità di routing dei messaggi incorporati offre flessibilità per configurare il fan-out automatico dei messaggi basati su regole:
 
-* Usare il routing dei messaggi per controllare dove l'hub dell'utente invia i dati di telemetria del dispositivo.
+* Usare il [routing dei messaggi](iot-hub-devguide-messages-d2c.md) per controllare dove l'hub invia i dati di telemetria del dispositivo.
 
 * Non è previsto alcun costo aggiuntivo per il routing dei messaggi a più endpoint.
 
@@ -110,7 +109,7 @@ Se la soluzione dell'utente non può usare uno dei protocolli supportati, è pos
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 
-Ogni sottoscrizione di Azure ha limiti di quota predefiniti per prevenire l'abuso del servizio, e questi limiti possono influire sull'ambito della soluzione IoT del cliente. Il limite corrente per ogni sottoscrizione è di 50 hub IoT per sottoscrizione. È possibile richiedere degli aumenti della quota contattando il supporto. Per altre informazioni sui limiti di quota:
+Ogni sottoscrizione di Azure ha limiti di quota predefiniti per prevenire l'abuso del servizio, e questi limiti possono influire sull'ambito della soluzione IoT del cliente. Il limite corrente per ogni sottoscrizione è di 50 hub IoT per sottoscrizione. È possibile richiedere degli aumenti della quota contattando il supporto. Per altre informazioni, vedere [Quote e limitazioni dell'hub IoT](iot-hub-devguide-quotas-throttling.md). Per altre informazioni sui limiti di quota, vedere uno degli articoli seguenti:
 
 * [Limiti del servizio di sottoscrizione di Azure](../azure-subscription-service-limits.md)
 

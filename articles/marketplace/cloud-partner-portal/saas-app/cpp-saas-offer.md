@@ -1,68 +1,24 @@
 ---
-title: Offerta di applicazioni SaaS di Azure | Microsoft Docs
+title: Offerta di applicazione SaaS di Azure | Azure Marketplace
 description: Panoramica del processo per la pubblicazione di un'offerta per un'applicazione SaaS di Azure in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.date: 06/04/2019
+ms.author: pabutler
+ms.openlocfilehash: de799780ecbfeb3cbe66c5cc57f0e6c3bd2d1350
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213552"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871996"
 ---
 # <a name="azure-saas-application-offer"></a>Offerta di applicazioni SaaS di Azure
 
-Questa sezione illustra come pubblicare un'offerta per un'applicazione software come un servizio (SaaS) in <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
+Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte di applicazioni SaaS.  Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/pcv/)per i partner Microsoft.  Per altre informazioni, vedere [creare una nuova offerta SaaS](../../partner-center-portal/create-new-saas-offer.md). 
 
-Usare le applicazioni SaaS quando la soluzione verrà distribuita nella propria sottoscrizione di Azure e gli utenti effettueranno l'accesso tramite un'interfaccia progettata e gestita per testare l'applicazione. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> viene usato per sfruttare l'ambiente di prova esistente.
-
-## <a name="benefits"></a>Vantaggi
-
-I vantaggi della presenza delle applicazioni in un marketplace di Microsoft includono la possibilità di:
-
-- Raggiungere 100 milioni di utenti di Azure Active Directory tramite Office 365 e Dynamics 365.
-
-- Espandere il team di vendita: raggiungere utenti aziendali in tutto il mondo e ottenere un canale di vendita che coinvolge gli utenti finali, aiuta a generare clienti potenziali e avvia conversazioni con nuovi clienti di diversi settori.
-
-- Ottenere informazioni dettagliate di utilità pratica: verranno condivise informazioni sulle prestazioni dell'app in AppSource, cosa funziona e come migliorare ulteriormente le procedure di vendita.
- 
->[!Note]
->Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
-
-## <a name="publishing-process-workflow"></a>Flusso di lavoro del processo di pubblicazione 
-
-Il diagramma seguente illustra i passaggi generali per la pubblicazione di un'offerta per un'applicazione SaaS. 
-
-![Flusso di lavoro di pubblicazione per un'offerta](./media/new-offer-process.png)
-
-## <a name="offer-components"></a>Componenti dell'offerta
- 
-Questa sezione, che descrive gli elementi della pubblicazione di un'offerta SaaS, è da intendersi come guida per chi effettua la pubblicazione in Azure Marketplace. La pubblicazione è suddivisa nelle parti principali seguenti: 
-
-- [Prerequisiti](./cpp-prerequisites.md) : elenca i requisiti tecnici e commerciali necessari per la creazione o la pubblicazione di un'offerta SaaS. 
-- [Creare l'offerta](./cpp-create-offer.md): fornisce i passaggi necessari per creare la voce della nuova offerta SaaS usando il portale Cloud Partner. 
-- [Pubblicare l'offerta](./cpp-publish-offer.md): spiega come inviare l'offerta per la pubblicazione in Azure Marketplace. 
-
-## <a name="saas-publishing-process"></a>Processo di pubblicazione SaaS 
-
-I passaggi generali per la pubblicazione di un'offerta SaaS sono:
- 
-1. Creazione dell'offerta: specificare le informazioni dettagliate sull'offerta. Queste informazioni includono la descrizione dell'offerta, il materiale di marketing, le informazioni di supporto e le specifiche degli asset. 
-2. Creazione delle risorse commerciali e tecniche: creare le risorse aziendali (documenti legali e materiali di marketing) e tecniche per la soluzione associata. 
-3. Certificazione e pubblicazione dell'offerta: dopo aver completato l'offerta e le risorse tecniche, è possibile procedere all'invio dell'offerta. L'invio dell'offerta avvia il processo di pubblicazione. Durante questo processo la soluzione viene sottoposta a test, viene convalidata e certificata e quindi viene "aggiunta" in Azure Marketplace.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di prendere in considerazione questi passaggi, è necessario soddisfare i  [requisiti tecnici e commerciali](./cpp-prerequisites.md)  per la pubblicazione di un'offerta SaaS in Microsoft Azure Marketplace. 
- 
+Prima di creare una nuova offerta di app SaaS, è necessario leggere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](../../marketplace-saas-applications-technical-publishing-guide.md) ed esaminare i passaggi del portale del centro per i partner elencati nell'elenco di controllo per la creazione dell' [offerta](../../partner-center-portal/offer-creation-checklist.md). 

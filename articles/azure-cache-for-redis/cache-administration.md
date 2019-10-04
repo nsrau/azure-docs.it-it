@@ -14,30 +14,30 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232987"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827595"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>Riavvio
+## <a name="reboot"></a>Riavvia
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavvio](./media/cache-administration/redis-cache-administration-reboot.png)
+![Riavvia](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Selezionare i nodi per il riavvio e fare clic su **Riavvia**.
 
-![Riavvio](./media/cache-administration/redis-cache-reboot.png)
+![Riavvia](./media/cache-administration/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavvio](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Riavvia](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni desiderate per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -72,7 +72,7 @@ Sì, se si riavvia la cache tutte le connessioni client vengono annullate. Il ri
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Con il riavvio i dati nella cache andranno persi?
-Se si riavviano le **Master** e **Slave** nodi, tutti i dati nella cache (o in quella partizione se si usa una cache premium con clustering abilitato) potrebbero andare persi, ma non è garantita una. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
+Se si riavviano i nodi **Master** e **slave** , tutti i dati nella cache (o in tale partizione se si usa una cache Premium con il clustering abilitato) potrebbero andare perduti, ma ciò non è garantito. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
 
 Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comunque possibile. Per esempio, se il nodo principale viene riavviato durante la scrittura della cache, i dati della scrittura andranno persi. Un altro scenario in cui avviene una perdita di dati si verifica se si riavvia un nodo e l'altro nodo diventa contemporaneamente inattivo basso a causa di un errore. Per altre informazioni sulle possibili cause di una perdita di dati, vedere [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)(Cosa è accaduto ai dati in Redis)
 
@@ -83,7 +83,7 @@ Sì, per istruzioni relative a PowerShell vedere [Riavviare una Cache Redis](cac
 Il riavvio è disponibile per tutti i piani tariffari.
 
 ## <a name="schedule-updates"></a>Pianificare gli aggiornamenti
-Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di manutenzione per la cache di livello Premium. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. 
+Il pannello **Pianifica aggiornamenti** consente di definire una finestra di manutenzione per l'istanza della cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. 
 
 > [!NOTE] 
 > Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.
@@ -101,7 +101,6 @@ L'intervallo di manutenzione minimo predefinito per gli aggiornamenti è di cinq
 * [Quando vengono eseguiti gli aggiornamenti se non si usa la funzionalità di pianificazione degli aggiornamenti?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [Quale tipo di aggiornamenti vengono eseguiti durante l'intervallo di manutenzione pianificato?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [Con quali piani tariffari è possibile usufruire della funzionalità di pianificazione degli aggiornamenti?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>Quando vengono eseguiti gli aggiornamenti se non si usa la funzionalità di pianificazione degli aggiornamenti?
 Se non si specifica un intervallo di manutenzione, è possibile eseguire aggiornamenti in qualsiasi momento.
@@ -116,9 +115,6 @@ Sì, è possibile gestire gli aggiornamenti pianificati con i cmdlet di PowerShe
 * [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
-
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Con quali piani tariffari è possibile usufruire della funzionalità di pianificazione degli aggiornamenti?
-La funzionalità di **pianificazione degli aggiornamenti** è disponibile solo nel piano tariffario Premium.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esplorare altre funzionalità del [piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).

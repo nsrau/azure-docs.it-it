@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65779661"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
  
@@ -42,19 +42,24 @@ Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il n
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Ridimensionare le Media Reserved Units (S1/S2/S3) - Interfaccia della riga di comando](media-reserved-units-cli-how-to.md)
-- [Creare un account di Servizi multimediali - Interfaccia della riga di comando](./scripts/cli-create-account.md) 
-- [Reimpostare le credenziali dell'account - Interfaccia della riga di comando](./scripts/cli-reset-account-credentials.md)
-- [Creare gli asset - Interfaccia della riga di comando](./scripts/cli-create-asset.md)
-- [Caricare un file - Interfaccia della riga di comando](./scripts/cli-upload-file-asset.md)
-- [Creare trasformazioni - Interfaccia della riga di comando](./scripts/cli-create-transform.md)
-- [Creare i processi - Interfaccia della riga di comando](./scripts/cli-create-jobs.md)
-- [Creare una Griglia di eventi - Interfaccia della riga di comando](./scripts/cli-create-event-grid.md)
-- [Pubblicare un asset - Interfaccia della riga di comando](./scripts/cli-publish-asset.md)
+- [Creare un account di Servizi multimediali - Interfaccia della riga di comando](create-account-cli-how-to.md) 
+- [Reimpostare le credenziali dell'account - Interfaccia della riga di comando](cli-reset-account-credentials.md)
+- [Creare gli asset - Interfaccia della riga di comando](cli-create-asset.md)
+- [Caricare un file - Interfaccia della riga di comando](cli-upload-file-asset.md)
+- [Creare trasformazioni - Interfaccia della riga di comando](cli-create-transform.md)
+- [Codificare contenuti con una trasformazione personalizzata - CLI](custom-preset-cli-howto.md)
+- [Creare i processi - Interfaccia della riga di comando](cli-create-jobs.md)
+- [Creare una Griglia di eventi - Interfaccia della riga di comando](job-state-events-cli-how-to.md)
+- [Pubblicare un asset - Interfaccia della riga di comando](cli-publish-asset.md)
 - [Applicare un filtro - Interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+L'Endpoint di Streaming da cui vuole trasmettere il contenuto deve essere nello stato in esecuzione. Il comando seguente avvia l'Endpoint di Streaming predefinito:
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
+

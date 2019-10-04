@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 3f40451087aba5af5b02625ad3ac1ca6231d976c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664133"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035877"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consente di eseguire query e inviare comandi al servizio di gestione di ripristino.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705137"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Informazioni sulle raccolte di aree di lavoro di Power BI
 
@@ -60,7 +60,7 @@ Le **raccolte di aree di lavoro** e le **aree di lavoro** sono contenitori di co
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticazione e autorizzazione con token delle app
 
-Le **raccolte di aree di lavoro di Microsoft Power BI** assegnano all'applicazione l'esecuzione di tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory.  Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI nelle **raccolte di aree di lavoro di Microsoft Power BI** tramite **token di autenticazione dell'applicazione (token dell'app)**.  I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report.
+Le **raccolte di aree di lavoro di Microsoft Power BI** assegnano all'applicazione l'esecuzione di tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory.  Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI nelle **raccolte di aree di lavoro di Microsoft Power BI** tramite **token di autenticazione dell'applicazione (token dell'app)** .  I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report.
 
 ![Diagramma dell'utilizzo dei token dell'applicazione](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
@@ -76,7 +76,7 @@ Questi token vengono usati nelle varie fasi di interazione con le **raccolte di 
 
 È ora possibile modificare report esistenti o creare nuovi report direttamente nell'applicazione senza dover usare Power BI Desktop. A tale scopo è necessario che nell'area di lavoro sia presente un set di dati.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Introduzione alle raccolte di aree di lavoro di Microsoft Power BI](get-started.md)  

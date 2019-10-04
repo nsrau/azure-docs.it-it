@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: d3eb2affe76374eb35ac724dff0204f43b567e09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183476"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016577"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificare un asset con Media Encoder Standard mediante .NET  
 
@@ -56,7 +57,7 @@ Se si desidera esaminare uno dei due file di metadati, è possibile creare un lo
 
 ## <a name="net-sample-code"></a>Codice di esempio .NET
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
 
 * Creare un processo di codifica.
 * Ottenere un riferimento al codificatore Media Encoder Standard.

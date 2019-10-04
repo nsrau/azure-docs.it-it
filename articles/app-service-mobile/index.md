@@ -2,22 +2,19 @@
 title: Documentazione delle app per dispositivi mobili di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come per usare App per dispositivi mobili nel Servizio app di azure per creare e ospitare app iOS, Android o Windows native oppure app multipiattaforma tramite Xamarin o Cordova.
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2018
-ms.author: carolz
-ms.openlocfilehash: 5adf1f12bd2c7757bfde1408c52b0753bff64797
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: gwallace
+ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389650"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610221"
 ---
 # <a name="mobile-apps-documentation"></a>Documentazione sulle app per dispositivi mobili
 
@@ -197,7 +194,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lingue</h3>
+                        <h3>Languages</h3>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET backend SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
                         <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>

@@ -5,16 +5,15 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1d92e6d0e619584dedcbc9a66450c25dd1ac8b75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 9fbc94259d6fdfb6758204efd6e6f0a346dc58da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813379"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Configurare l'accesso dell'utente alle informazioni sul processo in Azure Data Lake Analytics 
 

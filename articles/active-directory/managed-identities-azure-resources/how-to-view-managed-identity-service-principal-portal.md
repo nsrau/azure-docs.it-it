@@ -15,18 +15,21 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f6139062c4d302284cc653606ae838206d3691a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a8db0254f85980022115cab5d73f7f329b57001
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60290724"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827562"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visualizzare l'entità servizio di un'identità gestita nel portale di Azure
 
 Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 In questo articolo viene descritto come visualizzare l'entità servizio di un'identità gestita con il portale di Azure.
+
+ > [!NOTE] 
+ > Le entità servizio sono applicazioni aziendali. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

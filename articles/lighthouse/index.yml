@@ -1,0 +1,101 @@
+### YamlMime:Landing
+title: Documentazione di Azure Lighthouse
+summary: Azure Lighthouse consente ai provider di servizi di gestire le risorse di Azure tra tutti i loro clienti con livelli superiori di automazione, scalabilità e governance ottimizzata.
+metadata:
+  title: Documentazione di Azure Lighthouse
+  description: Informazioni su come gestire le risorse dei clienti su larga scala
+  ms.service: lighthouse
+  ms.topic: landing-page
+  ms.collection: collection
+  author: JnHs
+  ms.author: jenhayes
+  ms.date: 09/25/2019
+  ms.openlocfilehash: d2003af574961a5729949f60824aa67692be1655
+  ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71264563"
+landingContent:
+- title: Informazioni su Azure Lighthouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure Lighthouse
+      url: ./overview.md
+  - linkListType: concept
+    links:
+    - text: Gestione risorse delegate di Azure
+      url: ./concepts/azure-delegated-resource-management.md
+    - text: Esperienze di gestione tra tenant
+      url: ./concepts/cross-tenant-management-experience.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
+      url: ./how-to/onboard-customer.md
+  - linkListType: concept
+    links:
+    - text: Procedure di sicurezza consigliate
+      url: ./concepts/recommended-security-practices.md
+    - text: Considerazioni sul programma Cloud Solution Provider
+      url: ./concepts/cloud-solution-provider.md
+    - text: Scenari aziendali
+      url: ./concepts/enterprise.md
+- title: Offerte del Marketplace
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Offerte di servizi gestiti in Azure Marketplace
+      url: ./concepts/managed-services-offers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Pubblicare offerte di servizi gestiti
+      url: ./how-to/publish-managed-services-offers.md
+- title: Esempi e modelli
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Repository di esempi di Azure Lighthouse (GitHub)
+      url: https://github.com/Azure/Azure-Lighthouse-samples/
+    - text: Indice di esempi di Azure Lighthouse
+      url: ./samples/index.md
+- title: Informazioni di riferimento - Download
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-06-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+    - text: SDK per .NET - NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+    - text: SDK per Python - PyPi
+      url: https://pypi.org/project/azure-mgmt-managedservices/
+- title: Informazioni di riferimento - SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.managedservices/
+    - text: Interfaccia della riga di comando di Azure
+      url: /cli/azure/managedservices
+    - text: REST
+      url: /rest/api/managedservices/
+    - text: .NET
+      url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+    - text: Python
+      url: /python/api/azure-mgmt-managedservices
+- title: Esperienze del portale di Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualizzare e gestire i clienti
+      url: ./how-to/view-manage-customers.md
+    - text: Visualizzare e gestire i provider di servizi
+      url: ./how-to/view-manage-service-providers.md
+- title: Interagire
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Richiedere funzionalità per il prodotto
+      url: https://feedback.azure.com/forums/922753

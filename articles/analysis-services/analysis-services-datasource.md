@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327140"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993377"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -24,17 +24,17 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
 |Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
-|Azure SQL Data Warehouse     |   Sì      |   Sì       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No       |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sì        |  No         |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    No       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No        |
+|Azure SQL Data Warehouse     |   Yes      |   Yes       |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
-<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché un'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario un gateway dati locale.   
+<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché l'istanza gestita viene eseguita in Azure VNet con un indirizzo IP privato, è necessario abilitare l'endpoint pubblico nell'istanza. Se questa funzionalità non è abilitata, è necessario un gateway dati locale.    
 <a name="databricks">3</a> - Azure Databricks con il connettore Spark non è attualmente supportato.   
 <a name="gen2">4</a> - ADLS Gen2 non è attualmente supportato.
 
@@ -42,7 +42,7 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 **Provider**   
 I modelli in memoria e DirectQuery che si connettono alle origini dati di Azure usano il provider di dati .NET Framework per SQL Server.
 
-## <a name="on-premises-data-sources"></a>Origini dati locali
+## <a name="other-data-sources"></a>Altre origini dati
 
 La connessione alle origini dati locali da un server Azure Analysis Services richiede un gateway locale. Quando si usa un gateway, sono necessari i provider a 64 bit.
 
@@ -52,7 +52,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
-| Oracle |Provider Microsoft OLE DB per Oracle, provider di dati Oracle per .NET |Provider di dati Oracle per .NET |
+| Oracle | Provider di OLE DB per Oracle, Oracle provider di dati per .NET |Provider di dati Oracle per .NET |
 | Teradata |Provider OLE DB per Teradata, provider di dati Teradata per .NET |Provider di dati Teradata per .NET |
 | | | |
 
@@ -72,7 +72,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|Database MySQL     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   
@@ -81,18 +81,18 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |Report Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Elenco di SharePoint<sup>[1](#tab1400b)</sup>, <sup> [2](#filesSP)</sup>     |   
+|Elenco SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Database di Sybase     |  
 |File TXT  |
 |Tabella XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
 <a name="tab1400b">1</a> - Solo modelli tabulari 1400 e superiori.   
-<a name="filesSP">2</a> -file in SharePoint locale non sono supportati.
+<a name="filesSP">2</a> -i file in SharePoint locale non sono supportati.
 
 ## <a name="specifying-a-different-provider"></a>Specificare un provider diverso
 
-Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Il provider 'SQLNCLI11.1' non è registrato**. Se invece si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'**.
+Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Il provider 'SQLNCLI11.1' non è registrato**. Se invece si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'** .
 
 Durante la migrazione di un modello tabulare SQL Server Analysis Services locale in Azure Analysis Services, può essere necessario modificare il provider.
 
@@ -113,6 +113,10 @@ Per le origini dati locali:
 Per le origini dati cloud:
 
 * Se si usa l'autenticazione SQL, la rappresentazione deve essere l'account del servizio.
+
+## <a name="oauth-credentials"></a>Credenziali OAuth
+
+Per i modelli tabulari con livello di compatibilità 1400 e superiore, il database SQL di Azure, Azure SQL Data Warehouse, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gateway locale](analysis-services-gateway.md)   

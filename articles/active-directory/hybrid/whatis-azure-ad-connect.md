@@ -11,12 +11,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784470"
 ---
 # <a name="what-is-azure-ad-connect"></a>Cos'è Azure AD Connect?
 
@@ -62,6 +62,11 @@ Vantaggi chiave e procedure consigliate:
 |Semplicità di distribuzione e gestione|[Installazione dell'agente rapida](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Aggiornamento automatico alla versione più recente dell'agente</br>Dati disponibili nel portale entro pochi minuti|
 [Metriche di utilizzo](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) avanzate|Utilizzo delle applicazioni principali</br>Percorsi di rete e connessione TCP</br>Richieste di token per ogni server|
 |Miglioramento dell'esperienza utente|Modalità dashboard dal portale di Azure</br>[Avvisi tramite messaggi di posta elettronica](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisiti di licenza per l'uso di Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 
 

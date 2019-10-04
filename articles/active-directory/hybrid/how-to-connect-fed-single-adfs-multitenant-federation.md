@@ -1,5 +1,5 @@
 ---
-title: Federazione di più istanze di Azure AD con una singola istanza di AD FS | Microsoft Docs
+title: La federazione di più Azure AD con ADFS single - Azure
 description: Questo documento illustra come eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS.
 keywords: eseguire la federazione, ADFS, AD FS, più tenant, singola istanza di AD FS, unica istanza di AD FS, federazione multi-tenant, ad fs con più foreste, aad connect, federazione, federazione tra tenant
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620255896e02319675928396c3d6e5e0d9865c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65137823"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
 

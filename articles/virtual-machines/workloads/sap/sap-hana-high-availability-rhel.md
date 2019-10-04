@@ -4,21 +4,20 @@ description: Configurare la disponibilità elevata di SAP HANA in Macchine virtu
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f51870fb8f6ed71aab2558099c2361bf6e340493
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669045"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078508"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
 
@@ -28,18 +27,18 @@ ms.locfileid: "58669045"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -66,9 +65,9 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101) (Replica di sistema SAP HANA nel cluster Pacemaker)
 * Documentazione generale di RHEL
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index) (Panoramica dei componenti aggiuntivi a disponibilità elevata)
@@ -108,8 +107,8 @@ Per distribuire il modello, seguire questi passaggi:
     * **Tipo di database**: Selezionare **HANA**.
     * **Sap System Size** (Dimensioni sistema SAP): immettere il numero di istanze SAP fornite dal nuovo sistema. Se non si è certi del numero di istanze SAP necessarie per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
     * **Disponibilità del sistema**: Selezionare **HA**.
-    * **Nome utente, password amministratore o chiave SSH**: Viene creato un nuovo utente che può essere usato per accedere alla macchina.
-    * **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>**. Lasciare vuoto se si vuole creare una nuova rete virtuale
+    * **Nome utente, password amministratore o chiave SSH**: Viene creato un nuovo utente che può essere usato per accedere al computer.
+    * **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** . Lasciare vuoto se si vuole creare una nuova rete virtuale
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -181,21 +180,21 @@ Per distribuire il modello, seguire questi passaggi:
    1. Selezionare **OK**.
    1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
 
-Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
+Per ulteriori informazioni sulle porte necessarie per SAP HANA, vedere il capitolo [connessioni ai database tenant](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nella Guida ai [database tenant di SAP Hana](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la [Nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare TCP timestamp sulle macchine virtuali di Azure posizionato dietro bilanciamento del carico di Azure. Abilitazione di TCP timestamp causerà i probe di integrità errore. Impostare il parametro **net.ipv4.tcp_timestamps** al **0**. Per informazioni dettagliate, vedere [probe di integrità di Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> Vedere anche SAP nota [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Installare SAP HANA
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[A]**: il passaggio si applica a tutti i nodi.
-* **[1]**: il passaggio si applica solo al nodo 1.
-* **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[A]** : il passaggio si applica a tutti i nodi.
+* **[1]** : il passaggio si applica solo al nodo 1.
+* **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
-1. **[A]** Configurare il layout dei dischi: **Gestione volumi logici (LVM)**.
+1. **[A]** Configurare il layout dei dischi: **Gestione volumi logici (LVM)** .
 
    È consigliabile usare LVM per i volumi che archiviano file di log e dati. L'esempio seguente presuppone che le macchine virtuali abbiano quattro dischi dati collegati, usati per creare due volumi.
 
@@ -309,40 +308,40 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    * Eseguire il programma **hdblcm** dal DVD di HANA. Immettere i valori seguenti al prompt:
    * Scegliere l'installazione: Immettere **1**.
    * Selezionare i componenti aggiuntivi per l'installazione: Immettere **1**.
-   * Immettere il percorso di installazione [/hana/shared]: Selezionare Invio.
-   * Immettere il nome host locale [..]: Selezionare Invio.
-   * Aggiungere altri host al sistema? (y/n) [n]: Selezionare Invio.
+   * Immettere il percorso di installazione [/hana/shared]: Premere INVIO.
+   * Immettere il nome host locale [..]: Premere INVIO.
+   * Aggiungere altri host al sistema? (y/n) [n]: Premere INVIO.
    * Immettere l'ID di sistema SAP HANA: Immettere il SID di HANA, ad esempio: **HN1**.
    * Immettere il numero di istanza [00]: Immettere il numero di istanza di HANA. Immettere **03** se è stato usato il modello di Azure o se è stata seguita la sezione di questo articolo relativa alla distribuzione manuale.
-   * Selezionare la modalità di database/immettere l'indice [1]: Selezionare Invio.
+   * Selezionare la modalità di database/immettere l'indice [1]: Premere INVIO.
    * Selezionare l'utilizzo del sistema/immettere l'indice [4]: Selezionare il valore di utilizzo del sistema.
-   * Immettere il percorso dei volumi di dati [/hana/data/HN1]: Selezionare Invio.
-   * Immettere il percorso dei volumi di log [/hana/log/HN1]: Selezionare Invio.
-   * Limitare l'allocazione massima della memoria? [n]: Selezionare Invio.
-   * Immettere il nome host del certificato per l'host '...' [...]: Selezionare Invio.
+   * Immettere il percorso dei volumi di dati [/hana/data/HN1]: Premere INVIO.
+   * Immettere il percorso dei volumi di log [/hana/log/HN1]: Premere INVIO.
+   * Limitare l'allocazione massima della memoria? [n]: Premere INVIO.
+   * Immettere il nome host del certificato per l'host '...' [...]: Premere INVIO.
    * Immettere la password dell'utente agente host SAP (sapadm): Immettere la password utente dell'agente host.
    * Confermare la password dell'utente agente host SAP (sapadm): Immettere nuovamente la password utente dell'agente host per confermarla.
    * Immettere la password dell'amministratore di sistema (hdbadm): Immettere la password amministratore di sistema.
    * Confermare la password dell'amministratore di sistema (hdbadm): Immettere nuovamente la password dell'amministratore di sistema per confermarla.
-   * Immettere la home directory dell'amministratore di sistema [/usr/sap/HN1/home]: Selezionare Invio.
-   * Immettere la shell di accesso dell'amministratore di sistema [/bin/sh]: Selezionare Invio.
-   * Immettere l'ID utente dell'amministratore di sistema [1001]: Selezionare Invio.
-   * Immettere l'ID del gruppo di utenti (sapsys) [79]: Selezionare Invio.
+   * Immettere la home directory dell'amministratore di sistema [/usr/sap/HN1/home]: Premere INVIO.
+   * Immettere la shell di accesso dell'amministratore di sistema [/bin/sh]: Premere INVIO.
+   * Immettere l'ID utente dell'amministratore di sistema [1001]: Premere INVIO.
+   * Immettere l'ID del gruppo di utenti (sapsys) [79]: Premere INVIO.
    * Immettere la password dell'utente del database (SYSTEM): Immettere la password utente del database.
    * Confermare la password dell'utente del database (SYSTEM): Immettere nuovamente la password utente del database per confermarla.
-   * Riavviare il sistema dopo il riavvio della macchina? [n]: Selezionare Invio.
+   * Riavviare il sistema dopo il riavvio della macchina? [n]: Premere INVIO.
    * Continuare? (y/n): Convalidare il riepilogo. Immettere **y** per continuare.
 
 1. **[T]** Aggiornare l'agente host SAP.
 
-   Scaricare l'archivio dell'agente host SAP più recente dal sito [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
+   Scaricare l'archivio più recente dell'agente host SAP da [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
 1. **[T]** Configurare il firewall
 
-   Creare la regola del firewall per la porta probe di bilanciamento carico di Azure.
+   Creare la regola del firewall per la porta probe del servizio di bilanciamento del carico di Azure.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -352,9 +351,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[A]**: il passaggio si applica a tutti i nodi.
-* **[1]**: il passaggio si applica solo al nodo 1.
-* **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[A]** : il passaggio si applica a tutti i nodi.
+* **[1]** : il passaggio si applica solo al nodo 1.
+* **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[T]** Configurare il firewall
 
@@ -382,14 +381,14 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
    Se si usa SAP HANA 2.0 o MDC, creare un database tenant per il sistema SAP NetWeaver. Sostituire **NW1** con il SID del sistema SAP.
 
-   Eseguire come < hanasid\>adm il comando seguente:
+   Eseguire come < hanasid\>ADM il seguente comando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configurare la replica di sistema nel primo nodo:
 
-   Eseguire il backup di database come < hanasid\>adm:
+   Eseguire il backup dei database come\>< hanasid ADM:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +408,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel secondo nodo:
     
-   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come < hanasid\>adm:
+   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come < hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -443,9 +442,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[A]**: il passaggio si applica a tutti i nodi.
-* **[1]**: il passaggio si applica solo al nodo 1.
-* **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[A]** : il passaggio si applica a tutti i nodi.
+* **[1]** : il passaggio si applica solo al nodo 1.
+* **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[T]** Configurare il firewall
 
@@ -467,7 +466,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[T]** Creare una voce di archivio chiavi.
 
-   Eseguire il comando seguente come radice per creare una nuova voce dell'archivio chiavi:
+   Eseguire il comando seguente come root per creare una nuova voce dell'archivio chiavi:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +474,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Eseguire il backup del database.
 
-   Il backup dei database come utente root:
+   Eseguire il backup dei database come radice:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +487,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Configurare la replica di sistema nel primo nodo.
 
-   Creare il sito primario come < hanasid\>adm:
+   Creare il sito primario come < hanasid\>ADM:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +495,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel nodo secondario.
 
-   Registrare il sito secondario come < hanasid\>adm:
+   Registrare il sito secondario come < hanasid\>ADM:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -647,7 +646,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 È possibile testare la configurazione dell'agente di isolamento di Azure disabilitando l'interfaccia di rete nel nodo in cui SAP HANA viene eseguito come master.
-Visualizzare [articolo della Knowledge base di Red Hat 79523](https://access.redhat.com/solutions/79523) per una descrizione su come simulare un errore di rete. In questo esempio viene usato lo script net_breaker per bloccare tutti gli accessi alla rete.
+Per una descrizione su come simulare un errore di rete, vedere l' [articolo della Knowledge base 79523 di Red Hat](https://access.redhat.com/solutions/79523) . In questo esempio viene usato lo script net_breaker per bloccare tutti gli accessi alla rete.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
@@ -730,7 +729,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come configurare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze Large), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md)

@@ -1,9 +1,9 @@
 ---
-title: Stream i log di Azure Active Directory per i log di monitoraggio di Azure | Microsoft Docs
-description: Descrive come integrare i log di Azure Active Directory con i log di monitoraggio di Azure
+title: Trasmettere log Azure Active Directory ai log di monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come integrare i log di Azure Active Directory con i log di monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437313"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989776"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare i log di Azure AD con i log di monitoraggio di Azure
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare log di Azure AD con i log di monitoraggio di Azure
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -60,7 +60,7 @@ Per usare questa funzionalità, sono necessari:
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
 * Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor"></a>Inviare i log al monitoraggio di Azure
+## <a name="send-logs-to-azure-monitor"></a>Inviare i log a monitoraggio di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 

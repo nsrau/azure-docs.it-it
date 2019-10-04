@@ -4,17 +4,17 @@ description: Portare il backup coerente dell'applicazione della macchina virtual
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e6468d06341f49e3c57532df8cacb0b6eb25b05
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783126"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706582"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Estensione Windows VM Snapshot per Backup di Azure
 

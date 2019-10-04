@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373318"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802297"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Domande frequenti
 
@@ -37,6 +37,7 @@ ms.locfileid: "60373318"
 
 ## <a name="can-i-use-application-insights-with-"></a>Si può usare Application Insights con ...?
 
+* [App Web in un server IIS in una VM di Azure o in un set di scalabilità di macchine virtuali di Azure](azure-vm-vmss-apps.md)
 * [App Web in un server IIS locale o in una macchina virtuale](asp-net.md)
 * [App Web Java](java-get-started.md)
 * [App Node.js](nodejs.md)
@@ -58,7 +59,7 @@ Il piano Enterprise comporta un costo per ogni giorno in cui i singoli nodi del 
 
 [Leggere il piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Quanto costa?
+## <a name="how-much-does-it-cost"></a>Quanto costa?
 
 * Aprire la pagina **Utilizzo e costi stimati** in una risorsa di Application Insights. È incluso un grafico dell'utilizzo recente. Se si vuole, è possibile impostare un limite di volume di dati.
 * Aprire il [pannello Fatturazione di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) per visualizzare i costi di tutte le risorse.
@@ -83,7 +84,7 @@ Dipende dal tipo di progetto. Per un'applicazione Web:
 
   * Web.config
   * packages.config
-* (Solo per i muovi progetti. Se si [aggiunge Application Insights a un progetto esistente][start], l'operazione deve essere eseguita manualmente.) Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
+* (Solo nuovi progetti: se si [aggiungono Application Insights a un progetto esistente][start], è necessario eseguire questa operazione manualmente). Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>In che modo è possibile effettuare l'aggiornamento da versioni dell'SDK meno recenti?
 Vedere le [note sulla versione](release-notes.md) dell'SDK appropriato per il tipo di applicazione.
@@ -104,7 +105,7 @@ Da app Web del server:
 * Richieste HTTP
 * [Dipendenze](asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](asp-net-exceptions.md) e analisi dello stack.
-* [Contatori delle prestazioni](performance-counters.md), se si usa [Status Monitor](monitor-performance-live-website-now.md), il [monitoraggio di Azure](azure-web-apps.md) o il [writer collectd di Application Insights](java-collectd.md).
+* [Contatori delle prestazioni](performance-counters.md) : se si usa [Status Monitor](monitor-performance-live-website-now.md), [monitoraggio di Azure per i servizi app](azure-web-apps.md), [monitoraggio di Azure per VM o set di scalabilità di macchine virtuali](azure-vm-vmss-apps.md)o il [writer Application Insights collectd](java-collectd.md).
 * [Metrica ed eventi personalizzati](api-custom-events-metrics.md) codificati.
 * [Log di traccia](asp-net-trace-logs.md) se si configura l'agente di raccolta appropriato.
 
@@ -132,12 +133,14 @@ Sì, nel server è possibile scrivere:
 
 Vedere altre informazioni per [ASP.NET](api-filtering-sampling.md) o [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Come vengono calcolati i dati su città, paesi e altre aree geografiche?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Come vengono calcolati città, paese/area geografica e altri dati relativi alla località geografica?
 
 Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetria del browser: viene raccolto l'indirizzo IP del mittente.
 * Telemetria del server: viene raccolto l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.
+* Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 
@@ -145,7 +148,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 
 
 ## <a name="data"></a>Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?
-Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
+Esaminare la [conservazione e la privacy dei dati][data].
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>È possibile che le informazioni personali vengano inviate nei dati di telemetria?
 
@@ -153,7 +156,7 @@ Ciò si verifica se il codice invia tali dati. Può succedere anche se le variab
 
 **Tutti** gli ottetti dell'indirizzo Web del client sono sempre impostati su 0 dopo che viene eseguita la ricerca degli attributi relativi alla località geografica.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La chiave di strumentazione è visibile nell'origine della pagina web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La chiave di strumentazione è visibile nell'origine della pagina Web. 
 
 * Questo è una pratica comune nelle soluzioni di monitoraggio.
 * Questo valore non può essere usato per appropriarsi dei dati personali.
@@ -162,7 +165,7 @@ Ciò si verifica se il codice invia tali dati. Può succedere anche se le variab
 
 È possibile:
 
-* Usare due distinti chiavi di strumentazione (separare le risorse di Application Insights), per i dati client e server. Oppure
+* Usare due chiavi di strumentazione separate (separate Application Insights risorse) per i dati client e server. Oppure
 * Scrivere un proxy che viene eseguito nel server in modo che il client Web invii i dati tramite tale proxy.
 
 ## <a name="post"></a>Come visualizzare dati POST in Ricerca diagnostica?
@@ -257,7 +260,7 @@ Esaminare l'elenco completo dei servizi offerti e gli indirizzi IP in [questo ar
 
 Consentire al server Web di inviare la telemetria agli endpoint. 
 
-### <a name="gateway-redirect"></a>Reindirizzamento di gateway
+### <a name="gateway-redirect"></a>Reindirizzamento del gateway
 
 Instradare il traffico dal server a un gateway nella rete Intranet, sovrascrivendo gli endpoint nella configurazione.
 Se queste proprietà "Endpoint" non sono presenti nel file config, queste classi useranno i valori predefiniti illustrati di seguito nell'esempio ApplicationInsights.config. 
@@ -288,10 +291,10 @@ Il gateway deve indirizzare il traffico all'indirizzo di base dell'endpoint. Nel
 
 _ApplicationIdProvider è disponibile a partire da v2.6.0_
 
-### <a name="proxy-passthrough"></a>Proxy pass-through
+### <a name="proxy-passthrough"></a>Passthrough del proxy
 
-Proxy pass-through può essere ottenuta configurando un livello di computer o a livello di applicazione proxy.
-Per altre informazioni vedere l'articolo di dotnet su [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+È possibile ottenere il pass-through del proxy configurando un proxy a livello di computer o di applicazione.
+Per altre informazioni, vedere l'articolo di DotNet in [defaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Web. config di esempio:
  ```xml

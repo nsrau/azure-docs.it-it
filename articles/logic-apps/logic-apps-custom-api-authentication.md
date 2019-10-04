@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66167399"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -188,7 +188,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatorio | Descrizione | 
 | ------- | -------- | ----------- | 
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -197,7 +197,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 | type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
-Ad esempio: 
+Ad esempio:
 
 ``` json
 {
@@ -234,7 +234,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatorio | Descrizione | 
 | ------- | -------- | ----------- | 
 | type | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Sì | La password per accedere al certificato client (file PFX) | 
@@ -251,7 +251,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatorio | Descrizione | 
 | ------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Sì | Nome utente che si vuole usare per l'autenticazione | 

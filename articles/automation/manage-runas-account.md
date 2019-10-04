@@ -4,17 +4,17 @@ description: Questo articolo descrive come gestire account RunAs con PowerShell 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/26/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578612"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498387"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -24,51 +24,54 @@ Quando si crea un account RunAs, viene creato un nuovo utente dell'entità servi
 
 Esistono due tipi di account RunAs:
 
-* **Account RunAs di Azure**: questo account viene usato per gestire le risorse del modello di distribuzione di Resource Manager.
+* **Account RunAs di Azure** : questo account viene usato per gestire gestione risorse risorse del [modello di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) .
   * Crea un'applicazione Azure AD da esportare con un certificato autofirmato, crea un account dell'entità servizio per l'applicazione in Azure AD e assegna il ruolo Collaboratore per l'account nella sottoscrizione corrente. È possibile cambiare l'impostazione in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
   * Crea un asset di certificato di Automazione denominato *AzureRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dall'applicazione Azure AD.
   * Crea un asset di connessione di Automazione denominato *AzureRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.
 
-* **Account RunAs classico di Azure**: questo account viene usato per gestire le risorse classiche del modello di distribuzione.
+* **Account RunAs classico di Azure** : questo account viene usato per gestire le risorse del [modello di distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) .
   * Crea un certificato di gestione nella sottoscrizione
   * Crea un asset di certificato di Automazione denominato *AzureClassicRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dal certificato di gestione.
   * Crea un asset di connessione di Automazione denominato *AzureClassicRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene il nome della sottoscrizione, l'ID sottoscrizione e il nome dell'asset di certificato.
-  * Deve essere un coamministratore della sottoscrizione per creare o rinnovo
-  
+  * Deve essere un coamministratore nella sottoscrizione per creare o rinnovare
+
   > [!NOTE]
   > Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, l'Account RunAs di Azure non verrà creato. L'Account RunAs di Azure viene comunque creato. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
+  > [!NOTE]
+  > L'entità servizio per un account RunAs non dispone delle autorizzazioni per leggere Azure Active Directory per impostazione predefinita. Se si vuole aggiungere autorizzazioni per la lettura o la gestione di Azure Active Directory, è necessario concedere tale autorizzazione nell'entità servizio in **autorizzazioni API**. Per altre informazioni, vedere [aggiungere autorizzazioni per accedere alle API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+
 ## <a name="permissions"></a>Autorizzazioni per la configurazione degli account RunAs
 
-Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un amministratore globale o un coamministratore può eseguire tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
+Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un amministratore globale in Azure Active Directory e un proprietario in una sottoscrizione possono completare tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
 
 |Attività|Cmdlet  |Autorizzazioni minime  |Dove impostare le autorizzazioni|
 |---|---------|---------|---|
 |Creare un'applicazione Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Ruolo Sviluppatore di applicazioni<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app |
 |Aggiungere una credenziale all'applicazione.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
-|Creare e ottenere un'entità servizio di Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
-|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Proprietario o Amministratore Accesso utenti        | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > Sottoscrizioni > \<nome della sottoscrizione\> - Controllo di accesso (IAM)|
+|Creare e ottenere un'entità servizio di Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
+|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | È necessario disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>O essere:</br></br>Proprietario o Amministratore Accesso utenti        | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > Sottoscrizioni > \<nome della sottoscrizione\> - Controllo di accesso (IAM)|
 |Creare o rimuovere un certificato di Automazione|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse account di Automazione|
 |Creare o rimuovere una connessione di Automazione|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse account di Automazione|
 
-<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se le impostazioni delle registrazioni dell'app sono impostate su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
+<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se l'impostazione registrazioni per l'app è impostata su **No**, l'utente che esegue questa azione deve essere definito nella tabella precedente.
 
-Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto come guest. In questo caso si riceverà un avviso `You do not have permissions to create…` nella pagina **Aggiungi account di Automazione**. Gli utenti che prima sono stati aggiunti al ruolo di amministratore globale/coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
+Se non si è membri dell'istanza di Active Directory della sottoscrizione prima di essere aggiunti al ruolo di **amministratore globale** della sottoscrizione, si viene aggiunti come Guest. In questo caso si riceverà un avviso `You do not have permissions to create…` nella pagina **Aggiungi account di Automazione**. Gli utenti che sono stati aggiunti prima al ruolo di **amministratore globale** possono essere rimossi dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli un utente completo in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
 
-## <a name="permissions-classic"></a>Autorizzazioni per configurare gli account RunAs classico
+## <a name="permissions-classic"></a>Autorizzazioni per configurare gli account RunAs classici
 
-Per configurare o rinnovare gli account RunAs classico, è necessario disporre di **CO-amministratore** ruolo a livello di sottoscrizione. Per altre informazioni sulle autorizzazioni del modello di distribuzione classica, vedere [gli amministratori di sottoscrizione di Azure classico](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+Per configurare o rinnovare gli account RunAs classici, è necessario avere il ruolo di **co-amministratore** a livello di sottoscrizione. Per altre informazioni sulle autorizzazioni classiche, vedere [amministratori della sottoscrizione classica di Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Creare un account RunAs nel portale
 
-La procedura descritta in questa sezione consente di aggiornare un account di Automazione di Azure nel portale di Azure. Creare gli account RunAs e RunAs classico separatamente. Se non è necessario gestire le risorse classiche, è sufficiente creare l'account RunAs di Azure.  
+La procedura descritta in questa sezione consente di aggiornare un account di Automazione di Azure nel portale di Azure. Creare gli account RunAs e RunAs classico separatamente. Se non è necessario gestire le risorse classiche, è sufficiente creare l'account RunAs di Azure.
 
 1. Accedere al Portale di Azure con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
 2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Automazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di automazione**.
 3. Nella pagina **Account di automazione** selezionare l'account di Automazione dall'elenco.
-4. Nel riquadro a sinistra selezionare **Account RunAs** nella sezione **Impostazioni account**.  
-5. A seconda del tipo di account necessario, selezionare **Account RunAs di Azure** o **Account RunAs classico di Azure**. Dopo aver selezionato **Account RunAs di Azure** o **Account RunAs classico di Azure**, viene visualizzato il riquadro corrispondente. Rivedere le informazioni generali e fare clic su **Crea** per procedere con la creazione dell'account RunAs.  
-6. Mentre Azure crea l'account RunAs, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu. Viene anche visualizzato un banner che indica che l'account è in fase di creazione. Il processo potrebbe richiedere alcuni minuti.  
+4. Nel riquadro a sinistra selezionare **Account RunAs** nella sezione **Impostazioni account**.
+5. A seconda del tipo di account necessario, selezionare **Account RunAs di Azure** o **Account RunAs classico di Azure**. Dopo aver selezionato **Account RunAs di Azure** o **Account RunAs classico di Azure**, viene visualizzato il riquadro corrispondente. Rivedere le informazioni generali e fare clic su **Crea** per procedere con la creazione dell'account RunAs.
+6. Mentre Azure crea l'account RunAs, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu. Viene anche visualizzato un banner che indica che l'account è in fase di creazione. Il processo potrebbe richiedere alcuni minuti.
 
 ## <a name="create-run-as-account-using-powershell"></a>Creare un account RunAs tramite PowerShell
 
@@ -84,7 +87,7 @@ L'elenco seguente include i requisiti per creare un account RunAs in PowerShell:
 Per ottenere i valori per i parametri *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, obbligatori per gli script, seguire questa procedura:
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Automazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di automazione**.
-1. Nella pagina Account di Automazione selezionare l'account di Automazione e quindi in **Impostazioni account** selezionare **Proprietà**.  
+1. Nella pagina Account di Automazione selezionare l'account di Automazione e quindi in **Impostazioni account** selezionare **Proprietà**.
 1. Prendere nota dei valori di **ID sottoscrizione**, **Nome** e **Gruppo di risorse** nella pagina **Proprietà**.
 
    ![Pagina "Proprietà" dell'account di Automazione](media/manage-runas-account/automation-account-properties.png)
@@ -101,7 +104,7 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
 
 1. Salvare lo script seguente nel computer. Per questo esempio, salvare il file con il nome *New-RunAsAccount.ps1*.
 
-   Lo script usa più cmdlet di Azure Resource Manager per creare le risorse. La tabella seguente illustra i cmdlet e le relative autorizzazioni necessarie.
+   Lo script usa più cmdlet di Azure Resource Manager per creare le risorse. La tabella delle [autorizzazioni](#permissions) precedente Mostra i cmdlet e le relative autorizzazioni necessarie.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -155,18 +158,18 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
         Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
     }
 
-    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
+    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
         $keyId = (New-Guid).Guid
 
         # Create an Azure AD application, AD App Credential, AD ServicePrincipal
 
         # Requires Application Developer Role, but works with Application administrator or GLOBAL ADMIN
-        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
+        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId)
         # Requires Application administrator or GLOBAL ADMIN
         $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $PfxCert.NotBefore -EndDate $PfxCert.NotAfter
         # Requires Application administrator or GLOBAL ADMIN
-        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
         # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
@@ -184,7 +187,7 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
     }
 
     function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName, [string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
-        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force   
+        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force
         Remove-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
         New-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
     }
@@ -209,7 +212,7 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
     # Enable-AzureRmAlias
 
 
-    Connect-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     # Create a Run As account by using a service principal
@@ -286,29 +289,29 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
     > **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. Quando si esegue la ricerca tra gli elementi della libreria, se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione.
 
 1. Avviare **Windows PowerShell** con diritti utente elevati nel computer dalla schermata **Start**.
-1. Nella shell della riga di comando con privilegi elevati passare alla cartella contenente lo script creato nel passaggio 1.  
+1. Nella shell della riga di comando con privilegi elevati passare alla cartella contenente lo script creato nel passaggio 1.
 1. Eseguire lo script usando i valori dei parametri per la configurazione richiesta.
 
-    **Creare un account RunAs usando un certificato autofirmato**  
+    **Creare un account RunAs usando un certificato autofirmato**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
     ```
 
-    **Creare un account RunAs e un account RunAs classico usando un certificato autofirmato**  
+    **Creare un account RunAs e un account RunAs classico usando un certificato autofirmato**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
     ```
 
-    **Creare un account RunAs e un account RunAs classico usando un certificato enterprise**  
+    **Creare un account RunAs e un account RunAs classico usando un certificato enterprise**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
     ```
 
     **Creare un account RunAs e un account RunAs classico usando un certificato autofirmato nel cloud di Azure per enti pubblici**
-  
+
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
     ```
@@ -365,15 +368,74 @@ Per rinnovare il certificato, seguire questa procedura:
 
 1. Durante il rinnovamento del certificato, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
+## <a name="auto-cert-renewal"></a>Configurare il rinnovo automatico del certificato con un Runbook di automazione
+
+Per rinnovare automaticamente i certificati, è possibile usare un Runbook di automazione. Lo script seguente in [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) Abilita questa funzionalità nell'account di automazione.
+
+- Lo `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` script crea una pianificazione settimanale per rinnovare i certificati dell'account RunAs.
+- Lo script aggiunge un Runbook **Update-AutomationRunAsCredential** all'account di automazione.
+  - È anche possibile visualizzare il codice Runbook in GitHub, nello script: [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
+  - È anche possibile usare il codice PowerShell nel file per rinnovare manualmente i certificati in base alle esigenze.
+
+Per testare immediatamente il processo di rinnovo, attenersi alla procedura seguente:
+
+1. Modificare il Runbook **Update-AutomationRunAsCredential** e inserire un carattere di commento`#`() alla riga 122, davanti al `Exit(1)` comando, come illustrato di seguito.
+
+   ```powershell
+   #Exit(1)
+   ```
+
+2. Pubblicare il Runbook.
+3. Avviare il Runbook.
+4. Verificare il rinnovo completato con il codice seguente:
+
+   ```powershell
+   (Get-AzAutomationCertificate -AutomationAccountName TestAA
+                                -Name AzureRunAsCertificate
+                                -ResourceGroupName TestAutomation).ExpiryTime.DateTime
+   ```
+
+   ```Output
+   Thursday, November 7, 2019 7:00:00 PM
+   ```
+
+5. Dopo il test, modificare il Runbook e rimuovere il carattere di commento aggiunto nel **passaggio 1**.
+6. **Pubblicare** il Runbook.
+
+> [!NOTE]
+> Per eseguire lo script, è necessario essere un **amministratore globale** o un **amministratore della società** in Azure Active Directory.
+
 ## <a name="limiting-run-as-account-permissions"></a>Limitazione delle autorizzazioni dell'account RunAs
 
-Per controllare la destinazione dell'automazione in base alle risorse in Automazione di Azure, all'account RunAs vengono concessi i diritti di collaboratore nella sottoscrizione per impostazione predefinita. Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire, è possibile rimuovere l'account dal ruolo di collaboratore per la sottoscrizione e aggiungerlo come collaboratore ai gruppi di risorse che si vuole specificare.
+Per controllare la destinazione dell'automazione sulle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) in PowerShell Gallery per modificare l'entità servizio dell'account RunAs esistente per creare e usare un ruolo personalizzato definizione. Questo ruolo disporrà delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-Nel portale di Azure selezionare **Sottoscrizioni** e scegliere la sottoscrizione dell'account di Automazione. Selezionare **Controllo di accesso (IAM)** e quindi la scheda **Assegnazioni di ruolo**. Cercare l'entità servizio per l'account di Automazione, che è simile a \<NomeAccountDiAutomazione\>_identificatore univoco. Selezionare l'account e fare clic su **Rimuovi** per rimuoverlo dalla sottoscrizione.
+> [!IMPORTANT]
+> Dopo l'esecuzione `Update-AutomationRunAsAccountRoleAssignments.ps1` dello script, manuali operativi che accedono all'insieme di credenziali delle credenziali tramite l'uso degli account RunAs non funzioneranno più. È necessario esaminare manuali operativi nell'account per le chiamate all'insieme di credenziali delle credenziali di Azure.
+>
+> Per abilitare l'accesso a un insieme di credenziali delle credenziali da manuali operativi di automazione di Azure, è necessario [aggiungere l'account RunAs alle autorizzazioni dell'](#add-permissions-to-key-vault)insieme di credenziali.
 
-![Collaboratori della sottoscrizione](media/manage-runas-account/automation-account-remove-subscription.png)
+Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire ulteriormente, è possibile aggiungere altri tipi di `NotActions` risorse alla della definizione di ruolo personalizzata. Nell'esempio seguente viene limitato l'accesso a `Microsoft.Compute`. Se si aggiunge questo oggetto ai  notacts della definizione di ruolo, questo ruolo non sarà in grado di accedere alle risorse di calcolo. Per altre informazioni sulle definizioni di ruolo, vedere informazioni sulle [definizioni di ruolo per le risorse di Azure](../role-based-access-control/role-definitions.md).
 
-Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)**. Selezionare **Aggiungi assegnazione di ruolo** per aprire la pagina **Aggiungi assegnazione di ruolo**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Per determinare se l'entità servizio usata dall'account RunAs si trova nel **collaboratore** o in una definizione di ruolo personalizzata, passare all'account di automazione e in **Impostazioni account**Selezionare account **RunAs** > account RunAs di**Azure** . In **ruolo** è presente la definizione di ruolo utilizzata.
+
+[![](media/manage-runas-account/verify-role.png "Verificare il ruolo account RunAs")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Per determinare la definizione di ruolo utilizzata dagli account RunAs di automazione per più sottoscrizioni o account di automazione, è possibile utilizzare lo script [Check-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug5) nella PowerShell Gallery.
+
+### <a name="add-permissions-to-key-vault"></a>Aggiungere autorizzazioni a Key Vault
+
+Se si vuole consentire ad automazione di Azure di gestire Key Vault e l'entità servizio dell'account RunAs usa una definizione di ruolo personalizzata, è necessario eseguire passaggi aggiuntivi per consentire questo comportamento:
+
+* Concedere le autorizzazioni all'Key Vault
+* Impostare i criteri di accesso
+
+È possibile usare lo script [extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) nel PowerShell Gallery per assegnare le autorizzazioni dell'account RunAs all'insieme di credenziali delle chiavi oppure visitare [concedere alle applicazioni l'accesso a un](../key-vault/key-vault-group-permissions-for-apps.md) insieme di credenziali delle chiavi per ulteriori informazioni sulle impostazioni autorizzazioni per l'insieme di credenziali delle credenziali.
 
 ## <a name="misconfiguration"></a>Errore di configurazione
 

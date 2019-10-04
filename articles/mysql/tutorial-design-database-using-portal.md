@@ -1,18 +1,18 @@
 ---
 title: "Esercitazione: Progettare un'istanza di Database di Azure per MySQL con il portale di Azure"
-description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il database MySQL tramite il portale di Azure.
+description: Questa esercitazione illustra come creare e gestire il database e il server di Database di Azure per MySQL con il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864440"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515816"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MySQL con il portale di Azure
 Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. Tramite il portale di Azure, è possibile gestire facilmente il server e progettare un database.
@@ -58,6 +58,9 @@ Verrà creato un database di Azure per MySQL con un set definito di [risorse di 
     Piano tariffario | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
     
    ![Piano tariffario](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
 3. Fare clic su **Create**(Crea). Dopo pochi minuti, un nuovo database di Azure per il server MySQL sarà in esecuzione nel cloud. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione.
 

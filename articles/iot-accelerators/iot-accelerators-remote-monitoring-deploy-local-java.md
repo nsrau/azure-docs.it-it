@@ -1,6 +1,6 @@
 ---
-title: Distribuire la soluzione di monitoraggio remoto in locale (tramite IDE di IntelliJ) - Azure | Microsoft Docs
-description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite IntelliJ a scopo di test e sviluppo.
+title: Distribuire la soluzione di monitoraggio remoto localmente (tramite IDE IntelliJ)-Azure | Microsoft Docs
+description: Questa guida illustra come distribuire Remote Monitoring Solution Accelerator nel computer locale usando IntelliJ per il test e lo sviluppo.
 author: v-krghan
 manager: dominicbetts
 ms.author: v-krghan
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316389"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "70743302"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in IntelliJ. Una distribuzione di microservizi locale usa i servizi cloud seguenti: servizi Hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights nel cloud.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come eseguire i microservizi in IntelliJ. Una distribuzione locale di microservizi utilizzerà i servizi cloud seguenti: Hub Internet delle cose, Azure Cosmos DB, analisi di flusso di Azure e Azure Time Series Insights.
 
 Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Docker nel computer locale, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -37,26 +37,95 @@ Per completare la distribuzione in locale, è necessario che nel computer di svi
 * [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-* [Plug-in IntelliJ Scala](https://plugins.jetbrains.com/plugin/1347-scala)
+* [Plug-in scala IntelliJ](https://plugins.jetbrains.com/plugin/1347-scala)
 * [Plug-in IntelliJ SBT](https://plugins.jetbrains.com/plugin/5007-sbt)
-* [Plug-in IntelliJ SBT Executor](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
+* [Plug-in Executor IntelliJ SBT](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node.js v8](https://nodejs.org/) - Questo software è un prerequisito per l'interfaccia della riga di comando di PCS usata dagli script per creare le risorse di Azure. Non usare Node.js v10.
+* [Node. js V8](https://nodejs.org/)
+
+Node. js V8 è un prerequisito per l'interfaccia della riga di comando per PC usata dagli script per creare risorse di Azure. Non usare Node.js v10.
 
 > [!NOTE]
 > L'IDE IntelliJ è disponibile per Windows e Mac.
 
-[!INCLUDE [iot-accelerators-local-setup-java](../../includes/iot-accelerators-local-setup-java.md)]
+## <a name="download-the-source-code"></a>Scaricare il codice sorgente
+
+I repository di codice sorgente di monitoraggio remoto includono il codice sorgente e i file di configurazione Docker necessari per eseguire le immagini Docker dei microservizi.
+
+Per clonare e creare una versione locale del repository, usare l'ambiente della riga di comando per passare a una cartella appropriata nel computer locale. Eseguire quindi uno dei seguenti set di comandi per clonare il repository Java:
+
+* Per scaricare la versione più recente delle implementazioni di microservizi Java, eseguire il comando seguente:
+
+  ```cmd/sh
+  git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+  ```
+
+* Per recuperare i moduli secondari più recenti, eseguire i comandi seguenti:
+
+   ```cmd/sh
+   cd azure-iot-pcs-remote-monitoring-java
+   git submodule foreach git pull origin master
+    ```
+
+> [!NOTE]
+> Questi comandi scaricano il codice sorgente per tutti i microservizi oltre agli script usati per eseguire i microservizi in locale. Non è necessario il codice sorgente per eseguire i microservizi in docker. Il codice sorgente è tuttavia utile se si prevede di modificare l'acceleratore di soluzione e testare le modifiche in locale.
+
+## <a name="deploy-the-azure-services"></a>Distribuire i servizi di Azure
+
+Nonostante questo articolo illustri come eseguire i microservizi in locale, questi dipendono dai servizi di Azure eseguiti nel cloud. Usare lo script seguente per distribuire i servizi di Azure. Gli esempi di script presuppongono che si stia usando il repository Java in un computer Windows. Se si lavora in un altro ambiente, modificare in modo appropriato i percorsi, le estensioni di file e i separatori di percorso.
+
+### <a name="create-new-azure-resources"></a>Creare nuove risorse di Azure
+
+Se non sono ancora state create le risorse di Azure necessarie, seguire questa procedura:
+
+1. Nell'ambiente della riga di comando passare alla cartella **\services\scripts\local\launch** nella copia clonata del repository.
+
+1. Eseguire i comandi seguenti per installare lo strumento dell'interfaccia della riga di comando **pcs** e accedere all'account di Azure:
+
+    ```cmd
+    npm install -g iot-solutions
+    pcs login
+    ```
+
+1. Eseguire lo script **start.cmd**. Lo script richiede le informazioni seguenti:
+
+   * Nome della soluzione.
+   * Sottoscrizione di Azure da usare.
+   * Località del data center di Azure da usare.
+
+   Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure utilizzate dall'acceleratore di soluzioni. È possibile eliminare questo gruppo di risorse dopo che non sono più necessarie le risorse corrispondenti.
+
+   Lo script aggiunge anche un set di variabili di ambiente nel computer locale. Il prefisso dei **PC**è il nome di ogni variabile. Queste variabili di ambiente forniscono dettagli che consentono al monitoraggio remoto di leggere i valori di configurazione da una risorsa Azure Key Vault.
+
+   > [!TIP]
+   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato  **\<cartella\\\<\>Home\\. PC\>Nome soluzione. env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file **\\Local\\. env degli script\\dei servizi** quando si esegue **Docker-compose**.
+
+1. Chiudere l'ambiente della riga di comando.
+
+### <a name="use-existing-azure-resources"></a>Usare le risorse di Azure esistenti
+
+Se sono già state create le risorse di Azure necessarie, impostare le variabili di ambiente corrispondenti nel computer locale:
+* **PCS_KEYVAULT_NAME**: Nome della risorsa Key Vault.
+* **PCS_AAD_APPID**: ID dell'applicazione Azure Active Directory (Azure AD).
+* **PCS_AAD_APPSECRET**: Il segreto dell'applicazione Azure AD.
+
+I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con  **\<estensione\>ENV della\\soluzione\>Home\\Folder. PCS\<** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+
+Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di Key Vault creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle chiavi devono essere modificate in base alle esigenze.
 
 ## <a name="run-the-microservices"></a>Eseguire i microservizi
 
-In questa sezione vengono eseguiti i microservizi di monitoraggio remoto. Eseguire l'interfaccia utente Web in modo nativo, il servizio di simulazione dispositivi, di autenticazione e di gestione di Analisi di flusso di Azure in Docker e i microservizi in IntelliJ.
+In questa sezione vengono eseguiti i microservizi di monitoraggio remoto. Eseguire:
 
-### <a name="run-the-device-simulation-service"></a>Eseguire il servizio di simulazione dispositivi
+* Interfaccia utente Web in modo nativo.
+* I servizi di simulazione, autenticazione e Azure Stream Analytics Manager di Azure in docker.
+* I microservizi in IntelliJ.
 
-Aprire un nuova finestra del prompt dei comandi per assicurarsi di avere accesso alle variabili di ambiente impostate dallo script **start.cmd** nella sezione precedente.
+### <a name="run-the-device-simulation-service"></a>Eseguire il servizio di simulazione del dispositivo
 
-Eseguire questo comando per avviare il contenitore Docker per il servizio di simulazione dispositivi. Il servizio consente di simulare i dispositivi per la soluzione di monitoraggio remoto.
+Aprire una nuova finestra del prompt dei comandi. Verificare di avere accesso alle variabili di ambiente impostate dallo script **Start. cmd** nella sezione precedente.
+
+Eseguire il comando seguente per aprire il contenitore Docker per il servizio simulazione dispositivi. Il servizio simula i dispositivi per la soluzione di monitoraggio remoto.
 
 ```cmd
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
@@ -64,110 +133,106 @@ Eseguire questo comando per avviare il contenitore Docker per il servizio di sim
 
 ### <a name="run-the-auth-service"></a>Eseguire il servizio di autenticazione
 
-Aprire una nuova finestra del prompt dei comandi ed eseguire il comando seguente per avviare il contenitore Docker per il servizio di autenticazione. Il servizio consente di gestire gli utenti autorizzati ad accedere alle soluzioni IoT di Azure.
+Aprire una nuova finestra del prompt dei comandi, quindi eseguire il comando seguente per aprire il contenitore Docker per il servizio di autenticazione. Con questo servizio, è possibile gestire gli utenti autorizzati ad accedere alle soluzioni Azure.
 
 ```cmd
 <path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
 ```
 
-### <a name="run-the-asa-manager-service"></a>Eseguire il servizio di gestione di Analisi di flusso di Azure
+### <a name="run-the-stream-analytics-manager-service"></a>Eseguire il servizio Stream Analytics Manager
 
-Aprire una nuova finestra del prompt dei comandi ed eseguire il comando seguente per avviare il contenitore Docker per il servizio di gestione di Analisi di flusso di Azure. Il servizio consente la gestione dei processi di Analisi di flusso di Azure, tra cui l'impostazione della configurazione, l'avvio, l'arresto e il monitoraggio dello stato.
+Aprire una nuova finestra del prompt dei comandi, quindi eseguire il comando seguente per aprire il contenitore Docker per il servizio di gestione di analisi di flusso. Con questo servizio è possibile gestire i processi di analisi di flusso. Tale gestione include l'impostazione della configurazione del processo e l'avvio, l'arresto e il monitoraggio dello stato del processo.
 
 ```cmd
 <path_to_cloned_repository>\services\asa-manager\scripts\docker\run.cmd
 ```
 
-### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuire tutti gli altri microservizi nel computer locale
+### <a name="deploy-all-other-microservices-on-your-local-machine"></a>Distribuire tutti gli altri microservizi nel computer locale
 
-La procedura seguente mostra come eseguire i microservizi di monitoraggio remoto in IntelliJ:
+I passaggi seguenti illustrano come eseguire i microservizi di monitoraggio remoto in IntelliJ.
 
-#### <a name="import-project"></a>Importare il progetto
+#### <a name="import-a-project"></a>Importare un progetto
 
-1. Avviare l'IDE di IntelliJ
-1. Selezionare **Import Project** (Importa progetto) e scegliere **azure-iot-pcs-remote-monitoring-java\services\build.sbt**
+1. Aprire l'IDE di IntelliJ.
+1. Selezionare **Importa progetto**.
+1. Scegliere **Azure-IOT-PCS-Remote-Monitoring-java\services\build.SBT**.
 
 #### <a name="create-run-configurations"></a>Creare configurazioni di esecuzione
 
-1. Selezionare **Run > Edit Configurations** (Esegui > Modifica configurazioni)
-1. Selezionare **Add New Configuration > sbt task** (Aggiungi nuova configurazione > Attività sbt) 
-1. Immettere **Name** (Nome) e immettere run per **Tasks** (Attività) 
-1. Selezionare la **Working Directory** (Directory di lavoro) in base al servizio da eseguire
-1. Fare clic su **Apply > Ok** (Applica > OK) per salvare le modifiche.
-1. Creare le configurazioni di esecuzione per i servizi seguenti:
+1. Selezionare **Esegui** > **modifiche configurazioni**.
+1. Selezionare **Aggiungi nuova configurazione** > **attività SBT**.
+1. Immettere **nome**, quindi immettere **attività** come **Esegui**.
+1. Selezionare la **directory di lavoro** in base al servizio che si desidera eseguire.
+1. Selezionare **applica** > **OK** per salvare le scelte.
+1. Creare configurazioni di esecuzione per i servizi Web seguenti:
     * WebService (services\config)
     * WebService (services\device-telemetry)
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-L'immagine seguente mostra un esempio di aggiunta della configurazione per un servizio:
+Nell'immagine seguente, ad esempio, viene illustrato come aggiungere una configurazione per un servizio:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE di IntelliJ, che mostra l'opzione storageAdapter evidenziata nell'elenco attività SBT nel riquadro sinistro e voci nelle caselle nome, attività, directory di lavoro e parametri VM nel riquadro destro.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
+#### <a name="create-a-compound-configuration"></a>Creare una configurazione composta
 
-#### <a name="create-compound-configuration"></a>Creare una configurazione composta
+1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo** > **composto**di configurazione.
+1. Immettere **nome**, quindi selezionare **Aggiungi attività SBT**.
+1. Selezionare **applica** > **OK** per salvare le scelte.
 
-1. Per eseguire tutti i servizi insieme, selezionare **Add new Configuration > Compound** (Aggiungi nuova configurazione > Composta)
-1. Immettere un nome in **Name** e **aggiungere le attività sbt**
-1. Fare clic su **Apply > Ok** (Applica > OK) per salvare le modifiche.
+Nell'immagine seguente, ad esempio, viene illustrato come aggiungere tutte le attività SBT a una singola configurazione:
 
-L'immagine seguente mostra un esempio di aggiunta di tutte le attività sbt a una singola configurazione:
+[![Screenshot della finestra di configurazione dell'esecuzione/debug dell'IDE di IntelliJ, che mostra l'opzione AllServices evidenziata nell'elenco composto nel riquadro sinistro e l'opzione "deviceTelemetry" dell'attività SBT evidenziata nel riquadro di destra.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
+Selezionare **Esegui** per compilare ed eseguire i servizi Web nel computer locale.
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
+Ogni servizio Web apre una finestra del prompt dei comandi e una finestra del browser Web. Al prompt dei comandi, viene visualizzato l'output del servizio in esecuzione. La finestra del browser consente di monitorare lo stato. Non chiudere le finestre del prompt dei comandi o le pagine Web, perché queste azioni arrestano il servizio Web.
 
+Per accedere allo stato dei servizi, passare agli URL seguenti:
 
-
-1. Fare clic su **Run** (Esegui) per compilare ed eseguire i servizi Web nel computer locale.
-
-Ogni servizio Web consente di aprire una finestra del Web browser e il prompt dei comandi. Al prompt dei comandi, viene visualizzato un output dal servizio in esecuzione e la finestra del browser consente di monitorare lo stato. Non chiudere il prompt dei comandi o le pagine Web perché questa azione arresta il servizio Web.
-
-
-Per accedere allo stato dei servizi, è possibile passare agli URL seguenti:
-* Gestione dell'hub IoT [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetria dei dispositivi [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* storage-adapter [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
-
+* Gestione Hub:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* Telemetria del dispositivo:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* config[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* scheda di archiviazione:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 
 Per avviare il processo di analisi di flusso, seguire questa procedura:
 
-1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è quello scelto per la soluzione scelto quando è stato eseguito lo script **start.cmd**.
-1. Fare clic su **Processo di Analisi di flusso** nell'elenco delle risorse.
-1. Nella pagina di **panoramica** del processo di Analisi di flusso fare clic sul pulsante **Avvia**. Fare clic su **Avvia** per avviare il processo.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è il nome della soluzione scelto quando è stato eseguito lo script **start.cmd**.
+1. Selezionare il **processo di analisi di flusso** nell'elenco di risorse.
+1. Nella pagina **Panoramica** del processo di analisi di flusso selezionare il pulsante **Start** , quindi selezionare **Avvia** per avviare il processo.
 
 ### <a name="run-the-web-ui"></a>Eseguire l'interfaccia utente Web
 
-In questo passaggio si avvia l'interfaccia utente Web. Aprire un nuova finestra del prompt dei comandi per assicurarsi di avere accesso alle variabili di ambiente impostate dallo script **start.cmd**. Passare alla cartella **webui** nella copia locale del repository ed eseguire questi comandi:
+In questo passaggio si avvia l'interfaccia utente Web. Aprire una nuova finestra del prompt dei comandi. Verificare di avere accesso alle variabili di ambiente impostate dallo script **Start. cmd** . Passare alla cartella **WebUI** nella copia locale del repository, quindi eseguire i comandi seguenti:
 
 ```cmd
 npm install
 npm start
 ```
 
-Una volta completato l'avvio, il browser visualizza la pagina **http:\//localhost:3000 / dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
+Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell' [http://localhost:3000/dashboard](http://localhost:3000/dashboard)indirizzo. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
 
-### <a name="configure-and-run-nginx"></a>Configurare ed eseguire NGINX
+### <a name="configure-and-run-nginx"></a>Configurare ed eseguire nginx
 
-Configurare un server proxy inverso per collegare l'applicazione Web e i microservizi in esecuzione nel computer locale:
+Configurare un server proxy inverso che collega l'applicazione Web ai microservizi in esecuzione nel computer locale:
 
-* Copiare il file **nginx.conf** dalla cartella **webui\scripts\localhost** della copia locale del repository nella directory di installazione **nginx\conf**.
-* Eseguire **nginx**.
+1. Copiare il file **nginx. conf** dalla cartella **webui\scripts\localhost** nella copia locale del repository alla directory di installazione di **nginx\conf** .
+1. Eseguire nginx.
 
-Per altre informazioni sull'esecuzione **nginx**, vedere [nginx per Windows](https://nginx.org/en/docs/windows.html).
+Per ulteriori informazioni sull'esecuzione di nginx, vedere [Nginx per Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere a dashboard della soluzione di monitoraggio remoto, passare a http:\//localhost:9000 nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, http://localhost:9000 passare a nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Per evitare l'addebito di costi non necessari, al termine dei test rimuovere i servizi cloud dalla sottoscrizione di Azure. Per rimuovere i servizi, passare al [portale di Azure](https://ms.portal.azure.com) ed eliminare il gruppo di risorse creato dallo script **start.cmd**.
+Per evitare addebiti superflui, rimuovere i servizi cloud dalla sottoscrizione di Azure al termine del test. Per rimuovere i servizi, passare al [portale di Azure](https://ms.portal.azure.com)ed eliminare il gruppo di risorse creato dallo script **Start. cmd** .
 
-È anche possibile eliminare la copia locale del repository per il monitoraggio remoto che è stata creata clonando il codice sorgente da GitHub.
+È anche possibile eliminare la copia locale del repository di monitoraggio remoto creato durante la clonazione del codice sorgente da GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

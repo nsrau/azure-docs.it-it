@@ -4,25 +4,26 @@ ms.service: billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: d163c88469ec767c8e0d18f5978ecb61f7997c8b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57250350"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "67490312"
 ---
-Controllare il tipo di contratto per determinare se è possibile accedere a un account di fatturazione per un contratto di clienti Microsoft.
-
+Verificare il tipo di contratto per determinare se si dispone dell'accesso a un account di fatturazione per un Contratto del cliente Microsoft.
+ 
 1. Accedere al [portale di Azure]( http://portal.azure.com).
-
+ 
 2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
-
+ 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
-
-3. Se si ha accesso a un solo account di fatturazione, selezionare **proprietà** dal lato sinistro. È possibile accedere a un account di fatturazione per un contratto di clienti Microsoft se è il tipo di account di fatturazione **contratto di Microsoft dal cliente**.
-
-    ![Screenshot che mostra l'accordo di cliente di microsoft nella pagina delle proprietà](./media/billing-check-mca/billing-mca-property.png)
-
-4. Se si ha accesso a più account di fatturazione, controllare il tipo della colonna di account di fatturazione. È possibile accedere a un account di fatturazione per un contratto di clienti Microsoft se il tipo per uno degli account di fatturazione **contratto di Microsoft dal cliente**.
-
-    ![Screenshot che mostra l'accordo di cliente di microsoft nella pagina di elenco di account di fatturazione](./media/billing-check-mca/billing-mca-in-the-list.png)
+ 
+3. Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** sul lato sinistro. Si ha accesso a un account di fatturazione per un Contratto del cliente Microsoft se il tipo di account di fatturazione è **Contratto del cliente Microsoft**.
+ 
+    ![Screenshot che mostra Contratto del cliente Microsoft nella pagina Proprietà](./media/billing-check-mca/billing-mca-property.png)
+ 
+4. Se si ha accesso a più ambiti di fatturazione, controllare il tipo nella colonna dell'account di fatturazione. Si ha accesso a un account di fatturazione per un Contratto del cliente Microsoft se il tipo di account di fatturazione per uno degli ambiti è **Contratto del cliente Microsoft**.
+ 
+    ![Screenshot che mostra Contratto del cliente Microsoft nella pagina con l'elenco degli account di fatturazione](./media/billing-check-mca/billing-mca-in-the-list.png)
+ 

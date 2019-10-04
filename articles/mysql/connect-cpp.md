@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff5232c4569e94322d76928f19f202c8bad1a39a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544193"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428498"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Connector/C++ per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C++. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con C++, ma non con Database di Azure per MySQL.
@@ -33,22 +33,22 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 La procedura descritta in questa sezione presuppone che si abbia familiarità con lo sviluppo con .NET.
 
 ### <a name="windows"></a>**Windows**
-- Installare Visual Studio 2017 Community, che è un IDE gratuito, con funzionalità complete ed estendibile per creare applicazioni moderne per Android, iOS, Windows, oltre ad applicazioni Web e database e servizi cloud. È possibile installare la versione completa di .NET Framework o solamente .NET Core: i frammenti di codice nell'avvio rapido funzionano con entrambi. Se Visual Studio è già installato nel computer, ignorare i due passaggi successivi.
-   1. Scaricare il [programma di installazione di Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+- Installare Visual Studio 2019 Community. Visual Studio 2019 Community è un IDE gratuito completo ed estendibile. Con questo ambiente di sviluppo integrato è possibile creare applicazioni moderne per Android, iOS, Windows, applicazioni Web e di database e servizi cloud. È possibile installare la versione completa di .NET Framework o solamente .NET Core: i frammenti di codice nell'avvio rapido funzionano con entrambi. Se Visual Studio è già installato nel computer, ignorare i due passaggi successivi.
+   1. Scaricare il [programma di installazione di Visual Studio 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    2. Eseguire il programma di installazione e seguire le richieste di installazione per completare l'operazione.
 
 ### <a name="configure-visual-studio"></a>**Configurare Visual Studio**
-1. Da Visual Studio, Progetto -> Proprietà -> Linker -> Generale > Directory librerie aggiuntive, aggiungere la directory "\lib\opt" del connettore C++, ad esempio C:\Programmi (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt.
+1. Da Visual Studio, Progetto -> Proprietà -> Linker -> Generale > Directory librerie aggiuntive aggiungere la directory "\lib\opt" del connettore C++, ad esempio C:\Programmi (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt.
 2. Da Visual Studio, Progetto -> Proprietà -> C/C++ -> Generale -> Directory di inclusione aggiuntive:
-   - Aggiungere la directory "\include" del connettore c++ (ad esempio: C:\Programmi (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
-   - Aggiungere la directory radice della libreria Boost (ad esempio: C:\boost_1_64_0\).
+   - Aggiungere la directory "\include" del connettore C++, ad esempio C:\Programmi (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Aggiungere la directory radice della libreria Boost, ad esempio C:\boost_1_64_0\).
 3. Da Visual Studio, Progetto -> Proprietà -> Linker -> Input > Dipendenze aggiuntive aggiungere **mysqlcppconn.lib** nel campo di testo.
 4. Copiare **mysqlcppconn.dll** dalla cartella della libreria del connettore C++ del passaggio 3 alla stessa directory del file eseguibile dell'applicazione oppure aggiungerlo alla variabile di ambiente in modo che l'applicazione possa trovarlo.
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.

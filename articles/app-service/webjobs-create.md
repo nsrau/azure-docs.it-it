@@ -2,25 +2,22 @@
 title: Eseguire attività in background con Processi Web - Servizio app di Azure
 description: Informazioni su come usare Processi Web per eseguire attività in background in app Web del servizio app di Azure, app per le API e app per dispositivi mobili.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.author: glenga
+ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749920"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945813"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
@@ -41,7 +38,7 @@ Funzioni di Azure consente di eseguire programmi e script in un altro modo. Per 
 La tabella seguente descrive le differenze tra processi Web *continui* e *attivati*.
 
 
-|Continuo  |Attivato  |
+|Continuo  |Attivati  |
 |---------|---------|
 | Viene avviato immediatamente quando il processo Web viene creato. Per evitare che il processo termini, il programma o lo script in genere opera in un ciclo infinito. Se il processo termina, è possibile riavviarlo. | Viene avviato solo se attivato manualmente o in base a una pianificazione. |
 | Viene eseguito in tutte le istanze in cui viene eseguita l'app Web. È facoltativamente possibile limitare il processo Web a una sola istanza. |Viene eseguito in una singola istanza selezionata da Azure per il bilanciamento del carico.|
@@ -82,7 +79,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
@@ -124,7 +121,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
-   | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
+   | **Tipo** | Attivati | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Trigger** | Manuale | |
 
 4. Fare clic su **OK**.
@@ -135,7 +132,7 @@ when making changes in one don't forget the other two.
 
 7. Per eseguire il processo Web, fare clic con il pulsante destro del mouse sul nome visualizzato nell'elenco e scegliere **Esegui**.
    
-    ![Eseguire un processo Web](./media/web-sites-create-web-jobs/runondemand.png)
+    ![Esegui processo Web](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a> Creare un processo Web pianificato
 
@@ -162,9 +159,9 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
-   | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Trigger** | Pianificato | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
-   | **Espressione CRON** | 0 0/20 * * * * | Le [espressioni CRON](#cron-expressions) vengono descritte nella sezione seguente. |
+   | **Tipo** | Attivati | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
+   | **Trigger** | Pianificata | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
+   | **Espressione CRON** | 0 0/20 * * * * | Le [espressioni CRON](#ncrontab-expressions) vengono descritte nella sezione seguente. |
 
 4. Fare clic su **OK**.
 
@@ -172,9 +169,9 @@ when making changes in one don't forget the other two.
 
    ![Elenco dei processi Web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>Espressioni CRON
+## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 
-È possibile immettere un'[espressione CRON](../azure-functions/functions-bindings-timer.md#cron-expressions) nel portale o includere un file `settings.job` nella radice del file *ZIP* del processo Web, come nell'esempio seguente:
+È possibile immettere un' [espressione NCRONRAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un `settings.job` file nella radice del file processo Web *. zip* , come nell'esempio seguente:
 
 ```json
 {

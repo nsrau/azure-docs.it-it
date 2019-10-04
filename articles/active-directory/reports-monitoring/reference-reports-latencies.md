@@ -3,7 +3,7 @@ title: Latenze dei report di Azure Active Directory | Microsoft Docs
 description: Informazioni sul tempo necessario per la visualizzazione nel portale di Azure degli eventi dei report
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 05/13/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285172"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127041"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -41,10 +41,10 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 > **Latenza (95° percentile)** si riferisce al tempo entro il quale verrà segnalato il 95% dei log e **Latenza (99° percentile)** si riferisce al tempo entro il quale verrà segnalato il 99% dei log. 
 >
 
-| Report | Latenza (95° percentile) |Latenza (99° percentile)|Intervallo di tempo entro il quale verranno segnalati i log|
-| :-- | --- | --- | --- |
-| Log di controllo | 2 min  | 5 min  | 2-60 min |
-| Accessi | 2 min  | 5 min | 2-120 min |
+| Report | Latenza (95° percentile) |Latenza (99° percentile)|
+| :-- | --- | --- |
+| Log di controllo | 2 min  | 5 min  |
+| Accessi | 2 min  | 5 min |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>In quanto tempo è possibile visualizzare i dati di attività dopo aver acquistato una licenza Premium?
 
@@ -59,18 +59,18 @@ Esistono due tipi di report sulla sicurezza:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Average | Massima |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
 
-## <a name="risk-events"></a>Eventi di rischio
+## <a name="risk-detections"></a>Rilevamento del rischio
 
-Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record detto **evento di rischio**.
+Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato **rilevamento del rischio**.
 
-Nella tabella seguente sono elencate le informazioni sulla latenza per gli eventi di rischio.
+Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Average | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
@@ -84,4 +84,4 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 
 * [Panoramica dei report di Azure AD](overview-reports.md)
 * [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)
-* [Eventi di rischio di Azure Active Directory](concept-risk-events.md)
+* [Rilevamento del rischio Azure Active Directory](concept-risk-events.md)

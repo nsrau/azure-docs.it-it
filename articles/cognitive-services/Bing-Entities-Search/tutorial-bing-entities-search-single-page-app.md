@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Ricerca entità Bing in un'app Web a pagina singola"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Illustra come usare l'API Ricerca entità Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: fe1e56d2975c219a56d41102c728b7873f9f4f62
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538171"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423984"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 

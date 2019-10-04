@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, Objective-C - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Objective-C in macOS con Speech SDK
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 45cd1210ee6af3c456171a427729f6e16caf2d58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012325"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559367"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Objective-C in macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in macOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +34,7 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK di Servizi cognitivi per Mac viene distribuito come bundle framework.
 Può essere usato in progetti Xcode come [CocoaPod](https://cocoapods.org/) oppure scaricato da https://aka.ms/csspeech/macosbinary e collegato manualmente. Questa guida usa CocoaPod.
@@ -67,30 +67,25 @@ Nelle finestre di dialogo che seguono, effettuare le selezioni seguenti:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installare l'SDK come CocoaPod
 
 1. Installare il gestore di dipendenze di CocoaPod come descritto in queste [istruzioni per l'installazione](https://guides.cocoapods.org/using/getting-started.html).
-1. Passare alla directory dell'app di esempio (`helloworld`). Inserire nella directory un file di testo denominato `Podfile` e il contenuto seguente:
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.4.0'
-    end
-    ```
+1. Passare alla directory dell'app di esempio (`helloworld`). Inserire nella directory un file di testo denominato `Podfile` e il contenuto seguente:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Passare alla directory `helloworld` in un terminale ed eseguire il comando `pod install`. Verrà generata un'area di lavoro Xcode `helloworld.xcworkspace` contenente l'app di esempio e Speech SDK come dipendenza. Quest'area di lavoro verrà usata di seguito.
 
 ## <a name="add-the-sample-code"></a>Aggiungere il codice di esempio
 
 1. Aprire l'area di lavoro `helloworld.xcworkspace` in Xcode.
-1. Sostituire il contenuto del file `AppDelegate.m` generato automaticamente con: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
+1. Sostituire il contenuto del file generato automaticamente `AppDelegate.m`:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. Sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 1. Sostituire la stringa `YourServiceRegion` con la [regione](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
 ## <a name="build-and-run-the-sample"></a>Compilare ed eseguire l'esempio
 
 1. Rendere visibile l'output di debug (**Visualizza** > **Area di debug** > **Attivare Console**).
-1. Compilare ed eseguire il codice di esempio scegliendo **Prodotto** -> **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
+1. Compilare ed eseguire il codice di esempio scegliendo **Prodotto** > **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
 1. Dopo avere fatto clic sul pulsante e aver pronunciato alcune parole, verrà visualizzato il testo pronunciato nella parte inferiore dello schermo. La prima volta che si esegue l'app, verrà chiesto di fornire all'app l'accesso al microfono del computer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di Objective-C su GitHub](https://aka.ms/csspeech/samples)
-

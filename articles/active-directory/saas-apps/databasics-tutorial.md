@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c2f4b2fd0d634b933a88307b468c2bf57ef32d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1505405de7bc90e53c032eaf2bba390d6abad0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Esercitazione: Integrazione di Azure Active Directory con DATABASICS
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con DATABASICS, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per DATABASICS](#configure-databasics-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di DATABASICS](#create-databasics-test-user)**: per avere una controparte di Britta Simon in DATABASICS collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per DATABASICS](#configure-databasics-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di DATABASICS](#create-databasics-test-user)** : per avere una controparte di Britta Simon in DATABASICS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con DATABASICS, seguire que
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di DATABASICS](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un valore: `DATA-BASICS_SP`
 

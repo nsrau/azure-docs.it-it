@@ -4,17 +4,17 @@ description: Questo articolo descrive come eseguire la migrazione delle distribu
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499212"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478297"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure
 

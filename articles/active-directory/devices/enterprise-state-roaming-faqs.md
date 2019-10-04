@@ -2,27 +2,21 @@
 title: Domande frequenti su impostazioni e dati in roaming | Documentazione Microsoft
 description: Fornisce le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app.
 services: active-directory
-keywords: impostazioni di enterprise state roaming, cloud windows, domande frequenti su enterprise state roaming
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f9270aff6bc2aab7e210716ffe3e21efb07b8ed
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296317"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481964"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
 Questo articolo offre le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app.
@@ -76,7 +70,7 @@ Nella versione di Windows 10 di novembre 2015 o successiva, l'Enterprise State R
 Quando su uno stesso dispositivo sono presenti più account di Azure AD provenienti da tenant diversi, è necessario aggiornare il registro del dispositivo per comunicare con il servizio Azure Rights Management per ogni tenant di Azure AD.  
 
 1. Accedere al GUID di ogni tenant di Azure AD. Aprire il portale di Azure e selezionare un tenant di Azure AD. Il GUID per il tenant si trova nella pagina Proprietà del tenant selezionato (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), con etichetta **ID Directory**. 
-2. Dopo aver creato il GUID, è necessario aggiungere la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
+2. Dopo aver creato il GUID, è necessario aggiungere la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>** .
    Dalla chiave **tenant ID GUID**, creare un nuovo valore multistringa (REG-MULTI-SZ) denominato **AllowedRMSServerUrls**. Come dati, specificare gli URL del punto di distribuzione delle licenze di altri tenant Azure ai quali accede il dispositivo.
 3. Per trovare gli URL del punto di distribuzione delle licenze, è possibile eseguire il cmdlet **Get-AadrmConfiguration** dal modulo AADRM. Se i valori **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** sono diversi, specificarli entrambi. Se i valori sono uguali, specificare il valore solo una volta.
 

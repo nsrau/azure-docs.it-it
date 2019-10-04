@@ -1,6 +1,6 @@
 ---
-title: Creare, pubblicare, rispondere
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Esercitazione: Creare, pubblicare, rispondere - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Questa esercitazione basata su REST illustra la procedura di creazione e pubblicazione di una knowledge base a livello di codice e quindi descrive come rispondere a una domanda dalla knowledge base stessa.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877279"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390878"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda con C#
 
@@ -30,13 +30,13 @@ Questa esercitazione illustra la procedura di creazione e pubblicazione di una k
 > * Usare Curl per eseguire una query sulla knowledge base
 
 
-In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+In questa guida di avvio rapido vengono chiamate le API QnA Maker seguenti:
 
-* [Create Knowledge base (kb)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
-* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
-* [Get Knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Ottenere i dettagli della knowledge base) 
-* [Get Knowledge base endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Ottenere gli endpoint della knowledge base)
-* [Pubblica](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Create Knowledge base (kb)](https://go.microsoft.com/fwlink/?linkid=2092179) (Creare la knowledge base)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)
+* [Get Knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) (Ottenere i dettagli della knowledge base) 
+* [Get Knowledge base endpoints](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) (Ottenere gli endpoint della knowledge base)
+* [Pubblica](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -185,7 +185,7 @@ Questa chiamata API restituisce una risposta JSON:
   "name": "QnA Maker FAQ from quickstart",
   "userId": "AAAc3841df0b42cdb00f53a49d51a89c",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
@@ -224,10 +224,10 @@ Questa chiamata API restituisce una risposta JSON:
       "questions": [
         "Does QnA Maker support non-English languages?"
       ],
-      "answer": "See more details about [supported languages](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
+      "answer": "See more details about [supported languages](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
       "score": 82.19,
       "id": 11,
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "metadata": []
     }
   ]
@@ -248,4 +248,4 @@ Dopo aver creato la knowledge base, è possibile visualizzarla nella pagina [My 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736029"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180208"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Per configurare la gestione remota sull'appliance cloud
 

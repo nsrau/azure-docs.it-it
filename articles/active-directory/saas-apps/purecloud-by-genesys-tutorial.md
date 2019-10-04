@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 92df57737b75ab2c9bb9992dd3f223f55dbc39bb
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267396"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Esercitazione: Integrazione di Azure Active Directory con PureCloud by Genesys
 
@@ -75,11 +75,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con PureCloud by Genesys, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per PureCloud by Genesys](#configure-purecloud-by-genesys-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di PureCloud by Genesys](#create-purecloud-by-genesys-test-user)**: per avere una controparte di Britta Simon in PureCloud by Genesys collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per PureCloud by Genesys](#configure-purecloud-by-genesys-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di PureCloud by Genesys](#create-purecloud-by-genesys-test-user)** : per avere una controparte di Britta Simon in PureCloud by Genesys collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -138,7 +138,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PureCloud by Genesys, s
     | `https://login.mypurecloud.ie` |
     | `https://login.mypurecloud.com.au` |
 
-6. L'applicazione PureCloud by Genesys prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+6. L'applicazione PureCloud by Genesys prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 

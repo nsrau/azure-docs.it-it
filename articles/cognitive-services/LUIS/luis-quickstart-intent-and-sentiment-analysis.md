@@ -1,5 +1,5 @@
 ---
-title: Analisi del sentiment
+title: 'Esercitazione: Analisi del sentiment - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione mostra come creare un'app che illustra come ottenere una valutazione positiva, negativa e neutra da espressioni. La valutazione è determinata dall'intera espressione.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed403e3d761b32c6837eb8e72edef3f3e6380217
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099036"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307581"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Esercitazione:  Ottenere la valutazione dell'espressione
 
@@ -54,6 +54,7 @@ Poiché si tratta di un'impostazione di pubblicazione, non è presente nelle pag
 
 ## <a name="add-personname-prebuilt-entity"></a>Aggiungere l'entità predefinita PersonName 
 
+1. Selezionare **Build** (Compila) nel menu di spostamento.
 
 1. Scegliere **Entities** (Entità) dal menu di spostamento a sinistra.
 
@@ -69,11 +70,11 @@ Poiché si tratta di un'impostazione di pubblicazione, non è presente nelle pag
 
 Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai membri dell'azienda. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selezionare **Intents** (Finalità) dal pannello di sinistra.
 
-2. Selezionare **Create new intent** (Crea nuova finalità).
+1. Selezionare **Create new intent** (Crea nuova finalità).
 
-3. Immettere il nome della nuova finalità `EmployeeFeedback`.
+1. Immettere il nome della nuova finalità `EmployeeFeedback`.
 
     ![Finestra di dialogo per la creazione di una nuova finalità denominata EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -90,6 +91,8 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
     |Mark Mathews rocked the sales pitch at Harvard|
     |Walter Williams did a great job on the presentation at Stanford|
 
+    Selezionare **View options** (Opzioni di visualizzazione) e quindi **Show entity values** (Mostra valori entità) per visualizzare i nomi.
+
     [![Screenshot dell'app LUIS con espressioni di esempio nella finalità EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
@@ -104,7 +107,7 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
 
 1. Selezionare **Gestisci** nella barra di spostamento in alto a destra, quindi selezionare **Impostazioni di pubblicazione** nel menu a sinistra.
 
-1. Selezionare **Analisi del sentiment** per abilitare questa impostazione. 
+1. Selezionare **Use sentiment analysis to determine if a user's utterance is positive, negative, or neutral** (Usa analisi del sentiment per determinare se un'espressione dell'utente è positiva, negativa o neutra) per abilitare questa impostazione. 
 
     ![Attivare l'analisi della valutazione come impostazione di pubblicazione](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -116,7 +119,11 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere `Jill Jones work with the media team on the public portal was amazing`. L'ultimo parametro QueryString è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `EmployeeFeedback` con analisi del sentiment estratta.
+1. Andare alla fine dell'URL nell'indirizzo e immettere l'espressione seguente:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `EmployeeFeedback` con analisi del sentiment estratta.
     
     ```json
     {
@@ -151,6 +158,8 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
     ```
 
     Il valore di sentimentAnalysis è positivo con un punteggio pari all'86%. 
+
+    Provare un'altra espressione rimuovendo il valore di `q` nella barra degli indirizzi del browser: `William Jones did a terrible job presenting his ideas.` Il punteggio del sentiment indica un sentiment negativo restituendo un punteggio basso pari a `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

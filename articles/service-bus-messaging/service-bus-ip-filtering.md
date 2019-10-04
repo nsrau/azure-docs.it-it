@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704581"
 ---
 # <a name="use-firewall-rules"></a>Uso delle regole del firewall
 
@@ -69,7 +69,7 @@ Parametri del modello:
 - **ipMask** è un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. Ad esempio, nella notazione CIDR, 70.37.104.0/24 rappresenta i 256 indirizzi IPv4, da 70.37.104.0 a 70.37.104.255, con 24 che indica il numero di bit di prefisso significativi per l'intervallo.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > from
@@ -149,7 +149,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso al bus di servizio dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint del servizio Rete virtuale con il bus di servizio di Azure][lnk-vnet]
+- [Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure][lnk-vnet]
 
 <!-- Links -->
 

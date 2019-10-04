@@ -4,29 +4,30 @@ description: Estensione di Microsoft Azure per l'installazione dei driver GPU NV
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
-ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.author: akjosh
+ms.openlocfilehash: 83646c0b11bf558f667b29271a27d31e5489c157
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620683"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174012"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Estensione di driver GPU NVIDIA per Linux
 
-## <a name="overview"></a>Informazioni generali
+## <a name="overview"></a>Panoramica
 
 Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
+Le istruzioni per l'installazione manuale dei driver e le versioni supportate correnti sono [disponibili](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)qui.
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -73,19 +74,19 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 
 | Attività | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| tipo | NvidiaGpuDriverLinux | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Impostazioni
 
 Tutte le impostazioni sono facoltative. In base al comportamento predefinito, il kernel non viene aggiornato se non è necessario per l'installazione del driver e vengono installati il driver supportato più recente e il toolkit CUDA (se applicabile).
 
-| Attività | DESCRIZIONE | Valore predefinito | Valori validi | Tipo di dati |
+| Attività | Descrizione | Default Value | Valori validi | Tipo di dati |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | falso | true, false | boolean |
-| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | false | true, false | boolean |
+| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recente | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installa il toolkit CUDA. Pertinente solo per le macchine virtuali serie NC/ND. | true | true, false | boolean |
 
 
@@ -154,7 +155,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente.
 
@@ -185,7 +186,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 | 14 | Operazione conclusa | Controllare il log di output dell'esecuzione |
 
 
-### <a name="support"></a>Supporto tecnico
+### <a name="support"></a>Supporto
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 

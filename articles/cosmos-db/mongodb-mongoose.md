@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3955b84df401e5832668fa091274caea9af2466e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105948"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876614"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connettere un'applicazione Node.js Mongoose ad Azure Cosmos DB
 
@@ -65,11 +65,11 @@ Di seguito viene descritta la procedura per creare un account Cosmos. Se è già
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Aggiungere la stringa di connessione Cosmos DB e il nome Cosmos DB al file ```.env```.
+1. Aggiungere la stringa di connessione Cosmos DB e il nome Cosmos DB al file ```.env```. Sostituire i segnaposto {Cosmos-account-name} e {dbname} con il nome dell'account Cosmos e il nome del database, senza i simboli delle parentesi graffe.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-user
+    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-account-name
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 
@@ -183,7 +183,7 @@ Il comportamento predefinito di Mongoose consiste nel creare una raccolta MongoD
 
 1. Nel portale di Azure saranno a questo punto disponibili due raccolte create in Cosmos DB.
 
-    ![Database del nodo - Screenshot del portale di Azure, che mostra un account Azure Cosmos DB, con più nomi di raccolta evidenziati - esercitazione Node. js][multiple-coll]
+    ![Esercitazione su node. js-screenshot del portale di Azure, che mostra un account Azure Cosmos DB, con più nomi di raccolta evidenziati-database nodo][multiple-coll]
 
 1. È infine possibile leggere i dati da Cosmos DB. Poiché è stato usato il modello di funzionamento predefinito di Mongoose, le letture avvengono come di consueto in Mongoose.
 
@@ -288,7 +288,7 @@ In questo caso, si creerà un modello a oggetti di base, si definirà una chiave
 
 1. Passando di nuovo al portale di Azure, si noterà che è disponibile una sola raccolta denominata ```alldata``` con i dati di 'Family' e 'VacationDestinations'.
 
-    ![Database del nodo - Screenshot del portale di Azure, che mostra un account Azure Cosmos DB, con il nome della raccolta evidenziato - esercitazione Node. js][alldata]
+    ![Esercitazione su node. js-screenshot del portale di Azure, che mostra un account Azure Cosmos DB con il nome della raccolta evidenziato-database nodo][alldata]
 
 1. Si noti inoltre che ogni oggetto dispone di un altro attributo denominato ```__type```, che consente la differenziazione dei due diversi modelli a oggetti.
 

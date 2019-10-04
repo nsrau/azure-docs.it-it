@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429517"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650143"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
-Questo articolo descrive come eseguire query su tutti i dati dei log applicazioni di Application Insights e visualizzarli in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, in sostituzione del Connettore di Application Insights, ora deprecato. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.  
+Questo articolo descrive come eseguire una query e visualizzare tutti i dati di log Application Insights in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, sostituendo la deprecazione del Connettore di Application Insights. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Approccio consigliato per eseguire query su più risorse di Application Insights 
 Includere l'elenco di più risorse di Application Insights in una query può risultare impegnativo e difficile da gestire. In alternativa, è possibile sfruttare la funzione che consente di separare la logica di query dalla definizione dell'ambito delle applicazioni.  
@@ -32,7 +32,14 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Creare una funzione usando l'operatore di unione con l'elenco delle applicazioni e quindi salvare la query nell'area di lavoro come funzione con l'alias *applicationsScoping*.  
+Creare una funzione usando l'operatore di unione con l'elenco delle applicazioni e quindi salvare la query nell'area di lavoro come funzione con l'alias *applicationsScoping*. 
+
+È possibile modificare in qualsiasi momento le applicazioni elencate nel portale passando a Esplora query nell'area di lavoro e selezionando la funzione di modifica e salvando oppure usando il cmdlet `SavedSearch` di PowerShell. 
+
+>[!NOTE]
+>Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
+
+Il comando `withsource= SourceApp` aggiunge ai risultati una colonna che indica l'applicazione da cui è stato inviato il log. L'operatore Parse è facoltativo in questo esempio e USA per estrarre il nome dell'applicazione dalla proprietà SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -43,13 +50,6 @@ app('Contoso-app4').requests,
 app('Contoso-app5').requests 
 | parse SourceApp with * "('" applicationName "')" *  
 ```
-
->[!NOTE]
->È possibile modificare in qualsiasi momento le applicazioni elencate nel portale passando a Esplora query nell'area di lavoro e selezionando la funzione di modifica e salvando oppure usando il cmdlet `SavedSearch` di PowerShell. Il comando `withsource= SourceApp` aggiunge ai risultati una colonna che indica l'applicazione da cui è stato inviato il log. 
->
->La query usa lo schema di Application Insights, anche se viene eseguita nell'area di lavoro, perché la funzione applicationsScoping restituisce la struttura dei dati di Application Insights. 
->
->In questo esempio l'operatore parse è facoltativo. Estrae il nome dell'applicazione dalla proprietà SourceApp. 
 
 A questo punto si può usare la funzione applicationsScoping nella query su più risorse:  
 
@@ -62,7 +62,7 @@ applicationsScoping
 | render timechart
 ```
 
-L'alias della funzione restituisce l'unione delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione.
+La query usa lo schema di Application Insights, anche se viene eseguita nell'area di lavoro, perché la funzione applicationsScoping restituisce la struttura dei dati di Application Insights. L'alias della funzione restituisce l'unione delle richieste da tutte le applicazioni definite. La query filtra quindi le richieste non riuscite e visualizza le tendenze per applicazione.
 
 ![Esempio di risultati di query su più risorse](media/unify-app-resource-data/app-insights-query-results.png)
 
@@ -104,16 +104,16 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Message |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
-| AvailabilityTimestamp |  timestamp |
+| AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
-| city | client_city |
+| City | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Paese | client_CountryOrRegion | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -121,7 +121,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Message | 
+| ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
@@ -134,14 +134,14 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | esito positivo | 
+| RequestSuccess | success | 
 | ResponseCode | resultCode | 
-| Ruolo | cloud_RoleName |
+| Role | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _url |
+| URL | url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Passaggi successivi

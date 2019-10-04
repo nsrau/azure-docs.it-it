@@ -7,17 +7,16 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993145"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566295"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL
 
@@ -83,9 +82,9 @@ Per altre informazioni sulla grammatica e l'uso di Transact-SQL e per alcuni ese
 
 ### <a name="about-the-applies-to-tags"></a>Informazioni sui tag "Si applica a"
 
-Le informazioni di riferimento su Transact-SQL includono articoli correlati alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'articolo è presente una barra di icone in cui sono elencate le quattro piattaforme SQL Server e la relativa applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'articolo  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indica che l'istruzione si applica a  **SQL Server (a partire dalla versione 2012)**. L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, Database SQL di Azure, Azure SQL Data Warehouse o Parallel Data Warehouse.
+Le informazioni di riferimento su Transact-SQL includono articoli correlati alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'articolo è presente una barra di icone in cui sono elencate le quattro piattaforme SQL Server e la relativa applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'articolo  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indica che l'istruzione si applica a  **SQL Server (a partire dalla versione 2012)** . L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, Database SQL di Azure, Azure SQL Data Warehouse o Parallel Data Warehouse.
 
-In alcuni casi, il tema generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. In alcuni casi, il tema generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. Ad esempio l'articolo CREATE TRIGGER è disponibile nel database SQL. Tuttavia, l'opzione **ALL SERVER** per i trigger a livello di server indica che i trigger a livello di server non possono essere usati nel database SQL. Usare i trigger a livello di database.
+In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. Ad esempio l'articolo CREATE TRIGGER è disponibile nel database SQL. Tuttavia, l'opzione **ALL SERVER** per i trigger a livello di server indica che i trigger a livello di server non possono essere usati nel database SQL. Usare i trigger a livello di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

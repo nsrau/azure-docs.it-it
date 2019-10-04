@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
-ms.translationtype: HT
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60632871"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
 
@@ -79,17 +79,17 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure principale del dispositivo StorSimple
 La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure principale, presente nei dispositivi 8100 e 8600, del dispositivo StorSimple in locale.
 
-| Componente | Modulo | type | Località | Unità sostituibile sul campo (FRU)? | DESCRIZIONE |
+| Componente | Modulo | Type | Località | Unità sostituibile sul campo (FRU)? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
-| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No  |Misura la temperatura all'interno dello chassis. |
-| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No  |Misura la temperatura del piano intermedio. |
-| Allarme acustico |Chassis |Fisico |Condiviso |No  |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
+| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
+| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No |Misura la temperatura del piano intermedio. |
+| Allarme acustico |Chassis |Fisico |Condiviso |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
 | Chassis |Chassis |Fisico |Condiviso |Yes |Indica la presenza di uno chassis. |
-| Impostazioni chassis |Chassis |Fisico |Condiviso |No  |Fa riferimento al pannello anteriore dello chassis. |
-| Sensori di tensione linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
-| Sensori di corrente linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
-| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No  |Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
+| Impostazioni chassis |Chassis |Fisico |Condiviso |No |Fa riferimento al pannello anteriore dello chassis. |
+| Sensori di tensione linea |PCM |Fisico |Condiviso |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
+| Sensori di corrente linea |PCM |Fisico |Condiviso |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
+| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No |Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
 | Alimentazione [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
 | Raffreddamento [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
 | Batteria [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM. |
@@ -106,42 +106,42 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 | Pool di archiviazione di unità disco rigido |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
 | Pool di archiviazione di unità SSD |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Yes |Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis. |
-| Sensori di temperatura nel controller |I/O |Fisico |Controller |No  |Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza. |
-| Espansore SAS |I/O |Fisico |Controller |No  |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
-| Connettore SAS [0-1] |I/O |Fisico |Controller |No  |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
-| Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No  |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
-| Core del processore |I/O |Fisico |Controller |No  |Indica lo stato dei core del processore all'interno di ogni controller. |
-| Alimentatore elettronica dello chassis |I/O |Fisico |Controller |No  |Indica lo stato del sistema di alimentazione dello chassis. |
-| Diagnostica elettronica dello chassis |I/O |Fisico |Controller |No  |Indica lo stato dei sottosistemi di diagnostica fornite dal controller. |
-| Baseboard Management Controller (BMC) |I/O |Fisico |Controller |No  |Indica lo stato del controller BMC (Baseboard Management Controller), che è un processore di servizio specializzato che consente di monitorare il dispositivo hardware tramite sensori e comunica con l'amministratore di sistema tramite una connessione indipendente. |
-| Ethernet |I/O |Fisico |Controller |No  |Indica lo stato di ciascuna delle interfacce di rete, vale a dire le porte di gestione e dati fornite sul controller. |
-| NVRAM |I/O |Fisico |Controller |No  |Indica lo stato di NVRAM, una memoria RAM non volatile sottoposta a backup tramite la batteria che serve per mantenere le informazioni critiche dell'applicazione in caso di interruzione dell'alimentazione. |
+| Sensori di temperatura nel controller |I/O |Fisico |Controller |No |Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza. |
+| Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
+| Connettore SAS [0-1] |I/O |Fisico |Controller |No |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
+| Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
+| Core del processore |I/O |Fisico |Controller |No |Indica lo stato dei core del processore all'interno di ogni controller. |
+| Alimentatore elettronica dello chassis |I/O |Fisico |Controller |No |Indica lo stato del sistema di alimentazione dello chassis. |
+| Diagnostica elettronica dello chassis |I/O |Fisico |Controller |No |Indica lo stato dei sottosistemi di diagnostica fornite dal controller. |
+| Baseboard Management Controller (BMC) |I/O |Fisico |Controller |No |Indica lo stato del controller BMC (Baseboard Management Controller), che è un processore di servizio specializzato che consente di monitorare il dispositivo hardware tramite sensori e comunica con l'amministratore di sistema tramite una connessione indipendente. |
+| Ethernet |I/O |Fisico |Controller |No |Indica lo stato di ciascuna delle interfacce di rete, vale a dire le porte di gestione e dati fornite sul controller. |
+| NVRAM |I/O |Fisico |Controller |No |Indica lo stato di NVRAM, una memoria RAM non volatile sottoposta a backup tramite la batteria che serve per mantenere le informazioni critiche dell'applicazione in caso di interruzione dell'alimentazione. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure EBOD del dispositivo StorSimple
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell'enclosure EBOD (presente solo nel modello 8600) del dispositivo StorSimple in locale.
 
-| Componente | Modulo | type | Località | FRU? | DESCRIZIONE |
+| Componente | Modulo | Type | Località | FRU? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
-| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No  |Misura la temperatura all'interno dello chassis. |
-| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No  |Misura la temperatura del piano intermedio. |
-| Allarme acustico |Chassis |Fisico |Condiviso |No  |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
+| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
+| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No |Misura la temperatura del piano intermedio. |
+| Allarme acustico |Chassis |Fisico |Condiviso |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
 | Chassis |Chassis |Fisico |Condiviso |Yes |Indica la presenza di uno chassis. |
-| Impostazioni chassis |Chassis |Fisico |Condiviso |No  |Fa riferimento alle operazioni o al pannello anteriore dello chassis. |
-| Sensori di tensione linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
-| Sensori di corrente linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
-| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No  |Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
+| Impostazioni chassis |Chassis |Fisico |Condiviso |No |Fa riferimento alle operazioni o al pannello anteriore dello chassis. |
+| Sensori di tensione linea |PCM |Fisico |Condiviso |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
+| Sensori di corrente linea |PCM |Fisico |Condiviso |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
+| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No |Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
 | Alimentazione [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
 | Raffreddamento [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
 | Archiviazione locale [HDD] |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Yes |Visualizza lo stato dei controller nel modulo EBOD. |
-| Sensori di temperatura in EBOD |I/O |Fisico |Controller |No  |Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| Espansore SAS |I/O |Fisico |Controller |No  |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |
-| Connettore SAS [0-2] |I/O |Fisico |Controller |No  |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
-| Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No  |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
-| Alimentatore elettronica dello chassis |I/O |Fisico |Controller |No  |Indica lo stato del sistema di alimentazione dello chassis. |
-| Diagnostica elettronica dello chassis |I/O |Fisico |Controller |No  |Indica lo stato dei sottosistemi di diagnostica fornite dal controller. |
-| Connessione al controller del dispositivo |I/O |Fisico |Controller |No  |Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo. |
+| Sensori di temperatura in EBOD |I/O |Fisico |Controller |No |Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
+| Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |
+| Connettore SAS [0-2] |I/O |Fisico |Controller |No |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
+| Interconnessione piano intermedio SBB |I/O |Fisico |Controller |No |Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio. |
+| Alimentatore elettronica dello chassis |I/O |Fisico |Controller |No |Indica lo stato del sistema di alimentazione dello chassis. |
+| Diagnostica elettronica dello chassis |I/O |Fisico |Controller |No |Indica lo stato dei sottosistemi di diagnostica fornite dal controller. |
+| Connessione al controller del dispositivo |I/O |Fisico |Controller |No |Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare il servizio Gestione dispositivi StorSimple per la gestione del dispositivo, passare all'articolo relativo all'[uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

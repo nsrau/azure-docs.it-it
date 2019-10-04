@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: include file
 ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179890"
 ---
 ## <a id="addregion"></a>Aggiungere aree di database globali tramite il portale di Azure
 Azure Cosmos DB è disponibile in tutte le [aree di Azure][azureregions] del mondo. Dopo aver selezionato il livello di coerenza predefinito per l'account di database, è possibile associare una o più aree, a seconda del livello di coerenza predefinito e delle esigenze di distribuzione globale scelti.

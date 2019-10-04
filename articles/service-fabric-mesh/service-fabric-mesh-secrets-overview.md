@@ -4,17 +4,17 @@ description: Archiviazione e utilizzo dei segreti di Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: chiavi private
 author: v-steg
-ms.author: v-steg
+ms.author: jeconnoc
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+manager: jeconnoc
+ms.openlocfilehash: b5cfa93298222d914069b6ab63deb8ba8a9b59c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007476"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875338"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segreti delle applicazioni Azure Service Fabric Mesh
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro.

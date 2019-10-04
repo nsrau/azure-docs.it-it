@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 188c252064028ccecc0fd4fe231cda190d2b4c08
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66135173"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creare un gateway applicazione con la terminazione SSL tramite l'interfaccia della riga di comando di Azure
 
@@ -169,7 +169,7 @@ Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato

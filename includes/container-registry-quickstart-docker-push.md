@@ -9,15 +9,15 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985451"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67180703"
 ---
 ## <a name="push-image-to-registry"></a>Eseguire il push dell'immagine nel registro
 
-Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini del contenitore locale, eseguire il comando seguente [docker pull][docker-pull] per eseguire il pull di un'immagine esistente da Hub Docker. Per questo esempio, eseguire il pull dell'immagine `hello-world`.
+Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini di contenitori locali, eseguire il comando [docker pull][docker-pull] seguente per eseguire il pull di un'immagine esistente da Docker Hub. Per questo esempio, eseguire il pull dell'immagine `hello-world`.
 
 ```
 docker pull hello-world

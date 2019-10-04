@@ -3,23 +3,19 @@ title: Protezione dei servizi app nel Centro sicurezza di Azure | Microsoft Docs
 description: Questo articolo illustra come iniziare a proteggere i servizi app nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878631"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202472"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteggere il servizio app con il Centro sicurezza di Azure
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare e proteggere le applicazioni in esecuzione sul servizio app.
@@ -47,9 +43,8 @@ Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Abilitazione del monitoraggio e della protezione del servizio app
 
 1. In Azure scegliere Centro sicurezza.
-2. Passare a **Criteri di sicurezza** e scegliere una sottoscrizione.
-3. Alla fine della riga della sottoscrizione fare clic su **Modifica impostazioni**.
-4. In **Piano tariffario**, nella riga **Servizio app** attivare/disattivare il piano su **Abilitato**.
+2. Passare a **prezzi & impostazioni** e scegliere una sottoscrizione.
+3. In **Piano tariffario**, nella riga **Servizio app** attivare/disattivare il piano su **Abilitato**.
 
 ![attivazione/disattivazione del servizio app](./media/security-center-app-services/app-services-toggle.png)
 
@@ -60,7 +55,7 @@ Per disabilitare il monitoraggio e gli elementi consigliati per il servizio app,
 
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): Informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.

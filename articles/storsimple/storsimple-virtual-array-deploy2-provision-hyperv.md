@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810542"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516801"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Questa esercitazione illustra come eseguire il provisioning di un array virtuale StorSimple in un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Le informazioni all'interno di questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure nonché nel cloud di Microsoft Azure per enti pubblici.
 
 È necessario disporre dei privilegi di amministratore per eseguire il provisioning e configurare un array virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.

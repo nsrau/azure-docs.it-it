@@ -11,26 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: b0d12021be5a5dca348ea3ffa3f0b853725812da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791302"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650145"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
 
-Monitoraggio di Azure consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query su più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio.  Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.   
+Monitoraggio di Azure consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query su più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio. Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.
 
-Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  È possibile eseguire questi tipi di query solo in [Log Analytics](portals.md).
+Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema. È possibile eseguire questi tipi di query solo in [Log Analytics](portals.md).
 
 ## <a name="cross-resource-query-limits"></a>Limiti di query tra risorse 
 
-* Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.
-* Query tra risorse non è supportata in visualizzazione progettazione. È possibile creare una query in Log Analitica e aggiungerla al dashboard di Azure e [visualizzare una ricerca log](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
-* Query tra risorse degli avvisi del log è supportata nella nuova [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](../platform/api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare le regole di avviso del log di query tra risorse senza effettuare il passaggio con il [modello ARM per scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, ma questa regola di avviso è gestibile tuttavia [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
+* Il numero di risorse Application Insights e le aree di lavoro Log Analytics che è possibile includere in una singola query sono limitate a 100.
+* La query tra risorse non è supportata in Progettazione viste. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../learn/tutorial-logs-dashboards.md). 
+* La query tra risorse negli avvisi del log è supportata nella nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](../platform/api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso del log di query tra risorse senza eseguire l'opzione usando il [modello di Azure Resource Manager per l'API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , ma questa regola di avviso è gestibile anche se l' [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non da portale di Azure .
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
@@ -44,9 +44,6 @@ Esistono vari modi per identificare un'area di lavoro:
 * Nome risorsa - Un nome dell'area di lavoro leggibile dall'utente, spesso definito genericamente *nome del componente*. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >L'identificazione di un'area di lavoro in base al nome presuppone che il nome sia univoco in tutte le sottoscrizioni accessibili. Se sono presenti più applicazioni con il nome specificato, la query avrà esito negativo a causa dell'ambiguità. In questo caso è necessario usare uno degli altri identificatori.
 
 * Nome completo - È il nome completo dell'area di lavoro, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionName/resourceGroup/componentName*. 
 
@@ -62,7 +59,7 @@ Esistono vari modi per identificare un'area di lavoro:
 
 * ID risorsa Azure - L'identità univoca definita da Azure dell'area di lavoro. Si usa quando il nome della risorsa è ambiguo.  Per le aree di lavoro, il formato è: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    Ad esempio: 
+    Ad esempio:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -70,11 +67,14 @@ Esistono vari modi per identificare un'area di lavoro:
 ### <a name="identifying-an-application"></a>Identificazione di un'applicazione
 Gli esempi seguenti restituiscono il riepilogo del numero di richieste eseguite su un'app denominata *fabrikamapp* in Application Insights. 
 
-L'identificazione di un'applicazione in Application Insights può essere eseguita con l'espressione *app(Identifier)*.  L'argomento *Identifier* specifica l'app usando uno degli elementi seguenti:
+L'identificazione di un'applicazione in Application Insights può essere eseguita con l'espressione *app(Identifier)* .  L'argomento *Identifier* specifica l'app usando uno degli elementi seguenti:
 
 * Nome risorsa - Nome dell'app leggibile dall'utente, spesso definito genericamente *nome del componente*.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >L'identificazione di un'applicazione in base al nome presuppone l'univocità tra tutte le sottoscrizioni accessibili. Se sono presenti più applicazioni con il nome specificato, la query avrà esito negativo a causa dell'ambiguità. In questo caso è necessario usare uno degli altri identificatori.
 
 * Nome completo - Nome completo dell'app, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionName/resourceGroup/componentName*. 
 
@@ -90,7 +90,7 @@ L'identificazione di un'applicazione in Application Insights può essere eseguit
 
 * ID risorsa Azure - Identità univoca dell'app definita da Azure. Si usa quando il nome della risorsa è ambiguo. Il formato è: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
 
-    Ad esempio: 
+    Esempio:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -134,6 +134,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
+
+
 ![Diagramma temporale](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Passaggi successivi

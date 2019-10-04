@@ -3,9 +3,9 @@ title: Inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Win
 description: Usare Hub di notifica di Azure con tag nella registrazione per inviare le ultime notizie a un'app della piattaforma UWP (Universal Windows Platform).
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: efe668e42e04942cc0d9fc99670057ab5bdd302a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402457"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212134"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Windows specifici che eseguono applicazioni della piattaforma UWP (Universal Windows Platform)
 

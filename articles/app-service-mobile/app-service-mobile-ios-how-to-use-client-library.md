@@ -3,7 +3,7 @@ title: Come utilizzare iOS SDK per App Mobile di Azure
 description: Come utilizzare iOS SDK per App Mobile di Azure
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,24 +11,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 898bf082874a1e9bf26dd094a6a0fe55417c9d8e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121771"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851073"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Come usare la libreria client iOS per le app mobili di Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Questa guida descrive come eseguire scenari comuni usando il più recente [SDK per iOS per le app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
+> [!NOTE]
+> Visual Studio App Center sta investendo nei servizi nuovi e integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud. Estrai [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) oggi stesso.
+>
+
+## <a name="overview"></a>Panoramica
+Questa guida illustra come eseguire scenari comuni usando la versione più recente di [iOS SDK per app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
 
-La documentazione di riferimento per l'SDK del client iOS è disponibile qui: [riferimento al client iOS di app per dispositivi mobili di Azure][2].
+La documentazione di riferimento per l'SDK del client iOS è disponibile qui: [Riferimento al client iOS per app per dispositivi mobili di Azure][2].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 
@@ -433,9 +438,9 @@ Per le operazioni di eliminazione, è necessario che sia impostato almeno l'attr
 
 ## <a name="customapi"></a>Procedura: Chiamare un'API personalizzata
 
-Con un'API personalizzata è possibile esporre qualsiasi funzionalità di back-end. Non occorre eseguire il mapping a un'operazione su tabella. In questo modo, non solo si ottiene maggiore controllo sulla messaggistica, ma è anche possibile leggere o impostare le intestazioni e modificare il formato del corpo della risposta. Per informazioni su come creare un'API personalizzata nel back-end, leggere [API personalizzate](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+Con un'API personalizzata è possibile esporre qualsiasi funzionalità di back-end. Non occorre eseguire il mapping a un'operazione su tabella. In questo modo, non solo si ottiene maggiore controllo sulla messaggistica, ma è anche possibile leggere o impostare le intestazioni e modificare il formato del corpo della risposta.
 
-Per chiamare un'API personalizzata, chiamare `MSClient.invokeAPI`. Il contenuto della richiesta e della risposta è in formato JSON. Per utilizzare altri tipi di supporto, [usare l'altro overload di `invokeAPI`][5].  Per eseguire una richiesta `GET` invece di una richiesta `POST`, impostare il parametro `HTTPMethod` su `"GET"` e il parametro `body` su `nil` (dal momento che le richieste GET non hanno corpi dei messaggi). Se l'API personalizzata supporta altri verbi HTTP, modificare `HTTPMethod` in modo appropriato.
+Per chiamare un'API personalizzata, chiamare `MSClient.invokeAPI`. Il contenuto della richiesta e della risposta è in formato JSON. Per usare altri tipi di supporto, [usare l'altro overload `invokeAPI`di ][5].  Per eseguire una richiesta `GET` invece di una richiesta `POST`, impostare il parametro `HTTPMethod` su `"GET"` e il parametro `body` su `nil` (dal momento che le richieste GET non hanno corpi dei messaggi). Se l'API personalizzata supporta altri verbi HTTP, modificare `HTTPMethod` in modo appropriato.
 
 **Objective-C**:
 
@@ -510,13 +515,13 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Tutti i tag vengono rimossi dalla richiesta per motivi di sicurezza.  Per aggiungere tag alle istallazione o ai modelli all'interno delle istallazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][4].  Per inviare notifiche tramite questi modelli registrati, usare le [API di Hub di notifica][3].
+Tutti i tag vengono rimossi dalla richiesta per motivi di sicurezza.  Per aggiungere tag all’istallazione o modelli all’interno di istallazioni, vedere [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure][4].  Per inviare notifiche tramite questi modelli registrati, usare le [API di hub di notifica][3].
 
 ## <a name="errors"></a>Procedura: Gestire gli errori
 
 Quando viene eseguita una chiamata a un back-end per dispositivi mobili del Servizio app di Azure, il blocco di completamento contiene un parametro `NSError` . Quando si verifica un errore, il parametro sarà diverso da Nil. In questo caso, è necessario verificare il parametro nel codice e gestire l'errore nel modo appropriato, come dimostrato nei frammenti di codice precedenti.
 
-Il file [`<WindowsAzureMobileServices/MSError.h>`][6] definisce le costanti `MSErrorResponseKey`, `MSErrorRequestKey` e `MSErrorServerItemKey`. Per ottenere più dati relativi all'errore:
+Il file [`<WindowsAzureMobileServices/MSError.h>`][6] definisce le `MSErrorResponseKey`costanti, `MSErrorRequestKey`e `MSErrorServerItemKey`. Per ottenere più dati relativi all'errore:
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. È preferibile usare l'autenticazione del flusso client tramite un SDK del provider di identità anziché il metodo `loginWithProvider:completion:` .  L'autenticazione del flusso client garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][7]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altre informazioni, vedere [Guida introduttiva di ADAL iOS][8].
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][7] . Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altre informazioni, vedere la [Guida introduttiva di adal iOS][8].
 2. Installare ADAL usando Cocoapods. Modificare il podfile includendo la definizione seguente e sostituendo **YOUR-PROJECT** con il nome del progetto Xcode:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -565,7 +570,7 @@ if (error.code == MSErrorPreconditionFailed) {
    * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure].
    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-   * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done* .
 
 **Objective-C**:
 
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 È possibile usare Facebook SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite Facebook.  È preferibile usare l'autenticazione del flusso client all'uso del metodo `loginWithProvider:completion:` .  L'autenticazione del flusso client garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Facebook seguendo l'esercitazione [Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook][9].
-2. Installare Facebook SDK for iOS secondo le indicazioni della documentazione [Facebook SDK for iOS - Getting Started][10] (Facebook SDK for iOS: guida introduttiva). Anziché creare un'app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso a Facebook seguendo l'esercitazione [come configurare il servizio app per Facebook][9] .
+2. Installare Facebook SDK per iOS seguendo la documentazione di [Facebook SDK per iOS-Introduzione][10] . Anziché creare un'app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente.
 3. La documentazione di Facebook include codice Objective-C nel delegato dell'app. Se si usa **Swift**, è possibile utilizzare le seguenti traduzioni per AppDelegate.swift:
 
     ```swift

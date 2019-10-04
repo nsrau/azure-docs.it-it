@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: a828d03093c73d5c65a92ccf899fbaa1ef622bd6
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189853"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016497"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -70,9 +71,9 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |YES |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestato |Arrestato |No  |
+| Arrestato |Arrestato |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Spegnimento automatico per i canali non usati
 A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiornamento che interrompe automaticamente un canale (con la codifica live abilitata) dopo che è rimasto in esecuzione in stato di mancato utilizzo per un lungo periodo. Questa condizione si applica ai canali che non hanno programmi attivi e che non hanno ricevuto un feed di contributo di input per un lungo periodo di tempo.
@@ -88,7 +89,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
-> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com. La codifica live è soggetta a un costo e se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
+> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com. La codifica live è soggetta a un costo e se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate **singolo** in uno dei protocolli seguenti: RTMP o Smooth Streaming. 
 
@@ -210,20 +211,20 @@ Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad es
 ### <a id="preset"></a>Set di impostazioni del sistema
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
-Se sono necessari set di impostazioni personalizzati, contattare amslived@microsoft.com.
+Si noti che se sono necessari set di impostazioni personalizzati, è amshelp@microsoft.comnecessario contattare.
 
 Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 #### <a name="output-video-stream"></a>Flusso video di output
 
-| Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
+| Velocità in bit | Larghezza | Altezza | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |High |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |High |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |High |Video_512x288_850kbps |
+| 550 |384 |216 |30 |High |Video_384x216_550kbps |
+| 200 |340 |192 |30 |High |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
 
@@ -315,7 +316,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestato |Arrestato |No  |
+| Arrestato |Arrestato |No |
 
 > [!NOTE]
 > Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
@@ -330,7 +331,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
-* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
+* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 * Verificare che lo stato dell'endpoint di streaming da cui si vuole trasmettere il contenuto sia **In esecuzione**.
 * Il set di impostazioni di codifica usa la nozione di "frequenza fotogrammi massima" di 30 fps. Pertanto, se l'input è 60 fps/59,94 i, i fotogrammi di input vengono eliminati/de-interlacciati a 30/29,97 fps. Se l'input è 50 fps/50 i, i fotogrammi di input vengono eliminati/de-interlacciati a 25 fps. Se l'input è 25 fps, l'output rimane di 25 fps.
 * Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione.
@@ -359,7 +360,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
-[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
+[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

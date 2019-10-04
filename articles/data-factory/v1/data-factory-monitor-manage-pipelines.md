@@ -3,22 +3,20 @@ title: Monitorare e gestire le pipeline con il portale di Azure e PowerShell | M
 description: Informazioni su come usare il portale di Azure e Azure PowerShell per monitorare e gestire le pipeline e le data factory di Azure create.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445144"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139667"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -49,7 +47,7 @@ Questa sezione illustra anche come avviene la transizione di una sezione di un s
 
 ### <a name="navigate-to-your-data-factory"></a>Passare alla data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >**, quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
+2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >** , quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
 
    ![Esplora tutto > Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Nel pannello **Data factory** selezionare la data factory a cui si è interessati.
@@ -89,7 +87,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">DESCRIZIONE</th>
+    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
@@ -117,16 +115,16 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>La convalida è in esecuzione.</td>
+<td rowspan="2">In corso</td><td>Convalida</td><td>La convalida è in esecuzione.</td>
 </tr>
 <td>-</td>
 <td>La sezione è in corso.</td>
 </tr>
 <tr>
-<td rowspan="4">Operazione non riuscita</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
-<td>Cancellati</td><td>La sezione è stata annullata dall'utente.</td>
+<td>Annullato</td><td>La sezione è stata annullata dall'utente.</td>
 </tr>
 <tr>
 <td>Convalida</td><td>Convalida non riuscita.</td>
@@ -134,10 +132,10 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <tr>
 <td>-</td><td>Non è stato possibile generare e/o convalidare la sezione.</td>
 </tr>
-<td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
+<td>Pronto</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
+<td>Ignorata</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
 <td>Nessuna</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
@@ -175,12 +173,12 @@ La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è ne
 > [!NOTE] 
 > La vista diagramma non supporta la sospensione e la ripresa di pipeline. Se si vuole usare un'interfaccia utente, usare l'applicazione di gestione e monitoraggio. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
-È possibile sospendere/sospendere le pipeline usando il **Suspend-AzDataFactoryPipeline** cmdlet di PowerShell. Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema. 
+È possibile sospendere/sospendere le pipeline usando il cmdlet di PowerShell **Suspend-AzDataFactoryPipeline** . Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +189,7 @@ Dopo aver risolto il problema della pipeline, è possibile riprendere l'esecuzio
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio: 
+Esempio:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -219,26 +217,26 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 #### <a name="use-powershell-to-debug-an-error"></a>Usare PowerShell per eseguire il debug di un errore
 1. Avviare **PowerShell**.
-2. Eseguire la **Get-AzDataFactorySlice** comando per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.        
+2. Eseguire il comando **Get-AzDataFactorySlice** per visualizzare le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Ad esempio: 
+   Esempio:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Sostituire **StartDateTime** con l'ora di inizio della pipeline. 
-3. A questo punto, eseguire la **Get-AzDataFactoryRun** per ottenere informazioni dettagliate sull'attività eseguita per la sezione.
+3. Eseguire ora il cmdlet **Get-AzDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Ad esempio: 
+    Ad esempio:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -269,7 +267,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. È possibile eseguire la **Save-AzDataFactoryLog** cmdlet con il valore Id che è visualizzato nell'output e scaricare i file di log tramite il **- DownloadLogsoption** per il cmdlet.
+5. È possibile eseguire il cmdlet **Save-AzDataFactoryLog** con il valore ID visualizzato nell'output e scaricare i file di log usando il cmdlet **-DownloadLogsoption** per il cmdlet.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -290,7 +288,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 ![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usare Azure PowerShell
-È possibile eseguire nuovamente gli errori usando il **Set-AzDataFactorySliceStatus** cmdlet. Vedere le [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) argomento per la sintassi e altri dettagli sul cmdlet.
+È possibile rieseguire gli errori usando il cmdlet **set-AzDataFactorySliceStatus** . Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) .
 
 **Esempio:**
 

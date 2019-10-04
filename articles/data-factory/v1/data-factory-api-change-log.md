@@ -3,23 +3,21 @@ title: "Data Factory: log delle modifiche dell'API .NET | Microsoft Docs"
 description: Vengono descritte le modifiche rilevanti, le aggiunte di funzionalità, le correzioni di bug e così via in una versione specifica dell'API .NET per Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.date: 01/22/2018
+ms.openlocfilehash: 35f0145526aa596691fde26e92695f64f5ac35e0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015917"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140525"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: log delle modifiche dell'API .NET
 > [!NOTE]
@@ -137,7 +135,7 @@ Aggiunte di funzionalità
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versione 4.0.1
-### <a name="breaking-changes"></a>Modifiche di rilievo
+### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali delle classi prima della versione 4.0.0.
 
 | Nome nella versione 4.0.0 | Nome nella versione 4.0.1 |
@@ -150,7 +148,7 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versione 4.0.0
-### <a name="breaking-changes"></a>Modifiche di rilievo
+### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 * Le classi/interfacce seguenti sono state rinominate.
 
 | Nome precedente | Nuovo nome |
@@ -165,7 +163,7 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* I metodi **List** ora restituiscono risultati di paging. Se la risposta contiene una proprietà **NextLink** non vuota, l'applicazione client deve continuare il recupero della pagina successiva finché non vengono restituite tutte le pagine.  Di seguito è fornito un esempio: 
+* I metodi **List** ora restituiscono risultati di paging. Se la risposta contiene una proprietà **NextLink** non vuota, l'applicazione client deve continuare il recupero della pagina successiva finché non vengono restituite tutte le pagine.  Di seguito è fornito un esempio:
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

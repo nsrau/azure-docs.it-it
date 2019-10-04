@@ -3,7 +3,7 @@ title: Scenari di automazione per la fatturazione e la gestione dei costi di Azu
 description: Informazioni sul mapping di scenari comuni di fatturazione e gestione dei costi ad API diverse.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 6/13/2018
-ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 54c4426fb8bdb1476b33defb5351b3fb0e6a0663
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792821"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718842"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
 
@@ -85,9 +85,9 @@ I clienti con accesso Web diretto ed Enterprise possono usare tutte le API segue
 -   [API per i dati di utilizzo senza classificazione](/previous-versions/azure/reference/mt219003(v=azure.100)): ottenere informazioni non elaborate sull'utilizzo prima che Azure esegua qualsiasi misurazione/addebito.
 
 ### <a name="billing"></a>Fatturazione
--   [API per i periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/billingperiods): determinare un periodo di fatturazione da analizzare, insieme agli ID fattura per il periodo. È possibile usare gli ID fattura con l'API Fatture.
+-   [API per i periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determinare un periodo di fatturazione da analizzare, insieme agli ID fattura per il periodo. È possibile usare gli ID fattura con l'API Fatture.
 
--   [API Fatture](https://docs.microsoft.com/rest/api/billing/invoices): ottenere l'URL di download di una fattura per un periodo di fatturazione in formato PDF.
+-   [API Fatture](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): ottenere l'URL di download di una fattura per un periodo di fatturazione in formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo Enterprise
 Le API seguenti sono disponibili solo per i clienti Enterprise:
@@ -126,7 +126,7 @@ Queste API forniscono essenzialmente dati diversi:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual è la differenza tra l'API di fatturazione e l'API Dettagli di utilizzo?
 Queste API forniscono una visualizzazione diversa degli stessi dati:
 
-- L'[API di fatturazione](https://docs.microsoft.com/rest/api/billing/invoices) è destinata solo ai clienti con accesso Web diretto. Fornisce un rollup mensile della fattura in base agli addebiti aggregati per ogni tipo di contatore. 
+- L'[API di fatturazione](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) è destinata solo ai clienti con accesso Web diretto. Fornisce un rollup mensile della fattura in base agli addebiti aggregati per ogni tipo di contatore. 
 
 - L'[API Dettagli sull'utilizzo](https://docs.microsoft.com/rest/api/consumption/usagedetails) fornisce una visualizzazione dettagliata dei record sull'utilizzo e sui costi per ogni giorno. Può essere usata sia dai clienti Enterprise che da quelli con accesso Web diretto.
 
@@ -143,4 +143,4 @@ Queste API forniscono set simili di dati, ma hanno destinatari diversi:
 
 - Per confrontare la fattura con il file dettagliato sull'utilizzo giornaliero e i report di gestione dei costi nel portale di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-- Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+- In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

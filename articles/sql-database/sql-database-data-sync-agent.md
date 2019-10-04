@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201664"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568986"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 
@@ -26,7 +25,7 @@ Sincronizzare i dati con i database SQL Server locali installando e configurando
 > [!IMPORTANT]
 > Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
-## <a name="download-and-install"></a>Download e installazione
+## <a name="download-and-install"></a>Scarica e installa
 
 Per scaricare l'agente di sincronizzazione dei dati, visitare [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
@@ -38,7 +37,7 @@ Per installare automaticamente l'agente di sincronizzazione dei dati dal prompt 
 
 - Se si specifica `LocalSystem` come valore di **SERVICEACCOUNT**, usare l'autenticazione di SQL Server quando si configura l'agente per la connessione a SQL Server locale.
 
-- Se come valore di **SERVICEACCOUNT** si specifica un account utente di dominio o un account utente locale, è anche necessario specificare la password con l'argomento **SERVICEPASSWORD**. Ad esempio: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- Se come valore di **SERVICEACCOUNT** si specifica un account utente di dominio o un account utente locale, è anche necessario specificare la password con l'argomento **SERVICEPASSWORD**. Ad esempio `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -226,7 +225,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
 
 ### <a name="ping-the-service"></a>Eseguire il ping del servizio
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -240,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>Visualizzare i database registrati
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -254,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>Inviare la chiave dell'agente
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -268,7 +267,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>Registrare un database
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -287,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 Quando si usa questo comando per annullare la registrazione di un database, si effettua il deprovisioning completo del database. Se il database fa parte di altri gruppi di sincronizzazione, questa operazione li interrompe.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -299,9 +298,9 @@ SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesd
 SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -databaseName testdb
 ```
 
-### <a name="update-credentials"></a>Aggiornare le credenziali
+### <a name="update-credentials"></a>Aggiorna credenziali
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

@@ -1,5 +1,5 @@
 ---
-title: Dati contestuali con ruoli - Language Understanding
+title: 'Esercitazione: Dati contestuali con ruoli - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Trovare dati correlati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate.
 services: cognitive-services
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2af35e08b523d782418ab356bf148e038f397f83
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528775"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308045"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Esercitazione: Estrarre dati con una relazione di tipo contestuale da un'espressione
 
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, una posizione di origine e una di destinazione per il trasferimento da una città a un'altra. Potrebbero essere necessari entrambi i dati, che sono correlati tra loro.  
 
-Questa esercitazione è stata scritta in precedenza usando le entità gerarchiche. I ruoli delle entità sostituiscono la necessità del tipo di entità gerarchica. Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. 
+Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. 
 
 **In questa esercitazione si imparerà come:**
 
@@ -91,14 +91,10 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 1. Aggiungere i due ruoli `Origin` e `Destination`. 
 
     ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Notare che i nomi delle città sono etichettati con l'entità predefinita **geogrpahyV2**.
+1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Si noti che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
 1. Nella prima espressione dell'elenco selezionare la posizione di origine. Viene visualizzato un menu a discesa. Selezionare **geographyV2** nell'elenco, quindi seguire il menu per selezionare **Origin** (Origine).
-
-    [![Screenshot della città contrassegnata come posizione di origine](media/tutorial-entity-roles/tag-origin-city-with-role.png "Screenshot della città contrassegnata come posizione di origine")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni. 
 
-    [![Screenshot dell'entità Locations (Posizioni) con etichetta nelle espressioni](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Screenshot dell'entità Locations (Posizioni) con etichetta nelle espressioni")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
 
@@ -117,39 +113,39 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please move Carl Chamerlin from Tampa to Portland`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, pertanto rappresenta un buon test e dovrebbe restituire la finalità `MoveEmployee` con l'entità gerarchica estratta.
+1. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please move Carl Chamerlin from Tampa to Portland`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `MoveEmployee` con l'entità estratta.
 
     ```json
     {
       "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
         "intent": "MoveEmployeeToCity",
-        "score": 0.979823351
+        "score": 0.9706451
       },
       "intents": [
         {
           "intent": "MoveEmployeeToCity",
-          "score": 0.979823351
+          "score": 0.9706451
         },
         {
           "intent": "None",
-          "score": 0.0156363435
+          "score": 0.0307451729
         }
       ],
       "entities": [
         {
-          "entity": "geographyV2",
-          "role": "Destination",
-          "startIndex": 41,
-          "endIndex": 48,
-          "score": 0.6044041
-        },
-        {
-          "entity": "geographyV2",
-          "role": "Origin",
+          "entity": "tampa",
+          "type": "builtin.geographyV2.city",
           "startIndex": 32,
           "endIndex": 36,
-          "score": 0.739491045
+          "role": "Origin"
+        },
+        {
+          "entity": "portland",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 41,
+          "endIndex": 48,
+          "role": "Destination"
         }
       ]
     }

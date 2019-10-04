@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547592"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593962"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Informazioni su CORS
@@ -30,13 +30,13 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 ### <a name="for-simple-requests"></a>Per le richieste semplici:
 
-1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina prova ad accedere da https://www.contoso.com ai dati di un utente nell'origine fabrikam.com, a tale sito viene inviata l'intestazione di richiesta seguente:
+1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina da https\://www.contoso.com tenta di accedere ai dati dell'utente nell'origine fabrikam.com, l'intestazione della richiesta seguente potrebbe essere inviata a tale sito:
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. Il server può rispondere con uno degli elementi seguenti:
 
-   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. Ad esempio: 
+   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. Ad esempio:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -85,7 +85,7 @@ Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intes
 ![Esempio di regole con espressione regolare](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regola intestazione richiesta per ciascuna origine.
-Anziché usare espressioni regolari, è possibile creare una regola separata per ogni origine che si vuole consentire usando la [condizione di corrispondenza](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1) **Request Header Wildcard** (Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
+Anziché usare espressioni regolari, è possibile creare una regola separata per ogni origine che si vuole consentire usando la [condizione di corrispondenza](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
 
 ![Esempio di regole senza espressione regolare](./media/cdn-cors/cdn-cors-no-regex.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 50d0a920bef097013feddc828d2c37133b9057b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699472"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i modelli di larghezza di banda StorSimple
 

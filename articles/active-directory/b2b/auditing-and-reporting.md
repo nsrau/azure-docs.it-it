@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 506721a23a5a18eaea76efaca61df49f20dc9228
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65812475"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
 Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. 

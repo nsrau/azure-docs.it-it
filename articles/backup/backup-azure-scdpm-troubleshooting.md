@@ -1,19 +1,19 @@
 ---
 title: Risolvere i problemi relativi a System Center Data Protection Manager con Backup di Azure
 description: Risolvere i problemi in System Center Data Protection Manager.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: dacurwin
+ms.openlocfilehash: 501e61d06b7724147d7224ae51bde5de736279b3
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236206"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689024"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi relativi a System Center Data Protection Manager
 
@@ -42,7 +42,7 @@ Per risolvere il problema, eseguire le azioni seguenti:
 - Verificare che il disco sia integro e che vi sia spazio sufficiente per la replica.
 - Assicurarsi che non vengano eseguiti contemporaneamente processi di backup duplicati.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Errore: Impossibile creare il punto di ripristino online
+## <a name="error-online-recovery-point-creation-failed"></a>Errore: Creazione del punto di ripristino online non riuscita
 
 Per risolvere il problema, eseguire le azioni seguenti:
 - Accertarsi di usare l'ultima versione dell'agente di Backup di Azure.
@@ -53,7 +53,7 @@ Per risolvere il problema, eseguire le azioni seguenti:
 - Verificare che la replica sia presente e non mancante.
 - Verificare che la replica disponga di spazio sufficiente per creare il journal del numero di sequenza di aggiornamento (USN).
 
-## <a name="error-unable-to-configure-protection"></a>Errore: Impossibile configurare la protezione
+## <a name="error-unable-to-configure-protection"></a>Errore: Impossibile configurare la protezione dati
 
 Questo errore si verifica quando il server di Data Protection Manager non riesce a contattare il server protetto. 
 

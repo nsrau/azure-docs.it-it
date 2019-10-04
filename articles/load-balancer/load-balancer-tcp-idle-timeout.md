@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Configurazione del timeout di inattività TCP di Load Balancer
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857539"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274173"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurazione del timeout di inattività TCP di Azure Load Balancer
 
@@ -76,7 +76,7 @@ Per recuperare la configurazione del timeout di inattività, usare il comando se
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Impostazione del timeout TCP su un set di endpoint con carico bilanciato
 
-Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare il timeout TCP sul set di endpoint con carico bilanciato. Ad esempio: 
+Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare il timeout TCP sul set di endpoint con carico bilanciato. Ad esempio:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15

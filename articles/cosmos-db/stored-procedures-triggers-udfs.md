@@ -4,15 +4,15 @@ description: Questo articolo illustra concetti quali stored procedure, trigger e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083199"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614065"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -37,7 +37,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 * **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
-> Le stored procedure sono più adatte per le operazioni che richiedono molte operazioni di scrittura. Quando si decide dove usare le stored procedure, eseguire l'ottimizzazione incapsulando la quantità massima di possibili operazioni di scrittura. In generale, le stored procedure non sono il modo più efficiente per eseguire un numero elevato di operazioni di lettura. Pertanto, l'uso delle stored procedure per inviare in batch un numero elevato di operazioni di lettura da restituire al client non produrrà i vantaggi desiderati.
+> Le stored procedure sono ideali per operazioni di scrittura e richiedono una transazione in un valore di chiave di partizione. Quando si decide se utilizzare le stored procedure, è possibile ottimizzare l'incapsulamento della quantità massima di Scritture. In generale, le stored procedure non rappresentano il modo più efficiente per eseguire un numero elevato di operazioni di lettura o di query, pertanto l'utilizzo di stored procedure per eseguire il batch di un numero elevato di letture per tornare al client non produrrà il vantaggio desiderato. Per ottenere prestazioni ottimali, è consigliabile eseguire le operazioni di lettura sul lato client, usando Cosmos SDK. 
 
 ## <a name="transactions"></a>Transazioni
 
@@ -75,15 +75,18 @@ Le funzioni JavaScript sono anche soggette alla [capacità di velocità effettiv
 
 ## <a name="triggers"></a>Trigger
 
-Questa sezione descrive i due tipi di trigger:
+Azure Cosmos DB supporta due tipi di trigger:
 
 ### <a name="pre-triggers"></a>Pre-trigger
 
-Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos DB. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Azure Cosmos DB fornisce trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 ### <a name="post-triggers"></a>Post-trigger
 
-Analogamente ai pre-trigger, anche i post-trigger sono associati a un'operazione su un elemento di Azure Cosmos DB e non richiedono parametri di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Analogamente ai pre-trigger, i post-trigger sono associati anche a un'operazione su un elemento di Azure Cosmos e non richiedono alcun parametro di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+
+> [!NOTE]
+> I trigger registrati non vengono eseguiti automaticamente quando si verificano le operazioni corrispondenti (creazione/eliminazione/sostituzione/aggiornamento). Devono essere chiamati in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [How to Run Triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
 
 ## <a id="udfs"></a>Funzioni definite dall'utente
 

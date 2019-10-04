@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884473"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69016555"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK  
 
@@ -158,7 +158,7 @@ Il metodo **UploadFile** definito di seguito chiama **CreateFromFile**, definito
 
 Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che permette di specificare una delle opzioni di creazione di asset seguenti:
 
-* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+* **None** : non viene usata alcuna crittografia. Rappresenta il valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 * **StorageEncrypted** : usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 * **CommonEncryptionProtected** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
@@ -371,11 +371,11 @@ URL per download progressivo (audio e video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Per eseguire lo streaming del video, incollare l'URL nella casella di testo URL in [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per eseguire lo streaming del video, incollare l'URL nella casella di testo URL in [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
-Per ulteriori informazioni, vedere gli argomenti seguenti:
+Per altre informazioni, vedere i seguenti argomenti:
 
 - [Riproduzione di contenuti con i lettori esistenti](media-services-playback-content-with-existing-players.md)
 - [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)

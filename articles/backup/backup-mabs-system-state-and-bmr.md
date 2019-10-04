@@ -1,20 +1,19 @@
 ---
 title: Protezione dello stato del sistema e ripristino bare metal da parte del server di Backup di Azure
 description: Utilizzare il server di Backup di Azure per eseguire il backup dello stato del sistema e fornire la protezione del ripristino bare metal.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: raynew
-ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.author: dacurwin
+ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880098"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639662"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino bare metal con il server di Backup di Azure
 
@@ -31,21 +30,21 @@ Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguir
 
 |Backup|Problema|Ripristino dal backup del server di Backup di Azure|Ripristino dal backup dello stato del sistema|Ripristino bare metal|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Dati di file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|S|N|N|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|S|
-|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati persi)|S|No |Sì (ripristino bare metal, seguito dal ripristino regolare dei dati di file di cui è stato eseguito il backup)|
-|**Dati di SharePoint**:<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sito, elenchi, elementi elenco, documenti persi|S|N|N|
-|**Dati di SharePoint**:<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
+|**Dati di file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|Y|N|N|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|Y|Y|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|Y|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati persi)|Y|No|Sì (ripristino bare metal, seguito dal ripristino regolare dei dati di file di cui è stato eseguito il backup)|
+|**Dati di SharePoint**:<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sito, elenchi, elementi elenco, documenti persi|Y|N|N|
+|**Dati di SharePoint**:<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|Y|Y|
 |**Dati di SharePoint**:<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Ripristino di emergenza|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Macchine virtuali perse|S|N|N|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Sistema operativo perso o danneggiato|N|S|S|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali intatte)|N|N|S|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali perse)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di app persi|S|N|N|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|y|S|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni intatti)|N|N|S|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni persi)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
+|Windows Server 2012 R2 Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Macchine virtuali perse|Y|N|N|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Sistema operativo perso o danneggiato|N|Y|Y|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali intatte)|N|N|Y|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali perse)|N|N|Y<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di app persi|Y|N|N|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|y|Y|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni intatti)|N|N|Y|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni persi)|N|N|Y<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
 
 ## <a name="how-system-state-backup-works"></a>Funzionamento del backup dello stato del sistema
 

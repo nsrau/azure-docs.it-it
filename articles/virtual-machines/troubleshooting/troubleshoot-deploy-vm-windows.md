@@ -1,26 +1,25 @@
 ---
 title: Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure | Microsoft Docs
-description: Risolvere i problemi di macchina virtuale di distribuzione Windows nel modello di distribuzione Azure Resource Manager.
+description: Risolvere i problemi di distribuzione della macchina virtuale Windows nel modello di distribuzione Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540704"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058043"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -65,7 +64,7 @@ Per il contratto Enterprise Agreement:
 
 Per altre informazioni, vedere le seguenti risorse:
 
- - [Panoramica del vantaggio Hybrid Use Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Panoramica del vantaggio Azure Hybrid use](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Domande frequenti scaricabili](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

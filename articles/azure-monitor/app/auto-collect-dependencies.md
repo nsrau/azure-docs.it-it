@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 7f152de89f5d374a5b97368eafe7287fc9377291
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011331"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297023"
 ---
 # <a name="dependency-auto-collection"></a>Raccolta automatica delle dipendenze
 
-Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente supportate che vengono rilevate automaticamente come dipendenze senza richiedere alcun'altra modifica al codice dell'applicazione. Si tratta di chiamate in uscita per le librerie di comunicazione, i client di archiviazione, le librerie di metriche e registrazione, nonché le chiamate in ingresso nei framework e nei server di applicazione. Queste dipendenze sono visualizzate nelle viste [Mappa delle applicazioni](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) di Application Insights. Se la dipendenza non è presente nell'elenco seguente, è possibile comunque tenerne traccia manualmente con una [chiamata di dipendenza per il tracciamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente supportate che vengono rilevate automaticamente come dipendenze senza richiedere alcun'altra modifica al codice dell'applicazione. Queste dipendenze sono visualizzate nelle viste [Mappa delle applicazioni](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) di Application Insights. Se la dipendenza non è presente nell'elenco seguente, è possibile comunque tenerne traccia manualmente con una [chiamata di dipendenza per il tracciamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | [SDK Client di ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Client di archiviazione</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Librerie di registrazione</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8+ su NetStandard 1.3, 2.0.6+ in .NET 4.5+ |
 
 ## <a name="java"></a>Java
 | Server app | Versioni |
@@ -58,6 +53,7 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | [Client HTTP Apache](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Client di archiviazione</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
+| [PostgreSQL (supporto beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Librerie di registrazione</b> | |
@@ -77,14 +73,14 @@ Di seguito è riportato l'elenco delle chiamate di dipendenza attualmente suppor
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Client di archiviazione</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | versione 2.x, 3.x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x, 7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x, 2.x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2. x-3. x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16. x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6. x-7. x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1. x-2. x |
 | <b>Librerie di registrazione</b> | |
 | [console](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | versione 2.x, 3.x |
+| [Winston](https://www.npmjs.com/package/winston) | 2. x-3. x |
 
 ## <a name="javascript"></a>JavaScript
 

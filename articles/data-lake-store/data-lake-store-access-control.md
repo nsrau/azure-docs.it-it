@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877670"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226089"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ Nel modello di tipo POSIX usato da Data Lake Storage Gen1, le autorizzazioni per
 
 Di seguito sono riportati alcuni scenari comuni che consentono di comprendere quali autorizzazioni sono necessarie per eseguire determinate operazioni su un account Data Lake Storage Gen1.
 
-| Operazione | Oggetto              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Operazione | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Eliminare    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'A
 
 ### <a name="umask"></a>umask
 
-Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. La proprietà umask è un valore a 9 bit sulle cartelle padre che contiene un valore RWX per **l'utente proprietario**, **il gruppo proprietario** e **altri**.
+Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit per le cartelle padre che contiene un valore RWX per l' **utente proprietario**, il **gruppo proprietario**e **altro**.
 
-La proprietà umask per Azure Data Lake Storage Gen1 un valore costante impostato su 007. Questo valore viene convertito in
+Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007. Questo valore viene convertito in
 
 | componente umask     | Forma numerica | Forma breve | Significato |
 |---------------------|--------------|------------|---------|
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>È necessario abilitare il supporto per gli ACL?
 
- No. Il controllo di accesso tramite gli elenchi di controllo di accesso (ACL) è sempre attivo per un account Data Lake Storage Gen1.
+No. Il controllo di accesso tramite gli elenchi di controllo di accesso (ACL) è sempre attivo per un account Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una cartella e il relativo contenuto?
 
@@ -297,6 +297,6 @@ No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)

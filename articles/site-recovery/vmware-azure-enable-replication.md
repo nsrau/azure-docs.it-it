@@ -3,15 +3,15 @@ title: Abilitare la replica di macchine virtuali VMware per il ripristino di eme
 description: Questo articolo descrive come abilitare le macchine virtuali VMware per la replica per il ripristino di emergenza in Azure usando Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004738"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491726"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -37,22 +37,25 @@ Quando si esegue la replica di macchine virtuali VMware, tenere presente queste 
 ## <a name="enable-replication"></a>Abilitare la replica
 
 Prima di seguire i passaggi descritti in questa sezione, tenere presente quanto segue:
-* Azure Site Recovery replica ora direttamente al servizio managed disks per tutte le nuove repliche. Il server di elaborazione scrive i log di replica in un account di archiviazione della cache nell'area di destinazione. Questi log vengono utilizzati per creare i punti di ripristino in dischi gestiti di replica.
+* Azure Site Recovery replica ora direttamente al servizio managed disks per tutte le nuove repliche. Il server di elaborazione scrive i log di replica in un account di archiviazione della cache nell'area di destinazione. Questi log vengono utilizzati per creare i punti di ripristino in dischi gestiti di replica con convenzione di denominazione di asrseeddisk.
+* Supporto di PowerShell per replicare al servizio managed disks è disponibile da [Az.RecoveryServices versione del modulo 2.0.0 o versione successiva](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Al momento del failover, il punto di ripristino selezionato viene usato per creare il disco gestito di destinazione.
 * Le macchine virtuali configurati in precedenza per la replica in account di archiviazione di destinazione non sono interessate.
 * La replica in account di archiviazione per una nuova macchina virtuale è disponibile solo tramite un Representational State Transfer (REST) API e Powershell. Usare l'API REST di Azure versione 2016-08-10 o 2018-01-10 per la replica in account di archiviazione.
 
+Seguire i passaggi seguenti per consentire la replica:
 1. Passare a **passaggio 2: Eseguire la replica dell'applicazione** > **Origine**. Dopo aver abilitato la replica per la prima volta, selezionare **+ replica** nell'insieme di credenziali per abilitare la replica per le macchine virtuali aggiuntive.
-1. Nella pagina **Origine** > **Origine** selezionare il server di configurazione.
-1. Per la **tipo di computer**, selezionare **macchine virtuali** oppure **macchine fisiche**.
-1. In **vCenter/vSphere Hypervisor** selezionare il server vCenter che gestisce l'host di vSphere oppure selezionare l'host. Questa impostazione non è rilevante se si esegue la replica di computer fisici.
-1. Selezionare il server di elaborazione, che sarà il server di configurazione se sono state create server di elaborazione aggiuntivi. Selezionare **OK**.
+2. Nella pagina **Origine** > **Origine** selezionare il server di configurazione.
+3. Per la **tipo di computer**, selezionare **macchine virtuali** oppure **macchine fisiche**.
+4. In **vCenter/vSphere Hypervisor** selezionare il server vCenter che gestisce l'host di vSphere oppure selezionare l'host. Questa impostazione non è rilevante se si esegue la replica di computer fisici.
+5. Selezionare il server di elaborazione. Se non sono presenti server di elaborazione aggiuntivi creati, il server di elaborazione incorporata del server di configurazione sarà disponibile nell'elenco a discesa. Viene indicato lo stato di integrità di ogni server di elaborazione in base ai limiti consigliati e altri parametri. Scegliere un server di elaborazione integro. Non è possibile scegliere un server di elaborazione [critico](vmware-physical-azure-monitor-process-server.md#process-server-alerts). È possibile [individuare e risolvere](vmware-physical-azure-troubleshoot-process-server.md) gli errori **oppure** configurare un [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md).
+    ![Abilitare la finestra di origine di replica](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Abilitare la finestra di origine di replica](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Dal [9.24 versioni](service-updates-how-to.md#links-to-currently-supported-update-rollups), altri avvisi sono stati introdotti per ottimizzare gli avvisi sull'integrità del server di elaborazione. Aggiornare i componenti di Site Recovery a 9.24 versioni o versioni successive per tutti gli avvisi da generare.
 
-1. Per la **destinazione**, selezionare il sottoscrizione e gruppo di risorse in cui si desidera creare le macchine virtuali sottoposte a failover. Scegliere il modello di distribuzione che si desidera usare per le macchine virtuali sottoposte a failover in Azure.
-
-1. Selezionare la rete di Azure e la subnet a cui si connetteranno le VM di Azure dopo il failover. La rete deve trovarsi nella stessa area dell'insieme di credenziali del servizio Site Recovery.
+6. Per la **destinazione**, selezionare il sottoscrizione e gruppo di risorse in cui si desidera creare le macchine virtuali sottoposte a failover. Scegliere il modello di distribuzione che si desidera usare per le macchine virtuali sottoposte a failover in Azure.
+2. Selezionare la rete di Azure e la subnet a cui si connetteranno le VM di Azure dopo il failover. La rete deve trovarsi nella stessa area dell'insieme di credenziali del servizio Site Recovery.
 
    Selezionare **configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete per tutte le macchine virtuali che si seleziona per la protezione. Selezionare **configurare successivamente** per selezionare la rete di Azure per ogni macchina virtuale. Se non è disponibile una rete, sarà necessario crearla. Per creare una rete con Azure Resource Manager, selezionare **Crea nuovo**. Selezionare una subnet, se applicabile e quindi **OK**.
    

@@ -3,8 +3,8 @@ title: Problemi di accesso al sito Web del pannello di accesso | Microsoft Docs
 description: Linee guida per risolvere i possibili problemi durante il tentativo di accedere per usare il pannello di accesso
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294005"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784319"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problemi di accesso al sito Web del pannello di accesso
 

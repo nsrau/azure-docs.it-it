@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 652fe182663d37c389658c8fe3b172826168e51f
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617989"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69623865"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
 [Griglia di eventi di Azure](overview.md) è un servizio di gestione degli eventi per il cloud. Griglia di eventi consente di creare sottoscrizioni a eventi generati dai servizi di Azure o da risorse di terze parti.  
 
-Questa esercitazione è la seconda parte di una serie di esercitazioni sull'archiviazione. Approfondisce l'[esercitazione precedente sull'archiviazione][previous-tutorial] e aggiunge la generazione automatica di anteprima senza server usando Funzioni di Azure e Griglia di eventi di Azure. Griglia di eventi consente a [Funzioni di Azure](../azure-functions/functions-overview.md) di rispondere agli eventi di [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) e generare anteprime delle immagini caricate. Viene creata una sottoscrizione di eventi per l'evento di creazione dell'archivio BLOB. Quando si aggiunge un BLOB a un contenitore di archiviazione BLOB specifico, viene richiamato un endpoint della funzione. I dati passati all'associazione della funzione da Griglia di eventi vengono usati per accedere al BLOB e generare l'immagine di anteprima.
+Questa esercitazione è la seconda parte di una serie di esercitazioni sull'archiviazione. Estende l'[esercitazione precedente sull'archiviazione][previous-tutorial] aggiungendo la generazione automatica di anteprime serverless con Griglia di eventi di Azure e Funzioni di Azure. Griglia di eventi consente a [Funzioni di Azure](../azure-functions/functions-overview.md) di rispondere agli eventi di [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) e generare anteprime delle immagini caricate. Viene creata una sottoscrizione di eventi per l'evento di creazione dell'archivio BLOB. Quando si aggiunge un BLOB a un contenitore di archiviazione BLOB specifico, viene richiamato un endpoint della funzione. I dati passati all'associazione della funzione da Griglia di eventi vengono usati per accedere al BLOB e generare l'immagine di anteprima.
 
 Usare l'interfaccia della riga di comando di Azure e il portale di Azure per aggiungere le funzionalità di ridimensionamento a un'app esistente di caricamento di immagini.
 
@@ -245,7 +245,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
 4. Passare alla scheda **Filtro** ed eseguire le azioni seguenti:     
     1. Selezionare l'opzione **Abilita filtro per l'oggetto**.
-    2. Per **L'oggetto inizia con** immettere il valore seguente: **/blobServices/default/containers/images/blobs/**.
+    2. Per **L'oggetto inizia con** immettere il valore seguente: **/blobServices/default/containers/images/blobs/** .
 
         ![Specificare un filtro per la sottoscrizione di eventi](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
 2. Selezionare **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva la funzione `Thumbnail` quando viene aggiunto un BLOB al contenitore `images`. La funzione ridimensiona le immagini e le aggiunge al contenitore `thumbnails`.
@@ -275,6 +275,8 @@ Fare clic su **Choose File** (Scegli file) per selezionare un file, quindi fare 
 Fare clic su **Choose File** (Scegli file) per selezionare un file, quindi fare clic su **Upload Image** (Carica l'immagine). Quando il caricamento ha esito positivo, il browser passa a una pagina di operazione riuscita. Fare clic sul collegamento per tornare alla home page. Una copia dell'immagine caricata viene visualizzata nell'area **Generated thumbnails** (Anteprime generate). Se l'immagine non viene visualizzata, provare a ricaricare la pagina. Questa immagine è stata ridimensionata dalla funzione, aggiunta al contenitore *anteprime* e scaricata dal client Web.
 
 ![App Web pubblicata nel browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

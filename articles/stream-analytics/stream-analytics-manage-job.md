@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523546"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612371"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
-Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate tramite un processo di Analisi di flusso.
+Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate dal processo di Analisi di flusso.
 
 In questa esercitazione si apprenderà come:
 
@@ -32,10 +32,10 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare di disporre degli elementi seguenti:
+Prima di iniziare, eseguire queste azioni:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
-* Accedere al [Portale di Azure](https://portal.azure.com/).
+* Accedere al [portale di Azure](https://portal.azure.com/).
 * Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Sarà necessario un account Power BI.
 
@@ -45,7 +45,7 @@ Per consentire ad Analisi di flusso di analizzare il flusso di dati delle chiama
 
 Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la procedura seguente:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.
 
    ![Creare un Hub eventi di Azure nel portale](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -71,7 +71,7 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
 Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessario che l'hub eventi abbia criteri che consentono l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1. Passare all'hub eventi *MyEventHub* creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
+1. Passare all'hub eventi MyEventHub creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
 
 2. Assegnare al criterio il nome **MyPolicy** e assicurarsi che **Gestisci** sia selezionato. Selezionare quindi **Crea**.
 
@@ -99,7 +99,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
 3. Aggiornare l'elemento `<appSettings>` nel file di configurazione con i dettagli seguenti:
 
    * Impostare il valore della chiave *EventHubName* sul valore di EntityPath nella stringa di connessione.
-   * Impostare il valore della chiave *Microsoft.ServiceBus.ConnectionString* sulla stringa di connessione senza il valore di EntityPath.
+   * Impostare il valore della chiave *Microsoft.ServiceBus.ConnectionString* sulla stringa di connessione senza il valore di EntityPath (non dimenticare di rimuovere il punto e virgola che lo precede).
 
 4. Salvare il file.
 5. Aprire quindi una finestra di comando e passare alla cartella in cui è stata decompressa l'app TelcoGenerator. Immettere quindi il comando seguente:
@@ -118,7 +118,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
    |**Record**  |**Definizione**  |
    |---------|---------|
    |CallrecTime    |  Timestamp dell'ora di inizio della chiamata.       |
-   |SwitchNum     |  Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia).       |
+   |SwitchNum     |  Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese/area di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia).       |
    |CallingNum     |  Numero di telefono del chiamante.       |
    |CallingIMSI     |  Codice IMSI (International Mobile Subscriber Identity). Identificatore univoco del chiamante.       |
    |CalledNum     |   Numero di telefono del destinatario della chiamata.      |
@@ -191,7 +191,7 @@ L'ultimo passaggio consiste nel definire un sink di output per il processo, in c
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definire una query per analizzare i dati di input
 
-Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/dn834998.aspx). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
+Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
 
 In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da località diverse e vengono effettuate a cinque secondi di distanza una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. Per definire la query di trasformazione per il processo di Analisi di flusso:
 
@@ -212,7 +212,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    La query è simile a un normale join SQL, ad eccezione della funzione **DATEDIFF**. La funzione **DATEDIFF** usata in questa query è specifica di Analisi di flusso e deve essere inclusa nella clausola `ON...BETWEEN`.
 
@@ -248,7 +248,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 4. Nell'area di lavoro di Power BI selezionare **+ Crea** per creare un nuovo dashboard denominato *Fraudulent Calls*.
 
-5. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulentcalls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
+5. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulent calls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
 
    ![Creare i riquadri della dashboard di Power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -262,14 +262,14 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
    ![Visualizzare i risultati nella dashboard di Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
 
-Per questa parte dell'esercitazione, si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Per questa parte dell'esercitazione si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-dashboard-web-app** disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:
 
-1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account di PowerBI.
+1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account Power BI.
 
 2. Fare clic sul pulsante **Get Dashboards** (Ottieni dashboard), per visualizzare i dashboard dell'account in una tabella. Individuare il nome del dashboard creato in precedenza, ovvero **powerbi-embedded-dashboard** e copiare il valore di **EmbedUrl** corrispondente.
 

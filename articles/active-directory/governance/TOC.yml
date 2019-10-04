@@ -1,26 +1,57 @@
 - name: Documentazione di Azure AD Identity Governance
   href: index.yml
 - name: Panoramica
-  expanded: false
+  expanded: true
   items:
     - name: Informazioni su Identity Governance
       href: identity-governance-overview.md
+    - name: Informazioni su Gestione entitlement (Anteprima)
+      href: entitlement-management-overview.md
     - name: Informazioni sulle verifiche di accesso
       href: access-reviews-overview.md
-- name: Concetti
-  expanded: false
+- name: Esercitazioni
+  expanded: true
   items:
-    - name: Gestire l'accesso guest con le verifiche
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gestire l'accesso utente con verifiche
-      href: manage-user-access-with-access-reviews.md
-    - name: Gestire i programmi e i relativi controlli
-      href: manage-programs-controls.md
-    - name: Gestire gli utenti esclusi dall'accesso condizionale
-      href: conditional-access-exclusion.md
+    - name: Creare il primo pacchetto di accesso
+      href: entitlement-management-access-package-first.md
+- name: Concetti
+  expanded: true
+  items:
+    - name: Gestione entitlement
+      items:
+        - name: Processo di richiesta e messaggi di posta elettronica
+          href: entitlement-management-process.md
+    - name: Verifiche di accesso
+      items:
+        - name: Gestire l'accesso guest con le verifiche
+          href: manage-guest-access-with-access-reviews.md
+        - name: Gestire l'accesso utente con verifiche
+          href: manage-user-access-with-access-reviews.md
+        - name: Gestire gli utenti esclusi dall'accesso condizionale
+          href: conditional-access-exclusion.md
 - name: Guide alle procedure
   expanded: true
   items:
+    - name: Gestione entitlement
+      items:
+        - name: Scenari comuni
+          href: entitlement-management-scenarios.md
+        - name: Creare un nuovo pacchetto di accesso
+          href: entitlement-management-access-package-create.md
+        - name: Modificare un pacchetto di accesso
+          href: entitlement-management-access-package-edit.md
+        - name: Creare un catalogo
+          href: entitlement-management-catalog-create.md
+        - name: Richiedere l'accesso
+          href: entitlement-management-request-access.md
+        - name: Approvare le richieste
+          href: entitlement-management-request-approve.md
+        - name: Delegare attività
+          href: entitlement-management-delegate.md
+        - name: Visualizzare report e log
+          href: entitlement-management-reports.md
+        - name: Risolvere problemi
+          href: entitlement-management-troubleshoot.md
     - name: Verifiche di accesso
       items:
         - name: Gruppi e app
@@ -33,21 +64,19 @@
               href: review-your-access.md
             - name: Completare una verifica di accesso
               href: complete-access-review.md
-            - name: Recuperare i risultati della verifica di accesso
-              href: retrieve-access-review.md
         - name: Ruoli di Azure AD
           items:
-            - name: Esaminare i ruoli personali di Azure AD
-              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Avviare una verifica dell'accesso
+            - name: Creare una verifica di accesso
               href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Verificare l'accesso
+              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Completare una verifica di accesso
               href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
         - name: Ruoli delle risorse di Azure
           items:
-            - name: Esaminare i ruoli delle risorse di Azure personali
-              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Avviare una verifica dell'accesso
+            - name: Creare una verifica di accesso
               href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Verificare l'accesso
+              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Completare una verifica di accesso
               href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539010"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606666"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti su Sintesi vocale
 
@@ -33,7 +33,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: per usare un modello di voce personalizzata, l'API è la stessa che viene usata per le voci standard?**
 
-**R**: dopo aver creato e distribuito un modello di voce personalizzata, si riceve un endpoint univoco per tale modello. Per usare la voce per parlare nelle app, è necessario specificare l'endpoint nelle richieste HTTP. Le stesse funzionalità presenti nell'API REST per il servizio Sintesi vocale sono disponibili anche per l'endpoint personalizzato. Vedere la procedura per [creare e usare l'endpoint personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**R**: dopo aver creato e distribuito un modello di voce personalizzata, si riceve un endpoint univoco per tale modello. Per usare la voce per parlare nelle app, è necessario specificare l'endpoint nelle richieste HTTP. Le stesse funzionalità presenti nell'API REST per il servizio Sintesi vocale sono disponibili anche per l'endpoint personalizzato. Vedere la procedura per [creare e usare l'endpoint personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
 **D: è necessario preparare i dati di training personalmente per creare modelli di voce personalizzata?**
 
@@ -41,7 +41,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 Per creare un modello di voce personalizzato è necessaria una raccolta di dati vocali. Questa raccolta è costituita da un set di file audio con registrazioni vocali e da un file di testo con la trascrizione di ogni file audio. Il risultato della voce digitale dipende principalmente dalla qualità dei dati di training. Per produrre una buona sintesi vocale, è importante che le registrazioni vengano eseguite in un ambiente silenzioso con un microfono a stelo di alta qualità. Volume, velocità di pronuncia e tono uniformi e perfino l'uniformità dei manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. È consigliabile registrare le voci in uno studio di registrazione.
 
-Attualmente non viene fornito supporto per la registrazione online né sono disponibili raccomandazioni per gli studi di registrazione. Per i requisiti di formato, vedere [come preparare le registrazioni e le trascrizioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Attualmente non viene fornito supporto per la registrazione online né sono disponibili raccomandazioni per gli studi di registrazione. Per i requisiti di formato, vedere [come preparare le registrazioni e le trascrizioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **D: quali script è necessario usare per la registrazione dei dati vocali per il training della voce personalizzata?**
 
@@ -59,7 +59,7 @@ Offriamo servizi aggiuntivi per agevolare la preparazione degli script per la re
 
 **D: le richieste sono limitate?**
 
-**R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative a [Sintesi vocale](text-to-speech.md). 
+**R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative a [Sintesi vocale](text-to-speech.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

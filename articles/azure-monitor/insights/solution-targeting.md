@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62110345"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
 Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.

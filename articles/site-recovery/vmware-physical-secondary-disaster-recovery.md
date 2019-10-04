@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527303"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972102"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
 
@@ -128,7 +128,7 @@ Scaricare il file ZIP di [aggiornamento](https://aka.ms/asr-scout-update7) e i f
   8. **Server di origine Linux**: per aggiornare l'agente unificato, copiare la versione corrispondente del file dell'agente unificato nel server Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.  Esempio: per il server RHEL 6.7 a 64 bit, copiare **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** nel server ed estrarlo. Nella cartella estratta eseguire **/Install**.
   9. Dopo l'aggiornamento del server di configurazione, il server di elaborazione e il server RX con i programmi di installazione menzionati in precedenza, le librerie PHP e MySQL devono essere aggiornate manualmente con la procedura descritta nella sezione 7.4 della [guida all'installazione rapida](https://aka.ms/asr-scout-quick-install-guide).
 
-## <a name="enable-replication"></a>Abilitare la replica
+## <a name="enable-replication"></a>Abilita replica
 
 1. Impostare la replica tra i siti di origine e di destinazione VMware.
 2. Vedere i documenti elencati di seguito per altre informazioni sull'installazione, sulla protezione e sul ripristino:
@@ -159,7 +159,7 @@ Scout Update 7 è un programma di installazione completo che può essere usato p
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Aggiornamento manuale di PHP e MySQL sui server di configurazione, elaborazione e RX
 La piattaforma di script PHP deve essere aggiornata alla versione 7.2.10 nei server di configurazione, elaborazione e RX.
 IL sistema di gestione di database MySQL deve essere aggiornato alla versione 5.7.23 nei server di configurazione, elaborazione e RX.
-Seguire i passaggi manuali forniti nel [Guida all'installazione rapida](https://aka.ms/asr-scout-quick-install-guide) per aggiornare le versioni PHP e MySQL.
+Per aggiornare le versioni di PHP e MySQL, seguire i passaggi manuali indicati nella [Guida all'installazione rapida](https://aka.ms/asr-scout-quick-install-guide) .
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Aggiornato: 12 ottobre 2017
@@ -188,7 +188,7 @@ Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA _\<Linux del sistema operativo > _8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz
   1. Estrarre i file ZIP.
   2. **Server RX**: copiare **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
   3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** nel server di configurazione e in quello di elaborazione. Fare doppio clic per eseguirlo.<br>

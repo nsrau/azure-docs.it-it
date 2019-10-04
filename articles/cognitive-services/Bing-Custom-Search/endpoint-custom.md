@@ -1,21 +1,21 @@
 ---
 title: Endpoint di Ricerca personalizzata Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Riepilogo dell'endpoint dell'API Ricerca personalizzata Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: v-gedod
-ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: aahi
+ms.openlocfilehash: e3b544d8d655b653383cc999de233e2163433d85
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337805"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405065"
 ---
 # <a name="custom-search"></a>Ricerca personalizzata
 Ricerca personalizzata Bing consente di creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Gli utenti visualizzano risultati della ricerca specifici per il contenuto a cui sono interessati anziché scorrere i risultati della ricerca che possono includere contenuto irrilevante.
@@ -28,10 +28,10 @@ Endpoint: restituisce suggerimenti per la ricerca come risultati JSON pertinenti
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Per gli esempi che descrivono come configurare le origini di Ricerca personalizzata, vedere l'[esercitazione](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento per l'[API Ricerca personalizzata Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference).
+Per gli esempi che descrivono come configurare le origini di Ricerca personalizzata, vedere l'[esercitazione](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento per l'[API Ricerca personalizzata Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
 
 ## <a name="custom-search-response-json"></a>Codice JSON della risposta di Ricerca personalizzata
-Una richiesta di ricerca personalizzata restituisce i risultati come oggetti JSON. Vedere [Oggetti di risposta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
+Una richiesta di ricerca personalizzata restituisce i risultati come oggetti JSON. Vedere [Oggetti di risposta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
 ## <a name="custom-autosuggest"></a>Suggerimenti automatici personalizzati
 L'API Suggerimenti automatici personalizzati consente di inviare un termine di query di ricerca parziale a Bing e ottenere un elenco di query suggerite che è possibile configurare. Con Suggerimenti automatici personalizzati è possibile aggiungere i suggerimenti restituiti dall'API e facoltativamente specificare se includere i suggerimenti generati da Bing.

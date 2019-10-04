@@ -6,15 +6,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/01/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759392"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650076"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Ricerca nell'archiviazione BLOB tramite Ricerca di Azure
 
@@ -38,14 +38,14 @@ Uno scenario comune che semplifica l'ordinamento nei BLOB di qualsiasi tipo di c
 ## <a name="image-search"></a>Ricerca di immagini
 Le funzionalità di ricerca full-text, esplorazione in base a facet e ordinamento di Ricerca di Azure possono ora essere applicate ai metadati delle immagini archiviate in BLOB.
 
-Ricerca cognitiva include capacità di elaborazione di immagini, ad esempio [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione dei [funzionalità visive](cognitive-search-skill-image-analysis.md) che consentono di indicizzare il contenuto visivo presente in ogni immagine.
+La ricerca cognitiva include competenze di elaborazione di immagini quali il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione di [funzionalità visive](cognitive-search-skill-image-analysis.md) che consentono di indicizzare il contenuto visivo trovato in ogni immagine.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indicizzare e cercare contenuto in BLOB JSON
 È possibile configurare Ricerca di Azure in modo da estrarre il contenuto strutturato dei BLOB che contengono JSON. Ricerca di Azure può leggere BLOB JSON e analizzare il contenuto strutturato nei campi appropriati di un documento di Ricerca di Azure. Ricerca di Azure può anche usare BLOB che contengono una matrice di oggetti JSON ed eseguire il mapping di ogni elemento a un documento di Ricerca di Azure separato.
 
 L'analisi JSON non è attualmente configurabile tramite il portale. [Altre informazioni sull'analisi JSON in Ricerca di Azure.](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>Avvio rapido
+## <a name="quick-start"></a>Guida introduttiva
 È possibile aggiungere Ricerca di Azure ai BLOB direttamente dalla pagina del portale dell'archiviazione BLOB.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61458943"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection per Database di Azure per MySQL
 
@@ -28,8 +28,8 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Passare alla pagina di configurazione del Database di Azure per MySQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
-3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
+2. Passare alla pagina di configurazione del Database di Azure per MySQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)** .
+3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)** :
 
    - Abilita Advanced Threat Protection nel server.
    - In **Impostazioni di Advanced Threat Protection**, nella casella di testo **Invia avvisi a**, viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.

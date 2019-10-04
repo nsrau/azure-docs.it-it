@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Informazioni su come aggiungere, modificare o eliminare una subnet di rete virtuale in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
-ms.openlocfilehash: b4fd3d7cd1d25415ba5938586aee448bdc512aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: kumud
+ms.openlocfilehash: 4af8c6dbbcbb877351018eb881f4d3b0b447bbce
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100463"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098969"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -31,7 +32,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell versione 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [Autorizzazioni](#permissions).
@@ -50,7 +51,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
    - **Endpoint di servizio:** una subnet può avere zero o più endpoint di servizio abilitati. Per abilitare un endpoint di servizio per un servizio, selezionare i servizi per i quali si vogliono abilitare gli endpoint di servizio nell'elenco **Servizi**. La posizione viene configurata automaticamente per un endpoint. Per impostazione predefinita, gli endpoint di servizio vengono configurati per la regione della rete virtuale. Per Archiviazione di Azure, per supportare scenari di failover a livello di regione, gli endpoint vengono configurati automaticamente per [aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
    - **Delega di subnet**: una subnet può avere da zero a più deleghe abilitate. La delega di subnet offre esplicite autorizzazioni per creare le risorse specifiche del servizio nella subnet, tramite un identificatore univoco durante la distribuzione del servizio. Per la delega per un servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**.
 
-       Per rimuovere un endpoint di servizio, deselezionare il servizio per cui si vuole rimuovere l'endpoint di servizio. Per altre informazioni sugli endpoint di servizio e sui servizi per cui possono essere abilitati, vedere [Panoramica sugli endpoint di servizio della rete virtuale](virtual-network-service-endpoints-overview.md). Dopo aver abilitato un endpoint di servizio per un servizio, è necessario abilitare anche l'accesso alla rete per la subnet per una risorsa creata con il servizio. Ad esempio, se si abilita l'endpoint di servizio per *Microsoft.Storage*, è necessario abilitare anche l'accesso alla rete per tutti gli account di Archiviazione di Azure a cui si vuole concedere l'accesso alla rete. Per informazioni dettagliate su come abilitare l'accesso alla rete a subnet con un endpoint di servizio abilitato, vedere la documentazione per il singolo servizio per cui è stato abilitato l'endpoint di servizio.
+       Per rimuovere un endpoint di servizio, deselezionare il servizio per cui si vuole rimuovere l'endpoint di servizio. Per altre informazioni sugli endpoint di servizio e sui servizi per cui possono essere abilitati, vedere [Panoramica sugli endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md). Dopo aver abilitato un endpoint di servizio per un servizio, è necessario abilitare anche l'accesso alla rete per la subnet per una risorsa creata con il servizio. Ad esempio, se si abilita l'endpoint di servizio per *Microsoft.Storage*, è necessario abilitare anche l'accesso alla rete per tutti gli account di Archiviazione di Azure a cui si vuole concedere l'accesso alla rete. Per informazioni dettagliate su come abilitare l'accesso alla rete a subnet con un endpoint di servizio abilitato, vedere la documentazione per il singolo servizio per cui è stato abilitato l'endpoint di servizio.
 
      Per controllare che un endpoint di servizio sia attivato per una subnet, visualizzare le [route valide](diagnose-network-routing-problem.md) per qualsiasi interfaccia di rete nella subnet. Quando un endpoint è configurato, verrà visualizzata una route *predefinita* con i prefissi degli indirizzi del servizio e un nextHopType di **VirtualNetworkServiceEndpoint**. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
 6. Per aggiungere la subnet alla rete virtuale selezionata, selezionare **OK**.
@@ -71,7 +72,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
     - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Gruppo di sicurezza di rete** e **Tabella di route**: Vedere il passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
     - **Endpoint di servizio**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Quando si abilita un endpoint di servizio per una subnet esistente, assicurarsi che non vi siano attività critiche in esecuzione in nessuna risorsa nella subnet. Gli endpoint del servizio cambiano le route in ogni interfaccia di rete nella subnet dall'uso della route predefinita con il prefisso dell'indirizzo *0.0.0.0/0* e il tipo dell'hop successivo di *Internet*, all'uso di una nuova route con i prefissi dell'indirizzo del servizio e un tipo di hop successivo di *VirtualNetworkServiceEndpoint*. Durante il cambio, tutte le connessioni TCP aperte possono essere terminate. L'endpoint di servizio non è attivato fino a quando i flussi di traffico al servizio per tutte le interfacce di rete non vengono aggiornati con la nuova route. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
-    - **Delega di subnet**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Una delega di subnet può essere modificata per avere da zero a più deleghe abilitate. Se una risorsa per un servizio è già distribuita nella subnet, la delega di subnet non può essere rimossa fino a quando non vengono rimosse tutte le risorse per il servizio. Per la delega per un altro servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**.
+    - **Delega di subnet**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Una delega di subnet può essere modificata per avere da zero a più deleghe abilitate. Se una risorsa per un servizio è già distribuita nella subnet, la delega della subnet non può essere aggiunta o rimossa fino a quando non vengono rimosse tutte le risorse per il servizio. Per la delega per un altro servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**.
 5. Selezionare **Salva**.
 
 **Comandi**

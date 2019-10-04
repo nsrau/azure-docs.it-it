@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
 ms.date: 10/09/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 8e0e549f88caf4a541642bab77faf54b5e536b29
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437061"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174962"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Distribuire un'immagine con le condizioni del Marketplace
 

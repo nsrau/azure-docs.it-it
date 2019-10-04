@@ -2,20 +2,20 @@
 title: Esempi e definizioni di API per la creazione di report sull'utilizzo in Azure Active Directory B2C | Microsoft Docs
 description: Guida ed esempi su come ottenere i report su utenti, autenticazioni e autenticazioni a più fattori del tenant di Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ccd9ea36fcf20c56684ac5892a7fa32e0345633
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66508721"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accesso ai report sull'uso in Azure AD B2C tramite l'API per la creazione di report
 

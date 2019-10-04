@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609725"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 

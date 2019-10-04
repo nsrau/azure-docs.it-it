@@ -3,20 +3,20 @@ title: Recuperare le metriche con l'API REST
 titlesuffix: Azure Load Balancer
 description: Usare le API REST di Azure per raccogliere metriche di integrità e utilizzo per Load Balancer per un intervallo di date e ore specifico.
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337053"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274535"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Ottenere le metriche di utilizzo di Load Balancer tramite l'API REST
 
@@ -36,14 +36,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare su un [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nome del gruppo di risorse contenente la risorsa. È possibile ottenere questo valore dall'API di Azure Resource Manager, dall'interfaccia della riga di comando o dal portale. |

@@ -4,7 +4,7 @@ description: Informazioni su come creare e distribuire un gruppo di sicurezza di
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: 17d98950-5fbb-4653-bef6-d822ab37541e
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 454d17ac4f4c3723d7b7ee1ac2c639b885f3fff9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be63cdc3df5752f73b21bb5adc5fffaa364e7f43
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309981"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056714"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando classica di Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

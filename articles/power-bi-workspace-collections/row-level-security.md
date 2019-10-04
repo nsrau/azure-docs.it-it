@@ -2,18 +2,18 @@
 title: Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 description: Informazioni dettagliate sulla sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: ae9819cd5b27d794f26227f342cb0fdf1b0ab644
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2a26cc7573abb970dc58c6f7c327dfbc659cb646
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342991"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672491"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 
@@ -48,7 +48,7 @@ Ecco alcuni aspetti dello schema da notare:
 
 * Tutte le misure, ad esempio **Vendite totali**, sono archiviate nella tabella dei fatti **Vendite**.
 * Sono presenti altre quattro tabelle relative alle dimensioni correlate, ovvero **Elemento**, **Tempo**, **Negozio** e **Distretto**.
-* Le frecce sulle linee relative alle relazioni indicano il modo in cui i filtri possono essere applicati da una tabella a un'altra. Se, ad esempio, si posiziona un filtro su **Tempo[Data]**, nello schema corrente verrebbero filtrati solo i valori della tabella **Vendite**. Questo filtro non influirebbe su altre tabelle, perché tutte le frecce sulle linee relative alle relazioni fanno riferimento alla tabella Sales, non ad altre tabelle.
+* Le frecce sulle linee relative alle relazioni indicano il modo in cui i filtri possono essere applicati da una tabella a un'altra. Se, ad esempio, si posiziona un filtro su **Tempo[Data]** , nello schema corrente verrebbero filtrati solo i valori della tabella **Vendite**. Questo filtro non influirebbe su altre tabelle, perché tutte le frecce sulle linee relative alle relazioni fanno riferimento alla tabella Sales, non ad altre tabelle.
 * La tabella **District** indica il manager per ogni area:
   
   ![Righe della tabella District](media/row-level-security/district-table-4.png)
@@ -99,7 +99,7 @@ Per creare il token, usare il metodo [CreateReportEmbedToken](https://docs.micro
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
-to
+in
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
@@ -111,7 +111,7 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 
 ![Report visualizzato nell'applicazione](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

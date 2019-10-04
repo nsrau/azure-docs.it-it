@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881164"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568196"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
 
@@ -30,7 +29,7 @@ Questo articolo descrive i diversi tipi di spazio di archiviazione per database 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Con i database singoli e in pool nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
@@ -217,6 +216,9 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperare lo spazio allocato non usato
 
+> [!NOTE]
+> Questo comando può influire sulle prestazioni del database mentre è in esecuzione e quindi, se possibile, dovrebbe essere eseguito in periodi di utilizzo ridotto.
+
 ### <a name="dbcc-shrink"></a>Compattazione tramite DBCC
 
 Dopo l'identificazione dei database per il recupero di spazio allocato non usato, modificare il nome del database nel comando seguente per compattare i file di dati di ogni database.
@@ -252,7 +254,7 @@ Dopo la compattazione dei file di dati del database, gli indici possono diventar
 - Per informazioni sulle dimensioni massime dei database, vedere:
   - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](sql-database-vcore-resource-limits-single-databases.md)
   - [Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Per altre informazioni sul comando `SHRINKDATABASE`, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

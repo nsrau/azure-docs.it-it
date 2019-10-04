@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 792d6da36851f74429d97a9779aff1727e8f64db
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66133636"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Creare un gateway applicazione con un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -142,7 +142,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Configurare la rete

@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 09/30/2019
+ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359784"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703406"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni dei flussi di dati di mapping
 
@@ -19,26 +19,29 @@ ms.locfileid: "59359784"
 
 Nel flusso di dati di mapping di Azure Data Factory, sono disponibili finestre di espressioni in cui è possibile immettere espressioni per la trasformazione dei dati. Usare le colonne, campi, variabili, parametri, funzioni dal flusso di dati in queste finestre. Per compilare l'espressione, usare il Generatore di espressioni, che viene avviato facendo clic nell'espressione della casella di testo all'interno della trasformazione. A volte saranno visibili anche le opzioni "Colonna calcolata" quando si selezionano le colonne per la trasformazione. Quando si fa clic su una di essa, verrà avviato anche il Generatore di espressioni.
 
-![Generatore di espressioni](media/data-flow/expression.png "Generatore di espressioni")
+![Generatore di espressioni](media/data-flow/xpb1.png "Generatore di espressioni")
 
 L'opzione predefinita dello strumento Generatore di espressioni è l'editor di testo. la funzionalità di completamento automatico legge l'intero modello a oggetti del flusso di dati di Azure Data Factory con il controllo e l'evidenziazione della sintassi.
 
 ![Completamento automatico del Generatore di espressioni](media/data-flow/expb1.png "Completamento automatico del Generatore di espressioni")
 
-## <a name="currently-working-on-field"></a>Operazione attualmente in corso sul campo
+## <a name="build-schemas-in-output-schema-pane"></a>Schemi di compilazione nel riquadro Schema di output
 
-![Generatore di espressioni](media/data-flow/exp3.png "attualmente in corso su")
+Aggiungi ![colonna complessa](media/data-flow/complexcolumn.png "Aggiungi colonne")
 
-Nella parte superiore sinistra dell'interfaccia utente del Generatore di espressioni, si noterà un campo denominato "Attualmente in corso su" con il nome del campo sul quale si sta attualmente lavorando. L'espressione compilata nell'interfaccia utente verrà applicata solo al campo attualmente attivo. Se si desidera trasformare un altro campo, salvare il lavoro corrente e usare questo elenco a discesa per selezionare un altro campo e compilare un'espressione per gli altri campi.
+Nel riquadro dello schema di output a sinistra verranno visualizzate le colonne che si stanno modificando e aggiungendo allo schema. Qui è possibile compilare in modo interattivo strutture di dati semplici e complesse. Aggiungere ulteriori campi utilizzando "Aggiungi colonna" e compilare gerarchie utilizzando "Aggiungi sottocolonna".
 
-## <a name="data-preview-in-debug-mode"></a>Anteprima dei dati in modalità di Debug
+![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi") sottocolonna
+
+## <a name="data-preview-in-debug-mode"></a>Anteprima dei dati in modalità debug
 
 ![Generatore di espressioni](media/data-flow/exp4b.png "Anteprima dei dati dell'espressione")
 
-Quando si lavora sulle espressioni è possibile, facoltativamente, attivare la modalità di Debug dall'area di progettazione del flusso di dati di Azure Data Factory, abilitando l'anteprima in corso in tempo reale dei risultati dei dati dall'espressione che si sta compilando. Il debug in tempo reale è abilitato per le espressioni.
+Quando si utilizzano le espressioni del flusso di dati, attivare la modalità di debug dall'area di progettazione del flusso di dati Azure Data Factory, abilitando l'anteprima in tempo reale dei risultati dei dati dall'espressione che si sta compilando. Il debug in tempo reale è abilitato per le espressioni.
 
 ![Modalità di debug](media/data-flow/debugbutton.png "pulsante di Debug")
 
+Fare clic sul pulsante Aggiorna per aggiornare i risultati dell'espressione rispetto a un campione Live dell'origine in tempo reale.
 
 ![Generatore di espressioni](media/data-flow/exp5.png "Anteprima dei dati dell'espressione")
 
@@ -48,9 +51,9 @@ Aggiungere commenti per le espressioni che usano sintassi dei commenti su una ri
 
 ![Commenti](media/data-flow/comments.png "Commenti")
 
-## <a name="regular-expressions"></a>Espressioni regolari
+## <a name="regular-expressions"></a>Espressioni regolare
 
-Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](https://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si usa funzioni di espressione regolare, il generatore di espressioni tenterà di interpretare barra rovesciata (\\) come una sequenza di caratteri di escape. Quando si usa le barre rovesciate nell'espressione regolare, racchiudere l'espressione regolare intera espressa in tick (\`) oppure usare una doppia barra rovesciata.
+Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](https://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si utilizzano le funzioni di espressione regolare, il generatore di espressioni tenterà di interpretare la barra rovesciata (\\) come sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'intera espressione regolare in cicli (\`) o usare una doppia barra rovesciata.
 
 Esempio di utilizzo di tick
 
@@ -64,17 +67,17 @@ o della barra doppia
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Indirizzamento di indici di matrice
+## <a name="addressing-array-indexes"></a>Indirizzamento degli indici della matrice
 
 Con funzioni per le espressioni che restituiscono matrici, usare le parentesi quadre [] per indicare indici specifici all'interno di tale oggetto di restituzione della matrice. La matrice è basata sulle unità.
 
 ![Matrice del Generatore di espressioni](media/data-flow/expb2.png "Anteprima dei dati dell'espressione")
 
-## <a name="handling-names-with-special-characters"></a>La gestione di nomi con caratteri speciali
+## <a name="handling-names-with-special-characters"></a>Gestione dei nomi con caratteri speciali
 
-Quando si dispone di nomi delle colonne che includono spazi o caratteri speciali, racchiudere il nome tra parentesi graffe.
+Quando sono presenti nomi di colonne che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe.
 * ```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Iniziare a compilare le espressioni di trasformazione dei dati](data-flow-expression-functions.md)
+[Inizia a creare espressioni di trasformazione dei dati](data-flow-expression-functions.md)

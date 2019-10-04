@@ -14,96 +14,91 @@ ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: d397f81ce29e0ec738156b755948985a4edfc70b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741423"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802264"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
-Questo articolo descrive come distribuire un set di scalabilità della macchina virtuale di Azure usando una distribuzione del gruppo di risorse di Visual Studio.
 
-[Set di scalabilità di macchine virtuali di Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) è una risorsa di calcolo di Azure per distribuire e gestire una raccolta di macchine virtuali simili con scalabilità automatica e bilanciamento del carico. È possibile eseguire il provisioning e distribuire set di scalabilità di macchine virtuali tramite i [modelli di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). I modelli di Azure Resource Manager possono essere distribuiti tramite l'interfaccia della riga di comando di Azure, PowerShell, REST e direttamente da Visual Studio. Visual Studio offre un set di modelli di esempio che possono essere distribuiti come parte di un progetto di distribuzione del gruppo di risorse di Azure.
+Questo articolo illustra come distribuire un set di scalabilità di macchine virtuali di Azure usando una distribuzione del gruppo di risorse di Visual Studio.
 
-Le distribuzioni del gruppo di risorse di Azure sono un modo di raggruppare e pubblicare un set di risorse di Azure correlate con un'unica operazione di distribuzione. Sono disponibili altre informazioni in [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+I [set di scalabilità di macchine virtuali di Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) sono una risorsa di calcolo di Azure per distribuire e gestire una raccolta di macchine virtuali simili con scalabilità automatica e bilanciamento del carico. È possibile eseguire il provisioning e distribuire set di scalabilità di macchine virtuali tramite i [modelli di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager modelli possono essere distribuiti usando l'interfaccia della riga di comando di Azure, PowerShell, REST e anche direttamente da Visual Studio. Visual Studio offre un set di modelli di esempio, che è possibile distribuire come parte di un progetto di distribuzione del gruppo di risorse di Azure.
 
-## <a name="pre-requisites"></a>Prerequisiti
-Per iniziare a distribuire set di scalabilità di macchine virtuali in Visual Studio è necessario quanto segue:
+Le distribuzioni del gruppo di risorse di Azure sono un modo di raggruppare e pubblicare un set di risorse di Azure correlate con un'unica operazione di distribuzione. Per altre informazioni, vedere [creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per iniziare a distribuire set di scalabilità di macchine virtuali in Visual Studio, sono necessari i prerequisiti seguenti:
 
 * Visual Studio 2013 o versioni successive
 * Azure SDK 2.7, 2.8 o 2.9
 
 >[!NOTE]
->Queste istruzioni presuppongono l'uso di Visual Studio con [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+>Questo articolo usa Visual Studio 2019 con [Azure SDK 2,8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## <a name="creating-a-project"></a>Creazione di un progetto
-1. Creare un nuovo progetto in Visual Studio scegliendo **File | Nuovo | Progetto**.
-   
-    ![File Nuovo][file_new]
+## Creazione di un progetto<a name="creating-a-project"></a> 
 
-2. In **Visual C# | Cloud** scegliere **Azure Resource Manager** per creare un progetto per la distribuzione di un modello di Azure Resource Manager.
-   
-    ![Crea progetto][create_project]
+1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**.
 
-3. Dall'elenco dei modelli, selezionare il modello di set di scalabilità della macchina virtuale Linux o Windows.
-   
-   ![Seleziona modello][select_Template]
+1. In **Crea un nuovo progetto**scegliere **gruppo di risorse** di Azure C# per e quindi fare clic su **Avanti**.
 
-4. Dopo aver creato il progetto saranno disponibili gli script di distribuzione di PowerShell, un modello di Azure Resource Manager e un file di parametri per il set di scalabilità di macchine virtuali.
-   
-    ![Esplora soluzioni][solution_explorer]
+1. In **Configura il nuovo progetto**immettere un nome e selezionare **Crea**.
+
+    ![Nome e creazione del progetto](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
+
+1. Dall'elenco dei modelli scegliere il modello di set di **scalabilità di macchine virtuali Windows** o **set di scalabilità di macchine virtuali Linux** . Scegliere **OK**.
+
+   ![Selezionare un modello di macchina virtuale](media/virtual-machine-scale-sets-vs-create/select-vm-template.png)
+
+Dopo aver creato il progetto, **Esplora soluzioni** contiene uno script di distribuzione di PowerShell, un modello di Azure Resource Manager e un file di parametri per il set di scalabilità di macchine virtuali.
 
 ## <a name="customize-your-project"></a>Personalizzare il progetto
-È ora possibile modificare il modello per personalizzarlo in base alle esigenze dell'applicazione, ad esempio aggiungendo proprietà di estensione della macchina virtuale o modificando le regole di bilanciamento del carico. Per impostazione predefinita, i modelli del set di scalabilità di macchine virtuali sono configurati in modo da distribuire l'estensione AzureDiagnostics, che semplifica l'aggiunta di regole di scalabilità automatica. L'estensione inoltre distribuisce un servizio di bilanciamento del carico con un indirizzo IP pubblico, configurato con regole NAT in entrata. 
 
-Il servizio di bilanciamento del carico consente di connettersi alle istanze della macchina virtuale con SSH (Linux) o RDP (Windows). L'intervallo di porte front-end inizia da 50000. Per Linux ciò significa che se si usa SSH con la porta 50000, si viene instradati alla porta 22 della prima macchina virtuale nel set di scalabilità. La connessione alla porta 50001 determina l'instradamento alla porta 22 della seconda macchina virtuale e così via.
+A questo punto è possibile modificare il modello per personalizzarlo in base alle esigenze dell'applicazione. È possibile aggiungere le proprietà di estensione della macchina virtuale o modificare le regole di bilanciamento del carico. Per impostazione predefinita, i modelli del set di scalabilità di macchine virtuali sono configurati per distribuire l'estensione **AzureDiagnostics** , semplificando così l'aggiunta delle regole di scalabilità automatica. I modelli distribuiscono anche un servizio di bilanciamento del carico con un indirizzo IP pubblico, configurato con le regole NAT in ingresso.
 
- Un buon metodo per modificare i modelli con Visual Studio consiste nell'usare la struttura JSON per organizzare i parametri, le variabili e le risorse. Comprendendo lo schema, Visual Studio è in grado di indicare errori nel modello prima che venga distribuito.
+Il servizio di bilanciamento del carico consente di connettersi alle istanze di macchine virtuali con SSH (Linux) o RDP (Windows). L'intervallo di porte front-end inizia da 50000. Per Linux, se si esegue la connessione SSH alla porta 50000, il bilanciamento del carico indirizza la porta 22 della prima macchina virtuale nel set di scalabilità. La connessione alla porta 50001 viene indirizzata alla porta 22 della seconda macchina virtuale e così via.
 
-![Esplora JSON][json_explorer]
+ Un modo efficace per modificare i modelli con Visual Studio consiste nell'usare il **contorno JSON**. È possibile organizzare i parametri, le variabili e le risorse. Con una conoscenza dello schema, Visual Studio può evidenziare gli errori nel modello prima di distribuirlo.
+
+![Esplora JSON](media/virtual-machine-scale-sets-vs-create/json-explorer.png)
 
 ## <a name="deploy-the-project"></a>Distribuire il progetto
-1. Distribuire il modello di Azure Resource Manager per creare la risorsa set di scalabilità di macchine virtuali. Fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Distribuisci | Nuova distribuzione**.
-   
-    ![Modello di distribuzione][5deploy_Template]
-    
-2. Selezionare la sottoscrizione nella finestra di dialogo "Distribuisci in gruppo di risorse".
-   
-    ![Modello di distribuzione][6deploy_Template]
 
-3. Da qui è possibile creare un gruppo di risorse di Azure a cui distribuire il modello.
-   
-    ![Nuovo gruppo di risorse][new_resource]
+Distribuire il modello di Azure Resource Manager per creare la risorsa del set di scalabilità di macchine virtuali:
 
-4. Successivamente, fare clic su **Modifica parametri** per immettere i parametri trasmessi al modello. Specificare nome utente e password per il sistema operativo, che servono per creare la distribuzione. Se PowerShell Tools for Visual Studio non è installato, è consigliabile selezionare **Salva password** per evitare un prompt della riga di comando di PowerShell nascosto, oppure usare il [supporto dell'insieme di credenziali delle chiavi](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
-   
-    ![Modifica parametri][edit_parameters]
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci** > **nuovo**.
 
-5. Fare quindi clic su **Distribuisci**. La finestra **Output** visualizza lo stato della distribuzione. Si noti che l'azione esegue lo script **Deploy-AzureResourceGroup.ps1** .
-   
-   ![Finestra di output][output_window]
+    ![Distribuire il progetto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
-## <a name="exploring-your-virtual-machine-scale-set"></a>Esplorare il set di scalabilità di macchine virtuali
-Al termine della distribuzione, è possibile visualizzare il nuovo set di scalabilità di macchine virtuali in **Cloud Explorer** di Visual Studio (aggiornare l'elenco). Cloud Explorer consente di gestire le risorse di Azure in Visual Studio durante lo sviluppo di applicazioni. È anche possibile visualizzare il set di scalabilità di macchine virtuali nel [Portale di Azure](https://portal.azure.com) e in [Esplora inventario risorse di Azure](https://resources.azure.com/).
+1. In **Distribuisci in gruppo di risorse**scegliere la sottoscrizione da usare e selezionare un gruppo di risorse. Se necessario, è possibile creare un gruppo di risorse.
 
-![Cloud Explorer][cloud_explorer]
+1. Selezionare quindi **modifica parametri** per immettere i parametri passati al modello.
 
- Il portale rappresenta il modo migliore per gestire la visualizzazione dell'infrastruttura di Azure con un Web browser, mentre Azure Resource Explorer offre un modo semplice per esplorare le risorse di Azure ed eseguirne il debug, offrendo una "visualizzazione per istanza" e visualizzando anche i comandi PowerShell per le risorse che si stanno analizzando.
+   ![Immettere la sottoscrizione e il gruppo di risorse](media/virtual-machine-scale-sets-vs-create/deploy-to-resource-group.png)
+
+1. Fornire il nome utente e la password per il sistema operativo. Questi valori sono necessari per creare la distribuzione. Se PowerShell Tools for Visual Studio non è installato, selezionare **Salva password** per evitare un prompt dei comandi di PowerShell nascosto oppure usare [Key Vault supporto](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/). Selezionare **Save (Salva** ) per continuare.
+
+    ![Modifica parametri di distribuzione](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
+
+1. In **Distribuisci in gruppo di risorse**selezionare **Distribuisci**. L'azione esegue lo script **deploy-azureresourcegroup. ps1** . La finestra **Output** visualizza lo stato della distribuzione.
+
+   ![Output Mostra i risultati](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
+
+## Esplorare il set di scalabilità di macchine virtuali<a name="exploring-your-virtual-machine-scale-set"></a>
+
+Selezionare **visualizza** > **Cloud Explorer** per visualizzare il nuovo set di scalabilità di macchine virtuali. Se necessario, utilizzare **Refresh all**.
+
+![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
+
+**Cloud Explorer** consente di gestire le risorse di Azure in Visual Studio durante lo sviluppo di applicazioni. È anche possibile visualizzare il set di scalabilità di macchine virtuali nel [Portale di Azure](https://portal.azure.com) e in [Esplora inventario risorse di Azure](https://resources.azure.com/).
+
+ Il portale rappresenta il modo migliore per gestire l'infrastruttura di Azure con un Web browser. Azure Resource Explorer offre un modo semplice per esplorare ed eseguire il debug delle risorse di Azure. Azure Resource Explorer offre la visualizzazione dell'istanza e Mostra anche i comandi di PowerShell per le risorse che si stanno analizzando.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver distribuito i set di scalabilità di macchine virtuali tramite Visual Studio è possibile personalizzare ulteriormente il progetto in base alle esigenze dell'applicazione. Ad esempio, è possibile configurare la scalabilità automatica aggiungendo una risorsa di **Insights**, aggiungendo l'infrastruttura al modello (ad esempio macchine virtuali autonome) o distribuendo applicazioni con l'estensione dello script personalizzata. Alcuni esempi utili di modelli sono disponibili nel repository GitHub dedicato ai [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates) (cercare "vmss").
 
-[file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png
-[create_project]: ./media/virtual-machine-scale-sets-vs-create/2-CreateProject.png
-[select_Template]: ./media/virtual-machine-scale-sets-vs-create/3b-SelectTemplateLin.png
-[solution_explorer]: ./media/virtual-machine-scale-sets-vs-create/4-SolutionExplorer.png
-[json_explorer]: ./media/virtual-machine-scale-sets-vs-create/10-JsonExplorer.png
-[5deploy_Template]: ./media/virtual-machine-scale-sets-vs-create/5-DeployTemplate.png
-[6deploy_Template]: ./media/virtual-machine-scale-sets-vs-create/6-DeployTemplate.png
-[new_resource]: ./media/virtual-machine-scale-sets-vs-create/7-NewResourceGroup.png
-[edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
-[output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
-[cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
+Dopo aver distribuito i set di scalabilità di macchine virtuali tramite Visual Studio è possibile personalizzare ulteriormente il progetto in base alle esigenze dell'applicazione. Ad esempio, configurare la scalabilità automatica aggiungendo una risorsa di **Insights** . È possibile aggiungere un'infrastruttura al modello, ad esempio macchine virtuali autonome o distribuire applicazioni usando l'estensione script personalizzata. Modelli di esempio validi sono disponibili nel repository GitHub dei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates) . Cercare `vmss`.

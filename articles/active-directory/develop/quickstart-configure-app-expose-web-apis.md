@@ -1,10 +1,10 @@
 ---
-title: Configurare un'applicazione per l'esposizione di API Web (anteprima) | Azure
+title: Configurare un'applicazione per l'esposizione di API Web | Microsoft Identity Platform
 description: Informazioni su come configurare un'applicazione in modo da esporre un nuovo ambito/autorizzazione e un nuovo ruolo e renderla così disponibile per applicazioni client.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 08/14/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080846"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989281"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web (anteprima)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
 
 È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
 
@@ -37,15 +37,14 @@ Per iniziare, assicurarsi di soddisfare questi prerequisiti:
 * Acquisire informazioni su [autorizzazioni supportate e consenso](v2-permissions-and-consent.md), la cui conoscenza è importante per creare applicazioni che dovranno essere usate da altri utenti o applicazioni.
 * Avere un tenant in cui sono registrate applicazioni.
   * Se non si hanno app registrate, vedere come [registrare applicazioni con Microsoft Identity Platform](quickstart-register-app.md).
-* Acconsentire esplicitamente all'esperienza di anteprima per le registrazioni di app nel portale di Azure. Le procedure illustrate in questa guida introduttiva corrispondono alla nuova interfaccia utente e funzionano solo se si è acconsentito esplicitamente all'esperienza di anteprima.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
 
 Per poter configurare l'app, seguire prima questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)**.
+1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
 1. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** o la pagina di registrazione principale dell'applicazione.
 1. Scegliere il metodo (interfaccia utente o manifesto dell'applicazione) che si vuole usare per esporre un nuovo ambito:
     * [Esporre un nuovo ambito tramite l'interfaccia utente](#expose-a-new-scope-through-the-ui)
@@ -53,7 +52,7 @@ Per poter configurare l'app, seguire prima questa procedura:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Esporre un nuovo ambito tramite l'interfaccia utente
 
-[![Esporre un'API con l'interfaccia utente](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Mostra come esporre un'API con l'interfaccia utente](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Per esporre un nuovo ambito tramite l'interfaccia utente:
 
@@ -117,8 +116,9 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
 
 1. Tornare al tenant di Azure AD, selezionare nuovamente **Registrazioni app** e quindi trovare e selezionare l'applicazione client che si vuole configurare.
-1. Ripetere la procedura illustrata in Configurare un'applicazione client per l'accesso ad API Web.
-1. Quando si arriva al passaggio per **selezionare un'API**, selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
+1. Ripetere la procedura illustrata in [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md).
+1. Quando si arriva al passaggio per [selezionare un'API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
 
 ## <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
 

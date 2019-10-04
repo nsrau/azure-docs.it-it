@@ -1,22 +1,22 @@
 ---
 title: Informazioni sull'API Ricerca notizie Bing
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come usare l'API Ricerca notizie Bing per la ricerca sul Web di notizie in diverse categorie, tra cui titoli e gli argomenti di tendenza.
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come usare l'API Ricerca notizie Bing per la ricerca sul Web di notizie tra le categorie, tra cui titoli e argomenti di tendenza.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 577ce53b4667928d7eb5a870f57ff7180caaf6f5
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877100"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423652"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Informazioni sull'API Ricerca notizie Bing
 
@@ -52,8 +52,8 @@ Provare prima la [demo interattiva](https://azure.microsoft.com/services/cogniti
 
 Per iniziare rapidamente con la prima richiesta API, provare un'esercitazione introduttiva per l'[API REST](quickstart.md) o uno degli [SDK](sdk.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* La sezione di riferimento sull'[API Ricerca notizie Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte dell'API e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
+* La sezione di riferimento sull'[API Ricerca notizie Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte dell'API e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
 
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.

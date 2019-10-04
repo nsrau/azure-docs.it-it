@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160452"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -69,7 +69,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | DESCRIZIONE  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
@@ -107,7 +107,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 Il comando `az mysql server georestore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | DESCRIZIONE  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |

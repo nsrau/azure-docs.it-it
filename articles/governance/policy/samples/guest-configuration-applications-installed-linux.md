@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204022"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Esempio : Controllare se le applicazioni specificate non sono installate nelle macchine virtuali Linux
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Esempio: controllare se le applicazioni specificate non sono installate nelle macchine virtuali Linux
 
-Questa iniziativa di Configurazione guest di Criteri di Azure controlla se l'applicazione specificata è installata nelle macchine virtuali Linux. L'ID di questa iniziativa predefinita è `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Questa iniziativa di Configurazione guest di criteri crea un evento di controllo quando le applicazioni specificate non sono installate nelle macchine virtuali Linux. L'ID di questa iniziativa predefinita è `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Tutte le iniziative di Configurazione guest sono costituite da definizioni di criteri **audit** e **deployIfNotExists**. L'assegnazione di una sola delle definizioni di criteri impedisce il corretto funzionamento di Configurazione guest.
@@ -32,9 +32,9 @@ Questa iniziativa di Configurazione guest di Criteri di Azure controlla se l'app
 
 Questa iniziativa di [Configurazione guest](../concepts/guest-configuration.md) è costituita dai criteri seguenti:
 
-- [audit](#audit-definition): controlla che un'applicazione sia installata nelle macchine virtuali Linux
+- [controllo](#audit-definition): controllare se le applicazioni non sono installate nelle macchine virtuali Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition): distribuisce l'estensione della macchina virtuale per controllare se un'applicazione è installata in macchine virtuali Linux
+- [deployIfNotExists](#deployIfNotExists-definition): distribuisce l'estensione della macchina virtuale per controllare quando le applicazioni non sono installate nelle macchine virtuali Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Definizione di iniziativa
@@ -45,7 +45,9 @@ Per creare l'iniziativa, si uniscono le definizioni **audit** e **deployIfNotExi
 
 ### <a name="initiative-parameters"></a>Parametri delle iniziative
 
-|Nome |Tipo ||Descrizione | |---|---||---| |applicationName |String |Nomi di applicazione. Esempio: 'python', 'powershell' oppure un elenco delimitato da virgole, come 'python,powershell'. Usare l'asterisco (\*) per la corrispondenza con carattere jolly, ad esempio 'power\*'.|
+|NOME |Type |DESCRIZIONE |
+|---|---|---|
+|applicationName |string |Nomi delle applicazioni. Esempio: 'python', 'powershell' oppure un elenco delimitato da virgole, come 'python,powershell'. Usare \* per la corrispondenza con carattere jolly, ad esempio 'power\*'. |
 
 Quando si crea un'assegnazione tramite PowerShell o l'interfaccia della riga di comando di Azure, i valori dei parametri possono essere passati in formato JSON in una stringa o tramite un file usando `-PolicyParameter` (PowerShell) o `--params` (interfaccia della riga di comando di Azure).
 PowerShell supporta anche `-PolicyParameterObject`, che richiede di passare al cmdlet una tabella hash nome/valore il cmdlet in cui il **nome** è il nome del parametro e il **valore** è il valore singolo o la matrice di valori passati durante assegnazione.
@@ -106,7 +108,7 @@ Dopo la creazione delle definizioni **audit** e **deployIfNotExists** nel portal
 
 ### <a name="create-copy-of-audit-definition"></a>Creare la copia della definizione audit
 
-[![Distribuire l'esempio di Criteri in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Distribuire l'esempio di Criteri in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Questi pulsanti per la distribuzione tramite il portale consentono di creare una copia della definizione di criteri **audit**.
@@ -114,7 +116,7 @@ Se non è presente la definizione di criteri abbinata **deployIfNotExists**, Con
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Creare la copia della definizione deployIfNotExists
 
-[![Distribuire l'esempio di Criteri in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Distribuire l'esempio di Criteri in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Questi pulsanti per la distribuzione tramite il portale consentono di creare una copia della definizione di criteri **deployIfNotExists**. Se non è presente la definizione di criteri abbinata **audit**, Configurazione guest non funzionerà correttamente.

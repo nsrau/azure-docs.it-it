@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60755233"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limiti del Gateway di finestra di dati Azure
 
@@ -28,11 +28,11 @@ Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Gateway, t
 
 La tabella seguente illustra i limiti del dispositivo Data Box Gateway.
 
-| DESCRIZIONE | Valore |
+| Descrizione | Value |
 |---|---|
-| No. di file per dispositivo |100 milioni <br> Il limite è di circa 25 milioni di file per ogni 2 TB di spazio su disco con un limite massimo di 100 milioni |
-| No. di condivisioni per dispositivo |24 |
-| No. di condivisioni per ogni contenitore di archiviazione di Azure |1 |
+|No. di file per dispositivo |100 milioni <br> Il limite è di circa 25 milioni di file per ogni 2 TB di spazio su disco con un limite massimo di 100 milioni |
+|No. di condivisioni per dispositivo |24 |
+|No. di condivisioni per ogni contenitore di archiviazione di Azure |1 |
 |Dimensione massima dei file scritti in una condivisione|Per un dispositivo virtuale di 2 TB, le dimensioni massime del file sono di 500 GB. <br> La dimensione massima del file aumenta con la dimensione del disco dati nel rapporto indicato in precedenza fino a raggiungere un massimo di 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limiti di Archiviazione di Azure

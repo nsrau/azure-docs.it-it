@@ -3,20 +3,20 @@ title: Supporto di Azure Resource Manager per il bilanciamento del carico | Docu
 description: Usare PowerShell per il bilanciamento del carico con Azure Resource Manager. Uso di modelli per il bilanciamento del carico
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: allensu
+ms.openlocfilehash: 839b607b7787d51151401737848a46d7b66229dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593812"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275478"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usare il supporto di Azure Resource Manager per Azure Load Balancer
 
@@ -30,9 +30,9 @@ Con Resource Manager, Azure Load Balancer contiene le seguenti risorse figlio:
 
 * Configurazione IP front-end: un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali (indirizzi VIP). Questi indirizzi IP vengono usati come ingresso per il traffico.
 * Pool di indirizzi back-end: indirizzi IP associati alla scheda di interfaccia di rete della macchina virtuale a cui viene distribuito il carico.
-* Le regole di bilanciamento del carico: una proprietà della regola esegue il mapping a e combinazione di porta a un set di indirizzi IP back-end e combinazione di porta IP front-end specifico. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP front-end e porte back-end IP e porta associata alle VM.
+* Regole di bilanciamento del carico: una proprietà della regola esegue il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di indirizzo IP e porta front-end e di IP e porta back-end associati alle macchine virtuali.
 * Probe: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se un probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
-* Regole NAT in ingresso: NAT regole che definiscono il traffico in ingresso attraversa l'IP front-end e distribuito all'IP back-end.
+* Regole NAT in ingresso: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 

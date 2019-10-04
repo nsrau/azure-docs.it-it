@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 826187123529c97f09a44501add3e4c8f76d70e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180665"
 ---
 ## <a name="availability"></a>Disponibilità
 

@@ -1,32 +1,31 @@
 ---
-title: Eseguire un playbook nell'anteprima di Azure Sentinel | Microsoft Docs
+title: Eseguire un playbook in Azure Sentinel | Microsoft Docs
 description: Questo articolo descrive come eseguire un playbook in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5ce409b984ab9110a8ca44f47675045e4d80aed5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088639"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229503"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Esercitazione: Configurare le risposte automatiche alle minacce nell'anteprima di Azure Sentinel
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Esercitazione: Configurare le risposte automatiche alle minacce in Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Questa esercitazione illustra come usare i playbook di sicurezza in Azure Sentinel per impostare risposte automatiche ai problemi relativi alla sicurezza rilevati da Azure Sentinel.
 
@@ -35,6 +34,7 @@ Questa esercitazione illustra come usare i playbook di sicurezza in Azure Sentin
 > * Informazioni sui playbook
 > * Creare un playbook
 > * Eseguire un playbook
+> * Automatizzare le risposte alle minacce
 
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Definizione di playbook di sicurezza in Azure Sentinel
@@ -76,7 +76,9 @@ Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sent
 
 6. Verrà visualizzata la pagina Progettazione app per la logica in cui è possibile creare un nuovo modello oppure modificarne uno esistente. Vedere altre informazioni sulla creazione di un playbook con [App per la logica](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Se si sta creando un playbook vuoto, nel campo **Cerca tutti i connettori e i trigger** digitare *Azure Sentinel* e selezionare **When a response to an Azure Sentinel alert is triggered** (Quando viene attivata una risposta a un avviso di Azure Sentinel). <br>Dopo averlo creato, il nuovo playbook viene visualizzato nell'elenco **Playbook**. Se non viene visualizzato, fare clic su **Aggiorna**. 
+7. Se si sta creando un playbook vuoto, nel campo **Cerca tutti i connettori e i trigger** digitare *Azure Sentinel* e selezionare **When a response to an Azure Sentinel alert is triggered** (Quando viene attivata una risposta a un avviso di Azure Sentinel). <br>Dopo averlo creato, il nuovo playbook viene visualizzato nell'elenco **Playbook**. Se non viene visualizzato, fare clic su **Aggiorna**.
+
+1. Usare le funzioni di **Recupera entità** che consentono di ottenere le entità pertinenti dall'interno dell'elenco **Entità**, come account, indirizzi IP e host. In questo modo sarà possibile eseguire azioni su entità specifiche.
 
 7. È ora possibile definire cosa accade quando si attiva il playbook. È possibile aggiungere un'azione, una condizione logica, condizioni switch case o cicli.
 
@@ -88,15 +90,33 @@ Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sent
 
 Per eseguire un playbook su richiesta:
 
-1. Nella pagina **Cases** (Casi) selezionare un caso e fare clic su **View full details** (Visualizza i dettagli completi).
+1. Nella pagina **incidents** (eventi imprevisti) selezionare un evento imprevisto e fare clic su **View full details** (Visualizza i dettagli completi).
 
 2. Nella scheda**Alerts** (Avvisi) fare clic sull'avviso sul quale eseguire il playbook, scorrere verso destra e fare clic su **View playbooks** (Visualizza i playbook). Selezionare quindi un playbook da **eseguire** dall'elenco di playbook disponibili nella sottoscrizione. 
 
 
 
+## <a name="automate-threat-responses"></a>Automatizzare le risposte alle minacce
+
+I team SIEM/SOC possono essere inondati periodicamente da avvisi di sicurezza. Il numero degli avvisi generati è talmente elevato che gli amministratori della sicurezza disponibili sono sovraccaricati. La conseguenza è che troppo spesso molti avvisi non possono essere analizzati, lasciando l'organizzazione vulnerabile ad attacchi che non vengono rilevati. 
+
+Molti di questi avvisi, se non la maggior parte, seguono modelli ricorrenti che possono essere risolti con azioni correttive specifiche e definite. Azure Sentinel consente già di definire le misure correttive nei playbook. È anche possibile impostare l'automazione in tempo reale come parte della definizione dei playbook, consentendo di automatizzare completamente una risposta definita a determinati avvisi di sicurezza. Usando l'automazione in tempo reale, i team di sicurezza possono ridurre sensibilmente il loro carico di lavoro automatizzando completamente le risposte di routine ai tipi di avviso ricorrenti, con la possibilità di concentrarsi maggiormente su avvisi univoci, analisi dei modelli, ricerca di minacce e altro ancora.
+
+Per automatizzare le risposte:
+
+1. Selezionare l'avviso per cui si vuole automatizzare la risposta.
+1. Nella pagina **Modifica la regola di avviso**, in **Playbook attivati** della sezione **Automazione in tempo reale**, scegliere il playbook che si vuole eseguire quando viene trovata una corrispondenza con la regola di avviso.
+1. Selezionare **Salva**.
+
+   ![Automazione in tempo reale](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come eseguire un playbook in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti: In questa esercitazione si è appreso come eseguire un playbook in Azure Sentinel. Vedere ora [come cercare le minacce in modo proattivo](hunting.md) usando Azure Sentinel.
-> [!div class="nextstepaction"]
-> [Cercare le minacce](hunting.md) per individuare le minacce in modo proattivo nella rete.
+
+In questa esercitazione si è appreso come eseguire un playbook in Azure Sentinel. Vedere ora [come cercare le minacce in modo proattivo](hunting.md) usando Azure Sentinel.
+
 

@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357132"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569138"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
 
@@ -33,7 +32,7 @@ ms.locfileid: "59357132"
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
@@ -93,7 +92,7 @@ In Visual Studio Code impostare la modalità di linguaggio su **SQL** per abilit
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
-Usare Visual Studio Code per stabilire una connessione al server del database SQL di Azure.
+Usare Visual Studio Code per stabilire una connessione al server di database SQL di Azure.
 
 > [!IMPORTANT]
 > Prima di continuare, assicurarsi di avere a disposizione le informazioni di accesso e del server. Se dopo aver iniziato a immettere le informazioni del profilo di connessione si sposta lo stato attivo da Visual Studio Code, sarà necessario iniziare di nuovo la creazione del profilo.

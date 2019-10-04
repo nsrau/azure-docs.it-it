@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702797"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latenza degli eventi live in Servizi multimediali
 
@@ -27,7 +27,7 @@ Questo articolo illustra come impostare una bassa latenza in un [evento live](ht
 Per usare la nuova funzionalità **LowLatency** impostare il flag **StreamOptionsFlag** su **LowLatency** nel **LiveEvent**. Quando si crea [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) per la riproduzione HLS, impostare [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) su 1. Quando il flusso è in esecuzione, è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/) (pagina demo di AMP) e impostare le opzioni di riproduzione per l'uso del profilo di euristica a bassa latenza.
 
 > [!NOTE]
-> Attualmente, il profilo di euristica a bassa latenza in Azure Media Player è progettato per la riproduzione di flussi nel protocollo DASH o HLS con CMAF. Se si sviluppano app per dispositivi MacOS o iOS tramite HLS con TS, ad esempio `format=m3u8-aapl` o `format=m3u8-aapl-v3`, è consigliabile non usare questa impostazione poiché in questo caso AMP usa direttamente il lettore nativo fornito dal sistema operativo.
+> Attualmente, il LowLatency HeuristicProfile in Azure Media Player è progettato per la riproduzione di flussi nel protocollo MPEG-DASH, con formato CSF o CMAF (ad esempio, `format=mdp-time-csf` o `format=mdp-time-cmaf`). 
 
 L'esempio di .NET seguente mostra come impostare **LowLatency** nel **LiveEvent**:
 

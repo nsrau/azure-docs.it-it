@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Cercare video con l'API REST Ricerca video Bing e C#"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e C#"
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con C#.
 services: cognitive-services
 author: aahill
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9ba2027641ef6cc9a86044850e8996f986992bf8
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108781"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500182"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e C#
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e C#
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione C# invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) con altre annotazioni di codice, funzionalità e informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
@@ -226,6 +226,6 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Creare un'app Web a pagina singola](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Informazioni sull'API Ricerca video Bing](../overview.md)

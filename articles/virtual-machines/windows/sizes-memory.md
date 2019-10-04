@@ -4,24 +4,23 @@ description: Elenca le diverse dimensioni ottimizzate per la memoria per le macc
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 keywords: Isolamento di VM,VM isolata,isolamento,isolata
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: a81ce010e2d31a9852ca24a0ac45f6b4f60ab480
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3920160a4550cc81c250b99cb0b5bdd78b42c770
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344255"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102289"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la memoria
 

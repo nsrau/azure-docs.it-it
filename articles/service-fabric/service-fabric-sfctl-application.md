@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665543"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036535"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -43,7 +42,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | type | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
 | type-list | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric. |
 | unprovision | Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster. |
-| Aggiornamento | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
+| upgrade | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
 | upgrade-resume | Riprende l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
 | upgrade-rollback | Avvia il rollback dell'aggiornamento attualmente in corso di un'applicazione nel cluster di Service Fabric. |
 | upgrade-status | Mostra i dettagli dell'aggiornamento più recente eseguito sull'applicazione. |

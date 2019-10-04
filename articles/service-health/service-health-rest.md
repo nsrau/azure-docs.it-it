@@ -8,11 +8,11 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790913"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ottenere Integrità risorse tramite l'API REST 
 
@@ -32,14 +32,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare su un [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2015-04-01`, inclusa nell'URL precedente.  |

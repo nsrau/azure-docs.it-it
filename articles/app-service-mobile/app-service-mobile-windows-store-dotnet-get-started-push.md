@@ -3,7 +3,7 @@ title: Aggiungere notifiche push all'app UWP (Universal Windows Platform) | Docu
 description: Informazioni su come usare le app per dispositivi mobili del servizio app di Azure e gli hub di notifica di Azure per inviare notifiche push all'app UWP (Universal Windows Platform).
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: 7efd853e7b66933cac811625d7510139864f41f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 7455ad33660a0af004a3a3ad982e929fc4b3031e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001841"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851130"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Aggiungere notifiche push all'app di Windows
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center sta investendo nei servizi nuovi e integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud. Estrai [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) oggi stesso.
+>
 
 ## <a name="overview"></a>Panoramica
 
@@ -115,7 +119,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso:&mdas
 4. Pubblicare di nuovo il progetto server.
 
 ### <a name="nodejs"></a>Progetto di back-end Node.js
-1. [Scaricare il progetto di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) (se non è ancora stato scaricato) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Configurare il progetto back-end.
 2. Sostituire il codice esistente nel file todoitem.js file con il codice seguente:
 
     ```javascript

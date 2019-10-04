@@ -3,18 +3,18 @@ title: Diagnosticare e risolvere i problemi di Java Async SDK di Azure Cosmos DB
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi relativi ad Azure Cosmos DB.
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
+ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880076"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519989"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Risolvere i problemi durante l'uso di Java Async SDK con gli account API SQL di Azure Cosmos DB
 Questo articolo illustra problemi e soluzioni alternative comuni, passaggi di diagnostica e strumenti utili durante l'uso di [Java Async SDK](sql-api-sdk-async-java.md) con gli account API SQL di Azure Cosmos DB.
@@ -53,10 +53,20 @@ Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP p
 
  Le porte SNAT di Azure vengono usate solo quando la macchina virtuale ha un indirizzo IP privato e un processo dalla macchina virtuale prova a connettersi a un indirizzo IP pubblico. Esistono due soluzioni alternative per evitare la limitazione per le porte SNAT di Azure:
 
-* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
 
     Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assegnare un indirizzo IP pubblico alla macchina virtuale di Azure.
+
+##### <a name="cant-connect"></a>Non è possibile raggiungere il servizio: firewall
+``ConnectTimeoutException`` indica che il SDK non riesce a raggiungere il servizio.
+Potrebbe essere visualizzato un errore simile al seguente quando si usa la modalità diretta:
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+Se è presente un firewall in esecuzione nel computer di app, aprire l'intervallo di porte 10.000 e 20.000 usati per la modalità diretta.
+Seguire anche le [limite di connessione in un computer host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 

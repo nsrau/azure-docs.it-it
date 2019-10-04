@@ -5,6 +5,7 @@
     - name: Informazioni su Ancoraggi nello spazio
       href: overview.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Creare app Unity
       href: unity-overview.yml
@@ -16,18 +17,26 @@
           href: quickstarts/get-started-unity-android.md
         - name: iOS
           href: quickstarts/get-started-unity-ios.md
-    - name: Creare app iOS
-      href: quickstarts/get-started-ios.md
-    - name: Creare app Android
-      href: quickstarts/get-started-android.md
     - name: Creare app HoloLens
       href: quickstarts/get-started-hololens.md
+    - name: Creare app Android
+      href: quickstarts/get-started-android.md
+    - name: Creare app iOS
+      href: quickstarts/get-started-ios.md
+    - name: Creare app Xamarin
+      items:
+        - name: Android
+          href: quickstarts/get-started-xamarin-android.md
+        - name: iOS
+          href: quickstarts/get-started-xamarin-ios.md
 - name: Esercitazioni
   items:
     - name: Condivisione in Unity
       href: tutorials/tutorial-share-anchors-across-devices.md
     - name: Condivisione in Unity con Azure Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Avvio di una nuova app HoloLens in Unity
+      href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Avvio di una nuova app Android
       href: tutorials/tutorial-new-android-app.md
 - name: Procedura
@@ -53,6 +62,8 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Concetti
   items:
+    - name: Authentication
+      href: concepts/authentication.md
     - name: Relazioni tra ancoraggi
       href: concepts/anchor-relationships-way-finding.md
     - name: Linee guida sull'esperienza
@@ -73,6 +84,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: Risorse
   items:
+    - name: API REST di gestione delle risorse di Realtà mista di Azure
+      href: 'https://docs.microsoft.com/en-us/rest/api/mixedreality/'
     - name: Domande frequenti
       href: spatial-anchor-faq.md
     - name: Inviare feedback sul prodotto

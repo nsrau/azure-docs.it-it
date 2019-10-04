@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310557"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461598"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usa identità gestite in Gestione API di Azure
 
 Questo articolo illustra come creare un'identità gestita per un'istanza del servizio Gestione API e come accedere ad altre risorse. Un'identità gestita generata da Azure Active Directory (Azure AD) consente all'istanza di gestione API semplice e sicuro accedere ad altre risorse di protetto AD Azure, ad esempio Azure Key Vault. Questa identità viene gestita da Azure e non è necessario effettuare il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestita, vedere [What ' s identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creare un'identità gestita per un'istanza di gestione API
 
@@ -53,28 +51,25 @@ Ad esempio, un modello completo di Azure Resource Manager può essere simile al 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0"
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-01",
-            "name": "contoso",
-            "type": "Microsoft.ApiManagement/service",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "sku": {
-                "name": "Developer",
-                "capacity": "1"
-            },
-            "properties": {
-                "publisherEmail": "admin@contoso.com",
-                "publisherName": "Contoso"
-            },
-            "identity": {
-                "type": "systemAssigned"
-            }
+    "contentVersion": "0.9.0.0",
+    "resources": [{
+        "apiVersion": "2017-03-01",
+        "name": "contoso",
+        "type": "Microsoft.ApiManagement/service",
+        "location": "[resourceGroup().location]",
+        "tags": {},
+        "sku": {
+            "name": "Developer",
+            "capacity": "1"
+        },
+        "properties": {
+            "publisherEmail": "admin@contoso.com",
+            "publisherName": "Contoso"
+        },
+        "identity": {
+            "type": "systemAssigned"
         }
-    ]
+    }]
 }
 ```
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usare l'identità del servizio gestita per accedere ad altre risorse
@@ -242,3 +237,4 @@ Altre informazioni sulle identità gestita per le risorse di Azure:
 
 * [Che cos'è l'identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelli di Gestione risorse di Azure](https://github.com/Azure/azure-quickstart-templates)
+* [Eseguire l'autenticazione con un'identità gestita in un criterio](./api-management-authentication-policies.md#ManagedIdentity)

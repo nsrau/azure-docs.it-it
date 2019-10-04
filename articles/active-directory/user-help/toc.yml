@@ -1,11 +1,19 @@
 - name: Documentazione della Guida dell'utente
-  href: index.md
+  href: index.yml
 - name: Guida alla verifica in due passaggi
   items:
     - name: Panoramica
       href: user-help-two-step-verification-overview.md
-    - name: Configurare l'account
-      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurare i metodi di verifica a due fattori
+      items:
+        - name: Panoramica
+          href: multi-factor-authentication-end-user-first-time.md
+        - name: Configurare un'app di autenticazione
+          href: multi-factor-authentication-setup-auth-app.md
+        - name: Configurare un dispositivo mobile
+          href: multi-factor-authentication-setup-phone-number.md
+        - name: Configurare un telefono dell'ufficio
+          href: multi-factor-authentication-setup-office-phone.md
     - name: Gestire le impostazioni
       href: multi-factor-authentication-end-user-manage-settings.md
     - name: Ottenere aiuto
@@ -28,9 +36,10 @@
       href: user-help-auth-app-overview.md
     - name: Scaricare e installare l'app
       href: user-help-auth-app-download-install.md
-    - name: Aggiungere una panoramica degli account
-      href: user-help-auth-app-add-account-overview.md
+    - name: Aggiungere account
       items:
+        - name: Panoramica
+          href: user-help-auth-app-add-account-overview.md
         - name: Aggiungere un account aziendale o dell'istituto di istruzione
           href: user-help-auth-app-add-work-school-account.md
         - name: Aggiungere un account Microsoft personale
@@ -63,15 +72,18 @@
       href: user-help-security-info-overview.md
     - name: Aggiungere informazioni di sicurezza durante l'accesso
       href: security-info-setup-signin.md
-    - name: Panoramica sull'aggiunta e l'aggiornamento dei metodi correlati alle informazioni di sicurezza
-      href: security-info-add-update-methods-overview.md
+    - name: Aggiungere o aggiornare i metodi correlati alle informazioni di sicurezza
       items:
+        - name: Panoramica
+          href: security-info-add-update-methods-overview.md
         - name: Configurare un'app di autenticazione
           href: security-info-setup-auth-app.md
         - name: Configurare SMS
           href: security-info-setup-text-msg.md
         - name: Configurare chiamate telefoniche
           href: security-info-setup-phone-number.md
+        - name: Configurare una chiave di sicurezza
+          href: security-info-setup-security-key.md
         - name: Configurare la posta elettronica
           href: security-info-setup-email.md
         - name: Configurare le domande di sicurezza

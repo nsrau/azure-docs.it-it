@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: HT
+ms.openlocfilehash: 0c4f961dda273c7f3885159818dabf228abced42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500084"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839476"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-table-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-table-storage.md)
 
@@ -39,7 +39,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
 
@@ -82,8 +82,8 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. | No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
-| azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |TRUE<br/>FALSE |No  |
+| azureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
+| azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |TRUE<br/>FALSE |No |
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
 Se la colonna della tabella di Azure è di tipo stringa:
@@ -102,10 +102,10 @@ Se la colonna della tabella di Azure è di tipo datetime:
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |Valore stringa. |No  |
-| azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. |Nome colonna. |No  |
-| azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di riga. Se non specificato, usare un GUID per ogni riga. |Nome colonna. |No  |
-| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br>  Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No  |
+| azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |Valore stringa. |No |
+| azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. |Nome colonna. |No |
+| azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di riga. Se non specificato, usare un GUID per ogni riga. |Nome colonna. |No |
+| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br> Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No |
 | writeBatchSize |Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. |Numero intero (numero di righe) |No (valore predefinito: 10.000) |
 | writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |Intervallo di tempo<br/><br/>Esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
 
@@ -131,7 +131,7 @@ DivisionID è specificato come chiave di partizione.
 }
 ```
 ## <a name="json-examples"></a>Esempi JSON
-Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e dall'archivio tabelle di Azure e in e dal database BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da qualsiasi origine a qualunque sink supportato. Per altre informazioni, vedere la sezione "Archivi dati e formati supportati" in [Spostare dati con l'attività di copia](data-factory-data-movement-activities.md).
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e dall'archivio tabelle di Azure e in e dal database BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da qualsiasi origine a qualunque sink supportato. Per altre informazioni, vedere la sezione "Archivi dati e formati supportati" in [Spostare dati con l'attività di copia](data-factory-data-movement-activities.md).
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Esempio: Copiare dati da tabelle di Azure a BLOB di Azure
 L'esempio seguente mostra:
@@ -484,7 +484,7 @@ Quando si spostano i dati da e verso tabelle di Azure, i seguenti [mapping defin
 | Edm.Guid |Guid |Un identificatore univoco globale a 128 bit. |
 | Edm.Int32 |Int32 |Un valore integer a 32 bit. |
 | Edm.Int64 |Int64 |Un valore integer a 64 bit. |
-| Edm.String |String |Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
+| Edm.String |string |Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Esempio di conversione di tipo
 L'esempio seguente riguarda la copia dei dati da un BLOB di Azure a tabelle di Azure con conversioni del tipo.

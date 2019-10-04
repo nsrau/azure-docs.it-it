@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751482"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180583"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -37,7 +37,7 @@ Il dispositivo di esempio inoltre:
 * Risponde alle azioni attivate dalla pagina **Dispositivi** della soluzione.
 * Risponde alle modifiche di configurazione inviate dalla pagina **Dispositivi** della soluzione.
 
-Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

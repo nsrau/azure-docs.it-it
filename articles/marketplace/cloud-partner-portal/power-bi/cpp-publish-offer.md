@@ -1,25 +1,18 @@
 ---
-title: Pubblicare un'offerta di app Power BI - Azure Marketplace | Microsoft Docs
+title: Pubblicare l'offerta per l'App di Power BI | Azure Marketplace
 description: Pubblicare un'offerta di App di Power BI tramite il marketplace Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 0e82041dab1932ed7c129b598740b2441aa59315
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.author: pabutler
+ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943187"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Pubblicare un'offerta di App di Power BI
 
@@ -34,7 +27,7 @@ Questi sono i passaggi principali nel processo di pubblicazione:
 
 Questa tabella descrive i diversi passaggi e fornisce il tempo di completamento stimato:
 
-|   Passaggio di pubblicazione            |   Tempo     |   DESCRIZIONE                                                                  |
+|   Passaggio di pubblicazione            |   Time     |   Descrizione                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Convalida dei prerequisiti       | 15 minuti     | Vengono convalidate le informazioni e le impostazioni dell'offerta.                            |
 | Certificazione                | 1-7 giorni   | Il Team di certificazione di Power BI analizza l'offerta. Il team esegue l'app Power BI tramite un test di verifica manuali installando l'app tramite l'URL di installazione fornito. Come parte del processo di certificazione app (descritto più avanti in questo documento) vengono eseguite convalide primarie.         |

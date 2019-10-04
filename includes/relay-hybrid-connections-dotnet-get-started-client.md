@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735940"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180381"
 ---
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
-In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
+In Visual Studio creare un nuovo progetto **App console (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
 

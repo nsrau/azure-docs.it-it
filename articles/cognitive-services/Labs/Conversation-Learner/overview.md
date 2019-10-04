@@ -3,19 +3,20 @@ title: Informazioni su Conversation Learner - Servizi cognitivi Microsoft | Micr
 titleSuffix: Azure
 description: Informazioni su Conversation Learner e sul relativo funzionamento.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c46ffe2076d4b1491a3b27958dfbf5ed09115eaa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 725a1d3628fb320a58e073fe2d825af23b02c0bd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221285"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707011"
 ---
 # <a name="what-is-conversation-learner"></a>Informazioni su Conversation Learner
 

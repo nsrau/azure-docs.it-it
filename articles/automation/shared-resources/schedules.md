@@ -4,17 +4,17 @@ description: Le pianificazioni di Automazione di Azure vengono usate per pianifi
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 348c54abadef8b7c289501e21a2d314764c9e99c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008647"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476013"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 
@@ -27,7 +27,7 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 
 I cmdlet nella tabella seguente vengono usati per creare e gestire pianificazioni con PowerShell in automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](/powershell/azure/overview).
 
-| Cmdlets | DESCRIZIONE |
+| Cmdlets | Descrizione |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera una pianificazione. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crea una nuova pianificazione. |

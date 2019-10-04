@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326280"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570073"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 
@@ -79,7 +78,7 @@ Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/
 
 La distribuzione dispone inizialmente di tenant e di server di database SQL del catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche). 
 
-   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;*) e *catalog-sa-&lt;Utente&gt;*
+   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;* ) e *catalog-sa-&lt;Utente&gt;*
    - **Database per tenant:** server *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
    - **Database multi-tenant:** server *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
 
@@ -90,11 +89,11 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
     - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt-&lt;Utente&gt;.database.windows.net*
     - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net* 
-2. Fare clic su **Connetti** > **Motore di database...**:
+2. Fare clic su **Connetti** > **Motore di database...** :
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Le credenziali della demo sono: Login = *developer*, Password = *P\@ssword1*
+3. Le credenziali della demo sono: Login = *Developer*, password = *P\@ssword1*
 
     L'immagine seguente illustra l'accesso per il modello *Database per tenant*. 
     ![connessione](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

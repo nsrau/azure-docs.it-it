@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 288264b5386b670e90c3545ffcc1e697a0f67e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366284"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64716147"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -301,6 +301,10 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ## <a name="public"></a>Peering pubblico di Azure
 
 Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configurazione del peering pubblico di Azure per un circuito ExpressRoute.
+
+> [!Note]
+> Peering pubblico di Azure è deprecato per nuovi circuiti. Per altre informazioni, vedere [peering ExpressRoute](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Per creare un peering pubblico di Azure
 

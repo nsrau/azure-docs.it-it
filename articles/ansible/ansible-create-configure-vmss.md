@@ -1,280 +1,319 @@
 ---
-title: Crea set di scalabilità di macchine virtuali in Azure con Ansible
-description: Informazioni su come usare Ansible per creare e configurare un set di scalabilità di macchine virtuali Linux in Azure
-ms.service: azure
+title: Esercitazione - Configurare set di scalabilità di macchine virtuali in Azure tramite Ansible | Microsoft Docs
+description: Informazioni su come usare Ansible per creare e configurare set di scalabilità di macchine virtuali in Azure
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097890"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230736"
 ---
-# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Crea set di scalabilità di macchine virtuali in Azure con Ansible
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. Questo articolo illustra come usare Ansible per creare e scalare orizzontalmente un set di scalabilità di macchine virtuali. 
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Esercitazione: Configurare set di scalabilità di macchine virtuali in Azure tramite Ansible
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Configurare le risorse per una macchina virtuale
+> * Configurare un set di scalabilità
+> * Ridimensionare il set di scalabilità aumentando le relative istanze di macchina virtuale 
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.6. 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-vmss"></a>Creare un set di scalabilità di macchine virtuali
-In questa sezione viene presentato un playbook Ansible di esempio che definisce le seguenti risorse:
-- **Gruppo di risorse** in cui verranno distribuite tutte le risorse
-- **Rete virtuale** nello spazio indirizzi 10.0.0.0/16
-- **Subnet** all'interno della rete virtuale
-- **Indirizzo IP pubblico** che consente di accedere alle risorse in Internet
-- **Gruppo di sicurezza di rete** che controlla il flusso del traffico di rete in ingresso e in uscita dal set di scalabilità di macchine virtuali
-- **Bilanciamento del carico** che distribuisce il traffico in un set di macchine virtuali definite usando regole di bilanciamento del carico
-- **Set di scalabilità di macchine virtuali** che usa tutte le risorse create
+## <a name="configure-a-scale-set"></a>Configurare un set di scalabilità
 
-Immettere la propria password per il valore *admin_password*.
+Il codice del playbook in questa sezione definisce le risorse seguenti:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-      vmss_lb_name: myVMSSlb
-      location: eastus
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-      - name: Create a resource group
-        azure_rm_resourcegroup:
-          name: "{{ resource_group }}"
-          location: "{{ location }}"
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefix: "10.0.1.0/24"
-          virtual_network: "{{ vmss_name }}"
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: "{{ resource_group }}"
-          allocation_method: Static
-          name: "{{ vmss_name }}"
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
+* **Gruppo di risorse** in cui verranno distribuite tutte le risorse.
+* **Rete virtuale** nello spazio indirizzi 10.0.0.0/16
+* **Subnet** all'interno della rete virtuale
+* **Indirizzo IP pubblico** che consente di accedere alle risorse in Internet
+* **Gruppo di sicurezza di rete** che controlla il flusso del traffico di rete in ingresso e in uscita dal set di scalabilità
+* **Bilanciamento del carico** che distribuisce il traffico in un set di macchine virtuali definite usando regole di bilanciamento del carico
+* **Set di scalabilità di macchine virtuali** che usa tutte le risorse create
 
-      - name: Create a load balancer
-        azure_rm_loadbalancer:
-          name: "{{ vmss_lb_name }}"
-          location: "{{ location }}"
-          resource_group: "{{ resource_group }}"
-          public_ip: "{{ vmss_name }}"
-          probe_protocol: Tcp
-          probe_port: 8080
-          probe_interval: 10
-          probe_fail_count: 3
-          protocol: Tcp
-          load_distribution: Default
-          frontend_port: 80
-          backend_port: 8080
-          idle_timeout: 4
-          natpool_frontend_port_start: 50000
-          natpool_frontend_port_end: 50040
-          natpool_backend_port: 22
-          natpool_protocol: Tcp
+È possibile ottenere il playbook di esempio in due modi:
 
-      - name: Create VMSS
-        azure_rm_virtualmachine_scaleset:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          vm_size: Standard_DS1_v2
-          admin_username: "{{ admin_username }}"
-          admin_password: "{{ admin_password }}"
-          ssh_password_enabled: true
-          capacity: 2
-          virtual_network_name: "{{ vmss_name }}"
-          subnet_name: "{{ vmss_name }}"
-          upgrade_policy: Manual
-          tier: Standard
-          managed_disk_type: Standard_LRS
-          os_disk_caching: ReadWrite
-          image:
-            offer: UbuntuServer
-            publisher: Canonical
-            sku: 16.04-LTS
-            version: latest
-          load_balancer: "{{ vmss_lb_name }}"
-          data_disks:
-            - lun: 0
-              disk_size_gb: 20
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-            - lun: 1
-              disk_size_gb: 30
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-  ```
+* [Scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) e salvarlo in `vmss-create.yml`.
+* Creare un nuovo file denominato `vmss-create.yml` e copiarvi il contenuto seguente:
 
-Per creare l'ambiente del set di scalabilità di macchine virtuali con Ansible, salvare il playbook precedente come `vmss-create.yml` o [scaricare il playbook Ansible di esempio](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+    vmss_lb_name: myScaleSetLb
+    location: eastus
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ vmss_name }}"
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ vmss_name }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
 
-Per eseguire il playbook Ansible, usare il comando **ansible-playbook** come segue:
+    - name: Create a load balancer
+      azure_rm_loadbalancer:
+        name: "{{ vmss_lb_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        public_ip: "{{ vmss_name }}"
+        probe_protocol: Tcp
+        probe_port: 8080
+        probe_interval: 10
+        probe_fail_count: 3
+        protocol: Tcp
+        load_distribution: Default
+        frontend_port: 80
+        backend_port: 8080
+        idle_timeout: 4
+        natpool_frontend_port_start: 50000
+        natpool_frontend_port_end: 50040
+        natpool_backend_port: 22
+        natpool_protocol: Tcp
 
-  ```bash
-  ansible-playbook vmss-create.yml
-  ```
+    - name: Create Scale Set
+      azure_rm_virtualmachinescaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        ssh_password_enabled: true
+        capacity: 2
+        virtual_network_name: "{{ vmss_name }}"
+        subnet_name: "{{ vmss_name }}"
+        upgrade_policy: Manual
+        tier: Standard
+        managed_disk_type: Standard_LRS
+        os_disk_caching: ReadWrite
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          version: latest
+        load_balancer: "{{ vmss_lb_name }}"
+        data_disks:
+          - lun: 0
+            disk_size_gb: 20
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+          - lun: 1
+            disk_size_gb: 30
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+```
 
-Dopo aver eseguito il playbook, un output simile all'esempio seguente indica che il set di scalabilità di macchine virtuali è stato creato correttamente:
+Prima di eseguire il playbook, vedere le note seguenti:
 
-  ```Output
-  PLAY [localhost] ***********************************************************
+* Nella sezione `vars` sostituire il segnaposto `{{ admin_password }}` con la propria password.
 
-  TASK [Gathering Facts] *****************************************************
-  ok: [localhost]
+Eseguire il playbook usando il comando `ansible-playbook`:
 
-  TASK [Create a resource group] ****************************************************************************
-  changed: [localhost]
+```bash
+ansible-playbook vmss-create.yml
+```
 
-  TASK [Create virtual network] ****************************************************************************
-  changed: [localhost]
+Dopo avere eseguito il playbook, viene visualizzato un output simile ai risultati seguenti:
 
-  TASK [Add subnet] **********************************************************
-  changed: [localhost]
+```Output
+PLAY [localhost] 
 
-  TASK [Create public IP address] ****************************************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Create Network Security Group that allows SSH] ****************************************************************************
-  changed: [localhost]
+TASK [Create a resource group] 
+changed: [localhost]
 
-  TASK [Create a load balancer] ****************************************************************************
-  changed: [localhost]
+TASK [Create virtual network] 
+changed: [localhost]
 
-  TASK [Create VMSS] *********************************************************
-  changed: [localhost]
+TASK [Add subnet] 
+changed: [localhost]
 
-  PLAY RECAP *****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+TASK [Create public IP address] 
+changed: [localhost]
 
-  ```
+TASK [Create Network Security Group that allows SSH] 
+changed: [localhost]
 
-## <a name="scale-out-a-vmss"></a>Scalabilità orizzontale di un set di scalabilità di macchine virtuali
-Il set di scalabilità di macchine virtuali creato ha due istanze. Se si passa al set di scalabilità di macchine virtuali nel portale di Azure, viene visualizzato **Standard_DS1_v2 (2 instances)**. È anche possibile usare [Azure Cloud Shell](https://shell.azure.com/) eseguendo il comando seguente in Cloud Shell:
+TASK [Create a load balancer] 
+changed: [localhost]
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+TASK [Create Scale Set] 
+changed: [localhost]
 
-Verrà visualizzato un output simile al seguente:
+PLAY RECAP 
+localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
-  ```bash
-  {
-    "capacity": 2,
-  }
-  ```
+```
 
-A questo punto, è possibile passare da due a tre istanze. Il seguente codice del playbook Ansible recupera le informazioni sulla scalabilità delle macchine virtuali e ne modifica la capacità da due a tre. 
+## <a name="view-the-number-of-vm-instances"></a>Visualizzare il numero di istanze di macchina virtuale
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-    tasks: 
-      - name: Get scaleset info
-        azure_rm_virtualmachine_scaleset_facts:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          format: curated
-        register: output_scaleset
+Il [set di scalabilità configurato](#configure-a-scale-set) include attualmente due istanze. Per confermare tale valore, seguire questa procedura:
 
-      - name: Dump scaleset info
-        debug:
-          var: output_scaleset
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-      - name: Modify scaleset (change the capacity to 3)
-        set_fact:
-          body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+1. Passare al set di scalabilità configurato.
 
-      - name: Update something in that VMSS
-        azure_rm_virtualmachine_scaleset: "{{ body }}"
-  ```
+1. Viene visualizzato il nome del set di scalabilità con il numero di istanze tra parentesi: `Standard_DS1_v2 (2 instances)`
 
-Per scalare orizzontalmente il set di scalabilità di macchine virtuali creato, salvare il playbook precedente come `vmss-scale-out.yml` o [scaricare il playbook Ansible di esempio](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml). 
+1. È anche possibile verificare il numero di istanze con [Azure Cloud Shell](https://shell.azure.com/) eseguendo questo comando:
 
-Il playbook verrà eseguito dal comando seguente:
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
 
-  ```bash
-  ansible-playbook vmss-scale-out.yml
-  ```
+    I risultati dell'esecuzione del comando dell'interfaccia della riga di comando di Azure in Cloud Shell indicano che ora sono disponibili tre istanze: 
 
-L'output generato dall'esecuzione del playbook Ansible indica che il set di scalabilità di macchine virtuali è stato aumentato correttamente:
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
-  ```Output
-  PLAY [localhost] **********************************************************
+## <a name="scale-out-a-scale-set"></a>Ampliare un set di scalabilità
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+Il codice del playbook in questa sezione consente di recuperare informazioni sul set di scalabilità e di modificarne la capacità da due a tre.
 
-  TASK [Get scaleset info] ***************************************************************************
-  ok: [localhost]
+È possibile ottenere il playbook di esempio in due modi:
 
-  TASK [Dump scaleset info] ***************************************************************************
-  ok: [localhost] => {
-      "output_scaleset": {
-          "ansible_facts": {
-              "azure_vmss": [
-                  {
-                      ......
-                  }
-              ]
-          },
-          "changed": false,
-          "failed": false
-      }
-  }
+* [Scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) e salvarlo in `vmss-scale-out.yml`.
+* Creare un nuovo file denominato `vmss-scale-out.yml` e copiarvi il contenuto seguente:
 
-  TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] ***************************************************************************
-  ok: [localhost]
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
 
-  TASK [Update something in that VMSS] ***************************************************************************
-  changed: [localhost]
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=5    changed=1    unreachable=0    failed=0
-  ```
+    - name: Modify scaleset (change the capacity to 3)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
-Se si passa al set di scalabilità di macchine virtuali configurato nel portale di Azure, viene visualizzato **Standard_DS1_v2 (3 instances)**. È anche possibile verificare la modifica con [Azure Cloud Shell](https://shell.azure.com/) eseguendo questo comando:
+    - name: Update something in that scale set
+      azure_rm_virtualmachinescaleset: "{{ body }}"
+```
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+Eseguire il playbook usando il comando `ansible-playbook`:
 
-I risultati dell'esecuzione del comando in Cloud Shell indicano che ora sono disponibili tre istanze. 
+```bash
+ansible-playbook vmss-scale-out.yml
+```
 
-  ```bash
-  {
-    "capacity": 3,
-  }
-  ```
+Dopo avere eseguito il playbook, viene visualizzato un output simile ai risultati seguenti:
+
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [Get scaleset info] 
+ok: [localhost]
+
+TASK [Dump scaleset info] 
+ok: [localhost] => {
+    "output_scaleset": {
+        "ansible_facts": {
+            "azure_vmss": [
+                {
+                    ......
+                }
+            ]
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+ok: [localhost]
+
+TASK [Update something in that scale set] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=5    changed=1    unreachable=0    failed=0
+```
+
+## <a name="verify-the-results"></a>Verificare i risultati
+
+Verificare i risultati delle operazioni eseguite tramite il portale di Azure:
+
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Passare al set di scalabilità configurato.
+
+1. Viene visualizzato il nome del set di scalabilità con il numero di istanze tra parentesi: `Standard_DS1_v2 (3 instances)` 
+
+1. È anche possibile verificare la modifica con [Azure Cloud Shell](https://shell.azure.com/) eseguendo questo comando:
+
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
+
+    I risultati dell'esecuzione del comando dell'interfaccia della riga di comando di Azure in Cloud Shell indicano che ora sono disponibili tre istanze: 
+
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"] 
-> [Distribuire applicazioni nei set di scalabilità di macchine virtuali tramite Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-> 
-> [Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Esercitazione: Distribuire app in set di scalabilità di macchine virtuali in Azure tramite Ansible](./ansible-deploy-app-vmss.md)

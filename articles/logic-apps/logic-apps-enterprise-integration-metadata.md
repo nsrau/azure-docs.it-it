@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60846202"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione con App per la logica di Azure ed Enterprise Integration Pack
 
@@ -63,7 +63,7 @@ ms.locfileid: "54446783"
 
 1. Specificare queste informazioni per l'elemento da trovare:
 
-   | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+   | Proprietà | Obbligatorio | Value | Descrizione | 
    |----------|---------|-------|-------------| 
    | **Tipo di elemento** | Yes | **Schema**, **Mappa**, **Partner**, **Contratto** o un tipo personalizzato | Tipo dell'elemento desiderato | 
    | **Nome elemento** | Yes | <*artifact-name*> | Nome dell'elemento desiderato | 
@@ -85,15 +85,15 @@ ms.locfileid: "54446783"
 
       Ad esempio, si supponga di voler ottenere i metadati `routingUrl` aggiunti in precedenza in questo argomento. Ecco i valori delle proprietà che è possibile specificare: 
 
-      | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+      | Proprietà | Obbligatorio | Value | Descrizione | 
       |----------|----------|-------|-------------| 
       | **Metodo** | Yes | <*operation-to-run*> | Operazione HTTP da eseguire sull'elemento. Ad esempio, questa azione HTTP usa il metodo **GET**. | 
       | **URI** | Yes | <*metadata-location*> | Per accedere al valore dei metadati `routingUrl` dall'elemento recuperato si può usare un'espressione, ad esempio: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Intestazioni** | No  | <*header-values*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
-      | **Corpo** | No  | <*body-content*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. Fare clic all'interno della proprietà **Corpo** in modo che venga visualizzato l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. Nell'elenco del contenuto dinamico, sotto **Ricerca elemento dell'account di integrazione** selezionare **Proprietà**. | 
+      | **Intestazioni** | No | <*header-values*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
+      | **Corpo** | No | <*body-content*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. Fare clic all'interno della proprietà **Corpo** in modo che venga visualizzato l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. Nell'elenco del contenuto dinamico, sotto **Ricerca elemento dell'account di integrazione** selezionare **Proprietà**. | 
       |||| 
 
-      Ad esempio: 
+      Ad esempio:
 
       ![Specificare i valori e le espressioni per un'azione HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c29ec0283caa2b20d7974ed11748080b3dc0339
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405954"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089979"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiare dati da Oracle Eloqua Azure Data Factory (anteprima)
 
@@ -27,6 +27,11 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > Questo connettore è attualmente disponibile in anteprima. È possibile provarlo e inviare commenti e suggerimenti. Se si vuole accettare una dipendenza dai connettori in versione di anteprima nella propria soluzione, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore Oracle Eloqua è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Oracle Eloqua a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -45,12 +50,12 @@ Per il servizio collegato di Oracle Eloqua sono supportate le proprietà seguent
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Eloqua** | Sì |
-| endpoint | Endpoint del server Eloqua, Eloqua supporta più data center. Per determinare l'endpoint, eseguire l'accesso a https://login.eloqua.com con le credenziali utente, quindi copiare la sezione **URL di base** dell'URL di reindirizzamento con il modello `xxx.xxx.eloqua.com`. | Sì |
-| username | Nome sito e nome utente dell'account Eloqua nel formato: `SiteName\Username`, ad esempio `Eloqua\Alice`.  | Sì |
+| endpoint | Endpoint del server Eloqua, Eloqua supporta più data center. Per determinare l'endpoint, eseguire l'accesso a https://login.eloqua.com con le credenziali utente, quindi copiare la sezione **URL di base** dell'URL di reindirizzamento con il modello `xxx.xxx.eloqua.com`. | Yes |
+| userName | Nome sito e nome utente dell'account Eloqua nel formato: `SiteName\Username`, ad esempio `Eloqua\Alice`.  | Sì |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
+| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -79,7 +84,7 @@ Per copiare dati da Oracle Eloqua, impostare la proprietà type del set di dati 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **EloquaObject** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **EloquaObject** | Yes |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -89,11 +94,12 @@ Per copiare dati da Oracle Eloqua, impostare la proprietà type del set di dati 
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -142,6 +148,11 @@ Per copiare dati da Oracle Eloqua, impostare il tipo di origine nell'attività d
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

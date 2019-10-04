@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073619"
 ---
 # <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 
@@ -36,8 +35,8 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 ## <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto
 
@@ -86,7 +85,7 @@ Gli sviluppatori devono prima sottoscrivere un prodotto per avere accesso all'AP
 4. Scegliere un'API e fare clic su **Seleziona**.
 
 > [!TIP]
-> È possibile creare o aggiornare la sottoscrizione dell'utente a un *Prodotto* con chiavi di sottoscrizione personalizzate [tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) o un comando PowerShell.
+> È possibile creare o aggiornare la sottoscrizione dell'utente a un *Prodotto* con chiavi di sottoscrizione personalizzate [tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) o un comando PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b37da8d31fc5ac605e59d9aceb456e996df438b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425764"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503046"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introduzione ad Azure Dev Spaces con .NET Core e Visual Studio
 
@@ -36,7 +36,7 @@ In questa guida si apprenderà come:
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 1. Scegliere **Crea una risorsa** > cercare **Kubernetes** > selezionare **Kubernetes Service** > **Crea**.
 
-   Completare i passaggi seguenti in ogni intestazione del modulo *Creare un cluster Kubernetes* e verificare che l'[area selezionata supporti Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+   Completare i passaggi seguenti in ogni intestazione del modulo *Creare un cluster Kubernetes* e verificare che l'[area selezionata supporti Azure Dev Spaces][supported-regions].
 
    - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere un nome, un'area, una versione e un prefisso di nome DNS per il cluster del servizio Azure Container.
@@ -54,10 +54,7 @@ In questa guida si apprenderà come:
 1. Al termine dell'operazione, selezionare **Review + create** (Esamina + crea) e quindi **Create** (Crea).
 
 ## <a name="get-the-visual-studio-tools"></a>Ottenere gli strumenti di Visual Studio
-1. Installare l'ultima versione di [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. Nel programma di installazione di Visual Studio assicurarsi che sia selezionato il carico di lavoro seguente:
-    * Sviluppo Web e ASP.NET
-1. Installare [Visual Studio Tools per Kubernetes](https://aka.ms/get-azds-visualstudio)
+Installare l'ultima versione di [Visual Studio](https://www.visualstudio.com/vs/). Per Visual Studio 2019 in Windows è necessario installare il carico di lavoro Sviluppo di Azure. Per Visual Studio 2017 in Windows è necessario installare il carico di lavoro Sviluppo ASP.NET e Web nonché [Visual Studio Tools per Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Creare un'app Web in esecuzione in un contenitore
 
@@ -65,7 +62,7 @@ In questa sezione si creerà un'app Web ASP.NET Core e la si eseguirà in un con
 
 ### <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
-In Visual Studio 2017 creare un nuovo progetto. Attualmente deve trattarsi di un progetto **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome "**webfrontend**".
+In Visual Studio creare un nuovo progetto. Attualmente deve trattarsi di un progetto **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome "**webfrontend**".
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -128,9 +125,16 @@ Fare clic sul collegamento **About** nella parte superiore della pagina per atti
 Azure Dev Spaces consente non solo di eseguire codice in Kubernetes, ma anche di visualizzare in modo rapido e iterativo l'applicazione delle modifiche apportate al codice in un ambiente Kubernetes nel cloud.
 
 ### <a name="update-a-content-file"></a>Aggiornare un file di contenuto
-1. Individuare il file `./Views/Home/Index.cshtml` e apportare una modifica al codice HTML. Ad esempio, modificare la riga 70 contenente `<h2>Application uses</h2>` come segue: `<h2>Hello k8s in Azure!</h2>`
-1. Salvare il file.
-1. Passare al browser e aggiornare la pagina. Nella pagina Web verrà visualizzato il codice HTML aggiornato.
+
+
+1. Individuare il file `./Views/Home/Index.cshtml` e apportare una modifica al codice HTML. Ad esempio, modificare la [riga 73 contenente `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) come segue: 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. Salvare il file.
+3. Passare al browser e aggiornare la pagina. Nella pagina Web verrà visualizzato il codice HTML aggiornato.
 
 Che cosa è successo? Poiché le modifiche apportate ai file di contenuto, come HTML e CSS, non richiedono la ricompilazione in un'app Web .NET Core, una sessione F5 attiva sincronizza automaticamente tutti i file di contenuto modificati nel contenitore in esecuzione in servizio Azure Kubernetes, permettendo di visualizzare le modifiche di contenuto immediatamente.
 
@@ -150,3 +154,6 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 
 > [!div class="nextstepaction"]
 > [Informazioni sullo sviluppo multiservizio](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

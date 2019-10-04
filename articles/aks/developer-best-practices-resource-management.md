@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073959"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -74,6 +74,8 @@ Con Azure Dev Spaces, le applicazioni vengono sviluppate e sottoposte a debug e 
 
 Questo processo di sviluppo e test integrato con Dev Spaces riduce la necessità di ambienti di test locali, come [minikube][minikube]. In alternativa, è possibile sviluppare e testare un'applicazione in un cluster servizio Azure Kubernetes. Questo cluster può essere protetto e isolato come indicato nella sezione precedente sull'uso degli spazi dei nomi per isolare un cluster in modo logico. Quando le app sono pronte per la distribuzione nell'ambiente di produzione, è possibile distribuirle in tutta sicurezza perché l'intera fase di sviluppo è già stata eseguita in un cluster servizio Azure Kubernetes reale.
 
+Azure Dev spazi deve essere utilizzato con applicazioni in esecuzione in Linux il POD e i nodi.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Usare l'estensione di Visual Studio Code per Kubernetes
 
 **Indicazioni sulle procedure consigliate**. Installare e usare l'estensione di VS Code per Kubernetes quando si scrivono manifesti YAML. È anche possibile usare l'estensione per una soluzione di distribuzione integrata, particolarmente utile per i proprietari delle applicazioni che raramente interagiscono con il cluster servizio Azure Kubernetes.
@@ -87,6 +89,8 @@ L'[estensione di Visual Studio Code per Kubernetes][vscode-kubernetes] consente 
 **Procedure consigliate** -regolarmente eseguono la versione più recente di `kube-advisor` strumento open source per rilevare i problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
 Il [kube-advisor] [ kube-advisor] lo strumento è un progetto open source AKS associato che esegue l'analisi di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
+
+Lo strumento di kube-advisor può segnalare su richiesta di risorse e i limiti non presente nelle applicazioni PodSpecs per Windows, nonché le applicazioni di Linux, ma solo lo strumento di kube-advisor deve essere pianificato in un pod di Linux. È possibile pianificare un pod per l'esecuzione in un pool di nodi con un sistema operativo specifico utilizzando un [selettore nodo] [ k8s-node-selector] nella configurazione del pod.
 
 In un cluster servizio Azure Kubernetes che ospita molti team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes.
 
@@ -110,3 +114,4 @@ Per implementare alcune di queste procedure consigliate, vedere gli articoli seg
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

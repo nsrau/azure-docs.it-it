@@ -1,20 +1,22 @@
 ---
-title: Limiti del Database di Azure per PostgreSQL
-description: Questo articolo descrive i limiti di Database di Azure per PostgreSQL, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
+title: Limiti di Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive i limiti nel Database di Azure per PostgreSQL - Server singolo, ad esempio numero di connessioni e opzioni di archiviazione del motore.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470733"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448093"
 ---
-# <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
-Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti di Database di Azure per PostgreSQL - Server singolo
+Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Se vuoi informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere la [sui piani tariffari](concepts-pricing-tiers.md) articolo.
+
 
 ## <a name="maximum-connections"></a>Numero massimo di connessioni
 Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
@@ -33,7 +35,7 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Con ottimizzazione per la memoria| 4| 500|
 |Con ottimizzazione per la memoria| 8| 960|
 |Con ottimizzazione per la memoria| 16| 1900|
-|Con ottimizzazione per la memoria| 32| 1900|
+|Con ottimizzazione per la memoria| 32| 1987|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
@@ -47,6 +49,9 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
+
+> Si noti che prima di PostgreSQL versione 10, il [dei criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) considerato un _versione principale_ aggiornamento a un aumento nel primo _o_ secondo numero (per esempio 9,5 a 9.6 è stata considerata una _principali_ aggiornamento della versione).
+> A partire dalla versione 10, solo una modifica del primo numero viene considerata un aggiornamento di versione principale (ad esempio, 10.0 per 10.1 è un _minori_ aggiornamento della versione e 10 e 11 è un _principali_ aggiornamento della versione).
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.

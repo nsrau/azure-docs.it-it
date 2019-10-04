@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844506"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -33,11 +33,11 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 2. Selezionare **Azure Active Directory**.
 3. Selezionare **Nomi di dominio personalizzati**.
   
-   ![Aprire la pagina di gestione utenti](./media/domains-manage/add-custom-domain.png)
+   ![Apertura della pagina Gestione utenti](./media/domains-manage/add-custom-domain.png)
 4. Selezionare il nome del dominio che si vuole impostare come dominio primario.
 5. Selezionare il comando **Imposta come primario**. Confermare la scelta quando viene richiesto.
   
-   ![Verificare un dominio nome primario](./media/domains-manage/make-primary-domain.png)
+   ![Rendere il nome di dominio primario](./media/domains-manage/make-primary-domain.png)
 
 È possibile modificare il nome di dominio primario per la directory impostando qualsiasi dominio personalizzato verificato e non federato. La modifica del dominio primario per la directory non modificherà i nomi utente degli utenti esistenti.
 
@@ -90,7 +90,7 @@ Viene restituito un errore nei casi seguenti:
 **D: Perché l'eliminazione del dominio non riesce e genera un errore che indica la presenza di gruppi gestiti da Exchange per il nome di dominio?** <br>
 **R:** Attualmente, il provisioning di determinati gruppi, come gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica, viene effettuato da Exchange ed è necessario eseguirne manualmente la pulizia nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/). Potrebbero essere presenti indirizzi proxy residui che si basano sul nome di dominio personalizzato e che dovranno essere aggiornati manualmente con un altro nome di dominio. 
 
-**D: Cui si è connessi come amministratore\@contoso.com, ma è possibile eliminare il nome di dominio "contoso.com"?**<br>
+**D: Sono stato eseguito l'accesso come\@amministratore contoso.com ma non è possibile eliminare il nome di dominio "contoso.com"?**<br>
 **R:** Non è possibile eliminare un nome di dominio personalizzato cui viene fatto riferimento nel nome dell'account utente in uso. Assicurarsi che l'account amministratore globale usi il nome di dominio predefinito iniziale ".onmicrosoft.com", ad esempio admin@contoso.onmicrosoft.com. Accedere con un diverso account amministratore globale, ad esempio admin@contoso.onmicrosoft.com, o con un altro nome di dominio personalizzato come "fabrikam.com", per il quale l'account è admin@fabrikam.com.
 
 **D: Dopo aver fatto clic sul pulsante Elimina dominio, lo stato visualizzato per l'operazione di eliminazione è `In Progress`. Quanto tempo occorre? Che cosa accade se non riesce?**<br>
@@ -106,7 +106,7 @@ Se si riscontra che una o più condizioni non sono state soddisfatte, eseguire l
 
 La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può anche essere completata usando Microsoft PowerShell oppure a livello di codice usando l'API Graph di Azure AD.
 
-* [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Uso dell'API Graph per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Passaggi successivi

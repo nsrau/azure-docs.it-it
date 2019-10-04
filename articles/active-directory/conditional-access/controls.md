@@ -1,40 +1,32 @@
 ---
-title: Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory? | Microsoft Docs
-description: Informazioni sul funzionamento dei controlli di accesso nell'accesso condizionale di Azure Active Directory.
+title: Quali sono i controlli di accesso in Active Directory accesso condizionale di Azure? | Microsoft Docs
+description: Informazioni su come i controlli l'accesso in un Active Directory accesso condizionale di Azure.
 services: active-directory
-keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2019
+ms.date: 06/15/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5fc672898a56d8b3e1486b1d8d84cf532fa2b6d
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411680"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509398"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso in Active Directory accesso condizionale di Azure?
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo").
+Con [accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), è possibile controllare l'accesso agli utenti come autorizzato alle App cloud. In un criterio di accesso condizionale si definisce la risposta ("fare questo") per il motivo per attivare i criteri ("quando accade questo").
 
 ![Controllo](./media/controls/10.png)
 
-Nel contesto dell'accesso condizionale,
+Nel contesto di accesso condizionale,
 
 - "**Quando accade questo**" è la **condizione**.
-
 - "**Fare questo**" è il **controllo di accesso**.
 
 La combinazione di un'istruzione della condizione con i controlli rappresenta un criterio di accesso condizionale.
@@ -46,10 +38,9 @@ Ogni controllo è un requisito che deve essere soddisfatto dalla persona o dal s
 Sono disponibili due tipi di controlli:
 
 - **Controlli di concessione**: per controllare l'accesso
-
 - **Controlli di sessione**: per limitare l'accesso all'interno di una sessione
 
-Questo argomento illustra i diversi controlli disponibili nell'accesso condizionale di Azure AD. 
+In questo argomento illustra i diversi controlli che sono disponibili nell'accesso condizionale di Azure AD. 
 
 ## <a name="grant-controls"></a>Controlli di concessione
 
@@ -65,35 +56,36 @@ Con i controlli di concessione è possibile bloccare completamente l'accesso o c
 È possibile usare questo controllo per richiedere l'autenticazione a più fattori per l'accesso all'app cloud specificata. Questo controllo supporta i provider di autenticazione a più fattori seguenti:
 
 - Azure Multi-Factor Authentication
-
 - Un provider di autenticazione a più fattori locale, in combinazione con Active Directory Federation Services (AD FS)
 
 L'uso dell'autenticazione a più fattori assicura la protezione delle risorse nel caso in cui un utente non autorizzato abbia avuto accesso alle credenziali primarie di un utente valido.
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-È possibile configurare criteri di accesso condizionale in base al dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso solo alle app cloud selezionate da [dispositivi gestiti](require-managed-devices.md). Una delle opzioni disponibili per limitare l'accesso ai dispositivi gestiti consiste nel richiedere che un dispositivo sia contrassegnato come conforme. Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o dal sistema MDM di terze parti per i dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati. 
+È possibile configurare criteri di accesso condizionale basato su dispositivo. L'obiettivo di un criterio di accesso condizionale basato su dispositivo consiste nel concedere l'accesso solo alle App cloud selezionate da [i dispositivi gestiti](require-managed-devices.md). Una delle opzioni disponibili per limitare l'accesso ai dispositivi gestiti consiste nel richiedere che un dispositivo sia contrassegnato come conforme. Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o dal sistema MDM di terze parti per i dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati. 
 
 Il dispositivo deve essere registrato in Azure AD prima che possa essere contrassegnato come conforme. Per registrare un dispositivo, sono disponibili tre opzioni: 
 
-- [Dispositivi registrati in Azure AD](../devices/overview.md#azure-ad-registered-devices)
-- [Dispositivi aggiunti ad Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivi aggiunti ad Azure AD ibrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Dispositivi registrati in Azure AD
+- Dispositivi aggiunti ad Azure AD  
+- Dispositivi aggiunti all'identità ibrida di Azure AD
 
-Per altre informazioni, vedere [Come richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](require-managed-devices.md).
+Queste tre opzioni sono descritti nell'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md)
+
+Per altre informazioni, vedere [come richiedere i dispositivi gestiti per accedere all'app cloud con l'accesso condizionale](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo aggiunto all'identità ibrida di Azure AD
 
-Richiedere un dispositivo aggiunto all'identità ibrida di Azure AD è un'altra opzione disponibile per configurare criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Active Directory locale e ad Azure Active Directory in uso.  
+Richiedere un ibrido dispositivo aggiunto AD Azure è un'altra opzione che è necessario configurare i criteri di accesso condizionale basato su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale consentono l'accesso tramite dispositivi aggiunti ad Active Directory in locale e Azure Active Directory.  
 
-Per altre informazioni, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](require-managed-devices.md).
+Per altre informazioni, vedere [impostare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](require-managed-devices.md).
 
 ### <a name="approved-client-app"></a>App client approvata
 
 Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia lavorative che personali, può essere utile avere la possibilità di proteggere i dati aziendali accessibili da dispositivi anche nel caso in cui vengano gestiti da altri utenti.
 È possibile usare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali indipendentemente dalla soluzione di gestione dei dispositivi mobili (MDM).
 
-Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. I criteri di accesso condizionale che richiedono app client approvate sono noti anche come [criteri di accesso condizionale basato su app](app-based-conditional-access.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
+Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. Sono noto anche come criteri di accesso condizionale che richiede che le app client approvata [criteri di accesso condizionale basato su app](app-based-conditional-access.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
 
 ### <a name="app-protection-policy-preview"></a>Criteri di protezione delle App (anteprima)
 
@@ -106,41 +98,40 @@ Il dispositivo deve essere registrato in Azure AD prima di un'applicazione può 
 
 Per un elenco dei criteri supportati di App client protetti, vedere [requisito dei criteri di protezione app](technical-reference.md#app-protection-policy-requirement).
 
-
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
 È possibile richiedere a un utente nel tenant di accettare le condizioni per l'utilizzo prima di concedergli il permesso di accedere a una risorsa. Gli amministratori possono configurare e personalizzare le condizioni per l'utilizzo caricando un documento PDF. Se un utente rientra nell'ambito di questo controllo, gli viene concesso l'accesso a un'applicazione solo se ha accettato le condizioni per l'utilizzo.
 
-### <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
-
-Nell'accesso condizionale è possibile creare controlli personalizzati che comportano il reindirizzamento degli utenti a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. In questo modo, è possibile usare determinati provider di verifica e autenticazione a più fattori esterni per applicare le regole di accesso condizionale o per creare un servizio personalizzato. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale. 
-
-## <a name="custom-controls"></a>Controlli personalizzati
+## <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
 
 I controlli personalizzati sono una funzionalità dell'edizione Azure Active Directory Premium P1. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale.
 
-Questi controlli consentono l'utilizzo di determinati servizi esterni o personalizzati come controlli di accesso condizionale e, in genere, estendono le funzionalità dell'accesso condizionale.
+Questi controlli consentono l'uso di determinati servizi esterni o personalizzati come controlli di accesso condizionale e, in genere, estendono le funzionalità di accesso condizionale.
 
 Di seguito sono elencati i provider che attualmente offrono un servizio compatibile:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [GSMA](https://mobileconnect.io/azure/)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Per altre informazioni su questi servizi, contattare direttamente i provider.
 
 ### <a name="creating-custom-controls"></a>Creazione di controlli personalizzati
 
-Per creare un controllo personalizzato, è opportuno prima contattare il provider a cui ci si vuole rivolgere. Ogni provider diverso da Microsoft presenta specifici processi e requisiti da soddisfare per poter iscriversi a un servizio, sottoscriverlo o entrare a far parte di esso o per specificare che si intende integrarlo con l'accesso condizionale. A questo punto, il provider fornirà un blocco di dati in formato JSON. Questi dati consentono al provider di interagire con l'accesso condizionale per il tenant e permettono di creare il nuovo controllo e di definire le modalità con cui l'accesso condizionale specifica se gli utenti hanno eseguito correttamente la verifica con il provider.
+Per creare un controllo personalizzato, è opportuno prima contattare il provider a cui ci si vuole rivolgere. Ogni provider di Microsoft non ha un proprio processo e sui requisiti per l'iscrizione, la sottoscrizione o in caso contrario, diventano parte del servizio e per indicare che si vuole integrare con l'accesso condizionale. A questo punto, il provider fornirà un blocco di dati in formato JSON. Questi dati consente al provider e l'accesso condizionale interagire tra loro per il tenant, creare il nuovo controllo e definisce come l'accesso condizionale è possibile stabilire se gli utenti hanno eseguito correttamente la verifica con il provider.
+
+Impossibile utilizzare i controlli personalizzati con automazione di Identity Protection che richiedono l'autenticazione a più fattori o per elevare i privilegi dei ruoli in Privileged Identity Manager (PIM).
 
 Copiare i dati JSON e incollarli nella casella di testo corrispondente. Non apportare modifiche ai dati JSON a meno di non aver compreso in modo esplicito la modifica che si sta apportando. L'introduzione di una modifica potrebbe interrompere la connessione tra il provider e Microsoft e potenzialmente bloccare gli utenti fuori dai rispettivi account.
 
-L'opzione che consente di creare un controllo personalizzato si trova nella sezione **Gestisci** della pagina **Accesso condizionale**.
+L'opzione per creare un controllo personalizzato è nel **Gestisci** sezione il **accesso condizionale** pagina.
 
 ![Controllo](./media/controls/82.png)
 
@@ -150,13 +141,11 @@ Facendo clic su **Nuovo controllo personalizzato** si apre un pannello con una c
 
 ### <a name="deleting-custom-controls"></a>Eliminazione di controlli personalizzati
 
-Per eliminare un controllo personalizzato, è necessario prima accertarsi che non sia in uso in nessuno dei criteri di accesso condizionale. Al termine della procedura:
+Per eliminare un controllo personalizzato, è necessario assicurarsi che non è in uso in qualsiasi criterio di accesso condizionale. Al termine della procedura:
 
 1. Passare all'elenco di controlli personalizzati
-
-2. Fare clic su ...  
-
-3. Selezionare **Elimina**.
+1. Fare clic su ...  
+1. Selezionare **Elimina**.
 
 ### <a name="editing-custom-controls"></a>Modifica di controlli personalizzati
 
@@ -175,11 +164,9 @@ I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Que
 Per altre informazioni, vedere:
 
 - [Abilitazione dell'accesso limitato con SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-
 - [Abilitazione dell'accesso limitato con Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+- Se si desidera sapere come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).

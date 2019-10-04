@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629993"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuire un array virtuale StorSimple per il Cloud Solution Provider Program
 
@@ -44,7 +44,7 @@ Se si aggiunge un cliente, viene automaticamente creata una sottoscrizione. Per 
 
      ![Dashboard nel Centro per i partner](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Nel riquadro a sinistra, fare clic su **Clienti**. Nel riquadro a destra, fare clic su **Aggiungi clienti**. Immettere i dettagli del cliente. Fare clic su **Successivo: Sottoscrizioni** per creare una sottoscrizione del cliente.
+2. Nel riquadro a sinistra, fare clic su **Clienti**. Nel riquadro a destra, fare clic su **Aggiungi clienti**. Immettere i dettagli del cliente. Fare clic su **Avanti: Le sottoscrizioni** per creare una sottoscrizione clienti.
 
     ![Aggiungere un cliente](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ In alcuni casi, si potrebbe disporre di un cliente esistente e potrebbe essere n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre domande su StorSimple per CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
+- Se hai altre domande su StorSimple in CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
 - Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).

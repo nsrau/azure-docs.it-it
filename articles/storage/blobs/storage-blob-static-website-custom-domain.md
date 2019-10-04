@@ -1,19 +1,18 @@
 ---
 title: 'Esercitazione: Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico - Archiviazione di Azure'
 description: Informazioni su come configurare un dominio personalizzato per l'hosting di siti Web statici.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.author: tamram
-ms.custom: seodec18
-ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 05/22/2019
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: a65c0e677182eb224f6bfa7ed834740458b97098
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110316"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847015"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Esercitazione: Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico
 
@@ -37,14 +36,27 @@ Accedere al [portale di Azure](https://portal.azure.com/) per iniziare.
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>Creare un endpoint di rete CDN nell'endpoint del sito Web statico
 
-1. Nel Web browser aprire il [portale di Azure](https://portal.azure.com/). 
-1. Individuare l'account di archiviazione e visualizzare la sezione della panoramica dell'account.
+1. Individuare l'account di archiviazione nel portale di Azure e visualizzare la panoramica dell'account.
 1. Scegliere **Rete CDN di Azure** dal menu **Servizio BLOB** per configurare la rete CDN di Azure.
-1. Nella sezione **Nuovo endpoint** compilare i campi per creare un nuovo endpoint della rete CDN.
-1. Immettere un nome di endpoint, ad esempio *mystaticwebsiteCDN*.
-1. Immettere il dominio del sito Web come nome host per l'endpoint di rete CDN.
-1. Per il nome host di origine, immettere l'endpoint del sito Web statico. Per individuare l'endpoint del sito Web statico, passare alla sezione **Sito Web statico** per l'account di archiviazione e copiare l'endpoint. 
-1. Testare l'endpoint di rete CDN passando a *mywebsitecdn.azureedge.net* nel browser.
+1. Nella sezione **Profilo CDN** specificare un profilo CDN nuovo o esistente. Per altre informazioni, vedere [Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure](../../cdn/cdn-create-new-endpoint.md).
+1. Specificare un piano tariffario per l'endpoint CDN. Questa esercitazione usa il piano tariffario **Akamai standard** perché la propagazione viene completata rapidamente, in genere in pochi minuti. Altri piani tariffari potrebbero richiedere più tempo per la propagazione, ma possono offrire altri vantaggi. Per altre informazioni, vedere [Confronto tra funzionalità dei prodotti della rete CDN di Azure](../../cdn/cdn-features.md).
+1. Nel campo **Nome endpoint rete CDN** specificare un nome per l'endpoint CDN. L'endpoint CDN deve essere univoco in Azure.
+1. Specificare l'endpoint del sito Web statico nel campo **Nome host dell'origine**. Per trovare l'endpoint del sito Web statico, passare alle impostazioni **Sito Web statico** per l'account di archiviazione. Copiare l'endpoint primario e incollarlo nella configurazione della rete CDN, rimuovendo l'identificatore del protocollo (*ad esempio* HTTPS).
+
+    L'immagine seguente mostra una configurazione di esempio dell'endpoint:
+
+    ![Screenshot che mostra una configurazione di esempio dell'endpoint CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+
+1. Creare l'endpoint CDN e attendere il completamento della propagazione.
+1. Per verificare che l'endpoint CDN sia configurato correttamente, fare clic sull'endpoint per passare alle relative impostazioni. Nella panoramica della rete CDN per l'account di archiviazione individuare il nome host dell'endpoint e passare all'endpoint, come illustrato nell'immagine seguente. Il formato dell'endpoint CDN sarà simile a `https://staticwebsitesamples.azureedge.net`.
+
+    ![Screenshot che mostra la panoramica dell'endpoint CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+
+    Al termine della propagazione dell'endpoint CDN, passando all'endpoint CDN verrà visualizzato il contenuto del file index.html caricato in precedenza nel sito Web statico.
+
+1. Per esaminare le impostazioni dell'origine per l'endpoint CDN, passare a **Origine** nella sezione **Impostazioni** per l'endpoint CDN. Il campo **Tipo di origine** risulterà impostato su *Origine personalizzata* e nel campo **Nome host dell'origine** verrà visualizzato l'endpoint del sito Web statico.
+
+    ![Screenshot che mostra le impostazioni dell'origine per l'endpoint CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>Abilitare il dominio personalizzato ed SSL
 
@@ -52,17 +64,19 @@ Accedere al [portale di Azure](https://portal.azure.com/) per iniziare.
 
     ![Specificare il record CNAME per il sottodominio www](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. Nel portale di Azure fare clic sull'endpoint appena creato per configurare il dominio personalizzato e il certificato SSL.
+1. Nel portale di Azure visualizzare le impostazioni per l'endpoint CDN. Passare a **Domini personalizzati** in **Impostazioni** per configurare il dominio personalizzato e il certificato SSL.
 1. In **Aggiungi dominio personalizzato** immettere il nome di dominio e quindi fare clic su **Aggiungi**.
-1. Selezionare il mapping del dominio personalizzato appena creato per effettuare il provisioning di un certificato SSL.
-1. Impostare **HTTPS dominio personalizzato** su **SÌ**. Selezionare **Gestito dalla rete CDN** per specificare che il certificato SSL deve essere gestito dalla rete CDN di Azure. Fare clic su **Save**.
-1. Testare il sito Web accedendo all'URL.
+1. Selezionare il nuovo mapping del dominio personalizzato per effettuare il provisioning di un certificato SSL.
+1. Impostare **HTTPS dominio personalizzato** su **SÌ** e quindi fare clic su **Salva**. La configurazione del dominio personalizzato potrebbe richiedere diverse ore. Lo stato di avanzamento verrà visualizzato nel portale come illustrato nell'immagine seguente.
+
+    ![Screenshot che mostra lo stato di avanzamento della configurazione del dominio personalizzato](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+
+1. Testare il mapping del sito Web statico al dominio personalizzato accedendo all'URL del dominio personalizzato.
+
+Per altre informazioni sull'abilitazione di HTTPS per i domini personalizzati, vedere [Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](../../cdn/cdn-custom-ssl.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Nella seconda parte di questa esercitazione si è appreso a configurare un dominio personalizzato con SSL per il sito Web statico nella rete CDN di Azure.
 
-Fare clic su questo collegamento per altre informazioni sull'hosting di siti Web statici in Archiviazione di Azure.
-
-> [!div class="nextstepaction"]
-> [Altre informazioni sui siti Web statici](storage-blob-static-website.md)
+Per altre informazioni sulla configurazione e sull'uso della rete CDN di Azure, vedere [Informazioni sulla rete CDN di Azure](../../cdn/cdn-overview.md).

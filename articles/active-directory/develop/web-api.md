@@ -3,8 +3,8 @@ title: App per le API Web in Azure Active Directory
 description: Descrive che cosa sono le applicazioni API Web e presenta le informazioni di base su flusso del protocollo, registrazione e scadenza del token per questo tipo di app.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545220"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Vedere gli esempi di codice per gli scenari Da applicazione Web ad API Web. Cons
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'applicazione con l'endpoint Azure AD v1.0, vedere [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md) (Registrare un'app con l'endpoint Azure AD v1.0).
+Per registrare un'applicazione con l'endpoint v1.0 di Azure AD, vedere [registrare un'app](quickstart-register-app.md).
 
 * Tenant singolo: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione Web alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa **Autorizzazioni per altre applicazioni** nel portale di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 * Multi-tenant: per prima cosa, l'applicazione Web viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione Web e l'API Web vengono registrate nella directory.

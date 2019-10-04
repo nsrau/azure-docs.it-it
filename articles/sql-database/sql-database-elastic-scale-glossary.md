@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 3ed0cc9dce312cb9736b3e32ba46d2cb1cca3ef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561434"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568461"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossario sugli strumenti di database elastici
 
@@ -29,7 +28,7 @@ Questi termini vengono usati in [Aggiunta di una partizione utilizzando gli stru
 
 **Database**: un database SQL di Azure. 
 
-**Routing dipendente dai dati**: La funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento. Vedere [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md). Confrontare con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Routing dipendente dai dati**: La funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento. Vedere [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md). Confrontare con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Mappa globale partizioni**: Il mapping tra le chiavi di partizionamento e le rispettive partizioni all'interno di un **set di partizioni**. La mappa partizioni globale viene archiviata nel **gestore mappe partizioni**. Confrontare con la **mappa partizioni locale**.
 
@@ -82,7 +81,7 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 **Divisione**: L'azione di spostare più shardlet da una partizione a un'altra (in genere una nuova partizione). Come punto di divisione viene usata una chiave di partizionamento orizzontale fornita dall'utente.
 
-**Scalabilità verticale**: L'azione di aumentare o ridurre la dimensione di calcolo di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
+**Scalabilità verticale**: L'azione di aumentare o ridurre le dimensioni di calcolo di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

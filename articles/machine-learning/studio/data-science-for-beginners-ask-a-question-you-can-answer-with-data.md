@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66239067"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Data science per principianti
@@ -48,7 +48,7 @@ Per sfruttare meglio le informazioni fornite da questo video, è consigliabile g
 
 A una domanda vaga non è necessario rispondere con un nome o un numero, mentre lo è per una domanda ben strutturata.
 
-Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma è un genio dispettoso, che tenta di rendere la risposta quanto più vaga e confusa possibile. Si vuole costringerlo con una domanda così precisa a cui non potrà fare a meno di dare la risposta che si vuole ottenere.
+Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma è un genio dispettoso, che verrà effettuato un tentativo per garantire il loro risposta vaga e confusa è possibile usare senza problemi. Si vuole aggiungerle verso il basso con una domanda così solida che non è possibile aiutare ma indicano ciò che si desidera conoscere.
 
 Se si pone una domanda vaga, come "Cosa accadrà al mio titolo azionario?", il genio potrebbe rispondere "Cambierà il prezzo". È una risposta vera, ma non è molto utile.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455139"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Risolvere i problemi per la mancata sincronizzazione di un oggetto con Azure Active Directory
@@ -73,7 +73,7 @@ Nella metà superiore della scheda **Operations** (Operazioni) sono elencate tut
 
 La colonna **Status** (Stato) contiene le informazioni più importanti e segnala il problema più grave di un'esecuzione. Di seguito è riportato un breve riepilogo degli stati più comuni, ordinati in base alla priorità con cui devono essere analizzati (dove * indica varie possibili stringhe di errore).
 
-| Stato | Comment |
+| Stato | Commento |
 | --- | --- |
 | stopped-* |Impossibile completare l'esecuzione. Questa condizione si verifica, ad esempio, se il sistema remoto è inattivo e non può essere contattato. |
 | stopped-error-limit |Sono presenti più di 5.000 errori. L'esecuzione è stata arrestata automaticamente a causa dell'elevato numero di errori. |
@@ -91,7 +91,7 @@ Per iniziare, selezionare la stringa di errore. Nella figura precedente, la stri
 
 Fare clic con il pulsante destro del mouse nella casella **Call Stack Information** (Informazioni sullo stack delle chiamate), fare clic su **Select All** (Seleziona tutto) e quindi selezionare **Copy** (Copia). Copiare quindi lo stack ed esaminare l'errore nell'editor preferito, ad esempio nel Blocco note.
 
-Se l'errore proviene da **SyncRulesEngine**, le informazioni sullo stack delle chiamate includono come primo elemento un elenco di tutti gli attributi dell'oggetto. Scorrere verso il basso fino all'intestazione **InnerException =>**.  
+Se l'errore proviene da **SyncRulesEngine**, le informazioni sullo stack delle chiamate includono come primo elemento un elenco di tutti gli attributi dell'oggetto. Scorrere verso il basso fino all'intestazione **InnerException =>** .  
 
   ![Screenshot di Synchronization Service Manager con informazioni sull'errore sotto l'intestazione InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   

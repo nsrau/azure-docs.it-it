@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622636"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzate in Azure DevTest Labs
 Questo articolo illustra come configurare una factory di immagini personalizzate usando gli script di esempio disponibile nel [repository Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).

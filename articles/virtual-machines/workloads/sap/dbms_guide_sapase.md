@@ -9,64 +9,63 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 51e97089b1de88ccf9f45b1a0f429abc0cfac9f3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850962"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101333"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
-[773830]:https://launchpad.support.sap.com/#/notes/773830
+[773830]: https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
-[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1245200]: https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1558958]:https://launchpad.support.sap.com/#/notes/1558958
-[1585981]:https://launchpad.support.sap.com/#/notes/1585981
-[1588316]:https://launchpad.support.sap.com/#/notes/1588316
-[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1558958]: https://launchpad.support.sap.com/#/notes/1558958
+[1585981]: https://launchpad.support.sap.com/#/notes/1585981
+[1588316]: https://launchpad.support.sap.com/#/notes/1588316
+[1590719]: https://launchpad.support.sap.com/#/notes/1590719
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1605680]: https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
-[1619967]:https://launchpad.support.sap.com/#/notes/1619967
-[1750510]:https://launchpad.support.sap.com/#/notes/1750510
-[1752266]:https://launchpad.support.sap.com/#/notes/1752266
-[1757924]:https://launchpad.support.sap.com/#/notes/1757924
-[1757928]:https://launchpad.support.sap.com/#/notes/1757928
-[1758182]:https://launchpad.support.sap.com/#/notes/1758182
-[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1619967]: https://launchpad.support.sap.com/#/notes/1619967
+[1750510]: https://launchpad.support.sap.com/#/notes/1750510
+[1752266]: https://launchpad.support.sap.com/#/notes/1752266
+[1757924]: https://launchpad.support.sap.com/#/notes/1757924
+[1757928]: https://launchpad.support.sap.com/#/notes/1757928
+[1758182]: https://launchpad.support.sap.com/#/notes/1758182
+[1758496]: https://launchpad.support.sap.com/#/notes/1758496
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
-[1814258]:https://launchpad.support.sap.com/#/notes/1814258
-[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1814258]: https://launchpad.support.sap.com/#/notes/1814258
+[1882376]: https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
-[1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1941500]:https://launchpad.support.sap.com/#/notes/1941500
-[1956005]:https://launchpad.support.sap.com/#/notes/1956005
-[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1922555]: https://launchpad.support.sap.com/#/notes/1922555
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1941500]: https://launchpad.support.sap.com/#/notes/1941500
+[1956005]: https://launchpad.support.sap.com/#/notes/1956005
+[1973241]: https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2121797]:https://launchpad.support.sap.com/#/notes/2121797
-[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2121797]: https://launchpad.support.sap.com/#/notes/2121797
+[2134316]: https://launchpad.support.sap.com/#/notes/2134316
 [2171857]:https://launchpad.support.sap.com/#/notes/2171857
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
@@ -379,9 +378,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit sono simili ai seguenti:
 
-> https:\//\<fullyqualifiedhostname >: 44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname >: 8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
 > 
 
@@ -397,9 +396,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 
@@ -504,7 +503,7 @@ Per tali sistemi, eseguire questa procedura per il tempdb aggiuntivo creato:
 
 Questa configurazione consente al tempdb di usare più spazio di quello offerto dall'unità di sistema. Come riferimento è possibile controllare le dimensioni del dispositivo tempdb nei sistemi esistenti eseguiti in locale. In alternativa, con una tale configurazione potrà essere eseguito su tempdb un numero di operazioni di I/O al secondo che l'unità di sistema non può garantire. I sistemi in esecuzione in locale possono essere usati per monitorare il carico di lavoro di operazioni di I/O rispetto al tempdb.
 
-Non inserire mai le directory SAP ASE in /mnt o /mnt/resource nella VM. Per SAP ASE, questo consiglio vale anche per il tempdb, anche se gli oggetti in esso presenti sono solo temporanei. Questo perché /mnt o /mnt/resource è uno spazio temporaneo predefinito della VM di Azure, che non è persistente. Per altri dettagli sullo spazio temporaneo della macchina virtuale di Azure, vedere [questo articolo][virtual-machines-linux-how-to-attach-disk]
+Non inserire mai le directory SAP ASE in /mnt o /mnt/resource nella VM. Per SAP ASE, questo consiglio vale anche per il tempdb, anche se gli oggetti in esso presenti sono solo temporanei. Questo perché /mnt o /mnt/resource è uno spazio temporaneo predefinito della VM di Azure, che non è persistente. Altri dettagli sullo spazio temporaneo della macchina virtuale di Azure sono disponibili in [questo articolo][virtual-machines-linux-how-to-attach-disk]
 
 Per le distribuzioni dei file di dati e dei file registro transazioni, le istruzioni e i suggerimenti sono disponibili in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP). In caso di distribuzioni basate su Linux, è consigliabile usare LVM o MDADM per creare set con striping con operazioni di I/O al secondo, velocità effettiva e volume sufficienti. 
 
@@ -532,9 +531,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit saranno simili ai seguenti:
 
-> https:\//\<fullyqualifiedhostname >: 44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname >: 8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
 > 
 > 
 
@@ -550,9 +549,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 

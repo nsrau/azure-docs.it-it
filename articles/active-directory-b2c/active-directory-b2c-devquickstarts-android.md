@@ -2,27 +2,27 @@
 title: Acquisire un token mediante un'applicazione Android in Azure Active Directory B2C | Microsoft Docs
 description: Questo articolo spiega come creare un'app per Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l'autenticazione degli utenti.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3aa2969f8373ae935b0905160f7ad1b57ce17f01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317939"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326298"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Accedere mediante un'applicazione Android in Azure Active Directory B2C
 
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. Questi standard consentono di usare qualsiasi libreria che si vuole integrare con Azure Active Directory B2C. Per aiutare gli sviluppatori a usare altre librerie, sono state scritte alcune procedure dettagliate come questa, che illustrano come configurare le librerie di terze parti per connettersi alla piattaforma delle identità Microsoft. La maggior parte delle librerie che implementano [la specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) può connettersi alla piattaforma delle identità Microsoft.
 
 > [!WARNING]
-> Microsoft non fornisce correzioni per queste librerie di terze parti e non ha eseguito una verifica su esse. In questo esempio si usa una libreria di terze parti chiamata AppAuth che è stata testata per la compatibilità in scenari di base con Azure AD B2C. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria. Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
+> Microsoft non fornisce correzioni per queste librerie di terze parti e non ha eseguito una verifica su esse. In questo esempio si usa una libreria di terze parti chiamata AppAuth che è stata testata per la compatibilità in scenari di base con Azure AD B2C. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria. Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
 >
 >
 
@@ -34,11 +34,11 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Per creare un'app per dispositivi mobili, [seguire questa procedura](active-directory-b2c-app-registration.md). Assicurarsi di:
+Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app.
 
-* Includere un **client nativo** nell'applicazione.
-* Copiare l' **ID applicazione** assegnato all'app. che sarà necessario più avanti.
-* Configurare un **URI di reindirizzamento** client nativo (ad esempio com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Sarà necessario più avanti.
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+Registrare l' **ID applicazione** per l'uso in un passaggio successivo. Successivamente, selezionare l'applicazione nell'elenco e registrare l' **URI di reindirizzamento personalizzato**, anche per l'uso in un passaggio successivo. Ad esempio `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Creare i flussi utente
 
@@ -117,8 +117,8 @@ AuthorizationServiceConfiguration config =
 
 Dopo la configurazione o il recupero di una configurazione del servizio di autorizzazione, è possibile costruire una richiesta di autorizzazione. Per creare la richiesta sono necessarie le informazioni seguenti:
 
-* ID client (ad esempio 00000000-0000-0000-0000-000000000000)
-* URI di reindirizzamento con schema personalizzato (ad esempio com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect)
+* ID client (ID applicazione) registrato in precedenza. Ad esempio `00000000-0000-0000-0000-000000000000`.
+* URI di reindirizzamento personalizzato registrato in precedenza. Ad esempio `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Entrambi gli elementi sono stati salvati durante la [registrazione dell'app](#create-an-application).
 
@@ -132,4 +132,3 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 Per informazioni su come completare il resto della procedura, consultare la [guida di AppAuth](https://openid.github.io/AppAuth-Android/). Se è necessario iniziare subito con un'app funzionante, vedere [il nostro esempio](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Seguire i passaggi indicati in [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) per immettere la configurazione di Azure AD B2C.
-

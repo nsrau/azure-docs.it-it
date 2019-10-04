@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863169"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305084"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per gli Argomenti personalizzati nella Griglia di eventi
-
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per argomenti personalizzati in Griglia di eventi
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Questa esercitazione illustrerà come configurare l'architettura di gestione degli eventi per il ripristino se il servizio Griglia di eventi diventa non integro in una determinata area.
 
 In questa esercitazione si apprenderà come creare un'architettura di failover attivo-passivo per gli argomenti personalizzati nella Griglia di eventi. Si otterrà il failover eseguendo il mirroring degli argomenti e delle sottoscrizioni tra due aree e quindi gestendo un failover quando un argomento diventa non integro. L'architettura in questa esercitazione esegue il failover di tutto il nuovo traffico. È importante sapere che, con questa configurazione, gli eventi già in corso non verranno ripristinati finché l'area compromessa non sarà di nuovo integra.
+
+> [!NOTE]
+> Griglia di eventi supporta ora il ripristino di emergenza geografico automatico sul lato server. Per un maggiore controllo sul processo di failover è ancora possibile implementare la logica di ripristino di emergenza sul lato client. Per informazioni dettagliate sul ripristino di emergenza geografico automatico, vedere [Ripristino di emergenza geografico sul lato server in Griglia di eventi di Azure](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 

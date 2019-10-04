@@ -11,17 +11,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730622"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066739"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -32,14 +31,13 @@ Quando si crea un piano di servizio app in una determinata area (ad esempio, Eur
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
 - Numero di istanze di VM
 - Dimensioni delle istanze di VM (Small, Medium, Large)
-- Piano tariffario (Gratuito, Condiviso, Basic, Standard, Premium, PremiumV2, Isolato, Consumo)
+- Piano tariffario (gratuito, condiviso, Basic, standard, Premium, PremiumV2, isolated)
 
 Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
 - **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa macchina virtuale di Azure delle altre app del servizio app, incluse quelle di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
 - **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in macchine virtuali di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
-- **Isolato**: questo piano esegue le macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate, che forniscono alle app l'isolamento a livello di rete oltre che a livello di calcolo. Offre funzionalità ottimali per aumentare il numero di istanze.
-- **Consumo**: questo piano è disponibile solo per le [app per le funzioni](../azure-functions/functions-overview.md). Ridimensiona le funzioni in modo dinamico a seconda del carico di lavoro. Per altre informazioni, vedere [Confronto di piani di hosting per Funzioni di Azure](../azure-functions/functions-scale.md).
+- **Isolato**: Questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -79,9 +77,8 @@ Questa sezione descrive come vengono fatturate le app del servizio app. Per info
 Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una tariffa oraria per le risorse di calcolo usate.
 
 - Nel piano **Condiviso** ogni app riceve una quota di minuti di CPU, quindi la quota di CPU di _ogni app_ viene fatturata su base oraria.
-- Nei piani di calcolo dedicati (**Basic**, **Standard**, **Premium**, **PremiumV2**), il piano di servizio app definisce fino a quale numero di istanze di VM le app vengono ridimensionate, quindi per _ogni istanza di VM_ nel piano di servizio app è prevista una tariffa oraria. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
-- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso. 
-- (Solo Funzioni di Azure) Il piano **Consumo** alloca in modo dinamico le istanze di VM per gestire il carico di lavoro di un'app per le funzioni e viene fatturato in modo dinamico al secondo da Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
+- Nei livelli di calcolo dedicati (**Basic**, **standard**, **Premium**, **PremiumV2**) il piano di servizio app definisce il numero di istanze di VM a cui vengono ridimensionate le app, quindi _ogni istanza di macchina virtuale_ nel piano di servizio app ha un costo orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
+- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso.
 
 L'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati SSL, slot di distribuzione, backup e così via) non viene addebitato. Le eccezioni sono le seguenti:
 
@@ -102,7 +99,7 @@ L'uso delle funzionalità del servizio app disponibili (configurazione di domini
 
 Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 
-Per informazioni sul passaggio dell'app a un piano di servizio superiore, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
+Per informazioni sul passaggio dell'app a un piano di servizio superiore, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
 
 Se l'app è nello stesso piano di servizio app di altre app, potrebbe essere necessario migliorare le prestazioni dell'app isolando le risorse di calcolo. A questo scopo, è possibile spostare l'app in un piano di servizio app separato. Per altre informazioni, vedere [Move an app to another App Service plan](app-service-plan-manage.md#move) (Spostare un'app in un altro piano di servizio app).
 
@@ -113,7 +110,7 @@ Poiché le risorse di calcolo allocate dal piano di servizio app vengono fattura
 Isolare l'app in un nuovo piano di servizio app nei casi seguenti:
 
 - L'app usa molte risorse.
-- Si vuole ridimensionare l'app indipendentemente dalle altre app nel piano esistente.
+- Si vuole ridimensionare l'app in modo indipendente dalle altre app del piano esistente.
 - L'app necessita di risorse in un'area geografica diversa.
 
 In questo modo è possibile allocare un nuovo set di risorse per l'app e ottenere un maggiore controllo delle app.

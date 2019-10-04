@@ -3,20 +3,21 @@ title: Configurare un metodo di routing del traffico Priorità con Gestione traf
 description: In questo articolo viene descritto come configurare il metodo di routing del traffico Priorità tramite Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003101"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048481"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurare il metodo di routing del traffico Priorità di Gestione traffico
 
@@ -33,7 +34,7 @@ Un modello comune per il failover del servizio consiste nell'invio di traffico a
     1. Nelle **impostazioni del metodo di routing del traffico** verificare che il metodo di routing del traffico sia **Priorità**. In caso contrario, fare clic su **Priorità** nell'elenco a discesa.
     2. Specificare le stesse le stesse **impostazioni di monitoraggio degli endpoint** per tutti gli endpoint in questo profilo come indicato di seguito:
         1. Selezionare il **protocollo** appropriato e specificare il numero di **porta**. 
-        2. In **Percorso** immettere una barra */*. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
+        2. In **Percorso** immettere una barra */* . Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
         3. Nella parte superiore della pagina fare clic su **Salva**.
 5. Nella sezione **Impostazioni** fare clic su **Endpoint**.
 6. Nel pannello **Endpoint** esaminare l'ordine di priorità per gli endpoint. Quando si seleziona il metodo di routing del traffico **Priorità**, l'ordine degli endpoint selezionati è rilevante. Verificare l'ordine di priorità degli endpoint.  L'endpoint primario si trova nella parte superiore. Verificare l'ordine di visualizzazione. Tutte le richieste vengono instradate al primo endpoint e, se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo. 

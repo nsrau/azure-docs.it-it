@@ -9,17 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
-manager: craigg
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360433"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060662"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere l'applicazione a istanza gestita di database SQL di Azure
 
 Ora sono disponibili diverse possibilità quando si decide come e dove ospitare un'applicazione.
 
@@ -45,7 +44,7 @@ Sono disponibili due opzioni per connettere reti virtuali:
 L'opzione di peering è quella preferibile perché il peering usa il backbone Microsoft e quindi, dal punto di vista della connettività non vi è alcuna differenza percepibile nella latenza tra le macchine virtuali nelle reti virtuali con peering e nella stessa rete virtuale. Il peering di reti virtuali è limitato alle reti nella stessa area.  
 
 > [!IMPORTANT]
-> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-an-on-premises-application"></a>Connettersi a un'applicazione locale
 
@@ -56,7 +55,7 @@ Sono disponibili due opzioni per connettersi in locale alla rete virtuale di Azu
 - Connessione VPN da sito a sito ([portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connessione [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Se è stata stabilita una connessione dall'ambiente locale ad Azure e non è possibile stabilire una connessione all'istanza gestita, controllare se il firewall ha la connessione in uscita aperta sulla porta SQL 1433 e sull'intervallo di porte 11000 12000 per il reindirizzamento.
+Se è stata stabilita una connessione da locale ad Azure e non è possibile stabilire una connessione a Istanza gestita, controllare se il firewall ha aperto una connessione in uscita sulla porta SQL 1433, oltre a 11000-11999 intervallo di porte per il reindirizzamento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connettere un'applicazione nella finestra di sviluppo
 
@@ -66,7 +65,7 @@ Le istanze gestite sono accessibili solo tramite un indirizzo IP privato, quindi
 
 Un altro scenario implementato dai clienti è quello in cui il gateway VPN è installato in una rete virtuale e una sottoscrizione separata da quelle che ospitano Istanza gestita. Sulle due reti virtuali viene quindi eseguito il peering. Il seguente esempio di diagramma di architettura mostra come questo può essere implementato.
 
-![Peering reti virtuali](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![Peering di rete virtuale](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
 Una volta configurata l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa vedere gli indirizzi IP nella rete virtuale che ospita l'istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering**.
 
@@ -96,7 +95,7 @@ Questo scenario è illustrato nel diagramma seguente:
 
 Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
-- Se non si riesce a eseguire la connessione a Istanza gestita da una macchina virtuale Azure all'interno della stessa VNet ma con subnet diversa, verificare se si dispone di un gruppo di sicurezza di rete impostato sulla subnet VM che potrebbe bloccare l'accesso. Inoltre, è necessario aprire la connessione in uscita sulla porta SQL 1433 e sulle porte nell'intervallo 11000-12000, poiché sono necessarie per la connessione tramite reindirizzamento all'interno del confine di Azure.
+- Se non si riesce a connettersi a Istanza gestita da una macchina virtuale di Azure all'interno della stessa VNet ma di una subnet diversa, verificare se è stato impostato un gruppo di sicurezza di rete nella subnet VM che potrebbe bloccare l'accesso. Si noti inoltre che è necessario aprire la connessione in uscita sulla porta SQL 1433 e le porte nell'intervallo 11000-11999, perché sono necessarie per la connessione tramite reindirizzamento all'interno del limite di Azure.
 - Assicurarsi che la propagazione BGP sia impostata su **Abilitata** per la tabella di route associata alla rete virtuale.
 - Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 
@@ -146,7 +145,8 @@ Se si desidera connettersi all'istanza gestita, è consigliabili usare le versio
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLEDB| 18.0.2.0 |
-|SSMS| 17.8.1 o [superiore](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18,0 o [versione successiva](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o versione successiva |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

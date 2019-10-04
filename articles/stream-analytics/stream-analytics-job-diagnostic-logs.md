@@ -7,18 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 06/21/2019
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247155"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620969"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
 In alcuni casi un processo di Analisi di flusso di Azure arresta l'elaborazione in modo imprevisto. È importante essere in grado di risolvere i problemi di questo tipo di eventi. Gli errori potrebbero essere causati da un risultato imprevisto della query, dalla connettività ai dispositivi o da un'interruzione imprevista del servizio. I log di diagnostica di Analisi di flusso possono essere utili per identificare la causa dei problemi quando si verificano e per ridurre i tempi di ripristino.
+
+Si consiglia di abilitare i log di diagnostica per tutti i processi di produzione.
 
 ## <a name="log-types"></a>Tipi di log
 
@@ -47,7 +48,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
    ![Riepilogo dell'operazione del Log attività di Analisi di flusso](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Scorrere verso il basso fino alla sezione **pannello Proprietà** di JSON, che fornisce i dettagli dell'errore che ha causato il fallimento dell'operazione. In questo esempio, l'errore era dovuto al superamento dei valori della latitudine associata di Common Language Runtime.
+4. Scorrere verso il basso fino alla sezione **pannello Proprietà** di JSON, che fornisce i dettagli dell'errore che ha causato il fallimento dell'operazione. In questo esempio, l'errore era dovuto al superamento dei valori della latitudine associata di Common Language Runtime. Discrepanza nei dati che viene elaborati da un processo di Stream Analitica provoca un errore nei dati. È possibile ottenere informazioni diverse [dati di input e output degli errori e il motivo per cui si svolgono](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Dettagli dell'errore JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -63,7 +64,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
     ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**.
+2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**. È consigliabile usare un'area di lavoro di Log Analitica nella stessa area di Azure del processo di Stream Analitica per evitare costi aggiuntivi.
 
     ![Impostare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -83,7 +84,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 ## <a name="diagnostics-log-categories"></a>Categorie del log di diagnostica
 
-Attualmente vengono acquisite due categorie di log di diagnostica:
+Azure Stream Analitica acquisisce due categorie di log di diagnostica:
 
 * **Creazione**: Acquisisce eventi di log relativi alle operazioni di creazione dei processi, tra cui creazione di processi, aggiunta ed eliminazione di input e output, aggiunta e aggiornamento della query, e avvio o arresto del processo.
 
@@ -110,13 +111,13 @@ properties | Dettagli specifici delle voci di log; serializzazione come stringa 
 
 ### <a name="execution-log-properties-schema"></a>Schema delle proprietà dei log di esecuzione
 
-I log di esecuzione hanno informazioni sugli eventi che si sono verificati durante l'esecuzione del processo di analisi di flusso. Lo schema della proprietà varia a seconda del tipo di evento. Attualmente i tipi di log di esecuzione sono i seguenti:
+I log di esecuzione hanno informazioni sugli eventi che si sono verificati durante l'esecuzione del processo di analisi di flusso. Lo schema delle proprietà varia a seconda che l'evento sia un errore nei dati o un evento generico.
 
 ### <a name="data-errors"></a>Errori nei dati
 
-Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici.
+Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. Altre informazioni sulla causa di varie differenti [gli errori dei dati di input e output](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-NOME | DESCRIZIONE
+Name | DESCRIZIONE
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
@@ -124,10 +125,14 @@ Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o 
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
-* **Eventi di serializzazione**. Gli eventi di serializzazione si verificano durante le operazioni di lettura degli eventi. Si verificano quando i dati in input non soddisfano lo schema di query per uno dei seguenti motivi:
-    * *Tipo non corrispondente durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
-    * *Impossibile leggere un evento, serializzazione non valida*: elenca le informazioni sulla posizione nei dati di input in cui si è verificato l'errore. Include il nome del BLOB per l'input del BLOB, l'offset e un campione dei dati.
-* **Eventi di invio**. Gli eventi di invio si verificano durante le operazioni di scrittura. Identificano l'evento di streaming che ha causato l'errore.
+
+* **Eventi di serializzazione** si verificano durante le operazioni di lettura eventi. Si verificano quando i dati in input non soddisfano lo schema di query per uno dei seguenti motivi:
+
+   * *Tipo non corrispondente durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
+
+   * *Impossibile leggere un evento, serializzazione non valida*: elenca le informazioni sulla posizione nei dati di input in cui si è verificato l'errore. Include il nome del BLOB per l'input del BLOB, l'offset e un campione dei dati.
+
+* **Inviare eventi** si verificano durante operazioni di scrittura. Identificano l'evento di streaming che ha causato l'errore.
 
 ### <a name="generic-events"></a>Eventi generici
 
@@ -145,5 +150,5 @@ ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
 * [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Errori di Stream Analitica dei dati](https://docs.microsoft.com/azure/stream-analytics/data-errors)

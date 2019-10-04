@@ -1,24 +1,22 @@
 ---
 title: Scenari comuni del Catalogo dati di Azure
 description: Panoramica degli scenari comuni per Azure Data Catalog, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze esistenti sulle origini dati e i processi.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010807"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736451"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scenari comuni del Catalogo dati di Azure
 In questo articolo vengono presentati scenari comuni in cui Azure Data Catalog può aiutare l'organizzazione a incrementare il valore delle origini dati esistenti.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registrazione delle origini dati centrali
+## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registrazione di origini dati centrali
 Le organizzazioni hanno spesso molte origini dati di valore elevato. Queste origini dati includono sistemi di elaborazione di transazioni online (OLTP) line-of-business, data warehouse e database di business intelligence/analisi. Il numero dei sistemi e la sovrapposizione tra di essi in genere cresce nel tempo in base all'evoluzione dell'azienda e delle relative necessità, ad esempio dopo acquisizioni e fusioni.
 
 Può essere difficile per i membri dell'organizzazione sapere dove si trovano i dati all'interno delle origini dati. Domande come le seguenti sono molto diffuse:
@@ -47,7 +45,7 @@ Questa crescita strutturale del contenuto del catalogo è un complemento natural
 
 È importante notare che, anche se questo scenario è incentrato specificamente sulla business intelligence in modalità self-service, i modelli e le richieste si applicano anche a progetti di BI aziendali su larga scala. Usando Data Catalog, l'organizzazione può migliorare qualsiasi attività comporti un processo manuale di individuazione delle origini dati.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Acquisizione di conoscenze
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Acquisizione della conoscenza tribale
 Di seguito sono riportate informazioni per sapere quali dati devono essere eseguiti dal processo e dove si trovano.
 
 Se si ha una certa familiarità con il processo, probabilmente già si hanno le conoscenze necessarie. L'utente ha intrapreso gradualmente il processo di apprendimento e nel corso del tempo ha imparato a usare le origini dati che sono fondamentali quotidianamente.

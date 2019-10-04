@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60542244"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importare ed esportare dati in Cache Redis di Azure
 L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB in un account di archiviazione di Azure. 
@@ -155,7 +155,7 @@ Se il pannello **Importa dati** o **Esporta dati** rimane aperto per più di 15 
 
 Per risolvere il problema, avviare l'operazione di importazione o esportazione prima che scadano i 15 minuti.
 
-### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Durante l'esportazione dei dati nell'archivio BLOB di Azure è stato visualizzato un errore. Che cosa è successo?
+### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Durante l'esportazione dei dati nell'archivio BLOB di Azure è stato visualizzato un errore. Cosa è successo?
 L'esportazione funziona solo con i file RDB archiviati come BLOB di pagine. Al momento non sono supportati altri tipi di BLOB, inclusi gli account di archiviazione BLOB con livelli di accesso frequente e non frequente. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

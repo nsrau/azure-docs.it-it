@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61350630"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>Mapping di trasformazione del chiave surrogata flusso di dati
 

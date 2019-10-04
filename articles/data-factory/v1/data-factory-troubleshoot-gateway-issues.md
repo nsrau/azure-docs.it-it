@@ -13,11 +13,11 @@ ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61252437"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.

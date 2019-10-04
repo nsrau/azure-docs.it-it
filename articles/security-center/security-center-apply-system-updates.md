@@ -3,9 +3,8 @@ title: Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure | M
 description: Questo documento illustra come implementare le raccomandazioni **Applica gli aggiornamenti del sistema** e **Riavvia dopo gli aggiornamenti del sistema** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: memildin
+ms.openlocfilehash: 1688e85c6e6ed57892ccdffdf0813c8628127cc5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099002"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202458"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali e i computer Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nel computer Windows. Il Centro sicurezza cerca anche gli aggiornamenti più recenti nei sistemi Linux. Se nella macchina virtuale o nel computer non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglierà l'applicazione.
@@ -63,23 +62,13 @@ In questo esempio si userà **Calcolo**.
 
    ![Aggiornamento della sicurezza mancante][3]
 
-4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Una query di ricerca log di monitoraggio di Azure consente di aprire Filtra i computer in cui Manca l'aggiornamento.
+4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Una query di ricerca dei log di monitoraggio di Azure viene aperta filtrata nei computer in cui manca l'aggiornamento.
 
-   ![Ricerca di log di monitoraggio di Azure][4]
+   ![Ricerca nei log di monitoraggio di Azure][4]
 
 5. Selezionare un computer dall'elenco per avere maggiori informazioni. Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
-    ![Ricerca di log di monitoraggio di Azure][5]
-
-## <a name="reboot-after-system-updates"></a>Riavviare dopo gli aggiornamenti del sistema
-1. Tornare al pannello **Raccomandazioni** . Dopo l'applicazione degli aggiornamenti del sistema è stata generata una nuova voce, denominata **Riavvia dopo gli aggiornamenti del sistema**. Questa voce indica che è necessario avviare la VM per completare il processo di applicazione degli aggiornamenti del sistema.
-
-   ![Riavviare dopo gli aggiornamenti del sistema][6]
-2. Selezionare **Riavvia dopo gli aggiornamenti del sistema**. Verrà visualizzato il pannello **In attesa di un riavvio per completare gli aggiornamenti del sistema** che mostra un elenco di macchine virtuali che devono essere riavviate per completare il processo di aggiornamento del sistema.
-
-   ![Riavvio in sospeso][7]
-
-Riavviare la VM da Azure per completare il processo.
+    ![Ricerca nei log di monitoraggio di Azure][5]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -98,5 +87,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [3]: ./media/security-center-apply-system-updates/detail-on-missing-update.png
 [4]: ./media/security-center-apply-system-updates/log-search.png
 [5]: ./media/security-center-apply-system-updates/search-details.png
-[6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
-[7]: ./media/security-center-apply-system-updates/restart-pending.png

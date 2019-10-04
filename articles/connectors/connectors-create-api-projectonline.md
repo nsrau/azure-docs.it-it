@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: fe571209d28fe098ce9b507cb67b0a9a5abd25a3
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230370"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050857"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gestire progetti, attività e risorse di Project Online con App per la logica di Azure
 
@@ -31,7 +31,7 @@ Project Online consente di pianificare, classificare in ordine di priorità e ge
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Project Online, disponibile tramite un account [Office 365](https://www.office.com/). 
 

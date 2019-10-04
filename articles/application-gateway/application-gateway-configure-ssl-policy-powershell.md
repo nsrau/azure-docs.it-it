@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: e6ba429d3e94f43cf21e6b76b7ef3644ca28fb19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58169171"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018256"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
 
@@ -116,14 +116,7 @@ L'esempio seguente imposta criteri SSL personalizzati in un gateway applicazione
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> Quando si configurano criteri SSL personalizzati, è necessario selezionare almeno un pacchetto di crittografia dell'elenco seguente. Il gateway applicazione usa il pacchetto di crittografia RSA SHA256 per la gestione del back-end.
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-> * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_RSA_WITH_AES_256_CBC_SHA256
-> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> Quando si configura un criterio SSL personalizzato, è necessario selezionare TLS_RSA_WITH_AES_256_CBC_SHA256. Il gateway applicazione usa questo pacchetto di crittografia per la gestione back-end. Questa operazione può essere usata in combinazione con altri gruppi, ma è necessario selezionare anche questa opzione. 
 
 ```powershell
 # get an application gateway resource

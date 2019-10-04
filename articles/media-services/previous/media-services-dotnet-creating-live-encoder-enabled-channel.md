@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: b2ff6caa4c1b3626e4be1684976441be6ecbfe30
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418585"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015515"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.locfileid: "58418585"
 > * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -41,7 +42,7 @@ Per altre informazioni concettuali sui canali correlati abilitati per la codific
 I seguenti passaggi descrivono le attività relative alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
-> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
+> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -89,14 +90,14 @@ Questo articolo illustra come eseguire le operazioni seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
-* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
 * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versioni successive.
 * È necessario usare Media Services .NET SDK versione 3.2.0.0 o successiva.
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
 ## <a name="considerations"></a>Considerazioni
-* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@Microsoft.com.
+* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 * È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
 ## <a name="download-sample"></a>Scaricare un esempio

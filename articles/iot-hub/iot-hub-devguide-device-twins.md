@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 06/10/2019
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294060"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640625"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -119,7 +119,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. Ad esempio: 
+Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. Ad esempio:
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -182,7 +182,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
   - Properties
 
-    | NOME | Valore |
+    | Name | Valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -196,7 +196,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
-  - Corpo
+  - Body
         
     Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
 
@@ -231,7 +231,7 @@ Oltre a queste operazioni, il back-end della soluzione può:
 
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate, del dispositivo attualmente connesso.
+* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello (incluse le proprietà di sistema desiderate e segnalate) per il dispositivo attualmente connesso. I tag non sono visibili per le app per dispositivi.
 
 * **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
 
@@ -285,7 +285,7 @@ L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del dispositivo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 {

@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6e23cc583c9b403619ad2e47f2085ef7c0149bd2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575614"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142378"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiare o clonare una data factory in Azure Data Factory
 
@@ -36,11 +36,11 @@ Ecco alcune delle circostanze in cui potrebbe essere utile copiare o clonare una
 
 1. Il prerequisito consiste nel creare la data factory di destinazione dal portale di Azure.
 
-1. Se hai un SelfHosted IntegrationRuntime nella factory origine, è necessario creazione preliminare, con lo stesso nome nell'ambiente di produzione di destinazione. Se si desidera condividere tra diverse factory IRs del proprio sito, è possibile usare il modello pubblicato [qui](author-visually.md#best-practices-for-git-integration).
+1. Se si dispone di un IntegrationRuntime SelfHosted nella Factory di origine, è necessario precrearlo con lo stesso nome nella Factory di destinazione. Se si vuole condividere il SelfHosted IRs tra diversi Factory, è possibile usare il modello pubblicato [qui](source-control.md#best-practices-for-git-integration).
 
 1. Ogni volta che si pubblica dal portale in modalità GIT, il modello di Resource Manager della factory viene salvato in GIT nel ramo adf_publish del repository.
 
-1. Per altri scenari, può essere scaricato il modello di Resource Manager facendo clic sul pulsante nel portale **Export Resource Manager template (Esporta modello di Resource Manager)**.
+1. Per altri scenari, può essere scaricato il modello di Resource Manager facendo clic sul pulsante nel portale **Export Resource Manager template (Esporta modello di Resource Manager)** .
 
 1. Dopo aver scaricato il modello di Resource Manager, è possibile distribuirlo tramite i metodi standard di distribuzione in Resource Manager.
 

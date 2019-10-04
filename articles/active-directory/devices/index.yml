@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione sulla gestione dei dispositivi in Azure AD
+### YamlMime:Landing
+title: Documentazione sull'identità del dispositivo in Azure AD
+summary: Informazioni su come configurare e gestire le identità dei dispositivi in Azure AD.
 metadata:
-  document_id: null
-  title: 'Documentazione sulla gestione dei dispositivi in Azure Active Directory - Esercitazioni, concetti, informazioni di riferimento | Microsoft Docs'
-  description: Informazioni su come configurare e testare la gestione dei dispositivi di Azure Active Directory.
+  title: Documentazione sull'identità del dispositivo in Azure AD
+  description: Informazioni su come configurare e gestire le identità dei dispositivi in Azure AD.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Tramite i dispositivi gli utenti hanno accesso alle risorse aziendali. Per proteggere le risorse aziendali, gli amministratori IT vogliono avere il controllo su questi dispositivi. Ciò consente di verificare che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard per sicurezza e conformità.<br>La gestione dei dispositivi rappresenta anche il fondamento per l''accesso condizionale basato su dispositivo. Con l''accesso condizionale basato su dispositivo, è possibile assicurarsi che l''accesso alle risorse nell''ambiente sia possibile solo con dispositivi gestiti.'
-sections:
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni sull'integrazione dei dispositivi locali aggiunti ad AD con Azure AD.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Domini gestiti
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Domini federati
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648932"
+landingContent:
+- title: Informazioni sull'identità del dispositivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sulle identità dei dispositivi
+      url: overview.md
+    - text: Informazioni su Enterprise State Roaming
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Dispositivi registrati in Azure AD
+      url: concept-azure-ad-register.md
+    - text: Dispositivi aggiunti ad Azure AD
+      url: concept-azure-ad-join.md
+    - text: Dispositivi aggiunti all'identità ibrida di Azure AD
+      url: concept-azure-ad-join-hybrid.md
+    - text: Accesso SSO alle risorse locali
+      url: azuread-join-sso.md
+    - text: Token di aggiornamento primari
+      url: concept-primary-refresh-token.md
+- title: Configurare e gestire i dispositivi aggiunti ad Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Pianificare l'implementazione dell'aggiunta ad Azure AD
+      url: azureadjoin-plan.md
+    - text: Gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
+      url: assign-local-admin.md
+    - text: Trovare e gestire i dispositivi non aggiornati in Azure AD
+      url: manage-stale-devices.md
+- title: Configurare e gestire i dispositivi ibridi aggiunti ad Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Pianificare l'implementazione dell'aggiunta ad Azure AD ibrido
+      url: hybrid-azuread-join-plan.md
+    - text: Risoluzione dei problemi relativi ai dispositivi ibridi aggiunti ad Azure AD
+      url: troubleshoot-hybrid-join-windows-current.md

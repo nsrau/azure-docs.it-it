@@ -2,18 +2,18 @@
 title: Salvare report nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come salvare i report nelle raccolte di aree di lavoro di Power BI. Per il corretto funzionamento sono necessarie le autorizzazioni appropriate.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: bc3c9f71900abcbba440db259d92df53a4c7a586
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1e23bd22f2b89ef42f4b27f5e4ca2590be7fe5a7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516451"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668892"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Salvare report nelle raccolte di aree di lavoro di Power BI
 
@@ -127,7 +127,7 @@ var embedConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempio introduttivo](get-started-sample.md)  
 [Incorporare un report](embed-report.md)  

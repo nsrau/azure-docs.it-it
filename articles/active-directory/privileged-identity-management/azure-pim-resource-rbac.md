@@ -1,9 +1,9 @@
 ---
-title: Visualizza cronologia di attività e controllo per i ruoli delle risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
+title: Visualizzare le attività e la cronologia di controllo per i ruoli delle risorse di Azure in PIM-Azure Active Directory | Microsoft Docs
 description: Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441408"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804042"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM
 
@@ -43,11 +43,11 @@ Se è necessario verificare quali azioni sono state effettuate da un utente spec
 
     Si apre una visualizzazione grafica delle azioni dell'utente in Risorse di Azure divise per data. Mostra inoltre le attivazioni di ruolo recenti nell’arco dello stesso periodo di tempo.
 
-    ![Dettagli utente](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Dettagli dell'utente con riepilogo delle attività delle risorse e attivazioni dei ruoli](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Fare clic su un'attivazione del ruolo specifica per visualizzare i dettagli e l'attività di Risorse di Azure corrispondente effettuata nel periodo in cui l'utente è risultato attivo.
 
-    ![Selezionare l'attivazione del ruolo](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Attivazione del ruolo selezionata e dettagli attività visualizzati per data](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>Esportare le assegnazioni di ruolo con gli elementi figlio
 
@@ -63,11 +63,11 @@ Potrebbe essere previsto un requisito di conformità in base al quale è necessa
 
 1. Fare clic su **Esporta** per aprire il riquadro Esporta l'appartenenza.
 
-    ![Riquadro Esporta l'appartenenza](media/azure-pim-resource-rbac/export-membership.png)
+    ![Esporta riquadro appartenenza per esportare tutti i membri](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Fare clic su **Esporta tutti i membri** per esportare tutte le assegnazioni di ruolo in un file CSV.
 
-    ![Esportare il file CSV](media/azure-pim-resource-rbac/export-csv.png)
+    ![Assegnazioni di ruolo esportate nel file con estensione CSV come visualizzato in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Visualizzare la cronologia dei controlli delle risorse
 
@@ -83,15 +83,15 @@ L'opzione Controllo delle risorse fornisce una visualizzazione di tutte le attiv
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Filtrare il controllo delle risorse](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Elenco di controllo delle risorse con filtri](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. Per **Tipo di controllo**, selezionare **Attiva (assegnato + attivato)**.
+1. Per **Tipo di controllo**, selezionare **Attiva (assegnato + attivato)** .
 
-    ![Dettagli attività](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Elenco di controllo delle risorse filtrato in base al tipo di controllo Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. In **Azione** fare clic su **(attività)** per un utente per visualizzare il dettaglio dell'attività di tale utente nelle risorse di Azure.
 
-    ![Dettagli dell'attività dell'utente](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Dettagli attività utente per un'azione specifica](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Visualizzare Controllo personale
 
@@ -107,10 +107,10 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Attività del ruolo personale](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
 - [Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM](pim-resource-roles-approval-workflow.md)
-- [Cronologia di controllo di visualizzazione per i ruoli di Azure AD in PIM](pim-how-to-use-audit-log.md)
+- [Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM](pim-how-to-use-audit-log.md)

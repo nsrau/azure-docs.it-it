@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414861"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798194"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurazione dell'elenco personalizzato di password escluse
 
@@ -24,12 +24,12 @@ Molte organizzazioni riscontrano spesso il fatto che gli utenti creano password 
 
 ## <a name="add-to-the-custom-list"></a>Aggiungere password all'elenco personalizzato
 
-Per configurare l'elenco personalizzato di password escluse, è necessaria una licenza di Azure Active Directory Premium P1 o P2. Per informazioni più dettagliate sulle licenze di Azure Active Directory, vedere la [pagina dei prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).|
+Per configurare l'elenco personalizzato di password escluse, è necessaria una licenza di Azure Active Directory Premium P1 o P2. Per altre informazioni sulle licenze di Azure Active Directory, vedere la [pagina dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. Accedi per il [portale di Azure](https://portal.azure.com) e passare alla **Azure Active Directory**, **metodi di autenticazione**, quindi **protezione con Password**.
 1. Impostare l'opzione **Enforce custom list** (Applica elenco personalizzato) su **Sì**.
 1. Aggiungere stringhe per **Custom banned password list** (Elenco personalizzato di password escluse), una stringa per riga
-   * L'elenco personalizzato di password escluse può contenere fino a 1000 parole.
+   * L'elenco di password vietate personalizzato può contenere fino a 1000 termini.
    * L'elenco personalizzato di password escluse fa distinzione tra maiuscole e minuscole.
    * L'elenco personalizzato di password escluse tiene conto della sostituzione dei caratteri comuni,
       * ad esempio: "o" e "0" o "a" e "\@"
@@ -39,6 +39,9 @@ Per configurare l'elenco personalizzato di password escluse, è necessaria una l
 > [!NOTE]
 > Potrebbero essere necessarie diverse ore prima che l'aggiornamento dell'elenco personalizzato di password escluse venga applicato.
 
+> [!NOTE]
+> L'elenco di password vietate personalizzato è limitato alla presenza di un massimo di termini di 1000. Non è progettato per bloccare gli elenchi di dimensioni estremamente grandi di password. Per sfruttare completamente i vantaggi dell'elenco personalizzato di password vietate, Microsoft consiglia di rivedere innanzitutto e comprendere la progettazione desiderata e l'utilizzo dell'elenco di password vietate personalizzato (vedere [Custom vietata elenco password](concept-password-ban-bad.md#custom-banned-password-list)), e anche l'algoritmo di valutazione della password (vedere [modo in cui vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Modificare l'elenco personalizzato di password escluse nella sezione Metodi di autenticazione nel portale di Azure](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Funzionamento
@@ -47,9 +50,10 @@ Ogni volta che un utente o un amministratore reimposta o modifica una password d
 
 ## <a name="what-do-users-see"></a>Cosa vedono gli utenti
 
-Quando un utente cerca di reimpostare una password usando una stringa che verrà esclusa, viene visualizzato il messaggio di errore seguente:
+Quando un utente tenta di reimpostare una password per un elemento verrebbe escluso, viene visualizzato uno dei messaggi di errore seguenti:
 
-La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare. Riprovare con una password diversa.
+* La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare. Riprovare con una password diversa.
+* Sfortunatamente, è possibile usare la password perché contiene parole o caratteri bloccati dall'amministratore. Riprovare con una password diversa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

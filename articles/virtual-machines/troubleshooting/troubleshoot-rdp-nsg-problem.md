@@ -4,21 +4,20 @@ description: Informazioni su come risolvere un errore RDP causato dalla configur
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318936"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162603"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Non è possibile connettersi in remoto a una macchina virtuale perché la porta RDP non è abilitata in NSG
 
@@ -43,13 +42,12 @@ Per abilitare la porta RDP in un gruppo di sicurezza di rete, seguire questa pro
 4. In **Regole porta in ingresso** controllare se la porta per il protocollo RDP è impostata correttamente. Di seguito è riportato un esempio della configurazione: 
 
     **Priorità**: 300 </br>
-    **Porta**: 3389 </br>
     **Nome**: Port_3389 </br>
-    **Porta**: 3389 </br>
+    **Porta (destinazione)** : 3389 </br>
     **Protocollo**: TCP </br>
-    **Origine**: Qualsiasi </br>
-    **Destinazioni**: Qualsiasi </br>
-    **Azione**: CONSENTI </br>
+    **Origine**: Any </br>
+    **Destinazioni**: Any </br>
+    **Azione**: Allow </br>
 
 Se si specifica l'indirizzo IP di origine, questa impostazione consente solo al traffico proveniente da un indirizzo IP o da un intervallo di indirizzi IP specifico di connettersi alla macchina virtuale. Assicurarsi che il computer utilizzato per avviare la sessione RDP sia compreso nell'intervallo.
 

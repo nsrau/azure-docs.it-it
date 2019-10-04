@@ -4,25 +4,24 @@ description: Questo articolo elenca le domande frequenti relative alla disponibi
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337545"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154888"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Applicazione e i problemi di disponibilità del servizio per servizi Cloud di Azure: Domande frequenti (FAQ)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per servizi cloud di Azure: Domande frequenti (FAQ)
 
 Questo articolo include le domande frequenti relative ai problemi di disponibilità di applicazioni e servizi per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 

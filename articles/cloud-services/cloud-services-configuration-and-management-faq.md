@@ -4,23 +4,22 @@ description: Questo articolo elenca le domande frequenti relative alla configura
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337426"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154714"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: Domande frequenti (FAQ)
 
@@ -109,7 +108,7 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?
 
-Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, consultare [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Per altre informazioni, vedere gli articoli seguenti:
 - [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -143,13 +142,13 @@ Per altre informazioni, vedere i documenti seguenti:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
 È possibile abilitare la registrazione di Diagnostica di Microsoft Azure tramite le opzioni seguenti:
 1. [Abilitare da Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Abilitare tramite il codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Abilita tramite codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Abilitare tramite PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
 
 
-## <a name="network-configuration"></a>Configurazione di rete
+## <a name="network-configuration"></a>Configurazione rete
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Come si imposta il timeout di inattività per Azure Load Balancer?
 È possibile specificare il timeout nel file di definizione del servizio (con estensione csdef) analogo al seguente:
@@ -208,11 +207,11 @@ Per altre informazioni, vedere:
 Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTTP/2 usando uno dei metodi seguenti:
 
 - Abilitare la versione del protocollo nei log di IIS ed esaminare i log di IIS. HTTP/2 verrà indicato nei log. 
-- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda Rete per controllare il protocollo. 
+- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda rete per verificare il protocollo. 
 
 Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS).
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>Permissions
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Come si implementa l'accesso in base al ruolo per Servizi cloud?
 Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo, perché non è un servizio basato su Azure Resource Manager.
@@ -282,7 +281,7 @@ Vedere [Limiti specifici del servizio](../azure-subscription-service-limits.md#s
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità %approot% vengono calcolate come <dimensioni del file con estensione cspkg + dimensioni massime del giornale di registrazione + margine di spazio libero> oppure 1,5 GB, a seconda di quale sia il valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+Le dimensioni dell'unità% AppRoot% vengono calcolate con \<dimensioni pari a. cspkg + max journal size + un margine di spazio libero > o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
@@ -297,7 +296,7 @@ Le impostazioni del giornale di registrazione non sono configurabili e quindi no
 - [Creare un'attività di avvio di PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalware e sulla relativa abilitazione dal portale, vedere [Scenari di distribuzione di Antimalware](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalware e sulla relativa abilitazione dal portale, vedere [Scenari di distribuzione di Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
 ### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Come è possibile abilitare Indicazione nome server (SNI) per Servizi cloud?
 

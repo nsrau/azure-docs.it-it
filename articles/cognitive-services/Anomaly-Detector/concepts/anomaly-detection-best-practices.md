@@ -1,20 +1,21 @@
 ---
-title: Le procedure consigliate quando si usa l'API rilevatore di anomalie
+title: Procedure consigliate per l'API Rilevamento anomalie
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulle procedure consigliate per il rilevamento di anomalie con l'API rilevatore di anomalie.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484035"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721629"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Le procedure consigliate per l'API rilevatore di anomalie
 
@@ -26,9 +27,32 @@ L'API rilevatore di anomalie è un servizio di rilevamento di anomalie senza sta
 
 Usare questo articolo per apprendere le procedure consigliate per l'uso dell'API ottenimento dei migliori risultati per i dati. 
 
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando usare batch (intero) o versione più recente (ultima) punto di rilevamento anomalie
+
+Endpoint rilevamento batch dell'API di rilevamento delle anomalie consentono di rilevare anomalie attraverso l'intera volte i dati della serie. In questa modalità di rilevamento, un modello statistico singolo creato e applicato a ogni punto nel set di dati. Se la serie temporale presenta le caratteristiche, seguenti è consigliabile usare il rilevamento di batch per visualizzare in anteprima i dati in un'unica chiamata API.
+
+* Una serie temporale stagionale, con anomalie occasionali.
+* Una serie temporale tendenza piatta, con picchi occasionali o DIP. 
+
+Non è consigliabile usare il rilevamento delle anomalie di batch per i dati in tempo reale di monitoraggio o utilizzarlo nei dati delle serie temporali che non hanno precedenza caratteristiche. 
+
+* Rilevamento batch Crea e applica un solo modello, il rilevamento per ogni punto viene eseguito nel contesto dell'intera serie. Se la serie dati le tendenze nel tempo su e giù senza stagionalità, alcuni punti di modifica (DIP e i picchi di dati) non vengano trovate dal modello. Allo stesso modo, alcuni punti di modifica che sono meno significative rispetto a quelle in un secondo momento nel set di dati non possono essere considerate sufficientemente elevata da essere incorporate nel modello.
+
+* Rilevamento batch è più lento rispetto a rilevare lo stato delle anomalie del punto più recente quando si esegue il monitoraggio dei dati in tempo reale, a causa del numero di punti che si sta analizzando.
+
+Per il monitoraggio in tempo reale dei dati, è consigliabile rilevare lo stato delle anomalie di solo il punto dati più recente. Con l'applicazione in modo continuo più recente punto di rilevamento, il monitoraggio dei dati di streaming può essere eseguito in modo più efficiente e con maggiore precisione.
+
+L'esempio seguente viene descritto l'impatto di che queste modalità di rilevamento possono avere sulle prestazioni. La prima figura mostra il risultato di rilevare in modo continuo il punto più recente stato anomalie lungo i punti dati già visualizzati 28. I punti rossi sono le anomalie.
+
+![Un'immagine che mostra il rilevamento di anomalie usando il punto più recente](../media/last.png)
+
+Di seguito è lo stesso set di dati tramite il rilevamento anomalie di batch. Il modello compilato per l'operazione ha ignorato anomalie diversi, contrassegnate da rettangoli.
+
+![Un'immagine che mostra il rilevamento di anomalie usando il metodo di batch](../media/entire.png)
+
 ## <a name="data-preparation"></a>Preparazione dei dati
 
-L'API rilevatore di anomalie accetta serie temporale dei dati formattati in un oggetto della richiesta JSON. Una serie temporale può essere qualsiasi dati numerici registrati nel corso del tempo in ordine sequenziale. È possibile inviare windows dei dati delle serie temporali per l'endpoint API rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati, che è possibile inviare è 12, mentre quello massimo è 8640 punti. 
+L'API rilevatore di anomalie accetta serie temporale dei dati formattati in un oggetto della richiesta JSON. Una serie temporale può essere qualsiasi dati numerici registrati nel corso del tempo in ordine sequenziale. È possibile inviare windows dei dati delle serie temporali per l'endpoint API rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati, che è possibile inviare è 12, mentre quello massimo è 8640 punti. [Granularità](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) è definito come la frequenza con cui i dati vengono campionati. 
 
 Punti dati inviati per l'API rilevatore di anomalie devono avere un timestamp valido Coordinated Universal Time (UTC) e valore numerico. 
 
@@ -45,6 +69,15 @@ Punti dati inviati per l'API rilevatore di anomalie devono avere un timestamp va
         "value": 29615278
       },
     ]
+}
+```
+
+Se i dati verranno campionati con un intervallo di tempo non standard, è possibile specificare mediante l'aggiunta di `customInterval` attributo nella richiesta. Ad esempio, se le serie vengono campionati ogni 5 minuti, è possibile aggiungere quanto segue per la richiesta JSON:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 
@@ -68,7 +101,7 @@ Per ottenere risultati ottimali, specificare 4 `period`del patrimonio di punto d
 
 Se i dati di streaming viene campionati a un breve intervallo (ad esempio secondi o minuti), inviare il numero consigliato di punti dati potrebbe superare massimo numero consentito (8640 punti dati) dell'API di rilevamento delle anomalie. Se i dati di viene illustrato un modello stagionale stabile, prendere in considerazione l'invio di un campione di dati delle serie temporali in un intervallo di tempo più grande, ad esempio ore. Campionamento dei dati in questo modo anche notevolmente migliorare i tempi di risposta API. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Che cos'è l'API rilevatore di anomalie?](../overview.md)
-* [Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie](../quickstarts/detect-data-anomalies-csharp.md)

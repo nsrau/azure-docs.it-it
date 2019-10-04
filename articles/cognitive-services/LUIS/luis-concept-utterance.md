@@ -1,6 +1,6 @@
 ---
-title: Espressioni di esempio corrette
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Espressioni di esempio valide-LUIS
+titleSuffix: Azure Cognitive Services
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792539"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638322"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -74,13 +74,51 @@ LUIS compila modelli efficaci con espressioni selezionate con attenzione dall'au
 
 È consigliabile iniziare con poche espressioni, poi [esaminare le espressioni dell'endpoint](luis-how-to-review-endpoint-utterances.md) per prevederne correttamente la finalità e per estrarre l'entità.
 
-## <a name="punctuation-marks"></a>Segni di punteggiatura
+## <a name="utterance-normalization"></a>Normalizzazione dell'espressione
 
-LUIS non ignora i segni di punteggiatura per impostazione predefinita, in quanto alcune applicazioni client possono attribuire significato a questi segni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. Se la punteggiatura non ha alcun significato specifico nell'applicazione client, valutare la possibilità di [ignorare i segni di punteggiatura](#ignoring-words-and-punctuation) usando criteri. 
+La normalizzazione delle espressioni è il processo di ignorare gli effetti della punteggiatura e dei segni diacritici durante il training e la stima.
 
-## <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizzazione dell'espressione per segni diacritici e punteggiatura
 
-Se si desidera che vengano ignorati parole o segni di punteggiatura specifici nell'espressione di esempio, usare un [criterio](luis-concept-patterns.md#pattern-syntax) con la sintassi _ignore_. 
+La normalizzazione dell'espressione viene definita quando si crea o si importa l'app perché si tratta di un'impostazione nel file JSON dell'app. Per impostazione predefinita, le impostazioni di normalizzazione dell'espressione sono disattivate. 
+
+I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Se l'app attiva la normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni che usano segni diacritici o segni di punteggiatura.
+
+Attivare la normalizzazione dell'espressione per i segni diacritici o la `settings` punteggiatura del file dell'app Luis JSON nel parametro.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalizzare la punteggiatura significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
+
+La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`. 
+
+La normalizzazione non significa che la punteggiatura e i segni diacritici non verranno visualizzati nelle espressioni di esempio o nelle risposte di stima, semplicemente che verranno ignorate durante il training e la stima.
+
+
+### <a name="punctuation-marks"></a>Segni di punteggiatura
+
+Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse. 
+
+Se la punteggiatura non viene normalizzata, LUIS non ignora i segni di punteggiatura, per impostazione predefinita, perché alcune applicazioni client possono avere importanza su questi contrassegni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
+
+Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+
+Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare](#utterance-normalization) la punteggiatura normalizzando la punteggiatura. 
+
+### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
+
+Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi ignore delle parentesi quadre,. `[]` 
 
 ## <a name="training-utterances"></a>Eseguire il training sulle espressioni
 

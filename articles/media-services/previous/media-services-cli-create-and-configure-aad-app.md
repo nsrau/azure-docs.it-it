@@ -11,16 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 93a77c64e82c39f8f967a3549fafecfae59b194b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993540"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035803"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Usare l'interfaccia della riga di comando di Azure per creare un'app Azure AD e configurarla per l'accesso all'API Servizi multimediali 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questo argomento illustra come usare l'interfaccia della riga di comando di Azure per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) per accedere alle risorse di Servizi multimediali di Azure. 
 
@@ -42,11 +45,11 @@ Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](../../cloud-she
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> --password <strong password>
+az ad sp create-for-rbac --name <appName> 
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```azurecli
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash

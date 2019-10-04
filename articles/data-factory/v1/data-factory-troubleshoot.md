@@ -3,22 +3,23 @@ title: Risolvere i problemi di Data factory di Azure
 description: Informazioni su come risolvere i problemi relativi all'uso di Data factory di Azure.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: djpmsft
+ms.author: daperlov
+ms.reviewer: maghan
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549205"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135125"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Risolvere i problemi di Data factory
 > [!NOTE]
@@ -30,7 +31,7 @@ Questo articolo contiene suggerimenti per la risoluzione dei problemi correlati 
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Errore: La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.DataFactory'
-Se viene visualizzato questo errore, il provider di risorse di Azure Data Factory non è stato registrato nel computer in uso. Eseguire le operazioni seguenti:
+Se viene visualizzato questo errore, il provider di risorse di Azure Data Factory non è stato registrato nel computer in uso. Seguire questa procedura:
 
 1. Avviare Azure PowerShell.
 2. Accedere al proprio account di Azure usando il comando seguente.
@@ -47,9 +48,9 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data Factory
 È probabile che non si stia usando l'account o la sottoscrizione di Azure corretta con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione di Azure corretti per Azure PowerShell.
 
-1. Connect-AzAccount - usare l'ID utente e password
-2. Get-AzSubscription - visualizzare tutte le sottoscrizioni per l'account.
-3. Selezionare AzSubscription &lt;nome della sottoscrizione&gt; -seleziona la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
+1. Connect-AzAccount-usa l'ID utente e la password corretti
+2. Get-AzSubscription: Visualizza tutte le sottoscrizioni per l'account.
+3. Select-AzSubscription &lt;subscription name&gt; : selezionare la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: impossibile avviare l'installazione rapida del Gateway di gestione dati dal portale di Azure
 L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. Se non è possibile avviare l'installazione rapida, eseguire una di queste operazioni:
@@ -118,14 +119,14 @@ Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeli
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usare il portale di Azure per la risoluzione dei problemi
 ### <a name="using-portal-blades"></a>Uso dei pannelli del portale
-Per una procedura dettagliata, vedere la sezione [Monitorare la pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) .
+Per una procedura dettagliata, vedere la sezione [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) .
 
 ### <a name="using-monitor-and-manage-app"></a>Uso dell'app di monitoraggio e gestione
 Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md) .
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Usare Azure PowerShell per la risoluzione dei problemi
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Usare Azure PowerShell per risolvere un errore
-Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerShell, vedere la sezione [Monitorare la pipeline](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) .
+Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerShell, vedere la sezione [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) .
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

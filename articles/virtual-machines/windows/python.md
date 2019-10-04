@@ -4,23 +4,22 @@ description: Informazioni sull'uso di Python per creare e gestire una macchina v
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 748bc08e003d398e96ef55493e4f3b0bf6b7da28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102488"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 
@@ -103,7 +102,7 @@ Prima di iniziare questo passaggio, verificare di disporre di un'[entità serviz
     credentials = get_credentials()
     ```
 
-## <a name="create-resources"></a>Creare le risorse
+## <a name="create-resources"></a>Crea risorse
  
 ### <a name="initialize-management-clients"></a>Inizializzare i client di gestione
 
@@ -111,15 +110,15 @@ I client di gestione sono necessari per creare e gestire le risorse tramite Pyth
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```
@@ -562,7 +561,7 @@ Dal momento che le risorse usate in Azure vengono addebitate, è sempre consigli
 
 3. Salvare *myPythonProject.py*.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 1. Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio.
 

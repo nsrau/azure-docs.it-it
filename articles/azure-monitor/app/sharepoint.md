@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
 ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60784599"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
 Azure Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
@@ -143,7 +143,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Test web](../../azure-monitor/app/monitor-web-app-availability.md) per monitorare la disponibilità del sito.
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) per altri tipi di app.
 

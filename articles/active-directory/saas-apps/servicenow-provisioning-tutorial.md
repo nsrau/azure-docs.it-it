@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 85783339c7d1348f598f924f14d9b40cd0c8cd22
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217701"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967174"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico con Azure Active Directory
 
@@ -44,8 +44,7 @@ Per configurare l'integrazione di Azure AD con ServiceNow, sono necessari gli el
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
-
+- Se non si dispone di un ambiente Azure AD versione di valutazione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
 ## <a name="assigning-users-to-servicenow"></a>Assegnazione di utenti a ServiceNow
 
@@ -57,6 +56,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 > [!IMPORTANT]
 >*   È consigliabile assegnare un singolo utente di Azure AD a ServiceNow per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 >*   Quando si assegna un utente a ServiceNow, è necessario selezionare un ruolo utente valido. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+>*   Per ulteriori informazioni su come creare e configurare i ruoli in Azure AD, fare riferimento a questo [collegamento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) .
 
 ## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
 
@@ -85,7 +85,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     c. Nella casella di testo **ServiceNow Admin Password** (Password amministratore ServiceNow) digitare la password dell'amministratore.
 
-1. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"**.
+1. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"** .
 
 1. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 

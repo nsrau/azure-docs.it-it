@@ -1,22 +1,17 @@
 ---
 title: Eseguire l'autenticazione su più tenant - Azure Resource Manager
 description: Descrive il modo in cui Azure Resource Manager gestisce le richieste di autenticazione su più tenant.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6554c05f40f580a6d7ae086e1d09834298f86621
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109476"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848761"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Eseguire l'autenticazione delle richieste su più tenant
 
@@ -26,10 +21,10 @@ Quando si crea un'applicazione multi-tenant, potrebbe essere necessario gestire 
 
 La richiesta include i valori di intestazione di autenticazione seguenti:
 
-| Nome intestazione | DESCRIZIONE | Valore di esempio |
+| Nome intestazione | Descrizione | Valore di esempio |
 | ----------- | ----------- | ------------ |
 | Authorization | Token primario | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
+| x-ms-authorization-auxiliary | Token ausiliari | &gt; &lt;&gt; &lt;Bearer &lt;ausiliario-token1, EncryptedBearer ausiliario-token2, portar ausiliario-token3&gt; |
 
 L'intestazione ausiliaria può contenere fino a tre token ausiliari. 
 

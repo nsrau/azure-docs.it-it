@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa0827bdf6deb388123ed701013ee95f5493eee3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999130"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568468"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 
-Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Microsoft Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 
+Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Strumenti di database elastico per Java
 
@@ -57,7 +56,7 @@ Per compilare i file JAR e iniziare a usare il progetto di esempio, eseguire i p
 
     ![Progress-java][5]
     
-Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Microsoft Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio. 
+Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio. 
 
 Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza seguente al file POM:
 
@@ -84,9 +83,9 @@ Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura:
 
 1. Scaricare l'esempio [Elastic DB Tools for Azure SQL - Getting Started](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) (Strumenti di database elastici per SQL Azure - Guida introduttiva) da MSDN. Decomprimere l'esempio nel percorso desiderato.
 
-2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#*.
+2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#* .
 
-3. Nella soluzione per l'esempio di progetto aprire il file *app.config*. Seguire quindi le istruzioni nel file per aggiungere il nome del server del database SQL di Azure e le informazioni di accesso (nome utente e password).
+3. Nella soluzione per l'esempio di progetto aprire il file *app.config*. Seguire quindi le istruzioni nel file per aggiungere il nome del server di database SQL di Azure e le informazioni di accesso (nome utente e password).
 
 4. Compilare ed eseguire l'applicazione. Quando viene richiesto, consentire a Visual Studio di ripristinare i pacchetti NuGet della soluzione. Viene scaricata la versione più recente della libreria client dei database elastici da NuGet.
 

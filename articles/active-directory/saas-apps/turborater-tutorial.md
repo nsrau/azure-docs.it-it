@@ -15,73 +15,71 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: d73bc9cc845f214eab490a542892aa67bf9d0216
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Esercitazione: Integrazione di Azure Active Directory con TurboRater
 
 Questa esercitazione descrive come integrare TurboRater con Azure Active Directory (Azure AD).
+
 L'integrazione di TurboRater con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a TurboRater.
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a TurboRater con gli account Azure AD.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per dettagli sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con TurboRater, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di TurboRater abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Una sottoscrizione a TurboRater con accesso Single Sign-On abilitato.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* TurboRater supporta l'accesso SSO avviato da **IDP**
+TurboRater supporta l'accesso Single Sign-On (SSO) avviato da IDP.
 
-## <a name="adding-turborater-from-the-gallery"></a>Aggiunta di TurboRater dalla raccolta
+## <a name="add-turborater-from-the-azure-marketplace"></a>Aggiungere TurboRater da Azure Marketplace
 
-Per configurare l'integrazione di TurboRater in Azure AD, è necessario aggiungere TurboRater dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di TurboRater in Azure AD, è necessario aggiungere TurboRater da Azure Marketplace al proprio elenco di app SaaS gestite:
 
-**Per aggiungere TurboRater dalla raccolta, seguire questa procedura:**
+1. Accedere al [portale di Azure](https://portal.azure.com?azure-portal=true).
+1. Nel riquadro sinistro selezionare **Azure Active Directory**.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+    ![Opzione Azure Active Directory](common/select-azuread.png)
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+    ![Opzione Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. Per aggiungere una nuova applicazione, selezionare **+ New application** (+Nuova applicazione) nella parte superiore del riquadro.
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Opzione Applicazione nuova](common/add-new-app.png)
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+1. Nella casella di ricerca immettere **TurboRater**. Nei risultati della ricerca selezionare **TurboRater**, quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
-4. Nella casella di ricerca digitare **TurboRater**, selezionare **TurboRater** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-     ![TurboRater nell'elenco risultati](common/search-new-app.png)
+    ![TurboRater nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con TurboRater in base a un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in TurboRater.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con TurboRater in base a un utente di test di nome **B Simon**. Per il funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in TurboRater.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con TurboRater, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di TurboRater](#configure-turborater-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di TurboRater](#create-turborater-test-user)**: per avere una controparte di Britta Simon in TurboRater collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** per consentire agli utenti di usare questa funzionalità.
+1. **[Configurare l'accesso Single Sign-On di TurboRater](#configure-turborater-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+1. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Creare un utente di test TurboRater](#create-a-turborater-test-user)** in modo che vi sia un utente denominato B. Simon in TurboRater collegato a un utente di Azure AD denominato B. Simon.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -91,115 +89,114 @@ Per configurare l'accesso Single Sign-On di Azure AD con TurboRater, seguire que
 
 1. Nella pagina di integrazione dell'applicazione [TurboRater](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
+    ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+1. Nel riquadro **Configurazione SAML di base** eseguire la procedura seguente:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di TurboRater](common/idp-intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL: `https://www.itcdataservices.com`
+    1. Nella casella **Identificatore (ID entità)** immettere un URL:
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+       `https://www.itcdataservices.com`
 
-    | Environment | URL |
-    | ---------------| --------------- |    
-    | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
-    | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
+    1. Nella casella **Reply URL (Assertion Consumer Service URL)** (URL di risposta (URL del servizio consumer di asserzione)) immettere un URL con il formato seguente:
+
+       | Environment | URL |
+       | ---------------| --------------- |
+       | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di TurboRater](https://www.getitc.com/support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di TurboRater](https://www.getitc.com/support). È anche possibile fare riferimento ai modelli mostrati nel riquadro **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/metadataxml.png)
+    ![Opzione per il download del file XML dei metadati federazione](common/metadataxml.png)
 
-6. Nella sezione **Configura TurboRater** copiare gli URL appropriati in base alle esigenze.
+1. Nel riquadro **Configura TurboRater** copiare l'URL o gli URL necessari:
+
+   * **URL di accesso**
+   * **Identificatore Azure AD**
+   * **URL di disconnessione**
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
-
-    b. Identificatore di Azure AD
-
-    c. URL di chiusura sessione
-
 ### <a name="configure-turborater-single-sign-on"></a>Configurare l'accesso Single Sign-On di TurboRater
 
-Per configurare l'accesso Single Sign-On sul lato **TurboRater**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di TurboRater](https://www.getitc.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato TurboRater, è necessario inviare il file di XML metadati federazione scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di TurboRater](https://www.getitc.com/support). Il team TurboRater assicurerà che la connessione Single Sign-On SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory**   > **Utenti** > **Tutti gli utenti**.
 
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
+    ![Opzioni "Utenti" e "Tutti gli utenti"](common/users.png)
 
-2. Selezionare **Nuovo utente** in alto nella schermata.
+1. Selezionare **+Nuovo utente** in alto nella schermata.
 
-    ![Pulsante Nuovo utente](common/new-user.png)
+    ![Opzione Nuovo utente](common/new-user.png)
 
-3. In Proprietà utente seguire questa procedura.
+1. Nel riquadro **Utente** eseguire i seguenti passaggi:
 
-    ![Finestra di dialogo Utente](common/user-properties.png)
+    ![Riquadro Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    1. Nella casella **Name** (Nome) immettere **BSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    1. Nella casella **Nome utente** immettere **BSimon\@\<dominioazienda>.\<estensione>** . Ad esempio, **BSimon\@contoso.com**.
 
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
+    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Create**(Crea).
+    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TurboRater.
+In questa sezione B. Simon riceve l'abilitazione per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a TurboRater.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TurboRater**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **TurboRater**.
 
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+    ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **TurboRater**.
+1. Nell'elenco delle applicazioni selezionare **TurboRater**.
 
-    ![Collegamento di TurboRater nell'elenco delle applicazioni](common/all-applications.png)
+    ![TurboRater nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Nel riquadro sinistro in **GESTISCI**fare clic su **Utenti e gruppi**.
 
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+    ![Opzione Utenti e gruppi](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **+Aggiungi utente** e quindi **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+1. Nel riquadro **Utenti e gruppi** selezionare **B. Simon** nell'elenco **Utenti** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore del riquadro.
 
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere **Seleziona** nella parte inferiore del riquadro.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna**.
 
-### <a name="create-turborater-test-user"></a>Creare un utente di test di TurboRater
+### <a name="create-a-turborater-test-user"></a>Creare un utente di test TurboRater
 
-In questa sezione viene creato un utente di nome Britta Simon in TurboRater. Rivolgersi al  [team di supporto di TurboRater](https://www.getitc.com/support) per aggiungere gli utenti alla piattaforma di TurboRater. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B. Simon in TurboRater. Collaborare con il [team di supporto di TurboRater](https://www.getitc.com/support) per aggiungere B. Simon come utente in TurboRater. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD tramite il portale App personali.
 
-Quando si fa clic sul riquadro TurboRater nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione TurboRater per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona **TurboRater** nel portale App personali, si dovrebbe automaticamente accedere alla sottoscrizione TurboRater per la quale è stato impostato l'accesso Single Sign-On. Per altre informazioni sul portale App personali, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Un elenco di esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

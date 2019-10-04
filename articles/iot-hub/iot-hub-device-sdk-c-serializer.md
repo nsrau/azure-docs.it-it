@@ -1,19 +1,19 @@
 ---
 title: Azure IoT SDK per dispositivi per C - Serializzatore | Documentazione Microsoft
 description: Come usare la libreria Serializer in Azure IoT SDK per dispositivi per C per creare app per dispositivi che comunicano con un hub IoT.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
-ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: robinsh
+ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399235"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883160"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
 
@@ -194,7 +194,7 @@ Se si esegue questo codice, viene inviato il messaggio seguente all'hub IoT:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Si noti che la serializzazione è in JSON, il formato generato dalla libreria **serializer**. Si noti anche che ogni membro dell'oggetto JSON serializzato corrisponde ai membri di **TestType** definiti nel modello. Anche i valori corrispondono esattamente a quelli usati nel codice. Si noti tuttavia che i dati binari sono con codifica base 64: "AQID" è base64 codifica di {0x01, 0x02, 0x03}.
+Si noti che la serializzazione è in JSON, il formato generato dalla libreria **serializer**. Si noti anche che ogni membro dell'oggetto JSON serializzato corrisponde ai membri di **TestType** definiti nel modello. Anche i valori corrispondono esattamente a quelli usati nel codice. Si noti tuttavia che i dati binari sono codificati in base 64: "AQID" è la codifica Base64 di {0x01, 0x02, 0x03}.
 
 Questo esempio dimostra il vantaggio che deriva dall'uso della libreria **serializer** che abilita l'invio di codice JSON nel cloud, senza doversi occupare esplicitamente della serializzazione nell'applicazione. Tutto ciò di cui ci si deve occupare è l'impostazione dei valori degli eventi dati nel modello e la successiva chiamata di API semplici per inviare tali eventi nel cloud.
 
@@ -514,7 +514,7 @@ Se si invia un messaggio a un dispositivo, si dovrà usare Azure IoT service SDK
 {"Name" : "", "Parameters" : "" }
 ```
 
-Si sta inviando un oggetto serializzato JSON con due proprietà: **Nome** è il nome dell'azione (messaggio) e **parametri** contiene i parametri dell'azione.
+Si sta inviando un oggetto JSON serializzato con due proprietà: **Nome** è il nome dell'azione (messaggio) e i **parametri** contengono i parametri dell'azione.
 
 Ad esempio, per richiamare **SetAirResistance** è possibile inviare questo messaggio a un dispositivo:
 

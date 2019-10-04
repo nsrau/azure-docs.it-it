@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589658"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -84,7 +84,7 @@ L'invio in batch sul lato client consente a un client di coda o argomento di rit
 
 Per impostazione predefinita, i client usano un intervallo di invio in batch di 20 ms. È possibile modificare l'intervallo di invio in batch impostando la proprietà [BatchFlushInterval][BatchFlushInterval] prima di creare la factory di messaggistica. Questa impostazione interessa tutti i client creati da questa factory.
 
-Per disabilitare l'invio in batch, impostare la proprietà [BatchFlushInterval][BatchFlushInterval] su **TimeSpan.Zero**. Ad esempio: 
+Per disabilitare l'invio in batch, impostare la proprietà [BatchFlushInterval][BatchFlushInterval] su **TimeSpan.Zero**. Ad esempio:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -113,7 +113,7 @@ Per aumentare la velocità effettiva di una coda, un argomento o una sottoscrizi
 
 Le operazioni di scrittura aggiuntive che si verificano durante questo intervallo vengono aggiunte al batch. L'accesso in batch all'archivio influisce solo sulle operazioni **Send** e **Complete** e non sulle operazioni di ricezione. L'accesso in batch all'archivio è una proprietà di un'entità. L'invio in batch si verifica per tutte le entità per cui è abilitato l'accesso in batch all'archivio.
 
-Quando si crea una nuova coda, un nuovo argomento o una nuova sottoscrizione, l'accesso in batch all'archivio è abilitato per impostazione predefinita. Per disabilitare l'accesso in batch all'archivio, impostare la proprietà [EnableBatchedOperations][EnableBatchedOperations] su **false** prima di creare l'entità. Ad esempio: 
+Quando si crea una nuova coda, un nuovo argomento o una nuova sottoscrizione, l'accesso in batch all'archivio è abilitato per impostazione predefinita. Per disabilitare l'accesso in batch all'archivio, impostare la proprietà [EnableBatchedOperations][EnableBatchedOperations] su **false** prima di creare l'entità. Ad esempio:
 
 ```csharp
 QueueDescription qd = new QueueDescription();

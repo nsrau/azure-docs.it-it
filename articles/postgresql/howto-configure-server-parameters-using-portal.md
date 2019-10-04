@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067134"
 ---
-# <a name="configure-server-parameters-in-azure-portal"></a>Configurare i parametri del server nel portale di Azure
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurare i parametri del server nel Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure 
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un database di Azure per PostgreSQL attraverso il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295643"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62104919"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Introduzione al connettore OneDrive for Business
 Connettersi a OneDrive per gestire i file. È possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare file.
@@ -26,9 +26,9 @@ Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Creare una connessione a OneDrive for Business
 Per creare app per la logica con OneDrive for Business, è prima necessario creare una **connessione** e successivamente fornire i dettagli per le proprietà seguenti:
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
+| Proprietà | Obbligatorio | Descrizione |
 | --- | --- | --- |
-| token |Sì |Fornisce le credenziali per OneDrive for Business |
+| token |Yes |Fornisce le credenziali per OneDrive for Business |
 
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 

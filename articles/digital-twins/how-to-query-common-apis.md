@@ -1,19 +1,19 @@
 ---
 title: Modelli di query comuni di Gemelli digitali di Azure | Microsoft Docs
 description: Informazioni sui modelli comuni di query delle API di gestione di Gemelli digitali di Azure.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.date: 08/29/2019
+ms.author: v-adgera
+ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198644"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172798"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni
 
@@ -238,4 +238,4 @@ Questa sezione illustra alcune query delle API di esempio per la gestione degli 
 
 Per informazioni su come eseguire l'autenticazione con l'API di gestione, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
 
-Per visualizzare tutti gli endpoint delle API, vedere [Come usare Swagger per Gemelli digitali](./how-to-use-swagger.md).
+Per altre informazioni sugli endpoint dell'API, vedere l'articolo su [come usare i gemelli digitali spavalderia](./how-to-use-swagger.md).

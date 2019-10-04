@@ -1,25 +1,18 @@
 ---
-title: Creare gli asset tecnici per un'offerta di app Power BI - Azure Marketplace | Microsoft Docs
+title: Creare gli asset tecnici per un'offerta di App di Power BI | Azure Marketplace
 description: Elencare gli asset tecnici necessari per pubblicare un'offerta di app Power BI in Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 7736dcb892d829fc0e3af4bc87f1e6d80a3fa6cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943063"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Creare gli asset tecnici per un'offerta di app Power BI
 

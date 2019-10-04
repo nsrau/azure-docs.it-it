@@ -2,20 +2,19 @@
 title: Gestione delle versioni dell'API per .NET SDK e API REST - Ricerca di Azure
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f400c6fcb2b35e2adcf605c96bb802041cd9e0a9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631155"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182349"
 ---
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
 Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
@@ -30,18 +29,19 @@ La stessa regola vale per gli aggiornamenti all'SDK. Azure Search SDK segue le r
 ## <a name="snapshot-of-current-versions"></a>Panoramica delle versioni correnti
 Di seguito è illustrata una panoramica delle versioni correnti di tutte le interfacce di programmazione di Ricerca di Azure.
 
-| Interfacce | Versione principale più recente | Status |
+
+| Interfacce | Versione principale più recente | Stato |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Disponibile a livello generale, rilasciata ad aprile 2018 |
-| [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Anteprima, rilasciata a maggio 2017 |
-| [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Disponibile a livello generale |
-| [API REST del servizio 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Preview |
-| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Disponibile a livello generale |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Disponibile a livello generale, rilasciato il 2019 maggio |
+| [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |8,0-Anteprima |Anteprima, rilasciata il 2019 aprile |
+| [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Disponibile a livello generale |
+| [API REST del servizio 2019-05-06-Preview](search-api-preview.md) |2019-05-06-anteprima |Anteprima |
+| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Disponibile a livello generale |
 | [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibile a livello generale |
 
 Per le API REST, è necessario includere il parametro `api-version` a ogni chiamata. L'uso di `api-version` facilita l'identificazione di una versione specifica, ad esempio un'API di anteprima. L'esempio seguente illustra come viene specificato il parametro `api-version` :
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > Benché ogni richiesta abbia un parametro `api-version`, è consigliabile usare la stessa versione per tutte le richieste API. Ciò vale soprattutto nel caso in cui nuove versioni API introducano attributi oppure operazioni non riconosciuti dalle versioni precedenti. La combinazione di diverse versioni API può avere conseguenze impreviste e deve essere evitata.
@@ -57,6 +57,6 @@ Le funzionalità di anteprima sono disponibili per i test e la sperimentazione a
 
 È quindi consigliabile evitare di scrivere codice di produzione con dipendenze da versioni di anteprima. Se si usa una versione di anteprima precedente, è consigliabile eseguire la migrazione alla versione GA.
 
-Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'articolo sull'[aggiornamento di .NET SDK](search-dotnet-sdk-migration.md).
+Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'articolo sull'[aggiornamento di .NET SDK](search-dotnet-sdk-migration-version-9.md).
 
 Con disponibilità a livello generale si intende che Ricerca di Azure è ora soggetta al contratto di servizio (SLA). Il contratto di servizio è reperibile in [Contratto di Servizio per Ricerca](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

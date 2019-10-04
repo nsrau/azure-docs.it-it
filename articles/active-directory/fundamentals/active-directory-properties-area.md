@@ -2,22 +2,22 @@
 title: Aggiungere le informazioni sulla privacy dell'organizzazione - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come aggiungere le informazioni sulla privacy dell'organizzazione nella sezione Proprietà di Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b4e3585f25a0b081e30c5524678a0f7bb27942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a2397662112bda6c6789b25691848344a4e611b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248537"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561810"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Aggiungere le informazioni sulla privacy dell'organizzazione tramite Azure Active Directory
 Questo articolo illustra come un amministratore tenant può aggiungere le informazioni sulla privacy ai tenant di Azure Active Directory (Azure AD) dell'organizzazione, tramite il portale di Azure.

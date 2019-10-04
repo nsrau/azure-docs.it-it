@@ -3,7 +3,7 @@ title: Misurazioni utente reale in Gestione traffico di Azure con le pagine web 
 description: Configurare le pagine Web per inviare le Misurazioni utente reale a Gestione traffico
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d044457df80f16a6e8073e7f3253a611f74d8a8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071225"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
 
@@ -26,7 +26,7 @@ ms.locfileid: "58117269"
 
 ## <a name="obtain-a-real-user-measurements-key"></a>Ottenere una chiave delle Misurazioni utente reale
 
-Le misurazioni prese e inviate a Gestione traffico dall'applicazione client vengono identificate dal servizio usando una stringa univoca, chiamata **chiave delle Misurazioni utente reale (RUM)**. È possibile ottenere una chiave RUM attraverso il portale di Azure, un'API REST, oppure tramite PowerShell o l'interfaccia della riga di comando di Azure.
+Le misurazioni prese e inviate a Gestione traffico dall'applicazione client vengono identificate dal servizio usando una stringa univoca, chiamata **chiave delle Misurazioni utente reale (RUM)** . È possibile ottenere una chiave RUM attraverso il portale di Azure, un'API REST, oppure tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 Per ottenere la chiave RUM tramite il portale di Azure:
 1. Da un browser accedere al portale di Azure. Se non si dispone già di un account, è possibile iscriversi per ottenere una versione di valutazione gratuita della durata di un mese.

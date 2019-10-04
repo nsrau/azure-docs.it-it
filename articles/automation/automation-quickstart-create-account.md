@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 89f32499d02978294398aae7be21f63b5d6aa028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009513"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919819"
 ---
 # <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
 
@@ -37,7 +37,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
     ![Immettere le informazioni sull'account di Automazione nella pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Per un elenco aggiornato delle località in cui è possibile distribuire un account di automazione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
+    > Per un elenco aggiornato delle località in cui è possibile distribuire un account di automazione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
 1. Al termine della distribuzione fare clic su **Tutti i servizi**, selezionare **Account di automazione** e quindi scegliere l'account di automazione creato.
 

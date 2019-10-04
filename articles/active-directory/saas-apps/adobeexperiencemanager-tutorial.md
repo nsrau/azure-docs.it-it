@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 81032fbad21b18b0b7ca2e7662b0c4b4b6c10901
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Experience Manager
 
@@ -78,11 +78,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applicazione], è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Adobe Experience Manager](#configure-adobe-experience-manager-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Adobe Experience Manager](#create-adobe-experience-manager-test-user)**: per avere una controparte di Britta Simon in Adobe Experience Manager collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Adobe Experience Manager](#configure-adobe-experience-manager-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Adobe Experience Manager](#create-adobe-experience-manager-test-user)** : per avere una controparte di Britta Simon in Adobe Experience Manager collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     a. Nella casella di testo **Identificatore** digitare un valore univoco definito anche nel server Adobe Experience Manager.
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<AEM Server Url>/saml_login`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<AEM Server Url>/saml_login`
 
     > [!NOTE]
     > Il valore di URL di risposta non è reale. Aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     Nella casella di testo **URL di accesso** digitare l'URL del server Adobe Experience Manager.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -182,7 +182,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. Nella casella **Path** (Percorso) immettere **/**.
+    a. Nella casella **Path** (Percorso) immettere **/** .
 
     b. Nella casella **IDP URL** (URL IDP) immettere il valore **URL di accesso** copiato dal portale di Azure.
 

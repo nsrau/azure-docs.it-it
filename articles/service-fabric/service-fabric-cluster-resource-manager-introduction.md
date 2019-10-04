@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743659"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzione a Cluster Resource Manager di Service Fabric
 Tradizionalmente, la gestione dei sistemi IT o dei Servizi online comportava dedicare alcune macchine virtuali o fisiche a tali sistemi o servizi specifici. I servizi erano progettati come livelli. Era presente un livello "web" e un livello "dati" o "archiviazione". Le applicazioni avevano un livello di messaggistica con un flusso di richieste in entrata e in uscita, nonché un set di computer dedicati alla memorizzazione nella cache. A ogni livello o tipo di carico di lavoro veniva assegnato un computer dedicato. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro causava il surriscaldamento del computer su cui si trovava, si aggiungevano più computer con la medesima configurazione a quel livello. Non tutti i carichi di lavoro possono tuttavia essere scalati orizzontalmente facilmente, in particolare per il livello dati i computer vengono sostituiti con computer di dimensioni più grandi. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.

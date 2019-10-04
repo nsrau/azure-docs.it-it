@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: b5d8f67a70961aab21312b6f241081dcb33f66fb
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133974"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179941"
 ---
 ```json
 {
@@ -21,7 +21,7 @@ ms.locfileid: "50133974"
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.| 

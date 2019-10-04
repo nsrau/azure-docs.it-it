@@ -1,147 +1,152 @@
 ---
 title: Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory | Microsoft Docs
-description: Informazioni su come configurare le attestazioni di gruppo per l'uso con Azure AD.
+description: Informazioni su come configurare le attestazioni di gruppo per l'utilizzo con Azure AD.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cb53656adb1dbeb5e5597d02edfe5be4dbec6a8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351245"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170480"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory (anteprima pubblica)
 
-Azure Active Directory possono fornire un informazioni di appartenenza al gruppo utenti nei token per l'uso all'interno delle applicazioni.  Sono supportati due modelli principali:
+Azure Active Directory possibile fornire le informazioni sull'appartenenza a un gruppo di utenti nei token per l'utilizzo all'interno delle applicazioni.  Sono supportati due modelli principali:
 
-- Gruppi identificati dal proprio identificatore di oggetto (OID) (disponibile a livello generale) di Azure Active Directory
-- Gruppi identificati tramite l'attributo SAMAccountName o GroupSID Active Directory (AD) sincronizzata gruppi e utenti (anteprima pubblica)
+- Gruppi identificati in base al relativo attributo ID oggetto (OID) Azure Active Directory (disponibile a livello generale)
+- Gruppi identificati da attributi sAMAccountName o GroupSID per i gruppi e gli utenti di Active Directory (AD) sincronizzati (anteprima pubblica)
 
-> [!Note]
-> Supporto per l'uso in locale e i nomi di identificatori di sicurezza (SID) è progettato per consentire lo spostamento delle applicazioni esistenti da AD FS.    I gruppi gestiti in Azure AD non contengono gli attributi necessari per generare queste attestazioni.
+> [!IMPORTANT]
+> Per questa funzionalità di anteprima è necessario tenere presenti alcune avvertenze:
+>
+>- Il supporto per l'utilizzo degli attributi sAMAccountName e ID di sicurezza (SID) sincronizzati dall'ambiente locale è progettato per consentire lo stato di trasferimento delle applicazioni esistenti da AD FS e altri provider di identità. I gruppi gestiti in Azure AD non contengono gli attributi necessari per emettere le attestazioni.
+>- Nelle organizzazioni più grandi il numero di gruppi di cui un utente è membro può superare il limite che Azure Active Directory aggiungerà a un token. 150 gruppi per un token SAML e 200 per un JWT. Questo può causare risultati imprevedibili. Se si tratta di un potenziale problema, è consigliabile eseguire i test e, se necessario, attendere fino a quando non si aggiungono miglioramenti per consentire la limitazione delle attestazioni ai gruppi rilevanti per l'applicazione.  
+>- Per lo sviluppo di nuove applicazioni o nei casi in cui l'applicazione può essere configurata e il supporto per gruppi annidati non è obbligatorio, è consigliabile che l'autorizzazione in-app sia basata sui ruoli applicazione anziché sui gruppi.  Questo limita la quantità di informazioni che devono essere inserite nel token, è più sicuro e separa l'assegnazione dell'utente dalla configurazione dell'app.
 
-## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>Attestazioni di gruppo per le applicazioni eseguono la migrazione da AD FS e altri provider di identità
+## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Attestazioni di gruppo per le applicazioni che eseguono la migrazione da AD FS e altri provider di identità
 
-Molte applicazioni che sono configurate per l'autenticazione con AD FS si basano su informazioni di appartenenza sotto forma di attributi del gruppo di Windows Active Directory.   Questi attributi sono SAMAccountName, che può essere qualificato dal dominio nome gruppo o il SID di gruppo di Windows.  Quando l'applicazione è federata con AD FS, ADFS Usa la funzione TokenGroups per recuperare l'appartenenza ai gruppi dell'utente.
+Molte applicazioni configurate per l'autenticazione con AD FS si basano sulle informazioni sull'appartenenza ai gruppi sotto forma di attributi del gruppo di Windows AD.   Questi attributi sono il gruppo sAMAccountName, che può essere qualificato per nome di dominio o l'ID di sicurezza del gruppo di Windows (GroupSID).  Quando l'applicazione è federata con AD FS, AD FS usa la funzione TokenGroups per recuperare l'appartenenza ai gruppi per l'utente.
 
-Per trovare il token di un'app riceve da AD FS, possono essere inviate le attestazioni di ruolo e gruppo che contiene il dominio completo SAMAccountName anziché objectID di Azure Active Directory al gruppo.
+Per trovare la corrispondenza con il token che un'app riceverebbe da AD FS, le attestazioni di gruppo e ruolo possono essere emesse che contengono l'oggetto sAMAccountName qualificato del dominio anziché il Azure Active Directory objectID del gruppo.
 
 I formati supportati per le attestazioni di gruppo sono:
 
-- **Azure GroupObjectId Directory attiva** (disponibile per tutti i gruppi)
-- **SAMAccountName** (disponibile per i gruppi sincronizzati da Active Directory)
-- **NetbiosDomain\samAccountName** (disponibile per i gruppi sincronizzati da Active Directory)
-- **DNSDomainName\samAccountName** (disponibile per i gruppi sincronizzati da Active Directory)
+- **ObjectID del gruppo di Azure Active Directory** (Disponibile per tutti i gruppi)
+- **sAMAccountName** (Disponibile per i gruppi sincronizzati da Active Directory)
+- **NetbiosDomain\sAMAccountName** (Disponibile per i gruppi sincronizzati da Active Directory)
+- **DNSDomainName\sAMAccountName** (Disponibile per i gruppi sincronizzati da Active Directory)
+- **Identificatore di sicurezza del gruppo locale** (Disponibile per i gruppi sincronizzati da Active Directory)
 
 > [!NOTE]
-> Attributi SAMAccountName e OnPremisesGroupSID disponibili solo per gli oggetti gruppo sincronizzati da Active Directory.   Non sono disponibili i gruppi creati in Azure Active Directory o Office 365.   Le applicazioni che dipendono da attributi di gruppo locali consente di ottenerli sincronizzati solo per i gruppi.
+> gli attributi SID del gruppo sAMAccountName e locale sono disponibili solo negli oggetti gruppo sincronizzati da Active Directory.   Non sono disponibili per i gruppi creati in Azure Active Directory o Office365.   Le applicazioni configurate in Azure Active Directory per ottenere gli attributi del gruppo locale sincronizzati li ottengono solo per i gruppi sincronizzati.
 
-## <a name="options-for-applications-to-consume-group-information"></a>Opzioni per le applicazioni di utilizzare le informazioni sui gruppi
+## <a name="options-for-applications-to-consume-group-information"></a>Opzioni per le applicazioni per l'utilizzo di informazioni sui gruppi
 
-Un modo per le applicazioni ottenere informazioni sul gruppo consiste nel chiamare l'endpoint di gruppi di Graph per recuperare l'appartenenza al gruppo per l'utente autenticato. Questa chiamata assicura che tutti i gruppi di che un utente è membro di sono disponibili anche quando sono coinvolti un numero elevato di gruppi e l'applicazione deve enumerare l'utente è membro di tutti i gruppi.  Enumerazione di gruppo è quindi indipendente delle limitazioni delle dimensioni del token.
+Un modo per ottenere informazioni sui gruppi da parte delle applicazioni consiste nel chiamare l'endpoint dei gruppi di grafi per recuperare l'appartenenza al gruppo per l'utente autenticato. Questa chiamata garantisce che tutti i gruppi di cui un utente è membro siano disponibili anche quando è presente un numero elevato di gruppi e l'applicazione deve enumerare tutti i gruppi di cui l'utente è membro.  L'enumerazione dei gruppi è quindi indipendente dalle limitazioni delle dimensioni del token.
 
-Tuttavia, se un'applicazione esistente già prevede di utilizzare le informazioni di gruppo tramite attestazioni nel token ricevuto, Azure Active Directory possono essere configurate con un numero di opzioni di attestazioni diverse a seconda delle esigenze dell'applicazione.  Valutare le opzioni seguenti:
+Tuttavia, se un'applicazione esistente prevede di utilizzare le informazioni sul gruppo tramite attestazioni nel token ricevuto, Azure Active Directory possibile configurare con una serie di diverse opzioni di attestazione per soddisfare le esigenze dell'applicazione.  Valutare le opzioni seguenti:
 
-- Quando si usa l'appartenenza al gruppo per uno scopo di autorizzazione dell'applicazione (se l'appartenenza al gruppo viene ottenuto dal token o dal grafico), è preferibile usare l'ObjectID del gruppo, ovvero non modificabile e univoco in Azure Active Directory e rese disponibili per tutti i gruppi .
-- Se si usa il gruppo di SAMAccountName per l'autorizzazione, usare nomi di dominio completo.  ha meno probabilità di situazioni derivanti esistevano conflitto di nomi. Attributo SAMAccountName in sé può essere univoco all'interno di un dominio Active Directory, ma se più di un dominio di Active Directory è sincronizzato con un tenant di Azure Active Directory prevede la possibilità per più di un gruppo che lo stesso nome.
-- È consigliabile usare [i ruoli applicazione](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) per fornire un livello di riferimento indiretto tra l'appartenenza al gruppo e l'applicazione.   L'applicazione quindi prende decisioni di autorizzazione interno basate su veneridi ruolo nel token.
-- Se l'applicazione è configurata per ottenere gli attributi gruppo sincronizzati da Active Directory e un gruppo non contiene gli attributi che non sarà incluso nelle attestazioni.
-- Gruppo attestazioni nei token includono gruppi nidificati.   Se un utente è membro del gruppo b indicante e gruppo b indicante è un membro di GroupA, le attestazioni di gruppo per l'utente conterrà GroupA sia gruppo b indicante. Per le organizzazioni con un utilizzo intenso di gruppi nidificati e gli utenti con un numero elevato di appartenenze il numero di gruppi elencate nel token può aumentare le dimensioni del token.   Azure Active Directory limita il numero di gruppi, verrà generato un token per le asserzioni SAML 150 e 200 per JWT.
+- Quando si utilizza l'appartenenza a un gruppo per scopi di autorizzazione all'interno dell'applicazione, è preferibile utilizzare il gruppo ObjectID, che non è modificabile e univoco in Azure Active Directory e disponibile per tutti i gruppi.
+- Se si usa il gruppo locale sAMAccountName per l'autorizzazione, usare i nomi completi del dominio;  è possibile che si verifichino situazioni in cui si verificano conflitti di nomi. sAMAccountName può essere univoco in un dominio Active Directory, ma se più di un dominio di Active Directory è sincronizzato con un tenant Azure Active Directory è possibile che più di un gruppo abbia lo stesso nome.
+- Si consiglia di usare i [ruoli applicazione](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) per fornire un livello di riferimento indiretto tra l'appartenenza al gruppo e l'applicazione.   L'applicazione quindi prende le decisioni di autorizzazione interne basate su vongole del ruolo nel token.
+- Se l'applicazione è configurata in modo da ottenere gli attributi di gruppo sincronizzati da Active Directory e un gruppo non contiene tali attributi, non verrà incluso nelle attestazioni.
+- Le attestazioni di gruppo nei token includono gruppi annidati.   Se un utente è un membro di GroupB e GroupB è un membro di GroupA, le attestazioni di gruppo per l'utente conterranno sia GroupA che GroupB. Per le organizzazioni con utilizzo intensivo di gruppi e utenti annidati con un numero elevato di appartenenze ai gruppi, il numero di gruppi elencati nel token può aumentare le dimensioni del token.   Azure Active Directory limita il numero di gruppi che emetterà in un token a 150 per le asserzioni SAML e 200 per JWT per impedire che i token risultino troppo grandi.  Se un utente è membro di un numero maggiore di gruppi rispetto al limite, i gruppi vengono emessi insieme a un collegamento all'endpoint Graph per ottenere informazioni sul gruppo.
 
-> Prerequisiti per l'uso degli attributi gruppo sincronizzati da Active Directory:   I gruppi devono essere sincronizzati da Active Directory con Azure AD Connect.
+> Prerequisiti per l'uso di attributi di gruppo sincronizzati da Active Directory:   I gruppi devono essere sincronizzati da Active Directory usando Azure AD Connect.
 
-Esistono due passaggi per la configurazione di Azure Active Directory per generare i nomi dei gruppi per gruppi di Active Directory.
+Per la configurazione di Azure Active Directory per la creazione di nomi di gruppo per i gruppi di Active Directory sono necessari due passaggi.
 
-1. **Sincronizzare i nomi dei gruppi da Active Directory** prima di Azure Active Directory possono generare i nomi dei gruppi o nel gruppo locale attestazioni SID di gruppo o del ruolo, gli attributi obbligatori devono essere sincronizzati da Active Directory.  È necessario eseguire Azure AD Connect versione 1.2.70 o versione successiva.   Prima della versione 1.2.70 Azure AD Connect sincronizzerà gli oggetti gruppo th da Active Directory, ma non include gli attributi di nome di gruppo necessari per impostazione predefinita.  È consigliabile aggiornare alla versione corrente.
+1. **Sincronizzare i nomi dei gruppi da Active Directory** Prima che Azure Active Directory possibile creare i nomi dei gruppi o il SID del gruppo locale nelle attestazioni di gruppo o ruolo, è necessario sincronizzare gli attributi necessari da Active Directory.  È necessario eseguire Azure AD Connect versione 1.2.70 o successiva.   Prima della versione 1.2.70 Azure AD Connect sincronizza gli oggetti gruppo da Active Directory, ma non include gli attributi del nome del gruppo necessari per impostazione predefinita.  È necessario eseguire l'aggiornamento alla versione corrente.
 
-2. **Configurare la registrazione dell'applicazione in Azure Active Directory per includere le attestazioni di gruppo nei token** attestazioni di gruppo possono essere configurato uno nella sezione applicazioni aziendali del portale per un'applicazione della raccolta o Non nella raccolta di SAML SSO, o tramite il manifesto dell'applicazione nella sezione registrazioni per l'applicazione.  Per configurare le attestazioni di gruppo nell'applicazione manifesto vedere "Configurazione di registrazione Active Directory dell'applicazione Azure per gli attributi del gruppo" sotto.
+2. **Configurare la registrazione dell'applicazione in Azure Active Directory per includere le attestazioni di gruppo nei token** Le attestazioni di gruppo possono essere configurate nella sezione applicazioni aziendali del portale per una raccolta o un'applicazione SAML SSO non raccolta oppure usando il manifesto dell'applicazione nella sezione registrazioni per l'applicazione.  Per configurare le attestazioni di gruppo nel manifesto dell'applicazione, vedere "configurazione della registrazione dell'applicazione Azure Active Directory per gli attributi di gruppo" di seguito.
 
-## <a name="configure-group-claims-for-saml-applications-using-sso-configuration"></a>Configurare le attestazioni di gruppo per le applicazioni SAML utilizzando la configurazione di SSO
+## <a name="configure-group-claims-for-saml-applications-using-sso-configuration"></a>Configurare le attestazioni di gruppo per le applicazioni SAML usando la configurazione SSO
 
-Per configurare le attestazioni di gruppo per un'applicazione della raccolta o SAML Non nella raccolta, aprire le applicazioni aziendali, fare clic sull'applicazione nell'elenco e selezionare configurazione Single Sign-On.
+Per configurare le attestazioni di gruppo per una raccolta o un'applicazione SAML non raccolta, aprire applicazioni aziendali, fare clic sull'applicazione nell'elenco e selezionare configurazione Single Sign-on.
 
-Selezionare l'icona di modifica accanto a "Gruppi restituite nel token"
+Selezionare l'icona di modifica accanto a "gruppi restituiti nel token"
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
-Usare i pulsanti di opzione per selezionare i gruppi a cui devono essere incluse nel token
+Usare i pulsanti di opzione per selezionare i gruppi da includere nel token
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Selezione | DESCRIZIONE |
+| Selezione | Descrizione |
 |----------|-------------|
-| **Tutti i gruppi** | Genera i gruppi di sicurezza e distribuzione sono elencati.   Determina anche i ruoli della Directory viene assegnato all'utente devono essere create in un'attestazione 'wids' e tutti i ruoli dell'applicazione che all'utente viene assegnata da generare nell'attestazione ruoli. |
-| **Gruppi di sicurezza** | Crea i gruppi di sicurezza, che l'utente è membro nell'attestazione relativa ai gruppi |
-| **Lista di distribuzione** | Genera liste di distribuzione per di che l'utente è membro |
-| **Ruolo della directory** | Se l'utente sono assegnati i ruoli della directory mano che vengono generati come un 'wids' attestazione (attestazione non verrà emesso i gruppi) |
+| **Tutti i gruppi** | Genera i gruppi di sicurezza e le liste di distribuzione.   Causa anche i ruoli della directory a cui l'utente è assegnato come attestazione "WIDS" e tutti i ruoli applicazione a cui l'utente è assegnato nell'attestazione dei ruoli. |
+| **Gruppi di sicurezza** | Emette i gruppi di sicurezza di cui l'utente è membro nell'attestazione dei gruppi |
+| **Liste di distribuzione** | Genera liste di distribuzione di cui l'utente è membro |
+| **Ruoli della directory** | Se all'utente sono assegnati ruoli della directory, questi vengono emessi come attestazione "WIDS" (l'attestazione dei gruppi non verrà emessa) |
 
-Ad esempio, per emettere l'utente è membro di tutti i gruppi di sicurezza, selezionare i gruppi di sicurezza
+Ad esempio, per creare tutti i gruppi di sicurezza di cui l'utente è membro, selezionare gruppi di sicurezza.
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
-### <a name="advanced-options"></a>Advanced Options
+Per creare gruppi usando Active Directory gli attributi sincronizzati da Active Directory anziché Azure AD ObjectID selezionare il formato richiesto dall'elenco a discesa.  Questa operazione sostituisce l'ID oggetto nelle attestazioni con valori stringa contenenti nomi di gruppo.   Solo i gruppi sincronizzati da Active Directory verranno inclusi nelle attestazioni.
 
-Il modo in cui vengono generate le attestazioni di gruppo può essere modificato dalle impostazioni in Opzioni avanzate
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
-Personalizzare il nome dell'attestazione gruppo:  Se selezionata, è possibile specificare un tipo di attestazione diversi per le attestazioni di gruppo.   Immettere il tipo di attestazione nel campo nome e lo spazio dei nomi facoltativo per l'attestazione nel campo dello spazio dei nomi.
+### <a name="advanced-options"></a>Opzioni avanzate
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+Il modo in cui vengono emesse le attestazioni di gruppo può essere modificato dalle impostazioni in opzioni avanzate
 
-Per creare i gruppi di Active Directory usando attributi invece ObjectID di Azure AD selezionare la casella 'Return gruppi come nomi anziché gli ID' e selezionare il formato dall'elenco a discesa.  Questo strumento sostituisce l'ID di oggetto nelle attestazioni con i valori di stringa che contiene i nomi dei gruppi.   Verranno inclusi solo i gruppi sincronizzati da Active Directory nelle attestazioni.
+Personalizzare il nome dell'attestazione di gruppo:  Se questa opzione è selezionata, è possibile specificare un tipo di attestazione diverso per le attestazioni di gruppo.   Immettere il tipo di attestazione nel campo nome e nello spazio dei nomi facoltativo per l'attestazione nel campo spazio dei nomi.
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Alcune applicazioni richiedono le informazioni di appartenenza di gruppo venga visualizzato nell'attestazione 'ruolo'. È facoltativamente possibile trasmettere i gruppi dell'utente come ruoli selezionando la casella 'Emettere i gruppi di che un ruolo di attestazioni'.
+Per alcune applicazioni è necessario che le informazioni sull'appartenenza al gruppo vengano visualizzate nell'attestazione "Role". Facoltativamente, è possibile creare i gruppi dell'utente come ruoli selezionando la casella di controllo "Crea gruppi di attestazioni di ruolo".
 
-![attestazioni dell'interfaccia utente](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
-> Se viene utilizzata l'opzione per generare dati di gruppo come ruoli, verranno visualizzato solo i gruppi nell'attestazione ruoli.  Tutti i ruoli applicazione che viene assegnato l'utente non verrà visualizzata nell'attestazione ruoli.
+> Se si usa l'opzione per creare dati di gruppo come ruoli, solo i gruppi verranno visualizzati nell'attestazione del ruolo.  Qualsiasi ruolo applicazione assegnato dall'utente non verrà visualizzato nell'attestazione del ruolo.
 
-## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurare la registrazione di applicazione Azure AD per gli attributi di gruppo
+## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurare la registrazione dell'applicazione Azure AD per gli attributi di gruppo
 
-Attestazioni di gruppo possono anche essere configurate nel [attestazioni facoltative](../../active-directory/develop/active-directory-optional-claims.md) sezione il [manifesto dell'applicazione](../../active-directory/develop/reference-app-manifest.md).
+Le attestazioni di gruppo possono essere configurate anche nella sezione [facoltativa attestazioni](../../active-directory/develop/active-directory-optional-claims.md) del [manifesto dell'applicazione](../../active-directory/develop/reference-app-manifest.md).
 
-1. Nel portale -> Azure Active Directory -> applicazione le registrazioni -> selezionare applicazione -> manifesto
+1. Nel portale-> Azure Active Directory-> registrazioni dell'applicazione-> selezionare applicazione-> manifesto
 
 2. Abilitare le attestazioni di appartenenza al gruppo modificando il groupMembershipClaim
 
    I valori validi sono:
 
-   - "Tutti"
-   - "SecurityGroup"
-   - "DistributionList"
-   - "DirectoryRole"
+   - Tutti
+   - SecurityGroup
+   - DistributionList
+   - DirectoryRole
 
-   Ad esempio: 
+   Esempio:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
    ```
 
-   Per impostazione predefinita che verranno emesse ObjectIDs gruppo nel gruppo valore di attestazione.  Per modificare il valore dell'attestazione per contenere gli attributi di gruppo locale o per modificare il tipo di attestazione ruolo, usare configurazione OptionalClaims come segue:
+   Per impostazione predefinita, il gruppo ObjectID verrà emesso nel valore dell'attestazione del gruppo.  Per modificare il valore dell'attestazione in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in role, usare la configurazione di OptionalClaims come indicato di seguito:
 
-3. Set di attestazioni facoltative configurazione nome di gruppo.
+3. Imposta la configurazione del nome del gruppo attestazioni facoltative.
 
-   Se si desidera gruppi nel token per contenere gli attributi di gruppo AD nella sezione attestazioni facoltative specificano quale attestazione facoltativa di tipo di token deve essere applicato a locale, il nome dell'attestazione facoltativa richiesto ed eventuali proprietà aggiuntive desiderate.  È possibile specificare più tipi di token:
+   Se si vuole che i gruppi nel token contengano gli attributi di gruppo AD locali nella sezione attestazioni facoltative, specificare il tipo di token a cui deve essere applicata l'attestazione facoltativa, il nome dell'attestazione facoltativa richiesta ed eventuali proprietà aggiuntive desiderate.  È possibile elencare più tipi di token:
 
    - idToken per il token ID OIDC
-   - per il token di accesso di OAuth/OIDC accessToken
+   - accessToken per il token di accesso OAuth/OIDC
    - Saml2Token per i token SAML.
 
    > [!NOTE]
-   > Il tipo Saml2Token si applica SAML1.1 sia SAML2.0 i token di formato
+   > Il tipo Saml2Token si applica ai token di formato SAML 1.1 e SAML 2.0
 
-   Per ogni tipo di token pertinente, modificare l'attestazione relativa ai gruppi per usare la sezione OptionalClaims nel manifesto. Come indicato di seguito è riportato lo schema OptionalClaims:
+   Per ogni tipo di token pertinente, modificare l'attestazione groups in modo da usare la sezione OptionalClaims nel manifesto. Lo schema OptionalClaims è il seguente:
 
    ```json
    {
@@ -152,23 +157,23 @@ Attestazioni di gruppo possono anche essere configurate nel [attestazioni facolt
    }
    ```
 
-   | Schema di attestazioni facoltative | Value |
+   | Schema delle attestazioni facoltativo | Value |
    |----------|-------------|
-   | **Nome:** | Deve essere "groups" |
-   | **source:** | Non usato. Omettere o specificare null |
-   | **essential:** | Non usato. Omettere oppure specificare false |
+   | **nome** | Deve essere "groups" |
+   | **origine** | Non usato. Omettere o specificare null |
+   | **essenziale** | Non usato. Omettere o specificare false |
    | **additionalProperties:** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   In additionalProperties solo uno dei "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" sono obbligatori.  Se è presentano più di uno, viene usato il primo e tutte le altre ignorato.
+   In additionalProperties è necessario solo uno dei "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
 
-   Alcune applicazioni richiedono informazioni sul gruppo sull'utente nell'attestazione basata su ruolo.  Per modificare il tipo di attestazione da un gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno generati nell'attestazione basata su ruolo.
+   Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione in da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno emessi nell'attestazione del ruolo.
 
    > [!NOTE]
-   > Se viene usato "emit_as_roles" tutti i ruoli applicazione configurato che l'utente sia assegnata will non visualizzata nell'attestazione basata su ruolo
+   > Se viene usato "emit_as_roles", tutti i ruoli applicazione configurati che l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
 ### <a name="examples"></a>Esempi
 
-Creare i gruppi come i nomi dei gruppi nei token di accesso di OAuth nel formato dnsDomainName\SAMAccountName
+Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\SAMAccountName
 
 ```json
 "optionalClaims": {
@@ -179,7 +184,7 @@ Creare i gruppi come i nomi dei gruppi nei token di accesso di OAuth nel formato
 }
  ```
 
-Per generare nomi di gruppo venga restituito nel formato netbiosDomain\samAccountName come i ruoli di attestazione nel token ID di OIDC e SAML:
+Per creare i nomi dei gruppi da restituire nel formato netbiosDomain\samAccountName come attestazione dei ruoli nei token ID SAML e OIDC:
 
 ```json
 "optionalClaims": {

@@ -4,7 +4,7 @@ description: Fornisce la soluzione al problema per cui si verifica l'errore Non 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: adpick
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 19a30a99b9df23358aafd88c55bde08c73a3be72
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371233"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121551"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure
 
@@ -56,4 +56,4 @@ Controllare se l'account usato Ã¨ l'amministratore account. Per verificare chi Ã
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

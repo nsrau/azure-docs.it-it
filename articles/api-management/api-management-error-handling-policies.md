@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: HT
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265008"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072591"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -73,19 +72,19 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError
+## <a name="lasterror"></a>lastError
 
  Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error`. LastError ha le seguenti proprietà.  
   
-| NOME     | type   | DESCRIZIONE                                                                                               | Obbligatoria |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Sorgente   | stringa | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
-| Motivo   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
-| Message  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| Scope    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
-| Sezione  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
-| path     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
-| PolicyId | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
+| NOME       | Type   | Descrizione                                                                                               | Obbligatoria |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Yes      |
+| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
+| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
+| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No       |
+| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No       |
+| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.  
@@ -96,19 +95,19 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 ## <a name="predefined-errors-for-built-in-steps"></a>Errori predefiniti per i passaggi predefiniti  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei passaggi di elaborazione predefiniti.  
   
-| Sorgente        | Condizione                                 | Motivo                  | Message                                                                                                                |
+| `Source`        | Condizione                                 | `Reason`                  | `Message`                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
-| autorizzazione | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
-| autorizzazione | Il valore della chiave di sottoscrizione non è valido         | SubscriptionKeyInvalid  | Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.            |
+| authorization | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
+| authorization | Il valore della chiave di sottoscrizione non è valido         | SubscriptionKeyInvalid  | Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.            |
   
 ## <a name="predefined-errors-for-policies"></a>Errori predefiniti per i criteri  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei criteri.  
   
-| Sorgente       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
+| `Source`       | Condizione                                                       | `Reason`                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
-| quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
+| quota        | Quota superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
 | jsonp        | Il valore del parametro callback non è valido (contiene caratteri errati) | CallbackParameterInvalid  | Il valore del parametro callback {callback-parameter-name} non è un identificatore JavaScrpit valido.                                          |
 | ip-filter    | Impossibile analizzare l'IP del chiamante dalla richiesta                          | FailedToParseCallerIP     | Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato.                                                                        |
 | ip-filter    | L'IP del chiamante non è presente nell'elenco degli IP consentiti                                | CallerIpNotAllowed        | L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato.                                                                        |

@@ -1,7 +1,7 @@
 ---
-title: Abilitare la registrazione nel servizio Azure Machine Learning
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come abilitare la registrazione nel servizio Azure Machine Learning usando sia il pacchetto di registrazione predefinito di Python, che le funzionalità specifiche di SDK.
+title: Abilitare la registrazione in Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Informazioni su come abilitare la registrazione in Azure Machine Learning usando il pacchetto di registrazione Python predefinito, oltre a usare funzionalità specifiche dell'SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -9,15 +9,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
-ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/12/2019
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789374"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002761"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Abilitare la registrazione nel servizio Azure Machine Learning
+# <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine Learning
 
 Il SDK Python di Azure Machine Learning consente di abilitare la registrazione usando sia il pacchetto di registrazione di Python predefinito, che la funzionalità specifica di SDK sia per la registrazione locale che per la registrazione all'area di lavoro nel portale. I log di forniscono agli sviluppatori informazioni in tempo reale sullo stato dell'applicazione e possono facilitare la diagnosi di errori o avvisi. Questo articolo illustra diverse modalità di abilitazione della registrazione nelle aree seguenti:
 
@@ -27,7 +27,7 @@ Il SDK Python di Azure Machine Learning consente di abilitare la registrazione u
 > * Modelli distribuiti
 > * Impostazioni `logging` di Python
 
-[Creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni, il SDK.
+[Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni sull'SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Training dei modelli e registrazione delle destinazioni di calcolo
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Vedere la documentazione di riferimento per la [eseguire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe per le funzioni di registrazione aggiuntiva.
+Vedere la documentazione di riferimento per la classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) per altre funzioni di registrazione.
 
 Per abilitare la registrazione locale dello stato dell'applicazione durante il corso del training, usare il parametro `show_output`. L'abilitazione della registrazione dettagliata consente di visualizzare i dettagli dal processo di training, nonché informazioni su tutte le risorse remote o le destinazioni di calcolo. Usare il codice seguente per abilitare la registrazione dopo l'invio di un esperimento.
 
@@ -64,7 +64,7 @@ L'SDK supporta anche l'uso del pacchetto di registrazione di python predefinito 
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automated_ml_config = AutoMLConfig(task = 'regression',
+automated_ml_config = AutoMLConfig(task='regression',
                                    verbosity=logging.INFO,
                                    X=your_training_features,
                                    y=your_training_labels,
@@ -78,7 +78,8 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 ```python
 from azureml.core.compute import ComputeTarget
 
-compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_configuration=config)
+compute_target = ComputeTarget.attach(
+    workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
 ```
 
@@ -90,9 +91,10 @@ Abilitare la registrazione durante la creazione di immagini consentirà di visua
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```

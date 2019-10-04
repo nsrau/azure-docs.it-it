@@ -1,5 +1,5 @@
 ---
-title: Come usare gli argomenti del bus di servizio di Azure con Java | Microsoft Docs
+title: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Java
 description: Usare gli argomenti e le sottoscrizioni del bus di servizio in Azure.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,33 +14,34 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311097"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155603"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Java
+# <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In questa Guida introduttiva, scrivere il codice Java per inviare messaggi a un argomento del Bus di servizio e quindi ricevere messaggi dalle sottoscrizioni a tale argomento. 
+In questa Guida introduttiva si scrive codice Java per inviare messaggi a un argomento del bus di servizio di Azure e quindi si ricevono messaggi dalle sottoscrizioni a tale argomento. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
-    1. Creare un Bus di servizio **dello spazio dei nomi**.
-    2. Ottenere il **stringa di connessione**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i [passaggi nella Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+    1. Creare uno **spazio dei nomi**del bus di servizio.
+    2. Ottenere la **stringa di connessione**.
     3. Creare un **argomento** nello spazio dei nomi.
-    4. Creare **tre sottoscrizioni** all'argomento nello spazio dei nomi.
+    4. Creare **tre sottoscrizioni** dell'argomento nello spazio dei nomi.
 3. [Azure SDK per Java][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Toolkit di Azure per Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![Librerie nel percorso di compilazione Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Aggiungere librerie di Microsoft Azure per Java al progetto Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 È anche necessario aggiungere i file JAR seguenti al percorso di compilazione Java:
 
@@ -454,12 +455,14 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere[Code, argomenti e sottoscrizioni del bus di servizio][Service Bus queues, topics, and subscriptions].
+Per altre informazioni, vedere [code, argomenti e sottoscrizioni del bus di servizio][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

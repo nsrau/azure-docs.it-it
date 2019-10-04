@@ -3,7 +3,7 @@ title: 'Guida introduttiva: Scaricare un report relativo agli accessi con il por
 description: Informazioni su come scaricare un report relativo agli accessi con il portale di Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86bc72f69903134afa3750ad6b72486a713b6cc0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7cbd71696c3508a464b1343d552cba4a3391066f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438123"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989663"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare un report relativo agli accessi con il portale di Azure
 

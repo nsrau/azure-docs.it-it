@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618088"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722111"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -93,7 +93,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 - **Rete virtuale dell'hub**. È presente la rete virtuale hub **Source Hub vNet**: 10.10.10.0/24.
   - Questa rete virtuale hub opera come gatekeeper.
   - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
-    - **Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
+    - **Subnet VNet Hub**. La rete virtuale hub comprende due subnet:
     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
     - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
@@ -104,22 +104,22 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da spoke a hub | Consenti traffico inoltrato | Attivato
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
+Da spoke a hub | Consenti traffico inoltrato | Enabled
 Da spoke a hub | Consenti transito gateway | Disabled
-Da spoke a hub | Usa gateway remoti | Attivato
+Da spoke a hub | Usa gateway remoti | Enabled
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
-Da hub a spoke | Consenti traffico inoltrato | Attivato
-Da hub a spoke | Consenti transito gateway | Attivato
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
+Da hub a spoke | Consenti traffico inoltrato | Enabled
+Da hub a spoke | Consenti transito gateway | Enabled
 Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
@@ -166,7 +166,7 @@ Questa configurazione garantisce la protezione dagli errori del circuito Express
 
 In questa configurazione è presente un solo circuito ExpressRoute. Anche se il circuito dispone di una connessione ridondante nel caso in cui una connessione diventi inattiva, un circuito con una singola route non fornisce resilienza se l'area di peering diventa inattiva. Si noti che:
 
-- È possibile eseguire la replica delle macchine virtuali di Azure in qualsiasi area di Azure nella [stessa posizione geografica](azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione non è nella stessa posizione di quella di origine, è necessario abilitare ExpressRoute Premium se si usa un singolo circuito ExpressRoute. Per informazioni, vedere le [località](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- È possibile eseguire la replica delle macchine virtuali di Azure in qualsiasi area di Azure nella [stessa posizione geografica](azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione non è nella stessa posizione di quella di origine, è necessario abilitare ExpressRoute Premium se si usa un singolo circuito ExpressRoute. Per informazioni, vedere le [località](../expressroute/expressroute-locations.md) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Non è possibile connettere simultaneamente le reti virtuali di origine e di destinazione al circuito se nell'area di destinazione viene usato lo stesso spazio di indirizzi IP. In questo scenario:    
     -  Interrompere la connessione sul lato di origine e quindi stabilire la connessione sul lato di destinazione. Questa modifica della connessione può essere inserita in uno script come parte di un piano di ripristino di Site Recovery. Si noti che:
         - In caso di errore a livello di area, se l'area primaria non è accessibile, l'operazione di disconnessione può avere esito negativo. Ciò potrebbe influire sulla creazione della connessione all'area di destinazione.

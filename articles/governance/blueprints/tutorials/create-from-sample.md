@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785969"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232622"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Creare un ambiente da un esempio di progetto
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
 I progetti di esempio illustrano cosa è possibile fare con Azure Blueprints. Ogni progetto è un esempio con uno scopo specifico, ma non crea di per sé un ambiente completo. Ognuno è da intendersi come un punto di partenza per esplorare mediante Azure Blueprints con varie combinazioni di artefatti, progettazioni e parametri inclusi.
 
@@ -104,11 +104,11 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      |Nome artefatto|Tipo di artefatto|Nome parametro|Valore|DESCRIZIONE|
      |-|-|-|-|-|
-     |Gruppo di risorse ProdRG|Gruppo di risorse|NOME|ProductionRG|Definisce il nome del primo gruppo di risorse.|
-     |Gruppo di risorse ProdRG|Gruppo di risorse|Località|Stati Uniti occidentali 2|Imposta la località del primo gruppo di risorse.|
+     |Gruppo di risorse ProdRG|Resource group|NOME|ProductionRG|Definisce il nome del primo gruppo di risorse.|
+     |Gruppo di risorse ProdRG|Resource group|Location|Stati Uniti occidentali 2|Imposta la località del primo gruppo di risorse.|
      |Collaboratore|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Collaboratore_ nel primo gruppo di risorse.|
-     |Gruppo di risorse PreProdRG|Gruppo di risorse|NOME|PreProductionRG|Definisce il nome del secondo gruppo di risorse.|
-     |Gruppo di risorse PreProdRG|Gruppo di risorse|Località|Stati Uniti occidentali|Imposta la località del secondo gruppo di risorse.|
+     |Gruppo di risorse PreProdRG|Resource group|NOME|PreProductionRG|Definisce il nome del secondo gruppo di risorse.|
+     |Gruppo di risorse PreProdRG|Resource group|Location|Stati Uniti occidentali|Imposta la località del secondo gruppo di risorse.|
      |Proprietario|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Proprietario_ nel secondo gruppo di risorse.|
      |Lettori|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Lettore_ nel secondo gruppo di risorse.|
 
@@ -150,7 +150,7 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
    L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione di **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
 
-1. Nella struttura di navigazione del portale di Azure selezionare **PreProductionRG - Controllo di accesso (IAM)**. Selezionare la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome _PreProductionRG_ per confermare l'eliminazione e selezionare **Elimina** in fondo al riquadro.
+1. Nella struttura di navigazione del portale di Azure selezionare **PreProductionRG - Controllo di accesso (IAM)** . Selezionare la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome _PreProductionRG_ per confermare l'eliminazione e selezionare **Elimina** in fondo al riquadro.
 
    Nel portale viene visualizzata la notifica **L'eliminazione del gruppo di risorse PreProductionRG non è riuscita**. Questo errore si verifica perché, sebbene l'account abbia l'autorizzazione necessaria per eliminare il gruppo di risorse, l'accesso è negato dall'assegnazione del progetto. È stata infatti selezionata la modalità di blocco del progetto _Sola lettura_ durante l'assegnazione del progetto. Il blocco del progetto impedisce a un account di eliminare la risorsa, anche se dispone dell'autorizzazione _Proprietario_. Per altre informazioni, vedere [Blueprints resource locking](../concepts/resource-locking.md) (Blocco delle risorse del progetto).
 
@@ -188,7 +188,7 @@ Al termine dell'esercitazione, eliminare le risorse seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
-- Comprendere come usare i [parametri statici e dinamici](../concepts/parameters.md)
+- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md)
 - Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md)
 - Imparare a personalizzare l'[ordine in sequenza del progetto](../concepts/sequencing-order.md)
 - Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md)

@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio in Node.js | Microsoft Docs
+title: Usare le code del bus di servizio di Azure in node. js
 description: Informazioni su come usare le code del bus di servizio in Azure da un'app Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,39 +14,43 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500839"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671998"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Come usare le code del bus di servizio con Node.js
+# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Usare le code del bus di servizio in Azure con node. js e il pacchetto Azure-SB
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto node. js"]
+> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+In questa esercitazione si apprenderà come creare applicazioni node. js per inviare e ricevere messaggi da una coda del bus di servizio usando il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) . Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) node. js che usa internamente il `azure-sb` pacchetto.
 
-In questa esercitazione descrive come creare applicazioni Node. js per inviare e ricevere messaggi da una coda del Bus di servizio. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. 
+Il pacchetto [Azure-SB](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). È possibile ottenere un'esperienza più rapida usando il [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) nuovo pacchetto che usa il [protocollo AMQP 1,0](service-bus-amqp-overview.md)più veloce. Per altre informazioni sul nuovo pacchetto, vedere [come usare le code del bus di servizio con node. js e @azure/service-bus il pacchetto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package). in caso contrario, continuare a leggere per vedere come usare il pacchetto di [Azure](https://www.npmjs.com/package/azure) .
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**. 
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se non si ha una coda da usare, seguire i passaggi nell'articolo [usare portale di Azure per creare una](service-bus-quickstart-portal.md) coda del bus di servizio per creare una coda.
+    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
+    2. Creare uno **spazio dei nomi**del bus di servizio. 
+    3. Ottenere la **stringa di connessione**. 
 
         > [!NOTE]
-        > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Node. js in questa esercitazione. 
+        > In questa esercitazione verrà creata una **coda** nello spazio dei nomi del bus di servizio usando node. js. 
  
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure][Create and deploy a Node.js application to an Azure Website] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell.
+Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Create and deploy a Node.js application to an Azure Website] [Servizio cloud Node.js][Node.js Cloud Service] usando Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node.js che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
 1. Usare la finestra di comando **Windows PowerShell per Node.js** per passare alla cartella **c:\\node\\sbqueues\\WebRole1** in cui è stata creata l'applicazione di esempio.
-2. Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile al seguente:
+2. Digitare **NPM install Azure** nella finestra di comando, che dovrebbe restituire un risultato simile all'esempio seguente:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -61,7 +65,7 @@ Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di tale cartella individuare il pacchetto **azure**, che contiene le librerie necessarie per accedere alle code del bus di servizio.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di tale cartella trovare il pacchetto di **Azure** , che contiene le librerie necessarie per accedere alle code del bus di servizio.
 
 ### <a name="import-the-module"></a>Importare il modulo
 Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
@@ -71,11 +75,11 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
-Il modulo di Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione al bus di servizio. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni relative all'account durante la chiamata di `createServiceBusService`.
+Il modulo di Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione al bus di servizio. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni sull' `createServiceBusService`account quando si chiama.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure][Azure portal] per un sito Web di Azure, vedere [Node.js Web Application with Storage][Node.js Web Application with Storage] (Applicazione Web Node.js con Archiviazione di Azure).
+Per un esempio di impostazione delle variabili di ambiente nell' [portale di Azure][Azure portal] per un sito Web di Azure, vedere [applicazione Web Node. js con archiviazione][Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per importare il modulo Azure:
 
 ```javascript
@@ -120,7 +124,7 @@ Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo
 function (returnObject, finalCallback, next)
 ```
 
-In questo callback e dopo l'elaborazione di `returnObject` (la risposta della richiesta al server), il callback deve richiamare `next` se esistente, per continuare a elaborare altri filtri oppure richiamare `finalCallback`, che termina la chiamata al servizio .
+In questo callback, e dopo l'elaborazione `returnObject` di (la risposta dalla richiesta al server), il callback deve richiamare `next` se esiste per continuare a elaborare altri filtri o richiamare `finalCallback`, che termina la chiamata al servizio. .
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. Il codice seguente crea un oggetto `ServiceBusService` che usa `ExponentialRetryPolicyFilter`:
 
@@ -147,14 +151,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
+Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non è previsto alcun limite per il numero di messaggi contenuti in una coda, ma è previsto un limite per le dimensioni totali dei messaggi contenuti in una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 I messaggi vengono ricevuti da una coda usando il metodo `receiveQueueMessage` nell'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla coda non appena vengono letti. È tuttavia possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro facoltativo `isPeekLock` su **true**.
 
-Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione è il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio quando si verifica un errore. Per comprendere meglio questo comportamento, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo verrà perso.
 
-Se il parametro `isPeekLock` è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
+Se il `isPeekLock` parametro è impostato su **true**, la ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
 L'esempio seguente illustra come ricevere ed elaborare messaggi usando `receiveQueueMessage`. L'esempio prima di tutto riceve ed elimina un messaggio, quindi riceve un messaggio con `isPeekLock` impostato su **true** e infine elimina il messaggio con `deleteMessage`:
 
@@ -177,11 +181,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Come gestire arresti anomali e messaggi illeggibili dell'applicazione
-Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevente non riesce a elaborare il messaggio per qualsiasi motivo, può chiamare il metodo `unlockMessage` nell'oggetto **ServiceBusService**. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
+Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevente non riesce a elaborare il messaggio per qualsiasi motivo, può chiamare il metodo `unlockMessage` nell'oggetto **ServiceBusService**. il bus di servizio Sblocca il messaggio all'interno della coda e lo rende disponibile per la ricezione da parte della stessa applicazione consumer o da un'altra applicazione consumer.
 
-Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
+Al messaggio bloccato nella coda è associato anche un timeout. se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio se l'applicazione si arresta in modo anomalo, il bus di servizio sbloccherà automaticamente il messaggio e lo renderà disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `deleteMessage`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `deleteMessage`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo approccio viene spesso definito *elaborazione at-least-once*, ovvero ogni messaggio verrà elaborato almeno una volta, ma in determinate situazioni lo stesso messaggio potrebbe essere recapitato nuovamente. Se lo scenario non tollera l'elaborazione duplicata, gli sviluppatori di applicazioni devono aggiungere logica aggiuntiva all'applicazione per gestire il recapito dei messaggi duplicati. Questa operazione viene spesso eseguita utilizzando la proprietà **MessageID** del messaggio, che rimane costante in tutti i tentativi di recapito.
+
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle code, vedere le risorse seguenti.

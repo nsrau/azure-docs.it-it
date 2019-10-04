@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331218"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096396"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
 > * [Versione 2](functions-host-json.md)
 
@@ -35,7 +34,6 @@ Alcune impostazioni host.json vengono usate solo l'esecuzione in locale nel file
 ## <a name="sample-hostjson-file"></a>File di esempio host.json
 
 I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specificate.
-
 
 ```json
 {
@@ -82,7 +80,10 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -112,7 +113,7 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|5|La soglia oltre la quale viene avviato il campionamento.| 
@@ -133,7 +134,7 @@ Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di 
 
 Proprietà che restituisce un oggetto che contiene tutte le impostazioni di associazione specifiche, ad esempio [http](#http) e [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funzioni
 
 Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). In app per le funzioni in Azure è necessario invece seguire i passaggi descritti in [Come disabilitare le funzioni in Funzioni di Azure](disable-function.md) per disabilitare le funzioni specifiche invece di usare questa impostazione.
 
@@ -145,7 +146,10 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio app non è previsto alcun limite complessivo e il valore predefinito varia a seconda della versione del runtime. Nella versione 2.x il valore predefinito per un piano di servizio app è di 30 minuti. Nella versione 1.x il valore è *null*, che indica nessun timeout.
+Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
+In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito dipende dalla versione runtime: 
++ Versione 1. x: il valore predefinito è *null*, che indica nessun timeout.   
++ Versione 2. x: il valore predefinito è 30 minuti. Il valore `-1` indica l'esecuzione non vincolata.
 
 ```json
 {
@@ -171,11 +175,11 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------| 
-|Enabled|true|Indica se la funzionalità è abilitata. | 
+|enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
-|counterThreshold|0,80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
+|counterThreshold|0.80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
 
 ## <a name="http"></a>http
 
@@ -194,13 +198,16 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
@@ -223,7 +230,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
@@ -274,6 +281,18 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+La dipendenza gestita è una funzionalità di anteprima attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la proprietà Enabled è impostata su true, il file [requirements. psd1](functions-reference-powershell.md#dependency-management) verrà elaborato. Le dipendenze verranno aggiornate quando vengono rilasciate versioni secondarie.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

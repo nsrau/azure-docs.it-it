@@ -3,19 +3,19 @@ title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Python'
 description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch Python.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754422"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090757"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 
@@ -43,7 +43,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 [Scaricare o clonare l'app di esempio](https://github.com/Azure-Samples/batch-python-quickstart) da GitHub. Per clonare il repository dell'app di esempio con un client Git, usare il comando seguente:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -55,7 +55,7 @@ Nell'ambiente di sviluppo Python installare i pacchetti necessari usando `pip`.
 pip install -r requirements.txt
 ```
 
-Aprire il file `config.py`. Aggiornare le stringhe delle credenziali degli account di archiviazione e Batch con i valori ottenuti per gli account. Ad esempio: 
+Aprire il file `config.py`. Aggiornare le stringhe delle credenziali degli account di archiviazione e Batch con i valori ottenuti per gli account. Ad esempio:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 Per vedere il flusso di lavoro di Batch in azione, eseguire questo script:
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +77,7 @@ Dopo l'esecuzione dello script, esaminare il codice per comprendere le operazion
 
 Quando si esegue l'applicazione di esempio, l'output della console è simile al seguente. Durante l'esecuzione si verifica una pausa in corrispondenza di `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` mentre vengono avviati i nodi di calcolo del pool. Le attività vengono accodate per l'esecuzione non appena il primo nodo di calcolo è in esecuzione. Passare all'account Batch nel [portale di Azure](https://portal.azure.com) per monitorare il pool, i nodi di calcolo, i processi e le attività dell'account.
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +92,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 Dopo il completamento delle attività, verrà visualizzato un output simile al seguente per ogni attività:
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
@@ -116,7 +116,7 @@ Per altre informazioni, vedere il file `python_quickstart_client.py` e le sezion
 
 ### <a name="preliminaries"></a>Operazioni preliminari
 
-Per interagire con un account di archiviazione, l'app usa il pacchetto [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) per creare un oggetto [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice).
+Per interagire con un account di archiviazione, l'app usa il pacchetto [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) per creare un oggetto [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice).
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -124,12 +124,12 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-L'app usa il riferimento `blob_client` per creare un contenitore nell'account di archiviazione e caricarvi i file di dati. I file nel contenitore di archiviazione sono definiti come oggetti [ResourceFile](/python/api/azure.batch.models.resourcefile) di Batch che successivamente Batch può scaricare nei nodi di calcolo.
+L'app usa il riferimento `blob_client` per creare un contenitore nell'account di archiviazione e caricarvi i file di dati. I file nel contenitore di archiviazione sono definiti come oggetti [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) di Batch che successivamente Batch può scaricare nei nodi di calcolo.
 
 ```python
-input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
-                     os.path.join(sys.path[0], 'taskdata1.txt'),
-                     os.path.join(sys.path[0], 'taskdata2.txt')]
+input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
+                    os.path.join(sys.path[0], 'taskdata1.txt'),
+                    os.path.join(sys.path[0], 'taskdata2.txt')]
 
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
@@ -140,20 +140,20 @@ L'app crea un oggetto [BatchServiceClient](/python/api/azure.batch.batchservicec
 
 ```python
 credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-    config._BATCH_ACCOUNT_KEY)
+                                              config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=config._BATCH_ACCOUNT_URL)
+    batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Creare un pool di nodi di calcolo
 
-Per creare un pool di Batch, l'app usa la classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) per impostare il numero di nodi, le dimensioni delle VM e una configurazione del pool. In questo caso, un oggetto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) specifica un oggetto [ImageReference](/python/api/azure.batch.models.imagereference) che fa riferimento a un'immagine di Ubuntu Server 18.04 LTS pubblicata in Azure Marketplace. Batch supporta una vasta gamma di immagini di Linux e Windows Server in Azure Marketplace, oltre che immagini di VM personalizzate.
+Per creare un pool di Batch, l'app usa la classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) per impostare il numero di nodi, le dimensioni delle VM e una configurazione del pool. In questo caso, un oggetto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) specifica un oggetto [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) che fa riferimento a un'immagine di Ubuntu Server 18.04 LTS pubblicata in Azure Marketplace. Batch supporta una vasta gamma di immagini di Linux e Windows Server in Azure Marketplace, oltre che immagini di VM personalizzate.
 
 Il numero di nodi (`_POOL_NODE_COUNT`) e le dimensioni delle VM (`_POOL_VM_SIZE`) sono costanti definite. L'esempio crea per impostazione predefinita un pool con 2 nodi di dimensioni *Standard_A1_v2*. Le dimensioni consigliate offrono un buon compromesso in termini di costi/prestazioni per questo esempio rapido.
 
-Il metodo [pool.add](/python/api/azure.batch.operations.pooloperations) invia il pool al servizio Batch.
+Il metodo [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) invia il pool al servizio Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -164,7 +164,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Creare un processo Batch
 
-Un processo Batch è un gruppo logico di una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. L'app usa la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure.batch.operations.joboperations) invia il pool al servizio Batch. Inizialmente il processo è privo di attività.
+Un processo Batch è un gruppo logico di una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. L'app usa la classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) per creare un processo nel pool. Il metodo [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) aggiunge un processo all'account Batch specificato. Inizialmente il processo è privo di attività.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -185,21 +185,21 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Creare attività
 
-Questa app crea un elenco di oggetti attività usando la classe [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Ogni attività elabora un oggetto `resource_files` di input usando un parametro `command_line`. Nell'esempio, la riga di comando esegue il comando `cat` della shell Bash per visualizzare il file di testo. Questo comando è un esempio semplice fornito a scopo dimostrativo. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
+Questa app crea un elenco di oggetti attività usando la classe [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Ogni attività elabora un oggetto `resource_files` di input usando un parametro `command_line`. Nell'esempio, la riga di comando esegue il comando `cat` della shell Bash per visualizzare il file di testo. Questo comando è un esempio semplice fornito a scopo dimostrativo. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
 
-L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo. 
+L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo. 
 
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
+for idx, input_file in enumerate(input_files):
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file]
     )
-)
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -211,12 +211,13 @@ L'app esegue il monitoraggio dello stato dell'attività affinché venga completa
 tasks = batch_service_client.task.list(job_id)
 
 for task in tasks:
-    
+
     node_id = batch_service_client.task.get(job_id, task.id).node_info.node_id
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(
+        job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

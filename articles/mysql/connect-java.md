@@ -1,24 +1,23 @@
 ---
-title: Connettersi a Database di Azure per MySQL con Java
+title: Usare Java per connettersi a Database di Azure per MySQL
 description: Questo argomento di avvio rapido offre un esempio di codice Java che è possibile usare per connettersi ai dati ed eseguire query da un'istanza di Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 02/28/2018
-ms.openlocfilehash: 7ad24a691153161ff2283030a4a597544205de6d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 08/08/2019
+ms.openlocfilehash: 9df95a754d4bd423ddd7f57c634b86bd33e906ca
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349887"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155523"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Java per connettersi ai dati ed eseguire query
-Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione Java e il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Java, ma non con Database di Azure per MySQL.
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: Usare Java per connettersi ed eseguire query sui dati in Database di Azure per MySQL
 
-Sono disponibili diversi altri esempi e il codice di esempio nella [pagina degli esempi del connettore MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
+Questo argomento di avvio rapido illustra come connettersi a Database di Azure per MySQL usando un'applicazione Java e il driver JDBC [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Java, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -27,21 +26,21 @@ Sono disponibili diversi altri esempi e il codice di esempio nella [pagina degli
 
 2. Assicurarsi che la sicurezza della connessione al database di Azure per MySQL sia configurata con il firewall aperto e le impostazioni SSL siano regolate per la corretta connessione dell'applicazione.
 
-3. Per ottenere il connettore MySQL Connector/J, usare uno degli approcci seguenti:
-   - Usare il pacchetto Maven [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) per includere la [dipendenza mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) nel file POM del progetto.
-   - Scaricare il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e includere il file JAR JDBC (ad esempio, mysql-connector-java-5.1.42-bin.jar) nel percorso di classe dell'applicazione. In caso di problemi con i percorsi di classe, vedere la documentazione dell'ambiente relativa alle specifiche per il percorso delle classi, ad esempio [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+3. Per ottenere il connettore MariaDB Connector/J, usare uno degli approcci seguenti:
+   - Usare il pacchetto Maven [mariadb-java-client](https://search.maven.org/search?q=a:mariadb-java-client) per includere la [dipendenza mariadb-java-client](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) nel file POM per il progetto.
+   - Scaricare il driver JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e includere il file JAR JDBC (ad esempio, mariadb-java-client-2.4.3.jar) nel percorso di classe dell'applicazione. In caso di problemi con i percorsi di classe, vedere la documentazione dell'ambiente relativa alle specifiche per il percorso delle classi, ad esempio [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
-3. Fare clic sul nome del server.
+2. Dal menu a sinistra nel portale di Azure scegliere **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Selezionare il nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server del database di Azure per MySQL](./media/connect-java/1_server-overview-name-login.png)
+ ![Nome del server del database di Azure per MySQL](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
-Usare il codice seguente per connettersi e caricare i dati usando la funzione con un'istruzione SQL **INSERT**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL. I metodi [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) ed execute() vengono usati per rilasciare e creare la tabella. L'oggetto prepareStatement viene usato per compilare i comandi di inserimento, con setString() e setInt() per associare i valori dei parametri. Il metodo executeUpdate() esegue il comando per ogni set di parametri per cui inserire i valori. 
+Usare il codice seguente per connettersi e caricare i dati usando la funzione con un'istruzione SQL **INSERT**. Il metodo [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) viene usato per connettersi a MySQL. I metodi [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) ed execute() vengono usati per rilasciare e creare la tabella. L'oggetto prepareStatement viene usato per compilare i comandi di inserimento, con setString() e setInt() per associare i valori dei parametri. Il metodo executeUpdate() esegue il comando per ogni set di parametri per cui inserire i valori. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 
@@ -62,21 +61,21 @@ public class CreateTableInsertRows {
         // check that the driver is installed
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc");
         }
         catch (ClassNotFoundException e)
         {
-            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+            throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
         }
 
-        System.out.println("MySQL JDBC driver detected in library path.");
+        System.out.println("MariaDB JDBC driver detected in library path.");
 
         Connection connection = null;
 
         // Initialize connection object
         try
         {
-            String url = String.format("jdbc:mysql://%s/%s", host, database);
+            String url = String.format("jdbc:mariadb://%s/%s", host, database);
 
             // Set connection properties.
             Properties properties = new Properties();
@@ -143,7 +142,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Leggere i dati
-Usare il codice seguente per leggere i dati con un'istruzione SQL **SELECT**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL. I metodi [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) ed executeQuery() vengono usati per connettersi ed eseguire l'istruzione select. I risultati vengono elaborati usando un oggetto [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html). 
+Usare il codice seguente per leggere i dati con un'istruzione SQL **SELECT**. Il metodo [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) viene usato per connettersi a MySQL. I metodi [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) ed executeQuery() vengono usati per connettersi ed eseguire l'istruzione select. I risultati vengono elaborati usando un oggetto ResultSet. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 
@@ -164,21 +163,21 @@ public class ReadTable {
         // check that the driver is installed
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc");
         }
         catch (ClassNotFoundException e)
         {
-            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+            throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
         }
 
-        System.out.println("MySQL JDBC driver detected in library path.");
+        System.out.println("MariaDB JDBC driver detected in library path.");
 
         Connection connection = null;
 
         // Initialize connection object
         try
         {
-            String url = String.format("jdbc:mysql://%s/%s", host, database);
+            String url = String.format("jdbc:mariadb://%s/%s", host, database);
 
             // Set connection properties.
             Properties properties = new Properties();
@@ -230,7 +229,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Aggiornare i dati
-Usare il codice seguente per modificare i dati con un'istruzione SQL **UPDATE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL. I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
+Usare il codice seguente per modificare i dati con un'istruzione SQL **UPDATE**. Il metodo [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) viene usato per connettersi a MySQL. I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 
@@ -250,20 +249,21 @@ public class UpdateTable {
         // check that the driver is installed
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc");
         }
         catch (ClassNotFoundException e)
         {
-            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+            throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
         }
-        System.out.println("MySQL JDBC driver detected in library path.");
+
+        System.out.println("MariaDB JDBC driver detected in library path.");
 
         Connection connection = null;
 
         // Initialize connection object
         try
         {
-            String url = String.format("jdbc:mysql://%s/%s", host, database);
+            String url = String.format("jdbc:mariadb://%s/%s", host, database);
             
             // set up the connection properties
             Properties properties = new Properties();
@@ -311,7 +311,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per rimuovere i dati con un'istruzione SQL **DELETE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL.  I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
+Usare il codice seguente per rimuovere i dati con un'istruzione SQL **DELETE**. Il metodo [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) viene usato per connettersi a MySQL.  I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione delete. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 
@@ -331,21 +331,21 @@ public class DeleteTable {
         // check that the driver is installed
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc");
         }
         catch (ClassNotFoundException e)
         {
-            throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
+            throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
         }
 
-        System.out.println("MySQL JDBC driver detected in library path.");
+        System.out.println("MariaDB JDBC driver detected in library path.");
 
         Connection connection = null;
 
         // Initialize connection object
         try
         {
-            String url = String.format("jdbc:mysql://%s/%s", host, database);
+            String url = String.format("jdbc:mariadb://%s/%s", host, database);
             
             // set up the connection properties
             Properties properties = new Properties();
@@ -392,7 +392,6 @@ public class DeleteTable {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Sono disponibili diversi altri esempi e il codice di esempio nella [pagina degli esempi di MySQL Connector/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database MySQL a Database di Azure per MySQL usando dump e ripristino](concepts-migrate-dump-restore.md)

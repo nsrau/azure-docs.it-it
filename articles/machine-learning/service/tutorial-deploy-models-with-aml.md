@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Distribuire i modelli'
-titleSuffix: Azure Machine Learning service
-description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
+titleSuffix: Azure Machine Learning
+description: Questa esercitazione mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/29/2019
+ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133094"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162535"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
@@ -23,7 +23,7 @@ Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercita
 
 Si è ora pronti per distribuire il modello come servizio Web in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
-In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per le attività seguenti:
+In questa parte dell'esercitazione si usa Azure Machine Learning per le attività seguenti:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di test.
@@ -35,13 +35,13 @@ In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per
 Istanze di Container è un'ottima soluzione per testare e comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.8.
+> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.41.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Andare alla sezione [Configurare l'ambiente di sviluppo](#start) per leggere la procedura relativa al notebook.  
 
-Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).   Quindi eseguire il notebook **tutorials/img-classification-part2-deploy.ipynb** usando lo stesso server notebook.
+Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md).   Aprire quindi il notebook **tutorials/img-classification-part2-deploy.ipynb** usando lo stesso server notebook.
 
+Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarla nel proprio [ambiente locale](how-to-configure-environment.md#local).  Verificare di aver installato `matplotlib` e `scikit-learn` nell'ambiente. 
 
 ## <a name="start"></a>Configurare l'ambiente
 
@@ -72,9 +72,9 @@ Un modello è già stato registrato nell'area di lavoro nell'esercitazione prece
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-import os 
+import os
 ws = Workspace.from_config()
-model=Model(ws, 'sklearn_mnist')
+model = Model(ws, 'sklearn_mnist')
 
 model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -102,7 +102,8 @@ import os
 data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>Stimare i dati di test
@@ -113,7 +114,7 @@ Per ottenere le previsioni, inserire il set di dati di test nel modello:
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
+clf = joblib.load(os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -152,7 +153,7 @@ row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize=(8,5))
+fig = plt.figure(figsize=(8, 5))
 ax = fig.add_subplot(111)
 cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
@@ -204,7 +205,7 @@ from azureml.core.model import Model
 def init():
     global model
     # retrieve the path to the model file using the model name
-    model_path = Model.get_model_path('sklearn_mnist')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
 def run(raw_data):
@@ -227,13 +228,13 @@ from azureml.core.conda_dependencies import CondaDependencies
 myenv = CondaDependencies()
 myenv.add_conda_package("scikit-learn")
 
-with open("myenv.yml","w") as f:
+with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
 ```
 Rivedere il contenuto del file `myenv.yml`:
 
 ```python
-with open("myenv.yml","r") as f:
+with open("myenv.yml", "r") as f:
     print(f.read())
 ```
 
@@ -246,7 +247,8 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
                                                memory_gb=1, 
-                                               tags={"data": "MNIST",  "method" : "sklearn"}, 
+                                               tags={"data": "MNIST",  
+                                                     "method": "sklearn"},
                                                description='Predict MNIST with sklearn')
 ```
 
@@ -268,18 +270,17 @@ Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
 ```python
 %%time
 from azureml.core.webservice import Webservice
-from azureml.core.image import ContainerImage
+from azureml.core.model import InferenceConfig
 
-# configure the image
-image_config = ContainerImage.image_configuration(execution_script="score.py", 
-                                                  runtime="python", 
-                                                  conda_file="myenv.yml")
+inference_config = InferenceConfig(runtime= "python", 
+                                   entry_script="score.py",
+                                   conda_file="myenv.yml")
 
-service = Webservice.deploy_from_model(workspace=ws,
-                                       name='sklearn-mnist-svc',
-                                       deployment_config=aciconfig,
-                                       models=[model],
-                                       image_config=image_config)
+service = Model.deploy(workspace=ws, 
+                       name='sklearn-mnist-svc',
+                       models=[model], 
+                       inference_config=inference_config,
+                       deployment_config=aciconfig)
 
 service.wait_for_deployment(show_output=True)
 ```
@@ -319,7 +320,7 @@ result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
-plt.figure(figsize = (20, 1))
+plt.figure(figsize=(20, 1))
 
 for s in sample_indices:
     plt.subplot(1, n, i + 1)
@@ -330,7 +331,7 @@ for s in sample_indices:
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
-    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
+    plt.text(x=10, y=-10, s=result[i], fontsize=18, color=font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
     
     i = i + 1
@@ -350,7 +351,7 @@ import requests
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 # for AKS deployment you'd need to the service key in the header as well
 # api_key = service.get_key()
@@ -377,7 +378,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Informazioni su tutte le [opzioni di distribuzione per il servizio Azure Machine Learning](how-to-deploy-and-where.md).
++ Informazioni su tutte le [opzioni di distribuzione di Azure Machine Learning](how-to-deploy-and-where.md).
 + Informazioni su come [creare i client per il servizio Web](how-to-consume-web-service.md).
 +  [Eseguire stime su grandi quantità di dati](how-to-run-batch-predictions.md) in modo asincrono.
 + Monitorare i modelli di Azure Machine Learning con [Application Insights](how-to-enable-app-insights.md).

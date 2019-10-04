@@ -1,22 +1,22 @@
 ---
-title: Gestione degli errori di connettività temporanei per Database di Azure per PostgreSQL
-description: Informazioni su come gestire gli errori di connettività temporanei per Database di Azure per PostgreSQL.
+title: La gestione degli errori di connettività temporaneo per il Database di Azure per PostgreSQL - Server singolo
+description: Informazioni su come gestire gli errori di connettività temporaneo per il Database di Azure per PostgreSQL - singolo Server.
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 264656da38608026e3f9e866e2184ff55ba102d8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 5/6/2019
+ms.openlocfilehash: ea90de612dcfb2559b29fbffce8306278beb45b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073504"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Gestione degli errori di connettività temporanei per Database di Azure per PostgreSQL
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Gestione degli errori di connettività temporaneo per il Database di Azure per PostgreSQL - Server singolo
 
-Questo articolo descrive come gestire gli errori temporanei con la connessione al Database di Azure per PostgreSQL.
+Questo articolo descrive come gestire gli errori temporanei, la connessione al Database di Azure per PostgreSQL.
 
 ## <a name="transient-errors"></a>Errori temporanei
 

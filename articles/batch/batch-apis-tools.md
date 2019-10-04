@@ -3,18 +3,18 @@ title: API e strumenti per sviluppatori - Azure Batch | Microsoft Docs
 description: Informazioni sulle API e gli strumenti disponibili per lo sviluppo di soluzioni con il servizio Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772586"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323783"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -31,7 +31,7 @@ L'elaborazione dei carichi di lavoro paralleli con Azure Batch viene in genere e
 Quando si sviluppano soluzioni Batch, è necessario usare gli account seguenti nella sottoscrizione di Azure:
 
 * **Account Batch**: le risorse di Azure Batch, inclusi pool, nodi di calcolo, processi e attività, sono associate a un account Azure [Batch](batch-api-basics.md#account). Quando l'applicazione effettua una richiesta sul servizio Batch, autentica la richiesta usando il nome dell'account Azure Batch, l'URL dell'account e una chiave di accesso o un token di Azure Active Directory. È possibile [creare un account Batch](batch-account-create-portal.md) nel portale di Azure oppure a livello di codice.
-* **Account di archiviazione**: Batch include il supporto predefinito per l'uso di file in [Archiviazione di Azure][azure_storage]. Quasi tutti gli scenari di Batch usano l'archivio BLOB di Azure per lo staging dei programmi eseguiti e dei dati elaborati dalle attività e per l'archiviazione dei dati di output generati. Per le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account).
+* **Account di archiviazione** : batch include il supporto predefinito per l'uso dei file in [archiviazione di Azure][azure_storage]. Quasi tutti gli scenari di Batch usano l'archivio BLOB di Azure per lo staging dei programmi eseguiti e dei dati elaborati dalle attività e per l'archiviazione dei dati di output generati. Per le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API di servizio Batch
 
@@ -60,7 +60,7 @@ Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di cod
 
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
 
-* [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
+* [Cmdlet di PowerShell per batch][batch_ps]: i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
 * [Interfaccia della riga di comando di Azure](/cli/azure): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, inclusi il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Altri strumenti per lo sviluppo di applicazioni
@@ -81,7 +81,7 @@ Di seguito sono riportati alcuni strumenti aggiuntivi che possono risultare util
 
 * Vedere [Panoramica sulle funzionalità di Batch per sviluppatori](batch-api-basics.md)per informazioni essenziali per chiunque si prepari all'uso di Batch. L'articolo contiene informazioni più dettagliate sulle risorse del servizio Batch, ad esempio pool, nodi, processi e attività, e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch.
 * [Introduzione alla libreria di Azure Batch per .NET](tutorial-parallel-dotnet.md) . Sono disponibili anche una [versione Python](tutorial-parallel-python.md) e un'[esercitazione su Node.js](batch-nodejs-get-started.md).
-* Scaricare gli [esempi di codice in GitHub][github_samples] per vedere come C# e Python possono interfacciarsi con Batch per pianificare ed elaborare carichi di lavoro di esempio.
+* Scaricare gli [esempi di codice su GitHub][github_samples] per vedere come C# sia e Python possono interfacciarsi con batch per pianificare ed elaborare carichi di lavoro di esempio.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

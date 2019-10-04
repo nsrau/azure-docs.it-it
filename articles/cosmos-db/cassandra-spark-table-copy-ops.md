@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034163"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60895182"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operazioni di copia di tabelle nell'API Cassandra di Azure Cosmos DB da Spark
 

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323816"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593330"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
@@ -97,7 +97,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 
 Usando gli strumenti per sviluppatori del browser, controllare le intestazioni di risposta per verificare se il file è memorizzato nella cache nell'area in cui viene richiesto.
 
-* Controllare l'intestazione della risposta **Server** .  L'intestazione deve avere il formato **Piattaforma (POP/ID server)**, come illustrato nell'esempio seguente.
+* Controllare l'intestazione della risposta **Server** .  L'intestazione deve avere il formato **Piattaforma (POP/ID server)** , come illustrato nell'esempio seguente.
 * Controllare che l'intestazione della risposta **X-Cache** .  corrisponda a **HIT**.  
 
 ![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)

@@ -3,23 +3,23 @@ title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per Ja
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video con l'SDK di Ricerca video Bing per Java.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/26/2019
+ms.author: aahi
+ms.openlocfilehash: 3051f663f277c216fe18513b816bb86478a2efbd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105710"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446997"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Guida introduttiva: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Java
 
-Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca video Bing per Java. Mentre Ricerca video Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio si trova in [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), che contiene altre annotazioni e funzionalità di Ricerca video Bing.
+Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca video Bing per Java. Mentre Ricerca video Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), con annotazioni aggiuntive e altre funzionalità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -161,7 +161,7 @@ Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor 
 > [!div class="nextstepaction"]
 > [Creare un'app Web a pagina singola](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 * [Informazioni sull'API Ricerca video Bing](../overview.md)
 * [Esempi di .NET SDK per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

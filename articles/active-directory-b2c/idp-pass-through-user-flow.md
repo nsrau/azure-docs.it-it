@@ -1,46 +1,43 @@
 ---
-title: Passare un token di accesso tramite un flusso utente all'applicazione - Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come passare attraverso un token di accesso per i provider di identità OAuth 2.0 come attestazione in un flusso utente in Azure Active Directory B2C.
+title: Passare un token di accesso tramite un flusso utente all'applicazione-Azure Active Directory B2C
+description: Informazioni su come passare un token di accesso per i provider di identità OAuth 2,0 come attestazione in un flusso utente in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: davidmu
+ms.date: 08/17/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7863bea9f3fe6ef146dc1e1f2b29bbfda09a9d6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397244"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064289"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
-> [!NOTE]
-> Questa funzionalità è attualmente in anteprima pubblica.
-
-Un [flusso utente](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
+Un [flusso utente](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure ad B2C) consente agli utenti dell'applicazione di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
 
 Azure AD B2C attualmente supporta solo il passaggio di token di accesso del provider di identità [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), tra cui [Facebook](active-directory-b2c-setup-fb-app.md) e [Google](active-directory-b2c-setup-goog-app.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- L'applicazione deve usare un [flusso utente v2](user-flow-versions.md).
-- Il flusso utenti è configurato con un provider di identità OAuth 2.0.
+* L'applicazione deve usare un [flusso utente v2](user-flow-versions.md).
+* Il flusso utenti è configurato con un provider di identità OAuth 2.0.
 
 ## <a name="enable-the-claim"></a>Abilitare l'attestazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
-4. Selezionare **flussi utente, criteri,** e quindi selezionare il flusso utente. Ad esempio, **B2C_1_signupsignin1**.
+4. Selezionare **flussi utente (criteri)** , quindi selezionare il flusso utente. Ad esempio, **B2C_1_signupsignin1**.
 5. Selezionare **Attestazioni dell'applicazione**.
-6. Abilitare la **Token di accesso Provider di identità** di attestazione.
+6. Abilitare l'attestazione del **token di accesso del provider di identità** .
 
-    ![Abilitare l'attestazione Token di accesso Provider di identità](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
+    ![Abilitare l'attestazione del token di accesso del provider di identità](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
 
 7. Fare clic su **Salva** per salvare il flusso utente.
 
@@ -54,12 +51,8 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 
     Verrà visualizzato un testo simile al seguente esempio:
 
-    ![Token decodificato](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![Token decodificato in jwt.ms con blocco idp_access_token evidenziato](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni, vedere la [Panoramica di Azure AD B2C token](active-directory-b2c-reference-tokens.md).
-
-
-
-
+Per altre informazioni, vedere la [Panoramica dei token Azure ad B2C](active-directory-b2c-reference-tokens.md).

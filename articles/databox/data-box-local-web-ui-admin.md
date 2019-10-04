@@ -1,25 +1,25 @@
 ---
-title: Amministrazione dell'interfaccia utente Web locale di Microsoft Azure Data Box | Microsoft Docs
-description: Informazioni su come usare l'interfaccia utente Web locale per amministrare il dispositivo Data Box
+title: Web locale amministrazione dell'interfaccia utente per Azure Data Box, pesante finestra dati di Azure | Microsoft Docs
+description: Viene descritto come usare l'interfaccia utente web locale per amministrare i dispositivi di Data Box e complessa di finestra di dati
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66496253"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Usare l'interfaccia utente Web locale per amministrare Data Box
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente web locale per amministrare il Data Box e pesante finestra di dati
 
-Questo articolo illustra alcune delle attività di gestione e configurazione che è possibile eseguire in Data Box. È possibile gestire Data Box tramite l'interfaccia utente del portale di Azure e l'interfaccia utente Web locale del dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web locale.
+Questo articolo descrive alcune delle attività di configurazione e gestione che possono essere eseguite sui dispositivi Data Box e complessa di finestra di dati. È possibile gestire i dispositivi pesante finestra di dati e di Data Box tramite il portale di Azure dell'interfaccia utente e l'interfaccia utente web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web locale.
 
-L'interfaccia utente Web locale per Data Box viene usata nella configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare Data Box, eseguire i test diagnostici, aggiornare il software, visualizzare i log di copia e generare un pacchetto di log per il supporto tecnico Microsoft.
+Web locale dell'interfaccia utente per il Data Box e pesante finestra di dati viene usato per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente web locale per arrestare o riavviare il dispositivo, eseguire i test diagnostici, aggiornare il software, visualizzare i log di copia e generare un pacchetto di log per il supporto tecnico Microsoft. In un dispositivo Data finestra pesante con due nodi indipendenti, è possibile accedere a due interfacce utente web locale separato corrispondente a ciascun nodo del dispositivo.
 
 L'articolo include le esercitazioni seguenti:
 
@@ -27,11 +27,11 @@ L'articolo include le esercitazioni seguenti:
 - Arrestare o riavviare il dispositivo
 - Scaricare la distinta base o i file manifesto
 - Visualizzare la capacità disponibile del dispositivo
-- Ignorare la convalida di checksum 
+- Ignorare la convalida di checksum
 
 ## <a name="generate-support-package"></a>Creare un pacchetto per il supporto
 
-Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per creare un pacchetto di supporto, attenersi alla procedura seguente:
+Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto di supporto, procedere come segue:
 
 1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e fare clic su **Crea pacchetto per il supporto**.
 
@@ -52,9 +52,9 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrestare o riavviare il dispositivo
 
-È possibile arrestare o riavviare Data Box tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
+È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
 
-Per arrestare Data Box seguire questa procedura.
+Per arrestare il dispositivo, procedere come segue.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
 2. Fare clic su **Spegni**.
@@ -80,11 +80,11 @@ Per riavviare Data Box seguire questa procedura.
 
 ## <a name="download-bom-or-manifest-files"></a>Scaricare la distinta base o i file manifesto
 
-La distinta base o i file manifesto contengono l'elenco dei file che vengono copiati nel Data Box. Questi file vengono generati quando si prepara il Data Box per la spedizione.
+La fattura di materiale (BOM) o i file manifesto contengono l'elenco dei file che vengono copiati dati casella ingenti o Data Box. Questi file vengono generati quando si prepara il dispositivo per la spedizione.
 
-Prima di iniziare assicurarsi che il Data Box abbia completato il passaggio **Prepara per la spedizione**. Seguire questa procedura per scaricare la distinta base o i file manifesto:
+Prima di iniziare, assicurarsi che il dispositivo è stata completata **Prepara per la spedizione** passaggio. Seguire questa procedura per scaricare la distinta base o i file manifesto:
 
-1. Passare all'interfaccia utente Web locale del Data Box. Sarà così possibile verificare se il Data Box ha completato il passaggio di preparazione per la spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
+1. Passare all'interfaccia utente Web locale per il dispositivo. Si noterà che il dispositivo è stata completata la preparazione per la spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
 
     ![Dispositivo pronto per la spedizione](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Prima di iniziare assicurarsi che il Data Box abbia completato il passaggio **Pr
     |mydbmdrg2_MDisk-BOM.txt     |Managed Disks         |SMB/NFS         |
 
 Usare questo elenco per verificare i file caricati nell'account di archiviazione di Azure dopo la restituzione del Data Box al data center di Azure. Di seguito è riportato un esempio di file manifesto.
+
+> [!NOTE]
+> In una finestra di dati intensivi, due set di elenco di file (BOM) sono presenti corrispondente a due nodi nel dispositivo.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,25 +153,24 @@ Usare questo elenco per verificare i file caricati nell'account di archiviazione
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Questo file contiene l'elenco di tutti i file che sono stati copiati nel Data Box. In questo file il valore *crc64* è correlato al checksum generato per il file corrispondente.
+Questo file contiene l'elenco di tutti i file che sono stati copiati nel Data Box o pesante finestra di dati. In questo file il valore *crc64* è correlato al checksum generato per il file corrispondente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Visualizzare la capacità disponibile del dispositivo
 
-È possibile usare il dashboard del dispositivo per visualizzare la capacità disponibile e usata nel dispositivo. 
+È possibile usare il dashboard del dispositivo per visualizzare la capacità disponibile e usata nel dispositivo.
 
 1. Nell'interfaccia utente Web locale passare a **Visualizza dashboard**.
 2. Sotto **Connetti e copia** viene visualizzato lo spazio libero e occupato sul dispositivo.
 
     ![Visualizzare la capacità disponibile](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Ignorare la convalida di checksum
 
-I checksum vengono generati per i dati per impostazione predefinita quando si prepara la spedizione. In alcuni casi rari, a seconda del tipo di dati (file di piccole dimensioni), le prestazioni potrebbero essere lente. In questi casi, è possibile ignorare i checksum. 
+I checksum vengono generati per i dati per impostazione predefinita quando si prepara la spedizione. In alcuni casi rari, a seconda del tipo di dati (file di piccole dimensioni), le prestazioni potrebbero essere lente. In questi casi, è possibile ignorare i checksum.
 
 È consigliabile non disabilitare i checksum, a meno che le prestazioni non subiscano un notevole peggioramento.
 
-1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo passare a Impostazioni.
+1. Nell'angolo in alto a destra del web locale dell'interfaccia utente del dispositivo, passare a **impostazioni**.
 
     ![Disabilitare i checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -177,5 +179,5 @@ I checksum vengono generati per i dati per impostazione predefinita quando si pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire Data Box tramite il portale di Azure](data-box-portal-admin.md).
+- Informazioni su come [gestire il Data Box e pesante finestra di dati tramite il portale di Azure](data-box-portal-admin.md).
 

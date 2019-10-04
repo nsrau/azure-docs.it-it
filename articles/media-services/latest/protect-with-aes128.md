@@ -11,16 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2216deb7a59dda2a7c3b99c55956ef8541925425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326378"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273292"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Esercitazione: Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
+
+> [!NOTE]
+> Anche se l'esercitazione Usa la [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) esempi, i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), o altro supportato [SDK](media-services-apis-overview.md#sdks) .
 
 È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Se si desidera per servizi multimediali crittografare dinamicamente il video, è associare la chiave DEK del localizzatore di Streaming e anche configurare i criteri di chiave simmetrica. Quando un flusso viene richiesto da un lettore, servizi multimediali Usa la chiave specificata per crittografare dinamicamente i contenuti con AES-128. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 
@@ -158,6 +161,11 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045834"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330549"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -52,9 +52,9 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    ![Schermata Crea app per la logica](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Selezionare **Create**.
+   Selezionare **Create** (Crea).
 
-2. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica nell'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione delle app per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +**, quindi selezionarlo. La scheda predefinita è "Per l'utente". Se questo riquadro è vuoto, selezionare **Tutti** per visualizzare tutti i connettori e i trigger disponibili.
+2. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica nell'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione delle app per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** , quindi selezionarlo. La scheda predefinita è "Per l'utente". Se questo riquadro è vuoto, selezionare **Tutti** per visualizzare tutti i connettori e i trigger disponibili.
 
 3. Selezionare **Bus di servizio** nell'elenco di connettori.
 
@@ -126,7 +126,7 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    **Endpoint**: selezionare **Messaggistica**. (Se si seleziona Monitoraggio delle operazioni, si ottengono i dati di telemetria relativi all'hub IoT anziché i dati che si stanno inviando.) 
 
-   **Nome criteri di accesso condiviso**: selezionare **iothubowner**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
+   **Nome criteri di accesso condiviso**: Selezionare **Servizio**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
 
    **Gruppo di consumer**: selezionare il gruppo di consumer configurato nel passaggio 1 di questa esercitazione. Questa esercitazione usa **contosoconsumers**.
    

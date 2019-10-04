@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61449020"
 ---
 # <a name="create-an-advanced-device-model"></a>Creare un modello di dispositivo avanzato
 
@@ -169,7 +169,7 @@ I campi elencati nello schema possono essere dei tipi seguenti:
 
 ### <a name="supported-methods"></a>Metodi supportati
 
-I dispositivi simulati possono anche rispondere alle chiamate ai metodi, nel qual caso eseguono una logica e forniscono una risposta. Analogamente alla simulazione, la logica del metodo viene archiviata in un file JavaScript ed può interagire con lo stato del dispositivo. Ad esempio: 
+I dispositivi simulati possono anche rispondere alle chiamate ai metodi, nel qual caso eseguono una logica e forniscono una risposta. Analogamente alla simulazione, la logica del metodo viene archiviata in un file JavaScript ed può interagire con lo stato del dispositivo. Ad esempio:
 
 ```json
 "CloudToDeviceMethods": {
@@ -259,7 +259,7 @@ I file JavaScript devono avere una funzione **main**, che accetta due parametri:
     * **deviceModel**, ad esempio **Elevator**.
 * Un oggetto **state** corrispondente al valore restituito dalla funzione nella chiamata precedente. Questo stato del dispositivo viene gestito dal servizio di simulazione e usato per generare messaggi di telemetria.
 
-La funzione **main** restituisce il nuovo stato del dispositivo. Ad esempio: 
+La funzione **main** restituisce il nuovo stato del dispositivo. Ad esempio:
 
 ```JavaScript
 function main(context, state) {

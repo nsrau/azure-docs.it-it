@@ -2,21 +2,35 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e18d0a6a01a86f844edc213fc95003cf4f4b46c9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164972"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534646"
 ---
-* Connettersi alla macchina virtuale del server di elaborazione tramite Connessione Desktop remoto.
-* È possibile avviare cspsconfigtool.exe facendo clic sul collegamento disponibile sul desktop. Se è la prima volta che si accede al server di elaborazione, lo strumento viene avviato automaticamente.
-  - Nome completo (FQDN) o indirizzo IP del server di configurazione.
-  - Porta su cui il server di configurazione è in ascolto. Il valore dovrebbe essere 443.
-  - Passphrase di connessione al server di configurazione.
-  - Porta di trasferimento dati da configurare per questo server di elaborazione. Lasciare invariato il valore predefinito, a meno che non sia stato specificato un numero di porta diverso nell'ambiente corrente.
+1. Stabilire una connessione Desktop remoto nel computer che esegue il server di elaborazione. 
+2. Eseguire cspsconfigtool.exe per avviare lo strumento di configurazione del Server di elaborazione di Azure Site Recovery.
+    - Lo strumento viene avviato automaticamente la prima volta che si accede al server di elaborazione.
+    - Se non viene aperto automaticamente, fare clic sul relativo collegamento sul desktop.
 
+3. Nelle **server di configurazione IP o FQDN**, specificare il nome o indirizzo IP del server di configurazione con cui registrare il server di elaborazione.
+4. Nelle **porta Server di configurazione**, verificare che sia specificato 443. Questa è la porta su cui è in ascolto il server di configurazione per le richieste.
+5. Nelle **Passphrase di connessione**, specificare la passphrase specificata quando si configura il server di configurazione. Per trovare la passphrase:
+    -  Nel server di configurazione, passare alla cartella di installazione di Site Recovery * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Eseguire il comando seguente per stampare la passphrase corrente:
+    ```
+    genpassphrase.exe -n
+    ```
+
+6. Nelle **porta per il trasferimento dati**, lasciare il valore predefinito a meno che non è stata specificata una porta personalizzata.
+
+7. Fare clic su **salvare** salvare le impostazioni e registrare il server di elaborazione.
+
+    
     ![Registrare il server di elaborazione](./media/site-recovery-vmware-register-process-server/register-ps.png)
-* Fare clic su Salva per salvare la configurazione e registrare il server di elaborazione.

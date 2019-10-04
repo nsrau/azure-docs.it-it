@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121244"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867722"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -43,7 +43,7 @@ Una notifica non significa che l'app ha sicuramente un problema. Invita semplice
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione
 
-Le notifiche includono informazioni di diagnostica. Ad esempio:
+Le notifiche includono informazioni di diagnostica. Di seguito è riportato un esempio:
 
 
 ![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -58,7 +58,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro i quali hanno l'accesso di [proprietari, collaboratori e lettori alla risorsa Application Insights](../../azure-monitor/app/resources-roles-access-control.md). Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
+Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro [che dispongono dell'](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) accesso per il monitoraggio e il [monitoraggio dei collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
   ![Impostazioni di rilevamento intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,7 +69,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 ## <a name="faq"></a>Domande frequenti
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
-  *  No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
+  * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
   * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi delle metriche aggiuntive si trova nel backlog futuro.
 
@@ -85,7 +85,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
 * *Ciò sostituisce [gli avvisi delle metriche](../../azure-monitor/app/alerts.md)?*
-  *  No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
+  * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
 * *Se non eseguo alcuna operazione in risposta a una notifica, viene inviato un promemoria?*

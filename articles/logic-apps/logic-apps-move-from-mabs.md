@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124800"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273190"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione da Servizi BizTalk ad App per la logica di Azure
 
@@ -52,7 +52,7 @@ Servizi BizTalk include diversi tipi di elementi.
 
 ## <a name="connectors"></a>Connettori
 
-I connettori di Servizi BizTalk permettono ai bridge di inviare e ricevere dati, inclusi i bridge bidirezionali che consentono interazioni di richiesta/risposta basate su HTTP. App per la logica usa la stessa terminologia e include oltre 180 connettori che assolvono allo stesso scopo connettendosi a un'ampia gamma di tecnologie e servizi. Ad esempio, sono disponibili connettori per servizi SaaS e PaaS cloud, come OneDrive, Office 365, Dynamics CRM e altri ancora, nonché sistemi locali tramite il gateway dati locale, che sostituisce il servizio Adapter BizTalk per Servizi BizTalk. Le origini di Servizi BizTalk sono limitate a sottoscrizioni FTP, SFTP e coda o argomento del bus di servizio.
+I connettori di Servizi BizTalk permettono ai bridge di inviare e ricevere dati, inclusi i bridge bidirezionali che consentono interazioni di richiesta/risposta basate su HTTP. App per la logica usa la stessa terminologia e offre centinaia di connettori che svolgono la stessa funzione connettendosi a un'ampia gamma di tecnologie e servizi. Ad esempio, sono disponibili connettori per servizi SaaS e PaaS cloud, come OneDrive, Office 365, Dynamics CRM e altri ancora, nonché sistemi locali tramite il gateway dati locale, che sostituisce il servizio Adapter BizTalk per Servizi BizTalk. Le origini di Servizi BizTalk sono limitate a sottoscrizioni FTP, SFTP e coda o argomento del bus di servizio.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -106,7 +106,7 @@ Nell'elaborazione di Servizi BizTalk la fase di miglioramento aggiunge propriet�
 
 Servizi BizTalk permette di [eseguire codice personalizzato](https://msdn.microsoft.com/library/azure/dn232389.aspx) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
 
-App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e App per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
+App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e app per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
 
 In presenza di codice personalizzato negli assembly che viene chiamato da Servizi BizTalk, è possibile spostarlo in Funzioni di Azure oppure creare API personalizzate con App per le API, a seconda dell'implementazione. Ad esempio, se è presente codice che esegue il wrapping di un altro servizio per cui App per la logica non include un connettore, creare un'app per le API e usare le azioni indicate dall'app per le API all'interno dell'app per la logica. Se si dispone di funzioni o raccolte di supporto, Funzioni di Azure è probabilmente la soluzione ottimale.
 

@@ -1,19 +1,19 @@
 ---
-title: Esercitazione sul Monitoraggio e ottimizzazione nel Database di Azure per PostgreSQL
-description: Questa esercitazione illustra il monitoraggio e l'ottimizzazione nel Database di Azure per PostgreSQL.
+title: Esercitazione su monitoraggio e ottimizzazione in Database di Azure per PostgreSQL - Server singolo
+description: Questa esercitazione illustra il monitoraggio e l'ottimizzazione in Database di Azure per PostgreSQL, con server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536442"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073075"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Esercitazione: Monitorare e ottimizzare Database di Azure per PostgreSQL
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Esercitazione: Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 
 Il Database di Azure per PostgreSQL offre funzionalità che consentono di riconoscere e migliorare le prestazioni del server. In questa esercitazione si apprenderà come:
 > [!div class="checklist"]

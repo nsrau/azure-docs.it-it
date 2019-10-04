@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a0704f9e9a77eba2eb0d4f00bc1d880011e767de
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490447"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859221"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
 
@@ -43,17 +43,15 @@ Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice s
 
 ## <a name="write-the-php-script"></a>Scrivere lo script PHP
 
-Aggiungere il codice seguente all'interno dell'elemento `body` del documento. Viene così configurata un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
+Aggiungere il codice seguente all'interno dell'elemento `body` del documento. Questo codice configura un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
 ```php
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
 
-// You must use the same location in your REST call as you used to obtain
-// your subscription keys. For example, if you obtained your subscription keys
-// from westus, replace "westcentralus" in the URL below with "westus".
-$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/';
+// Replace <My Endpoint String> with the string in your endpoint URL.
+$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
 
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
@@ -101,7 +99,9 @@ catch (HttpException $ex)
 ?>
 ```
 
-Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga l'identificatore di area corretta (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
+Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta. Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Esecuzione dello script
 

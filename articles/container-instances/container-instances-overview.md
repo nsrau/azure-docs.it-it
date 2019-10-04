@@ -3,18 +3,18 @@ title: Informazioni su Istanze di Azure Container
 description: Il servizio Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire contenitori isolati in Azure, senza dover gestire macchine virtuali né adottare un agente di orchestrazione di livello superiore.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325753"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -56,7 +56,10 @@ Alcune funzionalità attualmente sono limitate ai contenitori Linux:
 * [Distribuzione in una rete virtuale](container-instances-vnet.md) (anteprima)
 * [Risorse GPU](container-instances-gpu.md) (anteprima)
 
-Attualmente, Istanze di Azure Container supporta le immagini di Windows Server 2016 che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
+Per le distribuzioni di contenitori di Windows, usare le immagini basate sulle comuni [immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 
@@ -67,7 +70,7 @@ Istanze di Azure Container supporta la pianificazione di [gruppi multi-contenito
 Questa funzionalità di Istanze di Azure Container, attualmente in anteprima, consente [la distribuzione di istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md). Quando sono distribuite in una subnet all'interno della rete virtuale, le istanze di contenitore possono comunicare in modo sicuro con altre risorse nella rete virtuale, incluse le risorse in locale (tramite [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Alcune funzionalità di Istanze di Azure Container sono in anteprima e [si applicano alcune limitazioni](container-instances-vnet.md#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di queste funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Alcune funzionalità di Istanze di Azure Container sono in anteprima e [si applicano alcune limitazioni](container-instances-vnet.md#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di queste funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

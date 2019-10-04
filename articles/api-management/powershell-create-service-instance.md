@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 475f558ee645be109a85a4344f82031fe4b0b01b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7cd4810059199ddfc88261e27bc910331abe096d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738437"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730624"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure
 
@@ -33,7 +33,7 @@ In questa guida introduttiva vengono descritti i passaggi per la creazione di un
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
@@ -56,7 +56,7 @@ New-AzApiManagement -ResourceGroupName "myResourceGroup" -Location "West US" -Na
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate usando il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup

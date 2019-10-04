@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60381179"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Aggiornare il servizio di sincronizzazione di Microsoft Azure Active Directory e Azure Active Directory Sync
 Azure AD Connect è il modo migliore per collegare la directory locale con Azure AD e Office 365. Questo è il momento giusto per eseguire l'aggiornamento ad Azure AD Connect dallo strumento di sincronizzazione di Windows Azure Active Directory (DirSync) o Azure AD Sync in quanto questi strumenti sono stati deprecati e non sono più supportati a partire dal 13 aprile 2017.
@@ -35,7 +35,7 @@ L'ultima versione di DirSync è stata rilasciata a luglio 2014, mentre l'ultima 
 Azure AD Connect è il successore di DirSync e Azure AD Sync. La soluzione combina tutti gli scenari dei due strumenti supportati. Per altre informazioni sull'argomento, vedere [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="deprecation-schedule"></a>Pianificazione della deprecazione
-| Data | Comment |
+| Date | Commento |
 | --- | --- |
 | 13 aprile 2016 |Annuncio della deprecazione dei servizi di sincronizzazione di Azure Active Directory ("DirSync") e Microsoft Azure Active Directory Sync ("Azure AD Sync"). |
 | 13 aprile 2017 |Termine del supporto. I clienti non potranno più aprire un caso di supporto senza prima eseguire l'aggiornamento ad Azure AD Connect. |
@@ -63,7 +63,7 @@ La notifica è stata inviata anche agli utenti di Azure AD Connect con numero di
 DirSync e Azure AD Sync continueranno a funzionare a partire dal 13 aprile 2017.  Dopo il 31 dicembre 2017, tuttavia, Azure AD potrebbe non accettare più comunicazioni provenienti da DirSync/Azure AD Sync.
 
 **D: Da quali versioni di DirSync è possibile eseguire l'aggiornamento?**  
- È supportato l'aggiornamento da qualsiasi versione di DirSync attualmente in uso. 
+È supportato l'aggiornamento da qualsiasi versione di DirSync attualmente in uso. 
 
 **D: E per quanto riguarda il connettore Azure AD per FIM/MIM?**  
 Azure AD Connector per FIM/MIM **non** è stato dichiarato deprecato. Si tratta di un **blocco delle funzionalità**: non vengono aggiunte nuove funzionalità e non si ricevono correzioni dei bug. Microsoft consiglia ai clienti che ne fanno uso di pianificare la transizione ad Azure AD Connect. È consigliabile non avviare nuove distribuzioni tramite questo strumento. Nel futuro il connettore verrà deprecato.

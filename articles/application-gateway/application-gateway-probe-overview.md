@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66135208"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -44,7 +44,7 @@ I criteri di corrispondenza sono i seguenti:
 
 I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
-Ad esempio: 
+Ad esempio:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -54,7 +54,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Valore | DESCRIZIONE |
+| Proprietà probe | Value | Descrizione |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<port\>/ |Percorso URL |
 | Interval |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
@@ -80,12 +80,12 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | DESCRIZIONE |
+| Proprietà probe | Descrizione |
 | --- | --- |
-| NOME |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
-| Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
+| Name |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Protocol |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM. |
-| path |Percorso relativo del probe. Il percorso valido inizia da "/". |
+| `Path` |Percorso relativo del probe. Il percorso valido inizia da "/". |
 | Interval |Intervallo di probe in secondi. Questo valore è l'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito.  |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |

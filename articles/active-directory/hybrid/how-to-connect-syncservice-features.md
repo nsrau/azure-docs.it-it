@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347542"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
@@ -41,7 +41,7 @@ Molte di queste impostazioni possono essere modificate solo da Azure AD Connect.
 
 Di seguito sono riportate le impostazioni che possono essere configurate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comment |
+| DirSyncFeature | Commento |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Consente l'aggiunta di oggetti a userPrincipalName oltre all'indirizzo SMTP primario. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName per gli utenti gestiti/con licenza (non federati). |
@@ -55,7 +55,7 @@ Una volta abilitata una funzionalità, non potrà essere disabilitata di nuovo.
 
 Le impostazioni seguenti vengono configurate da Azure AD Connect e non possono essere modificate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comment |
+| DirSyncFeature | Commento |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: Estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
@@ -112,7 +112,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistenti rimarranno invariati. Alla successiva modifica dell'attributo userPrincipalName locale, la normale sincronizzazione differenziale degli utenti aggiornerà l'UPN.  
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

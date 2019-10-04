@@ -1,19 +1,19 @@
 ---
-title: Informazioni sul controllo degli accessi in base al ruolo di Gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sull'autenticazione in Gemelli digitali con il controllo degli accessi in base al ruolo.
+title: Informazioni sul controllo degli accessi in base al ruolo-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni sul controllo degli accessi in base al ruolo e sulla gestione delle autorizzazioni nei dispositivi gemelli digitali di Azure.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: lyrana
-ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 09/30/2019
+ms.author: lyhughes
+ms.openlocfilehash: a5953aab179a62d4a8e37b7f5c7659318628918e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534137"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827024"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controllo degli accessi in base al ruolo in Gemelli digitali di Azure
 
@@ -49,20 +49,20 @@ Uno sviluppatore può usare il controllo degli accessi in base al ruolo per:
 
 ### <a name="role-definitions"></a>Definizioni dei ruoli
 
-Una definizione di ruolo è una raccolta di autorizzazioni e altri attributi che costituiscono un ruolo. Una definizione del ruolo elenca le operazioni consentite che possono essere effettuate da qualsiasi oggetto con quel ruolo, tra cui *CREATE*, *READ*, *UPDATE* e *DELETE*. Specifica anche a quali tipi di oggetto si applicano le autorizzazioni.
+Una definizione di ruolo è una raccolta di autorizzazioni e altri attributi che costituiscono un ruolo. Una definizione del ruolo elenca le operazioni consentite che possono essere effettuate da qualsiasi oggetto con quel ruolo, tra cui *CREATE*, *READ*, *UPDATE* e *DELETE*. Specifica anche i tipi di oggetto a cui si applicano le autorizzazioni.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > Per recuperare le definizioni complete dei ruoli precedenti, eseguire una query sull'API di sistema/dei ruoli.
-> Per altre informazioni, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md#all).
+> Per altre informazioni, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### <a name="object-identifier-types"></a>Tipi di identificatori di oggetto
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Per informazioni su come concedere le autorizzazioni all'entità servizio, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md#grant).
+> Per informazioni su come concedere le autorizzazioni all'entità servizio, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 Gli articoli della documentazione di riferimento seguenti descrivono:
 
@@ -70,7 +70,7 @@ Gli articoli della documentazione di riferimento seguenti descrivono:
 - Come [ottenere l'ID oggetto per un'entità servizio](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - Come [recuperare l'ID oggetto per un tenant di Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
-## <a name="role-assignments"></a>Assegnazioni di ruoli
+## <a name="role-assignments"></a>Assegnazioni di ruolo
 
 Un'assegnazione di ruolo di Gemelli digitali di Azure associa un oggetto, ad esempio un utente o un tenant di Azure AD, a un ruolo e a uno spazio. Vengono quindi concesse le autorizzazioni a tutti gli oggetti che appartengono a tale spazio, incluso l'intero grafico spaziale sottostante.
 

@@ -1,28 +1,20 @@
 ---
-title: Controllo della concorrenza | Microsoft Docs
+title: Controllo della concorrenza | Azure Marketplace
 description: Strategie di controllo della concorrenza per le API di pubblicazione nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935583"
 ---
-<a name="concurrency-control"></a>Controllo della concorrenza
-===================
+# <a name="concurrency-control"></a>Controllo della concorrenza
 
 Ogni chiamata alle API di pubblicazione nel portale Cloud Partner deve specificare in modo esplicito la strategia di controllo della concorrenza da usare. Se non viene specificata l'intestazione **If-Match** viene generata una risposta di errore HTTP 400. Sono disponibili due strategie per il controllo della concorrenza.
 

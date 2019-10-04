@@ -2,24 +2,18 @@
 title: Moduli di Azure IoT Edge
 description: L'offerta Moduli di Azure IoT Edge in Azure Marketplace per gli editori di app e servizi.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
-ms.openlocfilehash: f13d3f780e24d71babb1bda48a9b85d1208e3c4c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074598"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874682"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -51,7 +45,7 @@ I moduli Azure IoT Edge vengono pubblicati solo in Azure Marketplace, AppSource 
  
 **Opzioni di fatturazione**
 
-Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)**.
+Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)** .
  
 **Opzioni di pubblicazione**
 
@@ -90,7 +84,7 @@ Se non è già stato fatto,
 
 - Eseguire la registrazione a [Microsoft Partner Network](https://partner.microsoft.com/membership).
 - Creare un [account Microsoft](https://account.microsoft.com/account/)(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre).
-- Inviare il [modulo di registrazione a Marketplace](https://azuremarketplace.microsoft.com/sell/signup).
+- Inviare il [modulo di registrazione a Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Per ulteriori informazioni, vedere come [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 

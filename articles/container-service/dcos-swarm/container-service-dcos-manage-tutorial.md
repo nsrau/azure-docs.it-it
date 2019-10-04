@@ -1,5 +1,5 @@
 ---
-title: (DEPRECATO) Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
+title: (DEPRECATO) Esercitazione sul servizio Azure Container - Gestire DC/OS
 description: Esercitazione sul servizio Azure Container - Gestire DC/OS
 services: container-service
 author: iainfoulds
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53000412"
 ---
-# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(DEPRECATO) Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(DEPRECATO) Esercitazione sul servizio Azure Container - Gestire DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 

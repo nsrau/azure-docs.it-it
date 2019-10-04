@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924840"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -120,7 +120,7 @@ Prima di configurare l'infrastruttura di Azure Site Recovery è necessario acced
 
 ## <a name="deploy-additional-process-servers"></a>Distribuire server di elaborazione aggiuntivi
 
-Se si amplia la distribuzione a oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Per informazioni su come configurare il server di elaborazione, consultare [Scalabilità per il failback con server di elaborazione aggiuntivi](vmware-azure-set-up-process-server-scale.md). Dopo aver configurato il server di elaborazione è possibile eseguire la migrazione dei computer di origine per usarlo.
+Se si amplia la distribuzione a oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Sono state migliorate del prodotto nella versione 9.24 fornire [elaborare avvisi server](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sui casi in cui configurare un server di elaborazione scale-out. [Configurare il server di elaborazione](vmware-azure-set-up-process-server-scale.md) per proteggere le nuove macchine di origine oppure [bilanciare il carico](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Eseguire la migrazione dei computer per usare il nuovo server di elaborazione
 

@@ -1,7 +1,6 @@
 ---
 title: Creare i cluster Apache Hadoop tramite l'API REST di Azure - Azure
 description: Informazioni su come creare cluster HDInsight inviando i modelli di Azure Resource Manager all'API REST di Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059409"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
 
@@ -23,9 +22,6 @@ ms.locfileid: "53789212"
 Informazioni su come creare un cluster HDInsight tramite un modello di Azure Resource Manager e l'API REST di Azure.
 
 L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight.
-
-> [!IMPORTANT]  
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]  
 > La procedura descritta in questo documento usa l'utilità [curl (https://curl.haxx.se/)](https://curl.haxx.se/) per comunicare con l'API REST di Azure.
@@ -216,7 +212,7 @@ Questo esempio viene usato nei passaggi di questo documento. Sostituire i *valor
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure.
 
 Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
 

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
+ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189479"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015443"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
 ## <a name="overview"></a>Panoramica
@@ -298,7 +299,7 @@ Nell'esempio precedente, il nome del file video viene invitato al componente Med
 ### <a name="step-by-step-workflow-creation"></a>Procedura dettagliata di creazione del flusso di lavoro
 Di seguito sono descritti i passaggi per creare un flusso di lavoro che ha due file come input: un video e un'immagine. L'immagine verrà sovrapposta sul video.
 
-Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)** > **Transcode Blueprint**.
+Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)**  > **Transcode Blueprint**.
 
 Il nuovo flusso di lavoro visualizzerà 3 elementi:
 
@@ -465,7 +466,7 @@ Per effettuare la codifica, seguire questa procedura:
 
 * L'asset codificato conterrà tracce audio in più lingue e tali tracce saranno selezionabili in Azure Media Player.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Come usare la codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media-encoder-premium-workflow)

@@ -4,23 +4,22 @@ description: Informazioni su come creare un gateway applicazione che ospita più
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.topic: article
+ms.date: 7/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9352735b360b687d89acc6491c9b33dcda934ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: db2582cada453d95faa91eeeec8dd20b9a82ae6c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881937"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688218"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Creare un gateway applicazione che ospita più siti Web tramite Azure PowerShell
 
-È possibile usare Azure PowerShell per [configurare l'hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando set di scalabilità di macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare Azure PowerShell per [configurare l'hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questo articolo vengono definiti pool di indirizzi back-end con set di scalabilità di macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questo articolo presuppone che l'utente sia proprietario di più domini e che usi esempi di *www.contoso.com* e *www.fabrikam.com*.
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -36,9 +35,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il modulo Azure PowerShell versione 1.0.0 o successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -103,7 +102,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Creare i pool e le impostazioni back-end
 
-Creare il primo pool di indirizzi back-end per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni del pool usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Creare il primo pool di indirizzi back-end per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni del pool usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -122,7 +121,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>Creare i listener e le regole
 
-I listener sono necessari per permettere al gateway applicazione di instradare il traffico ai pool di indirizzi back-end nel modo appropriato. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*.
+I listener sono necessari per permettere al gateway applicazione di instradare il traffico ai pool di indirizzi back-end nel modo appropriato. In questo articolo vengono creati due listener per i due domini. Vengono creati i listener per i domini *contoso.com* e *Fabrikam.com* .
 
 Creare il primo listener usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end create in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *contosoRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -276,7 +275,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>Creare un record CNAME nel dominio
 
-Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. È possibile usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l’indirizzo DNS del gateway applicazione. Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando il gateway applicazione viene riavviato.
+Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibile ottenere l'indirizzo DNS e usarlo per creare un record CNAME nel dominio. È possibile usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l’indirizzo DNS del gateway applicazione. Copiare il valore *fqdn* di DNSSettings e usarlo come valore del record CNAME creato. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -284,7 +283,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http:\//www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 
@@ -302,15 +301,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Creare i listener back-end
-> * Creare le regole di routing
-> * Creare set di scalabilità di macchine virtuali con i pool back-end
-> * Creare un record CNAME nel dominio
-
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-powershell.md)
+[Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-powershell.md)

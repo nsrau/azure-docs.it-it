@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60877106"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con API REST
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Questo articolo descrive come eseguire operazioni di gestione di account in Azur
 ## <a name="prerequisites"></a>Prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)** . In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Come si esegue l'autenticazione tramite Azure Active Directory?
 È possibile adottare due approcci per l'autenticazione tramite Azure Active Directory.
@@ -74,7 +74,7 @@ Dovrebbe venire visualizzato un output simile al frammento di codice seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni del file system in Data Lake Storage Gen1 con l'API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Riferimento all'API REST di Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Aprire le applicazioni Big Data di origine compatibili con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

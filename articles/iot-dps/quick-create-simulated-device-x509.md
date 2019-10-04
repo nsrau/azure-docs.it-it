@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ae5a1708b56db45bec38a4482b5dfd936bdedd4a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500584"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901224"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
 
@@ -35,7 +35,7 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 
@@ -110,9 +110,9 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella finestra di output immettere **i** per la registrazione singola quando richiesto. 
 
-    Nella finestra di output viene visualizzato un certificato X.509 autofirmato generato in locale per il dispositivo simulato. Copiare l'output negli Appunti, a partire da **-----BEGIN CERTIFICATE-----** fino alla prima occorrenza di **-----END CERTIFICATE-----**, assicurandosi di includere anche queste due righe. È necessario solo il primo certificato indicato nella finestra di output.
+    Nella finestra di output viene visualizzato un certificato X.509 autofirmato generato in locale per il dispositivo simulato. Copiare l'output negli Appunti, a partire da **-----BEGIN CERTIFICATE-----** fino alla prima occorrenza di **-----END CERTIFICATE-----** , assicurandosi di includere anche queste due righe. È necessario solo il primo certificato indicato nella finestra di output.
  
-5. Usando un editor di testo, salvare il certificato in un nuovo file denominato **_X509testcert.pem_**. 
+5. Usando un editor di testo, salvare il certificato in un nuovo file denominato **_X509testcert.pem_** . 
 
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Creare una voce per la registrazione del dispositivo nel portale
@@ -127,7 +127,7 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
     - **File di certificato primario con estensione pem o cer:** fare clic su **Selezionare un file** per selezionare il file di certificato, X509testcert.pem, creato nei passaggi precedenti.
     - **ID dispositivo hub IoT:** immettere **test-docs-cert-device** per assegnare un ID al dispositivo.
 
-      [![AAggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
       Al termine della registrazione, il dispositivo X.509 verrà visualizzato come **riot-device-cert** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 
@@ -141,7 +141,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
 
 
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -198,4 +198,4 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client del disposi
 In questa guida introduttiva è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida introduttiva per la registrazione a livello di codice dei dispositivi X.509. 
 
 > [!div class="nextstepaction"]
-> [Avvio rapido di Azure - Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-java.md)
+> [Guida introduttiva di Azure - Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-java.md)

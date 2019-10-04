@@ -3,22 +3,22 @@ title: Introduzione all'API Riconoscimento vocale Bing con la libreria desktop C
 titlesuffix: Azure Cognitive Services
 description: Sviluppare applicazioni Windows di base che usano l'API Riconoscimento vocale Bing per convertire audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3160ccc1c8741d87fcee94a6face48551a79052d
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515379"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966894"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

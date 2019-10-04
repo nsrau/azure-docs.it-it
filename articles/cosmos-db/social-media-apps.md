@@ -4,14 +4,14 @@ description: Informazioni su uno schema progettuale per social network che sfrut
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446268"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342115"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Per la creazione di feed è sufficiente creare documenti che possano contenere u
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-È possibile usare un flusso "più recenti" con i post ordinati per data di creazione. Oppure è possibile creare un flusso "più interessanti" con i post con il maggior numero di Mi piace nelle ultime 24 ore. Si potrebbe anche implementare un flusso personalizzato per ogni utente basato su logica, ad esempio follower e interessi. Rimarrebbe comunque un elenco di post. Il fulcro è come compilare questi elenchi, ma le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a Cosmos DB usando l'[operatore IN](how-to-sql-query.md#WhereClause) per ottenere più pagine di post alla volta.
+È possibile usare un flusso "più recenti" con i post ordinati per data di creazione. Oppure è possibile creare un flusso "più interessanti" con i post con il maggior numero di Mi piace nelle ultime 24 ore. Si potrebbe anche implementare un flusso personalizzato per ogni utente basato su logica, ad esempio follower e interessi. Rimarrebbe comunque un elenco di post. Il fulcro è come compilare questi elenchi, ma le prestazioni di lettura rimangono invariate. Una volta che si acquisisce uno di questi elenchi, inviata una singola query a Cosmos DB usando il [parola chiave](sql-query-keywords.md#in) per ottenere le pagine di post alla volta.
 
 I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service/webjobs-create.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code](https://azure.microsoft.com/services/storage/) di [Archiviazione di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata.
 

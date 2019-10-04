@@ -2,20 +2,20 @@
 title: Linee guida di progettazione per tabelle distribuite - Azure SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c3de7b46449b8075d17a19733eda88d692b1d876
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243080"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479359"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
 Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.

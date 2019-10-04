@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 721e0c40ec2e02dabee0681e01fea4182b906183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Esercitazione: Integrazione di Azure Active Directory con Coralogix
 
@@ -174,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

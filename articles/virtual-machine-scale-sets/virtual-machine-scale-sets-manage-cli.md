@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: b49182ebdcc93c4a51a55f27c3e0bf7a45307b7f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60618082"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gestione di un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni comandi comuni dell'interfaccia della riga di comando di Azure che consentono di eseguire queste attività.

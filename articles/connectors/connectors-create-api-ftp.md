@@ -1,21 +1,22 @@
 ---
-title: Connettersi al server FTP - App per la logica di Azure
+title: Connettersi al server FTP-app per la logica di Azure
 description: Creare, monitorare e gestire i file in un server FTP con App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: divswa, LADocs
-ms.topic: article
-ms.date: 10/15/2018
+manager: carmonm
+ms.reviewer: divswa, klam, LADocs
+ms.topic: conceptual
+ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a73fad3097be73e01a7a2a6652129cd7c9db9555
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60408556"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050971"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 
@@ -30,13 +31,31 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 ## <a name="limits"></a>Limiti
 
-* Azioni FTP supportano solo i file che sono *50 MB o più piccolo* se non si usa [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md), che consentono di superare questo limite. Attualmente, i trigger FTP non supportano la suddivisione in blocchi.
+* Il connettore FTP supporta solo FTP su SSL (FTPS) e non è compatibile con FTPS impliciti.
 
-* Il connettore FTP supporta solo esplicite FTP over SSL (FTPS) e non è compatibile con FTPS implicito.
+* Per impostazione predefinita, le azioni FTP possono leggere o scrivere file di *dimensioni di 50 MB o inferiori*. Per gestire i file di dimensioni maggiori di 50 MB, le azioni FTP supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto file** USA in modo implicito la suddivisione in blocchi.
+
+* I trigger FTP non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 50 MB o inferiori. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
+
+  * Usare un trigger FTP che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+
+  * Seguire il trigger con l'azione FTP **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi.
+
+## <a name="how-ftp-triggers-work"></a>Funzionamento del trigger FTP
+
+I trigger FTP funzionano eseguendo il polling del file system FTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+
+| Client SFTP | Azione |
+|-------------|--------|
+| Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferimento** > **Modifica** > **Mantieni data/ora** > **Disabilitare l'opzione** |
+| FileZilla | Passare a **Trasferimento** > **Preserva data e ora dei file trasferiti** > **Disabilitare l'opzione** |
+|||
+
+Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Credenziali dell'account e indirizzo del server host FTP
 
@@ -56,22 +75,13 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione scegliere **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**. 
-   Nella casella di ricerca immettere "ftp" come filtro. 
-   Nell'elenco delle azioni selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione scegliere **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**. Nella casella di ricerca immettere "ftp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
-
-Per le richieste del contenuto del file, il trigger non recupera i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="examples"></a>Esempi
 
@@ -79,17 +89,9 @@ Per le richieste del contenuto del file, il trigger non recupera i file di dimen
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Trigger FTP: When a file is added or modified (Quando un file viene aggiunto o modificato)
 
-Questo trigger avvia un flusso di lavoro dell'app per la logica quando rileva che un file è stato aggiunto o modificato in un server FTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e decide se leggerlo, a seconda che il contenuto soddisfi una condizione specificata. Infine, è possibile aggiungere un'azione che legga il contenuto del file e inserisca tale contenuto in una cartella nel server SFTP. 
+Questo trigger avvia un flusso di lavoro dell'app per la logica quando rileva che un file è stato aggiunto o modificato in un server FTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e decide se leggerlo, a seconda che il contenuto soddisfi una condizione specificata. Infine, è possibile aggiungere un'azione che legga il contenuto del file e inserisca tale contenuto in una cartella nel server SFTP.
 
 **Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella FTP per nuovi file che descrivono gli ordini dei clienti. È quindi possibile usare un'azione FTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviare l'ordine nel database degli ordini.
-
-La richiesta di contenuto del file, i trigger Impossibile ottenere i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
-
-Un'app per la logica valida e funzionale richiede un trigger e almeno un'azione. Assicurarsi quindi di aggiungere un'azione dopo aver aggiunto un trigger.
 
 Ecco un esempio che illustra questo trigger: **Quando viene aggiunto o modificato un file**
 
@@ -101,12 +103,11 @@ Ecco un esempio che illustra questo trigger: **Quando viene aggiunto o modificat
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
-   Per impostazione predefinita, questo connettore trasferisce i file in formato testo. 
-   Per trasferire i file in formato binario, ad esempio dove e quando viene usata la codifica, selezionare **Binary Transport** (Trasporto binario).
+   Per impostazione predefinita, questo connettore trasferisce i file in formato testo. Per trasferire i file in formato binario, ad esempio dove e quando viene usata la codifica, selezionare **trasporto binario**.
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Accanto alla casella **Cartella** selezionare l'icona della cartella per visualizzare un elenco. Per trovare la cartella che si vuole monitorare per rilevare file nuovi o modificati, selezionare la parentesi uncinata chiusa (**>**), individuare la cartella e quindi selezionarla.
+1. Accanto alla casella **Cartella** selezionare l'icona della cartella per visualizzare un elenco. Per trovare la cartella che si vuole monitorare per rilevare file nuovi o modificati, selezionare la parentesi uncinata chiusa ( **>** ), individuare la cartella e quindi selezionarla.
 
    ![Trovare e selezionare la cartella da monitorare](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -120,23 +121,17 @@ Ora che l'app per la logica ha un trigger, aggiungere le azioni che devono esser
 
 ### <a name="ftp-action-get-content"></a>Azione FTP: Ottieni il contenuto
 
-Questa azione recupera il contenuto di un file su un server FTP quando il file viene aggiunto o aggiornato. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e un'azione che recupera il contenuto del file dopo che il file viene aggiunto o modificato. 
-
-La richiesta di contenuto del file, i trigger Impossibile ottenere i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
+Questa azione recupera il contenuto di un file su un server FTP quando il file viene aggiunto o aggiornato. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e un'azione che recupera il contenuto del file dopo che il file viene aggiunto o modificato.
 
 Ecco un esempio che illustra questa azione: **Ottenere il contenuto**
 
-1. Nel trigger o in qualsiasi altra azione scegliere **Nuovo passaggio**. 
+1. Nel trigger o in qualsiasi altra azione scegliere **Nuovo passaggio**.
 
 1. Nella casella di ricerca immettere "ftp" come filtro. Nell'elenco delle azioni selezionare questa azione: **Ottieni contenuto file - FTP**
 
    ![Selezionare un'azione FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
 
-1. Se si ha già una connessione al server FTP e all'account, andare al passaggio successivo. Altrimenti specificare i dettagli necessari per la connessione e quindi scegliere **Crea**. 
+1. Se si ha già una connessione al server FTP e all'account, andare al passaggio successivo. Altrimenti specificare i dettagli necessari per la connessione e quindi scegliere **Crea**.
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
@@ -152,12 +147,7 @@ Ecco un esempio che illustra questa azione: **Ottenere il contenuto**
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche dettagliate sui limiti, azioni e trigger, che sono descritte da OpenAPI del connettore (in precedenza Swagger) descrizione, rivedere le [pagina di riferimento del connettore](/connectors/ftpconnector/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/ftpconnector/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

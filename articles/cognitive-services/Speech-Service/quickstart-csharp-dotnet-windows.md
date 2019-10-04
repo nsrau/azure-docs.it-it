@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, .NET Framework (Windows) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, .NET Framework (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale con .NET framework per Windows e Speech SDK. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -8,17 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 47f955734070be4adfe7f58da98265b976e643d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008748"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554166"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Framework (Windows)
 
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md) e la [traduzione vocale](quickstart-translate-speech-dotnetframework-windows.md).
+
+Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Usare questa guida per creare un'applicazione console di riconoscimento vocale con .NET framework per Windows e Speech SDK. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
@@ -70,7 +73,7 @@ Per completare questo progetto, saranno necessari:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

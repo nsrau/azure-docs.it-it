@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: dc3dd06b5feac1f66598cd65fa79f447a1bbd9be
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668314"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036526"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Ottiene e imposta la pianificazione di chaos.

@@ -1,27 +1,27 @@
 ---
 title: Connettere e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori - Ricerca di Azure
 description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315215"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656226"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
 Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
 
-In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL, ad esempio, il rilevamento delle modifiche integrato. 
+In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL di Azure, ad esempio, il rilevamento delle modifiche integrato. 
 
 Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
@@ -63,7 +63,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 1. Creare l'origine dati:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 3. Creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all'indice di destinazione:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 
 Un indicizzatore creato in questo modo non dispone di una pianificazione. Viene eseguito non appena viene creato. È possibile rieseguirlo in qualsiasi momento mediante una richiesta di **esecuzione indicizzatore** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Creare un'API di indicizzatore).
@@ -104,7 +104,7 @@ Potrebbe essere necessario consentire ai servizi di Azure di connettersi al data
 
 Per monitorare lo stato dell'indicizzatore e la cronologia di esecuzione (numero di elementi indicizzati, errori e così via), utilizzare una richiesta di **stato indicizzatore** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 La risposta sarà simile alla seguente:
@@ -146,7 +146,7 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 ## <a name="run-indexers-on-a-schedule"></a>Eseguire gli indicizzatori in base a una pianificazione
 È inoltre possibile fare in modo che l'indicizzatore si esegua periodicamente in base a una pianificazione. A tale scopo, aggiungere la proprietà **schedule** al momento della creazione o dell'aggiornamento dell'indicizzatore. Nell'esempio seguente viene illustrata una richiesta PUT di aggiornamento dell'indicizzatore:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -158,23 +158,7 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 
 È richiesto il parametro **interval** . L'intervallo fa riferimento al tempo tra l'inizio di due esecuzioni consecutive dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 
-Il valore facoltativo **startTime** indica quando devono essere avviate le esecuzioni pianificate. Se viene omesso, verrà usata l'ora UTC corrente. Può trattarsi di un'ora del passato, caso in cui la prima esecuzione viene pianificata come se l'indicizzatore fosse stato continuamente in funzione sin dall'ora di inizio.  
-
-È possibile effettuare solo l'esecuzione di un indicizzatore specificato per volta. Se un indicizzatore è in uso quando viene pianificata l'esecuzione, l'esecuzione viene rimandata fino al successivo orario pianificato.
-
-Ecco un esempio per rendere il discorso più concreto. Si supponga che sia configurata la seguente pianificazione oraria:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Di seguito è illustrato ciò che accade:
-
-1. L’esecuzione del primo indicizzatore comincia il 1 marzo 2015 alle 12:00 UTC più o meno.
-2. Si supponga che l'esecuzione richieda 20 minuti (o un tempo qualsiasi inferiore a 1 ora).
-3. La seconda esecuzione inizia il 1 marzo 2015 alle 13.00, più o meno
-4. Si supponga ora che l'esecuzione richieda più di un'ora, ad esempio 70 minuti, e che venga completata alle 02:10 circa.
-5. Ora sono le 02:00, l’ora dell’inizio della terza esecuzione. Poiché la seconda esecuzione della 01.00 è ancora in esecuzione, la terza esecuzione viene saltata. La terza esecuzione inizia alle 03:00.
-
-È possibile aggiungere, modificare o eliminare una pianificazione per un indicizzatore esistente utilizzando una richiesta di **indicizzatore PUT** .
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -194,7 +178,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](https://docs.micros
 + Nel database [abilitare il rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -229,7 +213,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 > [!IMPORTANT] 
 > È consigliabile usare il tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 
@@ -305,7 +289,7 @@ L'indicizzatore SQL espone diverse impostazioni di configurazione:
 
 | Impostazione | Tipo di dati | Scopo | Valore predefinito |
 | --- | --- | --- | --- |
-| queryTimeout |stringa |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
+| queryTimeout |string |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Fa in modo che la query SQL usata dai criteri di limite massimo ometta la clausola ORDER BY. Vedere [Criteri di limite massimo](#HighWaterMarkPolicy) |false |
 
 Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella definizione dell'indicizzatore. Ad esempio, per impostare il timeout della query su 10 minuti, creare o aggiornare l'indicizzatore con la seguente configurazione:
@@ -328,7 +312,7 @@ Non direttamente. La connessione diretta non è consigliata né supportata, in q
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
- No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
 **D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 

@@ -11,22 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 08/21/2019
+ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680520"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904629"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
-Nel database SQL di Azure è possibile configurare un database singolo o in pool con criteri di [conservazione a lungo termine dei backup](sql-database-long-term-retention.md) per conservare automaticamente i backup in Archivio BLOB di Azure fino a 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
+Nel database SQL di Azure è possibile configurare un database singolo o in pool con criteri di [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) per mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
 
 > [!IMPORTANT]
 > [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) non supporta attualmente la conservazione a lungo termine dei backup.
 
-## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Usare il portale di Azure per configurare i criteri di conservazione a lungo termine e ripristinare i backup
+## <a name="use-the-azure-portal-to-manage-long-term-backups"></a>Usare il portale di Azure per gestire i backup a lungo termine
 
 Le sezioni seguenti mostrano come usare il portale di Azure per configurare il periodo di conservazione a lungo termine, visualizzare i backup con conservazione a lungo termine e ripristinare il backup dalla conservazione a lungo termine.
 
@@ -45,7 +45,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 3. Al termine, fare clic su **Applica**.
 
 > [!IMPORTANT]
-> Quando si abilita un criterio di conservazione dei backup a lungo termine, potrebbe richiedere fino a 7 giorni per il backup prima di diventare visibile e disponibile per il ripristino. Per i dettagli di cadance backup con conservazione a lungo termine, vedere [conservazione backup a lungo termine](sql-database-long-term-retention.md).
+> Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visualizzare i backup e ripristinare da un backup usando il portale di Azure
 
@@ -61,7 +61,7 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 
 4. Selezionare il backup da cui si vuole eseguire il ripristino e quindi specificare il nome del nuovo database.
 
-   ![ripristinare](./media/sql-database-long-term-retention/ltr-restore.png)
+   ![ripristino](./media/sql-database-long-term-retention/ltr-restore.png)
 
 5. Fare clic su **OK** per ripristinare nel nuovo database il database dal backup presente nella risorsa di archiviazione di Azure SQL.
 
@@ -75,31 +75,37 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
-## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Usare PowerShell per configurare i criteri di conservazione a lungo termine e ripristinare i backup
+## <a name="use-powershell-to-manage-long-term-backups"></a>Usare PowerShell per gestire i backup a lungo termine
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Ruoli Controllo degli accessi in base al ruolo per gestire la conservazione a lungo termine
 
-Per gestire i backup di conservazione a lungo termine, è necessario avere uno seguenti ruoli: 
-- Proprietario della sottoscrizione
-- Collaboratore SQL Server nell'ambito **Sottoscrizione**
-- Collaboratore database SQL nell'ambito **Sottoscrizione**
+Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**è necessario disporre di uno dei ruoli seguenti:
 
-Se è necessario un controllo più granulare, è possibile creare ruoli Controllo degli accessi in base al ruolo personalizzati e assegnarli nell'ambito **Sottoscrizione**. 
+- Ruolo proprietario sottoscrizione o
+- SQL Server ruolo Collaboratore o
+- Ruolo personalizzato con le autorizzazioni seguenti:
 
-Per la **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase** il ruolo deve avere le autorizzazioni seguenti:
-
-Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+   Microsoft. SQL/locations/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/lettura
  
-Per la **Remove-AzSqlDatabaseLongTermRetentionBackup** il ruolo è necessario avere le autorizzazioni seguenti:
+Per **Remove-AzSqlDatabaseLongTermRetentionBackup**è necessario disporre di uno dei ruoli seguenti:
 
-Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+- Ruolo proprietario sottoscrizione o
+- Ruolo personalizzato con l'autorizzazione seguente:
+
+   Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
+
+> [!NOTE]
+> Il ruolo Collaboratore SQL Server non dispone dell'autorizzazione per eliminare i backup di LTR.
+
+È possibile concedere autorizzazioni RBAC nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un server eliminato, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale server.
 
 
 ### <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
@@ -146,23 +152,33 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
 Questo esempio illustra come elencare i backup con conservazione a lungo termine in un server. 
 
 ```powershell
-# Get the list of all LTR backups in a specific Azure region 
-# The backups are grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest
-# backup first.  
+# List all LTR backups under the current subscription in a specific Azure region 
+# The list includes backups for existing servers and dropped servers grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first.
+# Requires Subscription scope permission
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
-# Get the list of LTR backups from the Azure region under 
-# the named server. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+# List the LTR backups under a specific resource group in a specific Azure region 
+# The list includes backups from the existing servers only grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first. 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup
 
-# Get the LTR backups for a specific database from the Azure region under the named server 
+# List the LTR backups under an existing server
+# The list includes backups from the existing servers only grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first. 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup -ServerName $serverName
+
+# List the LTR backups for a specific database 
+# The backups are ordered by the timestamp, the earliest backup first. 
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
+# The list includes backups for existing servers and dropped servers grouped by the logical database id.
+# Within each group they are ordered by the timestamp, the earliest backup first.  
+# Requires Subscription scope permission
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
-# Only list the latest LTR backup for each database 
+# Only list the latest LTR backup for each database under a server
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
@@ -171,21 +187,25 @@ $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Locatio
 Questo esempio illustra come eliminare un backup con conservazione a lungo termine dall'elenco di backup.
 
 ```powershell
-# remove the earliest backup 
+# Remove the earliest backup from the list of backups
 $ltrBackup = $ltrBackups[0]
 Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. È possibile impostare le notifiche su ogni eliminazione in Monitoraggio di Azure filtrando in base all'operazione di eliminazione di un backup con conservazione a lungo termine. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
+> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup di LTR dopo che il server è stato eliminato, è necessario disporre dell'autorizzazione per l'ambito della sottoscrizione. È possibile impostare le notifiche su ogni eliminazione in Monitoraggio di Azure filtrando in base all'operazione di eliminazione di un backup con conservazione a lungo termine. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
 >
 
 ### <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 Questo esempio illustra come eseguire il ripristino da un backup con conservazione a lungo termine. Si noti che questa interfaccia non è stata modificata, ma il parametro dell'ID risorsa richiede ora l'ID risorsa del backup con conservazione a lungo termine. 
 
 ```powershell
-# Restore LTR backup as an S3 database
-Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
+# Restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup 
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName P1
 ```
+
+> [!IMPORTANT]
+> Per eseguire il ripristino da un backup di LTR dopo che il server è stato eliminato, è necessario avere l'ambito delle autorizzazioni per la sottoscrizione del server e che la sottoscrizione sia attiva. È inoltre necessario omettere il parametro facoltativo-ResourceGroupName.  
+>
 
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente. Vedere [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).

@@ -3,27 +3,24 @@ title: Chiamare i programmi Spark da Azure Data Factory | Microsoft Docs
 description: Informazioni su come chiamare programmi Spark da una data factory di Azure usando l'attività MapReduce.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015815"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135346"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività Hive](data-factory-hive-activity.md)
 > * [Attività Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
@@ -224,7 +221,7 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 
     c. La proprietà **entryFilePath** è impostata su **test.py**, ovvero sul file Python.
 
-    d. La proprietà **getDebugInfo** è impostata su **Sempre**, a indicare che i file di log vengono sempre generati (con esito positivo o negativo).
+    d. La proprietà **getDebugInfo** è impostata su **Sempre** e indica che i file di log vengono sempre generati (con esito positivo o negativo).
 
     > [!IMPORTANT]
     > Non è consigliabile impostare questa proprietà su `Always` in un ambiente di produzione, a meno che non si stia tentando di risolvere un problema.
@@ -267,9 +264,10 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 
     ![Risultati della query Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Per istruzioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Per istruzioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 Poiché getDebugInfo è impostato su **Always** (Sempre), è possibile vedere una sottocartella log nella cartella pyFiles nel contenitore BLOB di Azure. Il file di log nella cartella log offre informazioni aggiuntive. Tale file è particolarmente utile quando si verifica un errore. In un ambiente di produzione è consigliabile impostarlo su **Failure** (Operazione non riuscita).
 
 Per altre azioni di risoluzione del problema, eseguire la procedura seguente:
@@ -305,7 +303,7 @@ Di seguito è riportata la definizione JSON di esempio di una pipeline con un'at
                     "arguments": [ "arg1", "arg2" ],
                     "sparkConfig": {
                         "spark.python.worker.memory": "512m"
-                    }
+                    },
                     "getDebugInfo": "Always"
                 },
                 "outputs": [
@@ -326,35 +324,35 @@ Di seguito è riportata la definizione JSON di esempio di una pipeline con un'at
 
 La tabella seguente descrive le proprietà JSON usate nella definizione JSON.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| name | Nome dell'attività nella pipeline. | Yes |
-| description | Testo che descrive la funzione dell'attività. | No  |
-| type | Questa proprietà deve essere impostata su HDInsightSpark. | Yes |
+| name | Nome dell'attività nella pipeline. | Sì |
+| description | Testo che descrive la funzione dell'attività. | No |
+| type | Questa proprietà deve essere impostata su HDInsightSpark. | Sì |
 | linkedServiceName | Riferimento a un servizio collegato HDInsight in cui viene eseguito il programma Spark. | Yes |
-| rootPath | Contenitore BLOB e cartella che contiene il file Spark. Il nome del file fa distinzione tra maiuscole e minuscole. | Yes |
-| entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Yes |
-| className | Classe principale Java/Spark dell'applicazione. | No  |
-| arguments | Elenco di argomenti della riga di comando del programma Spark. | No  |
-| proxyUser | Account utente da rappresentare per eseguire il programma Spark. | No  |
-| sparkConfig | Specificare i valori delle proprietà di configurazione di Spark elencati in [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configurazione di Spark: proprietà dell'applicazione). | No  |
-| getDebugInfo | Specifica quando i file di log di Spark vengono copiati nella risorsa di archiviazione usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None (Nessuna), Always (Sempre) o Failure (Operazione non riuscita). Il valore predefinito è None (Nessuna). | No  |
-| sparkJobLinkedService | Il servizio collegato di archiviazione che contiene il file di processo, le dipendenze e i log di Spark. Se non si specifica un valore per questa proprietà, viene usata la risorsa di archiviazione associata al cluster HDInsight. | No  |
+| rootPath | Contenitore BLOB e cartella che contiene il file Spark. Il nome del file fa distinzione tra maiuscole e minuscole. | Sì |
+| entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Sì |
+| className | Classe principale Java/Spark dell'applicazione. | No |
+| arguments | Elenco di argomenti della riga di comando del programma Spark. | N. |
+| proxyUser | Account utente da rappresentare per eseguire il programma Spark. | No |
+| sparkConfig | Specificare i valori delle proprietà di configurazione di Spark elencati in [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configurazione di Spark: proprietà dell'applicazione). | No |
+| getDebugInfo | Specifica quando i file di log di Spark vengono copiati nella risorsa di archiviazione usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None (Nessuna), Always (Sempre) o Failure (Operazione non riuscita). Il valore predefinito è None (Nessuna). | No |
+| sparkJobLinkedService | Il servizio collegato di archiviazione che contiene il file di processo, le dipendenze e i log di Spark. Se non si specifica un valore per questa proprietà, viene usata la risorsa di archiviazione associata al cluster HDInsight. | No |
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 L'attività Spark non supporta uno script inline come invece fanno le attività Pig e Hive. I processi Spark sono anche più estendibili dei processi Pig/Hive. Per i processi Spark è possibile offrire più dipendenze, ad esempio pacchetti jar (disponibili in CLASSPATH di Java), file Python (disponibili in PYTHONPATH) e qualsiasi altro file.
 
 Creare la struttura di cartelle seguente nell'archivio BLOB a cui fa riferimento il servizio collegato HDInsight. Caricare quindi i file dipendenti nelle sottocartelle appropriate all'interno della cartella radice rappresentata da **entryFilePath**. Caricare, ad esempio, i file Python nella sottocartella pyFiles e i file jar nella sottocartella jars della cartella radice. In runtime, il servizio Data Factory prevede la struttura di cartelle seguente nell'archivio BLOB: 
 
-| path | DESCRIZIONE | Obbligatoria | type |
+| `Path` | Descrizione | Obbligatorio | Type |
 | ---- | ----------- | -------- | ---- |
-| . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Yes | Cartella |
-| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Yes | File |
-| ./jars | Tutti i file in questa cartella vengono caricati e inseriti in classpath Java del cluster. | No  | Cartella |
-| ./pyFiles | Tutti i file in questa cartella vengono caricati e inseriti in PYTHONPATH del cluster. | No  | Cartella |
-| ./files | Tutti i file in questa cartella vengono caricati e inseriti nella directory di lavoro executor. | No  | Cartella |
-| ./archives | Tutti i file in questa cartella sono decompressi. | No  | Cartella |
-| ./logs | Cartella in cui sono archiviati i log del cluster Spark.| No  | Cartella |
+| . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Sì | Cartella |
+| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Sì | File |
+| ./jars | Tutti i file in questa cartella vengono caricati e inseriti in classpath Java del cluster. | No | Cartella |
+| ./pyFiles | Tutti i file in questa cartella vengono caricati e inseriti in PYTHONPATH del cluster. | No | Cartella |
+| ./files | Tutti i file in questa cartella vengono caricati e inseriti nella directory di lavoro executor. | No | Cartella |
+| ./archives | Tutti i file in questa cartella sono decompressi. | No | Cartella |
+| ./logs | Cartella in cui sono archiviati i log del cluster Spark.| No | Cartella |
 
 Di seguito è riportato un esempio di risorsa di archiviazione che contiene due file di processo Spark nell'archivio BLOB a cui fa riferimento il servizio collegato HDInsight:
 

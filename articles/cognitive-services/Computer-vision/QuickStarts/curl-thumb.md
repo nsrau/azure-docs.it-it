@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630644"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141428"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e cURL in Visione artificiale
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Generare un'anteprima con l'API REST di Visione artificiale e cURL
 
 In questo argomento di avvio rapido si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Si specificano l'altezza e la larghezza desiderate, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale ricorre al ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in tale area.
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario avere [cURL](https://curl.haxx.se/windows).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave.
 
 ## <a name="get-thumbnail-request"></a>Richiesta di generazione di un'anteprima
 
@@ -54,12 +54,13 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 1. Apportare le modifiche seguenti al comando, dove necessario:
     1. Sostituire il valore di `<subscriptionKey>` con la chiave di sottoscrizione.
     1. Sostituire il valore di `<thumbnailFile>` con il percorso e il nome del file in cui salvare l'anteprima.
-    1. Se necessario, sostituire l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail`) con l'URL endpoint per il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Sostituire la prima parte dell'URL della richiesta (`westcentralus`) con il testo dell'URL dell'endpoint.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Facoltativamente, modificare l'URL dell'immagine nel corpo della richiesta (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) nell'URL di un'altra immagine da cui generare un'anteprima.
 1. Aprire una finestra del prompt dei comandi.
 1. Incollare il comando dall'editor di testo nella finestra del prompt dei comandi e quindi eseguire il comando.
 
-    ```console
+    ```bash
     curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 

@@ -10,25 +10,24 @@ ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315860"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069970"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
-Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
+Poiché un ambiente del servizio app viene sempre creato in una rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end può fluire esclusivamente sulla rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata.  In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.  
 
-Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere connessi ad Azure tramite connessioni [da sito a sito][SiteToSite] o connessioni [Azure ExpressRoute][ExpressRoute].  In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
+Come altro esempio, gli endpoint sensibili possono essere eseguiti in locale ed essere connessi ad Azure tramite connessioni da [sito a sito][SiteToSite] o [Azure ExpressRoute][ExpressRoute] .  In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
 
 Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse.  Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale.  Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
 
@@ -88,7 +87,7 @@ Il risultato finale è costituito da un set di regole di sicurezza che blocca l'
 ## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
-Per informazioni dettagliate su come controllare il traffico in ingresso all'ambiente del servizio app, vedere [Controllo del traffico in ingresso a un ambiente del servizio app][ControlInboundASE]
+Per informazioni dettagliate su come controllare il traffico in ingresso verso la ambiente del servizio app, vedere [controllo del traffico in ingresso verso un ambiente del servizio app][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

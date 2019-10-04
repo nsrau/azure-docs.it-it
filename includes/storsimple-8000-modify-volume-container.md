@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888712"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180193"
 ---
 > [!NOTE] 
 > Non è possibile modificare le impostazioni di crittografia e le credenziali dell'account di archiviazione associate a un contenitore del volume dopo la sua creazione.

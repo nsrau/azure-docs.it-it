@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a4ce0419e3a5615cc5a6d57fe2f1cfecad2f09
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 26d434069870fbfa52687a3abc7913fd121687a1
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444865"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000066"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Key Vault 
 
@@ -110,7 +110,7 @@ Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è pos
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Key Vault.  Per altre informazioni su Azure Key Vault, consultare:
 
 > [!div class="nextstepaction"]
->[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-whatis)
+>[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-overview)
 
 
 

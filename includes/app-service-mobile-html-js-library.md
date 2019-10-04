@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905090"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180657"
 ---
 ## <a name="create-client"></a>Creare una connessione client
 Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient` .  Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.

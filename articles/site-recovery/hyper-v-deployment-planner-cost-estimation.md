@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60947233"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -125,7 +125,7 @@ Per aggiungere manualmente le VM:
 
     i. **Vantaggio Azure Hybrid Use**
 
-1. È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante **Apply to all** (Applica a tutte) per il **numero di esercitazioni sul ripristino di emergenza in un anno**, la **durata di ogni esercitazione sul ripristino di emergenza (in giorni)**, la **ridondanza dei dati** e il **vantaggio Azure Hybrid Use**.
+1. È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante **Apply to all** (Applica a tutte) per il **numero di esercitazioni sul ripristino di emergenza in un anno**, la **durata di ogni esercitazione sul ripristino di emergenza (in giorni)** , la **ridondanza dei dati** e il **vantaggio Azure Hybrid Use**.
 
 1. Selezionare **Re-calculate cost** (Ricalcola costo) per aggiornare il costo.
 
@@ -133,13 +133,13 @@ Per aggiungere manualmente le VM:
 
 **Numero di macchine virtuali**: Numero di macchine virtuali corrispondenti alla configurazione. È possibile aggiornare il numero delle VM esistenti se una configurazione di VM simile non è profilata, ma viene protetta.
 
-**Dimensioni IaaS (suggerimento)**: Dimensioni del ruolo macchina virtuale consigliate dallo strumento per le macchine virtuali compatibili. 
+**Dimensioni IaaS (suggerimento)** : Dimensioni del ruolo macchina virtuale consigliate dallo strumento per le macchine virtuali compatibili. 
 
 **Dimensioni IaaS selezionate**: Per impostazione predefinita, corrisponde al valore delle dimensioni del ruolo VM consigliate. È possibile modificare il ruolo in base ai propri requisiti. Il costo di calcolo è basato sulle dimensioni selezionate.
 
 **Tipo di archiviazione**: Tipo di archiviazione usato dalla macchina virtuale. Può essere Standard o Premium.
 
-**Spazio di archiviazione totale VM (GB)**: Spazio di archiviazione totale della macchina virtuale.
+**Spazio di archiviazione totale VM (GB)** : Spazio di archiviazione totale della macchina virtuale.
 
 **N. esercitazioni ripristino di emergenza in un anno**: Numero di esercitazioni sul ripristino di emergenza eseguite in un anno. Il valore predefinito è quattro volte in un anno. È possibile modificarlo per VM specifiche oppure applicare il nuovo valore a tutte le VM. Immettere il nuovo valore nella prima riga e selezionare **Apply to all** (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna. 
 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Valute supportate
 Site Recovery Deployment Planner può generare il report dei costi con una qualsiasi delle valute seguenti.
 
-|Valuta|NOME||Valuta|NOME||Valuta|NOME|
+|Currency|Name||Currency|Name||Currency|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
 |CAD|Dollaro canadese ($)||CHF|Franco svizzero (chf)||DKK|Corona danese (kr)|

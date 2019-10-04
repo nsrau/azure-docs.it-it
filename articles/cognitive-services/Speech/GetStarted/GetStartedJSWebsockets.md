@@ -3,20 +3,20 @@ title: Introduzione all'API Riconoscimento vocale Bing in JavaScript | Microsoft
 titlesuffix: Azure Cognitive Services
 description: Usare l'API Riconoscimento vocale Bing in Servizi cognitivi per sviluppare applicazioni per la conversione continua di audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eef1a4885b77ae94f11d3d5bda5ded9b70ed63a4
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672407"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965821"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introduzione all'API Riconoscimento vocale in JavaScript
 
@@ -42,7 +42,7 @@ Questa sezione illustra i passaggi necessari per caricare una pagina HTML di ese
 
 ### <a name="open-the-sample-directly"></a>Aprire l'esempio direttamente
 
-Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Aprire l'esempio da una copia locale
 
@@ -64,7 +64,7 @@ Aprire il file `samples\browser\Sample.html` nel browser preferito.
 
 In [questo articolo](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) sono disponibili altre informazioni su come includere l'SDK nella pagina Web.
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - L'API Riconoscimento vocale supporta tre [modalità di riconoscimento](../concepts.md#recognition-modes). È possibile cambiare la modalità aggiornando la funzionalità **Setup()** nel file Sample.html. L'esempio imposta la modalità su `Interactive` per impostazione predefinita. Per cambiare la modalità, aggiornare il parametro `SR.RecognitionMode.Interactive` con un'altra modalità. Ad esempio, impostare il parametro su `SR.RecognitionMode.Conversation`.
 - Per un elenco completo delle lingue supportate, vedere [Lingue supportate](../API-Reference-REST/supportedlanguages.md).

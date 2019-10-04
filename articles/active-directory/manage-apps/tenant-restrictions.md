@@ -3,8 +3,8 @@ title: Usare restrizioni dei tenant per gestire l'accesso a soluzioni SaaS cloud
 description: Come usare restrizioni dei tenant per gestire quali utenti possono accedere alle App basate su tenant di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291238"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65824390"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -42,7 +42,7 @@ La soluzione globale è composta dai seguenti elementi:
 
 3. **Il software client**: Per supportare restrizioni dei tenant, il software client deve richiedere i token direttamente da Azure AD, in modo che l'infrastruttura del proxy consente di intercettare il traffico. Applicazioni di Office 365 basate su browser supportano attualmente restrizioni dei tenant, così come i client di Office che usano l'autenticazione moderna (ad esempio OAuth 2.0).
 
-4. **L'autenticazione moderna**: Servizi cloud devono usare l'autenticazione moderna per usare restrizioni dei tenant e bloccare l'accesso a tutti i tenant non autorizzata. È necessario configurare i servizi cloud di Office 365 per l'uso di protocolli di autenticazione moderna per impostazione predefinita. Per le informazioni più aggiornate sul supporto di Office 365 per l'autenticazione moderna, leggere il [relativo documento aggiornato](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **L'autenticazione moderna**: Servizi cloud devono usare l'autenticazione moderna per usare restrizioni dei tenant e bloccare l'accesso a tutti i tenant non autorizzata. È necessario configurare i servizi cloud di Office 365 per l'uso di protocolli di autenticazione moderna per impostazione predefinita. Per le informazioni più aggiornate sul supporto di Office 365 per l'autenticazione moderna, leggere il [relativo documento aggiornato](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Il diagramma seguente illustra il flusso di traffico di alto livello. Restrizioni dei tenant richiede l'ispezione SSL solo sul traffico di Azure ad, non per i servizi cloud di Office 365. Questa distinzione è importante, perché il volume di traffico per l'autenticazione ad Azure AD è in genere molto inferiore rispetto a quello verso applicazioni SaaS come Exchange Online e SharePoint Online.
 
@@ -128,7 +128,7 @@ Le applicazioni di Office 365 devono soddisfare due criteri per supportare piena
 1. Il client usato supporta l'autenticazione moderna.
 2. L'autenticazione moderna è abilitata come protocollo di autenticazione predefinito per il servizio cloud.
 
-Fare riferimento al [documento aggiornato sull'autenticazione moderna di Office 365](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) per le informazioni più recenti sui client Office che supportano attualmente l'autenticazione moderna. Questa pagina include anche collegamenti a istruzioni su come abilitare l'autenticazione moderna in tenant Exchange Online e Skype for Business Online specifici. SharePoint Online consente già l'autenticazione moderna per impostazione predefinita.
+Fare riferimento al [documento aggiornato sull'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) per le informazioni più recenti sui client Office che supportano attualmente l'autenticazione moderna. Questa pagina include anche collegamenti a istruzioni su come abilitare l'autenticazione moderna in tenant Exchange Online e Skype for Business Online specifici. SharePoint Online consente già l'autenticazione moderna per impostazione predefinita.
 
 Applicazioni di Office 365 basate su browser (il portale di Office, Yammer, i siti SharePoint, Outlook sul Web e altro ancora) supporta attualmente restrizioni dei tenant. Thick client (Outlook, Skype per Business, Word, Excel, PowerPoint e altro ancora) possono imporre restrizioni dei tenant solo quando si usa l'autenticazione moderna.  
 
@@ -166,7 +166,7 @@ Fiddler è un proxy di debug Web gratuito, utilizzabile per acquisire e modifica
       }
       ```
 
-      Se è necessario consentire più tenant, separare i vari nomi di tenant con le virgole. Ad esempio: 
+      Se è necessario consentire più tenant, separare i vari nomi di tenant con le virgole. Ad esempio:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
@@ -185,5 +185,5 @@ Per informazioni dettagliate, vedere la documentazione del server proxy.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull'[autenticazione moderna aggiornata di Office 365](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Informazioni sull'[autenticazione moderna aggiornata di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

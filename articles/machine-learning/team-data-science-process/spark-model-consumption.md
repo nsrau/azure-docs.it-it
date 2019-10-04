@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253144"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
@@ -43,7 +43,7 @@ Al fine di modificare il notebook di Jupyter per Spark 1.6 per l'uso di un clust
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
 Spark può eseguire operazioni di lettura e scrittura in un BLOB del servizio di archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
 
-Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: *"wasb///"*. L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello. 
+Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: *"wasb///"* . L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Impostare percorsi di directory per i percorsi di archiviazione in WASB
 I modelli vengono salvati in: "wasb:///user/remoteuser/NYCTaxi/Models". Se questo percorso non è impostato correttamente, i modelli non vengono caricati per l'assegnazione dei punteggi.
@@ -526,7 +526,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 ## <a name="consume-spark-models-through-a-web-interface"></a>Utilizzare i modelli Spark da un'interfaccia Web
 Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni su Livy, vedere: [Inviare processi Spark in modalità remota con Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
-Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da   
+Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster, è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]

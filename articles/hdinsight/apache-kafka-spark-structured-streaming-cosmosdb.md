@@ -1,19 +1,19 @@
 ---
-title: Streaming strutturato Apache Spark da Apache Kafka ad Azure Cosmos DB - Azure HDInsight
+title: Apache Spark dati da Apache Kafka a Azure Cosmos DB-Azure HDInsight
 description: Informazioni su come usare lo streaming strutturato Apache Spark per leggere i dati da Apache Kafka e quindi archiviarli in Azure Cosmos DB. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60538074"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037281"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su
 
 Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Internet pubblico. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Spark e Kafka si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
 
-![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
 > Il servizio Kafka è limitato alle comunicazioni all'interno della rete virtuale. Altri servizi nel cluster, ad esempio SSH e Ambari, sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -42,9 +42,9 @@ Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Interne
 Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtuale di Azure, è più semplice usare un modello di Azure Resource Manager. Seguire questa procedura per distribuire cluster Spark e Kafka e una rete virtuale di Azure nella sottoscrizione di Azure.
 
 1. Usare il pulsante seguente per accedere ad Azure e aprire il modello nel portale di Azure.
-    
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
+    <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
     Il modello di Azure Resource Manager si trova nel repository GitHub per questo progetto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
@@ -66,11 +66,11 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
      > Il notebook di streaming strutturato che è stato usato in questo esempio richiede Spark in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
 
 2. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
-   
-    ![Distribuzione personalizzata di HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+
+    ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
     * **Sottoscrizione** Selezionare la sottoscrizione di Azure.
-   
+
     * **Gruppo di risorse**: creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.
 
     * **Località**: scegliere una località geograficamente vicina.

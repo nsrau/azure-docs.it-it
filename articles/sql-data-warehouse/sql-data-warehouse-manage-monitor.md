@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546897"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018954"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitoraggio del carico di lavoro mediante DMV
 Questo articolo descrive come usare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro. Questo include l'analisi dell'esecuzione di query in Azure SQL Data Warehouse.
@@ -59,18 +59,13 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
-SELECT  *
-FROM    sys.dm_pdw_exec_requests
-WHERE   [label] = 'My Query';
 ```
 
 **Prendere nota dell'ID richiesta** della query che si desidera analizzare dai risultati della query precedente.
 
-Esegue una query nella **Suspended** può essere inseriti nella coda di stato a causa di un numero elevato di query attive in esecuzione. Queste query vengono visualizzati anche nella [DM pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) attese query con un tipo UserConcurrencyResourceType. Per informazioni sui limiti di concorrenza, vedere [Livelli di prestazioni](performance-tiers.md) oppure [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Investigating queries waiting for resources] più avanti in questo articolo.
+Le query nello stato Suspended possono essere accodate a causa di un elevato numero di query in esecuzione attive. Queste query vengono visualizzate anche nella query di attesa [sys. dm _pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo di UserConcurrencyResourceType. Per informazioni sui limiti di concorrenza, vedere [Livelli di prestazioni](performance-tiers.md) oppure [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Investigating queries waiting for resources] più avanti in questo articolo.
 
-Per semplificare la ricerca di una query nella [DM pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabella, usare [LABEL] [ LABEL] per assegnare un commento alla query, che possono essere cercate nel sys.dm_pdw_exec_ Consente di visualizzare le richieste.
+Per semplificare la ricerca di una query nella tabella [sys. dm _pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) , usare [Label][LABEL] per assegnare un commento alla query che può essere cercata nella vista sys. dm _pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -78,6 +73,12 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query')
 ;
+
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
+SELECT  *
+FROM    sys.dm_pdw_exec_requests
+WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>PASSAGGIO 2: esaminare il piano di query
@@ -110,7 +111,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Quando è in esecuzione il passaggio della query, è possibile usare [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] per recuperare il piano stimato di SQL Server dalla cache dei piani di SQL Server per il passaggio di esecuzione in una distribuzione specifica.
+Quando è in esecuzione il passaggio della query, è possibile usare [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] per recuperare il piano stimato di SQL Server dalla cache dei piani di SQL Server per il passaggio di esecuzione in una distribuzione particolare.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -133,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Controllare la colonna *total_elapsed_time* per verificare se una distribuzione particolare richiede più tempo per lo spostamento dei dati rispetto alle altre.
 * Per la distribuzione con esecuzione prolungata, esaminare la colonna *rows_processed* e controllare se il numero di righe spostato da tale distribuzione è significativamente più grande rispetto alle altre. In caso affermativo, questo potrebbe indicare asimmetria dei dati sottostanti.
 
-Se la query è in esecuzione, è possibile usare [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] per recuperare il piano stimato di SQL Server dalla cache dei piani di SQL Server per il passaggio SQL in esecuzione per una distribuzione specifica.
+Se la query è in esecuzione, è possibile usare [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] per recuperare il piano stimato di SQL Server dalla cache dei piani di SQL Server per il passaggio SQL in esecuzione per una distribuzione particolare.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -170,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se la query è attivamente in attesa di risorse da un'altra query, lo stato sarà **AcquireResources**.  Se la query dispone di tutte le risorse necessarie, lo stato sarà **Granted**.
 
 ## <a name="monitor-tempdb"></a>Monitorare tempdb
-Tempdb viene usato per contenere i risultati intermedi durante l'esecuzione di query. Un utilizzo elevato del database tempdb può portare a rallentare le prestazioni delle query. Ogni nodo in Azure SQL Data Warehouse ha circa 1 TB di spazio non elaborato per il database tempdb. Di seguito sono riportati suggerimenti per il monitoraggio dell'utilizzo di tempdb e per la riduzione dell'utilizzo di tempdb nelle query. 
+Tempdb viene utilizzato per mantenere i risultati intermedi durante l'esecuzione della query. Un utilizzo elevato del database tempdb può causare un rallentamento delle prestazioni delle query. Ogni nodo in Azure SQL Data Warehouse ha circa 1 TB di spazio non elaborato per tempdb. Di seguito sono riportati alcuni suggerimenti per il monitoraggio dell'utilizzo di tempdb e per ridurre l'utilizzo di tempdb nelle query. 
 
-### <a name="monitoring-tempdb-with-views"></a>Tempdb con le viste di monitoraggio
-Per monitorare l'utilizzo di tempdb, prima di tutto installare il [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) da visualizzare il [Toolkit di Microsoft per SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). È quindi possibile eseguire la query seguente per visualizzare l'utilizzo di tempdb per ogni nodo per tutte le query eseguite:
+### <a name="monitoring-tempdb-with-views"></a>Monitoraggio di tempdb con visualizzazioni
+Per monitorare l'utilizzo di tempdb, installare prima di tutto la vista [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) da [microsoft Toolkit for SQL data warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). È quindi possibile eseguire la query seguente per visualizzare l'utilizzo di tempdb per nodo per tutte le query eseguite:
 
 ```sql
 -- Monitor tempdb
@@ -205,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Se si dispone di una query che utilizza una grande quantità di memoria o hanno ricevuto un messaggio di errore relative all'allocazione del database tempdb, è spesso a causa di un grandi [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) oppure [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) istruzione in esecuzione che contiene errori nell'operazione di spostamento di dati finale. In genere può essere identificato come operazione ShuffleMove nel piano di query distribuite prima finale INSERT SELECT.
+Se si dispone di una query che utilizza una quantità elevata di memoria o se è stato ricevuto un messaggio di errore relativo all'allocazione di tempdb, il problema potrebbe essere dovuto a un CREATE TABLE molto grande [come Select (CTAs)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o a un'istruzione [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) in esecuzione che ha esito negativo nel operazione di spostamento dati finale. Questo può essere in genere identificato come un'operazione ShuffleMove nel piano di query distribuite immediatamente prima dell'inserimento finale SELECT.  Utilizzare [sys. dm _pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) per monitorare le operazioni di ShuffleMove. 
 
-La soluzione più comune consiste nel suddividere l'istruzione CTAS o INSERT SELECT in più istruzioni di carico in modo che il volume di dati non supererà 1TB per ogni limite tempdb di nodi. È anche possibile ridimensionare il cluster a una dimensione maggiore che verrà distribuite le dimensioni di tempdb in più nodi, riducendo il tempdb su ogni singolo nodo. 
+La mitigazione più comune consiste nel suddividere l'istruzione CTAS o INSERT SELECT in più istruzioni Load, in modo che il volume di dati non superi il limite del tempdb di 1 TB per nodo. È anche possibile ridimensionare il cluster a dimensioni maggiori, in modo da suddividere le dimensioni di tempdb tra più nodi riducendo il tempdb in ogni singolo nodo.
+
+Oltre alle istruzioni CTAS e INSERT SELECT, le query di grandi dimensioni e complesse eseguite con memoria insufficiente possono essere distribuite in tempdb causando un errore di query.  Provare a eseguire con una [classe di risorse](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) più grande per evitare la distribuzione in tempdb.
 
 ## <a name="monitor-memory"></a>Monitorare la memoria
 
@@ -261,8 +264,33 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
+## <a name="monitor-polybase-load"></a>Monitorare il carico di base
+La query seguente fornisce una stima di Ballpark dello stato di avanzamento del carico. La query Mostra solo i file attualmente in fase di elaborazione. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle DMV, vedere [Viste di sistema][System views].
+Per ulteriori informazioni su DMV, vedere [viste di sistema][System views].
 
 
 <!--Image references-->

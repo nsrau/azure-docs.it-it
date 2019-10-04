@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662551"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385222"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Esercitazione: Creare immagini del contenitore su un cluster Linux di Service Fabric
 
@@ -94,7 +94,7 @@ Eseguire per prima cosa il comando **az login** per accedere al proprio account 
 az login
 ```
 
-Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il registro contenitori di Azure. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
+Successivamente, usare il comando **az account** per scegliere la sottoscrizione per creare il Registro Azure Container. Sostituire <subscription_id> con l'ID della sottoscrizione di Azure.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -116,7 +116,7 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Nella parte restante di questa esercitazione si usa "acrName" come segnaposto per il nome del registro contenitori scelto. Prendere nota di questo valore.
 
-## <a name="log-in-to-your-container-registry"></a>Accedere al registro contenitori
+## <a name="sign-in-to-your-container-registry"></a>Accedere al registro contenitori
 
 Accedere all'istanza di Registro Azure Container prima di eseguire il push di immagini in essa. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 

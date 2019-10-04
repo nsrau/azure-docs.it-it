@@ -3,17 +3,17 @@ title: Eseguire gli script in una macchina virtuale Windows di Azure
 description: In questo argomento viene descritto come eseguire gli script all'interno di una macchina virtuale di Windows
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ec34ff874eae9bbdd53470f135bcf0c182d5daed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251050"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476749"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Eseguire gli script nella macchina virtuale Windows
 

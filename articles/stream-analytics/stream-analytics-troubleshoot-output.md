@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164909"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620798"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -79,7 +79,7 @@ Per visualizzare i dettagli, nel portale di Azure selezionare il processo di str
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Avviso di violazione della chiave con output del database SQL di Azure
 
-Quando si configura il database SQL di Azure come output di un processo di Analisi di flusso, vengono eseguiti inserimenti bulk dei record nella tabella di destinazione. In generale, Analisi di flusso di Azure garantisce [almeno un recapito]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) nel sink di output, ma è possibile [ottenere esattamente un recapito]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) nell'output SQL quando per la tabella SQL viene definito un vincolo univoco. 
+Quando si configura il database SQL di Azure come output di un processo di Analisi di flusso, vengono eseguiti inserimenti bulk dei record nella tabella di destinazione. In generale, Analisi di flusso di Azure garantisce [almeno un recapito](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) nel sink di output, ma è possibile [ottenere esattamente un recapito]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) nell'output SQL quando per la tabella SQL viene definito un vincolo univoco. 
 
 Quando sono impostati vincoli di chiave univoca sulla tabella SQL e sono presenti record duplicati da inserire nella tabella SQL, Analisi di flusso di Azure rimuove il record duplicato. Suddivide i dati in batch e inserisce in modo ricorsivo i batch finché non viene trovato un singolo record duplicato. Se il processo di streaming ha un numero considerevole di righe duplicate, questo processo di divisione e inserimento deve ignorare i duplicati uno alla volta, pertanto risulta meno efficiente e dispendioso in termini di tempo. Se vengono visualizzati più messaggi di avviso di violazione della chiave nel log attività nell'ultima ora, è probabile che l'output SQL stia rallentando l'intero processo. 
 
@@ -91,6 +91,10 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 * È possibile impostare l'opzione IGNORE_DUP_KEY con ALTER INDEX per un indice univoco, diverso dal vincolo PRIMARY KEY/UNIQUE e creato con la definizione CREATE INDEX o INDEX.  
 * L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché non è possibile applicare l'univocità in tali indici.  
 
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi delle colonne sono in minuscolo da Azure Stream Analitica
+Quando si usa il livello di compatibilità originale (1.0), Azure Stream Analitica utilizzato per modificare i nomi delle colonne in lettere minuscole. Questo comportamento è stato risolto nelle versioni successive i livelli di compatibilità. Per preservare il caso, si consiglia ai clienti di spostarsi il livello di compatibilità 1.1 e versioni successivo. È possibile trovare altre informazioni sul [a livello di compatibilità per i processi di Azure Stream Analitica](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
+
 ## <a name="get-help"></a>Ottenere aiuto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -100,5 +104,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ff18a14b314b5757629205f4bf0eb134411688ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853116"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782614"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza per le
 > [!div class="checklist"]
 > * Creare un insieme di credenziali di Servizi di ripristino
 > * Verificare le impostazioni delle risorse di destinazione
-> * Configurare l'accesso in uscita per le macchine virtuali
+> * Configurare la connettività di rete in uscita per le macchine virtuali
 > * Abilitare la replica per una macchina virtuale
 
 > [!NOTE]
@@ -35,15 +35,15 @@ Questa esercitazione illustra come configurare il ripristino di emergenza per le
 
 Per completare questa esercitazione:
 
-- Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](concepts-azure-to-azure-architecture.md).
+- Esaminare [l'architettura e i componenti dello scenario](concepts-azure-to-azure-architecture.md).
 - Prima di iniziare, verificare i [requisiti di supporto](site-recovery-support-matrix-azure-to-azure.md).
 
-## <a name="create-a-vault"></a>Creare un insieme di credenziali
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di origine.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)**.
+2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse o selezionarne uno esistente. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** e quindi su **Crea**.
@@ -52,12 +52,12 @@ Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di orig
 
    Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione **Tutte le risorse**, e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
-## <a name="verify-target-resources"></a>Verificare le risorse di destinazione
+## <a name="verify-target-resource-settings"></a>Verificare le impostazioni delle risorse di destinazione
 
 1. Verificare che la sottoscrizione di Azure in uso consenta la creazione di macchine virtuali nell'area di destinazione. Contattare il supporto tecnico per abilitare la quota necessaria.
 2. Assicurarsi che la sottoscrizione offra risorse sufficienti per supportare macchine virtuali con dimensioni corrispondenti alle macchine virtuali di origine. Per la macchina virtuale di destinazione, Site Recovery sceglie la stessa dimensione o la dimensione più vicina possibile.
 
-## <a name="configure-outbound-network-connectivity"></a>Configurare la connettività di rete in uscita
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>Configurare la connettività di rete in uscita per le macchine virtuali
 
 Per un corretto funzionamento di Site Recovery, è necessario modificare la connettività di rete in uscita dalle macchine virtuali che si vuole replicare.
 
@@ -86,7 +86,7 @@ Se si vuole controllare la connettività in uscita usando indirizzi IP invece di
   - [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Indirizzi IP dell'endpoint di servizio di Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-È possibile usare questo [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) per creare le regole NSG necessarie.
+Se si usa NSG è possibile creare una tag del servizio di archiviazione basato sulle regole NSG per l'area di origine. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
 
 ## <a name="verify-azure-vm-certificates"></a>Verificare i certificati della macchina virtuale di Azure
 
@@ -107,7 +107,7 @@ Azure Site Recovery offre tre ruoli predefiniti per controllare le operazioni di
 
 Altre informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Abilitare la replica
+## <a name="enable-replication-for-a-vm"></a>Abilitare la replica per una macchina virtuale
 
 ### <a name="select-the-source"></a>Selezionare l'origine
 
@@ -145,8 +145,8 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
     **Gruppo di risorse di destinazione** | gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". Il percorso del gruppo di risorse di destinazione può essere in qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine.
     **Rete virtuale di destinazione** | rete nell'area di destinazione in cui si trovano le macchine virtuali dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr".
     **Account di archiviazione della cache** | Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.<br/><br/> Se si usa un account di archiviazione della cache abilitato per il firewall, assicurarsi di selezionare **Consenti servizi Microsoft attendibili**. [Altre informazioni.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-    **Account di archiviazione di destinazione (se la macchina virtuale di origine usa dischi non gestiti)** | Per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.<br/><br/> Abilitare **Consenti servizi Microsoft attendibili** se si usa un account di archiviazione della cache abilitato per il firewall.
-    **Dischi gestiti di replica (se la macchina virtuale di origine usa dischi gestiti)**: | per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della macchina virtuale di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della macchina virtuale di origine.
+    **Account di archiviazione di destinazione (se la macchina virtuale di origine usa dischi non gestiti)** | per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.<br/><br/> Abilitare **Consenti servizi Microsoft attendibili** se si usa un account di archiviazione della cache abilitato per il firewall.
+    **Dischi gestiti di replica (se la macchina virtuale di origine usa dischi gestiti)** : | per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della macchina virtuale di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della macchina virtuale di origine. È possibile personalizzare solo Tipo di disco 
     **Set di disponibilità di destinazione** | per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" per la parte attinente alle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
     **Zone di disponibilità di destinazione** | per impostazione predefinita, Site Recovery assegna nell'area di origine lo stesso numero di zona dell'area di origine se l'area di destinazione supporta le zone di disponibilità.<br/><br/> Se l'area di destinazione non supporta le zone di disponibilità, per impostazione predefinita le macchine virtuali di destinazione vengono configurate come istanze singole.<br/><br/> Fare clic su **Personalizza** per configurare le macchine virtuali come parte di un set di disponibilità nell'area di destinazione.<br/><br/> Dopo avere abilitato la replica non è possibile modificare il tipo di disponibilità, ovvero l'istanza singola, il set di disponibilità o la zona di disponibilità. Per modificare il tipo di disponibilità, è necessario disabilitare e abilitare la replica.
 

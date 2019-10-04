@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400478"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101841"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
 I gruppi di disponibilità AlwaysOn garantiscono un disponibilità elevata per i gruppi di database grazie all'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
@@ -34,7 +33,7 @@ L'esercitazione presuppone che l'utente disponga degli elementi seguenti:
 * Connettività tra la rete locale e la rete virtuale di Azure. Per altre informazioni sulla creazione della rete virtuale, vedere [Creare una connessione da sito a sito usando il portale di Azure (versione classica)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 ## <a name="add-azure-replica-wizard"></a>Procedura guidata Aggiungi replica di Azure
 Questa sezione mostra come usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere il gruppo di disponibilità AlwaysOn in modo da includere le repliche di Azure.
@@ -42,13 +41,13 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
 > [!IMPORTANT]
 > La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Resource Manager, è necessario aggiungere manualmente la replica secondaria di Azure usando comandi Transact-SQL, che non sono inclusi in questo articolo. La procedura guidata non funziona in uno scenario di Resource Manager.
 
-1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **[nome del gruppo di disponibilità]**.
+1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** >  **[nome del gruppo di disponibilità]** .
 2. Fare doppio clic su **Repliche di disponibilità**, quindi fare clic su **Aggiungi Replica**.
 3. Per impostazione predefinita, viene visualizzata la **procedura guidata Aggiungi replica di Azure** . Fare clic su **Avanti**.  Se durante un precedente avvio della procedura guidata è stata selezionata l'opzione **Non visualizzare più questa pagina** nella parte inferiore della pagina, questa schermata non verrà visualizzata.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. Verrà richiesto di connettersi a tutte le repliche secondarie esistenti. È possibile fare clic su **Connetti...** accanto a ogni replica oppure selezionare **Connetti tutto...** nella parte inferiore della schermata. Dopo l'autenticazione, fare clic su **Avanti** per passare alla schermata successiva.
-5. Nella parte superiore della pagina **Specifica repliche** sono disponibili più schede: **Repliche**, **Endpoint**, **Preferenze di backup** e **Listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...** per avviare la procedura guidata Aggiungi replica di Azure.
+5. Nella pagina **Specifica repliche** sono elencate più schede nella parte superiore: **Repliche**, **endpoint**, **Preferenze di backup**e **listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...** per avviare la procedura guidata Aggiungi replica di Azure.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. Selezionare un certificato di gestione di Azure esistente dall'archivio certificati di Windows locale, se in precedenza ne è già stato installato uno. Selezionare o immettere l'ID di una sottoscrizione di Azure, se invece non ne è mai stato usato uno. È possibile fare clic su Download per scaricare e installare un certificato di gestione di Azure e scaricare l'elenco delle sottoscrizioni tramite un account di Azure.
@@ -56,7 +55,7 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. In questa pagina è necessario immettere in ciascun campo i valori richiesti che verranno usati per creare la macchina virtuale di Azure.
    
-   | Impostazione | DESCRIZIONE |
+   | Impostazione | Descrizione |
    | --- | --- |
    | **Immagine** |Selezionare la combinazione di sistema operativo e SQL Server desiderata. |
    | **Dimensioni macchina virtuale** |Selezionare le dimensioni della macchina virtuale più adatte alle esigenze aziendali. |

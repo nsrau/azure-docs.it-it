@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60865520"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -45,7 +45,7 @@ Quando si esegue un failover di test, viene chiesto di selezionare le impostazio
 
 | **Opzione** | **Dettagli** | |
 | --- | --- | --- |
-| **Nessuno** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
+| **None** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
 | **Usa esistente** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su Virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. | |
 | **Crea una rete** | Viene creata automaticamente una rete di test temporanea in base all'impostazione specificata in **Rete logica** e ai siti di rete correlati.<br/><br/> Il failover controlla che le macchine virtuali vengano create.<br/><br/> Usare questa opzione se un piano di ripristino uza più reti VM.<br/><br/> Se si utilizzano reti di virtualizzazione rete Windows, è possibile utilizzare questa opzione per creare automaticamente reti VM con le stesse impostazioni (subnet e pool di indirizzi IP) specificate nella rete della macchina virtuale di replica. Queste reti VM vengono eliminate automaticamente al termine del failover di test.<br/><br/> La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.|
 

@@ -1,25 +1,18 @@
 ---
-title: Pubblicare l'offerta di modulo Azure IoT Edge | Microsoft Docs
+title: Pubblica offerta di Azure IoT Edge module | Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di modulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dfa512a26334567301812ecefd8c5673b0ea4094
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: c853bd3bad9f02f6824c26fb5d18e9e59d921fe8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942055"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Pubblicare l'offerta di modulo IoT Edge
 
@@ -37,9 +30,9 @@ La tabella seguente illustra ogni passaggio della pubblicazione e indica una sti
 
 |  **Passaggio per la pubblicazione**           | **Ora**    | **Descrizione**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Convalida dei prerequisiti         | 15 minuti   | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
+| Convalida dei prerequisiti         | 15 min   | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
 | Certificazione                  | 2 settimane | L'offerta viene analizzata dal team delle certificazioni di Azure. Questo passaggio esegue le analisi di virus, malware, conformità alle normative sulla sicurezza e problemi di sicurezza. Verifica anche che l'offerta di modulo IoT Edge soddisfi tutti i criteri di idoneità (vedere i [prerequisiti](./cpp-prerequisites.md) e [preparazione degli asset tecnici](./cpp-create-technical-assets.md)). Se viene rilevato un problema, viene fornito un feedback. |
-| Packaging | 1 ora  | Gli asset tecnici dell'offerta vengono inclusi in un pacchetto per uso dei clienti e i sistemi di clienti potenziali vengono configurati e impostati. |
+| Packaging | 1 ora  | Le risorse tecniche dell'offerta vengono incluse in un pacchetto per uso dei clienti e i sistemi di registrazione di clienti potenziali vengono configurati e impostati. |
 |  Consenso dell'editore             |  -        | Revisione finale dell'editore e conferma prima che l'offerta diventi disponibile in Azure Marketplace. È possibile distribuire l'offerta nelle sottoscrizioni selezionate (nei passaggi relativi alle informazioni sull'offerta) per verificare che soddisfi tutti i requisiti.  Selezionare **Go Live** in modo che l'offerta passi alla fase successiva. |
 | Packaging                 | 1 ora | L'offerta finalizzata viene replicata nelle aree e nei sistemi di produzione del marketplace. | 
 | Live                           | 4 giorni |L'offerta viene rilasciata, replicata nelle aree necessarie e resa disponibile al pubblico. |

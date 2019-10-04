@@ -3,9 +3,8 @@ title: Esercitazione per Centro sicurezza di Azure - Protezione delle risorse co
 description: Questa esercitazione illustra come configurare i criteri di accesso JIT alle macchine virtuali e i criteri di controllo delle applicazioni.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: monhaber
-ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 12/03/2018
+ms.author: memildin
+ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110342"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200654"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
 Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT (Just-in-Time) alle macchine virtuali (VM) riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
@@ -72,8 +71,6 @@ Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Dev
 
 ## <a name="harden-vms-against-malware"></a>Implementare la protezione avanzata contro il malware delle macchine virtuali
 I controlli delle applicazioni adattivi aiutano a definire un set di applicazioni che è possibile eseguire in gruppi di risorse configurati. Questo, oltre ad altri vantaggi, consente di implementare la protezione avanzata contro il malware delle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
-
-Questa funzionalità è disponibile solo per i computer Windows.
 
 1. Tornare al menu principale del Centro sicurezza di Azure. In **DIFESA CLOUD AVANZATA**selezionare **Controlli delle applicazioni adattivi**.
 

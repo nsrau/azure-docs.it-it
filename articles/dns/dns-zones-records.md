@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174292"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772267"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -28,9 +28,9 @@ Questa pagina presenta i concetti principali relativi a domini, zone DNS e recor
 
 ## <a name="domain-names"></a>Nomi di dominio
 
-Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente "**.**",  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
+Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente " **.** ",  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
 
-Un registrar è un'organizzazione che consente di acquistare un nome di dominio, ad esempio "contoso.com".  L'acquisto di un nome di dominio comporta il diritto di controllare la gerarchia DNS con questo nome, permettendo ad esempio di indirizzare il nome "www.contoso.com" al sito Web della società. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
+Un registrar è un'organizzazione che consente di acquistare un nome di dominio, ad esempio "contoso.com".  L'acquisto di un nome di dominio offre il diritto di controllare la gerarchia DNS con tale nome, ad esempio consentendo di indirizzare il nome www.contoso.com al sito Web della società. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
 
 DNS di Azure offre un'infrastruttura di server dei nomi a disponibilità elevata e distribuita a livello globale, che può essere usata per ospitare il dominio. Ospitando i domini in DNS di Azure, è possibile gestire i record DNS usando gli stessi strumenti, credenziali, API, fatturazione e supporto degli altri servizi di Azure.
 
@@ -59,7 +59,7 @@ Per creare un set di record con caratteri jolly, usare il nome del set di record
 ### <a name="caa-records"></a>Record CAA
 
 Un record CAA consente ai proprietari di domini di specificare quali autorità di certificazione (CA) sono autorizzate a emettere certificati per i loro domini. In questo modo le autorità di certificazione evitano di rilasciare erroneamente certificati in determinate circostanze. I record CAA hanno tre proprietà:
-* **Flag**: un numero intero compreso tra 0 e 255 utilizzato per rappresentare il flag di criticità che ha un significato speciale in base alla [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flag**: Si tratta di un numero intero compreso tra 0 e 255, utilizzato per rappresentare il flag critico che ha un significato speciale per la [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tag**: una stringa ASCII che può avere uno dei valori seguenti:
     * **issue**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (tutti i tipi)
     * **issuewild**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (solo certificati con caratteri jolly)
@@ -87,6 +87,8 @@ Questo si applica solo al set di record NS al vertice della zona. Gli altri set 
 Un set di record SOA viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = "\@") e viene eliminato automaticamente quando viene eliminata la zona.  I record SOA non possono essere creati o eliminati separatamente.
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
+
+Il numero di serie della zona nel record SOA non viene aggiornato automaticamente quando vengono apportate modifiche ai record nella zona. Se necessario, è possibile aggiornarlo manualmente modificando il record SOA.
 
 ### <a name="spf-records"></a>Record SPF
 
@@ -134,7 +136,7 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 | Intestazione | Comportamento |
 | --- | --- |
 | Nessuna |PUT riesce sempre (nessun controllo di Etag) |
-| If-Match <etag> |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
+| > If- \<match ETag |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 

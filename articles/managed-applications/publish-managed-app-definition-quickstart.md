@@ -4,17 +4,15 @@ description: Questo articolo descrive come creare un'applicazione gestita di Azu
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: b8c5a99a74446fcd126606b34135bba315ca1473
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804913"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995420"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Pubblicare una definizione di applicazione gestita di Azure
 
@@ -41,7 +39,7 @@ Quando si definisce l'applicazione gestita, si seleziona un utente, un gruppo o 
 Per ottenere l'ID oggetto dell'identità, specificare il nome dell'entità utente nel comando seguente:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Ora è necessario l'ID di definizione del ruolo Controllo degli accessi in base al ruolo predefinito a cui si vuole concedere l'accesso all'utente. Il comando seguente illustra come ottenere l'ID di definizione per il ruolo Proprietario:
@@ -61,7 +59,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$userid:$roleid" \
-  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
 
 Al completamento del comando, è disponibile una definizione dell'applicazione gestita nel gruppo di risorse. 

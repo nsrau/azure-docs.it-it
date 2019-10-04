@@ -4,23 +4,22 @@ description: Usare Azure PowerShell per determinare l'editore, l'offerta, lo SKU
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 645d969d71a0b8707d7969f4bf68a07ab0211d0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500016"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080018"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
 
@@ -28,7 +27,7 @@ Questo articolo descrive come usare Azure PowerShell per trovare immagini di VM 
 
 È anche possibile sfogliare le immagini e le offerte disponibili usando la vetrina di [Azure Marketplace](https://azuremarketplace.microsoft.com/), il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -36,7 +35,7 @@ Questo articolo descrive come usare Azure PowerShell per trovare immagini di VM 
 
 Questa tabella illustra un subset degli SKU disponibili per le offerte e i server di pubblicazione indicati.
 
-| Editore | Offerta | Sku |
+| Pubblicato da | Offerta | Sku |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |

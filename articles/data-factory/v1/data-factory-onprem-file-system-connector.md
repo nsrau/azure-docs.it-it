@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432782"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881342"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system locale usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-file-system-connector.md)
 > * [Versione 2 (corrente)](../connector-file-system.md)
 
@@ -55,7 +55,7 @@ Per usare una condivisione di file Linux, installare [Samba](https://www.samba.o
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -84,8 +84,8 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Servizio collegato di esempio e definizioni del set di dati
 | Scenario | Host nella definizione del servizio collegato | folderPath nella definizione del set di dati |
 | --- | --- | --- |
-| Cartella locale nel computer del gateway di gestione dati:  <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
-| Cartella condivisa remota:  <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
+| Cartella locale nel computer del gateway di gestione dati: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
+| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
 
 >[!NOTE]
 >Quando si crea tramite interfaccia utente, non è necessario immettere la doppia barra rovesciata (`\\`) per i caratteri di escape come con JSON, basta specificare la barra rovesciata singola.
@@ -131,11 +131,11 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e fornisce inf
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | folderPath |Specifica il percorso secondario della cartella. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Il filtro con caratteri jolly non è supportato. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) .<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
-| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*. log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>Si noti che fileFilter è applicabile per un set di dati di input FileShare. |No  |
-| partitionedBy |È possibile usare partitionedBy per specificare un valore folderPath/fileName dinamico per i dati di una serie temporale. Un esempio è folderPath con parametri per ogni ora di dati. |No  |
-| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |N. |
+| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*. log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>Si noti che fileFilter è applicabile per un set di dati di input FileShare. |N. |
+| partitionedBy |È possibile usare partitionedBy per specificare un valore folderPath/fileName dinamico per i dati di una serie temporale. Un esempio è folderPath con parametri per ogni ora di dati. |N. |
+| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compression | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |N. |
 
 > [!NOTE]
 > Non è possibile usare fileName e fileFilter contemporaneamente.
@@ -182,13 +182,13 @@ Per l'attività di copia variano in base ai tipi di origine e sink. Se si effett
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No  |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
 
 **FileSystemSink** supporta le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file della cartella di origine in un solo file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |No  |
+| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file della cartella di origine in un solo file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |N. |
 
 ### <a name="recursive-and-copybehavior-examples"></a>esempi ricorsivi e copyBehavior
 Questa sezione descrive il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e delle proprietà copyBehavior.
@@ -206,7 +206,7 @@ Questa sezione descrive il comportamento derivante dell'operazione di copia per 
 Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Esempi JSON per la copia dei dati da e verso un file system
-Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi mostrano come copiare dati da e nel file system locale e in Archiviazione BLOB di Azure. È tuttavia possibile copiare dati *direttamente* da una qualsiasi delle origini in uno qualsiasi dei sink elencati in [Sink e origini supportate](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi mostrano come copiare dati da e nel file system locale e in Archiviazione BLOB di Azure. È tuttavia possibile copiare dati *direttamente* da una qualsiasi delle origini in uno qualsiasi dei sink elencati in [Sink e origini supportate](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Esempio: Copiare i dati da un file system locale in Archiviazione BLOB di Azure
 Questo esempio illustra come copiare dati da un file system locale in Archiviazione BLOB di Azure. L'esempio include le entità della data factory seguenti:
@@ -441,7 +441,7 @@ L'esempio seguente mostra:
 
 L'esempio copia i dati di una serie temporale da una tabella di Azure SQL a un sistema di file locale ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-**Servizio collegato per il database SQL Azure:**
+**Servizio collegato per il database SQL di Azure.**
 
 ```JSON
 {

@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
-manager: craigg
 ms.date: 03/08/2019
-ms.openlocfilehash: 5226ec05af95cf305008968cf945070532274ee5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726941"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569568"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteggere i dati sensibili e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
@@ -126,11 +125,11 @@ Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic
 
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Summary](./media/sql-database-always-encrypted/summary.png)
+![Riepilogo](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 

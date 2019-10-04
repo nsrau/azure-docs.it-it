@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 06/28/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 325b69eb7b9b069db0ba49b4578541ee801c3444
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873764"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476187"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge
 
@@ -35,7 +35,7 @@ Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazio
 
 Se si vuole testare la funzionalità del gateway Modbus, Microsoft offre un modulo di esempio che può essere usato a questo scopo. Da Azure Marketplace, si potrà accedere al modulo [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), o con l'URI, dell'immagine **mcr.microsoft.com/azureiotedge/modbus:1.0**.
 
-Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Se si crea la propria immagine di contenitore, fare riferimento a [sviluppare C# moduli in Visual Studio](how-to-visual-studio-develop-csharp-module.md) oppure [sviluppare moduli in Visual Studio Code](how-to-vs-code-develop-module.md). Questi articoli forniscono istruzioni sulla creazione di nuovi moduli e pubblicazione di immagini del contenitore in un registro di sistema.
+Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Per creare un'immagine del contenitore, fare riferimento a [sviluppare C# moduli in Visual Studio](how-to-visual-studio-develop-csharp-module.md) oppure [sviluppare moduli in Visual Studio Code](how-to-vs-code-develop-module.md). Questi articoli forniscono istruzioni sulla creazione di nuovi moduli e pubblicazione di immagini del contenitore in un registro di sistema.
 
 ## <a name="try-the-solution"></a>Provare la soluzione
 
@@ -70,7 +70,7 @@ In questa sezione illustra in modo dettagliato la distribuzione esempio Modbus m
                 "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
-                  "StartAddress":"400001",
+                  "StartAddress":"40001",
                   "Count":"2",
                   "DisplayName":"Voltage"
                 }
@@ -85,12 +85,13 @@ In questa sezione illustra in modo dettagliato la distribuzione esempio Modbus m
 
 5. Nel passaggio **Aggiungi moduli** selezionare **Avanti**.
 
-7. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. Questa route invia tutti i messaggi raccolti dal modulo Modbus all'hub IoT. In questa route "modbusOutput" è l'endpoint che utilizzano il modulo Modbus per restituire i dati e "upstream" è una destinazione speciale che indica all'hub IoT Edge per inviare messaggi all'IoT Hub.
+7. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. Questa route invia tutti i messaggi raccolti dal modulo Modbus all'hub IoT. In questa route **modbusOutput** è l'endpoint che Modbus module Usa per restituire i dati e **$upstream** è una destinazione speciale che indica all'hub IoT Edge per inviare messaggi all'IoT Hub.
+
    ```JSON
    {
-    "routes": {
-      "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-    }
+     "routes": {
+       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
+     }
    }
    ```
 

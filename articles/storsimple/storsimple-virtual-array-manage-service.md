@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688154"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516673"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
+
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure e si connette a più dispositivi StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure in esecuzione in un browser. Ciò consente di monitorare tutti i dispositivi connessi al servizio Gestione dispositivi StorSimple da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
 
@@ -72,7 +75,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
     ![Selezionare il servizio da eliminare](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Passare al dashboard del servizio per verificare che non siano presenti dispositivi connessi al servizio. Se non sono presenti dispositivi registrati con questo servizio, verrà visualizzato un messaggio di intestazione in proposito. Fare clic su **Elimina**.
    
-    ![Delete service](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
+    ![Elimina servizio](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
 3. Quando viene richiesta la conferma, fare clic su **Sì** nella notifica di conferma. 
    

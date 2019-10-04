@@ -3,19 +3,19 @@ title: Endpoint di Ricerca Web
 titleSuffix: Azure Cognitive Services
 description: Riepilogo dell'endpoint dell'API Ricerca Web.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 8c3fd0fc091edbc4323315f636ed2f4fea7d822a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: be622c5636c253c48bec4d67fba58319262c2603
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499716"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883571"
 ---
 # <a name="web-search-endpoint"></a>Endpoint di Ricerca Web
 
@@ -31,7 +31,7 @@ Per ottenere risultati della ricerca Web tramite l'API Bing, inviare una richies
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Endpoint: per i dettagli relativi a intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+Endpoint: per i dettagli relativi a intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ## <a name="response-json"></a>Risposta JSON
 

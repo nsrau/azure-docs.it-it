@@ -2,20 +2,20 @@
 title: Uso di cicli T-SQL in Azure SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456290"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479618"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Uso di cicli T-SQL in SQL Data Warehouse
 Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.

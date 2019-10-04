@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793639"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60656732"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Moesif
 Il [servizio Gestione API](api-management-key-concepts.md) offre molte capacità per migliorare l'elaborazione di richieste HTTP inviate all'API HTTP. L'esistenza di richieste e risposte è tuttavia temporanea. La richiesta viene effettuata e passa attraverso al servizio Gestione API fino all'API back-end. L'API elabora la richiesta e una risposta viene restituita al consumer dell'API. Il servizio Gestione API mantiene alcune statistiche importanti sulle API da visualizzare nel dashboard del portale di Azure, ma eventuali altri dettagli verranno eliminati.
@@ -304,7 +304,7 @@ L'immagine animata seguente illustra l'invio di una richiesta a un'API nel porta
 
 ![Illustrazione dell'inoltro di una richiesta a Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffico HTTP verso e dalle API. Hub eventi di Azure è una soluzione a scalabilità elevata e costi ridotti per l'acquisizione e l'inserimento del traffico in sistemi di elaborazione secondari per operazioni di registrazione e monitoraggio e per altre analisi avanzate. Per connettersi a sistemi di monitoraggio del traffico di terze parti come Moesif basta scrivere qualche decina di righe di codice.
 
 ## <a name="next-steps"></a>Passaggi successivi

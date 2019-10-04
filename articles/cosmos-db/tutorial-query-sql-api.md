@@ -6,14 +6,14 @@ ms.author: rimman
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bc9835876e8b87213ddbae65e43222467e751ea3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241633"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932788"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API SQL
 
@@ -61,7 +61,7 @@ Le query SQL di questo articolo usano il documento di esempio seguente.
 È possibile eseguire query usando Esplora dati nel Portale di Azure, tramite le [API REST e gli SDK](sql-api-sdk-dotnet.md) e anche usando [Query Playground](https://www.documentdb.com/sql/demo), che esegue query su un set di dati di esempio esistente.
 
 Per altre informazioni sulle query SQL, vedere:
-* [Query e sintassi SQL](how-to-sql-query.md)
+* [Query e sintassi SQL](sql-query-getting-started.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

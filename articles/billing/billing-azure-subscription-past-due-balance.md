@@ -4,7 +4,7 @@ description: Viene descritto come effettuare il pagamento se la sottoscrizione d
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jureid
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -13,32 +13,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 056ece53fa154e86cf0b5f5fb24a8842cf5a4261
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839288"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300293"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Risolvere i problemi relativi al saldo scaduto per la sottoscrizione di Azure dopo aver ricevuto un messaggio di posta elettronica da Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure
 
-Se il pagamento non viene ricevuto o non può essere elaborato, è possibile che si riceva un messaggio di posta elettronica o si visualizzi un avviso nel Centro account o nel portale di Azure. Il messaggio potrebbe essere simile al seguente:
+Questo articolo si applica ai clienti con account del programma Microsoft Online Services.
 
-**Non è stato possibile effettuare l’addebito sulla carta di credito per la sottoscrizione. Per evitare interruzioni del servizio, aggiornare le informazioni di pagamento.**
+Se il pagamento non viene ricevuto o non può essere elaborato, è possibile che si riceva un messaggio di posta elettronica oppure che si visualizzi un avviso nel portale di Azure o nel Centro account.
+L'[amministratore account](billing-subscription-transfer.md#whoisaa) può pagare gli addebiti in sospeso nel [portale di Azure](https://portal.azure.com). Se si usa un metodo di pagamento con fattura, inviare il pagamento al destinatario elencato nella parte inferiore della fattura.
 
-Seguire i passaggi in questo articolo per risolvere il problema di saldo scaduto.
+> [!IMPORTANT]
+> * Se si hanno più sottoscrizioni scadute, associate alla stessa carta di credito, è necessario pagare l'intero saldo scoperto in una sola volta.
+> * Lo strumento di pagamento usato per il pagamento degli addebiti in sospeso diventerà il nuovo metodo di pagamento attivo per tutte le sottoscrizioni per cui veniva usato il metodo di pagamento in errore.
 
-## <a name="resolve-the-past-due-balance"></a>Risolvere i problemi relativi al saldo scaduto
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Risolvere il saldo scaduto nel portale di Azure
 
-* Se la carta di credito viene rifiutata o è scaduta, [modificare la carta di credito usata per pagare la sottoscrizione](billing-how-to-change-credit-card.md) o contattare la banca per risolvere il problema. Quando si aggiorna il metodo di pagamento, Azure elabora immediatamente il pagamento di tutti gli addebiti in sospeso. Viene anche elaborato il pagamento per eventuali altri servizi Microsoft con addebiti in sospeso.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Cercare **Gestione dei costi e fatturazione**.
+1. Nella pagina Panoramica verrà visualizzato l'elenco delle sottoscrizioni. Se lo stato della sottoscrizione è scaduto, fare clic sul collegamento **Liquidazione del saldo**.
+    ![Screenshot che mostra il collegamento Liquidazione del saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. Il saldo scoperto totale riflette gli addebiti in sospeso in tutti i servizi Microsoft per cui si usa il metodo di pagamento in errore.
+1. Selezionare un metodo di pagamento per pagare il saldo. Questo metodo di pagamento diventerà quello attivo per tutte le sottoscrizioni per cui attualmente si usa il metodo di pagamento in errore.
+    ![Screenshot che mostra il collegamento al metodo di pagamento selezionato](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. Se sono presenti addebiti in sospeso per i servizi Microsoft anche con il metodo di pagamento selezionato, questa situazione si rifletterà anche nel saldo scoperto totale. È necessario pagare anche questi addebiti in sospeso.
+1. Fare clic su **Pagamento**.
 
-* Se si usa un metodo di pagamento con fattura, inviare il pagamento al destinatario elencato nella parte inferiore della fattura. Per assistenza, contattare [il supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+## <a name="troubleshoot-declined-credit-card"></a>Risolvere i problemi relativi a una carta di credito rifiutata
 
-* Se non è possibile visualizzare una fattura perché l'amministratore account ha lasciato la società o sono stati modificati i ruoli, contattare il [supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per risolvere il problema.
-
-* Se si è certi che il pagamento è stato elaborato, ma la sottoscrizione è ancora disabilitata, contattare il [supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se l'addebito sulla carta di credito viene rifiutato dall'istituto finanziario, contattare tale istituto per risolvere il problema. Rivolgersi alla banca per verificare se:
+- Le transazioni internazionali sono abilitate per la carta.
+- Il limite di credito o i fondi presenti sulla carta sono sufficienti per pagare il saldo.
+- I pagamenti ricorrenti sono abilitati per la carta.
 
 ## <a name="not-getting-billing-email-notifications"></a>Non si ricevono notifiche di posta elettronica relative alla fatturazione?
 
@@ -48,6 +60,9 @@ Se si è un amministratore account, [verificare l'indirizzo e-mail usato per le 
 
 Il servizio viene annullato e le risorse non saranno più disponibili. I dati di Azure verranno eliminati 90 giorni dopo il termine del servizio. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
+Se si è certi che il pagamento è stato elaborato, ma la sottoscrizione è ancora disabilitata, contattare il [supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

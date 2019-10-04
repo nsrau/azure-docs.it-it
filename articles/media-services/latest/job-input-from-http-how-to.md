@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 5e301a671551ee65e8dc56ca6f86e273fe2f6241
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6eee912bb3bba112bd13969f1a8d9cb5748e387
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65413821"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Creare un input del processo da un URL HTTPS
 
 In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo esempio. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS. Per un esempio completo, vedere questo [esempio di GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+
+> [!TIP]
+> Prima di iniziare lo sviluppo, esaminare [lo sviluppo con le API di servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, le convenzioni di denominazione e così via).
 
 ## <a name="net-sample"></a>Esempio .NET
 

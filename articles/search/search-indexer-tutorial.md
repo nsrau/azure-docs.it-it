@@ -1,21 +1,19 @@
 ---
-title: 'Esercitazione: Indicizzare i dati dai database SQL di Azure nel codice C# di esempio - Ricerca di Azure'
+title: 'Esercitazione per C#: Indicizzare i dati da database SQL di Azure - Ricerca di Azure'
 description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528051"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640646"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione per C#: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 
@@ -58,7 +56,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+![Ottenere una chiave di accesso e un endpoint HTTP](media/search-get-started-postman/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -99,7 +97,7 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
    ![Pagina Database SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Nel riquadro di spostamento fare clic su **Editor di query (anteprima)**.
+4. Nel riquadro di spostamento fare clic su **Editor di query (anteprima)** .
 
 5. Fare clic su **Accedi** e immettere nome utente e password dell'amministratore del server.
 
@@ -267,7 +265,7 @@ Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'el
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile collegare gli algoritmi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
+È possibile collegare gli algoritmi di arricchimento con intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
 
 > [!div class="nextstepaction"]
 > [Indicizzazione di documenti in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)

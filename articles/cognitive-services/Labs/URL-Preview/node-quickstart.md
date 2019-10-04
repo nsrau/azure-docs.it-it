@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a1045be62f3bdbf75f399c894f825fa99f8e671
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884291"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706903"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Guida introduttiva: Anteprima URL con Node.js 
 
@@ -23,7 +24,7 @@ L'esempio in Node seguente crea un'anteprima URL per il sito Web SwiftKey: https
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Scenario di codice 
 

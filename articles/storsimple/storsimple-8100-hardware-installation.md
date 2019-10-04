@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963590"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 Il dispositivo Microsoft Azure StorSimple 8100 è un dispositivo a singolo enclosure montato su rack. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8100 prima di configurare e distribuire il dispositivo.
 
@@ -46,7 +49,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | DESCRIZIONE |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Protezione inferiore |
@@ -108,7 +111,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
     **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
-    Etichetta | DESCRIZIONE
+    Etichetta | Descrizione
     ----- | -----------
     1     | Viti con testa a bottone M 3X4
     2     | Guide dello chassis
@@ -122,7 +125,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida esterna al rack**
    
-   | Etichetta | DESCRIZIONE |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -148,7 +151,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
    
     **Installazione dei copriflangia**
    
-   | Etichetta | DESCRIZIONE |
+   | Label | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -157,7 +160,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8100-device"></a>Cablare il dispositivo StorSimple 8100
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8100 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * Il dispositivo di archiviazione, interamente disimballato e montato in rack.
@@ -188,7 +191,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | DESCRIZIONE |
+   | Label | Descrizione |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -199,14 +202,14 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     **Cablaggio di rete per il dispositivo**
 
-   |Etichetta | DESCRIZIONE |
+   |Label | DESCRIZIONE |
    |----- | ----------- |
-   | Una     | LAN con accesso a Internet |
+   | Una    | LAN con accesso a Internet |
    | B    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |
    | E    | PCM 1 |
-   | F, G | Hosts |
+   | F, G | Host |
    | 0-5  | Interfacce di rete |
 
 
@@ -236,11 +239,11 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
-5. Configurare la connessione seriale come segue: 115,200 baud, 8 bit di dati, 1 bit di stop, nessuna parità, set di controllo impostato su nessuno.
+5. Configurare la connessione seriale come segue: 115.200 baud, 8 bit di dati, 1 bit di stop, nessuna parità e controllo di flusso impostato su nessuno.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-out**: Quando il dispositivo è installato in un data center remoto o in una sala computer con accesso limitato, verificare che le connessioni seriali a entrambi i controller siano sempre connesse a un comportatore di console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

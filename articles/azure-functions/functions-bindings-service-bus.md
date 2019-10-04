@@ -4,20 +4,19 @@ description: Informazioni su come usare trigger e associazioni del bus di serviz
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7dcc69434e017d6564030d83b14098344bc8ac0d
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501043"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178347"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -35,6 +34,9 @@ Le associazioni del bus di servizio sono incluse nel pacchetto NuGet [Microsoft.
 
 Le associazioni del bus di servizio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/).
 
+> [!NOTE]
+> La versione 2. x non crea l'argomento o la sottoscrizione configurata nell' `ServiceBusTrigger` istanza di. La versione 2. x si basa su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e non gestisce la gestione delle code.
+
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Trigger
@@ -50,6 +52,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -148,7 +151,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Trigger - Esempio Java
 
-La funzione di Java seguente usa il `@ServiceBusQueueTrigger` annotazione dal [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per descrivere la configurazione per un trigger della coda del Bus di servizio. La funzione recupera il messaggio inserito nella coda e lo aggiunge ai log.
+La funzione Java seguente usa l' `@ServiceBusQueueTrigger` annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per descrivere la configurazione per un trigger della coda del bus di servizio. La funzione acquisisce il messaggio inserito nella coda e lo aggiunge ai log.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +165,7 @@ La funzione di Java seguente usa il `@ServiceBusQueueTrigger` annotazione dal [l
  }
 ```
 
-Funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del Bus di servizio. L'esempio seguente usa il `@ServiceBusTopicTrigger` annotazioni per descrivere la configurazione del trigger.
+Le funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del bus di servizio. Nell'esempio seguente viene utilizzata `@ServiceBusTopicTrigger` l'annotazione per descrivere la configurazione del trigger.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -210,6 +213,57 @@ module.exports = function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
+```
+
+### <a name="trigger---python-example"></a>Trigger - Esempio di Python
+
+Nell'esempio seguente viene illustrato come leggere un messaggio della coda ServiceBus tramite un trigger.
+
+Un binding ServiceBus è definito in *Function. JSON,* dove *Type* è impostato `serviceBusTrigger`su.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Il codice `func.ServiceBusMessage` in   *_\_init_\_. py* dichiara un parametro come che consente di leggere il messaggio della coda nella funzione.
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
 ```
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
@@ -275,11 +329,11 @@ L'account per il bus di servizio da usare è determinato nell'ordine seguente:
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBusTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "serviceBusTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta il messaggio della coda o dell'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
+|**name** | n/d | Nome della variabile che rappresenta il messaggio della coda o dell'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
 |**queueName**|**QueueName**|Nome della coda da monitorare.  Impostare questa proprietà solo quando si monitora una coda, non un argomento.
 |**topicName**|**topicName**|Nome dell'argomento da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
 |**subscriptionName**|**SubscriptionName**|Nome della sottoscrizione da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
@@ -295,7 +349,7 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per il m
 * `string`: se il messaggio è costituito da testo.
 * `byte[]`: utile per i dati binari.
 * Un tipo personalizzato: se il messaggio contiene JSON, Funzioni di Azure tenta di deserializzare i dati JSON.
-* `BrokeredMessage`: visualizza il messaggio deserializzato con il metodo [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody\<T > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Questi parametri sono per le versioni di Funzioni di Azure 1.x. Per le versioni 2.x, usare [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) invece di `BrokeredMessage`.
 
@@ -315,7 +369,7 @@ Il valore `maxAutoRenewDuration` può essere configurato in *host.json*, che ese
 
 Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Il numero di recapiti.|
 |`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
@@ -330,7 +384,7 @@ Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./funct
 |`CorrelationId`|`string`|L'ID di correlazione.|
 
 > [!NOTE]
-> Attualmente il trigger funziona solo con le code e le sottoscrizioni che non usano sessioni. Tenere traccia delle [informazioni riportate in questo argomento](https://github.com/Azure/azure-functions-host/issues/563) per altri aggiornamenti su questa funzionalità. 
+> Attualmente, il trigger del bus di servizio che funziona con le code e le sottoscrizioni abilitate per la sessione è in anteprima. Tieni traccia di [questo elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) per eventuali altri aggiornamenti. 
 
 Vedere gli [esempi di codice](#trigger---example) che usano queste proprietà in precedenza in questo articolo.
 
@@ -348,7 +402,7 @@ Il file [host.json](functions-host-json.md#servicebus) contiene le impostazioni 
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. |
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.|
@@ -367,6 +421,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
@@ -488,7 +543,7 @@ public String pushToQueue(
 
  Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare `@QueueOutput` l'annotazione per i parametri di funzione il cui valore viene scritto in una coda di bus di servizio.  Il tipo di parametro deve essere `OutputBinding<T>`, dove T corrisponde a un qualsiasi tipo Java nativo di un oggetto POJO.
 
-Funzioni Java anche possono scrivere un argomento del Bus di servizio. L'esempio seguente usa il `@ServiceBusTopicOutput` annotazioni per descrivere la configurazione per l'associazione di output. 
+Le funzioni Java possono anche scrivere in un argomento del bus di servizio. Nell'esempio seguente viene utilizzata `@ServiceBusTopicOutput` l'annotazione per descrivere la configurazione per l'associazione di output. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -557,6 +612,56 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="output---python-example"></a>Output - Esempio di Python
+
+Nell'esempio seguente viene illustrato come scrivere in una coda ServiceBus in Python.
+
+Una definizione di binding ServiceBue è definita in *Function. JSON,* dove *Type* è `serviceBus`impostato su.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "queueName": "outqueue"
+    }
+  ]
+}
+```
+
+`set` In   *_init\__ .pyèpossibilescrivereunmessaggionellacoda\_* passando un valore al metodo.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
 ## <a name="output---attributes"></a>Output - attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
@@ -591,11 +696,11 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBus`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "serviceBus". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Deve essere impostato su "out". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta la coda o l'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
+|**name** | n/d | Nome della variabile che rappresenta la coda o l'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
 |**queueName**|**QueueName**|Nome della coda.  Impostare questa proprietà solo se si inviano messaggi della coda, non dell'argomento.
 |**topicName**|**topicName**|Nome dell'argomento da monitorare. Impostare questa proprietà solo se si inviano messaggi dell'argomento, non della coda.|
 |**connessione**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Ad esempio, se si imposta `connection` su "MyServiceBus", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.|
@@ -612,14 +717,19 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'as
 * `out T paramName` - `T` può essere qualsiasi tipo serializzabile con JSON. Se il valore del parametro è null quando la funzione termina, Funzioni di Azure crea il messaggio con un oggetto null.
 * `out string`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
 * `out byte[]`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
-* `out BrokeredMessage`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
+* `out BrokeredMessage`-Se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per le funzioni 1. x)
+* `out Message`-Se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per functions 2. x)
 * `ICollector<T>` o `IAsyncCollector<T>`: per la creazione di più messaggi. Quando si chiama il metodo `Add` viene creato un messaggio.
 
-Nelle funzioni asincrone usare il valore restituito o `IAsyncCollector` anziché un parametro `out`.
+Quando si utilizzano C# le funzioni:
 
-Questi parametri sono per le versioni di Funzioni di Azure 1.x. Per le versioni 2.x, usare [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) invece di `BrokeredMessage`.
+* Per le funzioni asincrone è necessario un `IAsyncCollector` valore restituito o `out` anziché un parametro.
 
-In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name from function.json>`. È possibile assegnare una stringa, una matrice di byte o un oggetto Javascript (deserializzato in JSON) a `context.binding.<name>`.
+* Per accedere all'ID sessione, eseguire l'associazione [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) a un tipo e `sessionId` usare la proprietà.
+
+In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name from function.json>`. È possibile assegnare una stringa, una matrice di byte o un oggetto JavaScript (deserializzato in JSON) a `context.binding.<name>`.
+
+Per inviare un messaggio a una coda abilitata per la sessione inC# lingue diverse, usare [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) anziché l'associazione di output incorporata.
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
@@ -653,7 +763,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
 |autoComplete|true|Indica se il trigger deve contrassegnare immediatamente come completato (completamento automatico) oppure attendere che venga eseguita la chiamata a complete.|

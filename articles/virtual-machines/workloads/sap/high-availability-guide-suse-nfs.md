@@ -4,23 +4,22 @@ description: Disponibilità elevata per NFS in macchine virtuali di Azure su SUS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7af5663b399556d66f86213310858780369215af
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992072"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101063"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -28,15 +27,15 @@ ms.locfileid: "57992072"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -52,7 +51,7 @@ ms.locfileid: "57992072"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un server NFS a disponibilità elevata che può essere usato per archiviare i dati condivisi di un sistema SAP a disponibilità elevata.
-Questa guida descrive come configurare un server NFS a disponibilità elevata usato da due sistemi SAP, NW1 e NW2. I nomi delle risorse, ad esempio delle macchine virtuali e delle reti virtuali, nell'esempio presuppongono che sia stato usato il [modello di file server SAP][template-file-server] con il prefisso di risorsa **prod**.
+Questa guida descrive come configurare un server NFS a disponibilità elevata usato da due sistemi SAP, NW1 e NW2. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello di file server SAP][template-file-server] con il prefisso di risorsa **Prod**.
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
@@ -71,12 +70,12 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [1984787] contiene informazioni generali su SUSE Linux Enterprise Server 12.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
-* [Guide alle procedure consigliate per SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [Guide alle procedure consigliate di SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
   * Archiviazione NFS a disponibilità elevata con DRBD e Pacemaker
-* [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
+* [SUSE Linux Enterprise Server per le guide alle procedure consigliate di SAP Applications 12 SP3][sles-for-sap-bp]
 * [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Panoramica
@@ -110,7 +109,7 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP Applications 12 che è possibile usare per distribuire nuove macchine virtuali.
 È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello di file server di SAP][template-file-server] nel portale di Azure   
+1. Aprire il [modello di file server SAP][template-file-server] nella portale di Azure   
 1. Immettere i parametri seguenti
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
@@ -121,14 +120,14 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    4. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
 Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
 1. Creare un gruppo di risorse
-1. Creare una rete virtuale
+1. Crea rete virtuale
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1 Usare almeno SLES4SAP 12 SP3, in questo esempio viene usata l'immagine SLES4SAP 12 SP3 BYOS SLES For SAP Applications 12 SP3 (BYOS)  
@@ -179,6 +178,9 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          * Ripetere i passaggi precedenti per la porta 2049 e TCP per NW2
       1. UDP 2049 per NW2
          * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
+
+> [!IMPORTANT]
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -536,8 +538,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare SAP ASCS e il database](high-availability-guide-suse.md)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure (VM)][sap-hana-ha]

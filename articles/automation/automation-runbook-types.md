@@ -4,17 +4,17 @@ description: 'Descrive i diversi tipi di runbook che è possibile usare in Autom
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454902"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850365"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 
@@ -34,18 +34,18 @@ Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nell
 
 ### <a name="advantages"></a>Vantaggi
 
-* Modello di creazione con inserimento, collegamento e configurazione visivi  
-* Possibilità di analizzare il flusso dei dati attraverso il processo  
-* Rappresentazione visiva dei processi di gestione  
-* Inclusione di altri runbook come runbook figlio per creare flussi di lavoro di livello elevato  
-* Agevolazione della programmazione modulare  
+* Modello di creazione con inserimento, collegamento e configurazione visivi
+* Possibilità di analizzare il flusso dei dati attraverso il processo
+* Rappresentazione visiva dei processi di gestione
+* Inclusione di altri runbook come runbook figlio per creare flussi di lavoro di livello elevato
+* Agevolazione della programmazione modulare
 
 ### <a name="limitations"></a>Limitazioni
 
 * Impossibilità di modificare il runbook all'esterno del portale di Azure.
 * Potrebbe richiedere un'attività di codice contenente il codice di PowerShell per eseguire una logica complessa.
 * Impossibilità di visualizzare o modificare direttamente il codice di PowerShell creato dal flusso di lavoro grafico. È possibile visualizzare il codice creato in qualsiasi attività di codice.
-* Non può essere eseguita in Linux Hybrid Runbook Workers
+* Non può essere eseguito in un ruolo di lavoro ibrido per Runbook Linux
 
 ## <a name="powershell-runbooks"></a>Runbook di PowerShell
 
@@ -55,7 +55,7 @@ I runbook di PowerShell sono basati su Windows PowerShell.  È possibile modific
 
 * Implementazione di tutta la logica complessa con codice di PowerShell senza le complessità aggiuntive del flusso di lavoro PowerShell.
 * Avvio del runbook più rapido rispetto ai runbook del flusso di lavoro PowerShell poiché non è necessaria la compilazione prima dell'esecuzione.
-* Possono essere eseguiti in Azure o in Linux e Windows Hybrid Runbook Workers
+* Può essere eseguito in Azure o nei ruoli di lavoro ibridi per Runbook di Linux e Windows
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -90,7 +90,7 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 * Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
 * Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
 * Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook, che crea un nuovo processo.
-* Non può essere eseguita in Linux Hybrid Runbook Workers
+* Non può essere eseguito in un ruolo di lavoro ibrido per Runbook Linux
 
 ## <a name="python-runbooks"></a>Runbook Python
 
@@ -99,7 +99,7 @@ I runbook Python vengono compilati in Python 2.  È possibile modificare diretta
 ### <a name="advantages"></a>Vantaggi
 
 * Usare le affidabili librerie di Python.
-* Possono essere eseguiti in Azure o in entrambi i ruoli di lavoro Runbook ibrido Linux. Con sono supportati Windows Hybrid Runbook Workers [Python 2.7](https://www.python.org/downloads/release/latest/python2) installato.
+* Può essere eseguito in Azure o in entrambi i ruoli di lavoro ibridi per Runbook Linux. I ruoli di lavoro ibridi per Runbook Windows sono supportati con [Python 2.7](https://www.python.org/downloads/release/latest/python2) installato.
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -119,4 +119,4 @@ Tenere conto delle considerazioni aggiuntive seguenti per determinare quale tipo
 * Per altre informazioni sulla creazione grafica di runbook, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 * Per comprendere le differenze tra PowerShell e i flussi di lavoro di PowerShell per i runbook, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
 * Per ulteriori informazioni su come creare o importare un runbook, vedere [Creazione o importazione di un runbook](manage-runbooks.md)
-
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

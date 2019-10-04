@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3556c3f2cc56c85bf256f7a352a1a74ad06735d8
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322873"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089357"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiare dati da Spark usando Azure Data Factory 
 
@@ -25,9 +25,18 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
+Questo connettore Spark è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
+
 È possibile copiare dati da Spark a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -41,21 +50,21 @@ Per il servizio collegato di Spark sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Spark** | Sì |
+| type | La proprietà type deve essere impostata su: **Spark** | Yes |
 | host | Indirizzo IP o nome host del server Spark.  | Sì |
 | port | Porta TCP che il server Spark usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Sì |
-| serverType | Tipo del server Spark. <br/>I valori consentiti sono i seguenti: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No  |
-| thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono i seguenti: **Binary**, **SASL**, **HTTP** | No  |
+| serverType | Tipo del server Spark. <br/>I valori consentiti sono i seguenti: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
+| thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono i seguenti: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | Metodo di autenticazione usato per accedere al server Spark. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sì |
-| username | Nome utente usato per accedere al server Spark.  | No  |
-| password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
-| httpPath | URL parziale corrispondente al server Spark.  | No  |
-| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No  |
-| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No  |
-| useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è False.  | No  |
-| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è False.  | No  |
-| allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No  |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| userName | Nome utente usato per accedere al server Spark.  | No |
+| password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| httpPath | URL parziale corrispondente al server Spark.  | No |
+| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
+| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è False.  | No |
+| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è False.  | No |
+| allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -86,8 +95,10 @@ Per copiare dati da Spark, impostare la proprietà type del set di dati su **Spa
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SparkObject** | Sì |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| type | La proprietà type del set di dati deve essere impostata su: **SparkObject** | Yes |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -96,11 +107,12 @@ Per copiare dati da Spark, impostare la proprietà type del set di dati su **Spa
     "name": "SparkDataset",
     "properties": {
         "type": "SparkObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Spark linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -149,6 +161,10 @@ Per copiare dati da Spark, impostare il tipo di origine nell'attività di copia 
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

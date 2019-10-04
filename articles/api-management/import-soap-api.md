@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 108758751b7c8ef5906cb55495a2604f918b2714
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488915"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073249"
 ---
 # <a name="import-soap-api"></a>Importare un'API SOAP
 
@@ -31,9 +30,9 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
+Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -59,7 +58,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
     * **Starter**
     * **Illimitato**   
-10. Selezionare **Create**.
+10. Selezionare **Create** (Crea).
 
 ### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Testare la nuova API di Gestione API nel portale amministrativo
 

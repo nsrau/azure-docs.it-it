@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: fc219d9e3e5b365f341b2997804586e67275c1b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 751db0effb57f19db47be1eed166d7053d617e3d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046513"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491974"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -83,7 +83,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
       --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --device-id MyDotnetDevice \
       --output table
     ```
 
@@ -98,12 +98,12 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 È necessaria anche una _stringa di connessione del servizio_ per l'hub IoT per consentire all'applicazione back-end di connettersi all'hub e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 Annotare la stringa di connessione del servizio, che avrà questo aspetto:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 Il valore verrà usato più avanti in questa guida introduttiva. La stringa di connessione del servizio è diversa dalla stringa di connessione del dispositivo.  
 

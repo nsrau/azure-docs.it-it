@@ -1,21 +1,20 @@
 ---
 title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Ruby | Microsoft Docs
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Ruby per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
-services: storage
-author: tamram
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 11/14/2018
-ms.author: seguler
-ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008232"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726361"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Ruby
 
 Questa guida rapida mostra come usare Ruby per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
@@ -114,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida rapida.  
 
-Per caricare un file in un BLOB, ottenere il percorso completo del file unendo il nome della directory e il nome del file nell'unità locale. È quindi possibile caricare il file nel percorso desiderato usando il metodo **create\_block\_blob()**. 
+Per caricare un file in un BLOB, ottenere il percorso completo del file unendo il nome della directory e il nome del file nell'unità locale. È quindi possibile caricare il file nel percorso desiderato usando il metodo **create\_block\_blob()** . 
 
 Il codice di esempio crea un file locale da usare per il caricamento e il download, per archiviare il file da caricare come **file\_path\_to\_file** e il nome del BLOB nel **local\_file\_name**. Nell'esempio seguente il file viene caricato in un contenitore denominato **quickstartblobs**.
 
@@ -136,11 +135,11 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **create\_block\_list()**. I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
+Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **create\_block\_list()** . I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
 
 ### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 
-È possibile ottenere un elenco di file nel contenitore usando il metodo **list\_blobs()**. Il codice seguente recupera l'elenco di BLOB, quindi esegue il ciclo per tutti loro mostrando i nomi dei BLOB trovati in un contenitore.  
+È possibile ottenere un elenco di file nel contenitore usando il metodo **list\_blobs()** . Il codice seguente recupera l'elenco di BLOB, quindi esegue il ciclo per tutti loro mostrando i nomi dei BLOB trovati in un contenitore.  
 
 ```ruby
 # List the blobs in the container
@@ -157,7 +156,7 @@ end
 
 ### <a name="download-the-blobs"></a>Scaricare i BLOB
 
-Scaricare i BLOB nel disco locale usando il metodo **get\_blob()**. Il codice seguente consente di scaricare il BLOB caricato nella sezione precedente. Il suffisso "_DOWNLOADED" viene aggiunto al nome del BLOB in modo da visualizzare entrambi i file sul disco locale. 
+Scaricare i BLOB nel disco locale usando il metodo **get\_blob()** . Il codice seguente consente di scaricare il BLOB caricato nella sezione precedente. Il suffisso "_DOWNLOADED" viene aggiunto al nome del BLOB in modo da visualizzare entrambi i file sul disco locale. 
 
 ```ruby
 # Download the blob(s).
@@ -170,7 +169,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container()**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob()**.
+Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container()** . È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob()** .
 
 ```ruby
 # Clean up resources. This includes the container and the temp files

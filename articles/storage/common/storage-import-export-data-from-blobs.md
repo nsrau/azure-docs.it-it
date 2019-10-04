@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65209632"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -83,7 +83,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 4. In **Informazioni sul mittente della spedizione**:
 
     - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
-    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. 
+    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft Usa questo account per spedire le unità al cliente una volta completato il processo di esportazione. 
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
         > [!TIP] 
@@ -139,7 +139,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     I parametri vengono descritti nella tabella seguente:
     
-    |Parametro della riga di comando|DESCRIZIONE|  
+    |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
     |**/logdir:**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**/sn:**|Richiesto. Il nome dell'account di archiviazione per il processo di esportazione.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | DESCRIZIONE |
+   | Selector | Percorso BLOB | Descrizione |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |

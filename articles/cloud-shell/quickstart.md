@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva a Bash in Azure Cloud Shell | Microsoft Docs
-description: Guida introduttiva a Bash in Cloud Shell
+title: Guida introduttiva Azure Cloud Shell | Microsoft Docs
+description: Guida introduttiva per Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199627"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741980"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 

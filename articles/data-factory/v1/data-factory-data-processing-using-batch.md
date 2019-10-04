@@ -3,22 +3,20 @@ title: Process large-scale datasets by using Data Factory and Batch (Elaborare s
 description: Descrive come elaborare elevate quantità di dati in una pipeline di Azure Data Factory usando la funzionalità di elaborazione parallela di Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487697"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140050"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -43,7 +41,7 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
 * [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
 
-Facoltativamente, per altre informazioni su Batch, vedere [documentazione di Batch](https://docs.microsoft.com/azure/batch/).
+Facoltativamente, per altre informazioni su batch, vedere [la documentazione di batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
 Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
@@ -96,7 +94,7 @@ Se non si dispone di una sottoscrizione di Azure, è possibile creare un account
 Usare un account di archiviazione per archiviare i dati di questa esercitazione. Se non si dispone di un account di archiviazione, vedere [Create a storage account (Creare un account di archiviazione)](../../storage/common/storage-quickstart-create-account.md). La soluzione di esempio usa l'archivio BLOB.
 
 #### <a name="azure-batch-account"></a>Account Azure Batch
-Creare un account di Batch usando il [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È anche possibile usare la [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet per creare un account Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Creare un account di Batch usando il [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È anche possibile usare il cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) per creare un account batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Batch indirettamente tramite una pipeline di data factory.
 
@@ -124,7 +122,7 @@ Creare un pool di Batch con almeno 2 nodi di calcolo.
    f. Fare clic su **OK** per creare il pool.
 
 #### <a name="azure-storage-explorer"></a>Esplora archivi Azure
-Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
+Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
 
 1. Creare un contenitore denominato **mycontainer** con accesso privato (nessun accesso anonimo).
 
@@ -184,7 +182,7 @@ public IDictionary<string, string> Execute(
 
    b. Selezionare **File** > **Nuovo** > **Progetto**.
 
-   c. Espandere **Modelli** e quindi selezionare **Visual C\#**. In questa procedura dettagliata viene usato C\#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.
+   c. Espandere **Modelli** e quindi selezionare **Visual C\#** . In questa procedura dettagliata viene usato C\#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.
 
    d. Selezionare la **libreria di classi** dall'elenco relativo ai tipi di progetto visualizzato a destra.
 
@@ -409,7 +407,7 @@ public IDictionary<string, string> Execute(
 #### <a name="execute-method"></a>Metodo Execute
 Questa sezione offre informazioni dettagliate sul codice nel metodo Execute.
 
-1. I membri per l'iterazione della raccolta di input si trovano nello spazio dei nomi [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) . L'iterazione della raccolta di BLOB richiede l'uso della classe **BlobContinuationToken**. In sostanza, è necessario usare un ciclo do-while con il token come meccanismo di uscita dal ciclo. Per altre informazioni, vedere [Come usare l'archivio BLOB da .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Di seguito è illustrato un ciclo di base:
+1. I membri per l'iterazione della raccolta di input si trovano nello spazio dei nomi [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) . L'iterazione della raccolta di BLOB richiede l'uso della classe **BlobContinuationToken**. In sostanza, è necessario usare un ciclo do-while con il token come meccanismo di uscita dal ciclo. Per altre informazioni, vedere [Come usare l'archivio BLOB da .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Di seguito è illustrato un ciclo di base:
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +430,7 @@ Questa sezione offre informazioni dettagliate sul codice nel metodo Execute.
     } while (continuationToken != null);
 
     ```
-   Per altre informazioni, vedere la documentazione relativa al metodo [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
+   Per altre informazioni, vedere la documentazione relativa al metodo [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented).
 
 1. Il codice per l'uso in modo logico del set di BLOB viene inserito all'interno del ciclo do-while. Nel metodo **Execute** il ciclo do-while passa l'elenco di BLOB a un metodo denominato **Calculate**. Il metodo restituisce una variabile stringa denominata **output** che rappresenta il risultato dell'iterazione di tutti i BLOB nel segmento.
 
@@ -562,7 +560,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
-   ![Distribuire](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Distribuisci](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Creare un servizio collegato Azure Batch
 In questo passaggio si crea un servizio collegato per l'account di Batch, che verrà usato per eseguire l'attività personalizzata di data factory.

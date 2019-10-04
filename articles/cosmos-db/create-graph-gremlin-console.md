@@ -5,16 +5,16 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849823"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261578"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida introduttiva: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -27,7 +27,7 @@ ms.locfileid: "57849823"
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida introduttiva illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](https://tinkerpop.apache.org) per usare i dati dell'API Gremlin (anteprima). Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
+Questo avvio rapido illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](https://tinkerpop.apache.org) per usare i dati dell'API Gremlin. Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
 
 ![Azure Cosmos DB dalla console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -55,12 +55,12 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
     Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
+    hosts|[*account-name*.gremlin.cosmos.azure.com]|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.
     username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
     password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.
     connectionPool|{enableSsl: true}|Impostazione del pool di connessioni per SSL.
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Impostare questo valore ed eliminare qualsiasi interruzione di riga `\n` quando si incolla il valore.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Impostare questo valore ed eliminare qualsiasi interruzione di riga `\n` quando si incolla il valore.
 
     Per il valore Hosts copiare il valore **URI Gremlin** dalla pagina **Panoramica**: ![Visualizzare e copiare il valore dell'URI Gremlin nella pagina Panoramica del portale di Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
 
@@ -69,14 +69,14 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 Il file remote-secure.yaml dovrebbe essere simile al seguente:
 
 ```
-hosts: [your_database_server.gremlin.cosmosdb.azure.com]
+hosts: [your_database_server.gremlin.cosmos.azure.com] 
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key
 connectionPool: {
   enableSsl: true
 }
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
 assicurarsi di inserire il valore del parametro di host all'interno di parentesi quadre []. 
@@ -107,7 +107,7 @@ Per iniziare, aggiungere cinque vertici per le persone per *Thomas*, *Mary Kay*,
 Input (Thomas):
 
 ```
-g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
 Output:
@@ -118,7 +118,7 @@ Output:
 Input (Mary Kay):
 
 ```
-g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
 
@@ -132,7 +132,7 @@ Output:
 Input (Robin):
 
 ```
-g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
 Output:
@@ -144,7 +144,7 @@ Output:
 Input (Ben):
 
 ```
-g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
 
@@ -157,7 +157,7 @@ Output:
 Input (Jack):
 
 ```
-g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
 Output:

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996127"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931261"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versione corrente](data-movement-security-considerations.md)
@@ -59,7 +59,7 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 
 ### <a name="securing-data-store-credentials"></a>Proteggere le credenziali dell'archivio dati
 
-- **Archiviare credenziali crittografate i un archivio gestito di Azure Data Factory**. Data Factory consente di proteggere le credenziali dell'archivio dati crittografandole con i certificati gestiti da Microsoft. Questi certificati ruotano ogni due anni. In questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali. Le credenziali crittografate vengono archiviate in modo sicuro in un account di archiviazione di Azure gestito dai servizi di gestione di Azure Data Factory. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/security-storage-overview.md).
+- **Archiviare credenziali crittografate i un archivio gestito di Azure Data Factory**. Data Factory consente di proteggere le credenziali dell'archivio dati crittografandole con i certificati gestiti da Microsoft. Questi certificati ruotano ogni due anni. In questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/fundamentals/storage-overview.md).
 - **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Crittografia di dati in transito
@@ -108,18 +108,19 @@ Gli scenari ibridi richiedono l'installazione del runtime di integrazione self-h
 Il canale di comando consente la comunicazione tra i servizi di spostamento dei dati in Data Factory e nel runtime di integrazione self-hosted. La comunicazione contiene informazioni relative all'attività. Il canale di dati viene usato per trasferire i dati tra gli archivi dati locali e quelli nel cloud.    
 
 ### <a name="on-premises-data-store-credentials"></a>Credenziali dell'archivio dati locale
-Le credenziali per gli archivi dati locali vengono sempre crittografate e archiviate. Possono essere archiviate in locale nel computer del runtime di integrazione self-hosted o memorizzate nella risorsa di archiviazione gestita di Azure Data Factory (esattamente come l'archivio credenziali del cloud). 
+Le credenziali possono essere archiviate all'interno data factory o [a cui viene fatto riferimento da Data Factory](store-credentials-in-key-vault.md) durante il runtime da Azure Key Vault. Se si archiviano le credenziali all'interno data factory, questo viene sempre archiviato crittografato nel runtime di integrazione self-hosted. 
+ 
+- **Archiviare le credenziali in locale**. Se si usa direttamente il cmdlet **set-AzDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nel runtime di integrazione self-hosted.  In questo caso, le credenziali passano attraverso il servizio back-end di Azure, che è estremamente sicuro, al computer di integrazione self-hosted in cui viene infine encrpted e archiviato. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali.
 
-- **Archiviare le credenziali in locale**. Per crittografare e archiviare le credenziali in locale nel runtime di integrazione self-hosted, seguire i passaggi in [Crittografia delle credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
+- **Archiviare le credenziali in Azure Key Vault**. È anche possibile archiviare la credenziale dell'archivio dati in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credenziale durante l'esecuzione di un'attività. Per altre informazioni, vedere [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare credenziali in Azure Key Vault).
 
-   Usare la **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet per crittografare le credenziali del servizio collegato e le informazioni riservate nel servizio collegato. È quindi possibile usare il codice JSON restituito (con il **EncryptedCredential** elemento nella stringa di connessione) per creare un servizio collegato tramite il **Set-AzDataFactoryV2LinkedService** cmdlet.  
+- **Archiviare le credenziali in locale senza propagarle tramite il back-end di Azure al runtime di integrazione self-hosted**. Per crittografare e archiviare le credenziali in locale nel runtime di integrazione Self-Hosted senza dover propagarle tramite data factory back-end, seguire la procedura descritta in [crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
 
-- **Archiviare nella risorsa di archiviazione gestita di Azure Data Factory**. Se si usa direttamente la **Set-AzDataFactoryV2LinkedService** cmdlet con la connessione di stringhe e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nell'archiviazione gestita di Azure Data Factory. Le informazioni sensibili sono ancora crittografate dal certificato e Microsoft gestisce questi certificati.
-
+   Usare il cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** per crittografare le credenziali del servizio collegato e i dettagli sensibili nel servizio collegato. È quindi possibile usare il codice JSON restituito (con l'elemento **EncryptedCredential** nella stringa di connessione) per creare un servizio collegato usando il cmdlet **set-AzDataFactoryV2LinkedService** .  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Porte usate durante la crittografia del servizio collegato nel runtime di integrazione self-hosted
-Per impostazione predefinita, PowerShell usa la porta 8050 nel computer con il runtime di integrazione self-hosted per proteggere le comunicazioni. Se necessario, è possibile cambiare porta.  
+Per impostazione predefinita, PowerShell usa la porta 8060 nel computer con il runtime di integrazione self-hosted per la comunicazione protetta. Se necessario, è possibile cambiare porta.  
 
 ![Porta HTTPS per il gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -135,10 +136,10 @@ Rete virtuale di Azure è una rappresentazione logica della propria rete nel clo
 
 La tabella seguente riassume i consigli di configurazione di rete e del runtime di integrazione self-hosted in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Source (Sorgente)      | Destination                              | Configurazione di rete                    | Impostazione runtime di integrazione                |
+| Source      | Destination                              | Configurazione di rete                    | Impostazione runtime di integrazione                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il runtime di integrazione self-hosted deve essere installato nella macchina virtuale di Azure nella rete virtuale.  |
-| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato)           | Il runtime di integrazione self-hosted deve essere installato nella macchina virtuale di Azure nella rete virtuale.  |
+| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il runtime di integrazione self-hosted deve essere installato in una macchina virtuale di Azure nella rete virtuale.  |
+| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato)           | Il runtime di integrazione self-hosted deve essere installato in una macchina virtuale di Azure nella rete virtuale.  |
 | Locale | Servizi basati su Azure con un endpoint pubblico | ExpressRoute (peering Microsoft)            | Il runtime di integrazione self-hosted può essere installato in locale o in una macchina virtuale di Azure. |
 
 Le immagini seguenti mostrano come usare il runtime di integrazione self-hosted per spostare i dati tra un database locale e i servizi di Azure con ExpressRoute e la VPN IPSec (con Rete virtuale di Azure):
@@ -172,7 +173,7 @@ La tabella seguente indica la porta in uscita e i requisiti di dominio per i fir
 
 Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingresso per Windows Firewall:
 
-| Porte in ingresso | DESCRIZIONE                              |
+| Porte in ingresso | Descrizione                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Richiesta dal cmdlet di crittografia PowerShell, come descritto in [Crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel runtime di integrazione self-hosted. |
 
@@ -197,7 +198,7 @@ Sì. Altri dettagli sono disponibili [qui](https://azure.microsoft.com/blog/shar
 
 **Quali sono i requisiti delle porte per il corretto funzionamento del runtime di integrazione self-hosted?**
 
-Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. La porta in uscita 443 deve essere aperta per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8050 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. La porta in uscita 443 deve essere aperta per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8060 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

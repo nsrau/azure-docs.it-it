@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083182"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570326"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -52,7 +51,7 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
-Per scenari con volumi elevati, in cui si lavora con molte risorse, [monitoraggio di Azure registra](https://azure.microsoft.com/services/log-analytics/) può essere utilizzato. Si tratta di un servizio di Azure separato che fornisce funzionalità analitica di log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analitica. Log di monitoraggio di Azure può raccogliere i dati di telemetria da molti servizi e consente di eseguire query e impostare gli avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) . Si tratta di un servizio di Azure separato che fornisce analisi su log di diagnostica e telemetria emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
@@ -78,10 +77,10 @@ Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è di
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generare un carico di intensità normale (circa 30 DTU) |
+| 2 | Genera un carico di intensità normale (circa 30 DTU) |
 | 3 | Generare un carico con picchi di maggiore durata per ogni tenant|
-| 4 | Generare un carico con picchi DTU maggiori per ogni tenant (circa 70 DTU)|
-| 5 | Generare un'ad alta intensità (circa 90 DTU) su un singolo tenant e un carico di normale intensità su tutti gli altri tenant |
+| 4 | Genera il carico con picchi di DTU più elevati per ogni tenant (approssimativamente 70 DTU)|
+| 5 | Generare un'intensità elevata (approssimativamente 90 DTU) in un singolo tenant e un carico di intensità normale per tutti gli altri tenant |
 
 Il generatore di carico applica un carico di solo CPU *sintetico* a ogni database tenant. Il generatore avvia un processo per ogni database tenant, che chiama periodicamente una stored procedure che genera il carico. I livelli di carico, espressi in DTU, la durata e gli intervalli sono diversi per i vari database, in modo da simulare un'attività imprevedibile dei tenant.
 
@@ -98,7 +97,7 @@ L'app di database multi-tenant Wingtip Tickets è un'app SaaS e il carico di lav
 
 Per monitorare l'utilizzo delle risorse risultante dal carico applicato, aprire il portale per il database multi-tenant, **tenants1**, che contiene i tenant:
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;*.
+1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;* .
 1. Scorrere verso il basso per individuare i database e fare clic su **tenants1**. Questo database multi-tenant partizionato contiene tutti i tenant creati finora.
 
 ![grafico dei database](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -109,7 +108,7 @@ Osservare il grafico **DTU**.
 
 Impostare un avviso per il database da attivare quando l'utilizzo raggiunge il \>75%, come indicato di seguito:
 
-1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;*) nel [portale di Azure](https://portal.azure.com).
+1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;* ) nel [portale di Azure](https://portal.azure.com).
 1. Fare clic su **Regole di avviso** e quindi fare clic su **+ Aggiungi avviso**:
 
    ![aggiungere un avviso](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -155,7 +154,7 @@ Il modello multi-tenant partizionato consente di scegliere se effettuare il prov
 Se si è già effettuato il provisioning di un nuovo tenant in un database autonomo, ignorare i passaggi successivi.
 
 1. In **PowerShell ISE**, aprire …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**.
+1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"** .
 1. Impostare **$Scenario** = **2**, _Effettuare il provisioning di un tenant in un nuovo database a tenant singolo_.
 1. Premere **F5** per eseguire lo script.
 

@@ -4,23 +4,22 @@ description: Come inviare in modo efficiente un numero elevato di attività in u
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809300"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094014"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
@@ -65,7 +64,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 I frammenti di codice C# seguenti mostrano le impostazioni di configurazione per l'aggiunta di un numero elevato di attività usando l'API .NET di Batch.
 
-Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio: 
+Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +74,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Aggiungere una raccolta di attività al processo usando l'overload appropriato del metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-). Ad esempio: 
+). Ad esempio:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -141,18 +140,18 @@ Configurare un oggetto `BatchExtensionsClient` che usi l'estensione dell'SDK:
 
 ```python
 
-client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
+client = batch.BatchExtensionsClient(
+    base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
 ...
 ```
 
-Creare una raccolta di attività da aggiungere a un processo. Ad esempio: 
+Creare una raccolta di attività da aggiungere a un processo. Ad esempio:
 
 
 ```python
-tasks=list()
+tasks = list()
 # Populate the list with your tasks
 ...
-
 ```
 
 Aggiungere la raccolta di attività tramite [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Impostare il parametro `threads` per aumentare il numero di operazioni simultanee:
@@ -188,7 +187,7 @@ parameter_sweep = {
                 "repeatTask": {
                     "commandLine": "/bin/bash -c 'echo Hello world from task {0}'",
                     "constraints": {
-                        "retentionTime":"PT1H"
+                        "retentionTime": "PT1H"
                     }
                 }
             },

@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957522"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260828"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
 È possibile visualizzare due tipi di log per Hub eventi di Azure:
 
-* **[Log attività](../azure-monitor/platform/activity-logs-overview.md)**: Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)**: È possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+* **[Log attività](../azure-monitor/platform/activity-logs-overview.md)** : Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
+* **[Log di diagnostica](../azure-monitor/platform/resource-logs-overview.md)** : È possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="enable-diagnostic-logs"></a>Abilitare i log di diagnostica
 
@@ -48,13 +48,13 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![Modifica dello lo stato dei log di diagnostica](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione di archiviazione che si desidera. ad esempio, un account di archiviazione, un hub eventi o monitoraggio di Azure Registra.
+5.  Impostare la destinazione dell'archivio desiderata; ad esempio, un account di archiviazione, un hub eventi o i log di monitoraggio di Azure.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
-Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorie dei log di diagnostica
 
@@ -71,7 +71,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON dei log di archiviazione includono gli elementi elencati nella tabella seguente:
 
-NOME | DESCRIZIONE
+Attività | Descrizione
 ------- | -------
 TaskName | Descrizione dell'attività non riuscita.
 ActivityId | ID interno, usato a scopo di rilevamento.
@@ -83,7 +83,7 @@ archiveStep | ArchiveFlushWriter
 startTime | Ora di inizio di un errore.
 errori | Numero di volte in cui si è verificato un errore.
 durationInSeconds | Durata dell'errore.
-Message | Messaggio di errore.
+message | Messaggio di errore.
 category | ArchiveLogs
 
 Il codice seguente è un esempio di stringa JSON di log di archiviazione:
@@ -109,16 +109,16 @@ Il codice seguente è un esempio di stringa JSON di log di archiviazione:
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-NOME | DESCRIZIONE
+Attività | Descrizione
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento.
 EventName | Nome operazione.  
 resourceId | ID della risorsa di Azure Resource Manager.
-SubscriptionId | l'ID sottoscrizione.
+ID della sottoscrizione | l'ID sottoscrizione.
 EventTimeString | Durata dell'operazione.
 EventProperties | Proprietà dell'operazione.
 Stato | Stato dell'operazione.
-Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione).
+Caller | Chiamante dell'operazione (Portale di Azure o client di gestione).
 category | OperationalLogs
 
 Il codice seguente è un esempio di stringa JSON di log operativo:

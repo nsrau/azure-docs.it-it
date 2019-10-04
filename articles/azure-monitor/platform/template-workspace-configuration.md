@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540772"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840907"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire aree di lavoro di Log Analitica usando i modelli di Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-È possibile usare [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analitica in Monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
+È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
 
 * Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
 * Aggiungere una soluzione
@@ -34,32 +34,26 @@ ms.locfileid: "58540772"
 * Raccogliere i contatori delle prestazioni dai computer Linux e Windows
 * Raccogliere gli eventi dal syslog sui computer Linux 
 * Raccogliere gli eventi dai log eventi di Windows
+* Raccogli log personalizzati dal computer Windows
 * Aggiungere l'agente Log Analytics a una macchina virtuale di Azure
 * Configurare Log Analytics per indicizzare i dati raccolti tramite Diagnostica di Azure
 
 Questo articolo presenta esempi di modelli che illustrano alcune configurazioni effettuabili con tali modelli.
 
 ## <a name="api-versions"></a>Versioni dell'API
+
 La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
 
-| Risorsa | Tipo di risorsa | Versione dell'API |
+| Resource | Tipo di risorsa | Versione API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-03-20 |
+| Cerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
-| Soluzione    | solutions     | 2015-11-01-preview |
+| Soluzione    | soluzioni     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
-L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso.  
 
-I parametri seguenti impostano un valore predefinito:
-
-* Location: il valore predefinito è Stati Uniti orientali.
-* SKU: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018.
-
-> [!NOTE]
->Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.  
->Se si hanno sottoscrizioni nel [modello di prezzi applicato prima di aprile 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), è possibile specificare il piano tariffario **Standalone** che sarà valido sia per la sottoscrizione nel modello di prezzi anteriore ad aprile 2018 sia per le sottoscrizioni nel nuovo modello di prezzi. Per le aree di lavoro nelle sottoscrizioni che hanno adottato il nuovo modello di prezzi, il piano tariffario verrà impostato su **PerGB2018**. 
+L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome e il percorso della nuova area di lavoro (usando i valori predefiniti per gli altri parametri dell'area di lavoro, ad esempio il piano tariffario e la conservazione).  
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
 
@@ -79,26 +73,35 @@ I parametri seguenti impostano un valore predefinito:
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +110,6 @@ I parametri seguenti impostano un valore predefinito:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +118,28 @@ I parametri seguenti impostano un valore predefinito:
        ]
     }
     ```
-2. Modificare il modello in base alle esigenze.  Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+
+2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
-4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro.
+4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e la posizione dell'area di lavoro come parte del comando. Il nome dell'area di lavoro deve essere univoco a livello globale in tutte le sottoscrizioni di Azure.
 
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * Per la riga di comando usare i comandi seguenti dalla cartella che contiene il modello:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:<br><br> ![Esempio di risultato al termine della distribuzione](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Configurare un'area di lavoro Log Analytics
+
 Il modello di esempio seguente illustra come:
 
 1. Aggiungere soluzioni all'area di lavoro
@@ -149,6 +151,7 @@ Il modello di esempio seguente illustra come:
 7. Raccogliere gli eventi di errore e di avviso dal log eventi dell'applicazione dai computer Windows
 8. Raccogliere i dati del contatore delle prestazioni dei Mbyte di memoria disponibili dai computer Windows
 9. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
+10. Raccogli log personalizzati dal computer Windows
 
 ```json
 {
@@ -158,38 +161,71 @@ Il modello di esempio seguente illustra come:
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "workspaceName"
+        "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
+      "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
+        "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
+      }
+    },
+    "immediatePurgeDataOn30Days": {
+      "type": "bool",
+      "defaultValue": "false",
+      "metadata": {
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -202,22 +238,28 @@ Il modello di esempio seguente illustra come:
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
         }
-    }
-  },
-  "variables": {
-    "Updates": {
-      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "Updates"
+      }
     },
-    "AntiMalware": {
-      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "AntiMalware"
+    "customlogName": {
+    "type": "string",
+    "metadata": {
+      "description": "custom log name"
+      }
     },
-    "SQLAssessment": {
-      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-      "GalleryName": "SQLAssessment"
-    },
-    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "variables": {
+      "Updates": {
+        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "Updates"
+      },
+      "AntiMalware": {
+        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "AntiMalware"
+      },
+      "SQLAssessment": {
+        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+        "GalleryName": "SQLAssessment"
+      },
+      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
@@ -226,10 +268,13 @@ Il modello di esempio seguente illustra come:
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "properties": {
-        "sku": {
-          "Name": "[parameters('serviceTier')]"
+        "retentionInDays": "[parameters('dataRetention')]",
+        "features": {
+          "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
-    "retentionInDays": "[parameters('dataRetention')]"
+        "sku": {
+          "name": "[parameters('pricingTier')]"
+        }
       },
       "resources": [
         {
@@ -371,6 +416,55 @@ Il modello di esempio seguente illustra come:
         },
         {
           "apiVersion": "2015-11-01-preview",
+          "type": "dataSources",
+          "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLog",
+          "properties": {
+            "customLogName": "[parameters('customlogName')]",
+            "description": "this is a description",
+            "extractions": [
+              {
+                "extractionName": "TimeGenerated",
+                "extractionProperties": {
+                  "dateTimeExtraction": {
+                    "regex": [
+                      {
+                        "matchIndex": 0,
+                        "numberdGroup": null,
+                        "pattern": "((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]"
+                      }
+                    ]
+                  }
+                },
+                "extractionType": "DateTime"
+              }
+            ],
+            "inputs": [
+              {
+                "location": {
+                  "fileSystemLocations": {
+                    "linuxFileTypeLogPaths": null,
+                    "windowsFileTypeLogPaths": [
+                      "[concat('c:\\Windows\\Logs\\',parameters('customlogName'))]"
+                    ]
+                  }
+                },
+                "recordDelimiter": {
+                  "regexDelimiter": {
+                    "matchIndex": 0,
+                    "numberdGroup": null,
+                    "pattern": "(^.*((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9].*$)"
+                  }
+                }
+              }
+            ]
+          }
+        }
+        {
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleLinuxPerfCollection1",
           "dependsOn": [
@@ -486,6 +580,10 @@ Il modello di esempio seguente illustra come:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -495,6 +593,7 @@ Il modello di esempio seguente illustra come:
 
 ```
 ### <a name="deploying-the-sample-template"></a>Distribuzione del modello di esempio
+
 Per distribuire il modello di esempio:
 
 1. Salvare l'esempio allegato in un file, ad esempio `azuredeploy.json` 
@@ -502,26 +601,30 @@ Per distribuire il modello di esempio:
 3. Usare PowerShell o la riga di comando per distribuire il modello
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Riga di comando
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Modelli Azure Resource Manager di esempio
+
 La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log Analytics, tra cui:
 
 * [Distribuire una macchina virtuale che esegue Windows con l'estensione della VM di Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
 * [Distribuire una macchina virtuale che esegue Linux con l'estensione della VM di Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Monitorare Azure Site Recovery tramite un'area di lavoro esistente di Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Monitorare le app Web di Azure tramite un'area di lavoro esistente di Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Monitorare Azure Site Recovery tramite un'area di lavoro Log Analytics esistente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitorare le app Web di Azure tramite un'area di lavoro Log Analytics esistente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Aggiungere un account di archiviazione esistente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire l'agente di Windows nelle macchine virtuali di Azure usando un modello di Resource Manager](../../virtual-machines/extensions/oms-windows.md).
-* [Distribuire l'agente Linux nelle macchine virtuali di Azure usando un modello di Resource Manager](../../virtual-machines/extensions/oms-linux.md).
 
+* [Distribuire l'agente di Windows nelle macchine virtuali di Azure usando un modello di Resource Manager](../../virtual-machines/extensions/oms-windows.md).
+
+* [Distribuire l'agente Linux nelle macchine virtuali di Azure usando un modello di Resource Manager](../../virtual-machines/extensions/oms-linux.md).

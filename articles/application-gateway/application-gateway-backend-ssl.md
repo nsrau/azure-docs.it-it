@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
 ms.openlocfilehash: 856f23de8a8772255f570a923ecf1708dc819bb5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831870"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Panoramica di SSL end-to-end con il gateway applicazione
 

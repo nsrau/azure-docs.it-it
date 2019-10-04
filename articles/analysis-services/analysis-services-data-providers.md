@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e597b03abfdeda01d74986b7b30c14de46fd3f1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270864"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861128"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
-Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. Le applicazioni client di Microsoft, ad esempio Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) installano queste tre librerie client e aggiornarli insieme agli aggiornamenti regolari dell'applicazione. In alcuni casi, potrebbe essere necessario installare versioni più recenti delle librerie client. Le applicazioni client personalizzate richiedono anche librerie client installate.
+Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. Le applicazioni client Microsoft come Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) installano tutte e tre le librerie client e le aggiornano insieme a normali aggiornamenti delle applicazioni. In alcuni casi, potrebbe essere necessario installare versioni più recenti delle librerie client. Le applicazioni client personalizzate richiedono anche l'installazione delle librerie client.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
 |Download  |Versione prodotto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.17.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.17.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.1.25    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.1.25       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.5.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.5.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacchetti NuGet)
 
@@ -34,8 +34,8 @@ Le librerie client Analysis Services Management Objects (AMO) e ADOMD sono dispo
 
 |Pacchetto  | Versione prodotto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.5     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.5      |
 
 Gli assembly AssemblyVersion del pacchetto NuGet sono conformi al controllo delle versioni semantici: PRINCIPALE.SECONDARIA.PATCH. I riferimenti NuGet caricano la versione prevista anche se nella Global Assembly Cache è presente una versione diversa (risultante dall'installazione con file MSI). Il valore di PATCH viene incrementato a ogni versione. Le versioni di AMO e ADOMD vengono mantenute sincronizzate.
 
@@ -66,7 +66,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
  ADOMD.NET è una libreria client di dati gestiti usata per eseguire query sui dati di Analysis Services. Viene installata e usata da strumenti e applicazioni client. 
   
- Durante la connessione a un database, le proprietà della stringa di connessione per tutte e tre le librerie sono simili. Quasi tutte le stringhe di connessione definite per ADOMD.NET usando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) funzionano anche per AMO e il provider OLE DB Analysis Services (MSOLAP). Per altre informazioni, vedere [Proprietà delle stringhe di connessione &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Durante la connessione a un database, le proprietà della stringa di connessione per tutte e tre le librerie sono simili. Quasi tutte le stringhe di connessione definite per ADOMD.NET usando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) funzionano anche per AMO e il provider OLE DB Analysis Services (MSOLAP). Per altre informazioni, vedere [Proprietà delle stringhe di connessione &#40;Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a> Come determinare la versione della libreria client   

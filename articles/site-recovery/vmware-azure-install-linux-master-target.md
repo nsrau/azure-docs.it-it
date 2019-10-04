@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099053"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904408"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -62,7 +62,7 @@ Sono supportati i kernel Ubuntu seguenti.
 
 Attenersi ai passaggi seguenti per installare il sistema operativo a 64 bit di Ubuntu 16.04.2.
 
-1.   Andare alla [collegamento di download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un file ISO di Ubuntu 16.04.2 minimal a 64 bit.
+1.   Passare al collegamento per il [download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un'immagine ISO di Ubuntu 16.04.2 minimal minimal 64 bit.
 Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il sistema.
 
 1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
@@ -83,7 +83,7 @@ Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il 
 1. Selezionare **No** (opzione predefinita) e premere **Invio**.
 
      ![Configurare la tastiera](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selezionare **English (US)** (Inglese Stati Uniti) come paese di origine per la tastiera e premere **Invio**.
+1. Selezionare **inglese (Stati Uniti)** come paese/area di origine per la tastiera e quindi premere **invio**.
 
 1. Selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio**.
 
@@ -214,12 +214,11 @@ Per scaricarli usando Linux, digitare:
 
 ### <a name="apply-custom-configuration-changes"></a>Applicare le modifiche di configurazione personalizzate
 
-Per applicare le modifiche di configurazione personalizzate, attenersi alla procedura seguente:
-
+Per applicare le modifiche di configurazione personalizzate, attenersi alla procedura seguente come utente ROOT:
 
 1. Eseguire il seguente comando per decomprimere il file binario.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Schermata del comando da eseguire](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -245,7 +244,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
+3. Formattare l'unità e quindi creare un file System nella nuova unità: **mkfs. ext4/dev/mapper/\<multipath ID del disco di conservazione >** .
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +261,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     
     Selezionare **Inserisci** per iniziare a modificare il file. Creare una nuova riga e inserirvi il testo seguente. Modificare l'ID a percorsi multipli disco in base all'ID a percorsi multipli evidenziato dal comando precedente.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **ID\<percorsi multipli dei dischi di conservazione/dev/mapper/>/mnt/retention ext4 RW 0 0**
 
     Premere **Esc** e digitare **:wq**, che sta per scrivi ed esci, per chiudere la finestra dell'editor.
 

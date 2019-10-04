@@ -1,21 +1,20 @@
 ---
 title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con PowerShell
 description: Informazioni su come eseguire il backup delle macchine virtuali con Azure PowerShell
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 5aab5fea5a80eb3ab1b37e08a5e22ca296cb633e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680299"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874611"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -72,11 +71,11 @@ Creare ora un insieme di credenziali:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Modificare la configurazione dell'archiviazione con ridondanza dell'archiviazione (LRS/GRS) dell'insieme di credenziali con [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), come indicato di seguito:
+3. Modificare la configurazione dell'archiviazione con ridondanza dell'archiviazione (LRS/GRS) dell'insieme di credenziali con [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), come indicato di seguito:
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > La ridondanza dell'archiviazione può essere modificata solo se non ci sono elementi di backup protetti nell'insieme di credenziali.
@@ -104,7 +103,6 @@ Abilitare il backup come segue:
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## <a name="start-a-backup-job"></a>Avviare un processo di backup
 
@@ -146,7 +144,7 @@ Eseguire un processo di backup ad hoc come segue:
     ```
     L'output è simile all'esempio seguente, che mostra che il processo è **InProgress**:
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
@@ -159,7 +157,7 @@ Eseguire un processo di backup ad hoc come segue:
 ## <a name="clean-up-the-deployment"></a>Pulire la distribuzione
 
 Se non è più necessario eseguire il backup della VM, è possibile eseguire la pulizia.
-- Se si vuole provare a ripristinare la VM, ignorare questo passaggio.
+- Se si vuole provare a ripristinare la macchina virtuale, ignorare la pulizia.
 - Se è stata usata una VM esistente, si può ignorare il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) finale e mantenere così il gruppo di risorse e la VM.
 
 Disabilitare la protezione, rimuovere i punti di ripristino e l'insieme di credenziali. Quindi, eliminare il gruppo di risorse e le risorse VM associate, come segue:

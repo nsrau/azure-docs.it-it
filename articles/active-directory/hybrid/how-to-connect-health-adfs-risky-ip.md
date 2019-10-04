@@ -16,10 +16,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350560"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report sugli indirizzi IP rischiosi (anteprima pubblica)
@@ -40,7 +40,7 @@ I clienti con AD FS possono esporre endpoint di autenticazione delle password in
 ## <a name="what-is-in-the-report"></a>Che cos'è il report?
 L'accesso non riusciti agli indirizzi IP del client attività viene aggregato tramite Server Proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Fornisce le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Elemento del report | DESCRIZIONE |
+| Elemento del report | Descrizione |
 | ------- | ----------- |
 | Timestamp | Mostra il timestamp corrispondente all'inizio dell'intervallo di tempo di rilevamento, in base all'ora locale del portale di Azure.<br /> Tutti gli eventi giornalieri vengono generati a mezzanotte nel fuso orario UTC. <br />Il timestamp degli eventi orari viene arrotondato all'inizio dell'ora. L'ora di inizio della prima attività è riportata in "firstAuditTimestamp" nel file esportato. |
 | Tipo di trigger | Mostra il tipo di intervallo di tempo di rilevamento. I tipi di trigger di aggregazione sono su base oraria o giornaliera. Questo è utile per il rilevamento rispetto a un attacco di forza bruta con frequenza elevata e rispetto a un attacco lento in cui il numero di tentativi è distribuito durante il giorno. |
@@ -67,7 +67,7 @@ Attività di accesso aggregate non riuscite del servizio di bilanciamento del ca
 ## <a name="download-risky-ip-report"></a>Scaricare report sugli indirizzi IP rischiosi 
 Usando la funzionalità **Scarica** è possibile esportare l'intero elenco degli indirizzi IP rischiosi degli ultimi 30 giorni dal portale di Connect Health. Il risultato dell'esportazione includerà tutte le attività di accesso ad AD FS non riuscite in ogni intervallo di tempo di rilevamento, consentendo così di personalizzare i filtri dopo l'esportazione. Oltre alle aggregazioni evidenziate nel portale, il risultato dell'esportazione mostra anche altri dettagli sulle attività di accesso non riuscite in base all'indirizzo IP:
 
-|  Elemento del report  |  DESCRIZIONE  | 
+|  Elemento del report  |  Descrizione  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Mostra il primo timestamp corrispondente all'inizio delle attività non riuscite durante l'intervallo di tempo di rilevamento.  | 
 | lastAuditTimestamp | Mostra l'ultimo timestamp corrispondente alla fine delle attività non riuscite durante l'intervallo di tempo di rilevamento.  | 
@@ -82,7 +82,7 @@ La soglia di avviso può essere aggiornata tramite le impostazioni di soglia. Pe
 
 ![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Elemento soglia | DESCRIZIONE |
+| Elemento soglia | Descrizione |
 | --- | --- |
 | Nome utente/password non validi e blocco Extranet - Giorno  | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un **giorno**. |
 | Nome utente/password non validi e blocco Extranet - Ora | Impostazione di soglia per segnalare l'attività e attivare la notifica di avviso quando il numero di errori di password errata e il numero di errori di blocco Extranet superano tale valore in un'**ora**. |

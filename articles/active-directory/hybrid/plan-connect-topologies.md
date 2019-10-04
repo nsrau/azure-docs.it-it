@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383757"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275223"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -29,7 +29,7 @@ Questo articolo descrive diverse topologie locali e di Azure Active Directory (A
 
 Ecco la legenda delle immagini usate nell'articolo:
 
-| DESCRIZIONE | Simbolo |
+| Descrizione | Simbolo |
 | --- | --- |
 | Foresta locale di Active Directory |![Foresta locale di Active Directory](./media/plan-connect-topologies/LegendAD1.png) |
 | Active Directory locale con importazione con filtri |![Active Directory con importazione con filtri](./media/plan-connect-topologies/LegendAD2.png) |
@@ -60,7 +60,7 @@ Non è supportato lo scenario che prevede più server di sincronizzazione di Azu
 
 In molte organizzazioni sono presenti ambienti con più foreste Active Directory locali. La presenza di più foreste Active Directory locali può essere dovuta a vari motivi. Esempi tipici sono costituiti da progettazioni con foreste di account-risorse e dai risultati di fusioni o acquisizioni.
 
-Quando sono presenti più foreste, devono essere tutte raggiungibili da un singolo server di sincronizzazione di Azure AD Connect. Non è necessario aggiungere il server a un dominio. Se è necessario raggiungere tutte le foreste, è possibile inserire il server in una rete perimetrale.
+Quando sono presenti più foreste, devono essere tutte raggiungibili da un singolo server di sincronizzazione di Azure AD Connect. Il server deve essere aggiunto a un dominio. Se è necessario raggiungere tutte le foreste, è possibile inserire il server in una rete perimetrale.
 
 L'installazione guidata di Azure AD Connect offre diverse opzioni per consolidare gli utenti rappresentati in più foreste. L'obiettivo è fare in modo che un utente sia rappresentato una sola volta in Azure AD. Nell'installazione guidata sono disponibili alcune topologie comuni che è possibile configurare nel percorso di installazione personalizzato. Nella pagina **Identificazione univoca per gli utenti** selezionare l'opzione corrispondente che rappresenta la topologia. Il consolidamento viene configurato solo per gli utenti. I gruppi duplicati non vengono consolidati con la configurazione predefinita.
 

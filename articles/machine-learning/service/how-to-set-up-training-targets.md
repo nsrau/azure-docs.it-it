@@ -1,6 +1,6 @@
 ---
 title: Creare e usare destinazioni di calcolo per il training del modello
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Configurare gli ambienti di training (destinazioni di calcolo) per il training del modello di Machine Learning. Passare da un ambiente di training a un altro è facile. Iniziare a eseguire il training in locale. Se è necessario aumentare le risorse, passare a una destinazione di calcolo basata sul cloud.
 services: machine-learning
 author: heatherbshapiro
@@ -9,20 +9,20 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683903"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034421"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 
-Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-target). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
+Con Azure Machine Learning, è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, chiamati collettivamente come [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
-È possibile creare e gestire una destinazione di calcolo usando Azure Machine Learning SDK, il portale di Azure o l'interfaccia della riga di comando di Azure. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
+È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, portale di Azure, la pagina di destinazione dell'area di lavoro (anteprima), l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
  
 Questo articolo illustra come usare diverse destinazioni di calcolo per il training del modello.  I passaggi per tutte le destinazioni di calcolo seguono lo stesso flusso di lavoro:
 1. __Creare__ una destinazione di calcolo se non ne esiste già una.
@@ -31,61 +31,46 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.6.
+> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Destinazioni di calcolo per il training
 
-Il servizio Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
+Azure Machine Learning ha un supporto variabile tra destinazioni di calcolo diverse. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Destinazione di calcolo per il training| Accelerazione GPU | Automatizzata<br/> Ottimizzazione degli iperparametri | Automatizzata</br> Machine Learning | Azure Machine Learning Pipelines |
-|----|:----:|:----:|:----:|:----:|
-|[Computer locale](#local)| È possibile | &nbsp; | ✓ | &nbsp; |
-|[Ambiente di calcolo di Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Macchina virtuale remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-**Tutte le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
 
 > [!NOTE]
 > L'ambiente di calcolo di Azure Machine Learning può essere creato come risorsa permanente o in modo dinamico quando si richiede un'esecuzione. Al termine del training, la creazione basata sull'esecuzione rimuove la destinazione di calcolo. Non è quindi possibile riutilizzare le destinazioni di calcolo create in questo modo.
 
 ## <a name="whats-a-run-configuration"></a>Che cos'è una configurazione di esecuzione?
 
-Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con il servizio Azure Machine Learning è possibile eseguire lo script in diverse destinazioni di calcolo senza doverlo modificare. 
+Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con Azure Machine Learning, è possibile eseguire lo script su varie destinazioni di calcolo senza dover modificare lo script.
 
-È sufficiente definire l'ambiente per ogni destinazione di calcolo con una **configurazione di esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo. 
+È sufficiente definire l'ambiente per ogni destinazione di calcolo all'interno di una configurazione di **esecuzione**.  Quindi, quando si vuole eseguire l'esperimento di training in una destinazione di calcolo diversa, specificare la configurazione di esecuzione per tale ambiente di calcolo. Per informazioni dettagliate su come specificare un ambiente e associarlo per eseguire la configurazione, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
 Altre informazioni sull'[invio degli esperimenti](#submit) alla fine di questo articolo.
 
-### <a name="manage-environment-and-dependencies"></a>Gestire l'ambiente e le dipendenze
+## <a name="whats-an-estimator"></a>Che cos'è un estimatore?
 
-Quando si crea una configurazione di esecuzione è necessario decidere come gestire l'ambiente e le dipendenze nella destinazione di calcolo. 
+Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator. Questa classe consente di creare facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn.
 
-#### <a name="system-managed-environment"></a>Ambiente gestito dal sistema
+Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
 
-Usare un ambiente gestito del sistema quando si vuole che [Conda](https://conda.io/docs/) gestisca l'ambiente di Python e le dipendenze di script per l'utente. Per impostazione predefinita e come scelta più comune viene usato un ambiente gestito del sistema. È utile in destinazioni di calcolo remote, soprattutto quando non è possibile configurare la destinazione. 
+Per altre informazioni, vedere [training di modelli ml con estimatori](how-to-train-ml-models.md).
 
-È sufficiente specificare ogni dipendenza del pacchetto usando la[classe CondaDependency](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Conda quindi crea un file denominato **conda_dependencies.yml** nella directory **aml_config** dell'area di lavoro con l'elenco delle dipendenze del pacchetto e configura l'ambiente Python quando si invia l'esperimento di training. 
+## <a name="whats-an-ml-pipeline"></a>Che cos'è una pipeline ML?
 
-La configurazione iniziale di un nuovo ambiente può richiedere diversi minuti, a seconda delle dimensioni delle dipendenze richieste. Finché l'elenco dei pacchetti rimane invariato, la configurazione avviene una sola volta.
-  
-Il codice seguente illustra un esempio per un ambiente gestito dal sistema che richiede scikit-learn:
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
+Con le pipeline ML è possibile ottimizzare il flusso di lavoro con semplicità, velocità, portabilità e riutilizzo. Quando si compilano pipeline con Azure Machine Learning, è possibile concentrarsi sulla propria esperienza, Machine Learning, anziché sull'infrastruttura e l'automazione.
 
-#### <a name="user-managed-environment"></a>Ambiente gestito dall'utente
+Le pipeline di ML sono costituite da più **passaggi**, ovvero unità di calcolo distinte nella pipeline. Ogni passaggio può essere eseguito in modo indipendente e usare risorse di calcolo isolate. In questo modo, più data scientist possono lavorare contemporaneamente sulla stessa pipeline senza dover sovraccaricare le risorse di calcolo e semplificare l'uso di diversi tipi/dimensioni di calcolo per ogni passaggio.
 
-Per un ambiente gestito dall'utente è necessario configurare l'ambiente e installare ogni pacchetto richiesto dallo script di training nella destinazione di calcolo. Se l'ambiente di training è già configurato (ad esempio nel computer locale), è possibile ignorare il passaggio di configurazione impostando `user_managed_dependencies` su True. Conda non controllerà l'ambiente e non istallerà alcun elemento.
+> [!TIP]
+> Le pipeline di ML possono usare la configurazione di esecuzione o gli estimatori durante il training di modelli.
 
-Il codice seguente illustra un esempio di configurazione di esecuzioni di training per un ambiente gestito dall'utente:
+Mentre le pipeline di ML possono eseguire il training dei modelli, possono anche preparare i dati prima di eseguire il training e distribuire i modelli dopo il training. Uno dei casi d'uso principali per le pipeline è il Punteggio batch. Per ulteriori informazioni, vedere [pipeline: Ottimizzare i flussi di lavoro](concept-ml-pipelines.md)di machine learning.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
-## <a name="set-up-compute-targets-with-python"></a>Configurare le destinazioni di calcolo con Python
+## <a name="set-up-in-python"></a>Configurare in Python
 
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
@@ -121,7 +106,7 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
 È possibile creare l'ambiente di calcolo di Machine Learning come destinazione di calcolo in fase di esecuzione. Il calcolo viene creato automaticamente per l'esecuzione. Il calcolo viene eliminato automaticamente dopo il completamento dell'esecuzione. 
 
 > [!NOTE]
-> Per specificare il numero massimo di nodi da usare, è necessario impostare normalmente `node_count` al numero di nodi. Attualmente non è disponibile (04/04/2019) un bug che impedisce che questo lavoro. In alternativa, usare il `amlcompute._cluster_max_node_count` proprietà della configurazione di esecuzione. Ad esempio: `run_config.amlcompute._cluster_max_node_count = 5`.
+> Per specificare il numero massimo di nodi da usare, in genere si imposta `node_count` sul numero di nodi. Attualmente (04/04/2019) è presente un bug che impedisce il funzionamento di questo. Come soluzione alternativa, utilizzare la `amlcompute._cluster_max_node_count` proprietà della configurazione di esecuzione. Ad esempio `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creazione basata su esecuzione dell'ambiente di calcolo di Azure Machine Learning è attualmente disponibile in anteprima. Non usare la creazione basata su esecuzione se si usa l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning. Per usare l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning, creare una destinazione di [calcolo permanente](#persistent).
@@ -158,7 +143,7 @@ Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il pa
 
 ### <a id="vm"></a>Macchine virtuali remote
 
-Azure Machine Learning consente di usare la risorsa di calcolo personale e di associarla all'area di lavoro. Una risorsa di questo tipo è una macchina virtuale remota arbitraria, purché sia accessibile dal servizio Azure Machine Learning. La risorsa può essere una macchina virtuale di Azure, un server remoto nell'organizzazione o in locale. In particolare, se si dispone dell'indirizzo IP e delle credenziali (nome utente e password o chiave SSH), è possibile usare qualsiasi macchina virtuale accessibile per le esecuzioni remote.
+Azure Machine Learning consente di usare la risorsa di calcolo personale e di associarla all'area di lavoro. Uno di questi tipi di risorse è una macchina virtuale remota arbitraria, purché sia accessibile da Azure Machine Learning. La risorsa può essere una macchina virtuale di Azure, un server remoto nell'organizzazione o in locale. In particolare, se si dispone dell'indirizzo IP e delle credenziali (nome utente e password o chiave SSH), è possibile usare qualsiasi macchina virtuale accessibile per le esecuzioni remote.
 
 È possibile usare un ambiente conda integrato nel sistema, un ambiente Python già esistente o un contenitore Docker. Per l'esecuzione in un contenitore Docker, è necessario che il motore Docker sia in esecuzione nella macchina virtuale. Questa funzionalità è particolarmente utile quando si preferisce un ambiente di sviluppo o sperimentazione basato sul cloud più flessibile rispetto al computer locale.
 
@@ -247,33 +232,37 @@ Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il pa
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch consente di eseguire in modo efficiente applicazioni su larga scala parallele e ad alte prestazioni computing (HPC) nel cloud. AzureBatchStep può essere utilizzato in una Pipeline di Azure Machine Learning per inviare processi a un pool di Batch di Azure di macchine.
+Azure Batch viene usato per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. AzureBatchStep può essere usato in una pipeline Azure Machine Learning per inviare processi a un pool di Azure Batch di computer.
 
-Per connettere Azure Batch come una destinazione di calcolo, è necessario usare il SDK di Azure Machine Learning e fornire le informazioni seguenti:
+Per aggiungere Azure Batch come destinazione di calcolo, è necessario usare Azure Machine Learning SDK e fornire le informazioni seguenti:
 
--   **Nome del calcolo di Azure Batch**: Un nome descrittivo da usare per le risorse di calcolo nell'area di lavoro
--   **Nome dell'account Azure Batch**: Il nome dell'account Azure Batch
--   **Gruppo di risorse**: Il gruppo di risorse che contiene l'account Azure Batch.
+-   **Nome Azure batch Calcolo**: Nome descrittivo da usare per il calcolo nell'area di lavoro
+-   **Nome account Azure batch**: Nome dell'account di Azure Batch
+-   **Gruppo di risorse**: Il gruppo di risorse contenente l'account Azure Batch.
 
-Il codice seguente illustra come collegare Azure Batch come una destinazione di calcolo:
+Il codice seguente illustra come aggiungere Azure Batch come destinazione di calcolo:
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -281,13 +270,14 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Configurare l'ambiente di calcolo nel portale di Azure
+## <a name="set-up-in-azure-portal"></a>Configurare in portale di Azure
 
 È possibile accedere alle destinazioni di calcolo associate all'area di lavoro nel portale di Azure.  Nel portale è possibile:
 
 * [Visualizzare le destinazioni di calcolo](#portal-view) collegate all'area di lavoro
 * [Creare una destinazione di calcolo](#portal-create) nell'area di lavoro
 * [Collegare una destinazione di calcolo](#portal-reuse) creata esternamente all'area di lavoro
+
 
 Dopo la creazione e il collegamento di una destinazione all'area di lavoro, questa verrà usata nella configurazione di esecuzione con un oggetto `ComputeTarget`: 
 
@@ -301,10 +291,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Per visualizzare le destinazioni di calcolo dell'area di lavoro, usare la procedura seguente:
 
-1. Andare nel [portale di Azure](https://portal.azure.com) e aprire l'area di lavoro. 
+1. Andare nel [portale di Azure](https://portal.azure.com) e aprire l'area di lavoro. È anche possibile accedere a questi stessi passaggi nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com), anche se le immagini seguenti mostrano la portale di Azure.
+ 
 1. In __Applicazioni__ selezionare __Ambiente di calcolo__.
 
-    ![Visualizzare la scheda Calcolo](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![Visualizza scheda calcolo](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Creare una destinazione di calcolo
 
@@ -323,8 +314,6 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
-    ![Compilare il modulo](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. Selezionare __Create__.
 
 
@@ -336,11 +325,9 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
     ![Visualizzare i dettagli della destinazione di calcolo](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
-
-
 ### <a id="portal-reuse"></a>Collegare destinazioni di calcolo
 
-Per usare le destinazioni di calcolo create al di fuori dell'area di lavoro del servizio Azure Machine Learning, è necessario collegarle. Il collegamento di una destinazione di calcolo rende quest'ultima disponibile nell'area di lavoro.
+Per usare le destinazioni di calcolo create all'esterno dell'area di lavoro Azure Machine Learning, è necessario collegarle. Il collegamento di una destinazione di calcolo rende quest'ultima disponibile nell'area di lavoro.
 
 Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di calcolo. Usare quindi i passaggi seguenti per collegare una destinazione di calcolo: 
 
@@ -367,9 +354,9 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Selezionare __Allega__. 
 1. Visualizzare lo stato dell'operazione di collegamento selezionando la destinazione di calcolo dall'elenco.
 
-## <a name="set-up-compute-with-the-cli"></a>Configurare le risorse di calcolo con l'interfaccia della riga di comando
+## <a name="set-up-with-cli"></a>Configurare con l'interfaccia della riga di comando
 
-È possibile accedere alle destinazioni di calcolo collegate all'area di lavoro usando l'[estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) per il servizio Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
+È possibile accedere alle destinazioni di calcolo associate all'area di lavoro usando l' [estensione CLI](reference-azure-machine-learning-cli.md) per Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
 
 * Creare una destinazione di calcolo gestita
 * Aggiornare una destinazione di calcolo gestita
@@ -377,7 +364,11 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 Per altre informazioni consultare [Gestione delle risorse](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a id="submit"></a>Inviare l'esecuzione di training
+## <a name="set-up-with-vs-code"></a>Configurare con VS Code
+
+È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning.
+
+## <a id="submit"></a>Inviare l'esecuzione del training usando Azure Machine Learning SDK
 
 Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzione dell'esperimento.  Il criterio di codice per inviare l'esecuzione di un training è uguale per tutti i tipi di destinazioni di calcolo:
 
@@ -386,11 +377,11 @@ Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzion
 1. Attendere il completamento dell'esecuzione.
 
 > [!IMPORTANT]
-> Quando si invia l'esecuzione di training, uno snapshot della directory che contiene gli script di training viene creato e inviato per la destinazione di calcolo. Sono anche archiviati come parte dell'esperimento nell'area di lavoro. Se si modificano i file e invia l'esecuzione anche in questo caso, verranno caricati solo i file modificati.
+> Quando si invia l'esecuzione del training, viene creato uno snapshot della directory che contiene gli script di training e viene inviata alla destinazione di calcolo. Viene inoltre archiviato come parte dell'esperimento nell'area di lavoro. Se si modificano i file e si invia di nuovo l'esecuzione, verranno caricati solo i file modificati.
 >
-> Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
+> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il `.amlignore` file usa la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file `.amlignore` , il file avrà la precedenza.
 > 
-> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
+> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 
@@ -414,10 +405,101 @@ Eseguire lo stesso esperimento in una destinazione di calcolo diversa tramite un
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> Questo esempio usa per impostazione predefinita solo un nodo della destinazione di calcolo per il training. Per usare più di un nodo, impostare la `node_count` della configurazione di esecuzione sul numero desiderato di nodi. Il codice seguente, ad esempio, imposta il numero di nodi utilizzati per il training su quattro:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 In alternativa, è possibile:
 
-* Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md). 
-* Inviare un esperimento [usando l'estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md#experiments).
+* Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md).
+* Inviare un'esecuzione iperguida per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md).
+* Inviare un esperimento tramite l' [estensione vs code](how-to-vscode-tools.md#train-and-tune-models).
+
+Per ulteriori informazioni, vedere la documentazione di [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) e [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creare una configurazione di esecuzione e inviare l'esecuzione usando Azure Machine Learning interfaccia della riga di comando
+
+È possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning estensione CLI](reference-azure-machine-learning-cli.md) per creare configurazioni di esecuzione e inviare esecuzioni su destinazioni di calcolo diverse. Gli esempi seguenti presuppongono che si disponga di un area di lavoro di Azure Machine Learning esistente ed è stato effettuato l' `az login` accesso ad Azure tramite il comando CLI. 
+
+### <a name="create-run-configuration"></a>Crea configurazione di esecuzione
+
+Il modo più semplice per creare la configurazione di esecuzione è esplorare la cartella che contiene gli script Python di machine learning e usare il comando dell'interfaccia della riga di comando
+
+```azurecli
+az ml folder attach
+```
+
+Questo comando crea una sottocartella `.azureml` che contiene i file di configurazione dell'esecuzione del modello per diverse destinazioni di calcolo. È possibile copiare e modificare questi file per personalizzare la configurazione, ad esempio per aggiungere pacchetti Python o modificare le impostazioni di Docker.  
+
+### <a name="structure-of-run-configuration-file"></a>Struttura del file di configurazione di esecuzione
+
+Il file di configurazione di esecuzione è YAML formattato, con le sezioni seguenti
+ * Script da eseguire e relativi argomenti
+ * Nome di destinazione di calcolo, ovvero "locale" o nome di un calcolo nell'area di lavoro.
+ * Parametri per l'esecuzione dell'esecuzione: Framework, Communicator per le esecuzioni distribuite, durata massima e numero di nodi di calcolo.
+ * Sezione Environment. Per informazioni dettagliate sui campi in questa sezione, vedere [creare e gestire gli ambienti per il training e la distribuzione](how-to-use-environments.md) .
+   * Per specificare i pacchetti Python da installare per l'esecuzione, creare un [file di ambiente conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)e impostare il campo __condaDependenciesFile__ .
+ * Dettagli della cronologia di esecuzione per specificare la cartella del file di log e per abilitare o disabilitare gli snapshot della raccolta di output e della cronologia di esecuzione.
+ * Dettagli di configurazione specifici del framework selezionato.
+ * Informazioni di riferimento sui dati e archivio dati.
+ * Dettagli di configurazione specifici per ambiente di calcolo di Machine Learning per la creazione di un nuovo cluster.
+
+### <a name="create-an-experiment"></a>Creare un esperimento
+
+Prima di tutto, creare un esperimento per le esecuzioni
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>Esecuzione script
+
+Per inviare un'esecuzione di script, eseguire un comando
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>Esecuzione iperguida
+
+È possibile usare l'iperguida con l'interfaccia della riga di comando di Azure per eseguire l'ottimizzazione dei parametri Per prima cosa, creare un file di configurazione di iperguida nel formato seguente. Per informazioni dettagliate sui parametri di ottimizzazione iperparametri, vedere [ottimizzare gli iperparametri per l'articolo del modello](how-to-tune-hyperparameters.md) .
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Aggiungere questo file insieme ai file di configurazione di esecuzione. Inviare quindi un'esecuzione iperguida utilizzando:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Prendere nota della sezione degli *argomenti* in runconfig e nello *spazio dei parametri* nella configurazione di iperguida. Contengono gli argomenti della riga di comando da passare allo script di training. Il valore in runconfig rimane invariato per ogni iterazione, mentre l'intervallo nella configurazione di iperguida viene iterato. Non specificare lo stesso argomento in entrambi i file.
+
+Per ulteriori informazioni su questi ```az ml``` comandi dell'interfaccia della riga di comando e sul set completo di argomenti, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
+
+<a id="gitintegration"></a>
+
+## <a name="git-tracking-and-integration"></a>Rilevamento e integrazione di git
+
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
 
 ## <a name="notebook-examples"></a>Esempi di notebook
 
@@ -430,6 +512,7 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
+* Informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 * Consultare le informazioni sull'SDK di [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Usare Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)

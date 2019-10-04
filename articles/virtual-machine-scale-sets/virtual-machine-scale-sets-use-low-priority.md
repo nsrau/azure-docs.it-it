@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
 ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978137"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60803199"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Macchine virtuali con priorità bassa nei set di scalabilità (anteprima)
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7acc305d7a1be935199371360d6e05aa14f1616
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c2e872c108e19e21258610edd62899b1029fcd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411996"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65767174"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Informazioni sui token utente in Collaborazione B2B di Azure AD
 

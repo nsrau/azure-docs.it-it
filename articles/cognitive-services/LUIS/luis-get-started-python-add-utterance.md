@@ -1,6 +1,6 @@
 ---
-title: Modificare, eseguire il training dell'app, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Guida introduttiva: Cambiare l'app ed eseguirne il training, Python - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per Python si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: a5ab90baf06dce79248d5da90b01b8651ab498b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 32c87c0ec78c57aee83b15f13a4d5240eedc1239
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873326"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375392"
 ---
 # <a name="quickstart-change-model-using-python"></a>Avvio rapido: Modificare il modello usando Python
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

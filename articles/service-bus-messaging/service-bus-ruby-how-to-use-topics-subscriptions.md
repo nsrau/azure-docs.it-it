@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609422"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543641"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>Creare sottoscrizioni
 Le sottoscrizioni di un argomento vengono create anche con l'oggetto **Azure::ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
 
-Le sottoscrizioni sono persistenti. Fintanto che esse, o l'argomento a cui sono associate, non vengono eliminati. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già usando il metodo getSubscription.
+Per impostazione predefinita, le sottoscrizioni sono persistenti. Fintanto che esse, o l'argomento a cui sono associate, non vengono eliminati. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già usando il metodo getSubscription.
+
+È possibile avere sottoscrizioni eliminate automaticamente impostando il [AutoDeleteOnIdle proprietà](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 Se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione, viene usato il filtro (predefinito) **MatchAll**. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "all-messages" e viene usato il filtro predefinito **MatchAll**.
@@ -156,7 +158,7 @@ Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'a
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete_subscription_message()`, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. Tale logica viene spesso ottenuta tramite la proprietà `message_id` del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `test-topic`.
+Argomenti e sottoscrizioni sono persistenti, a meno che il [AutoDeleteOnIdle proprietà](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) è impostata. Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")
@@ -167,6 +169,9 @@ Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni regi
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.

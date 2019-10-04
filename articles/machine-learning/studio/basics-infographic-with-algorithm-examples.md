@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6e0a355852be57a3b0869a6bf094e98a89f49f28
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455191"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514932"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi
 
@@ -23,7 +23,7 @@ Scaricare questa panoramica infografica di facile comprensione delle nozioni fon
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmi diffusi in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. Questa infografica identifica quattro famiglie di algoritmi di regressione, rilevamento delle anomalie, clustering e classificazione - diffusi e offre collegamenti a esempi di utilizzo presenti il [Azure AI Gallery](https://gallery.azure.ai/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
+[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. Questa infografica identifica quattro famiglie di algoritmi comuni, ovvero regressione, rilevamento di anomalie, clustering e classificazione, e fornisce collegamenti a esempi di utilizzo nel [Azure ai Gallery](https://gallery.azure.ai/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Scaricare l'infografica con esempi di algoritmi
 

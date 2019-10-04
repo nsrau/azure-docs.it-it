@@ -1,7 +1,6 @@
 ---
 title: Disponibilità elevata con Apache Kafka - Azure HDInsight
 description: Informazioni su come garantire disponibilità elevata con Apache Kafka in Azure HDInsight. Questo articolo illustra come ribilanciare le repliche di partizione in Kafka in modo che siano incluse in domini di errore diversi all'interno dell'area di Azure contenente HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: d570cdf32ccf0f7037fd772f71a4296904ba7921
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597665"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849086"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Disponibilità elevata dei dati con Apache Kafka in HDInsight
 
@@ -24,7 +23,7 @@ Questo articolo illustra come configurare le repliche di partizione per gli argo
 
 Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
-Ogni area di Azure include un numero specifico di domini di errore. Per un elenco dei domini e il numero dei domini di errore in essi contenuti, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/windows/regions-and-availability.md#availability-sets).
+Ogni area di Azure include un numero specifico di domini di errore. Per un elenco dei domini e il numero dei domini di errore in essi contenuti, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/windows/availability.md#availability-sets).
 
 > [!IMPORTANT]  
 > Kafka non rileva i domini di errore. Quando si crea un argomento in Kafka, tutte le partizioni di replica potrebbero essere archiviate nello stesso dominio di errore. Per risolvere il problema, HDInsight fornisce lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).

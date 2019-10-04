@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbac4f364dedc28f7d5f3e100481a56bde70b4d3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474994"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382917"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima)
+
 È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) (Configurare le informazioni di sicurezza dal prompt della pagina di accesso).
@@ -28,10 +29,11 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 
 > [!Note]
 > Le informazioni di sicurezza non supportano l'uso dei numeri di interno. Anche se si aggiunge il formato corretto, + 1 4255551234X12345, i numeri di interno vengono rimossi prima della chiamata.
-> 
+>
 > Se non viene visualizzata un'opzione relativa al telefono, è possibile che l'organizzazione non consenta l'uso di un numero di telefono per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurare le chiamate telefoniche dalla pagina Informazioni di sicurezza
+
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare le chiamate telefoniche come metodo per le informazioni di sicurezza.
 
 >[!Note]
@@ -64,6 +66,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
     Le informazioni di sicurezza vengono aggiornate ed è possibile usare le chiamate telefoniche per verificare l'identità, quando si usa la verifica in due passaggi o la reimpostazione della password. Per impostare le chiamate telefoniche come metodo predefinito, vedere la sezione [Cambiare il metodo di gestione delle informazioni di sicurezza predefinito](#change-your-default-security-info-method) di questo articolo.
 
 ## <a name="delete-phone-calls-from-your-security-info-methods"></a>Eliminare le chiamate telefoniche dai metodi di gestione delle informazioni di sicurezza
+
 Per non usare più le chiamate telefoniche come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverle dalla pagina **Informazioni di sicurezza**.
 
 >[!Important]
@@ -76,8 +79,9 @@ Per non usare più le chiamate telefoniche come metodo di gestione delle informa
     ![Collegamento per eliminare il metodo basato sul telefono dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
 2. Selezionare **Sì** nella casella di conferma per eliminare il numero di **telefono**. Il numero di telefono, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Informazioni di sicurezza**. Se **Telefono** è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
-    
+
 ## <a name="change-your-default-security-info-method"></a>Cambiare il metodo di gestione delle informazioni di sicurezza predefinito
+
 Per impostare le chiamate telefoniche come metodo predefinito da usare quando si accede all'account aziendale o dell'istituto di istruzione con la verifica a due fattori o per le richieste di reimpostazione della password, è possibile impostarle dalla pagina **Informazioni di sicurezza**.
 
 ### <a name="to-change-your-default-security-info-method"></a>Per cambiare il metodo di gestione delle informazioni di sicurezza predefinito
@@ -86,23 +90,26 @@ Per impostare le chiamate telefoniche come metodo predefinito da usare quando si
 
     ![Cambiare collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selezionare **Telefono - chiamata (*_numero_telefono_utente_*)** dall'elenco a discesa di metodi disponibili, quindi selezionare **Conferma**.
+2. Selezionare **Telefono - chiamata ( *_numero_telefono_utente_* )** dall'elenco a discesa di metodi disponibili, quindi selezionare **Conferma**.
 
     ![Scegliere il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    Il metodo predefinito usato per l'accesso passa a **Telefono - chiamata (*_numero_telefono_utente_*)**.
+    Il metodo predefinito usato per l'accesso passa a **Telefono - chiamata ( *_numero_telefono_utente_* )** .
 
 ## <a name="additional-security-info-methods"></a>Altri metodi per le informazioni di sicurezza
+
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
 - **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 

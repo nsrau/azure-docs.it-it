@@ -1,10 +1,10 @@
 ---
-title: Configurare l'accelerazione automatica dell'accesso usando criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
-description: Informazioni su come configurare i criteri Home Realm Discovery per l'autenticazione di Azure Active Directory per gli utenti federati, inclusi gli hint di dominio e l'accelerazione automatica.
+title: Configurare l'accelerazione automatica dell'accesso usando i criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
+description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione principale per l'autenticazione Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443097"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477212"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
-Questo articolo fornisce un'introduzione alla configurazione del comportamento di autenticazione di Azure Active Directory per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
+Questo articolo fornisce un'introduzione alla configurazione di Azure Active Directory comportamento di autenticazione per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
 
 ## <a name="home-realm-discovery"></a>Individuazione dell'area di autenticazione principale
 L'individuazione dell'area di autenticazione principale (HRD) è il processo che consente ad Azure Active Directory (Azure AD) di determinare, al momento dell'accesso, dove deve eseguire l'autenticazione l'utente.  Quando un utente effettua l'accesso a un tenant di Azure AD per accedere a una risorsa, o nella pagina di accesso comune di Azure AD, l'utente digita un nome utente (UPN). Azure AD lo usa per individuare dove l'utente deve effettuare l'accesso. 
@@ -209,7 +209,13 @@ Per eseguire i criteri HRD dopo la rispettiva creazione, è possibile assegnarli
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passaggio 2: individuazione dell'entità servizio a cui assegnare i criteri  
 È necessario disporre dell'**ObjectID** delle entità servizio alle quali si intende assegnare i criteri. Esistono diversi modi per trovare l'**ObjectID** delle entità servizio.    
 
-È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. Poiché si usa PowerShell, è possibile elencare le entità servizio e i relativi ID mediante il cmdlet get-AzureADServicePrincipal.
+È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
+
+Poiché si usa PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Passaggio 3: assegnazione del criterio all'entità servizio  
 Dopo aver creato l'**ObjectID** dell'entità servizio dell'applicazione per la quale si intende configurare l'accelerazione automatica, eseguire questo comando. Questo comando associa i criteri HRD creati nel passaggio 1 con l'entità servizio individuata nel passaggio 2.
@@ -226,7 +232,7 @@ Nel caso in cui un'applicazione disponga già di un criterio HomeRealmDiscovery 
 Per verificare quali applicazioni hanno criteri HRD configurati, usare il cmdlet **Get-AzureADPolicyAppliedObject**. Passare l'**ObjectID** dei criteri che si intende verificare.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Passaggio 5: L'operazione è completata.
 Provare l'applicazione per verificare che il nuovo criterio funzioni.
@@ -244,7 +250,7 @@ Individuare l'**ID oggetto** dei criteri per cui si intende elencare le assegnaz
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passaggio 2: elencare le entità servizio a cui sono assegnati i criteri  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Esempio: rimuovere i criteri HRD per un'applicazione
@@ -254,15 +260,15 @@ Usare l'esempio precedente per ottenere l'**ObjectID** dei criteri e quello dell
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passaggio 2: rimuovere l'assegnazione dei criteri dall'entità servizio dell'applicazione  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Passaggio 3: verificare la rimozione elencando le entità servizio a cui sono assegnati i criteri 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
-- Per altre informazioni sul Single Sign-On per l'utente, consultare [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](configure-single-sign-on-portal.md).
+- Per ulteriori informazioni su Single Sign-on utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
 - Per una panoramica di tutti i contenuti correlati allo sviluppo, vedere la [Guida per gli sviluppatori di Active Directory](../develop/v1-overview.md).

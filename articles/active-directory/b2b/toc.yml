@@ -1,4 +1,4 @@
-- name: Documentazione di Azure Active Directory B2B
+- name: Documentazione delle funzionalità B2B di Azure Active Directory
   href: index.yml
   items:
     - name: Panoramica
@@ -51,6 +51,8 @@
     - name: Guide alle procedure
       expanded: true
       items:
+        - name: Gestire la condivisione B2B
+          href: delegate-invitations.md
         - name: Gestire gli inviti
           items:
             - name: Aggiunta di utenti B2B da parte di amministratori
@@ -61,8 +63,10 @@
               href: google-federation.md
             - name: Autenticazione con passcode monouso
               href: one-time-passcode.md
-            - name: Criteri di condivisione per B2B
-              href: delegate-invitations.md
+            - name: Federazione diretta
+              href: direct-federation.md
+            - name: Esempio di federazione diretta con AD FS
+              href: direct-federation-adfs.md
             - name: Consentire o bloccare gli inviti
               href: allow-deny-list.md
             - name: Aggiungere utenti B2B senza un invito

@@ -4,15 +4,15 @@ description: Questo articolo offre una panoramica di Web application firewall (W
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65991396"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Web application firewall per il Gateway applicazione di Azure
 
@@ -38,7 +38,7 @@ Questa sezione descrive i vantaggi di base che forniscono il Gateway applicazion
 
 * Proteggere le applicazioni web da attacchi senza alcuna modifica al codice di back-end e vulnerabilità web.
 
-* Proteggere più applicazioni web nello stesso momento. Un'istanza del Gateway applicazione può ospitare fino a 20 siti Web protetti da un web application firewall.
+* Proteggere più applicazioni web nello stesso momento. Un'istanza del Gateway applicazione può ospitare fino a 100 siti Web protetti da un web application firewall.
 
 ### <a name="monitoring"></a>Monitoraggio
 
@@ -82,7 +82,7 @@ Il WAF protegge contro le vulnerabilità web seguente:
 
 CRS 3.0 include 13 gruppi di regole, come illustrato nella tabella seguente. Ogni gruppo contiene più regole, che possono essere disabilitate.
 
-|Gruppo di regole|DESCRIZIONE|
+|Gruppo di regole|Descrizione|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bloccare i metodi (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|Protezione da scanner di porta e l'ambiente|
@@ -100,7 +100,7 @@ CRS 3.0 include 13 gruppi di regole, come illustrato nella tabella seguente. Ogn
 
 CRS 2.2.9 include 10 gruppi di regole, come illustrato nella tabella seguente. Ogni gruppo contiene più regole, che possono essere disabilitate.
 
-|Gruppo di regole|DESCRIZIONE|
+|Gruppo di regole|Descrizione|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Protezione da violazioni del protocollo (ad esempio caratteri non validi o un'operazione GET con un corpo della richiesta)|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Protezione da informazioni di intestazione errate|
@@ -121,12 +121,19 @@ Il WAF del Gateway applicazione può essere configurato per l'esecuzione in due 
 * **Modalità di prevenzione**: Attacchi di rilevare le regole e le intrusioni di blocchi. L'autore dell'attacco riceve un'eccezione "accesso non autorizzato 403" e la connessione viene terminata. Modalità di prevenzione registra tali attacchi nei registri del WAF.
 
 ### <a name="anomaly-scoring-mode"></a>Modalità di punteggio delle anomalie
- 
+
 OWASP più diffuse è disponibili due modalità per decidere se bloccare il traffico: Modalità tradizionale e quella di assegnazione dei punteggi delle anomalie.
 
 Attiva la modalità tradizionale, il traffico che corrisponde a qualsiasi regola è considerato indipendentemente dalle altre corrispondenze regola. Questa modalità è facile da comprendere. Ma la mancanza di informazioni su quante regole corrispondono a una richiesta specifica è una limitazione. Pertanto, è stata introdotta la modalità di assegnazione dei punteggi delle anomalie. È il valore predefinito di 3 OWASP. *x*.
 
 In modalità di assegnazione dei punteggi delle anomalie, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato quando il firewall è in modalità di prevenzione. Le regole hanno un livello di gravità specifico: *Critici*, *errore*, *avviso*, oppure *preavviso*. Che livello di gravità influisce su un valore numerico per la richiesta, che viene chiamato il punteggio dell'anomalia. Ad esempio, uno *avviso* regola di corrispondenza contribuisce al punteggio di 3. Uno *critico* regola di corrispondenza contribuisce 5.
+
+|Severity  |Value  |
+|---------|---------|
+|Critico     |5|
+|Tipi di errore        |4|
+|Avviso      |3|
+|Si noti che       |2|
 
 È una soglia pari a 5 per il punteggio delle anomalie per bloccare il traffico. Pertanto, un singolo *critico* corrispondenza regola è sufficiente per il WAF del Gateway applicazione bloccare una richiesta, anche in modalità di prevenzione. Ma uno *avviso* regola di corrispondenza aumenta solo l'anomalia punteggio per 3, che non è sufficiente da sola per bloccare il traffico.
 

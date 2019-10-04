@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: v-jaswel
-ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: c964c62c34f952a547d077e93e7bb4d0eb7b192d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117439"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703668"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Come usare Conversation Learner con altre tecnologie di creazione bot
 
@@ -125,7 +126,7 @@ A differenza dei bot dei singoli modelli di Conversation Leaner non sarà possib
 1. Immettere "chair". "chair" verrà salvato nella memoria CL come entità `purchaseItem`. Viene richiamato il callback di fine sessione che copia questo valore nell'archivio delle conversazioni.
 1. Immettere "history".  Il bot invierà il messaggio "You bought chair" (Hai acquistato una sedia) perché questo era l'ultimo `purchaseItem`.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Con le nozioni apprese è possibile combinare lo strumento Conversation Learner con qualsiasi altra tecnologia per la compilazione bot.
 

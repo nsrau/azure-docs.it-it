@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fa3100cae9b1a2c9ca320776cc357f3720b3473
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304598"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309988"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurare identità gestite per le risorse di Azure in set di scalabilità di macchine virtuali tramite PowerShell
 
@@ -36,7 +36,7 @@ Questo articolo illustra come eseguire le operazioni relative alle identità ges
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
 
@@ -56,13 +56,12 @@ Questa sezione descrive come abilitare e rimuovere un'identità gestita assegnat
 
 Per creare un set di scalabilità di macchine virtuali con l'identità gestita assegnata dal sistema abilitata:
 
-1. Fare riferimento a *Example 1* nel [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) articolo di riferimento di cmdlet per creare un set di scalabilità di macchine virtuali impostate con un'identità gestita assegnato dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
+1. Vedere l' *esempio 1* nell'articolo di riferimento per il cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) per creare un set di scalabilità di macchine virtuali con un'identità gestita assegnata dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
-> [!NOTE]
-> È facoltativamente possibile eseguire il provisioning le identità gestite per l'estensione del set di scalabilità di macchine virtuali di risorse di Azure, ma verrà presto deprecato. È consigliabile usare l'endpoint di identità di metadati dell'istanza di Azure per l'autenticazione. Per altre informazioni, vedere [smettere di usare l'estensione VM e iniziare a usare l'endpoint IMDS di Azure per l'autenticazione](howto-migrate-vm-extension.md).
+
 
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure esistente
@@ -81,8 +80,7 @@ Se è necessario abilitare un'identità gestita assegnata dal sistema in un set 
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-> [!NOTE]
-> È facoltativamente possibile eseguire il provisioning le identità gestite per l'estensione del set di scalabilità di macchine virtuali di risorse di Azure, ma verrà presto deprecato. È consigliabile usare l'endpoint di identità di metadati dell'istanza di Azure per l'autenticazione. Per altre informazioni, vedere [eseguire la migrazione dell'estensione macchina virtuale all'endpoint di servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
+
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Disabilitare l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali di Azure
 

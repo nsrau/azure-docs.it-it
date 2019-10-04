@@ -3,23 +3,17 @@ title: Attività di avvio comuni per Servizi cloud | Documentazione Microsoft
 description: Questo articolo fornisce alcuni esempi delle attività di avvio comuni che è possibile eseguire nel ruolo Web o di lavoro dei servizi cloud.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: gwallace
+ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916655"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358964"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -73,7 +67,7 @@ Il valore di errorlevel restituito da *AppCmd.exe* è elencato nel file winerror
 ### <a name="example-of-managing-the-error-level"></a>Esempio di gestione del livello di errore
 In questo esempio vengono aggiunte una sezione di compressione e una voce di compressione per JSON al file *Web.config* , con gestione e registrazione degli errori.
 
-Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
+Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,7 +377,7 @@ EXIT /B 0
 Di seguito sono riportate alcune procedure consigliate da seguire durante la configurazione dell'attività per il ruolo Web o di lavoro.
 
 ### <a name="always-log-startup-activities"></a>Registrare sempre le attività di avvio
-In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%**, aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
+In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%** , aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 

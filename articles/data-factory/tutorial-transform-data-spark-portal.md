@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576855"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812272"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 
@@ -106,7 +106,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
 
@@ -147,13 +147,13 @@ In questa sezione vengono creati due servizi collegati:
    
    b. Per **Tipo** verificare che sia selezionata l'opzione **On-demand HDInsight** (HDInsight su richiesta).
    
-   c. Per **Azure Storage Linked Service** (Servizio collegato Archiviazione di Azure) selezionare **AzureStorage1**. Questo servizio collegato è stato creato in precedenza. Se è stato usato un nome diverso, specificare il nome corretto qui. 
+   c. Per **Azure Storage Linked Service** (Servizio collegato Archiviazione di Azure) selezionare **AzureBlobStorage1**. Questo servizio collegato è stato creato in precedenza. Se è stato usato un nome diverso, specificare il nome corretto qui. 
    
    d. Per **Tipo di cluster** selezionare **spark**.
    
    e. Per **ID entità servizio** immettere l'ID dell'entità servizio autorizzata a creare un cluster HDInsight. 
    
-      Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
+      Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). L'**ID entità servizio** equivale all'*ID applicazione* e una **chiave entità servizio** equivale al valore di un *segreto client*.
    
    f. Per **Chiave dell'entità servizio** immettere la chiave. 
    
@@ -189,7 +189,7 @@ In questa sezione vengono creati due servizi collegati:
    ![Specificare il servizio collegato HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Passare alla scheda **Script/Jar** e completare questa procedura: 
 
-   a. Per **Job Linked Service** (Servizio collegato processo) selezionare **AzureStorage1**.
+   a. Per **Job Linked Service** (Servizio collegato a processo) selezionare **AzureBlobStorage1**.
    
    b. Selezionare **Sfoglia risorsa di archiviazione**.
 
@@ -206,7 +206,7 @@ In questa sezione vengono creati due servizi collegati:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Attivare un'esecuzione della pipeline
-Selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigger Now** (Attiva adesso). 
+Selezionare **Aggiungi trigger** nella barra degli strumenti, quindi selezionare **Attiva adesso**. 
 
 ![Pulsanti "Trigger" e "Trigger Now" (Attiva adesso)](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigg
 
    ![Stato dell'esecuzione della pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   È possibile tornare alla visualizzazione delle esecuzioni di pipeline selezionando il collegamento **Pipeline** in alto.
+   È possibile tornare alla visualizzazione delle sessioni della pipeline selezionando il collegamento **Tutte le sessioni della pipeline**  nella parte superiore.
 
    ![Visualizzazione "Esecuzioni attività"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

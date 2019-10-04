@@ -4,24 +4,23 @@ description: In questa esercitazione viene descritto come creare uno stack Mongo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 856e3e41e624844f1d7cbf5bf4cd1611bc10ecbb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315828"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081514"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure
 
@@ -328,7 +327,7 @@ sudo apt-get install -y nodejs
 
     ![Record del libro](media/tutorial-mean/meanstack-init.png)
 
-3. Immettere i dati nelle caselle di testo e fare clic su **Add**, Ad esempio: 
+3. Immettere i dati nelle caselle di testo e fare clic su **Add**, Ad esempio:
 
     ![Aggiungere il record di un libro](media/tutorial-mean/meanstack-add.png)
 

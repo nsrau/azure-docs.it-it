@@ -1,19 +1,19 @@
 ---
 title: Metriche di Archiviazione di Azure in Monitoraggio di Azure | Microsoft Docs
 description: Informazioni sulle nuove metriche offerte da Monitoraggio di Azure.
-services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c2f6847a286a9c106fc094e9f0aa315d6b1f337d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698776"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257092"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -23,9 +23,9 @@ Monitoraggio di Azure fornisce interfacce utente unificate per il monitoraggio t
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), le API di monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dalla [portale di Azure](https://portal.azure.com), dalle API di monitoraggio di Azure (REST e .NET) e dalle soluzioni di analisi come hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../azure-monitor/platform/resource-logs-overview.md) in Monitoraggio di Azure.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accedere alle metriche nel portale di Azure
 
@@ -136,11 +136,11 @@ La risposta seguente contiene valori di metriche in formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Accedere alle metriche con .NET SDK
 
-Monitoraggio di Azure offre [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere definizioni delle metriche e i valori. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
+Monitoraggio di Azure fornisce [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere la definizione e i valori delle metriche. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. L'ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
 
-Nell'esempio seguente viene illustrato come usare .NET SDK di monitoraggio di Azure per la lettura delle metriche di archiviazione.
+L'esempio seguente illustra come usare Azure monitor .NET SDK per leggere le metriche di archiviazione.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Elencare le definizioni delle metriche a livello di account con .NET SDK
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Elencare la definizione delle metriche a livello di account con .NET SDK
 
 L'esempio seguente mostra come elencare le definizioni delle metriche a livello di account:
 
@@ -302,19 +302,19 @@ Di seguito viene mostrato il formato per specificare l'ID risorsa per un account
 
 Di seguito viene mostrato il formato per specificare l'ID risorsa per ogni servizio di archiviazione.
 
-* ID risorsa del servizio BLOB
+* ID risorsa servizio BLOB
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* ID risorsa del servizio tabelle
+* ID risorsa servizio tabelle
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* ID risorsa del servizio coda
+* ID risorsa servizio di accodamento
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* ID risorsa del servizio file
+* ID risorsa servizio file
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
@@ -334,42 +334,42 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 ### <a name="account-level"></a>Livello di account
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
 
 ### <a name="blob-storage"></a>Archiviazione BLOB
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**, e **BlobTier** ([definizione](#metrics-dimensions)) |
-| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**, e **BlobTier** ([definizione](#metrics-dimensions)) |
-| ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
+| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
+| ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
 
-### <a name="table-storage"></a>Archiviazione tabelle
+### <a name="table-storage"></a>Archivio tabelle
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| TableEntityCount | Numero di entità tabella nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| TableEntityCount | Numero di entità tabella nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
 
 ### <a name="queue-storage"></a>Archiviazione code
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| QueueMessageCount | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| QueueMessageCount | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br/><br/>Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
 
 ### <a name="file-storage"></a>Archiviazione file
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| FileShareCount | Numero di condivisioni file nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
+| FileShareCount | Numero di condivisioni file nell'account di archiviazione. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Valore di esempio: 1024 |
 
 ## <a name="transaction-metrics"></a>Metriche di transazione
 
@@ -377,27 +377,27 @@ Le metriche di transazione vengono generate su per tutte le richieste a un accou
 
 Archiviazione di Azure fornisce le metriche seguenti relative alle transazioni in Monitoraggio di Azure.
 
-| Nome della metrica | DESCRIZIONE |
+| Nome metrica | Descrizione |
 | ------------------- | ----------------- |
-| Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName e Authentication ([definizione](#metrics-dimensions))<br/> Valore di esempio: 1024 |
-| Dati in ingresso | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName e Authentication ([definizione](#metrics-dimensions))<br/> Valore di esempio: 1024 |
+| Ingress | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
 | Egress | Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita entro Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
-| SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
-| SuccessE2ELatency | Latenza end-to-end media di richieste con esito positivo effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
-| Disponibilità | Percentuale della disponibilità per il servizio di archiviazione o per l'operazione API specificata. La disponibilità viene calcolata prendendo il valore totale delle richieste fatturabili e dividendolo per il numero di richieste applicabili, incluse le richieste che hanno restituito errori imprevisti. Tutti gli errori imprevisti provocano la riduzione della disponibilità per il servizio di archiviazione o per l'operazione API specificata. <br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 99,99 |
+| SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Average <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| SuccessE2ELatency | Latenza end-to-end media di richieste con esito positivo effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta. <br/><br/> Unità: Millisecondi <br/> Tipo di aggregazione: Average <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 1024 |
+| Disponibilità | Percentuale della disponibilità per il servizio di archiviazione o per l'operazione API specificata. La disponibilità viene calcolata prendendo il valore totale delle richieste fatturabili e dividendolo per il numero di richieste applicabili, incluse le richieste che hanno restituito errori imprevisti. Tutti gli errori imprevisti provocano la riduzione della disponibilità per il servizio di archiviazione o per l'operazione API specificata. <br/><br/> Unità: Percent <br/> Tipo di aggregazione: Average <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Valore di esempio: 99,99 |
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
 Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure.
 
-| Nome della dimensione | DESCRIZIONE |
+| Nome dimensione | Descrizione |
 | ------------------- | ----------------- |
-| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob**, e **archivio Azure Data Lake**. Il BLOB di aggiunta è incluso in BlockBlob. |
-| **BlobTier** | Archiviazione di Azure offre livelli di accesso diversi, che consentono di archiviare dati dell'oggetto blob nel modo economicamente più conveniente. Altre informazioni, vedere [livello di blob di archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>**Hot**: Livello ad accesso frequente</li> <li>**Ad accesso sporadico**: Livello ad accesso sporadico</li> <li>**Archivio**: Livello spazio di archiviazione</li> <li>**Premium**: Livello Premium per blob in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipi di livello per blob di pagine premium</li> <li>**Standard**: Tipo di livello per Blob di pagine standard</li> <li>**Untiered**: Tipo di livello utilizzo generico v1 account di archiviazione</li> |
-| **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **primari** e **secondario**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
-| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>**ClientThrottlingError**: errore di limitazione sul lato client. </li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li>**Operazione riuscita**: richiesta con esito positivo</li> |
-| **ApiName** | Nome dell'operazione. Ad esempio:  <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **autenticazione** | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>**AccountKey**: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>**SAS**: la transazione viene autenticata con firme di accesso condiviso.</li> <li>**OAuth**: la transazione viene autenticata con i token di accesso OAuth.</li> <li>**Anonimo**: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>**AnonymousPreflight**: la transazione è una richiesta preliminare.</li> |
+| **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob**e **Azure Data Lake storage**. Il BLOB di aggiunta è incluso in BlockBlob. |
+| **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso, che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente possibile. Vedere altri dettagli nel [livello BLOB di archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>A **caldo**: Livello critico</li> <li>**Interessante**: Livello ad accesso sporadico</li> <li>**Archivio**: Livello archivio</li> <li>**Premium**: Livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipi di livello per il BLOB di pagine Premium</li> <li>**Standard**: Tipo di livello per il BLOB di pagine standard</li> <li>Non a **livelli**: Tipo di livello per l'account di archiviazione per utilizzo generico V1</li> |
+| **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **primario** e **secondario**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
+| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori lato server ad eccezione di quelli descritti. </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata con esito negativo a causa dell'accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata con esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>**ClientThrottlingError**: errore di limitazione sul lato client. </li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori sul lato client ad eccezione di quelli descritti. </li> <li>**Operazione riuscita**: Richiesta riuscita</li> <li> **SuccessWithThrottling**: La richiesta è riuscita quando un client SMB viene limitato al primo tentativo, ma ha esito positivo dopo i tentativi.</li> |
+| **ApiName** | Nome dell'operazione. Esempio: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Autenticazione** | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>**AccountKey**: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>**SAS**: la transazione viene autenticata con firme di accesso condiviso.</li> <li>**OAuth**: la transazione viene autenticata con i token di accesso OAuth.</li> <li>**Anonimo**: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>**AnonymousPreflight**: la transazione è una richiesta preliminare.</li> |
 
 Per le dimensioni che supportano metriche, è necessario specificare il valore relativo alla dimensione per visualizzare i valori delle metriche corrispondenti. Se, ad esempio, si esamina il valore **Transactions** per le risposte con esito positivo, è necessario filtrare la dimensione **ResponseType** con **Success**. In alternativa, se si esamina il valore **BlobCount** per il BLOB in blocchi, è necessario filtrare la dimensione **BlobType** con **BlockBlob**.
 

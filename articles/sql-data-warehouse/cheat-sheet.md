@@ -2,20 +2,20 @@
 title: Scheda di riferimento rapido per Azure SQL Data Warehouse | Microsoft Docs
 description: Collegamenti e procedure consigliate per compilare rapidamente soluzioni Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: acomet
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: acomet
+ms.date: 08/23/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314909"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195070"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
 Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
@@ -35,7 +35,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 ## <a name="data-migration"></a>Migrazione dei dati
 
-Innanzitutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o nell'archivio BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
+Prima di tutto, caricare i dati in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o in archiviazione BLOB di Azure. Quindi usare PolyBase per caricare i dati in SQL Data Warehouse in una tabella di staging. Usare la configurazione seguente:
 
 | Progettazione | Recommendation |
 |:--- |:--- |
@@ -96,9 +96,11 @@ Sono disponibili altre informazioni sulle [partizioni].
 
 ## <a name="incremental-load"></a>Carico incrementale
 
-Se si intende caricare i dati in modo incrementale, è necessario assicurarsi di allocare le classi di risorse di dimensioni maggiori al caricamento dei dati. È consigliabile usare PolyBase e ADF V2 per automatizzare le pipeline di ELT in SQL Data Warehouse.
+Se si intende caricare i dati in modo incrementale, è necessario assicurarsi di allocare le classi di risorse di dimensioni maggiori al caricamento dei dati.  Questa operazione è particolarmente importante quando si esegue il caricamento in tabelle con indici columnstore cluster.  Per altri dettagli, vedere le [classi di risorse](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management).  
 
-Per un batch di grandi dimensioni di aggiornamenti dei dati cronologici, eliminare innanzitutto i dati interessati. È quindi possibile procedere a un inserimento bulk dei nuovi dati. Questo approccio in due passaggi è più efficiente.
+È consigliabile usare PolyBase e ADF V2 per automatizzare le pipeline di ELT in SQL Data Warehouse.
+
+Per un grande batch di aggiornamenti nei dati cronologici, prendere in considerazione l'uso di [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) per scrivere i dati da mantenere in una tabella, invece di usare INSERT, UPDATE e DELETE.
 
 ## <a name="maintain-statistics"></a>Gestire le statistiche
  Finché le statistiche automatiche non saranno disponibili a livello generale, SQL Data Warehouse richiede la manutenzione manuale delle statistiche. È importante aggiornare le statistiche quando vengono apportate modifiche *significative* ai dati. Ciò consente di ottimizzare i piani di query. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, scegliere in modo più selettivo le colonne con le statistiche. 
@@ -157,8 +159,8 @@ Distribuire con un clic del mouse gli spoke nei database SQL da SQL Data Warehou
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migrazione dei dati]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[migrazione dei dati]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
-[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[Azure Data Lake Storage]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

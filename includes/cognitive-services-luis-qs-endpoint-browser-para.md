@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 67c95ffcdbdbcfbb9a86e15c91d984953d7bbffc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741375"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180460"
 ---
 Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser. Per eseguire query su un'app pubblica, sono necessari la propria chiave e l'ID app. L'ID app IoT pubblica, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, viene fornito come parte dell'URL al passaggio uno.
 

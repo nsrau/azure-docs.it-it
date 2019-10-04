@@ -3,18 +3,18 @@ title: Calcolo di Azure - Estensione Diagnostica per Linux | Microsoft Docs
 description: Come configurare l'estensione Diagnostica di Azure per Linux (LAD) per raccogliere le metriche e gli eventi dei registri dalle macchine virtuali Linux in esecuzione in Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: gwallace
+ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997958"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838187"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -59,10 +59,10 @@ La configurazione scaricabile è solo un esempio; modificarla per adattarla alle
 
 ### <a name="sample-installation"></a>Installazione di esempio
 
-Compilare i parametri corretti nelle prime tre righe, quindi eseguire lo script come radice:
+Inserire i valori corretti per le variabili nella prima sezione prima di eseguire:
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -127,7 +127,7 @@ Questo set di informazioni per la configurazione contiene informazioni riservate
 }
 ```
 
-NOME | Valore
+Attività | Value
 ---- | -----
 storageAccountName | Nome dell'account di archiviazione in cui l'estensione scrive i dati.
 storageAccountEndPoint | (facoltativo) Endpoint che identifica il cloud in cui esiste l'account di archiviazione. Se questa impostazione è assente, LAD per impostazione predefinita considera il cloud pubblico di Azure, `https://core.windows.net`. Per usare un account di archiviazione in Azure Germania, Azure per enti pubblici o Azure Cina, impostare questo valore di conseguenza.
@@ -135,9 +135,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-
-> [!NOTE]
-> Quando si distribuisce l'estensione con un modello di distribuzione di Azure, è necessario creare prima l'account di archiviazione e il token di firma di accesso condiviso e poi passarli al modello. Non è possibile distribuire una macchina virtuale, l'account di archiviazione e configurare l'estensione in un unico modello. La creazione di un token di firma di accesso condiviso all'interno di un modello non è attualmente supportata.
+Per ottenere un token di firma di accesso condiviso all'interno di un modello di Gestione risorse, usare la funzione **listAccountSas** . Per un modello di esempio, vedere [esempio di funzione List](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 
@@ -167,7 +165,7 @@ Copiare la firma di accesso condiviso generata nel campo storageAccountSasToken;
 
 Questa sezione facoltativa definisce altre destinazioni a cui l'estensione invia le informazioni raccolte. La matrice "sink" contiene un oggetto per ogni sink di dati aggiuntivo. L'attributo "type" determina gli altri attributi dell'oggetto.
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 name | Una stringa usata per fare riferimento a questo sink altrove nella configurazione dell'estensione.
 type | Il tipo di sink da definire. Determina gli altri valori, se presenti, nelle istanze di questo tipo.
@@ -229,9 +227,9 @@ Questa struttura contiene diversi blocchi di impostazioni che controllano le inf
 }
 ```
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
-StorageAccount | Nome dell'account di archiviazione in cui l'estensione scrive i dati. Deve essere lo stesso nome specificato nelle [Impostazioni protette](#protected-settings).
+Account di archiviazione | Nome dell'account di archiviazione in cui l'estensione scrive i dati. Deve essere lo stesso nome specificato nelle [Impostazioni protette](#protected-settings).
 mdsdHttpProxy | (facoltativo) Uguale al valore indicato in [Impostazioni protette](#protected-settings). Il valore pubblico viene sostituito dal valore privato, se impostato. Inserire le impostazioni proxy che contengono un segreto, ad esempio una password, nelle [Impostazioni protette](#protected-settings).
 
 Gli elementi rimanenti vengono descritti in dettaglio nelle sezioni seguenti.
@@ -252,12 +250,12 @@ Gli elementi rimanenti vengono descritti in dettaglio nelle sezioni seguenti.
 
 Questa struttura facoltativa controlla la raccolta di metriche e log per l'invio al servizio Metriche di Azure e ad altri dati sink. È necessario specificare `performanceCounters` o `syslogEvents` oppure entrambi. È necessario specificare la struttura `metrics`.
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 eventVolume | (facoltativo) Controlla il numero di partizioni create all'interno della tabella di archiviazione. Può essere uno tra `"Large"`, `"Medium"` o `"Small"`. Se non è specificato, il valore predefinito è `"Medium"`.
 sampleRateInSeconds | (facoltativo) L'intervallo predefinito tra la raccolta di metriche non elaborate, ovvero non aggregate. La frequenza di esempio più piccola supportata è 15 secondi. Se non è specificato, il valore predefinito è `15`.
 
-#### <a name="metrics"></a>Metriche
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {
@@ -269,7 +267,7 @@ sampleRateInSeconds | (facoltativo) L'intervallo predefinito tra la raccolta di 
 }
 ```
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 resourceId | L'ID della risorsa di Azure Resource Manager della macchina virtuale o del set di scalabilità di macchine a cui appartiene la macchina virtuale. Questa impostazione deve essere specificata anche se nella configurazione viene usato un sink JsonBlob.
 scheduledTransferPeriod | La frequenza con cui le metriche aggregate devono essere calcolate e trasferite a Metriche di Azure, espressa come un intervallo di tempo IS 8601. Il periodo di trasferimento più piccolo è 60 secondi, ovvero PT1M. È necessario specificare almeno un scheduledTransferPeriod.
@@ -309,16 +307,16 @@ Questa sezione facoltativa consente di controllare la raccolta delle metriche. G
 * ultimo valore raccolto
 * numero di esempi non elaborati usati per calcolare l'aggregazione
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink a cui LAD invia i risultati di metrica aggregati. Tutte le metriche aggregate vengono pubblicate in ogni sink elencato. Vedere [sinksConfig](#sinksconfig). Esempio: `"EHsink1, myjsonsink"`.
 type | Identifica il provider effettivo della metrica.
 class | Con "counter" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counter | Con "class" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counterSpecifier | Identifica la metrica specifica all'interno dello spazio dei nomi di Metriche di Azure.
-condition | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per altre informazioni, vedere le definizioni delle metriche `builtin`.
+condizione | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per altre informazioni, vedere le definizioni delle metriche `builtin`.
 sampleRate | Intervallo IS 8601 che imposta la frequenza con cui vengono raccolti gli esempi non elaborati per questa metrica. Se non viene impostata, l'intervallo di raccolta viene impostato dal valore di [sampleRateInSeconds](#ladcfg). La frequenza di esempio più piccola supportata è 15 secondi (PT15S).
-unit | Deve essere una delle seguenti stringhe: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definisce l'unità per la metrica. Gli utenti dei dati raccolti prevedono che i valori dei dati raccolti corrispondano a questa unità. LAD ignora questo campo.
+unità | Deve essere una delle seguenti stringhe: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definisce l'unità per la metrica. Gli utenti dei dati raccolti prevedono che i valori dei dati raccolti corrispondano a questa unità. LAD ignora questo campo.
 displayName | L'etichetta, nella lingua specificata dall'impostazione locale associata, da allegare a questi dati in Metriche di Azure. LAD ignora questo campo.
 
 counterSpecifier è un identificatore arbitrario. Gli utenti di metriche, quali le funzionalità dei grafici del portale di Azure e gli avvisi, usano counterSpecifier come la "chiave" che identifica una metrica o un'istanza di una metrica. Per le metriche `builtin`, è consigliabile usare i valori di counterSpecifier che iniziano con `/builtin/`. Se si raccoglie un'istanza specifica di una metrica, è consigliabile allegare l'identificatore dell'istanza del valore counterSpecifier. Di seguito sono riportati alcuni esempi:
@@ -355,7 +353,7 @@ Questa sezione facoltativa consente di controllare la raccolta degli eventi del 
 
 La raccolta syslogEventConfiguration ha una voce per ogni impianto di interesse di SysLog. Se minSeverity è "NONE" per un particolare impianto o se tale impianto non viene visualizzato nell'elemento, non viene acquisito alcun evento da tale impianto.
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 sinks | Un elenco delimitato da virgole di nomi di sink in cui vengono pubblicati i singoli eventi del registro. Tutti gli eventi del registro corrispondenti alle restrizioni in syslogEventConfiguration vengono pubblicati in tutti i sink elencati. Esempio: "EHforsyslog"
 facilityName | Un nome dell'impianto SysLog, ad esempio "LOG\_USER" o "LOG\_LOCAL0". Per un elenco completo vedere la sezione "impianto" della [pagina di manuale SysLog](http://man7.org/linux/man-pages/man3/syslog.3.html).
@@ -384,12 +382,12 @@ Questa sezione facoltativa consente di controllare l'esecuzione delle query arbi
 ]
 ```
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
-namespace | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+spazio-dei-nomi | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](https://github.com/Microsoft/SCXcore).
 query | La query OMI da eseguire.
-tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato. Vedere [Impostazioni protette](#protected-settings).
-frequency | (facoltativo) Il numero di secondi tra le esecuzioni della query. Il valore predefinito è 300, ovvero 5 minuti; il valore minimo è 15 secondi.
+table | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato. Vedere [Impostazioni protette](#protected-settings).
+Frequenza | (facoltativo) Il numero di secondi tra le esecuzioni della query. Il valore predefinito è 300, ovvero 5 minuti; il valore minimo è 15 secondi.
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi in cui pubblicare i risultati di metrica di esempio non elaborati. Nessuna aggregazione di questi esempi non elaborati viene calcolata dall'estensione o da Metriche di Azure.
 
 È necessario specificare "table" o "sink" o entrambi.
@@ -408,10 +406,10 @@ Consente di controllare l'acquisizione dei file di registro. LAD acquisisce le n
 ]
 ```
 
-Elemento | Valore
+Elemento | Value
 ------- | -----
 file | Il percorso completo del file di registro da esaminate e acquisire. Il percorso deve indicare solo un file. Non è possibile indicare una directory o i caratteri jolly.
-tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato, come specificato nella configurazione protetta, in cui vengono scritte nuove righe dalla "coda" del file.
+table | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato, come specificato nella configurazione protetta, in cui vengono scritte nuove righe dalla "coda" del file.
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi a cui vengono inviate le righe del registro.
 
 È necessario specificare "table" o "sink" o entrambi.
@@ -495,12 +493,14 @@ PercentFreeInodes | Percentuale di inode non usati
 PercentUsedInodes | Percentuale di inode allocati, ovvero in uso, sommati tra tutti i file System
 BytesReadPerSecond | Byte letti per secondo
 BytesWrittenPerSecond | Byte scritti per secondo
-Byte al secondo | Byte letti o scritti per secondo
+BytesPerSecond | Byte letti o scritti per secondo
 ReadsPerSecond | Operazioni di lettura per secondo
 WritesPerSecond | Operazioni di scrittura per secondo
 TransfersPerSecond | Operazioni di lettura o scrittura per secondo
 
-È possibile ottenere i valori aggregati in tutti i file System impostando `"condition": "IsAggregate=True"`. È possibile ottenere i valori per un determinato file system montato, ad esempio "/mnt", può essere ottenuto impostando `"condition": 'Name="/mnt"'`.
+È possibile ottenere i valori aggregati in tutti i file System impostando `"condition": "IsAggregate=True"`. È possibile ottenere i valori per un determinato file system montato, ad esempio "/mnt", può essere ottenuto impostando `"condition": 'Name="/mnt"'`. 
+
+**NOTA**: Se si usa il portale di Azure anziché JSON, il formato del campo di condizione corretto è Name ='/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Metriche Builtin per la classe Disco
 
@@ -517,7 +517,7 @@ AverageTransferTime | Media di secondi per operazione
 AverageDiskQueueLength | Media delle operazioni del disco in coda
 ReadBytesPerSecond | Numero di byte letti al secondo
 WriteBytesPerSecond | Numero di byte scritti al secondo
-Byte al secondo | Numero di byte letti o scritti al secondo
+BytesPerSecond | Numero di byte letti o scritti al secondo
 
 È possibile ottenere i valori aggregati per tutti i dischi impostando `"condition": "IsAggregate=True"`. Per ottenere le informazioni per un dispositivo specifico, ad esempio dev/sdf1, impostare `"condition": "Name=\\"/dev/sdf1\\""`.
 
@@ -695,7 +695,7 @@ I dati inviati ai sink JsonBlob sono archiviati nei BLOB nell'account di archivi
 È anche possibile usare questi strumenti dell'interfaccia utente per accedere ai dati nell'archiviazione di Azure:
 
 * Esplora server di Visual Studio.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Microsoft Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le tabelle di archiviazione di Azure e i contenitori generati da un'estensione LAD 3.0 correttamente configurata su una macchina virtuale di test. L'immagine non corrisponde esattamente alla [configurazione LAD 3.0 di esempio](#an-example-lad-30-configuration).
 

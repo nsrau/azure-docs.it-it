@@ -1,35 +1,49 @@
 ---
-title: Trasformazione Aggregazione per il flusso di dati di mapping di Azure Data Factory
-description: Trasformazione Aggregazione per il flusso di dati di Azure Data Factory
+title: Trasformazione aggregazione nel flusso di dati di mapping-Azure Data Factory | Microsoft Docs
+description: Informazioni su come aggregare i dati su larga scala in Azure Data Factory con la trasformazione aggregazione del flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7b488b243c0520befb6b5470598f460b5a759fed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730037"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314237"
 ---
-# <a name="azure-data-factory-mapping-data-flow-aggregate-transformation"></a>Trasformazione Aggregazione per il flusso di dati di mapping di Azure Data Factory
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La trasformazione Aggregazione è la posizione in cui verranno definite le aggregazioni delle colonne nei flussi di dati. Nel generatore di espressioni è possibile definire diversi tipi di aggregazioni (ad esempio, SUM, MIN, MAX, COUNT e così via) e creare un nuovo campo nell'output che include queste aggregazioni con campi di raggruppamento facoltativi.
-
-![Opzioni della trasformazione Aggregazione](media/data-flow/agg.png "Aggregazione 1")
+La trasformazione Aggregazione è la posizione in cui verranno definite le aggregazioni delle colonne nei flussi di dati. Utilizzando il generatore di espressioni, è possibile definire diversi tipi di aggregazione, ad esempio SUM, MIN, MAX e COUNT, che possono essere raggruppati in base alle colonne calcolate o esistenti.
 
 ## <a name="group-by"></a>Raggruppa per
-(Facoltativo) Scegliere una clausola di raggruppamento per l'aggregazione e usare il nome di una colonna esistente o un nuovo nome. Usare "Add Column" (Aggiungi colonna) e altre clausole di raggruppamento e fare clic nella casella di testo accanto al nome di colonna per avviare il generatore di espressioni per selezionare solo una colonna esistente, una combinazione di colonne o espressioni per il raggruppamento.
+Consente di selezionare una colonna esistente o di creare una nuova colonna calcolata da utilizzare come clausola Group by per l'aggregazione. Per utilizzare una colonna esistente, selezionare la colonna desiderata dall'elenco a discesa. Per creare una nuova colonna calcolata, passare il puntatore del mouse sulla clausola e fare clic su "colonna calcolata". Verrà aperto il generatore di [espressioni del flusso di dati](concepts-data-flow-expression-builder.md). Dopo aver creato la colonna calcolata, immettere il nome della colonna di output nel campo "nome come". Se si desidera aggiungere una clausola Group by aggiuntiva, passare il puntatore del mouse su una clausola esistente e fare clic su' +'.
 
-## <a name="the-aggregate-column-tab"></a>Scheda Aggregate Column (Colonna di aggregazione) 
-(Obbligatorio) Scegliere la scheda Aggregate Column (Colonna di aggregazione) per creare le espressioni di aggregazione. È possibile scegliere una colonna esistente per sovrascrivere il valore con l'aggregazione o creare un nuovo campo con il nuovo nome per l'aggregazione. L'espressione che si vuole usare per l'aggregazione verrà immessa nella casella a destra accanto al selettore di nome di colonna. Fare clic in tale casella di testo per aprire il generatore di espressioni.
+![Raggruppamento della trasformazione aggregazione per impostazioni](media/data-flow/agg.png "Raggruppamento della trasformazione aggregazione per impostazioni")
 
-![Opzioni della trasformazione Aggregazione](media/data-flow/agg2.png "Aggregatore")
+> [!NOTE]
+> Una clausola Group by è facoltativa in una trasformazione aggregazione.
 
-## <a name="data-preview-in-expression-builder"></a>Anteprima dei dati nel generatore di espressioni
+## <a name="aggregate-column"></a>Colonna aggregazione 
+Scegliere la scheda "aggregazioni" per compilare le espressioni di aggregazione. È possibile scegliere una colonna esistente e sovrascrivere il valore con l'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome di colonna. Per modificare l'espressione, fare clic sulla casella di testo per aprire il generatore di espressioni. Per aggiungere un'aggregazione aggiuntiva, passare il puntatore del mouse su un'espressione esistente e fare clic su' +' per creare un nuovo [modello](concepts-data-flow-column-pattern.md)di colonna o colonna di aggregazione.
 
-In modalità Debug, il generatore di espressioni non può produrre anteprime dei dati con le funzioni di aggregazione. Per visualizzare le anteprime dei dati per le trasformazioni di aggregazione, chiudere il generatore di espressioni e visualizzare il profilo dei dati dalla finestra di progettazione del flusso dei dati.
+![Impostazioni aggregate trasformazione aggregazione](media/data-flow/agg2.png "Impostazioni aggregate trasformazione aggregazione")
+
+> [!NOTE]
+> Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazione.
+
+> [!NOTE]
+> In modalità di debug, il generatore di espressioni non può produrre anteprime dei dati con funzioni di aggregazione. Per visualizzare le anteprime dei dati per le trasformazioni aggregate, chiudere il generatore di espressioni e visualizzare i dati tramite la scheda "Anteprima dati".
+
+## <a name="reconnect-rows-and-columns"></a>Riconnettere righe e colonne
+Le trasformazioni di aggregazione sono strettamente equivalenti alle query SELECT di aggregazione SQL. Le colonne che non sono incluse nella clausola Group by o nelle funzioni di aggregazione non passano attraverso l'output della trasformazione aggregazione. Se sono presenti altre colonne che si desidera includere nell'output delle righe aggregate, è necessario eseguire una delle operazioni seguenti:
+
+* Utilizzare una funzione di aggregazione per includere la colonna aggiuntiva, ad esempio Last () o First ()
+* Aggiungere di nuovo le colonne prima dell'aggregazione usando il [modello self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Definire un'aggregazione basata su finestra mediante la [trasformazione finestra](data-flow-window.md)

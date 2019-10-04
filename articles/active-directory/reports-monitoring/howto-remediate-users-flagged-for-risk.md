@@ -1,8 +1,8 @@
 ---
-title: Report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory | Microsoft Docs
+title: Utenti contrassegnati per il rischio nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1412cacd453de01f1937fbcf5e712afdac88def
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286681"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989709"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -36,7 +36,7 @@ Se vengono rilevate attività insolite che possono indicare l'accesso non autori
 
 Nel report Utenti contrassegnati per il rischio è possibile eseguire le azioni seguenti per ogni utente:
 
-- Generare una password provvisoria.
+- Genera password provvisoria
 - Richiedere all'utente la reimpostazione sicura della password al successivo accesso.
 - Eliminare il rischio utente senza eseguire alcuna azione correttiva.
 
@@ -46,7 +46,7 @@ Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati 
 
 È anche possibile usare le credenziali di Office 365 per accedere all'**interfaccia di amministrazione di Azure**. Dopo aver attivato l'accesso ad Azure AD, si viene reindirizzati al portale di Azure AD. Con la sottoscrizione di livello Basic, la quantità di dettagli forniti nei report è limitata. La sottoscrizione Premium di Azure mette a disposizione un maggior livello di dati e analisi.
 
-Per l'accesso di **utenti contrassegnati per il rischio** report nell'interfaccia di amministrazione di Microsoft 365:
+Per accedere ai report sugli **utenti contrassegnati per il rischio** nell'interfaccia di amministrazione di Microsoft 365:
 
 1.  Nel riquadro di spostamento a sinistra selezionare **Interfacce di amministrazione**. 
 2.  Selezionare **Azure AD**.

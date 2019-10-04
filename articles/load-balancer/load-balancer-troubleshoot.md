@@ -5,7 +5,7 @@ description: Risolvere i problemi noti di Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108832"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154932"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -77,7 +77,7 @@ Se tutte le cause precedenti sembrano essere state verificate e risolte corretta
     - Eseguire una traccia Netsh simultanea nella macchina virtuale del pool back-end e un'altra macchina virtuale di test dalla stessa rete virtuale. Eseguire ora un test PsPing per un certo periodo, raccogliere alcune tracce di rete e quindi interrompere il test. 
     - Analizzare l'acquisizione di rete e verificare se sono disponibili pacchetti in ingresso e in uscita correlati alla query di ping. 
         - Se non si osservano pacchetti in ingresso nella macchina virtuale del pool back-end, è possibile che un gruppo di sicurezza di rete o una route definita dall'utente configurata in modo errato blocchi il traffico. 
-        - Se non si osservano alcun pacchetti in uscita nella macchina virtuale del pool di back-end, la macchina virtuale deve essere selezionato per eventuali problemi non correlati (ad esempio, applicazione blocca la porta probe). 
+        - Se nella macchina virtuale del pool back-end non vengono osservati pacchetti in uscita, è necessario verificare la presenza di eventuali problemi non correlati, ad esempio l'applicazione che blocca la porta Probe. 
     - Verificare se i pacchetti probe vengono forzati verso un'altra destinazione, magari tramite impostazioni delle route definite dall'utente, prima di raggiungere il servizio di bilanciamento del carico. Ciò può impedire costantemente al traffico di raggiungere la macchina virtuale back-end. 
 * Modificare il tipo di probe, ad esempio da HTTP a TCP, e configurare la porta corrispondente negli ACL dei gruppi di sicurezza di rete e nel firewall per verificare se il problema è la configurazione della risposta probe. Per altre informazioni sulla configurazione del probe di integrità, vedere la [configurazione del probe di integrità di bilanciamento del carico con endpoint](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 

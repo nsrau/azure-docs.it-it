@@ -1,21 +1,21 @@
 ---
 title: Metodo BreakSentence dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo BreakSentence dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: swmachan
+ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578207"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934047"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -34,14 +34,14 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Parametro di query</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro di query obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>Linguaggio</td>
+    <td>language</td>
     <td>*Parametro di query facoltativo*.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua.</td>
   </tr>
   <tr>
@@ -53,10 +53,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -121,7 +121,7 @@ Una risposta JSON di esempio è:
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>DESCRIZIONE</th>
   <tr>
     <td>X-RequestId</td>
@@ -135,10 +135,10 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Riuscite.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -146,7 +146,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>401</td>
-    <td>Impossibile autenticare la richiesta. Verificare che le credenziali siano state specificate e che siano valide.</td>
+    <td>La richiesta non è stata autenticata. Verificare che le credenziali siano state specificate e che siano valide.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -154,7 +154,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>429</td>
-    <td>Il chiamante sta inviando un numero eccessivo di richieste.</td>
+    <td>Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -172,11 +172,7 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 L'esempio seguente mostra come ottenere i delimitatori di frase per una singola frase. La lingua della frase viene rilevata automaticamente dal servizio.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

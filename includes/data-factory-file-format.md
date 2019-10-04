@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919263"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166731"
 ---
 ## <a name="specifying-formats"></a>Specifica dei formati
 Azure Data Factory supporta i tipi di formato seguenti:
@@ -23,17 +23,17 @@ Azure Data Factory supporta i tipi di formato seguenti:
 ### <a name="specifying-textformat"></a>Specifica di TextFormat
 Per analizzare i file di testo o scrivere i dati in formato testo, impostare la proprietà `format` `type` su **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile prendere in considerazione la possibilità di usare un carattere raro non stampabile che probabilmente non esiste nei dati: ad esempio, specificare "\u0001" che rappresenta Start of Heading (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No  |
-| rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No  |
-| escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se è presente una virgola (,) come delimitatore di colonna, ma si vuole usare il carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire $ come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No  |
-| quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No  |
-| nullValue |Uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No  |
-| encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No  |
-| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True <br/>**False (impostazione predefinita)** |No  |
-| skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No  |
-| treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No  |
+| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile prendere in considerazione la possibilità di usare un carattere raro non stampabile che probabilmente non esiste nei dati: ad esempio, specificare "\u0001" che rappresenta Start of Heading (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
+| rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No |
+| escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se è presente una virgola (,) come delimitatore di colonna, ma si vuole usare il carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire $ come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
+| quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
+| nullValue |Uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No |
+| encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
+| firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/>**False (impostazione predefinita)** |No |
+| skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
+| treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
 
 #### <a name="textformat-example"></a>Esempio di TextFormat
 L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
@@ -73,13 +73,13 @@ Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, v
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
-| jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No  |
-| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No  |
-| encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](/dotnet/api/system.text.encoding). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No  |
-| nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No  |
+| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
+| jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No |
+| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
+| encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](/dotnet/api/system.text.encoding). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No |
+| nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
 #### <a name="json-file-patterns"></a>Modelli di file JSON
 
@@ -400,7 +400,7 @@ Per usare il formato Avro in una tabella Hive, fare riferimento all' [esercitazi
 
 Tenere presente quanto segue:  
 
-* I [tipi di dati complessi](http://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
+* I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
 ### <a name="specifying-orcformat"></a>Impostazione di OrcFormat
 Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
@@ -420,7 +420,7 @@ Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprie
 Tenere presente quanto segue:
 
 * Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
-* Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
+* Il file ORC dispone di tre [opzioni relative alla compressione](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
 ### <a name="specifying-parquetformat"></a>Specificare ParquetFormat
 Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:

@@ -7,15 +7,14 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273159"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241335"
 ---
-# <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
 Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
@@ -28,9 +27,6 @@ Imparare a creare e assegnare progetti consente di definire modelli comuni per s
 > - Rimuovere un progetto assegnato a una sottoscrizione
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introduzione all'API REST
 

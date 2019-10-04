@@ -7,110 +7,114 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 08/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336293"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195357"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
-In questo articolo viene descritto come eseguire attività di sviluppo collaborativo di codice per i progetti di data science con Git come framework di sviluppo di codice condiviso. Viene illustrato come collegare queste attività di codifica al lavoro pianificato nell'ambiente di [sviluppo Agile](agile-development.md) e come eseguire la revisione del codice.
+Questo articolo descrive come usare git come Framework di sviluppo di codice collaborativo per i progetti data science. Questo articolo illustra come collegare il codice in Azure Repos agli elementi di lavoro di [sviluppo agile](agile-development.md) in Azure boards, come eseguire le revisioni del codice e come creare e unire richieste pull per le modifiche.
 
+## <a name='Linkaworkitemwithagitbranch-1'></a>Collegare un elemento di lavoro a un ramo di Azure Repos 
 
-## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Collegare un elemento di lavoro a un ramo Git 
+Azure DevOps offre un modo pratico per connettere una Azure Boards storia utente o un elemento di lavoro attività con un Azure Repos ramo repository git. È possibile collegare la storia utente o l'attività direttamente al codice associato. 
 
-Servizi di Azure DevOps offre un modo pratico per connettere un elemento di lavoro (una storia o un'attività) a un ramo Git. In questo modo è possibile collegare direttamente la storia o l'attività al codice associato. 
-
-Per connettere un elemento di lavoro a un nuovo ramo, fare doppio clic su un elemento di lavoro e, nella finestra popup, fare clic su **Crea un nuovo ramo** in **+ Aggiungi collegamento**.  
+Per connettere un elemento di lavoro a un nuovo ramo, selezionare i puntini di sospensione ( **...** ) accanto all'elemento di lavoro e nel menu di scelta rapida scorrere fino a e selezionare **nuovo ramo**.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Fornire le informazioni per il nuovo ramo, ad esempio il nome del ramo, il repository Git di base e il ramo. Il repository Git scelto deve essere quello nello stesso progetto team a cui appartiene l'elemento di lavoro. Il ramo di base può essere il ramo master o un altro ramo esistente.
+Nella finestra di dialogo **Crea un ramo** specificare il nome del nuovo ramo e il repository e il ramo di base Azure Repos git. Il repository di base deve trovarsi nello stesso progetto Azure DevOps dell'elemento di lavoro. Il ramo di base può essere il ramo master o un altro ramo esistente. Selezionare **Crea ramo**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
-Una procedura consigliata consiste nel creare un ramo Git per ogni elemento di lavoro della storia. Per ogni elemento di lavoro dell'attività creare un ramo di base sul ramo della storia. Organizzare i rami in questo modo gerarchico, che corrisponde alle relazioni della storia-attività è utile quando si dispone di più persone che lavorano su storie diverse dello stesso progetto, o quando si dispone di più persone che lavorano su attività diverse della stessa storia. I conflitti possono essere ridotti quando ogni membro del team lavora su un ramo diverso e quando ogni membro lavora su diversi codici o su altri elementi quando si condivide un ramo. 
+È anche possibile creare un nuovo ramo usando il comando git bash seguente in Windows o Linux:
 
-Nella figura seguente viene illustrata la strategia consigliata di creazione di rami per TDSP. Potrebbe non essere necessario disporre di tutti i rami mostrati di seguito, in particolare quando si dispone solamente di una o due persone che lavorano sullo stesso progetto, o di una persona che lavora su tutte le attività di una storia. Tuttavia è sempre consigliabile separare il ramo di sviluppo dal ramo master. Questo può aiutare ad impedire che il rilascio del ramo venga interrotto dalle attività di sviluppo. Una descrizione più completa del modello di ramo Git è reperibile in [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/) (Un modello efficiente per la creazione di un ramo Git).
+```bash
+git checkout -b <new branch name> <base branch name>
+
+```
+Se non si specifica un \<nome di ramo di base >, il nuovo ramo si `master`basa su. 
+
+Per passare al ramo di lavoro, eseguire il comando seguente: 
+
+```bash
+git checkout <working branch name>
+```
+
+Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. `git checkout master` L'`master` esecuzione consente di tornare al ramo.
+
+È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione storia utente-attività quando più persone lavorano su storie utente diverse per lo stesso progetto o su attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
+
+Il diagramma seguente illustra la strategia di creazione di rami consigliata per TDSP. Potrebbero non essere necessari tutti i rami, come illustrato di seguito, in particolare quando solo una o due persone lavorano su un progetto o solo una persona lavora per tutte le attività di una storia utente. Tuttavia, la separazione del ramo di sviluppo dal ramo master è sempre una procedura consigliata e può aiutare a impedire che il ramo di rilascio venga interrotto dalle attività di sviluppo. Per una descrizione completa del modello di ramo git, vedere [un modello di branching git riuscito](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
-Per passare al ramo che si desidera usare, eseguire il comando seguente in un comando di shell (Windows o Linux). 
-
-    git checkout <branch name>
-
-Modificando il *<nome del ramo\>* in **master** si ritorna al ramo **master**. Dopo essere passati al ramo in funzione, è possibile iniziare a lavorare sullo stesso elemento di lavoro, sviluppando gli elementi di codice o di documentazione necessari per completare l'elemento. 
-
-È anche possibile collegare un elemento di lavoro a un ramo esistente. Nella pagina **Dettaglio** di un elemento di lavoro invece di fare clic su **Crea un nuovo ramo**, fare clic su **+ Aggiungi collegamento**. Quindi, selezionare il ramo che si desidera collegare all'elemento di lavoro. 
+È anche possibile collegare un elemento di lavoro a un ramo esistente. Nella pagina dei **Dettagli** di un elemento di lavoro selezionare **Aggiungi collegamento**. Selezionare quindi un ramo esistente a cui collegare l'elemento di lavoro e fare clic su **OK**. 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
-È anche possibile creare un nuovo ramo nei comandi di Git Bash. Se <nome del ramo di base\> è mancante, il <nome del nuovo ramo\> si basa sul ramo _master_. 
-    
-    git checkout -b <new branch name> <base branch name>
+## <a name='WorkonaBranchandCommittheChanges-2'></a>Lavorare sul ramo e confermare le modifiche 
 
+Dopo aver apportato una modifica per l'elemento di lavoro, ad esempio l'aggiunta di un file di script `script` R al branch del computer locale, è possibile eseguire il commit della modifica dal branch locale al ramo di lavoro upstream usando i comandi Git bash seguenti:
 
-## 2. <a name='WorkonaBranchandCommittheChanges-2'></a>Lavorare su un ramo e salvare le modifiche 
-
-Ora si supponga di apportare alcune modifiche al ramo *dati\_inserimento* per l'elemento di lavoro, ad esempio l'aggiunta di un file R sul ramo nel computer locale. È possibile eseguire il commit del file R aggiunto al ramo per questo elemento di lavoro, purché ci si trovi in quel ramo nel Git shell, usando i seguenti comandi Git:
-
-    git status
-    git add .
-    git commit -m"added a R scripts"
-    git push origin data_ingestion
+```bash
+git status
+git add .
+git commit -m "added an R script file"
+git push origin script
+```
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Creare una richiesta pull nei servizi di Azure DevOps 
+## <a name='CreateapullrequestonVSTS-3'></a>Creare una richiesta pull
 
-Quando si è pronti dopo qualche commit e push, per unire il ramo corrente al relativo ramo di base, è possibile inviare una **richiesta pull** nei servizi di Azure DevOps. 
+Dopo uno o più commit e push, quando si è pronti per unire il ramo di lavoro corrente nel ramo di base, è possibile creare e inviare una *richiesta pull* in Azure Repos. 
 
-Passare alla pagina principale del progetto e fare clic su **CODICE**. Selezionare il ramo da unire e il nome del repository Git che si desidera unire al ramo. Quindi fare clic su **Richieste Pull**, fare clic su **Nuova richiesta pull** per creare una revisione della richiesta pull prima che il lavoro sul ramo venga unito al relativo ramo di base.
+Dalla pagina principale del progetto Azure DevOps, puntare alle**richieste pull** del **repository** > nel percorso di spostamento a sinistra. Selezionare quindi uno dei pulsanti **nuova richiesta pull** oppure il collegamento **Crea una richiesta pull** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Riempire delle descrizioni relative a questa richiesta pull, aggiungere i revisori e inviarle.
+Nella schermata **nuova richiesta pull** , se necessario, passare al repository git e al ramo in cui si vuole eseguire il merge delle modifiche. Aggiungere o modificare le altre informazioni desiderate. Inrevisori aggiungere i nomi di quelli necessari per rivedere le modifiche e quindi selezionare **Crea**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## 4. <a name='ReviewandMerge-4'></a>Revisionare e unire 
+## <a name='ReviewandMerge-4'></a>Revisionare e unire
 
-Quando viene creata la richiesta pull, i revisori ricevono una notifica di posta elettronica per revisionare le richieste pull. I revisori devono verificare se le modifiche funzionano e testare le modifiche con il richiedente, se possibile. In base alla loro valutazione, i revisori possono approvare o rifiutare la richiesta pull. 
+Una volta creata la richiesta pull, i revisori ricevono una notifica tramite posta elettronica per esaminare la richiesta pull. I revisori verificano se le modifiche funzionano e controllano le modifiche con il richiedente, se possibile. I revisori possono inserire commenti, richiedere modifiche e approvare o rifiutare la richiesta pull in base alla valutazione. 
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-![9](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
-
-Dopo aver completato la revisione, il ramo in funzione viene unito al relativo ramo di base facendo clic sul pulsante **Completa**. È possibile scegliere di eliminare il ramo in funzione dopo che è stato unito. 
+Dopo che i revisori hanno approvato le modifiche, l'utente o un altro utente con autorizzazioni di merge può unire il ramo di lavoro al relativo ramo di base. Selezionare **completa**, quindi selezionare **completa merge** nella finestra di dialogo **completa richiesta pull** . È possibile scegliere di eliminare il ramo di lavoro dopo che è stato Unito. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-Verificare in alto a sinistra che la richiesta sia contrassegnata come **COMPLETATA**. 
+Confermare che la richiesta è contrassegnata come **completata**. 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Quando si torna indietro al repository in **CODICE**, all'utente viene detto che ci si è spostati al ramo master.
+Quando si torna a **repository** nel percorso di spostamento a sinistra, è possibile vedere che è stato passato al ramo master dopo l'eliminazione del `script` ramo.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Inoltre, è possibile usare i seguenti comandi Git per unire il ramo di in funzione al relativo ramo di base ed eliminare il ramo in funzione dopo l'unione:
+È anche possibile usare i comandi di git bash seguenti per unire `script` il ramo di lavoro al relativo ramo di base ed eliminare il ramo di lavoro dopo l'Unione:
 
-    git checkout master
-    git merge data_ingestion
-    git branch -d data_ingestion
+```bash
+git checkout master
+git merge script
+git branch -d script
+```
 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 
-
- 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nell'argomento [Esecuzione di attività di data science](execute-data-science-tasks.md) viene illustrato come usare le utilità per completare molte attività di data science comuni, ad esempio l'esplorazione interattiva dei dati, l'analisi dei dati, nonché la creazione di report e modelli.
+[Esegui Data Science attività](execute-data-science-tasks.md) Mostra come utilizzare le utilità di per completare diverse attività comuni di Data Science, ad esempio l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli.
 
-Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
+[Procedure dettagliate di esempio](walkthroughs.md) elenca le procedure dettagliate di scenari specifici, con collegamenti e descrizioni delle anteprime. Negli scenari collegati viene illustrato come combinare strumenti e servizi cloud e locali in flussi di lavoro o pipeline per creare applicazioni intelligenti. 
 

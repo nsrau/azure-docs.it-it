@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 372c65f1ac9a08d066f26e637f3af86807b35f11
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892915"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182816"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
@@ -27,9 +27,9 @@ Questo articolo illustra come sia possibile pubblicare un'applicazione nel marke
 
 Per completare questo articolo, è necessario avere già il file ZIP per la definizione di applicazione gestita. Per altre informazioni, vedere [Creare un'applicazione del catalogo di servizi](publish-service-catalog-app.md).
 
-Esistono anche diversi prerequisiti aziendali. Sono:
+Esistono diversi prerequisiti aziendali. Sono:
 
-* La società (o la sua affiliata) deve avere sede in un paese in cui le vendite sono supportate dal marketplace.
+* La società (o la sua affiliata) deve avere sede in un paese/area geografica in cui le vendite sono supportate dal marketplace.
 * Il prodotto deve essere concesso in licenza in modo da essere compatibile con i modelli di fatturazione supportati dal marketplace.
 * Rendere disponibile il supporto tecnico per i clienti in una modalità ragionevole dal punto di vista commerciale. Il supporto può essere gratuito, a pagamento o tramite il supporto della community.
 * Concedere in licenza il software e le eventuali dipendenze software di terze parti.
@@ -37,14 +37,7 @@ Esistono anche diversi prerequisiti aziendali. Sono:
 * Accettare le condizioni delle Politiche di partecipazione a Microsoft Azure Marketplace e del Contratto per gli editori.
 * Accettare le Condizioni per l'utilizzo del sito Web di Microsoft Azure, l'Informativa sulla privacy di Microsoft e il Contratto del Programma Microsoft Azure Certified.
 
-## <a name="become-a-publisher"></a>Diventare un editore
-
-Per diventare editore in Azure Marketplace, è necessario:
-
-1. Creare un ID Microsoft - Creare l'account Microsoft usando un indirizzo di posta elettronica appartenente al dominio dell'azienda, ma non a un singolo utente. Questo indirizzo di posta elettronica viene usato sia per Microsoft Developer Center che per il portale Cloud Partner. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
-1. Inviare il [modulo di candidatura per Azure Marketplace](https://aka.ms/ampnomination) - Per **Solution that you intend to publish?** (Soluzione da pubblicare?) selezionare **Managed Application** (Applicazione gestita). Una volta inviato il modulo, il team Marketplace Onboarding esamina l'applicazione e convalida la richiesta. Il processo di approvazione può richiedere da uno a tre giorni. Quando la candidatura viene approvata, si riceve un codice promozionale che consente di evitare di pagare la tariffa di registrazione per Developer Center. Se **non** si completa il modulo di candidatura per il Marketplace, sarà necessario pagare una tariffa di registrazione equivalente a 99 dollari.
-1. Eseguire la registrazione in [Developer Center](https://dev.windows.com/registration?accountprogram=azure) - Microsoft verifica che l'organizzazione sia una persona giuridica valida con un ID fiscale valido per il paese di registrazione. Il processo di approvazione può richiedere da 5 a 10 giorni. Per evitare di pagare la tariffa di registrazione, usare il codice promozionale ricevuto nel messaggio di posta elettronica durante il processo di candidatura. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
-1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) - Nel profilo di pubblicazione, associare l'account di Developer Center al profilo di pubblicazione del Marketplace. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
+È inoltre necessario avere un account di Marketplace. Per creare un account, vedere [Come creare un account di Marketplace commerciale nel Centro per i partner](..//marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creare una nuova offerta di applicazione Azure
 
@@ -94,8 +87,8 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
    * **Riepilogo**: immettere un breve riepilogo per questo SKU, che viene visualizzato sotto il titolo.
    * **Descrizione**: immettere una descrizione dettagliata sullo SKU.
    * **Sku Type** (Tipo di SKU): i valori consentiti sono *Managed Application* (Applicazione gestita) e *Solution Templates* (Modelli di soluzioni). In questo caso, selezionare *Managed Application* (Applicazione gestita).
-   * **Country/Region availability (Disponibilità paese/area geografica)**: selezionare i paesi in cui l'applicazione gestita è disponibile.
-   * **Pricing** (Prezzi): indica il prezzo della gestione dell'applicazione. Prima di impostare il prezzo, selezionare i paesi disponibili.
+   * **Country/Region availability (Disponibilità paese/area geografica)** : selezionare i paesi/aree geografiche in cui l'applicazione gestita è disponibile.
+   * **Pricing** (Prezzi): indica il prezzo della gestione dell'applicazione. Prima di impostare il prezzo, selezionare i paesi/aree geografiche disponibili.
 
 1. Aggiungere un nuovo pacchetto. Compilare la sezione dei **dettagli del pacchetto** nel formato seguente:
 
@@ -103,6 +96,12 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
 
    * **Versione**: immettere la versione per il pacchetto caricato. Deve essere nel formato `{number}.{number}.{number}{number}`.
    * **Package file (.zip)** (File pacchetto -.zip): questo pacchetto contiene due file necessari compressi in un pacchetto ZIP. Un file è un modello di Resource Manager che definisce le risorse da distribuire per l'applicazione gestita. L'altro file definisce l'[interfaccia utente](create-uidefinition-overview.md) per i consumer che distribuiscono l'applicazione gestita tramite il portale. Nell'interfaccia utente specificare gli elementi che consentono ai consumer di fornire i valori dei parametri.
+   * **ID tenant**: ID tenant per l'accesso dell'account.
+   * **Enable JIT Access** (Abilita accesso JIT): selezionare **Yes** (Sì) per abilitare il [controllo di accesso JIT](request-just-in-time-access.md) per l'account. Quando è abilitato, si richiede l'accesso all'account del consumer per un periodo di tempo specificato. Affinché i consumer dell'applicazione gestita concedano all'account l'accesso permanente, selezionare **No**.
+   * **Customize allowed customer actions?** (Personalizzare le azioni dei clienti consentite?): selezionare **Yes** (Sì) per specificare le azioni che gli utenti possono eseguire con le risorse gestite.
+   * **Allowed customer actions** (Azioni dei clienti consentite): se si seleziona **Yes** (Sì) per l'impostazione precedente, è possibile specificare quali azioni sono consentite ai consumer usando le [assegnazioni di rifiuto per le risorse di Azure](../role-based-access-control/deny-assignments.md).
+
+     Per informazioni sulle azioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite. L'azione `*/read` viene automaticamente consentita, quindi non è necessario includere tale impostazione.
    * **PrincipalId**: questa proprietà è l'identificatore Azure Active Directory (Azure AD) di un utente, di un gruppo di utenti o di un'applicazione a cui è stato concesso l'accesso alle risorse nella sottoscrizione del cliente. La definizione del ruolo descrive le autorizzazioni.
    * **Role Definition** (Definizione ruolo): questa proprietà è un elenco di tutti i ruoli di controllo degli accessi in base al ruolo forniti da Azure AD. È possibile selezionare il ruolo più appropriato da usare per gestire le risorse per conto del cliente.
    * **Policy Settings** (Impostazioni dei criteri): applicare un [criterio di Azure](../governance/policy/overview.md) all'applicazione gestita per specificare i requisiti di conformità per le soluzioni distribuite. Selezionare i criteri da applicare tra le opzioni disponibili. In **Policy Parameters** (Parametri dei criteri) specificare una stringa JSON con i valori dei parametri. Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](../governance/policy/samples/index.md).
@@ -178,5 +177,6 @@ Dopo avere completato tutte le sezioni, selezionare **Publish** (Pubblica) per a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni su quello che si verifica dopo aver fatto clic su **Pubblica**, vedere [Pubblicare un'offerta di applicazione Azure](../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica delle applicazioni gestite di Azure](overview.md).
 * Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di servizi, vedere [Creare e pubblicare un'applicazione gestita del catalogo di servizi](publish-service-catalog-app.md).

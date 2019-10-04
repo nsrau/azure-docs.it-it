@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796546"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815676"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -32,7 +33,7 @@ Questo articolo illustra come creare un account di Video Indexer connesso a una 
 
     Se non si dispone di un dominio di Azure AD, creare il dominio nella sottoscrizione di Azure. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati in Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Un utente e un membro del dominio di Azure AD. Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
+* Un utente nel dominio di Azure AD con un ruolo di **amministratore dell'applicazione** . Questo membro verrà usato per la connessione dell'account di Video Indexer ad Azure.
 
     L'utente deve essere un utente di Azure AD con un account aziendale o dell'istituto di istruzione e non un account personale, ad esempio outlook.com, live.com o hotmail.com.
 
@@ -58,9 +59,12 @@ Cercare **Microsoft.Media** e **Microsoft.EventGrid**. Se lo stato non è "Regis
 
 ## <a name="connect-to-azure"></a>Connect to Azure
 
+> [!NOTE]
+> Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.
+
 1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 
-2. Fare clic sui **Crea nuovo account** pulsante:
+2. Fare clic sul pulsante **Crea nuovo account** :
 
     ![connessione ad Azure](./media/create-account/connect-to-azure.png)
 
@@ -103,7 +107,7 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
 
 1. Usare il portale di [Azure](https://portal.azure.com/) per creare un account di Servizi multimediali di Azure, come descritto in [Creare un account](../previous/media-services-portal-create-account.md).
 
-    Quando si crea un account di archiviazione per l'account di Servizi multimediali, selezionare **StorageV2** (Archiviazione v2) per il tipo di account e **Con ridondanza geografica** per i campi di replica.
+    Quando si crea un account di archiviazione per l'account di servizi multimediali, selezionare **archiviazione V2** per tipo di account e ridondanza **geografica (GRS)** per i campi di replica.
 
     ![Nuovo account di Servizi multimediali di Azure](./media/create-account/create-ams-account1.png)
 
@@ -142,7 +146,7 @@ Nella finestra di dialogo specificare le informazioni seguenti:
 |Tenant di Azure Active Directory (AAD)|Il nome del tenant di Azure AD, ad esempio "contoso.onmicrosoft.com". Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra. Trovare il nome a destra di **Dominio**.|
 |ID sottoscrizione|La sottoscrizione di Azure in cui deve essere creata la connessione. L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **All services** (Tutti i servizi) nel pannello a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
 |Nome del gruppo di risorse di Servizi multimediali di Azure|Nome del gruppo di risorse in cui è stato creato l'account di Servizi multimediali.|
-|Nome della risorsa dei servizi multimediali|Nome dell'account di Servizi multimediali di Azure creato nella sezione precedente.|
+|Nome risorsa servizio multimediale|Nome dell'account di Servizi multimediali di Azure creato nella sezione precedente.|
 |ID applicazione|ID dell'applicazione di Azure AD con le autorizzazioni per l'account di Servizi multimediali specificato creato nella sezione precedente.|
 |Chiave applicazione|Chiave dell'applicazione Azure AD creata nella sezione precedente. |
 

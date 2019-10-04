@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Questa guida introduttiva illustra come creare una rete virtuale usando il portale di Azure. Una rete virtuale consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente tra loro e con Internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: jdial
-ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: kumud
+ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670409"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730088"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale usando PowerShell
 
@@ -27,7 +27,7 @@ Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM)
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si decide invece di installare e usare PowerShell in locale, questa guida introduttiva richiede l'uso del modulo Azure PowerShell versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Consultare [Installazione del modulo Azure PowerShell](/powershell/azure/install-az-ps) per informazioni relative a installazione e aggiornamento.
 
@@ -140,9 +140,6 @@ Aprire un prompt dei comandi nel computer locale. Eseguire il comando `mstsc`. S
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Un file Remote Desktop Protocol (*.rdp*) viene scaricato sul computer, mentre si apre un Desktop remoto.
-
 1. Quando richiesto, selezionare **Connetti**.
 
 1. Immettere il nome utente e la password specificati al momento della creazione della VM.

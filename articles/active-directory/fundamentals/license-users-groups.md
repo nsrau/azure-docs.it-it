@@ -2,7 +2,7 @@
 title: Assegnare o rimuovere licenze - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come assegnare o rimuovere le licenze di Azure Active Directory da utenti o gruppi.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f76e766d0aedae88eb11dd244f71f130f77c57e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247510"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561661"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze usando il portale di Azure Active Directory
 Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di un prodotto Azure AD e la concessione della licenza ai singoli utenti o gruppi (e relativi membri associati) per quel prodotto. Solo gli utenti con licenze attive saranno in grado di eseguire l'accesso e usare i servizi di Azure AD concessi in licenza.
@@ -27,7 +27,7 @@ Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di u
 ## <a name="available-product-editions"></a>Edizioni del prodotto disponibili
 Sono disponibili diverse edizioni del prodotto Azure AD.
 
-- Azure AD Free
+- Azure AD Gratuito
 
 - Azure AD Basic
 
@@ -47,7 +47,7 @@ Per informazioni specifiche su ogni edizione del prodotto e i dettagli di licenz
 
     Viene visualizzata la pagina **Licenze**.
 
-    ![Pagina licenze con numero di prodotti acquistati e le licenze assegnate](media/license-users-groups/license-details-blade.png)
+    ![Pagina licenze, con il numero di prodotti acquistati e licenze assegnate](media/license-users-groups/license-details-blade.png)
     
 3. Selezionare il collegamento **Purchased products** (Prodotti acquistati) per visualizzare la pagina **Prodotti** e visualizzare i dettagli **Assegnata**, **Disponibile** e **Scadenza imminente** per ogni specifica edizione del prodotto.
 

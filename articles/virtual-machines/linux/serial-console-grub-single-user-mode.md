@@ -4,22 +4,21 @@ description: Uso della console seriale per grub nelle macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cce4e558331cad0045772f53f7fc3c78aeed2bb7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111889"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082209"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -55,7 +54,7 @@ RHEL passerà in modalità utente singolo automaticamente se è impossibile avvi
 ### <a name="grub-access-in-rhel"></a>Accesso GRUB in RHEL
 RHEL dotata di GRUB abilitata per impostazione predefinita. Per immettere GRUB, riavviare la macchina virtuale con `sudo reboot` e premere un tasto qualsiasi. Verrà visualizzata la schermata GRUB visualizzati.
 
-> Note: Red Hat fornisce anche la documentazione per l'avvio in modalità di ripristino, modalità di emergenza, modalità di debug e la reimpostazione della password radice. [Fai clic qui per accedere](https://aka.ms/rhel7grubterminal).
+> Nota: Red Hat fornisce anche la documentazione per l'avvio in modalità di ripristino, modalità di emergenza, modalità di debug e la reimpostazione della password radice. [Fai clic qui per accedere](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurare l'accesso radice per la modalità utente singolo in RHEL
 La modalità utente singolo in Red Hat richiede che sia abilitato l'utente ROOT, che è disabilitato per impostazione predefinita. Per abilitare la modalità utente singolo, seguire le istruzioni seguenti:
@@ -89,7 +88,7 @@ Se è stata impostata una radice e GRUB accedere con le istruzioni riportate sop
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Accedere alla modalità utente singolo senza account radice abilitato in RHEL
 Se non sono stati esaminati i passaggi sopra per abilitare l'utente root, è ancora possibile reimpostare la password radice. Usare le istruzioni seguenti:
 
-> Note: Se si usa SELinux, assicurarsi di aver eseguito i passaggi aggiuntivi descritti nella documentazione di Red Hat [qui](https://aka.ms/rhel7grubterminal) durante la reimpostazione della password radice.
+> Nota: Se si usa SELinux, assicurarsi di aver eseguito i passaggi aggiuntivi descritti nella documentazione di Red Hat [qui](https://aka.ms/rhel7grubterminal) durante la reimpostazione della password radice.
 
 1. Premere “Esc” durante il riavvio per immettere GRUB nella macchina virtuale
 1. In GRUB, premere “e” per modificare il sistema operativo selezionato di cui si desidera eseguire l'avvio (in genere la prima riga)
@@ -103,7 +102,7 @@ Se non sono stati esaminati i passaggi sopra per abilitare l'utente root, è anc
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Note: Tramite l’esecuzione delle istruzioni riportate si passerà alla shell di emergenza, in modo da poter eseguire attività quali la modifica `fstab`. Tuttavia, il suggerimento generalmente accettato consiste nel reimpostare la password radice e usarla per accedere alla modalità utente singolo. 
+> Nota: Tramite l’esecuzione delle istruzioni riportate si passerà alla shell di emergenza, in modo da poter eseguire attività quali la modifica `fstab`. Tuttavia, il suggerimento generalmente accettato consiste nel reimpostare la password radice e usarla per accedere alla modalità utente singolo. 
 
 
 ## <a name="access-for-centos"></a>Accesso per CentOS

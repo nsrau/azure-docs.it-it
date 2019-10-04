@@ -3,27 +3,24 @@ title: Creare la prima data factory (REST) | Documentazione Microsoft
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando l'API REST di Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5fe554371e54c6f67ae714084f110319b43fe54c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487805"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140428"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -125,8 +122,8 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| ClusterSize |Dimensioni del cluster HDInsight. |
-| TimeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
+| clusterSize |Dimensioni del cluster HDInsight. |
+| timeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
 | linkedServiceName |Specifica l'account di archiviazione che viene usato per archiviare i log generati da HDInsight. |
 
 Tenere presente quanto segue:
@@ -176,7 +173,7 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
 | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
 | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
-| frequenza/intervallo |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+| frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
 | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
@@ -474,7 +471,7 @@ Eseguire il comando Invoke e il comando successivo fino a quando la sezione non 
 >
 >
 
-È anche possibile usare il portale di Azure per monitorare le sezioni e risolvere eventuali problemi. Per i dettagli, vedere [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data Factory](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) .
+È anche possibile usare il portale di Azure per monitorare le sezioni e risolvere eventuali problemi. Per i dettagli, vedere [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data Factory](data-factory-monitor-manage-pipelines.md) .
 
 ## <a name="summary"></a>Summary
 In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:

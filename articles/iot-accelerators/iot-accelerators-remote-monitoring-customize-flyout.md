@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un riquadro a comparsa all'interfaccia utente della soluzione Monitoraggio remoto - Azure | Microsoft Docs
+title: Aggiungere un riquadro a comparsa per la soluzione di monitoraggio remoto dell'interfaccia utente - Azure | Microsoft Docs
 description: Questo articolo illustra come aggiungere un nuovo riquadro a comparsa su una pagina nell'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447115"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere un riquadro a comparsa personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
 

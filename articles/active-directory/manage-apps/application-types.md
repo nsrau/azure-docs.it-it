@@ -3,8 +3,8 @@ title: Applicazione non prevista nell'elenco delle applicazioni | Microsoft Docs
 description: Come visualizzare tutte le applicazioni nel tenant e capire come le applicazioni vengono visualizzate nell'elenco Tutte le applicazioni in Applicazioni aziendali
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65781103"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Applicazione non prevista nell'elenco delle applicazioni
 

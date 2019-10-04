@@ -3,8 +3,8 @@ title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia 
 description: Come creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: v-livech
-ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: cynthn
+ms.openlocfilehash: b143a28216d0d8417615ad2c40a3b66c9c5d1be2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478260"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173879"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
 

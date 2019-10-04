@@ -2,27 +2,20 @@
 title: Cosa sono un modello del servizio cloud e un pacchetto | Documentazione Microsoft
 description: Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917312"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359548"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
-Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)*, la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)*. Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
+Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)* , la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)* . Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
 
 Una volta che il servizio cloud è in esecuzione in Azure, è possibile riconfigurarlo tramite il file **ServiceConfig.cscfg** , ma non è possibile modificare la definizione.
 
@@ -93,28 +86,28 @@ Il file **ServiceDefinition.csdef** specifica le impostazioni usate da Azure per
 È possibile fare riferimento allo [schema di definizione dei servizi](/previous-versions/azure/reference/ee758711(v=azure.100)) per comprendere meglio lo schema XML usato qui, ma viene indicata anche una breve spiegazione di alcuni elementi:
 
 **Sites**  
- Contiene le definizioni per i siti Web o per le applicazioni Web ospitate in IIS7.
+Contiene le definizioni per i siti Web o per le applicazioni Web ospitate in IIS7.
 
 **InputEndpoints**  
- Contiene le definizioni per gli endpoint usati per contattare il servizio cloud.
+Contiene le definizioni per gli endpoint usati per contattare il servizio cloud.
 
 **InternalEndpoints**  
- Contiene le definizioni per gli endpoint usati dalle istanze del ruolo per comunicare tra loro.
+Contiene le definizioni per gli endpoint usati dalle istanze del ruolo per comunicare tra loro.
 
 **ConfigurationSettings**  
- Contiene le definizioni delle impostazioni per le funzionalità di un ruolo specifico.
+Contiene le definizioni delle impostazioni per le funzionalità di un ruolo specifico.
 
 **Certificates**  
- Contiene le definizioni dei certificati necessari per un ruolo. L'esempio di codice precedente mostra un certificato usato per la configurazione di Azure Connect.
+Contiene le definizioni dei certificati necessari per un ruolo. L'esempio di codice precedente mostra un certificato usato per la configurazione di Azure Connect.
 
 **LocalResources**  
- Contiene le definizioni per le risorse di archiviazione locale. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale in cui è in esecuzione un'istanza di un ruolo.
+Contiene le definizioni per le risorse di archiviazione locale. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale in cui è in esecuzione un'istanza di un ruolo.
 
 **Imports**  
- Contiene le definizioni per i moduli importati. L'esempio di codice precedente mostra i moduli per la connessione Desktop remoto e Azure Connect.
+Contiene le definizioni per i moduli importati. L'esempio di codice precedente mostra i moduli per la connessione Desktop remoto e Azure Connect.
 
 **Startup**  
- Contiene le attività eseguite all'avvio del ruolo. Le attività vengono definite in un file eseguibile o con estensione cmd.
+Contiene le attività eseguite all'avvio del ruolo. Le attività vengono definite in un file eseguibile o con estensione cmd.
 
 <a name="cscfg"></a>
 
@@ -144,13 +137,13 @@ Il file di configurazione del servizio non viene incluso nel pacchetto con l'app
 È possibile fare riferimento allo [schema di configurazione dei servizi](/previous-versions/azure/reference/ee758710(v=azure.100)) per comprendere meglio lo schema XML usato qui, ma ecco anche una rapida spiegazione degli elementi:
 
 **Instances**  
- Configura il numero di istanze in esecuzione per il ruolo. Per evitare che il servizio cloud diventi potenzialmente non disponibile durante gli aggiornamenti, è consigliabile distribuire più istanze dei ruoli esposti al Web. In questo modo si rispettano le linee guida del [contratto di servizio (SLA, Service Level Agreement) per il servizio di calcolo di Azure](https://azure.microsoft.com/support/legal/sla/), che garantisce una connettività esterna pari al 99,95% per i ruoli esposti a Internet quando due o più istanze dei ruoli vengono distribuite per un servizio.
+Configura il numero di istanze in esecuzione per il ruolo. Per evitare che il servizio cloud diventi potenzialmente non disponibile durante gli aggiornamenti, è consigliabile distribuire più istanze dei ruoli esposti al Web. In questo modo si rispettano le linee guida del [contratto di servizio (SLA, Service Level Agreement) per il servizio di calcolo di Azure](https://azure.microsoft.com/support/legal/sla/), che garantisce una connettività esterna pari al 99,95% per i ruoli esposti a Internet quando due o più istanze dei ruoli vengono distribuite per un servizio.
 
 **ConfigurationSettings**  
- Configura le impostazioni per le istanze in esecuzione di un ruolo. Il nome degli elementi `<Setting>` deve corrispondere alle definizioni delle impostazioni nel file di definizione del servizio.
+Configura le impostazioni per le istanze in esecuzione di un ruolo. Il nome degli elementi `<Setting>` deve corrispondere alle definizioni delle impostazioni nel file di definizione del servizio.
 
 **Certificates**  
- Configura i certificati usati dal servizio. L'esempio di codice precedente mostra come definire il certificato per il modulo RemoteAccess. Il valore dell'attributo *thumbprint* deve essere impostato sull'identificazione personale del certificato da usare.
+Configura i certificati usati dal servizio. L'esempio di codice precedente mostra come definire il certificato per il modulo RemoteAccess. Il valore dell'attributo *thumbprint* deve essere impostato sull'identificazione personale del certificato da usare.
 
 <p/>
 
@@ -186,7 +179,7 @@ L'esempio seguente illustra la configurazione di un ruolo Web con un sito Web e 
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -201,11 +194,11 @@ L'esempio seguente illustra la configurazione di un ruolo Web con un sito Web e 
 È possibile aggiornare la configurazione del servizio cloud mentre è in esecuzione in Azure, senza portare il servizio offline. Per modificare le informazioni di configurazione, è possibile caricare un nuovo file di configurazione o modificare il file di configurazione sul posto e applicarlo al servizio in esecuzione. Alla configurazione di un servizio possono essere apportate le seguenti modifiche:
 
 * **Modifica dei valori delle impostazioni di configurazione**  
-   Quando un'impostazione di configurazione viene modificata, è possibile applicare la modifica a un'istanza del ruolo mentre l'istanza è online oppure è possibile riciclare normalmente l'istanza e applicare la modifica mentre si trova offline.
+  Quando un'impostazione di configurazione viene modificata, è possibile applicare la modifica a un'istanza del ruolo mentre l'istanza è online oppure è possibile riciclare normalmente l'istanza e applicare la modifica mentre si trova offline.
 * **Modifica della topologia del servizio delle istanze del ruolo**  
-   Le modifiche di topologia non influiscono sulle istanze in esecuzione, a eccezione del caso di rimozione di un'istanza. Non è in genere necessario riciclare tutte le istanze rimanenti; tuttavia, è possibile scegliere di riciclare le istanze del ruolo in risposta a una modifica di topologia.
+  Le modifiche di topologia non influiscono sulle istanze in esecuzione, a eccezione del caso di rimozione di un'istanza. Non è in genere necessario riciclare tutte le istanze rimanenti; tuttavia, è possibile scegliere di riciclare le istanze del ruolo in risposta a una modifica di topologia.
 * **Modifica dell'identificazione personale del certificato**  
-   È possibile aggiornare un certificato solo quando un'istanza del ruolo è offline. Se un certificato viene aggiunto, eliminato o modificato mentre un'istanza del ruolo è online, in Azure l'istanza viene portata offline normalmente per aggiornare il certificato e riportata online dopo il completamento della modifica.
+  È possibile aggiornare un certificato solo quando un'istanza del ruolo è offline. Se un certificato viene aggiunto, eliminato o modificato mentre un'istanza del ruolo è online, in Azure l'istanza viene portata offline normalmente per aggiornare il certificato e riportata online dopo il completamento della modifica.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Gestione delle modifiche di configurazione con gli eventi di runtime del servizio
 La [libreria di runtime di Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) include lo spazio dei nomi [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)), che fornisce le classi per l'interazione di un ruolo con l'ambiente di Azure. La classe [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) definisce gli eventi seguenti generati prima e dopo una modifica di configurazione:
@@ -213,7 +206,7 @@ La [libreria di runtime di Azure](/previous-versions/azure/reference/mt419365(v=
 * **Evento [Changing](/previous-versions/azure/reference/ee758134(v=azure.100))**  
   Si verifica prima che la modifica di configurazione venga applicata a un'istanza specificata di un ruolo, offrendo la possibilità di interrompere il funzionamento delle istanze del ruolo, se necessario.
 * **Evento [Changed](/previous-versions/azure/reference/ee758129(v=azure.100))**  
-   Si verifica dopo che la modifica della configurazione è stata applicata a un'istanza specificata di un ruolo.
+  Si verifica dopo che la modifica della configurazione è stata applicata a un'istanza specificata di un ruolo.
 
 > [!NOTE]
 > Poiché le modifiche ai certificati richiedono sempre che le istanze di un ruolo siano portate offline, non generano eventi RoleEnvironment.Changing o RoleEnvironment.Changed.
@@ -266,7 +259,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Dove le variabili vengono definite come segue:
 
-| Variabile | Valore |
+| Variabile | Value |
 | --- | --- |
 | \[DirectoryName\] |Sottodirectory della directory radice del progetto contenente il file csdef del progetto Azure. |
 | \[ServiceDefinition\] |Nome del file di definizione del servizio. Per impostazione predefinita, il file è denominato ServiceDefinition.csdef. |
@@ -280,7 +273,7 @@ Dove le variabili vengono definite come segue:
 ## <a name="next-steps"></a>Passaggi successivi
 Si sta creando un pacchetto del servizio cloud e si vuole...
 
-* [Configurare il desktop remoto per un'istanza del servizio cloud][remotedesktop]
+* [Configurare Desktop remoto per un'istanza del servizio cloud][remotedesktop]
 * [Distribuire un progetto di servizio cloud][deploy]
 
 Si sta usando Visual Studio e si vuole...
@@ -288,7 +281,7 @@ Si sta usando Visual Studio e si vuole...
 * [Creare un nuovo servizio cloud][vs_create]
 * [Riconfigurare un servizio cloud esistente][vs_reconfigure]
 * [Distribuire un progetto di servizio cloud][vs_deploy]
-* [Configurare il desktop remoto per un'istanza del servizio cloud][vs_remote]
+* [Configurare Desktop remoto per un'istanza del servizio cloud][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

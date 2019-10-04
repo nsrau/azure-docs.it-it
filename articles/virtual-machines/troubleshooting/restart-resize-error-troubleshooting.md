@@ -4,7 +4,7 @@ description: Risolvere i problemi della distribuzione Resource Manager con il ri
 services: virtual-machines
 documentationcenter: ''
 author: Deland-Han
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd05f9f7db0db22759c5e19dbfb59cc377e63f4d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306977"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155462"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.

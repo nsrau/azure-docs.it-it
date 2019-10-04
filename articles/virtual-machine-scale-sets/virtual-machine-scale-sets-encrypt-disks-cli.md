@@ -13,46 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869063"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Crittografare il disco del sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Crittografare il sistema operativo e dischi dati collegati in un macchina virtuale set di scalabilità con la CLI di Azure
 
 Per proteggere i dati inattivi tramite la tecnologia di crittografia standard di settore, i set di scalabilità di macchine virtuali supportano Crittografia dischi di Azure. La crittografia può essere abilitata per i set di scalabilità di macchine virtuali Linux e Windows. Per altre informazioni, vedere [Crittografia dischi di Azure per Linux e Windows](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Crittografia dischi di Azure per i set di scalabilità di macchine virtuali è attualmente disponibile come anteprima pubblica in tutte le aree pubbliche di Azure.
 
 Crittografia dischi di Azure è supportata per le risorse seguenti:
 - Set di scalabilità creati con dischi gestiti. Non è tuttavia supportata per i set di scalabilità di dischi nativi (o non gestiti).
 - Volumi di dati e sistema operativo nei set di scalabilità Windows. La disabilitazione della crittografia è supportata per volumi di dati e sistema operativo nei set di scalabilità Windows.
-- Volumi di dati nei set di scalabilità Linux. Nell'anteprima corrente la crittografia del disco del sistema operativo NON è supportata per i set di scalabilità Linux.
-
-Le operazioni di creazione di una nuova immagine e di aggiornamento delle macchine virtuali dei set di scalabilità non sono supportate nell'anteprima corrente. È consigliabile usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali solo in ambienti di test. Usando l'anteprima, non abilitare la crittografia dei dischi in ambienti di produzione in cui può essere necessario aggiornare un'immagine del sistema operativo in un set di scalabilità crittografato.
+- Volumi di dati nei set di scalabilità Linux. Crittografia del disco del sistema operativo non è supportata per i set di scalabilità Linux.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
-
-## <a name="register-for-disk-encryption-preview"></a>Eseguire la registrazione per l'anteprima di Crittografia dischi
-
-Per usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali è necessario eseguire la registrazione automatica della sottoscrizione con il comando [az feature register](/cli/azure/feature). È sufficiente eseguire la procedura seguente la prima volta che si usa la funzionalità di anteprima per la crittografia dei dischi:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-Possono essere necessari fino a 10 minuti per la propagazione della richiesta di registrazione. È possibile verificare lo stato della registrazione con il comando [az feature show](/cli/azure/feature). Quando `State` indica il valore *Registered*, registrare nuovamente il provider *Microsoft.Compute* con il comando [az provider register](/cli/azure/provider):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
@@ -135,6 +116,30 @@ Il completamento del processo di crittografia potrebbe richiedere un minuto o du
 
 Poiché il criterio di aggiornamento per il set di scalabilità creato in un passaggio precedente è impostato come *automatico*, le istanze di macchine virtuali avviano automaticamente il processo di crittografia. Nei set di scalabilità in cui il criterio di aggiornamento è manuale, avviare il criterio di crittografia nelle istanze di macchine virtuali con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia mediante chiave KEK per eseguire il wrapping della chiave
+
+È anche possibile usare una chiave di crittografia per maggiore sicurezza durante la crittografia del set di scalabilità di macchine virtuali.
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  La sintassi per il valore del parametro disco-encryption-Key Vault è la stringa dell'identificatore completo:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> La sintassi per il valore del parametro di chiave di crittografia è l'URI completo per la chiave KEK come in:</br>
+https://[keyvault-Name].Vault.Azure.NET/Keys/[kekname]/[kek-Unique-ID]
+
 ## <a name="check-encryption-progress"></a>Verificare lo stato della crittografia
 
 Per controllare lo stato della crittografia dei dischi, usare [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
@@ -180,6 +185,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure. È anche possibile usare [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) o i modelli per [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) o [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
-
-Un esempio di file batch end-to-end per la crittografia del disco dati del set di scalabilità di Linux è disponibile [qui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In questo esempio vengono creati un gruppo di risorse e il set di scalabilità di Linux, viene montato un disco dati di 5 GB e viene crittografato il set di scalabilità di macchine virtuali.
+- In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure. È anche possibile usare [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) o i modelli per [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) o [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- Se si vuole che la crittografia dischi di Azure applicate dopo il provisioning di un'altra estensione, è possibile usare [sequenziazione di estensione](virtual-machine-scale-sets-extension-sequencing.md). È possibile usare [questi esempi](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) per iniziare.
+- Un esempio di file batch end-to-end per la crittografia del disco dati del set di scalabilità di Linux è disponibile [qui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In questo esempio vengono creati un gruppo di risorse e il set di scalabilità di Linux, viene montato un disco dati di 5 GB e viene crittografato il set di scalabilità di macchine virtuali.

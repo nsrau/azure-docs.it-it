@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8bc292be68879a608df6662418bb9f59c758f660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Esercitazione: Integrazione di Azure Active Directory con Bersin
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Bersin in Azure AD, è necessario aggiungere Bersin dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Bersin dalla raccolta, seguire questa procedura:**
+**Per aggiungere Bersin dalla raccolta**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -75,11 +75,11 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Bersin, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Bersin](#configure-bersin-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Bersin](#create-bersin-test-user)**: per avere una controparte di Britta Simon in Bersin collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Bersin](#configure-bersin-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Bersin](#create-bersin-test-user)** : per avere una controparte di Britta Simon in Bersin collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bersin, seguire questa 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bersin](common/idp-identifier-relay.png)
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bersin, seguire questa 
 
 ### <a name="configure-bersin-single-sign-on"></a>Configurare l'accesso Single Sign-On di Bersin
 
-Per configurare l'accesso Single Sign-On sul lato **Bersin**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Bersin](mailto:ramansabde@gmail.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Bersin**, inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Bersin](mailto:ramansabde@gmail.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -181,13 +181,13 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-bersin-test-user"></a>Creare un utente di test di Bersin
 
-In questa sezione viene creato un utente di nome Britta Simon in Bersin. Collaborare con il  [team di supporto di Bersin](mailto:USBersinServiceClient@deloitte.com) per aggiungere gli utenti alla piattaforma Bersin o il dominio che deve essere incluso nell'elenco elementi consentiti nella piattaforma Bersin. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma Bersin. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Bersin. Collaborare con il  [team di supporto di Bersin](mailto:USBersinServiceClient@deloitte.com) per aggiungere gli utenti alla piattaforma Bersin o il dominio che deve essere aggiunto nell'elenco elementi consentiti nella piattaforma Bersin. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma Bersin. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

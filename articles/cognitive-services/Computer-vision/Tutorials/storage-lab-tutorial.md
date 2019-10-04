@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Generare i metadati per immagini di Archiviazione di Azure'
+title: 'Esercitazione: Generare i metadati per le immagini di Azure'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app web per generare i metadati per le immagini.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448000"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057730"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -40,23 +40,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-computer-vision-resource"></a>Creare una risorsa di Visione artificiale
 
-È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure.
+È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure. 
 
-1. Accedi al [portale di Azure](https://ms.portal.azure.com) e fare clic su **Crea una risorsa**, quindi su **Intelligenza artificiale e Machine Learning** e **Visione artificiale**.
+1. Seguire le istruzioni contenute in [Creare una risorsa di Servizi cognitivi di Azure](../../cognitive-services-apis-create-account.md) per creare una risorsa di Visione artificiale.
 
-    ![Creazione di una nuova sottoscrizione all'API Visione artificiale](../Images/new-vision-api.png)
+1. Passare quindi al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
 
-1. Nella finestra di dialogo, immettere "vision-api-key" nel campo **Nome** e selezionare **F0** come **Piano tariffario**. Selezionare la stessa **posizione** scelta quando si è configurato l'account di Archiviazione di Azure. In **Gruppo di risorse** selezionare **Usa esistente** e, anche in questo caso, scegliere lo stesso gruppo di risorse. Selezionare la casella **Sì, confermo**, quindi fare clic su **Crea**.
+    ![Pagina del portale di Azure con l'URL endpoint e il collegamento delle chiavi di accesso evidenziato](../Images/copy-vision-endpoint.png)
+    
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-    ![Sottoscrizione all'API Visione artificiale](../Images/create-vision-api.png)
-
-1. Tornare al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
-
-    ![Visualizzazione delle chiavi di accesso](../Images/copy-vision-endpoint.png)
 
 1. Nella finestra successiva, copiare il valore della **CHIAVE 1** negli Appunti.
 
-    ![Copia della chiave di accesso](../Images/copy-vision-key.png)
+    ![Finestra di dialogo Gestisci chiavi con il pulsante di copia evidenziato](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Aggiungere le credenziali dell'API Visione artificiale
 
@@ -136,7 +133,7 @@ Salvare le modifiche in Visual Studio e premere **CTRL+F5** per avviare l'applic
 
 Per visualizzare tutti i metadati allegati, usare Azure Storage Explorer per visualizzare il contenitore di archiviazione in uso per le immagini. Fare clic con il pulsante destro del mouse su un BLOB qualsiasi nel contenitore e scegliere **Proprietà**. Nella finestra di dialogo, verrà visualizzato un elenco di coppie chiave-valore. La descrizione dell'immagine generata dal computer viene archiviata nell'elemento "Sottotitolo" e le parole chiave di ricerca vengono archiviate in "Tag0", "Tag1" e così via. Al termine, fare clic su **Annulla** per chiudere la finestra di dialogo.
 
-![Metadati BLOB](../Images/blob-metadata.png)
+![Finestra di dialogo Proprietà immagine, con i tag dei metadati elencati](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

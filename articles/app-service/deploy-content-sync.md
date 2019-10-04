@@ -9,17 +9,17 @@ ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin;dariagrigoriu
+ms.author: cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 65f372196671e95f7d9af7f47011e9ca1f9de316
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551122"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070636"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 Questo articolo illustra come eseguire la sincronizzazione del contenuto in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 

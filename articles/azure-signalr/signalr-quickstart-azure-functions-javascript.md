@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fd935ffda7d16988781d5debce9333ccf2adb16f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264200"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709746"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando JavaScript
 
@@ -25,6 +25,8 @@ Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
 Assicurarsi di disporre di un editor di codice installato, ad esempio [Visual Studio Code](https://code.visualstudio.com/).
 
 Installare gli [Strumenti di base di Funzioni di Azure (v2)](https://github.com/Azure/azure-functions-core-tools#installing) per eseguire localmente le app per le funzioni di Azure.
+
+Funzioni di Azure richiede [Node.js](https://nodejs.org/en/download/) versione 8 o 10.
 
 Per installare le estensioni, gli strumenti di base di Funzioni di Azure richiedono attualmente che sia installato [.NET Core SDK](https://www.microsoft.com/net/download). Tuttavia, non è necessaria alcuna conoscenza di .NET per compilare le app per le funzioni di Azure per JavaScript.
 
@@ -84,4 +86,4 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 In questo avvio reale è stata creata ed eseguita un'applicazione serverless in tempo reale in VS Code. Successivamente, si riceveranno altre informazioni su come distribuire le funzioni di Azure da VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuire le funzioni di Azure con VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Distribuire le funzioni di Azure con VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)

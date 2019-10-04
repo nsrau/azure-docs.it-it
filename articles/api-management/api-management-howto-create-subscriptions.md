@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523508"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073532"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Creare sottoscrizioni in Gestione API di Azure
 
@@ -33,7 +32,7 @@ Per eseguire i passaggi descritti in questo articolo, i prerequisiti sono i segu
 + [Creare un'istanza di Gestione API](get-started-create-service-instance.md).
 + Comprendere le [sottoscrizioni in Gestione API](api-management-subscriptions.md).
 
-## <a name="create-a-new-subscription"></a>Creare una nuova sottoscrizione
+## <a name="create-a-new-subscription"></a>Crea una nuova sottoscrizione
 
 1. Selezionare **Sottoscrizioni** nel menu a sinistra.
 2. Selezionare **Aggiungi sottoscrizione**.

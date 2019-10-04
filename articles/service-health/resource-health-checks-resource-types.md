@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620751"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955027"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -25,6 +25,11 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>Il servizio Gestione API è operativo?</li></ul>|
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+|Controlli eseguiti|
+|---|
+|<ul><li>L'account batch è in esecuzione?</li><li>È stata superata la quota del pool per questo account batch?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Controlli eseguiti|
@@ -51,15 +56,15 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>Il server che ospita la macchina virtuale è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/Factory
 |Controlli eseguiti|
 |---|
-|<ul><li>Ci sono state gli errori di esecuzione della pipeline?</li><li>Il cluster ospita la Data Factory integra?</li></ul>|
+|<ul><li>Si sono verificati errori di esecuzione della pipeline?</li><li>Il cluster ospita il Data Factory integro?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Controlli eseguiti|
 |---|
-|<ul><li>Gli utenti hanno riscontrato problemi nell'inviare o elencare i processi di Data Lake Analytics?</li><li>Sono riuscito a causa di errori di sistema dei processi di Data Lake Analitica?</li></ul>|
+|<ul><li>Gli utenti hanno riscontrato problemi nell'inviare o elencare i processi di Data Lake Analytics?</li><li>Non è possibile completare Data Lake Analytics processi a causa di errori di sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -70,22 +75,27 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
 |Controlli eseguiti|
 |---|
-|<ul><li>È il servizio migrazione del database non è stato possibile eseguire il provisioning?</li><li>Servizio migrazione del database arrestato a causa di inattività o utente richiesta?</li></ul>|
+|<ul><li>Il provisioning del servizio migrazione del database non è riuscito?</li><li>Il servizio migrazione del database è stato interrotto a causa di inattività o di una richiesta dell'utente?</li></ul>|
+
+## <a name="microsoftdatashareaccounts"></a>Microsoft. DataShare/accounts
+|Controlli eseguiti|
+|---|
+|<ul><li>L'account di condivisione dati è attivo e in esecuzione?</li><li>Il cluster che ospita la condivisione dati è disponibile?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Controlli eseguiti|
 |---|
-|<ul><li>Il server è disponibile a causa di manutenzione?</li><li>Il server è disponibile a causa di riconfigurazione?</li></ul>|
+|<ul><li>Il server non è disponibile a causa della manutenzione?</li><li>Il server non è disponibile a causa della riconfigurazione?</li></ul>|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 |Controlli eseguiti|
 |---|
-|<ul><li>Il server è disponibile a causa di manutenzione?</li><li>Il server è disponibile a causa di riconfigurazione?</li></ul>|
+|<ul><li>Il server non è disponibile a causa della manutenzione?</li><li>Il server non è disponibile a causa della riconfigurazione?</li></ul>|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 |Controlli eseguiti|
 |---|
-|<ul><li>Il server è disponibile a causa di manutenzione?</li><li>Il server è disponibile a causa di riconfigurazione?</li></ul>|
+|<ul><li>Il server non è disponibile a causa della manutenzione?</li><li>Il server non è disponibile a causa della riconfigurazione?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Controlli eseguiti|
@@ -97,40 +107,55 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>Ci sono state richieste di database o raccolta non soddisfatte a causa della mancata disponibilità di un servizio di Azure Cosmos DB?</li><li>Ci sono state richieste di documenti non soddisfatte a causa della mancata disponibilità di un servizio di Azure Cosmos DB?</li></ul>|
 
-## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft. eventhub/Namespaces
 |Controlli eseguiti|
 |---|
-|<ul><li>Lo spazio dei nomi di hub eventi ha riscontrato errori generati dall'utente?</li><li>È lo spazio dei nomi di hub eventi in corso un aggiornamento?</li></ul>|
+|<ul><li>Lo spazio dei nomi di hub eventi riscontra errori generati dall'utente?</li><li>Lo spazio dei nomi di hub eventi è attualmente in fase di aggiornamento?</li></ul>|
 
-## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+## <a name="microsofthdinsightclusters"></a>Microsoft. HDInsight/cluster
 |Controlli eseguiti|
 |---|
-|<ul><li>I servizi core sono disponibili nel cluster HDInsight?</li><li>Il cluster HDInsight può accedere alla chiave di crittografia dei dati inattivi BYOK?</li></ul>|
+|<ul><li>I servizi di base sono disponibili nel cluster HDInsight?</li><li>Il cluster HDInsight può accedere alla chiave per la crittografia dei BYOK inattivi?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Controlli eseguiti|
 |---|
 |<ul><li>Esistono richieste all'insieme di credenziali delle chiavi non riuscite a causa di problemi della piattaforma di Azure Key Vault?</li><li>Le richieste all'insieme di credenziali delle chiavi vengono limitate a causa di un numero eccessivo di richieste effettuate dal cliente?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Controlli eseguiti|
 |---|
-|<ul><li>Sulle prestazioni del Gateway applicazione danneggiati</li><li>È disponibile il Gateway applicazione?</li></ul>|
+|<ul><li>Il servizio Web è in esecuzione?</li></ul>|
+
+## <a name="microsoftmediamediaservices"></a>Microsoft. Media/MediaServices
+|Controlli eseguiti|
+|---|
+|<ul><li>Il servizio multimediale è operativo?</li></ul>|
+
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. Network/applicationgateways
+|Controlli eseguiti|
+|---|
+|<ul><li>Le prestazioni del gateway applicazione sono diminuite?</li><li>Il gateway applicazione è disponibile?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Controlli eseguiti|
 |---|
 |<ul><li>Il tunnel VPN è connesso?</li><li>Sono presenti conflitti di configurazione nella connessione?</li><li>Le chiavi precondivise sono configurate correttamente?</li><li>Il dispositivo VPN locale è raggiungibile?</li><li>Esistono mancate corrispondenze nei criteri di sicurezza IPSec/IKE?</li><li>Il provisioning della connessione VPN S2S è stato eseguito correttamente oppure la connessione è in stato di errore?</li><li>Il provisioning della connessione da rete virtuale a rete virtuale è stato eseguito correttamente oppure la connessione è in stato di errore?</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft. Network/expressreoutecircuits
 |Controlli eseguiti|
 |---|
-|<ul><li>È integra il circuito ExpressRoute?</li></ul>|
+|<ul><li>Il circuito ExpressRoute è integro?</li></ul>|
 
-## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft. Network/frontdoors
 |Controlli eseguiti|
 |---|
-|<ul><li>Back-end di ingresso principale rispondono con errori ai probe di integrità?</li><li>Modifiche di configurazione vengono posticipate?</li></ul>|
+|<ul><li>I backend front door rispondono con errori ai Probe di integrità?</li><li>Le modifiche alla configurazione sono ritardate?</li></ul>|
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft. Network/LoadBalancers
+|Controlli eseguiti|
+|---|
+|<ul><li>Gli endpoint di bilanciamento del carico sono disponibili?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Controlli eseguiti|
@@ -145,7 +170,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
 |Controlli eseguiti|
 |---|
-|<ul><li>Ci sono ritardi per l'area di lavoro di indicizzazione?</li></ul>|
+|<ul><li>Sono presenti ritardi di indicizzazione per l'area di lavoro?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Controlli eseguiti|
@@ -155,7 +180,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Controlli eseguiti|
 |---|
-|<ul><li>Il sistema operativo host è operativo?</li><li>La raccolta di aree di lavoro è raggiungibile dall'esterno del data center?</li><li>È disponibile il Provider di risorse di Power BI?</li><li>È disponibile nel servizio Power BI nell'area appropriata?</li></ul>|
+|<ul><li>Il sistema operativo host è operativo?</li><li>La raccolta di aree di lavoro è raggiungibile dall'esterno del data center?</li><li>Il provider di risorse Power BI è disponibile?</li><li>Il servizio Power BI è disponibile nell'area appropriata?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Controlli eseguiti|
@@ -167,10 +192,15 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>I clienti riscontrano errori del bus di servizio generati dall'utente?</li><li>Gli utenti riscontrano un aumento degli errori temporanei a causa di un aggiornamento dello spazio dei nomi del bus di servizio?</li></ul>|
 
-## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft. SQL/managedInstances/database
 |Controlli eseguiti|
 |---|
-|<ul><li> Sono stati eseguiti accessi al database?</li></ul>|
+|<ul><li>Il database è operativo?</li></ul>|
+
+## <a name="microsoftsqlserverdatabases"></a>Microsoft. SQL/Server/database
+|Controlli eseguiti|
+|---|
+|<ul><li>Sono stati eseguiti accessi al database?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |Controlli eseguiti|
@@ -192,7 +222,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>Il server host è operativo?</li><li>Internet Information Server è in esecuzione?</li><li>Il bilanciamento del carico è in esecuzione?</li><li>L'app Web è raggiungibile dal data center?</li><li>L'account di archiviazione che ospita il contenuto del sito è disponibile?</li></ul>|
 
-# <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 -  Vedere [Introduzione al dashboard per l'integrità dei servizi di Azure](service-health-overview.md) e [Introduzione a Integrità risorse di Azure](resource-health-overview.md) per informazioni più specifiche. 
 -  [Domande frequenti su Integrità risorse di Azure](resource-health-faq.md)
 - Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per gli eventi di Integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

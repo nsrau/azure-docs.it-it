@@ -1,22 +1,37 @@
 ---
-title: Copiare dati in Microsoft Azure Data Box Disk | Microsoft Docs
+title: Esercitazione per copiare dati in Azure Data Box Disk | Microsoft Docs
 description: Usare questa esercitazione per informazioni su come copiare i dati in Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678497"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231368"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Copiare dati in Azure Data Box Disk ed eseguire la convalida
+
+Dopo che i dischi sono stati connessi e sbloccati, è possibile copiare i dati dal server dei dati di origine ai dischi. Al termine della copia dei dati, è necessario convalidare i dati per assicurarsi che vengano caricati correttamente in Azure.
+
+::: zone-end
+
+::: zone target="docs"
 
 Questa esercitazione descrive come copiare dati dal computer host e quindi generare i checksum per la verifica dell'integrità.
 
@@ -250,6 +265,8 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Se vengono visualizzati errori quando si usa lo strumento di divisione della copia dati, passare alla procedura di [risoluzione degli errori dello strumento di divisione della copia dati](data-box-disk-troubleshoot-data-copy.md).
+
 Dopo aver completato la copia dei dati, è possibile passare alla convalida dei dati. Se è stato usato lo strumento di divisione della copia, ignorare la convalida perché viene eseguita dallo strumento stesso, quindi passare all'esercitazione successiva.
 
 
@@ -271,6 +288,8 @@ Se non si è usato lo strumento di divisione della copia per copiare i dati, sar
 
 3. Se si usano più dischi, eseguire il comando per ciascun disco.
 
+Se si verificano errori durante la convalida, vedere la [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono stati illustrati argomenti relativi ad Azure Data Box, ad esempio:
@@ -283,3 +302,40 @@ Passare all'esercitazione successiva per informazioni su come restituire Data Bo
 
 > [!div class="nextstepaction"]
 > [Spedizione di Azure Data Box a Microsoft](./data-box-disk-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+### <a name="copy-data-to-disks"></a>Copiare i dati sui dischi
+
+Eseguire la procedura seguente per connettersi e copiare i dati del computer in Data Box Disk.
+
+1. Visualizzare il contenuto dell'unità sbloccata. L'elenco delle cartelle e delle sottocartelle create preventivamente nell'unità varia in base alle opzioni selezionate al momento dell'ordine di Data Box Disk.
+2. Copiare i dati in cartelle che corrispondono al formato dei dati appropriato. Ad esempio, copiare i dati non strutturati nella cartella *BlockBlob*, i dati VHD o VHDX nella cartella *PageBlob* e i file in *AzureFile*. Se il formato dei dati non corrisponde alla cartella appropriata (tipo di archiviazione), in un passaggio successivo il caricamento dei dati in Azure avrà negativo.
+
+    - Assicurarsi che tutti i contenitori, i BLOB e i file siano conformi alle [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) e ai [limiti di dimensioni degli oggetti di Azure](data-box-disk-limits.md#azure-object-size-limits). Se queste regole e limitazioni non vengono rispettate, il caricamento di dati in Azure avrà esito negativo.     
+    - Se una delle destinazioni di archiviazione dell'ordine è Managed Disks, vedere le convenzioni di denominazione per i [dischi gestiti](data-box-disk-limits.md#managed-disk-naming-conventions).
+    - Viene creato un contenitore nell'account di archiviazione di Azure per ogni sottocartella nelle cartelle BlockBlob e PageBlob. Tutti i file nelle cartelle *BlockBlob* e *PageBlob* vengono copiati in un contenitore predefinito $root nell'account di archiviazione di Azure. Tutti i file inclusi nel contenitore $root vengono sempre caricati come BLOB in blocchi.
+    - Creare una sottocartella nella cartella *AzureFile*. Questa sottocartella viene mappata a una condivisione file nel cloud. Copiare i file nella sottocartella. I file copiati direttamente nella cartella *AzureFile* hanno esito negativo e vengono caricati come BLOB in blocchi.
+    - Se nella directory radice esistono file e cartelle, è necessario spostarli in un'altra cartella prima di iniziare la copia dei dati.
+
+3. Per copiare i dati, usare il trascinamento della selezione con Esplora file o qualsiasi strumento di copia file compatibile con SMB, ad esempio Robocopy. È possibile avviare più processi di copia usando il comando seguente:
+
+    ```
+    Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
+    ```
+4. Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log per la risoluzione dei problemi. I file di log si trovano nella posizione specificata nel comando Robocopy.
+
+Usare la procedura facoltativa di [divisione e copia](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) se si usano più dischi ed è presente un set di dati di grandi dimensioni che è necessario dividere e copiare tra tutti i dischi.
+
+### <a name="validate-data"></a>Convalidare i dati
+
+Per verificare i dati, eseguire la procedura seguente.
+
+1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità.
+2. Usare l'opzione 2 per convalidare i file e generare i checksum. A seconda della dimensione dei dati, questo passaggio potrebbe richiedere del tempo. Se si verificano errori durante la convalida e la generazione dei checksum, si riceverà una notifica e anche un collegamento ai log degli errori.
+
+    Per altre informazioni sulla convalida dei dati, vedere [Convalidare i dati](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Se si riscontrano errori durante la convalida, vedere l'articolo sulla [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
+
+::: zone-end

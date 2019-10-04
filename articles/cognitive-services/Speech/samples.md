@@ -3,20 +3,20 @@ title: Esempi per l'uso di Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Esempi per l'uso del Servizio di riconoscimento vocale Microsoft che converte audio parlato in testo.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f2e5d46063397d401a426662c86b175e9706bea
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514959"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966463"
 ---
 # <a name="bing-speech-client-samples"></a>Esempi di client di Riconoscimento vocale Bing
 

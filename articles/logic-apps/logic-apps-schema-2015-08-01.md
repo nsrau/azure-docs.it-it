@@ -11,11 +11,11 @@ ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60553760"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aggiornamenti dello schema per App per la logica di Azure: anteprima del 1° agosto 2015
 
@@ -290,7 +290,7 @@ A questo punto, è possibile compilare un'azione HTTP simile e lasciare la sezio
 
 La tabella seguente illustra le singole proprietà:
 
-| Proprietà dell'azione | DESCRIZIONE |
+| Proprietà dell'azione | Descrizione |
 | --- | --- |
 | `type` | `Http` anziché `APIapp` |
 | `metadata.apiDefinitionUrl` | Per usare questa azione nella finestra di progettazione di app per la logica, includere l'endpoint dei metadati, costituito da: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
@@ -419,7 +419,7 @@ Con queste modifiche, App per la logica sostituisce la funzione `@accessKeys()` 
 
 ## <a name="call-child-workflows"></a>Chiamare flussi di lavoro figlio
 
-In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con questo schema, il motore di App per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio: 
+In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con questo schema, il motore di App per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio:
 
 ``` json
 "myNestedWorkflow": {

@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: Mario.Hewardt
+ms.author: marioh
 ms.reviewer: mbullwin
-ms.openlocfilehash: 54b79897ee378cda52106fe704e25c50a4325f38
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 2dcf719e6c276c5641dc4c0040d8d7a808eeb3f2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632374"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706375"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>L'aggiornamento di Snapshot Debugger
 

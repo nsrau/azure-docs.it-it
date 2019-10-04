@@ -7,21 +7,20 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3eaa12b5ba735d1e2aa0e074054328942a3041eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/20/2019
+ms.openlocfilehash: ca098eba8e0cbad0d0240bd7819a401c502a869d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338620"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568022"
 ---
-# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Guida introduttiva: Importare un file BACPAC in un database di database SQL di Azure
+# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Avvio rapido: Importare un file BACPAC in un database di database SQL di Azure
 
-È possibile importare un database SQL Server in un database di database SQL di Azure usando un file [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac). È possibile importare i dati da un file `BACPAC` archiviato in un archiviazione BLOB di Azure (solo archiviazione Standard) o da una risorsa di archiviazione locale in una posizione locale. Per ottimizzare la velocità di importazione fornendo un maggior numero di risorse più veloci, ridimensionare il database a un livello di servizio e a una dimensione di calcolo superiori durante il processo di importazione. Al termine dell'importazione, sarà quindi possibile ridurre le caratteristiche.
+È possibile importare un database SQL Server in un database di database SQL di Azure usando un file [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac). È possibile importare i dati da un file `BACPAC` archiviato in un archiviazione BLOB di Azure (solo archiviazione Standard) o da una risorsa di archiviazione locale in una posizione locale. Per ottimizzare la velocità di importazione fornendo un maggior numero di risorse più veloci, ridimensionare il database a un livello di servizio e dimensioni di calcolo superiori durante il processo di importazione. Al termine dell'importazione, sarà quindi possibile ridurre le caratteristiche.
 
 > [!NOTE]
 > Il livello di compatibilità del database importato si basa sul livello di compatibilità del database di origine.
@@ -32,9 +31,11 @@ ms.locfileid: "60338620"
 
 Il [portale di Azure](https://portal.azure.com) supporta *solo* la creazione di un database singolo nel database SQL di Azure e *solo* da un file BACPAC salvato nell'archivio BLOB di Azure.
 
-> [!NOTE]
-> [Un'istanza gestita](sql-database-managed-instance.md) non supporta attualmente la migrazione di un database in un database di istanza da un file BACPAC tramite il portale di Azure. Per importare un'istanza gestita, usare SQL Server Management Studio o SQLPackage.
+La migrazione di un database in un' [istanza gestita](sql-database-managed-instance.md) da un file BACPAC tramite Azure PowerShell non è attualmente supportata. In alternativa, usare SQL Server Management Studio o SqlPackage.
 
+> [!NOTE]
+> I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale di Azure o PowerShell devono archiviare il file BACPAC e i file temporanei generati dal framework dell'applicazione livello dati (DacFX). Lo spazio su disco richiesto varia significativamente tra i database con le stesse dimensioni e può richiedere spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono la richiesta di importazione/esportazione hanno solo spazio su disco locale 450GB. Di conseguenza, alcune richieste potrebbero non riuscire con l' `There is not enough space on the disk`errore. In questo caso, la soluzione alternativa consiste nell'eseguire SqlPackage. exe su un computer con sufficiente spazio su disco locale. Si consiglia di usare [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) per importare/esportare database di dimensioni superiori a 150 GB per evitare questo problema.
+ 
 1. Per importare da un file BACPAC in un nuovo database singolo usando il portale di Azure, aprire la pagina del server di database appropriata e quindi fare clic su **Importa database** sulla barra degli strumenti.  
 
    ![Importazione database 1](./media/sql-database-import/import1.png)
@@ -79,14 +80,16 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importare in un database singolo da un file BACPAC usando PowerShell
 
 > [!NOTE]
-> [Un'istanza gestita](sql-database-managed-instance.md) attualmente non supporta la migrazione di un database in un database di istanza da un file BACPAC usando Azure PowerShell. Per importare un'istanza gestita, usare SQL Server Management Studio o SQLPackage.
+> [Un'istanza gestita](sql-database-managed-instance.md) attualmente non supporta la migrazione di un database in un database di istanza da un file BACPAC tramite Azure PowerShell. Per importare un'istanza gestita, usare SQL Server Management Studio o SQLPackage.
 
+> [!NOTE]
+> I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale o PowerShell devono archiviare il file BACPAC e i file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco richiesto varia significativamente tra i database con le stesse dimensioni e può richiedere fino a 3 volte le dimensioni del database. I computer che eseguono la richiesta di importazione/esportazione hanno solo spazio su disco locale 450GB. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore "lo spazio su disco non è sufficiente". In questo caso, la soluzione alternativa consiste nell'eseguire SqlPackage. exe su un computer con sufficiente spazio su disco locale. Quando si importano o esportano database di dimensioni maggiori di 150 GB, utilizzare [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) per evitare questo problema.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-Usare la [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet per inviare una richiesta di database di importazione per il servizio Database SQL di Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo.
+Usare il cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) per inviare una richiesta di importazione del database al servizio database SQL di Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo.
 
  ```powershell
  $importRequest = New-AzSqlDatabaseImport 
@@ -104,7 +107,7 @@ Usare la [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseim
 
  ```
 
- È possibile usare la [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet per controllare lo stato di avanzamento dell'importazione. L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. L'importazione è completa quando viene visualizzato il messaggio **Status: Succeeded**.
+ È possibile usare il cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) per controllare lo stato dell'importazione. L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. L'importazione è completa quando viene visualizzato il messaggio **Status: Succeeded**.
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

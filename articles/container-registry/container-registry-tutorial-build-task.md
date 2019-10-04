@@ -3,23 +3,26 @@ title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori
 description: Questa esercitazione illustra come configurare un'attività di Registro Azure Container per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 25a0ef528d67deb5ea71720d2ff8e4d62b3b98a5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893011"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744560"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente
 
-Oltre a un'[attività rapida](container-registry-tutorial-quick-task.md), ACR Tasks supporta la compilazione automatica di immagini dei contenitori Docker con l'*attività di compilazione*. In questa esercitazione si usa l'interfaccia della riga di comando di Azure per creare un'attività che attiva automaticamente compilazioni delle immagini nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+Oltre alle [attività rapide](container-registry-tutorial-quick-task.md), Attività del Registro Azure Container supporta le compilazioni automatizzate di contenitori Docker nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 
-In questa esercitazione, la seconda della serie, vengono illustrate le seguenti attività:
+In questa esercitazione, l'attività del Registro Azure Container compila ed esegue il push di una singola immagine del contenitore specificata in un Dockerfile quando si esegue il commit di codice sorgente in un repository Git. Per creare un'[attività in più passaggi](container-registry-tasks-multi-step.md) che usa un file YAML per definire i passaggi per compilare, eseguire il push e facoltativamente testare più contenitori con il commit di codice, consultare [Esercitazione: Eseguire un flusso di lavoro dei contenitori in più passaggi nel cloud quando si esegue il commit di codice sorgente](container-registry-tutorial-multistep-task.md). Per una panoramica di Attività del Registro Azure Container, consultare [Automatizzare l'applicazione di patch dei sistemi operativi e del framework con Attività del Registro Azure Container](container-registry-tasks-overview.md)
+
+Contenuto dell'esercitazione:
 
 > [!div class="checklist"]
 > * Crea un'attività
@@ -31,51 +34,13 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.46** o successiva ed eseguire l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata la versione **2.0.46** o successiva e che sia stato eseguito l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Ottenere il codice di esempio
+## <a name="create-the-build-task"></a>Creare l'attività di compilazione
 
-Questa esercitazione presuppone che siano già state completate le procedure dell'[esercitazione precedente](container-registry-tutorial-quick-task.md) e che siano state eseguite la copia tramite fork e la clonazione del repository di esempio. Se non è già stato fatto, prima di procedere eseguire i passaggi descritti nella sezione [Prerequisiti](container-registry-tutorial-quick-task.md#prerequisites) dell'esercitazione precedente.
-
-### <a name="container-registry"></a>Registro contenitori
-
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se occorre un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a Registro Container using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
-
-## <a name="overview-of-acr-tasks"></a>Panoramica di ACR Tasks
-
-Un'attività definisce le proprietà di una compilazione automatica, come la posizione del codice sorgente dell'immagine del contenitore e l'evento che attiva la compilazione. Quando si verifica un evento definito nell'attività, ad esempio un commit in un repository Git, ACR Tasks avvia la compilazione di un'immagine del contenitore nel cloud. Per impostazione predefinita, esegue quindi il push dell'immagine compilata correttamente nel registro contenitori di Azure specificato nell'attività.
-
-ACR Tasks attualmente supporta i trigger seguenti:
-
-* Commit in un repository Git
-* Aggiornamento dell'immagine di base
-
-In questa esercitazione l'attività del Registro Azure Container crea ed esegue il push di una singola immagine del contenitore specificata in un Dockerfile. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
-
-## <a name="create-a-build-task"></a>Creare un'attività di compilazione
-
-In questa sezione si crea prima di tutto un token di accesso personale GitHub da usare con ACR Tasks. Si crea quindi un'attività che attiva una compilazione quando viene eseguito il commit di codice nel fork del repository.
-
-### <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
-
-Per attivare una compilazione in caso di commit in un repository Git, ACR Tasks necessita di un token di accesso personale per accedere al repository. Per generare un token di accesso personale in GitHub, seguire questa procedura:
-
-1. Passare alla pagina per la creazione di token di accesso personali in GitHub all'indirizzo https://github.com/settings/tokens/new
-1. Immettere una breve **descrizione** del token, ad esempio "ACR Tasks Demo".
-1. In **repo** abilitare **repo:status** e **public_repo**.
-
-   ![Screenshot della pagina per la generazione di token di accesso personali in GitHub][build-task-01-new-token]
-
-1. Selezionare il pulsante **Generate token** (Genera token). Potrebbe essere richiesto di confermare la password.
-1. Copiare e salvare il token generato in una **posizione sicura**. Questo token verrà usato per definire un'attività nella sezione seguente.
-
-   ![Screenshot del token di accesso personale generato in GitHub][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>Creare l'attività di compilazione
-
-Dopo aver completato i passaggi necessari per consentire ad ACR Tasks di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
+Dopo aver completato i passaggi necessari per consentire ad Attività del Registro Azure Container di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
 
 Per prima cosa, popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 
@@ -93,7 +58,6 @@ az acr task create \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
-    --branch master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
@@ -101,19 +65,11 @@ az acr task create \
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
 
-L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Tasks compilerà l'immagine del contenitore dal codice in tale ramo. Per creare l'immagine viene usato il Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
+L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, Attività del Registro Azure Container compilerà l'immagine del contenitore dal codice in tale ramo. Per creare l'immagine viene usato il Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
 
 L'output di un comando [az acr task create][az-acr-task-create] riuscito è simile al seguente:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -252,7 +208,7 @@ Run ID: da2 was successful after 27s
 
 Dopo aver testato l'attività eseguendola manualmente, attivarla automaticamente con una modifica del codice sorgente.
 
-Per prima cosa, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
+Prima di tutto, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -295,7 +251,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Elencare le compilazioni
 
-Per visualizzare un elenco delle esecuzioni delle attività che ACR Tasks ha completato per il registro, eseguire il comando [az acr task list-runs][az-acr-task-list-runs]:
+Per visualizzare un elenco delle esecuzioni di attività completate da Attività del Registro Azure Container, eseguire il comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -326,12 +282,11 @@ In questa esercitazione è stato illustrato come usare un'attività per attivare
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

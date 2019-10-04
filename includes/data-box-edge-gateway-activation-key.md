@@ -4,17 +4,17 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2344b0673073613a880142089becddfaca88b3d5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4ff9aeaa7e1b6e7f3762db4e983b299a517df3da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684445"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180785"
 ---
 La chiave di attivazione che consente di:
 
-- È una chiave di autenticazione basata su Azure Active Directory (AAD).
+- È la chiave di autenticazione basata su Azure Active Directory (Azure AD).
 - Scade dopo tre giorni.
 - Non viene usato dopo l'attivazione del dispositivo.
 
-Dopo che un dispositivo viene attivato, Usa i token per comunicare con Microsoft Azure.
+Dopo l'attivazione di un dispositivo, Usa i token per comunicare con Azure.

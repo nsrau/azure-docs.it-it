@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca Web con Java - API REST Ricerca Web Bing'
+title: "Guida introduttiva: Usare Java per chiamare l'API REST Ricerca Web Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Java e ricevere una risposta JSON
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: f8a827cf19bec0796fc0e9743d1a2599071468af
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57866327"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899687"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Java
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Guida introduttiva: Usare Java per eseguire ricerche nel Web con l'API REST di Ricerca Web Bing, un servizio cognitivo di Azure
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Java invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+In questo argomento di avvio rapido si userà un'applicazione Java per effettuare la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Java invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -3,8 +3,8 @@ title: La soluzione Azure Networking Analitica in Monitoraggio di Azure | Micros
 description: È possibile usare la soluzione Azure Networking Analitica in Monitoraggio di Azure per esaminare i log di gruppi di sicurezza di rete di Azure e log del Gateway applicazione di Azure.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: ewinner
+author: bwren
+manager: carmonm
 editor: ''
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
-ms.author: richrund
-ms.openlocfilehash: 0a5d886558e72ef24b03a49750ed75cf7130bf08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: bwren
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048632"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Monitoraggio delle soluzioni in Monitoraggio di Azure la rete di Azure
 
@@ -54,7 +54,7 @@ Per usare le soluzioni:
 Se non si abilita la registrazione diagnostica per un tipo specifico di risorsa ma si installa la soluzione, i pannelli del dashboard per quella risorsa sono vuoti e visualizzano un messaggio di errore.
 
 > [!NOTE]
-> A gennaio 2017, il metodo supportato l'invio di log dal gateway applicazione e i gruppi di sicurezza di rete a un'area di lavoro di Log Analitica modificato. Se viene visualizzata la soluzione **Azure Networking Analytics (deprecata)**, fare riferimento ai passaggi di [migrazione dalla vecchia soluzione Networking Analytics](#migrating-from-the-old-networking-analytics-solution) per istruzioni su come procedere.
+> A gennaio 2017, il metodo supportato l'invio di log dal gateway applicazione e i gruppi di sicurezza di rete a un'area di lavoro di Log Analitica modificato. Se viene visualizzata la soluzione **Azure Networking Analytics (deprecata)** , fare riferimento ai passaggi di [migrazione dalla vecchia soluzione Networking Analytics](#migrating-from-the-old-networking-analytics-solution) per istruzioni su come procedere.
 >
 >
 
@@ -221,13 +221,13 @@ Per usare le soluzioni aggiornate:
 
      | Invece di: | Usare: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; in cui ResourceType = = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; in cui ResourceType = = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Per ogni campo con suffisso \_s, \_d o \_g nel nome, modificare il primo carattere in lettere minuscole
    + Per ogni campo con suffisso di \_o nel nome, i dati sono suddivisi in singoli campi in base ai nomi dei campi nidificati.
-4. Rimuovere la soluzione *Azure Networking Analytics (deprecata)*.
+4. Rimuovere la soluzione *Azure Networking Analytics (deprecata)* .
    + Se si usa PowerShell, usare `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È possibile continuare a eseguire query per questi dati utilizzando i nomi di campo e il tipo vecchi.

@@ -5,47 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8cc2a6d4ad06bf4a55d4ef078970823df1e0d910
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 609c2ef91fafe0ae955252a594292d861e772f87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002956"
 ---
-# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configurare OpenVPN per il Gateway VPN da punto a sito Web di Azure (anteprima)
+# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurare OpenVPN per Gateway VPN di Azure da punto a sito
 
 Questo articolo consente di configurare **OpenVPN® protocollo** sul Gateway VPN di Azure. L'articolo presuppone che si disponga già di un ambiente di lavoro da punto a sito. In caso contrario, usare le istruzioni nel passaggio 1 per creare una VPN da punto a sito.
 
-> [!IMPORTANT]
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="register"></a>Registrare questa funzionalità
-
-Fare clic sul pulsante **Prova** in questi passaggi per registrare facilmente questa funzionalità tramite Azure Cloud Shell.
-
->[!NOTE]
->Se non si registra la funzionalità, non sarà possibile usarla.
->
-
-Dopo aver fatto clic su **Prova** per aprire Azure Cloud Shell, copiare e incollare i comandi seguenti:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-```
- 
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-```
-
-Una volta che la funzionalità viene contrassegnata come registrata, registrare nuovamente la sottoscrizione nello spazio dei nomi Microsoft.Network.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="vnet"></a>1. Creare una VPN Point-to-Site
 

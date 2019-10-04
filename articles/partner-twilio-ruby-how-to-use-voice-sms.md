@@ -3,9 +3,7 @@ title: Come usare Twilio per le funzionalità voce e SMS (Ruby) | Microsoft Docs
 description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Ruby.
 services: ''
 documentationcenter: ruby
-author: devinrader
-manager: twilio
-editor: ''
+author: georgewallace
 ms.assetid: 60e512f6-fa47-47c0-aedc-f19bb72a1158
 ms.service: multiple
 ms.workload: na
@@ -13,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426436"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637208"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Come usare Twilio per le funzionalità voce ed SMS in Ruby
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps) .
@@ -30,10 +28,10 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali utilizzando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 ## <a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio). Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare il sito Web all'indirizzo [https://ahoy.twilio.com/azure][special_offer].  
+Informazioni sui prezzi di Twilio sono disponibili al [prezzo di Twilio][twilio_pricing]. I clienti di Azure ricevono un' [offerta speciale][special_offer]: un credito gratuito di 1000 testi o 1000 minuti in ingresso. Per iscriversi a questa offerta o ottenere altre informazioni, visitare [https://ahoy.twilio.com/azure][special_offer]il.  
 
 ## <a id="Concepts"></a>Concetti
-L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere [Twilio API Libraries][twilio_libraries] (Librerie dell'API Twilio).
+L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. per un elenco, vedere [TWILIO API Libraries][twilio_libraries].
 
 ### <a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML che indicano a Twilio come elaborare una chiamata o un SMS.
@@ -48,39 +46,39 @@ Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hell
 Tutti i documenti TwiML dispongono di un elemento radice `<Response>`, da cui è possibile utilizzare i verbi Twilio per definire il comportamento dell'applicazione.
 
 ### <a id="Verbs"></a>Verbi TwiML
-I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo **&lt;Say&gt;**, ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata. 
+I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo **&lt;Say&gt;** , ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata. 
 
 Di seguito è riportato un elenco dei verbi Twilio.
 
-* **&lt;Dial&gt;**: connette il chiamante a un altro telefono.
-* **&lt;Gather&gt;**: raccoglie i numeri digitati sulla tastiera del telefono.
-* **&lt;Hangup&gt;**: termina una chiamata.
-* **&lt;Play&gt;**: riproduce un file audio.
-* **&lt;Pause&gt;**: attende in modo silenzioso per un numero di secondi specificato.
-* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL del file contenente la registrazione.
-* **&lt;Redirect&gt;**: trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
-* **&lt;Reject&gt;**: rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
-* **&lt;Say&gt;**: effettua la sintesi vocale del testo durante una chiamata.
-* **&lt;Sms&gt;**: invia un SMS.
+* **&lt;Dial&gt;** : connette il chiamante a un altro telefono.
+* **&lt;Gather&gt;** : raccoglie i numeri digitati sulla tastiera del telefono.
+* **&lt;Hangup&gt;** : termina una chiamata.
+* **&lt;Play&gt;** : riproduce un file audio.
+* **&lt;Pause&gt;** : attende in modo silenzioso per un numero di secondi specificato.
+* **&lt;Record&gt;** : registra la voce del chiamante e restituisce l'URL di un file contenente la registrazione.
+* **&lt;Redirect&gt;** : trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
+* **&lt;Reject&gt;** : rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
+* **&lt;Say&gt;** : effettua la sintesi vocale del testo durante una chiamata.
+* **&lt;Sms&gt;** : invia un SMS.
 
-Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere [Twilio API][twilio_api] (API Twilio).
+Per ulteriori informazioni sui verbi Twilio, i relativi attributi e TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere [API Twilio][twilio_api].
 
 ## <a id="CreateAccount"></a>Creare un account Twilio
-Se si desidera creare un account Twilio, iscriversi nella pagina [Try Twilio][try_twilio] (Provare Twilio). È possibile iniziare con un account gratuito ed eseguire l'aggiornamento in un secondo momento.
+Quando si è pronti per ottenere un account Twilio, iscriversi a [provare Twilio][try_twilio]. È possibile iniziare con un account gratuito ed eseguire l'aggiornamento in un secondo momento.
 
-Quando si effettua l'iscrizione a Twilio si riceve un numero di telefono gratuito per l'applicazione. Si ricevono inoltre il SID dell'account e un token di autorizzazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. Il SID account e il token di autorizzazione sono visualizzabili nella [pagina dell'account Twilio][twilio_account], rispettivamente nei campi **ACCOUNT SID** (SID ACCOUNT) e **AUTH TOKEN** (TOKEN AUTORIZZAZIONE).
+Quando si effettua l'iscrizione a Twilio si riceve un numero di telefono gratuito per l'applicazione. Si ricevono inoltre il SID dell'account e un token di autorizzazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. Il SID dell'account e il token di autenticazione sono visualizzabili nella [pagina dell'account Twilio][twilio_account], rispettivamente nei campi **account SID** e **auth token**.
 
 ### <a id="VerifyPhoneNumbers"></a>Verificare i numeri di telefono
 Oltre al numero assegnato da Twilio, è possibile verificare altri numeri di cui si abbia il controllo, ad esempio quello del cellulare o quello dell'abitazione, per usarli nelle applicazioni. 
 
-Per informazioni su come verificare un numero di telefono, vedere [Manage Numbers][verify_phone] (Gestire i numeri).
+Per informazioni su come verificare un numero di telefono, vedere [gestire i numeri][verify_phone].
 
 ## <a id="create_app"></a>Creare un'applicazione Ruby
-Un'applicazione Ruby che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione Ruby che usa il servizio Twilio. Anche se i servizi Twilio sono di tipo RESTful e possono essere chiamati da Ruby in molti modi, in questo articolo verrà illustrato solo come usare i servizi Twilio con la [libreria helper Twilio per Ruby][twilio_ruby].
+Un'applicazione Ruby che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione Ruby che usa il servizio Twilio. Sebbene i servizi Twilio siano RESTful e possano essere chiamati da Ruby in diversi modi, questo articolo si concentra su come usare i servizi Twilio con la [libreria helper Twilio per Ruby][twilio_ruby].
 
-Prima di tutto, [configurare una nuova VM Linux in Azure][azure_vm_setup] che funga da host per la nuova applicazione Web Ruby. Ignorare i passaggi relativi alla creazione di un'app Rails e configurare semplicemente la VM. Assicurarsi di creare un endpoint con porta esterna 80 e porta interna 5000.
+Per prima cosa, [configurare una nuova macchina virtuale Linux di Azure][azure_vm_setup] che funge da host per la nuova applicazione Web Ruby. Ignorare i passaggi relativi alla creazione di un'app Rails e configurare semplicemente la VM. Assicurarsi di creare un endpoint con porta esterna 80 e porta interna 5000.
 
-Negli esempi che seguono verrà usato [Sinatra][sinatra], un framework Web molto semplice per Ruby. È comunque possibile utilizzare la libreria helper Twilio per Ruby con qualsiasi altro web framework, compreso Ruby on Rails.
+Negli esempi seguenti verrà usato [Sinatra][sinatra], un framework Web molto semplice per Ruby. È comunque possibile utilizzare la libreria helper Twilio per Ruby con qualsiasi altro web framework, compreso Ruby on Rails.
 
 Connettersi tramite SSH alla nuova macchina virtuale e creare una directory per la nuova app. All'interno di tale directory creare un file denominato Gemfile e copiare al suo interno il codice seguente:
 
@@ -149,7 +147,7 @@ Il terzo parametro (`url`) è l'URL utilizzato da Twilio per richiedere istruzio
 ## <a id="howto_receive_sms"></a>Procedura: Ricevere un messaggio SMS
 Nell'esempio precedente è stata avviata una chiamata telefonica **in uscita** . Questa volta verrà utilizzato il numero ricevuto da Twilio dopo l'iscrizione per elaborare un SMS **in arrivo** .
 
-Prima di tutto, accedere al [dashboard Twilio][twilio_account]. Fare clic su "Numbers" sulla barra di spostamento superiore e quindi fare clic sul numero ricevuto da Twilio. Verranno visualizzati due URL che è possibile configurare, uno per le richieste vocali e uno per le richieste SMS. Si tratta degli URL chiamati da Twilio ogni volta che viene inviato un SMS o viene effettuata una chiamata telefonica verso il proprio numero. Gli URL sono noti anche come "hook Web".
+Per prima cosa, accedere al [dashboard di Twilio][twilio_account]. Fare clic su "Numbers" sulla barra di spostamento superiore e quindi fare clic sul numero ricevuto da Twilio. Verranno visualizzati due URL che è possibile configurare, uno per le richieste vocali e uno per le richieste SMS. Si tratta degli URL chiamati da Twilio ogni volta che viene inviato un SMS o viene effettuata una chiamata telefonica verso il proprio numero. Gli URL sono noti anche come "hook Web".
 
 Per elaborare gli SMS in arrivo è necessario aggiornare l'URL in `http://yourdomain.cloudapp.net/sms_url`. Effettuare la modifica e fare clic su Save Changes nella parte inferiore della pagina. Tornare a `web.rb` e programmare l'applicazione per la gestione dell'operazione seguente:
 
@@ -161,17 +159,17 @@ Per elaborare gli SMS in arrivo è necessario aggiornare l'URL in `http://yourdo
 
 Dopo aver apportato la modifica, riavviare l'app Web. Prendere il telefono e inviare un SMS al proprio numero Twilio. Si dovrebbe ricevere un SMS di risposta con il testo "Hey, thanks for the ping! Twilio and Azure rock!".
 
-## <a id="additional_services"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
-Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
+## <a id="additional_services"></a>Procedura: Usare servizi Twilio aggiuntivi
+Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione dell'API Twilio][twilio_api_documentation].
 
 ### <a id="NextSteps"></a>Passaggi successivi
 Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
 
-* [Twilio Security Guidelines][twilio_security_guidelines] (Linee guida sulla sicurezza di Twilio)
-* [Twilio HowTos and Example Code (Procedure e codice di esempio di Twilio)][twilio_howtos]
-* [Twilio Quickstart Tutorials][twilio_quickstarts] (Esercitazioni con guide rapide su Twilio) 
-* [Twilio on GitHub][twilio_on_github] (Twilio su GitHub)
-* [Talk to Twilio Support][twilio_support] (Contattare il supporto di Twilio)
+* [Linee guida sulla sicurezza di Twilio][twilio_security_guidelines]
+* [Twilio HowTo e codice di esempio][twilio_howtos]
+* [Esercitazioni introduttive su Twilio][twilio_quickstarts] 
+* [Twilio su GitHub][twilio_on_github]
+* [Comunicare con il supporto di Twilio][twilio_support]
 
 [twilio_ruby]: https://www.twilio.com/docs/ruby/install
 

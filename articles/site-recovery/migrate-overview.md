@@ -1,19 +1,19 @@
 ---
-title: Eseguire la migrazione di computer locali e macchine virtuali di Azure con Azure Site Recovery | Microsoft Docs
+title: Informazioni sulla migrazione di computer locali e macchine virtuali di Azure Azure Site Recovery
 description: Questo articolo illustra come eseguire la migrazione di computer locali e di macchine virtuali dell'infrastruttura distribuita come servizio di Azure usando il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 856d03b1ecc1c7a3bd527eb265061f9a305d8f50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196049"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814481"
 ---
 # <a name="about-migration"></a>Informazioni sulla migrazione
 
@@ -25,6 +25,8 @@ Di seguito sono riportate le operazioni di migrazione che è possibile eseguire 
 - **Eseguire la migrazione all'interno di Azure**: eseguire la migrazione di machine virtuali di Azure tra aree di Azure. 
 - **Eseguire la migrazione da AWS**: eseguire la migrazione di istanze di Windows per Amazon Web Services a macchine virtuali IaaS di Azure. 
 
+> [!NOTE]
+> È ora possibile eseguire la migrazione da locale ad Azure usando il servizio Azure Migrate. [Altre informazioni](../migrate/migrate-overview.md)
 
 ## <a name="what-do-we-mean-by-migration"></a>Informazioni sulla migrazione
 

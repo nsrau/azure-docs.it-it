@@ -1,22 +1,21 @@
 ---
-title: 'Avvio rapido: Creare un cluster Spark in HDInsight usando un modello'
+title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando un modello'
 description: Questa guida introduttiva illustra come usare il modello di Resource Manager per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 16ec2f52a3272e774f4743ec730e0b1184d8fb53
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d0d6d091a955f37a12fe6c4066f0e4f999696e21
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225638"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884539"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Avvio rapido: Creare un cluster Apache Spark HDInsight usando un modello
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight con un modello di Resource Manager
 
 Informazioni su come creare un cluster [Apache Spark](https://spark.apache.org/) in Azure HDInsight ed eseguire query Spark SQL sulle tabelle [Apache Hive](https://hive.apache.org/). Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
@@ -41,7 +40,7 @@ Creare un cluster HDInsight Spark usando un modello di Azure Resource Manager. I
 
     | Proprietà | Valore |
     |---|---|
-    |**Sottoscrizione**|Selezionare la sottoscrizione di Azure usata per creare il cluster. La sottoscrizione di Azure usata in questa guida introduttiva è **&lt;Azure subscription name>**. |
+    |**Sottoscrizione**|Selezionare la sottoscrizione di Azure usata per creare il cluster. La sottoscrizione di Azure usata in questa guida introduttiva è **&lt;Azure subscription name>** . |
     | **Gruppo di risorse**|Creare un gruppo di risorse o selezionarne uno esistente. Il gruppo di risorse viene usato per gestire le risorse di Azure per i progetti. Il nuovo nome del gruppo di risorse usato per questa guida introduttiva è **myspark20180403rg**.|
     | **Posizione**|Selezionare una posizione per il gruppo di risorse. Il modello usa questa posizione per la creazione del cluster e per l'archiviazione del cluster predefinita. La posizione usata in questa guida introduttiva è **Stati Uniti orientali 2**.|
     | **ClusterName**|Immettere un nome per il cluster HDInsight che si vuole creare. Il nuovo nome del cluster usato per questa guida introduttiva è **myspark20180403**.|
@@ -86,7 +85,7 @@ SQL (Structured Query Language) è il linguaggio più diffuso e più usato per l
 
 1. Verificare che il kernel sia pronto. Il kernel è pronto quando accanto al relativo nome nel notebook viene visualizzato un cerchio vuoto. Un cerchio pieno indica che il kernel è occupato.
 
-    ![Query Hive in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Query Hive in HDInsight Spark")
+    ![stato kernel](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "stato kernel")
 
     Quando si avvia il notebook per la prima volta, il kernel esegue alcune attività in background. Attendere che il kernel sia pronto.
 2. Incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO** per eseguire il codice. Il comando elenca le tabelle Hive sul cluster:

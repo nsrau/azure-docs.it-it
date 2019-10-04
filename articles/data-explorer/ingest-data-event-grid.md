@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure'
-description: In questo argomento di avvio rapido verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
+title: Inserire BLOB di Azure in Esplora dati di Azure
+description: In questo articolo descrive come inviare i dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di griglia di eventi.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051853"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490123"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Guida introduttiva: Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Consente l'inserimento continuo (caricamento di dati) dai BLOB scritti nei contenitori di BLOB. 
 
-Questo argomento di avvio rapido descrive come impostare una sottoscrizione di [Griglia di eventi di Azure](/azure/event-grid/overview) e instradare gli eventi a Esplora dati di Azure tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
+In questo articolo descrive come impostare un' [griglia di eventi di Azure](/azure/event-grid/overview) sottoscrizione e instradare gli eventi a Esplora dati di Azure tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ Questo argomento di avvio rapido descrive come impostare una sottoscrizione di [
 
 1. Se si vuole tenere traccia dei file di uno specifico contenitore, selezionare la scheda **Funzionalità aggiuntive**. Impostare i filtri per le notifiche come segue:
     * Il campo **L'oggetto inizia con** è il prefisso *letterale* del contenitore di BLOB. Poiché il criterio applicato è *startswith*, può interessare più contenitori. I caratteri jolly non sono consentiti.
-     È *necessario* impostarlo come segue: *`/blobServices/default/containers/`*[prefisso contenitore]
+     È *necessario* impostarlo come segue: *`/blobServices/default/containers/`* [prefisso contenitore]
     * Il campo **L'oggetto termina con** è il suffisso di tipo *letterale* del BLOB. I caratteri jolly non sono consentiti.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Creare una tabella di destinazione in Esplora dati di Azure
@@ -112,10 +112,10 @@ A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportati: File zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Generare i dati di esempio
 
 Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.
@@ -157,7 +157,7 @@ Salvare i dati in un file e caricarlo con questo script:
 > [!NOTE]
 > Esplora dati di Azure prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati in modo da ottimizzare il processo di inserimento.
 Per impostazione predefinita, il criterio viene impostato su 5 minuti.
-Sarà possibile modificarlo in un secondo momento, se necessario. In questa guida introduttiva si può prevedere una latenza di alcuni minuti.
+Sarà possibile modificarlo in un secondo momento, se necessario. In questo articolo è possibile prevedere una latenza di pochi minuti.
 
 1. Nella griglia di eventi del portale di Azure si noterà un picco di attività durante l'esecuzione dell'app.
 
@@ -196,5 +196,4 @@ Se non si prevede di usare nuovamente la griglia di eventi, eliminare **test-hub
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

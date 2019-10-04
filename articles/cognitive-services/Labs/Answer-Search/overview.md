@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 676b7f63b82a0e7c06264cb6dcbead8c1344a076
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548082"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707121"
 ---
 # <a name="what-is-project-answer-search"></a>Informazioni su Project Answer Search
 L'API Project Answer Search usa l'endpoint Bing v7 per ottenere risposte alle query interrogative. Una domanda come ad esempio "Qual è la circonferenza della terra?" restituisce una risposta con informazioni fattuali.  Una query per una persona, un luogo o un oggetto restituisce informazioni sull'entità identificata dalla query. Questi scenari possono essere utili nelle applicazioni, ad esempio bot di conversazione, app di messaggistica, lettori e così via.  

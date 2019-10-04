@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4001f3c88b676a2786159946a8981823e18ea5f6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359059"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274405"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -32,7 +32,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * [Domande sui report di gestione delle password](#password-management-reports)
 * [Domande sul writeback delle password](#password-writeback)
 
-## <a name="password-reset-registration"></a>Registrazione per la reimpostazione della password
+## <a name="password-reset-registration"></a>Registrazione reimpostazione password
 
 * **D:  Gli utenti possono registrare i propri dati per la reimpostazione della password?**
 
@@ -41,12 +41,12 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Se si abilita la reimpostazione della password per un gruppo e quindi si decide di abilitare questa funzionalità per tutti gli utenti, è necessario che gli utenti ripetano la registrazione?**
 
-  > **R:**  No. Gli utenti che hanno inserito i dati di autenticazione non devono ripetere la registrazione.
+  > **R:** No. Gli utenti che hanno inserito i dati di autenticazione non devono ripetere la registrazione.
   >
   >
 * **D:  È possibile definire i dati di reimpostazione della password per conto degli utenti?**
 
-  > **R:** Sì, è possibile farlo con Azure AD Connect, PowerShell, il [portale di Azure](https://portal.azure.com), o il [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com). Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sì, è possibile farlo con Azure AD Connect, PowerShell, il [portale di Azure](https://portal.azure.com)o l'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com). Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **D:  È possibile sincronizzare i dati per le domande di sicurezza dall'ambiente locale?**
@@ -61,7 +61,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Gli utenti devono essere registrati prima di poter usare la funzionalità di reimpostazione della password?**
 
-  > **R:**  No. Se le informazioni di autenticazione definite per conto degli utenti sono sufficienti, gli utenti non dovranno eseguire la registrazione. La reimpostazione della password funziona a condizione che i dati archiviati nei campi appropriati nella directory siano nel formato corretto.
+  > **R:** No. Se le informazioni di autenticazione definite per conto degli utenti sono sufficienti, gli utenti non dovranno eseguire la registrazione. La reimpostazione della password funziona a condizione che i dati archiviati nei campi appropriati nella directory siano nel formato corretto.
   >
   >
 * **D:  È possibile sincronizzare o impostare i campi Telefono per l'autenticazione, Indirizzo di posta elettronica per l'autenticazione o Telefono per l'autenticazione alternativo per conto degli utenti?**
@@ -80,7 +80,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
-## <a name="password-reset"></a>Reimpostazione delle password
+## <a name="password-reset"></a>Reimpostazione password
 
 * **D:  Agli utenti viene impedito di effettuare più tentativi di reimpostazione di una password in un breve periodo di tempo?**
 
@@ -101,7 +101,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > Se non si riceve la notifica entro questo periodo di tempo:
   > * Controllare la cartella della posta indesiderata.
   > * Controllare che il numero o l'indirizzo di posta elettronica contattato sia quello previsto.
-  > * Verificare che i dati di autenticazione nella directory siano correttamente formattato, ad esempio + 1 4255551234 o *utente\@contoso.com*. 
+  > * Verificare che i dati di autenticazione nella directory siano formattati correttamente, ad esempio + 1 4255551234 o *utente\@contoso.com*. 
 * **D:  Quali lingue sono supportate per la reimpostazione della password?**
 
   > **R:** L'interfaccia utente, gli SMS e le chiamate vocali per la reimpostazione della password sono localizzati nelle stesse lingue supportate in Office 365.
@@ -114,7 +114,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
 
-  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione della password self-service](howto-sspr-deployment.md#sample-communication).
+  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione della password self-service](howto-sspr-deployment.md#communications-plan).
   >
   >
 * **D:  Questa pagina può essere usata da un dispositivo mobile?**
@@ -159,7 +159,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Un utente può registrare più volte la stessa domanda di sicurezza?**
 
-  > **R:**  No. Dopo che aver registrato una determinata domanda, l'utente non potrà eseguire la registrazione per quella domanda una seconda volta.
+  > **R:** No. Dopo che aver registrato una determinata domanda, l'utente non potrà eseguire la registrazione per quella domanda una seconda volta.
   >
   >
 * **D:  È possibile impostare un limite minimo di domande di sicurezza per la registrazione e la reimpostazione?**
@@ -179,7 +179,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Per quanto tempo sono validi i passcode monouso inviati per posta elettronica o SMS?**
 
-  > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione password, l'utente ha 15 minuti per completare la reimpostazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
+  > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione password, l'utente ha 15 minuti per completare la reimpostazione. Il codice di posta elettronica e SMS monouso sono validi per 5 minuti durante la sessione di reimpostazione della password.
   >
   >
 * **D:  È possibile impedire agli utenti di reimpostare la password?**
@@ -188,7 +188,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
-## <a name="password-change"></a>Modifica della password
+## <a name="password-change"></a>Modifica password
 
 * **D:  Dove devono andare gli utenti per modificare la password?**
 
@@ -239,7 +239,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
-## <a name="password-writeback"></a>writeback delle password
+## <a name="password-writeback"></a>Writeback password
 
 * **D:  Come funziona il writeback delle password in background?**
 

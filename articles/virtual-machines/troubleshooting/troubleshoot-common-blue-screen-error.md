@@ -4,21 +4,20 @@ description: Informazioni su come risolvere i problemi che determinano la visual
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768485"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058072"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visualizza una schermata blu di errore durante l'avvio di una macchina virtuale di Azure
 Questo articolo descrive gli errori con schermata blu che possono verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto. 
@@ -56,7 +55,7 @@ Per risolvere questo problema, è innanzitutto necessario raccogliere il file du
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Individuare il file dump e inviare un ticket di supporto
 
 1. Nella macchina virtuale di ripristino passare alla cartella Windows nel disco del sistema operativo collegato. Se la lettera di unità assegnata al disco del sistema operativo collegato è F, è necessario passare a F:\Windows.
-2. Individuare il file con estensione dmp e quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con il file dump. 
+2. Individuare il file Memory. dmp, quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) al file dump. 
 
 Se non è possibile individuare il file dump, procedere al passaggio successivo per abilitare il log Dump e la console seriale.
 

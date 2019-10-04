@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a41a811e9313f79c9c3165e02cb5eaa4353b65ab
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785575"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914460"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -21,14 +21,14 @@ Il servizio di ricerca di Mappe è un set di API RESTful progettato per gli svil
 
 In questo articolo si apprenderà come:
 
-* Cercare un indirizzo usando [API di ricerca Fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Cercare un indirizzo insieme a proprietà e coordinate
-* Creare un [ricerca di indirizzi inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per cercare un indirizzo stradale
-* Cercare un cross street usando [indirizzi inversa Cross Street API di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* Cercare un indirizzo usando l' [API di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Cercare un indirizzo insieme alle proprietà e alle coordinate
+* Eseguire una [ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per cercare un indirizzo via
+* Cercare una traversa usando l' [API di ricerca inversa dell'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account e il recupero di una chiave, vedere [Come gestire l'account e le chiavi dell'account di Mappe di Azure](how-to-manage-account-keys.md).
+Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
@@ -58,7 +58,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -68,11 +68,11 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     La stringa di query ambigua "pizza" ha restituito 10 [risultati di punti di interesse](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) con categorie legate a "pizza" e "ristorante". Ogni risultato restituisce un indirizzo, valori di latitudine/longitudine, viewport e punti di ingresso per la località.
   
-    I risultati sono diversi per questa query e non sono associati ad alcuna località di riferimento. È possibile usare il parametro **countrySet** per specificare solo i paesi per cui l'applicazione richiede copertura, in quanto il comportamento predefinito consiste nel cercare nel mondo intero, con il rischio di restituire risultati non necessari.
+    I risultati sono diversi per questa query e non sono associati ad alcuna località di riferimento. È possibile usare il parametro **countrySet** per specificare solo i paesi o le aree per cui l'applicazione necessita di copertura, perché il comportamento predefinito consiste nel cercare l'intero mondo, restituendo potenzialmente risultati non necessari.
 
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | countrySet | Stati Uniti |
   
@@ -84,7 +84,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -108,7 +108,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -125,7 +125,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -149,7 +149,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |
@@ -161,7 +161,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -207,7 +207,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    | Chiave | Valore |
+    | Chiave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<la chiave di Mappe di Azure\> |

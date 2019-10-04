@@ -1,27 +1,27 @@
 ---
 title: 'Esempio: Modellare il database di inventario di AdventureWorks - Ricerca di Azure'
 description: Informazioni su come modellare dati relazionali, trasformandoli in un set di dati bidimensionale, per l'indicizzazione e la ricerca full-text in Ricerca di Azure.
-author: cstone
-manager: cgronlun
+author: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.date: 09/05/2019
+ms.author: heidist
+ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174568"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274028"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Esempio: Modellare il database di inventario di AdventureWorks per Ricerca di Azure
 
-Modellare contenuto di database strutturato in un indice di ricerca efficiente è di rado un esercizio semplice. Oltre alla pianificazione e alla gestione del cambiamento, c'è la sfida della denormalizzazione delle righe di origine da righe unite in join a una tabella a entità adatte alla ricerca. Questo articolo usa i dati di esempio di AdventureWorks, disponibili online, per evidenziare esperienze comuni nella transizione da database a ricerca. 
+Ricerca di Azure accetta un set di righe bidimensionale come input per la [pipeline di indicizzazione (inserimento dati)](search-what-is-an-index.md). Se i dati di origine provengono da un database relazionale SQL Server, in questo articolo viene illustrato un approccio per la creazione di un set di righe flat prima dell'indicizzazione, utilizzando come esempio il database di esempio AdventureWorks.
 
 ## <a name="about-adventureworks"></a>Informazioni su AdventureWorks
 
-Se si ha un'istanza di SQL Server, il database di esempio AdventureWorks può essere familiare. Tra le tabelle incluse in questo database sono presenti cinque tabelle che espongono le informazioni sui prodotti.
+Se si dispone di un'istanza di SQL Server, è possibile che si abbia familiarità con il [database di esempio AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Tra le tabelle incluse in questo database sono presenti cinque tabelle che espongono le informazioni sui prodotti.
 
 + **ProductModel**: nome
 + **Product**: nome, colore, costo, misura, peso, immagine, categoria. Ogni riga è unita in join a un record di ProductModel
@@ -29,7 +29,7 @@ Se si ha un'istanza di SQL Server, il database di esempio AdventureWorks può es
 + **ProductModelProductDescription**: impostazioni locali. Ogni riga unisce in join un record di ProductModel a un record di ProductDescription per una lingua specifica
 + **ProductCategory**: nome, categoria padre
 
-In questo esempio, tutti questi dati verranno combinati in un set di righe bidimensionale che possa essere inserito in un indice di ricerca. 
+L'obiettivo di questo esempio è la combinazione di tutti i dati in un set di righe bidimensionale che può essere inserito in un indice di ricerca. 
 
 ## <a name="considering-our-options"></a>Opzioni possibili
 
@@ -43,7 +43,7 @@ Per risolvere questo problema, non basta spostare semplicemente l'indice di dest
 
 ## <a name="use-a-collection-data-type"></a>Usare il tipo di dati Collection
 
-L'approccio "corretto" consiste nell'usare una funzionalità di schema di ricerca che non ha una corrispondenza diretta nel modello di database: **Collection(Edm.String)**. Un tipo di dati Collection viene usato quando si ha un elenco di stringhe singole, anziché una stringa unica molto lunga. Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
+L'approccio "corretto" consiste nell'usare una funzionalità di schema di ricerca che non ha una corrispondenza diretta nel modello di database: **Collection(Edm.String)** . Questo costrutto è definito nello schema dell'indice di ricerca di Azure. Un tipo di dati della raccolta viene usato quando è necessario rappresentare un elenco di stringhe singole, anziché una stringa molto lungo (singola). Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
 
 Se si definiscono campi di indice multivalore di tipo **Collection(Edm.String)** per colore, misura e immagine, è possibile mantenere le informazioni ausiliarie per i facet e i filtri senza inquinare l'indice con voci duplicate. Analogamente, applicare funzioni di aggregazione ai campi numerici di Product, indicizzando **minListPrice** anziché **listPrice** di ogni singolo prodotto.
 
@@ -164,5 +164,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [Esempio: Tassonomie facet multilivello in Ricerca di Azure](search-example-adventureworks-multilevel-faceting.md)
-
-

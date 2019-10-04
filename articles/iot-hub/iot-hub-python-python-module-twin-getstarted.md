@@ -6,16 +6,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d9aeb5130f565c5fc24e2d0ced9c7ce16d2927ef
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606770"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001154"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end Python e un dispositivo Python
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo e il dispositivo gemello dell'hub IoT di Azure consentono all'applicazione back-end di configurare un dispositivo e forniscono visibilità sulle condizioni del dispositivo, l'identità del modulo e il modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi con più componenti, ad esempio i dispositivi basati su sistema operativo o i dispositivi firmware, è possibile isolare la configurazione e le condizioni di ogni componente.
@@ -27,23 +29,25 @@ Al termine di questa esercitazione si hanno due app Python:
 
 * **UpdateModuleTwinReportedProperties**, che invia le proprietà segnalate aggiornate del modulo gemello all'hub IoT.
 
-> [!NOTE]
-> Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-* Un hub IoT.
+## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-* Installare la versione di [Python SDK](https://github.com/Azure/azure-iot-sdk-python) più recente.
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa di connessione dell'hub necessari per completare il resto di questa esercitazione.
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Creare un'identità del dispositivo e un'identità del modulo nell'hub IoT
 
-In questa sezione si scriverà un'app Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per altre informazioni, vedere la sezione "Registro di identità" della [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
+In questa sezione si scriverà un'app Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per ulteriori informazioni, vedere la sezione "Registro di identità" della [Guida](iot-hub-devguide-identity-registry.md)per gli sviluppatori dell'hub Internet. Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
 Aggiungere il codice seguente al file Python:
 
@@ -64,17 +68,21 @@ try:
     primary_key = ""
     secondary_key = ""
     auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID + "> has primary key = " + new_device.primaryKey)
+    new_device = iothub_registry_manager.create_device(
+        DEVICE_ID, primary_key, secondary_key, auth_method)
+    print("new_device <" + DEVICE_ID +
+          "> has primary key = " + new_device.primaryKey)
 
     # CreateModule
-    new_module = iothub_registry_manager.create_module(DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID + "> has primary key = " + new_module.primaryKey)
+    new_module = iothub_registry_manager.create_module(
+        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
+    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
+          "> has primary key = " + new_module.primaryKey)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "IoTHubRegistryManager sample stopped" )
+    print("IoTHubRegistryManager sample stopped")
 ```
 
 Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'identità del modulo con ID **myFirstModule** per il dispositivo **myFirstDevice**. Se questo ID modulo è già presente nel registro delle identità, il codice recupera semplicemente le informazioni esistenti sul modulo. L'app visualizzerà quindi la chiave primaria per l'identità. Questa chiave verrà usata dall'app per modulo simulato per connettersi all'hub IoT.
@@ -87,11 +95,11 @@ Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'ident
 
 In questa sezione, nel dispositivo simulato viene creata un'app Python che aggiorna le proprietà restituite del modulo gemello.
 
-1. **Ottenere la stringa di connessione del modulo** : ora, se si accede al [portale di Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
+1. **Ottenere la stringa di connessione del modulo** , ora se si accede al [portale di Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **Creare app UpdateModuleTwinReportedProperties**
+2. **Crea app UpdateModuleTwinReportedProperties**
 
    Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
 
@@ -132,35 +140,40 @@ Questo esempio di codice mostra come recuperare il modulo gemello e aggiornare l
 Oltre al codice precedente, è possibile aggiungere il blocco di codice seguente per ottenere il messaggio di aggiornamento del modulo gemello nel dispositivo.
 
 ```python
-import random
 import time
-import sys
-import iothub_client
-from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
+import threading
+from azure.iot.device import IoTHubModuleClient
 
-PROTOCOL = IoTHubTransportProvider.AMQP
-CONNECTION_STRING = ""
+CONNECTION_STRING = "{deviceConnectionString}"
 
-def module_twin_callback(update_state, payload, user_context):
-    print ("")
-    print ("Twin callback called with:")
-    print ("updateStatus: %s" % update_state )
-    print ("context: %s" % user_context )
-    print ("payload: %s" % payload )
 
-try:
-    module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
-    module_client.set_module_twin_callback(module_twin_callback, 1234)
-
-    print ("Waiting for incoming twin messages.  Hit Control-C to exit.")
+def twin_update_listener(client):
     while True:
+        patch = client.receive_twin_desired_properties_patch()  # blocking call
+        print("")
+        print("Twin desired properties patch received:")
+        print(patch)
 
-        time.sleep(1000000)
+def iothub_client_sample_run():
+    try:
+        module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
 
-except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
-except KeyboardInterrupt:
-    print ( "module client sample stopped" )
+        twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
+        twin_update_listener_thread.daemon = True
+        twin_update_listener_thread.start()
+
+        while True:
+            time.sleep(1000000)
+
+    except KeyboardInterrupt:
+        print("IoTHubModuleClient sample stopped")
+
+
+if __name__ == '__main__':
+    print ( "Starting the IoT Hub Python sample..." )
+    print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+    iothub_client_sample_run()
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

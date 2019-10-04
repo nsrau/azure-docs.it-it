@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370714"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70034538"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure
 
@@ -56,7 +56,7 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 |Aggiungere o rimuovere i contatti per le notifiche<sup>2</sup> |✔|✘|✘|✘|✘|
 |Creare e gestire i reparti |✔|✘|✘|✘|✘|
 |Visualizzare gli amministratore di reparto|✔|✔|✔|✔|✘|
-|Aggiungere o rimuovere gli amministratori di reparto|✔|✔|✔|✘|✘|
+|Aggiungere o rimuovere gli amministratori di reparto|✔|✘|✔|✘|✘|
 |Visualizzare gli account nella registrazione |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>3</sup>|✘|✘|
 |Creare e gestire le sottoscrizioni e le relative autorizzazioni|✘|✘|✘|✘|✔|

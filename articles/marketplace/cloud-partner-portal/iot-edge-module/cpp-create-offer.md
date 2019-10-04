@@ -1,25 +1,18 @@
 ---
-title: Creare un'offerta di modulo Azure IoT Edge | Microsoft Docs
+title: Creare un'offerta di modulo Azure IoT Edge | Azure Marketplace
 description: Come pubblicare un nuovo modulo IoT Edge per il Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 98eb537a5c064cd22b995ae214c8d61db7a8b6b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942489"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Creare una nuova offerta di modulo IoT Edge nel portale Cloud Partner
 

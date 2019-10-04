@@ -1,25 +1,19 @@
 ---
-title: Configurare l'applicazione nel portale di pubblicazione | Microsoft Docs
+title: Configurare l'applicazione nel portale di pubblicazione
 description: Istruzioni su come configurare la propria applicazione nel portale di pubblicazione Cloud.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943571"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurare l'applicazione nel portale di pubblicazione
 
@@ -53,13 +47,13 @@ Il modulo delle impostazioni dell'offerta è un modulo di base in cui specificar
 
 Identificatore univoco dell'offerta in un profilo di pubblicazione. Questo ID sarà visibile negli URL dei prodotti. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere massimo 50 caratteri. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-ad esempio, se un server di pubblicazione **"contoso"** server di pubblicazione viene creata un'offerta con ID offerta **"esempio-WebApp"**, verrà visualizzata in AppSource come "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+ad esempio, se un server di pubblicazione **"contoso"** server di pubblicazione viene creata un'offerta con ID offerta **"esempio-WebApp"** , verrà visualizzata in AppSource come "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>Publisher ID (ID editore)
 
 Questo elenco a discesa consente di scegliere il profilo di pubblicazione in cui si desidera pubblicare l'offerta. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>NOME
 
 Nome visualizzato dell'offerta. È il nome che verrà visualizzato in [AppSource](https://appsource.microsoft.com/). Può contenere massimo 50 caratteri.
 
@@ -88,7 +82,7 @@ Di seguito è riportata una spiegazione di questi campi:
 
 ### <a name="crm-package-availability"></a>Disponibilità del pacchetto CRM
 
-In questa sezione selezionare le aree geografiche di CRM in cui il pacchetto sarà reso disponibile. Per informazioni sui paesi serviti in ciascuna area, vedere il collegamento: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+In questa sezione selezionare le aree geografiche di CRM in cui il pacchetto sarà reso disponibile. Per informazioni su quali CRM aree servono quali paesi/aree geografiche, vedere il collegamento: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Note: la distribuzione nei "cloud sovrani e US Gov" in Germania RICHIEDE UN'AUTORIZZAZIONE SPECIALE e LA CONVALIDA DURANTE LA CERTIFICAZIONE.
 

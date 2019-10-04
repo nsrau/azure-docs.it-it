@@ -3,23 +3,17 @@ title: Come configurare un servizio cloud (portale) | Documentazione Microsoft
 description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006414"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359646"
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 

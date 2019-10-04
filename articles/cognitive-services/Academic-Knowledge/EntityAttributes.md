@@ -10,22 +10,23 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ROBOTS: NOINDEX
+ms.openlocfilehash: 596ce35a0d744691edd75d6071d4758691e0031b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183493"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705028"
 ---
 # <a name="entity-attributes"></a>Attributi di entità
 
-L'entità Academic Graph è composta da 7 tipi di entità. Tutte le entità avranno un ID di entità e un tipo di entità.
+L'entità Academic Graph è composta da 7 tipi di entità. Tutte le entità avranno un ID entità e un tipo di entità.
 
 ## <a name="common-entity-attributes"></a>Attributi di entità comuni
-NOME    |DESCRIZIONE                |Type       | Operazioni
+NOME    |Descrizione                |Type       | Operazioni
 ------- | ------------------------- | --------- | ----------------------------
-ID      |ID entità                  |Int64      |Uguale a
-Ty      |Tipo di entità                |enum   |Uguale a
+ID      |ID entità                  |Int64      |Equals
+Ty      |Tipo di entità                |enum   |Equals
 
 ## <a name="entity-type-enum"></a>Tipo di enumerazione dell'entità
 NOME                                                            |value

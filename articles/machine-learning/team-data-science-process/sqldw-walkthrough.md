@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66478847"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -584,11 +584,11 @@ Se si è già configurata un'area di lavoro di AzureML, è possibile caricare di
 
 Per eseguire l'esempio di IPython Notebook o il file di script di Python, sono necessari i pacchetti di Python seguenti. Se si usa il servizio IPython Notebook di AzureML, questi pacchetti sono stati preinstallati.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 La sequenza consigliata quando si compilano soluzioni analitiche avanzate in AzureML con dati di grandi dimensioni è la seguente:
 
@@ -833,7 +833,7 @@ In questo esercizio i dati sono già stati esplorati e compilati in SQL Data War
 1. Inserire i dati in Azure Machine Learning Studio tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa Dati).
 
     ![Import Data di Azure ML][17]
-2. Selezionare **Azure SQL Database** (Database SQL Azure) come **Data source** (Origine dati) nel riquadro **Properties** (Proprietà).
+2. Selezione di **Database SQL di Azure** come **Origine dati** nel pannello **Proprietà**.
 3. Immissione del nome DNS del database nel campo **Nome server database** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Immissione del **Nome database** nel campo corrispondente.
 5. Immettere il *nome utente SQL* in **Server user account name** (Nome account utente server) e la *password* in **Server user account password** (Password account utente server).
@@ -874,7 +874,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza

@@ -3,26 +3,24 @@ title: Creare pipeline di dati predittive tramite Azure Data Factory | Microsoft
 description: Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122064"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140477"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività Hive](data-factory-hive-activity.md)
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
@@ -54,7 +52,7 @@ Il servizio Data Factory consente di creare pipeline di dati che spostano e tras
 Per una rapida introduzione al servizio Azure Data Factory, vedere gli articoli [Introduzione al servizio Azure Data Factory](data-factory-introduction.md) e [Creare la prima pipeline](data-factory-build-your-first-pipeline.md).
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio. Per altre informazioni, vedere Richiamo di un servizio Web di Azure Machine Learning Studio tramite Attività di esecuzione batch.
 
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure Machine Learning Studio usando nuovi set di dati di input. È possibile ripetere il training di un modello di Azure Machine Learning Studio da una pipeline di Data Factory seguendo questa procedura:
 
@@ -137,7 +135,7 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
 ### <a name="example"></a>Esempio
 Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di output.
 
-Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione relativa alla [creazione della prima pipeline con Data Factory][adf-build-1st-pipeline]. Usare l'editor di Data Factory per creare elementi di Data Factory, come servizi collegati, set di dati e pipeline, in questo esempio.
+Prima di procedere con questo esempio, è consigliabile eseguire la [creazione della prima pipeline con data factory][adf-build-1st-pipeline] esercitazione. Usare l'editor di Data Factory per creare elementi di Data Factory, come servizi collegati, set di dati e pipeline, in questo esempio.
 
 1. Creare un **servizio collegato** per **Archiviazione di Azure**. Se i file di input e output si trovano in account di archiviazione diversi, sono necessari due servizi collegati. Di seguito è fornito un esempio JSON:
 
@@ -184,7 +182,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
     }
     ```
 
-    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio: 
+    Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Esempio:
 
     ```JSON
     sink:
@@ -303,7 +301,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
       }
       ```
 
-      Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Ad esempio:  2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+      Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Esempio: 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > La specifica dell'input per l'attività AzureMLBatchExecution è opzionale.
@@ -349,7 +347,7 @@ Viene preso in esame uno scenario relativo all'uso dei parametri del servizio We
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Uso di un modulo Reader per leggere dati da più file del BLOB di Azure
 Le pipeline di Big Data, con attività come Pig e Hive, possono generare uno o più file di output senza estensioni. Ad esempio, quando si specifica una tabella Hive esterna, i dati per tale tabella possono essere archiviati nell'archiviazione BLOB di Azure con il nome 000000_0. È possibile usare il modulo Reader in un esperimento per la lettura di più file e usare questi ultimi per creare delle stime.
 
-Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è possibile specificare il BLOB di Azure come input. I file presenti nella risorsa di archiviazione BLOB di Azure possono essere i file di output, ad esempio 000000_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob**(Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (\*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/\***, vengono letti come parte dell'esperimento.
+Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è possibile specificare il BLOB di Azure come input. I file presenti nella risorsa di archiviazione BLOB di Azure possono essere i file di output, ad esempio 000000_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob**(Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (\*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/\*** , vengono letti come parte dell'esperimento.
 
 ![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -407,7 +405,7 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
 Nell'esempio JSON precedente:
 
 * Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Questo servizio Web espone i quattro parametri seguenti:  Database server name, Database name, Server user account name e Server user account password.
-* Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Ad esempio:  2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
+* Per la data e l'ora di **inizio** e di **fine** è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Esempio: 2014-10-14T16:32:41Z. Se non si specifica un valore per la proprietà **Inizio + 48 ore** ". Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per informazioni dettagliate sulle proprietà JSON, vedere [Informazioni di riferimento sugli script JSON di Data Factory](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Altri scenari
 #### <a name="web-service-requires-multiple-inputs"></a>Il servizio Web richiede più input
@@ -549,7 +547,7 @@ Ecco i **punti chiave** :
 ## <a name="updating-models-using-update-resource-activity"></a>Aggiornamento dei modelli con Attività della risorsa di aggiornamento
 Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi, ovvero l'esperimento predittivo esposto come servizio Web, con il modello appena sottoposto a training usando l'**Attività della risorsa di aggiornamento di Azure Machine Learning Studio**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
-### <a name="reader-and-writer-modules"></a>Moduli Reader e Writer 
+### <a name="reader-and-writer-modules"></a>Moduli Reader e Writer
 Uno scenario comune per l'uso dei parametri del servizio Web è costituito dai reader e dai writer SQL di Azure. Il modulo Reader viene usato per caricare i dati in un esperimento dai servizi di gestione dati all'esterno di Azure Machine Learning Studio. Il modulo Writer viene usato per salvare i dati degli esperimenti in servizi di gestione dati all'esterno di Azure Machine Learning Studio.
 
 Per informazioni dettagliate sui BLOB di Azure o sui moduli Reader e Writer SQL di Azure, vedere gli argomenti [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) in MSDN Library. L'esempio della sezione precedente usa un reader e un writer di BLOB di Azure. Questa sezione illustra l'uso di un reader e un writer SQL di Azure.

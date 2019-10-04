@@ -1,22 +1,21 @@
 ---
-title: Risolvere i problemi di Speech SDK - Servizi di riconoscimento vocale
+title: Risolvere i problemi relativi all'SDK vocale-servizio vocale
 titleSuffix: Azure Cognitive Services
 description: Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa Speech SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: wolfma
-ms.custom: seodec18
-ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515444"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558883"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Risolvere i problemi di Speech SDK
 

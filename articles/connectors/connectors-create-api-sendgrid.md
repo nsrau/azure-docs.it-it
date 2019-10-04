@@ -11,12 +11,12 @@ ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228857"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050818"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Inviare messaggi di posta elettronica e gestire liste di distribuzione in SendGrid con App per la logica di Azure
 
@@ -33,7 +33,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Un [account SendGrid](https://www.sendgrid.com/) e una [chiave API SendGrid](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
 
@@ -56,7 +56,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
      -oppure-
 
    * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "sendgrid" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 

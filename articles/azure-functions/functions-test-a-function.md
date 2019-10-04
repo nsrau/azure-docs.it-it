@@ -4,19 +4,18 @@ description: Creare test automatizzati per una funzione C# in Visual Studio e la
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, test
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357629"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709345"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -44,7 +43,7 @@ Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi segu
 2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla *HttpTrigger*.
 3. [Creare una funzione del timer dal modello](./functions-create-scheduled-function.md) e denominarla *TimerTrigger*.
 4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio facendo clic su **File > Nuovo > Progetto > Visual C# > .NET Core > Progetto di test xUnit** e denominarlo *Functions.Test*. 
-5. Usare Nuget per aggiungere un riferimento dall'app test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Usare NuGet per aggiungere riferimenti dall'app di test [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Fare riferimento all'app *Funzioni* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crea classi di test
@@ -55,7 +54,7 @@ Ogni funzione accetta un'istanza di [ILogger](https://docs.microsoft.com/dotnet/
 
 La classe `ListLogger` è destinata a implementare l'interfaccia `ILogger` e a mantenere l'elenco interno dei messaggi per la valutazione durante un test.
 
-**Fare doppio clic su** nella *Functions.Test* dell'applicazione e selezionare **Aggiungi > classe**, denominarla **NullScope.cs** e immettere il codice seguente:
+**Fare clic con il pulsante destro del mouse** sull'applicazione *Functions. test* e scegliere **Aggiungi > Class**, denominarla **NullScope.cs** e immettere il codice seguente:
 
 ```csharp
 using System;
@@ -73,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-Successivamente, **fare doppio clic su** nel *Functions.Test* dell'applicazione e selezionare **Aggiungi > classe**, denominarlo **ListLogger.cs** e immettere il codice seguente:
+Fare quindi **clic con il pulsante destro del mouse** sull'applicazione *Functions. test* e scegliere **Aggiungi > Class**, denominarla **ListLogger.cs** e immettere il codice seguente:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,7 +110,7 @@ namespace Functions.Tests
 
 La classe `ListLogger` implementa i membri seguenti come contrattato dall'interfaccia `ILogger`:
 
-- **BeginScope**: Gli ambiti aggiungono del contesto alla registrazione. In questo caso, il test appena punti all'istanza statica di `NullScope` classe per consentire la funzione del test.
+- **BeginScope**: Gli ambiti aggiungono del contesto alla registrazione. In questo caso, il test punta solo all'istanza statica della classe `NullScope` per consentire il funzionamento del test.
 
 - **IsEnabled**: È disponibile un valore predefinito di `false`.
 
@@ -221,7 +220,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -230,7 +229,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -253,7 +252,7 @@ I membri implementati in questa classe sono:
 
 - **Timer_should_log_message**: Questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
 
-Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile usare [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile utilizzare [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Esecuzione dei test
 
@@ -312,7 +311,7 @@ module.exports = {
 ```
 Questo modulo implementa la proprietà `IsPastDue` per realizzare che è come un'istanza del timer fittizia.
 
-Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per [creare una nuova funzione HTTP JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) e denominarla *HttpTrigger*. Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
+Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per [creare una nuova funzione HTTP JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) e denominarla *HttpTrigger*. Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
 
 ```javascript
 const httpFunction = require('./index');

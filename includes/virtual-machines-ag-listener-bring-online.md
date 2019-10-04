@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227457"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180098"
 ---
 1. In Gestione cluster di failover espandere **Ruoli** e quindi evidenziare il gruppo di disponibilità.  
 
@@ -31,7 +31,7 @@ ms.locfileid: "50227457"
 
 8. Avviare SQL Server Management Studio e connettersi alla replica primaria.
 
-9. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **\<AvailabilityGroupName\>** > **Listener gruppo di disponibilità**.  
+9. Passare a **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** >  **\<AvailabilityGroupName\>**  > **Listener gruppo di disponibilità**.  
     Verrà visualizzato il nome del listener creato in Gestione cluster di failover.
 
 10. Fare clic con il pulsante destro del mouse sul nome del listener e quindi su **Proprietà**.

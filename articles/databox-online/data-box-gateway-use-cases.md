@@ -4,15 +4,16 @@ description: Descrive i casi d'uso per il Gateway di finestra di dati Azure, una
 services: databox
 author: alkohli
 ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.date: 03/2/2019
+ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754188"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casi d'uso di Azure Data Box Gateway
 
@@ -49,7 +50,7 @@ Prima di iniziare, verificare di avere un dispositivo Data Box Gateway funzionan
 - Dopo aver caricato i dati, sarà necessario spostarli nel livello Archivio. È possibile impostare il livello BLOB in due modi: con uno script di Azure PowerShell o con i criteri di gestione del ciclo di vita di Archiviazione di Azure.  
     - Se si usa Azure PowerShell, seguire questi [passaggi](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) per spostare i dati nel livello Archivio.
     - Se si usano i criteri di gestione del ciclo di vita di Azure, seguire questi passaggi per spostare i dati nel livello Archivio.
-        - [Eseguire la registrazione](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) per l'anteprima del servizio di gestione del ciclo di vita a livello di BLOB per poter usare il livello Archivio.
+        - [Eseguire la registrazione](/azure/storage/common/storage-lifecycle-management-concepts) per l'anteprima del servizio di gestione del ciclo di vita a livello di BLOB per poter usare il livello Archivio.
         - Usare i criteri seguenti per [archiviare i dati al momento dell'inserimento](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Una volta contrassegnati come Archivio, i BLOB non possono più essere modificati dal gateway a meno che non vengano spostati nel livello di archiviazione ad accesso frequente o ad accesso sporadico. Se il file si trova nell'archivio locale, le eventuali modifiche apportate alla copia locale (incluse le eliminazioni) non vengono caricate nel livello di archiviazione archivio.
 - Per poter essere letti nel livello di archiviazione archivio, i dati devono essere riattivati impostando il livello BLOB sul livello ad accesso frequente o sporadico. L'[aggiornamento della condivisione](data-box-gateway-manage-shares.md#refresh-shares) sul gateway non riattiva il BLOB.

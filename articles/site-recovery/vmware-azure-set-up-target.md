@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723804"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparare l'ambiente di destinazione per il ripristino di emergenza di macchine virtuali VMware o server fisici in Azure
 

@@ -10,30 +10,29 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c759567e4d8c183452eccbbdca8459c8993d1361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092428"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
 L'agente di macchine virtuali di Azure e le relative estensioni associate fanno parte dei servizi di infrastruttura di Microsoft Azure. Le estensioni di VM sono componenti software che estendono la funzionalità delle macchine virtuali e ne semplificano varie operazioni di gestione.
 
-L'uso primario per l'estensione Azure Desired State Configuration (DSC) è possibile avviare una macchina virtuale per il [servizio Azure Automation State Configuration (DSC)](../../automation/automation-dsc-overview.md).
-Il servizio offre [vantaggi](/powershell/dsc/metaconfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio il monitoraggio di Azure.
-Uso dell'estensione per eseguire la registrazione della macchina virtuale per il servizio offre una soluzione flessibile che funziona anche sulle sottoscrizioni di Azure.
+Il caso d'uso principale per l'estensione DSC (Desired state Configuration) di Azure consiste nel bootstrap di una macchina virtuale nel [servizio Azure Automation state Configuration (DSC)](../../automation/automation-dsc-overview.md).
+Il servizio offre [vantaggi](/powershell/dsc/metaconfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio monitoraggio di Azure.
+L'uso dell'estensione per registrare le macchine virtuali nel servizio offre una soluzione flessibile che funziona anche tra le sottoscrizioni di Azure.
 
 È possibile usare l'estensione DSC in modo indipendente dal servizio Automation DSC.
-Tuttavia, questo invierà push solo una configurazione alla macchina virtuale.
-Nessun report continuative è disponibile, diverso da in locale nella macchina virtuale.
+Tuttavia, verrà push una configurazione solo alla macchina virtuale.
+Non sono disponibili report in corso, oltre a quelli locali nella macchina virtuale.
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
@@ -66,24 +65,24 @@ L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scaric
 
 L'estensione DSC di Azure include uno script di configurazione predefinito da usare per l'onboarding di una macchina virtuale nel servizio Automation DSC per Azure. I parametri dello script sono allineati con le proprietà configurabili di [Gestione configurazione locale](/powershell/dsc/metaconfig). Per i parametri dello script, vedere [Script di configurazione predefinito](dsc-template.md#default-configuration-script) in [Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager](dsc-template.md). Per lo script completo, vedere il [modello di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio Azure Automation State Configuration (DSC)
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio di configurazione dello stato di automazione di Azure (DSC)
 
-Quando si usa l'estensione DSC per registrare un nodo con il servizio di configurazione dello stato, saranno necessario specificare tre valori.
+Quando si usa l'estensione DSC per registrare un nodo con il servizio di configurazione dello stato, è necessario fornire tre valori.
 
-- RegistrationUrl - l'indirizzo https dell'account di automazione di Azure
-- RegistrationKey - segreto condiviso usato per registrare i nodi con il servizio
-- NodeConfigurationName - il nome di nodo di configurazione (MOF) per eseguire il pull dal servizio per configurare il ruolo del server
+- RegistrationUrl: indirizzo https dell'account di automazione di Azure
+- RegistrationKey: un segreto condiviso usato per registrare i nodi con il servizio
+- NodeConfigurationName-nome della configurazione del nodo (MOF) per eseguire il pull dal servizio per configurare il ruolo del server
 
-Queste informazioni possono essere visualizzate nei [portale di Azure](../../automation/automation-dsc-onboarding.md#azure-portal) oppure è possibile usare PowerShell.
+Queste informazioni possono essere visualizzate nel [portale di Azure](../../automation/automation-dsc-onboarding.md#azure-portal) oppure è possibile usare PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Per il nome di configurazione del nodo, verificare che si usa il nome del *configurazione del nodo* e non la configurazione.
-Una configurazione è definita in uno script che viene usato [per compilare la configurazione di nodo (file MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
-Il nome sarà sempre la configurazione seguita da un punto `.` e il valore `localhost` o un nome di computer specifico.
+Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di usare il nome della *configurazione del nodo* e non la configurazione.
+Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Il nome sarà sempre la configurazione seguita da un punto `.` `localhost` e da o da un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
 
@@ -136,7 +135,6 @@ I comandi seguenti inseriscono lo script IisInstall.ps1 nella VM specificata, es
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
-$location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
@@ -147,7 +145,7 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-Il comando di Azure è utilizzabile per distribuire l'estensione DSC in una macchina virtuale esistente.
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione DSC in una macchina virtuale esistente.
 
 Per una macchina virtuale che esegue Windows:
 
@@ -179,7 +177,7 @@ Per configurare DSC nel portale:
 
 1. Selezionare una macchina virtuale.
 2. In **Impostazioni** selezionare **Estensioni**.
-3. Nella nuova pagina creata selezionare **+ Aggiungi** e quindi **PowerShell DSC (Desired State Configuration)**.
+3. Nella nuova pagina creata selezionare **+ Aggiungi** e quindi **PowerShell DSC (Desired State Configuration)** .
 4. Nella parte inferiore della pagina delle informazioni sulle estensioni, fare clic su **Crea**.
 
 Il portale consente di raccogliere l'input seguente:

@@ -1,5 +1,5 @@
 ---
-title: Connettere un'app MongoDB Node.js ad Azure Cosmos DB
+title: "Guida introduttiva: Connettere un'app MongoDB Node.js ad Azure Cosmos DB"
 description: Questo Avvio rapido illustra come connettere un'app MongoDB esistente scritta in Node. js ad Azure Cosmos DB.
 author: rimman
 ms.author: rimman
@@ -7,15 +7,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.openlocfilehash: 99f6de4d0441594c09e5e8c29834b90aeb1d43a6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 05/21/2019
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586479"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931814"
 ---
-# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Avvio rapido: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Guida introduttiva: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -100,7 +101,7 @@ Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.
 
 L'esempio seguente crea un gruppo di risorse nell'area Europa occidentale. Scegliere un nome univoco per il gruppo di risorse.
 
-Se si usa Azure Cloud Shell, fare clic su **Prova**, seguire le istruzioni visualizzate per eseguire l'accesso e quindi copiare il comando al prompt dei comandi.
+Se si usa Azure Cloud Shell, selezionare **Prova**, seguire le istruzioni visualizzate per eseguire l'accesso e quindi copiare il comando nel prompt dei comandi.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -204,7 +205,7 @@ npm start
 
 Un messaggio della console dovrebbe ora indicare che l'ambiente di sviluppo è operativo. 
 
-Andare a `http://localhost:3000` in un browser. Fare clic su **Iscrizione** nel menu in alto e provare a creare due utenti fittizi. 
+Passare a `http://localhost:3000` in un browser. Selezionare **Iscrizione** nel menu in alto e provare a creare due utenti fittizi. 
 
 L'applicazione di esempio MEAN.js archivia i dati utente nel database. Se l'operazione ha esito positivo e l'applicazione MEAN.js accede automaticamente all'utente creato, la connessione ad Azure Cosmos DB funziona. 
 
@@ -216,7 +217,7 @@ I dati archiviati in un database Cosmos sono disponibili per la visualizzazione 
 
 Per visualizzare e usare i dati utente creati nel passaggio precedente, nonché eseguire query su di essi, accedere al [portale di Azure](https://portal.azure.com) nel Web browser.
 
-Nella casella di ricerca nella parte superiore digitare Azure Cosmos DB. Quando viene aperto il pannello dell'account Cosmos, selezionare l'account Cosmos. Nel riquadro di spostamento a sinistra fare clic su Esplora dati. Espandere la raccolta nel riquadro Raccolte. Sarà quindi possibile visualizzare i documenti nella raccolta, eseguire query sui dati e anche creare ed eseguire stored procedure, trigger e funzioni definite dall'utente. 
+Nella casella di ricerca nella parte superiore immettere **Azure Cosmos DB**. Quando viene aperto il pannello dell'account Cosmos, selezionare l'account Cosmos. Nel riquadro di spostamento a sinistra selezionare **Esplora dati**. Espandere la raccolta nel riquadro Raccolte. Sarà quindi possibile visualizzare i documenti nella raccolta, eseguire query sui dati e anche creare ed eseguire stored procedure, trigger e funzioni definite dall'utente. 
 
 ![Esplora dati nel portale di Azure](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 

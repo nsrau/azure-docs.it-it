@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155015"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840174"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
@@ -71,7 +71,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -112,7 +112,7 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
    ![Espandere la sezione Azure IoT Hub Devices (Dispositivi dell'Hub IoT di Azure).](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
+1. Fare clic sui puntini di sospensione ( **...** ) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione.
 
 1. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
 

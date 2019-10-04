@@ -1,6 +1,6 @@
 ---
-title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali v3 usando .NET | Microsoft Docs
-description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali v3 usando .NET.
+title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali v3 di Azure | Microsoft Docs
+description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,19 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415965"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653923"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming dei video
+
+> [!NOTE]
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md). Questa esercitazione descrive come caricare un file video locale e codificare il file caricato. È anche possibile codificare contenuti resi accessibili tramite un URL HTTPS. Per altre informazioni, vedere [Creare un input del processo da un URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -83,7 +86,7 @@ In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricar
 La funzione esegue queste azioni:
 
 * Crea un **asset** 
-* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) dell'asset
+* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -197,6 +200,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Multithreading
 
 Gli SDK di Servizi multimediali di Azure v3 non sono thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario generare e usare un nuovo oggetto AzureMediaServicesClient per ogni thread.
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

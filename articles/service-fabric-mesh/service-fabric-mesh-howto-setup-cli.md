@@ -9,30 +9,30 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521017"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173774"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
 L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. 
 
 È possibile usare tre tipi di interfaccia della riga di comando, riepilogati nella tabella seguente. 
 
-| Modulo interfaccia della riga di comando | Ambiente di destinazione |  DESCRIZIONE | 
+| Modulo interfaccia della riga di comando | Ambiente di destinazione |  Descrizione | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Interfaccia della riga di comando principale, che consente di distribuire le applicazioni e gestire le risorse nell'ambiente di Azure Service Fabric Mesh. 
 | sfctl | Cluster locali | Interfaccia della riga di comando di Service Fabric, che consente di distribuire e testare le risorse di Service Fabric sui cluster locali.  
-| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Un wrapper intorno `az mesh` e `sfctl` che consente agli sviluppatori Java di sfruttare un'esperienza familiare della riga di comando per un'esperienza di sviluppo locale e Azure.  
+| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Un wrapper `az mesh` per e `sfctl` che consente agli sviluppatori Java di usare un'esperienza familiare da riga di comando per l'esperienza di sviluppo locale e Azure.  
 
 Per l'anteprima l'interfaccia della riga di comando di Azure Service Fabric Mesh viene scritta come estensione dell'interfaccia della riga di comando di Azure. È possibile installarla in Azure Cloud Shell oppure in un'installazione locale dell'interfaccia della riga di comando di Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Installare l'interfaccia della riga di comando di Azure Service Fabric Mesh
-1. È necessario installare l'interfaccia della riga di comando di Azure 2.0.43 o versione successiva. Eseguire `az --version` per trovare la versione. Per installare o eseguire l'aggiornamento all'ultima versione dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+1. È necessario installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva. Eseguire `az --version` per trovare la versione. Per installare o aggiornare alla versione più recente dell'interfaccia della riga di comando, vedere [installare l'interfaccia][azure-cli-install]della riga di comando di Azure.
 
 2. Installare il modulo dell'estensione dell'interfaccia della riga di comando di Azure Service Fabric Mesh usando il comando seguente. 
 

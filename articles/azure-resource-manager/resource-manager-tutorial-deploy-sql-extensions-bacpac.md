@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 08befabfbd14651475fa56dec95bdf4c2fe54c9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390312"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager
 
-Informazioni su come usare estensioni per il database SQL per importare un file BACPAC con modelli di Azure Resource Manager. Gli elementi di distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi. In questa esercitazione viene creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni sulla distribuzione di estensioni di macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
+Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli elementi di distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi. In questa esercitazione viene creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni sulla distribuzione di estensioni di macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Questa esercitazione illustra le attività seguenti:
 

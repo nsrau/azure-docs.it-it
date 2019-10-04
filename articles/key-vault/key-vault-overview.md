@@ -2,23 +2,20 @@
 title: Panoramica di Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.author: mbaldwin
+ms.openlocfilehash: e814c9f7859fb18280c3a9ffd72bd4053a4895ad
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195473"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883211"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -45,7 +42,7 @@ L'accesso di un chiamante (utente o applicazione) a un'istanza di Key Vault rich
 
 L'autenticazione avviene tramite Azure Active Directory. L'autorizzazione può essere eseguita tramite il controllo degli accessi in base al ruolo o i criteri di accesso di Key Vault. Il controllo degli accessi in base al ruolo viene usato per la gestione degli insiemi di credenziali e vengono usati criteri di accesso di Key Vault quando si tenta di accedere ai dati archiviati in un insieme di credenziali.
 
-Le istanze di Azure Key Vault possono essere protette da moduli di protezione software o hardware. Per i casi in cui si richiede maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. Microsoft usa i moduli di protezione hardware Thales. È possibile usare gli strumenti Thales per spostare una chiave dal modulo di protezione hardware ad Azure Key Vault.
+Le istanze di Azure Key Vault possono essere protette da moduli di protezione software o hardware. Per i casi in cui si richiede maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. Microsoft usa i moduli di protezione hardware nCipher. È possibile usare gli strumenti nCipher per spostare una chiave dal modulo di protezione hardware ad Azure Key Vault.
 
 Azure Key Vault è infine progettato in modo che Microsoft non possa vedere o estrarre i dati.
 

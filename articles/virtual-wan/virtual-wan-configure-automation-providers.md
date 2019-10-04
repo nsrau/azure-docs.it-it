@@ -5,15 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 09/30/2019
 ms.author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459938"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703450"
 ---
 # <a name="virtual-wan-partners"></a>Partner di rete WAN virtuale
 
@@ -28,7 +27,7 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
 * Testare l'esperienza nel portale della rete WAN virtuale di Azure.
 * Decidere quindi quale parte della procedura della connettività si vuole automatizzare. È consigliabile automatizzare almeno i seguenti passaggi:
 
-  * Controllo dell’accesso
+  * Controllo di accesso
   * Caricamento delle informazioni sul dispositivo di branch nella rete WAN virtuale di Azure
   * Download della configurazione di Azure e configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure
 
@@ -37,9 +36,10 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
   1. Un utente di rete WAN virtuale avvia in genere il processo creando una risorsa di rete WAN virtuale.
   2. L'utente configura un accesso al gruppo di risorse basate su entità servizio per il sistema locale (il controller di branch o il software di provisioning del dispositivo VPN) per scrivere informazioni sul branch nella rete WAN virtuale di Azure.
   3. L'utente può decidere in questa fase di accedere all'interfaccia utente e impostare le credenziali dell'entità servizio. Al termine il controller è in grado di caricare le informazioni sul branch con la procedura automatizza che verrà specificata. L'equivalente manuale di questa procedura sul lato Azure è "Crea sito".
-  4. Dopo che le informazioni sul sito (dispositivo di branch) sono disponibili in Azure, l'utente assocerà il sito a un hub. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). L'hub è l'elemento centrale della rete in un'area. Può esistere un solo hub per ogni area di Azure e il relativo endpoint VPN (vpngateway) viene creato durante questo processo. Il gateway VPN è un gateway scalabile che si adatta in base alla larghezza di banda e ai requisiti di connessione. È possibile scegliere di automatizzare la creazione dell'hub virtuale e del gateway VPN dal dashboard del controller del dispositivo di branch.
+  4. Una volta che le informazioni sul sito (dispositivo Branch) sono disponibili in Azure, l'utente collegherà il sito a un hub. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). L'hub è l'elemento centrale della rete in un'area. Può esistere un solo hub per ogni area di Azure e il relativo endpoint VPN (vpngateway) viene creato durante questo processo. Il gateway VPN è un gateway scalabile che si adatta in base alla larghezza di banda e ai requisiti di connessione. È possibile scegliere di automatizzare la creazione dell'hub virtuale e del gateway VPN dal dashboard del controller del dispositivo di branch.
   5. Dopo che l'hub virtuale è stato associato al sito, viene generato un file di configurazione che l'utente deve scaricare manualmente. È qui che entra in gioco l'automazione e rende l'esperienza utente facile e veloce. Invece di chiedere all'utente di scaricare e configurare manualmente il dispositivo di branch, è possibile impostare l'automazione e offrire un'esperienza basata su pochi clic nell'interfaccia utente. Si riducono così i problemi di connettività tipici, ad esempio la mancata corrispondenza delle chiavi condivise e dei parametri IPSec, la leggibilità del file di configurazione e così via.
   6. Alla fine di questo passaggio nella soluzione, l'utente si ritroverà una connessione da sito a sito tra il dispositivo di branch e l'hub virtuale. È possibile anche impostare connessioni aggiuntive in altri hub. Ogni connessione è un tunnel attivo-attivo. Il cliente può scegliere di usare un ISP diverso per ognuno dei collegamenti per il tunnel.
+  7. Valutare la possibilità di fornire funzionalità di monitoraggio e risoluzione dei problemi nell'interfaccia di gestione CPE. Gli scenari tipici includono "il cliente non è in grado di accedere alle risorse di Azure a causa di un problema CPE", "Mostra i parametri IPsec sul lato CPE" e così via.
 
 ## <a name ="understand"></a>Dettagli sull'automazione
 
@@ -65,7 +65,7 @@ Questo passaggio prevede il download della configurazione di Azure e la configur
 **Note di configurazione**
 
   * Se le reti virtuali di Azure sono collegate all'hub virtuale, verranno visualizzate come ConnectedSubnets.
-  * La connettività VPN sfrutta una configurazione basata su route e IKEv2/IKEv1.
+  * La connettività VPN usa la configurazione basata su Route e supporta sia i protocolli IKEv1 che IKEv2.
 
 #### <a name="understanding-the-device-configuration-file"></a>Informazioni sulla configurazione predefinita
 
@@ -199,69 +199,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
 
 ## <a name="default"></a>Criteri predefiniti per la connettività IPsec
 
-### <a name="initiator"></a>Iniziatore
-
-Le sezioni seguenti elencano le combinazioni supportate dei criteri quando Azure è l'iniziatore del tunnel.
-
-**Fase 1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Fase 2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-
-### <a name="responder"></a>Risponditore
-
-Le sezioni seguenti elencano le combinazioni supportate dei criteri quando Azure è il risponditore per il tunnel.
-
-**Fase 1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Fase 2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-* CBC_DES, SHA_1, PFS_NONE 
-* AES_256, SHA_1, PFS_1
-* AES_256, SHA_1, PFS_2
-* AES_256, SHA_1, PFS_14
-* AES_128, SHA_1, PFS_1
-* AES_128, SHA_1, PFS_2
-* AES_128, SHA_1, PFS_14
-* CBC_3DES, SHA_1, PFS_1
-* CBC_3DES, SHA_1, PFS_2
-* CBC_3DES, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_1
-* AES_256, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_14
-* AES_256, SHA_1, PFS_24
-* AES_256, SHA_256, PFS_24
-* AES_128, SHA_256, PFS_NONE
-* AES_128, SHA_256, PFS_1
-* AES_128, SHA_256, PFS_2
-* AES_128, SHA_256, PFS_14
-* CBC_3DES, SHA_1, PFS_14
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>È necessaria la corrispondenza di tutti gli elementi tra il vpngateway dell'hub virtuale e le configurazioni dei dispositivi VPN/SDWAN o SD-WAN locali?
 

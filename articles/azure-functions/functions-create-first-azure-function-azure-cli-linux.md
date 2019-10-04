@@ -11,26 +11,26 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849738"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562979"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creare la prima funzione ospitata in Linux usando Core Tools e l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>Creare la prima funzione ospitata in Linux con Core Tools e l'interfaccia della riga di comando di Azure
 
-Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting in Linux richiede il [runtime di Functions 2.0](functions-versions.md). Il supporto per l'esecuzione di un'app per le funzioni in Linux nel [piano a consumo](functions-scale.md#consumption-plan) serverless è attualmente disponibile in anteprima. Per altre informazioni, vedere [questo articolo con considerazioni sull'anteprima](https://aka.ms/funclinux).
+Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. Per l'hosting in Linux è necessario il [runtime di Funzioni 2.x](functions-versions.md). Le funzioni serverless vengono eseguite nel [piano a consumo](functions-scale.md#consumption-plan).
 
 Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare la prima app per le funzioni in esecuzione in Linux. Il codice della funzione viene creato in locale e quindi distribuito in Azure usando [Azure Functions Core Tools](functions-run-local.md).
 
-I passaggi seguenti sono supportati in computer Mac, Windows o Linux. Questo articolo descrive come creare funzioni in JavaScript o C#. Per informazioni su come creare funzioni Python, vedere [Creare la prima funzione Python con Azure Functions Core Tools e l'interfaccia della riga di comando di Azure (anteprima)](functions-create-first-function-python.md).
+I passaggi seguenti sono supportati in computer Mac, Windows o Linux. Questo articolo descrive come creare funzioni in JavaScript o C#. Per informazioni su come creare funzioni Python, vedere [Creare la prima funzione Python con Core Tools e l'interfaccia della riga di comando di Azure](functions-create-first-function-python.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
-+ Installare la [versione 2.x di Core Tools di Azure](functions-run-local.md#v2).
+- Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successiva.
 
 + Installare l'[interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. È possibile usare anche [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -38,38 +38,13 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Creare un progetto di app per la funzione locale
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Eseguire il comando seguente dalla riga di comando per creare un progetto di app della funzione nella cartella `MyFunctionProj` della directory locale corrente. Viene creato anche un repository di GitHub in `MyFunctionProj`.
+## <a name="enable-extension-bundles"></a>Abilitare le aggregazioni di estensioni
 
-```bash
-func init MyFunctionProj
-```
-
-Quando richiesto, usare i tasti di direzione per selezionare un runtime del ruolo di lavoro dalle seguenti opzioni linguaggio:
-
-+ `dotnet`: crea un progetto libreria di classi .NET (.csproj).
-+ `node`: crea un progetto JavaScript o TypeScript. Quando richiesto, scegliere `JavaScript`.
-+ `python`: crea un progetto Python. Per le funzioni Python, vedere l'[Avvio rapido per Python](functions-create-first-function-python.md).
-
-Quando viene eseguito il comando, viene visualizzato qualcosa di simile a quanto segue:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Usare il comando seguente per passare alla nuova cartella del progetto `MyFunctionProj`.
-
-```bash
-cd MyFunctionProj
-```
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
-
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 

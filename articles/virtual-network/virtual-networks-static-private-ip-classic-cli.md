@@ -5,6 +5,7 @@ description: Informazioni su come configurare gli indirizzi IP privati per le ma
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 64342c6dcf4c9a052442a6f4b0afb7a56994f496
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023890"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059232"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurare gli indirizzi IP privati per una macchina virtuale (classica) usando l'interfaccia della riga di comando classica di Azure
 
@@ -64,10 +65,10 @@ Per creare una nuova VM denominata *DNS01* in un nuovo servizio cloud denominato
         info:    OK
         info:    vm create command OK
    
-   * **-l (o --location)**. Area di Azure in cui verrà creata la VM. Per questo scenario, *centralus*.
-   * **-n (o --vm-name)**. Nome della VM da creare.
-   * **-w (o --virtual-network-name)**. Nome della VNet in cui verrà creata la VM. 
-   * **-S (o --static-ip)**. Indirizzo IP privato statico per il gruppo VM.
+   * **-l (o --location)** . Area di Azure in cui verrà creata la VM. Per questo scenario, *centralus*.
+   * **-n (o --vm-name)** . Nome della VM da creare.
+   * **-w (o --virtual-network-name)** . Nome della VNet in cui verrà creata la VM. 
+   * **-S (o --static-ip)** . Indirizzo IP privato statico per il gruppo VM.
    * **TestService**. Nome del servizio cloud in cui verrà creata la VM.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Immagine utilizzata per creare la VM.
    * **adminuser**. Amministratore locale della VM di Windows.

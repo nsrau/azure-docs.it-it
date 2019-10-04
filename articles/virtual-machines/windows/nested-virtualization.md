@@ -4,19 +4,19 @@ description: Come abilitare la virtualizzazione annidata in macchine virtuali di
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766530"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720217"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -52,7 +52,7 @@ Creare una connessione Desktop remoto alla macchina virtuale.
 È possibile configurare queste impostazioni manualmente oppure usare lo script di PowerShell fornito da Microsoft per automatizzare la configurazione.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opzione 1: Usare uno script di PowerShell per configurare la virtualizzazione annidata
-Lo script di PowerShell per abilitare la virtualizzazione annidata in un host Windows Server 2016 è disponibile in [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Lo script verifica i prerequisiti e quindi configura la virtualizzazione annidata nella macchina virtuale di Azure. Per completare la configurazione, è necessario riavviare la macchina virtuale di Azure. Questo script potrebbe funzionare anche in altri ambienti, ma non vengono fornite garanzie in tal senso. Per una dimostrazione video sulla virtualizzazione annidata in esecuzione in Azure, vedere il post di blog di Azure https://aka.ms/AzureNVblog.
+Lo script di PowerShell per abilitare la virtualizzazione annidata in un host Windows Server 2016 è disponibile in [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Lo script verifica i prerequisiti e quindi configura la virtualizzazione annidata nella macchina virtuale di Azure. Per completare la configurazione, è necessario riavviare la macchina virtuale di Azure. Questo script potrebbe funzionare anche in altri ambienti, ma non vengono fornite garanzie in tal senso. Per una dimostrazione video sulla virtualizzazione annidata in esecuzione in Azure, vedere il post di blog di Azure [https://login.microsoftonline.com/consumers/](https://aka.ms/AzureNVblog ).
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opzione 2: Configurare manualmente la virtualizzazione annidata
 
@@ -80,7 +80,7 @@ Creare una nuova scheda di rete virtuale per la macchina virtuale guest e config
 2. Creare un commutatore interno.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. Visualizzare le proprietà del commutatore e prendere nota del valore di ifIndex della nuova scheda.
@@ -119,6 +119,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## <a name="create-the-guest-virtual-machine"></a>Creare la macchina virtuale guest
+
+>[!IMPORTANT] 
+>
+>L'agente guest di Azure non è supportata nelle macchine virtuali annidate e potrebbe causare problemi dell'host e macchine virtuali annidate. Non installare l'agente di Azure nelle macchine virtuali annidate e non usare un'immagine per la creazione di macchine virtuali annidate che è già installato l'agente guest di Azure.
 
 1. Aprire la console di gestione di Hyper-V e creare una nuova macchina virtuale. Configurare la macchina virtuale per l'uso della nuova rete interna creata.
     

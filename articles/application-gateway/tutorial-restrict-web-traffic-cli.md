@@ -3,33 +3,23 @@ title: Abilitare il web application firewall - Interfaccia della riga di comando
 description: Informazioni su come limitare il traffico Web con un web application firewall in un gateway applicazione usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: HT
+ms.openlocfilehash: 698191355ab9e014693b01cfb6546fb764a2b647
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443609"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688201"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Abilitare il web application firewall usando l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
->
-> - [Portale di Azure](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Interfaccia della riga di comando di Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
+È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni.
 
-È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
-
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -39,13 +29,13 @@ In questa esercitazione si apprenderà come:
 
 ![Esempio di web application firewall](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -57,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-La rete virtuale e le subnet vengono usate per fornire la connettività di rete al gateway applicazione e alle risorse associate. Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* tramite [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) e [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Creare un indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+La rete virtuale e le subnet vengono usate per fornire la connettività di rete al gateway applicazione e alle risorse associate. Creare una rete virtuale denominata *myVNet* e una subnet denominata *myAGSubnet*. quindi, creare un indirizzo IP pubblico denominato *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -76,12 +66,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Creare un gateway applicazione con un WAF
 
-È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato alla subnet *myAGSubnet* e all'indirizzo IP pubblico *myAGPublicIPAddress* creati in precedenza.
+È possibile usare [az network application-gateway create](/cli/azure/network/application-gateway) per creare il gateway applicazione denominato *myAppGateway*. Quando si crea un gateway applicazione usando l'interfaccia della riga di comando di Azure, specificare le informazioni di configurazione, ad esempio le impostazioni relative a capacità, SKU e HTTP. Il gateway applicazione viene assegnato a *myAGSubnet* e *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -91,7 +83,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGSubnet \
   --capacity 2 \
-  --sku WAF_Medium \
+  --sku WAF_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -148,7 +140,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creare un account di archiviazione e configurare la diagnostica
 
-In questa esercitazione il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati. 
+In questo articolo il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati. 
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -165,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configurare la diagnostica
 
-Configurare la diagnostica per registrare i dati nei log ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Substitute `<subscriptionId>` con l'identificatore di sottoscrizione e quindi configurare la diagnostica tramite [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Configurare la diagnostica per registrare i dati nei log ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Sostituire `<subscriptionId>` con l'identificatore della sottoscrizione e quindi configurare la diagnostica con [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -196,18 +188,9 @@ az network public-ip show \
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione con WAF abilitato
-> * Creare un set di scalabilità di macchine virtuali
-> * Creare un account di archiviazione e configurare la diagnostica
-
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-cli.md)
+[Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-cli.md)

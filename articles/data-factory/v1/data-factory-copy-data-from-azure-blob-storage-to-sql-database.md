@@ -14,18 +14,17 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad114ce3a40e11048d01c6768811089c43cdf1db
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487333"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839384"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -85,7 +84,7 @@ Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **A
 4. Fare clic su **X**per chiudere tutti i pannelli.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Preparare l'archivio BLOB e il database SQL
-Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazione seguendo questa procedura:  
+Preparare ora l'archivio BLOB di Azure e il database SQL di Azure per l'esercitazione seguendo questa procedura:  
 
 1. Avviare il Blocco note. Copiare il testo seguente e salvarlo come file **emp.txt** nella cartella **C:\ADFGetStarted** nel disco rigido.
 
@@ -117,7 +116,6 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 I passaggi relativi ai prerequisiti sono stati completati. È possibile creare un data factory usando uno dei seguenti metodi. Per eseguire l'esercitazione, fare clic su una delle opzioni nell'elenco a discesa in alto oppure sui collegamenti indicati qui di seguito.     
 
 * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-* [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

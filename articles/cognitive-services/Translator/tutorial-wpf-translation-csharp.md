@@ -3,23 +3,23 @@ title: "Esercitazione: Creare un'app di traduzione con WPF, C# - API Traduzione 
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà creata un'app WPF (Windows Presentation Foundation) che usa le API Servizi cognitivi per la traduzione testuale, il rilevamento della lingua e il controllo ortografico con una chiave di sottoscrizione singola. L'esercizio illustrerà come usare le funzionalità dell'API Traduzione testuale e dell'API Controllo ortografico Bing.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
-ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078126"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858902"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
-In questa esercitazione verrà creata un'app [WPF (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) che usa Servizi cognitivi di Azure per la traduzione testuale, il rilevamento della lingua e il controllo ortografico con una chiave di sottoscrizione singola. In particolare, l'app chiamerà le API Traduzione testuale e [Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In questa esercitazione verrà creata un'app [WPF (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) che usa Servizi cognitivi di Azure per la traduzione testuale, il rilevamento della lingua e il controllo ortografico con una chiave di sottoscrizione singola. In particolare, l'app chiamerà le API Traduzione testuale e [Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Cos'è WPF? È un framework interfaccia utente che crea app client desktop. La piattaforma di sviluppo WPF supporta un ampio set di funzionalità di sviluppo di app, tra cui un modello di app, risorse, controlli, grafica, layout, associazione dati, documenti e sicurezza. Si tratta di un sottoinsieme di .NET Framework, quindi se sono già state create app con .NET Framework usando ASP.NET o Windows Forms, l'esperienza di programmazione dovrebbe risultare familiare. WPF usa il linguaggio XAML (Extensible app Markup Language) per fornire un modello dichiarativo per la programmazione di app, che verrà esaminato nelle prossime sezioni.
 
@@ -48,9 +48,9 @@ Questo elenco include i Servizi cognitivi usati nell'esercitazione. Seguire il c
 
 Prima di continuare, è necessario disporre di quanto segue:
 
-* Una sottoscrizione a Servizi cognitivi di Azure. [Ottenere una chiave per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* Una sottoscrizione a Servizi cognitivi di Azure. [Ottenere una chiave per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
 * Un computer Windows
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community o Enterprise
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/), versione Community o Enterprise
 
 > [!NOTE]
 > Per questa esercitazione, è consigliabile creare una sottoscrizione nell'area Stati Uniti occidentali. In caso contrario, sarà necessario cambiare endpoint e aree nel codice mentre si procede con l'esercizio.  
@@ -59,11 +59,13 @@ Prima di continuare, è necessario disporre di quanto segue:
 
 Prima di tutto, è necessario configurare il progetto in Visual Studio.
 
-1. Aprire Visual Studio. Quindi selezionare **File > Nuovo progetto**.
-2. Nel riquadro sinistro individuare e selezionare **Visual C#**. Quindi selezionare **App WPF (.NET Framework)** nel riquadro centrale.
-   ![Creare un'app WPF in Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Assegnare un nome al progetto, impostare la versione del framework su **.NET Framework 4.5.2 o versione successiva**, quindi fare clic su **OK**.
-4. Il progetto è stato creato. Come si può notare, ci sono due schede aperte: `MainWindow.xaml` e `MainWindow.xaml.cs`. Nel corso dell'esercitazione verrà aggiunto codice in questi due file, il primo per l'interfaccia utente dell'app e l'altro per le chiamate a Traduzione testuale e Controllo ortografico Bing.
+1. Aprire Visual Studio. Selezionare **Crea un nuovo progetto**.
+1. In **Crea un nuovo progetto**individuare e selezionare **App WPF (.NET Framework)** . È possibile selezionare C# in **Linguaggio** per limitare le opzioni.
+1. Scegliere **Avanti** e quindi assegnare al progetto il nome `MSTranslatorTextDemo`.
+1. Impostare la versione del framework su **.NET Framework 4.7.2** o versioni successive e selezionare **Crea**.
+   ![Immettere il nome e la versione del framework in Visual Studio](media/name-wpf-project-visual-studio.png)
+
+Il progetto è stato creato. Come si può notare, ci sono due schede aperte: `MainWindow.xaml` e `MainWindow.xaml.cs`. Nel corso dell'esercitazione verrà aggiunto codice in questi due file, Si modificherà `MainWindow.xaml` per l'interfaccia utente dell'app. Si modificherà `MainWindow.xaml.cs` per le chiamate a Traduzione testuale e Controllo ortografico Bing.
    ![Esaminare l'ambiente](media/blank-wpf-project.png)
 
 Nella sezione successiva verranno aggiunti assembly e un pacchetto NuGet al progetto per includere altre funzionalità, come l'analisi JSON.
@@ -76,27 +78,31 @@ Per il progetto sono necessari alcuni assembly .NET Framework e NewtonSoft.Json,
 
 Aggiungere gli assembly al progetto per serializzare e deserializzare oggetti, nonché per gestire le richieste e le risposte HTTP.
 
-1. Individuare il progetto in Esplora soluzioni di Visual Studio (riquadro destro). Fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Aggiungi > Riferimento** per aprire **Gestione riferimenti**.
-   ![Aggiungere riferimenti ad assembly](media/add-assemblies-sample.png)
-2. La scheda Assembly include un elenco di tutti gli assembly .NET Framework a cui fare riferimento. Usare la barra di ricerca nell'angolo in alto a destra dello schermo per cercare questi riferimenti e aggiungerli al progetto:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-3. Dopo aver aggiunto questi riferimenti al progetto, è possibile fare clic su **OK** per chiudere **Gestione riferimenti**.
+1. Individuare il progetto in Esplora soluzioni di Visual Studio. Fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Aggiungi > Riferimento** per aprire **Gestione riferimenti**.
+1. La scheda **Assembly** include un elenco di tutti gli assembly .NET Framework disponibili come riferimenti. Usare la barra di ricerca in alto a destra per cercare riferimenti.
+   ![Aggiungere riferimenti ad assembly](media/add-assemblies-2019.png)
+1. Selezionare i riferimenti seguenti per il progetto:
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * System.Web.Extensions
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+1. Dopo aver aggiunto questi riferimenti al progetto, è possibile fare clic su **OK** per chiudere **Gestione riferimenti**.
 
 > [!NOTE]
-> Per altre informazioni sui riferimenti ad assembly, vedere [Procedura: Aggiungere o rimuovere riferimenti tramite Gestione riferimenti](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2017).
+> Per altre informazioni sui riferimenti ad assembly, vedere [Procedura: Aggiungere o rimuovere riferimenti tramite Gestione riferimenti](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Installare Newtonsoft.Json
 
 L'app userà NewtonSoft.Json per deserializzare gli oggetti JSON. Seguire queste istruzioni per installare il pacchetto.
 
-1. Individuare il progetto in Esplora soluzioni di Visual Studio e fare clic con il pulsante destro del mouse. Scegliere **Gestisci pacchetti NuGet**.
-2. Individuare e selezionare la scheda **Sfoglia**.
-3. Digitare [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) nella barra di ricerca.
-   ![Individuare e installare NewtonSoft.Json](media/add-nuget-packages.png)
-4. Selezionare il pacchetto e fare clic su **Installa**.
-5. Al termine dell'installazione, chiudere la scheda.
+1. Individuare il progetto in Esplora soluzioni di Visual Studio e fare clic con il pulsante destro del mouse sul progetto. Scegliere **Gestisci pacchetti NuGet**.
+1. Individuare e selezionare la scheda **Sfoglia**.
+1. Immettere [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) nella barra di ricerca.
+
+    ![Individuare e installare NewtonSoft.Json](media/nuget-package-manager.png)
+
+1. Selezionare il pacchetto e fare clic su **Installa**.
+1. Al termine dell'installazione, chiudere la scheda.
 
 ## <a name="create-a-wpf-form-using-xaml"></a>Creare un modulo WPF tramite XAML
 
@@ -123,7 +129,7 @@ L'interfaccia utente include questi componenti:
 Aggiungere il codice al progetto.
 
 1. In Visual Studio selezionare la scheda corrispondente a `MainWindow.xaml`.
-2. Copiare questo codice nel progetto e salvare.
+1. Copiare questo codice nel progetto e quindi selezionare **File > Salva MainWindow.xaml** per salvare le modifiche.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -158,7 +164,7 @@ Aggiungere il codice al progetto.
        </Grid>
    </Window>
    ```
-3. Dovrebbe essere visualizzata un'anteprima dell'interfaccia utente dell'app in Visual Studio, simile a quella riportata di seguito:
+Dovrebbe essere visualizzata un'anteprima dell'interfaccia utente dell'app in Visual Studio, simile a quella riportata di seguito:
 
 Il modulo è ora pronto. A questo punto è necessario scrivere il codice per usare Traduzione testuale e Controllo ortografico Bing.
 
@@ -178,7 +184,7 @@ Il modulo è ora pronto. A questo punto è necessario scrivere il codice per usa
 Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziare, aggiungere il codice per impostare la chiave della sottoscrizione, dichiarare gli endpoint per Traduzione testuale e Controllo ortografico Bing e inizializzare l'app.
 
 1. In Visual Studio selezionare la scheda corrispondente a `MainWindow.xaml.cs`.
-2. Sostituire le istruzioni `using` prepopolate con quanto segue.  
+1. Sostituire le istruzioni `using` prepopolate con quanto segue.  
    ```csharp
    using System;
    using System.Windows;
@@ -190,14 +196,14 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
    using System.Text;
    using Newtonsoft.Json;
    ```
-3. Individuare la classe `MainWindow : Window` e sostituirla con questo codice:
+1. Individuare la classe `MainWindow : Window` e sostituirla con questo codice:
    ```csharp
    {
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +217,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +230,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {
@@ -240,7 +246,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
    // In the following sections, we'll add code below this.
    }
    ```
-   1. Aggiungere la chiave di sottoscrizione di Servizi cognitivi e salvare.
+1. Aggiungere la chiave di sottoscrizione di Servizi cognitivi e salvare.
 
 In questo blocco di codice vengono dichiarate due variabili membro che contengono informazioni sulle lingue disponibili per la traduzione:
 
@@ -249,7 +255,7 @@ In questo blocco di codice vengono dichiarate due variabili membro che contengon
 |`languageCodes` | Matrice di stringhe |Memorizza nella cache i codici di lingua. Il servizio Microsoft Translator usa codici brevi, ad esempio `en` per l'inglese, per identificare le lingue. |
 |`languageCodesAndTitles` | Dizionario ordinato | Esegue il mapping dei nomi descrittivi dell'interfaccia utente nei codici brevi usati nell'API. Il mapping rispetta l'ordine alfabetico indipendentemente dalle maiuscole/minuscole. |
 
-Quindi, all'interno del costruttore `MainWindow`, è stata aggiunta la gestione degli errori con `HandleExceptions`. In questo modo ci si assicura che venga inviato un avviso se un'eccezione non viene gestita. Quindi viene eseguito un controllo per verificare che la chiave di sottoscrizione specificata sia di 32 caratteri. Se la chiave è composta da meno/più di 32 caratteri, viene generato un errore.
+Quindi, all'interno del costruttore `MainWindow`, è stata aggiunta la gestione degli errori con `HandleExceptions`. In questo modo, ci si assicura che venga inviato un avviso se un'eccezione non viene gestita. Quindi viene eseguito un controllo per verificare che la chiave di sottoscrizione specificata sia di 32 caratteri. Se la chiave è composta da meno/più di 32 caratteri, viene generato un errore.
 
 Se sono presenti chiavi che hanno almeno la lunghezza corretta, la chiamata a `InitializeComponent()` visualizza l'interfaccia utente individuando, caricando e creando un'istanza della descrizione XAML della finestra principale dell'app.
 
@@ -322,7 +328,7 @@ La risposta JSON viene analizzata e convertita in un dizionario. Quindi vengono 
 
 ## <a name="populate-language-drop-down-menus"></a>Popolare i menu a discesa delle lingue
 
-L'interfaccia utente è definita con XAML, pertanto non è necessario eseguire molte altre operazioni per configurarla oltre alla chiamata a `InitializeComponent()`. L'unica altra attività che è necessario eseguire consiste nell'aggiunta di nomi di lingua descrittivi negli elenchi a discesa **Translate from** e **Translate to**, tramite il metodo `PopulateLanguageMenus()`.
+L'interfaccia utente è definita con XAML, pertanto non è necessario eseguire molte altre operazioni per configurarla oltre alla chiamata a `InitializeComponent()`. L'unica altra attività che è necessario eseguire consiste nell'aggiunta di nomi di lingua descrittivi negli elenchi a discesa **Traduci da** e **Traduci in**. Il metodo `PopulateLanguageMenus()` aggiunge i nomi.
 
 1. In Visual Studio aprire la scheda corrispondente a `MainWindow.xaml.cs`.
 2. Aggiungere il codice seguente al progetto sotto il metodo `GetLanguagesForTranslate()`:
@@ -370,7 +376,7 @@ A questo punto è necessario creare il metodo per rilevare la lingua del testo d
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
-       detectLanguageWebRequest.ContentType = "app/json; charset=utf-8";
+       detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
        detectLanguageWebRequest.Method = "POST";
 
        // Send request
@@ -412,7 +418,7 @@ Inoltre, questo metodo valuta il punteggio di attendibilità della risposta. Se 
 
 ## <a name="spell-check-the-source-text"></a>Eseguire il controllo ortografico del testo di origine
 
-A questo punto creare un metodo per eseguire il controllo ortografico del testo di origine usando l'API Controllo ortografico Bing. In questo modo ci si assicura che le traduzioni dell'API Traduzione testuale siano accurate. Le eventuali correzioni del testo di origine vengono passate nella richiesta di traduzione quando si fa clic sul pulsante **Traduci**.
+A questo punto creare un metodo per eseguire il controllo ortografico del testo di origine usando l'API Controllo ortografico Bing. In questo modo, ci si assicura che le traduzioni dell'API Traduzione testuale siano accurate. Le eventuali correzioni del testo di origine vengono passate nella richiesta di traduzione quando si fa clic sul pulsante **Traduci**.
 
 1. In Visual Studio aprire la scheda corrispondente a `MainWindow.xaml.cs`.
 2. Aggiungere il codice seguente al progetto sotto il metodo `DetectLanguage()`:
@@ -427,7 +433,7 @@ private string CorrectSpelling(string text)
     HttpWebRequest spellCheckWebRequest = (HttpWebRequest)WebRequest.Create(uri);
     spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
     spellCheckWebRequest.Method = "POST";
-    spellCheckWebRequest.ContentType = "app/x-www-form-urlencoded"; // doesn't work without this
+    spellCheckWebRequest.ContentType = "application/x-www-form-urlencoded"; // doesn't work without this
 
     // Create and send the request
     string body = "text=" + System.Web.HttpUtility.UrlEncode(text);
@@ -479,7 +485,7 @@ private string CorrectSpelling(string text)
 Infine, è necessario creare un metodo che viene richiamato quando si fa clic sul pulsante **Traduci** dell'interfaccia utente.
 
 1. In Visual Studio aprire la scheda corrispondente a `MainWindow.xaml.cs`.
-2. Aggiungere il codice seguente al progetto sotto il metodo `CorrectSpelling()` e salvare:  
+1. Aggiungere il codice seguente al progetto sotto il metodo `CorrectSpelling()` e salvare:  
    ```csharp
    // ***** PERFORM TRANSLATION ON BUTTON CLICK
    private async void TranslateButton_Click(object sender, EventArgs e)
@@ -536,7 +542,7 @@ Infine, è necessario creare un metodo che viene richiamato quando si fa clic su
        {
            request.Method = HttpMethod.Post;
            request.RequestUri = new Uri(uri);
-           request.Content = new StringContent(requestBody, Encoding.UTF8, "app/json");
+           request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
            request.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
            request.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
            request.Headers.Add("X-ClientTraceId", Guid.NewGuid().ToString());

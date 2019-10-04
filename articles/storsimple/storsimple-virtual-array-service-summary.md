@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9c05bddaeb3c34400db1ec75c624ef00a85d9444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720728"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Usare il pannello di riepilogo servizio per il servizio Gestione dispositivi StorSimple connesso all'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527526"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219484"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
@@ -51,7 +50,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
+> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Abilitare la registrazione di Application Insights per l'API
 
@@ -64,22 +63,23 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 6. Selezionare la casella **Abilita**.
 7. Selezionare il logger associato nell'elenco a discesa **Destinazione**.
 8. Immettere **100** come **Sampling (%)** (Campionamento - %) e selezionare la casella di controllo **Always log errors** (Registra sempre gli errori).
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 > [!WARNING]
 > Sovrascrivere il valore predefinito **0** nei **primi byte del campo corpo** potrebbe ridurre in modo significativo le prestazioni delle API.
 
 > [!NOTE]
-> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
+> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
-| Nome impostazione                        | Tipo di valore                        | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                      |
+| Nome impostazione                        | Tipo di valore                        | Descrizione                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Abilita                              | boolean                           | Specifica se la registrazione di questa API è abilitata.                                                                                                                                                                                                                                                                                                |
+| Attiva                              | boolean                           | Specifica se la registrazione di questa API è abilitata.                                                                                                                                                                                                                                                                                                |
 | Destination                         | Logger di Azure Application Insights | Specifica il logger di Azure Application Insights da usare                                                                                                                                                                                                                                                                                           |
 | Sampling (%) (Campionamento - %)                        | decimal                           | Valori compresi tra 0 e 100 (percentuale). <br/> Specifica la percentuale di richieste che verranno registrate in Azure Application Insights. Un campionamento pari allo 0% indica che verranno registrate zero richieste, mentre un campionamento del 100% indica che verranno registrate tutte le richieste. <br/> Questa impostazione viene usata per ridurre l'impatto sulle prestazioni dovuto alla registrazione delle richieste in Azure Application Insights (vedere la sezione seguente). |
 | Always log errors (Registra sempre gli errori)                   | boolean                           | Se questa impostazione viene selezionata, tutti gli errori verranno registrati in Azure Application Insights, indipendentemente dall'impostazione di **campionamento**.                                                                                                                                                                                                                  |
-| Opzioni di base: Headers              | list                              | Specifica le intestazioni che verranno registrate in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: non vengono registrate intestazioni.                                                                                                                                                                                                             |
-| Opzioni di base: Primi byte del corpo  | numero intero                           | Specifica il numero di primi byte del corpo che verranno registrati in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: il corpo non viene registrato.                                                                                                                                                                                              |
+| Opzioni di base: Intestazioni              | elenco                              | Specifica le intestazioni che verranno registrate in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: non vengono registrate intestazioni.                                                                                                                                                                                                             |
+| Opzioni di base: Primi byte del corpo  | integer                           | Specifica il numero di primi byte del corpo che verranno registrati in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: il corpo non viene registrato.                                                                                                                                                                                                    |
+| Opzioni avanzate: Verbosity         |                                   | Specifica il livello di dettaglio. Verranno registrate solo le tracce personalizzate con livello di gravità superiore. Valore predefinito: Informazioni.                                                                                                                                                                                                                               |
 | Opzioni avanzate: Richiesta front-end  |                                   | Specifica se e come le *richieste front-end* verranno registrate in Azure Application Insights. La *richiesta front-end* è una richiesta in arrivo al servizio Gestione API di Azure.                                                                                                                                                                        |
 | Opzioni avanzate: Risposta front-end |                                   | Specifica se e come le *risposte front-end* verranno registrate in Azure Application Insights. La *risposta front-end* è una risposta in uscita dal servizio Gestione API di Azure.                                                                                                                                                                   |
 | Opzioni avanzate: Richieste back-end   |                                   | Specifica se e come le *richieste back-end* verranno registrate in Azure Application Insights. La *richiesta back-end* è una richiesta in uscita dal servizio Gestione API di Azure.                                                                                                                                                                        |

@@ -1,5 +1,5 @@
 ---
-title: Pubblicare l'app
+title: Pubblica app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f92776072038c5684e9334d2dda1690ebb7bcaa8
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194470"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257800"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -26,39 +26,67 @@ Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibi
 
 ## <a name="publishing"></a>Pubblicazione
 
-Per pubblicare l'endpoint, selezionare **Pubblica** nel pannello superiore a destra. 
+1. Per pubblicare l'endpoint, selezionare **Pubblica** nel pannello superiore a destra. 
 
-![Barra di spostamento superiore destra](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Pulsante pubblica nella parte superiore, barra nav destra](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-Selezionare lo slot corretto quando viene visualizzata la finestra popup: staging o produzione. Usando due slot di pubblicazione è possibile avere due diverse versioni con endpoint pubblicati oppure la stessa versione su due endpoint diversi. 
+1. Selezionare le impostazioni per l'endpoint di stima pubblicato, quindi selezionare **pubblica**.
 
-L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Ad esempio, per un'app creata su [www.luis.ai](https://www.luis.ai), se si crea una risorsa di LUIS in **westus** e la si aggiunge all'app come risorsa, l'app sarà pubblicata in tale regione. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
- 
-![Finestra popup di pubblicazione](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Selezionare pubblica impostazioni e quindi fare clic sul pulsante pubblica](./media/luis-how-to-publish-app/publish-pop-up.png)
+
+### <a name="publishing-slots"></a>Pubblicazione di slot
+
+Quando viene visualizzata la finestra popup, selezionare lo slot corretto: 
+
+* Gestione temporanea.
+* Produzione. 
+
+Con entrambi gli slot di pubblicazione è possibile disporre di due diverse versioni dell'app disponibili negli endpoint pubblicati o nella stessa versione in due endpoint diversi. 
+
+### <a name="publishing-regions"></a>Regioni di pubblicazione
+
+L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima LUIS aggiunto nel portale LUIS. 
+
+Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea una risorsa Luis in due aree, **westus** e **eastus**e si aggiungono tali risorse all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
+
+
+## <a name="configuring-publish-settings"></a>Configurazione delle impostazioni di pubblicazione
+
+Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
+
+* Analisi del sentiment
+* Correzione ortografica
+* Priming del riconoscimento vocale 
+
+Dopo la pubblicazione, queste impostazioni sono disponibili per la revisione nella pagina impostazioni di **pubblicazione** della sezione **Gestisci** . È possibile modificare le impostazioni con ogni pubblicazione. Se si annulla una pubblicazione, verranno annullate anche tutte le modifiche apportate durante la pubblicazione. 
+
+### <a name="when-your-app-is-published"></a>Quando l'app viene pubblicata
 
 Dopo aver pubblicato correttamente l'app, nella parte superiore del browser viene visualizzata una notifica di operazione riuscita verde. La barra di notifica verde include anche un collegamento agli endpoint. 
 
 ![Finestra popup di pubblicazione con collegamento all'endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
-Se è necessario l'URL dell'endpoint, selezionare il collegamento. È anche possibile ottenere gli URL di endpoint selezionando **Gestisci** nel menu in alto, quindi selezionare **Chiavi e endpoint** nel menu a sinistra. 
+Se è necessario l'URL dell'endpoint, selezionare il collegamento. Per ottenere gli URL degli endpoint, è anche possibile scegliere **Gestisci** dal menu in alto e quindi selezionare **risorse di Azure** nel menu a sinistra. 
 
-## <a name="configuring-publish-settings"></a>Configurazione delle impostazioni di pubblicazione
-
-Configurare le impostazioni di pubblicazione selezionando **Gestisci** nella barra di spostamento in alto a destra, quindi selezionando **Impostazioni di pubblicazione**. 
-
-![Impostazioni di pubblicazione](./media/luis-how-to-publish-app/publish-settings.png)
-
-### <a name="publish-after-enabling-sentiment-analysis"></a>Pubblicazione dopo l'abilitazione dell'analisi dei sentiment
+## <a name="sentiment-analysis"></a>Analisi del sentiment
 
 <a name="enable-sentiment-analysis"></a>
 
 L'analisi dei sentiment consente a LUIS di integrarsi con [Analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per specificare la valutazione e la frase chiave. 
 
-Non è necessario specificare una chiave di analisi del testo e non è previsto alcun addebito per questo servizio al proprio account Azure. Dopo averla selezionata, questa impostazione è permanente. 
+Non è necessario specificare una chiave di analisi del testo e non è previsto alcun addebito per questo servizio al proprio account Azure. 
 
 I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment positivo (più vicino a 1) o negativo (più vicino a 0) dei dati. L'etichetta sentiment `positive`, `neutral`, e `negative` è specifica per ogni lingua supportata. Attualmente solo la lingua inglese supporta le etichette sentiment. 
 
 Per altre informazioni sulla risposta dell'endpoint JSON con l'analisi del sentiment, vedere [Analisi del sentiment](luis-concept-data-extraction.md#sentiment-analysis)
+
+## <a name="spelling-correction"></a>Correzione ortografica
+
+Le correzioni all'ortografia vengono effettuate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare tutte le modifiche apportate all'espressione originale, inclusa l'ortografia.
+
+## <a name="speech-priming"></a>Priming del riconoscimento vocale
+
+L'innesco vocale è il processo di utilizzo dell'invio del modello LUIS ai servizi vocali prima della conversione del testo in sintesi vocale. Ciò consente al servizio di riconoscimento vocale di fornire la conversione vocale in modo più accurato per il modello. In questo modo, le richieste e le risposte di bot e le richieste LUIS vengono effettuate in una sola chiamata eseguendo una chiamata vocale e ottenendo una risposta LUIS. Fornisce una minore latenza complessiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

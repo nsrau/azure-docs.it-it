@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549389"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478823"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -85,7 +85,7 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -184,7 +184,7 @@ Questa sezione illustra come usare l'[API di ricerca](https://docs.microsoft.com
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
+   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
 
 2. Aggiungere quindi il blocco script seguente per compilare la query di ricerca. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come indirizzi, località e punti di interesse. Questo codice cerca le stazioni di rifornimento vicine entro il raggio specificato dalle coordinate di latitudine e longitudine inserite. Dalla risposta viene quindi estratta con il metodo `geojson.getFeatures()` una raccolta di caratteristiche GeoJSON che viene aggiunta all'origine dati determinando così automaticamente il rendering dei dati nella mappa tramite il livello simboli. Nell'ultima parte dello script viene impostata la visualizzazione delle videocamere della mappa usando il rettangolo di selezione dei risultati con la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
 
@@ -239,9 +239,9 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    La funzione `sup` dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
+    La funzione `*atlas.Popup` dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
 
-2. Nel tag *script* aggiungere il codice seguente dopo la funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse.
+2. Aggiungere il codice seguente nella funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse.
 
     ```JavaScript
     function showPopup(e) {

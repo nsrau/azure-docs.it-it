@@ -4,24 +4,23 @@ description: Usare il portale per collegare il disco dati nuovo o esistente a un
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63648f63d6154b89f641cdc4d2657e0396a8c66
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187951"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036368"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -100,6 +99,9 @@ In questo caso, *sdc* è il disco interessato.
 
 ### <a name="partition-a-new-disk"></a>Eseguire la partizione di un nuovo disco
 Se si usa un disco esistente contenente dati, procedere al montaggio del disco. Se si collega un nuovo disco, è necessario eseguire la partizione del disco.
+
+> [!NOTE]
+> Si consiglia di usare le versioni più recenti di Fdisk o di parte disponibili per la distribuzione.
 
 Eseguire la partizione del disco con `fdisk`. Se le dimensioni del disco sono 2 tebibyte (TiB) o maggiori è necessario utilizzare il partizionamento GPT. È possibile usare `parted` per eseguire il partizionamento GPT. Se le dimensioni del disco sono inferiori a 2 TiB, è possibile usare il partizionamento MBR oppure GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
@@ -222,7 +224,7 @@ In questo esempio viene usato il valore UUID del dispositivo */dev/sdc1* creato 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-
+Al termine, salvare il file */etc/fstab* e riavviare il sistema.
 > [!NOTE]
 > Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni specifica le opzioni fstab *nofail* e/o *nobootwait*. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
 > 

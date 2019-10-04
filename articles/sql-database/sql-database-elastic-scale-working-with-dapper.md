@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335293"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568276"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizzo della libreria client dei database elastici con Dapper
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 
@@ -159,7 +158,7 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 * Il codice di esempio per questo documento non illustra come gestire lo schema tra partizioni.
 * Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Tuttavia, questo presupposto non ha sempre valore, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. Per risolvere questo problema, la libreria client dei database elastici include la [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Questa classe implementa un'astrazione di connessione per l'esecuzione di query su più partizioni. L'uso di MultiShardQuery in combinazione con Dapper esula dall'ambito di questo documento.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio facilmente dagli strumenti dei database elastici del database SQL di Azure. Tramite le procedure descritte in questo documento, tali applicazioni possono usare la funzionalità dello strumento per il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) della libreria client dei database elastici. In questo modo si limitano le modifiche dell'applicazione ai punti in cui vengono create e aperte nuove connessioni. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

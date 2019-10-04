@@ -7,17 +7,16 @@ ms.subservice: data-movement
 ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 6d6fadc1508df63fdc4062bd45a98e31c1f1674f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/24/2019
+ms.openlocfilehash: 3c90cd19c5da3d98e894105e21b5e20cf6376c21
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361226"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569958"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Usare PowerShell per importare un file BACPAC in un database SQL di Azure
 
@@ -25,7 +24,7 @@ Questo esempio di script di PowerShell importa un database da un file BACPAC in 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
@@ -49,7 +48,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un server di database SQL che ospita database singoli e pool elastici. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall del server di database SQL per consentire l'accesso a tutti i database singoli e in pool presenti sul server del database SQL dall'intervallo di indirizzi IP immesso. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall del server di database SQL per consentire l'accesso a tutti i database singoli e in pool presenti sul server di database SQL dall'intervallo di indirizzi IP immesso. |
 | [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) | Importa un file BACPAC e crea un nuovo database nel server. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

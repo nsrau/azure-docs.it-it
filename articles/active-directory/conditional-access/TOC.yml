@@ -19,8 +19,10 @@
 - name: Concetti
   expanded: false
   items:
-    - name: Protezione di base
-      href: baseline-protection.md
+    - name: Criteri comuni di accesso condizionale
+      href: concept-conditional-access-policy-common.md
+    - name: Componenti dei criteri di accesso condizionale
+      href: concept-conditional-access-policies.md
     - name: Condizioni
       href: conditions.md
     - name: Condizioni di posizione
@@ -31,6 +33,8 @@
       href: service-dependencies.md
     - name: Strumento What If
       href: what-if-tool.md
+    - name: Criteri di protezione di base
+      href: concept-baseline-protection.md
 - name: Guide alle procedure
   expanded: true
   items:
@@ -38,12 +42,26 @@
       href: plan-conditional-access.md
     - name: Procedure consigliate
       href: best-practices.md
+    - name: Criteri comuni di accesso condizionale
+      items:
+        - name: Richiedere l'autenticazione a più fattori per gli amministratori
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Richiedere l'autenticazione a più fattori per la gestione di Azure
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Bloccare l'autenticazione legacy
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Accesso condizionale basato sul rischio
+          href: howto-conditional-access-policy-risk.md
+        - name: Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori
+          href: howto-conditional-access-policy-registration.md
+        - name: Bloccare l'accesso in base alla località
+          href: howto-conditional-access-policy-location.md
+        - name: Richiede dispositivi conformi
+          href: howto-conditional-access-policy-compliant-device.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
-    - name: Controllare l'accesso a Exchange Online e SharePoint Online
-      href: conditional-access-for-exo-and-spo.md
-    - name: Eseguire la migrazione di criteri classici
-      href: policy-migration.md
+    - name: Accesso condizionale per la registrazione MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Richiedere app client approvate
       href: app-based-conditional-access.md
     - name: Richiedere criteri di protezione dell'app
@@ -52,8 +70,28 @@
       href: require-managed-devices.md
     - name: Richiedere MFA per tentativi di accesso da reti non attendibili
       href: untrusted-networks.md
-    - name: Richiedere Condizioni per l'utilizzo
+    - name: Richiedere le condizioni per l'utilizzo
       href: terms-of-use.md
+    - name: Controlli della frequenza degli accessi e della persistenza del browser
+      href: howto-conditional-access-session-lifetime.md
+    - name: Eseguire la migrazione di criteri classici
+      href: policy-migration.md
+    - name: Criteri di base
+      items:
+        - name: Richiedere l'autenticazione a più fattori per gli amministratori
+          href: howto-baseline-protect-administrators.md
+        - name: Protezione dell'utente finale
+          href: howto-baseline-protect-end-users.md
+        - name: Bloccare l'autenticazione legacy
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Richiedere MFA per la gestione dei servizi
+          href: howto-baseline-protect-azure.md
+    - name: Adozione dell'accesso condizionale
+      href: howto-conditional-access-adoption-kit.md
+    - name: risoluzione dei problemi
+      items:
+        - name: Risolvere i problemi durante l'uso dello strumento What If
+          href: troubleshoot-conditional-access-what-if.md
 - name: riferimento
   items:
     - name: Riferimenti tecnici

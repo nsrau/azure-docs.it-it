@@ -4,10 +4,10 @@ description: Informazioni di riferimento sulla sintassi Lucene completa, usata c
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885605"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650054"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
-È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 
+È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 
 
 ## <a name="how-to-invoke-full-parsing"></a>Come richiamare l'analisi completa
 
@@ -42,13 +42,13 @@ L'esempio seguente trova documenti nell'indice usando la sintassi di query Lucen
 Il parametro `searchMode=all` è rilevante in questo esempio. Quando nella query sono presenti operatori, è in genere consigliabile impostare `searchMode=all` per assicurarsi che venga trovata una corrispondenza per *tutti* i criteri.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  In alternativa, usare POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -79,7 +79,7 @@ L'esempio precedente è relativo alla tilde (~), ma lo stesso principio si appli
  I caratteri speciali devono essere preceduti da un carattere di escape per poter essere usati come parte del testo di ricerca. Per usare i caratteri di escape, anteporre la barra rovesciata (\\). I caratteri speciali che devono essere preceduti da un carattere di escape includono i seguenti:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Ad esempio, per usare i caratteri di escape con un carattere jolly, usare \\*.
+ Ad esempio, per eseguire l'escape di un carattere \\jolly, usare \*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codifica dei caratteri riservati e non sicuri negli URL
 
@@ -95,7 +95,7 @@ Il raggruppamento di campi è simile, ma definisce un singolo campo come ambito 
 ### <a name="searchmode-parameter-considerations"></a>Considerazioni sul parametro SearchMode  
  L'impatto di `searchMode` sulle query, come illustrato in [Sintassi di query semplice in Ricerca di Azure](query-simple-syntax.md), è lo stesso che sulla sintassi di query Lucene. In particolare, `searchMode` insieme agli operatori NOT può restituire risultati di query che potrebbero sembrare insoliti se non è chiaro quali siano le implicazioni dell'impostazione del parametro. Se si mantiene l'impostazione predefinita `searchMode=any` e si usa un operatore NOT, l'operazione viene calcolata come azione OR e quindi "New York" NOT "Seattle" restituisce tutte le città diverse da Seattle.  
 
-##  <a name="bkmk_boolean"></a> Operatori booleani (AND, OR, NOT) 
+##  <a name="bkmk_boolean"></a>Operatori booleani (AND, OR, NOT) 
  Specificare sempre gli operatori booleani di testo (AND, OR, NOT) in lettere tutte maiuscole.  
 
 ### <a name="or-operator-or-or-"></a>Operatore OR `OR` o `||`
@@ -121,23 +121,26 @@ L'uso di `searchMode=all` aumenta il livello di precisione delle query includend
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Punteggio delle query con caratteri jolly e regex
  Ricerca di Azure usa il punteggio basato sulla frequenza ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) per le query di testo. Per le query con caratteri jolly e regex, in cui l'ambito dei termini può essere potenzialmente ampio, il fattore frequenza viene tuttavia ignorato per evitare che la classificazione privilegi le corrispondenze con termini più rari. Tutte le corrispondenze vengono trattate equamente per le ricerche con caratteri jolly e regex.
 
-##  <a name="bkmk_fields"></a> Query con ambito campo  
- È possibile specificare una costruzione `fieldname:searchterm` per definire un'operazione di query con campo, dove il campo è una singola parola e il termine di ricerca è una singola parola o frase, facoltativamente con operatori booleani. Ecco alcuni esempi:  
+##  <a name="bkmk_fields"></a>Ricerca nel campo  
+È possibile definire un'operazione di ricerca in campo con `fieldName:searchExpression` la sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con gli operatori booleani. Ecco alcuni esempi:  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, in questo caso per la ricerca di due artisti distinti nel campo `artists`.  
+Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, in questo caso per la ricerca di due artisti distinti nel campo `artists`.  
 
-  Il campo specificato in `fieldname:searchterm` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
+Il campo specificato in `fieldName:searchExpression` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
+
+> [!NOTE]
+> Quando si usano le espressioni di ricerca nel campo, non è necessario usare `searchFields` il parametro perché ogni espressione di ricerca nel campo ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. Ad esempio, la query `search=genre:jazz NOT history&searchFields=description` corrisponderà `jazz` solo al `genre` `description` campo, mentre corrisponderebbe `NOT history` al campo. Il nome del campo fornito `fieldName:searchExpression` in ha sempre la precedenza `searchFields` sul parametro, motivo per cui in questo esempio non è `searchFields` necessario includere `genre` nel parametro.
 
 ##  <a name="bkmk_fuzzy"></a> Ricerca fuzzy  
- Una ricerca fuzzy trova le corrispondenze in termini che hanno una costruzione simile. Secondo la [documentazione di Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), le ricerche fuzzy si basano sulla [distanza di Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Le ricerche fuzzy possono espandere un termine fino a un massimo di 50 termini che soddisfano i criteri di distanza. 
+ Una ricerca fuzzy trova le corrispondenze in termini che hanno una costruzione simile. Secondo la [documentazione di Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), le ricerche fuzzy si basano sulla [distanza di Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Le ricerche fuzzy possono espandere un termine fino a un massimo di 50 termini che soddisfano i criteri di distanza. 
 
  Per eseguire una ricerca fuzzy, usare il carattere tilde "~" alla fine di una singola parola con un parametro facoltativo, un numero compreso tra 0 e 2 (impostazione predefinita), che specifica il numero minimo di operazioni di modifica o "edit distance". Ad esempio, "blue~" o "blue~1" restituirà "blue", "blues" e "glue".
 
- La ricerca fuzzy può essere applicata solo ai termini, non frasi, ma è possibile accodare la tilde a ogni termine singolarmente in un nome in più parti o una frase. Ad esempio, "Unviersty ~ di ~" Wshington ~ "corrisponderebbe su"University of Washington".
+ La ricerca fuzzy può essere applicata solo a termini, non a frasi, ma è possibile aggiungere la tilde a ogni termine singolarmente in un nome in più parti o in una frase. Ad esempio, "Unviersty ~ di ~" wSHINGTON ~ "corrisponderà a" University of Washington ".
  
 
 ##  <a name="bkmk_proximity"></a> Ricerca per prossimità  
@@ -152,7 +155,7 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
  Per aumentare la priorità di un termine, usare il carattere accento circonflesso "^", con un fattore di aumento di priorità (un numero) alla fine del termine da cercare. È anche possibile aumentare la priorità delle frasi. Maggiore è il fattore di aumento di priorità, più rilevante sarà il termine rispetto ad altri termini di ricerca. Per impostazione predefinita, il fattore di aumento di priorità è 1. Anche se il fattore di aumento di priorità deve essere positivo, può essere minore di 1 (ad esempio 0,20).  
 
 ##  <a name="bkmk_regex"></a> Ricerca basata su espressioni regolari  
- Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Ad esempio, per trovare i documenti contenenti "motel" o "hotel", specificare `/[mh]otel/`.  Le ricerche basate su espressioni regolari vengono confrontate con parole singole.   
 
@@ -165,7 +168,7 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 >  Non è possibile usare un carattere * o ? come primo carattere di una ricerca.  
 >  Sulle query di ricerca con caratteri jolly non vengono eseguite analisi del testo. In fase di query, i termini della query con caratteri jolly vengono confrontati con i termini analizzati nell'indice di ricerca ed espansi.
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
 
 + [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   

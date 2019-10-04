@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
-ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: agummadi
+ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005923"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612844"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modifiche ai prezzi per il Monitoraggio prestazioni rete di Azure
 
@@ -55,7 +55,7 @@ Performance Monitor monitora la connettività tra due o più posizioni nella ret
 
 **Si dispone di due subnet (A e B) e di vari agenti su ogni subnet. Performance Monitor monitora la connettività da tutti gli agenti nella subnet A verso tutti gli agenti nella subnet B. Gli addebiti saranno basati sul numero di connessioni tra le subnet?**
 
- No. Ai fini della fatturazione, tutte le connessioni dalla subnet A alla subnet B vengono raggruppate in un unico collegamento a subnet e la fatturazione avviene per una singola connessione. Performance Monitor continua a monitorare la connettività tra i vari agenti su ciascuna subnet.
+No. Ai fini della fatturazione, tutte le connessioni dalla subnet A alla subnet B vengono raggruppate in un unico collegamento a subnet e la fatturazione avviene per una singola connessione. Performance Monitor continua a monitorare la connettività tra i vari agenti su ciascuna subnet.
 
 **Quali sono i costi per il monitoraggio di un collegamento a subnet?**
 

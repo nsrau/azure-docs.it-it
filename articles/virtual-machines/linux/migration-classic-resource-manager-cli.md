@@ -4,23 +4,22 @@ description: Questo articolo illustra la migrazione supportata dalla piattaforma
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543271"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082775"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md). Poiché l'interfaccia della riga di comando di Azure è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.
@@ -146,7 +145,7 @@ Verrà visualizzato un risultato simile al seguente:
 
 ![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-Nell'esempio precedente il valore **virtualNetworkName** è l'intero nome **"Gruppo classicubuntu16 classicubuntu16"**.
+Nell'esempio precedente il valore **virtualNetworkName** è l'intero nome **"Gruppo classicubuntu16 classicubuntu16"** .
 
 Per prima cosa, verificare se sia possibile eseguire la migrazione della rete virtuale usando il comando seguente:
 

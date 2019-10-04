@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 0b1e3b98fe5b934b712db2a5549ebdc865523bfb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487720"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569381"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -163,7 +162,7 @@ Si verifica un ciclo di sincronizzazione quando all'interno di un gruppo di sinc
 Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazione attraverso l'interfaccia del portale e del log.
 
 
-## <a name="maintenance"></a>Manutenzione 
+## <a name="maintenance"></a>Manutenzione
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 

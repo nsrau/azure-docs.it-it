@@ -11,11 +11,11 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543684"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -77,7 +77,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passaggio 1: Creare un insieme di credenziali di Servizi di ripristino
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Selezionare **Crea una risorsa** > **Gestione** > **Backup** e **Site Recovery (OMS)**. In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**. 
+2. Selezionare **Crea una risorsa** > **Gestione** > **Backup** e **Site Recovery (OMS)** . In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**. 
 3. Specificare un'area in cui verranno replicate le macchine virtuali. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
@@ -142,7 +142,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-walk
 ### <a name="step-6-plan-capacity"></a>Passaggio 6: Pianificare la capacità
 
 1. Usare [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md) per stimare con precisione la larghezza di banda di rete, lo spazio di archiviazione e gli altri requisiti per poter soddisfare le esigenze di replica. 
-2. Al termine scegliere **Operazione completata** in **È stata completata la pianificazione della capacità?**.
+2. Al termine scegliere **Operazione completata** in **È stata completata la pianificazione della capacità?** .
 
    ![Casella per confermare di aver completato la pianificazione della capacità][11]
 

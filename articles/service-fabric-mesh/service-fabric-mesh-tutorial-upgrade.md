@@ -8,23 +8,22 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806735"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036086"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Esercitazione: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
 
-Questa esercitazione è la quarta parte di una serie e mostra come aggiornare un'applicazione Azure Service Fabric Mesh direttamente da Visual Studio. L'aggiornamento includerà sia un aggiornamento del codice sia un aggiornamento della configurazione. Si noterà che i passaggi per l'aggiornamento e la pubblicazione da Visual Studio siano uguali.
+Questa esercitazione è la quarta parte di una serie e mostra come aggiornare un'applicazione Azure Service Fabric Mesh direttamente da Visual Studio. L'aggiornamento includerà sia un aggiornamento del codice sia un aggiornamento della configurazione. Si noterà che i passaggi per l'aggiornamento e la pubblicazione da Visual Studio sono gli stessi.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -48,29 +47,29 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Aggiornare un servizio Service Fabric Mesh tramite Visual Studio
 
-Questo articolo illustra come aggiornare un microservizio all'interno di un'applicazione. In questo esempio, si modificherà il `WebFrontEnd` servizio per visualizzare una categoria di attività e aumentare la quantità di CPU viene assegnato. Verrà quindi eseguito l'aggiornamento del servizio distribuito.
+Questo articolo illustra come aggiornare un microservizio all'interno di un'applicazione. In questo esempio, si modificherà il `WebFrontEnd` servizio per visualizzare una categoria di attività e si aumenterà la quantità di CPU fornita. Verrà quindi eseguito l'aggiornamento del servizio distribuito.
 
 ## <a name="modify-the-config"></a>Modificare la configurazione
 
-Quando si crea un'app di Service Fabric Mesh, Visual studio aggiunge un **parameters.yaml** file per ogni ambiente di distribuzione (cloud e locale). In questi file, è possibile definire i parametri e i relativi valori che è possibile fare riferimento dai tuoi file *.yaml Mesh, ad esempio service.yaml o network.yaml.  Visual Studio offre alcune variabili, ad esempio la quantità di CPU può usare il servizio.
+Quando si crea un'app mesh Service Fabric, Visual Studio aggiunge un file **Parameters. YAML** per ogni ambiente di distribuzione (cloud e locale). In questi file è possibile definire i parametri e i relativi valori a cui è possibile fare riferimento dai file mesh *. YAML, ad esempio Service. YAML o Network. yaml.  Visual Studio fornisce alcune variabili, ad esempio la quantità di CPU che il servizio può usare.
 
-Verrà aggiornato il `WebFrontEnd_cpu` parametro per aggiornare le risorse della cpu per `1.5` in previsione che le **WebFrontEnd** servizio verrà utilizzato più frequentemente.
+Il `WebFrontEnd_cpu` parametro verrà aggiornato in modo da aggiornare le `1.5` risorse della CPU in anticipo che il servizio WebFrontEnd verrà usato più frequentemente.
 
-1. Nel **todolistapp** del progetto, sotto **ambienti** > **Cloud**, aprire il **parameters.yaml** file. Modificare il `WebFrontEnd_cpu`, valore `1.5`. Il nome del parametro è preceduto dal nome del servizio `WebFrontEnd_` come procedura consigliata per distinguerlo dai parametri lo stesso nome che si applicano a servizi diversi.
+1. Nel progetto **todolistapp** , in **ambienti** > **cloud**, aprire il file **Parameters. YAML** . Modificare il `WebFrontEnd_cpu`valore di in `1.5`. Il nome del parametro è preceduto dal nome `WebFrontEnd_` del servizio come procedura consigliata per distinguerlo dai parametri con lo stesso nome che si applicano a servizi diversi.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Aprire il **WebFrontEnd** del progetto **service.yaml** file sotto **WebFrontEnd** > **le risorse del servizio**.
+2. Aprire il file **Service. YAML** del progetto WebFrontEnd nelle**risorse del servizio**WebFrontEnd. > 
 
-    Si noti che nelle `resources:` sezione `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"`. Se il progetto viene compilato per il cloud, il valore per `'WebFrontEnd_cpu` saranno presi dal **ambienti** > **Cloud** > **parameters.yaml** file e saranno `1.5`. Se il progetto viene compilato per l'esecuzione in locale, il valore verrà copiato il **ambienti** > **locale** > **parameters.yaml** file, e sarà '0,5'.
+    Si noti che la `resources:` `cpu:` sezione in è impostata su `"[parameters('WebFrontEnd_cpu')]"`. Se il progetto viene compilato per il cloud `'WebFrontEnd_cpu` , il valore per verrà ricavato dal file dei parametri del**cloud** >  **environments** >  **. YAML** e sarà `1.5`. Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene ricavato dal file**local** > **Parameters. YAML** degli **ambienti** > e sarà "0,5".
 
 > [!Tip]
-> Per impostazione predefinita, il file dei parametri che è un peer del file profile.yaml da utilizzare per fornire i valori per tale file profile.yaml.
-> Ad esempio, ambienti > Cloud > parameters.yaml fornisce i valori dei parametri per gli ambienti > Cloud > profile.yaml.
+> Per impostazione predefinita, il file dei parametri che è un peer del file profile. YAML verrà usato per fornire i valori per il file profile. yaml.
+> Ad esempio, environments > Cloud > Parameters. YAML fornisce i valori dei parametri per gli ambienti > Cloud > profile. yaml.
 >
-> È possibile ignorare questa aggiungendo il codice seguente al file profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Ad esempio,  o `parametersFilePath=”..\CommonParameters.yaml”`
+> Per eseguire l'override, è possibile aggiungere il codice seguente al file profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` Ad esempio,  o `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificare il modello
 
@@ -132,25 +131,25 @@ Compilare ed eseguire l'app per verificare che sia presente una colonna per la n
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>Aggiornare l'app da Visual Studio
 
-Se si sta apportando un aggiornamento del codice o un aggiornamento della configurazione (in questo caso stiamo facendo entrambi), aggiornare l'app della rete di Service Fabric in Azure facendo clic su **todolistapp** in Visual Studio e quindi selezionare **pubblica...**
+Se si esegue un aggiornamento del codice o un aggiornamento della configurazione (in questo caso si sta eseguendo entrambi), aggiornare l'app Service Fabric mesh in Azure facendo clic con il pulsante destro del mouse su **todolistapp** in Visual Studio e selezionando **pubblica...**
 
 Verrà quindi visualizzata la finestra di dialogo **Pubblica applicazione di Service Fabric**.
 
-Usare la **profilo di destinazione** elenco a discesa per selezionare il file profile.yaml da usare per la distribuzione. Verrà aggiornata l'app nel cloud, sarà necessario selezionare la **cloud.yaml** nell'elenco a discesa, che userà il `WebFrontEnd_cpu` valore pari a 1,0 definita nel file.
+Usare l'elenco a discesa **profilo di destinazione** per selezionare il file profile. YAML da usare per questa distribuzione. Si sta aggiornando l'app nel cloud, quindi si seleziona **cloud. YAML** nell'elenco a discesa, che userà il `WebFrontEnd_cpu` valore 1,0 definito in tale file.
 
 ![Finestra di dialogo per la pubblicazione del progetto Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Selezionare l'account e la sottoscrizione di Azure. Impostare il **posizione** al percorso usato quando è stato pubblicato originariamente le app di elenco attività in Azure. In questo articolo è stato usato **Stati Uniti orientali**.
+Selezionare l'account e la sottoscrizione di Azure. Impostare il **percorso** sul percorso usato quando è stata originariamente pubblicata l'app to-do in Azure. In questo articolo è stato usato **Stati Uniti orientali**.
 
-Impostare **gruppo di risorse** al gruppo di risorse usato quando è stato pubblicato originariamente le app di elenco attività in Azure.
+Impostare **gruppo di risorse** sul gruppo di risorse usato quando è stata originariamente pubblicata l'app to-do in Azure.
 
-Impostare **registro contenitori di Azure** per il nome del registro contenitori di azure creato quando è stato pubblicato originariamente le app di elenco attività in Azure.
+Impostare **azure container Registry** sul nome del registro contenitori di Azure creato quando è stata originariamente pubblicata l'app to-do in Azure.
 
 Nella finestra di dialogo per la pubblicazione fare clic sul pulsante **Pubblica** per aggiornare l'app to-do in Azure.
 
-Monitorare lo stato di avanzamento dell'aggiornamento, selezionando il **strumenti di Service Fabric** riquadro di Visual Studio **Output** finestra. 
+Monitorare lo stato di avanzamento dell'aggiornamento selezionando il riquadro **strumenti di Service Fabric** nella finestra **output** di Visual Studio. 
 
-Dopo che l'immagine viene compilata ed eseguito il push in Registro contenitori di Azure, un **per lo stato** collegamento verrà visualizzato l'output indica che è possibile fare clic per monitorare la distribuzione nel portale di Azure.
+Dopo che l'immagine è stata compilata e ne è stato effettuato il push nel Container Registry di Azure, nell'output verrà visualizzato un collegamento **per lo stato** che è possibile fare clic per monitorare la distribuzione nel portale di Azure.
 
 Al termine dell'aggiornamento, nell'output di **Strumenti di Microsoft Azure Service Fabric per Visual Studio** verranno visualizzati l'indirizzo IP e la porta dell'applicazione sotto forma di URL.
 

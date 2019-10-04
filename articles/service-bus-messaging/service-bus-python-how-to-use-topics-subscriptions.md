@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607076"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141892"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure SDK per Python][Azure Python package]. Gli scenari trattati includono:
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure Python SDK][Azure Python package]. Gli scenari trattati includono:
 
 - Creazione di argomenti e sottoscrizioni 
 - Creazione di filtri di sottoscrizione 
@@ -34,14 +34,14 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 - Eliminazione di argomenti e sottoscrizioni
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i benefici per gli abbonati di [Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i [passaggi nella Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni dell'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare uno **spazio dei nomi** del bus di servizio e ottenere la stringa di **connessione**.
 
     > [!NOTE]
-    > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Python** in questa Guida introduttiva. 
-3. Installare [pacchetto Azure per Python][Azure Python package]. Vedere le [Guida all'installazione di Python](../python-how-to-install.md).
+    > In questa Guida introduttiva si creerà un **argomento** e una **sottoscrizione** all'argomento usando **Python** . 
+3. Installare il [pacchetto python di Azure][Azure Python package]. Vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install).
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
@@ -58,7 +58,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso nel [portale di Azure][Azure portal].
+È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dal [portale di Azure][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 È possibile creare sottoscrizioni ad argomenti anche con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
 
 > [!NOTE]
-> Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse o l'argomento che hanno sottoscritto non viene eliminato.
+> Per impostazione predefinita, le sottoscrizioni sono persistenti e continueranno a esistere fino a quando non vengono eliminate o l'argomento in cui sono state sottoscritte.
 > 
-> 
+> È possibile eliminare automaticamente le sottoscrizioni impostando la [Proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -95,7 +95,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 È anche possibile definire i filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 È possibile aggiungere filtri a una sottoscrizione usando il metodo **create\_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
@@ -140,7 +140,8 @@ Il seguente esempio illustra come inviare cinque messaggi di test a `mytopic`. I
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -151,7 +152,8 @@ Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino
 I messaggi vengono ricevuti da una sottoscrizione usando il metodo `receive_subscription_message` nell'oggetto **ServiceBusService**:
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
@@ -174,11 +176,11 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo L'elaborazione di almeno una volta\*; vale a dire, ogni messaggio verrà elaborato almeno una volta ma in alcuni casi lo stesso messaggio potrebbe essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo, è possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete`, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo Almeno una volta l'\*elaborazione, ovvero ogni messaggio viene elaborato almeno una volta, ma in determinate situazioni lo stesso messaggio può essere recapitato nuovamente. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo, è possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
+Gli argomenti e le sottoscrizioni sono permanenti, a meno che non sia impostata la [Proprietà auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) . Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -189,6 +191,9 @@ Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni regi
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
+
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

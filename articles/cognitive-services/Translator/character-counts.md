@@ -1,21 +1,21 @@
 ---
 title: Conteggio dei caratteri - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Modalità di conteggio dei caratteri dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513767"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595996"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Modalità di conteggio dei caratteri dell'API Traduzione testuale
 
@@ -35,7 +35,7 @@ Gli elementi importanti sono i seguenti:
 
 Per gli script basati su ideogrammi come quelli del cinese e del giapponese kanji, l'API Traduzione testuale conteggerà comunque il numero degli elementi di codice Unicode, un carattere per ideogramma. Eccezione: I caratteri surrogati Unicode vengono contati come due caratteri.
 
-Il numero di richieste, parole, byte o frasi non è rilevante nel conteggio dei caratteri. 
+Il numero di richieste, parole, byte o frasi non è rilevante nel conteggio dei caratteri.
 
 Le chiamate ai metodi Detect e BreakSentence non vengono conteggiate nel consumo dei caratteri. Tuttavia, è previsto che le chiamate ai metodi Detect e BreakSentence siano in proporzione ragionevole all'uso di altre funzioni che vengono conteggiate. Se il numero di chiamate Detect o BreakSentence effettuate supera di 100 volte il numero di altri metodi conteggiati, Microsoft si riserva il diritto di limitare l'uso dei metodi Detect e BreakSentence.
 

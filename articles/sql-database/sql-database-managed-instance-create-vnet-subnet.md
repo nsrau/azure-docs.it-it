@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 09/12/2019
+ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782525"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958485"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -34,6 +33,9 @@ Istanza gestita di database SQL di Azure deve essere distribuita all'interno di 
 > È consigliabile [determinare le dimensioni della subnet per Istanza gestita](sql-database-managed-instance-determine-size-vnet-subnet.md) prima di distribuire la prima istanza. Non è possibile ridimensionare la subnet dopo che sono state inserite le risorse.
 >
 > Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere [Configurare una rete virtuale esistente per Istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
+
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 

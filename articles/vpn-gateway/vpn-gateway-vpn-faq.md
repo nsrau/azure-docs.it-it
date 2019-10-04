@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/14/2019
 ms.author: yushwang
-ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786704"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -32,7 +32,7 @@ Sì.
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Sono previsti costi aggiuntivi per la configurazione di un gateway VPN come attivo/attivo?
 
- No. 
+No. 
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quali sono le opzioni di connessione cross-premise?
 
@@ -69,7 +69,7 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare un gateway VPN basato su criteri in gateway VPN basato su route?
- No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
+No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
 1. [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -85,15 +85,15 @@ Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inc
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>È possibile distribuire macchine virtuali o istanze del ruolo alla subnet del gateway?
 
- No.
+No.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>È possibile ottenere l'indirizzo IP del gateway VPN prima di crearlo?
 
- No. È necessario prima creare il gateway per ottenere l'indirizzo IP. L'indirizzo IP viene modificato se si elimina e si ricrea il gateway VPN.
+No. È necessario prima creare il gateway per ottenere l'indirizzo IP. L'indirizzo IP viene modificato se si elimina e si ricrea il gateway VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>È possibile richiedere un indirizzo IP pubblico statico per il gateway VPN?
 
- No. È supportata solo l'assegnazione di indirizzi IP dinamici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP del gateway VPN viene modificato solo quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway VPN non cambia in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN. 
+No. È supportata solo l'assegnazione di indirizzi IP dinamici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP del gateway VPN viene modificato solo quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway VPN non cambia in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Come si ottiene l'autenticazione del tunnel VPN?
 
@@ -186,11 +186,11 @@ Questa sezione si applica al modello di distribuzione Resource Manager.
 Sì. Per altre informazioni, vedere la sezione [BGP](#bgp).
 
 **Modello di distribuzione classica**<br>
- Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.
+Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure genera la stessa chiave precondivisa IPsec/IKE per tutte le connessioni VPN per una stessa rete virtuale?
 
-No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave DEVE essere una stringa alfanumerica di lunghezza compresa tra 1 e 128 caratteri.
+No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave deve essere caratteri ASCII stampabili.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Si ottiene maggiore larghezza di banda con più VPN da sito a sito per una singola rete virtuale?
 
@@ -227,7 +227,7 @@ Sono disponibili diverse opzioni. Se RDP è abilitato per la macchina virtuale, 
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Se la macchina virtuale si trova in una rete virtuale con connettività cross-premise, il traffico dalla macchina virtuale passa tutto attraverso tale connessione?
 
- No. Attraverso il gateway della rete virtuale passerà solo il traffico con un IP di destinazione incluso negli intervalli di indirizzi IP di rete locale specificati per la rete virtuale. Il traffico che ha un indirizzo IP di destinazione nella rete virtuale rimane all'interno della rete virtuale. Il restante traffico verrà inviato alle reti pubbliche tramite il bilanciamento del carico o, se si usa il tunneling forzato, tramite il gateway VPN di Azure.
+No. Attraverso il gateway della rete virtuale passerà solo il traffico con un IP di destinazione incluso negli intervalli di indirizzi IP di rete locale specificati per la rete virtuale. Il traffico che ha un indirizzo IP di destinazione nella rete virtuale rimane all'interno della rete virtuale. Il restante traffico verrà inviato alle reti pubbliche tramite il bilanciamento del carico o, se si usa il tunneling forzato, tramite il gateway VPN di Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Come risolvere i problemi di una connessione RDP a una VM
 

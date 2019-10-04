@@ -1,19 +1,18 @@
 ---
 title: Ottimizzazione delle prestazioni per i cluster HDInsight di Apache Kafka
 description: Fornisce una panoramica delle tecniche per l'ottimizzazione di carichi di lavoro di Apache Kafka in HDInsight di Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689346"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Ottimizzazione delle prestazioni per i cluster HDInsight di Apache Kafka
 
@@ -39,7 +38,7 @@ Le prestazioni di Apache Kafka presenta due aspetti principali: velocità effett
 
 Le sezioni seguenti verranno illustrate alcune delle proprietà di configurazione più importanti per ottimizzare le prestazioni dei producer Kafka. Per una spiegazione dettagliata di tutte le proprietà di configurazione, vedere [documentazione di Apache Kafka in configurazioni producer](https://kafka.apache.org/documentation/#producerconfigs).
 
-### <a name="batch-size"></a>Dimensioni batch
+### <a name="batch-size"></a>Dimensioni dei batch
 
 I producer di Apache Kafka assemblare i gruppi di messaggi (detto batch) che vengono inviati come un'unità da archiviare in una partizione di archiviazione singolo. Le dimensioni del batch indica il numero di byte che deve essere presente prima della trasmissione di tale gruppo. Aumentando il `batch.size` parametro può aumentare la velocità effettiva, poiché riduce il sovraccarico dalla rete e le richieste dei / o l'elaborazione. Sotto carico ridotto, le dimensioni del batch maggiore possono aumentare la latenza media invio Kafka nel producer è in attesa di un batch sia pronto. Con un carico pesante, è consigliabile per aumentare le dimensioni di batch per migliorare la velocità effettiva e latenza.
 

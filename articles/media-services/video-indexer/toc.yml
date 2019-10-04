@@ -1,97 +1,105 @@
-items:
 - name: Documentazione di Video Indexer
   href: ./index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Video Indexer
-    href: video-indexer-overview.md
+    - name: Informazioni su Video Indexer
+      href: video-indexer-overview.md
 - name: Guide introduttive
-  items:
-  - name: Attività iniziali
-    href: video-indexer-get-started.md
   expanded: true
+  items:
+    - name: Attività iniziali
+      href: video-indexer-get-started.md
+    - name: Invitare gli utenti
+      href: invite-users.md
 - name: Esercitazioni
   items:
-  - name: Usare l'API Video Indexer
-    href: video-indexer-use-apis.md
+    - name: Usare l'API Video Indexer
+      href: video-indexer-use-apis.md
 - name: Concetti
-  href: video-indexer-concepts.md
   items:
-  - name: Confrontare i set di impostazioni di Video Indexer e Servizi multimediali
-    href: compare-video-indexer-with-media-services-presets.md
-  - name: Gestire più tenant
-    href: manage-multiple-tenants.md
-  - name: Personalizzazione dei modelli di contenuto
-    items:
-    - name: Marchi
-      href: customize-brands-model-overview.md
-    - name: Linguaggio
-      href: customize-language-model-overview.md
-    - name: Person
-      href: customize-person-model-overview.md
+    - name: Panoramica
+      href: video-indexer-concepts.md
+    - name: Confrontare i set di impostazioni di Video Indexer e Servizi multimediali
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: Gestire più tenant
+      href: manage-multiple-tenants.md
+    - name: Modello di identificazione della lingua
+      href: language-identification-model.md
+    - name: Personalizzazione dei modelli di contenuto
+      items:
+        - name: Panoramica
+          href: customize-content-models-overview.md
+        - name: Personaggi animati
+          href: animated-characters-recognition.md
+        - name: Marchi
+          href: customize-brands-model-overview.md
+        - name: Linguaggio
+          href: customize-language-model-overview.md
+        - name: Person
+          href: customize-person-model-overview.md
 - name: Guide pratiche
   items:
-  - name: Connect to Azure
-    href: connect-to-azure.md
-  - name: Gestire un account connesso ad Azure
-    href: manage-account-connected-to-azure.md
-  - name: Usare l'API per caricare e indicizzare i video
-    href: upload-index-videos.md
-  - name: Esaminare l'output di Video Indexer
-    href: video-indexer-output-json-v2.md
-  - name: Trovare momenti esatti nei video
-    href: video-indexer-search.md
-  - name: Scene, scatti e fotogrammi chiave
-    href: scenes-shots-keyframes.md
-  - name: Visualizzare e modificare le informazioni dettagliate di Video Indexer
-    href: video-indexer-view-edit.md
-  - name: Usare l'editor per creare progetti
-    href: use-editor-create-project.md
-  - name: Creare informazioni dettagliate video da video esistenti
-    href: video-indexer-create-new.md
-  - name: Incorporare widget nell'applicazione
-    href: video-indexer-embed-widgets.md
-  - name: Personalizzare i modelli di contenuto
-    items:
-    - name: Person
+    - name: Connect to Azure
+      href: connect-to-azure.md
+    - name: Gestire un account connesso ad Azure
+      href: manage-account-connected-to-azure.md
+    - name: Usare l'API per caricare e indicizzare i video
+      href: upload-index-videos.md
+    - name: Esaminare l'output di Video Indexer
+      href: video-indexer-output-json-v2.md
+    - name: Trovare momenti esatti nei video
+      href: video-indexer-search.md
+    - name: 'Rilevare scene, scatti e fotogrammi chiave'
+      href: scenes-shots-keyframes.md
+    - name: Identificare e trascrivere contenuto multilingue
+      href: multi-language-identification-transcription.md
+    - name: Visualizzare e modificare le informazioni dettagliate di Video Indexer
+      href: video-indexer-view-edit.md
+    - name: Usare l'editor per creare progetti
+      href: use-editor-create-project.md
+    - name: Incorporare widget nell'applicazione
+      href: video-indexer-embed-widgets.md
+    - name: Ripristino di emergenza
+      href: video-indexer-disaster-recovery.md
+    - name: Personalizzare i modelli di contenuto
       items:
-      - name: con il sito Web di Video Indexer
-        href: customize-person-model-with-website.md
-      - name: con l'API Video Indexer
-        href: customize-person-model-with-api.md
-    - name: Marchi
-      items:
-      - name: con il sito Web di Video Indexer
-        href: customize-brands-model-with-website.md
-      - name: con l'API Video Indexer
-        href: customize-brands-model-with-api.md
-    - name: Linguaggio
-      items:
-      - name: con il sito Web di Video Indexer
-        href: customize-language-model-with-website.md
-      - name: con l'API Video Indexer
-        href: customize-language-model-with-api.md
+        - name: Personaggi animati
+          href: animated-characters-recognition.md
+        - name: Person
+          items:
+            - name: con il sito Web di Video Indexer
+              href: customize-person-model-with-website.md
+            - name: con l'API Video Indexer
+              href: customize-person-model-with-api.md
+        - name: Marchi
+          items:
+            - name: con il sito Web di Video Indexer
+              href: customize-brands-model-with-website.md
+            - name: con l'API Video Indexer
+              href: customize-brands-model-with-api.md
+        - name: Linguaggio
+          items:
+            - name: con il sito Web di Video Indexer
+              href: customize-language-model-with-website.md
+            - name: con l'API Video Indexer
+              href: customize-language-model-with-api.md
 - name: riferimento
   items:
-  - name: API Video Indexer
-    href: https://api-portal.videoindexer.ai/
+    - name: API Video Indexer
+      href: 'https://api-portal.videoindexer.ai/'
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/regions/services/
-  - name: Regioni
-    href: regions.md
-  - name: Domande frequenti
-    href: faq.md
-  - name: Conformità
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793337"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Regioni
+      href: regions.md
+    - name: Domande frequenti
+      href: faq.md
+    - name: Conformità
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Note sulla versione
+      href: release-notes.md

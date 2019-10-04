@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/20/2018
-ms.author: adgera
+ms.date: 09/30/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 7e4760990229433b2ea40fadd0d17de0b52fcb36
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9b9341be32e5707ef646bd6d08d9d7ec92a8575
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795929"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827692"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 

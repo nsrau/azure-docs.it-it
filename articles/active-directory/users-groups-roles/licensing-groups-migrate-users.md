@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di utenti singolarmente con licenza alle licenze basate su gruppo - Azure Active Directory | Microsoft Docs
-description: Come passare da licenze per utenti singoli a licenze basate sui gruppi usando Azure Active Directory
+title: Aggiungere utenti singolarmente con licenza alle licenze basate su gruppo - Azure Active Directory | Microsoft Docs
+description: Come eseguire la migrazione da licenze utente individuali alle licenze basate su gruppo usando Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65192445"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come aggiungere la migrazione degli utenti con singole licenze ai gruppi per le licenze
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come eseguire la migrazione di utenti con singole licenze ai gruppi per le licenze
 
 Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite "assegnazione diretta", vale a dire usando script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Prima di iniziare a usare licenze basate su gruppo per gestire le licenze nell'organizzazione, è possibile utilizzare il piano di migrazione per sostituire facilmente le soluzioni esistenti con le licenze basate su gruppo.
 

@@ -10,17 +10,17 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60713078"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DEPRECATO) Monitorare un cluster Kubernetes del servizio Azure Container con CoScale
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Questo articolo illustra come distribuire l'agente [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) per monitorare tutti i nodi e tutti i contenitori del cluster Kubernetes nel servizio Azure Container. Per questa configurazione, è necessario un account con CoScale. 
+Questo articolo illustra come distribuire l'agente [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) per monitorare tutti i nodi e tutti i contenitori del cluster Kubernetes nel servizio Azure Container. Per questa configurazione, è necessario un account con CoScale. 
 
 
 ## <a name="about-coscale"></a>Informazioni su CoScale 
@@ -34,7 +34,7 @@ Come illustrato in questo articolo, è possibile installare gli agenti in un clu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È prima di tutto necessario [creare un account CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
+È prima di tutto necessario [creare un account CoScale](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ L'agente CoScale viene distribuito automaticamente nelle nuove macchine virtuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle soluzioni di monitoraggio di CoScale, vedere la [documentazione di CoScale](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) e il [blog](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog). 
+Per altre informazioni sulle soluzioni di monitoraggio di CoScale, vedere la [documentazione di CoScale](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) e il [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog). 
 

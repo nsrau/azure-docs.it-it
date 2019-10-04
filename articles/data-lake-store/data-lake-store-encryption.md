@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878452"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
 
@@ -56,11 +56,11 @@ Ecco un breve confronto delle funzionalità offerte dalle due modalità di gesti
 | --- | --- | --- |
 |Come vengono archiviati i dati?|Vengono sempre crittografati prima dell'archiviazione.|Vengono sempre crittografati prima dell'archiviazione.|
 |Dove viene archiviata la chiave di crittografia master?|Key Vault|Key Vault|
-|Vengono archiviate chiavi di crittografia in chiaro al di fuori di Key Vault? |No |No |
-|La chiave di crittografia master può essere recuperata da Key Vault?| No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.| No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|
+|Vengono archiviate chiavi di crittografia in chiaro al di fuori di Key Vault? |No|No|
+|La chiave di crittografia master può essere recuperata da Key Vault?|No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|
 |Chi è il proprietario dell'istanza di Key Vault e della chiave di crittografia master?|Il servizio Data Lake Storage Gen1|L'utente è il proprietario dell'istanza di Key Vault, che appartiene alla sottoscrizione di Azure. La chiave di crittografia master in Key Vault può essere gestita dal software o dall'hardware.|
-|È possibile revocare l'accesso alla chiave di crittografia master (MEK) per il servizio Data Lake Storage Gen1?|No |Sì. È possibile gestire gli elenchi di controllo di accesso in Key Vault e rimuovere le voci di controllo di accesso nell'identità del servizio per il servizio Data Lake Storage Gen1.|
-|È possibile eliminare definitivamente la chiave di crittografia master?|No |Sì. Se si elimina la chiave di crittografia master da Key Vault, i dati nell'account Data Lake Storage Gen1 non possono essere in alcun modo decrittografati, neppure dal servizio Data Lake Storage Gen1. <br><br> Se è stato eseguito un backup esplicito della chiave di crittografia master prima di eliminarla da Key Vault, la chiave può essere ripristinata e i dati recuperati. Se tuttavia non è stato eseguito un backup della chiave di crittografia master prima di eliminarla da Key Vault, i dati nell'account Data Lake Storage Gen1 non potranno più essere decrittografati.|
+|È possibile revocare l'accesso alla chiave di crittografia master (MEK) per il servizio Data Lake Storage Gen1?|No|Sì. È possibile gestire gli elenchi di controllo di accesso in Key Vault e rimuovere le voci di controllo di accesso nell'identità del servizio per il servizio Data Lake Storage Gen1.|
+|È possibile eliminare definitivamente la chiave di crittografia master?|No|Sì. Se si elimina la chiave di crittografia master da Key Vault, i dati nell'account Data Lake Storage Gen1 non possono essere in alcun modo decrittografati, neppure dal servizio Data Lake Storage Gen1. <br><br> Se è stato eseguito un backup esplicito della chiave di crittografia master prima di eliminarla da Key Vault, la chiave può essere ripristinata e i dati recuperati. Se tuttavia non è stato eseguito un backup della chiave di crittografia master prima di eliminarla da Key Vault, i dati nell'account Data Lake Storage Gen1 non potranno più essere decrittografati.|
 
 
 Fatta eccezione per questa differenza, ovvero chi gestisce la chiave di crittografia master e l'istanza di Key Vault in cui si trova, la progettazione è la medesima per entrambe le modalità.

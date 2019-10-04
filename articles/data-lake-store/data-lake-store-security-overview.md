@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195294"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
@@ -104,12 +104,12 @@ Per altre informazioni sull'utilizzo dei log attività, vedere [Visualizzare i l
 
 Per altre informazioni sull'uso dei log di diagnostica con Data Lake Storage Gen1, vedere [Accesso ai log di diagnostica per Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protetta e facile da usare. Data Lake Storage Gen1 è progettato per aiutare a soddisfare questi requisiti attraverso la gestione delle identità e l'autenticazione con l'integrazione di Azure Active Directory, l'autorizzazione basata su elenchi di controllo di accesso, l'isolamento della rete, la crittografia dei dati in transito e inattivi e il controllo.
 
 Per vedere nuove funzionalità in Data Lake Storage Gen1, inviare commenti e suggerimenti al [forum UserVoice di Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Iniziare a usare Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)

@@ -2,34 +2,34 @@
 title: Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come abilitare gli utenti a modificare le password usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9e58139d248daed19f4fe35c7d33ede9dfe64b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317191"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065547"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C è possibile abilitare gli utenti che hanno eseguito l'accesso con un account locale per modificare la password, senza doverne dimostrare l'autenticità con verifica tramite posta elettronica. Se la sessione scade nel momento in cui l'utente arriva al flusso di modifica della password, viene richiesto di accedere nuovamente. Questo articolo illustra come configurare la modifica delle password usando [criteri personalizzati](active-directory-b2c-overview-custom.md). È anche possibile configurare la [reimpostazione delle password self-service](active-directory-b2c-reference-sspr.md) usando i flussi utente.
+In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti che hanno eseguito l'accesso con un account locale per modificare la password senza dover dimostrare l'autenticità tramite la verifica tramite posta elettronica. Se la sessione scade nel momento in cui l'utente arriva al flusso di modifica della password, viene richiesto di accedere nuovamente. Questo articolo illustra come configurare la modifica delle password usando [criteri personalizzati](active-directory-b2c-overview-custom.md). È anche possibile configurare la [reimpostazione delle password self-service](active-directory-b2c-reference-sspr.md) usando i flussi utente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="add-the-elements"></a>Aggiungere gli elementi 
+## <a name="add-the-elements"></a>Aggiungere gli elementi
 
-1. Aprire il file *TrustframeworkExtensions.xml* e aggiungere il seguente elemento **ClaimType** con un identificatore di `oldPassword` per l'elemento [ClaimsSchema](claimsschema.md): 
+1. Aprire il file *TrustframeworkExtensions.xml* e aggiungere il seguente elemento **ClaimType** con un identificatore di `oldPassword` per l'elemento [ClaimsSchema](claimsschema.md):
 
     ```XML
     <BuildingBlocks>
@@ -156,7 +156,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 7. Modificare l'attributo **ReferenceId** in `<DefaultUserJourney>`, in modo che corrisponda all'ID del nuovo percorso utente creato. Ad esempio, *PasswordChange*.
 8. Salvare le modifiche.
 
-È possibile trovare i criteri di esempio [qui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+È possibile trovare i criteri di esempio [qui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
 ## <a name="test-your-policy"></a>Verificare i criteri
 
@@ -165,20 +165,20 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 ### <a name="upload-the-files"></a>Caricare i file
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustframeworkExtensions.xml*.
-7. Fare clic su **Carica**.
+7. Fare clic su **Upload**.
 8. Ripetere i passaggi da 5 a 7 per il file relying party, ad esempio *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>Esegui il criterio
 
 1. Aprire il criterio che è stato modificato. Ad esempio, *B2C_1A_profile_edit_password_change*.
 2. Per **Applicazione**, selezionare l'applicazione che è stata registrata in precedenza. Per visualizzare il token, l'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-3. Fare clic su **Esegui adesso**. Accedere con l'account creato in precedenza. È ora possibile modificare la password. 
+3. Fare clic su **Esegui adesso**. Accedere con l'account creato in precedenza. È ora possibile modificare la password.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md). 
+- Informazioni su come [Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

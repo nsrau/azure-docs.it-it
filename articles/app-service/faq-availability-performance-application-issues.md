@@ -4,30 +4,29 @@ description: È possibile ottenere risposte alle domande frequenti sulla disponi
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565960"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122077"
 ---
-> [!NOTE]
-> Alcune delle seguenti linee guida potrebbero funzionare solo su Windows o Linux App Services. Ad esempio Linux App Services eseguiti in modalità a 64 bit per impostazione predefinita.
->
-
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
+
+> [!NOTE]
+> Alcune delle linee guida seguenti possono funzionare solo nei servizi app Windows o Linux. Per impostazione predefinita, ad esempio, i servizi app Linux vengono eseguiti in modalità a 64 bit.
+>
 
 Questo articolo offre risposte alle domande frequenti sui problemi di prestazioni delle applicazioni per la [funzionalità App Web del servizio app di Azure](https://azure.microsoft.com/services/app-service/web/).
 
@@ -66,7 +65,7 @@ Per acquisire un dump della memoria in modalità utente per l'app Web:
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selezionare il menu **Process Explorer** (Esplora processi).
 3. Fare clic con il pulsante destro del mouse sul processo **w3wp.exe** o sul proprio processo Web.
-4. Selezionare **Download Memory Dump (Scarica dump di memoria)** > **Full Dump (Dump completo)**.
+4. Selezionare **Download Memory Dump (Scarica dump di memoria)**  > **Full Dump (Dump completo)** .
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Come si visualizzano le informazioni a livello di processo per l'app Web?
 
@@ -149,7 +148,7 @@ Per abilitare la traccia delle richieste non riuscite:
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
 15. Select **Strumenti** > **Kudu** > **Vai**.
-18. Nel menu selezionare **Debug Console (Console di debug)** > **CMD**.
+18. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 
@@ -161,7 +160,7 @@ Valutare se passare a processi a 64 bit per poter sfruttare la memoria aggiuntiv
 
 Si noti anche che un ambiente a 64 bit richiede il piano di servizio Basic o Standard. I piani Gratuito e Condiviso vengono eseguiti sempre in un ambiente a 32 bit.
 
-Per altre informazioni, vedere [Configurare le app Web nel servizio app](web-sites-configure.md).
+Per altre informazioni, vedere [Configurare le app Web nel servizio app](configure-common.md).
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>Perché la richiesta raggiunge il timeout dopo 230 secondi?
 

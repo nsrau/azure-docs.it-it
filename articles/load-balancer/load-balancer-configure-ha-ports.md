@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
-ms.author: kumud
-ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: allensu
+ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593404"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275623"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte a disponibilità elevata per un servizio di bilanciamento del carico interno
 

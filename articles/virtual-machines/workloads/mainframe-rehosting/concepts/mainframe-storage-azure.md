@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65190432"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Spostare risorse di archiviazione di mainframe in Azure
 
@@ -51,7 +51,7 @@ Archiviazione di Azure è disponibile come [dischi di Azure](/azure/virtual-mach
 
 <table>
 <thead>
-    <tr><th>Type</th><th>DESCRIZIONE</th><th>Usa questa opzione quando vuoi:</th></tr>
+    <tr><th>Type</th><th>Descrizione</th><th>Usa questa opzione quando vuoi:</th></tr>
 </thead>
 <tbody>
 <tr><td>File di Azure
@@ -96,7 +96,7 @@ Le unità SSD offrono le migliori prestazioni di archiviazione in Azure. Le opzi
 
 | Type         | Dimensione           | IOPS                  |
 |--------------|----------------|-----------------------|
-| Ultra SSD    | 4 GB a 64 TB  | 1.200 a 160,000 IOPS |
+| Ultra SSD    | 4 GB a 64 TB  | 1\.200 a 160,000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | IOPS di 12 a 15.000     |
 | SSD Standard | 32 GB a 32 TB | IOPS di 12 a 2.000      |
 
@@ -113,10 +113,10 @@ Archiviazione BLOB offre il massimo volume di archiviazione in Azure. Oltre alle
 ### <a name="ibm-resources"></a>Risorse di IBM
 
 - [Sysplex parallele in IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS e la funzionalità di controllo libero: Oltre le nozioni di base](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS e la funzionalità di controllo libero: Oltre le nozioni di base](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Creating required users for a Db2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2) (Creazione degli utenti necessari per l'installazione della funzionalità Db2 pureScale)
 - [Db2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html) (Db2icrt - Comando Crea istanza)
-- [DB2 pureScale Clustered soluzione di Database](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [DB2 pureScale Clustered soluzione di Database](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

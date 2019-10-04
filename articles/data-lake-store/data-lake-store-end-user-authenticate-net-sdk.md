@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66243718"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -30,26 +30,18 @@ ms.locfileid: "58876769"
 Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1. Per l'autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK, vedere [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Visual Studio 2013, 2015 o 2017**. Le istruzioni seguenti fanno riferimento a Visual Studio 2017.
+* **Visual Studio 2013 o versione successiva**. Le istruzioni seguenti usano Visual Studio 2019.
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Creare un'applicazione "nativa" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione dell'utente finale con Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
-1. Aprire Visual Studio e creare un'applicazione console.
-2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
-3. In **Nuovo progetto**digitare o selezionare i valori seguenti:
+1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
+2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
+3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
 
-   | Proprietà | Valore |
-   | --- | --- |
-   | Categoria |Templates/Visual C#/Windows |
-   | Modello |Applicazione console |
-   | NOME |CreateADLApplication |
-
-4. Fare clic su **OK** per creare il progetto.
-
-5. Aggiungere i pacchetti NuGet al progetto.
+4. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
    2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
@@ -61,8 +53,8 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione dell'
         ![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creare un nuovo account Azure Data Lake")
    4. Chiudere **Gestione pacchetti NuGet**.
 
-6. Aprire **Program.cs**
-7. Sostituire le istruzioni using con le righe seguenti:
+5. Aprire **Program.cs**
+6. Sostituire le istruzioni using con le righe seguenti:
 
     ```csharp
     using System;
@@ -82,7 +74,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione dell'
 ## <a name="end-user-authentication"></a>Autenticazione dell'utente finale
 Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione nativa Azure AD indicata come prerequisito. Questo frammento di codice consente di autenticare l'applicazione **in modo interattivo** con Data Lake Storage Gen1, ovvero viene chiesto di immettere le credenziali di Azure.
 
-Per semplicità, il frammento seguente usa valori predefiniti per ID client e URI di reindirizzamento validi con qualsiasi sottoscrizione di Azure. Nel frammento seguente è sufficiente fornire il valore per l'ID del tenant. È possibile recuperare l'ID del tenant usando le istruzioni fornite in [ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Per semplicità, il frammento seguente usa valori predefiniti per ID client e URI di reindirizzamento validi con qualsiasi sottoscrizione di Azure. Nel frammento seguente è sufficiente fornire il valore per l'ID del tenant. È possibile recuperare l'ID del tenant usando le istruzioni fornite in [ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Sostituire la funzione Main() con il codice seguente:
 

@@ -1,27 +1,27 @@
 ---
-title: Ottenere le modifiche alle risorse
+title: Ottenere le modifiche delle risorse
 description: Informazioni su come individuare quando è stata modificata una risorsa e ottenere un elenco delle proprietà che è stato modificato.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/20/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66236501"
 ---
-# <a name="get-resource-changes"></a>Ottenere le modifiche alle risorse
+# <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
 Ottengano trasformare le risorse tramite il corso di utilizzo giornaliero, riconfigurazione e persino la ridistribuzione.
 Modifica può provenire da un utente o da un processo automatizzato. La maggior parte delle modifiche è per impostazione predefinita, ma in alcuni casi non lo è. Con gli ultimi 14 giorni della cronologia delle modifiche, Graph risorse di Azure consente di:
 
-- Trovare le modifiche sono state rilevate su una proprietà di Azure Resource Manager.
-- Vedere quali le proprietà modificate come parte di tale evento di modifica.
+- Scoprire quando sono state rilevate modifiche a una proprietà di Azure Resource Manager.
+- Visualizzare le proprietà modificate come parte di tale evento di modifica.
 
 Rilevamento delle modifiche e dettagli sono utili per gli scenari di esempio seguenti:
 
@@ -29,7 +29,7 @@ Rilevamento delle modifiche e dettagli sono utili per gli scenari di esempio seg
 - Mantenere un Database di gestione, noto come un database CMDB, aggiornato. Anziché aggiornare tutte le risorse e i relativi set di proprietà completo in base a una frequenza pianificata, ottenere solo le modifiche apportate.
 - Informazioni su quali altre proprietà sono stati modificati quando una risorsa modificato lo stato di conformità. Valutazione di queste proprietà aggiuntive può offrire informazioni dettagliate sulle altre proprietà che potrebbero dover essere gestito tramite una definizione di criteri di Azure.
 
-Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) Log attività di Azure oppure [cronologia delle modifiche](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Dettagli di modifica nella risorsa Graph sono per le proprietà di Resource Manager. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere l'automazione di Azure [rilevamento modifiche](../../../automation/automation-change-tracking.md) o criteri di Azure [configurazione Guest per macchine virtuali](../../policy/concepts/guest-configuration.md).
@@ -39,12 +39,12 @@ Questo articolo illustra come raccogliere tali informazioni tramite SDK di risor
 
 ## <a name="find-when-changes-were-detected"></a>Individuare quando sono state rilevate modifiche
 
-Il primo passaggio per visualizzare le modifiche apportate in una risorsa è per trovare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Questo passaggio viene eseguito tramite il [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) endpoint REST.
+Il primo passaggio per visualizzare le modifiche apportate in una risorsa è per trovare gli eventi di modifica correlati a tale risorsa in un intervallo di tempo. Questo passaggio viene eseguito tramite il **resourceChanges** endpoint REST.
 
 Il **resourceChanges** endpoint richiede due parametri nel corpo della richiesta:
 
 - **resourceId**: La risorsa di Azure per cercare le modifiche.
-- **interval**: Una proprietà con _avviare_ e _finali_ date di cui si vuole verificare la presenza di un evento di modifica utilizzando il **Zulu fuso orario (Z)**.
+- **interval**: Una proprietà con _avviare_ e _finali_ date di cui si vuole verificare la presenza di un evento di modifica utilizzando il **Zulu fuso orario (Z)** .
 
 Corpo della richiesta di esempio:
 
@@ -69,7 +69,7 @@ La risposta sarà simile a questo esempio:
 ```json
 {
     "changes": [{
-            "changeId": "2db0ad2d-f6f0-4f46-b529-5c4e8c494648",
+            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
             "beforeSnapshot": {
                 "timestamp": "2019-03-29T01:32:05.993Z"
             },
@@ -95,7 +95,7 @@ Si è verificato l'evento di modifica a un certo punto in questa finestra di tem
 
 ## <a name="see-what-properties-changed"></a>Vedere le novità delle proprietà
 
-Con il **changeId** dalle **resourceChanges** endpoint, il [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) endpoint REST viene quindi usato per ottenere informazioni specifiche dell'evento di modifica.
+Con il **changeId** dalle **resourceChanges** endpoint, il **resourceChangeDetails** endpoint REST viene quindi usato per ottenere informazioni specifiche dell'evento di modifica.
 
 Il **resourceChangeDetails** endpoint richiede due parametri nel corpo della richiesta:
 
@@ -107,8 +107,7 @@ Corpo della richiesta di esempio:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -122,7 +121,7 @@ La risposta sarà simile a questo esempio:
 
 ```json
 {
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556",
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
     "beforeSnapshot": {
         "timestamp": "2019-03-29T01:32:05.993Z",
         "content": {

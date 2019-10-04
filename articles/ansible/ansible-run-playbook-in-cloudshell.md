@@ -1,52 +1,54 @@
 ---
-title: Esecuzione di Ansible con Bash in Azure Cloud Shell
-description: Informazioni su come eseguire diverse attività di Ansible con Bash in Azure Cloud Shell
-ms.service: azure
+title: Avvio rapido - Eseguire i playbook di Ansible tramite Bash in Azure Cloud Shell | Microsoft Docs
+description: In questo argomento di avvio rapido viene illustrato come eseguire diverse attività di Ansible con Bash in Azure Cloud Shell
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/07/2018
-ms.topic: quickstart
-ms.openlocfilehash: 37426f1cdc51734c28b2c9739e26ad35f08e606f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 083d10de94c39ab134b8e475b66ebf2df30088bc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791393"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407660"
 ---
-# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Esecuzione di Ansible con Bash in Azure Cloud Shell
+# <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Guida introduttiva: Esegui i playbook di Ansible tramite Bash in Azure Cloud Shell
 
-Questa esercitazione descrive come usare Bash in Cloud Shell per configurare una sottoscrizione di Azure come area di lavoro di Ansible. 
+Azure Cloud Shell è una shell interattiva accessibile dal browser per la gestione delle risorse di Azure. Cloud Shell consente di usare una riga di comando di Bash o di PowerShell. In questo articolo si usa Bash in Azure Cloud Shell per eseguire un playbook di Ansible.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Sottoscrizione di Azure**: se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- **Configurare Azure Cloud Shell**: se non si ha familiarità con Azure Cloud Shell, l'articolo [Guida introduttiva a Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) descrive come avviare e configurare Cloud Shell. 
-
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Configurare Azure Cloud Shell**: se non si ha familiarità con Azure Cloud Shell, vedere [Avvio rapido per Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Configurazione automatica delle credenziali
 
-Quando si è connessi a Cloud Shell per gestire l'infrastruttura, Ansible viene autenticato in Azure senza la necessità di configurazioni aggiuntive. Se si hanno più sottoscrizioni, è possibile scegliere quale sottoscrizione Ansible dovrebbe funzionare esportando la `AZURE_SUBSCRIPTION_ID` variabile di ambiente. Per visualizzare un elenco di tutte le sottoscrizioni di Azure, eseguire il comando seguente:
+Quando si è connessi a Cloud Shell per gestire l'infrastruttura, Ansible viene autenticato in Azure senza la necessità di configurazioni aggiuntive. 
+
+Quando si usano più sottoscrizioni, specificare la sottoscrizione usata da Ansible esportando la variabile di ambiente `AZURE_SUBSCRIPTION_ID`. 
+
+Per visualizzare un elenco di tutte le sottoscrizioni di Azure, eseguire il comando seguente:
 
 ```azurecli-interactive
 az account list
 ```
 
-Usando l’**id** della sottoscrizione con cui si desidera lavorare, impostare **AZURE_SUBSCRIPTION_ID** come indicato di seguito:
+Usando l'ID della sottoscrizione di Azure, impostare `AZURE_SUBSCRIPTION_ID` come segue:
 
 ```azurecli-interactive
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
 ## <a name="verify-the-configuration"></a>Verificare la configurazione
-Per verificare la configurazione, usare Ansible per creare un gruppo di risorse.
+Per verificare la configurazione, usare Ansible per creare un gruppo di risorse di Azure.
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
-> [Creare una macchina virtuale di base in Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Guida introduttiva: Configurare una macchina virtuale in Azure usando Ansible](/azure/virtual-machines/linux/ansible-create-vm)

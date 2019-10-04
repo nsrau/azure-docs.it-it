@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS di Azure
-description: Bilanciare il carico tra più contenitori in un cluster DC/OS del servizio contenitore di Azure.
+description: Bilanciare il carico tra più contenitori in un cluster DC/OS del servizio Azure Container.
 services: container-service
 author: rgardler
 manager: jeconnoc
@@ -10,17 +10,17 @@ ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66148870"
 ---
-# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS del servizio contenitore di Azure
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio contenitore di Azure gestito di tipo DC/OS con Marathon-LB. Questa configurazione supporta la scalabilità orizzontale delle applicazioni e consente anche di sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato. In questa esercitazione si apprenderà come:
+Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio Azure Container gestito di tipo DC/OS con Marathon-LB. Questa configurazione supporta la scalabilità orizzontale delle applicazioni e consente anche di sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare un servizio di bilanciamento del carico Marathon
@@ -35,9 +35,9 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 ## <a name="load-balancing-overview"></a>Panoramica del bilanciamento del carico
 
-In un cluster DC/OS del servizio contenitore di Azure esistono due livelli di bilanciamento del carico: 
+In un cluster DC/OS del servizio Azure Container esistono due livelli di bilanciamento del carico: 
 
-**Azure Load Balancer** offre punti di ingresso pubblici, ovvero i punti accessibili per gli utenti finali. Questa funzionalità viene fornita automaticamente dal servizio contenitore di Azure ed è configurata per impostazione predefinita in modo da esporre le porte 80, 443 e 8080.
+**Azure Load Balancer** offre punti di ingresso pubblici, ovvero i punti accessibili per gli utenti finali. Questa funzionalità viene fornita automaticamente dal servizio Azure Container ed è configurata per impostazione predefinita in modo da esporre le porte 80, 443 e 8080.
 
 Il **servizio di bilanciamento del carico Marathon (marathon-lb)** indirizza le richieste in ingresso a istanze del contenitore che gestiscono tali richieste. Quando i contenitori che mettono a disposizione il servizio Web vengono ridimensionati, marathon-lb si adatta in modo dinamico. Questo servizio di bilanciamento del carico non viene fornito per impostazione predefinita nel servizio contenitore, ma è semplice da installare.
 

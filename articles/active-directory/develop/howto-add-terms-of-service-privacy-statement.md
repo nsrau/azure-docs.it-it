@@ -3,8 +3,8 @@ title: Le condizioni del servizio e informativa sulla privacy per le app | Azure
 description: Informazioni su come configurare le condizioni per l'utilizzo del servizio e l'informativa sulla privacy per le app registrate per l'uso di Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410551"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482857"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
 
@@ -44,7 +44,7 @@ Gli esempi seguenti mostrano l'esperienza di consenso dell'utente quanto le cond
 
 Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy, assicurarsi che gli URL rispettino queste linee guida.
 
-| Linee guida     | DESCRIZIONE                           |
+| Linee guida     | Descrizione                           |
 |---------------|---------------------------------------|
 | Format        | URL valido                             |
 | Schemi validi | HTTP e HTTPS<br/>Si consiglia HTTPS |
@@ -56,33 +56,20 @@ Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statem
 
 Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono pronte, è possibile aggiungere collegamenti a questi documenti nell'app con uno dei metodi seguenti:
 
-* [Tramite il portale di Azure](#registered-in-azure-portal)
-* [Nel portale di registrazione delle applicazioni, o Dev Center](#registered-in-app-reg-portal)
+* [Tramite il portale di Azure](#azure-portal)
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Se l'app è stata registrata nel portale di Azure
-
-Seguire questa procedura se l'app è stata registrata nel portale di Azure.
+### <a name="azure-portal"></a>Nel portale di Azure
+Seguire questi passaggi nel portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
-3. Aprire la sezione **Proprietà** dell'app.
+3. Aprire il **Branding** riquadro.
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
 5. Salvare le modifiche.
 
-    ![Sezione delle proprietà dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Se l'app è stata registrata nel portale di registrazione delle applicazioni
-
-Seguire questa procedura se l'app è stata registrata nel portale di registrazione delle applicazioni o DevCenter.
-
-1. Accedere al [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
-2. Selezionare l'app e scorrere fino alla sezione **Profilo**.
-3. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
-4. Salvare le modifiche.
-
-    ![Sezione del profilo dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Proprietà dell'App contiene termini di servizio e la privacy URL di istruzione](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 

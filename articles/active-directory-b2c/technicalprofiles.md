@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Specificare l'elemento Technicalprofiles di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360130"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998751"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -74,18 +74,18 @@ Un elemento **TechnicalProfiles** contiene un set di profili tecnici supportati 
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 |---------|---------|---------|
-| ID | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
+| ID | Yes | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | Il nome di dominio per il profilo tecnico. Ad esempio, se il profilo tecnico specifica il provider di identità Facebook, il nome di dominio è Facebook.com. |
 | DisplayName | 0:1 | Il nome del profilo tecnico che può essere visualizzato dagli utenti. |
-| DESCRIZIONE | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
-| Protocollo | 0:1 | Il protocollo usato per la comunicazione con altre entità. |
+| Descrizione | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
+| Protocol | 0:1 | Il protocollo usato per la comunicazione con altre entità. |
 | Metadata | 0:1 | Una raccolta di coppie di chiavi/valori che vengono usate dal protocollo per comunicare con l'endpoint durante la transazione. |
 | InputTokenFormat | 0:1 | Il formato del token di input. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. Il valore `JWT` rappresenta un Token JSON Web in base alla specifica IETF. Il valore `SAML11` rappresenta un token di sicurezza SAML 1.1 in base alla specifica di OASIS.  Il valore `SAML2` rappresenta un token di sicurezza SAML 2.0 in base alla specifica di OASIS. |
 | OutputTokenFormat | 0:1 | Il formato del token di output. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. |
@@ -102,20 +102,20 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | UseTechnicalProfileForSessionManagement | 0:1 | Un profilo tecnico diverso da usare per la gestione della sessione. |
 |EnabledForUserJourneys| 0:1 |Controlla se il profilo tecnico viene eseguito in un percorso utente.  |
 
-### <a name="protocol"></a>Protocollo
+### <a name="protocol"></a>Protocol
 
 L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` o `None`. |
-| Gestore | No  | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
+| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` `OAuth2` ,,`OpenIdConnect` ,,`Proprietary`, ,`self-asserted`o. `session management` `SAML2` `None` |
+| Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
 
 ### <a name="metadata"></a>Metadata
 
 L'elemento **Metadata** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
 
@@ -139,16 +139,16 @@ L'elemento **CryptographicKeys** contiene l'elemento seguente:
 
 L'elemento **Chiave** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | No  | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
+| ID | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
 | StorageReferenceId | Sì | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
 L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | L'identificatore di una trasformazione di attestazioni che deve essere eseguita prima che le attestazioni siano inviate al provider di attestazioni o relying party. Una trasformazione delle attestazioni può essere usata per modificare le attestazioni ClaimsSchema esistenti o generarne di nuove. |
 
@@ -172,17 +172,17 @@ L'elemento **InputClaims** contiene l'elemento seguente:
 
 L'elemento **InputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DefaultValue | No  | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
-| PartnerClaimType | No  | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
+| DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
+| PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
 L'elemento **PersistedClaims** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Il tipo di attestazione da mantenere. |
 
@@ -193,8 +193,8 @@ L'elemento **PersistedClaim** contiene gli attributi seguenti:
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DefaultValue | No  | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
-| PartnerClaimType | No  | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
+| DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
+| PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -208,12 +208,12 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DefaultValue | No  | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
-|AlwaysUseDefaultValue |No  |Forzare l'uso del valore predefinito.  |
-| PartnerClaimType | No  | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
+| ClaimTypeReferenceId | Yes | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
+| DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
+|AlwaysUseDefaultValue |No |Forzare l'uso del valore predefinito.  |
+| PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 ### <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 
@@ -227,7 +227,7 @@ L'elemento **OutputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -235,7 +235,7 @@ L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
 L'elemento **ValidationTechnicalProfiles** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Gli identificatori dei profili tecnici che consentono di convalidare alcune o tutte le attestazioni di output del profilo tecnico di riferimento. Tutte le attestazioni di input del profilo tecnico a cui si fa riferimento devono essere visualizzate nelle attestazioni di output del profilo tecnico di riferimento. |
 
@@ -253,13 +253,13 @@ Il **SubjectNamingInfo** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ClaimType | Sì | Un identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri. |
+| ClaimType | Yes | Un identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri. |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
 L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -267,7 +267,7 @@ L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
 L'elemento **UseTechnicalProfileForSessionManagement** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 

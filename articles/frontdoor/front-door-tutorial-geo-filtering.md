@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: e40e99aa57d10bd69143efc8db38ac0071d8952f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793587"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827761"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Come configurare un criterio web application firewall di filtro geografico per Frontdoor
-Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi tranne gli Stati Uniti.
+Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi/aree tranne gli Stati Uniti.
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,8 +35,8 @@ Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Man
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Connettersi ad Azure con una finestra di dialogo interattiva per l'accesso
 ```
-Connect-AzAccount
 Install-Module -Name Az
+Connect-AzAccount
 ```
 Assicurarsi di avere la versione corrente di PowerShellGet installata. Eseguire il comando seguente e riaprire PowerShell.
 
@@ -53,10 +54,10 @@ Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvi
 
 ## <a name="define-geo-filtering-match-condition"></a>Definire la condizione di corrispondenza del filtro geografico
 
-Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) con parametri. Il mapping tra gli indicativi di due lettere e i paesi è disponibile [qui](front-door-geo-filtering.md).
+Creare una condizione di corrispondenza di esempio che seleziona le richieste non provenienti da "US" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) con parametri. Il mapping tra gli indicativi di due lettere e i paesi è disponibile [qui](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
-$nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
+$nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable RemoteAddr `
 -OperatorProperty GeoMatch `
 -NegateCondition $true `
@@ -65,10 +66,10 @@ $nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Aggiungere una condizione di corrispondenza del filtro geografico a una regola con Action e Priority
 
-Creare un oggetto CustomRule `nonUSBlockRule` basato sulla condizione di corrispondenza, un'azione (Action) e una priorità (Priority) usando [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject).  Un oggetto CustomRule può avere più condizioni di corrispondenza (MatchCondition).  In questo esempio, Action è impostata su Block e Priority su 1, la priorità più alta.
+Creare un oggetto CustomRule `nonUSBlockRule` basato sulla condizione di corrispondenza, un'azione (Action) e una priorità (Priority) usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Un oggetto CustomRule può avere più condizioni di corrispondenza (MatchCondition).  In questo esempio, Action è impostata su Block e Priority su 1, la priorità più alta.
 
 ```
-$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+$nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "geoFilterRule" `
 -RuleType MatchRule `
 -MatchCondition $nonUSGeoMatchCondition `
@@ -77,12 +78,12 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Aggiungere regole a un criterio
-Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzResourceGroup`. Creare quindi un oggetto criterio `geoPolicy` contenente `nonUSBlockRule` usando [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) nel gruppo di risorse specificato che contiene il profilo Frontdoor. È necessario specificare un nome univoco per il criterio geografico. 
+Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzResourceGroup`. Creare quindi un oggetto criterio `geoPolicy` contenente `nonUSBlockRule` usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo Frontdoor. È necessario specificare un nome univoco per il criterio geografico. 
 
 L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un profilo Frontdoor](quickstart-create-front-door.md). Nell'esempio seguente sostituire il nome del criterio *geoPolicyAllowUSOnly* con un nome univoco del criterio.
 
 ```
-$geoPolicy = New-AzFrontDoorFireWallPolicy `
+$geoPolicy = New-AzFrontDoorWafPolicy `
 -Name "geoPolicyAllowUSOnly" `
 -resourceGroupName myResourceGroupFD1 `
 -Customrule $nonUSBlockRule  `
@@ -110,6 +111,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > È sufficiente impostare la proprietà WebApplicationFirewallPolicyLink una sola volta per collegare un criterio web application firewall a un host front-end di Frontdoor. Gli aggiornamenti successivi del criterio vengono applicati automaticamente all'host front-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Informazioni sulla [sicurezza del livello dell'applicazione con Frontdoor](front-door-application-security.md).
+- Informazioni sul [web application firewall di Azure](waf-overview.md).
 - Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).

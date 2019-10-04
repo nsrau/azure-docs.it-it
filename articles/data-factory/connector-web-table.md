@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: e578b3a6b3905569567b568b0130c1ed1b90d915
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 164b61d624efbe1ed6127f1ed974b221f4e4d304
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019394"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089159"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-web-table-connector.md)
 > * [Versione corrente](connector-web-table.md)
 
@@ -33,6 +33,11 @@ La differenza tra questo connettore Tabella Web, il [connettore REST](connector-
 - Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. 
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Questo connettore della tabella Web è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database Tabella Web in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -52,12 +57,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Web** |Yes |
-| URL | URL dell'origine Web |Yes |
+| url | URL dell'origine Web |Sì |
 | authenticationType | Il valore consentito è: **Anonymous**. |Yes |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
 
@@ -78,17 +83,17 @@ Per il servizio collegato di Tabella Web sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Tabella Web.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Tabella Web.
 
 Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su **WebTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Yes |
-| path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
+| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**
 
@@ -97,13 +102,14 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": {
-            "referenceName": "<Web linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }
@@ -176,6 +182,10 @@ Per ottenere l'indice di una tabella che è necessario configurare nelle [propri
 
 Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379) . Per informazioni dettagliate, vedere l'articolo [Connettersi a una pagina Web (Power Query)](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,9 +1,9 @@
 ---
 title: Cosa è successo a un progetto di servizi di cloud? | Microsoft Docs
-description: 'Viene descritto cosa succede in un progetto di servizi di cloud dopo la connessione a un account di archiviazione di Azure utilizzando i servizi connessi a Visual Studio '
+description: Viene descritto cosa succede in un progetto di servizi di cloud dopo la connessione a un account di archiviazione di Azure utilizzando i servizi connessi a Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: b0adceb42109f07658e56cebde3fbc4401478a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d96e523b6e4e060eaef33de0f961e7020e5dfb57
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391090"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510629"
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>Cosa è successo a un progetto di servizi di cloud (servizio connesso a Visual Studio Archiviazione di Azure)?
 ## <a name="references-added"></a>Aggiunta di riferimenti

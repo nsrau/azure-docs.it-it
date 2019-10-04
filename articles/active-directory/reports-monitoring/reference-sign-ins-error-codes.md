@@ -3,7 +3,7 @@ title: Codici di errore del report delle attività di accesso nel portale di Azu
 description: Informazioni di riferimento sui codici di errore del report delle attività di accesso.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
-ms.author: markvi
+ms.date: 08/08/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437152"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383181"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -30,7 +30,7 @@ Le informazioni contenute nel [report relativo agli accessi utente](concept-sign
 
 - Chi ha eseguito l'accesso all'applicazione?
 - A quali applicazioni è stato eseguito l'accesso?
-- Quali accessi non sono riusciti e perché?
+- Quali accessi hanno avuto esito negativo e perché?
 
 Quando un accesso non riesce, verrà visualizzato un codice errore corrispondente all'operazione non riuscita. Questo articolo elenca i codici di errore con le relative descrizioni, oltre a una linea di condotta suggerita, ove applicabile. 
 
@@ -53,7 +53,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 ## <a name="error-codes"></a>Codici di errore
 
 
-|Tipi di errore|DESCRIZIONE|
+|Errore|Descrizione|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -66,7 +66,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50001|Il nome dell'entità servizio non è stato trovato in questo tenant. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o se l'entità risorsa non è stata trovata nella directory o non è valida.|
 |50002|L'accesso non è riuscito a causa delle limitazioni dell'accesso proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo.|
 |50003|L'accesso non è riuscito a causa di una chiave di firma o un certificato mancante. Ciò può essere dovuto all'assenza di una chiave di firma configurata nell'applicazione. Vedere le soluzioni illustrate in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario dell'applicazione o l'amministratore dell'applicazione.|
-|50005|L'utente ha cercato di eseguire l'accesso a un dispositivo da una piattaforma attualmente non supportata tramite criteri di accesso condizionale.|
+|50005|L'utente ha tentato di eseguire l'accesso a un dispositivo da una piattaforma che attualmente non è supportata tramite i criteri di accesso condizionale.|
 |50006| La verifica della firma non è riuscita perché la firma non è valida. Vedere la soluzione illustrata in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Se il problema persiste, contattare il proprietario dell'applicazione o l'amministratore dell'applicazione.|
 |50007|Non è stato trovato il certificato di crittografia del partner per l'applicazione. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) presso Microsoft per richiedere la risoluzione del problema.|
 |50008|L'asserzione SAML non è presente o è configurata in modo errato nel token. Contattare il provider di federazione.|
@@ -79,7 +79,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50027|Token JWT non valido a causa dei motivi seguenti:<ul><li>Non contiene un'attestazione nonce o un'attestazione secondaria</li><li>L'identificatore soggetto non corrisponde</li><li>Attestazione duplicata nelle attestazioni idToken</li><li>Autorità di certificazione imprevista</li><li>Destinatari imprevisti</li><li>Al di fuori dell'intervallo di tempo valido </li><li>Formato del token non corretto</li><li>Il token ID esterno dell'autorità di certificazione non ha superato la verifica della firma</li></ul>Contattare il proprietario dell'applicazione.|
 |50029|URI non valido. Il nome di dominio contiene caratteri non validi. Contattare l'amministratore del tenant.|
 |50034|L'utente non è presente nella directory. Contattare l'amministratore del tenant.|
-|50042|Il valore salt obbligatorio per generare un identificatore pairwise non è presente in linea di principio. Contattare l'amministratore del tenant.|
+|50042|Il Salt necessario per generare un identificatore pairwise è mancante in principio. Contattare l'amministratore del tenant.|
 |50048|Mancata corrispondenza tra soggetto e attestazione dell'autorità di certificazione nell'asserzione del client. Contattare l'amministratore del tenant.|
 |50050|Il formato della richiesta non è valido. Contattare il proprietario dell'applicazione.|
 |50053|L'account è bloccato perché l'utente ha cercato di accedere troppe volte con una combinazione non corretta di ID utente e password.|
@@ -107,7 +107,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50128|Nome di dominio non valido. Non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite.|
 |50129|Il dispositivo non è aggiunto all'area di lavoro: per registrare il dispositivo è necessaria l'**aggiunta alla rete aziendale**.|
 |50130|Il valore attestazione non può essere interpretato come metodo di autenticazione noto.|
-|50131|Usato in diversi errori di accesso condizionale. ad esempio Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
+|50131|Utilizzato in diversi errori di accesso condizionale. ad esempio Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
 |50132|Le credenziali sono state revocate per i motivi seguenti:<ul><li>L'elemento SSO non è valido o è scaduto</li><li>La sessione non è sufficientemente aggiornata per l'applicazione</li><li>È stata inviata una richiesta di accesso automatico, ma la sessione dell'utente con Azure AD non è valida o è scaduta.</li></ul>|
 |50133|La sessione non è valida perché è scaduta o la password è stata modificata di recente.|
 |50135|È richiesta la modifica della password a causa di rischi per l'account.|
@@ -127,13 +127,14 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50177|La richiesta di verifica esterna non è supportata per gli utenti pass-through.|
 |50178|Il controllo della sessione non è supportato per gli utenti pass-through.|
 |50180|È necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO.|
+|50201|Questo messaggio di interrupt verrà visualizzato all'utente durante l'accesso quando verranno fornite informazioni aggiuntive all'utente.|
 |51001|Non è presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale.|
 |51004|L'account utente non è presente nella directory.|
-|51006|È necessaria l'autenticazione integrata di Windows. L'accesso con token di sessione non è presente tramite attestazione utente. Chiedere all'utente di eseguire di nuovo l'accesso.|
+|51006|È necessaria l'autenticazione integrata di Windows. Utente che ha eseguito l'accesso con il token di sessione mancante tramite attestazione. Chiedere all'utente di eseguire di nuovo l'accesso.|
 |52004|L'utente non ha fornito il consenso per l'accesso alle risorse di LinkedIn. |
 |53000|Il criterio di accesso condizionale richiede un dispositivo conforme e il dispositivo non è conforme. Chiedere all'utente di registrare il dispositivo con un provider MDM approvato, come Intune.|
 |53001|I criteri di accesso condizionale richiedono un dispositivo aggiunto al dominio e il dispositivo non è aggiunto al dominio. Chiedere all'utente di usare un dispositivo aggiunto al dominio.|
-|53002|L'applicazione usata non è un'applicazione approvata per l'accesso condizionale. L'utente deve usare una delle app dell'elenco di applicazioni approvate per l'uso per ottenere l'accesso.|
+|53002|L'applicazione utilizzata non è un'applicazione approvata per l'accesso condizionale. L'utente deve usare una delle app dell'elenco di applicazioni approvate per l'uso per ottenere l'accesso.|
 |53003|L'accesso è stato bloccato a causa di criteri di accesso condizionale.|
 |53004|L'utente deve completare il processo di registrazione dell'autenticazione a più fattori prima di accedere al contenuto. L'utente deve eseguire la registrazione per l'autenticazione a più fattori.|
 |65001|L'applicazione X non è autorizzata ad accedere all'applicazione Y o l'autorizzazione è stata revocata. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare all'amministratore del tenant una richiesta di autorizzazione ad agire per conto dell'applicazione Y per la risorsa Z.|
@@ -152,6 +153,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |70018|Codice di verifica non valido a causa di un errore di digitazione del codice utente per il flusso di codice del dispositivo. L'autorizzazione non è stata approvata.|
 |70019|Il codice di verifica è scaduto. Chiedere all'utente di provare a ripetere l'accesso.|
 |70037|È stata fornita una risposta non corretta alla richiesta di verifica. Sessione di autorizzazione remota negata.|
+|70043|La gestione della sessione di accesso condizionale di Azure impone la scadenza della sessione|
+|70044|La gestione della sessione di accesso condizionale di Azure impone la scadenza della sessione|
 |75001|Si è verificato un errore durante l'associazione di messaggi SAML.|
 |75003|L'applicazione ha restituito un errore relativo a un'associazione non supportata (la risposta del protocollo SAML non può essere inviata tramite associazioni diverse da HTTP POST). Contattare il proprietario dell'applicazione.|
 |75005|Azure AD non supporta la richiesta di SAML inviata dall'applicazione per il Single Sign-On. Contattare il proprietario dell'applicazione.|
@@ -174,11 +177,18 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |81012|Questa non è una condizione di errore. Indica che l'utente che sta tentando di accedere ad Azure AD è diverso dall'utente che ha eseguito l'accesso al dispositivo. È possibile ignorare questo messaggio di errore nei log.|
 |90010|La richiesta non è supportata per diversi motivi. La richiesta viene effettuata ad esempio con un metodo di richiesta non supportata (solo il metodo POST è supportato) o l'algoritmo di firma del token richiesto non è supportato. Contattare lo sviluppatore dell'applicazione.|
 |90014| Un campo obbligatorio per un messaggio di protocollo non è presente. Contattare il proprietario dell'applicazione. Il proprietario dell'applicazione deve verificare di disporre di tutti i parametri necessari per la richiesta di accesso. |
-|90051| Token di delega non è valido. Viene specificato l'ID del Cloud nazionale non valida ({cloudId}).|
+|90051| Token di delega non valido. È stato specificato un ID cloud nazionale non valido ({cloudId}).|
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
 |90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
+|500021|Il tenant è limitato dal proxy aziendale. Negazione dell'accesso alle risorse.|
+|500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
-|530021|Applicazione non soddisfa i requisiti delle app approvata l'accesso condizionale.|
+|530021|L'applicazione non soddisfa i requisiti dell'app approvata per l'accesso condizionale.|
+|530032|Bloccato dai criteri di sicurezza.| 
+|700016|L'applicazione con identificatore ' {appIdentifier}' non è stata trovata nella directory ' {TenantName}'. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che sia stata inviata la richiesta di autenticazione al tenant errato.|
+|900432|Il client riservato non è supportato nella richiesta tra cloud.|
+|7000218|Il corpo della richiesta deve contenere il parametro seguente:' client_assertion ' o ' client_secret '.|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

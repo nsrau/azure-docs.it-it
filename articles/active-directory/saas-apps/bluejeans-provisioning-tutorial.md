@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84870ef03e07cdabe994da7c04a103bead48d34f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281952"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672988"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Esercitazione: Configurare BlueJeans per il provisioning utenti automatico
 
@@ -47,7 +47,7 @@ Prima di configurare BlueJeans per il provisioning utenti automatico con Azure A
 
 **Per aggiungere BlueJeans dalla raccolta di applicazioni di Azure AD, eseguire queste operazioni:**
 
-1. Nel  **[portale di Azure](https://portal.azure.com)**, nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
+1. Nel  **[portale di Azure](https://portal.azure.com)** , nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 

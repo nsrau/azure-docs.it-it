@@ -1,5 +1,5 @@
 ---
-title: Endpoint del servizio e regole della rete virtuale per il bus di servizio di Azure | Microsoft Docs
+title: Endpoint servizio e regole di rete virtuale per il bus di servizio di Azure | Microsoft Docs
 description: Aggiungere un endpoint del servizio Microsoft.ServiceBus a una rete virtuale.
 services: service-bus
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61471962"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint del servizio Rete virtuale con il bus di servizio di Azure
+# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure
 
 L'integrazione del bus di servizio con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità.
 
@@ -60,11 +60,11 @@ Questo significa che le soluzioni cloud con requisiti di sicurezza elevati non s
 
 ## <a name="binding-service-bus-to-virtual-networks"></a>Associazione del bus di servizio alle reti virtuali
 
-Le *regole della rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server del bus di servizio di Azure accetta le comunicazioni inviate da una subnet specifica della rete virtuale.
+Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server del bus di servizio di Azure accetta le comunicazioni inviate da una subnet specifica della rete virtuale.
 
-L'associazione di uno spazio dei nomi del bus di servizio a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint del servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.ServiceBus" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi del bus di servizio all'endpoint con una *regola della rete virtuale*.
+L'associazione di uno spazio dei nomi del bus di servizio a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.ServiceBus" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi del bus di servizio all'endpoint con una *regola di rete virtuale*.
 
-La regola della rete virtuale è un'associazione tra lo spazio dei nomi del bus di servizio e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi del bus di servizio. Il bus di servizio non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
+La regola di rete virtuale è un'associazione tra lo spazio dei nomi del bus di servizio e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi del bus di servizio. Il bus di servizio non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creazione di una regola di rete virtuale con i modelli di Azure Resource Manager
 
@@ -76,7 +76,7 @@ Parametri del modello:
 * **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > from

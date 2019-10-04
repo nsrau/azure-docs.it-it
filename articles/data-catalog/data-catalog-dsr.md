@@ -1,18 +1,17 @@
 ---
 title: Origini dati supportate in Azure Data Catalog
-description: Questo articolo elenca le specifiche delle origini dati attualmente supportate.
-services: data-catalog
+description: In questo articolo vengono elencate le specifiche delle origini dati attualmente supportate per Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 8b584e06697f9f4212fe0d1d59c29e4670a87eda
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008614"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950268"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
 
@@ -30,7 +29,7 @@ ms.locfileid: "60008614"
        <td><b>Note</b></td>
     </tr>
     <tr>
-      <td>Directory di Azure Data Lake Store (solo generazione 1)</td>
+      <td>Azure Data Lake Store directory (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ ms.locfileid: "60008614"
       <td></td>
     </tr>
     <tr>
-      <td>File di Azure Data Lake Store (solo generazione 1)</td>
+      <td>File Azure Data Lake Store (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -67,10 +66,8 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>
@@ -154,7 +151,7 @@ ms.locfileid: "60008614"
       <td></td>
     </tr>
     <tr>
-      <td>Vista di SQL Data Warehouse</td>
+      <td>Visualizzazione Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -167,7 +164,7 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>KPI di SQL Server Analysis Services</td>
@@ -175,7 +172,7 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>Misura di SQL Server Analysis Services</td>
@@ -183,7 +180,7 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>Tabella di SQL Server Analysis Services</td>
@@ -191,7 +188,7 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>Report di SQL Server Reporting Services</td>
@@ -199,15 +196,15 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Solo server in modalità nativa. Modalità SharePoint non supportata.</td>
+      <td>Solo server in modalità nativa. Modalità SharePoint non supportata. Solo SQL Server 2008 e versioni successive</td>
     </tr>
     <tr>
-      <td>Tabella di SQL Server</td>
+      <td>Tabella SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>Visualizzazione SQL Server</td>
@@ -215,7 +212,7 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
       <td>Tabella Teradata</td>
@@ -232,6 +229,14 @@ ms.locfileid: "60008614"
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Funziona solo in lingua inglese. Misure non supportate.</td>
     </tr>
     <tr>
       <td>Vista di SAP HANA</td>

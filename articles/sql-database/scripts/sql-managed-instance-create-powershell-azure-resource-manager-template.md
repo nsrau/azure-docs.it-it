@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5a60e8efad41c94deeedd545e6e0c1c96ff04e25
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790010"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569722"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Usare PowerShell con un modello di Azure Resource Manager per creare un'istanza gestita nel database SQL di Azure
 
@@ -25,7 +24,7 @@ ms.locfileid: "59790010"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

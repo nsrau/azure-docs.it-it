@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Creare un esperimento di data science'
+title: 'Guida introduttiva: Creare un esperimento di data science'
 titleSuffix: Azure Machine Learning Studio
 description: Questa guida introduttiva di Machine Learning illustra un esperimento semplice di data science. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105727"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515104"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Avvio rapido: Creare il primo esperimento data science in Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Guida introduttiva: Creare il primo esperimento data science in Azure Machine Learning Studio
 
 In questa guida introduttiva si crea un esperimento di apprendimento automatico in [Azure Machine Learning Studio](what-is-ml-studio.md) per stimare il prezzo di un'automobile in base a diverse variabili, ad esempio il marchio e le specifiche tecniche.
 
@@ -53,13 +53,13 @@ Questo set di dati include voci per diverse automobili e include informazioni su
 
 Di seguito viene illustrato come ottenere il set di dati nell'esperimento.
 
-1. Creare un nuovo esperimento facendo clic su **+NEW** (NUOVO) nella parte inferiore della finestra di Machine Learning Studio. Selezionare **EXPERIMENT (ESPERIMENTO)** >  **Blank Experiment** (Esperimento vuoto).
+1. Creare un nuovo esperimento facendo clic su **+NEW** (NUOVO) nella parte inferiore della finestra di Machine Learning Studio. Selezionare **EXPERIMENT (ESPERIMENTO)**  >  **Blank Experiment** (Esperimento vuoto).
 
 1. All'esperimento viene assegnato un nome predefinito visualizzato nella parte superiore dell'area di disegno. Selezionare il testo e rinominarlo in modo significativo, ad esempio **Stima prezzi automobili**. Il nome non deve essere univoco.
 
     ![Rinominare l'esperimento](./media/create-experiment/rename-experiment.png)
 
-1. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per trovare il set di dati denominato **Automobile price data (Raw)**. Trascinare il set di dati nell'area di disegno dell'esperimento.
+1. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per trovare il set di dati denominato **Automobile price data (Raw)** . Trascinare il set di dati nell'area di disegno dell'esperimento.
 
     ![Individuare il set di dati delle automobili e trascinarlo nel canvas dell'esperimento](./media/create-experiment/type-automobile.png)
 
@@ -93,7 +93,7 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
 
     ![Aggiungere il modulo "Select Columns in Dataset" al canvas dell'esperimento e connetterlo](./media/create-experiment/type-select-columns.png)
 
-1. Fare clic su [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Properties** (Proprietà).
+1. Fare clic su [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e quindi su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Properties** (Proprietà).
 
    - A sinistra, fare clic su **With rules** (Con regole)
    - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). Queste regole indicano a [Select Columns in Dataset][select-columns] di analizzare tutte le colonne, ad eccezione di quelle che verranno escluse.
@@ -122,7 +122,7 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
     ![Dopo l'esecuzione, l'esperimento avrà l'aspetto seguente](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
-> Perché è stato eseguito l'esperimento ora? Con l'esecuzione dell'esperimento, le definizioni delle colonne per i dati passano dal set di dati, attraverso i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti). Ciò significa che tutti i moduli connessi a [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) avranno anche queste stesse informazioni.
+> Perché è stato eseguito l'esperimento ora? Con l'esecuzione dell'esperimento, le definizioni delle colonne per i dati passano dal set di dati, attraverso i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti). Ciò significa che anche tutti i moduli connessi a [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) avranno queste stesse informazioni.
 
 Ora sono disponibili dati puliti. Per visualizzare il set di dati pulito, fare clic sulla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) e selezionare **Visualize** (Visualizza). Si noti che la colonna **normalized-losses** non è più inclusa e che non ci sono valori mancanti.
 
@@ -179,11 +179,11 @@ Il training e il test del modello verranno eseguiti con dati separati in un set 
     > [!TIP]
     > Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
-1. Eseguire l'esperimento. Durante l'esecuzione dell'esperimento, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) passano le definizioni di colonna ai moduli che saranno aggiunti successivamente.  
+1. Eseguire l'esperimento. Durante l'esecuzione dell'esperimento, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) passano le definizioni di colonna ai moduli che verranno aggiunti successivamente.  
 
 1. Per selezionare l'algoritmo di apprendimento, espandere la categoria **Machine Learning** nella tavolozza dei moduli a sinistra dell'area di disegno e quindi espandere **Initialize Model** (Inizializza modello). Verranno visualizzate diverse categorie di moduli che possono essere usate per inizializzare gli algoritmi di Machine Learning. Per questo esperimento, selezionare il modulo [Linear Regression][linear-regression] (Regressione lineare) della categoria **Regression** (Regressione) e trascinarlo nell'area di disegno dell'esperimento. È anche possibile trovare il modulo digitando "linear regression" nella casella di ricerca della tavolozza.
 
-1. Trovare e trascinare il modulo [Train Model][train-model] (Training modello) nell'area di disegno dell'esperimento. Connettere la porta di output del modulo [Linear Regression][linear-regression] (Regressione lineare) alla porta di input sinistra del modulo [Train Model][train-model] (Training modello) e connettere la porta di output sinistra dei dati per il training del modulo [Split Data][split] (Dividi dati) alla porta di input destra del modulo [Train Model][train-model] (Training modello).
+1. Trovare e trascinare il modulo [Train Model][train-model] (Training modello) nell'area di disegno dell'esperimento. Connettere l'output del modulo [Linear Regression][linear-regression] all'input sinistro del modulo [Train Model][train-model] e l'output dei dati di training (porta sinistra) del modulo [Split Data][split] all'input destro del modulo [Train Model][train-model].
 
     ![Connettere il modulo "Train Model" ai moduli "Linear Regression" e "Split Data"](./media/create-experiment/connect-train-model.png)
 
@@ -203,15 +203,15 @@ Il risultato è un modello di regressione, del quale è stato eseguito il traini
 
 Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile usarlo per classificare il restante 25% e verificarne il funzionamento.
 
-1. Trovare e trascinare il modulo [Score Model][score-model] (Modello di punteggio) nell'area di disegno dell'esperimento. Connettere la porta di output del modulo [Train Model][train-model] (Training modello) alla porta di input sinistra del modulo [Score Model][score-model] (Modello di punteggio). Connettere la porta di output dei dati di test (porta destra) del modulo [Split Data][split] alla porta di input destra [Score Model][score-model] (Modello di punteggio).
+1. Trovare e trascinare il modulo [Score Model][score-model] (Assegna un punteggio al modello) nell'area di disegno dell'esperimento. Connettere l'output del modulo [Train Model][train-model] alla porta di input sinistra del modulo [Score Model][score-model]. Connettere l'output dei dati di test (porta destra) del modulo [Split Data][split] alla porta di input destra di [Score Model][score-model].
 
     ![Connettere il modulo "Score Model" ai moduli "Train Model" e "Split Data"](./media/create-experiment/connect-score-model.png)
 
-1. Eseguire l'esperimento e visualizzare l'output del modulo [Score Model][score-model] (Modello di punteggio), fare clic sulla porta di output di [Score Model][score-model] (Modello di punteggio) e selezionare **Visualize** (Visualizza). L'output mostra i valori stimati per il prezzo e i valori noti dai dati di test.  
+1. Eseguire l'esperimento e visualizzare l'output del modulo [Score Model][score-model] (Assegna un punteggio al modello), fare clic sulla porta di output di [Score Model][score-model] e selezionare **Visualize** (Visualizza). L'output mostra i valori stimati per il prezzo e i valori noti dai dati di test.  
 
     ![Output del modulo "Score Model"](./media/create-experiment/score-model-output.png)
 
-1. Alla fine viene testata la qualità dei risultati. Selezionare e trascinare il modulo [Evaluate Model][evaluate-model] (Modello di valutazione) nell'area di disegno dell'esperimento e connettere la porta di output del modulo [Score Model][score-model] (Modello di punteggio) alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Modello di valutazione). L'esperimento dovrebbe avere un aspetto simile al seguente:
+1. Alla fine viene testata la qualità dei risultati. Selezionare e trascinare il modulo [Evaluate Model][evaluate-model] (Valuta modello) nell'area di disegno dell'esperimento e connettere la porta di output del modulo [Score Model][score-model] alla porta di input sinistra del modulo [Evaluate Model][evaluate-model]. L'esperimento dovrebbe avere un aspetto simile al seguente:
 
     ![Esperimento finale](./media/create-experiment/complete-linear-regression-experiment.png)
 

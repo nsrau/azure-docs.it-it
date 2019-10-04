@@ -3,8 +3,8 @@ title: Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta |
 description: Comprendere i problemi frequenti che si riscontrano durante l'aggiunta di applicazioni personalizzate non incluse nella raccolta
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784485"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta
 
@@ -86,7 +86,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   *  Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
-- **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+- **Timestamp (UTC)** : il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
   *  Esempio: **2017-03-23T19:50:43.7583681Z**
 

@@ -4,14 +4,14 @@ description: Informazioni su come creare, indicizzare e sottoporre a query ogget
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/01/2017
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770738"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616851"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Uso dei dati geospaziali e dei dati località GeoJSON con l'account di Azure Cosmos DB per l'API SQL
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o del nome della posizione come la città o il paese, è possibile cercare le coordinate effettive tramite un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
+Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone di indirizzi fisici o nome località come città o paese/area geografica, è possibile cercare le coordinate effettive usando un servizio di geocodifica come i servizi REST di Bing Maps. Ulteriori informazioni sulla geocodifica di Bing Maps sono disponibili [qui](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Query sui tipi spaziali
 Dopo aver compreso come inserire i dati geospaziali, è ora possibile esaminare come eseguire query sui dati usando Azure Cosmos DB e LINQ.
@@ -249,12 +249,12 @@ Queste funzioni possono essere usate anche per convalidare i poligoni. Ad esempi
 ### <a name="linq-querying-in-the-net-sdk"></a>Query di LINQ in .NET SDK
 SQL .NET SDK è anche dotato di metodi stub `Distance()` e `Within()` per l'uso all'interno di espressioni LINQ. Il provider LINQ SQL converte le chiamate di questo metodo nelle chiamate delle funzioni SQL predefinite equivalenti (ST_DISTANCE e ST_WITHIN rispettivamente). 
 
-Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nella raccolta di Azure Cosmos DB il cui valore "location" è entro un raggio di 30 km dal punto specificato con LINQ.
+Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nel contenitore Azure Cosmos il cui valore "location" è entro un raggio di 30 km dal punto specificato con LINQ.
 
 **Query LINQ per Distance**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

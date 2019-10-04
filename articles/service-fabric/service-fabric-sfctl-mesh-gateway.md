@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27cfe380e5988f17ca79c430cde7defc7f7bc440
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b8acb23b274e6062ae3c50ab80220ab93297037e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661361"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036423"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 Consente di ottenere ed eliminare le risorse gateway mesh.

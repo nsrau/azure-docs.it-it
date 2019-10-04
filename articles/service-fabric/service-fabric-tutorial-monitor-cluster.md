@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045646"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385269"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
 
@@ -62,7 +62,7 @@ I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle 
 
 Per accedere alla soluzione Analisi Service Fabric, passare al [portale di Azure](https://portal.azure.com) e selezionare il gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric.
 
-Selezionare la risorsa **ServiceFabric(mysfomsworkspace)**.
+Selezionare la risorsa **ServiceFabric(mysfomsworkspace)** .
 
 In **Panoramica** vengono visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 
@@ -236,7 +236,7 @@ Per configurare eventi più dettagliati per Reliable Actors, è possibile modifi
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Visualizzare i contatori delle prestazioni con i log di Monitoraggio di Azure
 Per visualizzare i contatori delle prestazioni, passare al [portale di Azure](https://portal.azure.com) e al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. 
 
-Selezionare la risorsa **ServiceFabric(mysfomsworkspace)**, quindi l'**Area di lavoro di Log Analytics** e infine **Impostazioni avanzate**.
+Selezionare la risorsa **ServiceFabric(mysfomsworkspace)** , quindi l'**Area di lavoro di Log Analytics** e infine **Impostazioni avanzate**.
 
 Fare clic su **Dati**, quindi fare clic su **Contatori delle prestazioni di Windows**. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Fare clic su **Salva**, quindi su **OK**.
 

@@ -2,23 +2,19 @@
 title: Metodi di creazione dei certificati
 description: Modi per creare un certificato in Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995529"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884155"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -35,7 +31,7 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
 2. Key Vault restituisce all'applicazione una richiesta di firma del certificato.
 3. L'applicazione passa la richiesta di firma del certificato alla CA scelta.
-4. La prescelta CA risponde con un X509 certificato.
+4. La CA scelta risponde con un certificato X509.
 5. L'applicazione completa la creazione del certificato con l'unione del certificato X.509 della CA.
 
 -   **Creare un certificato con un provider autorità di certificazione noto:** questo metodo richiede un'attività una tantum di creazione di un oggetto autorità di certificazione. Dopo che è stato creato un oggetto autorità di certificazione nell'insieme di credenziali delle chiavi, è possibile fare riferimento al nome di tale oggetto nei criteri del certificato di Key Vault. La richiesta di creazione di tale certificato KV creerà una coppia di chiavi nell'insieme di credenziali e comunicherà con il servizio di provider di autorità di certificazione utilizzando le informazioni nell'oggetto autorità di certificazione a cui si fa riferimento per ottenere un certificato X.509. Il certificato X.509 viene recuperato dal servizio autorità di certificazione e viene unito con la coppia di chiavi per completare la creazione del certificato KV.  
@@ -57,7 +53,7 @@ Quando viene completata una richiesta per creare un certificato KV, lo stato del
 
 ## <a name="first-creation"></a>Prima creazione
  Quando si crea un certificato KV per la prima volta, vengono creati anche una chiave indirizzabile e un segreto con lo stesso nome del certificato. Se il nome è già in uso, l'operazione avrà esito negativo con il codice di stato http 409 (conflitto).
-La chiave e il segreto indirizzabili ottengono i propri attributi dagli attributi del certificato di Key Vault. La chiave e il segreto indirizzabili creati in questo modo vengono contrassegnati come chiavi e segreti gestiti, la cui durata è gestita da Key Vault. Le chiavi gestite e i segreti sono di sola lettura. Note: se un certificato di Key Vault scade o viene disabilitato, la chiave e il segreto corrispondenti diventano inutilizzabili.  
+La chiave e il segreto indirizzabili ottengono i propri attributi dagli attributi del certificato di Key Vault. La chiave e il segreto indirizzabili creati in questo modo vengono contrassegnati come chiavi e segreti gestiti, la cui durata è gestita da Key Vault. Le chiavi gestite e i segreti sono di sola lettura. Nota: se un certificato di Key Vault scade o viene disabilitato, la chiave e il segreto corrispondenti diventano inutilizzabili.  
 
  Se si tratta della prima operazione di creazione di un certificato KV, sono necessari criteri.  È possibile fornire criteri anche con le successive operazioni di creazione per sostituire la risorsa criteri. Se non si specificano criteri, viene usata la risorsa criteri del servizio per creare una versione successiva del certificato KV. Si noti che quando è in corso una richiesta per la creazione di una versione successiva, il certificato di Key Vault corrente e la chiave e il segreto indirizzabili corrispondenti rimangono invariati.  
 
@@ -86,7 +82,7 @@ La creazione del certificato può essere completata manualmente oppure usando un
 |Provider|Tipo di certificato|  
 |--------------|----------------------|  
 |DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert|
-|GlobalCert|Key Vault offre certificati SSL OV o EV con GlobalSign|
+|GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign|
 
  Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
 

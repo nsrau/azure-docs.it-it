@@ -1,45 +1,36 @@
 ---
-title: Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? | Microsoft Docs
-description: Informazioni su come vengono usate le condizioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
+title: Quali sono le condizioni in Active Directory accesso condizionale di Azure? | Microsoft Docs
+description: Informazioni su come le condizioni vengono utilizzate in Active Directory accesso condizionale di Azure per attivare un criterio.
 services: active-directory
-keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e6c18b7ffca83c8e0fe9576ec275f89b6db7b4f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355734"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509009"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni in Active Directory accesso condizionale di Azure?
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare il modo in cui gli utenti accedono alle app cloud. In un criterio di accesso condizionale si definisce la risposta ("Allora fare questo") al motivo per cui viene attivato il criterio ("Quando accade questo"). 
+È possibile controllare l'accesso alle App cloud mediante [accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In un criterio di accesso condizionale si definisce la risposta ("quindi fare questo") per il motivo per attivare i criteri ("quando accade questo").
 
 ![Motivo e risposta](./media/conditions/10.png)
 
-
-Nel contesto di accesso condizionale, **Quando accade questo** è una **condizione**. **Fare questo** è il **controllo di accesso**. La combinazione delle condizioni e dei controlli di accesso rappresenta un criterio di accesso condizionale.
+Nel contesto di accesso condizionale **in questo caso** viene chiamato un **condizione**. **Fare questo** è il **controllo di accesso**. La combinazione delle proprie condizioni e i controlli di accesso rappresenta un criterio di accesso condizionale.
 
 ![Criteri di accesso condizionale](./media/conditions/61.png)
 
+Non vengono applicate le condizioni che nei criteri di accesso condizionale non è stato configurato. Alcune condizioni vengono [obbligatori](best-practices.md) per applicare un criterio di accesso condizionale per un ambiente.
 
-Le condizioni che non sono state configurate nei criteri di accesso condizionali non vengono applicate. Alcune condizioni sono [obbligatorie](best-practices.md) per applicare criteri di accesso condizionali in un ambiente. 
-
-Questo articolo offre una panoramica delle condizioni e di come vengono usate in un criterio di accesso condizionale. 
+Questo articolo viene fornita una panoramica delle condizioni e sul loro uso in un criterio di accesso condizionale. 
 
 ## <a name="users-and-groups"></a>Utenti e gruppi
 
@@ -52,34 +43,26 @@ Selezionando**Tutti gli utenti**, i criteri vengono applicati a tutti gli utenti
 **Selezionare Utenti e gruppi** consente di impostare le opzioni seguenti:
 
 * **Tutti gli utenti guest** consente di destinare i criteri agli utenti guest B2B. Questa condizione corrisponde a qualsiasi account utente con l'attributo **userType** impostato su **guest**. Usare questa impostazione nei casi in cui è necessario applicare criteri non appena l'account viene creato in un flusso di invito in Azure AD.
-
 * **Ruoli della directory** consente di destinare criteri in base alle assegnazioni di ruolo dell'utente. Questa condizione supporta i ruoli della directory, ad esempio **Amministratore globale** oppure **Amministratore password**.
-
 * **Utenti e gruppi** consente di definire come destinazione insiemi specifici di utenti. Ad esempio, è possibile selezionare un gruppo contenente tutti i membri del reparto Risorse umane, quando è selezionata un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
 
-È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori (MFA). 
+È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori (MFA).
 
-La definizione di insiemi di utenti specifici come destinazione è utile per la distribuzione di un nuovo criterio. In un nuovo criterio è necessario definire come destinazione solo l'insieme iniziale di utenti per convalidare il comportamento del criterio. 
+La definizione di insiemi di utenti specifici come destinazione è utile per la distribuzione di un nuovo criterio. In un nuovo criterio è necessario definire come destinazione solo l'insieme iniziale di utenti per convalidare il comportamento del criterio.
 
+## <a name="cloud-apps-and-actions"></a>Le app cloud e le azioni
 
+Un'app cloud è un sito Web, servizio o endpoint protetti da Azure AD Application Proxy. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](technical-reference.md#cloud-apps-assignments). Il **Cloud apps o azioni** condizione è obbligatoria in un criterio di accesso condizionale. Nei criteri, è possibile selezionare **tutte le app cloud** oppure specificare le app con **selezionare le app**.
 
-## <a name="cloud-apps"></a>App cloud 
+Le organizzazioni possono scegliere tra le opzioni seguenti:
 
-Un'app cloud è un servizio o un sito Web. Anche siti Web protetti da Azure AD Application Proxy sono app cloud. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Tutte le app cloud** quando si applicano i criteri di base si applicano all'intera organizzazione. Utilizzare questa selezione per i criteri che richiedono l'autenticazione a più fattori quando viene rilevato rischio di accesso per qualsiasi app cloud. Applicata un criterio a tutte le app cloud si applica per l'accesso a tutti i siti Web e servizi. Questa impostazione non è limitata alle App cloud che vengono visualizzati nell'elenco di App selezionare.
+* **Seleziona app** per definire i servizi specifici in base ai propri criteri. Ad esempio, è possibile richiedere agli utenti di avere un dispositivo conforme per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams.
 
-La condizione delle **app cloud** è obbligatoria in un criterio di accesso condizionale. Nei criteri è possibile selezionare **Tutte le app cloud** o selezionare app specifiche.
+> [!NOTE]
+> È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono.
 
-![Includere le app cloud](./media/conditions/03.png)
-
-Selezionare:
-
-- **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Usare questa selezione per un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud. I criteri applicati a **Tutte le app cloud** riguardano l'accesso a tutti i servizi e siti Web. Questa impostazione non è limitata alle app cloud presenti nell'elenco **Seleziona app**. 
-
-- **Seleziona app** per definire i servizi specifici in base ai propri criteri. Ad esempio, è possibile richiedere agli utenti di avere un [dispositivo conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams. 
-
-È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono. 
-
-
+**Le azioni utente** sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **registrare le informazioni di sicurezza (anteprima)** , che consente di criteri di accesso condizionale imporrà quando gli utenti che sono abilitati per la registrazione combinata tentano di registrare la sicurezza informazioni. Altre informazioni sono reperibili nell'articolo [combinato di abilitare la registrazione di informazioni di sicurezza (anteprima)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Rischio di accesso
 
@@ -100,20 +83,15 @@ Per altre informazioni, vedere [bloccare l'accesso quando viene rilevato un risc
 
 La piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione sul dispositivo. Azure AD identifica la piattaforma usando le informazioni offerte dal dispositivo, ad esempio l'agente utente. Informazione non verificata. È consigliabile che tutte le piattaforme abbiano criteri applicati a essi. I criteri devono bloccare l'accesso, richiedere la conformità ai criteri di Microsoft Intune o richiedere che il dispositivo sia aggiunto a un dominio. L'impostazione predefinita è l'applicazione di un criterio a tutte le piattaforme del dispositivo. 
 
-
 ![Configurazione delle piattaforme del dispositivo](./media/conditions/24.png)
 
 Per un elenco delle piattaforme del dispositivo supportate, vedere [Condizione per le piattaforme del dispositivo](technical-reference.md#device-platform-condition).
 
-
-Un caso d'uso comune per questa condizione sono criteri che limitano l'accesso alle app cloud per i [dispositivi gestiti](require-managed-devices.md). Per altri scenari, tra cui la condizione della piattaforma del dispositivo, vedere [Accesso condizionale basato su app di Azure Active Directory](app-based-conditional-access.md).
-
-
+Un caso d'uso comune per questa condizione sono criteri che limitano l'accesso alle app cloud per i [dispositivi gestiti](require-managed-devices.md). Per altri scenari, tra cui la condizione della piattaforma del dispositivo, vedere [accesso condizionale basato su app di Azure Active Directory](app-based-conditional-access.md).
 
 ## <a name="device-state"></a>Stato del dispositivo
 
-La condizione dello stato del dispositivo consente all'aggiunta all'identità ibrida di Azure AD e ai dispositivi contrassegnati come conformi di essere esclusi dai criteri di accesso condizionali. 
-
+La condizione di stato dispositivo esclude ibridi che aggiunti ad Azure AD i dispositivi e i dispositivi contrassegnati come conformi da criteri di accesso condizionale. 
 
 ![Configurazione dello stato del dispositivo](./media/conditions/112.png)
 
@@ -127,26 +105,22 @@ Utilizzando le posizioni, è possibile definire le condizioni in base a dove è 
 
 Casi d'uso comuni per questa condizione sono criteri che hanno le seguenti protezioni:
 
-- Richiesta dell'autenticazione a più fattori per gli utenti che accedono a un servizio quando non sono connessi alla rete aziendale.  
-
+- Richiedere l'autenticazione a più fattori per utenti che accedono a un servizio quando sono connessi alla rete aziendale.  
 - Bloccano l'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche. 
 
-Per altre informazioni, vedere [Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)
-
+Per altre informazioni, vedere [qual è la condizione della posizione in Active Directory accesso condizionale di Azure?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 ## <a name="client-apps"></a>App client
 
-Per impostazione predefinita, si applica un criterio di accesso condizionale alle app seguenti:
+Per impostazione predefinita, si applica un criterio di accesso condizionale per le app seguenti:
 
 - **[App del browser](technical-reference.md#supported-browsers)**  -  Le app del browser includono siti Web che usano SAML, WS-Federation oppure i protocolli OpenID Connect SSO web. Questo vale anche per qualsiasi sito web o servizio web che sia stato registrato come un client riservato OAuth. Ad esempio, il sito web Office 365 SharePoint. 
-
 - **[App per dispositivi mobili e desktop tramite l'autenticazione moderna](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - Queste app includono le app desktop di Office e le app per telefoni. 
 
 
 Inoltre, è possibile assegnare un criterio per le app client specifiche che non usano l'autenticazione moderna, ad esempio:
 
 - **[Client Exchange ActiveSync](conditions.md#exchange-activesync-clients)** - Quando un criterio blocca con Exchange ActiveSync, gli utenti interessati ricevono un messaggio di quarantena singolo con le informazioni sul motivo del blocco. Se necessario, il messaggio di posta elettronica include istruzioni per la registrazione del dispositivo con Intune.
-
 - **[Altri client](block-legacy-authentication.md)** - Queste app includono i client che usano l'autenticazione di base con protocolli di posta elettronica come IMAP, MAPI, POP, SMTP e le app Office meno recenti che non usano l'autenticazione moderna. Per altre informazioni, vedere [Funzionamento dell'autenticazione moderna per le app client di Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![App client](./media/conditions/41.png)
@@ -154,19 +128,13 @@ Inoltre, è possibile assegnare un criterio per le app client specifiche che non
 Casi d'uso comuni per questa condizione sono criteri che hanno i seguenti requisiti:
 
 - **[Richiedono un dispositivo gestito](require-managed-devices.md)** per applicazioni desktop e app per dispositivi mobili che scaricano dati in un dispositivo. Allo stesso tempo, consentono l'accesso al browser da qualsiasi dispositivo. Questo scenario impedisce il salvataggio e la sincronizzazione di documenti in un dispositivo non gestito. Con questo metodo, è possibile ridurre la probabilità di perdita dei dati se il dispositivo viene smarrito o rubato.
-
 - **[Richiedono un dispositivo gestito](require-managed-devices.md)** per le app tramite ActiveSync per accedere a Exchange Online.
-
 - **[Bloccano l'autenticazione legacy](block-legacy-authentication.md)** per Azure AD (altri client)
-
 - Bloccano l'accesso da applicazioni Web, ma lo consentono dalle applicazioni desktop e per dispositivi mobili.
-
-
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync
 
 È possibile selezionare **client Exchange ActiveSync** solo se:
-
 
 - Microsoft Office 365 Exchange Online è l'unica app cloud selezionata.
 
@@ -176,27 +144,20 @@ Casi d'uso comuni per questa condizione sono criteri che hanno i seguenti requis
  
     ![Applicazione dei criteri solo alle piattaforme supportate](./media/conditions/33.png)
 
-
 Quando l'accesso è bloccato perché viene richiesto un [dispositivo gestito](require-managed-devices.md), gli utenti interessati ottengono un singolo messaggio di posta elettronica che li guida all'uso di Intune. 
 
 Se è necessaria un'app approvata, gli utenti interessati ottengono linee guida per installare e usare il client di Outlook per dispositivi mobili.
 
 In altri casi, ad esempio, se è obbligatoria l'autenticazione a più fattori, gli utenti interessati vengono bloccati, perché i client che usano l'autenticazione di base non supportano l'autenticazione a più fattori.
 
-È possibile avere come destinazione solo questa impostazione per utenti e gruppi. Non supporta guest e ruoli. Se si configura una condizione guest o di ruolo, vengono bloccati tutti gli utenti poiché l'accesso condizionale non può determinare se il criterio debba essere applicato o meno all'utente.
+È possibile avere come destinazione solo questa impostazione per utenti e gruppi. Non supporta guest e ruoli. Se una condizione guest o il ruolo è configurata, tutti gli utenti sono bloccati perché l'accesso condizionale non è possibile determinare se applicare i criteri per l'utente o No.
 
+Per altre informazioni, vedere:
 
- Per altre informazioni, vedere:
-
-- [Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
- 
+- [Configurare SharePoint Online ed Exchange Online per Azure Active Directory l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
 - [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per scoprire come configurare un criterio di accesso condizionale, vedere [Avvio rapido: Richiedere l'autenticazione a più fattori per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-
-- Per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 
-
+- Per scoprire come configurare un criterio di accesso condizionale, vedere [Guida introduttiva: Richiedere l'autenticazione MFA per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+- Per configurare i criteri di accesso condizionale per l'ambiente, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 

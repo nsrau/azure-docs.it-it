@@ -3,7 +3,7 @@ title: Aggiungere l'autenticazione in iOS con le app per dispositivi mobili di A
 description: Informazioni su come usare le app per dispositivi mobili di Azure per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449127"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) oggi stesso.
+>
 
 Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all' [avvio rapido di iOS] , che deve essere completata per prima.
 
@@ -77,7 +81,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook sarà necessario [consentire i domini Facebook][1] all'interno dell'app.
+    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario [consentire i domini Facebook][1] nell'app.
 
     Sostituire **urlScheme** con un nome univoco per l'applicazione.  Il valore di urlScheme deve corrispondere a quello del protocollo dello schema URL specificato nel campo **URL di reindirizzamento esterni consentiti** nel portale di Azure. urlScheme viene usato dal callback di autenticazione per tornare all'applicazione dopo aver completato la richiesta di autenticazione.
 
@@ -163,7 +167,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook sarà necessario [consentire i domini Facebook][1] all'interno dell'app.
+    Modificare *google* in *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* se non si usa Google come provider di identità. Se si usa Facebook, è necessario [consentire i domini Facebook][1] nell'app.
 
     Sostituire **urlScheme** con un nome univoco per l'applicazione.  Il valore di urlScheme deve corrispondere a quello del protocollo dello schema URL specificato nel campo **URL di reindirizzamento esterni consentiti** nel portale di Azure. urlScheme viene usato dal callback di autenticazione per tornare all'applicazione dopo aver completato la richiesta di autenticazione.
 

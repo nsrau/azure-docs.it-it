@@ -4,23 +4,25 @@ description: Questo articolo fornisce informazioni sull'esecuzione di runbook su
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 100740e87c13887a3e7ac85aa5fce3d67c838ea0
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858142"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240318"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
 Non esiste alcuna differenza nella struttura dei runbook che vengono eseguiti in Automazione di Azure e di quelli eseguiti in un ruolo di lavoro ibrido per runbook. I runbook usati nei due casi sono invece molto diversi. Questa differenza è dovuta al fatto che i runbook destinati a un ruolo di lavoro ibrido per runbook, in genere, gestiscono le risorse nel computer locale stesso o su risorse nell'ambiente locale in cui viene distribuito. I runbook usati in Automazione di Azure gestiscono in genere le risorse nel cloud di Azure.
 
-Quando si creano runbook da eseguire in un ruolo di lavoro ibrido per runbook, è opportuno modificare e testare i runbook all'interno del computer che ospita il ruolo di lavoro ibrido. Il computer host include tutti i moduli di PowerShell e i diritti di accesso di rete necessari per gestire e accedere alle risorse locali. Dopo che un runbook è stato testato nel computer con il ruolo di lavoro ibrido, è possibile caricarlo nell'ambiente di Automazione di Azure in cui risulterà disponibile per essere eseguito nel ruolo di lavoro ibrido. È importante sapere quali processi vengono eseguiti con l'account di sistema locale per Windows o con un account utente speciale `nxautomation` in Linux. Questo comportamento può comportare lievi differenze quando si creano runbook per un ruolo di lavoro ibrido per runbook. È necessario verificare queste modifiche quando si scrivono i runbook.
+Quando si creano runbook da eseguire in un ruolo di lavoro ibrido per runbook, è opportuno modificare e testare i runbook all'interno del computer che ospita il ruolo di lavoro ibrido. Il computer host include tutti i moduli di PowerShell e i diritti di accesso di rete necessari per gestire e accedere alle risorse locali. Dopo che un runbook è stato testato nel computer con il ruolo di lavoro ibrido, è possibile caricarlo nell'ambiente di Automazione di Azure in cui risulterà disponibile per essere eseguito nel ruolo di lavoro ibrido. È importante sapere quali processi vengono eseguiti con l'account di sistema locale per Windows o con un account utente speciale `nxautomation` in Linux. In Linux questo significa che è necessario assicurarsi che l' `nxautomation` account abbia accesso al percorso in cui vengono archiviati i moduli. Quando si usa il cmdlet [install-module](/powershell/module/powershellget/install-module) , specificare **ALLUSERS** al `-Scope` parametro per verificare che l'account `naxautomation` disponga dell'accesso.
+
+Per altre informazioni su PowerShell in Linux, vedere [problemi noti per PowerShell in piattaforme non Windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Avvio di un runbook in un ruolo di lavoro ibrido per runbook
 
@@ -39,8 +41,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Autorizzazioni per i runbook
 
-I runbook eseguiti in un ruolo di lavoro ibrido per runbook non possono usare lo stesso metodo in genere usato per l'autenticazione dei runbook per le risorse di Azure, perché accedono a risorse esterne ad Azure. Il runbook può fornire la propria autenticazione alle risorse locali o configurare l'autenticazione usando le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-). È anche possibile specificare un account RunAs per fornire un contesto utente per tutti i runbook.
+I runbook eseguiti in un ruolo di lavoro ibrido per runbook non possono usare lo stesso metodo in genere usato per l'autenticazione dei runbook per le risorse di Azure, perché accedono a risorse esterne ad Azure. Il runbook può fornire la propria autenticazione alle risorse locali o configurare l'autenticazione usando le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). È anche possibile specificare un account RunAs per fornire un contesto utente per tutti i runbook.
 
 ### <a name="runbook-authentication"></a>Autenticazione dei runbook
 
@@ -59,7 +60,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 ### <a name="runas-account"></a>Account RunAs
 
-Per impostazione predefinita il ruolo di lavoro ibrido per runbook usa Sistema locale per Windows e un account utente speciale `nxautomation` per Linux per eseguire i runbook. Per evitare che i runbook debbano autenticarsi per le risorse locali, è possibile specificare un account **RunAs** per un gruppo di ruoli di lavoro ibridi. Specificare un [asset credenziali](automation-credentials.md) con accesso alle risorse locali. Tutti i runbook useranno queste credenziali durante l'esecuzione in un ruolo di lavoro ibrido per runbook nel gruppo.
+Per impostazione predefinita il ruolo di lavoro ibrido per runbook usa Sistema locale per Windows e un account utente speciale `nxautomation` per Linux per eseguire i runbook. Per evitare che i runbook debbano autenticarsi per le risorse locali, è possibile specificare un account **RunAs** per un gruppo di ruoli di lavoro ibridi. È possibile specificare un [Asset credenziali](automation-credentials.md) con accesso alle risorse locali, inclusi gli archivi certificati e tutti i manuali operativi eseguiti con queste credenziali durante l'esecuzione in un ruolo di lavoro ibrido per Runbook nel gruppo.
 
 Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 
@@ -271,7 +272,7 @@ sudo gpg --generate-key
 
 GPG indicherà i passaggi da seguire per creare la coppia di chiavi. È necessario specificare un nome, un indirizzo di posta elettronica, la scadenza, la passphrase e attendere che il computer abbia accumulato entropia sufficiente per generare la chiave.
 
-Poiché la directory GPG è stata generata con sudo, è necessario sostituire il nome del proprietario con `nxautomation`. 
+Poiché la directory GPG è stata generata con sudo, è necessario sostituire il nome del proprietario con `nxautomation`.
 
 Eseguire il comando seguente per cambiare il proprietario.
 
@@ -312,3 +313,4 @@ Il runbook firmato può ora essere caricato in Automazione di Azure ed eseguito 
 * Per altre informazioni sui vari modi per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per comprendere le diverse modalità di utilizzo dei runbook di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
 * Se i runbook non vengono completati correttamente, vedere l'articolo sulla risoluzione dei problemi relativi agli [errori di esecuzione dei runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

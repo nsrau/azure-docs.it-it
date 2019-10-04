@@ -5,24 +5,23 @@ keywords: linux macchina virtuale,macchina virtuale linux,macchina virtuale ubun
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327370"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091691"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -31,7 +30,7 @@ La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla 
 Questo argomento presuppone che sia disponibile una sottoscrizione di Azure attiva ([registrazione alla versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e che sia già stato eseguito il provisioning di una macchina virtuale nella sottoscrizione di Azure. Assicurarsi che sia installata la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e che sia stato effettuato l'accesso alla sottoscrizione di Azure con [az login](/cli/azure/reference-index) prima di [creare una macchina virtuale](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco del sistema operativo di Azure
-Dopo la creazione, alla macchina virtuale Linux in Azure sono associati due dischi. **/dev/sda** è il disco del sistema operativo mentre **/dev/sdb** è il disco temporaneo.  Usare il disco principale del sistema operativo (**/dev/sda**) esclusivamente per il sistema operativo, perché è ottimizzato per tempi di avvio della macchina virtuale ridotti e non offre prestazioni ideali per i carichi di lavoro. È consigliabile collegare uno o più dischi alla VM per ottenere l'archiviazione persistente e ottimizzata per i dati. 
+Dopo la creazione, alla macchina virtuale Linux in Azure sono associati due dischi. **/dev/sda** è il disco del sistema operativo mentre **/dev/sdb** è il disco temporaneo.  Usare il disco principale del sistema operativo ( **/dev/sda**) esclusivamente per il sistema operativo, perché è ottimizzato per tempi di avvio della macchina virtuale ridotti e non offre prestazioni ideali per i carichi di lavoro. È consigliabile collegare uno o più dischi alla VM per ottenere l'archiviazione persistente e ottimizzata per i dati. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Aggiunta di dischi per risultati a livello di dimensioni e prestazioni
 In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.
@@ -51,18 +50,18 @@ Quando si gestiscono carichi di lavoro con IOps elevati ed è stata scelta l'Arc
  
 
 ## <a name="your-vm-temporary-drive"></a>Unità temporanea per la VM
-Per impostazione predefinita, quando si crea una macchina virtuale, Azure mette a disposizione un disco del sistema operativo (**/dev/sda**) e un disco temporaneo (**/dev/sdb**).  Tutti gli altri dischi aggiuntivi verranno visualizzati come **/dev/sdc**, **/dev/sdd**, **/dev/sde** e così via. Tutti i dati nei dischi temporanei (**/dev/sdb**) non sono durevoli e possono andare persi se eventi specifici come il ridimensionamento, la ridistribuzione o la manutenzione della macchina virtuale impongono un riavvio.  Le dimensioni e il tipo del disco temporaneo sono correlati alle dimensioni della VM scelte in fase di distribuzione. Nel caso di macchine virtuali con dimensioni Premium (serie DS, G e DS_V2) l'unità temporanea sarà supportata da un'unità SSD locale per assicurare prestazioni aggiuntive fino a un massimo di 48.000 IOps. 
+Per impostazione predefinita, quando si crea una macchina virtuale, Azure mette a disposizione un disco del sistema operativo ( **/dev/sda**) e un disco temporaneo ( **/dev/sdb**).  Tutti gli altri dischi aggiuntivi verranno visualizzati come **/dev/sdc**, **/dev/sdd**, **/dev/sde** e così via. Tutti i dati nei dischi temporanei ( **/dev/sdb**) non sono durevoli e possono andare persi se eventi specifici come il ridimensionamento, la ridistribuzione o la manutenzione della macchina virtuale impongono un riavvio.  Le dimensioni e il tipo del disco temporaneo sono correlati alle dimensioni della VM scelte in fase di distribuzione. Nel caso di macchine virtuali con dimensioni Premium (serie DS, G e DS_V2) l'unità temporanea sarà supportata da un'unità SSD locale per assicurare prestazioni aggiuntive fino a un massimo di 48.000 IOps. 
 
-## <a name="linux-swap-file"></a>File di scambio Linux
+## <a name="linux-swap-partition"></a>Partizione di scambio Linux
 Se la VM di Azure proviene da un'immagine Ubuntu o CoreOS, è possibile usare CustomData per inviare un file cloud-config a cloud-init. Se è stata [caricata un'immagine Linux personalizzata](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) che usa cloud-init, si configurano anche partizioni di scambio con cloud-init.
 
 Nelle immagini cloud Ubuntu, è necessario usare cloud-init per configurare la partizione di scambio. Per altre informazioni vedere [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 Per le immagini senza supporto cloud-init, le immagini delle VM distribuite da Azure Marketplace includono un agente Linux integrato per la VM con il sistema operativo, che consente alla VM di interagire con diversi servizi di Azure. Supponendo che sia stata distribuita un'immagine standard da Azure Marketplace, sarà necessario seguire questa procedura per configurare correttamente le impostazioni del file di scambio Linux:
 
-Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che si sta cercando di modificare sono `ResourceDisk.EnableSwap=N` e `ResourceDisk.SwapSizeMB=0` 
+Trovare e modificare due voci nel file **/etc/waagent.conf** . Queste voci controllano l'esistenza di un file di scambio dedicato e le dimensioni del file di scambio. I parametri che è necessario verificare `ResourceDisk.EnableSwap` sono e`ResourceDisk.SwapSizeMB` 
 
-Modificarli secondo le impostazioni seguenti:
+Per abilitare un disco correttamente abilitato e un file di scambio montato, verificare che i parametri abbiano le impostazioni seguenti:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={dimensione in MB che soddisfa le esigenze} 
@@ -126,9 +125,11 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Uso di Software RAID per ottenere valori I/Ops più elevati
-Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**.
+Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentito da un singolo disco, sarà necessario usare una configurazione Software RAID con più dischi. Poiché Azure esegue già la resilienza del disco a livello di infrastruttura locale, è possibile ottenere il livello massimo di prestazioni mediante una configurazione con striping RAID-0.  È necessario effettuare il provisioning e creare dischi nell'ambiente Azure, poi collegarli alla macchina virtuale Linux prima del partizionamento, della formattazione e del montaggio delle unità.  Altri dettagli sulla configurazione di un'installazione RAID software nella VM Linux in Azure sono disponibili nel documento **[Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-## <a name="next-steps"></a>Passaggi successivi
+In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare Logical Volume Manager (LVM) per configurare un numero di dischi fisici in un unico volume di archiviazione logica con striping. In questa configurazione le letture e le scritture vengono distribuite in più dischi contenuti nel gruppo di volumi (simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico con striping nella VM Linux in Azure, vedere il documento **[configurare LVM in una macchina virtuale Linux in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+
+## <a name="next-steps"></a>Fasi successive
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.
 
 Ecco alcuni collegamenti utili a risorse aggiuntive:

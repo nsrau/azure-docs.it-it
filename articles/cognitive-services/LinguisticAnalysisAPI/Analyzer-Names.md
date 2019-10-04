@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65954715"
 ---
 # <a name="analyzer-names"></a>Nomi degli analizzatori
 
@@ -43,10 +43,10 @@ Attualmente, sono disponibili tre tipi distinti:
 All'interno di un determinato tipo, tuttavia, diversi esperti potrebbero non essere concordi sul modo in cui deve essere analizzato un particolare fenomeno.
 A differenza dei linguaggi di programmazione, non esiste una definizione chiara ed esatta di come devono essere eseguite queste operazioni.
 
-Ad esempio, si supponga di voler trovare i token nella frase inglese "He didn't go."
+Si supponga ad esempio che tentavamo di trovare i token nella frase inglese "L'utente non usare."
 In particolare, considerare la stringa "didn't".
 Una possibile interpretazione è che questa stringa deve essere suddivisa in due token: "did" e "not".
-La frase alternativa "He did not go" includerebbe quindi lo stesso set di token.
+Quindi la frase alternativa "che non può essere portata" avrebbe lo stesso set di token.
 Un'altra possibilità è affermare che la stringa dovrebbe essere suddivisa nei token "did" e "n't".
 L'ultimo token non verrebbe normalmente considerato una parola, ma questo approccio conserva più informazioni sulla stringa di superficie e ciò può talvolta essere utile.
 O forse la contrazione dovrebbe essere considerata una singola parola.

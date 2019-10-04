@@ -4,22 +4,21 @@ description: Informazioni su come usare PerfInsights per risolvere i problemi de
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318351"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058166"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -74,10 +73,10 @@ Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni
 
 | **Tipo**     | **Contatore Condivisioni client SMB** |
 |--------------|-------------------------------|
-| IOPS         | Richieste dati/sec             |
+| Input/output al secondo         | Richieste dati/sec             |
 |              | Richieste di lettura/sec             |
 |              | Richieste di scrittura/sec            |
-| Latenza      | Media secondi/richiesta dati         |
+| Latency      | Media secondi/richiesta dati         |
 |              | Media secondi/lettura                 |
 |              | Media secondi/scrittura                |
 | Dimensioni I/O      | Avg. Bytes/Data Request (Media byte/richiesta dati)       |
@@ -105,26 +104,26 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 |Dati raccolti                              |  |  | Scenari delle prestazioni |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
-| Informazioni dei log eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Informazioni dei log eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Mapping del volume                        | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Mapping del volume                        | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Mapping del disco                          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Attività in esecuzione                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Attività in esecuzione                     | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Contatori di affidabilità di archiviazione      | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni sull'archiviazione               | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di fsutil                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni sul driver filtro                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di netstat                    | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Informazioni sull'archiviazione               | Sì                        | Sì                                | Sì                      | Sì                  | Yes                  |
+| Output di fsutil                     | Sì                        | Sì                                | Sì                      | Sì                  | Yes                  |
+| Informazioni sul driver filtro                | Yes                        | Sì                                | Sì                      | Sì                  | Yes                  |
+| Output di netstat                    | Sì                        | Sì                                | Sì                      | Sì                  | Yes                  |
 | Configurazione di rete             | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Configurazione del firewall            | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Configurazione di SQL Server          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Configurazione del firewall            | Yes                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Configurazione di SQL Server          | Yes                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Tracce di diagnostica delle prestazioni *  | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Traccia del contatore delle prestazioni **      |                            |                                    | Sì                      |                      | Sì                  |
+| Traccia del contatore delle prestazioni **      |                            |                                    | Sì                      |                      | Yes                  |
 | Traccia del contatore SMB **              |                            |                                    |                          | Sì                  |                      |
-| Traccia del contatore SQL Server **       |                            |                                    | Sì                      |                      | Sì                  |
+| Traccia del contatore SQL Server **       |                            |                                    | Sì                      |                      | Yes                  |
 | Traccia di XPerf                       |                            |                                    |                          |                      | Sì                  |
 | Traccia di StorPort                    |                            |                                    |                          |                      | Sì                  |
-| Traccia di rete                     |                            |                                    |                          | Sì                  | Sì                  |
+| Traccia di rete                     |                            |                                    |                          | Yes                  | Yes                  |
 | Traccia del benchmark Diskspd ***       |                            | Sì                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
@@ -132,10 +131,10 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 
 Esegue in background un motore basato su regole per raccogliere dati e diagnosticare problemi di prestazioni in corso. Sono attualmente supportate le regole seguenti:
 
-- Regola HighCpuUsage: Rileva i periodi di utilizzo elevato della CPU e visualizza i principali consumer di utilizzo della CPU durante tali periodi.
-- Regola HighDiskUsage: Rileva i periodi di utilizzo dischi elevato nei dischi fisici e visualizza il disco principale consumer di utilizzo durante tali periodi.
-- Regola HighResolutionDiskMetric: Mostra le metriche di latenza IOPS e velocità effettiva dei / o ogni 50 millisecondi per ogni disco fisico. Consente di identificare rapidamente i periodi di limitazione.
-- Regola HighMemoryUsage: Rileva i periodi di utilizzo elevato della memoria e visualizza i consumer di utilizzo della memoria superiore durante tali periodi.
+- Regola HighCpuUsage: Rileva i periodi di utilizzo elevato della CPU e Visualizza i principali consumer di utilizzo della CPU durante tali periodi.
+- Regola HighDiskUsage: Rileva i periodi di utilizzo elevato del disco nei dischi fisici e Visualizza i principali consumer di utilizzo del disco durante tali periodi.
+- Regola HighResolutionDiskMetric: Mostra IOPS, velocità effettiva e metriche di latenza di I/O per 50 millisecondi per ogni disco fisico. Consente di identificare rapidamente i periodi di limitazione.
+- Regola HighMemoryUsage: Rileva i periodi di utilizzo elevato della memoria e Mostra i principali consumer di utilizzo della memoria durante tali periodi.
 
 > [!NOTE] 
 > Sono attualmente supportate le versioni di Windows che includono .NET Framework 4.5 o versioni successive.
@@ -194,7 +193,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
 
 2. Sbloccare il file PerfInsights.zip Per eseguire questa operazione fare clic con il pulsante destro del mouse sul file PerfInsights.zip e selezionare **Proprietà**. Nella scheda **Generale** selezionare **Sblocca** e quindi fare clic su **OK**. In tal modo, lo strumento viene eseguito senza altre richieste di sicurezza.  
 
-    ![Screenshot delle proprietà di PerfInsights con l'opzione Sblocca evidenziata](media/how-to-use-perfInsights/unlock-file.png)
+    ![Screenshot delle proprietà di PerfInsights con l'opzione Sblocca evidenziata](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Espandere il file PerfInsights.zip compresso nell'unità temporanea. Per impostazione predefinita, in genere è l'unità D. 
 
@@ -204,7 +203,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Screenshot dell'output della riga di comando di PerfInsights](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Screenshot dell'output della riga di comando di PerfInsights](media/how-to-use-perfInsights/pi-commandline.png)
     
     La sintassi di base per eseguire gli scenari di PerfInsights è la seguente:
     
@@ -253,8 +252,8 @@ Nel file **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** è possibile t
 
 Selezionare la scheda **Risultati**.
 
-![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/findings.PNG)
+![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > I risultati classificati come alti sono problemi noti che possono causare problemi di prestazioni. I risultati classificati come medi rappresentano configurazioni non ottimali che non necessariamente causano problemi di prestazioni. I risultati classificati come bassi sono solo istruzioni informative.
@@ -269,17 +268,17 @@ Le sezioni **Disk Map** (Mapping del disco) e **Volume Map** (Mapping del volume
 
 Dal punto di vista del disco fisico, ovvero Disk Map (Mapping del disco), la tabella mostra tutti i volumi logici in esecuzione sul disco. Nell'esempio seguente **PhysicalDrive2** esegue due volumi logici creati su più partizioni, J e H:
 
-![Screenshot della scheda del disco](media/how-to-use-perfInsights/disktab.png)
+![Screenshot della scheda del disco](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 Dal punto di vista del volume, ovvero Volume Map (Mapping del volume), le tabelle mostrano tutti i dischi fisici in ogni volume logico. Si noti che per i dischi RAID/dinamici è possibile eseguire un volume logico su più dischi fisici. Nell'esempio seguente *C:\\mount* è un punto di montaggio configurato come *SpannedDisk* nei dischi fisici 2 e 3:
 
-![Screenshot della scheda del volume](media/how-to-use-perfInsights/volumetab.png)
+![Screenshot della scheda del volume](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>Scheda SQL
 
 Se la macchina virtuale di destinazione ospita istanze di SQL Server, nel report viene visualizzata una scheda aggiuntiva denominata **SQL**:
 
-![Screenshot della scheda SQL](media/how-to-use-perfInsights/sqltab.png)
+![Screenshot della scheda SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 Questa sezione contiene una scheda **Risultati** e altre schede per ogni istanza di SQL Server ospitata nella macchina virtuale.
 
@@ -287,7 +286,7 @@ La scheda **Risultati** contiene un elenco di tutti i problemi di prestazioni co
 
 Nell'esempio seguente viene visualizzato **PhysicalDrive0** che esegue l'unità C, perché entrambi i file **modeldev** e **modellog** si trovano nell'unità C e sono di tipo diverso, ad esempio file di dati e log delle transazioni rispettivamente.
 
-![Screenshot delle informazioni del log](media/how-to-use-perfInsights/loginfo.png)
+![Screenshot delle informazioni del log](media/how-to-use-perfInsights/pi-log-info.png)
 
 Le schede per istanze specifiche di SQL Server contengono una sezione generale che mostra informazioni di base sull'istanza selezionata. Le schede contengono anche sezioni aggiuntive per le informazioni avanzate, tra cui impostazioni, configurazioni e opzioni utente.
 
@@ -310,7 +309,7 @@ Xperf è uno strumento da riga di comando per acquisire tracce da Windows Perfor
 
 Lo screenshot seguente mostra un messaggio simile a quello che l'utente potrebbe ricevere:
 
-![Screenshot del messaggio di esempio del supporto tecnico Microsoft](media/how-to-use-perfInsights/supportemail.png)
+![Screenshot del messaggio di esempio del supporto tecnico Microsoft](media/how-to-use-perfInsights/pi-support-email.png)
 
 Seguire le istruzioni nel messaggio per accedere all'area di lavoro di trasferimento del file. Per maggiore sicurezza, l'utente dovrà cambiare la password al primo uso.
 

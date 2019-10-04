@@ -1,25 +1,25 @@
 ---
 title: 'Esercitazione: Usare un rilevatore di logo personalizzato per riconoscere i servizi di Azure - Visione personalizzata'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure in uno scenario di rilevamento di logo. Informazioni su come usare lo strumento Visione personalizzata con altri componenti per realizzare un'applicazione end-to-end.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838817"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261979"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
-In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure come parte di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. Eseguire l'intero scenario dell'app per sé o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
+In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure come parte di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. È possibile eseguire l'intero scenario dell'app o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
 
 In questa esercitazione verranno illustrate le attività seguenti:
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/)
 - Carico di lavoro Xamarin per Visual Studio. Vedere [Installazione di Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows).
 - Un emulatore di iOS o Android per Visual Studio
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (facoltativo)
@@ -51,13 +51,13 @@ Accedere al [sito Web Visione personalizzata](https://customvision.ai/) e creare
 
 Eseguire quindi il training dell'algoritmo di rilevamento di logo caricando le immagini dei logo dei servizi di Azure e applicando tag alle immagini manualmente. Il repository AIVisualProvision include un set di immagini di training che è possibile usare. Sul sito Web selezionare il pulsante **Add images** (Aggiungi immagini) nella scheda **Training Images** (Immagini di training). Passare quindi alla cartella **Documents/Images/Training_DataSet** del repository. Sarà necessario applicare manualmente tag ai logo in ogni immagine, quindi se si intende eseguire semplicemente un test di questo progetto, è consigliabile caricare solo un sottoinsieme delle immagini. Caricare almeno 15 istanze di ogni tag che si intende usare.
 
-Dopo aver caricato le immagini di training, selezionare la prima visualizzata. Si aprirà la finestra di assegnazione di tag. Disegnare i riquadri e assegnare tag per ogni logo in ogni immagine. 
+Dopo aver caricato le immagini di training, selezionare la prima visualizzata. Verrà visualizzata una finestra per l'assegnazione di tag. Disegnare i riquadri e assegnare tag per ogni logo in ogni immagine. 
 
 ![Applicazione di tag sul sito Web di Visione personalizzata](media/azure-logo-tutorial/tag-logos.png)
 
 L'app è configurata per funzionare con stringhe di tag specifiche. Vedere le definizioni nel file *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 Dopo aver applicato tag a un'immagine, passare a destra per applicare tag alla successiva. Al termine, chiudere la finestra per l'applicazione di tag.
 
@@ -69,23 +69,23 @@ Nel riquadro sinistro impostare l'interruttore **Tags** su **Tagged** (Tag appli
 
 ## <a name="get-the-prediction-url"></a>Ottenere l'URL di previsione
 
-Dopo aver completato il training del modello, è possibile integrarlo nell'app. A questo scopo, sarà necessario ottenere l'URL dell'endpoint, ossia l'indirizzo del modello, su cui l'app eseguirà una query, e la chiave di previsione, per concedere all'app l'accesso alle richieste di previsione. Nella scheda **Performance** (Prestazioni) fare clic sul pulsante **Prediction URL** (URL di previsione) nella parte superiore della pagina.
+Dopo aver completato il training del modello, è possibile integrarlo nell'app. Sarà necessario ottenere l'URL dell'endpoint, ossia l'indirizzo del modello, su cui l'app eseguirà una query, e la chiave di previsione, per concedere all'app l'accesso alle richieste di previsione. Nella scheda **Performance** (Prestazioni) fare clic sul pulsante **Prediction URL** (URL di previsione) nella parte superiore della pagina.
 
 ![Sito Web di Visione personalizzata con una finestra dell'API Prediction che visualizza un indirizzo URL e una chiave API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copiare l'URL del file di immagine e il valore **Prediction-Key** nei campi appropriati del file *Source\VisualProvision\AppSettings.cs*:
+Copiare l'URL dell'endpoint e il valore **Prediction-Key** nei campi appropriati del file *Source\VisualProvision\AppSettings.cs*:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>Esaminare l'utilizzo di Visione personalizzata
 
 Aprire il file *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* per vedere come l'app usa l'URL endpoint e la chiave di Visione personalizzata. Il metodo **PredictImageContentsAsync** acquisisce un flusso di byte di un file di immagine insieme a un token di annullamento (per la gestione di attività asincrone), chiama l'API Prediction di Visione personalizzata e restituisce il risultato della previsione. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 Il risultato assume la forma di un'istanza di **PredictionResult**, che contiene un elenco di istanze di **Prediction**. Un'istanza di **Prediction** contiene un tag rilevato e la posizione del relativo rettangolo delimitatore nell'immagine.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 Per altre informazioni su come l'app gestisce questi dati, iniziare con il metodo **GetResourcesAsync**. Questo metodo è definito nel file *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
@@ -99,7 +99,7 @@ Sottoscrivere il servizio Visione artificiale per ottenere una chiave e un URL e
 
 Aprire quindi il file *Source\VisualProvision\AppSettings.cs* e popolare le variabili `ComputerVisionEndpoint` e `ComputerVisionKey` con i valori corretti.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
@@ -133,7 +133,7 @@ Al termine verrà visualizzato l'output JSON seguente, contenente le credenziali
 
 Prendere nota dei valori `clientId` e `tenantId`. Aggiungerli ai campi appropriati del file *Source\VisualProvision\AppSettings.cs*.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 

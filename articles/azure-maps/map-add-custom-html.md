@@ -1,20 +1,20 @@
 ---
 title: Aggiungere un indicatore HTML in Mappe di Azure | Microsoft Docs
-description: Come aggiungere un indicatore HTML alla mappa Javascript
+description: Come aggiungere un marcatore HTML ad Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993743"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976212"
 ---
 # <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
@@ -28,16 +28,36 @@ Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esemp
 
 ## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
 
-La classe HtmlMarker ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe HtmlMarker è un modello SVG con un segnaposto colore e testo. Configurare le proprietà di colore e testo nelle opzioni HtmlMarker per una rapida personalizzazione. 
+La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe marcatore HTML è un modello SVG che include un `{color}` segnaposto e `{text}` . Impostare le proprietà colore e testo nelle opzioni del marcatore HTML per una personalizzazione rapida. 
+
+Il codice seguente crea un marcatore HTML e imposta la proprietà Color su "DodgerBlue" e la proprietà Text su "10". Un popup viene collegato al marcatore e `click` l'evento viene usato per impostare la visibilità del popup.
+
+```javascript
+//Create a HTML marker and add it to the map.
+var marker = new atlas.HtmlMarker({
+    color: 'DodgerBlue',
+    text: '10',
+    position: [0, 0],
+    popup: new atlas.Popup({
+        content: '<div style="padding:10px">Hello World</div>',
+        pixelOffset: [0, -30]
+    })
+});
+
+map.markers.add(marker);
+
+//Add a click event to toggle the popup.
+map.events.add('click',marker, () => {
+    marker.togglePopup();
+});
+```
+
+Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Aggiungere un indicatore HTML a una mappa' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Aggiungere un indicatore HTML a una mappa</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
-
-Il secondo blocco di codice aggiunge un [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) alla mappa usando la proprietà [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) della classe [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). L'HtmlMarker viene aggiunto alla mappa all'interno della funzione [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per assicurarsi che venga visualizzato dopo il caricamento completo della mappa.
 
 ## <a name="create-svg-templated-html-marker"></a>Creare un indicatore HTML basato su modello SVG
 
@@ -47,6 +67,9 @@ Il valore predefinito `htmlContent` di un indicatore Html è un modello di SVG c
 
 <iframe height='500' scrolling='no' title='Indicatore HTML con Modello SVG personalizzato' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>indicatore HTML con modello SVG personalizzato</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Azure Maps Web SDK fornisce diversi modelli di immagini SVG che possono essere usati con marcatori HTML. Per altre informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
 
 ## <a name="add-a-css-styled-html-marker"></a>Aggiungere un indicatore HTML in stile CSS
 
@@ -59,7 +82,7 @@ Uno dei vantaggi degli indicatori HTML è la presenza di diverse eccezionali per
 
 ## <a name="draggable-html-markers"></a>Indicatori HTML trascinabili
 
-Questo esempio mostra come rendere trascinabile un indicatore HTML. Gli indicatori HTML supportano gli eventi `drag`, `dragstart` e `dragend`.
+Questo esempio mostra come rendere trascinabile un indicatore HTML. I marcatori `drag`HTML `dragstart`supportano gli `dragend` eventi, e.
 
 <br/>
 
@@ -89,6 +112,9 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
+
+> [!div class="nextstepaction"]
+> [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i simboli](./map-add-pin.md)

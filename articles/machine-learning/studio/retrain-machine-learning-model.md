@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196419"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66245085"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
@@ -59,7 +59,7 @@ In questo esempio si userà il linguaggio C# per creare l'applicazione di ripeti
 
 Usare la procedura seguente per chiamare le API per la ripetizione del training:
 
-1. Creare un'applicazione console C# in Visual Studio: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
+1. Creare un'applicazione console C# in Visual Studio: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
 1. Accedere al portale dei servizi Web Machine Learning.
 1. Fare clic sul servizio Web usato.
 1. Fare clic su **Consume**(Uso).
@@ -89,7 +89,7 @@ Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\tem
 1. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
 1. Nella colonna di spostamento a sinistra fare clic su **Chiavi di accesso**.
 1. Copiare e salvare la **chiave di accesso primaria**.
-1. Nella colonna di spostamento a sinistra fare clic su **Contenitori**.
+1. Nella colonna di spostamento a sinistra, fare clic su **BLOB**.
 1. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
 
 Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale.
@@ -132,7 +132,7 @@ Salvare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di out
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Accedere a Azure Resource Manager
 
-In primo luogo, accedere al proprio account Azure dall'interno dell'ambiente di PowerShell con il [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
+In primo luogo, accedere al proprio account Azure dall'interno dell'ambiente di PowerShell con il [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ### <a name="get-the-web-service-definition-object"></a>Ottenere l'oggetto definizione del servizio Web
 

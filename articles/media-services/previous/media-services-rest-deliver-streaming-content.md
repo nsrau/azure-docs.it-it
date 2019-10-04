@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60598296"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante REST 
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ esempio:
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)

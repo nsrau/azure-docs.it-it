@@ -2,7 +2,7 @@
 title: Abilitare la sincronizzazione offline con le app per dispositivi mobili per iOS | Documentazione Microsoft
 description: Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per memorizzare i dati nella cache e sincronizzarli offline nelle app iOS.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435134"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446379"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Sincronizzare offline le app per dispositivi mobili iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) oggi stesso.
+>
 
 ## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come eseguire la sincronizzazione offline con la funzionalità App per dispositivi mobili di Servizio app di Azure per iOS. La sincronizzazione offline consente agli utenti finali di usare un'app per dispositivi mobili per visualizzare, aggiungere o modificare dati anche in assenza di una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo viene connesso nuovamente alla rete, le modifiche vengono sincronizzate con il back-end remoto.
@@ -147,7 +151,7 @@ Aprire **QSDataModel.xcdatamodeld**. Qui sono definite quattro tabelle, tre usat
   * TodoItem: archivia gli elementi attività. Le colonne di sistema **createdAt**, **updatedAt** e **version** sono proprietà di sistema facoltative.
 
 > [!NOTE]
-> Mobile Apps SDK si riserva i nomi di colonna che iniziano con "**``**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto, i nomi di colonna vengono modificati.
+> Mobile Apps SDK si riserva i nomi di colonna che iniziano con " **``** ". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto, i nomi di colonna vengono modificati.
 >
 >
 
@@ -161,10 +165,10 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id | Valore integer 64 |
-| itemId | string |
-| properties | Dati binari |
-| tabella | string |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -174,9 +178,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
-| operationId |Valore integer 64 |
-| properties |Dati binari |
+| id |String |
+| operationId |Integer 64 |
+| properties |Binary Data |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
@@ -185,11 +189,11 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
-| key |string |
-| keyType |Valore integer 64 |
-| tabella |string |
-| value |string |
+| id |String |
+| key |String |
+| keyType |Integer 64 |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabella dati
 
@@ -197,12 +201,12 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type | Note |
 | --- | --- | --- |
-| id | Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
+| id | String, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
 | complete | Boolean | campo elemento ToDo |
-| text |string |campo elemento ToDo |
-| createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
-| updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
-| version | string | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
+| text |String |campo elemento ToDo |
+| createdAt | Date | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
+| updatedAt | Date | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
+| version | String | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
 In questa sezione si modifica l'app in modo che non esegua la sincronizzazione all'avvio o quando si inseriscono e si aggiornano elementi, bensì solo quando si seleziona il pulsante di aggiornamento.
@@ -261,7 +265,7 @@ Verrà visualizzato un indicatore di avanzamento.
 
 7. Visualizzare nuovamente i dati di **TodoItem**. Gli elementi attività nuovi e modificati dovrebbero essere a questo punto visualizzati.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Per supportare la funzionalità di sincronizzazione offline è stata usata l'interfaccia `MSSyncTable` ed è stato inizializzato `MSClient.syncContext` con un archivio locale. In questo caso l'archivio locale era un database basato su Core Data.
 
 Quando si usa un archivio locale Core Data, è necessario definire varie tabelle con le [proprietà di sistema corrette](#review-core-data).

@@ -4,23 +4,22 @@ description: Elenca le diverse dimensioni ottimizzate per GPU per le macchine vi
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 222f131e92a6018b4f70c65476cc2c47fb1d1dd5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 0e809690f0453806402c27773ad0029fc5f64be2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038563"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102353"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la GPU
 

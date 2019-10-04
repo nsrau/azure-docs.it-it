@@ -1,7 +1,7 @@
 ---
-title: Tipi di entità
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 'Entità di estrarre dati dal utterance. Tipi di entità offrono stimabile estrazione dei dati. Esistono due tipi di entità: macchina-ottenute, non-machine. È importante sapere quale tipo di entità che si sta lavorando in espressioni.'
+title: Tipi di entità-LUIS
+titleSuffix: Azure Cognitive Services
+description: "Le entità estraggono i dati dall'espressione. I tipi di entità offrono un'estrazione prevedibile dei dati. Esistono due tipi di entità: Machine-learned e non-Machine-Learned. È importante individuare il tipo di entità che si sta utilizzando nelle espressioni."
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528034"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564005"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
-Entità di estrarre dati dal utterance. Tipi di entità offrono stimabile estrazione dei dati. Esistono due tipi di entità: macchina-ottenute, non-machine. È importante sapere quale tipo di entità che si sta lavorando in espressioni. 
+Le entità estraggono i dati dall'espressione. I tipi di entità offrono un'estrazione prevedibile dei dati. Esistono due tipi di entità: Machine-learned e non-Machine-Learned. È importante individuare il tipo di entità che si sta utilizzando nelle espressioni. 
 
 ## <a name="entity-compared-to-intent"></a>Entità e finalità
 
-L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'espressione può includere molte entità oppure nessuna. Un'applicazione client potrebbe essere necessario l'entità per eseguire la propria attività oppure usarla come una Guida di diverse opzioni per presentare all'utente. 
+L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'espressione può includere molte entità oppure nessuna. Un'applicazione client può richiedere l'entità per eseguire la propria attività o usarla come guida di diverse opzioni da presentare all'utente. 
 
-Un'entità:
+Entità:
 
-* Rappresenta una classe come una raccolta di oggetti simili (luoghi, cose, persone, eventi o concetti). 
-* Descrive le informazioni pertinenti all'Intent
+* Rappresenta una classe che include una raccolta di oggetti simili (luoghi, elementi, persone, eventi o concetti). 
+* Descrive le informazioni relative alla finalità
 
 
 Ad esempio, un'app di ricerca di notizie potrebbe includere entità come "topic", "source", "keyword" e "publishing date", ovvero i dati chiave per la ricerca delle notizie. In un'app per la prenotazione di viaggi, "location", "date", "airline", "travel class" e "tickets" sono informazioni chiave per la prenotazione dei voli (rilevanti per la finalità "Bookflight").
@@ -44,7 +44,7 @@ Le entità vengono etichettate o contrassegnate solo per la finalità di estrazi
 
 Le entità sono dati di cui si intende eseguire il pull dall'espressione. Può trattarsi di un nome, di una data, del nome di un prodotto o di un qualsiasi gruppo di parole. 
 
-|Espressione|Entità|Dati|
+|Espressione|Entità|Data|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Location.Destination|3<br>New York|
 |Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>March 5, 2018|
@@ -97,84 +97,53 @@ Dopo aver estratto l'entità, i relativi dati possono essere rappresentati come 
 |Basata su Machine Learning|Può essere contrassegnata|Esercitazione|Esempio<br>Risposta|Tipo di entità|Scopo|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composita**](#composite-entity)|Raggruppamento di entità, indipendentemente dal tipo di entità.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Gerarchica**](#hierarchical-entity)|Raggruppamento di entità semplici.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Elenco**](#list-entity)|Elenco di elementi e relativi sinonimi estratti con corrispondenza di testo esatta.|
 |Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entità di cui è difficile determinare la fine.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefinita**](#prebuilt-entity)|Già sottoposta a training per estrarre vari tipi di dati.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Espressione regolare**](#regular-expression-entity)|Usa un'espressione regolare in base a cui trovare una corrispondenza di testo.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Semplice**](#simple-entity)|Contiene un singolo concetto in parole o frasi.|
 
-Solo le entità apprese macchina devono essere contrassegnato nelle espressioni di esempio. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endoint-utt.md). 
+Nelle espressioni di esempio è necessario contrassegnare solo le entità apprese dal computer. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endoint-utt.md). 
 
 Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pattern](luis-how-to-model-intent-pattern.md), non negli esempi di finalità utente. 
 
 Le entità miste usano una combinazione di metodi di rilevamento delle entità.
 
+## <a name="machine-learned-entities-use-context"></a>Il contesto viene usato dalle entità apprese dal computer
+
+Le entità apprese dal computer imparano dal contesto nell'espressione. In questo modo la variazione del posizionamento in espressioni di esempio è significativa. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Le entità non apprese dal computer non usano il contesto
+
+Le seguenti entità non acquisite dal computer non prendono in considerazione il contesto di espressione quando le entità corrispondenti: 
+
+* [Entità predefinite](#prebuilt-entity)
+* [Entità Regex](#regular-expression-entity)
+* [Elenca entità](#list-entity) 
+
+Queste entità non richiedono l'assegnazione di etichette o il training del modello. Una volta aggiunta o configurata l'entità, le entità vengono estratte. Il compromesso è che queste entità possono essere sottoposte a overmatching, in cui se il contesto è stato preso in considerazione, la corrispondenza non è stata eseguita. 
+
+Ciò accade con le entità elenco sui nuovi modelli di frequente. Il modello viene compilato e testato con un'entità di elenco, ma quando si pubblica il modello e si ricevono query dall'endpoint, si noterà che il modello è in fase di overmatching a causa della mancanza di contesto. 
+
+Se si desidera trovare una corrispondenza di parole o frasi e prendere in considerazione il contesto, sono disponibili due opzioni. Il primo consiste nell'usare un'entità semplice abbinata a un elenco di frasi. L'elenco di frasi non verrà usato per la corrispondenza, ma consentirà di segnalare parole relativamente simili (elenco interscambiabile). Se è necessario avere una corrispondenza esatta anziché le varianti di un elenco di frasi, usare un'entità list con un ruolo, descritta di seguito.
+
+### <a name="context-with-non-machine-learned-entities"></a>Contesto con entità non apprese dal computer
+
+Se si desidera che il contesto dell'espressione sia rilevante per le entità non acquisite dal computer, è necessario utilizzare i [ruoli](luis-concept-roles.md).
+
+Se si dispone di un'entità non appresa dal computer, ad esempio [entità predefinite](#prebuilt-entity), entità [Regex](#regular-expression-entity) o [elenco](#list-entity) di entità, che corrisponde al di fuori dell'istanza desiderata, provare a creare un'entità con due ruoli. Un ruolo acquisisce ciò che si sta cercando e un ruolo acquisisce ciò che non si sta cercando. Entrambe le versioni dovranno essere etichettate in espressioni di esempio.  
+
 ## <a name="composite-entity"></a>Entità composita
 
-Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressione regolare, elenco, gerarchiche. Le entità separate formano un'entità intera. 
-
-Questa entità è idonea quando i dati:
-
-* Sono correlati tra loro. 
-* Sono correlati tra loro nel contesto dell'espressione.
-* Usano vari tipi di entità.
-* Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
-* Hanno una serie di espressioni utente che richiedono l'apprendimento automatico.
-
-![entità composita](./media/luis-concept-entities/composite-entity.png)
-
-[Esercitazione](luis-tutorial-composite-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Entità gerarchica
-
-**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
-
-Un'entità gerarchica è una categoria di entità semplici con apprendimento su base contestuale chiamate entità figlio.
-
-![entità gerarchica](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Ruoli ed entità gerarchiche
-
-[Ruoli](luis-concept-roles.md) risolvere lo stesso problema come entità gerarchiche ma si applicano a tutti i tipi di entità.  
+Un' [entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera. 
 
 ## <a name="list-entity"></a>Entità elenco
 
-Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. 
-
-Questa entità è idonea quando i dati di testo:
-
-* Sono un set noto.
-* Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Stemming, plurali e altre varianti non vengono risolti con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
-
-![entità elenco](./media/luis-concept-entities/list-entity.png)
-
-[Esercitazione](luis-quickstart-intent-and-list-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#list-entity-data)
+Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. 
 
 ## <a name="patternany-entity"></a>Entità pattern.any
 
-Pattern.any è un segnaposto di lunghezza variabile usato solo nell'espressione del modello del criterio per contrassegnare l'inizio e la fine dell'entità.  
-
-Questa entità è idonea quando:
-
-* La fine dell'entità può essere confusa con il testo rimanente dell'espressione. 
-[Esercitazione](luis-tutorial-pattern.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#patternany-entity-data)
-
-**Esempio**  
-Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`. 
-
-Nella tabella seguente, ogni riga presenta due versioni dell'espressione. L'espressione superiore è quella visualizzata inizialmente da LUIS nella quale non è chiaro dove il titolo del libro inizia e finisce. L'espressione inferiore mostra come LUIS riesce a individuare il titolo del libro quando è stato definito un criterio per l'estrazione. 
-
-|Espressione|
-|--|
-|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|Was Half Asleep in Frog Pajamas written by an American this year?<br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
-|Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?<br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
-|Was There's A Wocket In My Pocket! written by an American this year?<br>Was **There's A Wocket In My Pocket!** written by an American this year?|
+[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.  
 
 ## <a name="prebuilt-entity"></a>Entità predefinita
 
@@ -193,78 +162,58 @@ Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento.
 
 Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto. 
 
-### <a name="troubleshooting-prebuilt-entities"></a>Risoluzione dei problemi relativi a entità predefinite
+### <a name="troubleshooting-prebuilt-entities"></a>Risoluzione dei problemi relativi alle entità predefinite
 
-Nel portale di LUIS, viene contrassegnata un'entità predefinite anziché all'entità personalizzata, sono disponibili alcune opzioni come risolvere il problema.
+Nel portale LUIS, se un'entità predefinita è contrassegnata al posto dell'entità personalizzata, sono disponibili alcune opzioni per risolvere il problema.
 
-Le entità predefinite aggiunte all'app verranno _sempre_ restituiti, anche se il utterance deve estrarre le entità personalizzate per il testo stesso. 
+Verranno _sempre_ restituite le entità predefinite aggiunte all'app, anche se l'espressione deve estrarre entità personalizzate per lo stesso testo. 
 
-#### <a name="change-tagged-entity-in-example-utterance"></a>Modificare le entità con tag in utterance di esempio
+#### <a name="change-tagged-entity-in-example-utterance"></a>Modifica dell'entità con tag nell'espressione di esempio
 
-Se l'entità predefinito è lo stesso testo o i token dell'entità personalizzate, selezionare il testo utterance di esempio e modificare il utterance con tag. 
+Se l'entità predefinita è lo stesso testo o token dell'entità personalizzata, selezionare il testo nell'espressione di esempio e modificare l'espressione con tag. 
 
-Se l'entità predefinito viene contrassegnato con più testo o un token rispetto all'entità personalizzata, sono disponibili un paio di opzioni di come risolvere il problema:
+Se l'entità predefinita è contrassegnata con più testo o token rispetto all'entità personalizzata, sono disponibili due opzioni per risolvere il problema:
 
-* [Rimuovere utterance esempio](#remove-example-utterance-to-fix-tagging) (metodo)
-* [Rimuovi entità predefinite](#remove-prebuilt-entity-to-fix-tagging) (metodo)
+* [Rimuovi](#remove-example-utterance-to-fix-tagging) metodo enunciato di esempio
+* [Rimuovi metodo di entità predefinito](#remove-prebuilt-entity-to-fix-tagging)
 
-#### <a name="remove-example-utterance-to-fix-tagging"></a>Rimuovere utterance di esempio per correggere l'assegnazione di tag 
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Rimuovere l'espressione di esempio per correggere l'assegnazione di tag 
 
-Il metodo preferito consiste nel rimuovere utterance l'esempio. 
+La prima scelta consiste nel rimuovere l'espressione di esempio. 
 
-1. Eliminare il utterance di esempio.
+1. Eliminare l'espressione di esempio.
 1. Ripetere il training dell'app. 
-1. Aggiungere di nuovo solo la parola o frase all'entità, che è contrassegnato come un'entità predefinita, come utterance un esempio completo. La parola o frase avranno comunque l'entità predefinito contrassegnato. 
-1. Selezionare l'entità in utterance l'esempio nel **finalità** pagina e modificare l'entità personalizzata ed eseguire il training anche in questo caso. Questo dovrebbe impedire LUIS di contrassegnare questo testo esatto dell'entità predefiniti in ogni espressione di esempio che usano tale testo. 
-1. Aggiungere l'intera utterance esempio originale torna allo scopo. L'entità personalizzata deve continuare a essere contrassegnato invece l'entità predefinito. Se non viene contrassegnata l'entità personalizzata, è necessario aggiungere ulteriori esempi di testo nelle espressioni.
+1. Aggiungere di nuovo solo la parola o la frase che rappresenta l'entità, contrassegnata come entità predefinita, come espressione di esempio completa. Per la parola o la frase sarà ancora stata contrassegnata l'entità precompilata. 
+1. Selezionare l'entità nell'enunciato di esempio nella pagina **finalità** e passare all'entità personalizzata e eseguire di nuovo il training. Questo dovrebbe impedire a LUIS di contrassegnare questo testo esatto come entità predefinita in qualsiasi espressione di esempio che utilizza tale testo. 
+1. Aggiungere nuovamente l'intero enunciato di esempio originale allo scopo. L'entità personalizzata deve continuare a essere contrassegnata al posto dell'entità precompilata. Se l'entità personalizzata non è contrassegnata, è necessario aggiungere altri esempi di tale testo nelle espressioni.
 
-#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Rimuovi entità predefiniti per correggere l'assegnazione di tag
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Rimuovere l'entità precompilata per correggere l'assegnazione di tag
 
 1. Rimuovere l'entità predefinita dall'app. 
-1. Nel **finalità** pagina, contrassegnare l'entità personalizzata in utterance l'esempio.
+1. Nella pagina **finalità** contrassegnare l'entità personalizzata nell'espressione di esempio.
 1. Eseguire il training dell'app.
-1. Aggiungere l'entità predefinito all'App ed eseguirne il training dell'app. Questa correzione si presuppone che l'entità predefinito non fa parte di un'entità composta.
+1. Aggiungere di nuovo l'entità predefinita all'app ed eseguire il training dell'app. Questa correzione presuppone che l'entità predefinita non faccia parte di un'entità composita.
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 
-Un'espressione regolare è ideale per il testo di un'espressione non elaborata. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico a livello di carattere e non a livello di token. Se l'espressione regolare è troppo complessa, ad esempio con molte parentesi, non è possibile aggiungere l'espressione al modello. Usa parte ma non tutte le [Regex .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) libreria. 
+Un' [entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un modello di espressione regolare fornito dall'utente.
 
-Questa entità è idonea quando:
+## <a name="simple-entity"></a>Entità semplice
 
-* I dati sono formattati in modo coerente con qualsiasi variazione altrettanto coerente.
-* L'espressione regolare non richiede più di due livelli di annidamento. 
-
-![Entità di espressione regolare](./media/luis-concept-entities/regex-entity.png)
-
-[Esercitazione](luis-quickstart-intents-regex-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-## <a name="simple-entity"></a>Entità semplice 
-
-Un'entità semplice è un'entità generica che descrive un singolo concetto e che viene appresa dal contesto basato su Machine Learning. Poiché le entità semplici sono in genere nomi, come nomi di società, nomi di prodotto o altre categorie di nomi, è consigliabile aggiungere un [elenco di frasi](luis-concept-feature.md) quando si usa un'entità semplice per migliorare il segnale dei nomi usati. 
-
-Questa entità è idonea quando:
-
-* I dati non sono formattati in modo coerente ma indicano la stessa cosa. 
-
-![entità semplice](./media/luis-concept-entities/simple-entity.png)
-
-[Esercitazione](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Risposta di esempio per l'entità](luis-concept-data-extraction.md#simple-entity-data)<br/>
-
+Un'[entità semplice](reference-entity-simple.md) è un valore appreso in modo automatico. Può trattarsi di una parola o di una frase.
 ## <a name="entity-limits"></a>Limiti delle entità
 
 Esaminare i [limiti](luis-boundaries.md#model-boundaries) per comprendere il numero di entità di ciascun tipo che è possibile aggiungere a un modello.
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se sono necessarie più entità rispetto al numero massimo 
 
-Potrebbe essere necessario utilizzare le entità composte in combinazione con i ruoli di entità.
+Potrebbe essere necessario usare entità composite in combinazione con i ruoli di entità.
 
 Le entità composite rappresentano parti di un intero. Ad esempio, un'entità composita denominata PlaneTicketOrder potrebbe presentare le entità figlio Airline, Destination, DepartureCity, DepartureDate e PlaneTicketClass.
 
 LUIS fornisce anche il tipo di entità elenco non basato su Machine Learning ma che consente all'app LUIS di specificare un elenco fisso di valori. Vedere il riferimento [Limiti di LUIS](luis-boundaries.md) per esaminare i limiti del tipo di entità elenco. 
 
-Se è stata considerata queste entità e comunque è più necessario, rispetto al limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
+Se sono state prese in considerazione queste entità e non è ancora necessario il limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

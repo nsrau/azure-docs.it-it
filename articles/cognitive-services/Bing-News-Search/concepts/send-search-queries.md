@@ -1,6 +1,6 @@
 ---
 title: Invio di query all'API Ricerca notizie Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni sull'invio di richieste di ricerca all'API Ricerca notizie Bing.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 1521799eacb0ec240a17e8c11dfff617fc59b772
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cfa9cd23e19788d847fd9177d70ee2af89c69272
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860491"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423821"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Invio di query all'API Ricerca notizie Bing
 
@@ -35,18 +35,18 @@ La richiesta deve usare il protocollo HTTPS.
 
 È consigliabile che tutte le richieste abbiano origine da un server. La distribuzione della chiave come parte di un'applicazione client consente a terze parti dannose di accedervi più facilmente. Inoltre, l'esecuzione delle chiamate da un server fornisce un singolo punto di aggiornamento per le versioni future dell'API.
 
-La richiesta deve specificare il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query), contenente il termine di ricerca dell'utente. Nonostante sia facoltativo, la richiesta dovrebbe anche specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi come `freshness` e `textDecorations`, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) (Parametri di query). Tutti i valori dei parametri di query devono essere codificati in URL.
+La richiesta deve specificare il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), contenente il termine di ricerca dell'utente. Nonostante sia facoltativo, la richiesta dovrebbe anche specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi come `freshness` e `textDecorations`, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) (Parametri di query). Tutti i valori dei parametri di query devono essere codificati in URL.
 
-La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:
+La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:
 
-- [User-agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
-- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)
-- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
-- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
+- [User-agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
+- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
+- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
 
 Le intestazioni relative a IP client e posizione sono importanti per la restituzione di contenuto con riconoscimento della posizione.
 
-Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers) (Intestazioni).
+Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headers) (Intestazioni).
 
 Di seguito è illustrata una richiesta di notizie che include tutte le intestazioni e i parametri di query suggeriti. Se è la prima volta che si chiama un'API Bing, non includere l'intestazione dell'ID client. Includere l'ID client solo se in precedenza è già stata chiamata un'API Bing e Bing ha restituito un ID client per la combinazione utente e dispositivo.
 
@@ -64,12 +64,12 @@ Host: api.cognitive.microsoft.com
 
 Di seguito è riportata la risposta alla richiesta precedente. L'esempio mostra anche le intestazioni di risposta.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
-BingAPIs-SessionId: 92C9798D29C846ABBDAE4AB6C47CC888
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US
-X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 2018-09-17T16:55:22Z
 
 {
    "_type": "News",

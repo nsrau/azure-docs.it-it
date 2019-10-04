@@ -1,92 +1,83 @@
 ---
-title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, Python'
+title: 'Guida introduttiva: Estrarre testo stampato e scritto a mano - REST, Python'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con Python.
+description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aa2c29a5b2becad75bae0f9ca9f88ab25a35d17f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0bd30abc78caea369f2d0a330eac457ad78e9e84
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883259"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141261"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e Python
 
-In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi API [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+In questa esercitazione dell'avvio rapido si estrarrà testo stampato e/o scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo in un'immagine ed estrarre i caratteri riconosciuti in un flusso di caratteri leggibile al computer. L'API determinerà il modello di riconoscimento da usare per ogni riga di testo, in modo da supportare le immagini con testo stampato e scritto a mano.
 
 > [!IMPORTANT]
 > A differenza del metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) viene eseguito in modo asincrono. Questo metodo non restituisce alcuna informazione nel corpo di una risposta con esito positivo. Il metodo Batch Read restituisce invece un URI nel valore del campo di intestazione `Operation-Content` della risposta. È quindi possibile chiamare questo URI, che rappresenta il metodo API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), per controllare lo stato e restituire i risultati della chiamata del metodo Batch Read.
 
 È possibile seguire passo passo la procedura descritta in questa guida introduttiva usando un notebook di Jupyter in [MyBinder](https://mybinder.org). Per avviare Binder, selezionare il pulsante seguente:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Pulsante di avvio di Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/try/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine da cui si vuole estrarre il testo scritto a mano.
-1. Salvare il codice in un file con estensione `.py`. Ad esempio: `get-handwritten-text.py`.
+1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine da cui si vuole estrarre il testo.
+1. Salvare il codice in un file con estensione `.py`. Ad esempio: `get-text.py`.
 1. Aprire una finestra del prompt dei comandi.
-1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python get-handwritten-text.py`.
+1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python get-text.py`.
 
 ```python
 import requests
 import time
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 from PIL import Image
 from io import BytesIO
 
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
+# Add your Computer Vision subscription key and endpoint to your environment variables.
+if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
+    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+else:
+    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
+    sys.exit()
 
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the "westus" region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+if 'COMPUTER_VISION_ENDPOINT' in os.environ:
+    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
+text_recognition_url = endpoint + "vision/v2.0/read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-# Note: The request parameter changed for APIv2.
-# For APIv1, it is 'handwriting': 'true'.
-params  = {'mode': 'Handwritten'}
-data    = {'url': image_url}
+data = {'url': image_url}
 response = requests.post(
-    text_recognition_url, headers=headers, params=params, json=data)
+    text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
-# Extracting handwritten text requires two API calls: One call to submit the
+# Extracting text requires two API calls: One call to submit the
 # image for processing, the other to retrieve the text found in the image.
 
 # Holds the URI used to retrieve the recognized text.
@@ -102,15 +93,15 @@ while (poll):
     print(analysis)
     time.sleep(1)
     if ("recognitionResults" in analysis):
-        poll= False 
+        poll = False
     if ("status" in analysis and analysis['status'] == 'Failed'):
-        poll= False
+        poll = False
 
-polygons=[]
+polygons = []
 if ("recognitionResults" in analysis):
     # Extract the recognized text, with bounding boxes.
     polygons = [(line["boundingBox"], line["text"])
-        for line in analysis["recognitionResults"][0]["lines"]]
+                for line in analysis["recognitionResults"][0]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -118,9 +109,9 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
-        for i in range(0, len(polygon[0]), 2)]
-    text     = polygon[1]
-    patch    = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
+                for i in range(0, len(polygon[0]), 2)]
+    text = polygon[1]
+    patch = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(vertices[0][0], vertices[0][1], text, fontsize=20, va="top")
 ```

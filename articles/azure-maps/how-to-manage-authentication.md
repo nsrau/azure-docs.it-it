@@ -3,17 +3,17 @@ title: Gestire l'autenticazione in Mappe di Azure | Microsoft Docs
 description: È possibile usare il portale di Azure per gestire l'autenticazione in Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259925"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837807"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -59,19 +59,19 @@ Dopo aver creato un account mappe di Azure, è necessario stabilire un collegame
 
 ## <a name="grant-rbac-to-azure-maps"></a>Concedere il controllo degli accessi in base al ruolo a Mappe di Azure
 
-Dopo aver associato un account mappe di Azure con il tenant di Azure AD, è possibile concedere il controllo di accesso tramite l'assegnazione di un utente o un'applicazione a uno o più ruoli di controllo di accesso di mappe di Azure.
+Dopo aver associato un account mappe di Azure con il tenant di Azure AD, è possibile concedere il controllo di accesso tramite l'assegnazione di un utente, gruppo o un'applicazione a uno o più ruoli di controllo di accesso di mappe di Azure.
 
-1. Passare a **controllo di accesso (IAM)**, selezionare **le assegnazioni di ruolo**, quindi selezionare **aggiungere un'assegnazione di ruolo**.
+1. Passare a **controllo di accesso (IAM)** , selezionare **le assegnazioni di ruolo**, quindi selezionare **aggiungere un'assegnazione di ruolo**.
 
     ![Concedere il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Nel **aggiungere un'assegnazione di ruolo** finestra, sotto **ruolo**, selezionare **lettura data mappe di Azure (anteprima)**. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. Sotto **seleziona**, selezionare l'utente o applicazione. Selezionare **Salva**.
+2. Nel **aggiungere un'assegnazione di ruolo** finestra, sotto **ruolo**, selezionare **lettura data mappe di Azure (anteprima)** . In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. Sotto **seleziona**, selezionare l'utente o applicazione. Selezionare **Salva**.
 
     ![Aggiungi un'assegnazione di ruolo](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Visualizzare i ruoli Controllo degli accessi in base al ruolo di Mappe di Azure disponibili
 
-Per visualizzare i ruoli controllo degli accessi in base al ruolo di accesso disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**, selezionare **ruoli**, e quindi cercare i ruoli che iniziano con **mappediAzure**. Questi sono i ruoli che è possibile concedere l'accesso a.
+Per visualizzare i ruoli controllo degli accessi in base al ruolo di accesso disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)** , selezionare **ruoli**, e quindi cercare i ruoli che iniziano con **mappediAzure**. Questi sono i ruoli che è possibile concedere l'accesso a.
 
 ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
@@ -80,7 +80,7 @@ Per visualizzare i ruoli controllo degli accessi in base al ruolo di accesso dis
 
 RBAC fornisce controllo di accesso granulare.
 
-Per visualizzare gli utenti e le app che sono stati concessi RBAC per le mappe di Azure, passare a **controllo di accesso (IAM)**, selezionare **le assegnazioni di ruolo**e quindi filtrare in base **mappe di Azure**.
+Per visualizzare gli utenti e le app che sono stati concessi RBAC per le mappe di Azure, passare a **controllo di accesso (IAM)** , selezionare **le assegnazioni di ruolo**e quindi filtrare in base **mappe di Azure**.
 
 ![Visualizzare gli utenti e le app concesse RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
@@ -98,4 +98,8 @@ Per altre informazioni su come richiedere i token di accesso da Azure AD per gli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'autenticazione di Azure AD e Web SDK per Mappe di Azure, vedere [Usare il controllo mappa di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Per altre informazioni sull'autenticazione di Azure AD e Web SDK per Mappe di Azure, vedere [Usare il controllo mappa di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Informazioni su come visualizzare le metriche di utilizzo delle API per l'account Mappe di Azure:
+> [!div class="nextstepaction"] 
+> [Visualizzare le metriche di utilizzo](how-to-view-api-usage.md)

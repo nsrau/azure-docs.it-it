@@ -2,20 +2,19 @@
 title: Orchestrazioni perenni in Funzioni permanenti - Azure
 description: Informazioni su come implementare le orchestrazioni perenni usando l'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607739"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933376"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
 
@@ -23,7 +22,7 @@ Le *orchestrazioni perenni* sono funzioni di orchestrazione che non terminano ma
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 
-Come spiegato nelle informazioni su [checkpoint e riesecuzione](durable-functions-checkpointing-and-replay.md), Durable Task Framework tiene traccia della cronologia di ogni orchestrazione di funzioni. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
+Come illustrato nell'argomento relativo alla [cronologia dell'orchestrazione](durable-functions-orchestrations.md#orchestration-history) , il Framework di attività permanenti tiene traccia della cronologia di ogni orchestrazione di funzioni. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
 
 ## <a name="resetting-and-restarting"></a>Reimpostazione e riavvio
 
@@ -45,7 +44,7 @@ Un caso d'uso di orchestrazioni perenni è il codice che deve eseguire operazion
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("DoCleanup");
+    await context.CallActivityAsync("DoCleanup", null);
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
@@ -66,13 +65,32 @@ module.exports = df.orchestrator(function*(context) {
 
     // sleep for one hour between cleanups
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
-    yield context.df.createTimer(nextCleanup);
+    yield context.df.createTimer(nextCleanup.toDate());
 
     context.df.continueAsNew(undefined);
 });
 ```
 
 La differenza tra questo esempio e una funzione attivata da timer è che i tempi del trigger di pulizia non sono basati su una pianificazione. Ad esempio, una pianificazione CRON che esegue una funzione ogni ora verrà eseguita all'1:00, alle 2:00, alle 3:00 e così via e potrebbe potenzialmente generare problemi di sovrapposizione. In questo esempio, tuttavia, se la pulizia richiede 30 minuti, verrà pianificata all'1:00, alle 2:30, alle 4:00 e così via senza possibilità di sovrapposizione.
+
+## <a name="starting-an-eternal-orchestration"></a>Avvio di un'orchestrazione eterna
+Usare il metodo [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) per avviare un'orchestrazione eterna. Questa operazione non è diversa rispetto all'attivazione di qualsiasi altra funzione di orchestrazione.  
+
+> [!NOTE]
+> Se è necessario assicurarsi che l'orchestrazione di un singleton eterna sia in esecuzione, è importante mantenere la `id` stessa istanza quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+
+```csharp
+[FunctionName("Trigger_Eternal_Orchestration")]
+public static async Task<HttpResponseMessage> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
+    [OrchestrationClient] DurableOrchestrationClientBase client)
+{
+    string instanceId = "StaticId";
+    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
+    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    return client.CreateCheckStatusResponse(request, instanceId);
+}
+```
 
 ## <a name="exit-from-an-eternal-orchestration"></a>Uscire da un'orchestrazione perenne
 

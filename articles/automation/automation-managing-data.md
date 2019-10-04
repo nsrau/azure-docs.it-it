@@ -4,17 +4,17 @@ description: Questo articolo contiene più argomenti per la gestione di un ambie
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784977"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476591"
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -26,7 +26,7 @@ Automazione di Azure elimina automaticamente e rimuove definitivamente i process
 
 La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
-| Dati | Criterio |
+| Data | Criterio |
 |:--- |:--- |
 | Account |Rimosso definitivamente 90 giorni dopo l'eliminazione dell'account da parte di un utente. |
 | Asset |Rimosso definitivamente 90 giorni dopo l'eliminazione dell'asset da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include l'asset da parte di un utente. |

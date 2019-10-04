@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58889754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61036272"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 

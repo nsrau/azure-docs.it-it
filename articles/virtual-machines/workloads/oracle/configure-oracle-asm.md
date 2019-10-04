@@ -4,23 +4,22 @@ description: Attivare e mettere in funzione rapidamente Oracle ASM nell'ambiente
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91150251140379c15d4ab3711ded571c9ad2c024
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998955"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101659"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
 
@@ -515,7 +514,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
 2. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
-3. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)**:
+3. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
    - Immettere il nome del gruppo di dischi **DATA**.
    - In **Select Member Disks** (Selezionare i dischi membri) selezionare **ORCL_DATA** e **ORCL_DATA1**.
@@ -527,7 +526,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
 4. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
-5. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)**:
+5. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
    - Immettere il nome del gruppo di dischi **FRA**.
    - In **Redundancy** (Ridondanza) selezionare **External (none)** (Esterna (nessuna)).

@@ -3,21 +3,22 @@ title: Flusso di controllo di Conversation Learner - Servizi cognitivi Microsoft
 titleSuffix: Azure
 description: Informazioni sul flusso di controllo di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: f28b60d67e84e3e2e39cc647045a6dfca473b810
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322940"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932101"
 ---
-## <a name="control-flow"></a>Flusso di controllo
+# <a name="control-flow"></a>Flusso di controllo
 
 Questo documento descrive il flusso di controllo di Conversation Learner, illustrato nel diagramma seguente.
 
@@ -41,4 +42,4 @@ Questo documento descrive il flusso di controllo di Conversation Learner, illust
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Come insegnare con strumento di apprendimento di conversazioni](./how-to-teach-cl.md)
+> [Come insegnare con Conversation Learner](./how-to-teach-cl.md)

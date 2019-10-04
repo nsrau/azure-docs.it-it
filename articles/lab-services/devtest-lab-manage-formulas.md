@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60562532"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -44,7 +44,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 
-4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)**.
+4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)** .
    
     ![Menu Formula](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -88,7 +88,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 4. Nella pagina **Panoramica** del lab selezionare la macchina virtuale dalla quale creare la formula.
    
     ![Macchine virtuali di lab](./media/devtest-lab-create-formulas/my-vms.png)
-5. Nella pagina della macchina virtuale selezionare **Crea formula (base riutilizzabile)**.
+5. Nella pagina della macchina virtuale selezionare **Crea formula (base riutilizzabile)** .
    
     ![Crea formula](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. Nella pagina **Crea formula** compilare i campi **Nome** e **Descrizione** della nuova formula.
@@ -102,7 +102,7 @@ Per modificare una formula, seguire questa procedura:
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
-4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)**.
+4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)** .
    
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Nella pagina **Formule lab** selezionare la formula che si vuole modificare.

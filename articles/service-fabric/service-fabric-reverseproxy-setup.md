@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: chackdan
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392995"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030816"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurare il proxy inverso in Azure Service Fabric
 Il proxy inverso è un servizio facoltativo di Azure Service Fabric che consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP. Per altre informazioni, vedere [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md). Questo articolo illustra come configurare il proxy inverso nel cluster. 
@@ -334,7 +333,7 @@ Il codice JSON seguente fa riferimento allo stesso modello usato in [Abilitare i
 
 Per altre informazioni sull'aggiornamento delle impostazioni di infrastruttura per i cluster di Azure, vedere [Personalizzare le impostazioni del cluster usando i modelli di Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Per i cluster autonomi vedere [Personalizzare le impostazioni del cluster per i cluster autonomi](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Alcune impostazioni di infrastruttura vengono usate per stabilire comunicazioni sicure tra il proxy inverso e i servizi. Per informazioni dettagliate su queste impostazioni, vedere [Connetti a un servizio protetto con il proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
+Alcune impostazioni di infrastruttura vengono usate per stabilire comunicazioni sicure tra il proxy inverso e i servizi. Per informazioni dettagliate su queste impostazioni, vedere [connettersi a un servizio protetto con il proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare l'inoltro a un servizio HTTP sicuro con il proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)

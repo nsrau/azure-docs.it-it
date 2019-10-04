@@ -1,65 +1,52 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 6acffc5056f916f2e05c7a0fd3eb325fd89a9e4b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117052"
-documentType: LandingData
-title: Documentazione del modulo di protezione hardware dedicato di Azure
+### YamlMime:Landing
+title: Documentazione del servizio HSM dedicato di Azure
+summary: Informazioni su come usare il servizio HSM dedicato di Azure per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 metadata:
-  title: Documentazione del modulo di protezione hardware dedicato di Azure - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  title: Documentazione del servizio HSM dedicato di Azure
+  description: Informazioni su come usare il servizio HSM dedicato di Azure per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
   services: dedicated-hsm
-  author: barclayn
-  manager: barbkess
-  layout: LandingPage
-  ms.assetid: 
   ms.service: dedicated-hsm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/21/2018
-  ms.author: barclayn
-abstract:
-  description: Informazioni sulla funzionalità del modulo di protezione hardware dedicato e sui casi di applicazione nell'ambiente corrente.
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/dedicated-hsm/overview
-      html: <p>Informazioni dettagliate sul modulo di protezione hardware dedicato di Azure.</p>
-      image:
-        src: media/index/hsm.svg
-      title: Panoramica sul modulo di protezione hardware dedicato di Azure
-    - href: /azure/dedicated-hsm/faq
-      html: <p>Considerazioni sulla progettazione quando si usa il modulo di protezione hardware dedicato</p>
-      image:
-        src: media/index/guide.svg
-      title: Scelta dell'architettura di distribuzione
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
-    - image:
-        src: media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Domande frequenti
-      html: <p><a href="/azure/dedicated-hsm/faq/">Domande frequenti</a></p>
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019
+  ms.openlocfilehash: 9e592fdb5fa87487f131bb0aca0c6176175e5385
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71300097"
+landingContent:
+- title: Informazioni sul servizio HSM dedicato
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è HSM dedicato?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Disponibilità elevata
+      url: high-availability.md
+    - text: Sicurezza fisica
+      url: physical-security.md
+    - text: Rete
+      url: networking.md
+    - text: Supporto
+      url: supportability.md
+    - text: Monitoraggio
+      url: monitoring.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Eseguire la distribuzione in una rete virtuale con l'interfaccia della riga di comando di Azure
+      url: tutorial-deploy-hsm-cli.md
+    - text: Eseguire la distribuzione in una rete virtuale con PowerShell
+      url: tutorial-deploy-hsm-powershell.md
+- title: Scenari
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Architettura di distribuzione del servizio HSM dedicato di Azure
+      url: deployment-architecture.md

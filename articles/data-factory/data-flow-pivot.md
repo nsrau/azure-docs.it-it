@@ -1,19 +1,19 @@
 ---
 title: Trasformazione Pivot per il flusso di dati di mapping di Azure Data Factory
-description: Trasformare dati dalle righe alle colonne mediante Azure Data Factory il Mapping di flusso Pivot la trasformazione dei dati tramite pivot
+description: Trasformare i dati tramite pivot da righe a colonne utilizzando la trasformazione pivot del flusso di dati del mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794364"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178650"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Trasformazione pivot in Azure data factory
+# <a name="azure-data-factory-pivot-transformation"></a>Trasformazione pivot data factory di Azure
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Usare la trasformazione Pivot nel flusso di dati di Azure Data Factory come un'aggregazione in cui i valori di riga distinti di una o più colonne di raggruppamento vengono trasformati in singole colonne. In pratica, è possibile trasformare tramite Pivot i valori di riga in nuove colonne (trasformare i dati in metadati).
@@ -30,7 +30,7 @@ Impostare prima di tutto le colonne in base alle quali si desidera eseguire il r
 
 ![Opzioni di Pivot](media/data-flow/pivot3.png "Pivot 3")
 
-La chiave Pivot è la colonna in base alla quale Azure Data Factory eseguirà la trasformazione tramite Pivot da riga a colonna. Per impostazione predefinita, ogni valore univoco nel set di dati per questo campo verrà trasformato tramite Pivot in una colonna. Tuttavia, è facoltativamente possibile immettere i valori dal set di dati che si desidera trasformare tramite Pivot in valori di colonna. Si tratta della colonna che è determinerà le nuove colonne che verranno create.
+La chiave Pivot è la colonna in base alla quale Azure Data Factory eseguirà la trasformazione tramite Pivot da riga a colonna. Per impostazione predefinita, ogni valore univoco nel set di dati per questo campo verrà trasformato tramite Pivot in una colonna. Tuttavia, è facoltativamente possibile immettere i valori dal set di dati che si desidera trasformare tramite Pivot in valori di colonna. Si tratta della colonna che determinerà le nuove colonne che verranno create.
 
 ## <a name="pivoted-columns"></a>Colonne trasformate tramite pivot
 
@@ -40,7 +40,7 @@ Infine, si sceglierà l'aggregazione che si desidera usare per i valori trasform
 
 (Facoltativo) È possibile impostare un criterio di denominazione con prefisso, valore intermedio e suffisso da aggiungere a ogni nuovo nome di colonna dai valori di riga.
 
-Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati valori di colonna da ogni valore delle vendite, ad esempio "25", "50", "1000" e così via. Tuttavia, se si imposta un valore di prefisso "Vendite-", ogni valore di colonna aggiungerebbe "Vendite-" all'inizio del valore.
+Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati valori di colonna da ogni valore delle vendite, ad esempio "25", "50", "1000" e così via. Tuttavia, se si imposta un valore di prefisso "Sales-", ogni valore di colonna aggiungerebbe "Sales-" all'inizio del valore.
 
 ![Opzioni di Pivot](media/data-flow/pivot5.png "Pivot 5")
 
@@ -52,21 +52,27 @@ Per impostare l'aggregazione da usare per i valori Pivot, fare clic sul campo ne
 
 Usare il linguaggio per le espressioni del flusso dei dati di Azure Data Factory per descrivere le trasformazioni di colonna tramite Pivot nel generatore di espressioni: https://aka.ms/dataflowexpressions.
 
-## <a name="pivot-metadata"></a>Metadati PowerPivot
+## <a name="pivot-metadata"></a>Metadati pivot
 
-La trasformazione Pivot genererà i nuovi nomi di colonna sono dinamici basati sui dati in ingresso. Chiave Pivot produce i valori per ogni nuovo nome di colonna. Se non si specifica i singoli valori e creare nomi di colonna dinamiche per ogni valore univoco di chiave Pivot, quindi l'interfaccia utente non verrà visualizzati i metadati in controlla e non sarà presente alcuna propagazione di colonna per la trasformazione di Sink. Se si impostano valori di chiave Pivot, quindi Azure Data factory può determinare i nuovi nomi di colonna e tali nomi di colonna verranno disponibili nella controlla e mapping del Sink.
+La trasformazione pivot produrrà nuovi nomi di colonna dinamici in base ai dati in ingresso. La chiave pivot produce i valori per ogni nuovo nome di colonna. Se non si specificano valori singoli e si desidera creare nomi di colonna dinamici per ogni valore univoco nella chiave pivot, l'interfaccia utente non visualizzerà i metadati in controlla e non verrà eseguita alcuna propagazione delle colonne alla trasformazione sink. Se si impostano i valori per la chiave pivot, ADF è in grado di determinare i nuovi nomi di colonna e i nomi delle colonne saranno disponibili nel mapping controlla e sink.
 
-### <a name="landing-new-columns-in-sink"></a>Le nuove colonne di destinazione nel Sink
+### <a name="generate-a-new-model-from-dynamic-columns"></a>Generare un nuovo modello da colonne dinamiche
 
-Anche con i nomi di colonna dinamica in PowerPivot, è comunque possibile sink i nuovi nomi di colonna e i valori nell'archivio di destinazione. Appena impostato "Consenti deviazioni dello Schema" su on nelle impostazioni del Sink. Non si vedranno i nuovi nomi dinamici nei metadati di colonna, ma l'opzione di deviazioni dello schema consente di trasferire i dati.
+Pivot genera i nuovi nomi di colonna in modo dinamico in base ai valori di riga. È possibile trasformare le nuove colonne in metadati a cui è possibile fare riferimento in un secondo momento nel flusso di dati. A tale scopo, fare clic sulla scheda Anteprima dati. Tutte le nuove colonne generate dalla trasformazione pivot vengono visualizzate con l'icona "Drifted" nell'intestazione della tabella. Fai clic sul pulsante "mappato" per trasformare le nuove colonne in metadati, facendole parte del modello del flusso di dati.
+
+![Colonne pivot](media/data-flow/newpivot1.png "Eseguire il mapping delle colonne pivot")
+
+### <a name="landing-new-columns-in-sink"></a>Destinazione di nuove colonne nel sink
+
+Anche con i nomi di colonna dinamici in pivot, è ancora possibile affondare i nomi e i valori delle nuove colonne nell'archivio di destinazione. È sufficiente impostare "Consenti la deriva dello schema" su on nelle impostazioni del sink. I nuovi nomi dinamici non vengono visualizzati nei metadati della colonna, ma l'opzione di spostamento dello schema consente di inserire i dati.
 
 ### <a name="view-metadata-in-design-mode"></a>Visualizzare i metadati in modalità progettazione
 
-Se si desidera visualizzare i nuovi nomi di colonna come metadati nel controlla e si desidera visualizzare le colonne di propagazione in modo esplicito alla trasformazione Sink, impostare valori espliciti nella scheda chiavi Pivot.
+Se si desidera visualizzare i nuovi nomi di colonna come metadati in controlla e si desidera che le colonne vengano propagate in modo esplicito alla trasformazione sink, impostare valori espliciti nella scheda chiave pivot.
 
 ### <a name="how-to-rejoin-original-fields"></a>Come unire di nuovo in join i campi originali
-La trasformazione Pivot proietterà solo le colonne usate nelle azioni di aggregazione, raggruppamento e Pivot. Se si desidera includere altre colonne nel passaggio precedente nel flusso, usare un nuovo ramo nel passaggio precedente e usare il modello di self join per connettere il flusso con i metadati originali.
+La trasformazione Pivot proietterà solo le colonne usate nelle azioni di aggregazione, raggruppamento e Pivot. Se si desidera includere le altre colonne del passaggio precedente nel flusso, utilizzare un nuovo ramo del passaggio precedente e utilizzare il modello di self-join per connettere il flusso ai metadati originali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare il [trasformazione unpivot](data-flow-unpivot.md) per trasformare i valori delle colonne in valori di riga. 
+Provare la [trasformazione UnPivot](data-flow-unpivot.md) per trasformare i valori di colonna in valori di riga. 

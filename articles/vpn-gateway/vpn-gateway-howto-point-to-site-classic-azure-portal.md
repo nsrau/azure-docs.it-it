@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60845602"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -191,8 +191,8 @@ Per connettersi a una rete virtuale tramite VPN da punto a sito, ogni client dev
 
 2. Nella pagina **Connessione VPN da punto a sito** selezionare il pacchetto di download corrispondente al sistema operativo client in cui è installato:
 
-   * Per client a 64 bit, selezionare **Client VPN (64 bit)**.
-   * Per client a 32 bit, selezionare **Client VPN (32 bit)**.
+   * Per client a 64 bit, selezionare **Client VPN (64 bit)** .
+   * Per client a 32 bit, selezionare **Client VPN (32 bit)** .
 
    ![Scaricare il pacchetto di configurazione del client VPN](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
@@ -275,7 +275,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 È possibile revocare un certificato client aggiungendo l'identificazione personale all'elenco di revoche di certificati.
 
-1. Ottenere l'identificazione personale del certificato client. Per ulteriori informazioni, consultare [Come recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Ottenere l'identificazione personale del certificato client. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo da avere una stringa continua.
 3. Passare alla rete virtuale classica. Selezionare **Connessione VPN da punto a sito**, quindi selezionare **Gestisci certificato** per aprire la pagina **Certificati**.
 4. Selezionare **Elenco di revoche** per aprire la pagina **Elenco di revoche**. 

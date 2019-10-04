@@ -2,23 +2,19 @@
 title: Parametri e intestazioni comuni
 description: Parametri e intestazioni comuni a tutte le operazioni eseguibili con le risorse di Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b420999dad6f34e4868013e2d466d8bacb60b2c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ec8e1df71e6513b13e9c37174a3363471be01d9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306037"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879276"
 ---
 # <a name="common-parameters-and-headers"></a>Parametri e intestazioni comuni
 
@@ -45,8 +41,8 @@ Il servizio userà i codici di stato HTTP per indicare l'esito positivo o negati
 
 |Nome dell'elemento | Type | DESCRIZIONE |
 |---|---|---|
-| code | stringa | Il tipo di errore che si è verificato.|
-| Message | stringa | Descrizione della causa dell'errore. |
+| code | string | Il tipo di errore che si è verificato.|
+| message | string | Descrizione della causa dell'errore. |
 
 
 

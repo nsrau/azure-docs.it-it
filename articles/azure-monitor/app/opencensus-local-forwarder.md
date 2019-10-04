@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus distributed traccia utilità di inoltro locali (anteprima) | Documentazione Microsoft
+title: Applicazione Azure Insights OpenCensus Distributed Tracing locale (anteprima) | Microsoft docs
 description: Inoltrare intervalli e tracce distribuite OpenCensus da linguaggi come Python e Go in Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002815"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348162"
 ---
-# <a name="local-forwarder-preview"></a>Utilità di inoltro locali (anteprima)
+# <a name="local-forwarder-preview"></a>Server d'invio locale (anteprima)
 
 Il servizio d'inoltro locale è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. Può essere eseguito anche in macOS, ma al momento non è ufficialmente supportato.
 
@@ -35,7 +35,7 @@ Il modo più semplice per eseguire un servizio d'inoltro locale in Windows è qu
 
 > [!NOTE]
 > Il servizio di inoltro locale richiede almeno .NET Framework 4.7. In caso contrario, il servizio verrà installato ma non verrà avviato. Per accedere alla versione più recente di .NET Framework, **[visitare la pagina di download di .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Scaricare il file LF.WindowsServiceHost.zip dalla [pagina della versione del servizio d'inoltro locale](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) in GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Monitorare il servizio controllando i file **.log* nella directory /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Monitorare il servizio controllando i file * *.log* nella directory /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Il servizio d'inoltro locale può essere usato anche in macOS, ma al momento non è ufficialmente supportato.
@@ -154,7 +154,7 @@ Il servizio d'inoltro locale può essere usato anche in macOS, ma al momento non
 ### <a name="self-hosting"></a>Self-hosting
 Il servizio d'inoltro locale può essere distribuito anche come pacchetto NuGet standard di .NET, in modo da poter essere ospitato all'interno di un'applicazione .NET.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

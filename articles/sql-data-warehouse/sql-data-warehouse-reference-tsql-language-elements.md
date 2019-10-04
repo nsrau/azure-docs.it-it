@@ -2,20 +2,20 @@
 title: Elementi del linguaggio T-SQL - Azure SQL Data Warehouse | Documentazione Microsoft
 description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: mausher
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466224"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479425"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementi del linguaggio T-SQL supportati in Azure SQL Data Warehouse
 Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportati in Azure SQL Data Warehouse.
@@ -29,7 +29,7 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 * [costanti](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipi di dati](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
-* [espressioni](https://msdn.microsoft.com/library/ms190286.aspx)
+* [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [soluzione alternativa per la proprietà IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 * [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)

@@ -1,0 +1,63 @@
+- name: Documentazione di Condivisione dati di Azure (anteprima)
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Condivisione dati di Azure (anteprima)
+      href: overview.md
+- name: Esercitazioni
+  expanded: true
+  items:
+    - name: Condividere dati
+      href: share-your-data.md
+    - name: Accettare e ricevere dati
+      href: subscribe-to-data-share.md
+- name: Concetti
+  items:
+    - name: Terminologia di Condivisione dati di Azure
+      href: terminology.md
+    - name: Ruoli e requisiti
+      href: concepts-roles-permissions.md
+- name: Esempi
+  items:
+    - name: Azure Powershell
+      href: samples-powershell.md
+- name: Guide alle procedure
+  items:
+    - name: Monitorare
+      href: how-to-monitor.md
+    - name: Configurare i mapping dei set di dati
+      href: how-to-configure-mapping.md
+    - name: Risolvere problemi
+      href: data-share-troubleshoot.md
+    - name: Aggiungere set di dati
+      href: how-to-add-datasets.md
+    - name: Aggiungere destinatari
+      href: how-to-add-recipients.md
+    - name: Eliminare un invito
+      href: how-to-delete-invitation.md
+    - name: Revocare una sottoscrizione di condivisione
+      href: how-to-revoke-share-subscription.md
+- name: riferimento
+  items:
+    - name: .NET
+      href: /dotnet/api/overview/azure/datashare
+    - name: Azure Powershell
+      href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
+    - name: API REST
+      href: /rest/api/datashare
+- name: Risorse
+  items:
+    - name: Forum di MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/'
+    - name: Microsoft Tech Community
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Feedback sul prodotto
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/data-share/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

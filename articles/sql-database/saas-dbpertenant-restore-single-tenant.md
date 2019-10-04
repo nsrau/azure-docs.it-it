@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326348"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570391"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
 
@@ -76,7 +75,7 @@ Per illustrare questi scenari di ripristino, è prima necessario eliminare "acci
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1* e impostare il valore seguente:
 
-   * **$DemoScenario** = **1**, *Eliminare l'ultimo evento (senza vendite di biglietti)*.
+   * **$DemoScenario** = **1**, *Eliminare l'ultimo evento (senza vendite di biglietti)* .
 2. Premere F5 per eseguire lo script ed eliminare l'ultimo evento. Viene visualizzato il messaggio di conferma seguente:
 
    ```Console
@@ -126,7 +125,7 @@ Dopo il ripristino del database sono necessari altri 10-15 minuti prima che il p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Ripristino di un database in un database parallelo (side-by-side).

@@ -1,19 +1,19 @@
 ---
-title: Configurare avvisi per le metriche per Database di Azure per PostgreSQL nel portale di Azure
-description: Questo articolo descrive come configurare avvisi per le metriche per Database di Azure per PostgreSQL e accedere a tali avvisi nel portale di Azure.
+title: Configurare gli avvisi delle metriche per Database di Azure per PostgreSQL - singolo Server nel portale di Azure
+description: Questo articolo descrive come configurare e accedere agli avvisi delle metriche per Database di Azure per PostgreSQL - Server singolo dal portale di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067314"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Usare il portale di Azure per impostare gli avvisi sulle metriche per Database di Azure per PostgreSQL - Server singolo
 
 Questo articolo mostra come configurare avvisi di Database di Azure per PostgreSQL usando il portale di Azure. È possibile ricevere un avviso in base alle metriche di monitoraggio per i servizi di Azure.
 

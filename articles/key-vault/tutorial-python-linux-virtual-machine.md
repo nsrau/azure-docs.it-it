@@ -2,22 +2,19 @@
 title: Esercitazione - Usare una macchina virtuale Linux e un'applicazione Python per archiviare segreti in Azure Key Vault | Microsoft Docs
 description: In questa esercitazione viene descritto come configurare un'applicazione Python per leggere un segreto da Azure Key Vault.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749631"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003902"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Esercitazione: Usare una macchina virtuale Linux e un'app Python per archiviare segreti in Azure Key Vault
 
@@ -33,7 +30,7 @@ In questa esercitazione viene configurata un'applicazione Web di Azure per legge
 > * Concedere le autorizzazioni necessarie per l'applicazione console per la lettura di dati dall'insieme di credenziali delle chiavi
 > * Recuperare un segreto dall'insieme di credenziali delle chiavi
 
-Prima di continuare, assicurarsi di acquisire familiarità con i [concetti di base su Key Vault](key-vault-whatis.md#basic-concepts).
+Prima di continuare, assicurarsi di acquisire familiarità con i [concetti di base su Key Vault](basic-concepts.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -102,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Creare una macchina virtuale tramite il comando `az vm create`.
 
-Nell'esempio seguente viene creata una macchina virtuale denominata **myVM** e aggiunto un account utente denominato **azureuser**. Il parametro `--generate-ssh-keys` genera automaticamente una chiave SSH e la inserisce nella posizione predefinita della chiave (**~/.ssh**). Per creare un set specifico di chiavi, invece, usare l'opzione `--ssh-key-value`.
+Nell'esempio seguente viene creata una macchina virtuale denominata **myVM** e aggiunto un account utente denominato **azureuser**. Il parametro `--generate-ssh-keys` genera automaticamente una chiave SSH e la inserisce nella posizione predefinita della chiave ( **~/.ssh**). Per creare un set specifico di chiavi, invece, usare l'opzione `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

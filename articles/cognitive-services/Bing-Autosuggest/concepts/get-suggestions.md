@@ -1,21 +1,21 @@
 ---
 title: Suggerire termini di ricerca con l'API Suggerimenti automatici Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Imparare a usare l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 293dcaadfc20116455983b3fc0069f9e9df3f843
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: cee4f68b734f0c2bec9fd629986ba7f6559f207e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010549"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882436"
 ---
 # <a name="suggesting-query-terms"></a>Termini della query suggeriti
 
@@ -23,7 +23,7 @@ L'API Suggerimenti automatici Bing viene generalmente chiamata ogni volta che un
 
 ## <a name="example-request"></a>Richiesta di esempio
 
-L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail*. Ricordarsi di codificare nell'URL il termine della query parziale dell'utente quando si imposta il parametro della query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Se ad esempio l'utente ha immesso *sailing les*, impostare `q` su `sailing+les` o `sailing%20les`.
+L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail*. Ricordarsi di codificare nell'URL il termine della query parziale dell'utente quando si imposta il parametro della query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Se ad esempio l'utente ha immesso *sailing les*, impostare `q` su `sailing+les` o `sailing%20les`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -34,7 +34,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La risposta seguente contiene un elenco di oggetti [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) contenenti i termini della query suggerita.
+La risposta seguente contiene un elenco di oggetti [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) contenenti i termini della query suggerita.
 
 ```json
 {

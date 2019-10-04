@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 56a66c3eb1dad93fad3ad1572989dc0c0aa14632
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622764"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Caricare un file VHD nell'account di archiviazione del lab usando PowerShell
 
@@ -39,7 +39,7 @@ La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs u
 
 1. Nel pannello del lab selezionare **Configurazione**. 
 
-1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)**.
+1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)** .
 
 1. Nel pannello **Immagini personalizzate** selezionare **+Aggiungi**. 
 

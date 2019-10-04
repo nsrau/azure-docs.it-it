@@ -3,8 +3,8 @@ title: Installazione automatica del connettore proxy dell'app Azure AD | Microso
 description: Viene illustrato come eseguire un'installazione automatica del connettore proxy di applicazione di Azure AD per consentire l'accesso remoto alle applicazioni locali.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65782910"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
 
@@ -53,7 +53,7 @@ Esistono due metodi da usare per registrare il connettore:
 * Registrare il connettore con un token creato offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrare il connettore con un oggetto credenziali di Windows PowerShell
-1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>*:
+1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>* :
    
         $User = "<username>"
         $PlainPassword = '<password>'

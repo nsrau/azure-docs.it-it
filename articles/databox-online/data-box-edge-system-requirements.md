@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60756546"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisiti di sistema Azure bordo casella dei dati
 

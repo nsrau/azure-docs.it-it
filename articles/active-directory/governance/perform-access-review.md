@@ -1,9 +1,9 @@
 ---
-title: Verificare l'accesso a gruppi o applicazioni in verifiche di accesso - Azure Active Directory | Microsoft Docs
-description: Informazioni su come verificare l'accesso dei membri del gruppo o l'accesso alle applicazioni in Azure Active Directory le verifiche di accesso.
+title: Verificare l'accesso a gruppi o applicazioni nelle verifiche di accesso-Azure Active Directory | Microsoft Docs
+description: Informazioni su come verificare l'accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -11,99 +11,105 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
-ms.author: rolyon
+ms.date: 05/21/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384681"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499623"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD verifiche di accesso
 
-Azure Active Directory (Azure AD) semplifica le aziende gestiscono l'accesso a gruppi e applicazioni in Azure AD e vengono esaminati altri Microsoft Online Services con una funzionalità denominata accesso di Azure AD.
+Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscono l'accesso ai gruppi e alle applicazioni in Azure AD e in altri Microsoft Online Services con una funzionalità denominata verifiche di accesso Azure AD.
 
-Questo articolo descrive come un revisore designato esegue una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione.
+Questo articolo descrive il modo in cui un revisore designato esegue una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Azure AD P2 Premium
+
+Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Aprire la verifica di accesso
 
-Il primo passaggio per eseguire una verifica di accesso è per trovare e aprire la verifica di accesso.
+Il primo passaggio per eseguire una verifica di accesso consiste nell'individuare e aprire la verifica di accesso.
 
-1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. Di seguito è riportato un messaggio di esempio per verificare l'accesso per un gruppo.
+1. Cercare un messaggio di posta elettronica da Microsoft che richiede di verificare l'accesso. Di seguito è riportato un esempio di messaggio di posta elettronica per esaminare l'accesso per un gruppo.
 
-    ![Messaggio di posta elettronica di verifica di accesso](./media/perform-access-review/access-review-email.png)
+    ![Messaggio di posta elettronica di esempio da Microsoft per verificare l'accesso a un gruppo](./media/perform-access-review/access-review-email.png)
 
-1. Scegliere il **avviare verifica** collegamento per aprire la verifica di accesso.
+1. Fare clic sul collegamento **Avvia verifica** per aprire la verifica di accesso.
 
-Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'accesso in sospeso esamina seguendo questa procedura.
+Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso seguendo questa procedura.
 
-1. Accedere al portale di MyApps all'indirizzo [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Accedere al portale app Web all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Portale MyApps](./media/perform-access-review/myapps-access-panel.png)
+    ![Portale app Web che elenca le app a cui si hanno le autorizzazioni](./media/perform-access-review/myapps-access-panel.png)
 
 1. Fare clic sul simbolo utente nell'angolo superiore destro della pagina, che indica il proprio nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
 
-1. Scegliere il **verifiche di accesso** riquadro per visualizzare un elenco delle verifiche di accesso in sospeso.
+1. Fare clic sul riquadro verifiche di **accesso** per visualizzare un elenco delle verifiche di accesso in sospeso.
 
     Se il riquadro non è visibile, non esistono verifiche di accesso da eseguire per tale organizzazione e al momento non è necessaria alcuna azione.
 
-    ![Elenco delle verifiche di accesso](./media/perform-access-review/access-reviews-list.png)
+    ![Elenco delle verifiche di accesso in sospeso per le app e i gruppi](./media/perform-access-review/access-reviews-list.png)
 
-1. Scegliere il **inizia la verifica** collegamento per la verifica di accesso da eseguire.
+1. Fare clic sul collegamento **Begin Review** per la verifica di accesso che si desidera eseguire.
 
 ## <a name="perform-the-access-review"></a>Eseguire la verifica di accesso
 
 Dopo aver aperto la verifica di accesso, verranno visualizzati i nomi degli utenti che devono essere esaminati.
 
-Se la richiesta di verifica del proprio accesso, la pagina avrà un aspetto diversa. Per altre informazioni, vedere [verifica di accesso personali a gruppi o applicazioni](review-your-access.md).
+Se la richiesta prevede di verificare il proprio accesso, l'aspetto della pagina sarà diverso. Per altre informazioni, vedere [verificare l'accesso per se stessi a gruppi o applicazioni](review-your-access.md).
 
-![Eseguire una verifica di accesso](./media/perform-access-review/perform-access-review.png)
+![Aprire la verifica di accesso elencando gli utenti che devono essere esaminati](./media/perform-access-review/perform-access-review.png)
 
-Esistono due modi, che è possibile approvare o negare l'accesso:
+È possibile approvare o negare l'accesso in due modi:
 
-- È possibile approvare o rifiutare ogni richiesta singolarmente, o
-- È possibile accettare i suggerimenti di sistema, che rappresenta il modo più semplice e rapido.
+- È possibile approvare o negare l'accesso per uno o più utenti o
+- È possibile accettare le raccomandazioni di sistema, il modo più semplice e rapido.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Approvare o negare l'accesso per ogni richiesta
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Approva o nega l'accesso per uno o più utenti
 
-1. Esaminare l'elenco di utenti di decidere se approvare o negare l'accesso continuo.
+1. Esaminare l'elenco di utenti per decidere se approvare o negare l'accesso continuo.
 
-1. Per approvare o rifiutare ogni richiesta, fare clic sulla riga per aprire una finestra per specificare l'azione da intraprendere.
+1. Per approvare o negare l'accesso per un singolo utente, fare clic sulla riga per aprire una finestra per specificare l'azione da eseguire. Per approvare o negare l'accesso per più utenti, aggiungere i segni di spunta accanto agli utenti e quindi fare clic sul pulsante **Verifica utente/i X** per aprire una finestra per specificare l'azione da eseguire.
 
-1. Fare clic su **approvare** oppure **negare**. Se si è certi, è possibile fare clic su **Don ' t know**. Questa operazione comporterà l'utente di mantenere l'accesso, ma la selezione si rifletteranno nel log di controllo.
+1. Fare clic su **approva** o **Nega**. Se non si è certi, è possibile fare clic su **non so**. Questa operazione comporterà la gestione dell'accesso dell'utente, ma la selezione verrà applicata ai log di controllo.
 
-    ![Eseguire una verifica di accesso](./media/perform-access-review/approve-deny.png)
+    ![Finestra azione che include le opzioni approva, nega e non so](./media/perform-access-review/approve-deny.png)
 
-1. Se necessario, immettere un motivo nel **motivo** casella.
+1. Se necessario, immettere un motivo nella casella **motivo** .
 
-    L'amministratore di verifica di accesso potrebbe richiedere che si specifichino un motivo per l'approvazione dell'accesso continuo o l'appartenenza al gruppo.
+    Per l'amministratore della verifica di accesso potrebbe essere necessario fornire un motivo per l'approvazione dell'accesso continuo o dell'appartenenza a un gruppo.
 
-1. Dopo aver specificato l'azione da eseguire, fare clic su **salvare**.
+1. Dopo aver specificato l'azione da eseguire, fare clic su **Salva**.
 
-    Se si desidera modificare la risposta, selezionare la riga e aggiornare la risposta. Ad esempio, è possibile approvare per un utente di accesso negato in precedenza o negare un accesso approvato in precedenza. È possibile modificare la risposta in qualsiasi momento fino al termine della verifica di accesso.
+    Se si desidera modificare la risposta, selezionare la riga e aggiornare la risposta. Ad esempio, è possibile approvare un utente negato in precedenza o negare un utente precedentemente approvato. È possibile modificare la risposta in qualsiasi momento fino al termine della verifica di accesso.
 
-    Se sono presenti più revisori, viene registrata l'ultima risposta inviata. Si consideri un esempio in cui l'amministratore definisce due revisori: Alice e Bob. Alice si apre innanzitutto la verifica di accesso e quindi approva l'accesso. Prima che termini la revisione, Bob apre la verifica di accesso, nega l'accesso. L'ultimo negare risposta è ciò che viene registrato.
+    Se sono presenti più revisori, viene registrata l'ultima risposta inviata. Si consideri un esempio in cui un amministratore designa due revisori: Alice e Bob. Alice apre prima di tutto la verifica di accesso e approva l'accesso. Prima della fine della verifica, Bob apre la verifica di accesso e nega l'accesso. L'ultima risposta nega è ciò che viene registrato.
 
     > [!NOTE]
-    > Se un utente viene negato l'accesso, non vengono rimossi immediatamente. Questi vengono rimossi quando la verifica è stata completata o quando un amministratore interrompe la verifica.
+    > Se a un utente viene negato l'accesso, questi non vengono rimossi immediatamente. Vengono rimossi al termine della verifica o quando un amministratore interrompe la revisione.
 
-### <a name="approve-or-deny-access-based-on-recommendations"></a>Approvare o negare l'accesso in base alle raccomandazioni
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Approva o nega l'accesso in base alle raccomandazioni
 
-Per rendere più facile e veloce le verifiche di accesso per te, offriamo anche consigli che è possibile accettare con un solo clic. Le raccomandazioni vengono generate basato su attività di accesso dell'utente.
+Per semplificare e velocizzare le verifiche di accesso, sono disponibili anche consigli che è possibile accettare con un solo clic. Le indicazioni vengono generate in base all'attività di accesso dell'utente.
 
-1. Nella barra blu nella parte inferiore della pagina, fare clic su **accettare le raccomandazioni**.
+1. Nella barra blu nella parte inferiore della pagina fare clic su **accetta raccomandazioni**.
 
-    ![Accetta le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Aprire l'elenco di controllo di accesso che mostra il pulsante accetta raccomandazioni](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 
-    ![Accettare le raccomandazioni riepilogo](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Finestra che visualizza un riepilogo delle azioni consigliate](./media/perform-access-review/accept-recommendations-summary.png)
 
-1. Fare clic su **accettabile** per accettare i suggerimenti.
+1. Fare clic su **OK** per accettare le raccomandazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md)
+- [Completare una verifica di accesso di gruppi o applicazioni](complete-access-review.md)

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 47cde50e0874f0f73523925b6d1b2f8ee4abaea9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61284063"
 ---
 # <a name="azure-data-factory-mapping-data-flow-transformation-inspect-tab"></a>Riquadro per l'ispezione delle trasformazioni in Mapping Data Flow di Azure Data Factory
 

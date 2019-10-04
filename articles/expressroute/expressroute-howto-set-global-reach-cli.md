@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869972"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute globale raggiungere tramite la CLI di Azure
 
@@ -48,13 +48,13 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificare i circuiti ExpressRoute per la configurazione
 
-È possibile abilitare Copertura globale di ExpressRoute tra due circuiti ExpressRoute qualsiasi, purché si trovino nei paesi supportati e siano stati creati in località di peering diverse. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
+È possibile abilitare ExpressRoute globale raggiungere tra qualsiasi due circuiti ExpressRoute, purché che si trovano in paesi e regioni supportati e sono stati creati in diverse località di peering. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Abilitare la connettività tra le reti locali
 
 Quando si esegue il comando per abilitare la connettività, tenere presenti i requisiti seguenti per i valori dei parametri:
 
-* *peer-circuit* deve essere l'ID risorsa completo. Ad esempio: 
+* *peer-circuit* deve essere l'ID risorsa completo. Ad esempio:
 
   > /subscriptions/{id_sottoscrizione}/resourceGroups/{gruppo_risorse}/providers/Microsoft.Network/expressRouteCircuits/{nome_circuito}
 

@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: abe2ed0d50ce26ddebeeeccb87c49fc20db43b2a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622213"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515386"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
-Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
+Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](activity-log-export.md). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
 
 ## <a name="administrative"></a>Administrative
 Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Administrative. Questa categoria include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
@@ -125,7 +125,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata. |
-| resourceType | Il tipo di risorsa che è stata interessata da un evento amministrativo. |
+| resourceType | Tipo di risorsa interessato da un evento amministrativo. |
 | resourceId |ID della risorsa interessata. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
@@ -216,7 +216,7 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -359,7 +359,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 | description |Testo statico che descrive l'evento dell'avviso. |
 | eventDataId |Identificatore univoco dell'evento dell'avviso. |
 | category | Sempre "avviso" |
-| livello |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del gruppo di risorse contenente l'avviso stesso. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del provider di risorse per l'avviso stesso. |
 | resourceId | ID della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è l'ID della risorsa dell'avviso stessa. |
@@ -558,7 +558,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | eventDataId |Identificatore univoco dell'evento di sicurezza. |
 | eventName |Nome descrittivo dell'evento di sicurezza. |
 | category | Sempre "sicurezza" |
-| ID |Identificatore di risorsa univoco dell'evento di sicurezza. |
+| id |Identificatore di risorsa univoco dell'evento di sicurezza. |
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per il Centro sicurezza di Azure. Sempre "Microsoft.Security". |
@@ -566,7 +566,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | resourceId |ID risorsa dell'avviso di sicurezza. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
-| properties |Set di coppie `<Key, Value>`, ovvero un dizionario, che descrive i dettagli dell'evento. Queste proprietà variano a seconda del tipo di avviso di sicurezza. Vedere [questa pagina](../../security-center/security-center-alerts-type.md) per una descrizione dei tipi di avvisi provenienti dal Centro sicurezza. |
+| properties |Set di coppie `<Key, Value>`, ovvero un dizionario, che descrive i dettagli dell'evento. Queste proprietà variano a seconda del tipo di avviso di sicurezza. Vedere [questa pagina](../../security-center/security-center-alerts-overview.md) per una descrizione dei tipi di avvisi provenienti dal Centro sicurezza. |
 | properties.Severity |Livello di gravità. I valori possibili sono "High", "Medium" o "Low". |
 | status |Stringa che descrive lo stato dell'operazione. Alcuni valori comuni sono: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | In genere il valore Null per gli eventi di sicurezza. |
@@ -798,6 +798,6 @@ Quando si esegue lo streaming del log attività di Azure a un account di archivi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul log attività (in precedenza, log di controllo)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Trasmettere il log attività di Azure a Hub eventi](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Altre informazioni sul log attività](activity-logs-overview.md)
+* [Esportare il log attività in archiviazione di Azure o in hub eventi](activity-log-export.md)
 

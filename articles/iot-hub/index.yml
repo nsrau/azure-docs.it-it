@@ -85,7 +85,7 @@ sections:
         items:
           - title: Riga di comando
             html: <p><a href="/cli/azure/iot">Interfaccia della riga di comando di Azure</a></p>
-          - title: Lingue
+          - title: Languages
             html: '<p><a href="/dotnet/api/microsoft.azure.devices">.NET (servizio)</a></p><p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispositivi)</a></p><p><a href="https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/">C (SDK per dispositivi)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servizio)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivi)</a></p><p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (servizio)</a></p><p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (dispositivi)</a></p>'
           - title: REST
             html: <p><a href="/rest/api/iothub/device">REST (dispositivo)</a></p><p><a href="/rest/api/iothub/service">REST (servizio)</a></p><p><a href="/rest/api/iothub/iothubresource">REST (risorsa dell'hub IoT)</a></p><p><a href="/rest/api/iothub/certificates">REST (certificati)</a></p>

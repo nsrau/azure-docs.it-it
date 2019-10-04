@@ -9,10 +9,10 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320568"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione
@@ -23,7 +23,7 @@ In questo articolo viene illustrato il processo completo di preparazione delle u
 
 In questo esempio verranno importati i seguenti dati di un account di archiviazione Azure denominato `mystorageaccount`:
 
-|Location|DESCRIZIONE|Dimensioni dei dati|
+|Località|Descrizione|Dimensioni dei dati|
 |--------------|-----------------|-----|
 |H:\Video\ |Una raccolta di video|12 TB|
 |H:\Photo\ |Una raccolta di foto|30 GB|
@@ -34,7 +34,7 @@ In questo esempio verranno importati i seguenti dati di un account di archiviazi
 
 Il processo importerà i dati nelle seguenti destinazioni nell'account di archiviazione:
 
-|Source (Sorgente)|BLOB o directory virtuale di destinazione|
+|`Source`|BLOB o directory virtuale di destinazione|
 |------------|-------------------------------------------|
 |H:\Video\ |video/|
 |H:\Photo\ |photo/|

@@ -1,48 +1,48 @@
 ---
-title: Configurare le app ASP.NET Core - servizio App di Azure | Microsoft Docs
-description: Informazioni su come configurare le app ASP.NET Core per lavorare in servizio App di Azure
+title: Configurare app ASP.NET Core-servizio app Azure | Microsoft Docs
+description: Informazioni su come configurare le app ASP.NET Core per lavorare nel servizio app Azure
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: jpconnock
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 08/13/2019
 ms.author: cephalin
-ms.openlocfilehash: e203877b2bc939c1d7fb9390df39f3e2451d12d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551113"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990270"
 ---
-# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare una Linux app ASP.NET Core per servizio App di Azure
+# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare un'app Linux ASP.NET Core per app Azure servizio
 
-Le app ASP.NET Core devono essere distribuite come file binari compilati. Lo strumento di distribuzione di Visual Studio compila la soluzione e quindi distribuisce i file binari compilati direttamente, mentre il motore di distribuzione del servizio App distribuisce il repository di codice prima di tutto, quindi compila i file binari.
+ASP.NET Core le app devono essere distribuite come file binari compilati. Lo strumento di pubblicazione di Visual Studio compila la soluzione e quindi distribuisce direttamente i file binari compilati, mentre il motore di distribuzione del servizio app distribuisce innanzitutto il repository di codice e quindi compila i file binari.
 
-Questa guida fornisce istruzioni per ASP.NET Core e i concetti chiave gli sviluppatori che usano un contenitore Linux incorporato nel servizio App. Se non si è mai usato il servizio App di Azure, seguire le [Guida introduttiva di ASP.NET Core](quickstart-dotnetcore.md) e [ASP.NET Core con l'esercitazione sul Database SQL](tutorial-dotnetcore-sqldb-app.md) prima.
+Questa guida fornisce i concetti chiave e le istruzioni per ASP.NET Core gli sviluppatori che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [ASP.NET Core avvio rapido](quickstart-dotnetcore.md) e [ASP.NET Core con il database SQL](tutorial-dotnetcore-sqldb-app.md) .
 
-## <a name="show-net-core-version"></a>Versione di .NET Core Show
+## <a name="show-net-core-version"></a>Mostra versione di .NET Core
 
-Per visualizzare la versione corrente di .NET Core, eseguire il comando seguente [Cloud Shell](https://shell.azure.com):
+Per visualizzare la versione corrente di .NET Core, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Per visualizzare tutte le versioni di .NET Core, eseguire il comando seguente [Cloud Shell](https://shell.azure.com):
+Per visualizzare tutte le versioni supportate di .NET Core, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep DOTNETCORE
 ```
 
-## <a name="set-net-core-version"></a>Impostare la versione .NET Core
+## <a name="set-net-core-version"></a>Impostare la versione di .NET Core
 
-Eseguire il comando seguente [Cloud Shell](https://shell.azure.com) su cui impostare la versione di .NET Core 2.1:
+Eseguire il comando seguente nella [cloud Shell](https://shell.azure.com) per impostare la versione di .NET Core su 2,1:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
@@ -50,21 +50,38 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio App, è possibile [impostare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) di fuori di codice dell'app. Quindi è possibile accedervi usando il modello ASP.NET standard:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi, è possibile accedervi in qualsiasi classe usando il modello standard di inserimento delle dipendenze ASP.NET Core:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
-// retrieve App Service app setting
-System.Configuration.ConfigurationManager.AppSettings["MySetting"]
-// retrieve App Service connection string
-Configuration.GetConnectionString("MyDbConnection")
+
+namespace SomeNamespace 
+{
+    public class SomeClass
+    {
+        private IConfiguration _configuration;
+    
+        public SomeClass(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+    
+        public SomeMethod()
+        {
+            // retrieve App Service app setting
+            var myAppSetting = _configuration["MySetting"];
+            // retrieve App Service connection string
+            var myConnString = _configuration.GetConnectionString("MyDbConnection");
+        }
+    }
+}
 ```
 
-Se si configura un'impostazione dell'app con lo stesso nome nel servizio App e nella *Web. config*, il valore del servizio App ha la precedenza sul valore di Web. config. Il valore di Web. config consente di eseguire il debug dell'app in locale, ma il valore del servizio App consente l'esecuzione dell'app nel prodotto con le impostazioni di produzione. Le stringhe di connessione funzionano nello stesso modo. In questo modo, è possibile mantenere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
+Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *appSettings. JSON*, ad esempio, il valore del servizio app avrà la precedenza sul valore *appSettings. JSON* . Il valore locale *appSettings. JSON* consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
 
-## <a name="get-detailed-exceptions-page"></a>Ottenere le eccezioni dettagliate pagina
+## <a name="get-detailed-exceptions-page"></a>Pagina get detailed Exceptions
 
-Quando l'app ASP.NET genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di dettagli dell'eccezione, ma nel servizio App di tale pagina viene sostituita da un oggetto generico **HTTP 500** errore o **un errore durante l'elaborazione l'elaborazione della richiesta.** criteri.). Per visualizzare la pagina di dettagli dell'eccezione nel servizio App, aggiungere il `ASPNETCORE_ENVIRONMENT` impostazione dell'app all'App eseguendo il comando seguente nel <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Quando l'app ASP.NET genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** trovata. Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere `ASPNETCORE_ENVIRONMENT` l'impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -72,13 +89,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Rilevare una sessione HTTPS
 
-Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve sapere se l'utente richiede sono crittografati o meno, configurare il Middleware delle intestazioni inoltrate nel *Startup.cs*:
+Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs*:
 
-- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) inoltrare le `X-Forwarded-For` e `X-Forwarded-Proto` intestazioni in `Startup.ConfigureServices`.
-- Aggiungere intervalli di indirizzi IP privati per le reti note, in modo che il middleware può considerare attendibili il bilanciamento del carico del servizio App.
-- Richiama il [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metodo `Startup.Configure` prima di chiamare altri middleware.
+- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'invio `X-Forwarded-For` delle `X-Forwarded-Proto` intestazioni e `Startup.ConfigureServices`in.
+- Aggiungere gli intervalli di indirizzi IP privati alle reti note, in modo che il middleware possa considerare attendibile il servizio di bilanciamento del carico del servizio app.
+- Richiamare il metodo [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) in `Startup.Configure` prima di chiamare altri middleware.
 
-Combinando i tre elementi, il codice è simile al seguente:
+Unendo tutti e tre gli elementi, il codice è simile all'esempio seguente:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -105,26 +122,26 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e bilanciamento del carico](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)i bilanciamenti del carico.
 
-## <a name="deploy-multi-project-solutions"></a>Distribuire soluzioni multiprogetto
+## <a name="deploy-multi-project-solutions"></a>Distribuire soluzioni per più progetti
 
-Quando si distribuisce un repository ASP.NET per il motore di distribuzione con un *file con estensione csproj* file nella directory radice, il motore di distribuzione del progetto. Quando si distribuisce un repository ASP.NET con un *sln* file nella directory radice, il motore rileva il primo sito Web o un progetto di applicazione Web rileva come App del servizio app. È possibile che il motore non selezionare il progetto desiderato.
+Quando si distribuisce un repository ASP.NET nel motore di distribuzione con un file con estensione *csproj* nella directory radice, il motore distribuisce il progetto. Quando si distribuisce un repository ASP.NET con un file con *estensione sln* nella directory radice, il motore preleva il primo sito Web o progetto di applicazione Web trovato come app del servizio app. È possibile che il motore non scelga il progetto desiderato.
 
-Per distribuire una soluzione multiprogetto, è possibile specificare il progetto da utilizzare nel servizio App in due modi diversi:
+Per distribuire una soluzione per più progetti, è possibile specificare il progetto da usare nel servizio app in due modi diversi:
 
-### <a name="using-deployment-file"></a>Utilizzo di file con estensione Deployment
+### <a name="using-deployment-file"></a>Uso del file. Deployment
 
-Aggiungere un *con estensione Deployment* file alla radice del repository e aggiungere il codice seguente:
+Aggiungere un file con *estensione Deployment* alla radice del repository e aggiungere il codice seguente:
 
 ```
 [config]
 project = <project-name>/<project-name>.csproj
 ```
 
-### <a name="using-app-settings"></a>Usando le impostazioni dell'app
+### <a name="using-app-settings"></a>Uso delle impostazioni dell'app
 
-Nel <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, aggiungere un'impostazione dell'app all'App del servizio app eseguendo il comando seguente dell'interfaccia della riga. Sostituire  *\<app-name >*,  *\<resource-group-name >*, e  *\<nome-progetto >* con i valori appropriati .
+Nel <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>aggiungere un'impostazione dell'app all'app del servizio app eseguendo il comando dell'interfaccia della riga di comando seguente. *Sostituire\<nome app >* ,  *\<nome gruppo di risorse >* e  *\<nome progetto >* con i valori appropriati.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -141,7 +158,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App ASP.NET Core con Database SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Esercitazione: App ASP.NET Core con database SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Servizio app di Linux, domande frequenti](app-service-linux-faq.md)
+> [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

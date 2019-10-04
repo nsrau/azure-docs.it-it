@@ -1,20 +1,19 @@
 ---
 title: Panoramica dell'apprendimento automatico - Azure HDInsight
-description: Descrive le opzioni di apprendimento automatico disponibili in HDInsight.
-services: hdinsight
+description: Panoramica delle opzioni di Big Data Machine Learning per i cluster in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: a88ff7c7b889d197e78dddfbb498b7150e08d5ed
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526810"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105407"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
@@ -30,7 +29,7 @@ La libreria di apprendimento automatico Microsoft per Apache Spark è [MMLSpark]
 
 [R](https://www.r-project.org/) è attualmente il linguaggio di programmazione per l'analisi statistica più diffuso al mondo. Si tratta di uno strumento open source di visualizzazione dei dati che vanta una community di oltre 2,5 milioni di utenti, ancora in aumento. Con la sua dinamica base di utenti e oltre 8.000 pacchetti creati dalla community, R è la scelta più probabile per molte società che hanno bisogno di funzionalità di apprendimento automatico. È possibile creare un cluster HDInsight con ML Services pronto per l'uso con set di dati e modelli di dimensioni molto grandi. Questa funzionalità offre a data scientist ed esperti di statistica un'interfaccia R familiare e scalabile on demand tramite HDInsight, senza dover eseguire attività aggiuntive di configurazione e manutenzione del cluster.
 
-![Training per la stima con R Server](./media/hdinsight-machine-learning-overview/r-training.png)
+![Training per la stima con R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
 Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R.  È anche possibile scegliere di eseguire script R tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Spark di ScaleR.
 
@@ -40,7 +39,7 @@ Con ML Services su HDInsight con Spark, è possibile parallelizzare il training 
 
 Azure Machine Learning offre strumenti per modellare l'analisi predittiva, insieme a un servizio completamente gestito che può essere usato per distribuire i modelli predittivi come servizi Web pronti per l'uso. Azure Machine Learning è una soluzione di analisi predittiva completa nel cloud che è possibile usare per creare, testare, rendere operativi e gestire i modelli predittivi. È possibile selezionare gli algoritmi da una libreria di grandi dimensioni, usare un ambiente basato sul Web per creare modelli e distribuire con facilità il modello come servizio Web.
 
-![Rendere l'analisi avanzata accessibile ad Hadoop con Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
+![Panoramica di Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Creare funzionalità per i dati in un cluster Hadoop di HDInsight usando [query Hive](../machine-learning/team-data-science-process/create-features-hive.md). La *progettazione di funzionalità* tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati per semplificare il processo di apprendimento. È possibile eseguire query HiveQL da Azure Machine Learning Studio e accedere ai dati elaborati in Hive e archiviati nell'archiviazione BLOB usando il [modulo Import Data (Importa dati)](../machine-learning/studio/import-data.md).
 
@@ -50,7 +49,7 @@ L'[apprendimento avanzato](https://www.microsoft.com/en-us/research/group/dltc/)
 
 A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft ha sviluppato [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), uno strumento open source gratuito e facile da usare. Il toolkit è ampiamente usato da numerosi prodotti Microsoft, da aziende di tutto il mondo che hanno la necessità di distribuire l'apprendimento avanzato su vasta scala e da studenti interessati agli algoritmi e alle tecniche più recenti.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 ### <a name="scenarios"></a>Scenari
 
@@ -63,6 +62,6 @@ A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft 
 
 ### <a name="deep-learning-resources"></a>Risorse sull'apprendimento avanzato
 
-* [Usare Microsoft Cognitive Toolkit modello con cluster Azure HDInsight Spark per l'apprendimento avanzato](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Usare Microsoft Cognitive Toolkit modello di apprendimento avanzato con Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito](spark/apache-spark-deep-learning-caffe.md)
-* [Framework per Deep Learning e intelligenza artificiale nella macchina virtuale Data Science (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Apprendimento avanzato e Framework di intelligenza artificiale nella Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

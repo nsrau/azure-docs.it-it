@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: include file
-manager: douge
-ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+manager: jillfra
+ms.openlocfilehash: 295716d6e1d36d84ca78770109ccc1087b5e6303
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252354"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520852"
 ---
 ## <a name="install-the-cognitive-services-vsix-extension"></a>Installare l'estensione VSIX di Servizi cognitivi
 

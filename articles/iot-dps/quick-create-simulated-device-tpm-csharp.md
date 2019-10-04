@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56d41d92b77ea6ef536f1e371a825b775a780bef
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901586"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993880"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
 
@@ -27,6 +27,7 @@ Il codice di esempio usa il simulatore Windows TPM come [modulo di protezione ha
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
+
 - [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
 - [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
@@ -42,18 +43,16 @@ Questo articolo descrive le registrazioni singole.
 1. Verificare che `git` sia installato nel computer e venga aggiunto alle variabili di ambiente accessibili alla finestra di comando. Vedere gli [strumenti client Git di Software Freedom Conservancy](https://git-scm.com/download/) per la versione più recente degli strumenti `git` da installare, tra cui **Git Bash**, l'app da riga di comando che è possibile usare per interagire con il repository Git locale. 
 
 1. Aprire un prompt dei comandi o Git Bash. Clonare gli esempi di Azure IoT per il repository GitHub C#:
-    
+
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Effettuare il provisioning del dispositivo simulato
 
-
-1. Accedere al portale di Azure. Fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. Nel pannello **Panoramica** prendere nota del valore **_Ambito ID_**.
+1. Accedere al portale di Azure. Fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. Nel pannello **Panoramica** prendere nota del valore **_Ambito ID_** .
 
     ![Copiare l'ID ambito del servizio di provisioning dal pannello del portale](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
-
 
 2. In un prompt dei comandi sostituire le directory con la directory del progetto per l'esempio di provisioning del dispositivo TPM.
 
@@ -67,9 +66,9 @@ Questo articolo descrive le registrazioni singole.
     dotnet run <IDScope>
     ```
 
-    Questo comando consentirà di avviare il simulatore di chip TPM in un'altra finestra del prompt dei comandi.  
+    Questo comando consentirà di avviare il simulatore di chip TPM in un'altra finestra del prompt dei comandi. In Windows potrebbe essere visualizzato un avviso di sicurezza Windows che chiede se si vuole consentire a Simulator.exe di comunicare su reti pubbliche. Ai fini di questo esempio si può annullare la richiesta.
 
-1. La finestra di comando visualizza la **_chiave di verifica dell'autenticità_**, l'**_ID registrazione_** e un **_ID dispositivo_** suggerito necessari per la registrazione del dispositivo. Prendere nota di questi valori. Questi valori verranno usati per creare una registrazione singola nell'istanza del servizio Device Provisioning. 
+1. La finestra di comando visualizza la **_chiave di verifica dell'autenticità_** , l' **_ID registrazione_** e un **_ID dispositivo_** suggerito necessari per la registrazione del dispositivo. Prendere nota di questi valori. Questi valori verranno usati per creare una registrazione singola nell'istanza del servizio Device Provisioning. 
    > [!NOTE]
    > Non confondere la finestra contenente l'output del comando con quella contenente l'output del simulatore TPM. Potrebbe essere necessario fare clic sulla finestra di comando per portarla in primo piano.
 
@@ -89,14 +88,13 @@ Questo articolo descrive le registrazioni singole.
 
    Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
 
-6. Premere INVIO nella finestra di comando (che visualizza la **_chiave di verifica dell'autenticità_**, l'**_ID registrazione_** e un **_ID dispositivo_** suggerito) per registrare il dispositivo simulato. Si notino i messaggi che simulano l'avvio e la connessione del dispositivo al servizio Device Provisioning per ottenere le informazioni dell'hub IoT. 
+6. Premere INVIO nella finestra di comando (che visualizza la **_chiave di verifica dell'autenticità_** , l' **_ID registrazione_** e un **_ID dispositivo_** suggerito) per registrare il dispositivo simulato. Si notino i messaggi che simulano l'avvio e la connessione del dispositivo al servizio Device Provisioning per ottenere le informazioni dell'hub IoT. 
 
 1. Verificare che il provisioning del dispositivo sia stato effettuato. Dopo il corretto provisioning del dispositivo simulato nell'hub IoT collegato al servizio di provisioning, l'ID del dispositivo viene visualizzato nel pannello **IoT Devices** (Dispositivi IoT) dell'hub. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Se si è modificato lo *stato iniziale del dispositivo gemello* rispetto al valore predefinito della voce di registrazione del dispositivo, è possibile eseguire il pull dello stato del dispositivo desiderato dall'hub e agire di conseguenza. Per altre informazioni, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT](../iot-hub/iot-hub-devguide-device-twins.md)
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

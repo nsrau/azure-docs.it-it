@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003181"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792817"
 ---
 # <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
 
 Gestione costi è il processo che consente di pianificare e controllare in maniera efficace i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni di pianificare tenendo presenti i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
+
+Guardare il [video Azure Cost Management overview](https://www.youtube.com/watch?v=el4yN5cHsJ0) (Panoramica di Gestione costi di Azure) per una rapida panoramica di come Gestione costi di Azure consente di risparmiare denaro in Azure.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Anche se correlate, le operazioni di fatturazione e di gestione dei costi sono differenti. La fatturazione è il processo di invio di fatture ai clienti per di merci o servizi e di gestione delle relazioni commerciali.  I team di approvvigionamento e quello finanziario svolgono solitamente le attività di fatturazione.
 
@@ -42,6 +46,10 @@ Se si utilizzano sistemi esterni per accedere o per revisionare i dati di gestio
 ## <a name="consider-cloudyn"></a>Prendere in considerazione Cloudyn
 
 [Cloudyn](overview.md) è un servizio di Azure correlato a Gestione costi. Con Cloudyn, è possibile tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure. Supporta anche altri provider di cloud, inclusi AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Attualmente Gestione costi non supporta showback/chargeback o altri provider di servizi cloud. Tuttavia, Cloudyn è un'opzione che _viene_ supportata. Attualmente Gestione costi, al contrario di Cloudyn, non supporta gli account di Microsoft Cloud Service Provider (CSP). Se si hanno account CSP o se si desidera utilizzare lo showback/chargeback, è possibile usare Cloudyn per gestire i costi.
+
+Guardare il [video Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) (Gestione costi di Azure e Cloudyn) per ottenere consigli su quando usare Gestione costi di Azure o Cloudyn in base alle proprie esigenze aziendali.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>Strumenti aggiuntivi di Azure
 

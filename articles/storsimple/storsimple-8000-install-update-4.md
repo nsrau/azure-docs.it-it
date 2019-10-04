@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60860509"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installare l'aggiornamento 4 nel dispositivo StorSimple
 
@@ -45,7 +45,7 @@ Seguire questa procedura per applicare il dispositivo l'[aggiornamento 4](storsi
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 4 della serie 8000 di StorSimple (6.3.9600.17820)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento** .
+Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 4 della serie 8000 di StorSimple (6.3.9600.17820)** . Inoltre, è necessario modificare la **data dell'ultimo aggiornamento** .
 
 * Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
 
@@ -74,7 +74,7 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 È necessario scaricare e installare gli hotfix seguenti nell'ordine indicato e nelle cartelle seguenti:
 
-| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Aggiornamento software |Normale <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Normale <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
@@ -83,9 +83,9 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` non è quindi necessario installare questi aggiornamenti.
 
-| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
+| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Firmware del disco |Manutenzione  <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
+| 3. |KB3121899 |Firmware del disco |Manutenzione <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
 
 <br></br>
 

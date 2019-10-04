@@ -1,20 +1,19 @@
 ---
 title: Risoluzione dei problemi di Archiviazione di Azure con le funzionalità di diagnostica e Message Analyzer | Documentazione Microsoft
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2017
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 2ca81280bed52508c606a5a693fe0162837ac117
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351882"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854620"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -79,7 +78,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 * Il **log di traccia di rete HTTP**, che raccoglie i dati relativi alle richieste e risposte HTTP/HTTPS, anche per le operazioni in Archiviazione di Azure. In questa esercitazione, la traccia di rete verrà generata mediante Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurare le metriche e la registrazione sul lato server
-In primo luogo, è necessario configurare la registrazione di archiviazione di Azure e le metriche, in modo da disporre di dati dal lato del servizio per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Visualizzare [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) per informazioni dettagliate sulla configurazione di registrazione e metrica.
+Prima di tutto, è necessario configurare la registrazione e le metriche di archiviazione di Azure, in modo da analizzare i dati dal lato del servizio. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla configurazione della registrazione e della metrica, vedere [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) .
 
 ### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
 Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
@@ -219,7 +218,7 @@ Oltre a usare i layout di visualizzazione di Archiviazione di Azure, è possibil
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Applicare le regole colore alla griglia di analisi
 Le risorse di archiviazione includono anche regole colore, che consentono di identificare visivamente i diversi tipi di errore nella griglia di analisi. Le regole colore predefinite sono valide per gli errori HTTP, quindi sono disponibili solo per il log del server e per la traccia di rete.
 
-Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)**, come mostrato nell'immagine seguente.
+Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)** , come mostrato nell'immagine seguente.
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -277,7 +276,7 @@ L'immagine seguente mostra una richiesta specifica in cui un'operazione Get Blob
 
 Successivamente, questo ID richiesta client verrà correlato con i dati del log del client per mostrare le azioni che il client stava effettuando quando si è verificato l'errore. È possibile ottenere una nuova visualizzazione della griglia di analisi per la sessione corrente per visualizzare i dati del log del client, che viene aperto in una seconda scheda:
 
-1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'**.
+1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'** .
 2. Sulla barra multifunzione selezionare **Nuovo visualizzatore** e selezionare **Griglia analisi** per aprire una nuova scheda. Nella nuova scheda sono visualizzati tutti i dati presenti dei file di log, senza raggruppamenti, filtri o regole colore.
 3. Sulla barra multifunzione selezionare **Visualizza layout** e scegliere **Tutte le colonne del client .NET** nella sezione **Archiviazione di Azure**. In questo layout di visualizzazione sono presenti dati tratti dal log del client, nonché dal log del server e dal log della traccia di rete. Per impostazione predefinita, è ordinato in base alla colonna **MessageNumber** .
 4. Cercare quindi l'ID richiesta client nel log del client. Sulla barra multifunzione selezionare **Trova messaggi** e specificare un filtro personalizzato in base all'ID richiesta client nel campo **Trova**. Usare questa sintassi per il filtro, specificando il proprio ID richiesta client:

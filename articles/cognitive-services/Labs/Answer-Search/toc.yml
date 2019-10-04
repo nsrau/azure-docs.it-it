@@ -2,7 +2,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni su Ricerca di risposte progetto
+    - name: Informazioni su Project Answer Search
       href: overview.md
 - name: Guide introduttive
   expanded: true
@@ -21,7 +21,7 @@
       href: fact-queries.md
     - name: Query di entità
       href: entity-queries.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Requisiti per l'uso e la visualizzazione
       href: use-display-requirements.md

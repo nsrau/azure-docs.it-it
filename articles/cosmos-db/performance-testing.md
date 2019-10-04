@@ -4,15 +4,15 @@ description: Informazioni sull'esecuzione di test delle prestazioni e della scal
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043193"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616774"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
 **Passaggio 2:** modificare le impostazioni di EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) nel file App.config.
 
 > [!NOTE]
-> Prima di effettuare il provisioning delle raccolte con velocità effettiva elevata, fare riferimento alla [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per stimare i costi per raccolta. Azure Cosmos DB addebita l'archiviazione e la velocità effettiva in modo indipendente su base oraria. È possibile risparmiare sui costi eliminando o riducendo la velocità effettiva delle raccolte Azure Cosmos DB dopo il test.
+> Prima di effettuare il provisioning delle raccolte con velocità effettiva elevata, fare riferimento alla [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per stimare i costi per raccolta. Azure Cosmos DB addebita l'archiviazione e la velocità effettiva in modo indipendente su base oraria. È possibile ridurre i costi eliminando o riducendo la velocità effettiva dei contenitori di Azure Cosmos dopo i test.
 > 
 > 
 
@@ -94,7 +94,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
 Quando l'app è in esecuzione, è possibile provare [criteri di indicizzazione](index-policy.md) e [livelli di coerenza](consistency-levels.md) diversi per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo ha illustrato come eseguire i test delle prestazioni e della scalabilità con Azure Cosmos DB usando un'app console .NET. Per altre informazioni, vedere gli articoli seguenti:
+Questo articolo ha illustrato come eseguire i test delle prestazioni e della scalabilità con Azure Cosmos DB usando un'app console .NET. Per altre informazioni, vedere i seguenti articoli:
 
 * [Esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos DB](performance-tips.md)

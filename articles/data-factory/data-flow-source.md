@@ -1,103 +1,174 @@
 ---
-title: Trasformazione origine del flusso di dati di mapping in Azure Data Factory
-description: Trasformazione origine del flusso di dati di mapping in Azure Data Factory
+title: Trasformazione origine nel flusso di dati di mapping-Azure Data Factory | Microsoft Docs
+description: Informazioni su come configurare una trasformazione di origine nel flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 09/06/2019
+ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369173"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801681"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Trasformazione origine del flusso di dati di mapping
+# <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La trasformazione origine configura un'origine dati che si desidera usare per inserire dati nel proprio flusso di dati. Si può avere più di una trasformazione origine in un singolo flusso di dati. Sempre iniziare a progettare il flusso dei dati con una trasformazione di origine.
+Una trasformazione origine configura l'origine dati per il flusso di dati. Quando si progettano i flussi di dati, il primo passaggio consiste sempre nella configurazione di una trasformazione di origine. Per aggiungere un'origine, fare clic sulla casella **Aggiungi origine** nell'area di disegno del flusso di dati.
+
+Ogni flusso di dati richiede almeno una trasformazione di origine, ma è possibile aggiungere tutte le origini necessarie per completare le trasformazioni dei dati. È possibile unire tali origini insieme a una trasformazione join, Lookup o Union.
+
+Ogni trasformazione di origine è associata a un solo set di dati Data Factory. Il set di dati definisce la forma e il percorso dei dati da cui si desidera eseguire la scrittura o la lettura. Se si usa un set di dati basato su file, è possibile usare i caratteri jolly e gli elenchi di file nell'origine per lavorare con più di un file alla volta.
+
+## <a name="supported-connectors-in-mapping-data-flow"></a>Connettori supportati nel flusso di dati di mapping
+
+Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
+    
+* Archivio BLOB di Azure
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Azure SQL Data Warehouse
+* Database SQL di Azure
+
+Azure Data Factory ha accesso a oltre 80 connettori nativi. Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
+
+## <a name="source-settings"></a>Impostazioni origine
+
+Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di origine** . Qui è possibile selezionare o creare il set di dati a cui si riportano i punti di origine. È anche possibile selezionare le opzioni relative allo schema e al campionamento per i dati.
+
+![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
+
+**Drift schema:** La [deriva dello schema](concepts-data-flow-schema-drift.md) è data factory capacità di gestire in modo nativo schemi flessibili nei flussi di dati senza dover definire esplicitamente le modifiche della colonna.
+
+* Controllare la casella **Consenti la deviazione dello schema** se le colonne di origine vengono modificate spesso. Questa impostazione consente a tutti i campi di origine in ingresso di scorrere le trasformazioni nel sink.
+
+* La scelta di **dedurre i tipi di colonna** derivati indicherà data factory per rilevare e definire i tipi di dati per ogni nuova colonna individuata. Se questa funzionalità è disattivata, tutte le colonne in sequenza saranno di tipo stringa.
+
+**Convalida schema:** Se Convalida schema è selezionata, il flusso di dati non verrà eseguito se i dati di origine in ingresso non corrispondono allo schema definito del set di dati.
+
+**Ignora conteggio righe:** Il campo Skip line count specifica il numero di righe da ignorare all'inizio del set di dati.
+
+**Campionamento** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
+
+Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
-> Ogni flusso di dati richiede almeno una trasformazione origine. Aggiungere tutte le origini aggiuntive necessarie per completare le trasformazioni di dati. È possibile aggiungere tali origini insieme a una trasformazione Join o unione. Quando si esegue il debug del flusso di dati nelle sessioni di debug, leggerà i dati dall'origine utilizzando l'impostazione di campionamento o limiti di origine di Debug. Tuttavia, non sarà possibile scrivere dati a un Sink fino a quando non si esegue il flusso di dati da un'attività flusso di dati della pipeline. 
+> Quando la modalità di debug è attivata, la configurazione del limite di righe nelle impostazioni di debug sovrascriverà l'impostazione di campionamento nell'origine durante l'anteprima dei dati.
 
-![Opzioni di trasformazione origine](media/data-flow/source.png "origine")
+## <a name="file-based-source-options"></a>Opzioni dell'origine basata su file
 
-Ogni trasformazione di origine del flusso di dati deve essere associato a un solo set di dati di Data Factory. Il set di dati definisce la forma e la posizione dei dati per scrivere o leggere dal. È possibile usare gli elenchi di file e i caratteri jolly nell'origine per lavorare con più di un file alla volta quando si usano Origini file.
+Se si usa un set di dati basato su file, ad esempio archiviazione BLOB di Azure o Azure Data Lake Storage, la scheda **Opzioni di origine** consente di gestire il modo in cui l'origine legge i file.
 
-## <a name="data-flow-staging-areas"></a>Aree di gestione temporanea del flusso di dati
+![Opzioni di origine](media/data-flow/sourceOPtions1.png "Opzioni di origine")
 
-Il flusso di dati funziona con i set di dati "staging", che si trovano tutti in Azure. Questi set di dati del flusso di dati vengono usati per il processo di gestione temporanea di questi ultimi, così da eseguire le operazioni di trasformazioni dati. Data Factory può accedere a circa 80 diversi connettori nativi. Per includere i dati provenienti da tali fonti nel proprio flusso di dati, è necessario innanzitutto inserire i dati in una di queste aree di processo di gestione temporanea dei set di dati del flusso di dati usando l'attività di copia.
+**Percorso con caratteri jolly:** L'utilizzo di un modello con caratteri jolly indicherà ad ADF di scorrere ogni cartella e file corrispondente in un'unica trasformazione origine. Si tratta di un modo efficace per elaborare più file all'interno di un singolo flusso. Aggiungere più modelli di corrispondenza con caratteri jolly con il segno + visualizzato quando si passa il mouse sul modello con caratteri jolly esistente.
 
-## <a name="options"></a>Opzioni
+Dal contenitore di origine, scegliere una serie di file che corrispondono a un modello. Nel set di dati è possibile specificare solo il contenitore. Il percorso del carattere jolly deve quindi includere anche il percorso della cartella nella cartella radice.
 
-### <a name="allow-schema-drift"></a>Permettere la deviazione schema
-Selezionare Consenti deviazione schema in caso di modifica frequente delle colonne di origine. Questa impostazione consentirà a tutti i campi in arrivo dall'origine di fluire al sink attraverso le trasformazioni.
+Esempi di caratteri jolly:
 
-### <a name="validate-schema"></a>Convalida schema
+* ```*```Rappresenta qualsiasi set di caratteri
+* ```**```Rappresenta l'annidamento delle directory ricorsive
+* ```?```Sostituisce un carattere
+* ```[]```Trova la corrispondenza di uno o più caratteri tra parentesi quadre
 
-![Origine pubblica](media/data-flow/source1.png "origine pubblica 1")
+* ```/data/sales/**/*.csv```Ottiene tutti i file CSV in/data/Sales
+* ```/data/sales/20??/**```Ottiene tutti i file nel ventesimo secolo
+* ```/data/sales/2004/*/12/[XY]1?.csv```Ottiene tutti i file CSV in 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
 
-Se la versione dei dati di origine in ingresso non corrisponde allo schema definito, l'esecuzione del flusso di dati avrà esito negativo.
+**Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un ```key=value``` formato (ad esempio, Year = 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 
-### <a name="sampling"></a>campionamento
-Usare il campionamento per limitare il numero di righe dall'origine.  Ciò è utile durante la verifica o il campionamento dei dati dall'origine a scopo di debug.
+Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
 
-## <a name="define-schema"></a>Definizione di Schema
+![Impostazioni del file di origine della partizione](media/data-flow/partfile2.png "Impostazione del file di partizione")
 
-![Trasformazione origine](media/data-flow/source2.png "origine 2")
+Utilizzare l'impostazione percorso radice partizione per definire il livello superiore della struttura di cartelle. Quando si Visualizza il contenuto dei dati tramite un'anteprima dei dati, si noterà che ADF aggiungerà le partizioni risolte presenti in ogni livello di cartella.
 
-Per i tipi di file di origine che non sono fortemente tipizzati (ad esempio file flat, invece di file Parquet) è necessario definire i tipi di dati per ogni campo nella trasformazione origine. Successivamente, è possibile modificare i nomi delle colonne in una trasformazione Select e i tipi di dati in una trasformazione Colonna derivata. 
+![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima percorso radice partizione")
 
-![Trasformazione origine](media/data-flow/source003.png "tipi di dati")
+**Elenco di file:** Si tratta di un set di file. Creare un file di testo che includa un elenco di file di percorso relativi da elaborare. Puntare a questo file di testo.
 
-Per le origini fortemente tipizzato, è possibile modificare i tipi di dati in una trasformazione seleziona successive. 
+**Colonna in cui archiviare il nome del file:** Archiviare il nome del file di origine in una colonna nei dati. Immettere qui il nome di una nuova colonna per archiviare la stringa del nome file.
 
-### <a name="optimize"></a>Eseguire l'ottimizzazione
+**Dopo il completamento:** Scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione del flusso di dati, eliminare il file di origine oppure spostare il file di origine. I percorsi per lo spostamento sono relativi.
 
-![Partizioni origine](media/data-flow/sourcepart.png "partizionamento")
+Per spostare i file di origine in un altro percorso dopo l'elaborazione, selezionare prima di tutto "Sposta" per operazione su file. Quindi, impostare la directory "from". Se non si usano caratteri jolly per il percorso, l'impostazione "da" sarà la stessa cartella della cartella di origine.
 
-Nella scheda Ottimizza per la trasformazione origine, si noterà un tipo di partizionamento aggiuntivo denominato "Source". Questo si attiverà solo dopo aver selezionato il database SQL di Azure come origine. Questo avviene perché il file di definizione dell'applicazione (ADF) dovrà parallelizzare le connessioni per eseguire query di grandi dimensioni sull'origine del database SQL di Azure.
+Se si dispone di un percorso di origine con carattere jolly, la sintassi avrà un aspetto simile al seguente:
 
-Il partizionamento dei dati nell'origine del database SQL è facoltativo, ma è utile per query di grandi dimensioni. Sono disponibili due opzioni:
+```/data/sales/20??/**/*.csv```
 
-### <a name="column"></a>Colonna
+È possibile specificare "from" come
 
-Selezionare una colonna per la partizione dalla tabella di origine. È anche necessario impostare il numero massimo di connessioni.
+```/data/sales```
 
-### <a name="query-condition"></a>Condizione di query
+E "a" come
 
-Facoltativamente, è possibile scegliere di eseguire una partizione delle connessioni in base a una query. Per questa opzione, è sufficiente immettere il contenuto di un predicato WHERE. Ad esempio anno > 1980
+```/backup/priorSales```
 
-## <a name="source-file-management"></a>Gestione file di origine
-![Nuove impostazioni di origine](media/data-flow/source2.png "nuove impostazioni")
-
-* Percorso con caratteri jolly per selezionare una serie di file dalla cartella di origine che corrispondono ai criteri. Questa impostazione sostituirà tutti i file che è stato impostato nella definizione del set di dati.
-* Elenco di file. Uguale a un set di file. Puntare a un file di testo che si crea con un elenco di file di percorso relativo da elaborare.
-* La colonna per memorizzare il nome del file memorizzerà il nome del file dall'origine in una colonna dei dati. Immettere un nuovo nome per archiviare la stringa del nome file.
-* Dopo il completamento, è possibile scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione da parte del flusso di dati, eliminare i file di origine o spostare i file di origine. I percorsi di spostamento sono percorsi relativi.
-
-### <a name="sql-datasets"></a>Set di dati SQL
-
-Quando si usa un database SQL di Azure o Azure SQL DW come origine, saranno disponibili opzioni aggiuntive.
-
-* Query: Immettere una query SQL per l'origine. L'impostazione di una query eseguirà l'override di qualsiasi tabella che è stata scelta nel set di dati. Si noti che le clausole Order By non sono supportate. Tuttavia, è possibile impostare un'istruzione SELECT FROM completa qui.
-
-* Dimensioni batch: Immettere una dimensione batch per suddividere dati di grandi dimensioni in letture di dimensioni batch.
+In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/priorSales.
 
 > [!NOTE]
-> Le impostazioni operative del file verranno eseguite solo quando il flusso di dati viene eseguito da una pipeline (debug o esecuzione della pipeline) con l'attività di esecuzione del flusso di dati in una pipeline. Le operazioni sui file NON vengono eseguite in modalità di debug del flusso di dati.
+> Le operazioni sui file vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione di pipeline (esecuzione del debug o esecuzione di una pipeline) che utilizza l'attività Esegui flusso di dati in una pipeline. Le operazioni sui file *non* vengono eseguite nella modalità di debug del flusso di dati.
 
-### <a name="projection"></a>Proiezione
+**Filtra per Ultima modifica:** È possibile filtrare i file elaborati specificando un intervallo di date di data e ora dell'Ultima modifica. Tutte le ore di data sono in formato UTC. 
 
-![Projection](media/data-flow/source3.png "Projection")
+### <a name="add-dynamic-content"></a>Aggiungi contenuto dinamico
 
-Come per gli schemi nel set di dati, la proiezione nell'origine definisce le colonne di dati, i tipi di dati e formati di dati dall'origine dati. Se si dispone di un file di testo senza schema definito, fare clic su "Rileva tipo di dati" per chiedere al file di definizione dell'applicazione (ADF) di tentare di eseguire il campionamento e dedurre i tipi di dati. È possibile impostare i formati predefiniti dei dati per il rilevamento automatico con il pulsante "Define Default Format" (Definisci formato predefinito). È possibile modificare i tipi di dati delle colonne in una successiva trasformazione Colonna derivata. I nomi delle colonne possono essere modificati tramite la trasformazione Select.
+È possibile specificare tutte le impostazioni di origine come espressioni utilizzando il [linguaggio delle espressioni di trasformazione del flusso di dati di mapping](data-flow-expression-functions.md). Per aggiungere contenuto dinamico, fare clic o passare il puntatore del mouse all'interno dei campi nel pannello impostazioni. Fare clic sul collegamento ipertestuale per **Aggiungi contenuto dinamico**. Verrà avviato il generatore di espressioni in cui è possibile impostare i valori in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
-![Formati predefiniti](media/data-flow/source2.png "Formati predefiniti")
+![Parametri](media/data-flow/params6.png "Parametri") di
+
+## <a name="sql-source-options"></a>Opzioni origine SQL
+
+Se l'origine si trova nel database SQL o in SQL Data Warehouse, nella scheda **Opzioni di origine** sono disponibili altre impostazioni specifiche di SQL. 
+
+**Input** Consente di specificare se puntare l'origine a una tabella (equivalente ```Select * from <table-name>```a) o immettere una query SQL personalizzata.
+
+**Query**: Se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati.
+
+**Dimensioni batch**: Immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
+
+**Livello di isolamento**: Il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
+* Lettura eseguita
+* Lettura non eseguita
+* Lettura ripetibile
+* Serializzabile
+* Nessuno (ignora il livello di isolamento)
+
+![Livello di isolamento](media/data-flow/isolationlevel.png "Livello di isolamento")
+
+## <a name="projection"></a>Proiezione
+
+Analogamente agli schemi nei set di dati, la proiezione in un'origine definisce le colonne di dati, i tipi e i formati dei dati di origine. Per la maggior parte dei tipi di set di dati, ad esempio SQL e parquet, la proiezione in un'origine è fissa per riflettere lo schema definito in un set di dati. Quando i file di origine non sono fortemente tipizzati, ad esempio file con estensione CSV flat anziché file parquet, è possibile definire i tipi di dati per ogni campo nella trasformazione di origine.
+
+![Impostazioni nella scheda proiezione](media/data-flow/source3.png "Proiezione")
+
+Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di dati** in modo che data factory campionare e dedurre i tipi di dati. Selezionare **Definisci il formato predefinito** per rilevare automaticamente i formati di dati predefiniti. 
+
+È possibile modificare i tipi di dati delle colonne in una trasformazione di colonna derivata da un flusso inattivo. Utilizzare una trasformazione seleziona per modificare i nomi delle colonne.
+
+## <a name="optimize-the-source-transformation"></a>Ottimizzare la trasformazione di origine
+
+Nella scheda **ottimizza** per la trasformazione origine è possibile che venga visualizzato un tipo di partizione di **origine** . Questa opzione è disponibile solo quando l'origine è il database SQL di Azure. Questo perché Data Factory tenta di rendere le connessioni parallele per eseguire query di grandi dimensioni sull'origine del database SQL.
+
+![Impostazioni partizione di origine](media/data-flow/sourcepart3.png "partizionamento")
+
+Non è necessario partizionare i dati nell'origine del database SQL, ma le partizioni sono utili per le query di grandi dimensioni. È possibile basare la partizione su una colonna o su una query.
+
+### <a name="use-a-column-to-partition-data"></a>Usare una colonna per partizionare i dati
+
+Dalla tabella di origine selezionare una colonna in base alla quale eseguire la partizione. Impostare anche il numero di partizioni.
+
+### <a name="use-a-query-to-partition-data"></a>Usare una query per partizionare i dati
+
+È possibile scegliere di partizionare le connessioni in base a una query. Immettere il contenuto di un predicato WHERE. Immettere, ad esempio, anno > 1980.
+
+Per ulteriori informazioni sull'ottimizzazione all'interno del flusso di dati di mapping, vedere la [scheda Optimize](concepts-data-flow-optimize-tab.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Iniziare a creare la trasformazione dei dati con [Derived Column](data-flow-derived-column.md) (Colonna derivata) e [Select](data-flow-select.md) (Select).
+Inizia la compilazione di una [trasformazione colonna derivata](data-flow-derived-column.md) e una [trasformazione selezione](data-flow-select.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60634563"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 

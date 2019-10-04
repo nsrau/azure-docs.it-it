@@ -3,28 +3,31 @@ title: Eseguire l'autenticazione con Registro Azure Container dal servizio Azure
 description: Informazioni su come fornire l'accesso alle immagini nel registro contenitori privato dal servizio Azure Kubernetes usando un'entità servizio di Azure Active Directory.
 services: container-service
 author: dlepow
+manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: dc5276227913d2da6e52ee3c0fb493b98e86688a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326477"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827770"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
 Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
 
-Questo articolo presuppone che sia già stato creato un cluster AKS e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. 
+È sufficiente configurare uno di questi metodi di autenticazione. L'approccio più comune consiste nel [concedere l'accesso tramite l'entità servizio AKS](#grant-aks-access-to-acr). Se si hanno esigenze specifiche, facoltativamente è possibile [concedere l'accesso usando i segreti Kubernetes](#access-with-kubernetes-secret).
+
+Questo articolo presuppone che sia già stato creato un cluster del servizio Azure Kubernetes e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. Se invece si vuole creare un cluster e configurare l'accesso a un registro contenitori al momento della creazione del cluster, vedere [Tutorial: Distribuire un cluster del servizio contenitore di Azure @ no__t-0 oppure [eseguire l'autenticazione con azure container Registry dal servizio Kubernetes di Azure](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Concedere al servizio Azure Container l'accesso a Registro Azure Container
 
 Quando si crea un cluster servizio Azure Kubernetes, Azure crea anche un'entità servizio per supportare il funzionamento del cluster con altre risorse di Azure. Questa entità servizio generata automaticamente può essere usata anche per l'autenticazione con un record di controllo di accesso. A tale scopo, è necessario creare un'[assegnazione di ruolo](../role-based-access-control/overview.md#role-assignments) di Azure Active Directory che conceda all'entità servizio del cluster l'accesso al registro contenitori.
 
-Usare lo script seguente per concedere all'entità servizio generata da AKS l'accesso pull a un registro contenitori di Azure. Modificare le variabili `AKS_*` e `ACR_*` per l'ambiente prima di eseguire lo script.
+Usare lo script seguente per concedere all'entità servizio generata dal servizio Azure Kubernetes l'accesso pull a un Registro Azure Container. Modificare le variabili `AKS_*` e `ACR_*` per l'ambiente prima di eseguire lo script.
 
 ```bash
 #!/bin/bash
@@ -71,7 +74,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Le credenziali dell'entità servizio possono ora essere archiviate in un [segreto per il pull delle immagini][image-pull-secret] Kubernetes a cui il cluster servizio Azure Kubernetes farà riferimento durante l'esecuzione di contenitori.
+È ora possibile archiviare le credenziali dell'entità servizio in un [segreto pull dell'immagine][image-pull-secret]Kubernetes, a cui verrà fatto riferimento dal cluster AKS durante l'esecuzione dei contenitori.
 
 Usare il comando **kubectl** seguente per creare un segreto Kubernetes. Sostituire `<acr-login-server>` con il nome completo di Registro Azure Container (con formato "acrname.azurecr.io"). Sostituire `<service-principal-ID>` e `<service-principal-password>` con i valori ottenuti dall'esecuzione dello script precedente. Sostituire `<email-address>` con qualsiasi indirizzo di posta elettronica valido.
 

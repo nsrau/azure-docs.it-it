@@ -7,15 +7,14 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a94fe86cd9c2a6e775be1ec4b3d14798e4cac693
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7c47b233e508c22ef7b380acfb7720ad763d8de3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795868"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241115"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Eseguire la prima query di Resource Graph usando Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 
 Il primo passaggio per usare Azure Resource Graph consiste nel verificare che il modulo per Azure PowerShell sia installato. Questa guida introduttiva illustra il processo di aggiunta del modulo all'installazione di Azure PowerShell.
 
@@ -23,11 +22,9 @@ Alla fine di questo processo, il modulo risulterà aggiunto all'installazione di
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## <a name="add-the-resource-graph-module"></a>Aggiungere il modulo di Resource Graph
 
-Per consentire ad Azure PowerShell di eseguire query su Azure Resource Graph, il modulo deve essere aggiunto. Questo modulo può essere usato con PowerShell installato in locale, con [Azure Cloud Shell](https://shell.azure.com) o con l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Per consentire ad Azure PowerShell di eseguire query su Azure Resource Graph, il modulo deve essere aggiunto. Questo modulo può essere usato con PowerShell installato in locale, con [Azure Cloud Shell](https://shell.azure.com) o con l'[immagine Docker di PowerShell](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Requisiti di base
 
@@ -48,7 +45,7 @@ Il modulo Resource Graph per PowerShell è **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Verificare che il modulo sia stato importato e che la versione sia corretta, ovvero sia la 0.7.1:
+1. Verificare che il modulo sia stato importato e che la versione sia l'ultima (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -90,13 +87,19 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
 
 Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
-## <a name="cleanup"></a>Pulizia
+> [!NOTE]
+> Se la query non restituisce risultati da una sottoscrizione a cui si ha già accesso, tenere presente che il cmdlet `Search-AzGraph` è impostato sulle sottoscrizioni nel contesto predefinito. Per visualizzare l'elenco di ID di sottoscrizione che fanno parte del contesto predefinito, eseguire `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Per eseguire la ricerca in tutte le sottoscrizioni a cui si ha accesso, è possibile impostare PSDefaultParameterValues per il cmdlet `Search-AzGraph` eseguendo `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+   
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere il modulo di Resource Graph dall'ambiente di Azure PowerShell, è possibile usare il comando seguente:
 
 ```azurepowershell-interactive
-# Remove the Resource Graph module from the Azure PowerShell environment
+# Remove the Resource Graph module from the current session
 Remove-Module -Name 'Az.ResourceGraph'
+
+# Uninstall the Resource Graph module from the environment
+Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]

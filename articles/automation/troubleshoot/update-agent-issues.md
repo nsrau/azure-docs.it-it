@@ -2,19 +2,19 @@
 title: Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti di Azure
 description: Informazioni su come risolvere i problemi con l'agente Gestione aggiornamenti.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149615"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971282"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
@@ -27,7 +27,7 @@ L'elenco seguente indica i tre possibili stati di conformità di un computer:
 * **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
 
 > [!NOTE]
-> Potrebbe esserci un leggero ritardo tra i quali viene illustrato il portale di Azure e lo stato corrente della macchina.
+> È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente del computer.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
@@ -55,15 +55,15 @@ Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per run
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4.6.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-451"></a>.NET 4.5.1
+### <a name="net-461"></a>4\.6.1 .NET +
 
-Il controllo di .NET Framework verifica se nel sistema è installato almeno [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
+Il controllo .NET Framework verifica che nel sistema sia installato almeno [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) .
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-Il controllo WMF verifica se nel sistema è disponibile la versione richiesta di Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) è la versione minima supportata. Si consiglia di installare [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) per una maggiore affidabilità del ruolo di lavoro ibrido per runbook.
+Il controllo WMF verifica che il sistema disponga della versione richiesta di Windows Management Framework (WMF)- [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,9 @@ Il controllo dell'accesso alla cartella Crypto determina se l'account sistema lo
 
 ## <a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. L'output di questo script è simile al seguente:
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. Per eseguire lo script è necessario che sia installato WMF 4,0 o versione successiva. Per scaricare la versione più recente di PowerShell, vedere [installazione di diverse versioni di PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+L'output di questo script è simile al seguente:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -144,7 +146,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

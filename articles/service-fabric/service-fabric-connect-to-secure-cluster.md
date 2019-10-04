@@ -3,7 +3,7 @@ title: Connettersi a un cluster sicuro di Azure Service Fabric | Microsoft Docs
 description: Descrive come autenticare l'accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 42c8fa15c6b1e7c98ae47180bec5cc61236a7c44
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666529"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599706"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 
@@ -41,7 +41,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Se il file con estensione pfx non è protetto da password, usare -passin pass: come ultimo parametro.
 
-Per specificare il certificato client come file con estensione pem, specificare il percorso del file nell'argomento `--pem`. Ad esempio: 
+Per specificare il certificato client come file con estensione pem, specificare il percorso del file nell'argomento `--pem`. Ad esempio:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -55,7 +55,7 @@ Per specificare una coppia certificato-chiave, usare gli argomenti `--cert` e `-
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-In alcuni casi i certificati usati per proteggere i cluster di test o di sviluppo non superano la convalida. Per ignorare la verifica del certificato, specificare l'opzione `--no-verify`. Ad esempio: 
+In alcuni casi i certificati usati per proteggere i cluster di test o di sviluppo non superano la convalida. Per ignorare la verifica del certificato, specificare l'opzione `--no-verify`. Ad esempio:
 
 > [!WARNING]
 > Non usare l'opzione `no-verify` quando ci si connette a cluster di Service Fabric di produzione.
@@ -64,7 +64,7 @@ In alcuni casi i certificati usati per proteggere i cluster di test o di svilupp
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-È anche possibile specificare i percorsi a directory di certificati CA attendibili o a certificati individuali. Per specificare questi percorsi, usare l'argomento `--ca`. Ad esempio: 
+È anche possibile specificare i percorsi a directory di certificati CA attendibili o a certificati individuali. Per specificare questi percorsi, usare l'argomento `--ca`. Ad esempio:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -355,7 +355,7 @@ Per connettersi a un cluster protetto con AAD, inserire nel browser l'indirizzo 
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Viene automaticamente richiesto di accedere con AAD.
+Verrà automaticamente richiesto di accedere con AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 

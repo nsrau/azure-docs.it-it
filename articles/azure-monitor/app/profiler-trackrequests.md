@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60730855"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Scrivere codice per tenere traccia delle richieste con Application Insights
 
@@ -51,7 +51,7 @@ Per tenere manualmente traccia delle richieste, seguire questa procedura:
         }
         ```
 
-        La chiamata di `StartOperation<RequestTelemetry>` in un altro ambito di `StartOperation<RequestTelemetry>` non è supportata. È possibile invece usare `StartOperation<DependencyTelemetry>` nell'ambito nidificato. Ad esempio:   
+        La chiamata di `StartOperation<RequestTelemetry>` in un altro ambito di `StartOperation<RequestTelemetry>` non è supportata. È possibile invece usare `StartOperation<DependencyTelemetry>` nell'ambito nidificato. Ad esempio:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

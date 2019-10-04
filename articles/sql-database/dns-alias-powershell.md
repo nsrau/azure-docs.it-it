@@ -1,31 +1,28 @@
 ---
 title: PowerShell per l'alias DNS per Azure SQL | Microsoft Docs
-description: I cmdlet di PowerShell, ad esempio New-AzSqlServerDNSAlias consentono di reindirizzare le nuove connessioni client a un altro server di Database SQL di Azure, senza la necessità di modificare la configurazione client.
+description: I cmdlet di PowerShell, ad esempio New-AzSqlServerDNSAlias, consentono di reindirizzare le nuove connessioni client a un altro server di database SQL di Azure, senza dover toccare alcuna configurazione client.
 keywords: DNS per il database SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: genemi,amagarwa,maboja, jrasnick
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 17b712afff293dba8c353767fc326761bcb53ba3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
+ms.date: 05/14/2019
+ms.openlocfilehash: 47afd905b1fa28ce65163203b9d43781f434233d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860738"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058542"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell per l'alias DNS per il database SQL di Azure
 
 Questo articolo fornisce uno script di PowerShell che illustra come gestire un alias DNS per il database SQL di Azure. Lo script esegue i cmdlet seguenti che svolgono le operazioni indicate:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 I cmdlet usati nell'esempio di codice sono i seguenti:
 
@@ -44,8 +41,8 @@ Per connettere un determinato server di database SQL di Azure, un client come SQ
 
 Se si vuole eseguire lo script di PowerShell di esempio di questo articolo, sono necessari i prerequisiti seguenti:
 
-- Una sottoscrizione e un account di Azure. Per ottenere una versione di valutazione gratuita, fare clic su [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
-- Modulo di Azure PowerShell, cmdlet **New-AzSqlServerDNSAlias**.
+- Una sottoscrizione e un account di Azure. Per una versione di valutazione gratuita [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/], fare clic su.
+- Azure PowerShell modulo con il cmdlet **New-AzSqlServerDNSAlias**.
   - Per eseguire l'installazione o l'aggiornamento, vedere [Installare il modulo di Azure PowerShell][install-Az-ps-84p].
   - Eseguire `Get-Module -ListAvailable Az;` in powershell\_ise.exe per trovare la versione.
 - Due server di database SQL di Azure.
@@ -156,7 +153,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una spiegazione completa della funzionalità di alias DNS per il database SQL, vedere [Alias DNS per il database SQL di Azure][dns-alias-overview-37v].
+Per una spiegazione completa della funzionalità alias DNS per il database SQL, vedere [alias DNS per il database SQL di Azure][dns-alias-overview-37v].
 
 <!-- Article links. -->
 

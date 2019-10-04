@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Distribuire un cluster
 description: In questa esercitazione sul servizio Azure Kubernetes si crea un cluster del servizio Azure Kubernetes e si usa kubectl per connettersi al nodo master Kubernetes.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754558"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147238"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -83,7 +83,7 @@ Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
@@ -91,9 +91,12 @@ az aks create \
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio Azure Kubernetes.
 
+> [!NOTE]
+> Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi.
+
 ## <a name="install-the-kubernetes-cli"></a>Installare l'interfaccia della riga di comando di Kubernetes
 
-Per connettersi al cluster Kubernetes dal computer locale, si usa [kubectl][kubectl], il client da riga di comando di Kubernetes.
+Per connettersi al cluster Kubernetes dal computer locale si usa [kubectl][kubectl], il client da riga di comando di Kubernetes.
 
 Se si usa Azure Cloud Shell, `kubectl` è già installato. È anche possibile installarlo in locale usando il comando [az servizio Azure Kubernetes install-cli][]:
 
@@ -114,8 +117,8 @@ Per verificare la connessione al cluster, eseguire il comando [kubectl get nodes
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

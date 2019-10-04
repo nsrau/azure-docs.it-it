@@ -1,25 +1,28 @@
 ---
 title: Come configurare funzionalità multimaster in Azure Cosmos DB
-description: Informazioni su come configurare funzionalità multimaster nelle applicazioni in Azure Cosmos DB
+description: Informazioni su come configurare funzionalità multimaster nelle applicazioni in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 2/12/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312141"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093111"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Come configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
+# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
 
-Per usare le funzionalità multimaster nelle applicazioni, è necessario abilitare le scritture in più aree e configurare la funzionalità di multihoming. Il multihoming viene configurato impostando la regione corrente in cui viene distribuita l'applicazione.
+Dopo aver creato un account con più aree di scrittura abilitate, è necessario apportare due modifiche a ConnectionPolicy nell'applicazione per far sì che DocumentClient abiliti le funzionalità multimaster e multihoming in Azure Cosmos DB. In ConnectionPolicy, impostare UseMultipleWriteLocations su true e passare il nome dell'area in cui viene distribuita l'applicazione su SetCurrentLocation. Questo popolerà la proprietà PreferredLocations in base alla prossimità geografica della posizione passata. Se viene aggiunta una nuova area all'account in un secondo momento, l'applicazione non deve essere aggiornata o ridistribuita, ma rileverà automaticamente l'area più vicina ed eseguirà l'homing automatico su di essa in caso di eventi a livello di area.
+
+> [!Note]
+> Gli account Cosmos inizialmente configurati con una sola area per le operazioni di scrittura possono essere configurati con più aree per le operazioni di scrittura (multimaster) senza tempi di inattività. Per altre informazioni, consultare [Configurare più aree di scrittura](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Per abilitare le funzionalità multimaster nelle applicazioni, impostare `UseMultipleWriteLocations` su true e configurare `SetCurrentLocation` sull'area in cui l'applicazione viene distribuita e Azure Cosmos DB viene replicato.
+Per abilitare le funzionalità multimaster nell'applicazione, impostare `UseMultipleWriteLocations` su `true`. Inoltre, impostare `SetCurrentLocation` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Azure Cosmos DB:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -31,19 +34,30 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3 (anteprima)
+## <a id="netv3"></a>.NET SDK v3
 
-Per abilitare le funzionalità multimaster nelle applicazioni, configurare `UseCurrentRegion` sull'area in cui l'applicazione viene distribuita e Cosmos DB viene replicato.
+Per abilitare le funzionalità multimaster nelle applicazioni, impostare `ApplicationRegion` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Facoltativamente, è possibile usare `CosmosClientBuilder` e `WithApplicationRegion` per ottenere lo stesso risultato:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java Async SDK
 
-Per abilitare le funzionalità multimaster nelle applicazioni, impostare `policy.setUsingMultipleWriteLocations(true)` su true e configurare `policy.setPreferredLocations` sull'area in cui l'applicazione viene distribuita e Cosmos DB viene replicato.
+Per abilitare le funzionalità multimaster nelle applicazioni, impostare `policy.setUsingMultipleWriteLocations(true)` e `policy.setPreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -58,9 +72,9 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Node.js, JavaScript, TypeScript SDK
+## <a id="javascript"></a>Node.js, JavaScript e TypeScript SDK
 
-Per abilitare le funzionalità multimaster nelle applicazioni, impostare `connectionPolicy.UseMultipleWriteLocations` su true e configurare `connectionPolicy.PreferredLocations` sull'area in cui l'applicazione viene distribuita e Cosmos DB viene replicato.
+Per abilitare le funzionalità multimaster nell'applicazione, impostare `connectionPolicy.UseMultipleWriteLocations` su `true`. Inoltre, impostare `connectionPolicy.PreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -77,26 +91,27 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Python SDK
 
-Per abilitare le funzionalità multimaster nelle applicazioni, impostare `connection_policy.UseMultipleWriteLocations` su true e configurare `connection_policy.PreferredLocations` sull'area in cui l'applicazione viene distribuita e Cosmos DB viene replicato.
+Per abilitare le funzionalità multimaster nell'applicazione, impostare `connection_policy.UseMultipleWriteLocations` su `true`. Inoltre, impostare `connection_policy.PreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
 connection_policy.UseMultipleWriteLocations = True
 connection_policy.PreferredLocations = [region]
 
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su multimaster, distribuzione globale e coerenza in Azure Cosmos DB. Vedere gli articoli seguenti:
+Leggere gli articoli seguenti:
 
-* [Utilizzare i token di sessione per gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
+* [Usare token di sessione per gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Tipi di conflitto e criteri di risoluzione in Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Disponibilità elevata in Azure Cosmos DB](high-availability.md)
-
-* [Scelta del livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-
+* [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
+* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromessi tra coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
+* [Distribuzione globale: dietro le quinte](global-dist-under-the-hood.md)

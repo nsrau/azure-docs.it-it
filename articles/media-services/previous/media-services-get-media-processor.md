@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463841"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Procedura: Ottenere un'istanza del processore di contenuti multimediali
 > [!div class="op_single_selector"]

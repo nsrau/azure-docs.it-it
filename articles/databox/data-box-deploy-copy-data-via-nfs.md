@@ -1,19 +1,19 @@
 ---
-title: Copiare dati in Microsoft Azure Data Box tramite NFS| Microsoft Docs
+title: Esercitazione per copiare dati in Azure Data Box tramite NFS | Microsoft Docs
 description: Informazioni su come copiare dati in Azure Data Box tramite NFS
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404706"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443156"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: Copiare dati in Azure Data Box tramite NFS
 
@@ -88,6 +88,12 @@ Una volta stabilita la connessione alle condivisioni del Data Box, è necessario
 - Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
 - È consigliabile non usare SMB e NFS contemporaneamente né copiare gli stessi dati nella stessa destinazione finale in Azure. In questi casi il risultato finale non può essere determinato.
 - **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
+- In caso di inserimento di nomi di file e directory che fanno distinzione tra maiuscole e minuscole da una condivisione NFS a NFS in Data Box: 
+    - Nel nome verrà mantenuta la distinzione tra maiuscole e minuscole.
+    - Per i file non verrà applicata la distinzione tra maiuscole e minuscole.
+    
+    Se ad esempio vengono copiati `SampleFile.txt` e `Samplefile.Txt`, le maiuscole e le minuscole verranno mantenute nel nome copiato in Data Box, ma il secondo file sovrascriverà il primo perché i due file verranno considerati uguali.
+
 
 Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -130,7 +136,9 @@ Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
 > [!IMPORTANT]
 > Non sono supportati i tipi di file Linux seguenti: collegamenti simbolici, file di caratteri, file di blocco, socket e pipe. Questi tipi di file causeranno errori durante la fase **Prepara per la spedizione**.
 
-- Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante la copia dei dati. Al termine della copia, verificare lo spazio occupato e lo spazio disponibile nel dispositivo.
+Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log degli errori per la risoluzione dei problemi. Per altre informazioni, vedere [Visualizzare i log degli errori durante la copia dei dati in Data Box](data-box-logs.md#view-error-log-during-data-copy). Per un elenco dettagliato degli errori durante la copia dei dati, vedere [Risolvere i problemi di Data Box](data-box-troubleshoot.md).
+
+Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante la copia dei dati. Al termine della copia, verificare lo spazio occupato e lo spazio disponibile nel dispositivo.
     
    ![Verificare lo spazio occupato e lo spazio disponibile nel dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

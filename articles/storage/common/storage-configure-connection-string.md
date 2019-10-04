@@ -1,47 +1,57 @@
 ---
-title: Configurare una stringa di connessione per Archiviazione di Azure | Microsoft Docs
-description: Configurare una stringa di connessione per un account di archiviazione di Azure. Una stringa di connessione contiene le informazioni necessarie per autorizzare l'accesso a un account di archiviazione dall'applicazione in fase di runtime.
+title: Configurare una stringa di connessione per archiviazione di Azure
+description: Configurare una stringa di connessione per un account di archiviazione di Azure. Una stringa di connessione contiene le informazioni necessarie per autorizzare l'accesso a un account di archiviazione dall'applicazione in fase di esecuzione tramite l'autorizzazione della chiave condivisa.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/20/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 26670a739bca03a2c9bbe6617cf433c730a7489e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473817"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640499"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
-Una stringa di connessione include le informazioni necessarie all'applicazione per l'accesso ai dati di un account di Archiviazione di Azure in fase di runtime. Le stringhe di connessione possono essere configurate per:
+Una stringa di connessione include le informazioni di autorizzazione necessarie all'applicazione per accedere ai dati in un account di archiviazione di Azure in fase di esecuzione tramite l'autorizzazione della chiave condivisa. Le stringhe di connessione possono essere configurate per:
 
 * Connettersi all'emulatore di archiviazione di Azure.
 * Accedere a un account di archiviazione in Azure.
 * Accedere alle risorse specificate in Azure tramite una firma di accesso condiviso (SAS).
 
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="storing-your-connection-string"></a>Recupero della stringa di connessione
+## <a name="view-and-copy-a-connection-string"></a>Visualizzare e copiare una stringa di connessione
+
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+
+## <a name="store-a-connection-string"></a>Archiviare una stringa di connessione
+
 L'applicazione deve accedere alla stringa di connessione in fase di runtime per autenticare le richieste inviate al servizio Archiviazione di Azure. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
+* È possibile archiviare la stringa di connessione in una variabile di ambiente.
 * Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
 * Un'applicazione in esecuzione in un servizio cloud di Azure può archiviare la stringa di connessione nel [file dello schema di configurazione dei servizi di Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Aggiungere la stringa di connessione alla sezione **ConfigurationSettings** del file di configurazione del servizio.
-* È possibile usare la stringa di connessione direttamente nel codice. Per la maggior parte degli scenari è tuttavia consigliabile archiviare la stringa di connessione in un file di configurazione.
 
 L'archiviazione della stringa di connessione in un file di configurazione renderà più semplice aggiornare la stringa per alternare tra l'emulatore di archiviazione e un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che faccia riferimento all'ambiente di destinazione.
 
-È possibile usare [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) per accedere alla stringa di connessione in fase di runtime indipendentemente dall'ambiente in cui viene eseguita l'applicazione.
+È possibile usare [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) per accedere alla stringa di connessione in fase di runtime indipendentemente dall'ambiente in cui viene eseguita l'applicazione.
 
-## <a name="create-a-connection-string-for-the-storage-emulator"></a>Creare una stringa di connessione per l'emulatore di archiviazione
+## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurare una stringa di connessione per l'emulatore di archiviazione
+
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Per altre informazioni sull'emulatore di archiviazione, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md).
 
-## <a name="create-a-connection-string-for-an-azure-storage-account"></a>Creare una stringa di connessione per un account di archiviazione di Azure
+## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configurare una stringa di connessione per un account di archiviazione di Azure
+
 Per creare una stringa di connessione per l'account di archiviazione di Azure, usare il seguente formato. Indicare se si vuole eseguire la connessione all'account di archiviazione tramite HTTPS (scelta consigliata) o HTTP, sostituire `myAccountName` con il nome dell'account di archiviazione e sostituire `myAccountKey` con la chiave di accesso dell'account:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
@@ -57,9 +67,11 @@ Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di co
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Creare una stringa di connessione usando una firma di accesso condiviso
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>Creare una stringa di connessione per un endpoint di archiviazione esplicito
+
 Nella stringa di connessione è possibile specificare in modo esplicito endpoint di servizio anziché usare gli endpoint predefiniti. Per creare una stringa di connessione che specifica un endpoint esplicito, specificare l'endpoint di servizio completo per ogni servizio, inclusa la specifica del protocollo, ad esempio HTTPS (scelta consigliata) o HTTP, usando il formato seguente:
 
 ```
@@ -106,7 +118,8 @@ Se un endpoint di archiviazione è stato mappato su un dominio personalizzato e 
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creare una stringa di connessione con un suffisso dell'endpoint
-Per creare una stringa di connessione per un servizio di archiviazione in aree o istanze con suffissi dell'endpoint diversi, ad esempio per Azure Cina o Azure per enti pubblici, usare il seguente formato per la stringa di connessione. Indicare se si vuole eseguire la connessione all'account di archiviazione tramite HTTPS (opzione consigliata) o HTTP, quindi sostituire `myAccountName` con il nome dell'account di archiviazione, sostituire `myAccountKey` con la chiave di accesso del proprio account e sostituire `mySuffix` con il suffisso URI:
+
+Per creare una stringa di connessione per un servizio di archiviazione in aree o istanze con suffissi dell'endpoint diversi, ad esempio per Azure Cina 21Vianet o Azure per enti pubblici, usare il seguente formato della stringa di connessione. Indicare se si vuole eseguire la connessione all'account di archiviazione tramite HTTPS (opzione consigliata) o HTTP, quindi sostituire `myAccountName` con il nome dell'account di archiviazione, sostituire `myAccountKey` con la chiave di accesso del proprio account e sostituire `mySuffix` con il suffisso URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -115,7 +128,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Ecco una stringa di connessione di esempio per i servizi di archiviazione in Azure Cina:
+Ecco una stringa di connessione di esempio per i servizi di archiviazione in Azure Cina 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -125,10 +138,11 @@ EndpointSuffix=core.chinacloudapi.cn;
 ```
 
 ## <a name="parsing-a-connection-string"></a>Analisi di una stringa di connessione
+
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 * [Strumenti di esplorazione di Archiviazione di Azure](storage-explorers.md)
-* [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
-
+* [Uso delle firme di accesso condiviso](storage-sas-overview.md)

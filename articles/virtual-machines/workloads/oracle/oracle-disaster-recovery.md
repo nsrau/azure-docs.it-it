@@ -4,23 +4,22 @@ description: Scenario di ripristino di emergenza per un'istanza di Database Orac
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495028"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101469"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
@@ -58,7 +57,7 @@ Il cliente ha una configurazione del database Oracle locale nel sito primario. I
 
 Per questo tipo di configurazione esistono due approcci.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra siti locali e Azure, che richiedono porte TCP aperte sul firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra l'istanza locale e Azure, che richiedono porte TCP aperte sul firewall 
 
 Le connessioni dirette non sono consigliate perché espongono le porte TCP al mondo esterno.
 
@@ -96,7 +95,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 ![Schermata della pagina di topologia del ripristino di emergenza](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>Informazioni aggiuntive
+## <a name="additional-reading"></a>Altre informazioni
 
 - [Progettare e implementare un database Oracle in Azure](oracle-design.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)
@@ -106,5 +105,5 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
+- [Esercitazione: Creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
 - [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)

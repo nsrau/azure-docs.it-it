@@ -2,8 +2,8 @@
 title: Rimuovere i dati personali in Azure Active Directory Application Proxy | Microsoft Docs
 description: Rimuovere i dati personali dai connettori installati nei dispositivi nell'Azure Active Directory Application Proxy.
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292854"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807758"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Rimuovere i dati personali in Azure Active Directory Application Proxy  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Rimuovere i dati personali in Azure Active Directory Application Proxy
 
-Azure Active Directory Application Proxy richiede l'installazione dei connettori nei dispositivi e questo potrebbe comportare la presenza di dati personali. In questo articolo vengono illustrate le procedure per eliminare i dati personali e migliorare la privacy. 
-
+Azure Active Directory Application Proxy richiede l'installazione dei connettori nei dispositivi e questo potrebbe comportare la presenza di dati personali. In questo articolo vengono illustrate le procedure per eliminare i dati personali e migliorare la privacy.
 
 ## <a name="where-is-the-personal-data"></a>Dove si trovano i dati personali?
+
 È possibile che l'Application Proxy scriva dati personali per i tipi di log seguenti:
 
 - Log eventi del connettore
@@ -52,36 +52,33 @@ Utilizzare le sezioni seguenti per rimuovere i dati personali dai log eventi dei
 
 ### <a name="view-or-export-specific-data"></a>Visualizzare o esportare dati specifici
 
-Per visualizzare o esportare dati specifici, cercare le voci relative in ognuno dei log eventi dei connettori. I log si trovano alla `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Per visualizzare o esportare dati specifici, cercare le voci relative in ognuno dei log eventi dei connettori. I log si trovano alla `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
 Poiché i log sono file di testo, è possibile usare [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) per cercare le voci correlate a un utente.  
 
-Per trovare i dati personali, cercare i file di log per l'ID utente. 
+Per trovare i dati personali, cercare i file di log per l'ID utente.
 
 Per trovare i dati personali registrati da un'applicazione che utilizza la delega vincolata Kerberos, cercare questi componenti del tipo di nome utente:
 
 - Nome dell'entità utente locale
 - Parte nome utente del nome dell'entità utente
 - Parte nome utente del nome dell'entità utente locale
-- Nome dell'account locale di Security Accounts Manager (SAM) 
-
+- Nome dell'account locale di Security Accounts Manager (SAM)
 
 ### <a name="delete-specific-data"></a>Eliminare i dati specifici
 
 Per eliminare i dati specifici:
 
 1. È possibile riavviare il connettore di Microsoft Azure Active Directory Application Proxy Connector per generare un nuovo file di log. Il nuovo file di log consente di eliminare o modificare i vecchi file di log. 
-2. Seguire il processo di [visualizzazione o esportazione dati specifici](#view-or-export-specific-data) descritto in precedenza per trovare informazioni che devono essere eliminate. Cercare tutti i log dei connettori.
-3. Eliminare i file di log rilevanti o eliminare in modo selettivo i campi che contengono dati personali. È anche possibile eliminare tutti i file di log precedenti se non sono più necessari.
+1. Seguire il processo di [visualizzazione o esportazione dati specifici](#view-or-export-specific-data) descritto in precedenza per trovare informazioni che devono essere eliminate. Cercare tutti i log dei connettori.
+1. Eliminare i file di log rilevanti o eliminare in modo selettivo i campi che contengono dati personali. È anche possibile eliminare tutti i file di log precedenti se non sono più necessari.
 
 ### <a name="turn-off-connector-logs"></a>Disattivare i log del connettore
 
-Un modo per verificare i log dei connettori non contengano dati personali consiste nel disattivare la generazione di log. Per interrompere la generazione dei log dei connettore, rimuovere la seguente riga evidenziata dal `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Un modo per verificare i log dei connettori non contengano dati personali consiste nel disattivare la generazione di log. Per interrompere la generazione dei log dei connettore, rimuovere la seguente riga evidenziata dal `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`.
 
-![Configurazione](./media/application-proxy-remove-personal-data/01.png)
-
+![Viene illustrato un frammento di codice con il codice evidenziato da rimuovere](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per una panoramica di Application Proxy, consultare [Come fornire l'accesso remoto sicuro alle applicazioni locali](application-proxy.md).
-

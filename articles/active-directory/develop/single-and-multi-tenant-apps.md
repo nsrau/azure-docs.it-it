@@ -3,8 +3,8 @@ title: App a tenant singolo e multi-tenant in Azure Active Directory
 description: Informazioni sulle funzionalità e le differenze tra le app a tenant singolo e multi-tenant in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec1939dd1f5445583200776e489f7596f572f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111076"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
 

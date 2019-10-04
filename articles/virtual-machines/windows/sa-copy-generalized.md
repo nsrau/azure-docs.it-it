@@ -4,24 +4,23 @@ description: Creare un'immagine non gestita di una macchina virtuale Windows gen
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252410"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102458"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure
 
@@ -41,7 +40,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 > 
 > 
 
-È possibile anche generalizzare una VM Linux tramite `sudo waagent -deprovision+user` e quindi usare PowerShell per acquisire la VM. Per informazioni sull'uso dell'interfaccia della riga di comando per acquisire una macchina virtuale, vedere [come generalizzare e acquisire una macchina virtuale Linux tramite la CLI di Azure](../linux/capture-image.md).
+È possibile anche generalizzare una VM Linux tramite `sudo waagent -deprovision+user` e quindi usare PowerShell per acquisire la VM. Per informazioni sull'uso dell'interfaccia della riga di comando per acquisire una VM, vedere [come generalizzare e acquisire una macchina virtuale Linux tramite l'interfaccia della](../linux/capture-image.md)riga di comando di Azure.
 
 
 1. Accedere alla macchina virtuale Windows.
@@ -89,7 +88,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Nel portale di Azure lo *stato* della VM passa da **Arrestato** ad **Arrestato (deallocato)**.
+    Nel portale di Azure lo *stato* della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
 2. Impostare lo stato della macchina virtuale su **Generalizzato**. 
    
     ```powershell

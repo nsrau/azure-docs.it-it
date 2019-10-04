@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65969073"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
@@ -66,7 +66,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
     ![Secondo elenco di esempio di tag in base a cui è possibile raggruppare](./media/understanding-cost-reports/groups-tags02.png)
 
     Nei report di allocazione costi i gruppi delle categorie basate su tag possono includere:
-      - Tag
+      - `Tags`
       - Tag di gruppi di risorse
       - Tag di entità di costo Cloudyn
       - Tag di sottoscrizione a scopo di allocazione costi
@@ -144,7 +144,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 8. **Risoluzione**
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
-    - Giornaliera
+    - Ogni giorno
     - Settimanale
     - Mensile
     - Trimestrale

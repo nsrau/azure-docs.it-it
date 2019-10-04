@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Questa esercitazione mostra come creare e gestire un'istanza di Load Balancer Standard con il portale di Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845206"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327215"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 
@@ -49,8 +49,8 @@ In questa sezione viene creata un'istanza di Load Balancer Standard che consente
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
-    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *myResourceGroupSLB* nella casella di testo.|
+    | Subscription               | Selezionare la propria sottoscrizione.    |    
+    | Resource group         | Selezionare **Crea nuovo** e digitare *myResourceGroupSLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
@@ -69,7 +69,7 @@ In questa sezione si configurano le impostazioni di Load Balancer per un pool di
 
 ### <a name="create-a-backend-address-pool"></a>Creare un pool di indirizzi back-end
 
-Per distribuire il traffico alle macchine virtuali, è necessario che un pool di indirizzi back-end contenga gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al servizio di bilanciamento del carico. Creare il pool di indirizzi back-end *myBackendPool* per includere le macchine virtuali per il bilanciamento del carico del traffico Internet.
+Per distribuire il traffico alle macchine virtuali, è necessario che un pool di indirizzi back-end contenga gli indirizzi IP delle schede di interfaccia di rete virtuale connesse all'istanza di Load Balancer. Creare il pool di indirizzi back-end *myBackendPool* per includere le macchine virtuali per il bilanciamento del carico del traffico Internet.
 
 1. Selezionare **Tutti i servizi** nel menu a sinistra, selezionare **Tutte le risorse** e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** fare clic su **Pool back-end** e quindi su **Aggiungi**.
@@ -90,7 +90,6 @@ Per consentire all'istanza di Load Balancer di monitorare lo stato dell'app, si 
     | Porta | Immettere *80*.|
     | Interval | Immettere *15* in **Intervallo** come numero di secondi tra i tentativi del probe. |
     | Soglia non integra | Selezionare *2* per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.|
-    | Probe di integrità | Selezionare *myHealthProbe*. |
     
 4. Selezionare **OK**.
 
@@ -126,9 +125,9 @@ In questa sezione si crea una rete virtuale, si creano tre macchine virtuali per
     | ------- | ----- |
     | NOME | Immettere *myVNet*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
-    | Località | Selezionare **Europa occidentale**.|
+    | Subscription | Selezionare la propria sottoscrizione.|
+    | Resource group | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *myBackendSubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     
@@ -143,9 +142,9 @@ Load Balancer Standard supporta solo le macchine virtuali con indirizzi IP stand
 1. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
    - **Sottoscrizione** > **Gruppo di risorse**: Selezionare **myResourceGroupSLB**.
    - **Dettagli istanza** > **Nome macchina virtuale**: Digitare *myVM1*.
-   - **Dettagli dell'istanza** > **Area** > selezionare **Europa occidentale**.
-   - **Dettagli dell'istanza** > **Opzioni di disponibilità** > selezionare **Zone di disponibilità**. 
-   - **Dettagli dell'istanza** > **Zona di disponibilità** > selezionare **1**.
+   - **Dettagli istanza** > **Area** > selezionare **Europa occidentale**.
+   - **Dettagli istanza** > **Opzioni di disponibilità** > selezionare **Zone di disponibilità**. 
+   - **Dettagli istanza** > **Zona di disponibilità** > selezionare **1**.
   
 1. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
    
@@ -158,7 +157,7 @@ Load Balancer Standard supporta solo le macchine virtuali con indirizzi IP stand
        1. Nel campo **Configura gruppo di sicurezza di rete** selezionare **Crea nuovo**. 
        1. Digitare *myNetworkSecurityGroup* e selezionare **OK**.
 
-   - Per rendere la macchina virtuale parte del pool back-end di Load Balancer, completare i passaggi seguenti:
+   - Per includere la macchina virtuale nel pool back-end dell'istanza di Load Balancer, completare i passaggi seguenti:
         - In **Bilanciamento del carico**, per **Posizionare questa macchina virtuale prima di una soluzione di bilanciamento del carico esistente?** selezionare **Sì**.
         - In **Impostazioni di bilanciamento del carico**, per **Opzioni di bilanciamento del carico**, selezionare **Azure Load Balancer**.
         - Per **Selezionare un servizio di bilanciamento del carico**, specificare *myLoadBalancer*. 

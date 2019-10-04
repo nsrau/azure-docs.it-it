@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61399523"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Hadoop Pig in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-pig-activity.md)
 > * [Versione corrente](transform-data-using-hadoop-pig.md)
 
@@ -58,15 +58,15 @@ Se non si ha familiarità con Azure Data Factory, prima di leggere questo artico
 
 | Proprietà            | Descrizione                              | Obbligatorio |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nome dell'attività                     | Sì      |
-| description         | Testo descrittivo per lo scopo dell'attività | No        |
-| type                | Per l'attività Hive, il tipo di attività è HDinsightPig | Sì      |
-| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| scriptLinkedService | Riferimento a un servizio collegato di Archiviazione di Azure usato per archiviare lo script Pig da eseguire. Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight. | No        |
-| scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | No        |
-| getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always e Failure. Valore predefinito: No. | No        |
-| arguments           | Specifica una matrice di argomenti per un processo Hadoop. Gli argomenti vengono passati a ogni attività come argomenti della riga di comando. | No        |
-| defines             | Specificare i parametri come coppie chiave/valore per i riferimenti all'interno dello script Pig. | No        |
+| name                | Nome dell'attività                     | Yes      |
+| description         | Testo descrittivo per lo scopo dell'attività | No       |
+| type                | Per l'attività Hive, il tipo di attività è HDinsightPig | Yes      |
+| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
+| scriptLinkedService | Riferimento a un servizio collegato di Archiviazione di Azure usato per archiviare lo script Pig da eseguire. Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight. | No       |
+| scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | No       |
+| getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always e Failure. Valore predefinito: No. | No       |
+| arguments           | Specifica una matrice di argomenti per un processo Hadoop. Gli argomenti vengono passati a ogni attività come argomenti della riga di comando. | No       |
+| defines             | Specificare i parametri come coppie chiave/valore per i riferimenti all'interno dello script Pig. | No       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 

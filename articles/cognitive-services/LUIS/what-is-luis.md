@@ -1,5 +1,6 @@
 ---
-title: Informazioni su Language Understanding (LUIS) - Servizi cognitivi di Azure | Microsoft Docs
+title: Che cos'è il servizio Language Understanding (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) è un servizio API basato sul cloud che applica l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d4251613ac2a00ddc56d5e573b49ced01adf61c
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441968"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703106"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
@@ -53,9 +54,9 @@ Un'app LUIS contiene un modello di linguaggio naturale specifico per il dominio.
 * **Entità personalizzate** LUIS offre diversi modi per identificare le finalità e le entità personalizzate, comprese le entità apprese automaticamente, le entità specifiche o con valore letterale e una combinazione di entità apprese automaticamente e con valore letterale.
 
 ## <a name="build-the-luis-model"></a>Compilare il modello LUIS
-Compilare il modello con le API di [creazione](https://aka.ms/luis-authoring-apis) o con il portale LUIS.
+Compilare il modello con le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) o con il portale LUIS.
 
-Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **[finalità](luis-concept-intent.md)**. Per ogni finalità sono necessari esempi di **[espressioni](luis-concept-utterance.md)** dell'utente. Ogni espressione può fornire una serie di dati che devono essere estratti con le **[entità](luis-concept-entity-types.md)**. 
+Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **[finalità](luis-concept-intent.md)** . Per ogni finalità sono necessari esempi di **[espressioni](luis-concept-utterance.md)** dell'utente. Ogni espressione può fornire una serie di dati che devono essere estratti con le **[entità](luis-concept-entity-types.md)** . 
 
 |Espressione utente di esempio|Finalità|Entità|
 |-----------|-----------|-----------|
@@ -65,7 +66,7 @@ Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **
 
 ## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di stima
 
-Dopo la compilazione e la pubblicazione del modello nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint di stima](https://aka.ms/luis-endpoint-apis) pubblicato. L'API applica il modello al testo per l'analisi. L'API risponde con i risultati della stima in formato JSON.  
+Dopo la compilazione e la pubblicazione del modello nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint di stima](https://go.microsoft.com/fwlink/?linkid=2092356) pubblicato. L'API applica il modello al testo per l'analisi. L'API risponde con i risultati della stima in formato JSON.  
 
 La risposta dell'endpoint JSON contiene almeno l'espressione della query e la finalità con il punteggio più alto. Può anche estrarre dati, ad esempio l'entità **Contact Type** seguente. 
 
@@ -101,7 +102,7 @@ LUIS fornisce strumenti, controllo delle versioni e collaborazione con altri aut
 LUIS, come API REST, può essere usato con qualsiasi prodotto, servizio o framework che invia richieste HTTP. L'elenco seguente contiene i principali prodotti e servizi Microsoft usati con LUIS.
 
 L'applicazione client principale per LUIS è:
-* [Bot app Web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) crea rapidamente un chatbot abilitato per LUIS per comunicare con un utente tramite input di testo. Usa [Bot Framework][bot-framework] versione [3.x](https://github.com/Microsoft/BotBuilder) o [4.x](https://github.com/Microsoft/botbuilder-dotnet) per un'esperienza bot completa.
+* [Bot app Web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) crea rapidamente un chatbot abilitato per LUIS per comunicare con un utente tramite input di testo. Usa [Bot Framework][bot-framework] versione [4.x](https://github.com/Microsoft/botbuilder-dotnet) per un'esperienza bot completa.
 
 Strumenti per usare LUIS in modo rapido e semplice con un bot:
 * [Interfaccia della riga di comando di LUIS](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) Il pacchetto NPM fornisce funzionalità di creazione e stima con uno strumento da riga di comando autonomo oppure sotto forma di importazione. 
@@ -110,7 +111,7 @@ Strumenti per usare LUIS in modo rapido e semplice con un bot:
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown è uno strumento da riga di comando che consente di gestire i modelli linguistici per il bot.
 
 Altri servizi cognitivi usati con LUIS:
-* [QnA Maker][qnamaker] consente di combinare diversi tipi di testo in una base di conoscenze con domande e risposte.
+* [QnA Maker][qnamaker] consente di combinare diversi tipi di testo in una knowledge base di domande e risposte.
 * [API Controllo ortografico Bing](../bing-spell-check/proof-text.md) fornisce la correzione del testo prima della previsione. 
 * [Servizio Voce](../Speech-Service/overview.md) converte le richieste di linguaggio parlato in testo. 
 * [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) consente di creare più velocemente conversazioni bot con LUIS.
@@ -122,10 +123,10 @@ Esempi che usano LUIS:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una nuova app LUIS con un dominio [precompilato](luis-get-started-create-app.md) o [personalizzato](luis-quickstart-intents-only.md). [Eseguire query sull'endpoint di stima](luis-get-started-cs-get-intent.md) di un'app IoT pubblica.
+Creare una nuova app LUIS con un dominio [precompilato](luis-get-started-create-app.md) o [personalizzato](luis-quickstart-intents-only.md). [Eseguire query sull'endpoint di stima](luis-get-started-get-intent-from-browser.md) di un'app IoT pubblica.
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

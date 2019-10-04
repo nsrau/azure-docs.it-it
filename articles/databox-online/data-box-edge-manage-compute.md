@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997649"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65953132"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
 
 Questo articolo descrive come gestire il calcolo in Azure Data Box Edge. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
 
 In questo articolo viene spiegato come:
 
@@ -133,24 +129,6 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
 
 3. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
 
-## <a name="enable-a-network-interface-for-compute"></a>Abilitare un'interfaccia di rete per il calcolo
-
-Potrebbe essere necessario accedere a un modulo in esecuzione nel dispositivo Data Box Edge. Per accedere al modulo dall'esterno, si dovrà assegnare un indirizzo IP a un'interfaccia di rete nel dispositivo. È possibile gestire queste impostazioni di calcolo dall'interfaccia utente Web locale.
-
-Per configurare le impostazioni di calcolo, seguire questa procedura nell'interfaccia utente Web locale.
-
-1. Nell'interfaccia utente Web locale passare a **Configurazione > Impostazioni calcolo**.  
-
-2. **Abilitare** l'interfaccia di rete che si vuole usare per connettersi ai moduli di calcolo nel dispositivo. 
-
-    - Se si usano indirizzi IP statici, immettere un indirizzo IP per l'interfaccia di rete.
-    - Se si usa DHCP, gli indirizzi IP verranno assegnati automaticamente.
-
-3. Selezionare **Applica** per applicare le impostazioni.
-
-    ![Abilitare le impostazioni di calcolo](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire gli utenti dal portale di Azure](data-box-edge-manage-users.md).
+- Informazioni su come [rete tramite il portale di Azure di gestire Edge calcolo](data-box-edge-extend-compute-access-modules.md).

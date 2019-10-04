@@ -4,21 +4,20 @@ description: Informazioni su come risolvere i problemi di RDP quando non è disp
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318953"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088527"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure
 
@@ -63,7 +62,7 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
 
     Se non è possibile connettersi alla macchina virtuale tramite una sessione amministrativa, usare la [console seriale della macchina virtuale](serial-console-windows.md) per accedere alla macchina virtuale come indicato di seguito:
 
-    1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
+    1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)** . Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
     2. Creare un nuovo canale per un'istanza CMD. Immettere **CMD** per avviare il canale e ottenere il relativo nome.
 
@@ -123,10 +122,10 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e se ne vuole uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Quindi [configurare le licenze di Servizi Desktop remoto](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e se ne vuole uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Quindi [configurare le licenze di Servizi Desktop remoto](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. Se un server licenze Desktop remoto è configurato e integro, assicurarsi che sia attivato con le licenze CAL.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

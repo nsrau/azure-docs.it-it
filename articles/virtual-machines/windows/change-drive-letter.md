@@ -4,23 +4,22 @@ description: "Descrive come modificare le lettere di unità per una VM Windows, 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007301"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079869"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
 Se l'applicazione deve usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
@@ -64,5 +63,5 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 9. Riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* È possibile aumentare lo spazio di archiviazione disponibile per la macchina virtuale [collegare un disco dati aggiuntivo](attach-managed-disk-portal.md).
+* Per aumentare lo spazio di archiviazione disponibile per la macchina virtuale, è possibile [aggiungere un disco dati aggiuntivo](attach-managed-disk-portal.md).
 

@@ -1,25 +1,25 @@
 ---
-title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza in Azure per server Windows e Linux locali con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329218"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814547"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si apprenderà come:
+In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
 > * Configurare i prerequisiti locali e di Azure
@@ -100,7 +100,7 @@ Selezionare l'elemento da replicare e la posizione in cui replicarlo.
 
 1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
 2. Nel menu Risorsa fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Obiettivo di protezione**.
-3. In **Obiettivo di protezione** selezionare **To Azure (In Azure)** > **Non virtualizzato/Altro**.
+3. In **Obiettivo di protezione** selezionare **To Azure (In Azure)**  > **Non virtualizzato/Altro**.
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
@@ -110,7 +110,7 @@ Configurare il server di configurazione, registrarlo nell'insieme di credenziali
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
 4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+5. Scaricare la chiave di registrazione dell'insieme di credenziali. che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
    ![Impostare l'origine](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -152,7 +152,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
+1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
 4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.
@@ -163,7 +163,7 @@ Selezionare e verificare le risorse di destinazione.
 
 I criteri vengono automaticamente associati al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback creato sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
 
-## <a name="enable-replication"></a>Abilitare la replica
+## <a name="enable-replication"></a>Abilita replica
 
 Abilitare la replica per ogni server.
 

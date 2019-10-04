@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Python: servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale che usa Speech SDK per Python. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cbe583ca59cb98ba233e58dc665c7e18c2a1f7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886118"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559303"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -30,15 +30,24 @@ Questo articolo illustra come usare i servizi Voce tramite Speech SDK per Python
 * Il pacchetto Speech SDK per Python è disponibile per i sistemi operativi seguenti:
     * Windows: x64 e x86.
     * Mac: macOS X versione 10.12 o successiva.
-    * Linux: Ubuntu 16.04 o 18.04 su x64.
-* In Ubuntu, eseguire i comandi seguenti per installare i pacchetti richiesti:
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 su architetture x64.
+* In Linux eseguire i comandi seguenti per installare i pacchetti richiesti:
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-  ```
+  * In Ubuntu:
 
-* In Windows è anche necessario la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso.
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
+
+  * In Debian 9:
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
+
+* In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso.
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 

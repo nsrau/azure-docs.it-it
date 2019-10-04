@@ -1,20 +1,19 @@
 ---
 title: Inviare gli eventi di archiviazione BLOB di Azure a un endpoint Web - PowerShell | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
-services: storage,event-grid
-author: david-stanford
-ms.author: dastanfo
+author: normesta
+ms.author: normesta
+ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: 3e1a482cc59d951fbe6b25fcf0bfc4a967222839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246416"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847166"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Avvio rapido: Instradare gli eventi di archiviazione a un endpoint Web con PowerShell
 
@@ -24,7 +23,7 @@ In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intr
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
-![Visualizzare i risultati](./media/storage-blob-event-quickstart-powershell/view-results.png)
+![Visualizza risultati](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Configurazione
 
@@ -32,7 +31,7 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 Ai fini di questo articolo, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432703"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479309"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un'introduzione a Data Factory, vedere [Introduzione a Data Factory](introduction.md). Per un'introduzione a Data Factory versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). 
@@ -130,11 +130,11 @@ Gli SDK aggiornati nella versione corrente non sono compatibili con i client ver
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Portale di Azure | [Sì](quickstart-create-data-factory-portal.md) | [Sì](data-factory-build-your-first-pipeline-using-editor.md) |
+| Portale di Azure | [Sì](quickstart-create-data-factory-portal.md) | No |
 | Azure PowerShell | [Sì](quickstart-create-data-factory-powershell.md) | [Sì](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Sì](quickstart-create-data-factory-dot-net.md) | [Sì](data-factory-build-your-first-pipeline-using-vs.md) |
 | API REST | [Sì](quickstart-create-data-factory-rest-api.md) | [Sì](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No  |
+| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No |
 | Modello di Resource Manager | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni

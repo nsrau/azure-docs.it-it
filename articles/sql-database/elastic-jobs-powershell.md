@@ -10,18 +10,17 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666789"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935047"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
 
-I [processi elastici](sql-database-job-automation-overview.md#elastic-database-jobs) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
+I [processi elastici](sql-database-job-automation-overview.md#elastic-database-jobs-preview) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
 
 Questa esercitazione illustra la procedura necessaria per eseguire una query tra più database:
 
@@ -285,6 +284,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Stati di esecuzione dei processi
+
+La tabella seguente elenca i possibili stati di esecuzione dei processi:
+
+|Stato|DESCRIZIONE|
+|:---|:---|
+|**Creato** | L'esecuzione del processo è stata appena creata e non è ancora in corso.|
+|**InProgress** | L'esecuzione del processo è attualmente in corso.|
+|**WaitingForRetry** | L'esecuzione del processo non è riuscita a completare l'azione ed è in attesa per riprovare.|
+|**Completato** | L'esecuzione del processo è stata completata.|
+|**SucceededWithSkipped** | L'esecuzione del processo è stata completata, ma alcuni elementi figlio sono stati ignorati.|
+|**Non riuscito** | L'esecuzione del processo non è riuscita e ha esaurito i tentativi.|
+|**TimedOut** | L'esecuzione del processo ha raggiunto il timeout.|
+|**Canceled** | L'esecuzione del processo è stata annullata.|
+|**Ignorato** | L'esecuzione del processo è stata ignorata perché un'altra esecuzione dello stesso passaggio del processo era già attiva nella stessa destinazione.|
+|**WaitingForChildJobExecutions** | L'esecuzione del processo è in attesa delle esecuzioni figlio prima del completamento.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Pianificazione dell'esecuzione successiva del processo
 

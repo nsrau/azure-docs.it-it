@@ -10,20 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468022"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736764"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
+
 ## <a name="overview"></a>Panoramica
+
 Le organizzazioni devono usare un singolo nome e una singola password per più utenti nei due casi descritti di seguito:
 
 * Quando si accede alle applicazioni che richiedono account di accesso e password univoci per ogni utente, in caso di app locali o servizi cloud di livello consumer (ad esempio, gli account aziendali di social media).
@@ -40,15 +42,16 @@ Il modello di condivisione tradizionale presenta vari svantaggi:
 * Per rimuovere l'accesso a un'applicazione, è necessario aggiornare le credenziali e distribuirle nuovamente a tutti gli utenti che richiedono l'accesso a tale applicazione.
 
 ## <a name="azure-active-directory-account-sharing"></a>Condivisione account di Azure Active Directory
+
 Azure AD fornisce un nuovo approccio all'uso degli account condivisi che consente di eliminare questi svantaggi.
 
 L'amministratore di Azure AD consente di configurare le applicazioni alle quali un utente può accedere usando il pannello di accesso e scegliendo il tipo di accesso Single Sign-On più adatto all'applicazione. Uno di questi tipi, *l'accesso Single Sign-On basato su password*, consente ad Azure AD di agire come una sorta di broker durante il processo di accesso a tale app.
 
-Gli utenti accedono una volta con l'account aziendale. Si tratta dello stesso account che usano regolarmente per accedere al desktop o alla posta elettronica. Possono individuare e accedere solo alle applicazioni a cui sono assegnati. Con gli account condivisi, questo elenco di applicazioni può includere qualsiasi numero di credenziali condivise. L'utente finale non deve ricordare o annotare i vari account in uso.
+Gli utenti possono accedere una volta con il proprio account aziendale. Si tratta dello stesso account che usano regolarmente per accedere al desktop o alla posta elettronica. Possono individuare e accedere solo alle applicazioni a cui sono assegnati. Con gli account condivisi, questo elenco di applicazioni può includere qualsiasi numero di credenziali condivise. L'utente finale non deve ricordare o annotare i vari account in uso.
 
 Gli account condivisi non solo consentono di aumentare la supervisione e migliorare l'usabilità, ma anche di aumentare la sicurezza. Gli utenti con autorizzazioni per l'uso delle credenziali non visualizzano la password condivisa, ma ottengono autorizzazioni per l'uso della password come parte di un flusso di autenticazione orchestrato. Inoltre, alcune applicazioni con accesso Single Sign-On con password offrono la possibilità di usare Azure AD per eseguire il rollover periodico (aggiornamento) delle password. Il sistema usa le password complesse di grandi dimensioni e ciò incrementa la sicurezza dell'account. L'amministratore può facilmente concedere o revocare l'accesso a un'applicazione e può sapere chi può accedere all'account e chi ha avuto accesso in precedenza.
 
-Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mobility Suite (EMS), Premium o Basic, in tutti i tipi di applicazioni con accesso Single Sign-On basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD supporta gli account condivisi per qualsiasi piano di licenza Enterprise Mobility Suite (EMS) o Azure AD Premium, in tutti i tipi di applicazioni Single Sign-on basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](../manage-apps/configure-single-sign-on-portal.md).
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
@@ -62,16 +65,17 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Condivisione di un account
+
 Per usare Azure AD per la condivisione di un account è necessario:
 
 * Aggiungere un'applicazione alla [raccolta di app](https://azure.microsoft.com/marketplace/active-directory/) o integrarla con un'[applicazione personalizzata](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurare l'applicazione per l'accesso Single Sign-On basato su password
 * Usare un' [assegnazione basata su gruppi](groups-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
-* Facoltativo: in alcune applicazioni, ad esempio Facebook, Twitter o LinkedIn, è possibile abilitare l'opzione per l' [esecuzione automatizzata del rollover delle password di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Con Azure AD è possibile rendere più sicuro l'account condiviso tramite Multi-Factor Authentication (MFA) (vedere altre informazioni sulla [sicurezza delle applicazioni con Azure AD](../authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi può accedere all'applicazione tramite la gestione dei gruppi in [modalità self-service di Azure AD](groups-self-service-management.md).
 
-## <a name="related-articles"></a>Articoli correlati
+## <a name="next-steps"></a>Passaggi successivi
+
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Sicurezza delle app con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle app con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
 * [Gestione di gruppi self-service/SSAA](groups-self-service-management.md)

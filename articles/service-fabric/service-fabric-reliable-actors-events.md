@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60726401"
 ---
 # <a name="actor-events"></a>Eventi relativi agli attori
 Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.

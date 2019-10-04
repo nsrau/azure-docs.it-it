@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da Azure Data Factory in Esplora dati di Azure
-description: In questo argomento viene illustrato come inserire (caricare) i dati in Esplora dati di Azure usando lo strumento di copia di Azure Data Factory
+title: Copiare dati da Azure Data Factory ad Azure Esplora dati
+description: Questo articolo illustra come inserire (caricare) i dati in Azure Esplora dati usando lo strumento Azure Data Factory Copy.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,182 +8,238 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447875"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300590"
 ---
-# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiare i dati in Esplora dati di Azure usando Azure Data Factory 
+# <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Copiare i dati in Esplora dati di Azure usando Azure Data Factory 
 
-Esplora i dati di Azure è un servizio di analitica dei dati rapida e completamente gestito per l'analisi in tempo reale su grandi volumi di dati di streaming da molte origini, ad esempio applicazioni, siti Web e dispositivi IoT. Esplorare i dati in modo iterativo e identificare modelli e anomalie per migliorare i prodotti, migliora le esperienze dei clienti, monitorare i dispositivi, potrai migliorare e operazioni. Esplora nuove domande e ottieni risposte in pochi minuti. Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usare il servizio per popolare il database di Esplora dati di Azure con i dati dal sistema esistente e risparmiare tempo durante la compilazione di soluzioni di analitica.
+Azure Esplora dati è un servizio di analisi dei dati veloce e completamente gestito. Offre analisi in tempo reale su grandi volumi di dati trasmessi da numerose origini, ad esempio applicazioni, siti Web e dispositivi Internet. Con Azure Esplora dati è possibile esplorare in modo iterativo i dati e identificare modelli e anomalie per migliorare i prodotti, migliorare l'esperienza dei clienti, monitorare i dispositivi e aumentare le operazioni. Consente di esplorare le nuove domande e ottenere risposte in pochi minuti. 
 
-Azure Data Factory offre i vantaggi seguenti per il caricamento dei dati in Esplora dati di Azure:
+Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usarlo per popolare il database Esplora dati di Azure con i dati del sistema esistente. Può aiutarti a risparmiare tempo durante la compilazione di soluzioni di analisi.
 
-* **Facilità di configurazione**: Una cinque passaggi procedura guidata intuitiva senza necessità di script.
-* **Supporto di archiviare i dati dettagliati**: Supporto incorporato per una vasta gamma di archivi dati basati sul cloud e locali. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
-* **Sicurezza e conformità**: I dati vengono trasferiti tramite HTTPS o ExpressRoute. La presenza di un servizio globale garantisce che i dati non oltrepassino mai il confine geografico.
-* **Prestazioni elevate**: Fino a velocità di caricamento dei dati di 1 GB/s in Esplora dati di Azure. Per informazioni, vedere [Prestazioni dell'attività di copia](/azure/data-factory/copy-activity-performance).
+Quando si caricano dati in Esplora dati di Azure, Data Factory offre i seguenti vantaggi:
 
-Questo articolo illustra come usare lo strumento Copia dati di Data Factory per caricare i dati da Amazon S3 in Esplora dati di Azure. È possibile seguire la procedura per copiare dati da altri archivi dati, ad esempio [archiviazione Blob di Azure](/azure/data-factory/connector-azure-blob-storage), [Database SQL di Azure](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), e [File system](/azure/data-factory/connector-file-system).
+* **Facile installazione**: Consente di ottenere una procedura guidata intuitiva in cinque passaggi senza richiedere script.
+* **Supporto per gli archivi dati avanzati**: Ottieni supporto incorporato per un set completo di archivi dati locali e basati sul cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
+* **Sicuro e conforme**: I dati vengono trasferiti tramite HTTPS o Azure ExpressRoute. La presenza di un servizio globale garantisce che i dati non oltrepassino mai il confine geografico.
+* **Prestazioni elevate**: La velocità di caricamento dei dati è fino a 1 gigabyte al secondo (GBps) in Azure Esplora dati. Per altre informazioni, vedere [prestazioni dell'attività di copia](/azure/data-factory/copy-activity-performance).
+
+In questo articolo si usa lo strumento Data Factory Copia dati per caricare i dati dal servizio di archiviazione semplice di Amazon (S3) in Azure Esplora dati. È possibile seguire un processo simile per copiare dati da altri archivi dati, ad esempio:
+* [Archivio BLOB di Azure](/azure/data-factory/connector-azure-blob-storage)
+* [Database SQL di Azure](/azure/data-factory/connector-azure-sql-database)
+* [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse)
+* [Google BigQuery](/azure/data-factory/connector-google-bigquery)
+* [Oracle](/azure/data-factory/connector-oracle)
+* [File system](/azure/data-factory/connector-file-system)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* [Un cluster di Esplora dati di Azure e un database](create-cluster-database-portal.md)
+* [Un cluster e un database di Esplora dati di Azure](create-cluster-database-portal.md).
 * Origine dati.
 
-## <a name="create-a-data-factory"></a>Creare una data factory
+## <a name="create-a-data-factory"></a>Crea una data factory
 
-1. Selezionare il **crea una risorsa** pulsante (+) nell'angolo superiore sinistro del portale > **Analitica** > **Data Factory**.
+1. Accedere al [portale di Azure](https://ms.portal.azure.com).
 
-   ![Creare una nuova data factory](media/data-factory-load-data/create-adf.png)
+1. Nel riquadro sinistro selezionare **Crea una risorsa** > **analisi** > **Data Factory**.
 
-1. Nel **nuova data factory** pagina, specificare i valori per i campi seguenti e quindi selezionare **crea**.
+   ![Creare una data factory nel portale di Azure](media/data-factory-load-data/create-adf.png)
 
-    ![Pagina Nuova data factory](media/data-factory-load-data/my-new-data-factory.png)
+1. Nel riquadro **nuovo data factory** specificare i valori per i campi nella tabella seguente:
 
-    **Impostazione**  | **Descrizione campo**
-    |---|---|
-    | **Nome** | Immettere un nome univoco globale per la data factory. Se viene visualizzato l'errore *"nome della Data factory \"LoadADXDemo\" non è disponibile"*, immettere un nome diverso per la data factory. Per le regole di denominazione di elementi di Data Factory, vedere [regole di denominazione di Data Factory](/azure/data-factory/naming-rules).|
-    | **Sottoscrizione** | selezionare la sottoscrizione di Azure in cui creare la data factory. |
-    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere il nome del nuovo gruppo di risorse. Selezionare **Usa esistente**, se si dispone di un gruppo di risorse. |
-    | **Versione** | Selezionare **V2**. |
-    | **Posizione** | Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati utilizzati da data factory possono essere in altre posizioni o aree geografiche. |
-    | | |
+   ![Riquadro "nuovo data factory"](media/data-factory-load-data/my-new-data-factory.png)  
 
-1. Selezionare le notifiche nella barra degli strumenti per monitorare il processo di creazione. Dopo aver completata la creazione, passare alla data factory creata. Il **Data Factory** verrà visualizzata la pagina iniziale.
+   | Impostazione  | Valore da immettere  |
+   |---|---|
+   | **Name** | Nella casella Immettere un nome univoco globale per la data factory. Se viene visualizzato un errore, il *nome \"della data factory LoadADXDemo\" non è disponibile*, immettere un nome diverso per il data factory. Per le regole sulla denominazione di elementi Data Factory, vedere [Data Factory regole di denominazione](/azure/data-factory/naming-rules).|
+   | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione di Azure in cui creare la data factory. |
+   | **Gruppo di risorse** | Selezionare **Crea nuovo**e quindi immettere il nome di un nuovo gruppo di risorse. Se si dispone già di un gruppo di risorse, selezionare **Usa esistente**. |
+   | **Versione** | Nell'elenco a discesa selezionare **v2**. |  
+   | **Location** | Nell'elenco a discesa selezionare il percorso per il data factory. Nell'elenco vengono visualizzati solo i percorsi supportati. Gli archivi dati utilizzati dalla data factory possono esistere in altre posizioni o aree. |
 
-   ![Home page di Data factory](media/data-factory-load-data/data-factory-home-page.png)
+1. Selezionare **Create**.
 
-1. Selezionare il **crea e monitora** riquadro per avviare l'applicazione in una scheda separata.
+1. Per monitorare il processo di creazione, selezionare **notifiche** sulla barra degli strumenti. Dopo aver creato la data factory, selezionarla.
+   
+   Viene visualizzato il riquadro **Data Factory** .
 
-## <a name="load-data-into-azure-data-explorer"></a>Caricare i dati in Esplora dati di Azure
+   ![Riquadro Data Factory](media/data-factory-load-data/data-factory-home-page.png)
 
-I dati possono essere caricati da molti tipi di [archivi dati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) in Esplora dati di Azure. In questo argomento illustra in dettaglio il caricamento dei dati da Amazon S3.
+1. Per aprire l'applicazione in un riquadro separato, selezionare il riquadro **autore & monitoraggio** .
 
-Esistono due modi per caricare dati in Esplora dati di Azure usando Azure Data Factory:
+## <a name="load-data-into-azure-data-explorer"></a>Caricare i dati in Azure Esplora dati
 
-* Interfaccia utente di Azure Data Factory - [ **autore** scheda](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
-* [Azure Data Factory **copia dati** strumento](/azure/data-factory/quickstart-create-data-factory-copy-data-tool) usato in questo articolo.
+È possibile caricare dati da molti tipi di [archivi dati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) in Esplora dati di Azure. Questo articolo illustra come caricare dati da Amazon S3.
+
+È possibile caricare i dati in uno dei modi seguenti:
+
+* Nel riquadro sinistro dell'interfaccia utente di Azure Data Factory selezionare l'icona **autore** , come illustrato nella sezione "creare una data factory" di [creare una data factory usando l'interfaccia utente di Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* Nello strumento Azure Data Factory Copia dati, come illustrato in [usare lo strumento copia dati per copiare i dati](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### <a name="copy-data-from-amazon-s3-source"></a>Copiare dati da Amazon S3 (origine)
 
-1. Nel **attività iniziali** pagina, selezionare la **copia dati** riquadro per avviare lo strumento Copia dati.
+1. Nel riquadro attività **iniziali** aprire lo strumento copia dati selezionando **copia dati**.
 
-   ![Riquadro dello strumento di copia dei dati](media/data-factory-load-data/copy-data-tool-tile.png)
+   ![Pulsante strumento Copia dati](media/data-factory-load-data/copy-data-tool-tile.png)
 
-1. Nel **delle proprietà** , specificare **Task name** e selezionare **successivo**.
+1. Nella casella **nome attività** del riquadro **Proprietà** immettere un nome e quindi fare clic su **Avanti**.
 
-    ![Copiare da proprietà di origine](media/data-factory-load-data/copy-from-source.png)
+    ![Riquadro proprietà Copia dati](media/data-factory-load-data/copy-from-source.png)
 
-1. Nel **archivio dati di origine** pagina, fare clic su **+ Crea nuova connessione**.
+1. Nel riquadro **archivio dati di origine** selezionare **Crea nuova connessione**.
 
-    ![I dati di origine creare una connessione](media/data-factory-load-data/source-create-connection.png)
+    ![Il Copia dati riquadro "archivio dati di origine"](media/data-factory-load-data/source-create-connection.png)
 
-1. Selezionare **Amazon S3**, quindi selezionare **continua**
+1. Selezionare **Amazon S3**, quindi selezionare **continua**.
 
-    ![Nuovo servizio collegato](media/data-factory-load-data/amazons3-select-new-linked-service.png)
+    ![Il nuovo riquadro servizio collegato](media/data-factory-load-data/amazons3-select-new-linked-service.png)
 
-1. Nel **nuovo servizio collegato (Amazon S3)** pagina, effettuare i passaggi seguenti:
+1. Nel riquadro **nuovo servizio collegato (Amazon S3)** eseguire le operazioni seguenti:
 
     ![Specificare il servizio collegato Amazon S3](media/data-factory-load-data/amazons3-new-linked-service-properties.png)
 
-    * Specificare **nome** del nuovo servizio collegato.
-    * Selezionare **Connetti tramite runtime di integrazione** valore dall'elenco a discesa.
-    * Specificare il valore **ID della chiave di accesso**.
-    * Specificare il valore **Chiave di accesso segreta**.
-    * Selezionare **Test connessione** per testare la connessione del servizio collegato è stato creato.
-    * Selezionare **Fine**.
+    a. Nella casella **nome** immettere il nome del nuovo servizio collegato.
 
-1. Nel **archivio dati di origine** pagina, si noterà una nuova connessione AmazonS31. Selezionare **Avanti**.
+    b. Nell'elenco a discesa **Connetti tramite Integration Runtime** selezionare il valore.
 
-   ![Archivio dati di origine connessione creata](media/data-factory-load-data/source-data-store-created-connection.png)
+    c. Nella casella **ID chiave di accesso** immettere il valore.
+    
+    > [!NOTE]
+    > In Amazon S3, per individuare la chiave di accesso, selezionare il nome utente Amazon nella barra di spostamento e quindi selezionare le **credenziali di sicurezza personali**.
+    
+    d. Nella casella **chiave di accesso Secret** immettere un valore.
 
-1. Nel **scegliere il file di input o la cartella** pagina:
+    e. Per testare la connessione al servizio collegato creata, selezionare **Test connessione**.
 
-    1. Individuare la cartella o il file che si desidera copiare. Selezionare la cartella o il file.
-    1. Selezionare il comportamento di copia in base alle esigenze. Mantieni **copia binaria** deselezionata.
-    1. Selezionare **Avanti**.
+    f. Selezionare **Fine**.
+    
+      Il riquadro **archivio dati di origine** Visualizza la nuova connessione AmazonS31. 
+
+1. Selezionare **Avanti**.
+
+   ![Connessione creata dall'archivio dati di origine](media/data-factory-load-data/source-data-store-created-connection.png)
+
+1. Nel riquadro **scegliere il file o la cartella di input** eseguire le operazioni seguenti:
+
+    a. Individuare il file o la cartella che si desidera copiare e quindi selezionarlo.
+
+    b. Selezionare il comportamento di copia desiderato. Verificare che la casella di controllo **copia binaria** sia deselezionata.
+
+    c. Selezionare **Avanti**.
 
     ![Scegliere il file o la cartella di input](media/data-factory-load-data/source-choose-input-file.png)
 
-1. Nel **formati di file impostazioni** pagina selezionare le impostazioni rilevanti per i file e fare clic su **successivo**.
+1. Nel riquadro **Impostazioni formato file** selezionare le impostazioni appropriate per il file. quindi selezionare **Avanti**.
 
-   ![Scegliere il file o la cartella di input](media/data-factory-load-data/source-file-format-settings.png)
+   ![Riquadro "Impostazioni formato file"](media/data-factory-load-data/source-file-format-settings.png)
 
 ### <a name="copy-data-into-azure-data-explorer-destination"></a>Copiare i dati in Esplora dati di Azure (destinazione)
 
-Azure Esplora dati nuovo servizio collegato viene creato per copiare i dati nella tabella di destinazione di Esplora dati di Azure (sink) specificati di seguito.
+Viene creato il nuovo servizio collegato di Azure Esplora dati per copiare i dati nella tabella di destinazione Azure Esplora dati (sink) specificata in questa sezione.
 
-1. Nel **archivio dati di destinazione** pagina, è possibile usare i dati esistenti della connessione dell'archivio o specificare un nuovo archivio dati facendo **+ Crea nuova connessione**.
+#### <a name="create-the-azure-data-explorer-linked-service"></a>Creare il servizio collegato di Azure Esplora dati
 
-    ![Pagina dell'archivio dati di destinazione](media/data-factory-load-data/destination-create-connection.png)
+Per creare il servizio collegato di Azure Esplora dati, eseguire le operazioni seguenti:
 
-1. Nel **nuovo servizio collegato** pagina, selezionare **Esplora dati di Azure**, quindi selezionare **continua**
+1. Per usare una connessione all'archivio dati esistente o specificare un nuovo archivio dati, nel riquadro **archivio dati di destinazione** selezionare **Crea nuova connessione**.
 
-    ![Selezionare Azure Esplora dati - nuovo servizio collegato](media/data-factory-load-data/adx-select-new-linked-service.png)
+    ![Riquadro archivio dati di destinazione](media/data-factory-load-data/destination-create-connection.png)
 
-1. Nel **nuovo servizio collegato (Esplora dati di Azure)** pagina, effettuare i passaggi seguenti:
+1. Nel riquadro **nuovo servizio collegato** selezionare **Azure Esplora dati**e quindi fare clic su **continua**.
 
-    ![Nuovo servizio collegato ADX](media/data-factory-load-data/adx-new-linked-service.png)
+    ![Il nuovo riquadro servizio collegato](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-   * Selezionare **nome** per Esplora dati di Azure di servizio collegato.
-   * Nelle **metodo di selezione dell'Account**: 
-        * Selezionare il **sottoscrizione di Azure** pulsante di opzione e selezionare il **sottoscrizione di Azure** account. Selezionare quindi il **Cluster**. Si noti l'elenco a discesa verranno elencare solo i cluster che appartengono all'utente.
-        * In alternativa, selezionare **Immetti manualmente** pulsante di opzione e immettere il **Endpoint**.
-    * Specificare il **Tenant**.
-    * Immettere **ID dell'entità servizio**.
-    * Selezionare **chiave dell'entità servizio** pulsante e immettere **chiave dell'entità servizio**.
-    * Selezionare i **Database** nel menu a discesa. In alternativa, selezionare **modifica** casella di controllo e immettere il nome del database.
-    * Selezionare **Test connessione** per testare la connessione del servizio collegato è stato creato. Se è possibile connettersi alla propria configurazione, un segno di spunta verde **connessione riuscita** verranno visualizzati.
-    * Selezionare **fine** per completare la creazione del servizio collegato.
+1. Nel riquadro **nuovo servizio collegato (Azure Esplora dati)** eseguire le operazioni seguenti:
+
+    ![Riquadro nuovo servizio collegato di Azure Esplora dati](media/data-factory-load-data/adx-new-linked-service.png)
+
+   a. Nella casella **nome** immettere un nome per il servizio collegato Azure Esplora dati.
+
+   b. In **metodo di selezione account**effettuare una delle operazioni seguenti: 
+
+    * Selezionare una **sottoscrizione di Azure** e quindi negli elenchi a discesa selezionare la **sottoscrizione di Azure** e il **cluster**. 
+
+        > [!NOTE]
+        > Il controllo a discesa **cluster** elenca solo i cluster associati alla sottoscrizione.
+
+    * Selezionare **invio manualmente**, quindi immettere l' **endpoint**.
+
+   c. Nella casella **tenant** immettere il nome del tenant.
+
+   d. Nella casella **ID entità servizio** immettere l'ID dell'entità servizio.
+
+   e. Selezionare **chiave entità servizio** e quindi immettere il valore della chiave nella casella **chiave entità servizio** .
+
+   f. Nell'elenco a discesa **database** selezionare il nome del database. In alternativa, selezionare la casella di controllo **modifica** , quindi immettere il nome del database.
+
+   g. Per testare la connessione al servizio collegato creata, selezionare **Test connessione**. Se è possibile connettersi al servizio collegato, nel riquadro viene visualizzato un segno di spunta verde e un messaggio di **connessione riuscito** .
+
+   h. Selezionare **fine** per completare la creazione del servizio collegato.
 
     > [!NOTE]
-    > L'entità servizio è usato da Azure Data Factory per accedere al servizio di Esplora dati di Azure. Per l'entità servizio [creare un Azure Active Directory (Azure AD) dell'entità servizio](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Non usare la **Azure Key Vault** (metodo).
+    > L'entità servizio viene usata da Azure Data Factory per accedere al servizio Esplora dati di Azure. Per creare un'entità servizio, passare a [creare un'entità servizio Azure Active Directory (Azure ad)](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Non usare il metodo Azure Key Vault.
 
-1. Il **archivio dati di destinazione** apre. La connessione dati di Esplora dati di Azure che è stato creato è disponibile per l'uso. Selezionare **successivo** per configurare la connessione.
+#### <a name="configure-the-azure-data-explorer-data-connection"></a>Configurare la connessione dati di Azure Esplora dati
 
-    ![Archivio dati di destinazione ADX](media/data-factory-load-data/destination-data-store.png)
+Dopo aver creato la connessione al servizio collegato, viene aperto il riquadro **archivio dati di destinazione** e la connessione creata è disponibile per l'uso. Per configurare la connessione, eseguire le operazioni seguenti:
 
-1. Nelle **mapping di tabelle**, impostare il nome di tabella di destinazione e selezionare **successivo**.
+1. Selezionare **Avanti**.
 
-    ![Mapping di tabelle di set di dati di destinazione](media/data-factory-load-data/destination-dataset-table-mapping.png)
+    ![Riquadro "archivio dati di destinazione" di Azure Esplora dati](media/data-factory-load-data/destination-data-store.png)
 
-1. Nel **mapping di colonne** pagina:
-    * Il primo mapping viene eseguito da Azure Data factory in base alla [mapping dello schema di Azure Data factory](/azure/data-factory/copy-activity-schema-and-type-mapping)
-        * Impostare il **mapping delle colonne** per la tabella di destinazione di Azure Data Factory. Il mapping predefinito viene visualizzato dall'origine alla tabella di destinazione di Azure Data factory.
-        * Deselezionare le colonne che non è necessario definire il mapping di colonne.
-    * Il secondo mapping si verifica quando vengono inseriti dati tabulari in Esplora dati di Azure. Viene eseguito il mapping in base alla [regole di mapping CSV](/azure/kusto/management/mappings#csv-mapping). Si noti che anche se i dati di origine non è in formato CSV, Azure Data Factory ha convertito i dati in un formato tabulare, di conseguenza, il mapping di CSV è il mapping solo rilevante in questa fase.
-        * Sotto **proprietà del sink Azure Data Explorer (Kusto)** aggiungere il relativo **nome mapping inserimento** (facoltativo) il mapping di tale colonna può essere pertanto utilizzato.
-        * Se **nome mapping inserimento** non è specificato, l'ordine "base al nome" mapping definito nel **mapping colonne** sezione verrà eseguita. Se il mapping di "base al nome" non riesce, Esplora dati di Azure tenterà di inserire i dati in un ordine "position dalla colonna" (esegue il mapping dalla posizione come valore predefinito).
-    * Selezionare **successivo**
+1. Nel riquadro **mapping tabella** impostare il nome della tabella di destinazione e quindi fare clic su **Avanti**.
 
-    ![Mapping di colonne di set di dati di destinazione](media/data-factory-load-data/destination-dataset-column-mapping.png)
+    ![Riquadro "mapping tabella" del set di dati di destinazione](media/data-factory-load-data/destination-dataset-table-mapping.png)
 
-1. Nella pagina **Impostazioni** :
-    * Impostare il relativo **relative alla tolleranza di errore**.
-    * **Impostazioni relative alle prestazioni**: Abilita gestione temporanea non è applicabile. **Impostazioni avanzate** includere considerazioni sui costi. Lasciare invariato se non necessita di alcuna specifica.
+1. Nel riquadro **Mapping colonne** viene eseguita la mappatura seguente:
+
+    a. Il primo mapping viene eseguito dal Azure Data Factory in base al [mapping dello schema di Azure Data Factory](/azure/data-factory/copy-activity-schema-and-type-mapping). Eseguire le operazioni seguenti:
+
+    * Impostare i **mapping delle colonne** per la tabella di destinazione Azure Data Factory. Il mapping predefinito viene visualizzato dall'origine alla tabella di destinazione Azure Data Factory.
+
+    * Annulla la selezione delle colonne non necessarie per definire il mapping della colonna.
+
+    b. Il secondo mapping si verifica quando questi dati tabulari vengono inseriti in Esplora dati di Azure. Il mapping viene eseguito in base alle [regole di mapping CSV](/azure/kusto/management/mappings#csv-mapping). Anche se i dati di origine non sono in formato CSV, Azure Data Factory converte i dati in un formato tabulare. Il mapping CSV è pertanto l'unico mapping pertinente in questa fase. Eseguire le operazioni seguenti:
+
+    * Opzionale In **Proprietà sink Esplora dati (kusto) di Azure**aggiungere il **nome del mapping** di inserimento pertinente in modo che il mapping delle colonne possa essere utilizzato.
+
+    * Se non si specifica il **nome del mapping** di inserimento, verrà utilizzato l'ordine *di mapping per nome* definito nella sezione **Mapping colonne** . Se il mapping *in base al nome* ha esito negativo, Azure Esplora dati tenta di inserire i dati in un ordine *di posizione per colonna* , ovvero viene mappato per posizione come impostazione predefinita.
+
     * Selezionare **Avanti**.
 
-    ![Copiare le impostazioni di dati](media/data-factory-load-data/copy-data-settings.png)
+    ![Riquadro "mapping colonne" del set di dati di destinazione](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. Nelle **Summary**, rivedere le impostazioni e selezionare **successivo**.
+1. Nel riquadro **Impostazioni** eseguire le operazioni seguenti:
 
-    ![Copiare i dati di riepiloghi](media/data-factory-load-data/copy-data-summary.png)
+    a. In **Impostazioni tolleranza di errore**immettere le impostazioni appropriate.
 
-1. Nel **nella pagina distribuzione**:
-    * Selezionare **Monitor** per passare alle **Monitor** scheda e visualizzare lo stato della pipeline (flusso di dati, errori e lo stato di avanzamento).
-    * Selezionare **Pipeline modificare** per modificare i servizi collegati, set di dati e pipeline.
-    * Selezionare **fine** all'attività di copia completa dei dati
+    b. In **Impostazioni prestazioni**, **Abilita gestione temporanea** non si applica e **le impostazioni avanzate** includono considerazioni sui costi. Se non si dispone di requisiti specifici, lasciare invariate le impostazioni.
 
-    ![Pagina Distribuzione](media/data-factory-load-data/deployment.png)
+    c. Selezionare **Avanti**.
+
+    ![Riquadro "Impostazioni" copia dati](media/data-factory-load-data/copy-data-settings.png)
+
+1. Nel riquadro **Riepilogo** esaminare le impostazioni e quindi fare clic su **Avanti**.
+
+    ![Riquadro "Riepilogo" della copia dati](media/data-factory-load-data/copy-data-summary.png)
+
+1. Nel riquadro **distribuzione completata** eseguire le operazioni seguenti:
+
+    a. Per passare alla scheda **monitoraggio** e visualizzare lo stato della pipeline, ovvero avanzamento, errori e flusso di dati, selezionare **monitoraggio**.
+
+    b. Per modificare servizi collegati, set di impostazioni e pipeline, selezionare **modifica pipeline**.
+
+    c. Selezionare **fine** per completare l'attività copia dati.
+
+    ![Riquadro "distribuzione completata"](media/data-factory-load-data/deployment.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri le [connettore di Azure Data Explorer](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
-
-* Altre informazioni sulla modifica di servizi collegati, set di dati e pipeline nel [interfaccia utente di Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
-
-* Scopri [le query di Esplora dati di Azure](/azure/data-explorer/web-query-data) per eseguire query sui dati.
+* Informazioni sul [connettore Azure Esplora dati](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
+* Altre informazioni sulla modifica di servizi collegati, set di impostazioni e pipeline nell' [interfaccia utente di data factory](/azure/data-factory/quickstart-create-data-factory-portal).
+* Informazioni sulle [query di Azure Esplora dati](/azure/data-explorer/web-query-data) per l'esecuzione di query sui dati.

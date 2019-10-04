@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1c2720d61c7b4ea918a3d0c1ff7f41984ea42c69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889376"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566912"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
 ## <a name="overview"></a>Panoramica
 
-[Integrità risorse](../service-health/resource-health-overview.md#getting-started) per il database SQL aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse SQL e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.
+[Integrità risorse](../service-health/resource-health-overview.md#get-started) per il database SQL aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse SQL e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.
 
 ![Panoramica](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
@@ -39,11 +38,11 @@ Lo stato **Disponibile** indica che Integrità risorse non ha rilevato problemi 
 
 ![Disponibile](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
-### <a name="degraded"></a>Degraded
+### <a name="degraded"></a>Danneggiato
 
 Lo stato **Danneggiato** indica che Integrità risorse ha rilevato una maggioranza di accessi riusciti, ma anche alcuni accessi non riusciti. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'impatto dei problemi di connessione causati dagli errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
 
-![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
+![Danneggiato](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>Non disponibile
 

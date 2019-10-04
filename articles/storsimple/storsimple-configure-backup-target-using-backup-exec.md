@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
-ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: matd
+ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011134"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67876794"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
 

@@ -3,23 +3,23 @@ title: Come assegnare utenti e gruppi a un'applicazione | Microsoft Docs
 description: Assegnare utenti per concedere l'accesso all'applicazione
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: celested
+ms.date: 04/26/2019
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291280"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720279"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assegnare utenti e gruppi a un'applicazione in Azure Active Directory
 Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azure Active Directory (Azure AD). Gli utenti devono essere assegnati a un'applicazione prima che un amministratore possa concedere loro l'accesso per eseguire le operazioni seguenti:
@@ -31,6 +31,8 @@ Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azu
 -   Visualizzare un'applicazione nel [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/) o l'applicazione per dispositivi mobili.
 
 -   Visualizzare un'applicazione nell'[icona di avvio delle app di Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
+
+La disponibilità dell'assegnazione basata sul gruppo è determinata dal contratto di licenza. L'assegnazione basata su gruppi è supportata solo per i gruppi di sicurezza. Le appartenenze ai gruppi annidati e i gruppi di O365 non sono attualmente supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l'assegnazione dell’utente. Per richiedere l'assegnazione degli utenti:
@@ -48,7 +50,7 @@ Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale o come proprietario di un'applicazione non amministrativa.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -80,13 +82,13 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
 
-Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste applicazioni usando i metodi illustrati nella sezione Descrizione della soluzione.
+Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avviare queste applicazioni usando i metodi descritti nella sezione Descrizione della soluzione.
 
 ## <a name="assign-groups"></a>Assegnare gruppi
 
 Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o come proprietario di un'applicazione non amministrativa con una licenza di Azure ad Premium assegnata.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -118,7 +120,7 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione ai gruppi selezionati.
 
-Dopo un breve periodo di tempo, gli utenti nei gruppi selezionati potranno avviare queste applicazioni usando i metodi illustrati nella sezione Descrizione della soluzione. Se i gruppi sono dinamici, potrebbe verificarsi un ritardo di elaborazione aggiuntivo nella visualizzazione di queste assegnazioni per gli utenti dei gruppi assegnati.
+Dopo un breve periodo di tempo, gli utenti all'interno dei gruppi selezionati saranno in grado di avviare queste applicazioni usando i metodi descritti nella sezione Descrizione della soluzione. Se i gruppi sono dinamici, potrebbe verificarsi un ritardo di elaborazione aggiuntivo nella visualizzazione di queste assegnazioni per gli utenti dei gruppi assegnati.
 
 ## <a name="enable-self-service-application-access"></a>Abilitare l'accesso alle applicazioni self-service
 
@@ -163,7 +165,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 Dopo aver completato la configurazione dell'applicazione self-service, gli utenti possono accedere al [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/) e fare clic sul pulsante **+Aggiungi** per trovare le app per cui è stato abilitato l'accesso self-service. Anche i responsabili approvazione aziendali visualizzano una notifica nel loro [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/). È possibile abilitare un messaggio di posta elettronica per informare i responsabili dell'approvazione quando un utente richiede l'accesso a un'applicazione per cui è necessaria l'approvazione. 
 
-Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di esso potrà approvare l'accesso all'applicazione.
+Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di essi potrà approvare l'accesso all'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md)

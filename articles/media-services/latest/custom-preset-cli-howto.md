@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: b0329c8c0bfa56e5ae36c5f4223edca91e6510a0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65762016"
 ---
 # <a name="how-to-encode-with-a-custom-transform---cli"></a>Come codificare con una trasformazione personalizzata - CLI
 
@@ -46,90 +46,79 @@ Si intende salvare questa trasformazione in un file. In questo esempio, abbiamo 
 
 ```json
 {
-    "properties": {
-        "description": "Basic Transform using a custom encoding preset",
-        "outputs": [
-            {
-                "onError": "StopProcessingJob",
-                "relativePriority": "Normal",
-                "preset": {
-                    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-                    "codecs": [
-                        {
-                            "@odata.type": "#Microsoft.Media.AacAudio",
-                            "channels": 2,
-                            "samplingRate": 48000,
-                            "bitrate": 128000,
-                            "profile": "AacLc"
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.H264Video",
-                            "keyFrameInterval": "PT2S",
-                            "stretchMode": "AutoSize",
-                            "sceneChangeDetection": false,
-                            "complexity": "Balanced",
-                            "layers": [
-                                {
-                                    "width": "1280",
-                                    "height": "720",
-                                    "label": "HD",
-                                    "bitrate": 3400000,
-                                    "maxBitrate": 3400000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                },
-                                {
-                                    "width": "640",
-                                    "height": "360",
-                                    "label": "SD",
-                                    "bitrate": 1000000,
-                                    "maxBitrate": 1000000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                }
-                            ]
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngImage",
-                            "stretchMode": "AutoSize",
-                            "start": "25%",
-                            "step": "25%",
-                            "range": "80%",
-                            "layers": [
-                                {
-                                    "width": "50%",
-                                    "height": "50%"
-                                }
-                            ]
-                        }
-                    ],
-                    "formats": [
-                        {
-                            "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
-                            "outputFiles": []
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngFormat",
-                            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
-                        }
-                    ]
+    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+    "codecs": [
+        {
+            "@odata.type": "#Microsoft.Media.AacAudio",
+            "channels": 2,
+            "samplingRate": 48000,
+            "bitrate": 128000,
+            "profile": "AacLc"
+        },
+        {
+            "@odata.type": "#Microsoft.Media.H264Video",
+            "keyFrameInterval": "PT2S",
+            "stretchMode": "AutoSize",
+            "sceneChangeDetection": false,
+            "complexity": "Balanced",
+            "layers": [
+                {
+                    "width": "1280",
+                    "height": "720",
+                    "label": "HD",
+                    "bitrate": 3400000,
+                    "maxBitrate": 3400000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
+                },
+                {
+                    "width": "640",
+                    "height": "360",
+                    "label": "SD",
+                    "bitrate": 1000000,
+                    "maxBitrate": 1000000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
                 }
-            }
-        ]
-    }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngImage",
+            "stretchMode": "AutoSize",
+            "start": "25%",
+            "step": "25%",
+            "range": "80%",
+            "layers": [
+                {
+                    "width": "50%",
+                    "height": "50%"
+                }
+            ]
+        }
+    ],
+    "formats": [
+        {
+            "@odata.type": "#Microsoft.Media.Mp4Format",
+            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
+            "outputFiles": []
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngFormat",
+            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
+        }
+    ]
 }
 
 ```
@@ -150,6 +139,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Per servizi multimediali applicare la trasformazione al specificato video o audio, è necessario inviare un processo in tale trasformazione. Per un esempio completo che illustra come inviare un processo in una trasformazione, vedere [Guida introduttiva: Stream file video - CLI](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

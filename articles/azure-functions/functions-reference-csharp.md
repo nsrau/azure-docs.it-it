@@ -11,18 +11,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e4460dd7131e35ee8b3f3112977099276da2d4ce
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892416"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849430"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# (*.csx*).
+Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# ( *.csx*).
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C# . Per materiale sussidiario sull'[uso di C# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [Informazioni di riferimento per sviluppatori C#](functions-dotnet-class-library.md).
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione csx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-azure-functions-core-tools). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 
@@ -206,10 +206,10 @@ public class Order
     public override String ToString()
     {
         return "\n{\n\torderId : " + orderId +
-                  "\n\tcustName : " + custName +             
-                  "\n\tcustAddress : " + custAddress +             
-                  "\n\tcustEmail : " + custEmail +             
-                  "\n\tcartId : " + cartId + "\n}";             
+                  "\n\tcustName : " + custName +
+                  "\n\tcustAddress : " + custAddress +
+                  "\n\tcustEmail : " + custEmail +
+                  "\n\tcartId : " + cartId + "\n}";
     }
 }
 ```
@@ -376,26 +376,26 @@ Per informazioni su come caricare i file nella cartella della funzione, vedere l
 La directory che contiene il file di script della funzione viene controllata automaticamente per le modifiche agli assembly. Per controllare le modifiche agli assembly in altre directory, aggiungerle all'elenco `watchDirectories` in [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso dei pacchetti NuGet
-Usare pacchetti NuGet in una versione 2.x C# function, caricare una *function.proj* file alla cartella della funzione nel file system dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
+Per usare i pacchetti NuGet in una funzione 2 C# . x, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
     </ItemGroup>
 </Project>
 ```
 
-Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet). 
+Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet).
 
 > [!NOTE]
-> Nella versione 1.x C# , i pacchetti NuGet fare riferimento alle funzioni con un *Project. JSON* del file anziché un *function.proj* file.
+> Nelle funzioni 1. C# x, ai pacchetti NuGet viene fatto riferimento con un file *Project. JSON* anziché con un file *Function. proj* .
 
-Per le funzioni 1.x, usare una *Project. JSON* invece del file. Di seguito è riportato un esempio *Project. JSON* file: 
+Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è riportato un esempio di file *Project. JSON* :
 
 ```json
 {
@@ -409,11 +409,11 @@ Per le funzioni 1.x, usare una *Project. JSON* invece del file. Di seguito è ri
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Utilizzo di un file function.proj
+### <a name="using-a-functionproj-file"></a>Uso di un file function. proj
 
 1. Aprire la funzione nel portale di Azure. La scheda dei log mostra l'output di installazione del pacchetto.
-2. Per caricare un *function.proj* del file, usare uno dei metodi descritti nel [come aggiornare i file di app di funzione](functions-reference.md#fileupdate) nell'argomento di riferimento per gli sviluppatori di funzioni di Azure.
-3. Dopo il *function.proj* file viene caricato, viene visualizzato del flusso di output simile al seguente nella funzione di log:
+2. Per caricare un file *Function. proj* , usare uno dei metodi descritti nell'argomento [come aggiornare i file dell'app](functions-reference.md#fileupdate) per le funzioni nell'argomento di riferimento per gli sviluppatori di funzioni di Azure.
+3. Dopo il caricamento del file *Function. proj* , viene visualizzato un output simile all'esempio seguente nel log in streaming della funzione:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -446,7 +446,7 @@ public static string GetEnvironmentVariable(string name)
 }
 ```
 
-<a name="imperative-bindings"></a> 
+<a name="imperative-bindings"></a>
 
 ## <a name="binding-at-runtime"></a>Associazione in fase di esecuzione
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) solo `T` [\<ICollector T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o per.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio: 
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -497,7 +497,7 @@ using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
 public static async Task Run(string input, Binder binder)
 {
     var attributes = new Attribute[]
-    {    
+    {
         new BlobAttribute("samples-output/path"),
         new StorageAccountAttribute("MyStorageAccount")
     };

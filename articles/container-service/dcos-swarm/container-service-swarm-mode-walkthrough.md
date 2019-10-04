@@ -10,11 +10,11 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60721786"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(DEPRECATO) Distribuire cluster Docker CE
 

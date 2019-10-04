@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 276fe9352d0c4ca7ec525b88d65689b56c0ba027
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324011"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593338"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -62,13 +62,13 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     a. Per la prima voce CNAME mappare il dominio personalizzato, con il sottodominio cdnverify, all'endpoint della rete CDN. Questa voce è un passaggio obbligatorio per registrare il dominio personalizzato nell'endpoint della rete CDN che è stato aggiunto a Gestione traffico nel passaggio 2.
 
-      Ad esempio:  
+      Ad esempio: 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. Per la seconda voce CNAME mappare il dominio personalizzato, senza il sottodominio cdnverify, all'endpoint della rete CDN. Questa voce esegue il mapping del dominio personalizzato a Gestione traffico. 
 
-      Ad esempio:  
+      Ad esempio: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -80,10 +80,14 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e di input *cdndemo101.dustydogpetcare.online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
+    
+    > [!NOTE]
+    > Per abilitare SSL in un' **rete CDN di Azure fornita da Akamai** profili, è necessario direttamente cname di dominio personalizzato all'endpoint. cdnverify per l'abilitazione di SSL non è ancora supportata. 
+    >
 
 3.  Tornare al sito Web per il provider di dominio del dominio personalizzato e aggiornare il primo mapping DNS creato, in modo che il dominio personalizzato sia mappato al secondo endpoint della rete CDN.
                              
-    Ad esempio:  
+    Ad esempio: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

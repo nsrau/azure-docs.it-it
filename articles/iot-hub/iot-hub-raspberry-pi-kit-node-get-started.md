@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi al cloud (Node. js) - Connettere Raspberry Pi ad Azure IoT Hub | Microsoft Docs
-description: Informazioni su come configurare e connettere Raspberry Pi all'IoT Hub per Raspberry Pi invii i dati alla piattaforma cloud di Azure in questa esercitazione.
+description: Informazioni su come configurare e connettere Raspberry Pi all'hub Azure per l'invio di dati alla piattaforma cloud di Azure in questa esercitazione.
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi invio dati al cloud, da raspberry pi al cloud
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609014"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266146"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -82,10 +82,6 @@ Gli elementi seguenti sono opzionali:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -98,10 +94,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Scaricare Raspbian.
 
-   a. [Scaricare l'estensione Raspbian](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (il file con estensione zip).
-
-   > [!WARNING]
-   > Usare il collegamento precedente per scaricare l'immagine con estensione zip `raspbian-2017-07-5`. La versione più recente delle immagini Raspbian presenta alcuni problemi noti a livello del nodo Wiring-Pi e ciò potrebbe generare errori nei passaggi successivi.
+   a. [Raspbian Buster con desktop](https://www.raspberrypi.org/downloads/raspbian/) (file zip).
 
    b. Estrarre l'immagine di Raspbian in una cartella nel computer.
 
@@ -123,7 +116,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Collegare Pi al monitor, alla tastiera e al mouse.
 
-2. Avviare Pi e quindi accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
+2. Avviare pi e accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
 
 3. Fare clic sull'icona di Raspberry > **Preferenze** > **Raspberry Pi Configuration** (Configurazione di Raspberry Pi).
 
@@ -142,7 +135,7 @@ Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sen
 
 ![La connessione di Raspberry Pi e del sensore](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-Il sensore BME280 può raccogliere i dati relativi a temperatura e umidità. Il LED lampeggia quando il dispositivo invia un messaggio al cloud. 
+Il sensore BME280 può raccogliere i dati relativi a temperatura e umidità. Il LED lampeggia quando il dispositivo invia un messaggio al cloud.
 
 Per i pin dei sensori usare i collegamenti seguenti:
 
@@ -177,8 +170,8 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 1. Connettersi a Raspberry Pi usando uno dei client SSH seguenti dal computer host.
 
    **Utenti Windows**
-  
-   a. Scaricare e installare [PuTTY](https://www.putty.org/) per Windows. 
+
+   a. Scaricare e installare [PuTTY](https://www.putty.org/) per Windows.
 
    b. Copiare l'indirizzo IP di Pi nella sezione relativa a nome host o indirizzo IP e selezionare SSH come tipo di connessione.
 
@@ -199,10 +192,10 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    node -v
    ```
 
-   Se la versione è anteriore alla 4.x o se non è presente alcun Node.js in Pi, installare la versione più recente.
+   Se la versione è inferiore a 10. x o se non è presente node. js in pi, installare la versione più recente.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -216,7 +209,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
 
    > [!NOTE]
@@ -235,6 +228,8 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    Questo file contiene due elementi configurabili. Il primo è `interval`, che definisce l'intervallo di tempo (in millisecondi) tra due messaggi inviati al cloud. Il secondo è `simulatedData`, ossia un valore booleano che indica se usare o no i dati del sensore simulato.
 
    Se **non si dispone del sensore**, impostare il valore `simulatedData` su `true` per permettere all'applicazione di esempio di creare e usare i dati del sensore simulati.
+
+   *Nota: Per impostazione predefinita, l'indirizzo I2C usato in questa esercitazione è 0x77. A seconda della configurazione, potrebbe anche essere 0x76: se si verifica un errore I2C, provare a modificare il valore in 118 e verificare se il funzionamento è migliore. Per individuare l'indirizzo usato dal sensore, eseguirlo `sudo i2cdetect -y 1` in una shell in Raspberry Pi*
 
 2. Salvare e uscire premendo CTRL-O > INVIO > CTRL-X.
 
@@ -255,9 +250,9 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
 
-Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo è usare gli strumenti di IoT di Azure per Visual Studio Code. Per altre informazioni, vedere [utilizza gli strumenti di IoT di Azure per Visual Studio Code inviare e ricevere messaggi tra il dispositivo e l'IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Un modo per monitorare i messaggi ricevuti dall'hub delle cose dal dispositivo consiste nell'usare gli strumenti di Azure per la Visual Studio Code. Per altre informazioni, vedere [usare gli strumenti di Azure per la Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)Internet.
 
-Per altre modalità elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
+Per altri modi per elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

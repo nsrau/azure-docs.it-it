@@ -1,19 +1,19 @@
 ---
-title: Informazioni sulle procedure consigliate per la sicurezza di Gemelli digitali di Azure | Microsoft Docs
-description: Procedure consigliate per la sicurezza di Gemelli digitali di Azure.
+title: 'Informazioni sulle procedure consigliate per la sicurezza: dispositivi gemelli digitali di Azure | Microsoft Docs'
+description: Informazioni sulle procedure di sicurezza consigliate per i dispositivi gemelli digitali di Azure e il Internet delle cose.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.author: adgera
-ms.openlocfilehash: 16bb148a0b3a424c9ba3aaae422f423ebd40793b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 09/30/2019
+ms.author: v-adgera
+ms.openlocfilehash: e98f8a4becad41d27d89de16f598b6fa531ad5e3
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60536985"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827653"
 ---
 # <a name="security-best-practices"></a>Procedure di sicurezza consigliate
 
@@ -26,6 +26,9 @@ Questo articolo riepiloga le principali procedure consigliate da seguire.
 > [!IMPORTANT]
 > Per garantire la massima sicurezza per lo spazio IoT, esaminare altre risorse relative alla sicurezza. Assicurarsi di includere i fornitori di dispositivi.
 
+> [!TIP]
+> Usa il [Centro sicurezza di Azure per](https://docs.microsoft.com/azure/asc-for-iot/) gli Internet per scoprire le minacce e le vulnerabilità della sicurezza.
+
 ## <a name="iot-security-best-practices"></a>Procedure consigliate per la sicurezza IoT
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro i dispositivi IoT:
@@ -36,13 +39,15 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Prendere in considerazione l'eventualità di usare il filtro degli indirizzi IP dei dispositivi e la restrizione della porta.
 > * Limitare larghezza di banda di I/O e dei dispositivi per migliorare le prestazioni. La limitazione della velocità può consentire di migliorare la sicurezza impedendo attacchi Denial of Service.
 > * Mantenere aggiornato il firmware del dispositivo.
+> * Controllare periodicamente le procedure consigliate per la sicurezza di dispositivi, reti e gateway Man mano che continuano a migliorare e a evolversi.
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro uno spazio IoT:
 
 > [!div class="checklist"]
 > * Crittografare i dati salvati, archiviati o salvati in modo permanente.
 > * Richiedere la modifica o l'aggiornamento periodico di password o chiavi.
-> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#rbac) seguente.
+> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#role-based-access-control-best-practices) seguente.
+> * Si consideri una topologia di rete divisa in modo che i dispositivi in ogni rete siano isolati dagli altri.
 > * Usare la crittografia avanzata. Richiedere password lunghe, usare protocolli sicuri e l'autenticazione a due fattori.
 
 [Monitorare](./how-to-configure-monitoring.md) le risorse IoT per individuare outlier, minacce o parametri delle risorse che non rientrano nell'intervallo del normale funzionamento. Usare Azure Analytics per monitorare la gestione.
@@ -61,8 +66,6 @@ Gemelli digitali di Azure usa Azure Active Directory per l'autenticazione degli 
 > * Verificare la durata della validità di un token e se un token rimane valido.
 > * Impostare periodi di tempo appropriati per la validità dei token.
 > * Aggiornare i token scaduti.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Procedure consigliate per il controllo degli accessi in base al ruolo
 

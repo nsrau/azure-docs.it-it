@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: a3b6616edbe1678cb18f78ec9025fc0286bf124f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 86b18c2a6fc3fbf342f5b7a4b6b563432c605f73
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684476"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781463"
 ---
-Tenere presenti le procedure consigliate seguenti:
+Tenere presente queste procedure consigliate:
 
-- Il servizio di gestione non è possibile recuperare le password esistenti: è possibile ripristinare solo tramite il portale di Azure. È consigliabile archiviare tutte le password in un luogo sicuro per non dover reimpostare una password nel caso la si dimentichi. Se si reimposta una password, assicurarsi di notificarlo a tutti gli utenti prima di reimpostarla.
-- È possibile accedere l'interfaccia di Windows PowerShell del dispositivo in modalità remota su HTTP. Per una protezione ottimale, è necessario utilizzare HTTP solo su reti attendibili.
-- Assicurarsi che le password del dispositivo siano complesse e protette. Seguire le [procedure consigliate di Password](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- È consigliabile archiviare tutte le password in un luogo sicuro, in modo da non dover reimpostare una password se viene dimenticata. Il servizio di gestione non è in grado di recuperare le password esistenti. È possibile reimpostarle solo tramite il portale di Azure. Se si reimposta una password, assicurarsi di notificare tutti gli utenti prima di reimpostarla.
+- È possibile accedere all'interfaccia di Windows PowerShell del dispositivo in modalità remota tramite HTTP. Come procedura consigliata di sicurezza, è consigliabile usare HTTP solo su reti attendibili.
+- Assicurarsi che le password dei dispositivi siano sicure e ben protette. Seguire le [procedure consigliate](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management)per la password.

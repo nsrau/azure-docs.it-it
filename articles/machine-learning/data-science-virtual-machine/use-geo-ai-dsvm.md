@@ -1,53 +1,47 @@
 ---
-title: Uso della macchina virtuale di data science con intelligenza artificiale geografica - Azure | Microsoft Docs
+title: Usare l'intelligenza artificiale geografica
+titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su come usare la Data Science Virtual Machine Geo intelligenza artificiale per analizzare i dati e costruire modelli basati su dati geospaziali.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d7532c51e2963c0dc9f8d02e7a0e32864e80f92
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406571"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278424"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Uso della macchina virtuale di data science con intelligenza artificiale geografica
 
-Usare la VM di data science con intelligenza artificiale geografica per recuperare dati per l'analisi, eseguire il wrangling dei dati e compilare modelli per applicazioni per l'intelligenza artificiale che usano informazioni geospaziali. Dopo avere effettuato il provisioning della VM di data science con intelligenza artificiale geografica e l'accesso ad ArcGIS Pro con l'account ArcGIS, è possibile iniziare a interagire con ArcGIS Desktop e ArcGIS Online. È anche possibile accedere ad ArcGIS dalle interfacce di Python e da un bridge in linguaggio R preconfigurato nella VM di data science geografica. Per compilare applicazioni avanzate per l'intelligenza artificiale, combinarlo con i framework di apprendimento automatico e apprendimento avanzato e con altri software di data science disponibili nella VM di data science.  
+Usare la VM di data science con intelligenza artificiale geografica per recuperare dati per l'analisi, eseguire il wrangling dei dati e compilare modelli per applicazioni per l'intelligenza artificiale che usano informazioni geospaziali. Dopo aver effettuato il provisioning dell'intelligenza artificiale geografica Data Science VM e aver eseguito l'accesso a ArcGIS Pro tramite l'account ArcGIS, è possibile iniziare a interagire con ArcGIS Desktop e ArcGIs online. È anche possibile accedere a ArcGIS dalle interfacce Python e da un Bridge di linguaggio R preconfigurato nella Data Science VM geografica. Per creare applicazioni di intelligenza artificiale avanzate, combinare la Data Science VM geografica con i Framework di apprendimento automatico e Deep Learning e altri software data science disponibili.  
 
 
-## <a name="configuration-details"></a>Dettagli di configurazione
+## <a name="configuration-details"></a>Dettagli configurazione
 
-La libreria di Python, [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), usata per interfacciarsi con ArcGIS, viene installata nell'ambiente Conda della radice globale della VM di data science, che si trova in ```c:\anaconda```. 
+La libreria Python, [ArcPy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), che viene usata per interfacciarsi con ArcGIS, viene installata nell'ambiente conda radice globale del Data Science VM trovato in ```c:\anaconda```.
 
-- Se si esegue Python in un prompt dei comandi, eseguire ```activate``` per attivarlo nell'ambiente Python della radice Conda. 
-- Se si usa un ambiente di sviluppo integrato o un notebook di Jupyter, è possibile selezionare l'ambiente o il kernel per assicurarsi di essere nell'ambiente Conda corretto. 
+- Se si esegue Python al prompt dei comandi, eseguire ```activate``` per attivarlo nell'ambiente Python radice conda.
+- Se si usa un notebook IDE o Jupyter, è possibile selezionare l'ambiente o il kernel per assicurarsi di trovarsi nell'ambiente conda corretto.
 
-Il bridge R per ArcGIS viene installato come libreria R denominata [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) nell'istanza autonoma di Microsoft R Server principale in ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, RStudio e Jupyter sono già preconfigurati per usare questo ambiente R e avranno accesso alla libreria R ```arcgisbinding```. 
+Il Bridge R per ArcGIS viene installato come libreria R denominata [ArcGIS](https://github.com/R-ArcGIS/r-bridge) nell'istanza autonoma Microsoft Machine Learning server che si trova in ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, rstudio e Jupyter sono già preconfigurati per l' ```arcgisbinding``` uso di questo ambiente r e avranno accesso alla libreria r. 
 
 
 ## <a name="geo-ai-data-science-vm-samples"></a>Esempi di macchina virtuale di data science con intelligenza artificiale geografica
 
-Oltre agli esempi basati su framework di apprendimento automatico e apprendimento avanzato della VM di data science di base, nell'ambito della VM di data science con intelligenza artificiale geografica viene anche fornito un set di esempi geospaziali. Questi esempi consentono di iniziare rapidamente lo sviluppo di applicazioni per l'intelligenza artificiale usando i dati geospaziali e il software ArcGIS. 
+Oltre agli esempi basati su Framework di apprendimento automatico e di apprendimento avanzato del Data Science VM di base, viene fornito anche un set di esempi geospaziali come parte della Data Science VM di intelligenza artificiale geografica. Questi esempi possono aiutare ad avviare lo sviluppo di applicazioni di intelligenza artificiale usando i dati geospaziali e il software ArcGIS:
 
 
-1. [Introduzione all'analisi geospaziale con Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di Python per ArcGIS fornita dalla libreria [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm). Illustra anche come combinare il tradizionale apprendimento automatico con i dati geospaziali e visualizzare il risultato su una mappa in ArcGIS. 
+1. [Introduzione all'analisi geospaziale con Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Un esempio introduttivo che illustra come usare i dati geospaziali tramite l'interfaccia Python per ArcGIS è fornito dalla libreria [ArcPy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) . Viene anche illustrato come combinare l'apprendimento automatico tradizionale con i dati geospaziali e quindi visualizzare il risultato su una mappa in ArcGIS.
 
-2. [Introduzione all'analisi geospaziale con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di R per ArcGIS fornita dalla libreria [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
+2. [Introduzione all'analisi geospaziale con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali usando l'interfaccia R in ArcGIS fornito dalla libreria [ArcGIS](https://github.com/R-ArcGIS/r-bridge) . 
 
-3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): Esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette indicanti la copertura del suolo sono "coperto da vegetazione" o "acqua". Il modello restituisce tale etichetta per ogni pixel dell'immagine. Il modello viene compilato usando il framework di apprendimento avanzato [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) open source di Microsoft. 
+3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): Esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette di copertura fondiaria sono *foreste* e *acqua*. Il modello restituisce tale etichetta per ogni pixel dell'immagine. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -55,4 +49,3 @@ Oltre agli esempi basati su framework di apprendimento automatico e apprendiment
 Per altri esempi che usano la VM di data science, vedere qui:
 
 * [Esempi](dsvm-samples-and-walkthroughs.md)
-

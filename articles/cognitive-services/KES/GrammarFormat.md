@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814867"
 ---
 # <a name="grammar-format"></a>Formato della grammatica
 
@@ -126,10 +126,10 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 La tabella seguente elenca i valori `op` supportati per ogni tipo di attributo.  Per l'uso di questi valori è necessario che l'operazione di indice corrispondente sia inclusa nella definizione dell'attributo dello schema.
 
-| Tipo di attributo | Valore di op | DESCRIZIONE | Operazione sull'indice
+| Tipo di attributo | Valore di op | Descrizione | Operazione sull'indice
 |----|----|----|----|
-| string | eq | Corrispondenza esatta di stringa | equals |
-| string | starts_with | Corrispondenza di prefisso di stringa | starts_with |
+| String | eq | Corrispondenza esatta di stringa | equals |
+| String | starts_with | Corrispondenza di prefisso di stringa | starts_with |
 | Int32, Int64, Double | eq |  Corrispondenza di uguaglianza numerica | equals |
 | Int32, Int64, Double | lt, le, gt, ge | Corrispondenza di disuguaglianza numerica (<, <=, >, >=) | is_between |
 | Int32, Int64, Double | starts_with | Corrispondenza di prefisso del valore nella notazione decimale | starts_with |

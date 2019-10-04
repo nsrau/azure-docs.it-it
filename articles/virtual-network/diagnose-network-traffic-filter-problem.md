@@ -3,8 +3,8 @@ title: Diagnosticare problemi di filtro del traffico di rete di una macchina vir
 description: Informazioni su come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale visualizzando le regole di sicurezza valide per una macchina virtuale.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
-ms.author: jdial
-ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712674"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -168,13 +168,13 @@ Se vengono visualizzate regole duplicate nell'output, il motivo è che un gruppo
 
 Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal), di [PowerShell](#diagnose-using-powershell), o dell'[interfaccia della riga di comando di Azure](#diagnose-using-azure-cli) per diagnosticare il problema presentato nello [scenario](#scenario) di questo articolo, la soluzione consiste nel creare una regola di sicurezza di rete con le proprietà seguenti:
 
-| Proprietà                | Valore                                                                              |
+| Proprietà                | Value                                                                              |
 |---------                |---------                                                                           |
-| Source (Sorgente)                  | Qualsiasi                                                                                |
+| `Source`                  | Qualsiasi                                                                                |
 | Intervalli di porte di origine      | Qualsiasi                                                                                |
 | Destination             | L'indirizzo IP della VM, un intervallo di indirizzi IP o tutti gli indirizzi nella subnet. |
 | Intervalli di porte di destinazione | 80                                                                                 |
-| Protocollo                | TCP                                                                                |
+| Protocol                | TCP                                                                                |
 | Azione                  | CONSENTI                                                                              |
 | Priorità                | 100                                                                                |
 | NOME                    | Allow-HTTP-All                                                                     |

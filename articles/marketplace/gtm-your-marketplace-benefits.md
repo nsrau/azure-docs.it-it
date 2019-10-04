@@ -1,83 +1,112 @@
 ---
-title: Servizi per l'immissione sul mercato - Vantaggi del marketplace | Azure
+title: 'Servizi go-to-Market: vantaggi del Marketplace commerciale | Azure'
 description: "Servizi per l'immissione sul mercato: in questa sezione vengono descritte le risorse Microsoft che gli autori possono usare."
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 01/12/2019
-ms.author: ellacroi
-ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 09/10/2019
+ms.author: v-qiwe
+ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788596"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962724"
 ---
-# <a name="your-marketplace-benefits"></a>Vantaggi del Marketplace
+# <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
-Come parte del percorso di pubblicazione, è necessario creare gli asset tecnici e di marketing per l'offerta. Di conseguenza, esistono vantaggi tecnici e di marketing che gli autori di Azure Marketplace e AppSource possono usare per migliorare l'engagement dei clienti con l'offerta. Le risorse tecniche descritte sotto potranno risultare utili.
+Per la pubblicazione nel Marketplace, ora si vuole che l'offerta abbia esito positivo. Ti offriamo i vantaggi, ovvero vendite, tecniche e marketing, per accelerare la crescita dell'offerta.
 
-## <a name="technical-resources-provided-by-microsoft"></a>Risorse tecniche fornite da Microsoft
+Quando si partecipa alla propria offerta, il team di ricompense del Marketplace si rivolgerà per iniziare a collaborare con i propri vantaggi idonei. I vantaggi dei premi del Marketplace si accumulano in base all'impegno e alle vendite del Marketplace commerciale. Maggiore è il numero di indicizzazione, maggiore è il numero di ritorni.
 
-Durante la creazione dell'offerta, è possibile sfruttare diverse risorse Microsoft, ad esempio la consulenza di un tecnico esperto o il supporto per testare una soluzione specifica per il marketplace.
+## <a name="marketplace-rewards"></a>Vantaggi del Marketplace
 
-Le risorse tecniche possono essere usate in qualsiasi momento.  La tabella seguente elenca i vantaggi:
+I vantaggi del Marketplace sono progettati per supportare l'utente nella fase di crescita specifica, a partire dalle attività di sensibilizzazione che consentono di ottenere i primi clienti. Man mano che si cresce nel Marketplace, si sbloccano i nuovi vantaggi progettati per convertire i clienti e chiudere le offerte. 
 
-![](./media/marketplace-publishers-guide/technical-benefit-table.png)
+Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita sono progettati per passare alla fase successiva, che consente di far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale Microsoft sfruttando il Marketplace commerciale come piattaforma. 
 
-## <a name="how-to-access-microsoft-resources"></a>Come accedere alle risorse Microsoft
+I vantaggi si differenziano in base al fatto che l'offerta sia di [elenco, di valutazione o di transazione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
-I vantaggi del programma Go-To-Market sono accessibili ai partner che hanno recentemente pubblicato un'offerta. 
+L'utente verrà contattato da un membro del team Rewards quando l'offerta diventa disponibile, in base all'idoneità. 
 
-1. Onboarding: [Registrarsi](https://azuremarketplace.microsoft.com/sell) per ottenere l'accesso al portale Cloud Partner e le risorse di supporto per l'onboarding.
-2. Consulenza per i marketplace Microsoft: questa [consulenza GRATUITA](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) consente di pianificare con facilità l'architettura dell'app nel marketplace.
-3. Forum sui marketplace: è possibile porre domande direttamente ai dipendenti Microsoft e ad altri partner dei marketplace nel [forum sui marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Supporto tecnico: Usare il menu ? nel [portale Cloud Partner](https://cloudpartner.azure.com/) per ottenere risposte alle domande sul supporto relativo ai marketplace. 
-5. Sponsorizzazione per sviluppo e test: Esaminare i requisiti di idoneità elencati sotto e inviare la richiesta di sponsorizzazione usando il [modulo di registrazione](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u):
-    * Sviluppo e test servono ai fini della pubblicazione in Azure Marketplace.
-    * Il finanziamento non può essere usato per altri scopi.
-    * Il premio è di $ 5.000 per 90 giorni di utilizzo, a partire dall'esecuzione della prima azione nella sottoscrizione assegnata.
-    * L'app da testare deve essere pubblicata in Azure Marketplace entro 30 giorni dell'ultimo giorno di finanziamento: Se ad esempio il finanziamento viene usato a partire dall'1 dicembre, l'app deve essere pubblicata entro il 31 marzo.
+Per i partner di transazione, man mano che si aumentano le vendite fatturate tramite la piattaforma Marketplace, si sbloccano vantaggi maggiori per livello. 
 
-## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Vantaggi del programma Go-To-Market (GTM) nel marketplace
+Il requisito minimo per la pubblicazione nelle vetrine è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner è autorizzato a far crescere la propria azienda attraverso il Marketplace come piattaforma. 
 
-Pubblicando nuove inserzioni sia in Azure Marketplace che in AppSource è possibile usufruire gratuitamente dei vantaggi offerti dal programma GTM del marketplace tramite il team dei servizi GTM Microsoft. La collaborazione con questo team consentirà di ottimizzare le inserzioni e di offrire maggiore visibilità per le soluzioni nel marketplace Microsoft.
+Si otterrà supporto per la comprensione delle risorse disponibili e per l'implementazione delle procedure consigliate, che è anche possibile [esaminare autonomamente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
-| Vetrina | Vantaggi aggiuntivi disponibili |
-|:--- |:--- |
-| AppSource |  Partner Microsoft Gold <br> Versione di valutazione delle app |
-| Azure Marketplace | Offerte di transazione <br> Offerte di valutazione |
+Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili nel [Deck del programma per le premiazioni del Marketplace](https://aka.ms/marketplacerewards).
 
-Il supporto GTM include modelli, contenuto Web, risorse di formazione e strumenti per promuovere lo sviluppo della propria azienda.
+I passaggi per iniziare sono semplici:
 
-Per accedere a questi vantaggi, sarà necessario:
+1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
+2. Il team raggiunge il "proprietario" o "contatto principale" per ogni offerta del Marketplace. È consigliabile immettere un singolo utente o un alias da controllare regolarmente: i messaggi inviati ad alias, ad esempio, info@company.com vengono spesso persi.
 
-1. Pubblicare un'offerta in Azure Marketplace o in AppSource.
-2. Assicurarsi di aver immesso un contatto commerciale nella parte dell'offerta riservata alle **informazioni sul contatto**. Deve trattarsi di una risorsa dedicata al marketing e non di un alias generale. Evitare ad esempio di usare "support\@", "info\@", "marketing\@" e così via.
+>[!Note]
+>Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, verificare all'interno dell'organizzazione il proprietario dell'offerta in questione, cercando in portale Cloud Partner o nel centro per i partner. Devono avere la comunicazione e i passaggi successivi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto https://aka.ms/marketplacepublishersupport all'indirizzo.
 
-Base dello stato della soluzione offerta da elenco, versione di valutazione o Transact, si riceverà un messaggio di posta elettronica con risorse di supporto oppure un invito a una chiamata per parlare con un coinvolgimento Manager dedicato. Non è richiesta alcuna operazione per avviare la chiamata. Si verrà contattati dal team che gestisce l'onboarding nel marketplace in base alle informazioni fornite nel [portale Cloud Partner](https://cloudpartner.azure.com/).
+L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutti gli elenchi ricevono un livello di base di raccomandazioni e promozione per l'ottimizzazione nell'ambito di un messaggio di posta elettronica self-service di risorse e procedure consigliate.
 
-L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutte le inserzioni ricevono un livello base di raccomandazioni per l'ottimizzazione e di promozione.  Questi elenchi sono inoltre usufruire di vantaggi aggiuntivi di marketing basati sullo stato di soluzione (elenco, versione di valutazione o Transact), scelto marketplace e il conseguimento di competenza di Microsoft Partner.
+## <a name="list-trial-and-consulting-benefits"></a>Vantaggi di elenco, valutazione e consulenza
 
-La tabella seguente riepiloga i requisiti di idoneità:
+Se pubblichi una versione di valutazione o un modello di prova, implementazione o officina, ti verrà assegnato un responsabile di engagement per tre mesi, che ti aiuterà a partecipare a un piano di commercializzazione efficace. È possibile ripetere questo impegno di tre mesi ogni volta che si pubblica una nuova offerta, per aiutare a ottenere tutte le nuove offerte avviate con successo.
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+La tabella seguente riepiloga i requisiti di idoneità per le offerte elenco e versione di valutazione:
 
-\* Richiede competenze Silver o Gold. <br>
-\*\* Richiede competenze Gold. <br>
-\*\*\* Richiede competenze gold e CO-Selling negli elenchi di Partner. <br>
-^ Solo transazione, applicabile ad Azure Marketplace.
+![Vantaggi di go-to-Market](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+
+Per le descrizioni dettagliate di tutti questi vantaggi, vedere il [mazzo del programma Rewards del Marketplace](https://aka.ms/marketplacerewards).
+
+## <a name="marketplace-rewards-for-transact-partners"></a>Vantaggi del Marketplace per i partner Transact
+
+Quando si usa l'offerta transazionale in Azure Marketplace o in Microsoft AppSource, è possibile accedere a vantaggi aggiuntivi man mano che si aumentano le transazioni di vendita fatturate tramite il Marketplace commerciale. 
+
+Questi vantaggi sono progettati per supportare il marketing, le vendite e le attività tecniche, consentendo così di ottenere più visitatori, ricevere altri lead e convertire altre attività aziendali.
+
+Tutti i partner che hanno un'offerta Live possono collaborare con un responsabile di engagement dedicato per scegliere le attività più elevate per il portfolio di offerte del Marketplace. Questo impegno è Evergreen per ogni offerta, ovvero è possibile scegliere le attività e la tempistica di queste attività per allinearsi alla tempistica delle strategie di marketing e vendita più ampie della propria azienda. 
+
+![Vantaggi di marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+![Vantaggi per le vendite](./media/marketplace-publishers-guide/sales-benefit.png)
+
+![Vantaggi tecnici](./media/marketplace-publishers-guide/technical-benefit.png)
+
+Per le descrizioni dettagliate di tutti questi vantaggi, vedere il [mazzo del programma Rewards del Marketplace](https://aka.ms/marketplacerewards).
+
+Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offerte Dynamics pubblicate per Microsoft AppSource hanno una programmazione supplementare disponibile tramite [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Sono inclusi il supporto tecnico, marketing e vendite specializzato per le esigenze dei partner per le applicazioni aziendali.
+
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>Requisiti e restrizioni per i premi del Marketplace
+
+### <a name="publisher-agreement"></a>Contratto editore
+
+Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://docs.microsoft.com/legal/marketplace/terms) e sono conformi all'addendum del programma Commercial benefits.
+
+### <a name="cancellation-policy"></a>Politica di annullamento
+
+Gli editori di [elenchi e di prova](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) possono acconsentire esplicitamente o rifiutare esplicitamente le attività per ogni pubblicazione dell'offerta. I partner possono rifiutare esplicitamente il coinvolgimento in qualsiasi momento. 
+
+Microsoft si riserva il diritto di revocare e terminare i vantaggi dei premi del Marketplace per gli editori che: 
+
+* coinvolgere un'attività illecita usando la relativa inserzione nel Marketplace.
+* sono deselezionate dal Marketplace commerciale. 
+* usare l'offerta per visualizzare il marketing o altri contenuti che violano il copyright o le leggi sui marchi.
+* violare i criteri del [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), incluso, ma non limitato, l'uso del finanziamento di Azure Sponsorship per le proprie operazioni interne o il data mining Bitcoin. 
+
+### <a name="offer-availability"></a>Disponibilità dell'offerta
+
+Questa offerta viene eseguita in inglese per tutti i partner con un'offerta Live in Azure Marketplace o in Microsoft AppSource.
+
+Le transazioni dimostrate come fraudolente non vengono conteggiate per il [livello del programma vendite fatturato](https://aka.ms/marketplacepublisherrewards)di un editore, come indicato nella sezione relativa a [elenco, versione di valutazione, consulenza](#list-trial-and-consulting-benefits) , [vantaggi di Transact partner](#marketplace-rewards-for-transact-partners) e il [mazzo dettagliato di programmi ](https://aka.ms/marketplacepublisherrewards). Microsoft assegnerà i partner ai livelli di idoneità in base alle vendite effettive fatturate, dopo che la frode è stata rimossa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) per creare e configurare l'offerta.
+Se l'offerta è stata creata in [portale cloud partner](https://cloudpartner.azure.com), accedere per creare o configurare l'offerta.
+
+Se l'offerta è stata creata nel centro per i [partner](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), effettuare l'accesso per creare o configurare l'offerta.
+
+Esaminare le [risorse self-service disponibili](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+
+Iscriversi al [Forum della community di Microsoft AppSource e Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) e ottenere informazioni sugli argomenti rilevanti o partecipare alla discussione.
 
 ---

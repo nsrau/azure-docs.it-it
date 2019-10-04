@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 13231fe75ff173999f3a7fa4728f583c6f04c54d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: jeedes
+ms.openlocfilehash: 34d3a7fb299ba143eee01b6b7184f1c566d41aba
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579173"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515450"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler ZSCloud per il provisioning utenti automatico
 
@@ -28,8 +28,7 @@ In questa esercitazione si apprenderà come configurare Azure Active Directory (
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
->
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 

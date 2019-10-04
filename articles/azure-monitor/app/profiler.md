@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 71a8a0e268c1b264a0a1a7f955f310bfddc830d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493740"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439951"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -49,7 +49,7 @@ Application Insights Profiler è pre-installato come parte del runtime di serviz
 Application Insights Profiler può essere abilitata mediante la creazione di impostazioni dell'app per il servizio App di Azure. La pagina con le opzioni illustrato in precedenza crea queste impostazioni delle app per l'utente. Ma è possibile automatizzare la creazione di queste impostazioni usando un modello o altri mezzi. Queste impostazioni funzionerà anche se la risorsa di Application Insights è in una sottoscrizione diversa dal servizio App di Azure.
 Ecco le impostazioni necessarie per abilitare il profiler:
 
-|Impostazione app    | Valore    |
+|Impostazione app    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -58,6 +58,14 @@ Ecco le impostazioni necessarie per abilitare il profiler:
 
 È possibile impostare tali valori usando [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
+### <a name="enabling-profiler-for-other-clouds-manually"></a>L'abilitazione di Profiler per altri cloud manualmente
+
+Se si desidera abilitare il profiler per altri cloud, è possibile usare le seguenti impostazioni dell'app.
+
+|Impostazione app    | Valori per enti pubblici degli Stati Uniti| Cloud Cina |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
 ## <a name="disable-profiler"></a>Disabilitare Profiler
 

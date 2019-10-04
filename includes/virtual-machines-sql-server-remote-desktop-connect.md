@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: fe5daa38c43723c85fb464e191ee4a3e85700e0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227336"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180103"
 ---
 1. Dopo che la macchina virtuale di Azure è stata creata ed è in esecuzione, fare clic sull'icona di Macchine virtuali nel portale di Azure per visualizzare le VM.
 
-1. Fare clic sui puntini di sospensione, **...**, per la nuova VM.
+1. Fare clic sui puntini di sospensione, **...** , per la nuova VM.
 
 1. Fare clic su **Connetti**.
 

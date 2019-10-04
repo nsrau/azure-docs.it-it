@@ -9,7 +9,7 @@
     - name: Informazioni sugli ambienti del servizio app
       href: environment/intro.md
     - name: Confrontare le opzioni di hosting
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Guide introduttive
   expanded: true
   items:
@@ -63,21 +63,30 @@
       href: samples-resource-manager-templates.md
 - name: Concetti
   items:
-    - name: Funzionamento del Servizio app
-      href: app-service-how-works-readme.md
     - name: Piani di servizio app
       href: overview-hosting-plans.md
     - name: Funzionalità del sistema operativo
       href: operating-system-functionality.md
+    - name: Procedura consigliate per la distribuzione
+      href: deploy-best-practices.md
     - name: Security
-      href: overview-security.md
       items:
+        - name: Consigli
+          href: security-recommendations.md
         - name: Autenticazione e autorizzazione
           href: overview-authentication-authorization.md
         - name: Applicazione di patch a sistema operativo e runtime
           href: overview-patch-os-runtime.md
+        - name: Criteri di sicurezza integrati
+          href: app-service-security-controls.md
+        - name: Panoramica della sicurezza
+          href: overview-security.md
+    - name: Funzionalità di rete
+      href: networking-features.md
     - name: IP in ingresso e in uscita
       href: overview-inbound-outbound-ips.md
+    - name: Integrazione della rete virtuale
+      href: web-sites-integrate-with-vnet.md
     - name: Connessioni ibride
       href: app-service-hybrid-connections.md
     - name: Integrazione di Gestione traffico
@@ -90,14 +99,16 @@
   items:
     - name: Configurare un'app
       items:
-        - name: Usare le impostazioni dell'app
-          href: web-sites-configure.md
+        - name: Configurare le impostazioni comuni
+          href: configure-common.md
         - name: Configurare PHP
           href: web-sites-php-configure.md
-        - name: Guida per sviluppatori Java
+        - name: Configurare Java
           href: configure-language-java.md
         - name: Connettersi alle risorse locali
           href: web-sites-integrate-with-vnet.md
+        - name: Configurare Archiviazione di Azure (contenitore)
+          href: configure-connect-to-azure-storage.md
     - name: Distribuisci in Azure
       items:
         - name: Distribuire l'app
@@ -159,7 +170,7 @@
     - name: Ridimensionare un'app
       items:
         - name: Aumentare la capacità del server di elaborazione
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Configurare il livello PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Aumentare il numero di istanze
@@ -208,6 +219,8 @@
       href: /azure/templates/microsoft.web/allversions
 - name: Risorse
   items:
+    - name: Blog del servizio app
+      href: 'https://aka.ms/appserviceblog'
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/
     - name: Roadmap per Azure
@@ -218,6 +231,8 @@
       href: '../azure-subscription-service-limits.md#app-service-limits'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Guide di Migration Assistant
+      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: Procedure consigliate
       href: app-service-best-practices.md
     - name: Esempi
@@ -227,7 +242,7 @@
     - name: Guide di riferimento dettagliate
       items:
         - name: Architetture di riferimento
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: risoluzione dei problemi

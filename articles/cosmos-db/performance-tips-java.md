@@ -1,18 +1,18 @@
 ---
 title: Suggerimenti sulle prestazioni di Azure Cosmos DB per Java
-description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB
+description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos database
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 01/02/2018
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094736"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616769"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Java
 
@@ -59,7 +59,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="same-region"></a>
 2. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
-    Quando possibile, posizionare eventuali applicazioni che chiamano Azure Cosmos DB nella stessa area del database Azure Cosmos DB. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
+    Quando possibile, inserire tutte le applicazioni che chiamano Azure Cosmos DB nella stessa area del database di Azure Cosmos. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
     ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/performance-tips/same-region.png)
    
@@ -109,7 +109,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     È anche possibile impostare le dimensioni di pagina usando il [metodo setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
-## <a name="indexing-policy"></a>Criterio di indicizzazione
+## <a name="indexing-policy"></a>Criteri di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
@@ -138,7 +138,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     La complessità di una query influisce sulla quantità di unità richiesta usate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine sono tutti fattori che incidono sul costo delle operazioni di query.
 
-    Per misurare l'overhead di qualunque operazione (create, update o delete), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge equivalente in [ResourceResponse<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) o [FeedResponse<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) per determinare il numero di unità richiesta usate da queste operazioni.
+    Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge equivalente in [\<ResourceResponse t >](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) o [FeedResponse\<t > ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)per misurare il numero di unità richiesta utilizzate da queste operazioni.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);

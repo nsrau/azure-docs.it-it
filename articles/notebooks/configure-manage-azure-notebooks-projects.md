@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596733"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
@@ -37,44 +37,13 @@ Azure Notebooks avvia la macchina virtuale sottostante ogni volta che viene eseg
 
 ## <a name="compute-tier"></a>Livello di calcolo
 
-Nell'elenco a discesa**Run** (Esegui) nel dashboard del progetto è possibile selezionare il livello di calcolo in cui viene eseguito il progetto. Per impostazione predefinita, i progetti vengono eseguiti nel livello di **Free Compute** (Calcolo gratuito), che è limitato a 4 GB di memoria e 1 GB di dati per impedirne l'uso improprio:
-
-![Elenco a discesa di livello di calcolo nel dashboard del progetto](media/project-compute-tier-list.png)
-
-È possibile aggirare queste limitazioni usando un'altra macchina virtuale per cui è stato effettuato il provisioning in una sottoscrizione di Azure. È necessario installare ed eseguire JupyterHub in tale macchina virtuale. Le immagini di Data Science Virtual Machine (con qualsiasi sistema operativo) rappresentano un'ottima scelta perché includono JupyterHub per impostazione predefinita.
-
-Dopo aver configurato opportunamente una macchina virtuale di Azure, selezionare l'opzione **Direct Compute** (Calcolo diretto) nell'elenco a discesa, che richiede un nome (da visualizzare nell'elenco), l'indirizzo IP, la porta (in genere 8000, la porta predefinita dalla quale JupyterHub è in ascolto) e le credenziali della macchina virtuale:
-
-![Richiesta di raccolta informazioni sul server per l'opzione di calcolo diretto](media/project-compute-tier-direct.png)
-
-Se le condizioni seguenti vengono soddisfatte, l'elenco a discesa mostra anche le istanze della [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Se una qualsiasi di queste condizioni non viene soddisfatta, è comunque possibile connettersi alla DSVM usando l'opzione di calcolo diretto e immettendo i valori ottenuti dal portale di Azure.)
-
-- Si è connessi ad Azure Notebooks con un account che usa Azure Active Directory (AAD), ad esempio un account aziendale.
-- L'account è connesso a una sottoscrizione di Azure.
-- Si dispone di una o più macchine virtuali in tale sottoscrizione, con almeno l'accesso in lettura, che usano Data Science Virtual Machine per l'immagine di Linux (Ubuntu).
-
-![Istanze di Data Science Virtual Machine nell'elenco a discesa nel dashboard del progetto](media/project-compute-tier-dsvm.png)
-
-Quando si seleziona un'istanza di DSVM, Azure Notebooks può richiedere le credenziali specifiche del computer usate durante la creazione della macchina virtuale.
-
-Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Usare l'immagine **Data Science Virtual Machine per Linux (Ubuntu)** se si vuole visualizzare DSVM nell'elenco a discesa in Azure Notebooks.  Se per altri motivi, è necessario usare l'immagine Windows o CentOS, è possibile usare l'opzione **Direct Compute** (Calcolo diretto) per connettersi manualmente a DSVM.
-
-> [!IMPORTANT]
-> Quando si usano macchine virtuali di calcolo diretta o l'analisi scientifica dei dati, il notebook che è eseguire su di essi deve essere completamente autonomi. Al momento, Azure Notebooks copia solo le *ipynb* file per la macchina virtuale ma non copiare tutti gli altri file nel progetto. Di conseguenza, i notebook in esecuzione in altre macchine virtuali non è possibile trovare altri file di progetto.
->
-> È possibile risolvere questo problema in due modi:
->
-> 1. Copiare manualmente i file di progetto per la macchina virtuale.
->
-> 2. Incorporare i file all'interno di un notebook di programma di installazione che si esegue prima di eseguire il notebook primario. Nel notebook di programma di installazione, creare una cella di codice per ogni file in cui la cella contiene il contenuto del file. Quindi, nella parte superiore di ogni cella, inserire il comando `%%writefile <filename>`, dove `<filename>` è il nome del file per ricevere il contenuto. Quando si esegue il blocco appunti, crea tutti questi file nella macchina virtuale. Per un esempio, vedere la [setup.ipynb file nella demo Microsoft Pet Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Usando un % % writefile comando all'inizio di una cella di codice](media/setup-notebook-writefile-command.png)
+Per impostazione predefinita, i progetti eseguiti **calcolo gratuito** livello, che è limitato a 4 GB di memoria e 1 GB di dati di evitare abusi. È possibile ignorare queste limitazioni e aumentare la potenza di calcolo usando un'altra macchina virtuale che è stato effettuato il provisioning in una sottoscrizione di Azure. Per altre informazioni, vedere [come usare macchine virtuali Data Science](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Modificare i metadati del progetto
 
 Nel dashboard del progetto selezionare **Project Settings** (Impostazioni progetto) e quindi selezionare la scheda **Information** (Informazioni), che contiene i metadati del progetto come descritto nella tabella seguente. È possibile modificare i metadati del progetto in qualsiasi momento.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio: "Hello World in Python". |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può usare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un' [riservato ID progetto](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
@@ -93,7 +62,7 @@ Il dashboard del progetto illustra i contenuti del sistema di cartelle del proge
 
 Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuovi file o cartelle. Quando si usa questo comando, selezionare prima il tipo di elemento da creare:
 
-| Tipo di elemento | DESCRIZIONE | Comportamento del comando |
+| Tipo di elemento | Descrizione | Comportamento del comando |
 | --- | --- | --- |
 | **Notebook** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
 | **Cartella** | Una sottocartella | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome della cartella. |

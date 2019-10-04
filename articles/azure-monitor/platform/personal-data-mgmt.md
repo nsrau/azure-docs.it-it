@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577899"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617297"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -88,9 +88,9 @@ Come indicato nella sezione [Strategia per la gestione dei dati personali](#stra
 Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzare l'[API di query di Log Analytics](https://dev.loganalytics.io/) o l'[API di query di Application Insights](https://dev.applicationinsights.io/quickstart). Spetta all'utente implementare la logica per la conversione della forma dei dati in una appropriata da offrire agli utenti. [Funzioni di Azure](https://azure.microsoft.com/services/functions/) è una valida soluzione per ospitare tale logica.
 
 > [!IMPORTANT]
->  Mentre la maggior parte delle operazioni di eliminazione potrebbe essere più veloce rispetto al contratto di servizio, completata **formale contratto di servizio per il completamento delle operazioni di eliminazione è impostato su 30 giorni** a causa del relativo impatto eccessivo sulla data platform usata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione deve essere gestito più veloce.
+>  Anche se la maggior parte delle operazioni di ripulitura può essere completata molto più rapidamente rispetto al contratto di manutenzione, **il contratto di lavoro formale per il completamento delle operazioni di ripulitura viene impostato su 30 giorni** , a causa del forte effetto sulla piattaforma dati utilizzata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione venga gestita più velocemente.
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Eliminare
 
 > [!WARNING]
 > Le operazioni di eliminazione in Log Analytics sono distruttive e non reversibili. Prestare la massima attenzione durante l'esecuzione.
@@ -99,15 +99,20 @@ Nell'ambito della gestione dei dati privati è stato reso disponibile un percors
 
 La ripulitura è un'operazione con privilegi elevati che nessuna app o nessun utente in Azure (incluso anche il proprietario della risorsa) avrà l'autorizzazione di eseguire senza disporre esplicitamente di un ruolo in Azure Resource Manager. Questo ruolo è _Responsabile ripulitura dati_ e deve essere delegato con attenzione a causa della potenziale perdita di dati. 
 
+> [!IMPORTANT]
+> Per gestire le risorse di sistema, le richieste di ripulitura sono limitate a 50 richieste all'ora. È necessario eseguire il batch dell'esecuzione delle richieste di ripulitura inviando un unico comando il cui predicato includa tutte le identità utente che richiedono la ripulitura. Usare l' [operatore in](/azure/kusto/query/inoperator) per specificare più identità. È consigliabile eseguire la query prima di eseguire la richiesta di ripulitura per verificare che i risultati siano previsti. 
+
+
+
 Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili due nuovi percorsi dell'API: 
 
 #### <a name="log-data"></a>Dati di log
 
 * [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento 
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio: 
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
@@ -116,7 +121,7 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 #### <a name="application-data"></a>Dati dell'applicazione
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio: 
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

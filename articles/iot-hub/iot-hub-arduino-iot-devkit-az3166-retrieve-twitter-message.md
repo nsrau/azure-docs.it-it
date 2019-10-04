@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101211"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60779836"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -92,7 +92,7 @@ Compilare e caricare quindi il codice del dispositivo.
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come segue:
+2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo:
 
    * Tenere premuto il pulsante A
 

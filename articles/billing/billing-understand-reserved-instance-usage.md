@@ -1,27 +1,24 @@
 ---
-title: Informazioni sull'utilizzo di prenotazioni di Azure per la sottoscrizione con pagamento a consumo | Microsoft Docs
-description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione con pagamento in base al consumo.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Utilizzo della prenotazione di Azure per una sottoscrizione singola con pagamento in base al consumo
+description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f16fabf86cebc41f8d057f5bfab2e0d776d73395
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370357"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709452"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo
 
 Usare ReservationId della [pagina Prenotazioni](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file relativo all'utilizzo dal [portale degli account di Azure](https://account.azure.com) per valutare l'utilizzo della prenotazione.
 
@@ -33,7 +30,7 @@ Questo articolo presuppone che la prenotazione venga applicata a una sottoscrizi
 
 Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
-| Campo | Value |
+| Campo | Valore |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Quantità |1|
@@ -44,7 +41,7 @@ La parte hardware della VM è coperta perché la VM distribuita corrisponde agli
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Sezione relativa al rendiconto nel file CSV per le macchine virtuali
 
-Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo **Sottocategoria contatore** applicare il filtro che contiene **"Istanze riservate"**. Il contenuto visualizzato sarà simile allo screenshot seguente:
+Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo **Sottocategoria contatore** applicare il filtro che contiene **"Istanze riservate"** . Il contenuto visualizzato sarà simile allo screenshot seguente:
 
 ![Screenshot dei dettagli filtrati sull'utilizzo della prenotazione e addebiti](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
@@ -62,13 +59,13 @@ Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazion
 4. **ID contatore** è l'ID contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è visualizzato per qualsiasi macchina virtuale idonea per lo sconto sulla prenotazione.
 5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Di conseguenza, questo contatore copre il costo aggiuntivo del software Windows. Per trovare il contatore corrispondente alla macchina virtuale serie D con 1 core, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md). Se si ha il Vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL e Cosmos DB
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Utilizzo delle prenotazioni del database SQL e Cosmos DB
 
 Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB.
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Value |
+| Campo | Valore |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Quantità |2|

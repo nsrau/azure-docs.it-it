@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 33cc0d0dcf16ff82ac128507566427e123020236
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109410"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707237"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -28,7 +29,7 @@ Scaricare i file di log che vengono generati dal Servizio decisionale personaliz
 - Pacchetto *azure-storage-blob*: per informazioni dettagliate sull'installazione, passare alla [libreria di Archiviazione di Microsoft Azure per Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Immettere la stringa di connessione di Archiviazione di Azure in *mwt-ds/DataScience/ds.config*: seguire il modello *ID_app: stringa_di_connessione*. È possibile specificare più `app_id`. Quando si esegue `LogDownloader.py`, se l'`app_id` di input non viene individuato in `ds.config`, `LogDownloader.py` usa la stringa di connessione `$Default`.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Passare a `mwt-ds/DataScience` ed eseguire `LogDownloader.py` con gli argomenti pertinenti, come indicato in dettaglio nel codice seguente:
 
@@ -44,8 +45,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
-| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatorio |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatorio |
+| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatoria |
 | `-s START_DATE`, `--start_date START_DATE` | La data di inizio del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | La data di fine del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | La modalità di sovrascrittura da usare. | |

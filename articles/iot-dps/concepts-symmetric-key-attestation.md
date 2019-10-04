@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050945"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348363"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
 
@@ -46,9 +46,9 @@ I token di firma di accesso condiviso hanno il formato seguente:
 
 Di seguito sono riportati i componenti di ciascun token:
 
-| Valore | DESCRIZIONE |
+| Value | DESCRIZIONE |
 | --- | --- |
-| {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La chiave deve essere decodificata da base64 prima di essere usata per eseguire il calcolo di HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
+| {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La chiave deve essere decodificata da Base64 prima di essere usata per eseguire il calcolo HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
 | {resourceURI} |URI dell'endpoint di registrazione a cui è possibile accedere tramite questo token, a partire da ID ambito per l'istanza del servizio Device Provisioning. Ad esempio: `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
 | {URL-encoded-resourceURI} |Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
@@ -75,7 +75,7 @@ Questo preciso esempio viene usato nell'articolo [Come effettuare il provisionin
 
 Dopo aver definito un ID di registrazione del dispositivo, la chiave simmetrica per il gruppo di registrazione viene usata per calcolare un codice hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID di registrazione per produrre una chiave di dispositivo derivata. Il codice hash dell'ID di registrazione può essere eseguito con il codice C# riportato di seguito:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 
@@ -114,6 +114,6 @@ Se le chiavi di dispositivo non vengono installate in ambiente di fabbrica, deve
 
 Ora che si hanno le informazioni sull'attestazione con chiave simmetrica, vedere gli articoli seguenti per altre informazioni:
 
-* [Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* [Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
 * [Informazioni sui concetti di provisioning automatico](./concepts-auto-provisioning.md)
 * [Iniziare a usare il provisioning automatico](./quick-setup-auto-provision.md) 

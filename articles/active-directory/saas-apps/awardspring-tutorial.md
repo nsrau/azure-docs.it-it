@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99c5c68c2dc01537a0c4360286b922130e64bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db00e0b6ea14e956fc75c2c7cff5d018d9c6bb84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887884"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Esercitazione: Integrazione di Azure Active Directory con AwardSpring
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con AwardSpring, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per AwardSpring](#configure-awardspring-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di AwardSpring](#create-awardspring-test-user)**: per avere una controparte di Britta Simon in AwardSpring collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per AwardSpring](#configure-awardspring-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di AwardSpring](#create-awardspring-test-user)** : per avere una controparte di Britta Simon in AwardSpring collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AwardSpring, seguire qu
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AwardSpring, seguire qu
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    |  NOME | Source Attribute |
+    |  Nome | Attributo di origine |
     | ---------------| --------------- |    
     | Nome | user.givenname |
     | Cognome | user.surname |

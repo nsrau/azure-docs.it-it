@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760496"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568878"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 
@@ -163,7 +162,7 @@ Ecco gli **svantaggi** principali:
 * Richiede una progettazione più complessa per il database di gestione. Ogni record dei tenant, ad esempio, ha un tag di posizione che deve essere modificato durante il failover e il failback.  
 * I clienti della versione a pagamento potrebbero notare prestazioni inferiori al consueto fino al completamento dell'aggiornamento del pool nell'area B.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La scelta della strategia si basa sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di servizio da offrire ai clienti, i vincoli di budget e così via. Ogni strategia descritta illustra i vantaggi e gli svantaggi, per consentire una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. Esaminare quindi le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere l'articolo relativo alla [progettazione di soluzioni cloud per il ripristino di emergenza](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 

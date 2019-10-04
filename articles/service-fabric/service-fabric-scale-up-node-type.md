@@ -3,7 +3,7 @@ title: Aumentare le prestazioni di un tipo di nodo di Azure Service Fabric | Mic
 description: Informazioni su come ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
-ms.author: aljo
-ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 272bc571a0ea71fd6e7bd45a426460d2e0faf1d7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798214"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599293"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric
 In questo articolo viene descritto come aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric aumentando le risorse delle macchine virtuali. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile scalare un tipo di nodo del cluster in verticale (modificare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.

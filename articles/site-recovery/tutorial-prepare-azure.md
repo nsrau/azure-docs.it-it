@@ -1,19 +1,19 @@
 ---
-title: Preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery | Microsoft Docs
+title: Preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery
 description: Informazioni su come preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617414"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814326"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="before-you-start"></a>Prima di iniziare
 
 - Esaminare l'architettura del ripristino di emergenza per [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md) e [server fisici](physical-azure-architecture.md).
-- Vedere le domande comuni per [VMware](vmware-azure-common-questions.md) e Hyper-V (hyper-v-azure-common-questions.md)
+- Vedere le domande comuni per [VMware](vmware-azure-common-questions.md) e [Hyper-V](hyper-v-azure-common-questions.md)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare. Accedere quindi al [portale di Azure](https://portal.azure.com).
 
@@ -55,7 +55,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Ripristino** nel Marketplace.
-2. Fare clic su **Backup e Site Recovery (OMS)**, quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
+2. Fare clic su **Backup e Site Recovery** e quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
 1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
 2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
 3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
@@ -75,7 +75,7 @@ I computer locali vengono replicati in dischi gestiti di Azure. Quando si verifi
 4. Specificare il gruppo di risorse in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
 5. In **Intervallo di indirizzi** specificare l'intervallo per la rete, in questo caso **10.1.0.0/24** senza subnet.
 6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
-7. In **Posizione** selezionare la stessa area in cui è stato creato l'insieme di credenziali di Servizi di ripristino. In questa esercitazione si tratta di **Europa occidentale**.  La rete deve trovarsi nella stessa area dell'insieme di credenziali.
+7. In **Posizione** selezionare la stessa area in cui è stato creato l'insieme di credenziali di Servizi di ripristino. In questa esercitazione si tratta di **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali.
 8. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
 9. Fare clic su **Create**(Crea).
 

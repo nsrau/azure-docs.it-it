@@ -1,41 +1,45 @@
 ---
-title: Funzionalità e piattaforme supportate dal Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento offre un elenco di funzionalità e piattaforme supportate dal Centro sicurezza di Azure.
+title: Piattaforme supportate dal centro sicurezza di Azure | Microsoft Docs
+description: Questo documento fornisce un elenco delle piattaforme supportate dal centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
-ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678310"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201627"
 ---
-# <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
+# <a name="supported-platforms"></a>Piattaforme supportate 
 
-Il monitoraggio dello stato della sicurezza e le raccomandazioni sono disponibili per le macchine virtuali (VM), create usando i modelli di distribuzione in versione classica e Resource Manager, e i computer.
+## Macchine virtuali/server<a name="vm-server"></a>
+
+Il Centro sicurezza supporta macchine virtuali/server su diversi tipi di ambienti ibridi:
+
+* Solo Azure
+* Azure e locale
+* Azure e altri cloud
+* Azure, altri cloud e in locale
+
+Per un ambiente Azure attivato in una sottoscrizione di Azure, il Centro sicurezza di Azure rileva automaticamente le risorse IaaS distribuite nella sottoscrizione.
 
 > [!NOTE]
-> È consigliabile leggere altre informazioni sui [modelli di distribuzione Azure Resource Manager e classica](../azure-classic-rm.md) per le risorse di Azure.
->
->
+> Per ricevere il set completo di funzionalità di sicurezza, è necessario che l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure, sia installato e [configurato correttamente per l'invio di dati al centro sicurezza di Azure](security-center-enable-data-collection.md#manual-agent).
 
-## <a name="platforms-that-support-the-data-collection-agent"></a>Piattaforme che supportano l'agente di raccolta dati 
 
-In questa sezione vengono elencate le piattaforme in cui può essere eseguito un agente del Centro sicurezza di Azure e da cui l'agente può raccogliere dati.
+Le sezioni seguenti elencano i sistemi operativi server supportati in cui è possibile eseguire l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure.
 
-### <a name="supported-platforms-for-windows-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Windows
-Sono supportati i sistemi operativi Windows seguenti:
+### Sistemi operativi Windows Server<a name="os-windows"></a>
 
 * Windows Server 2019
 * Windows Server 2016
@@ -45,96 +49,80 @@ Sono supportati i sistemi operativi Windows seguenti:
 * Windows Server 2008
 
 > [!NOTE]
-> L'integrazione con Windows Defender ATP supporta solo Windows Server 2012 R2 e Windows Server 2016.
->
->
+> L'integrazione con Microsoft Defender ATP supporta solo Windows Server 2012 R2 e Windows Server 2016.
 
-### <a name="supported-platforms-for-linux-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Linux
-Sono supportati i sistemi operativi Linux seguenti:
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md##vm-server-features).
 
-* Ubuntu versioni 12.04 LTS, 14.04 LTS e 16.04 LTS.
-* Debian versioni 6, 7, 8 e 9.
-* CentOS versioni 5, 6 e 7.
-* Red Hat Enterprise Linux (RHEL) versioni 5, 6 e 7.
-* SUSE Linux Enterprise Server (SLES) versioni 11 e 12.
-* Oracle Linux versioni 5, 6 e 7.
-* Amazon Linux da 2012.09 a 2017.
-* OpenSSL 1.1.0 è supportato solo sulle piattaforme x86_64 a 64 bit.
+### Sistemi operativi Linux<a name="os-linux"></a>
 
-## <a name="vms-and-cloud-services"></a>Macchine virtuali e servizi cloud
-Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
+64 bit
 
+* CentOS 6 e 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 e 7
+* Red Hat Enterprise Linux Server 6 e 7
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
-## <a name="supported-iaas-features"></a>Funzionalità IaaS supportate
-
-> [!div class="mx-tableFixed"]
-> 
-
-|Server|Windows||Linux||
-|----|----|----|----|----|
-|Environment|Azure|Non Azure|Azure|Non Azure|
-|Avvisi di rilevamento minacce VMBA|✔|✔|✔ (nelle versioni supportate)|✔|
-|Avvisi di rilevamento delle minacce di rete|✔|X|✔|X|
-|Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔|X|X|
-|Patch mancanti|✔|✔|✔|✔|
-|Configurazioni di sicurezza|✔|✔|✔|✔|
-|Endpoint Protection|✔|✔|X|X|
-|Accesso JIT alle VM|✔|X|✔|X|
-|Controlli delle applicazioni adattivi|✔|X|X|X|
-|FIM|✔|✔|✔|✔|
-|Crittografia del disco|✔|X|✔|X|
-|Distribuzione di terze parti|✔|X|✔|X|
-|Gruppi di sicurezza di rete|✔|X|✔|X|
-|Rilevamento delle minacce senza file|✔|✔|X|X|
-|Mappa di rete|✔|X|✔|X|
-|Controlli adattivi della rete|✔|X|✔|X|
-
-
-### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
-
-La tabella seguente contiene una matrice che indica:
- - Se è possibile usare Centro sicurezza di Azure per l'installazione ogni soluzione.
- - Quali soluzioni di protezione endpoint può fornire Centro sicurezza. In caso venga individuata una di queste soluzioni di protezione endpoint, il Centro sicurezza consiglierà di non installarne nessuna.
-
-| Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
-|------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Sì |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Sì |
-| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No  | Sì |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No  | Sì |
-| McAfee v10+ | Famiglia Windows Server  | No  | Sì |
-| Kaspersky| Famiglia Windows Server  | No  | No   |
-| Sophos| Famiglia Windows Server  | No  | No   |
+32 bit
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14,04 LTS e 16,04 LTS
 
 > [!NOTE]
-> - Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell 3.0 (o versione successiva).
->
->
+> Poiché l'elenco dei sistemi operativi Linux supportati è in continua evoluzione, se lo si preferisce, fare clic [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui siano state apportate modifiche dall'ultima pubblicazione di questo argomento.
 
-## <a name="supported-paas-features"></a>Funzionalità PaaS supportate 
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Linux, elencate in precedenza, vedere la pagina relativa alle [funzionalità supportate di macchine virtuali e server](security-center-services.md##vm-server-features).
 
+### Servizi di macchine virtuali gestiti<a name="virtual-machine"></a>
 
-|Service|Consigli|Introduzione al rilevamento delle minacce|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Account di archiviazione BLOB di Azure*|✔| ✔|
-|Servizi app|✔| ✔|
-|Servizi cloud|✔| X|
-|Reti virtuali|✔| ND|
-|Subnet|✔| ND|
-|Schede di interfaccia di rete|✔| ✔|
-|Gruppi di sicurezza di rete|✔| ND|
-|Sottoscrizione|✔| ✔|
+Anche le macchine virtuali vengono create in una sottoscrizione cliente come parte di alcuni servizi gestiti di Azure, ad esempio Azure Kubernetes (AKS), Azure Databricks e altro ancora. Queste macchine virtuali vengono anche individuate dal centro sicurezza di Azure e l'agente di log Analytics può essere installato e configurato in base ai [sistemi operativi Windows/Linux](#os-windows)supportati, elencati in precedenza.
 
-\* Queste funzionalità sono attualmente supportate in anteprima pubblica. 
+### Servizi cloud<a name="cloud-services"></a>
 
+Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
 
+## Servizi PaaS<a name="paas-services"></a>
+
+Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
+
+* SQL
+* PostGreSQL
+* MySQL
+* CosmosDB
+* Account di archiviazione
+* Servizio app
+* Funzione
+* Servizio cloud
+* Rete virtuale
+* Subnet
+* Scheda di interfaccia di rete
+* Gruppo di sicurezza di rete
+* Account Batch
+* Account di Service Fabric
+* Account di Automazione
+* Servizio di bilanciamento del carico
+* Cerca
+* Spazio dei nomi del bus di servizio
+* Analisi di flusso
+* Spazio dei nomi dell'hub eventi
+* App per la logica
+* Redis
+* Data Lake Analytics
+* Data Lake Store
+* Insieme di credenziali delle chiavi
+
+Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni su come [il Centro sicurezza raccoglie i dati e l'agente di log Analytics](security-center-enable-data-collection.md).
+- Informazioni su come il [Centro sicurezza gestisce e protegge i dati](security-center-data-security.md).
 - Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
-- Leggere le informazioni su [analisi del comportamento delle macchine virtuali e analisi della memoria dump di arresto anomalo nel Centro sicurezza](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Informazioni sulle [funzionalità disponibili per i diversi ambienti cloud](security-center-services.md).
+- Altre informazioni sul [rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure](security-center-alerts-iaas.md).
 - Vedere le [domande frequenti sull'uso del Centro sicurezza di Azure](security-center-faq.md).
 - Vedere i [post di blog sulla sicurezza e sulla conformità di Azure](https://blogs.msdn.com/b/azuresecurity/).

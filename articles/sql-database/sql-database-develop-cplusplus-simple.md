@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c06a16071b1e22e7aa788ff5f15ce8afbf17da04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316490"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568932"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
 
@@ -43,7 +42,7 @@ La connessione al database SQL di Azure non è diversa e attualmente sono dispon
 Vedere la [pagina introduttiva](sql-database-single-database-get-started.md) per informazioni su come creare un database di esempio.  In alternativa, è possibile guardare questo [breve video di due minuti](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) per creare un database SQL di Azure mediante il portale di Azure.
 
 ## <a id="ConnectionString"></a>Passaggio 2:  Ottenere una stringa di connessione
-Dopo aver eseguito il provisioning del database SQLdi Azure, è necessario eseguire la procedura seguente per determinare le informazioni di connessione e aggiungere l'IP client per l'accesso al firewall.
+Dopo aver eseguito il provisioning del database SQL di Azure, è necessario eseguire la procedura seguente per determinare le informazioni di connessione e aggiungere l'IP client per l'accesso al firewall.
 
 Nel [portale di Azure](https://portal.azure.com/) passare alla stringa di connessione ODBC del database SQL di Azure usando l'opzione **Show database connection strings** (Mostra stringhe di connessione del database) elencata come parte della sezione relativa alle informazioni generali del database:
 
@@ -51,7 +50,7 @@ Nel [portale di Azure](https://portal.azure.com/) passare alla stringa di connes
 
 ![ODBCConnectionStringProps](./media/sql-database-develop-cplusplus-simple/dbconnection.png)
 
-Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]**. Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
+Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]** . Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
 
 ## <a id="Firewall"></a>Passaggio 3:  Aggiungere l'indirizzo IP al firewall
 Passare alla sezione relativa al firewall per il server di database e aggiungere l'[IP client al firewall seguendo i passaggi seguenti](sql-database-configure-firewall-settings.md) per assicurarsi di stabilire correttamente la connessione:

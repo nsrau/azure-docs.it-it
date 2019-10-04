@@ -3,8 +3,8 @@ title: Costi del software per la prenotazione di Azure | Microsoft Docs
 description: Informazioni sui contatori relativi al software non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371173"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719649"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
-Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riservate, viene addebitato per i contatori relativi al software elencati nella sezione seguente.
+Gli sconti relativi alla capacità riservata SQL e all'istanza di macchina virtuale riservata si applicano solo ai costi dell'infrastruttura e non ai costi del software. Se si usa la macchina virtuale Windows e nelle istanze di macchina virtuale riservate non è presente l'offerta Vantaggio Azure Hybrid, i costi verranno addebitati in base ai contatori elencati nella sezione seguente. Per le distribuzioni PaaS di SQL, per l'addebito del costo dell'IP continuerà a essere usato un contatore separato se non è selezionata l'offerta Vantaggio Azure Hybrid.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software Windows non inclusi nella prenotazione
 
@@ -71,7 +71,7 @@ Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riserv
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguenti:
 
-- [Quali sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
+- [Cosa sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gestire le prenotazioni per Azure](billing-manage-reserved-vm-instance.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
@@ -80,4 +80,4 @@ Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguent
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

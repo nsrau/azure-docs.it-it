@@ -1,30 +1,23 @@
 ---
 title: Creare un gruppo di risorse e le risorse alla sottoscrizione - Modello di Azure Resource Manager
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2019
+ms.date: 09/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 37f2b04a62d94cce42b095540380460c38bc5b79
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343035"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772950"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
 In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare gruppi di risorse di Azure e risorse di Azure a livello di sottoscrizione. Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure e Azure PowerShell. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
-Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../governance/policy/overview.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../governance/policy/overview.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
@@ -38,7 +31,7 @@ Per lo schema, usare `https://schema.management.azure.com/schemas/2018-05-01/sub
 
 Per il comando di distribuzione dell'interfaccia della riga di comando di Azure, usare [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Ad esempio, il comando dell'interfaccia della riga di comando seguente consente di distribuire un modello per creare un gruppo di risorse:
 
-```azurecli
+```azurecli-interactive
 az deployment create \
   --name demoDeployment \
   --location centralus \
@@ -48,7 +41,7 @@ az deployment create \
 
 Per il comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). Ad esempio, il comando PowerShell seguente consente di distribuire un modello per creare un gruppo di risorse:
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzDeployment `
   -Name demoDeployment `
   -Location centralus `
@@ -211,9 +204,9 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
 }
 ```
 
-## <a name="create-policies"></a>Creare criteri
+## <a name="create-policies"></a>Crea criteri
 
-### <a name="assign-policy"></a>Assegnare un criterio
+### <a name="assign-policy"></a>Assegna criteri
 
 L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizione. Se i criteri accettano parametri, specificarli come oggetto. Se non accettano parametri, usare l'oggetto vuoto predefinito.
 
@@ -249,35 +242,9 @@ L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizi
 }
 ```
 
-Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
+Per distribuire questo modello con l'interfaccia della riga di comando di Azure, usare:
 
-```azurecli
-# Built-in policy that does not accept parameters
-definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
-  --parameters policyDefinitionID=$definition policyName=auditRGLocation
-```
-
-Per distribuire questo modello con PowerShell, usare:
-
-```azurepowershell
-$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
-
-New-AzDeployment `
-  -Name policyassign `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
-  -policyDefinitionID $definition.PolicyDefinitionId `
-  -policyName auditRGLocation
-```
-
-Per applicare criteri predefiniti alla sottoscrizione di Azure, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
-
-```azurecli
+```azurecli-interactive
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
@@ -290,7 +257,7 @@ az deployment create \
 
 Per distribuire questo modello con PowerShell, usare:
 
-```azurepowershell
+```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("westus", "westus2")
@@ -368,160 +335,9 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="create-roles"></a>Creare ruoli
-
-### <a name="assign-role-at-subscription"></a>Assegnare il ruolo alla sottoscrizione
-
-L'esempio seguente assegna un ruolo a un utente o a un gruppo per la sottoscrizione. In questo esempio non si specifica un ambito per l'assegnazione in quanto l'ambito viene impostato automaticamente sulla sottoscrizione.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-09-01",
-            "properties": {
-                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                "principalId": "[parameters('principalId')]"
-            }
-        }
-    ]
-}
-```
-
-Per assegnare un gruppo di Active Directory a un ruolo relativo alla sottoscrizione, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role
-```
-
-Per distribuire questo modello con PowerShell, usare:
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id
-```
-
-### <a name="assign-role-at-scope"></a>Assegnare il ruolo all'ambito
-
-Il modello a livello di sottoscrizione seguente assegna un ruolo a un utente o a un gruppo con un ambito di gruppo di risorse all'interno della sottoscrizione. L'ambito deve essere pari o inferiore al livello di distribuzione. È possibile distribuire in una sottoscrizione e specificare un'assegnazione di ruolo che ha come ambito un gruppo di risorse all'interno della sottoscrizione. Tuttavia, non è possibile distribuire in un gruppo di risorse e specificare un ambito di assegnazione di ruolo nella sottoscrizione.
-
-Per assegnare il ruolo a un ambito, usare una distribuzione annidata. Si noti che il nome del gruppo di risorse viene specificato nelle proprietà per la risorsa di distribuzione e nella proprietà di ambito dell'assegnazione di ruolo.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.1",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "assignRole",
-            "resourceGroup": "[parameters('rgName')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Authorization/roleAssignments",
-                            "name": "[guid(parameters('principalId'), deployment().name)]",
-                            "apiVersion": "2017-09-01",
-                            "properties": {
-                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                                "principalId": "[parameters('principalId')]",
-                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
-                            }
-                        }
-                    ],
-                    "outputs": {}
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Per assegnare un gruppo di Active Directory a un ruolo relativo alla sottoscrizione, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
-```
-
-Per distribuire questo modello con PowerShell, usare:
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id `
-  -rgName demoRg
-```
-
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../role-based-access-control/role-assignments-template.md).
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
 * Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](resource-group-template-functions.md).

@@ -1,6 +1,6 @@
 ---
 title: Configurare un'interfaccia utente ospitata per Ricerca personalizzata Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per configurare e integrare un'interfaccia utente ospitata per Ricerca personalizzata Bing.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084133"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854075"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
@@ -78,7 +78,7 @@ Per utilizzare l'interfaccia utente ospitata, eseguire una delle due operazioni 
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Aggiungere i parametri di query seguenti all'URL nel modo necessario. Per altre informazioni su questi parametri, vedere [API Ricerca personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
+  > Aggiungere i parametri di query seguenti all'URL nel modo necessario. Per altre informazioni su questi parametri, vedere [API Ricerca personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
   >
   > - q
   > - mkt
@@ -143,7 +143,7 @@ Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzat
 
 | |  |
 |---------|---------|
-|Page title (Titolo della pagina)   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
+|Titolo pagina   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
 |Toolbar theme (Tema della barra degli strumenti)    | Determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca. |
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
@@ -165,5 +165,5 @@ Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare indicatori di effetto per evidenziare il testo](./hit-highlighting.md)
+- [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
 - [Sfogliare pagine Web](./page-webpages.md)

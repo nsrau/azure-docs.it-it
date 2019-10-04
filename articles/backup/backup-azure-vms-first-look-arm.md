@@ -1,19 +1,18 @@
 ---
 title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale con il servizio Backup di Azure
 description: Informazioni su come eseguire il backup di una macchina virtuale di Azure con il servizio Backup di Azure
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
-ms.author: raynew
-ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.author: dacurwin
+ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318822"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639776"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -22,27 +21,27 @@ Questo articolo spiega come eseguire il backup di macchine virtuali di Azure con
 - Singola macchina virtuale di Azure: le istruzioni riportate in questo articolo descrivono come eseguire il backup di una macchina virtuale di Azure direttamente dalle impostazioni della macchina virtuale.
 - Più macchine virtuali di Azure: è possibile configurare un insieme di credenziali di Servizi di ripristino e configurare il backup per più macchine virtuali di Azure. Seguire le istruzioni di [questo articolo](backup-azure-arm-vms-prepare.md) per questo scenario.
 
- 
+
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-1. [Informazioni](backup-architecture.md#how-does-azure-backup-work) sul funzionamento del backup e [verifica](backup-support-matrix.md#azure-vm-backup-support) dei requisiti di supporto. 
+1. [Informazioni](backup-architecture.md#how-does-azure-backup-work) sul funzionamento del backup e [verifica](backup-support-matrix.md#azure-vm-backup-support) dei requisiti di supporto.
 2. [Ottenere una panoramica](backup-azure-vms-introduction.md) del backup delle macchine virtuali di Azure.
 
 ### <a name="azure-vm-agent-installation"></a>Installazione dell'agente di macchine virtuali di Azure
 
-Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa un'estensione nell'agente di macchine virtuali in esecuzione nel computer. L'agente sarà in esecuzione se la macchina virtuale è stata creata da un'immagine di Azure marketplace. In alcuni casi, ad esempio se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina da locale. potrebbe essere necessario installare l'agente manualmente. 
+Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa un'estensione nell'agente di macchine virtuali in esecuzione nel computer. L'agente sarà in esecuzione se la macchina virtuale è stata creata da un'immagine di Azure marketplace. In alcuni casi, ad esempio se si crea una macchina virtuale personalizzata o si esegue la migrazione di una macchina da locale. potrebbe essere necessario installare l'agente manualmente.
 
-- Per installare manualmente l'agente di macchine virtuali, seguire le istruzioni per macchine virtuali [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux). 
+- Per installare manualmente l'agente di macchine virtuali, seguire le istruzioni per macchine virtuali [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
 - Quando si abilita il backup, dopo aver installato l'agente, Backup di Azure installa l'estensione di backup all'agente. Questi esegue aggiornamenti e patch all'estensione senza intervento dell'utente.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Eseguire il backup dalle impostazioni della macchina virtuale di Azure
 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Tutti i servizi**, digitare **Macchine virtuali** in Filtro e fare clic su **Macchine virtuali**. 
+2. Fare clic su **Tutti i servizi**, digitare **Macchine virtuali** in Filtro e fare clic su **Macchine virtuali**.
 3. Nell'elenco di macchine virtuali selezionare quella di cui si vuole eseguire il backup.
-4. Nel menu della macchina virtuale fare clic su **Backup**. 
+4. Nel menu della macchina virtuale fare clic su **Backup**.
 5. Nell'**insieme di credenziali di Servizi di ripristino**, eseguire le operazioni seguenti:
    - Se si dispone già di un insieme di credenziali, fare clic su **Seleziona esistente**e selezionare un insieme di credenziali.
    - Se non si dispone di un insieme di credenziali, fare clic su **Crea nuovo**. Specificare un nome per l'insieme di credenziali. Viene creato nella stessa area e nello stesso gruppo di risorse della macchina virtuale. Non è possibile modificare queste impostazioni quando si abilita il backup direttamente dalle impostazioni della macchina virtuale.
@@ -57,7 +56,7 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 
    ![Selezionare il criterio di backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Fare clic su **Abilita backup**. Consente di associare i criteri di backup alla macchina virtuale. 
+7. Fare clic su **Abilita backup**. Consente di associare i criteri di backup alla macchina virtuale.
 
     ![Pulsante Abilita backup](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
@@ -67,24 +66,23 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
    ![Stato di Backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Dopo l'abilitazione del backup, viene eseguito un backup iniziale. È possibile avviare il backup iniziale immediatamente o attendere fino a quando non viene avviato in base alla pianificazione dello stesso.
-    - Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)**.
+    - Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)** .
     - Per visualizzare quando verrà eseguito il successivo backup pianificato, fare clic sul nome del criterio di backup.
-    
-   
+
 
 > [!NOTE]
-> Backup di Azure crea un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare i punti di ripristino, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). Non bloccare questo gruppo di risorse.
+> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione "Mantieni snapshot di ripristino istantaneo" del criterio di backup della macchina virtuale di Azure. L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
+Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
 
 
-
-## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup 
+## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup
 
 1. Per eseguire immediatamente un backup, fare clic su **Backup** > **Esegui backup ora** nel menu della macchina virtuale.
 
     ![Esegui backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
 2. In **Esegui backup ora** usare il comando del calendario per selezionare fino a quando conservare il punto di ripristino > e **OK**.
-  
+
     ![Giorno di conservazione backup](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Le notifiche del portale consentono di sapere se è stato attivato il processo di backup. Per monitorare lo stato di backup, fare clic su **Visualizza tutti i processi**.
@@ -100,4 +98,3 @@ Seguire le istruzioni in questo articolo per abilitare il backup per macchine vi
 
 - Se si riscontrano problemi con una qualsiasi delle procedure riportate in questo articolo, consultare la [Guida alla risoluzione dei problemi](backup-azure-vms-troubleshoot.md).
 - [Informazioni](backup-azure-manage-vms.md) sulla gestione dei backup.
-

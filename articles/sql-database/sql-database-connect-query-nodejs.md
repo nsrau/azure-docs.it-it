@@ -1,22 +1,22 @@
 ---
-title: Usare Node.js per eseguire query sul database SQL di Azure | Microsoft Docs
+title: 'Guida introduttiva: Usare Node.js per eseguire query sul database SQL di Azure'
 description: Come usare Node.js per creare un programma che si connette a un database SQL di Azure ed eseguire query sul database con istruzioni T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: nodejs
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: cd0435ffc27402299da85434693dcdf32a4083ca
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: b865bca5db11c4a34a1be4deb2e3145d73599e81
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444711"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059283"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Node.js per eseguire query su un database SQL di Azure
 
@@ -33,7 +33,7 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
@@ -63,7 +63,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-Aprire un prompt dei comandi e creare una cartella denominata *sqltest*. Passare alla cartella creata ed eseguire questo comando:
+Aprire un prompt dei comandi e creare una cartella denominata *sqltest*. Aprire la cartella creata ed eseguire il comando seguente:
 
   ```bash
   npm init -y

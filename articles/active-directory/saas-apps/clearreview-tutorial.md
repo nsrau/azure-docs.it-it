@@ -8,27 +8,28 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Esercitazione: Integrazione di Azure Active Directory con Clear Review
 
 Questa esercitazione descrive come integrare Clear Review con Azure Active Directory (Azure AD).
 L'integrazione di Clear Review con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Clear Review.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Clear Review con gli account Azure AD personali.
+* In Azure AD è possibile controllare chi può accedere a Clear Review.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Clear Review con gli account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per configurare l'integrazione di Azure AD con Clear Review, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Clear Review abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -49,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-clear-review-from-the-gallery"></a>Aggiunta di Clear Review dalla raccolta
 
-Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiungere Clear Review dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiungere Clear Review dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Clear Review dalla raccolta, seguire questa procedura:**
 
@@ -74,13 +75,13 @@ Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiun
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Clear Review usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Clear Review.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Clear Review, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Clear Review, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Clear Review](#configure-clear-review-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Clear Review](#create-clear-review-test-user)**: per avere una controparte di Britta Simon in Clear Review collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Clear Review](#configure-clear-review-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Clear Review](#create-clear-review-test-user)** : per avere una controparte di Britta Simon in Clear Review collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -118,35 +119,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Clear Review](https://clearreview.com/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. L'applicazione Clear Review prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+6. L'applicazione Clear Review prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione Clear Review prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
 
     ![image](common/edit-attribute.png)
 
-7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
-    
-    | Nome | Attributo di origine | 
-    | ---------------| --------------- |
-    | Valore identificatore nome   | user.mail |
+7. Nella finestra di dialogo **Attributi e attestazioni utente** eseguire i passaggi seguenti:
 
-    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Fare clic sull'**icona Modifica** a destra del **valore identificatore nome**.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image](./media/clearreview-tutorial/attribute01.png)
 
-    b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
+    b. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo **user.mail** per la riga.
 
-    c. Lasciare vuota la casella **Spazio dei nomi**.
+    c. Fare clic su **Save**.
 
-    d. Per Origine selezionare **Attributo**.
-
-    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
-
-    f. Fare clic su **Ok**
-
-    g. Fare clic su **Save**.
-
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -156,7 +145,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -168,7 +157,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Selezionare**Change** (Modifica) nella parte inferiore della pagina.
+3. Nella sezione **Integrazioni** nella parte inferiore della pagina fare clic sul pulsante **Modifica** a destra di **Impostazioni Single Sign-on**.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -176,7 +165,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Nella casella di testo **Issuer URL** (URL autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+    a. Nella casella di testo **URL autorità di certificazione** incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
     b. Nella casella di testo **SAML Endpoint** (Endpoint SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.  
 
@@ -184,11 +173,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     d. Aprire il certificato scaricato nel Blocco note e incollare il contenuto nella casella di testo **X.509 Certificate** (Certificato X.509).   
 
-5. Fare clic su **Save**.
+    e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -211,9 +200,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Clear Review.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Clear Review.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Clear Review**.
 

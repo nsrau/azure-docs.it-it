@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Aggiornare un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare la distribuzione di un'applicazione esistente nel servizio Azure Kubernetes con una nuova versione del codice dell'applicazione.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5415778713261fbb3e57695573c8486cb32da781
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756129"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614387"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare un'applicazione nel servizio Azure Kubernetes
 
@@ -29,7 +29,7 @@ In questa esercitazione, parte sei di sette, viene aggiornata l'app Azure Vote d
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore. L'immagine è stata poi caricata in Registro Azure Container ed è stato creato un cluster del servizio Azure Kubernetes. L'applicazione è stata quindi distribuita nel cluster AKS.
+Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore. L'immagine è stata poi caricata in Registro Azure Container ed è stato creato un cluster del servizio Azure Kubernetes. L'applicazione è stata quindi distribuita nel cluster del servizio Azure Kubernetes.
 
 È stato clonato anche un repository di applicazione che include il codice sorgente dell'applicazione e un file Docker Compose creato in precedenza usato in questa esercitazione. Verificare di aver creato un clone del repository e di aver cambiato le directory nella directory clonata. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, iniziare con l'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
@@ -85,7 +85,10 @@ Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<a
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container. In caso di problemi nell'esecuzione del push nella propria istanza di Registro contenitori di Azure, verificare di aver eseguito il comando [az acr login][az-acr-login].
+Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container.
+
+> [!NOTE]
+> In caso di problemi durante l'esecuzione del push nell'istanza di Registro Azure Container, assicurarsi di essere ancora connessi. Eseguire il comando [az acr login][az-acr-login] con il nome del Registro Azure Container creato nel passaggio [Creare un Registro Azure Container](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Ad esempio: `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -117,7 +120,7 @@ Per aggiornare l'applicazione, usare il comando [kubectl set][kubectl-set]. Aggi
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-Per monitorare la distribuzione, usare il comando [kubectl get pod][kubectl-get]. Quando l'applicazione aggiornata viene distribuita, le unità vengono terminate e ricreate con la nuova immagine del contenitore.
+Per monitorare la distribuzione, utilizzare il comando [kubectl get pod][kubectl-get]. Quando l'applicazione aggiornata viene distribuita, le unità vengono terminate e ricreate con la nuova immagine del contenitore.
 
 ```console
 kubectl get pods

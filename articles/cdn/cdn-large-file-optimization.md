@@ -3,23 +3,23 @@ title: Ottimizzazione del download di file di grandi dimensioni mediante la rete
 description: Questo articolo descrive come ottimizzare i download di file di grandi dimensioni.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 2bdb6bdea7b6180e34458883d026161403e4cb58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.author: magattus
+ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766207"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593776"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
 
@@ -110,8 +110,8 @@ L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memor
 
 |    | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
-Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuna | 1 secondo 
+Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
+Caching: Negative <br> HTTP 204, 305, 404, <br> e 405 | Nessuna | 1 secondo 
 
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 

@@ -1,21 +1,21 @@
 ---
-title: Gestire gli avvisi da SCOM, Zabbix e Nagios in Monitoraggio di Azure
-description: Gestire gli avvisi da SCOM, Zabbix e Nagios in Monitoraggio di Azure
+title: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
+description: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
 author: anantr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 6730402348069df7c2597aa0d73a4211669c2d66
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421216"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702827"
 ---
-# <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Gestire gli avvisi da SCOM, Zabbix e Nagios in Monitoraggio di Azure
+# <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
 
 È ora possibile visualizzare gli avvisi da Nagios, Zabbix e System Center Operations Manager in [Monitoraggio di Azure](https://aka.ms/azure-alerts-overview). Questi avvisi provengono da integrazioni con i server Nagios o Zabbix o System Center Operations Manager in Log Analytics. 
 
@@ -28,8 +28,8 @@ Qualsiasi record nel repository di Log Analytics con un tipo di avviso verrà im
 Dopo aver configurato l'importazione in Log Analytics, è possibile iniziare a visualizzare le istanze degli avvisi da questi servizi di monitoraggio in [Monitoraggio di Azure](https://aka.ms/azure-alerts-overview). Una volta presenti in Monitoraggio di Azure, è possibile [gestire le istanze di avviso](https://aka.ms/managing-alert-instances), [gestire i gruppi intelligenti creati in questi avvisi](https://aka.ms/managing-smart-groups) e [modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
->  1. Questa soluzione consente solo di visualizzare istanze di avviso attivate di SCOM, Zabbix e Nagios in Monitoraggio di Azure. La configurazione della regola di avviso può essere visualizzata o modificata solo nei rispettivi strumenti di monitoraggio. 
+>  1. Questa soluzione consente solo di visualizzare le istanze di avviso System Center Operations Manager/Zabbix/Nagios generate in monitoraggio di Azure. La configurazione della regola di avviso può essere visualizzata o modificata solo nei rispettivi strumenti di monitoraggio. 
 >  1. Tutte le istanze di avviso attivate saranno disponibili sia in Monitoraggio di Azure che in Azure Log Analytics. Attualmente, non è possibile scegliere tra le due opzioni o inserire solo specifici avvisi attivati.
->  1. Tutti gli avvisi di SCOM, Zabbix e Nagios hanno il tipo di segnale "Sconosciuto", in quanto il tipo di dati di telemetria sottostante non è disponibile.
->  1. Gli avvisi di Nagios sono senza stato: ad esempio, la [condizione del monitoraggio](https://aka.ms/azure-alerts-overview) di un avviso non passa da "Attivato" a "Risolto". Al contrario, "Attivato" e "Risolto" vengono visualizzati come istanze di avviso separate. 
+>  1. Tutti gli avvisi di System Center Operations Manager, Zabbix e Nagios hanno il tipo di segnale "Unknown" poiché il tipo di telemetria sottostante non è disponibile.
+>  1. Gli avvisi di Nagios sono senza stato: ad esempio, la [condizione del monitoraggio](https://aka.ms/azure-alerts-overview) di un avviso non passa da "Attivato" a "Risolto". Al contrario, il "Attivato" e "Risolto" vengono visualizzati come istanze di avviso separate. 
 

@@ -1,9 +1,9 @@
 ---
-title: Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
-description: Informazioni su come approvare o rifiutare le richieste per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Approva o rifiuta le richieste per i ruoli di Azure AD in PIM-Azure Active Directory | Microsoft Docs
+description: Informazioni su come approvare o negare le richieste per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289725"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804029"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approva o rifiuta le richieste per i ruoli Azure AD in PIM
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione con delega. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli in modo da richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione delegati. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
 
-Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per ruoli di Azure AD.
+Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
 
-## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
+## <a name="view-pending-requests"></a>Visualizza richieste in sospeso
 
-Come responsabile approvazione con delega, si riceverà una notifica e-mail quando una richiesta di ruolo di Azure AD è in attesa di approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
+In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -41,35 +41,35 @@ Come responsabile approvazione con delega, si riceverà una notifica e-mail quan
 
 1. Fare clic su **Approva richieste**.
 
-    ![Ruoli AD Azure PIM - ruoli](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Ruoli di Azure AD-approva le richieste](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     È possibile visualizzare un elenco delle richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approvare le richieste
+## <a name="approve-requests"></a>Approva richieste
 
 1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
 
-    ![Elenco delle richieste in attesa di approvazione in PIM](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![Approva l'elenco di richieste con l'opzione approva evidenziata](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. Digitare un motivo nella casella **Motivo dell'approvazione**.
 
-    ![Approvazione delle richieste selezionate in PIM](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Approva il riquadro delle richieste selezionate con un motivo dell'approvazione](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Fare clic su **Approve** (Approva).
 
     L'icona di stato verrà aggiornata per indicare l'approvazione.
 
-    ![Approvazione delle richieste selezionate in PIM](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Approva il riquadro delle richieste selezionate dopo aver fatto clic sul pulsante approva](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>Rifiutare le richieste
 
 1. Selezionare le richieste da rifiutare e quindi fare clic su **Nega** per aprire il riquadro Rifiuta le richieste selezionate.
 
-    ![Elenco delle richieste in attesa di approvazione in PIM](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![Approva elenco richieste con l'opzione Nega evidenziata](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. Digitare un motivo nella casella **Motivo del rifiuto**.
 
-    ![Rifiutare le richieste selezionate in PIM](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Nega il riquadro delle richieste selezionate con un motivo di negazione](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Fare clic su **Nega**.
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42528038b5744f001422620031a1e5300bb4146d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898262"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562412"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Guida introduttiva: Creare un'app HoloLens con Ancoraggi nello spazio di Azure, in C + +/WinRT e DirectX
 
@@ -31,8 +31,7 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
-
-- Un computer Windows con <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installato con il carico di lavoro **Sviluppo di app per la piattaforma UWP (Universal Windows Platform)**, il componente **Windows 10 SDK (10.0.17763.0 o versione successiva)** e <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
+- Un computer Windows con <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installato con il carico di lavoro **Sviluppo di app per la piattaforma UWP (Universal Windows Platform)** e con il componente **Windows 10 SDK (10.0.18362.0 o versione successiva)** , oltre a <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
 - [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) per Visual Studio installato da [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - Un dispositivo HoloLens con la [modalità sviluppatore](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) abilitata. Questo articolo richiede un dispositivo HoloLens con l'[Aggiornamento di Windows 10 (ottobre 2018)](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (noto anche come RS5). Per aggiornare alla versione più recente per HoloLens, aprire l'app **Impostazioni**, scegliere **Aggiornamento e sicurezza**, quindi selezionare il pulsante **Verifica disponibilità aggiornamento**.
 - L'app deve impostare la funzionalità **spatialPerception** nel proprio manifesto AppX.
@@ -58,6 +57,8 @@ Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'ident
 ## <a name="deploy-the-app-to-your-hololens"></a>Distribuire l'app nel dispositivo HoloLens
 
 Impostare **Solution Configuration** (Configurazione soluzione) su **Release** (Versione), impostare **Solution Platform** (Piattaforma soluzione) su **x86** e selezionare **Device** (Dispositivo) nelle opzioni di destinazione di distribuzione.
+
+Se si usa HoloLens 2, usare **ARM** come **piattaforma soluzione**, invece di **x86**.
 
 ![Configurazione di Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 

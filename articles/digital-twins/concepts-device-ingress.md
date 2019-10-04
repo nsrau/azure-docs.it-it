@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729524"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177114"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Connettività dei dispositivi e dati di telemetria in ingresso
 
@@ -50,7 +50,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | ID dispositivo |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Valore del parametro | Sostituire con |
@@ -61,18 +61,18 @@ Nel payload di risposta, copiare la proprietà **connectionString** del disposit
 
 ## <a name="device-to-cloud-message"></a>Messaggio da dispositivo a cloud
 
-È possibile personalizzare il payload e il formato dei messaggii del dispositivo in base alle esigenze della soluzione. Usare qualsiasi contratto di dati che possa essere serializzato in una matrice di byte o in un flusso supportato dalla [classe dei messaggi del client del dispositivo Azure IoT, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Il messaggio può avere un formato binario personalizzato a scelta, a condizione che il contratto di dati venga decodificato in una funzione definita dall'utente corrispondente. Per un messaggio da dispositivo a cloud c'è un solo requisito. È necessario mantenere un set di proprietà per assicurare il corretto routing del messaggio al motore di elaborazione.
+È possibile personalizzare il payload e il formato dei messaggii del dispositivo in base alle esigenze della soluzione. Usare qualsiasi contratto di dati che possa essere serializzato in una matrice di byte o in un flusso supportato dalla [classe dei messaggi del client del dispositivo Azure IoT, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Il messaggio può avere un formato binario personalizzato a scelta, a condizione che il contratto di dati venga decodificato in una funzione definita dall'utente corrispondente. Per un messaggio da dispositivo a cloud c'è un solo requisito. Mantenere un set di proprietà per assicurarsi che il messaggio venga indirizzato in modo appropriato al motore di elaborazione.
 
 ### <a name="telemetry-properties"></a>Proprietà di telemetria
 
  Il contenuto del payload di un **messaggio** può essere costituito da dati arbitrari con dimensioni massime di 256 KB. Per le proprietà del tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) sono previsti alcuni requisiti. La tabella mostra le proprietà obbligatorie e facoltative supportate dal sistema.
 
-| Nome proprietà | Valore | Obbligatoria | DESCRIZIONE |
+| Nome proprietà | Value | Richiesto | Descrizione |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Sì | Valore costante che identifica un messaggio al sistema. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Sì | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | No  | Stringa di data in formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che identifica l'ora di campionamento del payload. Ad esempio: `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | No  | UUID usato per tracciare gli eventi nel sistema. Ad esempio: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | Yes | Valore costante che identifica un messaggio al sistema. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Yes | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | No | Stringa di data in formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che identifica l'ora di campionamento del payload. Ad esempio `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | No | UUID usato per tracciare gli eventi nel sistema. Ad esempio `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Inviare il messaggio a Gemelli digitali
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111901"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849913"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Recuperare il nome dell'host, le porte e le chiavi di accesso usando il portale di Azure
 
@@ -21,7 +21,7 @@ Per connettersi a un'istanza Cache Redis di Azure è necessario specificare il n
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>Per recuperare le chiavi di accesso e il nome host
 
-1. Per recuperare le chiavi di accesso tramite il [portale di Azure](https://portal.azure.com), individuare la cache e selezionare **Chiavi di accesso**. 
+1. Per recuperare le chiavi di accesso usando il [portale di Azure](https://portal.azure.com), passare alla cache e selezionare **Chiavi di accesso**. 
 
     ![Chiavi Cache Redis di Azure](media/redis-cache-access-keys/redis-cache-keys.png)
 

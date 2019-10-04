@@ -1,6 +1,6 @@
 ---
-title: Gestire le versioni
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gestisci versioni-LUIS
+titleSuffix: Azure Cognitive Services
 description: Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una versione diversa dell'app prima di apportare modifiche al modello.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 982dbf3555648c6a7c82da90a62740a584473c1e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198913"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932842"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usare le versioni per eseguire modifiche e test senza conseguenze per le app di staging o produzione
 
@@ -24,7 +24,7 @@ Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura 
 
 Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina **Mie app**, quindi selezionare **Gestisci** nella barra superiore e successivamente **Versioni** nella sezione di navigazione a sinistra. 
 
-L'elenco delle versioni Mostra le versioni vengono pubblicate, in cui vengono pubblicati e quale versione è attualmente attiva. 
+L'elenco delle versioni indica quali versioni sono pubblicate, dove sono pubblicate e quale versione è attualmente attiva. 
 
 [![Sezione relativa alla gestione della pagina delle versioni](./media/luis-how-to-manage-versions/versions-import.png "Sezione relativa alla gestione della pagina delle versioni")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -59,13 +59,13 @@ Selezionare una versione dall'elenco, quindi selezionare **Attiva** nella barra 
 
 ### <a name="import-errors"></a>Errori di importazione
 
-* Errori di tokenizer: Se si verifica una **errore tokenizer** durante l'importazione, si sta cercando di importare una versione che utilizza una diversa [tokenizer](luis-language-support.md#custom-tokenizer-versions) rispetto a quella dell'app è attualmente utilizzata. Per risolvere questo problema, vedere [eseguire la migrazione tra versioni diverse di tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
+* Errori Tokenizer: Se si verifica un **errore Tokenizer** durante l'importazione, si sta tentando di importare una versione che usa un [Tokenizer](luis-language-support.md#custom-tokenizer-versions) diverso da quello attualmente usato dall'app. Per risolvere questo problema, vedere la pagina relativa alla [migrazione tra le versioni Tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
 ## <a name="other-actions"></a>Altre azioni
 
-* Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Elimina** nella barra degli strumenti. Selezionare **OK**. 
+* Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Elimina** nella barra degli strumenti. Selezionare **accettabile**. 
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Rinomina** nella barra degli strumenti. Immettere un nuovo nome e selezionare **Fatto**. 
-* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Scegliere JSON di esportazione per il backup, scegliere **esportazione per il contenitore** al [usare questa app in un contenitore di LUIS](luis-container-howto.md).  
+* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Scegliere JSON per l'esportazione per il backup, scegliere **Esporta per contenitore** per [usare questa app in un contenitore Luis](luis-container-howto.md).  
 

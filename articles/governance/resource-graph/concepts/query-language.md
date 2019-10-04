@@ -1,19 +1,18 @@
 ---
 title: Informazioni sul linguaggio di query
-description: Descrive gli operatori di Kusto disponibili e funzioni utilizzabili con Graph di Azure Resource.
+description: Vengono descritti gli operatori e le funzioni kusto disponibili utilizzabili con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276678"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231506"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -52,6 +51,38 @@ Ecco l'elenco delle funzioni supportate in Resource Graph:
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Caratteri di escape
+
+Alcuni nomi di proprietà, ad esempio quelli che includono `.` o `$`, devono essere racchiusi o preceduti da un carattere di escape nella query o il nome della proprietà non è interpretato correttamente e non fornisce i risultati previsti.
+
+- `.`-Eseguire il wrapping del nome della proprietà come segue:`['propertyname.withaperiod']`
+  
+  Query di esempio che esegue il wrapping della proprietà _OData. Type_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$`-Escape per il carattere nel nome della proprietà. Il carattere di escape usato dipende dal grafico delle risorse della shell che viene eseguito da.
+
+  - **bash** - `\`
+
+    Query di esempio che esegue l'escape del  _\$tipo_ di proprietà in bash:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** : non escludere `$` il carattere di escape.
+
+  - **PowerShell** - ``` ` ```
+
+    Query di esempio che esegue l'escape del  _\$tipo_ di proprietà in PowerShell:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

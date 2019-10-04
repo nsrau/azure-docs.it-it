@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814817"
 ---
 ## <a name="cli-shell"></a>Shell dell'interfaccia della riga di comando
 
 Per eseguire i comandi dell'interfaccia della riga di comando, è consigliabile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). **Cloud Shell** è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Gli strumenti comuni di Azure sono preinstallati e configurati in Cloud Shell per l'uso con l'account. Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta al proprio modo di lavorare. Gli utenti Linux possono scegliere un'esperienza Bash, mentre gli utenti Windows possono scegliere PowerShell.
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+È anche possibile installare l'interfaccia della riga di comando in locale. Per le istruzioni specifiche della piattaforma, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-### <a name="login"></a>Login
+### <a name="sign-in"></a>Accesso
 
-Per iniziare a usare la shell di interfaccia della riga di comando (nel cloud o in locale), eseguire `az login` per creare una connessione ad Azure.
+L'uso di un'installazione locale dell'interfaccia della riga di comando richiede l'accesso ad Azure. Questo passaggio non è necessario per Azure Cloud Shell. Accedere con il comando `az login`.
 
 Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, sarà necessario aprire una pagina del browser, passare a https://aka.ms/devicelogin e seguire le istruzioni nella riga di comando per immettere un codice di autorizzazione.
 
@@ -45,6 +45,6 @@ Percorso file assoluto nei sistemi operativi Windows e Linux/Mac
 * `@ "/usr/home/mytestfile.json"`
 *   `@"c:\tmp\user\mytestfile.json"`
 
-Usare `{file}` se il comando richiede un tipo di un percorso del file. Ad esempio: `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Usare `@{file}` se il comando sta per caricare il file specificato. Ad esempio: `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
+Usare `{file}` se il comando chiede di specificare il percorso del file. Ad esempio: `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Usare `@{file}` se il comando caricherà il file specificato. Ad esempio: `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 
 [Caricare file]: ./media/media-services-cli/upload-download-files.png

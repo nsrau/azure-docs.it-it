@@ -3,17 +3,17 @@ title: Come usare il provisioning automatico del servizio Device Provisioning in
 description: Come usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904492"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677011"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
@@ -30,7 +30,7 @@ Questo articolo descrive come usare il [provisioning automatico](concepts-auto-p
 
 Per completare la procedura di questa esercitazione, effettuare le attività seguenti:
 
-* Configurare il DevKit Wi-Fi e preparare l'ambiente di sviluppo seguendo i passaggi descritti in [connettere DevKit di IoT AZ3166 all'IoT Hub di Azure nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configurare la connessione Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub Azure Internet nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Eseguire l'aggiornamento al firmware più recente (1.3.0 o versioni successive) seguendo l'esercitazione [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware del DevKit).
 * Creare e collegare un hub IoT con un'istanza del servizio Device Provisioning seguendo i passaggi descritti in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](/azure/iot-dps/quick-setup-auto-provision).
 
@@ -79,7 +79,7 @@ Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning
 1. Nel portale di Azure selezionare il riquadro **Panoramica** del servizio Device Provisioning e prendere nota dei valori **Endpoint dispositivo globale** e **Ambito ID**.
   ![Ambito ID ed endpoint globale del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Aprire **DeKitDPS.ino**. Trovare e sostituire `[Global Device Endpoint]` e `[ID Scope]` con i valori annotati.
+1. Aprire **DevKitDPS.ino**. Trovare e sostituire `[Global Device Endpoint]` e `[ID Scope]` con i valori annotati.
   ![Endpoint del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Compilare la variabile `registrationId` nel codice. Sono consentiti solo caratteri alfanumerici, caratteri minuscoli e trattini con un massimo di 128 caratteri. Prendere nota anche del valore.
@@ -91,9 +91,6 @@ Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning
 ## <a name="generate-x509-certificate"></a>Generare il certificato X.509
 
 Il [meccanismo di attestazione](/azure/iot-dps/concepts-device#attestation-mechanism) usato da questo esempio è il certificato X.509. È necessario usare un'utilità per generarlo.
-
-> [!NOTE]
-> Attualmente il generatore di certificati X.509 supporta solo Windows.
 
 1. In VS Code fare clic su `F1`, digitare e selezionare **Apri nuovo terminale** per aprire una finestra del terminale.
 

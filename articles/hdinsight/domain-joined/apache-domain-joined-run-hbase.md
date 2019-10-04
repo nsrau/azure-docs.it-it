@@ -1,20 +1,20 @@
 ---
-title: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package - Azure
-description: Informazioni su come configurare i criteri di Apache Ranger per HBase in Azure HDInsight con Enterprise Security Package.
-services: hdinsight
+title: 'Esercitazione: Configurare Apache HBase con Enterprise Security Package - Azure'
+description: Esercitazione - Informazioni su come configurare i criteri di Apache Ranger per HBase in Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/04/2019
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117286"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037277"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package (Anteprima)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package
 
 Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache HBase Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri Ranger per limitare l'accesso a diverse famiglie di colonne in una tabella HBase.
 
@@ -88,7 +88,8 @@ Vedere [Creare un cluster HDInsight con Enterprise Security Package](https://doc
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![Shell HBase Hadoop di HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![Output della shell HBase Hadoop di HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 
@@ -96,11 +97,11 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
 1. Aprire l’**interfaccia utente di amministrazione di Ranger**. Fai clic su **\<ClusterName>_hbase** in **HBase**.
 
-   ![Interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![Interfaccia utente di amministrazione di Apache Ranger di HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. La schermata **List of Policies** (Elenco di criteri) mostrerà tutti i criteri Ranger creati per questo cluster. Potrebbe essere presente un criterio preconfigurato. Fare clic su **Add New Policy** (Aggiungi nuovi criteri).
 
-    ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Elenco dei criteri di Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Nella schermata **Create Policy** (Crea criterio) inserire i valori seguenti:
 
@@ -119,7 +120,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    * `*` indica zero o più occorrenze di caratteri.
    * `?` indica un singolo carattere.
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Criteri di Apache Ranger - Creazione di sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
@@ -138,7 +139,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    |Seleziona utente  | marketing_user1 |
    |Autorizzazioni  | Lettura |
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Criteri di Apache Ranger - Creazione di marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Fare clic su **Aggiungi** per salvare il criterio.
 
@@ -146,7 +147,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
 In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i dati per le colonne in entrambe le famiglie di colonne `Name` e `Contact`. **marketing_user1** può solo visualizzare i dati nella famiglia di colonne `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Accedere ai dati come sales_user1
+### <a name="access-data-as-sales_user1"></a>Accedere ai dati come sales_user1
 
 1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere al cluster:
 
@@ -160,7 +161,7 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
    kinit sales_user1
    ```
 
-2. Aprire la shell hbase e analizzare la tabella `Customers`.
+2. Aprire la shell HBase e analizzare la tabella `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -188,7 +189,7 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Accedere ai dati come marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Accedere ai dati come marketing_user1
 
 1. Aprire una nuova connessione SSH al cluster. Eseguire questo comando per accedere come **marketing_user1**:
 
@@ -202,14 +203,14 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
    kinit marketing_user1
    ```
 
-2. Aprire la shell hbase e analizzare la tabella `Customers`:
+1. Aprire la shell HBase e analizzare la tabella `Customers`:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Si noti che marketing_user può solo visualizzare le cinque colonne della famiglia di colonne `Contact`.
+1. Si noti che marketing_user può solo visualizzare le cinque colonne della famiglia di colonne `Contact`.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
     2 row(s) in 0.0730 seconds
     ```
 
-9. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
+1. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
 
-   ![Controllo dei criteri di Ranger dell'interfaccia utente](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![Controllo dei criteri di Ranger dell'interfaccia utente di HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

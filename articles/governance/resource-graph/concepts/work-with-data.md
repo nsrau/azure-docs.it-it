@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788239"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786541"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
 Azure Resource Graph è progettato per elaborare e ottenere informazioni sulle risorse nell'ambiente di Azure. Resource Graph rende più rapido il recupero di questi dati, anche in caso di query su migliaia di record. Resource Graph offre diverse opzioni per l'utilizzo di questi set di dati di grandi dimensioni.
+
+Per indicazioni sull'utilizzo di query a una frequenza elevata, vedere [linee guida per le richieste limitate](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Dimensioni dei risultati dei set di dati
 
@@ -67,13 +69,23 @@ Quando è necessario suddividere un set di risultati in set più piccoli di reco
 
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.
 
-> [!IMPORTANT]
-> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se è manca dalla query, la risposta dell'API REST non includerà il **$skipToken**.
+Gli esempi seguenti illustrano come **ignorare** il primo record 3000 e restituire il **primo** 1000 record dopo quelli ignorata con CLI di Azure e Azure PowerShell:
 
-Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query) (Query della pagina successiva) nella documentazione dell'API REST.
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
+> [!IMPORTANT]
+> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se è manca dalla query, la risposta non includerà il **$skipToken**.
+
+Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query) (Query della pagina successiva) nella documentazione dell'API REST.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il linguaggio in uso nelle [query di base](../samples/starter.md)
-- Vedere gli usi avanzati nelle [query avanzate](../samples/advanced.md)
-- Informazioni su come [esplorare le risorse](explore-resources.md)
+- Vedere il linguaggio in uso nel [query Starter](../samples/starter.md).
+- Vedere avanzata utilizza [query avanzate](../samples/advanced.md).
+- Informazioni su come [esplorare risorse](explore-resources.md).

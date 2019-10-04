@@ -1,19 +1,18 @@
 ---
 title: Guida introduttiva per la gestione di condivisioni file di Azure con Azure PowerShell
 description: Questa guida introduttiva illustra come gestire condivisioni file di Azure con Azure PowerShell.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 802ad497f95a43665665d7e7dbd06c9081eba74a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524545"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699512"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -22,7 +21,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si vuole installare e usare PowerShell in locale, questa guida richiede il modulo Az di Azure PowerShell versione 0.7 o successive. Per determinare la versione del modulo Azure PowerShell in esecuzione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è necessario anche eseguire `Login-AzAccount` per accedere all'account Azure.
 

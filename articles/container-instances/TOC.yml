@@ -29,6 +29,10 @@
           href: container-instances-multi-container-yaml.md
         - name: Distribuire un gruppo di contenitori - Resource Manager
           href: container-instances-multi-container-group.md
+    - name: Eseguire l'integrazione con i servizi di Azure
+      items:
+        - name: Trigger con Funzioni di Azure
+          href: container-instances-tutorial-azure-function-trigger.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -45,6 +49,8 @@
       href: container-instances-region-availability.md
     - name: Relazione con agenti di orchestrazione
       href: container-instances-orchestrator-relationship.md
+    - name: Considerazioni relative alla sicurezza
+      href: container-instances-image-security.md
 - name: Guide alle procedure
   items:
     - name: Distribuire
@@ -59,7 +65,7 @@
           href: container-instances-restart-policy.md
         - name: Impostare le variabili di ambiente (env)
           href: container-instances-environment-variables.md
-        - name: Eseguire l'override del punto di ingresso del contenitore
+        - name: Impostare il comando di avvio dei contenitori (entrypoint)
           href: container-instances-start-command.md
         - name: Eseguire un comando (exec)
           href: container-instances-exec.md
@@ -69,6 +75,8 @@
           href: container-instances-managed-identity.md
         - name: Usare risorse della GPU (anteprima)
           href: container-instances-gpu.md
+        - name: Abilitare l'endpoint SSL
+          href: container-instances-container-group-ssl.md
     - name: Montare i volumi di dati
       items:
         - name: Condivisione file di Azure
@@ -93,7 +101,7 @@
           href: container-instances-monitor.md
         - name: Ottenere i log e gli eventi dei contenitori
           href: container-instances-get-logs.md
-        - name: Registrazione con Azure Log Analytics
+        - name: Registrazione con i log di Monitoraggio di Azure
           href: container-instances-log-analytics.md
     - name: Risolvere problemi
       items:
@@ -117,6 +125,10 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: YAML
+      href: container-instances-reference-yaml.md
+    - name: Connettore
+      href: /connectors/aci
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn
@@ -133,3 +145,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: Domande frequenti
+      href: container-instances-faq.md

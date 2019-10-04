@@ -2,24 +2,18 @@
 title: Creare la pagina di destinazione nel Marketplace di Azure | Azure
 description: Informazioni su come creare una pagina di destinazione nel Marketplace di Azure e Microsoft AppSource per gli editori di app e servizi.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935598"
 ---
 # <a name="build-your-landing-page"></a>Creare una pagina di destinazione
 

@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342984"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972053"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: statico
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono Min, Max, Avg, Total (Min, Max, Media, Totale): Media
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
 - Periodo (finestra temporale a fronte della quale vengono controllati i valori delle metriche): Negli ultimi 5 minuti
 - Frequenza (frequenza con cui l'avviso della metrica controlla se vengono soddisfatte le condizioni): 1 min
 - Operatore: Maggiore di
@@ -37,18 +37,20 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 Dal momento in cui viene creata la regola di avviso, il monitoraggio viene eseguito ogni minuto, analizza i valori delle metriche per gli ultimi 5 minuti e controlla se la media di questi valori supera 70. Se la condizione viene soddisfatta, ovvero il valore medio di CPU percentuale per gli ultimi 5 minuti supera 70, la regola di avviso genera una notifica attivata. Se è stata configurata un'azione di webhook o posta elettronica nel gruppo di azioni associato alla regola di avviso, si riceverà una notifica attivata su entrambe.
 
+Quando si usano più condizioni in una regola, la regola "con" le condizioni insieme.  Ovvero, l'avviso viene attivato quando tutte le condizioni nell'avviso restituiscono true e si risolvono quando una delle condizioni non è più vera. Un esempio di questo tipo di avviso è un avviso quando "CPU superiore al 90%" e "lunghezza della coda superiore a 300 elementi". 
+
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regola di avviso con tipo di condizione dinamica
 
 Supponiamo di aver creato una semplice regola di avviso delle metriche con soglie dinamiche, come indicato di seguito:
 
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
-- Tipo di condizione: Dinamico
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono Min, Max, Avg, Total (Min, Max, Media, Totale): Media
+- Tipo di condizione: Dynamic
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
 - Periodo (finestra temporale a fronte della quale vengono controllati i valori delle metriche): Negli ultimi 5 minuti
 - Frequenza (frequenza con cui l'avviso della metrica controlla se vengono soddisfatte le condizioni): 1 min
 - Operatore: Maggiore di
-- Sensibilità: Media
+- Sensibilità: Medio
 - Periodi da controllare: 4
 - Numero di violazioni: 4
 
@@ -62,7 +64,7 @@ Gli esempi di generazione di regole di avviso riportati sopra possono essere vis
 
 Se l'utilizzo in "myVM" rimane al di sopra della soglia nei controlli successivi, la regola di avviso non verrà nuovamente generata fino alla risoluzione delle condizioni.
 
-Dopo un po' di tempo, se l'utilizzo in "myVM" torna alla condizione normale, ovvero scende sotto la soglia, la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
+Dopo un certo periodo di tempo, l'utilizzo di "myVM" Torna al normale (scende al di sotto della soglia). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
 
 Quando la notifica risolta viene inviata tramite posta elettronica o webhook, anche lo stato dell'istanza di avviso (denominato stato di monitoraggio) nel portale di Azure viene impostato come risolto.
 
@@ -77,7 +79,7 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 - Tipo di condizione: statico
 - Dimensioni
   - Istanza = InstanceName1, InstanceName2
-- Aggregazione temporale: Media
+- Aggregazione temporale: Average
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 min
 - Operatore: GreaterThan
@@ -92,7 +94,7 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 - Tipo di condizione: statico
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Media
+- Aggregazione temporale: Average
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 min
 - Operatore: GreaterThan
@@ -106,14 +108,14 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Tipo di condizione: Dinamico
+- Tipo di condizione: Dynamic
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Media
+- Aggregazione temporale: Average
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 min
 - Operatore: GreaterThan
-- Sensibilità: Media
+- Sensibilità: Medio
 - Periodi da controllare: 1
 - Numero di violazioni: 1
 
@@ -145,37 +147,37 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 
 |Tipo di risorsa supportato da avvisi delle metriche classici | Supportato dagli avvisi delle metriche |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Sì |
+| Microsoft.ApiManagement/service | Yes |
 | Microsoft.Batch/batchAccounts| Sì|
 |Microsoft.Cache/redis| Sì |
-|Microsoft.ClassicCompute/virtualMachines | No  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No |
-|Microsoft.CognitiveServices/accounts | No  |
-|Microsoft.Compute/virtualMachines | Sì|
+|Microsoft.ClassicCompute/virtualMachines | No |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No|
+|Microsoft.CognitiveServices/accounts | No |
+|Microsoft.Compute/virtualMachines | Yes|
 |Microsoft.Compute/virtualMachineScaleSets| Sì|
-|Microsoft.ClassicStorage/storageAccounts| No  |
+|Microsoft.ClassicStorage/storageAccounts| No |
 |Microsoft.DataFactory/datafactories | Sì|
 |Microsoft.DBforMySQL/servers| Sì|
-|Microsoft.DBforPostgreSQL/servers| Sì|
-|Microsoft.Devices/IotHubs | No |
-|Microsoft.DocumentDB/databaseAccounts| Sì|
+|Microsoft.DBforPostgreSQL/servers| Yes|
+|Microsoft.Devices/IotHubs | No|
+|Microsoft.DocumentDB/databaseAccounts| Yes|
 |Microsoft.EventHub/namespaces | Sì|
 |Microsoft.Logic/workflows | Sì|
-|Microsoft.Network/loadBalancers |Sì|
+|Microsoft.Network/loadBalancers |Yes|
 |Microsoft.Network/publicIPAddresses| Sì|
-|Microsoft.Network/applicationGateways| Sì|
-|Microsoft.Network/expressRouteCircuits| Sì|
-|Microsoft.Network/trafficManagerProfiles | Sì|
-|Microsoft.Search/searchServices | Sì|
+|Microsoft.Network/applicationGateways| Yes|
+|Microsoft.Network/expressRouteCircuits| Yes|
+|Microsoft.Network/trafficManagerProfiles | Yes|
+|Microsoft.Search/searchServices | Yes|
 |Microsoft.ServiceBus/namespaces| Sì |
 |Microsoft.Storage/storageAccounts | Sì|
 |Microsoft.StreamAnalytics/streamingjobs| Sì|
 |Microsoft.TimeSeriesInsights/environments | Sì|
 |Microsoft. Web/serverfarms | Sì |
-|Microsoft. Web/sites (escluse le funzioni) | Sì|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No |
-|Microsoft. Web/hostingEnvironments/workerPools| No  |
-|Microsoft.SQL/Servers | No  |
+|Microsoft. Web/sites (escluse le funzioni) | Yes|
+|Microsoft. Web/hostingEnvironments/multiRolePools | No|
+|Microsoft. Web/hostingEnvironments/workerPools| No |
+|Microsoft.SQL/Servers | No |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

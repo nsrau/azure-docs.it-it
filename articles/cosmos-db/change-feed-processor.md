@@ -5,74 +5,96 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: cf03233c6a92b7fd1b782f8128787bfda5582f7d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073697"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
-La [libreria del processore dei feed di modifiche di Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md) aiuta a distribuire l'elaborazione degli eventi in più consumer. Questa libreria semplifica la lettura delle modifiche nelle partizioni e in più thread che operano in parallelo.
+Il processore del feed delle modifiche fa parte del [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Semplifica il processo di lettura del feed delle modifiche e la distribuzione efficace dell'elaborazione degli eventi tra più consumer.
 
-Il vantaggio principale della libreria del processore dei feed di modifiche è legato al fatto che non è necessario gestire ogni partizione e token di continuazione né eseguire manualmente il polling di ogni contenitore.
+Il vantaggio principale della libreria del processore dei feed delle modifiche è il comportamento a tolleranza di errore che garantisce un recapito "at-least-once" di tutti gli eventi nel feed delle modifiche.
 
-La libreria del processore dei feed di modifiche semplifica la lettura delle modifiche nelle partizioni e in più thread che operano in parallelo. Gestisce automaticamente la lettura delle modifiche nelle partizioni usando un meccanismo di lease. Come si può osservare nell'immagine seguente, se si avviano due client che usano la libreria del processore dei feed di modifiche, il lavoro viene diviso tra di essi. Se si continua ad aumentare il numero di client, il lavoro viene ulteriormente diviso tra di essi.
+## <a name="components-of-the-change-feed-processor"></a>Componenti del processore del feed delle modifiche
 
-![Uso della libreria del processore dei feed di modifiche di Azure Cosmos DB](./media/change-feed-processor/change-feed-output.png)
+Sono disponibili quattro componenti principali per l'implementazione del processore del feed delle modifiche: 
 
-Il client a sinistra è stato avviato per primo e ha iniziato a monitorare tutte le partizioni, quindi è stato avviato il secondo client e infine il primo ha assegnato alcuni lease al secondo client. Si tratta di un modo efficace per distribuire il lavoro tra computer e client diversi.
+1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e aggiornamenti del contenitore monitorati vengono riflessi nel feed delle modifiche del contenitore.
 
-Se si hanno due funzioni di Azure serverless che monitorano lo stesso contenitore e usano lo stesso lease, le due funzioni possono ottenere documenti diversi a seconda di come la libreria del processore decide di elaborare le partizioni.
+1. **Contenitore di lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Implementazione della libreria del processore dei feed di modifiche
+1. **Host:** Un host è un'istanza dell'applicazione che utilizza il processore del feed delle modifiche per restare in ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un **nome di istanza**diverso. 
 
-Ci sono quattro componenti principali per l'implementazione della libreria del processore dei feed di modifiche: 
+1. **Il delegato:** Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche lette dal processore del feed delle modifiche. 
 
-1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e modifiche nel contenitore monitorato vengono riflessi nel feed di modifiche del contenitore.
-
-1. **Contenitore di lease:** il contenitore di lease coordina l'elaborazione dei feed di modifiche tra più ruoli di lavoro. Viene usato un contenitore separato per archiviare i lease con un lease per partizione. È consigliabile archiviare questo contenitore di lease in un account diverso, con un'area di scrittura più vicina alla posizione in cui è in esecuzione il processore dei feed di modifiche. Un oggetto lease contiene gli attributi seguenti:
-
-   * Proprietario: specifica l'host proprietario del lease.
-
-   * Continuazione: specifica la posizione (token di continuazione) nel feed di modifiche per una partizione specifica.
-
-   * Timestamp: data dell'ultimo aggiornamento del lease. Il timestamp può essere usato per verificare se il lease viene considerato scaduto.
-
-1. **Host del processore:** ogni host determina il numero di partizioni da elaborare in base al numero di istanze di host con lease attivi.
-
-   * Quando un host viene avviato, acquisisce lease per bilanciare il carico di lavoro in tutti gli host. Un host rinnova periodicamente i lease, in modo che i lease rimangano attivi.
-
-   * Un host imposta come checkpoint il token di continuazione più recente sul rispettivo lease per ogni lettura. Per garantire la sicurezza della concorrenza, un host verifica il valore ETag per ogni aggiornamento di lease. Sono supportate anche altre strategie per i checkpoint.
-
-   * All'arresto, un host rilascia tutti i lease ma mantiene le informazioni sulla continuazione, in modo che sia possibile riprendere la lettura dal checkpoint archiviato in un secondo momento.
-
-   Attualmente, il numero di host non può essere superiore al numero di partizioni (lease).
-
-1. **Consumer:** i consumer, o processi di lavoro, sono thread che eseguono l'elaborazione del feed di modifiche avviata da ogni host. Ogni host di processori può includere più consumer. Ogni consumer legge il feed di modifiche dalla partizione a cui è assegnato e invia notifiche al rispettivo host in caso di modifiche e di lease scaduti.
-
-Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. La raccolta monitorata archivia i documenti e usa "City" come chiave di partizione. Come si può notare, la partizione blu contiene i documenti con il campo "City" compreso nell'intervallo "A-E" e così via. Sono disponibili due host, ognuno con due consumer che leggono dalle quattro partizioni in parallelo. Le frecce mostrano i consumer che leggono da un punto specifico nel feed di modifiche. Nella prima partizione il colore blu scuro rappresenta le modifiche non lette, mentre il colore blu chiaro rappresenta le modifiche già lette nel feed di modifiche. Gli host usano la raccolta di lease per archiviare un valore di tipo "continuation" per tenere traccia della posizione di lettura corrente per ogni consumer.
+Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. Il contenitore monitorato archivia i documenti e USA ' City ' come chiave di partizione. Si noterà che i valori della chiave di partizione sono distribuiti in intervalli che contengono elementi. Sono disponibili due istanze dell'host e il processore del feed delle modifiche assegna diversi intervalli di valori di chiave di partizione a ogni istanza per ottimizzare la distribuzione di calcolo. Ogni intervallo viene letto in parallelo e lo stato di avanzamento viene mantenuto separatamente dagli altri intervalli nel contenitore lease.
 
 ![Esempio di processore dei feed di modifiche](./media/change-feed-processor/changefeedprocessor.png)
 
-### <a name="change-feed-and-provisioned-throughput"></a>Feed di modifiche e velocità effettiva di cui viene effettuato il provisioning
+## <a name="implementing-the-change-feed-processor"></a>Implementazione del processore del feed delle modifiche
+
+Il punto di ingresso è sempre il contenitore monitorato, da `Container` un'istanza chiamata `GetChangeFeedProcessorBuilder`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+Dove il primo parametro è un nome distinto che descrive l'obiettivo del processore e il secondo nome è l'implementazione del delegato che gestirà le modifiche. 
+
+Un esempio di un delegato è:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Infine, definire un nome per l'istanza del processore `WithInstanceName` con e che è il contenitore per il quale mantenere lo `WithLeaseContainer`stato di lease.
+
+Se `Build` si chiama `StartAsync`, viene restituita l'istanza del processore che è possibile avviare chiamando.
+
+## <a name="processing-life-cycle"></a>Ciclo di vita dell'elaborazione
+
+Il normale ciclo di vita di un'istanza dell'host è:
+
+1. Leggere il feed delle modifiche.
+1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito ( `WithPollInterval` personalizzabile con nel generatore) e passare a #1.
+1. Se sono presenti modifiche, inviarle al **delegato**.
+1. Al termine dell'elaborazione **delle modifiche da**parte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
+
+## <a name="error-handling"></a>Gestione degli errori
+
+Il processore del feed delle modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), il thread che elabora tale batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread verificherà quale sia l'ultimo punto nel tempo dell'archivio di lease per l'intervallo di valori della chiave di partizione e il riavvio da tale intervallo, inviando efficacemente lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato non elabora correttamente le modifiche ed è il motivo per cui il processore del feed delle modifiche ha una garanzia di "almeno una volta", perché se il codice del delegato genera, il batch verrà ritentato.
+
+## <a name="dynamic-scaling"></a>Scalabilità dinamica
+
+Come indicato durante l'introduzione, il processore del feed delle modifiche può distribuire automaticamente il calcolo tra più istanze. È possibile distribuire più istanze dell'applicazione usando il processore del feed di modifiche e sfruttarne i vantaggi. gli unici requisiti principali sono:
+
+1. Tutte le istanze devono avere la stessa configurazione del contenitore di lease.
+1. Tutte le istanze devono avere lo stesso nome del flusso di lavoro.
+1. Ogni istanza deve avere un nome di istanza diverso (`WithInstanceName`).
+
+Se si applicano queste tre condizioni, il processore del feed delle modifiche utilizzerà un algoritmo di distribuzione uguale, distribuirà tutti i lease nel contenitore di lease tra tutte le istanze in esecuzione e il calcolo parallelizzare. Un lease può essere di proprietà di un'istanza in un determinato momento, quindi il numero massimo di istanze equivale al numero di lease.
+
+È possibile aumentare e ridurre il numero di istanze e il processore del feed delle modifiche regola dinamicamente il carico ridistribuendo di conseguenza.
+
+Inoltre, il processore del feed delle modifiche può adattarsi dinamicamente alla scalabilità dei contenitori a causa dell'aumento della velocità effettiva o dell'archiviazione. Quando il contenitore si espande, il processore del feed delle modifiche gestisce in modo trasparente questi scenari aumentando dinamicamente i lease e distribuendo i nuovi lease tra le istanze esistenti.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Feed di modifiche e velocità effettiva di cui viene effettuato il provisioning
 
 Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei dati da e verso i contenitori Cosmos comporta sempre l'utilizzo di UR. Vengono addebitati i costi per le UR utilizzate dal contenitore di lease.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Libreria del processore dei feed di modifiche di Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md)
-* [Pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Altri esempi in GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [SDK di Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Esempi di utilizzo su GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Altri esempi in GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
+È ora possibile procedere ad acquisire altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
-* [Metodi per leggere il feed di modifiche](read-change-feed.md)
-* [Uso del feed di modifiche con Funzioni di Azure](change-feed-functions.md)
+* [Come eseguire la migrazione dalla libreria del processore dei feed delle modifiche](how-to-migrate-from-change-feed-library.md)
+* [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
+* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Questa guida introduttiva mostra come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8c4659fada420bc81c4633deb8bd241497a0263d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729371"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509666"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
 Questa guida introduttiva illustra come creare un'istanza di Load Balancer Standard. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
 
@@ -68,7 +68,7 @@ Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/net
   az network lb create \
     --resource-group myResourceGroupSLB \
     --name myLoadBalancer \
-    --sku standard
+    --sku standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
@@ -152,16 +152,34 @@ Creare una regola del gruppo di sicurezza di rete per consentire il traffico in 
 Creare tre interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
 
 ```azurecli-interactive
-for i in `seq 1 2`; do
+
   az network nic create \
     --resource-group myResourceGroupSLB \
-    --name myNic$i \
+    --name myNicVM1 \
     --vnet-name myVnet \
     --subnet mySubnet \
     --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
-done
+
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM2 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+  
+  az network nic create \
+    --resource-group myResourceGroupSLB \
+    --name myNicVM3 \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+
 ```
 
 
@@ -179,7 +197,7 @@ Creare un set di disponibilità con il comando [az vm availabilityset create](/c
     --name myAvailabilitySet
 ```
 
-### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
+### <a name="create-three-virtual-machines"></a>Creare tre macchine virtuali
 
 È possibile usare un file di configurazione cloud-init per installare NGINX ed eseguire un'app Node.js "Hello World" in una macchina virtuale Linux. Nella shell corrente creare un file denominato cloud-init.txt e incollare la configurazione seguente. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
@@ -228,17 +246,37 @@ runcmd:
 Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
-for i in `seq 1 2`; do
+
   az vm create \
     --resource-group myResourceGroupSLB \
-    --name myVM$i \
+    --name myVM1 \
     --availability-set myAvailabilitySet \
-    --nics myNic$i \
+    --nics myNicVM1 \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+   
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM2 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM2 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
+   az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM3 \
+    --availability-set myAvailabilitySet \
+    --nics myNicVM3 \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --no-wait
+
 ```
 La distribuzione delle macchine virtuali può richiedere alcuni minuti.
 

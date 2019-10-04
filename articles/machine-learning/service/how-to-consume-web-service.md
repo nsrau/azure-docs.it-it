@@ -1,6 +1,6 @@
 ---
 title: Creare client per utilizzare un servizio Web distribuito
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come utilizzare un servizio Web generato al momento della distribuzione di un modello con il modello di Azure Machine Learning. Il servizio Web espone un'API REST. Creare client per questa API usando il linguaggio di programmazione preferito.
 services: machine-learning
 ms.service: machine-learning
@@ -9,26 +9,29 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e005cf0860faeaad7010ea4da3ca1c5227ade14b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889948"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034784"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Quando si distribuisce un'immagine in Istanze di Azure Container, nel servizio Azure Kubernetes o in Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
+Si crea un servizio Web quando si distribuisce un'immagine in istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Le immagini vengono create a partire dai modelli registrati e dai file di assegnazione di punteggio. L'URI usato per accedere a un servizio Web viene recuperato tramite l'[SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
 1. Ottenere le informazioni di connessione usando l'SDK.
 1. Determinare il tipo di dati della richiesta usati dal modello.
 1. Creare un'applicazione che chiama il servizio Web.
+
+> [!TIP]
+> Gli esempi in questo documento vengono creati manualmente senza usare le specifiche OpenAPI (spavalderia). Se è stata abilitata una specifica OpenAPI per la distribuzione, è possibile usare strumenti come [spavalderia-codegen](https://github.com/swagger-api/swagger-codegen) per creare librerie client per il servizio.
 
 ## <a name="connection-information"></a>Informazioni di connessione
 
@@ -37,8 +40,10 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
-* `auth_enabled` - Se è abilitata l'autenticazione, `True`; in caso contrario, `False`.
+* `auth_enabled`-Se è abilitata `True`l'autenticazione della chiave; in caso contrario,. `False`
+* `token_auth_enabled`-Se è abilitata `True`l'autenticazione del token; in caso contrario,. `False`
 * `scoring_uri` - L'indirizzo dell'API REST.
+* `swagger_uri`: Indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Sono disponibili tre modi per recuperare queste informazioni per servizi Web distribuiti:
 
@@ -51,6 +56,7 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * È possibile usare `Webservice.list` per recuperare un elenco dei servizi Web distribuiti per i modelli presenti nella propria area di lavoro. È possibile aggiungere filtri per restringere l'elenco delle informazioni restituite. Per altre informazioni sui dati che è possibile filtrare, vedere la documentazione di riferimento di [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
@@ -58,6 +64,7 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * Se si conosce il nome del servizio distribuito, è possibile creare una nuova istanza di `Webservice` e specificare il nome dell'area di lavoro e del servizio come parametri. Il nuovo oggetto contiene informazioni sul servizio distribuito.
@@ -65,9 +72,21 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
-### <a name="authentication-key"></a>Chiave di autenticazione
+### <a name="authentication-for-services"></a>Autenticazione per i servizi
+
+Azure Machine Learning offre due modi per controllare l'accesso ai servizi Web.
+
+|Metodo di autenticazione|ACI|Servizio Azure Kubernetes|
+|---|---|---|
+|Chiave|Disabilitato per impostazione predefinita| Abilitato per impostazione predefinita|
+|Token| Non disponibile| Disabilitato per impostazione predefinita |
+
+Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato `Bearer <key-or-token>`come `<key-or-token>` , dove è il valore della chiave o del token.
+
+#### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
 Quando si abilita l'autenticazione per una distribuzione, si creano automaticamente le chiavi di autenticazione.
 
@@ -85,6 +104,25 @@ print(primary)
 
 > [!IMPORTANT]
 > Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+#### <a name="authentication-with-tokens"></a>Autenticazione con token
+
+Quando si Abilita l'autenticazione basata su token per un servizio Web, è necessario che un utente fornisca al servizio Web un token di Azure Machine Learning JWT per accedervi. 
+
+* Per impostazione predefinita, l'autenticazione del token è disabilitata quando si esegue la distribuzione nel servizio Azure Kubernetes.
+* L'autenticazione basata su token non è supportata quando si esegue la distribuzione in istanze di contenitore di Azure.
+
+Per controllare l'autenticazione del token, `token_auth_enabled` usare il parametro durante la creazione o l'aggiornamento di una distribuzione.
+
+Se l'autenticazione basata su token è abilitata, `get_token` è possibile usare il metodo per recuperare una Bearer token e l'ora di scadenza dei token:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Sarà necessario richiedere un nuovo token dopo l' `refresh_by` ora del token. 
 
 ## <a name="request-data"></a>Dati richiesta
 
@@ -122,48 +160,17 @@ Ad esempio, nel modello dell’esempio [Eseguire il training sul notebook](https
             ]
         ]
 }
-``` 
+```
 
 Il servizio Web può accettare più set di dati in un'unica richiesta. Restituisce un documento JSON contenente una matrice di risposte.
 
 ### <a name="binary-data"></a>Dati binari
 
-Se il modello accetta dati binari, ad esempio un'immagine, è necessario modificare il file `score.py` usato per la distribuzione in modo da accettare richieste HTTP non elaborate. Di seguito è riportato un esempio di un `score.py` che accetta i dati binari:
+Per informazioni su come abilitare il supporto per i dati binari nel servizio, vedere [dati binari](how-to-deploy-and-where.md#binary).
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>Condivisione di risorse tra le origini (CORS)
 
-def init():
-    print("This is init()")
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
-        # and send to the model. Then return the response.
-        
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> Lo spazio dei nomi `azureml.contrib` cambia di frequente perché Microsoft è attualmente impegnata a migliorare il servizio. Qualsiasi elemento in questo spazio dei nomi deve essere pertanto considerato come anteprima e non è completamente supportato da Microsoft.
->
-> Se è necessario eseguire un test nell'ambiente di sviluppo locale, è possibile installare i componenti nello spazio dei nomi `contrib` usando il comando seguente:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+Per informazioni sull'abilitazione del supporto CORS nel servizio, vedere [condivisione di risorse tra le origini](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Chiamare il servizio (C#)
 
@@ -191,9 +198,9 @@ namespace MLWebServiceClient
     {
         static void Main(string[] args)
         {
-            // Set the scoring URI and authentication key
+            // Set the scoring URI and authentication key or token
             string scoringUri = "<your web service URI>";
-            string authKey = "<your key>";
+            string authKey = "<your key or token>";
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
@@ -307,8 +314,8 @@ var exampleData = []Features{
 
 // Set to the URI for your service
 var serviceUri string = "<your web service URI>"
-// Set to the authentication key (if any) for your service
-var authKey string = "<your key>"
+// Set to the authentication key or token (if any) for your service
+var authKey string = "<your key or token>"
 
 func main() {
     // Create the input data from example data
@@ -362,8 +369,8 @@ public class App {
     public static void sendRequest(String data) {
         // Replace with the scoring_uri of your service
         String uri = "<your web service URI>";
-        // If using authentication, replace with the auth key
-        String key = "<your key>";
+        // If using authentication, replace with the auth key or token
+        String key = "<your key or token>";
         try {
             // Create the request
             Content content = Request.Post(uri)
@@ -436,49 +443,48 @@ import json
 
 # URL for the web service
 scoring_uri = '<your web service URI>'
-# If the service is authenticated, set the key
-key = '<your key>'
+# If the service is authenticated, set the key or token
+key = '<your key or token>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 I risultati restituiti sono simili al seguente documento JSON:
@@ -486,3 +492,15 @@ I risultati restituiti sono simili al seguente documento JSON:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>Utilizzare il servizio da Power BI
+
+Power BI supporta l'utilizzo di servizi Web Azure Machine Learning per arricchire i dati in Power BI con le stime. 
+
+Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power bi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script).
+
+Una volta distribuito, il servizio Web può essere utilizzato dai flussi di Power BI. [Informazioni su come utilizzare un servizio web Azure Machine Learning da Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per visualizzare un'architettura di riferimento per il punteggio in tempo reale di Python e modelli di apprendimento avanzato, visitare il [centro architetture di Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

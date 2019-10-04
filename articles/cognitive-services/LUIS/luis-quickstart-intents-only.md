@@ -1,5 +1,5 @@
 ---
-title: Prevedere finalità
+title: 'Esercitazione: Prevedere finalità - LUIS'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si crea un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7139876f64841a877e688ec6faf03597c527d1f2
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593914"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375829"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -131,7 +131,7 @@ Questa applicazione ha poche finalità.
 
     Il parametro della stringa di query `verbose=true` indica di includere **tutte le finalità** nei risultati della query dell'app. La matrice delle entità è vuota perché questa app attualmente non dispone di entità. 
 
-    Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`topScoringIntent`**. Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. 
+    Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`topScoringIntent`** . Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Creare una finalità per le candidature di lavoro
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d4c58cd9e7ee0674f42d776c8df6e96faba1ab1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799491"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903945"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
@@ -26,15 +26,15 @@ I driver NVIDIA CUDA per le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2 (f
 
 | Distribuzione | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10.1, ramo del driver R418 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10,1, driver Branch R418 |
 
 ### <a name="nvidia-grid-drivers"></a>Driver NVIDIA GRID
 
-Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA-GRID per le macchine virtuali serie NV e NVV2 usate come workstation virtuali o per applicazioni virtuali. Installare solo questi driver GRID nelle macchine virtuali NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
+Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali serie NV e NVv3 utilizzate come workstation virtuali o per le applicazioni virtuali. Installare solo questi driver GRID nelle macchine virtuali NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
 
 | Distribuzione | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Basato su CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, ramo driver R410|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Da Red Hat Enterprise Linux 7,0 a 7,6<br/><br/>Basato su CentOS da 7,0 a 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9,0, driver Branch R430|
 
 > [!WARNING] 
 > L'installazione di software di terze parti in prodotti Red Hat può influenzare i termini di supporto di Red Hat. Vedere l'[articolo della Knowledge base di Red Hat](https://access.redhat.com/articles/1067).

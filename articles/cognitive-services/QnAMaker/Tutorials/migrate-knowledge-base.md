@@ -3,20 +3,20 @@ title: Eseguire la migrazione delle knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Il processo di migrazione consiste nell'esportazione del contenuto di una knowledge base e nella relativa importazione in un'altra knowledge base.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 04ee592122d7c76396f091f8d249518976682004
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264319"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446602"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
@@ -56,7 +56,7 @@ Il processo di migrazione consiste nell'esportazione del contenuto di una knowle
     A questo punto, tutti i contenuti della knowledge base, domande, risposte e metadati, insieme ai nomi dei file sorgente e agli URL, vengono importati nella nuova knowledge base. 
 
 ## <a name="chat-logs-and-alterations"></a>Chatlog e modifiche
-Le modifiche (sinonimi) senza distinzione tra maiuscole e minuscole non vengono importate automaticamente. Usare le [API V2](https://aka.ms/qnamaker-v2-apis) per esportare le modifiche dalla knowledge base precedente e le [API V4](https://aka.ms/qnamaker-v4-apis) per spostare le modifiche nella nuova knowledge base.
+Le modifiche (sinonimi) senza distinzione tra maiuscole e minuscole non vengono importate automaticamente. Usare la [V4 API](https://go.microsoft.com/fwlink/?linkid=2092179) per spostare le modifiche nella nuova knowledge base.
 
 Non è possibile eseguire la migrazione dei chatlog, poiché la nuova knowledge base usa Application Insights per l'archiviazione dei chatlog. 
 

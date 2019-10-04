@@ -2,21 +2,17 @@
 title: 'Python: Operazioni del file system in Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Informazioni su come usare Python SDK con il file system di Data Lake Storage Gen1.
 services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f2ee982e2c1e1c363a391779721f848b8ae6afd5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880747"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088898"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Python
 > [!div class="op_single_selector"]
@@ -42,7 +38,7 @@ Questo articolo fornisce informazioni per l'uso di Python SDK per eseguire opera
 Per usare Data Lake Storage Gen1 con Python, è necessario installare tre moduli.
 
 * Il modulo `azure-mgmt-resource` che include i moduli di Azure per Active Directory e così via.
-* Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo azure-mgmt-datalake-store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo azure-mgmt-datalake-store](/python/api/azure-mgmt-datalake-store/).
 * Il modulo `azure-datalake-store`, che include le operazioni del file system di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo del file system azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Per installare i moduli, usare i comandi seguenti.
@@ -59,30 +55,30 @@ pip install azure-datalake-store
 
 2. Aggiungere le righe seguenti per importare i moduli necessari
 
-    ```
-    ## Use this only for Azure AD service-to-service authentication
-    from azure.common.credentials import ServicePrincipalCredentials
+   ```
+   ## Use this only for Azure AD service-to-service authentication
+   from azure.common.credentials import ServicePrincipalCredentials
 
-    ## Use this only for Azure AD end-user authentication
-    from azure.common.credentials import UserPassCredentials
+   ## Use this only for Azure AD end-user authentication
+   from azure.common.credentials import UserPassCredentials
 
-    ## Use this only for Azure AD multi-factor authentication
-    from msrestazure.azure_active_directory import AADTokenCredentials
+   ## Use this only for Azure AD multi-factor authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Storage Gen1 account management
-    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Storage Gen1 filesystem management
-    from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
-    # Common Azure imports
-    from azure.mgmt.resource.resources import ResourceManagementClient
-    from azure.mgmt.resource.resources.models import ResourceGroup
+   ## Common Azure imports
+   from azure.mgmt.resource.resources import ResourceManagementClient
+   from azure.mgmt.resource.resources.models import ResourceGroup
 
-    ## Use these as needed for your application
-    import logging, getpass, pprint, uuid, time
-    ```
+   ## Use these as needed for your application
+   import logging, getpass, pprint, uuid, time
+   ```
 
 3. Salvare le modifiche a mysample.py.
 
@@ -109,14 +105,14 @@ Il frammento di codice seguente crea innanzitutto il client dell'account Data La
     ## Create a directory
     adlsFileSystemClient.mkdir('/mysampledirectory')
 
-## <a name="upload-a-file"></a>Caricare un file
+## <a name="upload-a-file"></a>Carica un file
 
 
     ## Upload a file
     multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 
-## <a name="download-a-file"></a>Scaricare un file
+## <a name="download-a-file"></a>Scarica file
 
     ## Download a file
     multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
@@ -129,7 +125,7 @@ Il frammento di codice seguente crea innanzitutto il client dell'account Data La
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni di gestione di account in Data Lake Storage Gen1 con Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento su Python con Azure Data Lake Storage Gen1 - file system](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Aprire le applicazioni Big Data di origine compatibili con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

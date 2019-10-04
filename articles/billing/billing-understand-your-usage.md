@@ -1,93 +1,141 @@
 ---
-title: Comprendere il file di utilizzo dettagliato di Azure | Microsoft Docs
-description: Informazioni su come leggere e comprendere le sezioni del file CSV di utilizzo dettagliato relativo alla sottoscrizione di Azure
-services: ''
-documentationcenter: ''
+title: Informazioni sull'utilizzo dettagliato e sugli addebiti | Microsoft Docs
+description: Informazioni su come leggere e comprendere l'utilizzo dettagliato e gli addebiti
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: micflan
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369625"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "68954333"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
+# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 
-Il file CSV con gli addebiti basati sull'utilizzo dettagliato contiene gli addebiti sia a livello giornaliero sia a livello di contatore per il periodo di fatturazione corrente. 
+Il file dettagliato relativo ai dati di utilizzo e agli addebiti contiene l'utilizzo giornaliero in base a tariffe negoziate, acquisti (ad esempio, prenotazioni, tariffe del Marketplace) e rimborsi per il periodo specificato.
+Le tariffe non includono crediti, imposte o altri addebiti o sconti.
+La tabella seguente illustra gli addebiti inclusi per ogni tipo di account.
 
-Per ottenere questo file con i dati di utilizzo dettagliato, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md).
-È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo. Se sono disponibili due versioni, scaricare la versione 2. Questo è il formato di file più recente.
+Tipo di account | Utilizzo di Azure | Utilizzo del Marketplace | Acquisti | Rimborsi
+--- | --- | --- | --- | ---
+Contratto Enterprise Agreement (EA) | Sì | Sì | Sì | No
+Contratto del cliente Microsoft | Sì | Sì | Sì | Sì
+Pagamento in base al consumo | Sì | Sì | No | No
 
-Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione e non tengono in considerazione eventuali accrediti o sconti applicabili.
+Per altre informazioni sugli ordini del Marketplace (noti anche come servizi esterni), vedere [Informazioni sugli addebiti per i servizi esterni di Azure](billing-understand-your-azure-marketplace-charges.md).
 
->[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+Per le istruzioni di download, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md).
+È possibile aprire il file CSV dei dati di utilizzo e addebiti in Microsoft Excel o in un'altra applicazione per fogli di calcolo.
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termini e descrizioni relativi al file di utilizzo dettagliato
+## <a name="list-of-terms-and-descriptions"></a>Elenco di termini e descrizioni
 
-Le sezioni seguenti descrivono i termini più importanti presenti nella versione 2 del file di utilizzo dettagliato.
+La tabella seguente descrive i termini importanti usati nella versione più recente del file dei dati di utilizzo e addebiti di Azure.
+L'elenco include gli account con pagamento in base al consumo, Contratto Enterprise e Contratto del cliente Microsoft.
 
-### <a name="statement"></a>Istruzione
+Termine | Tipo di account | DESCRIZIONE
+--- | --- | ---
+AccountName | Contratto Enterprise, Con pagamento in base al consumo | Nome visualizzato dell'account di registrazione EA o dell'account di fatturazione con pagamento in base al consumo.
+AccountOwnerId<sup>1</sup> | Contratto Enterprise, Con pagamento in base al consumo | Identificatore univoco dell'account di registrazione EA o dell'account di fatturazione con pagamento in base al consumo.
+AdditionalInfo | Tutti | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
+BillingAccountId<sup>1</sup> | Tutti | Identificatore univoco per l'account di fatturazione radice.
+BillingAccountName | Tutti | Nome dell'account di fatturazione.
+BillingCurrency | Tutti | Valuta associata all'account di fatturazione.
+BillingPeriod | Contratto Enterprise, Con pagamento in base al consumo | Periodo di fatturazione dell'addebito.
+BillingPeriodEndDate | Tutti | Data di fine del periodo di fatturazione.
+BillingPeriodStartDate | Tutti | Data di inizio del periodo di fatturazione.
+BillingProfileId<sup>1</sup> | Tutti | Identificatore univoco della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
+BillingProfileName | Tutti | Nome della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
+ChargeType | Tutti | Indica se l'addebito rappresenta l'utilizzo (**Utilizzo**), un acquisto (**Acquisto**) o un rimborso (**Rimborso**).
+ConsumedService | Tutti | Nome del servizio a cui è associato l'addebito.
+CostCenter<sup>1</sup> | EA, Contratto del cliente Microsoft | Centro di costo definito per la sottoscrizione per tenere traccia dei costi (disponibile solo nei periodi di fatturazione aperti per gli account del Contratto del cliente Microsoft).
+Costi | Contratto Enterprise, Con pagamento in base al consumo | Vedere CostInBillingCurrency.
+CostInBillingCurrency | Contratto del cliente Microsoft | Costo dell'addebito nella valuta di fatturazione al lordo di crediti o imposte.
+CostInPricingCurrency | Contratto del cliente Microsoft | Costo dell'addebito nella valuta dei prezzi al lordo di crediti o imposte.
+Valuta | Contratto Enterprise, Con pagamento in base al consumo | Vedere BillingCurrency.
+Date<sup>1</sup> | Tutti | Data di utilizzo o di acquisto dell'addebito.
+EffectivePrice | Tutti | Prezzo unitario combinato per il periodo. I prezzi combinati calcolano la media di eventuali fluttuazioni nel prezzo unitario, ad esempio la suddivisione in livelli graduale, che riduce il prezzo man mano che la quantità aumenta nel tempo.
+ExchangeRateDate | Contratto del cliente Microsoft | Data di determinazione del tasso di cambio.
+ExchangeRatePricingToBilling | Contratto del cliente Microsoft | Tasso di cambio usato per convertire il costo della valuta dei prezzi nella valuta di fatturazione.
+Frequenza | Tutti | Indica se è prevista la ripetizione di un addebito. Gli addebiti possono avvenire una sola volta (**OneTime**), ripetersi su base mensile o annuale (**Recurring**) o essere basati sull'utilizzo (**UsageBased**).
+InvoiceId | Con pagamento in base al consumo, Contratto del cliente Microsoft | ID univoco del documento elencato nella fattura in formato PDF.
+InvoiceSection | Contratto del cliente Microsoft | Vedere InvoiceSectionName.
+InvoiceSectionId<sup>1</sup> | EA, Contratto del cliente Microsoft | Identificatore univoco per reparto EA o sezione della fattura del Contratto del cliente Microsoft.
+InvoiceSectionName | EA, Contratto del cliente Microsoft | Nome reparto EA o sezione della fattura del Contratto del cliente Microsoft.
+IsAzureCreditEligible | Tutti | Indica se l'addebito è idoneo a essere pagato per l'uso di crediti Azure (valori: True, False).
+Location | Contratto del cliente Microsoft | Località del data center in cui viene eseguita la risorsa.
+MeterCategory | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio, *Servizi cloud* e *Rete*.
+MeterId<sup>1</sup> | Tutti | Identificatore univoco del contatore.
+MeterName | Tutti | Nome del contatore.
+MeterRegion | Tutti | Nome della località del data center per i servizi addebitati in base alla località. Vedere Location.
+MeterSubCategory | Tutti | Nome della categoria di sottoclassificazione del contatore.
+OfferId<sup>1</sup> | Tutti | Nome dell'offerta acquistata.
+PartNumber<sup>1</sup> | Contratto Enterprise, Con pagamento in base al consumo | Identificatore usato per ottenere i prezzi specifici del contatore.
+PlanName | Contratto Enterprise, Con pagamento in base al consumo | Nome del piano del Marketplace.
+PreviousInvoiceId | Contratto del cliente Microsoft | Riferimento a una fattura originale se questa voce è un rimborso.
+PricingCurrency | Contratto del cliente Microsoft | Valuta usata per la classificazione in base ai prezzi negoziati.
+Prodotto | Tutti | Nome del prodotto.
+ProductId<sup>1</sup> | Contratto del cliente Microsoft | Identificatore univoco per il prodotto.
+ProductOrderId | Tutti | Identificatore univoco per l'ordine del prodotto.
+ProductOrderName | Tutti | Nome univoco per l'ordine del prodotto.
+PublisherName | Tutti | Server di pubblicazione per servizi del Marketplace.
+PublisherType | Tutti | Tipo di server di pubblicazione (valori: **Azure**, **AWS**, **Marketplace**).
+Quantità | Tutti | Numero di unità acquistate o utilizzate.
+ReservationId | EA, Contratto del cliente Microsoft | Identificatore univoco per l'istanza di prenotazione acquistata.
+ReservationName | EA, Contratto del cliente Microsoft | Nome dell'istanza di prenotazione acquistata.
+ResourceGroup | Tutti | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa.
+ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa di [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceLocation | Tutti | Località del data center in cui viene eseguita la risorsa. Vedere Location.
+ResourceName | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa.
+ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa.
+ServiceFamily | Contratto del cliente Microsoft | Famiglia di servizi a cui appartiene il servizio.
+ServiceInfo1 | Tutti | Metadati specifici del servizio.
+ServiceInfo2 | Tutti | Campo legacy con metadati specifici del servizio facoltativo.
+ServicePeriodEndDate | Contratto del cliente Microsoft | Data di fine del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
+ServicePeriodStartDate | Contratto del cliente Microsoft | Data di inizio del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
+SubscriptionId<sup>1</sup> | Tutti | Identificatore univoco per la sottoscrizione di Azure.
+SubscriptionName | Tutti | Nome della sottoscrizione di Azure.
+Tags<sup>1</sup> | Tutti | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
+Termine | Tutti | Visualizza il termine della validità dell'offerta. Ad esempio:  Nel caso di istanze riservate visualizza 12 mesi come termine. Per gli acquisti una tantum o gli acquisti periodici, il termine è 1 mese (SaaS, supporto per il Marketplace). Non è applicabile per il consumo di Azure.
+UnitOfMeasure | Tutti | Unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
+UnitPrice | Contratto Enterprise, Con pagamento in base al consumo | Prezzo unitario per l'addebito.
 
-Nella sezione superiore del file CSV di utilizzo dettagliato sono riportati i servizi usati durante il periodo di fatturazione mensile. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
+_<sup>**1**</sup> Campi usati per creare un ID univoco per un singolo record di costi._
 
-| Termine | DESCRIZIONE |
-| --- | --- |
-|Periodo di fatturazione |Indica il periodo di fatturazione in cui sono stati usati i contatori |
-|Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo |
-|Sottocategoria misuratore |Definisce il tipo di servizio di Azure che può influire sulla tariffa |
-|Nome misuratore |Identifica l'unità di misura del contatore usato |
-|Area misuratore |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione stessa del centro dati |
-|SKU |Indica l'identificatore di sistema univoco per ogni contatore di Azure |
-|Unità |Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore, decine di migliaia. |
-|Quantità consumata |Contiene la quantità riportata dal contatore usata durante il periodo di fatturazione |
-|Quantità inclusa |Contiene la quantità riportata dal contatore inclusa gratuitamente nel periodo di fatturazione corrente |
-|Quantità in eccesso |Mostra la differenza tra la quantità utilizzata e la quantità inclusa. Sarà addebitato questo importo. Per le offerte di pagamento in base al consumo senza alcuna quantità inclusa, questo totale corrisponde a quello della quantità consumata. |
-|Entro l'impegno |Indica i costi del contatore detratti dall'importo dell'impegno associato all'offerta di 6 o 12 mesi. I costi del contatore vengono detratti in ordine cronologico. |
-|Valuta |Identifica la valuta usata nel periodo di fatturazione corrente |
-|Eccedenza |Indica i costi del contatore che eccedono l'importo dell'impegno associato all'offerta di 6 o 12 mesi |
-|Tariffa dell'impegno |Indica la tariffa dell'impegno basata sull'importo totale dell'impegno associato all'offerta di 6 o 12 mesi |
-|Tariffa |Indica la tariffa addebitata per unità fatturabile |
-|Value |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
+Alcuni campi possono variare per l'utilizzo di maiuscole e minuscole e per la spaziatura tra i tipi di account.
+Le versioni precedenti dei file di dati di utilizzo con pagamento in base al consumo hanno sezioni separate per il rendiconto e l'utilizzo giornaliero.
 
-### <a name="daily-usage"></a>Utilizzo giornaliero
+### <a name="list-of-terms-from-older-apis"></a>Elenco di termini delle API precedenti
+La tabella seguente associa i termini usati nelle API precedenti ai nuovi termini. Per le descrizioni, fare riferimento alla tabella precedente.
 
-La sezione del file CSV sull'utilizzo giornaliero indica i dettagli di utilizzo che influiscono sulle tariffe di fatturazione. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
+Termine precedente | Nuovo termine
+--- | ---
+ConsumedQuantity | Quantità
+IncludedQuantity | N/D
+InstanceId | ResourceId
+Tariffa | EffectivePrice
+Unità | UnitOfMeasure
+UsageDate | Data
+UsageEnd | Data
+UsageStart | Data
 
-| Termine | DESCRIZIONE |
-| --- | --- |
-|Data utilizzo |Indica la data in cui è stato usato il contatore |
-|Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo |
-|ID misuratore |Identifica l'ID del contatore fatturato usato per determinare i prezzi relativi al consumo da fatturare |
-|Sottocategoria misuratore |Definisce il tipo di servizio di Azure che può influire sulla tariffa |
-|Nome misuratore |Identifica l'unità di misura del contatore usato |
-|Area misuratore |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione stessa del centro dati |
-|Unità |Identifica l'unità in base alla quale viene addebitato il contatore. Ad esempio, GB, ore, decine di migliaia. |
-|Quantità consumata |Contiene la quantità riportata dal contatore usata nel giorno corrente |
-|Percorso della risorsa |Identifica il centro dati in cui il contatore è in esecuzione |
-|Servizio utilizzato |Indica il servizio della piattaforma Azure usato |
-|Gruppo di risorse |Definisce il gruppo di risorse in cui è in esecuzione il contatore distribuito. <br/><br/>Per altre informazioni, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|ID istanza | Specifica l'identificatore del contatore, <br/><br/> che contiene il nome specificato per il contatore al momento della creazione. È il nome della risorsa o l'ID risorsa completo. Per altre informazioni, vedere [L'API di Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tag | Identifica il tag assegnato al contatore. Usare i tag per raggruppare i record di fatturazione.<br/><br/>È possibile, ad esempio, usare i tag per distribuire i costi in base al reparto che usa il contatore. I servizi che supportano la creazione di tag sono macchine virtuali, archiviazione e servizi di rete di cui si esegue il provisioning mediante l'[API di Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag). |
-|Informazioni aggiuntive |Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale. |
-|Informazioni servizio 1 |Indica il nome del progetto a cui il servizio appartiene nella sottoscrizione |
-|Informazioni servizio 2 |Campo legacy che acquisisce i metadati specifici del servizio facoltativo |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Come posso assicurarmi che gli addebiti nel file di utilizzo dettagliato siano corretti?
-Se nel file di utilizzo dettagliato è presente un addebito su cui si vogliono ricevere altre informazioni, vedere [Comprendere la fattura per Microsoft Azure](./billing-understand-your-bill.md)
+## <a name="ensure-charges-are-correct"></a>Verificare che gli addebiti siano corretti
 
-## <a name="external"></a>A cosa si riferiscono gli addebiti per servizi esterni?
-I servizi esterni, noti anche come ordini Marketplace, sono erogati da fornitori di servizi indipendenti e vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
+Per altre informazioni sui dati di utilizzo dettagliati e sugli addebiti, vedere le informazioni sulla fattura [con pagamento in base al consumo](./billing-understand-your-bill.md) o sulla fattura del [contratto del cliente Microsoft](billing-mca-understand-your-bill.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Visualizzare e scaricare la fattura di Microsoft Azure](billing-download-azure-invoice.md)
+- [Visualizzare e scaricare l'utilizzo e gli addebiti di Microsoft Azure](billing-download-azure-daily-usage.md)

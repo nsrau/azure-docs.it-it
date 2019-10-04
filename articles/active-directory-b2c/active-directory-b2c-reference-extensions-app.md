@@ -2,20 +2,20 @@
 title: App Extensions in Azure Active Directory B2C | Microsoft Docs
 description: Ripristino di b2c-extensions-app.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/06/2017
-ms.author: davidmu
+ms.date: 09/06/2017
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1c3e96c10af9085854840029867eaf238e5a593d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5d38d8d791c6b932d8a28a898f2e2b80caff7ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317259"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654064"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App Extensions
 
@@ -40,7 +40,7 @@ Se l'app b2c-extensions-app è stata eliminata accidentalmente, sono disponibili
 1. Accedere al sito come amministratore globale per la directory di Azure AD B2C per cui si vuole ripristinare l'app eliminata. L'amministratore globale deve avere un indirizzo di posta elettronica simile al seguente: `username@{yourTenant}.onmicrosoft.com`.
 1. Emettere una richiesta HTTP GET per l'URL `https://graph.windows.net/myorganization/deletedApplications` con api-version=1.6. Questa operazione consente di elencare tutte le applicazioni eliminate negli ultimi 30 giorni.
 1. Trovare nell'elenco l'applicazione il cui nome inizia con 'b2c-extension-app' e copiare il valore della rispettiva proprietà `objectid`.
-1. Emettere una richiesta HTTP POST per l'URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Sostituire la parte `{OBJECTID}` dell'URL con il valore `objectid` del passaggio precedente. 
+1. Emettere una richiesta HTTP POST per l'URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Sostituire la parte `{OBJECTID}` dell'URL con il valore `objectid` del passaggio precedente.
 
 Dovrebbe essere possibile [visualizzare l'app ripristinata](#verifying-that-the-extensions-app-is-present) nel portale di Azure.
 

@@ -2,18 +2,18 @@
 title: Novità delle raccolte di aree di lavoro di Power BI
 description: Consente di ottenere le informazioni più recenti sulle raccolta di aree di lavoro di Power BI
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 448c0997068fae0637c7015eed96fafbaf5b3442
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341982"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672354"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Novità delle raccolte di aree di lavoro di Power BI
 

@@ -3,22 +3,18 @@ title: Note sulla versione dell'API .NET 2.x per l'insieme di credenziali delle 
 description: Gli sviluppatori .NET useranno questa API per scrivere il codice dell'insieme di credenziali delle chiavi di Azure
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
-ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
-ms.devlang: CSharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 3d2543ea2b2ee6261b04396f92d5f3583a89ffb0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 07502b4c4487a7517e2fe73b62eae0a237a6f22b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406908"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883273"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
 Le informazioni seguenti consentono la migrazione alla versione 2.0 della libreria di Azure Key Vault per C# e .NET.  È necessario che le app scritte per le versioni precedenti siano aggiornate per supportare la versione più recente.  Queste modifiche sono necessarie per supportare completamente le funzionalità nuove e migliorate, come ad esempio i **certificati Key Vault**.
@@ -52,23 +48,23 @@ I certificati Key Vault gestiscono i certificati x509 e supportano i comportamen
 
 * *Secret* modificato in *SecretBundle*
 * *Dictionary* modificato in *IDictionary*
-* *List<T>, string []* modificato in *IList<T>*
+* *List\<t >, String []* modificato in *IList\<t >*
 * *NextList* modificato in *NextPageLink*
 
 ## <a name="return-types"></a>Tipi restituiti
 
-* **KeyList** e **SecretList** restituiranno *IPage<T>* anziché *ListKeysResponseMessage*
+* **Elenco** di chiave e **segreto** ora restituisce *iPage\<T >* invece di *ListKeysResponseMessage*
 * L'oggetto **BackupKeyAsync** generato restituirà *BackupKeyResult* che contiene *Valore* (BLOB di backup). Prima veniva eseguito il wrapping del metodo e veniva restituito solo il valore.
 
 ## <a name="exceptions"></a>Eccezioni
 
 * *KeyVaultClientException* viene modificato in *KeyVaultErrorException*
 * L'errore del servizio è stato modificato da *exception.Error* in *exception.Body.Error.Message*.
-* Le informazioni aggiuntive sono rimosse dal messaggio di errore per **[JsonExtensionData]**.
+* Le informazioni aggiuntive sono rimosse dal messaggio di errore per **[JsonExtensionData]** .
 
 ## <a name="constructors"></a>Costruttori
 
-* Invece di accettare *HttpClient* come argomento del costruttore, il costruttore accetta solo *HttpClientHandler* o *DelegatingHandler[]*.
+* Invece di accettare *HttpClient* come argomento del costruttore, il costruttore accetta solo *HttpClientHandler* o *DelegatingHandler[]* .
 
 ## <a name="downloaded-packages"></a>Pacchetti scaricati
 

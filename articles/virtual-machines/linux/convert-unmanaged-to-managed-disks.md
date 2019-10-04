@@ -1,27 +1,18 @@
 ---
 title: Convertire una macchina virtuale Linux in Azure da dischi non gestiti a dischi gestiti - Azure Managed Disks | Microsoft Docs
 description: Come convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti usando l'interfaccia della riga di comando di Azure nel modello di distribuzione Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700826"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696080"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti
 
@@ -34,6 +25,7 @@ Questo articolo illustra come convertire le macchine virtuali usando l'interfacc
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [trovare ed eliminare dischi gestiti e non gestiti di Azure non collegati](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
 Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le macchine virtuali si trovano in un set di disponibilità, vedere la sezione successiva. È possibile usare questo processo per convertire le macchine virtuali da dischi non gestiti Premium (SDD) a dischi gestiti Premium o da dischi non gestiti standard (HDD) a dischi gestiti standard.
@@ -98,5 +90,18 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Eseguire la conversione usando il portale di Azure
+
+È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
+3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
+4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.
+5. Se la macchina virtuale è in un set di disponibilità, nel pannello **Eseguire la migrazione a Managed Disks** apparirà un avviso che indica che è necessario prima convertire il set di disponibilità. L'avviso deve avere un collegamento su cui si può fare clic per convertire il set di disponibilità. Dopo avere convertito il set di disponibilità o se la macchina virtuale non è in un set di disponibilità, fare clic su **Esegui la migrazione** per avviare il processo di migrazione dei dischi ai dischi gestiti.
+
+La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../windows/managed-disks-overview.md).

@@ -16,27 +16,27 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244584"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231247"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Attività successive di configurazione per Aggiunta ad Azure AD ibrido
 
 Dopo aver eseguito Azure AD Connect per configurare l'organizzazione per Aggiunta ad Azure AD ibrido esistono alcuni passaggi aggiuntivi che è necessario completare per finalizzare il programma di installazione.  Eseguire solo la procedura che si applica per i dispositivi.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. Configurare implementazione controllata (Facoltativa)
-Tutti i dispositivi aggiunti a un dominio che eseguono la versione di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD dopo aver completato l'intera procedura di configurazione. Se si preferisce un'implementazione controllata anziché questa registrazione automatica, è possibile usare dei criteri di gruppo per abilitare o disabilitare la distribuzione automatica in modo selettivo.  Questi criteri di gruppo devono essere impostati prima dell'avvio di altre procedure di configurazione: Azure Active Directory
+Tutti i dispositivi aggiunti a un dominio che eseguono la versione di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD dopo aver completato l'intera procedura di configurazione. Se si preferisce un'implementazione controllata anziché questa registrazione automatica, è possibile usare dei criteri di gruppo per abilitare o disabilitare la distribuzione automatica in modo selettivo.  Questo criterio di gruppo deve essere impostato prima di avviare gli altri passaggi di configurazione:
 * Creare un oggetto Criteri di gruppo in Active Directory.
 * Denominarlo (ad es. l'aggiunta ad Azure AD ibrido).
-* Modificare e passare a:  Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Registrazione del dispositivo.
+* Modifica e vai a:  Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Registrazione del dispositivo.
 
 >[!NOTE]
 >Per 2012R2 le impostazioni dei criteri sono in **Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Aggiunta all'area di lavoro > Computer client con aggiunta automatica all'area di lavoro**
 
-* Disabilitare questa impostazione:  Registrare i computer appartenenti a un dominio come dispositivi.
+* Abilitare questa impostazione:  Registrare i computer appartenenti a un dominio come dispositivi.
 * Applicare e fare clic su OK.
 * Collegamento dell'oggetto Criteri di gruppo alla posizione di propria scelta (unità organizzativa, gruppo di sicurezza o dominio per tutti i dispositivi).
 

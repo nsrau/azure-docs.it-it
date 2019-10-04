@@ -3,25 +3,23 @@ title: Creare un gateway applicazione che ospita più siti Web - Interfaccia del
 description: Informazioni su come creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: eceb380112002ef951d6d5e74998d944da01bd7a
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100718"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688224"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per [configurare l'hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando set di scalabilità di macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www\.contoso.com* e *www\.fabrikam.com*.
+È possibile usare l'interfaccia della riga di comando di Azure per [configurare l'hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questo articolo vengono definiti pool di indirizzi back-end con set di scalabilità di macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questo articolo presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www\.contoso.com* e *www\.fabrikam.com*.
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -33,14 +31,13 @@ In questa esercitazione si apprenderà come:
 
 ![Esempio di routing multisito](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -48,11 +45,11 @@ Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella località *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Creare risorse di rete 
+## <a name="create-network-resources"></a>Creare risorse di rete
 
 Creare la rete virtuale e la subnet denominata *myVNet* usando [az network vnet create](/cli/azure/network/vnet). È quindi possibile aggiungere la subnet necessaria per i server back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet). Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* tramite [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -73,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
@@ -88,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -143,9 +142,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Aggiungere le regole di routing
 
-Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
+Le regole vengono elaborate nell'ordine in cui sono elencate. Il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
-In questo esempio si creano due nuove regole e si elimina la regola predefinita che è stata creata al momento della creazione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+In questo esempio vengono create due nuove regole ed è stata eliminata la regola predefinita creata durante la distribuzione del gateway applicazione. È possibile aggiungere la regola usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -232,11 +231,11 @@ az network public-ip show \
   --output tsv
 ```
 
-Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando il gateway applicazione viene riavviato.
+Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http:\//www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 
@@ -249,20 +248,9 @@ Sostituire l'indirizzo con l'altro dominio come nell'esempio seguente:
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Creare i listener back-end
-> * Creare le regole di routing
-> * Creare set di scalabilità di macchine virtuali con i pool back-end
-> * Creare un record CNAME nel dominio
-
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-cli.md)
+[Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-cli.md)

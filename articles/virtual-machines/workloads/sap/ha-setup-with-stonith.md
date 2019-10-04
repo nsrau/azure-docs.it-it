@@ -4,22 +4,21 @@ description: Stabilire la disponibilità elevata per SAP HANA in Azure (istanze 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525467"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212539"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
@@ -155,7 +154,7 @@ Fare clic su "Generate Pre-Shared-Keys" (Genera chiavi precondivise) che apre il
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Fare clic su **OK**.
+Fare clic su **OK**
 
 L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise in Csync2. Il file della chiave viene generato con csync2 -k /etc/csync2/key_hagroup. Il file key_hagroup, dopo essere stato creato, deve essere copiato manualmente in tutti i membri del cluster. **Assicurarsi di copiare il file da node1 a node2**.
 
@@ -258,7 +257,7 @@ Eseguire il comando *crm_mon* per assicurarsi che **entrambi** i nodi siano onli
 ```
 crm_mon
 ```
-![CRM-MON. PNG](media/HowToHLI/HASetupWithStonith/crm-mon.png) è possibile anche accedere a hawk per controllare lo stato del cluster *https://\<nodo IP >: 7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
+![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) è inoltre possibile accedere a Hawk per verificare lo stato del cluster *https://\<del nodo IP >: 7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
@@ -323,7 +322,7 @@ crm configure load update crm-vip.txt
 Quando si esegue il comando *crm_mon*, è possibile visualizzare le due risorse.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Inoltre, è possibile visualizzare lo stato in *https://\<l'indirizzo IP del nodo >: 7630/implementazione/live/stato*
+È anche possibile visualizzare lo stato nell' *indirizzo IP\<del nodo https://>: 7630/CIB/Live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,14 +333,15 @@ Service pacemaker stop
 ```
 Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failover delle risorse in **node1**
 
-**Prima del failover**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**Dopo il failover**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**Prima del failover**  
+![Before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**Dopo il failover**  
+![after-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![CRM-Mon-after-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
-## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
+## <a name="9-troubleshooting"></a>9. Risoluzione dei problemi
 Questa sezione descrive alcuni scenari di errore, che possono verificarsi durante la configurazione, anche se non necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Nodo del cluster non online

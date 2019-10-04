@@ -2,7 +2,7 @@
 title: Reimpostare la password di un utente - Azure Active Directory | Microsoft Docs
 description: Informazioni su come reimpostare la password di un utente con Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248015"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032674"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Reimpostare la password di un utente con Azure Active Directory
 
@@ -33,7 +33,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
 ## <a name="to-reset-a-password"></a>Per reimpostare la password
 
-1. Accedi per il [portale di Azure](https://portal.azure.com/) come utente amministratore o amministratore password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore utente o password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 2. Selezionare **Azure Active Directory**, selezionare **Utenti**, cercare e selezionare l'utente che richiede la reimpostazione e quindi selezionare **Reimposta password**.
 
@@ -43,7 +43,8 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
 3. Nella pagina **Reimposta password** selezionare **Reimposta password**.
 
-    Viene generata automaticamente una password temporanea per l'utente.
+    > [!Note]
+    > Quando si usa Azure Active Directory, viene generata automaticamente una password temporanea per l'utente. Quando si usa Active Directory in locale, si crea la password per l'utente.
 
 4. Copiare la password e assegnarla all'utente. L'utente dovrà modificare la password durante il processo di accesso successivo.
 

@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: willzhan
+ms.reviewer: kilroyh;yanmf;juliako
+ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894360"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016775"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -149,7 +150,7 @@ La tabella seguente illustra il mapping:
 | --- | --- |
 | **Lettore** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Provider di identità (IdP)** |Azure Active Directory (Azure AD) |
-| **Servizio token di sicurezza (STS)**  |Azure AD |
+| **Servizio token di sicurezza (STS)** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali |
 | **Distribuzione di licenze DRM** |* Distribuzione delle licenze di Servizi multimediali (PlayReady, Widevine, FairPlay) <br/>* Server licenze Axinom <br/>* Server licenze PlayReady personalizzato |
 | **Origine** |Endpoint di streaming di Servizi multimediali |
@@ -214,10 +215,10 @@ L'implementazione è costituita dai passaggi seguenti:
 
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
-    | **FairPlay** |Safari su macOS      |Succeed |Fail |
-    | **AES-128** |Browser più moderni  |Succeed |Fail |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Operazione riuscita |Errore |
+    | **Widevine** |Chrome, Firefox, Opera |Operazione riuscita |Errore |
+    | **FairPlay** |Safari su macOS      |Operazione riuscita |Errore |
+    | **AES-128** |Browser più moderni  |Operazione riuscita |Errore |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -238,7 +239,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
     In [JWT Decoder](http://jwt.calebb.net/) vengono visualizzati **aud** e **iss** come nel token JWT seguente:
 
-    ![Token JSON Web](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 
@@ -337,7 +338,7 @@ Per registrare e configurare l'app "puntatore" in Azure AD, seguire questa proce
 
 3. Aggiornare il file manifesto dell'app in modo che il valore della proprietà groupMembershipClaims sia "groupMembershipClaims": "All".
 
-4. Nell'app Azure AD che punta all'app Web del lettore, nella sezione **Autorizzazioni per altre applicazioni** aggiungere l'app risorsa aggiunta nel passaggio 1. In **Autorizzazioni delegate** selezionare **Accedi a [nome_risorsa]**. Questa opzione consente all'app Web di creare i token di accesso per accedere all'app risorsa. È consigliabile eseguire questa operazione sia per la versione locale che per quella distribuita dell'app Web se si sviluppa con Visual Studio e l'app Web di Azure.
+4. Nell'app Azure AD che punta all'app Web del lettore, nella sezione **Autorizzazioni per altre applicazioni** aggiungere l'app risorsa aggiunta nel passaggio 1. In **Autorizzazioni delegate** selezionare **Accedi a [nome_risorsa]** . Questa opzione consente all'app Web di creare i token di accesso per accedere all'app risorsa. È consigliabile eseguire questa operazione sia per la versione locale che per quella distribuita dell'app Web se si sviluppa con Visual Studio e l'app Web di Azure.
 
 Il token JWT rilasciato da Azure AD è il token di accesso usato per accedere alla risorsa puntatore.
 
@@ -461,7 +462,7 @@ La schermata seguente illustra uno scenario che usa una chiave asimmetrica trami
 
 In entrambi i casi precedenti, l'autenticazione utente è la stessa, ovvero viene eseguita tramite Azure AD. L'unica differenza è che i token JWT vengono rilasciati dal servizio token di sicurezza personalizzato invece che da Azure AD. Quando si configura la protezione CENC dinamica, la restrizione del servizio di distribuzione delle licenze specifica il tipo di token JWT, una chiave simmetrica o asimmetrica.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il controllo di accesso tramite l'autenticazione token: la progettazione e l'implementazione con Azure, Servizi multimediali e Media Player.
 
 * Sono state presentate informazioni di riferimento sulla progettazione contenente tutti i componenti necessari in un sottosistema DRM/CENC.

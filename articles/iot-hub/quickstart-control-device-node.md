@@ -1,5 +1,5 @@
 ---
-title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (Node.js) | Microsoft Docs
+title: 'Guida introduttiva: Controllare un dispositivo da Azure IoT (Node.js)'
 description: In questa guida introduttiva vengono eseguite due applicazioni Node.js di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 02/27/2019
-ms.openlocfilehash: 1fca4f6e3aacfee52f348f338806b98d6e61994b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: mvc, seo-javascript-september2019
+ms.date: 06/21/2019
+ms.openlocfilehash: ab064798d21dd6d6ba87f2f2d093dfc0849c1cb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006413"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967168"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Node.js)
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario avere Node.js v4.x.x o versione successiva nel computer di sviluppo.
+Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
 
 È possibile scaricare Node.js per più piattaforme da [nodejs.org](https://nodejs.org).
 
@@ -99,12 +99,12 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     Annotare la stringa di connessione del servizio, che avrà questo aspetto:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Il valore verrà usato più avanti in questa guida introduttiva. La stringa di connessione del servizio è diversa dalla stringa di connessione del dispositivo.
 
@@ -131,7 +131,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 ## <a name="call-the-direct-method"></a>Chiamare il metodo diretto
 
-L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione esegue chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e ascolta gli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
+L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
 
 1. In un'altra finestra del terminale locale passare alla cartella radice del progetto Node.js di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
 
@@ -146,7 +146,7 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
     node BackEndApplication.js
     ```
 
-    La schermata seguente mostra l'output mentre l'applicazione esegue una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
+    La schermata seguente mostra l'output visualizzato quando l'applicazione effettua una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
 
     ![Eseguire l'applicazione back-end](./media/quickstart-control-device-node/BackEndApplication.png)
 

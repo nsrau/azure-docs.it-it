@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-ms.translationtype: HT
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622915"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Archiviare segreti in un insieme di credenziali delle chiavi in Azure DevTest Labs
 Potrebbe essere necessario inserire un segreto complesso quando si usa Azure DevTest Labs: password per la macchina virtuale Windows, la chiave pubblica SSH per la macchina virtuale Linux o il token di accesso personale per clonare il repository Git tramite un artefatto. I segreti sono in genere lunghi e contengono caratteri casuali. Pertanto, l'immissione può essere difficile e poco pratica specialmente se si usa lo stesso segreto più volte.

@@ -13,31 +13,35 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012228"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741453"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
 
 
 > [!NOTE]
-> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [Introduzione alle query di log di monitoraggio di Azure](get-started-queries.md) prima di completare questa esercitazione.
+> Prima di completare questa esercitazione, è necessario completare l'introduzione a [monitoraggio di azure log Analytics](get-started-portal.md) e [iniziare a usare le query di log di monitoraggio di Azure](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Questo articolo descrive come modificare e confrontare le stringhe, eseguire ricerche al loro interno e svolgere numerose altre operazioni sulle stringhe.
 
-Ogni carattere in una stringa ha un numero di indice, in base alla relativa posizione. Il primo carattere si trova in corrispondenza dell'indice 0, il carattere successivo in corrispondenza dell'indice 1 e così via. Diverse funzioni di stringa usano i numeri di indice, come illustrato nelle sezioni seguenti. Molti degli esempi seguenti usano il comando **print** per illustrare la manipolazione della stringa senza usare un'origine dati specifica.
+Ogni carattere in una stringa ha un numero di indice, in base alla relativa posizione. Il primo carattere è in corrispondenza dell'indice 0, il carattere successivo è 1 e così via. Diverse funzioni di stringa usano i numeri di indice, come illustrato nelle sezioni seguenti. Molti degli esempi seguenti usano il comando **print** per illustrare la manipolazione della stringa senza usare un'origine dati specifica.
 
 
 ## <a name="strings-and-escaping-them"></a>Stringhe e caratteri di escape
-I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra rovesciata (\) viene usata come carattere di escape per il carattere successivo, ad esempio \t per tab \n per newline e \" per le virgolette.
+I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra\\rovesciata () viene usata per usare caratteri di escape per il carattere che lo segue, ad esempio \t per Tab \" , \n per la nuova riga e il carattere di virgolette.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 Per evitare che "\\" venga considerato come carattere di escape, aggiungere "\@" come prefisso per la stringa:
@@ -51,37 +55,37 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 operatore       |DESCRIZIONE                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Uguale a                              |Sì           |`"aBc" == "aBc"`
+`==`           |Equals                              |Sì           |`"aBc" == "aBc"`
 `!=`           |Non uguale a                          |Sì           |`"abc" != "ABC"`
-`=~`           |Uguale a                              |No             |`"abc" =~ "ABC"`
-`!~`           |Non uguale a                          |No             |`"aBc" !~ "xyz"`
-`has`          |La stringa a destra corrisponde a un termine completo a sinistra |No |`"North America" has "america"`
-`!has`         |La stringa a destra non corrisponde a un termine completo a sinistra       |No             |`"North America" !has "amer"` 
+`=~`           |Equals                              |No            |`"abc" =~ "ABC"`
+`!~`           |Non uguale a                          |No            |`"aBc" !~ "xyz"`
+`has`          |La stringa a destra corrisponde a un termine completo a sinistra |No|`"North America" has "america"`
+`!has`         |La stringa a destra non corrisponde a un termine completo a sinistra       |No            |`"North America" !has "amer"` 
 `has_cs`       |La stringa a destra corrisponde a un termine completo a sinistra |Sì|`"North America" has_cs "America"`
 `!has_cs`      |La stringa a destra non corrisponde a un termine completo a sinistra       |Sì            |`"North America" !has_cs "amer"` 
-`hasprefix`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |No             |`"North America" hasprefix "ame"`
-`!hasprefix`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |No             |`"North America" !hasprefix "mer"` 
+`hasprefix`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |No            |`"North America" hasprefix "ame"`
+`!hasprefix`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |No            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |Sì            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |Sì            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |No             |`"North America" hassuffix "ica"`
-`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No             |`"North America" !hassuffix "americ"`
+`hassuffix`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |No            |`"North America" hassuffix "ica"`
+`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |Sì            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Sì            |`"North America" !hassuffix_cs "icA"`
-`contains`     |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |No             |`"FabriKam" contains "BRik"`
-`!contains`    |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |No             |`"Fabrikam" !contains "xyz"`
+`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Yes            |`"North America" !hassuffix_cs "icA"`
+`contains`     |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |No            |`"FabriKam" contains "BRik"`
+`!contains`    |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |No            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |Sì           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |Sì           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|No             |`"Fabrikam" startswith "fab"`
-`!startswith`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|No         |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|Sì            |`"Fabrikam" startswith_cs "Fab"`
+`startswith`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|No            |`"Fabrikam" startswith "fab"`
+`!startswith`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|No        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|Yes            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|Sì        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|No              |`"Fabrikam" endswith "Kam"`
-`!endswith`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|No          |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Sì             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Sì         |`"Fabrikam" !endswith "brik"`
-`matches regex`|La stringa a sinistra contiene una corrispondenza per la stringa a destra        |Sì           |`"Fabrikam" matches regex "b.*k"`
+`endswith`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|No             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|No         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Yes             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Yes         |`"Fabrikam" !endswith "brik"`
+`matches regex`|La stringa a sinistra contiene una corrispondenza per la stringa a destra        |Yes           |`"Fabrikam" matches regex "b.*k"`
 `in`           |È uguale a uno degli elementi       |Sì           |`"abc" in ("123", "345", "abc")`
-`!in`          |Non è uguale a nessuno degli elementi   |Sì           |`"bca" !in ("123", "345", "abc")`
+`!in`          |Non è uguale a nessuno degli elementi   |Yes           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof
@@ -98,7 +102,7 @@ countof(text, search [, kind])
 - `search`: stringa di testo normale o espressione regolare di cui trovare la corrispondenza nel testo.
 - `kind` - _normal_ | _regex_ (valore predefinito: normal).
 
-### <a name="returns"></a>Restituisce
+### <a name="returns"></a>Risultati restituiti
 
 Il numero di volte in cui la stringa di ricerca può essere trovata nel contenitore. Le corrispondenze con stringhe di testo normale possono sovrapporsi, mentre quelle con espressioni regolari no.
 
@@ -125,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>extract
 
-Ottiene una corrispondenza per un'espressione regolare da una stringa specifica. Facoltativamente, converte anche la sottostringa estratta nel tipo indicato.
+Ottiene una corrispondenza per un'espressione regolare da una stringa specifica. Facoltativamente, converte anche la sottostringa estratta nel tipo specificato.
 
 ### <a name="syntax"></a>Sintassi
 
@@ -140,7 +144,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`: stringa da cercare.
 - `typeLiteral`: valore letterale di tipo facoltativo, ad esempio typeof(long). Se specificato, la sottostringa estratta viene convertita nel tipo.
 
-### <a name="returns"></a>Restituisce
+### <a name="returns"></a>Risultati restituiti
 La sottostringa corrispondente nel gruppo Capture indicato da captureGroup, facoltativamente convertita in typeLiteral.
 Se non ci sono corrispondenze o la conversione del tipo non riesce, restituisce null.
 

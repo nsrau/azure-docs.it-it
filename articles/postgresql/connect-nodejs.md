@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Database di Azure per PostgreSQL da Node.js
-description: Questa guida introduttiva fornisce un esempio di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL.
+title: Usare Node.js per connettersi a Database di Azure per PostgreSQL - Server singolo
+description: Questa guida introduttiva fornisce un esempio di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL - Server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 4c7f2f71ff302cbaa0aab66f97b93cb1c5b9e5e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 7e59e9b53143dcbea1c78f4c6131080ec8e9ea2c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541116"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966756"
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Node.js per connettersi ai dati ed eseguire query sui dati
+# <a name="azure-database-for-postgresql---single-server-use-nodejs-to-connect-and-query-data"></a>Database di Azure per PostgreSQL - Server singolo: usare Node.js per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [Node.js](https://nodejs.org/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per PostgreSQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -43,8 +43,8 @@ npm list
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
-3. Fare clic sul nome del server.
+2. Dal menu a sinistra nel portale di Azure scegliere **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Selezionare il nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
  ![Nome del server Database di Azure per PostgreSQL](./media/connect-nodejs/1-connection-string.png)
 

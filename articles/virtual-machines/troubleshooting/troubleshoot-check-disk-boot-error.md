@@ -4,21 +4,20 @@ description: Informazioni su come risolvere il problema del controllo del file s
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 839803c8cf54a85946e7134fdb6fe6be2da3dc4c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776445"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058086"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>All'avvio di una macchina virtuale di Azure viene indicato il controllo in corso del file system
 

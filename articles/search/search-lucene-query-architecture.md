@@ -1,21 +1,19 @@
 ---
 title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure
 description: Spiegazione dell'elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d377d6180f3d2d64f183ed574add3e7307e34fc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198828"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186548"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -54,7 +52,7 @@ Una richiesta di ricerca è una specifica completa di ciò che deve essere resti
 L'esempio seguente è una richiesta di ricerca che è possibile inviare a Ricerca di Azure tramite l'[API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2017-11-11 
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -281,14 +279,14 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| in |2
+| sì |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
 | costa | 2
 | spazioso | 1
 | il | 1, 2
-| to | 1
+| in | 1
 | view | 1, 2, 3
 | passeggiata | 1
 | con | 3
@@ -351,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Il documento 1 corrisponde alla query migliore poiché sia il termine *spazioso* sia la frase richiesta *vista sull'oceano* si verificano nel campo descrizione. I due documenti successivi corrispondono solo per la frase *vista sull'oceano*. È sorprendente constatare che il punteggio di pertinenza per i documenti 2 e 3 è diverso, anche se essi corrispondono alla query nello stesso modo. Ciò avviene perché la formula di assegnazione del punteggio include più componenti rispetto a TF/IDF. In questo caso al documento 3 è stato assegnato un punteggio leggermente maggiore perché la sua descrizione è più breve. Informazioni sulla [formula Lucene per il punteggio pratico](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) per comprendere in che modo la lunghezza del campo e altri fattori possono influenzare il punteggio di pertinenza.
+Il documento 1 corrisponde alla query migliore poiché sia il termine *spazioso* sia la frase richiesta *vista sull'oceano* si verificano nel campo descrizione. I due documenti successivi corrispondono solo per la frase *vista sull'oceano*. È sorprendente constatare che il punteggio di pertinenza per i documenti 2 e 3 è diverso, anche se essi corrispondono alla query nello stesso modo. Ciò avviene perché la formula di assegnazione del punteggio include più componenti rispetto a TF/IDF. In questo caso al documento 3 è stato assegnato un punteggio leggermente maggiore perché la sua descrizione è più breve. Informazioni sulla [formula Lucene per il punteggio pratico](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) per comprendere in che modo la lunghezza del campo e altri fattori possono influenzare il punteggio di pertinenza.
 
 Alcuni tipi di query (carattere jolly, prefisso, regex) contribuiscono sempre con un punteggio costante al punteggio complessivo del documento. Questo permette alle corrispondenze trovate tramite l'espansione della query di essere incluse nei risultati, ma senza modificare la classifica. 
 
@@ -362,7 +360,7 @@ Un esempio illustra il motivo per cui questo risulta importante. Le ricerche con
 Esistono due modi per ottimizzare i punteggi di pertinenza in Ricerca di Azure:
 
 1. I **profili di punteggio** promuovono i documenti nell'elenco di pertinenza dei risultati in base a un set di regole. Nel nostro esempio è possibile considerare i documenti che corrispondono al campo del titolo più rilevanti rispetto ai documenti corrispondenti al campo della descrizione. In aggiunta, se l'indice dispone di un campo prezzo per ogni albergo, è possibile promuovere i documenti con prezzo inferiore. Informazioni su come [ aggiungere profili di punteggio a un indice di ricerca](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
-2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. Nell'esempio, anziché cercare il prefisso *aria condizionata*\*, è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto si trovano in una posizione più alta applicando l'aumento della priorità alla query del termine: *aria condizionata^2||aria condizionata**. Altre informazioni sull'[aumento della priorità dei termini](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. Nell'esempio, anziché cercare il prefisso *aria condizionata*\*, è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto si trovano in una posizione più alta applicando l'aumento della priorità alla query del termine: *aria condizionata^2||aria condizionata* *. Altre informazioni sull'[aumento della priorità dei termini](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Assegnazione dei punteggi in un indice distribuito
@@ -373,7 +371,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 
@@ -393,9 +391,7 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
-+ [Fare un confronto affiancato degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) in questo sito Web demo. 
-
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

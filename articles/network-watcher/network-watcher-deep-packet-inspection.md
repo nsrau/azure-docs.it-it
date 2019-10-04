@@ -3,8 +3,8 @@ title: Ispezione dei pacchetti con Azure Network Watcher | Microsoft Docs
 description: Questo articolo descrive come usare Network Watcher per eseguire un'ispezione approfondita dei pacchetti raccolti da una VM
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64716910"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
 
@@ -41,7 +41,7 @@ In questo scenario:
 
 In questo scenario viene illustrato come visualizzare il tempo di round trip (RTT, Round Trip Time) di una conversazione TCP (Transmission Control Protocol) che avviene tra due endpoint.
 
-Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Passaggio 1
 

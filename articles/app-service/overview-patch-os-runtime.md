@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730553"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074122"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -37,7 +36,7 @@ Per motivi di sicurezza, alcuni dati relativi alle informazioni di sicurezza non
 
 Azure gestisce l'applicazione di patch del sistema operativo su due livelli, i server fisici e le macchine virtuali (VM) guest che eseguono le risorse del servizio app. In entrambi i casi l'aggiornamento avviene mensilmente, in linea con la pianificazione mensile per le [patch](https://technet.microsoft.com/security/bulletins.aspx). Questi aggiornamenti vengono applicati automaticamente in modo da garantire il contratto di servizio a disponibilità elevata di Azure. 
 
-Per informazioni dettagliate su come vengono applicati gli aggiornamenti, vedere [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/) (I segreti sugli aggiornamenti del sistema operativo del servizio app svelati).
+Per informazioni dettagliate su come vengono applicati gli aggiornamenti, vedere [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html) (I segreti sugli aggiornamenti del sistema operativo del servizio app svelati).
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Come vengono gestite in Azure le vulnerabilità significative?
 

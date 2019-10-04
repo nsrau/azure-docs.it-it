@@ -1,19 +1,19 @@
 ---
-title: Preparare le macchine di origine per installare il servizio Mobility tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
-description: Informazioni su come preparare il server per installare l'agente di mobilità tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
+title: Preparare i computer di origine per installare il servizio Mobility tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
+description: Informazioni su come preparare il server per l'installazione dell'agente di mobilità tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite il servizio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318189"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016361"
 ---
-# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente di mobilità
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente Mobility
 
 Quando si configura il ripristino di emergenza per VM VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), viene installato il [servizio Mobility di Site Recovery](vmware-physical-mobility-service-overview.md) in ogni VM VMware e server fisico locali.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery.
 
@@ -27,7 +27,7 @@ In ogni computer Windows da proteggere eseguire le operazioni seguenti:
     - Nella chiave del Registro di sistema HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System aggiungere un nuovo valore DWORD: **LocalAccountTokenFilterPolicy**. Impostare il valore su **1**.
     -  Per eseguire questa operazione in un prompt dei comandi, eseguire il comando seguente:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Nell'istanza di Windows Firewall del computer da proteggere selezionare **Allow an app or feature through Firewall** (Consenti app o funzionalità attraverso Firewall). Abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows (WMI)**. Per i computer appartenenti a un dominio, è possibile configurare le impostazioni del firewall con un oggetto Criteri di gruppo.
+3. Nell'istanza di Windows Firewall del computer da proteggere selezionare **Allow an app or feature through Firewall** (Consenti app o funzionalità attraverso Firewall). Abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows (WMI)** . Per i computer appartenenti a un dominio, è possibile configurare le impostazioni del firewall con un oggetto Criteri di gruppo.
 
    ![Impostazioni del firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 
@@ -66,6 +66,6 @@ Se nei computer da replicare è attivo e in esecuzione un software antivirus, as
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver installato il servizio Mobility, nel portale di Azure selezionare **+ Replica** per iniziare a proteggere le VM. Per altre informazioni sull'abilitazione della replica, vedere la sezione relativa a [macchine virtuali VMware(vmware-azure-enable-replication.md) e [server fisici](physical-azure-disaster-recovery.md#enable-replication).
+Dopo aver installato il servizio Mobility, nel portale di Azure selezionare **+ Replica** per iniziare a proteggere le VM. Altre informazioni sull'abilitazione della replica per le [macchine virtuali VMware](vmware-azure-enable-replication.md) e i [server fisici](physical-azure-disaster-recovery.md#enable-replication).
 
 

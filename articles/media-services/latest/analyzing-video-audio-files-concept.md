@@ -1,6 +1,6 @@
 ---
 title: Analisi di file video e audio con Servizi multimediali di Azure | Microsoft Docs
-description: Con Servizi multimediali di Azure è possibile analizzare contenuti audio e video usando AudioAnalyzerPreset e VideoAnalyzerPreset.
+description: Quando si usa servizi multimediali di Azure, è possibile analizzare il contenuto audio e video usando AudioAnalyzerPreset e VideoAnalyzerPreset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: bc4be8eaafe805e5d9a985b005efe80bc4af1d21
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352001"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177988"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
-Servizi multimediali di Azure v3 consente anche di estrarre informazioni dettagliate da file audio e video con Video Indexer tramite i set di impostazioni di analisi di Servizi multimediali di Azure v3 descritti in questo articolo. Per ottenere informazioni più dettagliate, usare direttamente Video Indexer. Per comprendere quando è opportuno usare Video Indexer invece dei set di impostazioni di analisi di Servizi multimediali, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Servizi multimediali di Azure v3 consente di estrarre informazioni dettagliate dai file audio e video con Video Indexer tramite i set di impostazioni di Media Services V3 Analyzer (descritti in questo articolo). Per ottenere informazioni più dettagliate, usare direttamente Video Indexer. Per comprendere quando è opportuno usare Video Indexer invece dei set di impostazioni di analisi di Servizi multimediali, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Per eseguire l'analisi con Servizi multimediali di Azure v3, si crea un oggetto **Transform** e si invia un oggetto **Job** che usa uno dei due set di impostazioni: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) o **AudioAnalyzerPreset**. L'articolo seguente illustra come usare **VideoAnalyzerPreset**: [Esercitazione: Analizzare i video con Servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
 
@@ -33,8 +33,9 @@ Attualmente Servizi multimediali supporta i set di impostazioni di analisi prede
 
 |**Nome set di impostazioni**|**Scenario**|**Dettagli**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Sono supportate le lingua: inglese ('en-US' e 'en-GB'), spagnolo ('es-ES' ed 'es-MX'), francese ('fr-FR'), italiano ('it-IT'), giapponese ('ja-JP'), portoghese ('pt-BR'), cinese ('zh-CN'), tedesco ('de-DE'), arabo ('ar-EG'), russo ('ru-RU'), hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se la lingua non è specificata o impostata su Null, il rilevamento automatico della lingua sceglierà la prima lingua rilevata e utilizzerà la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Attualmente non supporta il passaggio dinamico tra lingue dopo il rilevamento della prima lingua. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a individuare la lingua, la trascrizione tornerà all'inglese.|
-|**VideoAnalyzerPreset**|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Sono supportate le lingua: inglese ('en-US' e 'en-GB'), spagnolo ('es-ES' ed 'es-MX'), francese ('fr-FR'), italiano ('it-IT'), giapponese ('ja-JP'), portoghese ('pt-BR'), cinese ('zh-CN'), tedesco ('de-DE'), arabo ('ar-EG'), russo ('ru-RU'), hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se la lingua non è specificata o impostata su Null, il rilevamento automatico della lingua sceglierà la prima lingua rilevata e utilizzerà la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Attualmente non supporta il passaggio dinamico tra lingue dopo il rilevamento della prima lingua. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a individuare la lingua, la trascrizione tornerà all'inglese.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Rilevamento di tutti i visi presenti nel video|Descrive le impostazioni da utilizzare durante l'analisi di un video per rilevare tutti i visi presenti.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -61,11 +62,11 @@ L'output include un file in formato JSON (insights.json) con tutte le informazio
 
 ### <a name="transcript"></a>transcript
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
-|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|language|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
@@ -99,12 +100,12 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
+|language|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 
 ```json
@@ -142,7 +143,7 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del volto. Può essere 'Unknown #0', un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -154,7 +155,7 @@ Esempio:
 |referenceType|Attualmente solo Bing.|
 |title|Nel caso di un personaggio noto, la qualifica, ad esempio CEO Microsoft.|
 |imageUrl|Nel caso di un personaggio noto, l'URL della relativa immagine.|
-|instances|Istanze in cui è presente il volto nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
+|istanze|Istanze in cui è presente il volto nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -187,11 +188,11 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze. Le istanze dei fotogrammi chiave hanno un campo thumbnailId con l'ID anteprima del fotogramma chiave.|
-|instances|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
+|istanze|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
 
 ```json
 "Shots": [
@@ -244,7 +245,7 @@ Esempio:
 
 ### <a name="statistics"></a>statistics
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|
@@ -253,11 +254,11 @@ Esempio:
 |SpeakerTalkToListenRatio|Il calcolo è basato sul tempo impiegato per il monologo della voce (senza i periodi di silenzio intermedi) diviso per il tempo totale del video. Il tempo viene arrotondato alla terza posizione decimale.|
 
 
-### <a name="sentiments"></a>sentiments
+### <a name="sentiments"></a>sentiment
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -292,11 +293,11 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 ### <a name="labels"></a>Etichette
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|language|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
 |instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 
@@ -349,14 +350,14 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
   ] 
 ```
 
-### <a name="keywords"></a>keywords
+### <a name="keywords"></a>parole chiave
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|Linguaggio|Lingua della parola chiave, quando tradotta.|
+|language|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
@@ -402,12 +403,12 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|NOME|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
 |racyScore|Punteggio contenuti spinti (dalla moderazione del contenuto).|
-|instances|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
+|istanze|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
 
 ```json
 "VisualContentModeration": [

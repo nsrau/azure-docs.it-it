@@ -14,28 +14,33 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 149542965737b2703bc18e985bfaf4d90c8dab29
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575769"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709406"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida introduttiva: Creare un'app .NET Core con Configurazione app
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarla per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in un'app console .NET Core.
-
-Per completare i passaggi riportati in questo argomento di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app console .NET Core per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+
+    | Chiave | Valore |
+    |---|---|
+    | TestApp:Settings:Message | Dati di Configurazione app di Azure |
+
+    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
 ## <a name="create-a-net-core-console-app"></a>Creare un'app console .NET Core
 
@@ -43,7 +48,7 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
 1. Creare una nuova cartella per il progetto.
 
-2. Nella nuova cartella eseguire il comando seguente per creare un nuovo progetto di app Web ASP.NET Core MVC:
+2. Nella nuova cartella eseguire il comando seguente per creare un nuovo progetto di app console ASP.NET Core:
 
         dotnet new console
 
@@ -51,13 +56,13 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
 1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` eseguendo il comando seguente:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
 
 2. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
 
         dotnet restore
 
-3. Aprire *Program.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
+3. Aprire *Program.cs* e aggiungere un riferimento al provider di Configurazione app .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -99,8 +104,6 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
         dotnet run
 
-    ![Avvio rapido: esecuzione dell'app](./media/quickstarts/dotnet-core-app-run.png)
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
@@ -110,4 +113,4 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 In questo argomento di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con un'app console .NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
 
 > [!div class="nextstepaction"]
-> [Identità gestite per l'integrazione di risorse di Azure](./integrate-azure-managed-service-identity.md)
+> [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)

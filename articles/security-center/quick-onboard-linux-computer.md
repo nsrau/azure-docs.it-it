@@ -3,9 +3,8 @@ title: Guida introduttiva del Centro sicurezza di Azure - Caricare i computer Li
 description: Questa guida introduttiva illustra come caricare i computer Linux nel Centro sicurezza.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,18 +13,18 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: memildin
+ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521921"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202897"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
-Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente Linux.
+Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning di un agente. L'agente è denominato Microsoft Monitoring Agent (MMA), ma è anche noto come agente OMS.
 
-Questa guida introduttiva mostra come installare l'agente Linux in un computer Linux.
+Questo avvio rapido mostra come installare l'agente in un computer Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,7 +56,7 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
    ![Installare l'agente][5]
 
-I log per l'agente del Centro sicurezza per Linux sono reperibili in: */var/opt/microsoft/omsagent/\<workspace id>/log/*
+I log per l'agente sono reperibili in: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Log per agente][6]
 
@@ -82,7 +81,7 @@ Per rimuovere l'agente:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa Guida introduttiva è stato eseguito il provisioning dell'agente in un computer Linux. Per altre informazioni su come usare il Centro sicurezza, continuare l'esercitazione per configurare i criteri di sicurezza e valutare la sicurezza delle risorse.
+In questa guida di avvio rapido è stato effettuato il provisioning dell'agente in un computer Linux. Per altre informazioni su come usare il Centro sicurezza, continuare l'esercitazione per configurare i criteri di sicurezza e valutare la sicurezza delle risorse.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Definire e valutare i criteri di sicurezza](tutorial-security-policy.md)

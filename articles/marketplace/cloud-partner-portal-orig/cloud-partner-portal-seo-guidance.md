@@ -1,25 +1,18 @@
 ---
-title: Informazioni aggiuntive su Azure Marketplace SEO | Microsoft Docs
+title: Azure Marketplace SEO guidance
 description: Fornisce indicazioni sull'ottimizzazione dell'uso del motore di ricerca (SEO).
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935142"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO guidance
 

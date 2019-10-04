@@ -10,17 +10,16 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b13bc43595c09b3700798935f70c401c9311651c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820315"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070887"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -193,7 +192,7 @@ Anche in questo caso, le risorse annidate avranno una gerarchia molto simile a q
 Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il modello di gruppo di risorse in azuredeploy.json solo se è già stato effettuato il push di azuredeploy.json a GitHub. Azure .NET SDK fornisce anche gli strumenti per la distribuzione di qualsiasi file modello JSON direttamente dal computer locale. A questo scopo, eseguire la procedura seguente.
 
 1. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-2. Fare clic su **Visual C#** > **Cloud** > **Gruppo di risorse di Azure**, quindi su **OK**.
+2. Fare clic su **Visual C#**  > **Cloud** > **Gruppo di risorse di Azure**, quindi su **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. In **Seleziona modello di Azure** selezionare **Modello vuoto** e fare clic su **OK**.
@@ -254,7 +253,7 @@ L'ultimo passaggio viene eseguito facilmente da un cmdlet di PowerShell. Per ved
 
 L'ultimo cmdlet, `New-AzureResourceGroup`, è quello che esegue effettivamente l'azione. Tutto questo serve a dimostrare che con strumenti appropriati, distribuire l'applicazione cloud in modo prevedibile è relativamente semplice. Ogni volta che si esegue il cmdlet sullo stesso modello con lo stesso file di parametri si otterrà lo stesso risultato.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita della distribuzione di un'applicazione su vasta scala costituita da microservizi. In questa esercitazione è stata distribuita in Azure un'applicazione con due microservizi come singolo gruppo di risorse usando il modello di Gestione risorse di Azure. È auspicabile che si siano acquisite le conoscenze necessarie per iniziare a convertire l'applicazione in Azure in un modello, in modo da poterne effettuare il provisioning e distribuirla in modo prevedibile. 
 
 <a name="resources"></a>

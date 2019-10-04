@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882791"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Esercitazione: Integrazione di Azure Active Directory con AnswerHub
 
@@ -67,7 +67,7 @@ Per configurare l'integrazione di AnswerHub in Azure AD, è necessario aggiunger
 
 4. Nella casella di ricerca immettere **AnswerHub**. Selezionare **AnswerHub** nell'elenco risultati e quindi scegliere **Aggiungi**.
 
-     ![AnswerHub nell'elenco risultati](common/search-new-app.png)
+     ![AnswerHub nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -80,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con AnswerHub, è
 2. [Configurare l'accesso Single Sign-On per AnswerHub](#configure-answerhub-single-sign-on) per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) denominata Britta Simon.
 4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. [Creare un utente di test di AnswerHub](#create-answerhub-test-user) che corrisponde ed è collegato all'utente di test di Azure AD.
+5. Creare un utente di test di AnswerHub che corrisponde ed è collegato all'utente di test di Azure AD.
 6. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -112,7 +112,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD nel portale 
     > [!NOTE]
     > Poiché questi non sono i valori reali, Aggiornare questi valori con URL di accesso e identificatore effettivi. Per ottenere i valori, contattare il [team di supporto di AnswerHub](mailto:success@answerhub.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (Base64)**, in base ai propri requisiti, quindi salvare il certificato nel computer.
+5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (Base64)** , in base ai propri requisiti, quindi salvare il certificato nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -123,9 +123,9 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD nel portale 
    È possibile copiare questi URL:
     - URL di accesso
 
-    - Identificatore Azure AD
+    - Identificatore di Azure AD
 
-    - URL disconnessione
+    - URL di chiusura sessione
 
 ### <a name="configure-answerhub-single-sign-on"></a>Configurare l'accesso Single Sign-On per AnswerHub
 
@@ -160,11 +160,11 @@ In questa sezione viene configurato l'accesso Single Sign-On per AnswerHub.
 
     a. Aprire nel Blocco note il certificato con codifica Base64 scaricato dal portale di Azure e quindi incollarne il contenuto nella casella **IDP Public Key (x509 Format)** (Chiave pubblica IDP - formato x509).
   
-    b. Selezionare **Save** (Salva).
+    b. Selezionare **Salva**.
 
 6. Nella scheda **IDP Config** (Configurazione IDP) selezionare di nuovo **Save** (Salva).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
@@ -184,22 +184,22 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     a. Nella casella **Nome** immettere **BrittaSimon**.
   
-    b. Nella casella **Nome utente** immettere **brittasimon@<dominio.estensione>**.  
+    b. Nella casella **Nome utente** immettere **brittasimon\@<dominioazienda.estensione>** .  
     Ad esempio: BrittaSimon@contoso.com.
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si configura Britta Simon per l'uso dell'accesso Single Sign-On di Azure AD concedendole l'accesso ad AnswerHub.
+In questa sezione si configura l'utente di nome Britta Simon per l'uso dell'accesso AD Single Sign-On di Azure AD concedendole l'accesso ad AnswerHub.
 
 **Per assegnare l'utente di test di Azure AD:**
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **AnswerHub**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **AnswerHub**.
 

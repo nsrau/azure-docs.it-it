@@ -1,27 +1,27 @@
 ---
-title: Scambi di attestazioni API REST come convalida in Azure Active Directory B2C | Microsoft Docs
-description: Argomento sui criteri personalizzati di Azure Active Directory B2C.
+title: Scambi di attestazioni API REST come convalida in Azure Active Directory B2C
+description: Procedura dettagliata per la creazione di un percorso utente Azure AD B2C che interagisce con i servizi RESTful.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/24/2017
-ms.author: davidmu
+ms.date: 08/21/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b08c5e6f2bc7d7970c47e14db84f4172e92eb820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45fad1fab419c448febb3f3b760996fba278e154
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316868"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644963"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Il framework dell'esperienza di gestione delle identità alla base di Azure Active Directory B2C (Azure AD B2C) consente allo sviluppatore delle identità di integrare un'interazione con un'API RESTful in un percorso utente.  
+Il framework dell'esperienza di gestione delle identità alla base di Azure Active Directory B2C (Azure AD B2C) consente allo sviluppatore delle identità di integrare un'interazione con un'API RESTful in un percorso utente.
 
 Al termine di questa procedura dettagliata sarà possibile creare percorsi utente di Azure AD B2C che interagiscono con i servizi RESTful.
 
@@ -91,8 +91,10 @@ Un profilo tecnico è la configurazione completa dello scambio desiderato con il
             <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
             <Metadata>
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+                <Item Key="AuthenticationType">None</Item>
+                <!-- REMOVE the following line in production environments -->
                 <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
@@ -110,6 +112,8 @@ Un profilo tecnico è la configurazione completa dello scambio desiderato con il
 ```
 
 L'elemento `InputClaims` definisce le attestazioni che verranno inviate dal framework dell'esperienza di gestione delle identità al servizio REST. In questo esempio il contenuto dell'attestazione `givenName` verrà inviato al servizio REST come `playerTag`. In questo esempio, il framework dell'esperienza di gestione non prevede di ricevere attestazioni, ma attende una risposta dal servizio REST e agisce in base ai codici di stato ricevuti.
+
+I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [proteggere le API RESTful con](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) l'autenticazione di base e le [API RESTful sicure con l'autenticazione del certificato](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Passaggio 3: Includere lo scambio di attestazioni del servizio RESTful nel profilo tecnico autocertificato in cui si vuole convalidare l'input dell'utente
 
@@ -132,3 +136,10 @@ Per aggiungere lo scambio di attestazioni al profilo tecnico autocertificato:
 [Cambiare la modifica del profilo e la registrazione degli utenti per raccogliere informazioni dagli utenti](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
 [Walkthrough: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione](active-directory-b2c-rest-api-step-custom.md)
+
+[Informazioni di riferimento: Profilo tecnico RESTful](restful-technical-profile.md)
+
+Per informazioni su come proteggere le API, vedere gli articoli seguenti:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Proteggere l'API RESTful con l'atenticazione di base - nome utente e password)
+* [Proteggere l'API RESTful con certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

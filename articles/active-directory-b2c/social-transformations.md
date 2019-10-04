@@ -2,26 +2,26 @@
 title: Esempi di trasformazione di attestazioni dell'account di social networking per lo Schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni dell'account di social networking per lo Schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd4839e2c8ad6605a29f3c8b824375185384f78c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360368"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258158"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C, le identità di account social sono archiviate in un attributo `userIdentities` di tipo di attestazione **alternativeSecurityIdCollection**. Ogni elemento di **alternativeSecurityIdCollection** specifica l'autorità di certificazione (nome del provider di identità, ad esempio facebook.com) e il `issuerUserId`, ovvero un identificatore utente univoco per l'autorità di certificazione.
+In Azure Active Directory B2C (Azure ad B2C), le identità degli account di social networking vengono `userIdentities` archiviate in un attributo di un tipo di attestazione **alternativeSecurityIdCollection** . Ogni elemento di **alternativeSecurityIdCollection** specifica l'autorità di certificazione (nome del provider di identità, ad esempio facebook.com) e il `issuerUserId`, ovvero un identificatore utente univoco per l'autorità di certificazione.
 
 ```JSON
 "userIdentities": [{
@@ -38,20 +38,20 @@ L'articolo fornisce esempi per l'uso delle trasformazioni di attestazioni dell'a
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per altre informazioni, vedere [Schema di AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
+Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per altre informazioni, vedere [Schema di AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type).
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | stringa | Il tipo di attestazione che specifica lo UID univoco usato dal provider di identità di social networking. |
-| InputClaim | identityProvider | stringa | Il tipo di attestazione che specifica il nome del provider di identità dell'account di social networking, ad esempio facebook.com. |
-| OutputClaim | alternativeSecurityId | stringa | Il tipo di attestazione generato dopo che ClaimsTransformation è stato richiamato. Contiene informazioni sull'identità di un utente con account social. Il valore **autorità di certificazione** è il valore dell'attestazione `identityProvider`. Il valore **issuerUserId** è il valore dell'attestazione `key` nel formato base64. |
+| InputClaim | chiave | string | Il tipo di attestazione che specifica lo UID univoco usato dal provider di identità di social networking. |
+| InputClaim | identityProvider | string | Il tipo di attestazione che specifica il nome del provider di identità dell'account di social networking, ad esempio facebook.com. |
+| OutputClaim | alternativeSecurityId | string | Il tipo di attestazione generato dopo che ClaimsTransformation è stato richiamato. Contiene informazioni sull'identità di un utente con account social. Il valore **autorità di certificazione** è il valore dell'attestazione `identityProvider`. Il valore **issuerUserId** è il valore dell'attestazione `key` nel formato base64. |
 
 Usare questa trasformazione delle attestazioni per generare un tipo di attestazione `alternativeSecurityId`. Viene usato da tutti i profili tecnici di provider di identità di social networking, ad esempio `Facebook-OAUTH`. La trasformazione delle attestazioni seguente riceve l'ID dell'account di social networking dell'utente e il nome del provider di identità. L'output del profilo tecnico è un formato di stringa JSON che può essere usato nei servizi di directory di Azure AD.
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>
@@ -74,7 +74,7 @@ Aggiunge un `AlternativeSecurityId` a un'attestazione `alternativeSecurityIdColl
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | stringa | Il ClaimType da aggiungere all'attestazione di output. |
+| InputClaim | elemento | string | Il ClaimType da aggiungere all'attestazione di output. |
 | InputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione che vengono usati dalla trasformazione delle attestazioni, se disponibili nei criteri. Se specificato, la trasformazione delle attestazioni aggiunge il `item` alla fine della raccolta. |
 | OutputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. La nuova raccolta che contiene sia gli elementi dell'input `collection` che `item`. |
 
@@ -138,7 +138,7 @@ Rimuove un **AlternativeSecurityId** dall'attestazione **alternativeSecurityIdCo
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | stringa | Il tipo di attestazione che contiene il nome del provider di identità da rimuovere dalla raccolta. |
+| InputClaim | identityProvider | string | Il tipo di attestazione che contiene il nome del provider di identità da rimuovere dalla raccolta. |
 | InputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione che vengono usati dalla trasformazione delle attestazioni. La trasformazione delle attestazioni rimuove il provider di identità dalla raccolta. |
 | OutputClaim | raccolta | alternativeSecurityIdCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. La nuova raccolta, dopo che il provider di identità è rimosso dalla raccolta. |
 

@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122782"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con il portale di Azure
 

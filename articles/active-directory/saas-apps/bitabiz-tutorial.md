@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e52b5478bc4b483b793f155eab2f41246552d49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Esercitazione: Integrazione di Azure Active Directory con BitaBIZ
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con BitaBIZ, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per BitaBIZ](#configure-bitabiz-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di BitaBIZ](#create-bitabiz-test-user)**: per avere una controparte di Britta Simon in BitaBIZ collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per BitaBIZ](#configure-bitabiz-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di BitaBIZ](#create-bitabiz-test-user)** : per avere una controparte di Britta Simon in BitaBIZ collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BitaBIZ, seguire questa
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di BitaBIZ](common/idp-identifier.png)
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BitaBIZ, seguire questa
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://www.bitabiz.com/dashboard`
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BitaBIZ, seguire questa
 
     c. Nella casella di testo **Azure AD SAML Entity ID** (ID entità SAML Azure AD) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    d. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma di Azure AD (con codifica Base64)**.
+    d. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma di Azure AD (con codifica Base64)** .
 
     e. Aggiungere il nome di dominio della posta elettronica aziendale, ovvero nome azienda.com nella casella di testo **Nome di dominio** per assegnare agli utenti nell'azienda il dominio di posta elettronica SSO (NON OBBLIGATORIO).
 
@@ -160,9 +160,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con BitaBIZ, seguire questa
 
     g. Fare clic su **Save Azure AD configuration** (Salva configurazione Azure AD) per salvare e attivare la configurazione di SSO.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -185,7 +185,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BitaBIZ.
 

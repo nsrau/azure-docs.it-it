@@ -3,7 +3,7 @@ title: Creare un cluster di Service Fabric che esegue Windows in Azure | Microso
 description: In questa esercitazione si apprenderà come usare PowerShell per distribuire un cluster di Service Fabric che segue Windows in una rete virtuale di Azure e in un gruppo di sicurezza di rete.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050007"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598884"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -72,7 +72,7 @@ Scaricare i file del modello di Azure Resource Manager seguenti:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodi in una rete virtuale e un gruppo di sicurezza di rete.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [azuredeploy.json][template] distribuisce alcune risorse, incluse le seguenti.
+Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodi in una rete virtuale e un gruppo di sicurezza di rete.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [azuredeploy.json][template] distribuisce varie risorse, incluse le seguenti.
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
@@ -183,7 +183,7 @@ Per semplificare la procedura di configurazione di Azure AD con un cluster di Se
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creare applicazioni Azure AD e assegnare gli utenti ai ruoli
 Creare due applicazioni Azure AD per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
 
-Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri. Specificare i nomi utente e le password per gli utenti. Ad esempio: 
+Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri. Specificare i nomi utente e le password per gli utenti. Ad esempio:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -260,7 +260,7 @@ In [azuredeploy.json][template] configurare Azure AD nella sezione **Microsoft.S
 }
 ```
 
-Aggiungere i valori dei parametri nel file dei parametri [azuredeploy.parameters.json][parameters]. Ad esempio: 
+Aggiungere i valori dei parametri nel file dei parametri [azuredeploy.parameters.json][parameters]. Ad esempio:
 
 ```json
 "aadTenantId": {
@@ -280,7 +280,7 @@ Quando si esegue un cluster di Service Fabric, è consigliabile raccogliere i lo
 
 Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi, ad esempio i log di Monitoraggio di Azure o un'altra soluzione di analisi dei log.
 
-Se si segue questa esercitazione, la raccolta di diagnostica è già configurata nel [modello][template].
+Se si segue questa esercitazione, la raccolta dei dati di diagnostica è già configurata nel [modello][template].
 
 Se in un cluster esistente non è stata distribuita l'estensione Diagnostica, è possibile aggiungerla o aggiornarla tramite il modello del cluster. Modificare il modello di Resource Manager usato per creare il cluster esistente o scaricare il modello dal portale. Modificare il file template.json eseguendo le attività seguenti:
 

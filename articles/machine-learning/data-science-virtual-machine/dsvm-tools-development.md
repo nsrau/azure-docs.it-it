@@ -1,102 +1,97 @@
 ---
-title: Strumenti di sviluppo della macchina virtuale per data science in Azure | Microsoft Docs
-description: Informazioni su strumenti e ambienti di sviluppo integrato preinstallati in Data Science Virtual Machine.
+title: Strumenti di sviluppo
+titleSuffix: Azure Data Science Virtual Machine
+description: Informazioni sugli strumenti e gli ambienti di sviluppo integrati disponibili nell'Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ff4d92cb3730716c532332bf426132fcbb8e122
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502300"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191960"
 ---
-# <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
+# <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Strumenti di sviluppo nel Data Science Virtual Machine di Azure
 
-La macchina virtuale per data science offre un ambiente di produzione per lo sviluppo, raggruppando diversi strumenti e IDE comuni. Ecco alcuni strumenti offerti dalla macchina virtuale per data science. 
+Il Data Science Virtual Machine (DSVM) raggruppa diversi strumenti diffusi in un ambiente IDE (highly produttivi Integrated Development Environment). Ecco alcuni strumenti offerti dalla macchina virtuale per data science.
 
-## <a name="visual-studio-2017"></a>Visual Studio 2017  
+## <a name="visual-studio-2019"></a>Visual Studio 2019  
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE di uso generale      |
-| Versioni supportate della macchina virtuale per data science      | Windows      |
+| Che cos'è?   | IDE per utilizzo generico      |
+| Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Sviluppo di software    |
-| Come viene configurata o installata sulla macchina virtuale per data science?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| Strumenti correlati nella macchina virtuale per data science      |     Visual Studio Code, RStudio, Juno  |
+| Come viene configurato e installato in DSVM?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`()    |
+| Strumenti correlati in DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE di uso generale      |
-| Versioni supportate della macchina virtuale per data science      | Windows, Linux     |
+| Che cos'è?   | IDE per utilizzo generico      |
+| Versioni di DSVM supportate      | Windows, Linux     |
 | Usi tipici      | Editor di codice e integrazione di Git   |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, collegamento sul desktop o terminale (`code`) in Linux    |
-| Strumenti correlati nella macchina virtuale per data science      |     Visual Studio 2017, RStudio, Juno  |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files (x86)\Microsoft VS Code\Code.exe`() in Windows, collegamento al desktop o`code`terminale () in Linux    |
+| Strumenti correlati in DSVM      |     Visual Studio 2019, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Client IDE per R    |
-| Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
+| Che cos'è?   | IDE client per il linguaggio R   |
+| Versioni di DSVM supportate      | Windows, Linux      |
 | Usi tipici      |  Sviluppo R     |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, collegamento sul desktop (`/usr/bin/rstudio`) in Linux      |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files\RStudio\bin\rstudio.exe`() in Windows, collegamento sul`/usr/bin/rstudio`desktop () in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
 
 |    |           |
 | ------------- | ------------- |
+| Che cos'è?   | IDE client per il linguaggio R   |
 | Che cos'è?   | IDE basato sul Web per R    |
-| Versioni supportate della macchina virtuale per data science      | Linux      |
+| Versioni di DSVM supportate      | Linux      |
 | Usi tipici      |  Sviluppo R     |
-| Come usarla o eseguirla?      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl start rstudio-server_. È quindi possibile accedere a RStudio Server http:\// i-vm-ip:8787.       |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
+| Come usarlo ed eseguirlo      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl Start rstudio-server_. Quindi accedere a rstudio server all'indirizzo http:\//your-VM-IP: 8787.       |
+| Strumenti correlati in DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Julia   |
-| Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
+| Versioni di DSVM supportate      | Windows, Linux      |
 | Usi tipici      |  Sviluppo di Julia     |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\JuliaPro-0.5.1.1\Juno.bat`) in Windows, collegamento sul desktop (`/opt/JuliaPro-VERSION/Juno`) in Linux      |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\JuliaPro-0.5.1.1\Juno.bat`() in Windows, collegamento sul`/opt/JuliaPro-VERSION/Juno`desktop () in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Python    |
-| Versioni supportate della macchina virtuale per data science      | Linux      |
+| Versioni di DSVM supportate      | Linux      |
 | Usi tipici      |  Sviluppo Python     |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`/usr/bin/pycharm`) in Linux      |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`/usr/bin/pycharm`() in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
-| Versioni supportate della macchina virtuale per data science      | Windows  |
+| Che cos'è?   | Visualizzazione interattiva dei dati e strumento BI    |
+| Versioni di DSVM supportate      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
-| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`()      |
+| Strumenti correlati in DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

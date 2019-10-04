@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Risoluzione dei problemi di collaborazione B2B-Azure Active Directory | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -7,38 +7,37 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+author: v-miegge
+manager: celestedg
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412405"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983405"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
 Questo articolo illustra come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory (Azure AD).
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>L'utente esterno aggiunto non viene visualizzato nella rubrica globale o nella selezione utenti
 
 Nei casi in cui gli utenti esterni non vengono inseriti nell'elenco, potrebbero essere necessari alcuni minuti per la replica dell'oggetto.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utente guest B2B non compare nella selezione utenti di SharePoint Online/OneDrive 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utente guest B2B non compare nella selezione utenti di SharePoint Online/OneDrive
+
 La possibilità di cercare gli utenti guest esistenti nella selezione utenti di SharePoint Online è disattivata per impostazione predefinita per corrispondenza con il comportamento legacy.
 
 È possibile abilitare questa funzionalità usando l'impostazione "ShowPeoplePickerSuggestionsForGuestUsers" a livello di tenant e di raccolta siti. Può essere impostata con i cmdlet Set-SPOTenant e Set-SPOSite, che consentono ai membri di cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SPO di cui si è già stato eseguito il provisioning.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Gli inviti sono stati disabilitati per la directory
 
-Se si riceve una notifica che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni in Impostazioni utente:
+Se si riceve una notifica che non si dispone delle autorizzazioni per invitare gli utenti, verificare che l'account utente sia autorizzato a invitare gli utenti esterni in Azure Active Directory > impostazioni utente > utenti esterni > gestire le impostazioni di collaborazione esterna:
 
-![Screenshot che mostra le impostazioni di utenti esterni](media/troubleshoot/external-user-settings.png)
+![Screenshot che mostra le impostazioni degli utenti esterni](media/troubleshoot/external-user-settings.png)
 
 Se di recente sono state modificate queste impostazioni o è stato assegnato il ruolo Mittente dell'invito guest a un utente, potrebbero essere necessari 15-60 minuti perché le modifiche abbiano effetto.
 
@@ -50,7 +49,7 @@ Di seguito sono riportati gli errori più comuni.
 
 Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) su come consentire gli utenti verificati tramite posta elettronica).
 
-![Errore che indica che il tenant non consente l'indirizzo di posta elettronica gli utenti verificati](media/troubleshoot/allow-email-verified-users.png)
+![Errore indicante che il tenant non consente utenti verificati tramite posta elettronica](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utente esterno non esiste già in un dominio federato
 
@@ -79,10 +78,20 @@ Per garantire la conformità alle leggi sulla privacy, le API non includono mess
 
 Se questo scenario è importante per l'utente, è possibile eliminare il messaggio di posta elettronica di invito dell'API e inviarlo tramite il meccanismo di posta elettronica preferito. Richiedere al consulente legale della propria organizzazione di verificare che qualsiasi messaggio di posta elettronica inviato in questo modo sia conforme alle leggi sulla privacy.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Viene visualizzato un errore "AADSTS65005" quando si prova ad accedere a una risorsa di Azure
+
+Un utente che dispone di un account Guest non può accedere e riceve il messaggio di errore seguente:
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+L'utente dispone di un account utente di Azure ed è un tenant virale che è stato abbandonato o non gestito. Inoltre, nel tenant non sono presenti amministratori globali o aziendali.
+
+Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a [una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utente guest con un tenant JIT o "virale" non può reimpostare la password
 
 Se il tenant dell'identità è un tenant JIT o virale (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere assistenza per Collaborazione B2B](get-support.md)
+[Ottenere assistenza per Collaborazione B2B](get-support.md)

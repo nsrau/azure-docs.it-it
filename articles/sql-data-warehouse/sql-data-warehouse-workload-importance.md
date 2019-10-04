@@ -1,28 +1,25 @@
 ---
-title: Importanza del carico di lavoro | Microsoft Docs
+title: Importanza di carico di lavoro Azure SQL Data Warehouse | Microsoft Docs
 description: Linee guida per l'impostazione di priorità per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 03/13/2019
+ms.subservice: workload-management
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616629"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595418"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>Importanza del carico di lavoro di SQL Data Warehouse (anteprima)
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Importanza di carico di lavoro Azure SQL Data Warehouse
 
 Questo articolo illustra come priorità del carico di lavoro possono influenzare l'ordine di esecuzione per le richieste di SQL Data Warehouse.
-
-> [!Note]
-> La classificazione del carico di lavoro è disponibile in anteprima in SQL Data Warehouse Gen2. Anteprima carico di lavoro gestione classificazione e priorità è per le compilazioni con una data di rilascio di 9 aprile 2019 o versione successiva.  Gli utenti consigliabile evitare di usare le compilazioni precedenti a tale data per il test di carico di lavoro gestione.  Per determinare se la compilazione è in grado di gestione del carico di lavoro, eseguire select @@version quando si è connessi all'istanza di SQL Data Warehouse.
 
 ## <a name="importance"></a>priorità
 
@@ -64,4 +61,8 @@ Poiché mediumrc (domanda 5), richiede due slot di concorrenza.  (Domanda 5) dev
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse, vedere [classificazione del carico di lavoro di SQL Data Warehouse](sql-data-warehouse-workload-classification.md) e [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
+- Per altre informazioni sulla creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse, vedere [carico di lavoro classificazione](sql-data-warehouse-workload-classification.md).  
+- Vedere la Guida introduttiva [creare carichi di lavoro classificatore](quickstart-create-a-workload-classifier-tsql.md) per informazioni su come creare un classificatore di carico di lavoro.
+- Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

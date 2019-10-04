@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66128341"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -58,7 +58,7 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application**(Registra applicazione):
 
-    | Nome impostazione | Valore consigliato | DESCRIZIONE |
+    | Nome impostazione | Valore consigliato | Descrizione |
     | ------------ | --------------- | ----------- |
     | Nome dell'applicazione | *Chat Azure SignalR* | L'utente di GitHub deve essere in grado di riconoscere e considerare attendibile l'app con cui sta eseguendo l'autenticazione.   |
     | URL della home page | `http://localhost:5000/home` | |
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | -------------------- | --------------- |
 | GitHubClientId | Assegnare a questa variabile l'ID client segreto per l'app OAuth di GitHub. |
 | GitHubClientSecret | Assegnare a questa variabile la password segreta per l'app OAuth di GitHub. |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | -------------------- | --------------- |
 | DeploymentUserName | Scegliere un nuovo nome utente di distribuzione. |
 | DeploymentUserPassword | Scegliere una password per il nuovo utente di distribuzione. |

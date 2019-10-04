@@ -1,6 +1,6 @@
 ---
 title: Testare l'app LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ottenere una risposta di finalità ed entità riconosciute da LUIS.
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789538"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619791"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test di espressioni di esempio in LUIS
 
@@ -46,7 +46,7 @@ Tutti i test con endpoint vengono conteggiati ai fini della quota di utilizzo.
 Se si esegue il test rispetto a un endpoint e non si desidera registrare l'espressione, ricordarsi di usare la configurazione della stringa di query `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Dove trovare le espressioni
-LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina dell'elenco di [App](luis-reference-regions.md) del sito Web **LUIS** e le [API di creazione](https://aka.ms/luis-authoring-apis) LUIS. 
+LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina dell'elenco di [App](luis-reference-regions.md) del sito Web **LUIS** e le [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
 
 Tutte le espressioni di cui LUIS non è sicuro sono elencate nella pagina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Esamina espressioni endpoint) del sito Web [LUIS](luis-reference-regions.md). 
 

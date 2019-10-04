@@ -3,19 +3,18 @@ title: Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: Vengono descritti i processi che spazi di sviluppo di Azure power e come vengono configurate nel file di configurazione azds.yaml
 keywords: azds.yaml, Azure Dev spazi Dev, Docker, Kubernetes, Azure, AKS, contenitori di Azure Kubernetes Service
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544924"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670827"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 
@@ -29,7 +28,7 @@ Questo articolo descrive i processi che spazi di sviluppo di Azure power e come 
 
 * [Java con Visual Studio Code e CLI](quickstart-java.md)
 * [.NET core con Visual Studio Code e CLI](quickstart-netcore.md)
-* [.NET core con Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core con Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node. js con Visual Studio Code e CLI](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Come funziona Azure Dev spazi
@@ -66,7 +65,7 @@ Mentre l'applicazione è in esecuzione, del lato client, anche gli strumenti:
 È possibile usare il lato client degli strumenti da riga di comando come parte di `azds` comando. È anche possibile usare il lato client degli strumenti con:
 
 * Visual Studio Code usando il [estensione Azure Dev spazi](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 con [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio con [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools).
 
 Ecco il flusso di base per la configurazione e uso di spazi di sviluppo di Azure:
 1. Preparare il cluster AKS per spazi di sviluppo di Azure
@@ -80,7 +79,7 @@ Illustreremo altri dettagli del funzionamento di spazi di sviluppo di Azure in o
 ## <a name="prepare-your-aks-cluster"></a>Preparare il cluster AKS
 
 Preparazione del cluster AKS include:
-* Verifica per determinare se il servizio contenitore di AZURE cluster si trovi in un'area [supportati da Azure Dev spazi](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifica per determinare se il servizio contenitore di AZURE cluster si trovi in un'area [supportati da Azure Dev spazi][supported-regions].
 * Verifica per determinare se si esegue Kubernetes 1.10.3 o versione successiva.
 * L'abilitazione di spazi di sviluppo di Azure nel cluster usando `az aks use-dev-spaces`
 
@@ -210,7 +209,7 @@ Il `up` comando Carica i file di origine dell'applicazione e altri elementi nece
 1. Compila il contenitore per l'applicazione.
 1. Consente di distribuire l'applicazione per lo spazio di sviluppo.
 1. Crea un nome DNS accessibile pubblicamente per l'endpoint dell'applicazione se configurato.
-1. Viene utilizzato *porta-forward* per fornire l'accesso all'endpoint di applicazione usando http://locahost.
+1. Viene utilizzato *porta-forward* per fornire l'accesso all'endpoint di applicazione usando http://localhost.
 1. Inoltra stdout e stderr per gli strumenti lato client.
 
 
@@ -278,7 +277,7 @@ Quando viene effettuata una richiesta HTTP a un servizio dall'esterno del cluste
 
 Quando viene effettuata una richiesta HTTP a un servizio da un altro servizio all'interno del cluster, la richiesta passa innanzitutto attraverso contenitore devspaces proxy del servizio chiamata. Il contenitore devspaces proxy esamina la richiesta HTTP e verifica il `azds-route-as` intestazione. In base all'intestazione, il contenitore per il proxy devspaces cercherà l'indirizzo IP del servizio associato al valore di intestazione. Se viene trovato un indirizzo IP, il contenitore devspaces proxy reindirizza la richiesta a tale indirizzo IP. Se non viene trovato un indirizzo IP, il contenitore per il proxy devspaces instrada la richiesta al contenitore dell'applicazione padre.
 
-Ad esempio, le applicazioni *serviceA* e *serviceB* vengono distribuite in uno spazio di sviluppo padre denominato *predefinito*. *serviceA* basa *serviceB* ed effettua chiamate HTTP a esso. Utente di Azure crea uno spazio di sviluppo figlio in base il *predefinite* chiamato spazio *azureuser*. Utente di Azure distribuisce anche la propria versione di *serviceA* al proprio spazio figlio. Quando viene effettuata una richiesta al *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Ad esempio, le applicazioni *serviceA* e *serviceB* vengono distribuite in uno spazio di sviluppo padre denominato *predefinito*. *serviceA* basa *serviceB* ed effettua chiamate HTTP a esso. Utente di Azure crea uno spazio di sviluppo figlio in base il *predefinite* chiamato spazio *azureuser*. Utente di Azure distribuisce anche la propria versione di *serviceA* al proprio spazio figlio. Quando viene effettuata una richiesta al *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Spazi di sviluppo Azure routing](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +336,13 @@ Il *install.set* proprietà consente di configurare uno o più valori da sostitu
 
 Nell'esempio precedente, il *install.set.replicaCount* proprietà indica il controller di quante istanze dell'applicazione per l'esecuzione nello spazio di sviluppo. A seconda dello scenario, è possibile aumentare questo valore, ma avrà un impatto sulle allegare un debugger al pod dell'applicazione. Per altre informazioni, vedere la [risoluzione dei problemi di articolo](troubleshooting.md).
 
-Nel grafico Helm generato, l'immagine del contenitore è impostata su *{{. Values.Image.repository}} :{{. Values.Image.tag}}*. Il `azds.yaml` file definisce *install.set.image.tag* la proprietà *$(tag)* per impostazione predefinita, che viene usato come valore per *{{. Values.Image.tag}}*. Impostando il *install.set.image.tag* proprietà in questo modo, consente l'immagine del contenitore per l'applicazione deve essere contrassegnato in modo distinto durante l'esecuzione di spazi di sviluppo di Azure. In questo caso specifico, l'immagine viene contrassegnato come  *<value from image.repository>: $(tag)*. È necessario usare il *$(tag)* variabile come valore di *install.set.image.tag* affinché Dev spazi riconoscere e individuare il contenitore nel cluster AKS.
+Nel grafico Helm generato, l'immagine del contenitore è impostata su *{{. Values.Image.repository}} :{{. Values.Image.tag}}* . Il `azds.yaml` file definisce *install.set.image.tag* la proprietà *$(tag)* per impostazione predefinita, che viene usato come valore per *{{. Values.Image.tag}}* . Impostando il *install.set.image.tag* proprietà in questo modo, consente l'immagine del contenitore per l'applicazione deve essere contrassegnato in modo distinto durante l'esecuzione di spazi di sviluppo di Azure. In questo caso specifico, l'immagine viene contrassegnato come  *\<valore image.repository >: $(tag)* . È necessario usare il *$(tag)* variabile come valore di *install.set.image.tag* affinché Dev spazi riconoscere e individuare il contenitore nel cluster AKS.
 
-Nell'esempio sopra riportato `azds.yaml` definisce *install.set.ingress.hosts*. Il *install.set.ingress.hosts* proprietà definisce un formato di nome host per gli endpoint pubblici. Questa proprietà Usa anche *$(spacePrefix)*, *$(rootSpacePrefix)*, e *$(hostSuffix)*, quali sono i valori forniti dal controller. 
+Nell'esempio sopra riportato `azds.yaml` definisce *install.set.ingress.hosts*. Il *install.set.ingress.hosts* proprietà definisce un formato di nome host per gli endpoint pubblici. Questa proprietà Usa anche *$(spacePrefix)* , *$(rootSpacePrefix)* , e *$(hostSuffix)* , quali sono i valori forniti dal controller. 
 
 Il *$(spacePrefix)* è il nome dello spazio di sviluppo figlio, che assume la forma *SPACENAME.s*. Il *$(rootSpacePrefix)* è il nome dello spazio padre. Ad esempio, se *azureuser* tratta un figlio dello spazio degli *predefinita*, il valore di *$(rootSpacePrefix)* è *predefinito* e il valore di *$(spacePrefix)* viene *azureuser.s*. Se lo spazio non è uno spazio, figlio *$(spacePrefix)* è vuoto. Ad esempio, se il *predefinito* spazio non dispone di alcun spazio padre, il valore per *$(rootSpacePrefix)* viene *predefinito* e il valore di *$(spacePrefix)* è vuoto. Il *$(hostSuffix)* è un suffisso DNS che punta al controller in ingresso Dev spazi per Azure che viene eseguito nel cluster AKS. Questo suffisso DNS corrisponde a una voce DNS con caratteri jolly, ad esempio  *\*. RANDOM_VALUE.EUS.azds.IO*, che è stata creata quando è stato aggiunto il controller di spazi di sviluppo di Azure nel cluster AKS.
 
-Nell'esempio precedente `azds.yaml` file, è anche possibile aggiornare *install.set.ingress.hosts* per modificare il nome host dell'applicazione. Ad esempio, se si vuole semplificare il nome host dell'applicazione tra *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* a *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+Nell'esempio precedente `azds.yaml` file, è anche possibile aggiornare *install.set.ingress.hosts* per modificare il nome host dell'applicazione. Ad esempio, se si vuole semplificare il nome host dell'applicazione tra *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* a *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Per creare il contenitore per l'applicazione, il controller Usa il sotto le sezioni del `azds.yaml` file di configurazione:
 
@@ -404,11 +403,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>Il debug del codice
 
-Per le applicazioni Java, .NET e Node. js, è possibile eseguire il debug dell'applicazione in esecuzione direttamente nello spazio di sviluppo con Visual Studio Code o Visual Studio 2017. Visual Studio Code e Visual Studio 2017 fornisce strumenti per la connessione all'area di sviluppo, avviare l'applicazione e collegare un debugger. Dopo aver eseguito `azds prep`, è possibile aprire il progetto in Visual Studio Code o Visual Studio 2017. Visual Studio Code o Visual Studio 2017 genera i propri file di configurazione per la connessione che si distinguono dalle esecuzione `azds prep`. All'interno di Visual Studio Code o Visual Studio 2017, è possibile impostare punti di interruzione e avviare l'applicazione nello spazio di sviluppo.
+Per le applicazioni Java, .NET e Node. js, è possibile eseguire il debug dell'applicazione in esecuzione direttamente nello spazio di sviluppo usando Visual Studio Code o Visual Studio. Visual Studio Code e Visual Studio fornisce strumenti per la connessione all'area di sviluppo, avviare l'applicazione e collegare un debugger. Dopo aver eseguito `azds prep`, è possibile aprire il progetto in Visual Studio Code o Visual Studio. Visual Studio Code o Visual Studio genera i propri file di configurazione per la connessione che si distinguono dalle esecuzione `azds prep`. All'interno di Visual Studio Code o Visual Studio, è possibile impostare punti di interruzione e avviare l'applicazione nello spazio di sviluppo.
 
 ![Debug del codice](media/get-started-node/debug-configuration-nodejs2.png)
 
-Quando si avvia l'applicazione usando Visual Studio Code o Visual Studio 2017 per il debug, gestiscono l'avvio e la connessione all'area di sviluppo nello stesso modo come in esecuzione `azds up`. Gli strumenti lato client in Visual Studio Code e Visual Studio 2017 forniscono anche un parametro aggiuntivo con informazioni specifiche per il debug. Il parametro contiene il nome dell'immagine del debugger, il percorso del debugger nell'immagine del debugger e l'indirizzo di destinazione nel contenitore dell'applicazione per montare la cartella di debugger. 
+Quando si avvia l'applicazione usando Visual Studio Code o Visual Studio per eseguire il debug, gestiscono l'avvio e la connessione all'area di sviluppo nello stesso modo come in esecuzione `azds up`. Gli strumenti lato client in Visual Studio Code e Visual Studio forniscono anche un parametro aggiuntivo con informazioni specifiche per il debug. Il parametro contiene il nome dell'immagine del debugger, il percorso del debugger nell'immagine del debugger e l'indirizzo di destinazione nel contenitore dell'applicazione per montare la cartella di debugger.
 
 L'immagine del debugger viene determinato automaticamente dagli strumenti lato client. Usa un metodo simile a quello usato durante il Dockerfile e grafico Helm generare durante l'esecuzione `azds prep`. Dopo aver montato il debugger nell'immagine dell'applicazione, viene eseguito utilizzando `azds exec`.
 
@@ -420,7 +419,7 @@ Quando si lavora con un team, è possibile [condividono uno spazio di sviluppo i
 
 Lo spazio dev derivata indirizzerà anche in modo intelligente le richieste tra le applicazioni e delle applicazioni condivise dal relativo elemento padre. Il funzionamento del routing tenta di instradare la richiesta a un'applicazione in situazione dello sviluppo derivata e eseguire il fallback per l'applicazione condiviso dallo spazio di sviluppo padre. Il routing eseguirà il fallback all'applicazione condiviso nello spazio padre del padre se l'applicazione non è incluso nello spazio padre.
 
-Ad esempio: 
+Ad esempio:
 * Lo spazio dev *predefinite* dispone di applicazioni *serviceA* e *serviceB* .
 * Lo spazio dev *azureuser* è derivato da *predefinita*.
 * Una versione aggiornata del *serviceA* viene distribuita *azureuser*.
@@ -433,12 +432,16 @@ Per iniziare a usare gli spazi di sviluppo di Azure, vedere le guide introduttiv
 
 * [Java con Visual Studio Code e CLI](quickstart-java.md)
 * [.NET core con Visual Studio Code e CLI](quickstart-netcore.md)
-* [.NET core con Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core con Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node. js con Visual Studio Code e CLI](quickstart-nodejs.md)
 
 Per iniziare a usare lo sviluppo in team, vedere gli articoli sulle procedure seguenti:
 
 * [Team di sviluppo - Java con Visual Studio Code e CLI](team-development-java.md)
 * [Team di sviluppo - .NET Core con Visual Studio Code e CLI](team-development-netcore.md)
-* [Team di sviluppo - .NET Core con Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Team di sviluppo - .NET Core con Visual Studio](team-development-netcore-visualstudio.md)
 * [Team di sviluppo - Node. js con Visual Studio Code e CLI](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 77685fd6549906cfb050e12d53ec151c964fda42
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976921"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084418"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale agente Network Watcher per Windows
 
@@ -94,7 +93,7 @@ Set-AzVMExtension `
 
 ## <a name="troubleshooting-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e da PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente tramite il modulo di Azure PowerShell:
 

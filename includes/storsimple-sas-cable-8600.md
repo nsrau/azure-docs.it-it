@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889186"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180181"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Per collegare i cavi SAS
 1. Identificare l'enclosure principale e l'enclosure EBOD. Le due enclosure possono essere identificate osservandone il retro. Per indicazioni, vedere la seguente figura. 
@@ -18,7 +18,7 @@ ms.locfileid: "55889186"
    
     **Vista posteriore dell’enclosure principale e dell’enclosure EBOD**
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Enclosure principale |
    | 2 |Chassis EBOD |
@@ -28,7 +28,7 @@ ms.locfileid: "55889186"
    
     **Posizione dell'etichetta del numero di serie**
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Sporgenza dell'enclosure |
 3. Usare i cavi SAS forniti per collegare l'enclosure EBOD all'enclosure principale come segue:
@@ -41,7 +41,7 @@ ms.locfileid: "55889186"
       
       **Cablaggio SAS**
       
-      | Etichetta | DESCRIZIONE |
+      | Etichetta | Descrizione |
       |:--- |:--- |
       | A |Enclosure principale |
       | b |Chassis EBOD |

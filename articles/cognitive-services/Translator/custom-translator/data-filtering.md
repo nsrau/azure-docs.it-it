@@ -2,19 +2,19 @@
 title: Filtro dei dati - Traduttore personalizzato
 titleSuffix: Azure Cognitive Services
 description: Quando si inviano documenti da usare per il training di un sistema personalizzato, i documenti vengono sottoposti a una serie di passaggi di elaborazione e filtro per la preparazione al training.
-author: v-pawal
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513379"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595911"
 ---
 # <a name="data-filtering"></a>Filtro dei dati
 
@@ -23,7 +23,7 @@ Quando si inviano documenti da usare per il training di un sistema personalizzat
 ## <a name="sentence-alignment"></a>Allineamento di frasi
 Se il documento non è in formato XLIFF, TMX o ALIGN, il traduttore personalizzato allinea le frasi dei documenti di origine e destinazione tra loro, frase per frase. Il traduttore non esegue l'allineamento dei documenti: segue la denominazione dei documenti per trovare il documento corrispondente nell'altra lingua. All'interno del documento il traduttore personalizzato tenta di trovare la frase corrispondente nell'altra lingua. Per facilitare l'allineamento usa il markup del documento, ad esempio i tag HTML presenti nel documento.  
 
-Se possibile visualizzare una grande discrepanza tra il numero di frasi nell'origine e i documenti sul lato di destinazione, il documento potrebbe non essere in parallelo in primo luogo, o per altri motivi non è allineato. Le coppie di documenti con una grande differenza (> 10%) fra le frasi devono essere controllati attentamente per verificare che l'abbinamento sia corretto. Il traduttore personalizzato mostra un avviso accanto al documento se il numero delle frasi è molto diverso.  
+Se si verifica una grande discrepanza tra il numero di frasi nei documenti sul lato di origine e di destinazione, il documento potrebbe non essere parallelo o per altri motivi non può essere allineato. Le coppie di documenti con una grande differenza (> 10%) fra le frasi devono essere controllati attentamente per verificare che l'abbinamento sia corretto. Il traduttore personalizzato mostra un avviso accanto al documento se il numero delle frasi è molto diverso.  
 
 
 ## <a name="deduplication"></a>Deduplicazione
@@ -45,7 +45,7 @@ Il traduttore personalizzato rimuove le frasi presenti nei documenti di test e o
 Sostituire più caratteri di punteggiatura di fine frase con un solo carattere.  
 
 ## <a name="japanese-character-normalization"></a>Normalizzazione dei caratteri giapponesi
-Convertire larghezza intera lettere e numeri in caratteri a metà larghezza.
+Converte le lettere e le cifre a larghezza intera in caratteri a metà larghezza.
 
 ## <a name="unescaped-xml-tags"></a>Tag XML senza escape
 Il filtro trasforma i tag senza escape in tag con escape:

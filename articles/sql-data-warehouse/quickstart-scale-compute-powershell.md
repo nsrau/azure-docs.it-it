@@ -1,25 +1,25 @@
 ---
-title: 'Avvio rapido: aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Guida introduttiva: aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell, aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882982"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306237"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guida introduttiva: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Guida introduttiva: Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse in Azure PowerShell
 
-È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell, [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi.
+Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con Azure PowerShell. [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa guida introduttiva presuppone che l'utente abbia già un data warehouse SQL che è possibile ridimensionare. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Data Warehouse che è possibile ridimensionare. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -68,10 +68,10 @@ Seguire questa procedura per trovare le informazioni sulla posizione del data wa
 
 In SQL Data Warehouse è possibile aumentare o ridurre le risorse di calcolo agendo sulle unità Data Warehouse. Nella pagina [Creare e connettere - portale](create-data-warehouse-portal.md) **mySampleDataWarehouse** è stato creato e inizializzato con 400 unità Data Warehouse. La procedura seguente modifica le unità Data Warehouse per **mySampleDataWarehouse**.
 
-Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'esempio seguente imposta le unità del data warehouse su DW300 per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **myResourceGroup** del server **mynewserver-20180430**.
+Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'esempio seguente imposta le unità del data warehouse su DW300c per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **myResourceGroup** del server **mynewserver-20180430**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

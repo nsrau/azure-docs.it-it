@@ -3,9 +3,8 @@ title: 'Esercitazione: configurare Slack per il provisioning utenti automatico c
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Slack.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
-ms.reviewer: asmalser
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50bcada8cfc72c06804793850f1f28a288f5248
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272921"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932479"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: configurare Slack per il provisioning utenti automatico
 
@@ -36,7 +34,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Tenant di Slack con [piano Plus](https://aadsyncfabric.slack.com/pricing) o superiore abilitato
 * Account utente in Slack con autorizzazioni di amministratore di team
 
-Note: l'integrazione del provisioning di Azure AD è basata sull'[API SCIM di Slack](https://api.slack.com/scim), disponibile per team Slack con piano Plus o superiore.
+Nota: l'integrazione del provisioning di Azure AD è basata sull'[API SCIM di Slack](https://api.slack.com/scim), disponibile per team Slack con piano Plus o superiore.
 
 ## <a name="assigning-users-to-slack"></a>Assegnazione di utenti a Slack
 
@@ -118,11 +116,13 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
   * Supporta caratteri non inglesi, spazi, maiuscole/minuscole. 
   
-  * I segni di punteggiature consentiti sono punti, caratteri di sottolineatura, trattini, apostrofi, parentesi (ad esempio **( [ { } ] )**) e separatori (ad esempio **,/;**).
+  * I segni di punteggiature consentiti sono punti, caratteri di sottolineatura, trattini, apostrofi, parentesi (ad esempio **( [ { } ] )** ) e separatori (ad esempio **,/;** ).
   
   * Si aggiorna solo se queste due impostazioni sono configurate nell'area di lavoro/organizzazione di Slack: **è abilitata la sincronizzazione del profilo** e **gli utenti non possono modificare il nome visualizzato**.
   
-  * L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco.
+* L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco.
+
+* Slack consente solo la corrispondenza con gli attributi **username** e **email**.  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

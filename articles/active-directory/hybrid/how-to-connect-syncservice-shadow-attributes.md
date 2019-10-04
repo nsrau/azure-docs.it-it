@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384707"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
@@ -74,6 +74,6 @@ ProxyCalc potrebbe richiedere del tempo per elaborare una modifica apportata a u
 ### <a name="quarantined-attribute-values"></a>Valori di attributo in quarantena
 Gli attributi shadow vengono usati anche quando sono presenti valori di attributo duplicati. Per altre informazioni, vedere [Resilienza degli attributi duplicati](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

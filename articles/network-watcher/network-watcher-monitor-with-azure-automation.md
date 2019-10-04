@@ -3,8 +3,8 @@ title: Monitorare i gateway VPN con la risoluzione dei problemi di Azure Network
 description: Questo articolo illustra come diagnosticare la connettività locale con Automazione di Azure e Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 476fc9aa98eef300b981d2009fcee9244db25e8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: d3a09ee83d4a1f05781c885eaa708e6e024b7f97
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532712"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64719811"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 

@@ -4,7 +4,7 @@ description: Come configurare Key Vault per l'uso con una macchina virtuale di A
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bccdd5ab-5ccf-4760-9039-92c6eafb15bd
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: singhkay
-ms.openlocfilehash: c38d901be627d9ad2f18ebe708c7a1fcaa63cc15
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.author: kasing
+ms.openlocfilehash: cbc8b6be09fcf4232636b580dc0c62482b83bd60
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55726991"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002152"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando di Azure
 
-Nello stack di Azure Resource Manager i segreti e i certificati vengono modellati come risorse offerte tramite Key Vault. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md) Per consentire l'uso di Key Vault con le macchine virtuali di Azure Resource Manager è necessario impostare su true la proprietà *EnabledForDeployment* in Key Vault. Questo articolo illustra come configurare Key Vault per l'uso con macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure. 
+Nello stack di Azure Resource Manager i segreti e i certificati vengono modellati come risorse offerte tramite Key Vault. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md) Per consentire l'uso di Key Vault con le macchine virtuali di Azure Resource Manager è necessario impostare su true la proprietà *EnabledForDeployment* in Key Vault. Questo articolo illustra come configurare Key Vault per l'uso con macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure. 
 
 Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
 

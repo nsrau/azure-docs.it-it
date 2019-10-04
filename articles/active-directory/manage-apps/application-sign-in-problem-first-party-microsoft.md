@@ -3,8 +3,8 @@ title: Problemi di accesso a un'applicazione Microsoft | Microsoft Docs
 description: Risoluzione di problemi comuni relativi all'accesso ad applicazioni prodotte direttamente da Microsoft usando Azure AD (ad esempio Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108311"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -31,7 +31,7 @@ Vi sono tre principali modi con cui un utente può accedere a un'applicazione pu
 
 -   Per le applicazioni in Office 365 o in altre famiglie di prodotti a pagamento, agli utenti è consentito l'accesso tramite l'**assegnazione di una licenza** direttamente all'account utente o tramite un gruppo utilizzando la funzionalità di assegnazione di licenze di gruppo.
 
--   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'utente**. Ciò significa che gli utenti accedono all'applicazione con il loro account Azure AD Work o School e consentono a tale applicazione di accedere a un set limitato di dati del loro account.
+-   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'utente**. Ciò significa che si accedere all'applicazione tramite il proprio account Azure AD Work o School e consentono di accedere a un set limitato di dati nel proprio account.
 
 -   Per le applicazioni Microsoft o un 3rd party pubblicati da gratuito a chiunque di usare, gli utenti possono ottenere l'accesso attraverso **il consenso dell'amministratore**. Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
 
@@ -45,7 +45,7 @@ Di seguito è riportato un elenco delle aree problematiche generali che è possi
 
 -   [Problemi relativi ai gruppi](#problems-with-groups)
 
--   [Problemi relativi ai criteri di accesso condizionale](#problems-with-conditional-access-policies)
+-   [Problemi con i criteri di accesso condizionale](#problems-with-conditional-access-policies)
 
 -   [Problemi relativi al consenso dell'applicazione](#problems-with-application-consent)
 
@@ -67,7 +67,7 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
   * Verificare che **Multi-Factor Authentication** non blocchi l'accesso utente. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
-  * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio specifico di accesso condizionale](#problems-with-conditional-access-policies), [Controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [Disabilitare un criterio specifico di accesso condizionale](#disable-a-specific-conditional-access-policy)
+  * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio di accesso condizionale specifico](#problems-with-conditional-access-policies) oppure [controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [disabilitare un criterio di accesso condizionale specifico](#disable-a-specific-conditional-access-policy)
 
   * Verificare che le **informazioni di contatto per l'autenticazione** di un utente siano aggiornate per permettere l'applicazione di Multi-Factor Authentication o di criteri di accesso condizionale. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
@@ -87,7 +87,7 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
 - Per le applicazioni **Microsoft** **che non richiedono una licenza**, di seguito sono riportati altri aspetti da controllare:
 
-  * Se l'applicazione richiede **autorizzazioni a livello di utente** (ad esempio "Accesso alla cassetta postale di questo utente"), assicurarsi che l'utente abbia eseguito l'accesso all'applicazione e abbia eseguito un'**operazione di consenso a livello di utente** per permettere all'applicazione di accedere ai suoi dati.
+  * Se l'applicazione richiede **le autorizzazioni a livello di utente** (ad esempio "accesso cassetta postale dell'utente"), assicurarsi che l'utente ha eseguito l'accesso all'applicazione e ha eseguito una **un'operazione di consenso a livello di utente** per consentire all'applicazione di accedere ai propri dati.
 
   * Se l'applicazione richiede **autorizzazioni a livello di amministratore** (ad esempio "Accesso alle cassette postali di tutti gli utenti"), assicurarsi che un amministratore globale abbia eseguito un'**operazione di consenso a livello di amministratore per conto di tutti gli utenti** dell'organizzazione.
 
@@ -205,7 +205,7 @@ Per controllare lo stato di autenticazione a più fattori di un utente, seguire 
 
 9. Selezionare l'utente nell'elenco di utenti e scegliere **Abilita**, **Disabilita** o **Applica** per l'autenticazione a più fattori nel modo desiderato.
 
-   * **Nota**: Se lo stato di un utente è impostato su Applicato, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
+   * **Nota**: Se lo stato di un utente è impostato su **Applicato**, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Controllare le informazioni di contatto per l'autenticazione di un utente
 
@@ -417,9 +417,9 @@ Per assegnare una licenza a un gruppo, seguire questa procedura:
     > 
     >
 
-## <a name="problems-with-conditional-access-policies"></a>Problemi relativi ai criteri di accesso condizionale
+## <a name="problems-with-conditional-access-policies"></a>Problemi con i criteri di accesso condizionale
 
-### <a name="check-a-specific-conditional-access-policy"></a>Selezionare un criterio di accesso condizionale specifico
+### <a name="check-a-specific-conditional-access-policy"></a>Controllare un criterio di accesso condizionale specifico
 
 Per verificare o convalidare un singolo criterio di accesso condizionale:
 
@@ -431,11 +431,11 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 4. Scegliere **Applicazioni aziendali** dal menu di navigazione.
 
-5. Fare clic sulla voce di navigazione **Accesso condizionale**.
+5. Scegliere il **accesso condizionale** elemento di navigazione.
 
 6. Fare clic sul criterio che si desidera controllare.
 
-7. Verificare che non vi siano condizioni specifiche, assegnazioni o altre impostazioni che possano bloccare l'accesso dell'utente.
+7. Verifica che siano senza condizioni specifiche, assegnazioni o altre impostazioni che potrebbero bloccare l'accesso utente.
 
    >[!NOTE]
    >Può essere opportuno disabilitare temporaneamente questo criterio per assicurarsi che non impedisca gli accessi. A tale scopo, impostare **Abilita criterio** su **No** e fare clic sul pulsante **Salva**.
@@ -444,7 +444,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 ### <a name="check-a-specific-applications-conditional-access-policy"></a>Controllare i criteri di accesso condizionale di un'applicazione specifica
 
-Per verificare o convalidare i criteri di accesso condizionale attualmente configurati di una singola applicazione:
+Per verificare o convalidare una singola applicazione attualmente configurati criteri di accesso condizionale:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
@@ -456,14 +456,14 @@ Per verificare o convalidare i criteri di accesso condizionale attualmente confi
 
 5.  Fare clic su **Tutte le applicazioni**.
 
-6.  Cercare l'applicazione desiderata, o a cui l'utente sta cercando di accedere, mediante il nome visualizzato o l'ID dell'applicazione.
+6.  Cercare l'applicazione che si è interessati oppure l'utente sta tentando di accedere a dall'applicazione visualizzare ID nome o dell'applicazione.
 
      >[!NOTE]
      >Se l'applicazione che si sta cercando non è visualizzata, fare clic sul pulsante **Filtro** ed espandere l'ambito dell'elenco a **Tutte le applicazioni**. Se si desidera visualizzare più colonne, fare clic sul pulsante **Colonne** per aggiungere ulteriori dettagli per le applicazioni.
      >
      >
 
-7.  Fare clic sulla voce di navigazione **Accesso condizionale**.
+7.  Scegliere il **accesso condizionale** elemento di navigazione.
 
 8.  Fare clic sul criterio che si desidera controllare.
 
@@ -486,7 +486,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 4.  Scegliere **Applicazioni aziendali** dal menu di navigazione.
 
-5.  Fare clic sulla voce di navigazione **Accesso condizionale**.
+5.  Scegliere il **accesso condizionale** elemento di navigazione.
 
 6.  Fare clic sul criterio che si desidera controllare.
 
@@ -512,7 +512,7 @@ L'accesso all'applicazione può essere bloccato poiché non è stata eseguita l'
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Eseguire un'operazione di consenso a livello di amministratore per qualsiasi applicazione
 
--   **Solo per le applicazioni sviluppate usando il modello di applicazione V1**, è possibile imporre questo consenso a livello di amministratore aggiungendo "**?prompt=admin\_consent**" alla fine dell'URL di accesso di un'applicazione.
+-   **Solo per le applicazioni sviluppate usando il modello di applicazione V1**, è possibile imporre questo consenso a livello di amministratore aggiungendo " **?prompt=admin\_consent**" alla fine dell'URL di accesso di un'applicazione.
 
 -   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

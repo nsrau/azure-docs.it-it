@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: c053e4dfc38fc0f055ec91a6622ef7f767c13a86
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259100"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "69015331"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -41,9 +42,9 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 
 | NOME | Opzioni | DESCRIZIONE | Predefinito |
 | --- | --- | --- | --- |
-| sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
+| sensitivityLevel |String:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
 | frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
-| detectLightChange |Booleano: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
+| detectLightChange |Boolean: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
 | mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Esempio: 00:00:03 |Specifica l'intervallo di tempo tra eventi di movimento in cui 2 eventi verranno combinati e segnalati come 1 evento. |00:00:00 |
 | detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati sono visualizzati con le zone come ID, dove la prima è 'id':0 |Singola zona che copre l'intero fotogramma. |
 
@@ -92,22 +93,22 @@ L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in mo
 
 La tabella seguente illustra gli elementi del file di output JSON.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
-| Versione |Indica la versione dell'API Video. La versione corrente è 2. |
-| Scala cronologica |"Scatti" al secondo del video. |
-| Offset |Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
-| Frequenza fotogrammi |Fotogrammi al secondo del video. |
-| Larghezza, altezza |Indica la larghezza e l'altezza del video in pixel. |
-| Inizia |Il timestamp di inizio in "scatti". |
-| Duration |La lunghezza dell'evento in "scatti". |
-| Interval |L'intervallo di ogni voce dell'evento in "scatti". |
-| Eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
-| Type |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
-| RegionID |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
-| Regioni |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/>  Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
-| Frammenti |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata. |
-| Parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
+| version |Indica la versione dell'API Video. La versione corrente è 2. |
+| timescale |"Scatti" al secondo del video. |
+| offset |Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
+| framerate |Fotogrammi al secondo del video. |
+| width, height |Indica la larghezza e l'altezza del video in pixel. |
+| start |Il timestamp di inizio in "scatti". |
+| duration |La lunghezza dell'evento in "scatti". |
+| interval |L'intervallo di ogni voce dell'evento in "scatti". |
+| eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
+| type |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
+| regionId |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
+| regions |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
+| fragments |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata. |
+| parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
 | locations |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
 
 Nell'esempio JSON seguente viene descritto l'output:

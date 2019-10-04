@@ -3,24 +3,23 @@ title: Panoramica dell'agente di macchine virtuali di Azure | Documentazione Mic
 description: Panoramica dell'agente di macchine virtuali di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 07/20/2019
+ms.author: akjosh
+ms.openlocfilehash: 7c163dd48e53a3116d58cb94988f2822ddede5e5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483251"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169131"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.
@@ -60,13 +59,16 @@ Per avviare una macchina virtuale è necessario avere il PA installato nella mac
 Se non si dispone di agenti installati, è possibile usare alcuni servizi di Azure, come ad esempio Backup di Azure o Sicurezza di Azure. Per questi servizi è necessario installare un'estensione. Se è stata distribuita una macchina virtuale senza il WinGA, è possibile installare la versione più recente dell'agente in un secondo momento.
 
 ### <a name="manual-installation"></a>Installazione manuale
-L'agente di macchine virtuali di Windows può essere installato manualmente con un pacchetto di Windows Installer. L'installazione manuale potrebbe essere necessaria quando si crea un'immagine della macchina virtuale personalizzata che viene distribuita in Azure. Per installare manualmente l'agente di macchine virtuali di Windows, [scaricare il programma di installazione dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789).
+L'agente di macchine virtuali di Windows può essere installato manualmente con un pacchetto di Windows Installer. L'installazione manuale potrebbe essere necessaria quando si crea un'immagine della macchina virtuale personalizzata che viene distribuita in Azure. Per installare manualmente l'agente di macchine virtuali di Windows, [scaricare il programma di installazione dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789). L'agente di macchine virtuali è supportato in Windows Server 2008 R2 e versioni successive.
 
 L'agente di macchine virtuali può essere installato facendo doppio clic sul file di Windows Installer. Per eseguire un'installazione automatica dell'agente di macchine virtuali, eseguire il comando seguente:
 
 ```cmd
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
+
+### <a name="prerequisites"></a>Prerequisiti
+Per eseguire l'agente di macchine virtuali Windows, è necessario almeno Windows Server 2008 R2 (64-bits) con .NET Framework 4,0.
 
 ## <a name="detect-the-vm-agent"></a>Rilevare l'agente di macchine virtuali
 

@@ -1,25 +1,18 @@
 ---
-title: Introduzione | Microsoft Docs
+title: Guida introduttiva | Azure Marketplace
 description: Introduzione al portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935766"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Introduzione al portale per Cloud Partner
 
@@ -51,7 +44,7 @@ Dopo aver avviato una nuova offerta o quando si modifica un'offerta precedente, 
 ![Pagina dell'offerta](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Nella pagina delle offerte, è possibile:
-- Aggiungere contenuto o controllare lo stato dell'offerta passando da una modalità di primo livello all'altra, ovvero da **Editor** a **Stato** e viceversa.
+- Aggiungere contenuto o controllare lo stato dell'offerta attivando e disattivando tra due modalità di primo livello: **Editor** e **stato**.
 - Utilizzare la **barra delle azioni** per gestire in modo esplicito le modifiche dell'offerta salvando ed eliminando quanto immesso.
 - Spostarsi tra i **moduli** di ogni offerta man mano che se ne modificano le impostazioni.
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
 ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811098"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Applicazioni Service Fabric Mesh per il ridimensionamento
 

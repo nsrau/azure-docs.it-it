@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448049"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
@@ -87,7 +87,7 @@ Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* 
 
 Per altre informazioni sulle query che è possibile usare con questo connettore, vedere la [documentazione di riferimento sugli avvisi di Microsoft Graph Security](https://docs.microsoft.com/graph/api/alert-list). Per creare esperienze ottimizzate con questo connettore, consultare altre informazioni sugli [avvisi delle proprietà dello schema](https://docs.microsoft.com/graph/api/resources/alert) supportati dal connettore.
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 |--------|-------------|
 | **Ottieni avvisi** | Ottenere gli avvisi filtrati in base a una o più [proprietà degli avvisi](https://docs.microsoft.com/graph/api/resources/alert), ad esempio: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **Get alert by ID** (Ottieni avviso in base all'ID) | Ottenere un avviso specifico in base all'ID dell'avviso. | 
@@ -101,7 +101,7 @@ Microsoft Graph supporta le [*sottoscrizioni*](https://docs.microsoft.com/graph/
 
 `security/alerts?$filter=status eq 'New'`
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 |--------|-------------|
 | **Create subscriptions** (Crea sottoscrizioni) | [Creare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) per ricevere notifiche in caso di modifiche. È possibile filtrare la sottoscrizione in base agli specifici tipi di avviso a cui si è interessati. È ad esempio creare una sottoscrizione che invia una notifica in caso di avvisi con gravità alta. |
 | **Get active subscriptions** (Ottieni sottoscrizioni attive) | [Ottenere le sottoscrizioni non scadute](https://docs.microsoft.com/graph/api/subscription-list). | 

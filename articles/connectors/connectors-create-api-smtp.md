@@ -11,12 +11,12 @@ ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230506"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050751"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
 
@@ -24,7 +24,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'account SMTP e le credenziali utente.
 
@@ -47,20 +47,20 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 1. Nell'ultimo passaggio in cui si vuole aggiungere un'azione di SMTP, scegliere **Nuovo passaggio**. 
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
 1. Quando richiesto, specificare queste informazioni di connessione:
 
-   | Proprietà | Obbligatoria | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
-   | **Connection Name** (Nome connessione) | Yes | Nome per la connessione al server SMTP | 
-   | **Indirizzo del server SMTP** | Yes | Indirizzo relativo al server SMTP | 
-   | **Nome utente** | Yes | Nome utente per l'account SMTP | 
+   | **Connection Name** (Nome connessione) | Sì | Nome per la connessione al server SMTP | 
+   | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
+   | **Nome utente** | Sì | Nome utente per l'account SMTP | 
    | **Password** | Yes | Password per l'account SMTP | 
-   | **Porta del server SMTP** | No  | Porta specifica sul server SMTP che si vuole usare | 
-   | **Abilitare SSL?** | No  | Attivare o disattivare la crittografia SSL. | 
+   | **Porta del server SMTP** | No | Porta specifica sul server SMTP che si vuole usare | 
+   | **Abilitare SSL?** | No | Attivare o disattivare la crittografia SSL. | 
    |||| 
 
 1. Specificare i dettagli necessari per l'azione selezionata. 

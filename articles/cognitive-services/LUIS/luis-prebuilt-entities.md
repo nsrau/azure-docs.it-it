@@ -1,5 +1,5 @@
 ---
-title: Entità predefinite
+title: Entità predefinite per Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS include un insieme di entità predefinite per il riconoscimento di tipi comuni di informazioni, ad esempio date, ore, numeri, misurazioni e valuta. Il supporto dell'entità predefinita varia a seconda delle impostazioni cultura dell'app LUIS.
 services: cognitive-services
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3f36680477b29158ae4a4214dfef6ea36342342c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119089"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932644"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entità predefinite per riconoscere tipi di dati comuni
 

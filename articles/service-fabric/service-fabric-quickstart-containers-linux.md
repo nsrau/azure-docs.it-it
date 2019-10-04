@@ -3,7 +3,7 @@ title: Creare un'app per un contenitore Linux su Service Fabric in Azure | Micro
 description: In questa guida rapida, compilerai un'immagine Docker con l'applicazione, eseguirai il push dell'immagine in un registro contenitori e distribuirai il contenitore in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: linux
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.date: 07/22/2019
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664880"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599412"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Linux in Service Fabric
 
@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Se non è necessario eseguire altre operazioni con il cluster, è possibile rimuovere il certificato dall'archivio certificati. Ad esempio: 
+Se non è necessario eseguire altre operazioni con il cluster, è possibile rimuovere il certificato dall'archivio certificati. Ad esempio:
 - In Windows: usare lo [snap-in di MMC Certificati](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Assicurarsi di selezionare **My user account** (Account utente personale) quando si aggiunge lo snap-in. Passare a `Certificates - Current User\Personal\Certificates` e rimuovere il certificato.
 - Su Mac: usare l'app Keychain.
 - In Ubuntu: seguire la procedura usata per visualizzare i certificati e rimuovere il certificato.

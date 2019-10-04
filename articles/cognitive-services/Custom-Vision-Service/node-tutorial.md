@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Node.js SDK.
 services: cognitive-services
 author: areddish
 manager: daauld
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482454"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982371"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js
 
@@ -30,9 +30,9 @@ Questo articolo fornisce informazioni e codice di esempio utili per iniziare a u
 
 Per installare Custom Vision SDK per Node.js, usare il comando seguente in PowerShell:
 
-```powershell
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+```shell
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
@@ -45,12 +45,13 @@ Creare un nuovo file denominato *sample.js* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate.
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/).
 
 ```javascript
 const util = require('util');
-const TrainingApi = require("azure-cognitiveservices-customvision-training");
-const PredictionApi = require("azure-cognitiveservices-customvision-prediction");
+const fs = require('fs');
+const TrainingApiClient = require("@azure/cognitiveservices-customvision-training");
+const PredictionApiClient = require("@azure/cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -75,34 +76,34 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 Per creare i tag di classificazione per il progetto, aggiungere il codice seguente alla fine del file *sample.js*:
 
 ```javascript
-    const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
-    const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
+const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
+const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
-Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. Sarà necessario immettere il percorso del file dell'immagine di base, che varia a seconda di dove è stato scaricato il progetto Cognitive Services Node.js SDK Samples.
+Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. È possibile caricare fino a 64 immagini in un singolo batch.
 
 > [!NOTE]
 > Occorrerà modificare anche *sampleDataRoot* indicando il percorso delle immagini in base a dove è stato scaricato il progetto Cognitive Services Node.js SDK Samples.
 
 ```javascript
-    console.log("Adding images...");
-    let fileUploadPromises = [];
+console.log("Adding images...");
+let fileUploadPromises = [];
 
-    const hemlockDir = `${sampleDataRoot}/Hemlock`;
-    const hemlockFiles = fs.readdirSync(hemlockDir);
-    hemlockFiles.forEach(file => {
-        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
-    });
+const hemlockDir = `${sampleDataRoot}/Hemlock`;
+const hemlockFiles = fs.readdirSync(hemlockDir);
+hemlockFiles.forEach(file => {
+    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
+});
 
-    const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
-    const japaneseCherryFiles = fs.readdirSync(cherryDir);
-    japaneseCherryFiles.forEach(file => {
-        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
-    });
+const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
+const japaneseCherryFiles = fs.readdirSync(cherryDir);
+japaneseCherryFiles.forEach(file => {
+    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
+});
 
-    await Promise.all(fileUploadPromises);
+await Promise.all(fileUploadPromises);
 ```
 
 ### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
@@ -110,20 +111,20 @@ Per aggiungere le immagini di esempio al progetto, inserire il codice seguente d
 Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```javascript
-    console.log("Training...");
-    let trainingIteration = await trainer.trainProject(sampleProject.id);
+console.log("Training...");
+let trainingIteration = await trainer.trainProject(sampleProject.id);
 
-    // Wait for training to complete
-    console.log("Training started...");
-    while (trainingIteration.status == "Training") {
-        console.log("Training status: " + trainingIteration.status);
-        await setTimeoutPromise(1000, null);
-        trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
-    }
+// Wait for training to complete
+console.log("Training started...");
+while (trainingIteration.status == "Training") {
     console.log("Training status: " + trainingIteration.status);
-    
-    // Publish the iteration to the end point
-    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
+    await setTimeoutPromise(1000, null);
+    trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
+}
+console.log("Training status: " + trainingIteration.status);
+
+// Publish the iteration to the end point
+await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Ottenere e usare l'iterazione pubblicata nell'endpoint di stima
@@ -148,13 +149,13 @@ Per inviare un'immagine all'endpoint di stima e recuperare la stima, aggiungere 
 
 Eseguire *sample.js*.
 
-```powershell
+```shell
 node sample.js
 ```
 
 L'output dell'applicazione dovrebbe essere simile al testo seguente:
 
-```
+```console
 Creating project...
 Adding images...
 Training...
@@ -168,7 +169,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test/**) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
+Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test/** ) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

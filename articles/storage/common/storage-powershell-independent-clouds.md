@@ -2,18 +2,18 @@
 title: Gestione dell'archiviazione nei cloud indipendenti di Azure con Azure PowerShell | Microsoft Docs
 description: Gestione dell'archiviazione nel cloud per la Cina, nel cloud per la Germania e nel cloud per enti pubblici con Azure PowerShell
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6a3fe8c7235a0cf475f188a3379e372cd777ce8c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477642"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65145874"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Questo comando restituisce i risultati seguenti.
 
-| NOME| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -96,9 +96,9 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 I risultati sono simili a quanto segue:
 
-|Nome proprietà|Valore|
+|Nome proprietà|Value|
 |----|----|
-| NOME | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

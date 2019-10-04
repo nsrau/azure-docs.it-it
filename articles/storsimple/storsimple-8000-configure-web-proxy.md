@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 1109e44ed9c6aa8a0f7305b8a50410316711589c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108509"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65204257"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
 
@@ -68,7 +68,7 @@ Usare l'installazione guidata per semplificare i passaggi per la configurazione 
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Per impostazione predefinita, viene specificato il numero di porta TCP 8080.
-4. Scegliere il tipo di autenticazione: **NTLM**, **Di base** o **Nessuno**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](http://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Scegliere il tipo di autenticazione: **NTLM**, **Di base** o **Nessuno**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](https://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **Nel servizio Gestione dispositivi StorSimple, i grafici di monitoraggio del dispositivo non funzionano quando l’autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per usare i grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NESSUNO.**
@@ -153,7 +153,7 @@ Se le impostazioni proxy Web sono configurate in modo errato, verranno visualizz
 > * L'elenco dei messaggi di errore riportato sopra non è esaustivo.
 > * Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure del servizio Gestione dispositivi StorSimple. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico.|
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -3,9 +3,8 @@ title: Creare un tenant di Azure Active Directory | Microsoft Docs
 description: Informazioni su come creare un tenant di Azure AD per la registrazione e la creazione di applicazioni.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
-ms.author: celested
-ms.reviewer: dadobali
-ms.custom: aaddev
+ms.author: ryanwi
+ms.reviewer: jmprieur
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c29195e5e597583a5c16c7f1d9494d655f2b317
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108662"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268601"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Guida introduttiva: Configurare un ambiente di sviluppo
+# <a name="quickstart-set-up-a-tenant"></a>Guida introduttiva: Configurare un tenant
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 

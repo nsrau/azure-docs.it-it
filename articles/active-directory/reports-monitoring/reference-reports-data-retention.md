@@ -1,9 +1,9 @@
 ---
-title: Criteri di conservazione dei report di Azure Active Directory | Documentazione Microsoft
-description: Criteri di conservazione dei dati di report in Azure Active Directory
+title: Quanto tempo Azure AD archiviare i dati dei report? | Microsoft Docs
+description: Scopri per quanto tempo Azure archivia i vari tipi di dati di report.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437057"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989589"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo Azure AD archiviare i dati dei report?
 
 In questo articolo vengono illustrati i criteri di conservazione dei dati per i diversi report attività in Azure Active Directory. 
 
@@ -32,8 +32,8 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
-| Azure AD Free <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
+| Azure AD P1 Premium <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
+| Azure AD Gratuito <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,19 +66,19 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 **Report attività**    
 
-| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
+| Report                 | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Log di controllo             | 7 giorni        |  7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | N/D           |  N/D           | 30 giorni             | 30 giorni             |
-| Utilizzo di Azure MFA        | 30 giorni       |  30 giorni       | 30 giorni             | 30 giorni             |
+| Utilizzo dell'autenticazione a più fattori di Azure        | 30 giorni       |  30 giorni       | 30 giorni             | 30 giorni             |
 
 È possibile mantenere i dati relativi alle attività di controllo e accesso per più tempo rispetto al periodo di conservazione predefinito descritto in precedenza instradandoli a un account di archiviazione di Azure con Monitoraggio di Azure. Per altre informazioni, vedere [Archiviare i log di Azure AD in un account di archiviazione di Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Segnali di sicurezza**
 
-| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
+| Report         | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--            | :--           | :--            | :--                 | :--                 |
-| Utenti a rischio.  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
+| Utenti a rischio  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
 | Accessi a rischio | 7 giorni        | 7 giorni         |  30 giorni            | 90 giorni             |
 
 ---

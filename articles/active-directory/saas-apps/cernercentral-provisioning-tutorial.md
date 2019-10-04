@@ -3,9 +3,8 @@ title: 'Esercitazione: Configurare Cerner Central per il provisioning utenti aut
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning degli utenti in un elenco in Cerner Central.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65964212"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
 

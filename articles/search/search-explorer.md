@@ -1,33 +1,30 @@
 ---
-title: Esplora ricerche nel portale di Azure per le query dei dati - Ricerca di Azure
-description: Usare gli strumenti del portale di Azure come Esplora ricerche per eseguire query negli indici in Ricerca di Azure. Immettere termini di ricerca o stringhe di ricerca complete con sintassi avanzata.
-manager: cgronlun
+title: Usare lo strumento Esplora ricerche per eseguire query sui dati in portale di Azure-ricerca di Azure
+description: Esplora ricerche è integrato nella portale di Azure, utile per l'esplorazione del contenuto e la convalida delle query in ricerca di Azure. Immettere stringhe per la ricerca di termini o frasi o espressioni di ricerca complete con sintassi avanzata.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244801"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178143"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Esplora ricerche nel portale di Azure per le query dei dati in Ricerca di Azure 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Usare Esplora ricerche nell'portale di Azure per eseguire query sui documenti in ricerca di Azure 
 
-Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio. 
+Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile avviare Esplora ricerche dalla barra dei comandi per inviare espressioni di query Lucene semplici o complete a qualsiasi indice esistente nel servizio. 
 
    ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
 
-
-Per informazioni su come iniziare, vedere [Avviare Esplora ricerche](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Stringhe di ricerca di base
 
-Gli esempi seguenti presuppongono che venga usato l'indice di esempio realestate predefinito. Per informazioni sulla creazione dell'indice, vedere [Avvio rapido: Importare, indicizzare ed eseguire query nel portale di Azure](search-get-started-portal.md).
+Gli esempi seguenti presuppongono l'indice di esempio Real Immobiliare incorporato. È possibile creare questo indice usando la procedura guidata Importa dati nel portale, scegliendo **esempi** come origine dati.
 
 ### <a name="example-1---empty-search"></a>Esempio 1: ricerca vuota
 
@@ -85,7 +82,7 @@ Aggiungere **$select** per limitare i risultati ai campi denominati in modo espl
 Ricerca di Azure restituisce le prime 50 corrispondenze in base ai criteri di classificazione della ricerca. Per ottenere il set successivo di documenti corrispondenti, aggiungere **$top=100,&$skip=50** per portare il set di risultati a 100 documenti (il valore predefinito è 50 e il valore massimo è 1000), ignorando i primi 50 documenti. Ricordare che è necessario specificare i criteri di ricerca, ad esempio un termine o un'espressione di query, per ottenere risultati classificati. Si noti che i punteggi di ricerca diminuiscono man mano che si scorre l'elenco dei risultati della ricerca.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Risultati**
@@ -94,13 +91,25 @@ Ricerca di Azure restituisce le prime 50 corrispondenze in base ai criteri di cl
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Espressioni di filtro (maggiore di, minore di, uguale a)
 
-Usare il parametro **$filter** quando si vogliono specificare criteri precisi anziché eseguire una ricerca di testo libero. Questo esempio cerca gli appartamenti con più di tre camere da letto: `search=seattle condo&$filter=beds gt 3&$count=true`
+Usare il parametro **$filter** quando si vogliono specificare criteri precisi anziché eseguire una ricerca di testo libero. Questo esempio cerca le camere maggiori di 3:
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Risultati**
 
    ![Espressione di filtro](./media/search-explorer/search-explorer-example-filter.png "Criteri in base ai quali applicare il filtro")
 
 ## <a name="order-by-expressions"></a>Espressioni order-by
 
-Aggiungere **$orderby** per ordinare i risultati in base a un campo in più rispetto al punteggio di ricerca. Un'espressione di esempio che può essere usata per testare questo comportamento è `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Aggiungere **$orderby** per ordinare i risultati in base a un campo in più rispetto al punteggio di ricerca. Un'espressione di esempio che è possibile usare per testarla è la seguente:
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Risultati**
 
    ![Espressione order-by](./media/search-explorer/search-explorer-example-ordery.png "Modificare l'ordinamento")
 

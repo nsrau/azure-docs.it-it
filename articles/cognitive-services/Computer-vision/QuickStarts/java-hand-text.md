@@ -1,26 +1,26 @@
 ---
-title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, Java'
+title: 'Guida introduttiva: Estrarre testo stampato e scritto a mano - REST, Java'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con Java.
+description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fb039f58a9a13cf3241c50d6cf31e777a654dcdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7db73d9872badb8ed6c2af52c7cf0a2aa48b9fc8
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435151"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137916"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Avvio rapido: Estrarre testo scritto a mano usando l'API REST e Java in Visione artificiale
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e Java
 
-In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi API [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+In questa esercitazione dell'avvio rapido si estrarrà testo stampato e/o scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo in un'immagine ed estrarre i caratteri riconosciuti in un flusso di caratteri leggibile al computer. L'API determinerà il modello di riconoscimento da usare per ogni riga di testo, in modo da supportare le immagini con testo stampato e scritto a mano.
 
 > [!IMPORTANT]
 > A differenza del metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) viene eseguito in modo asincrono. Questo metodo non restituisce alcuna informazione nel corpo di una risposta con esito positivo. Il metodo Batch Read restituisce invece un URI nel valore del campo di intestazione `Operation-Content` della risposta. È quindi possibile chiamare questo URI, che rappresenta il metodo [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), per controllare lo stato e restituire i risultati della chiamata del metodo Batch Read.
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario aver installato la piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](https://aka.ms/azure-jdks) (JDK 7 o 8).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
@@ -58,10 +58,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
    import org.json.JSONObject;
    ```
 
-1. Sostituire la classe pubblica `Main` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
-   1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-   1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-   1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da cui si vuole estrarre il testo scritto a mano.
+1. Sostituire la classe pubblica `Main` con il codice seguente.
+1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da cui si vuole estrarre il testo.
 1. Salvare e quindi compilare il progetto Java.
 1. Se si usa un ambiente di sviluppo integrato, eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
 
@@ -71,19 +69,13 @@ public class Main {
     // *** Update or verify the following values. ***
     // **********************************************
 
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // After setting, close and then re-open your command shell or project for the changes to take effect.
+    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    String endpoint = ("COMPUTER_VISION_ENDPOINT");
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    private static final String uriBase =
-        "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+    private static final String uriBase = endpoint + 
+            "vision/v2.0/read/core/asyncBatchAnalyze";
 
     private static final String imageToAnalyze =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
@@ -99,9 +91,6 @@ public class Main {
 
             URIBuilder builder = new URIBuilder(uriBase);
 
-            // Request parameter.
-            builder.setParameter("mode", "Handwritten");
-
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
@@ -115,7 +104,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Two REST API methods are required to extract handwritten text.
+            // Two REST API methods are required to extract text.
             // One method to submit the image for processing, the other method
             // to retrieve the text found in the image.
 
@@ -155,12 +144,12 @@ public class Main {
             // If the first REST API method completes successfully, the second
             // REST API method retrieves the text written in the image.
             //
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
-            // amount of time depending on the length of the handwritten text.
+            // amount of time depending on the length of the text.
             // You may need to wait or retry this operation.
 
-            System.out.println("\nHandwritten text submitted.\n" +
+            System.out.println("\nText submitted.\n" +
                     "Waiting 10 seconds to retrieve the recognized text.\n");
             Thread.sleep(10000);
 
@@ -190,7 +179,7 @@ public class Main {
 Una risposta con esito positivo viene restituita in JSON. L'applicazione di esempio analizza e visualizza una risposta con esito positivo nella finestra della console, come nell'esempio seguente:
 
 ```json
-Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.
+Text submitted. Waiting 10 seconds to retrieve the recognized text.
 
 Text recognition result response:
 

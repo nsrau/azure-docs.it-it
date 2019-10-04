@@ -4,7 +4,7 @@ description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gesti
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 21930d5240225540159fa425d9d9fa518a1b19d5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486363"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323087"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
@@ -50,13 +50,13 @@ Questo articolo si basa sui cmdlet del modulo Azure Batch versione 1.0.0. È con
 
 ### <a name="create-a-batch-account"></a>Creare un account Batch
 
-**New-AzBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio: 
+**New-AzBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Creare quindi un account Batch nel gruppo di risorse. Specificare il nome dell'account in <*account_name*> e la località e il nome del gruppo di risorse. La creazione dell'account Batch può richiedere tempo. Ad esempio: 
+Creare quindi un account Batch nel gruppo di risorse. Specificare il nome dell'account in <*account_name*> e la località e il nome del gruppo di risorse. La creazione dell'account Batch può richiedere tempo. Ad esempio:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Eliminare un account Batch
 
-**Remove-AzBatchAccount** elimina un account Batch. Ad esempio: 
+**Remove-AzBatchAccount** elimina un account Batch. Ad esempio:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -125,12 +125,12 @@ Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext 
 
 ### <a name="create-a-batch-pool"></a>Creare un pool di Batch
 
-Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#pool). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
+Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#pool). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione della macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace di macchine virtuali di Azure][vm_marketplace]o fornire un'immagine personalizzata preparata.
 
 Quando si esegue **New-AzBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il frammento di codice seguente, ad esempio, crea un pool di Batch con nodi di calcolo di dimensioni Standard_A1 nella configurazione della macchina virtuale. L'immagine viene creata con Ubuntu Server 18.04-LTS. In questo caso, il parametro **VirtualMachineConfiguration** specifica la variabile *$configuration* come oggetto PSVirtualMachineConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 
@@ -175,7 +175,7 @@ Il parametro **Id** supporta solo la ricerca di ID completi, senza caratteri jol
 
 ### <a name="use-the-maxcount-parameter"></a>Usare il parametro MaxCount
 
-Per impostazione predefinita, ogni cmdlet restituisce un massimo di 1000 oggetti. Se si raggiunge questo limite, perfezionare il filtro in modo da restituire meno oggetti o impostare esplicitamente un limite massimo tramite il parametro **MaxCount** . Ad esempio: 
+Per impostazione predefinita, ogni cmdlet restituisce un massimo di 1000 oggetti. Se si raggiunge questo limite, perfezionare il filtro in modo da restituire meno oggetti o impostare esplicitamente un limite massimo tramite il parametro **MaxCount** . Ad esempio:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

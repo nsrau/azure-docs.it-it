@@ -2,29 +2,29 @@
 title: Partner di integrazione di dati di SQL Data Warehouse | Documentazione Microsoft
 description: Elenco di partner di terze parti con soluzioni per l'integrazione dei dati che supportano Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873792"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partner di integrazione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo vengono evidenziate le aziende partner Microsoft con soluzioni di integrazione dati ufficiale che supportano Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Partner di integrazione dei dati
-| Partner | DESCRIZIONE | Collegamento di sito Web o prodotto |
+| Partner | Descrizione | Collegamento di sito Web o prodotto |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma è una soluzione ETL che permettono ai team di dati integrare, arricchire e trasmettere i dati da vari silo di dati in SQL Data Warehouse in tempo reale. |[Pagina del prodotto][alooma_website] |
-| ![Alteryx][1] |**Alteryx**<br>  Alteryx Designer fornisce un flusso di lavoro ripetibile per l'analisi di dati in modalità self-service che genera informazioni più dettagliate in ore e non in settimane come negli approcci tradizionali. Alteryx Designer consente agli analisti di dati di combinare le attività di preparazione e fusione dei dati e l'analisi predittiva, statistica e spaziale, usando la stessa intuitiva interfaccia utente. |[Pagina del prodotto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer fornisce un flusso di lavoro ripetibile per l'analisi di dati in modalità self-service che genera informazioni più dettagliate in ore e non in settimane come negli approcci tradizionali. Alteryx Designer consente agli analisti di dati di combinare le attività di preparazione e fusione dei dati e l'analisi predittiva, statistica e spaziale, usando la stessa intuitiva interfaccia utente. |[Pagina del prodotto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
 | ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam offre una soluzione automatizzata per il caricamento dei dati in SQL Data Warehouse. Semplifica il caricamento di batch e la replica incrementale di dati da molte origini - SQL Server, Oracle, DB2, Sybase, MySQL e altro ancora. |[Pagina del prodotto][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
 | ![Denodo][3] |**Denodo**<br>Denodo offrono l'accesso in tempo reale ai dati tra origini dati diverse di un'organizzazione. Usa la virtualizzazione dei dati ai dati di bridge tra molte origini senza replica. Offre accesso generale ai dati strutturati e non strutturati che risiedono in enterprise, big data e origini cloud in tempo reale e batch.|[Pagina del prodotto][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
 | ![Fivetran][8] |**Fivetran**<br>Fivetran consente di centralizzare i dati provenienti da origini diverse. È dotato di una manutenzione ridotta, pari a zero i dati di configurazione della pipeline del prodotto con un numero crescente di connettori predefiniti per tutte le origini dati comuni. Il programma di installazione richiede cinque minuti dopo l'autenticazione a origini dati e data warehouse di destinazione.|[Pagina del prodotto][fivetran_website]<br> |

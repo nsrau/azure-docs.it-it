@@ -1,36 +1,36 @@
 ---
-title: 'Avvio rapido: Estrarre testo scritto a mano - REST, C#'
+title: 'Guida introduttiva: Estrarre testo stampato e scritto a mano - REST, C#'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con C#.
+description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2769384957b6cf6484163c4d9e54d042877794ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7340105e6d64900b769e2601032b04eb7a91e6e1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451655"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138120"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Avvio rapido: Estrarre testo scritto a mano usando l'API REST e C# in Visione artificiale
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e C#
 
-In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) dell'API è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso leggibile da computer.
+In questa esercitazione dell'avvio rapido si estrarrà testo stampato e/o scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo in un'immagine ed estrarre i caratteri riconosciuti in un flusso di caratteri leggibile al computer. L'API determinerà il modello di riconoscimento da usare per ogni riga di testo, in modo da supportare le immagini con testo stampato e scritto a mano.
 
 > [!IMPORTANT]
-> A differenza del metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) viene eseguito in modo asincrono. Questo metodo non restituisce alcuna informazione nel corpo di una risposta con esito positivo. Il metodo Read restituisce invece un URI nel campo di intestazione `Operation-Location` della risposta. È quindi possibile chiamare questo URI, che rappresenta il metodo [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), per controllare lo stato e restituire i risultati della chiamata al metodo Batch Read.
+> Il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) viene eseguito in modo asincrono. Questo metodo non restituisce alcuna informazione nel corpo di una risposta con esito positivo. Il metodo Read restituisce invece un URI nel campo di intestazione `Operation-Location` della risposta. È quindi possibile usare questo URI, che rappresenta il metodo [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), per controllare lo stato e restituire i risultati della chiamata al metodo Batch Read.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario avere [Visual Studio 2015 o versione successiva](https://visualstudio.microsoft.com/downloads/).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
@@ -41,9 +41,6 @@ Per creare l'esempio in Visual Studio, seguire questa procedura:
     1. Nel menu fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
     1. Fare clic sulla scheda **Sfoglia** e nella casella di **ricerca** digitare "Newtonsoft.Json".
     1. Selezionare la voce **Newtonsoft.Json** quando viene visualizzata, quindi fare clic sulla casella di controllo accanto al nome del progetto e infine su **Installa**.
-1. Sostituire il codice in `Program.cs` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL dell'endpoint per il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
 1. Eseguire il programma.
 1. Al prompt immettere il percorso di un'immagine locale.
 
@@ -60,33 +57,27 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        
+        // the Batch Read method endpoint
+        const string uriBase = endpoint + "vision/v2.0/read/core/asyncBatchAnalyze";
 
         static void Main()
         {
             // Get the path and filename to process from the user.
-            Console.WriteLine("Handwriting Recognition:");
+            Console.WriteLine("Text Recognition:");
             Console.Write(
-                "Enter the path to an image with handwritten text you wish to read: ");
+                "Enter the path to an image with text you wish to read: ");
             string imageFilePath = Console.ReadLine();
 
             if (File.Exists(imageFilePath))
             {
                 // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadHandwrittenText(imageFilePath).Wait();
+                ReadText(imageFilePath).Wait();
             }
             else
             {
@@ -97,11 +88,11 @@ namespace CSHttpClientSample
         }
 
         /// <summary>
-        /// Gets the handwritten text from the specified image file by using
+        /// Gets the text from the specified image file by using
         /// the Computer Vision REST API.
         /// </summary>
-        /// <param name="imageFilePath">The image file with handwritten text.</param>
-        static async Task ReadHandwrittenText(string imageFilePath)
+        /// <param name="imageFilePath">The image file with text.</param>
+        static async Task ReadText(string imageFilePath)
         {
             try
             {
@@ -111,15 +102,12 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameter.
-                string requestParameters = "mode=Handwritten";
-
                 // Assemble the URI for the REST API method.
-                string uri = uriBase + "?" + requestParameters;
+                string uri = uriBase;
 
                 HttpResponseMessage response;
 
-                // Two REST API methods are required to extract handwritten text.
+                // Two REST API methods are required to extract text.
                 // One method to submit the image for processing, the other method
                 // to retrieve the text found in the image.
 
@@ -164,9 +152,9 @@ namespace CSHttpClientSample
                 // If the first REST API method completes successfully, the second 
                 // REST API method retrieves the text written in the image.
                 //
-                // Note: The response may not be immediately available. Handwriting
+                // Note: The response may not be immediately available. Text
                 // recognition is an asynchronous operation that can take a variable
-                // amount of time depending on the length of the handwritten text.
+                // amount of time depending on the length of the text.
                 // You may need to wait or retry this operation.
                 //
                 // This example checks once per second for ten seconds.

@@ -1,23 +1,24 @@
 ---
-title: Configurare gli avvisi di integrità dei servizi di Azure con ServiceNow | Microsoft Docs
+title: Inviare gli avvisi di integrità servizio di Azure con ServiceNow usando i webhook
 description: Ricevere notifiche personalizzate sugli eventi di integrità dei servizi nell'istanza di ServiceNow.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067112"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Configurare gli avvisi di integrità dei servizi con ServiceNow
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare gli avvisi di integrità servizio di Azure con ServiceNow usando i webhook
 
 Questo articolo illustra come integrare gli avvisi di integrità dei servizi di Azure con ServiceNow usando un webhook. Dopo avere configurato l'integrazione webhook con l'istanza di ServiceNow, si ottengono avvisi tramite l'infrastruttura di notifica esistente in caso di problemi relativi al servizio Azure. Ogni volta che viene attivato un avviso di integrità dei servizi di Azure, viene chiamato un webhook tramite l'API REST con script di ServiceNow.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Creazione di un'API REST con script in ServiceNow
+
 1.  Assicurarsi di avere eseguito la registrazione e l'accesso all'account [ServiceNow](https://www.servicenow.com/).
 
 1.  Passare alla sezione **System Web Services** (Servizi Web di sistema) in ServiceNow e selezionare **Scripted REST APIs** (API REST con script).

@@ -2,7 +2,7 @@
 title: Come usare il pacchetto di contenuto Power BI di Azure Active Directory | Microsoft Docs
 description: Informazioni su come usare il pacchetto di contenuto Power BI di Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437675"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988243"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -57,7 +57,7 @@ I report seguenti sono inclusi nel pacchetto di contenuto di Azure AD Power BI. 
 
 **Accessi dispositivi**: Questo report consente di conoscere i diversi profili dei dispositivi usati all'interno dell'organizzazione e di determinare i criteri dei dispositivi in base all'utilizzo. Fornisce dati relativi al tipo di sistema operativo e browser usati per accedere alle applicazioni, oltre a informazioni dettagliate sugli utenti, inclusi:
 
-- User Name
+- Nome utente
 - Indirizzo IP
 - Location 
 - Stato accesso 

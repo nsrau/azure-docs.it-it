@@ -3,26 +3,26 @@ title: Impostare gli avvisi di monitoraggio per i processi di Analisi di flusso 
 description: Questo articolo descrive come usare il portale di Azure per impostare il monitoraggio e gli avvisi per i processi di Analisi di flusso di Azure.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.date: 06/21/2019
+ms.openlocfilehash: 0fd489d856a16953a5a450a347c9737fe440ad28
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769491"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621767"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 
 È importante monitorare il processo di Analisi di flusso di Azure per garantire che l'esecuzione del processo sia continua e senza problemi. Questo articolo descrive come configurare gli avvisi per gli scenari comuni che devono essere monitorati. 
 
-Possono essere configurate regole per le metriche tramite il portale e [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sui dati dei log delle operazioni.
+È possibile definire regole per le metriche dai dati di log delle operazioni tramite il portale, nonché [a livello di programmazione](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurare gli avvisi nel portale di Azure
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Ricevere un avviso quando un processo di arresto imprevisto
 
 L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno stato di errore per il processo. Questo avviso è consigliato per tutti i processi.
 
@@ -30,7 +30,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
 2. Nella pagina **Processo** passare alla sezione **Monitoraggio**.  
 
-3. Selezionare **Metriche** e quindi fare clic su **Nuova regola di avviso**.
+3. Selezionare **metriche**e quindi **nuova regola di avviso**.
 
    ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +38,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
    ![Selezionare il nome del segnale per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare vuota l'opzione **Evento avviato da** e fare clic su **Fine**.
+5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare **evento avviato da** vuoto e selezionare **eseguita**.
 
    ![Configurare la logica dei segnali per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -75,6 +75,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

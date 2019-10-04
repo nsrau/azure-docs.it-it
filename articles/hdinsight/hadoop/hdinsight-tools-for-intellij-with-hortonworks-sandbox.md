@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343326"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076266"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
 
@@ -24,7 +24,7 @@ Informazioni su come usare gli strumenti HDInsight per IntelliJ per sviluppare a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
+Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
 - Hortonworks Data Platform (HDP) 2.4 su Hortonworks Sandbox in esecuzione nel computer locale. Per configurare HDP, vedere [Introduzione all'ecosistema Apache Hadoop con un ambiente sandbox Hadoop su una macchina virtuale](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -55,7 +55,7 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
       * **Maven**: per ottenere supporto per la creazione guidata di un progetto Scala.
       * **SBT**: per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
-   ![Finestra di dialogo del nuovo progetto](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![IntelliJ creare un nuovo progetto scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Selezionare **Avanti**.
 3. Nella finestra di dialogo **New Project**(Nuovo progetto) successiva completare questi passaggi:
@@ -142,7 +142,7 @@ Per inviare un progetto a un emulatore:
 2. Completare questi passaggi:
 
     1. Nell'elenco a discesa **Spark cluster (Linux only)** (Cluster Spark - solo Linux) selezionare l'ambiente Hortonworks Sandbox locale.
-    2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. Per questa esercitazione, il nome è **GroupByTest**.
+    2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. Per questo articolo, il nome è **GroupByTest**.
 
 3. Selezionare **Submit** (Invia). I log di invio dei processi vengono visualizzati nella finestra degli strumenti di invio Spark.
 

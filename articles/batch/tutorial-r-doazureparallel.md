@@ -3,7 +3,7 @@ title: Simulazione in parallelo in R con Azure Batch
 description: Esercitazione - Istruzioni dettagliate per eseguire una simulazione finanziaria Monte Carlo in Azure Batch usando il pacchetto R doAzureParallel
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106441"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321913"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch 
 
@@ -116,7 +116,7 @@ Mantenere i valori predefiniti per le altre impostazioni e salvare il file. Dovr
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 4,
+  "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
       "min": 0,

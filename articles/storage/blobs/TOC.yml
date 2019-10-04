@@ -1,648 +1,784 @@
-items:
-- name: Documentazione di Archiviazione di Azure
-  href: /azure/storage/
+- name: Documentazione di Archiviazione BLOB di Azure
+  href: /azure/storage/blobs/
 - name: Panoramica
-  items:
-  - name: Informazioni su Archiviazione BLOB di Azure
-    href: storage-blobs-overview.md
   expanded: true
+  items:
+    - name: Informazioni su Archiviazione BLOB di Azure
+      href: storage-blobs-overview.md
 - name: Archiviazione BLOB
   items:
-  - name: Panoramica
-    items:
-    - name: Introduzione all'archiviazione BLOB
-      href: storage-blobs-introduction.md
-  - name: Guide introduttive
-    items:
-    - name: Creare un account di archiviazione
-      displayName: resource manager, resource manager template, template, ARM
-      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gestire i BLOB senza codice
+    - name: Panoramica
       items:
-      - name: Portale di Azure
-        href: storage-quickstart-blobs-portal.md
-      - name: Storage Explorer
-        href: storage-quickstart-blobs-storage-explorer.md
-      - name: PowerShell
-        href: storage-quickstart-blobs-powershell.md
-      - name: CLI
-        href: storage-quickstart-blobs-cli.md
-    - name: Sviluppare con BLOB
+        - name: Introduzione all'archiviazione BLOB
+          href: storage-blobs-introduction.md
+    - name: Guide introduttive
       items:
-      - name: .NET
-        href: storage-quickstart-blobs-dotnet.md
-      - name: Java
-        href: storage-quickstart-blobs-java-v10.md
-      - name: Node.js
-        href: storage-quickstart-blobs-nodejs-v10.md
-      - name: Python
-        href: storage-quickstart-blobs-python.md
-      - name: JS/HTML
-        href: storage-quickstart-blobs-javascript-client-libraries.md
-      - name: Go
-        href: storage-quickstart-blobs-go.md
-      - name: PHP
-        href: storage-quickstart-blobs-php.md
-      - name: Ruby
-        href: storage-quickstart-blobs-ruby.md
-  - name: Esercitazioni
-    items:
-    - name: Caricare ed elaborare un'immagine
-      items:
-      - name: 1 - Caricare e recuperare i dati di immagine nel cloud
-        href: storage-upload-process-images.md
-      - name: 2 - Attivare Funzioni di Azure per elaborare i BLOB
-        href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 3 - Proteggere i dati dell'applicazione
-        href: storage-secure-access-application.md
-      - name: 4 - Monitorare e risolvere i problemi relativi alle risorse di archiviazione
-        href: storage-monitor-troubleshoot-storage-application.md
-    - name: Eseguire la migrazione dei dati nel cloud con AzCopy
-      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Ottimizzare le prestazioni e la scalabilità dell'applicazione di archiviazione
-      items:
-      - name: 1 - Creare una VM e un account di archiviazione
-        href: storage-blob-scalable-app-create-vm.md
-      - name: 2 - Caricare grandi quantità di dati in un account di archiviazione di Azure
-        href: storage-blob-scalable-app-upload-files.md
-      - name: 3 - Scaricare grandi quantità di dati da un account di archiviazione di Azure
-        href: storage-blob-scalable-app-download-files.md
-      - name: 4- Verificare le metriche di velocità effettiva e latenza
-        href: storage-blob-scalable-app-verify-metrics.md
-    - name: Ospitare un sito Web statico
-      items:
-      - name: 1 - Creare un sito Web statico
-        href: storage-blob-static-website-host.md
-      - name: 2 - Abilitare un dominio personalizzato con SSL
-        href: storage-blob-static-website-custom-domain.md
-    - name: Progettare applicazioni per la disponibilità elevata
-      items:
-      - name: 1 - Rendere l'applicazione a disponibilità elevata
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
-        href: storage-simulate-failure-ragrs-account-app.md
-    - name: Cercare dati non strutturati
-      href: storage-unstructured-search.md
-  - name: Esempi
-    items:
-    - name: .NET
-      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Java
-      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure PowerShell
-      href: storage-samples-blobs-powershell.md
-    - name: Interfaccia della riga di comando di Azure
-      href: storage-samples-blobs-cli.md
-  - name: Concetti
-    items:
-    - name: Account di archiviazione
-      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Security
-      items:
-      - name: Authorization
-        href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-        - name: Eseguire l'autenticazione con Azure AD
-          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Autorizzare con la chiave condivisa
-          href: /rest/api/storageservices/authorize-with-shared-key
-        - name: Autorizzare con la firma di accesso condiviso
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Accesso anonimo ai BLOB
-          href: storage-manage-access-to-resources.md
-      - name: Guida alla sicurezza
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configurare i firewall e le reti virtuali
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Crittografia per i dati inattivi
-        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Crittografia dei dati inattivi con le chiavi clienti
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS
-        href: storage-https-custom-domain-cdn.md
-      - name: BLOB non modificabili
-        href: storage-blob-immutable-storage.md
-      - name: Advanced Threat Protection
-        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Richiedere il trasferimento sicuro
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Attributi comuni della sicurezza di Azure
-        href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Ridondanza dei dati
-      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      items:
-      - name: Archiviazione con ridondanza locale
-        href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Archiviazione con ridondanza della zona
-        href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Archiviazione con ridondanza geografica
-        href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ripristino di emergenza e failover
-        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Progettazione di app HA con RA-GRS
-        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Livelli di accesso
-      items:
-      - name: Livelli di accesso
-        href: storage-blob-storage-tiers.md
-      - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
-        href: storage-lifecycle-management-concepts.md
-    - name: Prestazioni e ridimensionamento
-      items:
-      - name: Obiettivi di scalabilità e prestazioni
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Elenco di controllo di prestazioni e scalabilità
-        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Concorrenza
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Migrazione dei dati
-      items:
-      - name: Confrontare le soluzioni di trasferimento dei dati
-        href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-        - name: Set di dati di grandi dimensioni, larghezza di banda di rete ridotta
-          href: ../common/storage-solution-large-dataset-low-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Set di dati di grandi dimensioni, larghezza di banda di rete da moderata a elevata
-          href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Set di dati di piccole dimensioni, larghezza di banda di rete da ridotta a moderata
-          href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Trasferimento dei dati periodico
-          href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Importare/esportare dati
-        href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-        - name: Esaminare i requisiti
-          href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Importare dati nei BLOB
-          href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Importare dati nei file
-          href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Esportare dati dai BLOB
-          href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Procedura
+        - name: Gestire i BLOB senza codice
           items:
-          - name: Visualizzare lo stato dell'unità
-            href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Verificare lo stato di un processo
-            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Ripristinare un processo di importazione
-            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Ripristinare un processo di esportazione
-            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Domande frequenti
-          href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: API REST
-          href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
-        - name: Contattare il supporto tecnico
-          href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Archiviazione
+            - name: Portale di Azure
+              href: storage-quickstart-blobs-portal.md
+            - name: Storage Explorer
+              href: storage-quickstart-blobs-storage-explorer.md
+            - name: PowerShell
+              href: storage-quickstart-blobs-powershell.md
+            - name: CLI
+              href: storage-quickstart-blobs-cli.md
+        - name: Sviluppare con BLOB
           items:
-          - name: Preparare le unità per l'importazione (v1)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            items:
-            - name: Configurare le proprietà e i metadati
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Esempio - Preparare le unità per l'importazione
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Informazioni di riferimento rapide per i comandi per l'importazione
-              href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Preparare le unità per l'importazione (v2)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            items:
-            - name: Configurare le proprietà e i metadati
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Esempio - Preparare le unità per l'importazione
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Informazioni di riferimento rapide per i comandi per l'importazione
-              href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Creare un processo di importazione
-            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Creare un processo di esportazione
-            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Ottenere lo stato di un processo
-            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Creare un processo di esportazione
-            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Enumerare i processi
-            href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Annullare ed eliminare un processo
-            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Eseguire il backup del manifesto dell'unità
-            href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Enumerare i processi
-            href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Diagnostica e ripristino da errori
-            href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Comandi per i processi di importazione
-            href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Creare un processo di importazione
-          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Creare un processo di esportazione
-          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Ottenere lo stato di un processo
-          href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Creare un processo di esportazione
-          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Enumerare i processi
-          href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Annullare ed eliminare un processo
-          href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Eseguire il backup del manifesto dell'unità
-          href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Enumerare i processi
-          href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Diagnostica e ripristino da errori
-          href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Comandi per i processi di importazione
-          href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: File di manifesto del servizio
-          href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: File delle proprietà e dei metadati del servizio
-          href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: File di log del servizio
-          href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Monitorare e risolvere i problemi
+            - name: .NET
+              href: storage-quickstart-blobs-dotnet.md
+            - name: Node.js
+              href: storage-quickstart-blobs-nodejs-v10.md
+            - name: Python
+              href: storage-quickstart-blobs-python.md
+            - name: JS/HTML con SDK v10
+              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+            - name: JS/HTML con SDK v2
+              href: storage-quickstart-blobs-javascript-client-libraries.md
+            - name: Go
+              href: storage-quickstart-blobs-go.md
+            - name: PHP
+              href: storage-quickstart-blobs-php.md
+            - name: Ruby
+              href: storage-quickstart-blobs-ruby.md
+    - name: Esercitazioni
       items:
-      - name: Esercitazione sulla risoluzione dei problemi
-        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Monitoraggio, diagnosi e risoluzione dei problemi
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Eseguire il monitoraggio nel portale di Azure
-        href: ../common/storage-monitor-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Metriche e registrazione
-        items:
-        - name: Metriche in Monitoraggio di Azure
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Eseguire la migrazione alle nuove metriche
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Analisi archiviazione
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Metriche di Analisi archiviazione (versione classica)
-          href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Log di Analisi archiviazione
-          href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gestione degli eventi
-      href: storage-blob-event-overview.md
-    - name: Funzionalità dei BLOB di pagine
-      href: storage-blob-pageblob-overview.md
-  - name: Procedure
-    items:
-    - name: Account di archiviazione
+        - name: Caricare ed elaborare un'immagine
+          items:
+            - name: 1 - Caricare e recuperare i dati di immagine nel cloud
+              href: storage-upload-process-images.md
+            - name: 2 - Attivare Funzioni di Azure per elaborare i BLOB
+              href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 3 - Proteggere i dati dell'applicazione
+              href: storage-secure-access-application.md
+            - name: 4 - Monitorare e risolvere i problemi relativi alle risorse di archiviazione
+              href: storage-monitor-troubleshoot-storage-application.md
+        - name: Eseguire la migrazione dei dati nel cloud con AzCopy
+          href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ottimizzare le prestazioni e la scalabilità dell'applicazione di archiviazione
+          items:
+            - name: 1 - Creare una VM e un account di archiviazione
+              href: storage-blob-scalable-app-create-vm.md
+            - name: 2 - Caricare grandi quantità di dati in un account di archiviazione di Azure
+              href: storage-blob-scalable-app-upload-files.md
+            - name: 3- Scaricare dati di grandi dimensioni da un account di archiviazione di Azure
+              href: storage-blob-scalable-app-download-files.md
+            - name: 4- Verificare le metriche di velocità effettiva e latenza
+              href: storage-blob-scalable-app-verify-metrics.md
+        - name: Ospitare un sito Web statico
+          items:
+            - name: 1 - Creare un sito Web statico
+              href: storage-blob-static-website-host.md
+            - name: 2 - Abilitare un dominio personalizzato con SSL
+              href: storage-blob-static-website-custom-domain.md
+        - name: Progettare applicazioni per la disponibilità elevata
+          items:
+            - name: 1 - Rendere l'applicazione a disponibilità elevata
+              href: storage-create-geo-redundant-storage.md
+            - name: 2 - Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
+              href: storage-simulate-failure-ragrs-account-app.md
+        - name: Crittografare e decrittografare BLOB con Azure Key Vault
+          href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Esempi
       items:
-      - name: Creare un account di archiviazione BLOB in blocchi
-        href: storage-blob-create-account-block-blob.md
-      - name: Gestire un account di archiviazione
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Aggiornare un account di archiviazione
-        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Proteggere
-      items:
-      - name: Autorizzare l'accesso ai dati BLOB
-        items:
-        - name: Opzioni di autorizzazione per gli utenti
-          items:
-          - name: Portale
-            href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Interfaccia della riga di comando o PowerShell
-            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
-          items:
-          - name: Portale
-            href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: CLI
-            href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: PowerShell
-            href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Eseguire l'autenticazione con Azure AD
-          items:
-          - name: Eseguire l'autenticazione da un'applicazione
-            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Eseguire l'autenticazione con le identità gestite
-            href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Autorizzare con la chiave condivisa
-          items:
-          - name: Configurare le stringhe di connessione
-            href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: Usare l'API REST di Archiviazione di Azure
-            href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configurare i firewall e le reti virtuali
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Crittografare e decrittografare BLOB con Azure Key Vault
-        href: storage-encrypt-decrypt-blobs-key-vault.md
-      - name: crittografia lato client
-        items:
         - name: .NET
-          href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Java
-          href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: JavaScript
+          href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Python
-          href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
-        href: ../common/storage-security-tls.md
-      - name: Richiedere il trasferimento sicuro
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Ripristino di emergenza
+          href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Azure PowerShell
+          href: storage-samples-blobs-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: storage-samples-blobs-cli.md
+    - name: Concetti
       items:
-      - name: Avviare il failover di un account
-        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Recuperare i BLOB eliminati
-        href: storage-blob-soft-delete.md
-    - name: Usare l'emulatore di archiviazione
-      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Impostare e recuperare proprietà e metadati
-      href: storage-properties-metadata.md
-    - name: Ospitare un sito Web statico
-      href: storage-blob-static-website.md
-    - name: Configurare un dominio personalizzato
-      href: storage-custom-domain-name.md
-    - name: Indirizzare gli eventi a un endpoint personalizzato
-      href: storage-blob-event-quickstart.md
-    - name: Cercare nell'archivio BLOB tramite Ricerca di Azure
-      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Trasferire i dati
+        - name: Account di archiviazione
+          href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Security
+          items:
+            - name: Panoramica della sicurezza
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Crittografia del servizio di archiviazione
+              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Authorization
+              href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Autorizzare con Azure AD
+                  href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizzare con la chiave condivisa
+                  href: /rest/api/storageservices/authorize-with-shared-key
+                - name: Delegare l'accesso con firme di accesso condiviso
+                  href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Accesso anonimo ai BLOB
+                  href: storage-manage-access-to-resources.md
+            - name: BLOB non modificabili
+              href: storage-blob-immutable-storage.md
+            - name: Protezione avanzata dalle minacce
+              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Criteri di sicurezza integrati
+              href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ridondanza dei dati
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+            - name: Archiviazione con ridondanza locale
+              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Archiviazione con ridondanza della zona
+              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Archiviazione con ridondanza geografica
+              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Archiviazione con ridondanza della zona geografica
+              href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ripristino di emergenza e failover
+              href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Progettazione di app HA con RA-GRS
+              href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Livelli di prestazioni e accesso
+          items:
+            - name: Livelli di accesso
+              href: storage-blob-storage-tiers.md
+            - name: Riattivare i dati dal livello archivio
+              href: storage-blob-rehydration.md
+            - name: Livelli di prestazioni
+              href: storage-blob-performance-tiers.md
+            - name: Gestire il ciclo di vita di Archiviazione BLOB di Azure
+              href: storage-lifecycle-management-concepts.md
+        - name: Prestazioni e ridimensionamento
+          items:
+            - name: Obiettivi di scalabilità e prestazioni
+              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Elenco di controllo di prestazioni e scalabilità
+              href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Latenza in Archiviazione BLOB
+              href: storage-blobs-latency.md
+        - name: Concorrenza
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migrazione dei dati
+          items:
+            - name: Confrontare le soluzioni di trasferimento dei dati
+              href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: 'Set di dati di grandi dimensioni, larghezza di banda di rete ridotta'
+                  href: ../common/storage-solution-large-dataset-low-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Set di dati di grandi dimensioni, larghezza di banda di rete da moderata a elevata'
+                  href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Set di dati di piccole dimensioni, larghezza di banda di rete da ridotta a moderata'
+                  href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Trasferimento dei dati periodico
+                  href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Importare/esportare dati
+              href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Esaminare i requisiti
+                  href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Importare dati nei BLOB
+                  href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Importare dati nei file
+                  href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Esportare dati dai BLOB
+                  href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Procedura
+                  items:
+                    - name: Visualizzare lo stato dell'unità
+                      href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Verificare lo stato di un processo
+                      href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Ripristinare un processo di importazione
+                      href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Ripristinare un processo di esportazione
+                      href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Domande frequenti
+                  href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: API REST
+                  href: /rest/api/storageimportexport/jobs
+                - name: Contattare il supporto tecnico
+                  href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Archiviazione
+                  items:
+                    - name: Preparare le unità per l'importazione (v1)
+                      href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                      items:
+                        - name: Configurare le proprietà e i metadati
+                          href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Esempio - Preparare le unità per l'importazione
+                          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Informazioni di riferimento rapide per i comandi per l'importazione
+                          href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Preparare le unità per l'importazione (v2)
+                      href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                      items:
+                        - name: Configurare le proprietà e i metadati
+                          href: ../common/storage-import-export-tool-setting-properties-metadata-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Esempio - Preparare le unità per l'importazione
+                          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Informazioni di riferimento rapide per i comandi per l'importazione
+                          href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Creare un processo di importazione
+                      href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Creare un processo di esportazione
+                      href: ../common/storage-import-export-creating-an-export-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Ottenere lo stato di un processo
+                      href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Enumerare i processi
+                      href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Annullare ed eliminare un processo
+                      href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Eseguire il backup del manifesto dell'unità
+                      href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Diagnostica e ripristino da errori
+                      href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Comandi per i processi di importazione
+                      href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Comandi per i processi di importazione
+                      href: ../common/storage-import-export-tool-quick-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: File di manifesto del servizio
+                      href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: File delle proprietà e dei metadati del servizio
+                      href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: File di log del servizio
+                      href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Monitorare e risolvere i problemi
+          items:
+            - name: Esercitazione sulla risoluzione dei problemi
+              href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 'Monitoraggio, diagnosi e risoluzione dei problemi'
+              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Eseguire il monitoraggio nel portale di Azure
+              href: ../common/storage-monitor-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Metriche e registrazione
+              items:
+                - name: Metriche in Monitoraggio di Azure
+                  href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Eseguire la migrazione alle nuove metriche
+                  href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Analisi archiviazione
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Metriche di Analisi archiviazione (versione classica)
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Log di Analisi archiviazione
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gestione degli eventi
+          href: storage-blob-event-overview.md
+        - name: Funzionalità dei BLOB di pagine
+          href: storage-blob-pageblob-overview.md
+        - name: Siti Web statici
+          href: storage-blob-static-website.md
+    - name: Procedure
       items:
-      - name: AzCopy (v10)
-        href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy in Windows (v8)
-        href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy in Linux (v8)
-        href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Uso di Data factory di Azure
-        href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Montare l'archivio BLOB come file system in Linux
-        href: storage-how-to-mount-container-linux.md
-      - name: Domande frequenti sulla migrazione di Archiviazione
-        href: ../common/storage-migration-faq.md
-    - name: Sviluppare con BLOB
+        - name: Creare e gestire account di archiviazione
+          items:
+            - name: Creare un account di archiviazione per utilizzo generico
+              displayName: 'resource manager, resource manager template, template, ARM'
+              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Creare un account di archiviazione BLOB in blocchi
+              href: storage-blob-create-account-block-blob.md
+            - name: Gestire un account di archiviazione
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Aggiornare un account di archiviazione
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottenere il tipo di account e il nome dello SKU (.NET)
+              href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Creare e gestire contenitori
+          items:
+            - name: Creare o eliminare un contenitore (.NET)
+              href: storage-blob-container-create.md
+            - name: Elencare i contenitori (.NET)
+              href: storage-blob-containers-list.md
+            - name: Gestire proprietà e metadati (.NET)
+              href: storage-blob-container-properties-metadata.md
+        - name: Proteggere i dati BLOB
+          items:
+            - name: Autorizzare l'accesso ai dati BLOB
+              items:
+                - name: Opzioni di autorizzazione per gli utenti
+                  items:
+                    - name: Portale
+                      href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell o interfaccia della riga di comando di Azure
+                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+                  items:
+                    - name: Portale
+                      href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Interfaccia della riga di comando di Azure
+                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autenticare e autorizzare con Azure AD
+                  items:
+                    - name: Autorizzare con un'identità gestita
+                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Autorizzare da un'applicazione
+                      href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizzare con la chiave condivisa
+                  items:
+                    - name: Configurare le stringhe di connessione
+                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Usare l'API REST di Archiviazione di Azure
+                      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Delegare l'accesso con firme di accesso condiviso
+                  items:
+                    - name: Creare una firma di accesso condiviso di delega utente
+                      items:
+                        - name: PowerShell
+                          href: storage-blob-user-delegation-sas-create-powershell.md
+                        - name: Interfaccia della riga di comando di Azure
+                          href: storage-blob-user-delegation-sas-create-cli.md
+                        - name: .NET
+                          href: storage-blob-user-delegation-sas-create-dotnet.md
+                    - name: Creare una firma di accesso condiviso del servizio (.NET)
+                      href: storage-blob-service-sas-create-dotnet.md
+                    - name: Creare una firma di accesso condiviso dell'account (.NET)
+                      href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Definire criteri di accesso archiviati
+                      href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Usare le chiavi gestite dal cliente per la crittografia del servizio
+              items:
+                - name: Portale
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Interfaccia della riga di comando di Azure
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurare la crittografia lato client
+              items:
+                - name: .NET
+                  href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Java
+                  href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Python
+                  href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurare la sicurezza di rete
+              items:
+                - name: Richiedere il trasferimento sicuro
+                  href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurare i firewall e le reti virtuali
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Abilitare Transport Layer Security
+                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ripristino di emergenza
+          items:
+            - name: Avviare il failover di un account
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Recuperare i BLOB eliminati
+              href: storage-blob-soft-delete.md
+        - name: Usare un emulatore di archiviazione
+          items:
+            - name: Usare l'emulatore open source Azurite
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Usare l'emulatore di archiviazione di Azure
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ospitare un sito Web statico
+          href: storage-blob-static-website-how-to.md
+        - name: Eseguire il mapping della rete CDN di Azure con un dominio personalizzato per l'accesso tramite HTTPS
+          href: storage-https-custom-domain-cdn.md
+        - name: Configurare un dominio personalizzato
+          href: storage-custom-domain-name.md
+        - name: Indirizzare gli eventi a un endpoint personalizzato
+          href: storage-blob-event-quickstart.md
+        - name: Cercare nell'archivio BLOB tramite Ricerca di Azure
+          href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Trasferire i dati
+          items:
+            - name: AzCopy
+              items:
+                - name: Attività iniziali
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Usare con BLOB
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Usare con bucket di Amazon S3
+                  href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Configurare, ottimizzare, risolvere i problemi'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Data factory di Azure
+              href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Montare l'archivio BLOB come file system in Linux
+              href: storage-how-to-mount-container-linux.md
+            - name: Domande frequenti sulla migrazione di Archiviazione
+              href: ../common/storage-migration-faq.md
+        - name: Sviluppare con BLOB
+          items:
+            - name: C++
+              href: storage-c-plus-plus-how-to-use-blobs.md
+            - name: iOS
+              href: storage-ios-how-to-use-blob-storage.md
+            - name: Java
+              items:
+                - name: Usare Spring Boot Starter
+                  href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
+            - name: Xamarin
+              href: storage-xamarin-blob-storage.md
+            - name: SDK legacy
+              items:
+                - name: Java (Storage SDK V7)
+                  href: storage-quickstart-blobs-java.md
+                - name: Node.js (Storage SDK v2)
+                  href: storage-quickstart-blobs-nodejs.md
+        - name: Gestire BLOB
+          items:
+            - name: Interfaccia della riga di comando di Azure
+              href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Interfaccia della riga di comando classica di Azure
+              href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Spostarsi tra aree
+          href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: riferimento
       items:
-      - name: C++
-        href: storage-c-plus-plus-how-to-use-blobs.md
-      - name: iOS
-        href: storage-ios-how-to-use-blob-storage.md
-      - name: Java
-        items:
-        - name: Usare Spring Boot Starter
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-      - name: Xamarin
-        href: storage-xamarin-blob-storage.md
-      - name: SDK legacy
-        items:
-        - name: Java (Storage SDK V7)
-          href: storage-quickstart-blobs-java.md
-        - name: Node.js (Storage SDK v2)
-          href: storage-quickstart-blobs-nodejs.md
-    - name: Gestire BLOB
+        - name: Azure PowerShell
+          href: /powershell/module/az.storage
+        - name: Interfaccia della riga di comando di Azure
+          href: /cli/azure/storage
+        - name: .NET
+          items:
+            - name: 'BLOB, code e file'
+              href: /dotnet/api/overview/azure/storage/client
+            - name: Spostamento dei dati
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: Provider delle risorse di archiviazione
+              href: /dotnet/api/overview/azure/storage/management
+        - name: Java
+          items:
+            - name: 'BLOB, code e file (versione 12.x - anteprima)'
+              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: 'BLOB, code e file (versione 8)'
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Provider delle risorse di archiviazione
+              href: /java/api/overview/azure/storage/management
+        - name: Node.js
+          href: /javascript/api/overview/azure/storage
+        - name: Python
+          href: /python/api/overview/azure/storage
+        - name: REST
+          items:
+            - name: 'BLOB, code, tabelle e file'
+              href: /rest/api/storageservices
+            - name: Provider delle risorse di archiviazione
+              href: /rest/api/storagerp
+            - name: Importazione/Esportazione
+              href: /rest/api/storageimportexport
+        - name: C++
+          href: 'https://azure.github.io/azure-storage-cpp'
+        - name: Ruby
+          href: 'https://azure.github.io/azure-storage-ruby'
+        - name: PHP
+          href: 'https://azure.github.io/azure-storage-php/'
+        - name: iOS
+          href: 'https://azure.github.io/azure-storage-ios/'
+        - name: Android
+          href: 'https://azure.github.io/azure-storage-android'
+        - name: AzCopy v10
+          items:
+            - name: azcopy
+              href: ../common/storage-ref-azcopy.md
+            - name: azcopy copy
+              href: ../common/storage-ref-azcopy-copy.md
+            - name: azcopy doc
+              href: ../common/storage-ref-azcopy-doc.md
+            - name: azcopy env
+              href: ../common/storage-ref-azcopy-env.md
+            - name: azcopy jobs
+              href: ../common/storage-ref-azcopy-jobs.md
+            - name: azcopy jobs list
+              href: ../common/storage-ref-azcopy-jobs-list.md
+            - name: azcopy jobs resume
+              href: ../common/storage-ref-azcopy-jobs-resume.md
+            - name: azcopy jobs show
+              href: ../common/storage-ref-azcopy-jobs-show.md
+            - name: azcopy list
+              href: ../common/storage-ref-azcopy-list.md
+            - name: azcopy login
+              href: ../common/storage-ref-azcopy-login.md
+            - name: azcopy logout
+              href: ../common/storage-ref-azcopy-logout.md
+            - name: azcopy make
+              href: ../common/storage-ref-azcopy-make.md
+            - name: azcopy remove
+              href: ../common/storage-ref-azcopy-remove.md
+            - name: azcopy sync
+              href: ../common/storage-ref-azcopy-sync.md
+        - name: Modello di Resource Manager
+          displayName: ARM
+          href: /azure/templates/microsoft.storage/allversions
+    - name: Risorse
       items:
-      - name: PowerShell
-        href: /powershell/module/azure.storage
-      - name: Interfaccia della riga di comando di Azure
-        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Interfaccia della riga di comando classica di Azure
-        href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: riferimento
-    items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-      - name: BLOB, code, tabelle e file
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
-      - name: Spostamento dati
-        href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
-      - name: Gestione risorse
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-      - name: BLOB, code, tabelle e file (v7)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
-      - name: SDK per BLOB (v10)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/storage
-    - name: Ruby
-      href: https://azure.github.io/azure-storage-ruby
-    - name: PHP
-      href: https://azure.github.io/azure-storage-php/
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/storage
-    - name: C++
-      href: https://azure.github.io/azure-storage-cpp
-    - name: iOS
-      href: https://azure.github.io/azure-storage-ios/
-    - name: Android
-      href: https://azure.github.io/azure-storage-android
-    - name: REST
-      items:
-      - name: BLOB, code, tabelle e file
-        href: /rest/api/storageservices
-      - name: Provider di risorse
-        href: /rest/api/storagerp
-      - name: Importazione/Esportazione
-        href: /rest/api/storageimportexport
-    - name: Modello di Resource Manager
-      displayName: ARM
-      href: /azure/templates/microsoft.storage/allversions
-  - name: Risorse
-    items:
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/roadmap/?product=storage
-    - name: Strumenti client di Archiviazione di Azure
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-    - name: Prezzi
-      href: https://azure.microsoft.com/pricing/details/storage/blobs/
-    - name: Calcolatore prezzi
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Video
-      href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-    - name: Esplora archivi Azure
-      items:
-      - name: Storage Explorer
-        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Note sulla versione di Storage Explorer
-        href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Risolvere i problemi di Storage Explorer
-        href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Accessibilità di Storage Explorer
-        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Pacchetti NuGet
-      items:
-      - name: Libreria client di archiviazione di Azure per .NET
-        href: https://www.nuget.org/packages/WindowsAzure.Storage/
-      - name: Libreria di spostamento dei dati di Archiviazione di Azure
-        href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-      - name: Gestione configurazione di Azure
-        href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-    - name: Codice sorgente
-      items:
-      - name: .NET
-        items:
-        - name: BLOB, code, tabelle e file
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
-        - name: Spostamento dati
-          href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
-        - name: Gestione risorse
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
-      - name: Java
-        items:
-        - name: BLOB, code, tabelle e file (v7)
-          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
-        - name: SDK per BLOB (v10)
-          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
-      - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/overview/azure/storage
-      - name: Ruby
-        href: https://azure.github.io/azure-storage-ruby
-      - name: PHP
-        href: https://azure.github.io/azure-storage-php/
-      - name: Python
-        href: https://docs.microsoft.com/python/api/overview/azure/storage
-      - name: C++
-        href: https://azure.github.io/azure-storage-cpp
-      - name: iOS
-        href: https://azure.github.io/azure-storage-ios/
-      - name: Android
-        href: https://azure.github.io/azure-storage-android
-      - name: REST
-        items:
-        - name: BLOB, code, tabelle e file
-          href: /rest/api/storageservices
-        - name: Provider di risorse
-          href: /rest/api/storagerp
-        - name: Importazione/Esportazione
-          href: /rest/api/storageimportexport
-    - name: Offerte di conformità
-      href: ../common/storage-compliance-offerings.md
+        - name: Aggiornamenti di Azure
+          href: 'https://azure.microsoft.com/updates/?product=storage'
+        - name: Esplora archivi Azure
+          items:
+            - name: Scaricare Storage Explorer
+              href: 'https://azure.microsoft.com/features/storage-explorer/'
+            - name: Introduzione a Storage Explorer
+              href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Note sulla versione di Storage Explorer
+              href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Risolvere i problemi di Storage Explorer
+              href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Accessibilità di Storage Explorer
+              href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Forum di Archiviazione di Azure
+          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+        - name: Archiviazione di Azure in Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+        - name: Prezzi per l'archiviazione BLOB
+          href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+        - name: Calcolatore prezzi di Azure
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Video
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: Pacchetti NuGet (.NET)
+          items:
+            - name: Microsoft.Azure.Storage.Common (versione 11.x)
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+            - name: Azure.Storage.Common (versione 12.x - anteprima)
+              href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+            - name: Microsoft.Azure.Storage.Blob (versione 11.x)
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
+            - name: Azure.Storage.Blob (versione 12.x - anteprima)
+              href: 'https://www.nuget.org/packages/Azure.Storage.Blobs/'
+            - name: Gestione configurazione di Azure
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+            - name: Libreria di spostamento dei dati di Archiviazione di Azure
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+            - name: Libreria del provider di risorse di archiviazione
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
+        - name: Codice sorgente
+          items:
+            - name: .NET
+              items:
+                - name: Libreria client di Archiviazione di Azure
+                  items:
+                    - name: Versione 12.x (anteprima)
+                      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                    - name: Versione 11. x e versioni precedenti
+                      href: 'https://github.com/Azure/azure-storage-net'
+                - name: Libreria di spostamento dati
+                  href: 'https://github.com/Azure/azure-storage-net-data-movement'
+                - name: Libreria del provider di risorse di archiviazione
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
+            - name: Java
+              items:
+                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                  href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+                - name: Libreria del client di Archiviazione di Azure versione 8.x e versioni precedenti
+                  href: 'https://github.com/Azure/azure-storage-java'
+            - name: Node.js
+              items:
+                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                  href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+                - name: Libreria del client di Archiviazione di Azure versione 10.x
+                  href: 'https://github.com/Azure/azure-storage-node'
+            - name: Python
+              items:
+                - name: Libreria del client di Archiviazione di Azure versione 12.x (anteprima)
+                  href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+                - name: Libreria del client di Archiviazione di Azure versione 2.1
+                  href: 'https://github.com/Azure/azure-storage-python'
+        - name: Offerte di conformità
+          href: ../common/storage-compliance-offerings.md
 - name: Data Lake Storage Gen2
   items:
-  - name: Passare alla documentazione di Azure Data Lake Storage Gen1
-    href: /azure/data-lake-store/
-  - name: Panoramica
-    items:
-    - name: Introduzione a Data Lake Storage
-      href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Elaborazione di Big Data
-      href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Guide introduttive
-    items:
-    - name: Creare un account di archiviazione
-      href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gestire i dati con Storage Explorer
-      href: ../blobs/data-lake-storage-explorer.md
-    - name: Analizzare i dati con Databricks
-      href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Esercitazioni
-    items:
-    - name: Estrarre, trasformare e caricare dati tramite Azure Databricks
-      href: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Accedere ai dati di Data Lake Storage con Databricks usando Spark
-      href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Estrarre, trasformare e caricare dati con Apache Hive in Azure HDInsight
-      href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Concetti
-    items:
-    - name: Driver del file system di BLOB di Azure per Hadoop
-      href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: URI del file system di BLOB di Azure
-      href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Servizio dello spazio dei nomi gerarchico
-      href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Procedure consigliate
-      href: data-lake-storage-best-practices.md
-    - name: Sicurezza
+    - name: Passare alla documentazione di Azure Data Lake Storage Gen1
+      href: /azure/data-lake-store/
+    - name: Panoramica
       items:
-      - name: Guida alla sicurezza dell'analisi dei Big Data
-        href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Crittografia di Archiviazione di Azure
-        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Controllo dell’accesso
-        href: data-lake-storage-access-control.md
-  - name: Procedure
-    items:
-    - name: Inserire dati
+        - name: Introduzione a Data Lake Storage
+          href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Elaborazione di Big Data
+          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Guide introduttive
       items:
-      - name: Usare Distcp
-        href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Usare Azure Data Factory
-        href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Proteggere i dati
+        - name: Analizzare i dati con Databricks
+          href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gestire i BLOB senza codice
+          items:
+            - name: PowerShell
+              href: storage-quickstart-blobs-powershell.md
+            - name: CLI
+              href: storage-quickstart-blobs-cli.md
+        - name: Sviluppare con BLOB
+          items:
+            - name: .NET
+              href: storage-quickstart-blobs-dotnet.md
+            - name: Python
+              href: storage-quickstart-blobs-python.md
+    - name: Esercitazioni
       items:
-      - name: Configurare i firewall e le reti virtuali
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Gestire le chiavi personalizzate per la crittografia di Archiviazione di Azure
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
-        items:
-        - name: Portale
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Estrarre, trasformare e caricare dati tramite Azure Databricks'
+          href: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Accedere ai dati di Data Lake Storage con Databricks usando Spark
+          href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Estrarre, trasformare e caricare dati con Apache Hive in Azure HDInsight'
+          href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Inserire dati in tabelle Databricks Delta con Griglia di eventi
+          href: ../blobs/data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Concetti
+      items:
+        - name: Accesso multi-protocollo
+          href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Driver del file system di BLOB di Azure per Hadoop
+          href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: URI del file system di BLOB di Azure
+          href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Informazioni sugli spazi dei nomi gerarchici
+          href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Procedure consigliate
+          href: data-lake-storage-best-practices.md
+        - name: Livelli di accesso
+          items:
+            - name: Livelli di accesso
+              href: storage-blob-storage-tiers.md
+            - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
+              href: storage-lifecycle-management-concepts.md
+        - name: Security
+          items:
+            - name: Panoramica della sicurezza di Archiviazione
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Controllo di accesso
+              href: data-lake-storage-access-control.md
+        - name: Registrazione
+          items:
+            - name: Analisi archiviazione
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Log di Analisi archiviazione
+              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gestione degli eventi
+          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Procedure
+      items:
+        - name: Creare e gestire account di archiviazione
+          items:
+            - name: Creare un account di archiviazione per utilizzo generico
+              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gestire un account di archiviazione
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gestire i dati con Storage Explorer
+              href: ../blobs/data-lake-storage-explorer.md
+            - name: Aggiornare un account di archiviazione
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Inserire dati
+          items:
+            - name: AzCopy
+              items:
+                - name: Attività iniziali
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Usare con Data Lake Storage Gen2
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Configurare, ottimizzare, risolvere i problemi'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Usare Distcp
+              href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Usare Azure Data Factory
+              href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Proteggere i dati
+          items:
+            - name: Configurare i firewall e le reti virtuali
+              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurare le chiavi gestite dal cliente per la crittografia del servizio
+              items:
+                - name: Portale
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Interfaccia della riga di comando di Azure
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+              items:
+                - name: Portale
+                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Interfaccia della riga di comando di Azure
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Impostare le autorizzazioni a livello di file e di directory
+              href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+        - name: Eseguire l'integrazione con i servizi di Azure
+          items:
+            - name: Uso con i cluster HDInsight
+              href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Uso con l'interfaccia della riga di comando del file system Hadoop
+              href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Uso con Azure Databricks
+              href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+            - name: Uso con Azure SQL Data Warehouse
+              href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
+            - name: Uso con Power BI
+              href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ottimizzare le prestazioni
+          items:
+            - name: Panoramica
+              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Spark in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Hive in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare MapReduce in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Storm in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gestire i file (BLOB)
+          items:
+            - name: PowerShell
+              href: /powershell/module/azure.storage
+            - name: Interfaccia della riga di comando di Azure
+              href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Eseguire la migrazione dei dati
+          items:
+            - name: Eseguire l'aggiornamento da Data Lake Storage Gen1
+              href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Eseguire la migrazione di un archivio HDFS locale
+              href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: riferimento
+      items:
         - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Impostare le autorizzazioni a livello di file e di directory
-        href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Eseguire l'integrazione con i servizi di Azure
+          href: /powershell/module/azure.storage
+        - name: Interfaccia della riga di comando di Azure
+          href: /cli/azure/storage
+        - name: .NET
+          items:
+            - name: 'BLOB, code, tabelle e file'
+              href: /dotnet/api/overview/azure/storage/client
+            - name: Spostamento dati
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: Gestione risorse
+              href: /dotnet/api/overview/azure/storage/management
+        - name: Java
+          items:
+            - name: 'BLOB, code, tabelle e file (v7)'
+              href: /java/api/overview/azure/storage/client?view=azure-java-stable
+            - name: SDK per BLOB (v10)
+              href: /java/api/overview/azure/storage/client?view=azure-java-preview
+        - name: REST
+          items:
+            - name: 'BLOB, code, tabelle e file'
+              href: /rest/api/storageservices
+            - name: Data Lake Storage Gen2
+              href: /rest/api/storageservices/data-lake-storage-gen2
+            - name: Provider di risorse
+              href: /rest/api/storagerp
+            - name: Importazione/Esportazione
+              href: /rest/api/storageimportexport
+        - name: Modello di Resource Manager
+          displayName: ARM
+          href: /azure/templates/microsoft.storage/allversions
+    - name: Risorse
       items:
-      - name: Uso con i cluster HDInsight
-        href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Uso con l'interfaccia della riga di comando del file system Hadoop
-        href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Uso con Azure Databricks
-        href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
-      - name: Uso con Azure SQL Data Warehouse
-        href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
-    - name: Ottimizzare le prestazioni
-      items:
-      - name: Panoramica
-        href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ottimizzare Spark in HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ottimizzare Hive in HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ottimizzare MapReduce in HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ottimizzare Storm in HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Eseguire la migrazione dei dati
-      items:
-      - name: Eseguire l'aggiornamento da Data Lake Storage Gen1
-        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Eseguire la migrazione di un archivio HDFS locale
-        href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: riferimento
-    items:
-    - name: REST
-      href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
-  - name: Risorse
-    items:
-    - name: Problemi noti
-      href: data-lake-storage-known-issues.md
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/roadmap/?category=storage
-    - name: Strumenti client di Archiviazione di Azure
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-    - name: Prezzi
-      href: https://azure.microsoft.com/pricing/details/storage/data-lake/
-    - name: Calcolatore prezzi
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Aggiornamenti del servizio
-      href: https://azure.microsoft.com/updates/?product=storage
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Video
-      href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 3b676affdec9ac163f5a1a2925b7806e90ec1a23
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683519"
+        - name: Problemi noti
+          href: data-lake-storage-known-issues.md
+        - name: Roadmap per Azure
+          href: 'https://azure.microsoft.com/roadmap/?category=storage'
+        - name: Strumenti client di Archiviazione di Azure
+          href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+        - name: Forum
+          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+        - name: Prezzi
+          href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
+        - name: Calcolatore prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Aggiornamenti del servizio
+          href: 'https://azure.microsoft.com/updates/?product=storage'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+        - name: Video
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'

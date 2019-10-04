@@ -10,17 +10,16 @@ tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: aca7f700dc7004f682430d0794f8bc9b024f41b3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 85cbcb4b01161e0004d38f08ae8c30fd398727ff
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113499"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087901"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Ripristinare un'app Web da un backup con Azure PowerShell
 

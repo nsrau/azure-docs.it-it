@@ -10,17 +10,16 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721462"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066510"
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
 Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](manage-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
@@ -29,7 +28,7 @@ Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](..
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
-Il ripristino da backup è disponibile per le app in esecuzione a livello **Standard** e **Premium**. Per informazioni sul passaggio dell'app a un piano superiore, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
+Il ripristino da backup è disponibile per le app in esecuzione a livello **Standard** e **Premium**. Per informazioni sul passaggio dell'app a un piano superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 
 <a name="PreviousBackup"></a>
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102018"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -42,7 +41,7 @@ Le sezioni seguenti offrono alcuni suggerimenti e alcune considerazioni su quest
 
 ## <a name="secure-connections"></a>Connessioni sicure
 
-Quando si crea una macchina virtuale di SQL Server con un'immagine della raccolta, l'opzione **SQL Server Connectivity** (Connettività SQL Server) offre la possibilità di scegliere tra **Locale (all'interno della macchina virtuale)**, **Privata (solo all'interno della rete virtuale)** o **Pubblico (Internet)**.
+Quando si crea una macchina virtuale di SQL Server con un'immagine della raccolta, l'opzione **SQL Server Connectivity** (Connettività SQL Server) offre la possibilità di scegliere tra **Locale (all'interno della macchina virtuale)** , **Privata (solo all'interno della rete virtuale)** o **Pubblico (Internet)** .
 
 ![Connettività di SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -62,9 +61,11 @@ Occorre infine considerare di abilitare le connessioni crittografate per l'istan
 
 Per impostazione predefinita, SQL Server è in ascolto sulla porta 1433 che tutti conoscono. Per una maggiore sicurezza, configurare SQL Server per l'ascolto su una porta non predefinita, ad esempio la porta 1401. Se si esegue il provisioning di un'immagine della raccolta di SQL Server nel portale di Azure, è possibile specificare questa porta nel pannello **Impostazioni di SQL Server**.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Per configurare questa porta dopo il provisioning, sono disponibili due opzioni:
 
-- Per le macchine virtuali di Resource Manager, è possibile selezionare **Configurazione di SQL Server** dal pannello di panoramica della macchina virtuale. Da qui è possibile modificare la porta.
+- Per Gestione risorse macchine virtuali, è possibile selezionare **sicurezza** dalla [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Da qui è possibile modificare la porta.
 
   ![Modificare la porta TCP nel portale](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 
@@ -96,7 +97,7 @@ Quando SQL Server è in ascolto su una porta non predefinita, è necessario spec
 
 Oltre alle procedure descritte in questo argomento, è consigliabile rivedere e implementare le procedure di sicurezza locali tradizionali, ove applicabili. Per altre informazioni, vedere [Considerazioni sulla sicurezza per un'installazione di SQL Server](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 

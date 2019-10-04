@@ -1,24 +1,20 @@
 ---
-title: Pagare in anticipo le macchine virtuali di Azure per risparmiare | Microsoft Docs
+title: Pagamento anticipato per le macchine virtuali di Azure per risparmiare denaro
 description: Informazioni su come acquistare istanze di macchina virtuale riservate di Azure per risparmiare sui costi per i servizi di calcolo.
-services: virtual-machines-linux
-documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
-editor: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
+services: virtual-machines-windows
+author: yashar
+manager: yashar
+ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
-ms.author: vikdesai
-ms.openlocfilehash: e0fc5935790640cd30bbd52a2d2f93d18a7249f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/29/2019
+ms.author: banders
+ms.openlocfilehash: 863c52fb60c0d1d74aa4b574a0a0b592d9b0df84
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406869"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806068"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
-

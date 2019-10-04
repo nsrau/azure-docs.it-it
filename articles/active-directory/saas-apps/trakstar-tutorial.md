@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06ab8a96e4f2c4bb90afd34952a8e6e78114e7e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Esercitazione: Integrazione di Azure Active Directory con Trakstar
 
@@ -76,13 +76,13 @@ Per configurare l'integrazione di Trakstar in Azure AD, è necessario aggiungere
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Trakstar usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Trakstar.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Trakstar, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Trakstar, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Trakstar](#configure-trakstar-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Trakstar](#create-trakstar-test-user)**: per avere una controparte di Britta Simon in Trakstar collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Trakstar](#configure-trakstar-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Trakstar](#create-trakstar-test-user)** : per avere una controparte di Britta Simon in Trakstar collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Trakstar](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** copiare il valore trovato in **ACS (Consumer) URL** (URL ACS consumer), visualizzabile selezionando Settings > Authentication & SSO (Impostazioni > Autenticazione & SSO) in Trakstar, nel formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. Nella casella di testo **URL accesso** copiare il valore trovato in **ACS (Consumer) URL** (URL ACS - Consumer) in Trakstar (Settings > Authentication & SSO) (Impostazioni > Autenticazione e SSO) nel formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
     b. Nella casella di testo **Identificatore (ID entità)** non modificare il valore predefinito: `https://app.trakstar.com`
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, accedere a Trakstar come amministratore.
     > Se la scheda "Authentication & SSO" (Autenticazione & SSO) non è visibile in Settings (Impostazioni), è possibile che la funzionalità non sia disponibile. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -133,9 +133,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trakstar, seguire quest
 
 Per configurare l'accesso Single Sign-On sul lato **Trakstar**, è necessario eseguire l'accesso come amministratore e immettere il contenuto del **certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure. La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -157,7 +157,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Trakstar.
 
@@ -165,7 +165,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Trakstar**.
+2. Nell'elenco di applicazioni selezionare **Trakstar**.
 
     ![Collegamento di Trakstar nell'elenco delle applicazioni](common/all-applications.png)
 

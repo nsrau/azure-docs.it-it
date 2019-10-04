@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 855d29d2c55b841bbbe4e9eadce8c29ad85fad90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868685"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704859"
 ---
 # <a name="similarity-method"></a>Metodo Similarity
 
@@ -27,27 +28,35 @@ L'API REST **Similarity** viene usata per calcolare la similarità accademica tr
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
-## <a name="request-parameters"></a>Parametri della richiesta
-Parametro        |Tipo di dati      |Obbligatoria | DESCRIZIONE
+## <a name="request-parameters"></a>Parametri richiesta
+
+Parametro        |Tipo di dati      |Obbligatoria | Descrizione
 ----------|----------|----------|------------
-**s1**        |string   |Sì  |Stringa* da confrontare
-**s2**        |string   |Sì  |Stringa* da confrontare
+**s1**        |String   |Yes  |Stringa* da confrontare
+**s2**        |String   |Sì  |Stringa* da confrontare
+
 <sub> *Le stringhe da confrontare possono avere una lunghezza massima pari a 1 MB. </sub>
 <br>
+
 ## <a name="response"></a>Risposta
-NOME | DESCRIZIONE
+
+Name | Descrizione
 --------|---------
 **SimilarityScore**        |Valore a virgola mobile che rappresenta la similarità del coseno di s1 e s2. I valori più vicini a 1,0 indicano maggiore similarità e i valori più vicini a -1,0 indicano minore similarità
+
 <br>
 
 ## <a name="successerror-conditions"></a>Condizioni di riuscita/errore
-Stato HTTP | Motivo | Risposta
+
+Stato HTTP | `Reason` | Risposta
 -----------|----------|--------
-**200**         |Success | Numero a virgola mobile
+**200**         |Riuscito | Numero a virgola mobile
 **400**         | Richiesta non valida | Messaggio di errore      
 **500**         |Errore interno del server | Messaggio di errore
 **Timeout**     | Timeout della richiesta.  | Messaggio di errore
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Esempio: calcolare la similarità di due abstract parziali
 #### <a name="request"></a>Richiesta:
 ```

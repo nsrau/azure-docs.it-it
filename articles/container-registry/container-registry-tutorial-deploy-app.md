@@ -1,21 +1,22 @@
 ---
 title: "Esercitazione: distribuire un'app dal registro con replica geografica di Docker in Azure"
-description: Distribuire un'app Web basata su Linux a due diverse aree di Azure usando un'immagine del contenitore da un registro contenitori di Azure con replica geografica. Seconda parte di una serie in tre parti.
+description: Distribuire un'app Web basata su Linux a due diverse aree di Azure usando un'immagine del contenitore da un Registro Azure Container con replica geografica. Seconda parte di una serie in tre parti.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253834"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146917"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: distribuire un'app Web da un registro contenitori di Azure con replica geografica
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
 
 Questa esercitazione è la seconda di una serie in tre parti. Nella [prima parte](container-registry-tutorial-prepare-registry.md) è stato creato un registro contenitori privato, con replica geografica; è stata quindi creata un'immagine del contenitore poi inserita nel registro contenitori. In questo articolo vengono sfruttati i vantaggi della struttura simile alla rete del registro con replica geografica distribuendo il contenitore nelle istanze dell'app Web in due diverse aree di Azure. Ogni istanza effettua quindi il pull dell'immagine del contenitore dal registro più vicino.
 
@@ -25,7 +26,7 @@ In questa esercitazione, la seconda della serie, vengono illustrate le seguenti 
 > * Distribuire un'immagine del contenitore in due istanze di *App Web per i contenitori*
 > * Verificare l'applicazione distribuita
 
-Se non è ancora stato creato il registro contenitori con replica geografica e non è stata inserita l'immagine dell'applicazione di esempio nei contenitori nel registro, tornare all'esercitazione precedente della serie, [Preparare un registro contenitori di Azure con replica geografica](container-registry-tutorial-prepare-registry.md).
+Se non è ancora stato creato il registro contenitori con replica geografica e non è stata inserita l'immagine dell'applicazione di esempio nei contenitori nel registro, tornare all'esercitazione precedente della serie, [Preparare un Registro Azure Container con replica geografica](container-registry-tutorial-prepare-registry.md).
 
 Nell'articolo successivo della serie viene aggiornata l'applicazione e quindi viene eseguito il push di un'immagine aggiornata del contenitore nel registro. Infine, si esamina ogni istanza dell'app Web in esecuzione per visualizzare le modifiche automaticamente applicate a entrambe, che mostrano il Registro Azure Container con replica geografica e i webhook in azione.
 
@@ -54,7 +55,11 @@ In **App Web per contenitori** che viene visualizzata dopo aver selezionato "Dis
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-westus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |
 | **Percorso o piano del servizio App** | Creare un nuovo piano denominato `plan-westus` nell'area degli **Stati Uniti occidentali**. |
-| **Immagine** | `acr-helloworld:v1`
+| **Immagine** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
+
+> [!NOTE]
+> Quando si crea un nuovo piano di servizio app per distribuire l'app in contenitori, viene selezionato automaticamente un piano predefinito per ospitare l'applicazione. Il piano predefinito dipende dall'impostazione del sistema operativo.
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti occidentali*.
 
@@ -83,7 +88,8 @@ Usare la procedura descritta nella sezione precedente per distribuire una second
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-eastus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |
 | **Percorso o piano del servizio App** | Creare un nuovo piano denominato `plan-eastus` nell'area degli **Stati Uniti orientali**. |
-| **Immagine** | `acr-helloworld:v1`
+| **Immagine** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti orientali*.
 
@@ -105,7 +111,7 @@ Una volta distribuita l'immagine Docker dal registro contenitori con replica geo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state distribuite due istanze di app Web per contenitori da un registro contenitori con replica geografica di Azure.
+In questa esercitazione sono state distribuite due istanze di app Web per contenitori da un Registro Azure Container con replica geografica.
 
 Passare all'esercitazione successiva per aggiornare e quindi distribuire una nuova immagine del contenitore nel registro contenitori, quindi verificare che le app Web in esecuzione in entrambe le aree siano state aggiornate automaticamente.
 

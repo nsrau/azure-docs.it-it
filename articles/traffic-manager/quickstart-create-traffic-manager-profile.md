@@ -2,7 +2,8 @@
 title: Guida introduttiva - Creare un profilo di Gestione traffico per la disponibilità elevata delle applicazioni usando il portale di Azure
 description: Questa guida introduttiva descrive come creare un profilo di Gestione traffico per creare applicazioni Web a disponibilità elevata.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: allensu
+ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760665"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224683"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
 
@@ -35,42 +36,25 @@ Accedere al [portale di Azure](https://portal.azure.com).
 Per questo avvio rapido, saranno necessarie due istanze di un'applicazione Web distribuita in due aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Ognuna verrà usata come endpoint primario e di failover per Gestione traffico.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Web** > **App Web**.
-2. In **App Web** immettere o selezionare queste impostazioni:
 
-    | Impostazione | Valore |
-    | ------- | ----- |
-    | Nome app | Immettere un nome univoco per l'app Web.  |
-    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare l'app Web. |
-    | Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroupTM1*. |
-    | OS | Selezionare **Windows** come sistema operativo. |
-    | Pubblica | Selezionare **Codice** come formato di pubblicazione. |
+1. In **Crea un'app Web** digitare o selezionare i valori seguenti nella scheda **Informazioni di base**:
 
-3. Selezionare **Piano di servizio app/Località**.
-4. In **Piano di servizio app** selezionare **Crea nuovo**.
-5. In **Nuovo piano di servizio app** immettere o selezionare queste impostazioni:
+   - **Sottoscrizione** > **Gruppo di risorse**: Selezionare **Crea nuovo** e quindi digitare **myResourceGroupTM1**.
+   - **Dettagli dell'istanza** > **Nome**: Digitare *myWebAppEastUS*.
+   - **Dettagli dell'istanza** > **Pubblica**: Selezionare **Codice**.
+   - **Dettaglia dell'istanza** > **Stack di runtime**: Selezionare **ASP.NET V4.7**
+   - **Dettagli dell'istanza** > **Sistema operativo**: Selezionare **Windows**.
+   - **Dettagli istanza** > **Area**:  Selezionare **Stati Uniti orientali**.
+   - **Piano di servizio app** > **Piano Windows (Stati Uniti orientali)** : Selezionare **Crea nuovo** e quindi digitare **myAppServicePlanEastUS**
+   - **Piano di servizio app** > **SKU e dimensioni**: Selezionare **Standard S1**.
+   
+3. Selezionare la scheda **Monitoraggio** oppure selezionare **Passaggio successivo: Monitoraggio**.  In **Monitoraggio** impostare **Application Insights** > **Abilita Application Insights** su **No**.
 
-    | Impostazione | Valore |
-    | ------- | ----- |
-    | Piano di servizio app | Immettere *myAppServicePlanEastUS*. |
-    | Località | Stati Uniti orientali |
-    | Piano tariffario | S1 Standard |
+4. Selezionare **Rivedi e crea**.
 
-6. Selezionare **OK**.
+5. Rivedere le impostazioni e fare clic su **Crea**.  Quando l'app Web viene distribuita correttamente, crea un sito Web predefinito.
 
-7. In **App Web** selezionare **Crea**. Quando l'app Web viene distribuita correttamente, crea un sito Web predefinito.
-
-8. Per creare un secondo sito Web in un'area di Azure diversa, ripetere i passaggi da 1 a 7 con queste impostazioni:
-
-    | Impostazione | Valore |
-    | --------| ----- |
-    | NOME | Immettere un nome univoco per l'app Web. |
-    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare l'app Web. |
-    | Gruppo di risorse | Selezionare **Crea nuovo** e quindi immettere *myResourceGroupTM2*. |
-    | OS | Selezionare **Windows** come sistema operativo. |
-    | Pubblica | Selezionare **Codice** come formato di pubblicazione. |
-    | Piano di servizio app/Località | Immettere *myAppServicePlanWestEurope*. |
-    | Località | Europa occidentale |
-    | Piano tariffario | S1 Standard |
+6. Seguire i passaggi per creare una seconda app Web denominata *myWebAppWestEurope*, assegnando al **Gruppo di risorse** il nome *myResourceGroupTM2*, impostando **Località** su *Europa occidentale*, specificando il nome **myAppServicePlanWestEurope** per **Piano di servizio app** e scegliendo gli stessi valori di *myWebAppEastUS* per tutte le altre impostazioni.
 
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
@@ -83,11 +67,11 @@ Creare un profilo di Gestione traffico che indirizza il traffico utente in base 
     | --------| ----- |
     | NOME | Immettere un nome univoco per il profilo di Gestione traffico.|
     | Metodo di routing | Selezionare **Priorità**.|
-    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare il profilo di Gestione traffico. |
-    | Gruppo di risorse | Selezionare *myResourceGroupTM1*.|
-    | Località |Questa impostazione si riferisce alla località del gruppo di risorse. Non ha alcun effetto sul profilo di Gestione traffico che verrà distribuito a livello globale.|
+    | Subscription | Selezionare la sottoscrizione a cui si vuole applicare il profilo di Gestione traffico. |
+    | Resource group | Selezionare *myResourceGroupTM1*.|
+    | Location |Questa impostazione si riferisce alla località del gruppo di risorse. Non ha alcun effetto sul profilo di Gestione traffico che verrà distribuito a livello globale.|
 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 

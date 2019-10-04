@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/22/2017
+ms.date: 12/22/2018
 ms.author: ramkris
-ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526878"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616664"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 
@@ -50,7 +50,7 @@ Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è ne
 * [Eclipse IDE per sviluppatori Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un sito Web di Azure con Java Runtime Environment (ad esempio Tomcat o Jetty) abilitato.](../app-service/app-service-web-get-started-java.md)
 
-Se questi strumenti vengono installati per la prima volta, coreservlets.com fornisce una procedura dettagliata del processo di installazione nella sezione introduttiva dell'articolo relativo all'[esercitazione sull'installazione di TomCat7 e il relativo uso con Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Se questi strumenti vengono installati per la prima volta, coreservlets.com fornisce una procedura dettagliata del processo di installazione nella sezione introduttiva dell'articolo relativo all'[esercitazione sull'installazione di TomCat7 e il relativo uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
 ## <a id="CreateDB"></a>Passaggio 1: Creare un account Azure Cosmos DB
 Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile proseguire con il [Passaggio 2: Creare l'applicazione Java JSP](#CreateJSP).
@@ -742,7 +742,7 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 8. Nella schermata **Local Destination** (Destinazione locale) fare clic su **Browse** (Sfoglia) per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next** (Avanti).
 9. Nella schermata **Select a wizard to use for importing projects** (Selezionare una procedura guidata per l'importazione di progetti) assicurarsi che l'opzione **Import existing projects** (Importa progetti esistenti) sia selezionata e quindi fare clic su **Next** (Avanti).
 10. Nella schermata **Import Projects** (Importa progetti) deselezionare il progetto **DocumentDB** e quindi fare clic su **Finish** (Fine). Il progetto DocumentDB contiene Azure Cosmos DB Java SDK, che verrà aggiunto invece come dipendenza.
-11. In **Esplora progetti** passare ad azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e sostituire i valori HOST e MASTER_KEY con i valori URI e PRIMARY KEY dell'account Azure Cosmos DB, quindi salvare il file. Per altre informazioni, vedere [Passaggio 1. Creare un account di database Azure Cosmos DB](#CreateDB).
+11. In **Esplora progetti** passare ad azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e sostituire i valori HOST e MASTER_KEY con i valori URI e PRIMARY KEY dell'account Azure Cosmos DB, quindi salvare il file. Per altre informazioni, vedere [Passaggio 1. Creare un account di database Azure Cosmos](#CreateDB).
 12. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **azure-documentdb-java-sample**, scegliere **Build Path** (Percorso compilazione) e quindi fare clic su **Configure Build Path** (Configura percorso compilazione).
 13. Nella schermata **Java Build Path** (Percorso compilazione Java), nel riquadro a destra selezionare la scheda **Libraries** (Librerie) e quindi fare clic su **Add External JARs** (Aggiungi JAR esterni). Passare al percorso del file lombok.jar e fare clic su **Open** (Apri) e quindi su **OK**.
 14. Vedere il passaggio 12 per aprire nuovamente la finestra **Properties** (Proprietà) e quindi nel riquadro a sinistra fare clic su **Targeted Runtimes** (Runtime di destinazione).

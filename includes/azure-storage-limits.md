@@ -5,44 +5,40 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/11/2018
+ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532362"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124082"
 ---
-La tabella seguente descrive i limiti predefiniti per Azure per utilizzo generico v1, v2 e account di archiviazione Blob. Il *ingress* limite si riferisce a tutti i dati dalle richieste inviate a un account di archiviazione. Il *uscita* limite si riferisce a tutti i dati dalle risposte che vengono ricevute da un account di archiviazione.
+La tabella seguente descrive i limiti predefiniti per gli account di archiviazione BLOB V1, V2 e per utilizzo generico di Azure. Il limite di *ingresso* si riferisce a tutti i dati delle richieste inviate a un account di archiviazione. Il limite in *uscita* fa riferimento a tutti i dati delle risposte ricevute da un account di archiviazione.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
-| Capacità dell'account di archiviazione massimo | 2 PB di Stati Uniti ed Europa, 500 TB per tutte le altre aree, che include il Regno Unito |
-| Numero massimo di contenitori blob, BLOB, condivisioni file, tabelle, code, entità o messaggi per ogni account di archiviazione | Nessun limite |
+| Capacità massima dell'account di archiviazione | 2 PiB per Stati Uniti ed Europa e 500 TiB per tutte le altre aree (incluso il Regno Unito)<sup>1</sup>|
+| Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
 | Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
-| Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree degli Stati Uniti) | 10 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 20 Gbps per LRS/ZRS<sup>2</sup> |
-| Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree non degli Stati Uniti) | 5 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 10 Gbps per LRS/ZRS<sup>2</sup> |
-| Numero massimo in uscita per utilizzo generico v2 e account di archiviazione Blob (tutte le aree) | 50 Gbps |
-| Numero massimo in uscita per gli account di archiviazione per utilizzo generico v1 (aree degli Stati Uniti) | 20 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 30 Gbps per LRS/ZRS<sup>2</sup> |
-| Numero massimo in uscita per gli account di archiviazione per utilizzo generico v1 (aree non degli Stati Uniti) | 10 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 15 Gbps per LRS/ZRS<sup>2</sup> |
+| Ingresso massimo<sup>1</sup> per account di archiviazione (aree Stati Uniti, Europa) | 25 Gbps |
+| Ingresso massimo<sup>1</sup> per account di archiviazione (aree diverse da Stati Uniti ed Europa) | 5 Gbps se RA-GRS/GRS è abilitata, 10 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
+| Numero massimo in uscita per gli account di archiviazione BLOB e V2 per utilizzo generico (tutte le aree) | 50 Gbps |
+| Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree degli Stati Uniti) | 20 Gbps se RA-GRS/GRS è abilitata, 30 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
+| Numero massimo in uscita per gli account di archiviazione per utilizzo generico V1 (aree non statunitensi) | 10 Gbps se RA-GRS/GRS è abilitato, 15 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
 
-<sup>1</sup>gli account di archiviazione Standard di azure supportano limiti più elevati per l'ingresso dalla richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Gli account di archiviazione standard di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Per altre informazioni, vedere l' [annuncio di account di archiviazione](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)con scalabilità più grandi.
 
-<sup>2</sup>Le opzioni di [replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:
-* **RA-GRS**: Archiviazione con ridondanza geografica e accesso in lettura. Se RA-GRS è abilitata, le destinazioni di uscita per la posizione secondaria sono identiche a quelle per la posizione primaria.
-* **GRS**: Archiviazione con ridondanza geografica. 
-* **ZRS**: Archiviazione con ridondanza della zona.
-* **LRS**: Archiviazione con ridondanza locale. 
+<sup>2</sup> se è abilitato l'accesso in lettura (RA-GRS/ra-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
-> È consigliabile usare un account di archiviazione per utilizzo generico v2 per la maggior parte degli scenari. È possibile aggiornare facilmente un utilizzo generico v1 o un account di archiviazione Blob di Azure a un account per utilizzo generico v2 senza tempi di inattività e senza la necessità di copiare i dati.
+> Per la maggior parte degli scenari, è consigliabile usare un account di archiviazione di uso generico V2. È possibile aggiornare facilmente un account di archiviazione BLOB di Azure o di uso generico V1 a un account per utilizzo generico V2 senza tempi di inattività e senza la necessità di copiare i dati.
 >
-> Per altre informazioni sugli account di archiviazione di Azure, vedere [panoramica dell'account di archiviazione](../articles/storage/common/storage-account-overview.md). 
+> Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione](../articles/storage/common/storage-account-overview.md).
 
-Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione. Quindi partizionare gli oggetti dati tra tali account di archiviazione. Per informazioni sui prezzi, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione. Quindi partizionare gli oggetti dati tra tali account di archiviazione. Per informazioni sui prezzi dei volumi, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Tutti gli account di archiviazione vengono eseguiti su una topologia di rete flat e supportano gli obiettivi di scalabilità e prestazioni descritti in questo articolo, indipendentemente dal momento in cui sono stati creati. Per altre informazioni sull'architettura di rete flat di Archiviazione di Azure e sulla scalabilità, vedere [Archiviazione di Microsoft Azure: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).
+Tutti gli account di archiviazione vengono eseguiti su una topologia di rete flat e supportano gli obiettivi di scalabilità e prestazioni descritti in questo articolo, indipendentemente dal momento in cui sono stati creati. Per altre informazioni sull'architettura di rete flat di Archiviazione di Azure e sulla scalabilità, vedere [Archiviazione di Microsoft Azure: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).
 

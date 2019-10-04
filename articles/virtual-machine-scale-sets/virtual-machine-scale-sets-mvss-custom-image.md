@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere un'immagine personalizzata in un mo
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,22 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 2ed75a72360253996471034b001e12e8190cf733
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739644"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935275"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Aggiungere un'immagine personalizzata in un modello di set di scalabilità di Azure
 
-Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per la distribuzione da un'immagine personalizzata.
+Questo articolo illustra come modificare il [modello di set](virtual-machine-scale-sets-mvss-start.md) di scalabilità di base per la distribuzione da un'immagine personalizzata.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
-
-Il modello di set di scalabilità a validità minima è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità da un'immagine personalizzata è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set custom-image`, passo per passo:
+In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
 
 ### <a name="creating-a-managed-disk-image"></a>Creazione dell'immagine di un disco gestito
 
@@ -58,7 +57,7 @@ Aggiungere poi una risorsa di tipo `Microsoft.Compute/images`, ovvero l'immagine
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -83,7 +82,7 @@ Nella risorsa del set di scalabilità aggiungere una clausola `dependsOn` che fa
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -98,15 +97,11 @@ Nella risorsa del set di scalabilità aggiungere una clausola `dependsOn` che fa
 
 In `imageReference` del set di scalabilità `storageProfile` anziché specificare editore, offerta, SKU e versione di un'immagine della piattaforma, specificare `id` della risorsa `Microsoft.Compute/images`:
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {
@@ -115,6 +110,6 @@ In `imageReference` del set di scalabilità `storageProfile` anziché specificar
 In questo esempio viene usata la funzione `resourceId` per ottenere l'ID della risorsa dell'immagine creata nello stesso modello. Se l'immagine del disco gestito è stata creata in precedenza, è necessario indicare invece l'ID di tale immagine. L'ID deve essere nel formato seguente: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

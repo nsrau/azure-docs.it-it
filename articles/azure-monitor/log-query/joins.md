@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520099"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
@@ -86,7 +86,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipi di join
 Specificare il tipo di join con l'argomento _kind_. Ogni tipo esegue una diversa corrispondenza tra i record di determinate tabelle, come descritto nella tabella seguente.
 
-| Tipo di join | DESCRIZIONE |
+| Tipo di join | Descrizione |
 |:---|:---|
 | innerunique | Questa è la modalità di join predefinita. Prima vengono trovati i valori della colonna corrispondente nella tabella di sinistra e vengono rimossi i valori duplicati  e dopo il set di valori univoci viene confrontato con la tabella di destra. |
 | interno | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |

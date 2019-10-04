@@ -3,8 +3,8 @@ title: Aggiungere o rimuovere interfacce di rete da macchine virtuali di Azure |
 description: Informazioni su come aggiungere o rimuovere interfacce di rete da macchine virtuali.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: jdial
-ms.openlocfilehash: a6371746d156fb0be2d45ac94c898652a3147a6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701382"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -36,7 +36,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell versione 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure versione 2.0.26 o successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Aggiungere interfacce di rete esistenti a una nuova macchina virtuale
@@ -56,7 +56,7 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 
 1. Accedere al portale di Azure.
 2. Nella casella di ricerca nella parte superiore del portale, digitare il nome della macchina virtuale a cui si vuole aggiungere l'interfaccia di rete o cercare la macchina virtuale selezionando **Tutti i servizi** e quindi **Macchine virtuali**. Dopo aver trovato la macchina virtuale, selezionarla. La macchina virtuale deve supportare il numero di interfacce di rete da aggiungere. Per scoprire quante interfacce di rete supporta ogni dimensione di macchina virtuale, vedere [Dimensioni delle macchine virtuali Linux in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Selezionare **Panoramica** in **Impostazioni**. Selezionare **Arresta** e quindi aspettare che lo **Stato** della macchina virtuale diventi **Arrestata (deallocata)**.
+3. Selezionare **Panoramica** in **Impostazioni**. Selezionare **Arresta** e quindi aspettare che lo **Stato** della macchina virtuale diventi **Arrestata (deallocata)** .
 4. Selezionare **Rete** in **Impostazioni**.
 5. Selezionare **Collega interfaccia di rete**. Nell'elenco delle interfacce di rete che non sono attualmente collegate a un'altra macchina virtuale, selezionare quella da collegare.
 
@@ -95,7 +95,7 @@ Prima di creare la macchina virtuale, creare un'interfaccia di rete seguendo la 
 
 1. Accedere al portale di Azure.
 2. Nella casella di ricerca nella parte superiore del portale cercare il nome della macchina virtuale da cui si vuole rimuovere (scollegare) l'interfaccia di rete o cercare la macchina virtuale selezionando **Tutti i servizi** e quindi **Macchine virtuali**. Dopo aver trovato la macchina virtuale, selezionarla.
-3. Selezionare **Panoramica** in **Impostazioni** e quindi **Arresta**. Aspettare che lo **Stato** della macchina virtuale venga modificato in **Arrestata (deallocata)**.
+3. Selezionare **Panoramica** in **Impostazioni** e quindi **Arresta**. Aspettare che lo **Stato** della macchina virtuale venga modificato in **Arrestata (deallocata)** .
 4. Selezionare **Rete** in **Impostazioni**.
 5. Selezionare **Scollega interfaccia di rete**. Nell'elenco delle interfacce di rete attualmente collegate alla macchina virtuale, selezionare l'interfaccia di rete da scollegare.
 

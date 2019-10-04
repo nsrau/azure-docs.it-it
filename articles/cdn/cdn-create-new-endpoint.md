@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091766"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594012"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure
 In questa guida introduttiva si abilita la rete per la distribuzione di contenuti (rete CDN) di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti.
@@ -53,7 +53,7 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | **Nome** | Immettere *my-endpoint-123* come nome host dell'endpoint. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _&lt;nome endpoint&gt;_.azureedge.net.|
+    | **Nome** | Immettere *my-endpoint-123* come nome host dell'endpoint. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _&lt;nome endpoint&gt;_ .azureedge.net.|
     | **Tipo di origine** | Selezionare **Archiviazione**. | 
     | **Nome host dell'origine** | Immettere *mystorageacct123.blob.core.windows.net* per il nome host. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. |
     | **Percorso dell'origine** | Lasciare vuoto. |

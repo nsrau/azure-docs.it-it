@@ -1,25 +1,18 @@
 ---
-title: Definizioni di Seller Insights | Microsoft Docs
+title: Definizioni di Seller Insights
 description: Fornisce le definizioni per molti dei termini che troverà in informazioni dettagliate del venditore
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc90ee0506203433a61fe68d97055ea32f061f11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: pabutler
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606918"
 ---
 <a name="seller-insights-definitions"></a>Definizioni di Seller Insights
 =======================
@@ -44,7 +37,7 @@ La tabella seguente fornisce le definizioni per molti dei termini usati in Selle
 | **Città cliente**  | Il nome della città fornito dal cliente. Ciò potrebbe essere diverso da quello della città nella sottoscrizione di Azure del cliente.  |
 | **Linguaggio di comunicazione dei clienti**        | Lingua di comunicazione preferita dal cliente.                                  |
 | **Nome della società dei clienti**                  | Il nome della società fornito dal cliente. Ciò potrebbe essere diverso da quello della città nella sottoscrizione di Azure del cliente.                                  |
-| **Paese del cliente**                       | Il nome di paese specificato dal cliente.  Ciò potrebbe essere diverso da quello del paese nella sottoscrizione di Azure del cliente.                               |
+| **Paese del cliente**                       | Il nome di paese/area geografica fornito dal cliente.  Ciò potrebbe essere diverso da quello il paese/regione nella sottoscrizione di Azure del cliente.                               |
 | **Valuta cliente (CC)**                 | Valuta preferita dal cliente per i prezzi e la fatturazione.                            |
 | **Messaggio di posta elettronica dei clienti**                         | L'indirizzo di posta elettronica fornito per il cliente finale.  Ciò potrebbe essere diverso dall'indirizzo di posta elettronica di sottoscrizione di Azure del cliente.                   |
 | **Nome cliente**                              | Il nome fornito dal cliente.  Ciò potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure del cliente.                    |

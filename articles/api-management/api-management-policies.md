@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005520"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219478"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -39,21 +38,24 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
 -   [Criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Flusso di controllo](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri in base ai risultati della valutazione di espressioni booleane.  
-    -   [Inoltra richiesta](api-management-advanced-policies.md#ForwardRequest): inoltra la richiesta al servizio back-end.  
-    -   [Registra in Hub eventi](api-management-advanced-policies.md#log-to-eventhub): invia messaggi nel formato specificato a una destinazione del messaggio definita da un'entità Logger.  
+    -   [Inoltra richiesta](api-management-advanced-policies.md#ForwardRequest) : inoltra la richiesta al servizio back-end.
+    -   [Limita la concorrenza](api-management-advanced-policies.md#LimitConcurrency): previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste contemporaneamente rispetto a quello specificato.
+    -   [Registra in Hub eventi](api-management-advanced-policies.md#log-to-eventhub): invia messaggi nel formato specificato a una destinazione del messaggio definita da un'entità Logger.
+    -   [Restituisci risposta](api-management-advanced-policies.md#mock-response): interrompe l'esecuzione della pipeline e restituisce una risposta fittizia direttamente al chiamante.
     -   [Riprova](api-management-advanced-policies.md#Retry) : riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
     -   [Restituisci risposta](api-management-advanced-policies.md#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.  
     -   [Invia richiesta unidirezionale](api-management-advanced-policies.md#SendOneWayRequest) : invia una richiesta all'URL specificato senza attendere una risposta.  
-    -   [Invia richiesta](api-management-advanced-policies.md#SendRequest) : invia una richiesta all'URL specificato.  
+    -   [Invia richiesta](api-management-advanced-policies.md#SendRequest) : invia una richiesta all'URL specificato.
+    -   [Imposta proxy HTTP](api-management-advanced-policies.md#SetHttpProxy): consente di indirizzare le richieste inoltrate tramite un proxy HTTP.
     -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di contesto denominata e consente di accedervi in un momento successivo.  
     -   [Imposta metodo di richiesta](api-management-advanced-policies.md#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.  
     -   [Imposta codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
-    -   [Traccia](api-management-advanced-policies.md#Trace): aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).  
+    -   [Trace](api-management-advanced-policies.md#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrie e log di diagnostica.  
     -   [Attendi](api-management-advanced-policies.md#Wait): attende il completamento dei criteri inclusi per l'[invio della richiesta](api-management-advanced-policies.md#SendRequest), il [recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) o il [flusso di controllo](api-management-advanced-policies.md#choose) prima di procedere.  
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
     -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
-    -   [Eseguire l'autenticazione con identità gestite](api-management-authentication-policies.md#ManagedIdentity) -eseguire l'autenticazione con un servizio back-end tramite certificati client.  
+    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) : eseguire l'autenticazione con un servizio back-end usando un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Criteri di memorizzazione nella cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) : esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.  
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  
@@ -83,5 +85,4 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
-+ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

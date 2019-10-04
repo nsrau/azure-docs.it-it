@@ -1,26 +1,26 @@
 ---
-title: 'Avvio rapido: Estrarre testo scritto a mano - JavaScript'
+title: 'Guida introduttiva: Estrarre testo stampato e scritto a mano - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con JavaScript.
+description: In questa esercitazione dell'avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 887e3b24a061225c2b4adbfdc5e5696ed268e349
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 36c5eff33c47e62d8b17be7fa4ca05c925f73250
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540325"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137824"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e JavaScript in Visione artificiale
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Guida introduttiva: Estrarre testo stampato e scritto a mano usando l'API REST Visione artificiale e JavaScript
 
-In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi API [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+In questa esercitazione dell'avvio rapido si estrarrà testo stampato e/o scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo in un'immagine ed estrarre i caratteri riconosciuti in un flusso di caratteri leggibile al computer. L'API determinerà il modello di riconoscimento da usare per ogni riga di testo, in modo da supportare le immagini con testo stampato e scritto a mano.
 
 > [!IMPORTANT]
 > A differenza del metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) viene eseguito in modo asincrono. Questo metodo non restituisce alcuna informazione nel corpo di una risposta con esito positivo. Il metodo Batch Read restituisce invece un URI nel valore del campo di intestazione `Operation-Content` della risposta. È quindi possibile chiamare questo URI, che rappresenta il metodo [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), per controllare lo stato e restituire i risultati della chiamata del metodo Batch Read.
@@ -29,18 +29,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da cui si vuole estrarre il testo scritto a mano.
-1. Salvare il codice in un file con estensione `.html`. Ad esempio: `get-handwriting.html`.
+1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da cui si vuole estrarre il testo.
+1. Salvare il codice in un file con estensione `.html`. Ad esempio: `get-text.html`.
 1. Aprire una finestra del browser.
 1. Trascinare e rilasciare il file nella finestra del browser.
 1. Quando nel browser viene visualizzata la pagina Web, scegliere il pulsante **Read image** (Leggi immagine).
@@ -49,7 +46,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
+    <title>Text Recognition Sample</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -60,24 +57,11 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        var uriBase =
-            "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
-
-        // Request parameter.
-        var params = {
-            "mode": "Handwritten",
-        };
+        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        
+        var uriBase = endpoint + "vision/v2.0/read/core/asyncBatchAnalyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
@@ -88,7 +72,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){
@@ -104,10 +88,10 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 
         .done(function(data, textStatus, jqXHR) {
             // Show progress.
-            $("#responseTextArea").val("Handwritten text submitted. " +
+            $("#responseTextArea").val("Text submitted. " +
                 "Waiting 10 seconds to retrieve the recognized text.");
 
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
             // amount of time depending on the length of the text you want to
             // recognize. You may need to wait or retry the GET operation.
@@ -165,8 +149,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         });
     };
 </script>
-<h1>Read handwritten image:</h1>
-Enter the URL to an image of handwritten text, then click
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
 <br><br>
 Image to read:
@@ -294,10 +278,6 @@ Una risposta con esito positivo viene restituita in JSON. La pagina Web di esemp
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

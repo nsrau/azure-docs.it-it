@@ -4,17 +4,17 @@ description: Questo articolo descrive l'integrazione del controllo del codice so
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2567536cd81eb2339622868a731948b1380614ad
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58807061"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478437"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integrazione del controllo del codice sorgente in Automazione di Azure - Legacy
 
@@ -65,7 +65,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
      | **Parametro** | **Valore** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |string |
+     | `Type`  |String |
      | `Value` |{"Branch":\<*Nome del ramo*>,"RunbookFolderPath":\<*Percorso della cartella del runbook*>,"ProviderType":\< *con valore 1 per GitHub*>,"Repository":\<*Nome del repository*>,"Username":\<*Nome utente di GitHub*>} |
 
    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene il valore sicuro crittografato di OAuthToken.  

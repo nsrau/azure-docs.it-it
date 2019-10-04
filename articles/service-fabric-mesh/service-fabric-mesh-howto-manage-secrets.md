@@ -2,19 +2,19 @@
 title: Gestire i segreti delle applicazioni Azure Service Fabric Mesh | Microsoft Docs
 description: Come gestire i segreti dell'applicazione per poter creare e distribuire in modo sicuro un'applicazione Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: chiavi private
-author: aljo-microsoft
-ms.author: aljo
-ms.date: 11/28/2018
+keywords: segreti
+author: athinanthny
+ms.author: atsenthi
+ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419068"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036176"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gestire i segreti delle applicazioni Azure Service Fabric Mesh
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro. Questo articolo illustra come usare il servizio di archiviazione sicura di Service Fabric per distribuire e gestire i segreti.
@@ -24,44 +24,49 @@ Un segreto dell'applicazione Mesh è costituto da:
 * Una o più risorse **Segreti/Valori** archiviate nel contenitore di risorse **Segreti**. Ogni risorsa **Segreti/Valori** è contraddistinta da un numero di versione. Non è possibile modificare una versione di una risorsa **Segreti/Valori**, si può solo aggiungere una nuova versione.
 
 Il processo di gestione dei segreti è costituito dai passaggi seguenti:
-1. Dichiarare una Mesh **segreti** risorse in un file di Azure Resource Model YAML o JSON mediante inlinedValue tipo e le definizioni contentType SecretsStoreRef.
-2. Dichiarare Mesh **e i valori per i segreti** le risorse in un file di Azure Resource Model YAML o JSON che verrà archiviato nel **segreti** risorsa (dal passaggio 1).
+1. Dichiarare una risorsa dei **segreti** di rete in un file YAML o JSON del modello di risorsa di Azure usando le definizioni di inlinedValue Kind e SecretsStoreRef ContentType.
+2. Dichiarare le risorse di **segreti/valori** mesh in un file YAML o JSON del modello di risorsa di Azure che verrà archiviato nella risorsa Secrets (dal passaggio 1).
 3. Modificare l'applicazione Mesh in modo che faccia riferimento ai valori dei segreti Mesh.
 4. Distribuire o eseguire l'aggiornamento in sequenza dell'applicazione Mesh per utilizzare i valori dei segreti.
 5. Usare i comandi dell'interfaccia della riga di comando di Azure "az" per la gestione del ciclo di vita del servizio di archiviazione sicura.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Dichiarare una risorsa Segreti di Mesh
-Una risorsa trama segreti è dichiarata in un JSON modello di risorse di Azure o in file YAML utilizzano inlinedValue tipo e le definizioni contentType SecretsStoreRef. La risorsa Segreti di Mesh supporta i segreti originati dal servizio di archiviazione sicura. 
+Una risorsa di segreti mesh viene dichiarata in un file JSON o YAML del modello di risorsa di Azure usando la definizione di tipo inlinedValue. La risorsa Segreti di Mesh supporta i segreti originati dal servizio di archiviazione sicura. 
 >
 Di seguito è riportato un esempio di dichiarazione di risorse Segreti di Mesh in un file JSON:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
-    },
+    }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
       "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
-    },
+    }
   ]
 }
 ```
@@ -103,49 +108,49 @@ Di seguito è riportato un esempio di dichiarazione di risorse Segreti/Valori di
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
-      }
-    },
-    "my-secret-value-v1": {
-      "type": "string",
-      "metadata": {
-        "description": "My Mesh Application Secret Value."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
     }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
+      "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
     },
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "mysecret:1.0",
+      "name": "sfbpHttpsCertificate.pfx/2019.02.28",
       "type": "Microsoft.ServiceFabricMesh/secrets/values",
       "location": "[parameters('location')]",
       "dependsOn": [
-        'Microsoft.ServiceFabricMesh/secrets/MySecret.txt'
+        "Microsoft.ServiceFabricMesh/secrets/sfbpHttpsCertificate.pfx"
       ],
       "properties": {
-        "value": "[parameters('my-secret-value-v1)]"
+        "value": "[parameters('sfbpHttpsCertificate')]"
       }
     }
-  ]
+  ],
 }
 ```
 Di seguito è riportato un esempio di dichiarazione di risorse Segreti/Valori di Mesh in un file YAML:
@@ -201,9 +206,9 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Passare **template-file** o **template-uri** (ma non entrambi).
 
-Ad esempio: 
+Ad esempio:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- AZ mesh Deployment create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Visualizzare un segreto
 Restituisce la descrizione del segreto (ma non il valore).

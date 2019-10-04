@@ -1,32 +1,31 @@
 ---
-title: 'Avvio rapido: Creare una pipeline CI/CD per Java con Azure DevOps Projects'
+title: 'Guida introduttiva: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093566"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203753"
 ---
-# <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Java con Azure DevOps Projects
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Guida introduttiva: Configurare una pipeline CI/CD per un'app Java con Azure DevOps Projects
 
-Azure DevOps Projects offre un'esperienza semplificata per la creazione di risorse di Azure e la configurazione di una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Java in Azure Pipelines.  
+In questo articolo di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Java in Azure Pipelines. È anche possibile usare Azure DevOps Projects per creare altre risorse di Azure.  
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -38,9 +37,9 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**.  
 
-2. Selezionare **Create**.
+2. Selezionare **Create** (Crea).
 
-    ![Inizio della configurazione del recapito continuo](_img/azure-devops-project-java/fullbrowser.png)
+    ![Creare una risorsa di Azure in DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -63,7 +62,7 @@ Gli esempi di Java includono diversi framework applicazione.
 
 2. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
 
-    ![Visualizzazione dashboard](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![Visualizzare il dashboard dell'applicazione nel portale di Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects ha configurato automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app Java con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 

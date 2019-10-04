@@ -1,15 +1,15 @@
 ---
-author: davidmu1
+author: mmacy
 ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 03/19/2019
-ms.author: davidmu
-ms.openlocfilehash: 9c0f94af62e8d4688a676415b32a6a7ebf82d453
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: marsma
+ms.openlocfilehash: 46b0e499b7928bc88114b16d75dd2d8a99dca6a8
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407815"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310583"
 ---
 > [!NOTE]
-> In Azure Active Directory B2C, [criteri personalizzati](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) sono progettati principalmente per affrontare scenari complessi. Per la maggior parte degli scenari, è consigliabile usare incorporati [flussi utente](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md).
+> In Azure Active Directory B2C i [criteri personalizzati](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) sono progettati principalmente per risolvere scenari complessi. Per la maggior parte degli scenari, è consigliabile usare i [flussi utente](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md)predefiniti.

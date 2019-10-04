@@ -2,23 +2,19 @@
 title: Accedere a Key Vault protetto da firewall - Azure Key Vault | Microsoft Docs
 description: Informazioni su come accedere a un insieme di credenziali delle chiavi di Azure da un'applicazione protetta da un firewall
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108637"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976377"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 
@@ -42,8 +38,8 @@ Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere 
 
 | Tipo di entità | Endpoint:porta |
 | --- | --- |
-| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443 |
+| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
 Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](../active-directory/develop/authentication-scenarios.md) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
@@ -54,8 +50,8 @@ Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione de
 
 | Tipo di operazione | Endpoint:porta |
 | --- | --- |
-| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br>  tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 |
-| API Graph di Azure Active Directory |**Globale:**<br> graph.windows.net:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> graph.windows.net:443<br><br> **Azure per la Germania:**<br>  graph.cloudapi.de:443 |
+| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br> tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 |
+| API Graph di Azure Active Directory |**Globale:**<br> graph.windows.net:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> graph.windows.net:443<br><br> **Azure per la Germania:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operazioni dell'insieme di credenziali delle chiavi
 

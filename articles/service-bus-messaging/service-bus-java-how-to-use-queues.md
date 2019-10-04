@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio di Azure con Java | Microsoft Docs
+title: Usare le code del bus di servizio di Azure con Java
 description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Java.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,34 +14,35 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 958dc02ecc744f89badee851467f2e78190287cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786942"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155479"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>Come usare le code del bus di servizio con Java
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In questa esercitazione descrive come creare applicazioni Java per inviare e ricevere messaggi da una coda del Bus di servizio. 
+In questa esercitazione si apprenderà come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure. 
 
 > [!NOTE]
 > È possibile trovare esempi di Java in GitHub nel [repository azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se non si dispone di una coda per lavorare con, seguire i passaggi nel [portale di Azure Usa per creare una coda del Bus di servizio](service-bus-quickstart-portal.md) articolo creare una coda.
-    1. Leggere la rapida **overview** del Bus di servizio **code**. 
-    2. Creare un Bus di servizio **dello spazio dei nomi**. 
-    3. Ottenere il **stringa di connessione**.
-    4. Creare un Bus di servizio **coda**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se non si ha una coda da usare, seguire i passaggi nell'articolo [usare portale di Azure per creare una](service-bus-quickstart-portal.md) coda del bus di servizio per creare una coda.
+    1. Leggere la breve **Panoramica** delle **Code**del bus di servizio. 
+    2. Creare uno **spazio dei nomi**del bus di servizio. 
+    3. Ottenere la **stringa di connessione**.
+    4. Creare una **coda**del bus di servizio.
 3. Installare [Azure SDK per Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Toolkit di Azure per Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Aggiungere librerie di Microsoft Azure per Java al progetto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
 
@@ -183,12 +184,15 @@ Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazi
 
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta **deleteMessage**, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usato il metodo **getMessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
-## <a name="next-steps"></a>Fasi successive
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions] per altre informazioni.
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
+
+## <a name="next-steps"></a>Passaggi successivi
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni][Queues, topics, and subscriptions] per altre informazioni.
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

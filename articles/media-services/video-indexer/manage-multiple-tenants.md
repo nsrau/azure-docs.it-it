@@ -7,17 +7,18 @@ author: ika-microsoft
 manager: femila
 editor: ''
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65949478"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
 
@@ -67,7 +68,7 @@ Durante il [caricamento dei video](https://api-portal.videoindexer.ai/docs/servi
 
 ## <a name="azure-subscription-per-tenant"></a>Sottoscrizione di Azure per tenant 
 
-Quando si usa questa architettura, ciascun tenant avrà la propria sottoscrizione di Azure. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
+Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione di Azure. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
 
 ![Sottoscrizione di Azure per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
@@ -78,4 +79,4 @@ Quando si usa questa architettura, ciascun tenant avrà la propria sottoscrizion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](video-indexer-overview.md)
+[Panoramica](video-indexer-overview.md)

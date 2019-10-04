@@ -1,21 +1,21 @@
 ---
 title: Restituire le N migliori traduzioni - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Restituire le N migliori traduzioni con l'API Traduzione testuale Microsoft.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: swmachan
+ms.openlocfilehash: 7aec6bb81f3ca99ead744767668c2e4f1d1d4d53
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918315"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594878"
 ---
 # <a name="how-to-return-n-best-translations"></a>Procedura per restituire le N migliori traduzioni
 
@@ -35,14 +35,14 @@ La firma è:
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | text | **Obbligatorio** Una stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|
 | from | **Obbligatorio** Una stringa che rappresenta il codice di lingua del testo da tradurre. |
-| to | **Obbligatorio** Una stringa che rappresenta il codice di lingua in cui tradurre il testo. |
+| in | **Obbligatorio** Una stringa che rappresenta il codice di lingua in cui tradurre il testo. |
 | maxTranslations | **Obbligatorio** Int che rappresenta il numero massimo di traduzioni da restituire. |
-| options | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
+| opzioni | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
 
 * Categoria: l'unica opzione supportata e impostazione predefinita è "general".
 * ContentType: l'unica opzione supportata e l'impostazione predefinita è "text/plain".

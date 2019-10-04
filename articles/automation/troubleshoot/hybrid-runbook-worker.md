@@ -4,17 +4,17 @@ description: Questo articolo contiene informazioni sulla risoluzione di problemi
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 39cf6126f6212b6e83f1974dae7aaab0038e69c6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608640"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240994"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -56,7 +56,7 @@ I computer che eseguono il ruolo di lavoro ibrido per runbook devono soddisfare 
 
 Verificare che il computer designato per svolgere il ruolo di lavoro ibrido per runbook soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Un utilizzo elevato di CPU o memoria può indicare la necessità di eseguire un aggiornamento delle risorse. In alternativa, selezionare una risorsa di calcolo diversa in grado di supportare i requisiti minimi e di ridimensionare quando le esigenze del carico di lavoro indicano la necessità di un aumento.
 
-Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]*. La causa dell'errore è che l'autenticazione non è stata configurata nei runbook oppure le credenziali Esegui come non sono state specificate per il gruppo del ruolo di lavoro ibrido. Per verificare di aver configurato correttamente l'autenticazione per i runbook, vedere [Autorizzazioni per i runbook](../automation-hrw-run-runbooks.md#runbook-permissions).
+Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La causa dell'errore è che l'autenticazione non è stata configurata nei runbook oppure le credenziali Esegui come non sono state specificate per il gruppo del ruolo di lavoro ibrido. Per verificare di aver configurato correttamente l'autenticazione per i runbook, vedere [Autorizzazioni per i runbook](../automation-hrw-run-runbooks.md#runbook-permissions).
 
 ### <a name="no-cert-found"></a>Scenario: Non è stato trovato alcun certificato nell'archivio certificati del ruolo di lavoro ibrido per runbook
 
@@ -168,7 +168,7 @@ La query di esempio seguente mostra i computer di un'area di lavoro e l'ultimo h
 
 ```loganalytics
 // Last heartbeat of each computer
-Heartbeat 
+Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
 

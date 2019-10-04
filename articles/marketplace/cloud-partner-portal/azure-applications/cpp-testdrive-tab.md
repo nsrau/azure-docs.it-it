@@ -1,25 +1,18 @@
 ---
-title: Test drive per un'offerta di applicazione Azure | Microsoft Docs
+title: Versione di test di Azure dell'applicazione offerta | Azure Marketplace
 description: Come configurare il test drive per un'offerta di applicazione Azure in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942873"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Scheda Test drive per le applicazioni Azure
 
@@ -58,23 +51,25 @@ La schermata successiva mostra tutti i moduli di Test drive. Un asterisco (*) al
 
 ![Configurare un test drive](./media/managed-app-configure-testdrive.png)
 
-Nella tabella seguente vengono descritti i campi necessari per configurare il test drive per l'applicazione gestita.
+Nella tabella seguente vengono descritti i campi necessari per configurare il test drive per l'applicazione gestita.  I campi aggiunti con un asterisco sono obbligatori.
 
-|    **Campo**       |  **Descrizione**  |
+|      Campo         |  Descrizione      |
 |  ---------------   |  ---------------  |
-|      DESCRIZIONE              |   Descrivere le operazioni che possono essere eseguite durante il test drive. È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.                |
-|    Manuale dell'utente                |     Caricare un manuale dell'utente che i clienti possono usare per eseguire il test drive. Questo documento deve essere un file con estensione pdf.              |
-|         Video demo del test drive (facoltativo)           |       È possibile fornire una procedura dettagliata video del test drive che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>NOME</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>            |
-|       Istanze             |        Configurare il numero di istanze desiderate, in quali aree e la velocità con cui i clienti possono ottenere il test drive. Per altre informazioni, vedere [Come pubblicare un test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
-|       Durata del test drive (ore)             |       Immettere un numero intero per il numero di ore. L'intervallo consentito va da 1 a 999.            |
-|        Modello ARM del test drive            |        Caricare un file compresso (con estensione zip) contenente i modelli di Azure Resource Manager per l'app. Per altre informazioni, vedere [Test drive di Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
-|        Informazioni di accesso            |         Specificare le informazioni di accesso dopo che un cliente ha ottenuto il test drive. Ad esempio, un URL per accedere al test drive e le informazioni di accesso. . È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.          |
-|       ID sottoscrizione di Azure             |       Si concede l'accesso ai servizi di Azure e al portale di Azure. Nella sottoscrizione si tiene traccia dell'utilizzo delle risorse e vengono fatturati i servizi. Se non si dispone ancora di una sottoscrizione separata di Azure solo per i test drive, creare una sottoscrizione.             |
-|          ID del tenant di Azure AD          |        Specificare un tenant esistente in Azure Active Directory o creare un tenant per questo test drive.           |
-|         ID App Azure AD           |       Creare e registrare una nuova applicazione. Microsoft usa questa applicazione per eseguire operazioni nell'istanza di test drive.            |
-|          Chiave App Azure AD          |         Creare una chiave di autenticazione per l'app e incollarla in questo campo.          |
+| **Descrizione\***  |  Descrivere le operazioni che possono essere eseguite durante il test drive. È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.                |
+| **Manuale dell'utente\***  |  Caricare un manuale dell'utente che i clienti possono usare per eseguire il test drive. Questo documento deve essere un file con estensione pdf.    |
+| **Video demo del test drive** |  Un facoltativo video della procedura dettagliata di un Test dell'unità. che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>Name</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
+| **Istanze\***      | Configurare il numero di istanze desiderate, in quali aree e la velocità con cui i clienti possono ottenere il test drive. Per altre informazioni, vedere [Come pubblicare un test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+| **Unità di durata del test (ore)\*** | Immettere un numero intero per il numero di ore. L'intervallo consentito va da 1 a 999. |
+| **Modello ARM di test unità\***     | Caricare un file compresso (con estensione zip) contenente i modelli di Azure Resource Manager per l'app. Per altre informazioni, vedere [Test drive di Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
+| **Informazioni di accesso\***          | Specificare le informazioni di accesso dopo che un cliente ha ottenuto il test drive. Ad esempio, un URL per accedere al test drive e le informazioni di accesso. . È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni. |
+| **Id sottoscrizione di Azure\***       | Si concede l'accesso ai servizi di Azure e al portale di Azure. Nella sottoscrizione si tiene traccia dell'utilizzo delle risorse e vengono fatturati i servizi. Se non si dispone ancora di una sottoscrizione separata di Azure solo per i test drive, creare una sottoscrizione.  |
+| **Id Tenant di Azure AD\***          | Specificare un tenant esistente in Azure Active Directory o creare un tenant per questo test drive.  |
+| **Id App Azure AD\***             | Creare e registrare una nuova applicazione. Microsoft usa questa applicazione per eseguire operazioni nell'istanza di test drive.  |
+| **Chiave dell'App Azure AD\***            | Creare una chiave di autenticazione per l'app e incollarla in questo campo.   |
+|  |  |
 
 Dopo avere specificato tutte le informazioni richieste, selezionare **Salva** per completare la configurazione del test drive.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

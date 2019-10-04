@@ -1,25 +1,18 @@
 ---
-title: Recupero delle offerte API | Microsoft Docs
+title: Recuperare offre un'API | Azure Marketplace
 description: L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: pabutler
+ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935338"
 ---
 <a name="retrieve-offers"></a>Recuperare le offerte
 ===============
@@ -34,8 +27,8 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
-|  api-version     | Ultima versione dell'API                    |    Data        |
+|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   String    |
+|  api-version     | Ultima versione dell'API                    |    Date        |
 |  |  |
 
 
@@ -106,5 +99,5 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  In esecuzione                     | Invio dell'offerta in corso.             |
 |  Succeeded                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
-|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
+|  Failed                      | Invio dell'offerta non riuscito.                         |
 |  |  |

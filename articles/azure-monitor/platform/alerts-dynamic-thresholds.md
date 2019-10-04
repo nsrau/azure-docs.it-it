@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067609"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure
 
 La funzionalità Avviso metrica con rilevamento di soglie dinamiche sfrutta la tecnologia avanzata di Machine Learning (ML) per ottenere informazioni sul comportamento delle metriche nel tempo e identificare modelli e anomalie che indicano possibili problemi del servizio. Offre un'interfaccia utente semplice e supporto per operazioni su larga scala, consentendo agli utenti di configurare regole di avviso tramite l'API di Azure Resource Manager, in modo completamente automatico.
 
@@ -42,16 +42,16 @@ Le soglie dinamiche apprendono costantemente i dati della serie di metriche e pr
 Le soglie vengono selezionate in modo che un'eventuale deviazione da queste indichi un'anomalia nel comportamento delle metriche.
 
 > [!NOTE]
-> Rilevamento di modelli stagionali è impostato su intervallo ora, giorno o settimana. Ciò significa che gli altri modelli bihourly modello like o semiweekly potrebbero non essere rilevati.
+> Rilevamento di modelli stagionali è impostato su un'ora, giorno o intervallo di settimane. Ciò significa che gli altri modelli bihourly modello like o semiweekly potrebbero non essere rilevati.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>A cosa serve l'impostazione "Sensibilità" per le soglie dinamiche?
 
 La sensibilità delle soglie di avviso è un concetto generale che controlla il grado di deviazione dal comportamento della metrica necessario per attivare un avviso.
 Questa opzione non richiede una conoscenza della metrica a livello di dominio come la soglia statica. Le opzioni disponibili sono:
 
-- Alta: le soglie saranno estremamente vicine al modello della serie di metriche. La regola di avviso verrà attivata alla minima deviazione e verranno quindi generati più avvisi.
+- Alta: le soglie saranno estremamente vicine al modello della serie di metriche. Una regola di avviso verrà attivata sulla deviazione minima, generando più avvisi.
 - Media: le soglie saranno meno sensibili e più bilanciate, generando così meno avvisi rispetto alla sensibilità alta (impostazione predefinita).
-- Bassa: le soglie saranno meno rigorose, con maggiore distanza dal modello della serie di metriche. Regola di avviso si attiverà solo su deviazione di grandi dimensioni, generando un minor numero di avvisi.
+- Bassa: le soglie saranno meno rigorose, con maggiore distanza dal modello della serie di metriche. Una regola di avviso si attiverà solo sulle deviazioni grandi, generando un minor numero di avvisi.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quali sono le opzioni dell'impostazione "Operatore" per le soglie dinamiche?
 
@@ -64,7 +64,7 @@ Usando la stessa regola di avviso con soglie dinamiche è possibile creare sogli
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>A cosa servono le impostazioni avanzate per le soglie dinamiche?
 
-**Periodi di errore**: le soglie dinamiche consentono anche di configurare l'opzione "Number violations to trigger the alert" (Numero di violazioni per attivare l'avviso), ovvero un numero minimo di deviazioni che devono verificarsi entro un determinato intervallo di tempo affinché il sistema generi un avviso (l'intervallo di tempo predefinito è quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. Ad esempio: 
+**Periodi di errore**: le soglie dinamiche consentono anche di configurare l'opzione "Number violations to trigger the alert" (Numero di violazioni per attivare l'avviso), ovvero un numero minimo di deviazioni che devono verificarsi entro un determinato intervallo di tempo affinché il sistema generi un avviso (l'intervallo di tempo predefinito è quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. Ad esempio:
 
 Per attivare un avviso quando il problema continua per 20 minuti, 4 volte consecutive con periodicità di 5 minuti, usare le impostazioni seguenti:
 
@@ -83,7 +83,7 @@ Per attivare un avviso quando si è verificata una violazione di una soglia dina
 Consente di visualizzare la vista avvisi:
 
 - Tutti i dettagli delle metriche nel momento in cui viene generato l'avviso soglie dinamiche.
-- Un grafico del periodo in cui l'avviso è stato trigger che include le soglie dinamiche utilizzate a questo punto nel tempo.
+- Un grafico del periodo in cui è stato generato l'avviso che include le soglie dinamiche utilizzate a questo punto nel tempo.
 - Possibilità di fornire commenti e suggerimenti su avviso soglie dinamiche e gli avvisi esperienza di visualizzazione, che potrebbe migliorare i rilevamenti future.
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Una lenta variazione nel comportamento della metrica attiverà un avviso?
@@ -92,7 +92,7 @@ La risposta è probabilmente negativa. Le soglie dinamiche sono utili per rileva
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quanti dati vengono usati per visualizzare in anteprima le soglie e quindi calcolarle?
 
-Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso sulla metrica, vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o quotidianamente modelli stagionali (10 giorni). Dopo aver creata una regola di avviso, le soglie dinamiche utilizzerà necessari tutti i dati cronologici che sono disponibile e verranno illustrato in modo continuo e TEPSA basate sui nuovi dati per rendere più precisi le soglie. Ciò significa che dopo il grafico di calcolo visualizzeranno anche modelli settimanali.
+Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso sulla metrica, vengono calcolate in base dati cronologici sufficienti per la quale calcolare oraria o giornaliera modelli stagionali (10 giorni). Dopo aver creata una regola di avviso, le soglie dinamiche utilizzerà tutti i dati cronologici necessari che è disponibile e verranno continuamente apprendere e adattarsi in base ai nuovi dati per rendere più accurate le soglie. Ciò significa che dopo il calcolo, il grafico verrà anche visualizzato modelli settimanali.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessarie per attivare un avviso?
 
@@ -116,7 +116,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
-5. Selezionare **"Percentuale CPU"**.
+5. Selezionare **"Percentuale CPU"** .
 
 6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
 
@@ -153,7 +153,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
-5. Selezionare il **"tempo di esecuzione delle richieste HTTP"**.
+5. Selezionare il **"tempo di esecuzione delle richieste HTTP"** .
 
 6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
 

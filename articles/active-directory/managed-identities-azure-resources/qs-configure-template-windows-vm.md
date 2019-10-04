@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb96f4aaef461d049ca496780d542ad7db229e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31a33a000fdc07756d39e42c8f70fc06a58b170e
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307761"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309982"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite dei modelli
 
@@ -32,14 +32,14 @@ Questo articolo illustra, tramite il modello di distribuzione di Azure Resource 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con l'uso del modello di distribuzione di Azure Resource Manager, consultare la [sezione Panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)**.
+- Se non si ha familiarità con l'uso del modello di distribuzione di Azure Resource Manager, consultare la [sezione Panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Analogamente al portale di Azure e all'esecuzione dello script, i modelli di gestione di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) offrono la possibilità di distribuire risorse nuove o modificate definite da un gruppo di risorse di Azure. Diverse opzioni sono disponibili per la modifica e la distribuzione dei modelli, sia in locale che basati sul portale incluso quanto segue:
 
-   - Usando un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o basarla su una comune esistente o [modello di avvio rapido](https://azure.microsoft.com/documentation/templates/).
+   - Uso di un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
    - Derivazione da un gruppo di risorse esistente, tramite l'esportazione di un modello da una [distribuzione originale](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o dallo [stato attuale della distribuzione](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) di Visual Studio per creare e distribuire un modello.  
@@ -64,8 +64,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    },
    ```
 
-> [!NOTE]
-> È facoltativamente possibile eseguire il provisioning delle identità gestite per estensione di risorse di Azure della macchina virtuale specificandolo come un `resources` elemento del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
+
 
 3. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione `resource` del modello e dovrebbero avere un aspetto simile a questo:
 

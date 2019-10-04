@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345780"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Impostare un avviso di metrica classico per l'invio di una notifica a un sistema non Azure tramite un webhook
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
@@ -73,7 +73,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
 | context |S | |Contesto dell'avviso. |
-|  timestamp |S | |Ora in cui è stato attivato l'avviso. |
+| timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
 | name |S | |Nome dell'avviso. |
 | description |S | |Descrizione dell'avviso. |

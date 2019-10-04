@@ -1,28 +1,27 @@
 ---
-title: Installare e configurare Terraform per l'uso con Azure | Microsoft Docs
+title: Installare e configurare la bonifica per il provisioning delle risorse di Azure | Microsoft Docs
 description: Informazioni su come installare e configurare Terraform per la creazione di risorse di Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
-manager: jeconnoc
+author: tomarchermsft
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: echuvyrov
-ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.author: tarcher
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418864"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168727"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure
+# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installare e configurare la bonifica per il provisioning delle risorse di Azure
  
 Terraform offre un modo semplice per definire, visualizzare in anteprima e distribuire l'infrastruttura cloud usando un [linguaggio di creazione modelli semplice](https://www.terraform.io/docs/configuration/syntax.html). Questo articolo descrive la procedura da seguire per usare Terraform per effettuare il provisioning di risorse in Azure.
 
@@ -38,7 +37,7 @@ Per installare Terraform, [scaricare](https://www.terraform.io/downloads.html) i
 
 Per verificare la configurazione del percorso, usare il comando `terraform`. Viene visualizzato un elenco delle opzioni Terraform disponibili, come nell'output di esempio di seguito:
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -47,10 +46,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Per consentire a Terraform di eseguire il provisioning di risorse in Azure, creare un'[entità servizio di Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). L'entità servizio concede agli script Terraform la possibilità di effettuare il provisioning di risorse nella sottoscrizione di Azure.
 
-Se hai più sottoscrizioni di Azure, eseguire una query con l'account tramite [az account show](/cli/azure/account#az-account-show) per ottenere un elenco di valori di ID sottoscrizione e ID tenant:
+Se si hanno più sottoscrizioni di Azure, eseguire prima una query sull'account con [AZ account list](/cli/azure/account#az-account-list) per ottenere un elenco di valori ID sottoscrizione e ID tenant:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Per usare una sottoscrizione selezionata, impostare la sottoscrizione per questa sessione con [az account set](/cli/azure/account#az-account-set). Impostare la`SUBSCRIPTION_ID` variabile di ambiente che conterrà il valore del campo restituito`id` dalla sottoscrizione che si intende usare:
@@ -95,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 Creare un file `test.tf` in una directory vuota e incollare al suo interno lo script seguente.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -112,7 +111,7 @@ terraform init
 
 L'output è simile all'esempio seguente:
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -126,7 +125,7 @@ terraform apply
 
 L'output è simile all'esempio seguente:
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

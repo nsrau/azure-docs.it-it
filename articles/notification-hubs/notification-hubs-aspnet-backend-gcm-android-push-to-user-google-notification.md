@@ -3,9 +3,9 @@ title: Effettuare il push di notifiche a utenti delle applicazioni Android con H
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: android
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,20 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 1b867d571e97209c4385c1f23b49fe5a03ab94d5
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091668"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212069"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche a utenti specifici di applicazioni Android con Hub di notifica di Azure
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Effettuare il push di notifiche a utenti specifici dell'applicazione Android con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
+
+> [!WARNING]
+> A partire dal 10 aprile 2018, Google ha deprecato Google Cloud Messaging (GCM). Il server GCM e le API client sono deprecati e verranno rimossi entro il 29 maggio 2019. Per altre informazioni, vedere le [domande frequenti su GCM ed FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +146,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -257,7 +262,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
     }
     ```
 
-    Questo componente implementa le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Log in**.
+    Questo componente implementa le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Accedi**.
 4. Nella classe rimuovere o impostare come commento il campo privato per `NotificationHub` e aggiungere un campo per la classe `RegisterClient` e una stringa per l'endpoint del back-end ASP.NET. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza. Ad esempio: `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -319,7 +324,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Aggiungere quindi i metodi seguenti per gestire l'evento clic del pulsante **Log in** e inviare le notifiche push.
+9. Aggiungere quindi i metodi seguenti per gestire l'evento clic del pulsante **Accedi** e inviare notifiche push.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -401,7 +406,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
     }
     ```
 
-    Il gestore `login` per il pulsante **Log in** genera un token di autenticazione di base usando il nome utente e la password di input. Si noti che rappresenta qualsiasi token usato dallo schema di autenticazione, quindi usa `RegisterClient` per chiamare il back-end per la registrazione.
+    Il gestore `login` per il pulsante **Accedi** genera un token di autenticazione di base usando il nome utente e la password di input (rappresenta qualsiasi token usato dallo schema di autenticazione), quindi usa `RegisterClient` per chiamare il back-end per la registrazione.
 
     Il metodo `sendPush` chiama il back-end per attivare una notifica sicura per l'utente in base al tag user. Il servizio di notifica della piattaforma a cui è destinato `sendPush` dipende dalla stringa `pns` passata.
 
@@ -467,7 +472,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
 
 1. Eseguire l'applicazione su un dispositivo o un emulatore tramite Android Studio.
 2. Nell'app per Android immettere un nome utente e una password. Devono avere lo stesso valore di stringa e non devono contenere spazi o caratteri speciali.
-3. Nell'app per Android fare clic su **Log in**. Attendere un avviso popup che indica **Logged in and registered**. Viene abilitato il pulsante **Send Notification** (Invia notifica).
+3. Nell'app per Android fare clic su **Accedi**. Attendere un avviso popup che indica **Logged in and registered**. Viene abilitato il pulsante **Send Notification** (Invia notifica).
 
     ![][A2]
 4. Fare clic sugli interruttori per abilitare tutte le piattaforme in cui è stata eseguita l'app ed è stato registrato un utente.

@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 78dfd57fba6365f9c8937b30b5cf96b840749c68
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211863"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180017"
 ---
 | **Fornitore** | **Famiglia di dispositivi** | **Versione del firmware** |
 | --- | --- | --- |

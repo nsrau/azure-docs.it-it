@@ -1,6 +1,6 @@
 ---
-title: Configurare un criterio di web application firewall (WAF) con regole personalizzate e predefinite Ruse impostato per l'ingresso principale - Azure PowerShell
-description: Informazioni su come configurare un Web Application firewall criterio è costituito da regole personalizzate e gestite per un endpoint porta d'ingresso esistente.
+title: Configurare un criterio di web application firewall (WAF) con regole personalizzate e set di Ruse predefinito per la porta anteriore-Azure PowerShell
+description: Informazioni su come configurare un criterio WAF sono costituite da regole personalizzate e gestite per un endpoint di sportello anteriore esistente.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -9,27 +9,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/21/2019
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: e9509172ac96a601235cc16e0d6d83c9b2f51902
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792081"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849129"
 ---
-# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurare un criterio di firewall applicazione web usando Azure PowerShell
-Criteri di Azure web application firewall (WAF) definiscono le ispezioni obbligatorio quando arriva una richiesta in ingresso principale.
-Questo articolo illustra come configurare un criterio di Web Application firewall che è costituito da alcune regole personalizzate e con gestiti di Azure predefinito Ruse impostare abilitato.
+# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurare un criterio di web application firewall usando Azure PowerShell
+I criteri di Azure web application firewall (WAF) definiscono le ispezioni richieste quando una richiesta arriva alla porta anteriore.
+Questo articolo illustra come configurare un criterio WAF che è costituito da alcune regole personalizzate e con il set di Ruse predefinito gestito da Azure abilitato.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare a configurare un criterio di limite di frequenza, configurare l'ambiente di PowerShell e creare un profilo di porta principale.
+Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
 Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. 
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina di accedere con le credenziali di Azure e installare il modulo PowerShell di Az.
+È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
 
 #### <a name="sign-in-to-azure"></a>Accedi ad Azure
 ```
@@ -48,52 +49,52 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>Creare un profilo Frontdoor
-Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo di porta principale](quickstart-create-front-door.md)
+Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo di porta anteriore](quickstart-create-front-door.md)
 
-## <a name="custom-rule-based-on-http-parameters"></a>Regola personalizzata in base a parametri http
+## <a name="custom-rule-based-on-http-parameters"></a>Regola personalizzata basata su parametri http
 
-Nell'esempio seguente viene illustrato come configurare una regola personalizzata con due condizioni di corrispondenza utilizzando [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Le richieste provengono da un sito specifico come definito dal referrer e stringa di query non contiene "password". 
+Nell'esempio seguente viene illustrato come configurare una regola personalizzata con due condizioni di corrispondenza utilizzando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject). Le richieste provengano da un sito specificato come definito dal referrer e la stringa di query non contiene "password". 
 
 ```powershell-interactive
-$referer = New-AzFrontDoorMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
-$password = New-AzFrontDoorMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
-$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
+$referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
+$password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
+$AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
-## <a name="custom-rule-based-on-http-request-method"></a>Regola personalizzata basata sul metodo di richiesta http
-Creare una regola che blocca "PUT" metodo che usa [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) come indicato di seguito:
+## <a name="custom-rule-based-on-http-request-method"></a>Regola personalizzata in base al metodo di richiesta http
+Creare una regola che blocca il metodo "PUT" utilizzando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) come indicato di seguito:
 
 ```powershell-interactive
-$put = New-AzFrontDoorMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
-$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+$put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
+$BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
-## <a name="create-a-custom-rule-based-on-size-constraint"></a>Creare una regola personalizzata basata sul vincolo delle dimensioni
+## <a name="create-a-custom-rule-based-on-size-constraint"></a>Creare una regola personalizzata in base al vincolo di dimensione
 
-L'esempio seguente crea una regola che blocca le richieste con Url di lunghezza superiore a 100 caratteri con Azure PowerShell:
+Nell'esempio seguente viene creata una regola che blocca le richieste con un URL che supera i 100 caratteri utilizzando Azure PowerShell:
 ```powershell-interactive
-$url = New-AzFrontDoorMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
-$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+$url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
+$URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
-## <a name="add-managed-default-rule-set"></a>Aggiungere gestito predefinito Set di regole
+## <a name="add-managed-default-rule-set"></a>Aggiungi set di regole predefinite gestite
 
-L'esempio seguente crea un gestito predefinito Set di regole usando Azure PowerShell:
+Nell'esempio seguente viene creato un set di regole predefinite gestito utilizzando Azure PowerShell:
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>Configurare un criterio di sicurezza
 
-Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzResourceGroup`. Successivamente, configurare i criteri di sicurezza con le regole create nei passaggi precedenti usando [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) nel gruppo di risorse specificato che contiene il profilo di porta principale.
+Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzResourceGroup`. Configurare quindi un criterio di sicurezza con le regole create nei passaggi precedenti usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo della porta anteriore.
 
 ```powershell-interactive
-$myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
+$myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
-## <a name="link-policy-to-a-front-door-front-end-host"></a>Criteri di collegamento a un host di front-end di ingresso principale
-Collegare l'oggetto Criteri di sicurezza in un host di front-end di ingresso principale esistente e aggiornare le proprietà di ingresso principale. In primo luogo, recuperare l'oggetto porta d'ingresso usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
-Successivamente, impostare il front-end *WebApplicationFirewallPolicyLink* proprietà per il *resourceId* della "$" $myWAFPolicy creato nel passaggio precedente usando [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
+## <a name="link-policy-to-a-front-door-front-end-host"></a>Collegare i criteri a un host front-end front-end
+Collegare l'oggetto Criteri di sicurezza a un host front-end della porta anteriore esistente e aggiornare le proprietà della porta anteriore. Per prima cosa, recuperare l'oggetto front door usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
+Impostare quindi la proprietà *WebApplicationFirewallPolicyLink* di front-end su *resourceId* di "$myWAFPolicy $" creato nel passaggio precedente usando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
 
-L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un profilo Frontdoor](quickstart-create-front-door.md). Inoltre, nell'esempio seguente sostituire $frontDoorName con il nome del profilo di porta principale. 
+L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il presupposto che il profilo Frontdoor sia stato creato seguendo le istruzioni fornite nell'articolo [Avvio rapido: Creare un profilo Frontdoor](quickstart-create-front-door.md). Nell'esempio seguente, inoltre, sostituire $frontDoorName con il nome del profilo della porta anteriore. 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -104,9 +105,9 @@ L'esempio seguente usa il nome del gruppo di risorse *myResourceGroupFD1* con il
  ```
 
 > [!NOTE]
-> È sufficiente impostare *WebApplicationFirewallPolicyLink* proprietà una sola volta per collegare i criteri di sicurezza a una porta d'ingresso front-end. Gli aggiornamenti successivi dei criteri vengono applicati automaticamente per il front-end.
+> È necessario impostare la proprietà *WebApplicationFirewallPolicyLink* una sola volta per collegare un criterio di sicurezza a un front-end di sportello anteriore. Gli aggiornamenti dei criteri successivi vengono applicati automaticamente al front-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [ingresso principale](front-door-overview.md) 
-- Altre informazioni su [WAF per ingresso principale](waf-overview.md)
+- Altre informazioni su [sportello anteriore](front-door-overview.md) 
+- Scopri di più su [WAF per lo sportello anteriore](waf-overview.md)

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149020"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589048"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive come configurare l'ambiente locale per avviare la repli
 Nell'articolo si presuppone che l'utente disponga di quanto segue:
 - Un insieme di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com "portale di Azure").
 - Un computer fisico in cui installare il server di configurazione.
-- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con crittografia avanzata disabilitata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
+- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con abilitata la crittografia avanzata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione
 La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.
@@ -50,7 +50,7 @@ La tabella seguente elenca i requisiti minimi hardware, software e di rete per u
    ![Impostare l'origine](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Nel pannello **Aggiungi server** verificare che **Server di configurazione** sia visualizzato in **Tipo di server**.
 4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-5. Scaricare la chiave di registrazione dell'insieme di credenziali, Per eseguire l'installazione unificata, è necessaria la chiave di registrazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
+5. Scaricare la chiave di registrazione dell'insieme di credenziali. Per eseguire l'installazione unificata, è necessaria la chiave di registrazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
     ![Impostare l'origine](./media/physical-azure-set-up-source/set-source2.png)
 6. Nel computer usato come server di configurazione, eseguire l'**installazione unificata di Azure Site Recovery** per installare il server di configurazione, il server di elaborazione e il server master di destinazione.

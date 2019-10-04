@@ -2,25 +2,24 @@
 title: Creare uno snapshot di un disco rigido virtuale in Azure | Microsoft Docs
 description: Informazioni su come creare una copia di una macchina virtuale di Azure da usare come backup o per la risoluzione dei problemi.
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074779"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102274"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot
 
@@ -44,7 +43,7 @@ Se si prevede di usare lo snapshot per creare una nuova macchina virtuale, è co
 
 La procedura seguente mostra come copiare il disco rigido virtuale, creare la configurazione di snapshot e fare uno snapshot del disco tramite il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. Impostare alcuni parametri: 
 

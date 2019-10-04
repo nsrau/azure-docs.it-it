@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66158459"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell
 

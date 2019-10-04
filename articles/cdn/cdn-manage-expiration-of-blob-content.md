@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: edeb2a798031e34a8ee3f93fd104ebb221ce9c61
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916802"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593769"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 [Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 # Create a storage context
@@ -114,9 +114,9 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Impostazione delle intestazioni Cache-Control tramite .NET
-Per specificare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl).
+Per specificare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol).
 
-Ad esempio: 
+Ad esempio:
 
 ```csharp
 class Program

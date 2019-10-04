@@ -3,8 +3,8 @@ title: Diagnosticare i problemi di routing di una macchina virtuale di Azure | M
 description: Come diagnosticare un problema di routing di una macchina virtuale visualizzando le route valide per una macchina virtuale.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: jdial
-ms.openlocfilehash: 6864e282319bc5a0539c4c94f3062dcab7315970
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64730500"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
 

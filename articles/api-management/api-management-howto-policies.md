@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793676"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072313"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 
@@ -26,7 +25,7 @@ In Gestione API di Azure i criteri sono una potente funzionalità del sistema ch
 
 I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [Flusso di controllo][Control flow] e [Imposta variabile][Set variable], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][Advanced policies] e [Espressioni di criteri][Policy expressions].
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][Control flow] e [set variable][Set variable], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][Advanced policies] ed [Espressioni di criteri][Policy expressions].
 
 ## <a name="sections"> </a>Informazioni sulla configurazione dei criteri
 
@@ -35,7 +34,7 @@ La definizione criteri è un semplice documento XML che descrive una sequenza di
 Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiunto in corrispondenza del cursore nella visualizzazione definizione. 
 
 > [!NOTE]
-> Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**Utilizzo** del criterio in [Informazioni di riferimento per i criteri][Policy Reference].
+> Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all' **utilizzo** del criterio in [Riferimento ai criteri di Gestione API di Azure][Policy Reference].
 > 
 > 
 

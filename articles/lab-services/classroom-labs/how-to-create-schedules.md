@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501258"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385594"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 
 
 > [!IMPORTANT]
-> Il tempo di esecuzione pianificato delle macchine virtuali non interferisce con la [quota assegnata a un utente](how-to-configure-student-usage.md#set-quotas-per-user). La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
+> Il tempo di esecuzione pianificato delle macchine virtuali non interferisce con la [quota assegnata a un utente](how-to-configure-student-usage.md#set-quotas-for-users). La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
 
 ## <a name="add-a-schedule-once"></a>Aggiungere una pianificazione (occasionale)
 
@@ -48,7 +48,7 @@ Le pianificazioni consentono di configurare un lab per le classi in modo che le 
     ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
 2. Nella pagina **Aggiungi pianificazione** passare a **Settimanale** nella parte superiore. 
 3. In **Schedule days (required)** (Giorni pianificazione - obbligatori) selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e venerdì. 
-4. Nel campo **Da** immettere la **data di inizio della pianificazione** o selezionare una data facendo clic sul pulsante del **calendario**. Questo campo è obbligatorio. 
+4. Nel campo **Da** immettere la **data di inizio della pianificazione** o selezionare una data facendo clic sul pulsante del **calendario**. Il campo è obbligatorio. 
 5. In **Schedule end date** (Data fine pianificazione) immettere o selezionare una data di fine in cui arrestare le macchine virtuali. 
 6. In **Ora di inizio** selezionare l'ora in cui le macchine virtuali devono essere avviate. L'ora di inizio è obbligatoria se non è impostata l'ora di arresto. Selezionare **Remove start event** (Rimuovi evento di avvio) per specificare solo l'ora di arresto. Se l'**ora di inizio** è disabilitata, selezionare **Add start event** (Aggiungi evento di avvio) accanto all'elenco a discesa per abilitarla. 
 7. In **Ora di arresto** selezionare l'ora in cui le macchine virtuali devono arrestate. L'ora di arresto è obbligatoria se non è impostata l'ora di inizio. Selezionare **Remove stop event** (Rimuovi evento di arresto) per specificare solo l'ora di arresto. Se l'**ora di arresto** è disabilitata, selezionare **Add stop event** (Aggiungi evento di arresto) accanto all'elenco a discesa per abilitarla.

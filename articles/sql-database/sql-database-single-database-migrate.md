@@ -1,5 +1,5 @@
 ---
-title: Migrazione di un database SQL Server a un database singolo/con pooling nel database SQL di Azure | Microsoft Docs
+title: Migrazione di un database SQL Server a un database singolo/in pool nel database SQL di Azure | Microsoft Docs
 description: Informazioni sulla migrazione del database SQL Server a un databsase singolo o a un pool elastico nel database SQL di Azure.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
@@ -8,17 +8,16 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331792"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566609"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 
@@ -54,7 +53,7 @@ L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazio
 
 L'elenco seguente contiene indicazioni che permettono di ottimizzare le prestazioni durante il processo di importazione.
 
-- Scegliere il livello di servizio e la quantità di calcolo più elevati consentiti dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione.
+- Scegliere il livello di servizio e le dimensioni di calcolo più elevati consentiti dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione.
 - Ridurre al minimo la distanza tra il file BACPAC e il data center di destinazione.
 - Disabilitare le statistiche automatiche durante la migrazione.
 - Partizionare tabelle e indici.

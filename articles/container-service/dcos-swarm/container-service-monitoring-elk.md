@@ -10,20 +10,20 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61467716"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio contenitore di Azure con ELK
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con ELK
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Questo articolo descrive come distribuire lo stack ELK (Elasticsearch, Logstash, Kibana) in un cluster DC/OS nel servizio Azure Container. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-[Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster DC/OS configurato dal servizio contenitore di Azure. Esplorare il dashboard di DC/OS e i servizi Marathon [qui](container-service-mesos-marathon-ui.md). Installare anche il [servizio di bilanciamento del carico Marathon](container-service-load-balancing.md).
+[Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster DC/OS configurato dal servizio Azure Container. Esplorare il dashboard di DC/OS e i servizi Marathon [qui](container-service-mesos-marathon-ui.md). Installare anche il [servizio di bilanciamento del carico Marathon](container-service-load-balancing.md).
 
 
 ## <a name="elk-elasticsearch-logstash-kibana"></a>ELK (Elasticsearch, Logstash, Kibana)

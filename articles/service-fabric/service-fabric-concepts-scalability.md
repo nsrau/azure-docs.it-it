@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666648"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035929"
 ---
 # <a name="scaling-in-service-fabric"></a>Scalabilità in Service Fabric
 Azure Service Fabric semplifica la creazione di applicazioni scalabili gestendo i servizi, le partizioni e le repliche nei nodi di un cluster. L'esecuzione di molti carichi di lavoro sullo stesso hardware determina il massimo utilizzo delle risorse, ma offre anche la flessibilità in termini di scelta di come scalare i carichi di lavoro. Questo video di Channel 9 descrive come compilare applicazioni di microservizi scalabili:
@@ -103,7 +103,7 @@ Si consideri un servizio che usa lo schema di partizionamento con intervallo con
 
 <center>
 
-![Layout delle partizioni con tre nodi](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![Layout di partizione con tre nodi](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se si aumenta il numero dei nodi, Service Fabric sposta nei nuovi nodi alcune delle repliche esistenti. Si supponga, ad esempio, che il numero di nodi aumenti a quattro e che le repliche vengano ridistribuite. Il servizio dispone a questo punto di tre repliche in esecuzione in ogni nodo, ognuna appartenente a partizioni diverse. Si ottiene così un utilizzo ottimale delle risorse in quanto il nuovo nodo non è ad accesso sporadico. Si ottiene di solito anche un miglioramento delle prestazioni poiché ogni servizio dispone di più risorse.
@@ -122,10 +122,14 @@ Un'altra opzione per la scalabilità con Service Fabric consiste nel modificare 
 
 Per altre informazioni, vedere [Ridimensionamento dei cluster](service-fabric-cluster-scaling.md).
 
+## <a name="choosing-a-platform"></a>Scelta di una piattaforma
+
+A causa delle differenze di implementazione tra i sistemi operativi, la scelta di usare Service Fabric con Windows o Linux può essere una parte essenziale del ridimensionamento dell'applicazione. Una potenziale barriera è il modo in cui viene eseguita la registrazione di gestione temporanea. Service Fabric in Windows utilizza un driver del kernel per un log uno per computer, condiviso tra repliche di servizi con stato. Questo log pesa circa 8 GB. Linux, d'altra parte, usa un log di gestione temporanea di 256 MB per ogni replica, rendendolo meno ideale per le applicazioni che vogliono massimizzare il numero di repliche del servizio Lightweight in esecuzione su un determinato nodo. Queste differenze nei requisiti di archiviazione temporanea potrebbero informare la piattaforma desiderata per la distribuzione di Service Fabric cluster.
+
 ## <a name="putting-it-all-together"></a>Riassumendo
 Si prendano ora tutti i concetti discussi qui e li si applichi a un esempio. Si consideri l'esempio seguente: si intende creare un servizio di rubrica, contenente nomi e informazioni sui contatti. 
 
-A destra fin dall'inizio con un mucchio di domande relative alla scala: Da quanti utenti sarà idealmente composta? Quanti contatti archivierà ogni singolo utente? È difficile stabilire subito questi aspetti durante la creazione del servizio. Si supponga di voler iniziare con un unico servizio statico con un numero di partizioni specifico. Scegliere la partizione sbagliata potrebbe portare a problemi di scalabilità futuri. Allo stesso modo, anche se si seleziona il numero corretto, si potrebbe non disporre di tutte le informazioni necessarie. È, ad esempio, necessario decidere in anticipo anche le dimensioni del cluster, sia in termini di numero di nodi che di dimensioni. È in genere difficile prevedere il numero di risorse che un servizio userà nell'arco della sua esistenza. Può inoltre essere difficile sapere a priori il modello di traffico che il servizio vedrà effettivamente. Gli utenti potrebbero, ad esempio, aggiungere e rimuovere i propri contatti come prima cosa al mattino oppure il traffico potrebbe essere distribuito uniformemente nell'arco della giornata. In base al tipo di traffico potrebbe essere necessario aumentare e ridurre le risorse in modo dinamico. Si può forse imparare a prevedere quando sarà necessario aumentare o ridurre, ma in ogni caso sarà probabilmente necessario adottare una soluzione a seconda dei cambiamenti nel consumo di risorse da parte del servizio. Ciò può richiedere la modifica delle dimensioni del cluster per offrire ulteriori risorse quando la riorganizzazione dell'utilizzo delle risorse esistenti non è sufficiente. 
+Ecco una serie di domande correlate alla scalabilità: Da quanti utenti sarà idealmente composta? Quanti contatti archivierà ogni singolo utente? È difficile stabilire subito questi aspetti durante la creazione del servizio. Si supponga di voler iniziare con un unico servizio statico con un numero di partizioni specifico. Scegliere la partizione sbagliata potrebbe portare a problemi di scalabilità futuri. Allo stesso modo, anche se si seleziona il numero corretto, si potrebbe non disporre di tutte le informazioni necessarie. È, ad esempio, necessario decidere in anticipo anche le dimensioni del cluster, sia in termini di numero di nodi che di dimensioni. È in genere difficile prevedere il numero di risorse che un servizio userà nell'arco della sua esistenza. Può inoltre essere difficile sapere a priori il modello di traffico che il servizio vedrà effettivamente. Gli utenti potrebbero, ad esempio, aggiungere e rimuovere i propri contatti come prima cosa al mattino oppure il traffico potrebbe essere distribuito uniformemente nell'arco della giornata. In base al tipo di traffico potrebbe essere necessario aumentare e ridurre le risorse in modo dinamico. Si può forse imparare a prevedere quando sarà necessario aumentare o ridurre, ma in ogni caso sarà probabilmente necessario adottare una soluzione a seconda dei cambiamenti nel consumo di risorse da parte del servizio. Ciò può richiedere la modifica delle dimensioni del cluster per offrire ulteriori risorse quando la riorganizzazione dell'utilizzo delle risorse esistenti non è sufficiente. 
 
 Perché mai scegliere uno schema a partizione singola per tutti gli utenti? Perché limitarsi a un servizio e a un cluster statico? La situazione reale è di solito più dinamica. 
 

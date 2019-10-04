@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, .NET Framework (Windows) - Servizi Voce'
+title: 'Guida introduttiva: Sintesi vocale, .NET Framework (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di sintesi vocale con .NET Framework per Windows e Speech SDK. Al termine, è possibile sintetizzare la voce dal testo e ascoltarla dall'altoparlante in tempo reale.
 services: cognitive-services
@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 65db847c5df1a05671e3b1c0ac4541f00506c8fd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012381"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854688"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Avvio rapido: Eseguire la sintesi vocale con Speech SDK per .NET Framework (Windows)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Eseguire la sintesi vocale con Speech SDK per .NET Framework (Windows)
+
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [traduzione vocale](quickstart-translate-speech-dotnetframework-windows.md).
 
 Usare questa guida per creare un'applicazione console di sintesi vocale con .NET Framework per Windows e Speech SDK. Al termine, è possibile sintetizzare la voce dal testo e ascoltarla dall'altoparlante in tempo reale.
 
@@ -29,7 +31,7 @@ Ottenere la versione più recente degli [esempi di Speech SDK di Servizi cogniti
 
 Per completare questo progetto, saranno necessari:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * Una chiave di sottoscrizione per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 * Un altoparlante (o una cuffia) disponibile.
 
@@ -68,7 +70,7 @@ Per completare questo progetto, saranno necessari:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare i carattere voce](how-to-customize-voice-font.md)
 - [Registrare esempi vocali](record-custom-voice-samples.md)

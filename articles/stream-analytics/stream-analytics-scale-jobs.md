@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554674"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621738"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -85,7 +85,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

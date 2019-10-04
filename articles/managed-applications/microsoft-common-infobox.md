@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64711231"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Elemento Microsoft.Common.InfoBox dell'interfaccia utente
 Un controllo che aggiunge una casella di informazioni. La casella contiene testo importante o avvisi che consentono agli utenti di conoscere i valori che forniscono. Può anche fornire un collegamento a un URI per altre informazioni.
@@ -41,7 +41,7 @@ Un controllo che aggiunge una casella di informazioni. La casella contiene testo
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 * Per `icon`, usare **Nessuno**, **Informazioni**, **Avviso** o **Errore**.
 * La proprietà `uri` è facoltativa.

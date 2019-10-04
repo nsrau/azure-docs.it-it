@@ -4,15 +4,15 @@ description: Informazioni su come gestire le impostazioni dell'account di archiv
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 03/05/2019
+ms.topic: conceptual
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370390"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671363"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gestire le impostazioni dell'account di archiviazione nel portale di Azure
 
@@ -20,16 +20,13 @@ Nel [portale di Azure](https://portal.azure.com) sono disponibili svariate impos
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Archiviazione di Azure supporta l'autenticazione con Azure Active Directory per l'archiviazione Blob e archiviazione di coda tramite il controllo di accesso basato sui ruoli (RBAC). Per altre informazioni sull'autenticazione con Azure AD, vedere [autentica l'accesso ad Azure di BLOB e code usando Azure Active Directory](storage-auth-aad.md).
+Archiviazione di Azure supporta l'autorizzazione con Azure Active Directory per l'archiviazione BLOB e l'archiviazione di accodamento tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sull'autorizzazione con Azure AD, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
 
-Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [Gestisci i diritti di accesso ai dati blob e di Accodamento con RBAC](storage-auth-aad-rbac.md).
-
-> [!NOTE]
-> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. 
+Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per ulteriori informazioni sull'assegnazione di ruoli RBAC, vedere [gestire i diritti di accesso ai dati BLOB e di Accodamento con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="tags"></a>Tag
 
-Archiviazione di Azure supporta i tag di Azure Resource Manager per l'organizzazione delle risorse di Azure con una tassonomia personalizzata. È possibile applicare i tag agli account di archiviazione per poterli raggruppare in modo logico nella sottoscrizione. 
+Archiviazione di Azure supporta i tag di Azure Resource Manager per l'organizzazione delle risorse di Azure con una tassonomia personalizzata. È possibile applicare i tag agli account di archiviazione per poterli raggruppare in modo logico nella sottoscrizione.
 
 Per gli account di archiviazione, un nome di tag è limitato a 128 caratteri e un valore a 256 caratteri.
 
@@ -41,24 +38,18 @@ Quando si crea un account di archiviazione, Azure genera due chiavi di accesso d
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Visualizzare e copiare le chiavi di accesso
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Per visualizzare le credenziali dell'account di archiviazione:
+### <a name="view-account-keys-and-connection-string"></a>Visualizzare le chiavi dell'account e la stringa di connessione
 
-1. Passare al [portale di Azure](https://portal.azure.com).
-2. Individuare l'account di archiviazione.
-3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**. Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
-4. Trovare il valore **Chiave** in **key1** e fare clic sul pulsante **Copia** per copiare la chiave dell'account.
-5. In alternativa, è possibile copiare l'intera stringa di connessione. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione.
-
-    ![Screenshot che illustra come visualizzare le chiavi di accesso nel portale di Azure](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 
 Microsoft consiglia di rigenerare periodicamente le chiavi di accesso per garantire la sicurezza dell'account di archiviazione. Vengono assegnate due chiavi di accesso che è quindi possibile ruotare. Ruotando le chiavi, l'applicazione può mantenere l'accesso ad Archiviazione di Azure per tutta la durata del processo. 
 
 > [!WARNING]
-> La rigenerazione delle chiavi di accesso può influire sulle applicazioni o sui servizi di Azure che dipendono dalla chiave dell'account di archiviazione. I client che usano la chiave dell'account per accedere all'account di archiviazione devono essere aggiornati per usare la nuova chiave, inclusi servizi multimediali, applicazioni cloud, desktop e per dispositivi mobili e applicazioni di interfaccia utente grafica per Archiviazione di Azure, ad esempio [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). 
+> La rigenerazione delle chiavi di accesso può influire sulle applicazioni o sui servizi di Azure che dipendono dalla chiave dell'account di archiviazione. I client che usano la chiave dell'account per accedere all'account di archiviazione devono essere aggiornati per usare la nuova chiave, inclusi servizi multimediali, applicazioni cloud, desktop e per dispositivi mobili e applicazioni di interfaccia utente grafica per Archiviazione di Azure, ad esempio [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Per ruotare le chiavi dell'account di archiviazione, seguire questa procedura:
 
@@ -74,6 +65,7 @@ Dopo aver creato un account di archiviazione, è possibile modificarne la config
 La modifica della configurazione dell'account di archiviazione può comportare costi aggiuntivi. Per informazioni più dettagliate, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="delete-a-storage-account"></a>Eliminare un account di archiviazione
+
 Per rimuovere un account di archiviazione che non si usa più, passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com)e fare clic su **Elimina**. Se si elimina un account di archiviazione, viene eliminato l'intero account, inclusi tutti i dati in esso contenuti.
 
 > [!WARNING]

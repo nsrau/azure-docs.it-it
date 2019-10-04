@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 40035b946d0f2b09929f8c7f1ac27231546e6746
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64692907"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -40,11 +40,11 @@ Il formato del pacchetto di una qualsiasi funzione definita dall'utente presenta
 |---------|---------|
 |long  |  bigint   |
 |Double  |  Double   |
-|stringa  |  nvarchar(max)   |
+|string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array<object>  |  IArray   |
+|Array\<object>  |  IArray   |
 |dizionario <stringa, oggetto>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -114,7 +114,7 @@ Espandere la sezione **Configurazione di codice definito dall'utente** e compila
  |**Impostazione**  |**Valore consigliato**  |
  |---------|---------|
  |Origine assembly  | Pacchetti di assembly esistenti dal cloud    |
- |Risorsa  |  Scegliere i dati dall'account corrente   |
+ |Resource  |  Scegliere i dati dall'account corrente   |
  |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
  |Account di archiviazione  |  Scegliere l'account di archiviazione.   |
  |Contenitore  |  Scegliere il contenitore creato nell'account di archiviazione.   |

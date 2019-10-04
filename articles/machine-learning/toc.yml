@@ -1,14 +1,6 @@
-items:
 - name: Servizio Azure Machine Learning
-  href: service/index.yml
+  href: service/overview-what-is-azure-ml.md
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Confrontare i prodotti di apprendimento automatico di Microsoft
-  href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-  maintainContext: true
-ms.openlocfilehash: 59852fe858e9b4796fec476c1bfe41c0e0d0381e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175863"
+  href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context

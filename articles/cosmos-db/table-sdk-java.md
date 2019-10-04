@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/20/2017
+ms.date: 11/20/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 724f0b9eb09b9eecad5b0a360d9301616d1494f1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c98cd6054b2e48f4c0c886528653e6d3fda96a34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66480202"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Java: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -51,6 +51,6 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

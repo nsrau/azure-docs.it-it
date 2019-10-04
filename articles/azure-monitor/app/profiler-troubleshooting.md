@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495397"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341665"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -69,7 +69,7 @@ Per il corretto funzionamento di Profiler:
 * Application Insights deve essere abilitato per l'app Web.
 * L'app web deve avere le impostazioni seguenti:
 
-    |Impostazione app    | Valore    |
+    |Impostazione app    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -88,7 +88,7 @@ Per il corretto funzionamento di Profiler:
 
       ![profiler-webjob-log]
 
-Se non si riesce a capire il motivo per cui Profiler non funziona, è possibile scaricare il log e inviarlo al team Microsoft per ottenere assistenza. 
+Se non è possibile capire il motivo per cui Profiler non funziona per l'utente, è possibile scaricare i log e inviarlo al nostro team per ottenere assistenza, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Installazione manuale
 
@@ -101,7 +101,7 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Attivare **Always On**.
 1. Creare le impostazioni dell'app:
 
-    |Impostazione app    | Valore    |
+    |Impostazione app    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | chiave di strumentazione per la risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

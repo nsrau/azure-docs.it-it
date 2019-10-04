@@ -3,19 +3,19 @@ title: Piano di continuità aziendale - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: L'obiettivo primario del piano di continuità aziendale è creare un endpoint di Knowledge Base resiliente che garantisca l'assenza di tempi di inattività per il bot o l'applicazione che ne fa uso.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ad4f10b3b59e71ca31f1b27879c4b60157f0a46c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 08/20/2019
+ms.author: diberry
+ms.openlocfilehash: 84f13f7e1d83f1ead00303b694b617d3ba1c8931
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881359"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876636"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Creare un piano di continuità aziendale per il servizio QnA Maker
 

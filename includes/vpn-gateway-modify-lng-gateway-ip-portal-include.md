@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36329553"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179982"
 ---
 ### <a name="gwipnoconnection"></a> Per modificare l'indirizzo IP del gateway di rete locale senza connessione gateway
 
@@ -31,7 +31,7 @@ Per modificare un gateway di rete locale con una connessione, è necessario in p
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Connessioni**.
 2. Fare clic su **...** nella riga della connessione e quindi fare clic su **Elimina**.
-3. Per salvare le impostazioni, fare clic su **Save** .
+3. Fare clic su **salvare** per salvare le impostazioni.
 
 #### <a name="2-modify-the-ip-address"></a>2. Modificare l'indirizzo IP.
 

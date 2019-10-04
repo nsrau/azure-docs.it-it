@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65950907"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti per la soluzione ibrida di gestione delle identità
 Il primo passaggio della progettazione di una soluzione ibrida di gestione delle identità consiste nel determinare i requisiti per l'organizzazione che userà la soluzione.  La gestione ibrida delle identità nasce come un ruolo di supporto (supporta tutte le altre soluzioni cloud fornendo l'autenticazione) che può in seguito offrire funzionalità nuove e interessanti per i carichi di lavoro degli utenti.  I carichi di lavoro o i servizi che verranno adottati per gli utenti determinano i requisiti per la progettazione della soluzione ibrida di gestione delle identità.  Questi servizi e carichi di lavoro dovranno usare la soluzione ibrida di gestione delle identità sia in locale che nel cloud.  
 
-È necessario esaminare questi aspetti dell'attività per stabilire ciò che costituisce un requisito ora e ciò che l'azienda ha pianificato per il futuro. Se non si ha visibilità sulla strategia a lungo termine per la progettazione della soluzione ibrida di gestione delle identità, è possibile che la soluzione non garantisca la scalabilità necessaria in grado di sostenere la crescita e il cambiamento dell'azienda.   Il diagramma seguente mostra un esempio di architettura ibrida di gestione delle identità e i carichi di lavoro disponibili per gli utenti. Si tratta solo di un esempio di tutte le nuove funzionalità che possono essere rese disponibili e distribuite grazie a una solida strategia di gestione ibrida delle identità. 
+È necessario esaminare questi aspetti dell'attività per stabilire ciò che costituisce un requisito ora e ciò che l'azienda ha pianificato per il futuro. Se non si ha visibilità sulla strategia a lungo termine per la progettazione della soluzione ibrida di gestione delle identità, è possibile che la soluzione non garantisca la scalabilità necessaria in grado di sostenere la crescita e il cambiamento dell'azienda. Il diagramma seguente illustra un esempio di un'architettura di identità ibrida e i carichi di lavoro disponibili per gli utenti. Si tratta solo di un esempio di tutte le nuove funzionalità che possono essere rese disponibili e distribuite grazie a una solida strategia di gestione ibrida delle identità. 
 
-Alcuni componenti che fanno parte dell'architettura ibrida di gestione delle identità ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Alcuni componenti che fanno parte dell'architettura Identità ibride ![architettura Identità ibrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinare le esigenze aziendali
 Ogni azienda ha requisiti specifici e anche le aziende che operano nello stesso settore possono manifestare esigenze diverse. È comunque utile vedere le procedure consigliate per un determinato settore, ma sarà necessario valutare le esigenze specifiche dell'azienda per definire i requisiti per la progettazione della soluzione ibrida di gestione delle identità. 
@@ -110,6 +110,6 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di sincronizzazione della directory](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

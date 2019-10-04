@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736285"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
 
@@ -48,9 +48,9 @@ Per la corrispondenza degli host front-end, viene usata la logica seguente:
 
 Per spiegare ulteriormente questo processo, esaminiamo una configurazione di esempio delle route di Frontdoor (solo lato sinistro):
 
-| Regola di routing | Host front-end | path |
+| Regola di routing | Host front-end | `Path` |
 |-------|--------------------|-------|
-| Una  | foo.contoso.com | /\* |
+| Una | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
@@ -78,9 +78,9 @@ Dopo aver determinato lo specifico host front-end e filtrato le possibili regole
 
 Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
-| Regola di routing | Host front-end    | path     |
+| Regola di routing | Host front-end    | `Path`     |
 |-------|---------|----------|
-| Una      | www\.contoso.com | /        |
+| Una     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una              |
+| www\.contoso.com/            | Una             |
 | www\.contoso.com/a           | b             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
@@ -112,9 +112,9 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > Configurazione di esempio:
 >
-> | Route | Host             | path    |
+> | Route | Host             | `Path`    |
 > |-------|------------------|---------|
-> | Una      | profile.contoso.com | /api/\* |
+> | Una     | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >

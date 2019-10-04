@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: 2966a2733904200f404d67c4e825d6b9deffdea2
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.date: 07/02/2019
+ms.openlocfilehash: e57371bb7598a92f35dd4fd0ec22a55fad722987
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903027"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360512"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB
 Database di Azure per MariaDB supporta la connessione alle applicazioni client tramite Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -21,9 +21,19 @@ Scaricare il certificato necessario per comunicare tramite SSL con il server di 
 **Per Microsoft Internet Explorer e Microsoft Edge:** dopo aver completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Associare SSL
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
-Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). Immettere il percorso del file **BaltimoreCyberTrustRoot.crt.pem** nel campo **SSL CA File:** (File CA SSL:). 
-![Salvare un riquadro personalizzato](./media/howto-configure-ssl/mysql-workbench-ssl.png) Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
+
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
+Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL. 
+
+1. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). 
+
+1. Aggiornare il campo **Usa SSL** a "Richiedi".
+
+1. Immettere il percorso del file BaltimoreCyberTrustRoot.crt.pem nel campo **SSL CA File:** (File CA SSL:). 
+    
+    ![Salva configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Connessione al server con l'interfaccia della riga di comando di MySQL tramite SSL
 Un altro modo per associare il certificato SSL è quello di usare l'interfaccia della riga di comando di MySQL eseguendo i comandi seguenti. 
@@ -68,21 +78,21 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mariadb.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mariadb.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mariadb.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mariadb.database.azure.com',
+                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
 ```ruby
@@ -159,6 +169,23 @@ url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=tru
 properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
+```
+
+### <a name="net-mysqlconnector"></a>.NET (MySqlConnector)
+```csharp
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "mydemoserver.mysql.database.azure.com",
+    UserID = "myadmin@mydemoserver",
+    Password = "yourpassword",
+    Database = "quickstartdb",
+    SslMode = MySqlSslMode.VerifyCA,
+    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
 ```
 
 <!-- 

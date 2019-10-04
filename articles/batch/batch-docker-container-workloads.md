@@ -3,20 +3,19 @@ title: Carichi di lavoro del contenitore in Azure Batch | Microsoft Docs
 description: Informazioni su come eseguire le applicazioni dalle immagini del contenitore in Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
+ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51037e66ec649fc275a746c9f5316b91d82e186a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454828"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090744"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -90,9 +89,9 @@ Altre considerazioni sull'uso di un'immagine Linux personalizzata:
 
 ## <a name="container-configuration-for-batch-pool"></a>Configurazione del contenitore per il pool di Batch
 
-Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool. Questo articolo contiene i collegamenti alla documentazione di riferimento sull'API Batch .NET. Nell'API [Python per Batch](/python/api/azure.batch) si trovano impostazioni corrispondenti.
+Per abilitare un pool Batch a eseguire carichi di lavoro del contenitore, è necessario specificare le impostazioni di [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) nell'oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del pool. Questo articolo contiene i collegamenti alla documentazione di riferimento sull'API Batch .NET. Nell'API [Python per Batch](/python/api/overview/azure/batch) si trovano impostazioni corrispondenti.
 
-È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di precaricare le immagini del contenitore dall'hub Docker o da un altro registro contenitori in Internet. Per prestazioni ottimali, usare un [registro contenitori di Azure](../container-registry/container-registry-intro.md) nella stessa area dell'account Batch.
+È possibile creare un pool abilitato per il contenitore con o senza le immagini del contenitore prelette, come illustrato negli esempi seguenti. Il processo di pull, o di prelettura, consente di precaricare le immagini del contenitore dall'hub Docker o da un altro registro contenitori in Internet. Per prestazioni ottimali, usare un [Registro Azure Container](../container-registry/container-registry-intro.md) nella stessa area dell'account Batch.
 
 Il vantaggio della prelettura delle immagini del contenitore è che quando le attività iniziano l'esecuzione non devono attendere che l'immagine contenitore venga scaricata. La configurazione del contenitore esegue il pull delle immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento all'elenco delle immagini del contenitore e alle opzioni di esecuzione del contenitore.
 
@@ -104,10 +103,10 @@ Per configurare un pool abilitato per il contenitore senza immagini del contenit
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='16-04-lts',
-        version='latest')
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
 
 """
 Specify container configuration. This is required even though there are no prefetched images.
@@ -116,13 +115,13 @@ Specify container configuration. This is required even though there are no prefe
 container_conf = batch.models.ContainerConfiguration()
 
 new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-            image_reference=image_ref_to_use,
-            container_configuration=container_conf,
-            node_agent_sku_id='batch.node.ubuntu 16.04'),
-        vm_size='STANDARD_D1_V2',
-        target_dedicated_nodes=1)
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
 ...
 ```
 
@@ -144,7 +143,8 @@ image_ref_to_use = batch.models.ImageReference(
 Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
 """
 
-container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+container_conf = batch.models.ContainerConfiguration(
+    container_image_names=['ubuntu'])
 
 new_pool = batch.models.PoolAddParameter(
     id=pool_id,
@@ -193,7 +193,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prelettura delle immagini da un contenitori privato
 
-È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro contenitori privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow da un registro contenitori di Azure privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
+È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro contenitori privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` eseguono la prelettura di un'immagine privata di TensorFlow da un Registro Azure Container privato. Il riferimento all'immagine è lo stesso dell'esempio precedente.
 
 ```csharp
 // Specify a container registry
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che `--rm` l'opzione contenitore non richiede un' `--runtime` opzione aggiuntiva perché viene gestita da batch. 
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 
@@ -274,14 +274,13 @@ Il frammento di codice Python seguente mostra una riga di comando di base in ese
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='myimage', 
+    image_name='myimage',
     container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
     command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
-
 ```
 
 L'esempio C# seguente illustra le impostazioni di base del contenitore per un'attività cloud:

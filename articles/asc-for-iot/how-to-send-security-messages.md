@@ -1,62 +1,65 @@
 ---
-title: Invio di messaggi di sicurezza al Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
-description: Informazioni su come inviare i messaggi di sicurezza usando il Centro sicurezza di Azure per IoT.
+title: Inviare i messaggi di sicurezza al centro sicurezza di Azure per le cose | Microsoft Docs
+description: Informazioni su come inviare i messaggi di sicurezza tramite il Centro sicurezza di Azure.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9974fd15ae9c8c420992c3ae1084feebae0f57d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797347"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937140"
 ---
 # <a name="send-security-messages-sdk"></a>Inviare l'SDK dei messaggi di sicurezza
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Questa guida illustra Azure Security Center (Centro sicurezza di AZURE) per le funzionalità del servizio IoT quando si sceglie di raccogliere e inviare i messaggi di sicurezza il dispositivo senza l'utilizzo di un Centro sicurezza di AZURE per l'agente di IoT e spiega come eseguire questa operazione.  
+Questa guida dettagliata illustra il Centro sicurezza di Azure per le funzionalità del servizio Internet quando si sceglie di raccogliere e inviare i messaggi di sicurezza del dispositivo senza usare un centro sicurezza di Azure per l'agente Internet e illustra come eseguire questa operazione.  
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
-> * Usare l'API di invio messaggio di sicurezza per C#
-> * Usare l'API di invio messaggio di sicurezza per C
+> * Inviare messaggi di sicurezza tramite l'SDK di Azure.
+> * Inviare messaggi di sicurezza tramite l' C# SDK di Azure.
+> * Inviare messaggi di sicurezza tramite l'SDK Python di Azure
+> * Inviare messaggi di sicurezza usando Azure Internet node. js SDK
+> * Inviare messaggi di sicurezza tramite l'SDK Java per Azure
 
-## <a name="asc-for-iot-capabilities"></a>Centro sicurezza di AZURE per le funzionalità di IoT
 
-Centro sicurezza di AZURE per IoT può elaborare e analizzare qualsiasi tipo di dati di sicurezza messaggio, purché la conformità dei dati inviati per la [Centro sicurezza di AZURE per IoT schema](https://aka.ms/iot-security-schemas) e il messaggio è impostato su un messaggio di sicurezza.
+## <a name="azure-security-center-for-iot-capabilities"></a>Centro sicurezza di Azure per le funzionalità di Internet delle cose
+
+Il Centro sicurezza di Azure per Internet è in grado di elaborare e analizzare qualsiasi tipo di dati dei messaggi di sicurezza purché i dati inviati siano conformi al [Centro sicurezza di Azure per lo schema](https://aka.ms/iot-security-schemas) degli oggetti Internet e il messaggio sia impostato come messaggio di sicurezza.
 
 ## <a name="security-message"></a>Messaggio di sicurezza
 
-Centro sicurezza di AZURE per IoT definisce un messaggio di sicurezza usando i criteri seguenti:
-- Se il messaggio è stato inviato con Azure IoT C /C# SDK
-- Se il messaggio soddisfa i requisiti di [schema del messaggio di sicurezza](https://aka.ms/iot-security-schemas)
-- Se il messaggio è stato impostato come un messaggio di sicurezza prima dell'invio
+Il Centro sicurezza di Azure per le cose definisce un messaggio di sicurezza con i criteri seguenti:
+- Se il messaggio è stato inviato con l'SDK di Azure.
+- Se il messaggio è conforme allo [schema del messaggio di sicurezza](https://aka.ms/iot-security-schemas)
+- Se il messaggio è stato impostato come messaggio di sicurezza prima dell'invio
 
-Ogni messaggio di sicurezza sono inclusi i metadati del mittente, ad esempio `AgentId`, `AgentVersion`, `MessageSchemaVersion` e un elenco di eventi di sicurezza.
-Lo schema definisce le proprietà valide e necessarie del messaggio di sicurezza, inclusi i tipi di eventi.
+Ogni messaggio di sicurezza include i metadati del mittente `AgentId` `MessageSchemaVersion` , ad esempio `AgentVersion`, e un elenco di eventi di sicurezza.
+Lo schema definisce le proprietà valide e obbligatorie del messaggio di sicurezza, inclusi i tipi di eventi.
 
-[!NOTE]
+>[!Note]
 > I messaggi inviati che non sono conformi allo schema vengono ignorati. Assicurarsi di verificare lo schema prima di avviare l'invio di dati, perché i messaggi ignorati non vengono attualmente archiviati. 
-> I messaggi inviati che non sono state impostate come un messaggio di sicurezza usando Azure IoT C /C# SDK non verrà indirizzato il Centro sicurezza di AZURE per IoT pipeline
+
+>[!Note]
+> I messaggi inviati che non sono stati impostati come messaggi di sicurezza con Azure Internet Users SDK non verranno indirizzati al centro sicurezza di Azure per la pipeline di Internet delle cose.
 
 ## <a name="valid-message-example"></a>Esempio di messaggio valido
 
-L'esempio seguente illustra un oggetto messaggio di sicurezza valido. L'esempio contiene i metadati del messaggio e l'altra `ProcessCreate` evento di sicurezza.
+Nell'esempio seguente viene illustrato un oggetto messaggio di sicurezza valido. Nell'esempio sono contenuti i metadati del messaggio `ProcessCreate` e un evento di sicurezza.
 
-Una volta impostata come un messaggio di sicurezza e invio, questo messaggio verrà elaborato dal Centro sicurezza di AZURE per IoT.
+Una volta impostato come messaggio di sicurezza e inviato, questo messaggio verrà elaborato dal centro sicurezza di Azure per l'it.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -75,11 +78,11 @@ Una volta impostata come un messaggio di sicurezza e invio, questo messaggio ver
         "Payload":
             [
                 {
-                    "Executable": "/usr/bin/echo",
+                    "Executable": "/usr/bin/myApp",
                     "ProcessId": 11750,
                     "ParentProcessId": 1593,
-                    "UserName": "nginx",
-                    "CommandLine": "./backup .htaccess"
+                    "UserName": "aUser",
+                    "CommandLine": "myApp -a -b"
                 }
             ]
     }
@@ -88,28 +91,15 @@ Una volta impostata come un messaggio di sicurezza e invio, questo messaggio ver
 
 ## <a name="send-security-messages"></a>Inviare messaggi di sicurezza 
 
-Inviare i messaggi di sicurezza senza usare il Centro sicurezza di AZURE per l'agente di IoT, usando il [IoT di Azure C# SDK per dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) oppure [dispositivo Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
+Inviare messaggi di sicurezza *senza* usare il Centro sicurezza di Azure per l'agente Internet per gli agenti di Azure, usando l'SDK per [dispositivi](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)Azure per dispositivi, Azure l'SDK per [ C# dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure,, [node. js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure Azure per Python SDK](https://github.com/Azure/azure-iot-sdk-python)o l' [SDK Java per Azure ](https://github.com/Azure/azure-iot-sdk-java).
 
-Per inviare i dati del dispositivo dai dispositivi per l'elaborazione nel Centro sicurezza di Azure per IoT, usare una delle seguenti API per contrassegnare i messaggi per il routing corretto alla pipeline di elaborazione del Centro sicurezza di Azure per IoT. I messaggi inviati in questo modo verranno elaborati e visualizzati come informazioni di sicurezza nel Centro sicurezza di Azure per IoT all'interno dell'hub IoT o del Centro sicurezza di Azure. 
+Per inviare i dati del dispositivo dai dispositivi per l'elaborazione da parte del Centro sicurezza di Azure, usare una delle API seguenti per contrassegnare i messaggi per il routing corretto al centro sicurezza di Azure per la pipeline di elaborazione degli elementi. 
 
-Tutti i dati inviati, anche se contrassegnati con l'intestazione corretta, devono inoltre essere conformi allo [schema di messaggio del Centro sicurezza di Azure per IoT](https://aka.ms/iot-security-schemas). 
+Tutti i dati inviati, anche se contrassegnati con l'intestazione corretta, devono essere conformi anche al [Centro sicurezza di Azure per lo schema dei messaggi dell'](https://aka.ms/iot-security-schemas)intero. 
 
-### <a name="send-security-message-api"></a>API di invio messaggio di sicurezza
+### <a name="send-security-message-api"></a>API di invio messaggio di sicurezza 
 
-L'API di **invio messaggio di sicurezza** è attualmente disponibile in C e C#.  
-
-#### <a name="c-api"></a>API C#
-
-```cs
-
-private static async Task SendSecurityMessageAsync(string messageContent)
-{
-    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-    securityMessage.SetAsSecurityMessage();
-    await client.SendEventAsync(securityMessage);
-}
-```
+L'API **Invia messaggi di sicurezza** è attualmente disponibile in C C#e, Python, node. js e Java.  
 
 #### <a name="c-api"></a>API C
 
@@ -155,10 +145,82 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
     }
 }
 ```
+#### <a name="c-api"></a>API C#
+
+```cs
+
+private static async Task SendSecurityMessageAsync(string messageContent)
+{
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
+```
+#### <a name="nodejs-api"></a>API Node.js
+
+```typescript
+var Protocol = require('azure-iot-device-mqtt').Mqtt
+
+function SendSecurityMessage(messageContent)
+{
+  var client = Client.fromConnectionString(connectionString, Protocol);
+
+  var connectCallback = function (err) {
+    if (err) {
+      console.error('Could not connect: ' + err.message);
+    } else {
+      var message = new Message(messageContent);
+      message.setAsSecurityMessage();
+      client.sendEvent(message);
+  
+      client.on('error', function (err) {
+        console.error(err.message);
+      });
+  
+      client.on('disconnect', function () {
+        clearInterval(sendInterval);
+        client.removeAllListeners();
+        client.open(connectCallback);
+      });
+    }
+  };
+
+  client.open(connectCallback);
+}
+```
+
+#### <a name="python-api"></a>API Python
+
+```python
+async def send_security_message_async(message_content):
+    conn_str = os.getenv("<connection_string>")
+    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
+    await device_client.connect()
+    security_message = Message(message_content)
+    security_message.set_as_security_message()
+    await device_client.send_d2c_message(security_message)
+    await device_client.disconnect()
+```
+
+#### <a name="java-api"></a>API Java
+
+```java
+public void SendSecurityMessage(string message)
+{
+    ModuleClient client = new ModuleClient("<connection_string>", IotHubClientProtocol.MQTT);
+    Message msg = new Message(message);
+    msg.setAsSecurityMessage();
+    EventCallback callback = new EventCallback();
+    string context = "<user_context>";
+    client.sendEventAsync(msg, callback, context);
+}
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggere la [Panoramica](overview.md) sul servizio del Centro sicurezza di Azure per IoT
-- Vedere altre informazioni sull'[Architettura](architecture.md) del Centro sicurezza di Azure per IoT
+- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
+- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
 - Abilitare il [servizio](quickstart-onboard-iot-hub.md)
 - Leggere le [Domande frequenti](resources-frequently-asked-questions.md)
 - Informazioni su come accedere a [dati non elaborati sulla sicurezza](how-to-security-data-access.md)

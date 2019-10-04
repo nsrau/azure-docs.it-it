@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65957305"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
@@ -43,10 +43,14 @@ Viene quindi visualizzata una pagina di conferma. È possibile confermare l'elim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come gestire il piano tariffario dell'account Mappe di Azure:
-    > [!div class="nextstepaction"] 
-    > [Gestire un piano tariffario](./how-to-manage-pricing-tier.md)
+Configurare l'autenticazione con le mappe di Azure:
+> [!div class="nextstepaction"]
+> [Gestire l'autenticazione](how-to-manage-authentication.md)
 
-* Informazioni su come visualizzare le metriche di utilizzo delle API per l'account Mappe di Azure:
-    > [!div class="nextstepaction"] 
-    > [Visualizzare le metriche di utilizzo](./how-to-view-api-usage.md)
+Informazioni su come gestire il piano tariffario dell'account Mappe di Azure:
+> [!div class="nextstepaction"] 
+> [Gestire un piano tariffario](how-to-manage-pricing-tier.md)
+
+Informazioni su come visualizzare le metriche di utilizzo delle API per l'account Mappe di Azure:
+> [!div class="nextstepaction"] 
+> [Visualizzare le metriche di utilizzo](how-to-view-api-usage.md)

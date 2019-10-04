@@ -1,37 +1,38 @@
 ---
-title: Guida introduttiva - Creare una macchina virtuale Windows con Azure PowerShell | Microsoft Docs
-description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una macchina virtuale Windows
+title: "Guida di avvio rapido: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure | Microsoft Docs"
+description: Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730323"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088849"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Avvio rapido: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale in Azure che esegue Windows Server 2016. Per vedere la macchina virtuale in azione, eseguire RDP nella macchina virtuale e installare il server Web IIS.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo avvio rapido richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
+
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere **Invio** per eseguirli.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -43,7 +44,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM*. Questo esempio usa *azureuser* come nome utente amministrativo e *myPassword12* come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando si esegue la connessione alla macchina virtuale.
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM*. Questo esempio usa *azureuser* per un nome utente amministrativo. 
+
+È necessario modificare il valore per `--admin-password` o avrà esito negativo. Sostituirlo con una password che soddisfi i [requisiti della password per le VM di Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). Il nome utente e la password verranno usati in un secondo momento per la connessione alla VM.
 
 ```azurecli-interactive
 az vm create \
@@ -51,7 +55,7 @@ az vm create \
     --name myVM \
     --image win2016datacenter \
     --admin-username azureuser \
-    --admin-password myPassword12
+    --admin-password myPassword
 ```
 
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti. L'output di esempio seguente mostra che l'operazione di creazione della macchina virtuale ha avuto esito positivo.

@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 20bf38b87ce29f8506a5611ecd25cf38f6d4ed61
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a4ff94a98514041290518e72e1b13c76722b9d4f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824986"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205593"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gestire le risorse di Azure usando il portale di Azure
 
@@ -103,7 +100,7 @@ Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azur
 L'assegnazione di tag consente di organizzare logicamente il gruppo di risorse e le risorse. 
 
 1. Aprire la risorsa nel portale. Per istruzioni, vedere [aprire risorse](#open-resources).
-2. Selezionare **tag**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
+2. Selezionare **Tag**. Lo screenshot seguente mostra le opzioni di gestione per un account di archiviazione.
 
     ![risorse di azure di tag](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Specificare le proprietà di tag e quindi selezionare **salvare**.

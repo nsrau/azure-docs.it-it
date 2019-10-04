@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608606"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103221"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
 Questo articolo mostra come configurare la [replica geografica attiva per database singoli e in pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) nel database SQL di Azure usando il [portale di Azure](https://portal.azure.com) e avviare il failover.
 
-Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con Istanze gestite (anteprima), vedere [Procedure consigliate per l'uso di gruppi di failover con Istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con istanze gestite, vedere [procedure consigliate per l'uso di gruppi di failover con istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +39,7 @@ La procedura seguente crea un nuovo database secondario in una relazione di repl
 
 Per aggiungere un database secondario, è necessario essere il proprietario o un comproprietario della sottoscrizione.
 
-Il database secondario ha lo stesso nome del database primario e, per impostazione predefinita, ha lo stesso livello di servizio e la stessa dimensione di calcolo. Il database secondario può essere un database singolo o un database in pool. Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+Il database secondario ha lo stesso nome del database primario e, per impostazione predefinita, ha lo stesso livello di servizio e le stesse dimensioni di calcolo. Il database secondario può essere un database singolo o un database in pool. Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 Dopo aver creato ed eseguito il seeding del database secondario, inizia la replica dei dati dal database primario al nuovo database secondario.
 
 > [!NOTE]
@@ -73,7 +72,7 @@ Il database secondario può diventare il database primario.
     ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Fare clic su **Sì** per avviare il failover.
 
-Il comando passa immediatamente il database secondario al ruolo di database primario. In genere, questo processo deve essere completata entro 30 secondi o meno.
+Il comando passa immediatamente il database secondario al ruolo di database primario. Questo processo normalmente dovrebbe essere completato entro 30 secondi o meno.
 
 Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Se il database primario ha più database secondari, il comando riconfigura automaticamente gli altri database secondari per la connessione al nuovo database primario. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali.
 

@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0c2d8060756c23cc69325ab88803d0423ba45b9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259457"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002301"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Panoramica del servizio Criteri di Azure
 
@@ -26,9 +26,11 @@ Criteri di Azure è un servizio disponibile in Azure che consente di creare, ass
 > [!IMPORTANT]
 > La valutazione della conformità di Criteri di Azure è ora disponibile per tutte le assegnazioni indipendentemente dal piano tariffario. Se le assegnazioni non mostrano i dati di conformità, assicurarsi che la sottoscrizione sia registrata con il provider di risorse Microsoft.PolicyInsights.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 
-Esistono differenze importanti tra i criteri e il controllo degli accessi in base al ruoli (RBAC). Quest'ultimo è incentrato sulle azioni dell'utente in ambiti diversi. Un utente potrebbe essere aggiunto al ruolo di collaboratore per un gruppo di risorse, in modo che possa apportare modifiche a tale gruppo di risorse. Il servizio Criteri è incentrato sulle proprietà delle risorse durante la distribuzione e per le risorse già esistenti. Il servizio controlla proprietà come tipi o posizioni delle risorse. A differenza del controllo degli accessi in base al ruolo, il servizio Criteri rappresenta un sistema con autorizzazioni predefinite e negazione esplicita.
+Esistono alcune differenze importanti tra Criteri di Azure e il controllo degli accessi in base al ruolo (RBAC). Quest'ultimo è incentrato sulle azioni dell'utente in ambiti diversi. Un utente potrebbe essere aggiunto al ruolo di collaboratore per un gruppo di risorse, in modo che possa apportare modifiche a tale gruppo di risorse. Il servizio Criteri di Azure è incentrato sulle proprietà delle risorse durante la distribuzione e per le risorse già esistenti. Il servizio controlla proprietà come tipi o posizioni delle risorse. A differenza del controllo degli accessi in base al ruolo, Criteri di Azure è un sistema con autorizzazioni predefinite e negazione esplicita.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure
 
@@ -37,7 +39,7 @@ Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse (anteprima)** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. Sia il ruolo **Collaboratore** che il ruolo **Lettore** possono effettuare tutte le operazioni di lettura relative ai Criteri, ma **Collaboratore** può anche attivare la correzione.
+Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse (anteprima)** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. Sia il ruolo **Collaboratore** che il ruolo **Lettore** possono eseguire tutte le operazioni di lettura di Criteri di Azure, ma **Collaboratore** può anche attivare la correzione.
 
 Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
@@ -45,7 +47,7 @@ Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare
 
 Il processo di creazione e implementazione dei criteri in Criteri di Azure ha inizio con la creazione di una definizione di criteri. Ogni definizione di criteri include condizioni da cui ne dipende l'applicazione. C'è anche un effetto definito associato, che viene applicato se le condizioni sono soddisfatte.
 
-In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio: 
+In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio:
 
 - **Richiedere SQL Server 12.0**: Verifica che tutte le istanze di SQL Server usino la versione 12.0. L'effetto consiste nel rifiutare tutti i server che non soddisfano tali criteri.
 - **SKU degli account di archiviazione consentiti**: Determina se un account di archiviazione in distribuzione si trova all'interno di un set di dimensioni di SKU. L'effetto consiste nel rifiutare tutti gli account di archiviazione che non rispettano il set di dimensioni di SKU definite.
@@ -68,7 +70,7 @@ Un'assegnazione di criteri è una definizione di criteri che è stata assegnata 
 
 Nell'ambito della sottoscrizione è ad esempio possibile assegnare criteri che non permettono la creazione di risorse di rete. È possibile escludere un gruppo di risorse nella sottoscrizione che è pensato per l'infrastruttura di rete. e consentire quindi l'accesso a questo gruppo specifico a utenti fidati in grado di creare risorse di rete.
 
-In un altro esempio è possibile che si voglia assegnare un criterio dell'elenco elementi consentiti relativo al tipo di risorsa a livello di gruppo di gestione. Assegnare quindi un criterio più permissivo, consentendo più tipi di risorse, in un gruppo di gestione figlio o anche direttamente nelle sottoscrizioni. Questo esempio tuttavia non funzionerebbe perché un criterio è un sistema di rifiuto esplicito. È invece necessario escludere il gruppo di gestione figlio o la sottoscrizione dall'assegnazione del criterio a livello di gruppo di gestione. Assegnare quindi il criterio più permissivo a livello di gruppo di gestione figlio o di sottoscrizione. Se eventuali criteri provocano il rifiuto di una risorsa, l'unico modo per consentire la risorsa consiste nel modificare il criterio che la rifiuta.
+In un altro esempio può essere opportuno assegnare criteri dell'elenco elementi consentiti per tipo di risorsa a livello di gruppo di gestione. Assegnare quindi un criterio più permissivo, consentendo più tipi di risorse, in un gruppo di gestione figlio o anche direttamente nelle sottoscrizioni. Questo esempio tuttavia non funzionerebbe perché un criterio è un sistema di rifiuto esplicito. È invece necessario escludere il gruppo di gestione figlio o la sottoscrizione dall'assegnazione del criterio a livello di gruppo di gestione. Assegnare quindi il criterio più permissivo a livello di gruppo di gestione figlio o di sottoscrizione. Se eventuali criteri provocano il rifiuto di una risorsa, l'unico modo per consentire la risorsa consiste nel modificare il criterio che la rifiuta.
 
 Per altre informazioni sull'impostazione delle definizioni e delle assegnazioni di criteri tramite portale, consultare [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente di Azure](assign-policy-portal.md). Sono inoltre disponibili i passaggi per [PowerShell](assign-policy-powershell.md) e [Interfaccia della riga di comando di Azure](assign-policy-azurecli.md).
 
@@ -110,12 +112,12 @@ Si consideri ad esempio uno scenario con una definizione di iniziativa, **initia
 In questo scenario, per la definizione dei parametri dell'iniziativa **initiativeC** sono disponibili tre opzioni:
 
 - Usare i parametri delle definizioni di criteri incluse nell'iniziativa: In questo esempio *allowedLocations* e *allowedSingleLocation* diventano i parametri dell'iniziativa **initiativeC**.
-- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio, è possibile specificare un elenco di località per il **parametro allowedLocations di policyA** e il **parametro allowedSingleLocation di policyB**. È anche possibile specificare i valori quando si assegna l'iniziativa.
+- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio è possibile specificare un elenco di località per il **parametro allowedLocations di policyA** e il **parametro allowedSingleLocation di policyB**. È anche possibile specificare i valori quando si assegna l'iniziativa.
 - Specificare un elenco di opzioni di *valore* utilizzabili durante l'assegnazione dell'iniziativa. Quando si assegna l'iniziativa, i parametri ereditati dalle definizioni di criteri incluse nell'iniziativa possono contenere solo valori presenti nell'elenco specificato.
 
 Durante la creazione di opzioni di valori in una definizione di iniziativa, non è possibile a immettere un valore diverso durante l'assegnazione dell'iniziativa perché non è incluso nell'elenco.
 
-## <a name="maximum-count-of-policy-objects"></a>Numero massimo di oggetti di criteri
+## <a name="maximum-count-of-azure-policy-objects"></a>Numero massimo di oggetti di Criteri di Azure
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +146,8 @@ La panoramica di Criteri di Azure riportata di seguito è tratta da Build 2018. 
 
 Di seguito sono riportati i passaggi successivi consigliati dopo questa panoramica di Criteri di Azure e di alcuni dei concetti chiave:
 
-- [Assegnare una definizione di criteri con il portale](assign-policy-portal.md)
-- [Assegnare una definizione di criteri con l'interfaccia della riga di comando di Azure](assign-policy-azurecli.md)
-- [Assegnare una definizione di criteri con PowerShell](assign-policy-powershell.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](..//management-groups/overview.md)
-- Visualizzare [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Governance dell'ambiente di Azure tramite Criteri di Azure) su Channel 9
+- [Assegnare una definizione di criteri con il portale](assign-policy-portal.md).
+- [Assegnare una definizione di criteri con l'interfaccia della riga di comando di Azure](assign-policy-azurecli.md).
+- [Assegnare una definizione di criteri con PowerShell](assign-policy-powershell.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](..//management-groups/overview.md).
+- Guardare il video [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Governance dell'ambiente di Azure tramite Criteri di Azure) su Channel 9.

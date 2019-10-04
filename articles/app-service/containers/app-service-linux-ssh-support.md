@@ -11,17 +11,16 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d84a4dd0b69ce9ca7fc594dffce3238c620c426
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543974"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066872"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
@@ -39,7 +38,7 @@ Per le immagini Docker personalizzate tramite la configurazione del server SSH i
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Usare il supporto SSH con le immagini Docker personalizzate
 
-Visualizzare [configurare SSH in un contenitore personalizzato](configure-custom-container.md#enable-ssh).
+Vedere [configurare SSH in un contenitore personalizzato](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Aprire una sessione SSH dalla shell remota
 
@@ -51,10 +50,10 @@ Con il tunneling TCP è possibile creare una connessione di rete tra il computer
 
 Per iniziare, è necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Per esaminare il funzionamento senza installare l'interfaccia della riga di comando di Azure, aprire [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Specificare  _\<id-sottoscrizione >_,  _\<gruppo-name >_ e \__ < nome app > per l'app.
+Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). \_Specificare  _\<Subscription-ID >_ ,  _\<nome gruppo >_ e \<nome app > _ per l'app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
+az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

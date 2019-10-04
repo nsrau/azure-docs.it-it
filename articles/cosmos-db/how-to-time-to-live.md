@@ -3,15 +3,15 @@ title: Informazioni su come configurare e gestire la durata (TTL) in Azure Cosmo
 description: Informazioni su come configurare e gestire la durata (TTL) in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 11/14/2018
+ms.topic: conceptual
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003524"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815903"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -30,18 +30,29 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
    * Aprire la finestra **Scalabilità e impostazioni**.
-   * In **Impostazione** trovare **Durata (TTL)**.
+   * In **Impostazione** trovare **Durata (TTL)** .
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
    ![Configurare la durata (TTL) nel portale di Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* Se DefaultTimeToLive è Null, la durata TTL è disattivata
+* Se DefaultTimeToLive è -1, l'impostazione della durata TTL è attivata (nessun valore predefinito)
+* Se DefaultTimeToLive include qualsiasi altro valore Int, ad eccezione di 0, l'impostazione della durata TTL è attivata
+
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Abilitare la durata per un contenitore usando l'interfaccia della riga di comando di Azure o PowerShell
+
+Per creare o abilitare la durata (TTL) in un contenitore, vedere.
+
+* [Creare un contenitore con TTL usando l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-a-container-with-ttl)
+* [Creare un contenitore con TTL usando PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
+
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Abilitare la durata (TTL) in un contenitore usando l'SDK
 
-### <a id="dotnet-enable-noexpiry"></a>.NET SDK
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK v2 (Microsoft. Azure. DocumentDB)
 
 ```csharp
-// Create a new collection with TTL enabled and without any expiration value
+// Create a new container with TTL enabled and without any expiration value
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
@@ -49,18 +60,29 @@ collectionDefinition.DefaultTimeToLive = -1; //(never expire by default)
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
-    collectionDefinition,
-    new RequestOptions { OfferThroughput = 20000 });
+    collectionDefinition);
+```
+
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK V3 (Microsoft. Azure. Cosmos)
+
+```csharp
+// Create a new container with TTL enabled and without any expiration value
+await client.GetDatabase("database").CreateContainerAsync(new ContainerProperties
+{
+    Id = "container",
+    PartitionKeyPath = "/myPartitionKey",
+    DefaultTimeToLive = -1 //(never expire by default)
+});
 ```
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Impostare la durata (TTL) in un contenitore usando l'SDK
 
-### <a id="dotnet-enable-withexpiry"></a>.NET SDK
-
 Per impostare la durata (TTL) in un contenitore, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo in secondi. In base al valore TTL configurato, tutti gli elementi nel contenitore dopo l'ultima modifica del timestamp dell'elemento `_ts` vengono eliminati.
 
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK v2 (Microsoft. Azure. DocumentDB)
+
 ```csharp
-// Create a new collection with TTL enabled and a 90 day expiration
+// Create a new container with TTL enabled and a 90 day expiration
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
@@ -68,8 +90,19 @@ collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all docume
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
-    collectionDefinition,
-    new RequestOptions { OfferThroughput = 20000 });
+    collectionDefinition;
+```
+
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK V3 (Microsoft. Azure. Cosmos)
+
+```csharp
+// Create a new container with TTL enabled and a 90 day expiration
+await client.GetDatabase("database").CreateContainerAsync(new ContainerProperties
+{
+    Id = "container",
+    PartitionKeyPath = "/myPartitionKey",
+    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+});
 ```
 
 ### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
@@ -109,7 +142,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
    * Aprire la finestra **Scalabilità e impostazioni**.
-   * In **Impostazione** trovare **Durata (TTL)**.
+   * In **Impostazione** trovare **Durata (TTL)** .
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL. 
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
@@ -127,7 +160,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
    }
    ```
 
-### <a id="dotnet-set-ttl-item"></a>.NET SDK
+### <a id="dotnet-set-ttl-item"></a>.NET SDK (any)
 
 ```csharp
 // Include a property that serializes to "ttl" in JSON
@@ -158,17 +191,16 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Reimpostare la durata (TTL)
 
 È possibile reimpostare la durata (TTL) per un elemento eseguendo un'operazione di scrittura o aggiornamento per l'elemento. L'operazione di scrittura o aggiornamento imposterà `_ts` sull'ora corrente e la durata (TTL) per la scadenza dell'elemento inizierà nuovamente. Se si vuole modificare la durata (TTL) di un elemento, è possibile aggiornare il campo nello stesso modo in cui si aggiornano tutti gli altri campi.
 
-### <a id="dotnet-extend-ttl-item"></a>.NET SDK
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK v2 (Microsoft. Azure. DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -182,11 +214,22 @@ readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK V3 (Microsoft. Azure. Cosmos)
+
+```csharp
+// This examples leverages the Sales Order class above.
+// Read a document, update its TTL, save it.
+ItemResponse<SalesOrder> itemResponse = await client.GetContainer("database", "container").ReadItemAsync<SalesOrder>("SO05", new PartitionKey("CO18009186470"));
+
+itemResponse.Resource.ttl = 60 * 30 * 30; // update time to live
+await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse.Resource, "SO05");
+```
+
 ## <a name="turn-off-time-to-live"></a>Disattivare la durata (TTL)
 
 Se è stata impostata la durata (TTL) per un elemento e non si vuole più una scadenza per tale elemento, è possibile recuperare l'elemento, rimuovere il campo TTL e sostituire l'elemento nel server. Quando il campo TTL viene rimosso dall'elemento, all'elemento verrà applicato il valore TTL predefinito assegnato al contenitore. Impostare il valore TTL su -1 per impedire a un elemento di scadere e non ereditare il valore TTL dal contenitore.
 
-### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK v2 (Microsoft. Azure. DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -196,23 +239,44 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.ttl = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the container
 
 response = await client.ReplaceDocumentAsync(readDocument);
+```
+
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V3 (Microsoft. Azure. Cosmos)
+
+```csharp
+// This examples leverages the Sales Order class above.
+// Read a document, turn off its override TTL, save it.
+ItemResponse<SalesOrder> itemResponse = await client.GetContainer("database", "container").ReadItemAsync<SalesOrder>("SO05", new PartitionKey("CO18009186470"));
+
+itemResponse.Resource.ttl = null; // inherit the default TTL of the container
+await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse.Resource, "SO05");
 ```
 
 ## <a name="disable-time-to-live"></a>Disabilitare la durata (TTL)
 
 Per disabilitare la durata (TTL) in un contenitore e impedire al processo in background di controllare gli elementi scaduti, è necessario eliminare la proprietà `DefaultTimeToLive` per il contenitore. Eliminare questa proprietà non equivale a impostarla su -1. Quando si imposta il valore su -1, i nuovi elementi aggiunti al contenitore non hanno scadenza, tuttavia è possibile eseguire l'override di questo valore per elementi specifici nel contenitore. Quando si rimuove la proprietà TTL dal contenitore, gli elementi non avranno mai scadenza anche se sono presenti elementi con override esplicito di un valore TTL predefinito precedente.
 
-### <a id="dotnet-disable-ttl"></a>.NET SDK
+### <a id="dotnet-disable-ttl"></a>.NET SDK v2 (Microsoft. Azure. DocumentDB)
 
 ```csharp
-// Get the collection, update DefaultTimeToLive to null
+// Get the container, update DefaultTimeToLive to null
 DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
 // Disable TTL
 collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
+```
+
+### <a id="dotnet-disable-ttl"></a>.NET SDK V3 (Microsoft. Azure. Cosmos)
+
+```csharp
+// Get the container, update DefaultTimeToLive to null
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Disable TTL
+containerResponse.Resource.DefaultTimeToLive = null;
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

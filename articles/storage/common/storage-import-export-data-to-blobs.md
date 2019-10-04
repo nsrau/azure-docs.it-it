@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808591"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -58,22 +58,23 @@ Per preparare le unità, eseguire le operazioni seguenti.
 6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     Viene creato un file journal nella stessa cartella in cui è stato eseguito lo strumento. Vengono creati altri due file, un file *XML* (cartella in cui è stato eseguito lo strumento) e un file *drive-manifest.xml* (cartella in cui si trovano i dati).
     
     I parametri usati vengono descritti nella tabella seguente:
 
-    |Opzione  |DESCRIZIONE  |
+    |Opzione  |Descrizione  |
     |---------|---------|
     |/j:     |Nome del file journal, con estensione jrn. Viene generato un file journal per ogni unità. È consigliabile usare il numero di serie del disco come nome del file journal.         |
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
-    |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
+    |/blobtype:     |Questa opzione specifica il tipo di blob che si desidera importare i dati. Per i BLOB in blocchi, si tratta `BlockBlob` e per i BLOB di pagine, è `PagaBlob`.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
+    |/enablecontentmd5:     |Se abilitata, l'opzione assicura che MD5 viene calcolato e impostare come `Content-md5` proprietà in ogni blob. Usare questa opzione solo se si desidera utilizzare il `Content-md5` campo dopo che i dati vengono caricati in Azure. <br> Questa opzione non riguarda il controllo di integrità dei dati (che si verifica per impostazione predefinita). L'impostazione di aumentare il tempo impiegato per il caricamento dei dati nel cloud.          |
 7. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.
     
     > [!IMPORTANT]
@@ -114,7 +115,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 4. In **Informazioni sul mittente della spedizione**:
 
    - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
-   - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](http://www.dhl.com/).
+   - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
    - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area. 
         
        > [!TIP] 

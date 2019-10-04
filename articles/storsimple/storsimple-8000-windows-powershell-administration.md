@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
-ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: alkohli
+ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003128"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621626"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -147,19 +147,19 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 | Se si desidera eseguire questa operazione... | Usare questa procedura. |
 | --- | --- |
 | Registrazione del dispositivo |[Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| Configurare il proxy web </br> Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
+| Configurare il proxy web</br>Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
 | Modifica delle impostazioni dell'interfaccia di rete DATA 0 sul dispositivo |[Modificare le impostazioni dell'interfaccia di rete DATA 0 per il dispositivo StorSimple](storsimple-8000-modify-data-0.md) |
-| Arrestare un controller  </br> Riavviare o arrestare un controller </br> Arrestare un dispositivo</br>Ripristinare le impostazioni predefinite di fabbrica del dispositivo |[Gestire i controller dei dispositivi](storsimple-8000-manage-device-controller.md) |
+| Arrestare un controller </br> Riavviare o arrestare un controller </br> Arrestare un dispositivo</br>Ripristinare le impostazioni predefinite di fabbrica del dispositivo |[Gestire i controller dei dispositivi](storsimple-8000-manage-device-controller.md) |
 | Installazione degli aggiornamenti in modalità di manutenzione e rapidi |[Aggiornare il dispositivo](storsimple-update-device.md) |
-| Inserire la modalità di manutenzione  </br> Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-8000-device-modes.md) |
+| Inserire la modalità di manutenzione </br>Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-8000-device-modes.md) |
 | Creare un pacchetto di supporto</br>Decrittografare e modificare un pacchetto di supporto |[Creare e gestire un pacchetto di supporto](storsimple-8000-create-manage-support-package.md) |
-| Avviare una sessione di supporto </br> |[Avviare una sessione di supporto in Windows PowerShell per StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
+| Avviare una sessione di supporto</br> |[Avviare una sessione di supporto in Windows PowerShell per StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
 ## <a name="get-help-in-windows-powershell-for-storsimple"></a>Ottenimento della guida in Windows PowerShell per StorSimple
 
 In Windows PowerShell per StorSimple è disponibile la guida per i cmdlet. È inoltre disponibile una versione aggiornata in linea di questa guida, che è possibile utilizzare per aggiornare la guida del sistema.
 
-La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare utili per Windows PowerShell online nella libreria TechNet: [Scripting con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare online della Guida per Windows PowerShell: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfaccia di Windows PowerShell, tra cui come aggiornare la guida.
 

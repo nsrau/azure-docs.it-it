@@ -9,63 +9,79 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66392917"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
-In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). È possibile sia usare uno dei criteri di streaming predefiniti oppure creare criteri personalizzati. I criteri di streaming predefiniti attualmente disponibili sono: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e 'Predefined_MultiDrmStreaming'.
+In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Servizi multimediali v3 offre che alcuni predefiniti i criteri di Streaming in modo che è possibile usarli direttamente per la versione di valutazione o di produzione. 
+
+Attualmente disponibili Streaming criteri predefiniti:<br/>
+* 'Predefined_DownloadOnly'
+* 'Predefined_ClearStreamingOnly'
+* 'Predefined_DownloadAndClearStreaming'
+* 'Predefined_ClearKey'
+* 'Predefined_MultiDrmCencStreaming' 
+* 'Predefined_MultiDrmStreaming'
+
+Il seguente albero"Decision" consente di scegliere un criterio per lo scenario di Streaming predefinito.
 
 > [!IMPORTANT]
 > * Le proprietà dei **criteri di streaming** di tipo Datetime sono sempre in formato UTC.
-> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. 
+> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
 
-## <a name="examples"></a>Esempi
+## <a name="decision-tree"></a>Albero delle decisioni
 
-### <a name="not-encrypted"></a>Non crittografato
+Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-Se si vuole trasmettere i file in chiaro (ovvero non crittografati), impostare i criteri predefiniti per lo streaming in chiaro su "Predefined_ClearStreamingOnly" (in .NET è possibile usare PredefinedStreamingPolicy.ClearStreamingOnly).
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
-    });
+Se crittografare i contenuti, è necessario creare un [Content Key Policy](content-key-policy-concept.md), il **Content Key Policy** non è necessaria per streaming o il download non crittografato. 
+
+Se si hanno requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato o necessario usare una traccia audio), è possibile [creare](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) un criterio personalizzato di Streaming. 
+
+## <a name="get-a-streaming-policy-definition"></a>Ottenere una definizione di criteri di Streaming  
+
+Se si desidera visualizzare la definizione di un criterio di Streaming, usare [ottenere](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
+
+### <a name="rest"></a>REST
+
+Richiesta:
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaServices/contosomedia/streamingPolicies/clearStreamingPolicy?api-version=2018-07-01
 ```
 
-### <a name="encrypted"></a>Crittografato 
+Risposta:
 
-Se è necessario crittografare i contenuti con la crittografia busta e CENC, impostare i criteri su "Predefined_MultiDrmCencStreaming". Questo criterio indica che si vuole che vengano generate e impostate due chiavi simmetriche (busta e CENC) per il localizzatore. Viene quindi applicata la crittografia per la busta, PlayReady e Widevine (la chiave viene distribuita al client di riproduzione in base alle licenze DRM configurate).
-
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
-        DefaultContentKeyPolicyName = contentPolicyName
-    });
 ```
-
-Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined_MultiDrmStreaming".
+{
+  "name": "clearStreamingPolicy",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/clearStreamingPolicy",
+  "type": "Microsoft.Media/mediaservices/streamingPolicies",
+  "properties": {
+    "created": "2018-08-08T18:29:30.8501486Z",
+    "noEncryption": {
+      "enabledProtocols": {
+        "download": true,
+        "dash": true,
+        "hls": true,
+        "smoothStreaming": true
+      }
+    }
+  }
+}
+```
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
-Consultare [Filtering, ordering, paging of Media Services entities](entities-overview.md) (Filtrare, ordinare ed eseguire il paging delle entità di Servizi multimediali).
+Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Entità semplice, elenco di frasi
+title: 'Esercitazione: Entità semplice, elenco di frasi - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione illustra come estrarre dati di Machine Learning relativi a un nome di processo da un'espressione usando l'entità semplice. Per aumentare l'accuratezza di estrazione, aggiungere un elenco di frasi contenente termini specifici all'entità semplice.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526566"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376257"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -137,7 +137,7 @@ Le entità semplici hanno bisogno di molti esempi per avere un'attendibilità el
 
 1. Etichettare le mansioni nelle espressioni di esempio
 
-    Se sono presenti più espressioni di esempio in una finalità rispetto a un'altra, tale finalità ha una maggiore probabilità di essere la principale stimata. 
+    Se in una finalità sono presenti più espressioni di esempio rispetto a un'altra, tale finalità ha maggiori probabilità di ottenere il punteggio di previsione più elevato. 
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità 
 
@@ -229,7 +229,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
 1. Selezionare **Create new phrase list** (Crea nuovo elenco di frasi). 
 
-1. Assegnare al nuovo elenco di frasi il nome `JobNames` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori). Premere INVIO. 
+1. Assegnare al nuovo elenco di frasi il nome `JobNames` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori).
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
     Verificare che l'opzione **These values are interchangeable** (Questi valori sono intercambiabili) sia selezionata perché questi valori devono essere tutti considerati sinonimi delle mansioni. Vedere altre informazioni sui [concetti relativi agli elenchi di frasi](luis-concept-feature.md#how-to-use-phrase-lists) intercambiabili e non intercambiabili.
 
-1. Fare clic su **Save** (Salva) per attivare l'elenco di frasi.
+1. Selezionare **Done** (Fine) per attivare l'elenco di frasi.
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

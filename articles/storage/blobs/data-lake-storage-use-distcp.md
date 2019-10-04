@@ -1,21 +1,21 @@
 ---
 title: Usare DistCp per copiare i dati in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Usare lo strumento DistCp per copiare i dati da e in Data Lake Storage Gen2
-services: storage
-author: seguler
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: seguler
-ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678381"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543664"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Microsoft Azure e i Data Lake Storage Gen2 di Azure
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2
 
 È possibile usare [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) per copiare i dati tra un account di archiviazione per utilizzo generico V2 e un account di archiviazione per utilizzo generico V2 con lo spazio dei nomi gerarchico abilitato. Questo articolo include istruzioni sull'uso dello strumento DistCp.
 
@@ -65,13 +65,13 @@ Dato che il livello di granularità minimo per DistCp corrisponde a un singolo f
 
 **Esempio**
 
-    hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
+    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Come determinare il numero di mapper da usare
 
 Ecco alcune linee guida che è possibile usare.
 
-* **Passaggio 1: Determinare la memoria totale disponibile per la coda di app YARN "predefinita"**. Il primo passaggio consiste nel determinare la memoria disponibile per la coda di app YARN "predefinita". Queste informazioni sono disponibili nel portale di Ambari associato al cluster. Passare a YARN e visualizzare la scheda Configs (Configurazioni) per visualizzare la memoria di YARN disponibile per la coda di app "predefinita". Si tratta della memoria totale disponibile per il processo DistCp (che è di fatto un processo MapReduce).
+* **Passaggio 1: Determinare la memoria totale disponibile per la coda di app YARN "predefinita"** . Il primo passaggio consiste nel determinare la memoria disponibile per la coda di app YARN "predefinita". Queste informazioni sono disponibili nel portale di Ambari associato al cluster. Passare a YARN e visualizzare la scheda Configs (Configurazioni) per visualizzare la memoria di YARN disponibile per la coda di app "predefinita". Si tratta della memoria totale disponibile per il processo DistCp (che è di fatto un processo MapReduce).
 
 * **Passaggio 2: Calcolare il numero di mapper**. Il valore di **m** è uguale al quoziente della memoria totale di YARN divisa per le dimensioni del contenitore YARN. Anche queste informazioni sono disponibili nel portale di Ambari. Passare a YARN e visualizzare la scheda Configs (Configurazioni). Le dimensioni del contenitore YARN sono visualizzate in questa finestra. L'equazione per ottenere il numero di mapper (**m**) è
 

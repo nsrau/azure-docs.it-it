@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e1b99396c4739dc6f1b7a4da0164553d4c25ef3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5d5de6a6f348fa3708b1e39fe2bdd3aa8693dee
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198926"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932661"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Aggiungere domini predefiniti per scenari di utilizzo comuni 
 

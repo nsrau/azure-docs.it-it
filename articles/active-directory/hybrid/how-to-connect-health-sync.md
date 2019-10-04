@@ -16,10 +16,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245330"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
@@ -80,7 +80,7 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
 ### <a name="categorization-of-errors"></a>Categorizzazione degli errori
 Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seguenti:
 
-| Category | DESCRIZIONE |
+| Category | Descrizione |
 | --- | --- |
 | Attributo duplicato |Errori che si verificano quando Azure AD Connect prova a creare o aggiornare oggetti con valori duplicati per uno o più attributi di Azure AD che devono essere univoci in un tenant, come proxyAddresses o UserPrincipalName. |
 | Dati non corrispondenti |Errori di sincronizzazione che si verificano quando la funzionalità di corrispondenza flessibile non riesce a trovare una corrispondenza con l'oggetto. |

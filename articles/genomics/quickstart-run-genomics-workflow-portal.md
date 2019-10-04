@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire un flusso di lavoro tramite Genomica di Microsoft'
+title: 'Guida introduttiva: Eseguire un flusso di lavoro tramite Genomica di Microsoft'
 description: La guida introduttiva mostra come caricare dati di input in un archivio BLOB di Azure ed eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft.
 services: genomics
 author: grhuynh
@@ -8,21 +8,21 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261690"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670754"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Avvio rapido: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
 Questa guida introduttiva mostra come caricare dati di input in Archiviazione BLOB di Azure ed eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft. Genomica di Microsoft è un servizio scalabile e sicuro per l'analisi secondaria che consente di elaborare rapidamente un genoma, a partire dalle letture non elaborate e per la produzione di letture allineate e chiamate delle varianti. 
 
 Per iniziare sono sufficienti pochi passaggi: 
 1.  Configurazione: creare un account di Genomica di Microsoft tramite il portale di Azure e installare il client Python per Genomica di Microsoft nell'ambiente locale. 
 2.  Caricamento dei dati di input: creare un account di archiviazione di Microsoft Azure tramite il portale di Azure e caricare i file di input. I file di input devono essere letture di estremità abbinate (file fastq o bam).
-3.  Esecuzione: usare l'interfaccia della riga di comando di Genomica di Microsoft per eseguire flussi di lavoro tramite il servizio Genomica di Microsoft. 
+3.  Eseguire: usare l'interfaccia della riga di comando di Genomica di Microsoft per eseguire flussi di lavoro tramite il servizio Genomica di Microsoft. 
 
 Per altre informazioni su Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md)
 
@@ -152,7 +152,7 @@ Aprire il file config.txt scaricato dall'account di Genomica. Le sezioni da spec
 ![File di configurazione di Genomica](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "File di configurazione di Genomica")
 
 
-Se si vuole eseguire GATK4, impostare il parametro `process_name` su gatk4 o gatk4-promo. Per altre informazioni sulla promozione di GATK4, visitare [questa pagina](https://aka.ms/msgatk4).
+Se si vuole eseguire GATK4, impostare il parametro `process_name` su `gatk4`.
 
 Per impostazione predefinita, il servizio Genomica genera file VCF. Se si vuole ottenere un file gVCF anziché VCF come output (equivalente a `-emitRefConfidence` in GATK 3.x e `emit-ref-confidence` in GATK 4.x), aggiungere il parametro `emit_ref_confidence` al file `config.txt` e impostarlo su `gvcf`, come illustrato nella figura qui sopra.  Per tornare all'output VCF, rimuoverlo dal file `config.txt` o impostare il parametro `emit_ref_confidence` su `none`. 
 

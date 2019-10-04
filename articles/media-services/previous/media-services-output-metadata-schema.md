@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61129747"
 ---
 # <a name="output-metadata"></a>Metadati di output
 ## <a name="overview"></a>Panoramica
@@ -37,7 +37,7 @@ Il codice schema completo e un esempio di codice XML sono disponibili alla fine 
 Raccolta di elementi AssetFile per il processo di codifica.  
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| Name | Descrizione |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Elemento AssetFile incluso nella raccolta AssetFiles. |
 
@@ -45,14 +45,14 @@ Raccolta di elementi AssetFile per il processo di codifica.
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obbligatorio |**xs:string** |Il nome dell'asset di file multimediale. |
 | **Dimensione**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:long** |Dimensioni del file di asset in byte. |
 | **Duration**<br/><br/> Obbligatorio |**xs:duration** |Durata della riproduzione del contenuto. |
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| Name | Descrizione |
 | --- | --- |
 | **Sources** |Raccolta di file multimediali di input/origine elaborata per produrre questo AssetFile. Per altre informazioni, vedere l'argomento relativo all'elemento Source. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Per altre informazioni, vedere l'argomento relativo all'elemento VideoTracks. |
@@ -64,7 +64,7 @@ Raccolta di file multimediali di input/origine elaborata per produrre questo Ass
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 | --- | --- |
 | **Origine**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un file di input/origine usato durante la generazione di questo asset. Per altre informazioni, vedere l'argomento relativo all'elemento Source. |
 
@@ -74,7 +74,7 @@ Un file di input/origine usato durante la generazione di questo asset.
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obbligatorio |**xs:string** |Nome di file di origine di input. |
 
@@ -84,7 +84,7 @@ Ogni elemento AssetFile fisico può contenere da zero a più tracce video con in
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| Name | Descrizione |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una specifica traccia video nell'elemento AssetFile padre. Per altre informazioni, vedere l'argomento relativo all'elemento VideoTrack. |
 
@@ -94,7 +94,7 @@ Una specifica traccia video nell'elemento AssetFile padre.
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia video. **Nota:**  Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **FourCC**<br/><br/> Obbligatorio |**xs:string** |Codice FourCC del codec video. |
@@ -116,7 +116,7 @@ Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con in
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una specifica traccia audio nell'elemento AssetFile padre. Per altre informazioni, vedere l'argomento relativo all'elemento AudioTrack. |
 
@@ -126,7 +126,7 @@ Una specifica traccia audio nell'elemento AssetFile padre.
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia audio. **Nota:**  Non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **Codec** |**xs:string** |Stringa del codec della traccia audio. |
@@ -137,7 +137,7 @@ Consultare l'[esempio di codice XML](#xml) disponibile.
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Tipo di bit per campione per il formato wFormatTag. |
 
 ### <a name="child-elements"></a>Elementi figlio
-| NOME | DESCRIZIONE |
+| Name | Descrizione |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parametri di risultato della misurazione della sonorità. Per altre informazioni, vedere l'argomento relativo all'elemento LoudnessMeteringResultParameters. |
 
@@ -147,7 +147,7 @@ Parametri di risultato della misurazione della sonorità.
 Consultare l'[esempio di codice XML](#xml) disponibile.  
 
 ### <a name="attributes"></a>Attributi
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versione del kit **Dolby** per lo sviluppo della misurazione professionale della sonorità (DPLM). |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obbligatorio |**xs:int** |DialogNormalization generato tramite DPLM, obbligatorio quando è impostato LoudnessMetering. |

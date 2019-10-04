@@ -4,22 +4,21 @@ description: Informazioni su come installare MongoDB in una VM di Azure creata c
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3cf1e6ba574fdafd8150212688475450e4cc2379
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998489"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103128"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installare e configurare MongoDB in una VM Windows in Azure
 [MongoDB](https://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. Questo articolo illustra la procedura di installazione e configurazione di MongoDB in una macchina virtuale Windows Server 2016 in Azure. È anche possibile [installare MongoDB in una VM Linux in Azure](../linux/install-mongodb.md).
@@ -47,7 +46,7 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
      
      ![Configurare le impostazioni di sicurezza di Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Selezionare [MongoDB - Download](https://www.mongodb.com/downloads) pagina (https://www.mongodb.com/downloads).
-5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)**.
+5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)** .
    
     ![Scaricare il programma di installazione di MongoDB](./media/install-mongodb/download-mongodb.png)
    

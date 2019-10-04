@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Panoramica di funzionalità, architettura e implementazione di Azure Load Balancer. Informazioni sul funzionamento di Load Balancer e su come usarlo nel cloud.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
-ms.author: kumud
-ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: 349d8afd46a06455edcd25e2a7ea48f407d285ef
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111532"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130423"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -171,6 +171,7 @@ Per informazioni sul contratto di servizio di Load Balancer Standard, visitare l
 
 - Load Balancer è un prodotto TCP o UDP per il bilanciamento del carico e il port forwarding per questi protocolli IP specifici.  Le regole di bilanciamento del carico e le regole NAT in ingresso sono supportate per TCP e UDP e non per altri protocolli IP, tra cui ICMP. Load Balancer non termina, non risponde o non interagisce in altro modo con il payload di un flusso UDP o TCP. Non è un proxy. La convalida della connettività a un front-end deve avvenire in banda con lo stesso protocollo usato in un bilanciamento del carico o in una regola NAT in ingresso (TCP o UDP) _e_ almeno una delle macchine virtuali deve generare una risposta affinché un client possa vedere una risposta da un front-end.  La mancata ricezione di una risposta in banda da parte del front-end di Load Balancer indica che nessuna macchina virtuale è stata in grado di rispondere.  Non è possibile interagire con un front-end di Load Balancer senza una macchina virtuale in grado di rispondere.  Questo vale anche per le connessioni in uscita in cui lo [SNAT di mascheramento delle porte](load-balancer-outbound-connections.md#snat) è supportato solo per TCP e UDP. Qualsiasi altro protocollo IP, incluso ICMP, non funziona.  Assegnare un indirizzo IP pubblico a livello di istanza per la mitigazione.
 - A differenza dei servizi di bilanciamento del carico pubblici che forniscono [connessioni in uscita](load-balancer-outbound-connections.md) quando si passa da indirizzi IP privati all'interno della rete virtuale a indirizzi IP pubblici, i servizi di bilanciamento del carico interni non convertono le connessioni originate in uscita nel front-end di un servizio di bilanciamento del carico perché entrambi si trovano in uno spazio indirizzi IP privato.  In questo modo si evita il rischio di esaurimento della porta SNAT all'interno di uno spazio indirizzi IP interno univoco in cui non è richiesta la conversione.  L'effetto collaterale è che se un flusso in uscita da una VM nel pool di back-end tenta di raggiungere il front-end del Load Balancer interno in cui risiede il pool _e_ viene rimappato su se stesso, i due lati del flusso non corrispondono e il flusso avrà esito negativo.  Se il flusso non è stato rimappato sulla stessa VM del pool di back-end che ha creato il flusso verso il front-end, il flusso avrà esito positivo.   Quando il flusso viene rimappato su se stesso, il flusso in uscita sembra provenire dalla VM verso il front-end e il flusso in ingresso corrispondente sembra provenire dalla VM verso se stessa. Dal punto di vista del sistema operativo guest, le parti in ingresso e in uscita dello stesso flusso non corrispondono all'interno della macchina virtuale. Lo stack TCP non riconoscerà queste metà del flusso come facenti parte dello stesso flusso perché l'origine e la destinazione non corrispondono.  Quando il flusso viene mappato su qualsiasi altra VM nel pool di back-end, le metà del flusso corrispondono e la VM può rispondere correttamente al flusso stesso.  Il sintomo per questo scenario è timeout di connessione intermittenti quando il flusso restituisce nel back-end stesso che ha originato il flusso. Esistono diverse soluzioni alternative comuni per ottenere questo scenario in modo affidabile (origine dei flussi da un pool di back-end verso i pool di back-end o il front-end del Load Balancer interno) che includono l'inserimento di un livello di proxy dietro il servizio di bilanciamento del carico interno oppure l'[uso di regole in stile DSR](load-balancer-multivip-overview.md).  I clienti possono combinare un bilanciamento del carico interno con qualsiasi proxy di terze parti o sostituire il [Gateway applicazione](../application-gateway/application-gateway-introduction.md) interno per gli scenari di proxy limitati a HTTP/HTTPS. Anche se è possibile usare un servizio di bilanciamento del carico pubblico per la mitigazione, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md#snat) e deve essere evitato a meno che non venga gestito con attenzione.
+- In generale, l'inoltro di frammenti IP e l'esecuzione della frammentazione IP di pacchetti UDP e TCP non sono supportati nelle regole di bilanciamento del carico.  Le [regole di bilanciamento del carico delle porte a disponibilità elevata](load-balancer-ha-ports-overview.md) costituiscono un'eccezione a questa affermazione generale e possono essere usate per inoltrare i frammenti IP esistenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

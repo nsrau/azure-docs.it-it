@@ -5,17 +5,17 @@ keywords: controllo degli accessi in base al ruolo di Automazione, controllo deg
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918791"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477725"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
@@ -232,6 +232,7 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 |Controllo dello stato di onboarding - Leggere la VM      | Microsoft.Compute/virtualMachines/read         | Macchina virtuale         |
 |Controllo dello stato di onboarding - Leggere l'account      | Microsoft.Automation/automationAccounts/read  |  Account di Automazione   |
 | Controllo dell'area di lavoro di Onboarding per la macchina virtuale<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Sottoscrizione         |
+| Registrare il provider di Log Analitica |Microsoft.Insights/register/action | Sottoscrizione|
 
 <sup>1</sup> questa autorizzazione è necessaria per eseguire l'onboarding tramite l'esperienza del portale della macchina virtuale.
 
@@ -251,6 +252,7 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Collegare una soluzione a una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Soluzione         |
+| Registrare il provider di Log Analitica |Microsoft.Insights/register/action | Sottoscrizione|
 |**Passaggio 2: Caricare più VM**     |         |         |
 |Pannello VMOnboarding - Creare un'estensione MMA     | Microsoft.Compute/virtualMachines/write           | Macchina virtuale        |
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write           | Area di lavoro        |
@@ -276,7 +278,7 @@ La sezione seguente illustra come configurare il controllo degli accessi in base
 ### <a name="configure-rbac-using-the-azure-portal"></a>Configurare il controllo degli accessi in base al ruolo mediante il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di Automazione nella pagina Account di automazione.
-2. Fare clic sul controllo **Controllo di accesso (IAM)** nell'angolo superiore sinistro. Verrà visualizzata la pagina **Controllo di accesso (IAM)**, in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.
+2. Fare clic sul controllo **Controllo di accesso (IAM)** nell'angolo superiore sinistro. Verrà visualizzata la pagina **Controllo di accesso (IAM)** , in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.
 3. Fare clic sulla scheda **Assegnazioni di ruolo**.
 
    ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)

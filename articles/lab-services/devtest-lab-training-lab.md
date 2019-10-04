@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622840"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Usare Azure DevTest Labs per il training
 Azure DevTest Labs può essere usato per implementare diversi scenari chiave oltre che per le attività di sviluppo/test. Uno di tali scenari prevede la configurazione di un lab per il training. Azure DevTest Labs consente di creare un lab in cui è possibile fornire modelli personalizzati che ogni partecipante può usare per creare ambienti identici e isolati per il training. È possibile applicare criteri per verificare che per ogni partecipante siano disponibili ambienti di training solo quando sono necessari e contengano un numero sufficiente di risorse, ad esempio macchine virtuali, per il training. Infine, è facilmente possibile condividere il lab con i partecipanti, al quale possono accedere con un clic.

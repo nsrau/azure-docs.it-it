@@ -8,17 +8,16 @@ manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f1cb89b4753f680ef6e1b0b9617d97ccd2ddfdf4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e9da57ffe89dd6e187b7681024924d4853463ee2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732144"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067374"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configurare i criteri relativi ai limiti di frequenza
 
@@ -26,7 +25,7 @@ Questo script di esempio consente di configurare i criteri relativi ai limiti di
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

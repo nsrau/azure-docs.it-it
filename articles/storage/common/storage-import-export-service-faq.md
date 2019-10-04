@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 07/18/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 109f541157716ae4f9b195d0a3ed02a1d8c91960
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867576"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314116"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servizio Importazione/Esportazione di Azure: domande frequenti 
 Di seguito vengono fornite alcune domande e risposte relative all'uso del servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione di Azure. Le domande e le risposte sono suddivise nelle categorie seguenti:
@@ -44,18 +44,18 @@ Sì. Per altre informazioni, vedere [Flusso di lavoro di backup offline in Backu
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>È possibile acquistare da Microsoft unità per i processi di importazione/esportazione?
 
- No. È necessario spedire le proprie unità per i processi di importazione ed esportazione.
+No. È necessario spedire le proprie unità per i processi di importazione ed esportazione.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Preparazione dei dischi per l'importazione/esportazione
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>È possibile ignorare il passaggio di preparazione delle unità per un processo di importazione? È possibile preparare un'unità senza copia?
 
- No. Qualsiasi unità usata per importare dati deve essere preparata usando lo strumento WAImportExport di Azure. Usare lo strumento anche per copiare dati nell'unità.
+No. Qualsiasi unità usata per importare dati deve essere preparata usando lo strumento WAImportExport di Azure. Usare lo strumento anche per copiare dati nell'unità.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>È necessario eseguire attività di preparazione dei dischi durante la creazione di un processo di esportazione?
 
- No. Sono consigliati alcuni controlli preliminari. Per verificare il numero di dischi necessari, usare il comando PreviewExport dello strumento WAImportExport. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Il comando aiuta a prevedere l'utilizzo delle unità per i BLOB selezionati, in base alle dimensioni delle unità che si intende usare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura nel disco rigido da spedire per il processo di esportazione.
+No. Sono consigliati alcuni controlli preliminari. Per verificare il numero di dischi necessari, usare il comando PreviewExport dello strumento WAImportExport. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Il comando aiuta a prevedere l'utilizzo delle unità per i BLOB selezionati, in base alle dimensioni delle unità che si intende usare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura nel disco rigido da spedire per il processo di esportazione.
 
 ## <a name="importexport-jobs"></a>Processi di importazione/esportazione
 
@@ -66,7 +66,7 @@ Sì. È possibile annullare un processo quando lo stato è **Creazione** o **Spe
 Lo stato dei processi completati può essere visualizzato per un massimo di 90 giorni. I processi completati vengono eliminati dopo 90 giorni.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Che cosa si deve fare per importare o esportare più di 10 unità?
-Un singolo processo di importazione o esportazione può fare riferimento solo a 10 unità. Per spedire più di 10 unità, è necessario creare più processi. Le unità associate allo stesso processo devono essere spedite insieme nello stesso pacco. Per altre informazioni e linee guida per i casi in cui la capacità dei dati richiede più processi di importazione di dischi, contattare Microsoft all'indirizzo bulkimport@microsoft.com. 
+Un singolo processo di importazione o esportazione può fare riferimento solo a 10 unità. Per spedire più di 10 unità, è necessario creare più processi. Le unità associate allo stesso processo devono essere spedite insieme nello stesso pacco. Per ulteriori informazioni e indicazioni su come la capacità dei dati si estende su più processi di importazione del disco, contattare supporto tecnico Microsoft. 
 
 ### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Lo stato del BLOB caricato è "Il lease è scaduto". Cosa devo fare?
 È possibile ignorare il campo "Il lease è scaduto". Importazione/Esportazione accetta il lease sul BLOB durante il caricamento per assicurarsi che nessun altro processo possa aggiornare il BLOB in parallelo. Lo stato Il lease è scaduto indica che Importazione/Esportazione non sta più eseguendo il caricamento e il BLOB è disponibile per l'uso. 
@@ -88,16 +88,16 @@ Per spedire le unità al data center di Azure è possibile servirsi di uno quals
 - Un numero di account DHL nelle aree di Asia e Australia.
 
 > [!NOTE]
-> I Data Center in India richiede una lettera di dichiarazione nella carta intestata (recapito challan) per restituire le unità. Per disporre il passaggio di voce necessaria, è necessario anche prenotare il prelievo presso il corriere selezionato e condividere i dettagli con il Data Center.
+> Per la restituzione delle unità, i Data Center in India necessitano di una lettera di dichiarazione nella carta intestata (per il recapito). Per organizzare il passaggio di ingresso obbligatorio, è necessario anche prenotare il prelievo con il vettore selezionato e condividere i dettagli con il Data Center.
 
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Si applicano limitazioni alla spedizione internazionale di unità?
 È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo.
 
-### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Sono previsti requisiti speciali per la distribuzione di dischi personali in un Data Center?
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Sono previsti requisiti speciali per la distribuzione dei dischi a un Data Center?
 
-I requisiti dipendono le restrizioni specifiche Data Center di Azure.
-- Sono disponibili alcuni siti, che richiedono un numero di connessioni in entrata ID deve essere scritto della particella per motivi di sicurezza di Data Center Microsoft. Prima di spedire le unità o dischi al Data Center, contattare il servizio operazioni di Azure Data box (adbops@microsoft.com) per ottenere questo numero. Senza questo numero, verrà rifiutato il pacchetto.
-- Il Data Center in India richiedono i dettagli personali del driver, ad esempio la scheda di ID per enti pubblici o No. la prova (ad esempio, zoom, AADHAR, lista di distribuzione), name, contact e Auto tenore numero per ottenere un passaggio di voce di controllo. Per evitare ritardi di distribuzione, informare il vettore di questi requisiti.
+I requisiti dipendono dalle limitazioni specifiche del Data Center di Azure.
+- Sono disponibili alcuni siti che richiedono la scrittura di un numero di ID in ingresso per i Data Center Microsoft sul pacco per motivi di sicurezza. Prima di spedire le unità o i dischi al Data Center, contattare le operazioni diadbops@microsoft.comAzure databox () per ottenere questo numero. Senza questo numero, il pacchetto verrà rifiutato.
+- I Data Center in India richiedono i dettagli personali del driver, ad esempio la scheda ID del governo o il numero di prova. (ad esempio, PAN, AADHAR, DL), nome, contatto e il numero della targa per ottenere un passaggio di ingresso del Gate. Per evitare ritardi di recapito, informare il vettore in merito a questi requisiti.
 
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Durante la creazione di un processo, l'indirizzo di spedizione è una località diversa dalla posizione dell'account di archiviazione. Cosa devo fare?
@@ -117,7 +117,7 @@ Il data center di Azure restituirà all'utente l'unità non conforme ai requisit
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>Il servizio formatta le unità prima di restituirle?
 
- No. Tutte le unità vengono crittografate con BitLocker.
+No. Tutte le unità vengono crittografate con BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Come si accede ai dati importati dal servizio?
 
@@ -132,13 +132,13 @@ Quando si prepara un disco rigido per un processo di importazione, la destinazio
 Dipende. Quando si prepara l'unità, è possibile specificare se i file di destinazione devono essere sovrascritti o ignorati usando il campo denominato Disposition:<rename|no-overwrite|overwrite> nel file CSV del set di dati. Per impostazione predefinita, il servizio rinomina i nuovi file invece di sovrascrivere i BLOB o i file esistenti.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Lo strumento WAImportExport è compatibile con i sistemi operativi a 32 bit?
- No. Lo strumento WAImportExport è compatibile solo con i sistemi operativo Windows a 64 bit. Per un elenco completo dei sistemi operativi supportati, vedere [Sistemi operativi supportati](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+No. Lo strumento WAImportExport è compatibile solo con i sistemi operativo Windows a 64 bit. Per un elenco completo dei sistemi operativi supportati, vedere [Sistemi operativi supportati](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Quali sono le dimensioni massime per BLOB in blocchi e BLOB di pagine supportate da Importazione/Esportazione di Azure?
 
 La dimensione massima dei BLOB in blocchi è circa 4768 TB o 5.000.000 MB.
-Dimensioni Max Page Blob sono di 8TB.
+La dimensione massima del BLOB di pagine è 8 TB.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Importazione/Esportazione di Microsoft Azure supporta la crittografia AES 256?

@@ -1,20 +1,19 @@
 ---
 title: Impostare le autorizzazioni per Data Lake Storage Gen2 con Azure Storage Explorer
 description: Questa procedura descrive come impostare le autorizzazioni con Azure Storage Explorer per i file e le directory all'interno di account di archiviazione con supporto di Azure Data Lake Storage Gen2.
-services: storage
-author: roygara
-ms.custom: mvc
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
-ms.author: rogarana
-ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546306"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992287"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2
 
@@ -29,11 +28,11 @@ In questo articolo viene illustrato come usare Azure Storage Explorer per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per illustrare meglio il processo, è necessario completare la [Guida introduttiva di Azure Storage Explorer](data-lake-storage-Explorer.md). In questo modo l'account di archiviazione sarà nello stato più appropriato (file system creati e dati caricati sul file system).
+Per illustrare meglio il processo, è necessario completare la [Guida introduttiva di Azure Storage Explorer](data-lake-storage-Explorer.md). In questo modo l'account di archiviazione sarà nello stato più appropriato (contenitore creato e dati in esso caricati).
 
 ## <a name="managing-access"></a>Gestione dell'accesso
 
-È possibile impostare le autorizzazioni nella radice del file system. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il tasto destro sul file system e scegliere **Gestisci autorizzazioni**, si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
+È possibile impostare le autorizzazioni nella radice del contenitore. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il tasto destro sul contenitore e scegliere **Gestisci autorizzazioni**, si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
 
 ![Microsoft Azure Storage Explorer - Gestire l’accesso alle directory](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -43,7 +42,7 @@ Per aggiungere un nuovo utente o gruppo all'elenco di controllo di accesso, sele
 
 Immettere la voce corrispondente di Azure Active Directory (AAD) che si desidera aggiungere all'elenco e quindi selezionare **Aggiungi**.
 
-L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:**, che consente di iniziare a gestire le relative autorizzazioni.
+L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:** , che consente di iniziare a gestire le relative autorizzazioni.
 
 > [!NOTE]
 > È una procedura consigliata per creare un gruppo di sicurezza in Azure Active Directory e gestire le autorizzazioni per il gruppo anziché per i singoli utenti. Per informazioni dettagliate su questa procedura consigliata, nonché per altre procedure consigliate, consultare [procedure consigliate per Data Lake Storage Gen2](data-lake-storage-best-practices.md).

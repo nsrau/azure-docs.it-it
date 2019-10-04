@@ -2,33 +2,27 @@
 title: Abilitazione di Azure Active Directory Identity Protection | Microsoft Docs
 description: Informazioni su come abilitare Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d33c5c3fe970ee8e5d70e0ba358462d5bdf2bbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8e73bd3639adcc43dd191ff2eacaf7335f08d72
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295078"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126589"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Abilitazione di Azure Active Directory Identity Protection
 
 Azure Active Directory Identity Protection è una funzione di Azure Active Directory (Azure AD). Azure AD Identity Protection consente di:
 
-- Ottenere una visualizzazione consolidata degli utenti contrassegnati e degli eventi di rischio rilevati tramite algoritmi di apprendimento automatico
+- Ottenere una visualizzazione consolidata di utenti contrassegnati e rilevamento dei rischi rilevati usando algoritmi di Machine Learning
 - Impostare criteri di accesso condizionale basati sul rischio per proteggere automaticamente gli utenti
 - Migliorare le condizioni di sicurezza grazie a interventi sulle vulnerabilità 
 
@@ -58,4 +52,3 @@ Questo articolo illustra come abilitare Azure Active Directory Identity Protecti
 
 ## <a name="next-steps"></a>Fasi successive
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

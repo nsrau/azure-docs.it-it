@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602931"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
 Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. A tale scopo, è possibile usare SQL o un linguaggio di programmazione come Python. Entrambi gli approcci sono illustrati di seguito.
@@ -32,7 +32,7 @@ Questa attività è un passaggio del [Processo di analisi scientifica dei dati p
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md)
-* I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
+* I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database SQL di Azure per Azure Machine Learning](move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
 ## <a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
@@ -68,7 +68,7 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est del globo.
 * Una cifra dell'ordine delle centinaia diversa da zero indica la longitudine, non la latitudine in uso.
 * Una cifra nell'ordine delle decine indica una posizione a circa 1.000 km. Offre informazioni utili sul continente o sull'oceano in cui si trova l'utente.
-* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Indica approssimativamente in quale stato o regione si trova l'utente.
+* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Indica approssimativamente, quale stato o paese/area geografica di.
 * La prima posizione decimale è caratterizzata da un valore massimo di 11,1 km: consente di rilevare la posizione di una grande città da una circostante.
 * La seconda posizione decimale è caratterizzata da un valore massimo di 1,1 km: consente di dividere un paese dall'altro.
 * La terza posizione decimale è caratterizzata da un valore massimo di 110 m: consente di identificare un campo agricolo o una sede istituzionale.

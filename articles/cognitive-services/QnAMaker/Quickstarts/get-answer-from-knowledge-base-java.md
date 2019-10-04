@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Java - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa Guida introduttiva Java basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services
 author: diberry
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 813eb624dfab0b88b0e907f86de77ebc0ae35f2c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884942"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802925"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Ottenere risposte a una domanda da una knowledge base con Java
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Guida introduttiva: Ottenere risposte a una domanda da una knowledge base con Java
 
 Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md), ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata più attendibile. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* In questo esempio si usa il [client HTTP](http://hc.apache.org/httpcomponents-client-ga/) Apache di HTTP Components. È necessario aggiungere le librerie client HTTP Apache seguenti al progetto: 
+* In questo esempio si usa il [client HTTP](https://hc.apache.org/httpcomponents-client-ga/) Apache di HTTP Components. È necessario aggiungere le librerie client HTTP Apache seguenti al progetto: 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
@@ -98,4 +98,4 @@ Compilare ed eseguire il programma dalla riga di comando. Verrà inviata automat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

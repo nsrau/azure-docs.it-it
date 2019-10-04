@@ -9,11 +9,11 @@ ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454103"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61063399"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).

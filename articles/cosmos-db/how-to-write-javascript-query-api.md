@@ -3,15 +3,15 @@ title: Come scrivere stored procedure e trigger usando l'API di query di Javascr
 description: Informazioni su come scrivere stored procedure e trigger usando l'API di query di Javascript in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 94f72b716e149b2fa5c31deabf92a8a443eb0bef
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 96ecd77cb955d5e63cdcae8657e3096bbbadba89
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043346"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092888"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Come scrivere stored procedure e trigger in Azure Cosmos DB usando l'API di query di Javascript
 
@@ -19,7 +19,7 @@ Azure Cosmos DB consente di eseguire query ottimizzate usando un'interfaccia Jav
 
 ## <a id="stored-procedures"></a>Stored procedure usando l'API di query JavaScript
 
-L'esempio di codice seguente illustra come si usa l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un elemento di Azure Cosmos DB specificato da un parametro di input, e aggiorna un documento di metadati usando il metodo `__.filter()`, con minSize, maxSize e totalSize in base alla proprietà relativa alle dimensioni dell'elemento di input.
+L'esempio di codice seguente illustra come si usa l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un elemento di Azure Cosmos specificato da un parametro di input e aggiorna un documento di metadati usando il metodo `__.filter()`, con minSize, maxSize e totalSize impostati in base alla proprietà relativa alle dimensioni dell'elemento di input.
 
 > [!NOTE]
 > `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()` quando si usa l'API di query JavaScript.

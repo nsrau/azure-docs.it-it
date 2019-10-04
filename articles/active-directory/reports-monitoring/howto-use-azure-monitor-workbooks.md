@@ -1,8 +1,8 @@
 ---
-title: Usare le cartelle di lavoro di monitoraggio di Azure per i report di Azure Active Directory | Microsoft Docs
-description: Informazioni su come usare le cartelle di lavoro di monitoraggio di Azure per i report di Azure Active Directory
+title: Usare le cartelle di lavoro di monitoraggio di Azure per Azure Active Directory report | Microsoft Docs
+description: Informazioni su come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory.
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,76 +12,84 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287226"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931240"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Procedura: Utilizzare le cartelle di lavoro di monitoraggio di Azure per i report di Azure Active Directory
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
-Si vuole:
+Si desidera:
 
-- Comprendere quale impatto avrà la [criteri di accesso condizionale](../conditional-access/overview.md) su esperienza di accesso degli utenti?
+- Per comprendere l'effetto dei [criteri di accesso condizionale](../conditional-access/overview.md) sull'esperienza di accesso degli utenti,
 
-- Risolvere gli errori di accesso per ottenere una migliore visualizzazione dell'integrità della accesso dell'organizzazione, nonché di risolvere rapidamente i problemi?
+- Risolvere gli errori di accesso per ottenere una visualizzazione migliore dell'integrità di accesso dell'organizzazione e per risolvere rapidamente i problemi?
 
-- Sapere chi sta usando le autenticazioni legacy per accedere all'ambiente? Dal [blocco autenticazione legacy](../conditional-access/block-legacy-authentication.md), è possibile migliorare la protezione del tenant.
+- Sai chi sta usando le autenticazioni legacy per accedere al tuo ambiente? [Bloccando l'autenticazione legacy](../conditional-access/block-legacy-authentication.md), è possibile migliorare la protezione del tenant.
 
-
-[Le cartelle di lavoro di Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinare testo, le query Analitica, le metriche di Azure e i parametri in report interattivi avanzati. Azure Active Directory offre le cartelle di lavoro per il monitoraggio che consentono di trovare le risposte alle domande precedenti.
+Per rispondere a queste domande, Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati. 
 
 Questo articolo:
 
-- Si presuppone che si abbia familiarità con le modalità [Crea report interattivi con cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Presuppone che si abbia familiarità con le modalità di [creazione di report interattivi tramite le cartelle di lavoro di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Illustra come è possibile usare le cartelle di lavoro di monitoraggio di Azure sul monitoraggio per rispondere alle domande precedenti.
+- Viene illustrato come utilizzare le cartelle di lavoro di monitoraggio per comprendere l'effetto dei criteri di accesso condizionale, per risolvere gli errori di accesso e per identificare le autenticazioni legacy.
  
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare questa funzionalità, sono necessari:
+Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 
-- Un tenant di Azure Active Directory, con una licenza premium (P1 o P2). Informazioni su come [ottenere una licenza premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un tenant Active Directory con una licenza Premium (P1 o P2). Informazioni su come [ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
-- Oggetto [dell'area di lavoro di Log Analitica](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- [Area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## <a name="access-workbooks"></a>Cartelle di lavoro di accesso 
+## <a name="roles"></a>Ruoli
+Per gestire le cartelle di lavoro di, è necessario disporre di uno dei ruoli seguenti, nonché accedere all'area di lavoro [log Analytics sottostante](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) :
+-   Amministratore globale
+-   Amministrazione della protezione
+-   Ruolo con autorizzazioni di lettura per la sicurezza
+-   Lettore di report
+-   Amministratore applicazione
+
+
+## <a name="workbook-access"></a>Accesso alla cartella di lavoro 
 
 Per accedere alle cartelle di lavoro:
 
-1. Accedi per i [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Sulla barra di spostamento a sinistra fare clic su **Azure Active Directory**.
+2. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
 
-3. Nel **Monitoring** fare clic su **Insights**. 
+3. Nella sezione **monitoraggio** selezionare cartelle di **lavoro**. 
 
-    ![Informazioni dettagliate](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Selezionare informazioni dettagliate](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. Fare clic su un report o un modello, oppure fare clic su **aperto** sulla barra degli strumenti. 
+4. Selezionare un report o un modello oppure fare clic su **Apri**nella barra degli strumenti. 
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Selezionare Apri](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>Analisi di accesso
 
-Per accedere alla cartella di lavoro di analisi di accesso, fare clic su **accessi** nel **utilizzo** sezione. 
+Per accedere alla cartella di lavoro di analisi di accesso, nella sezione **Usage (utilizzo** ) selezionare **accessi**. 
 
 Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Riuscito
 
 - In attesa dell'azione dell'utente
 
-- Esito negativo
+- Errore
 
-È possibile filtrare ogni tendenza per:
+È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
 - Intervallo di tempo
 
@@ -89,59 +97,33 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Utenti
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/43.png)
+![Analisi di accesso](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Per ogni tendenza, ottenere una suddivisione:
+Per ogni tendenza si ottiene una suddivisione in base alle categorie seguenti:
 
 - Location
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Accessi per località](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Dispositivo
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Accessi per dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
-## <a name="sign-ins-using-legacy-authentication"></a>Accessi tramite autenticazione legacy 
+## <a name="sign-ins-using-legacy-authentication"></a>Accessi con autenticazione legacy 
 
 
-Per l'accesso gli accessi usando [autenticazione legacy](../conditional-access/block-legacy-authentication.md) cartella di lavoro, fare clic su **accessi usando l'autenticazione Legacy** nel **utilizzo** sezione. 
+Per accedere alla cartella di lavoro per gli accessi che usano [l'autenticazione legacy](../conditional-access/block-legacy-authentication.md), nella sezione **utilizzo** Selezionare **accessi usando l'autenticazione legacy**. 
 
 Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Riuscito
 
 
-È possibile filtrare ogni tendenza per:
-
-- Intervallo di tempo
-
-- App
-
-- Utenti
-
-- Protocolli 
-
-![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
-
-
-Per ogni tendenza, ottenere una suddivisione dall'app e il protocollo.
-
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
-
-
-
-## <a name="sign-ins-by-conditional-access"></a>Accessi da accesso condizionale 
-
-
-Per accedere l'accessi in base a [criteri di accesso condizionale](../conditional-access/overview.md) cartella di lavoro, fare clic su **accessi dall'accesso condizionale** nel **accesso condizionale** sezione. 
-
-Questa cartella di lavoro Mostra la tendenza per gli accessi disabilitati.
-
-È possibile filtrare ogni tendenza per:
+È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
 - Intervallo di tempo
 
@@ -149,10 +131,34 @@ Questa cartella di lavoro Mostra la tendenza per gli accessi disabilitati.
 
 - Utenti
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
+- Protocolli
+
+![Accessi tramite autenticazione legacy](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
-Per i disabilitato gli accessi, per ottenere una scomposizione, lo stato di accesso condizionale.
+Per ogni tendenza si ottiene una suddivisione in base all'app e al protocollo.
+
+![Accessi con autenticazione legacy per app e protocollo](./media/howto-use-azure-monitor-workbooks/48.png)
+
+
+
+## <a name="sign-ins-by-conditional-access"></a>Accessi per accesso condizionale 
+
+
+Per accedere alla cartella di lavoro per gli accessi in base ai [criteri di accesso](../conditional-access/overview.md)condizionale, nella sezione **accesso condizionale** Selezionare accessi per **accesso condizionale**. 
+
+Questa cartella di lavoro Mostra le tendenze per gli accessi disabilitati. È possibile filtrare ogni tendenza in base alle categorie seguenti:
+
+- Intervallo di tempo
+
+- App
+
+- Utenti
+
+![Accessi con accesso condizionale](./media/howto-use-azure-monitor-workbooks/49.png)
+
+
+Per gli accessi disabilitati, si ottiene una suddivisione in base allo stato di accesso condizionale.
 
 ![Stato di accesso condizionale](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -163,22 +169,22 @@ Per i disabilitato gli accessi, per ottenere una scomposizione, lo stato di acce
 
 
 
-## <a name="sign-ins-by-grant-controls"></a>Accessi da controlli di concessione
+## <a name="sign-ins-by-grant-controls"></a>Accessi tramite i controlli Grant
 
-Per accedere gli accessi da [concedere controlli](../conditional-access/controls.md) cartella di lavoro, fare clic su **accessi dai controlli di concessione** nel **accesso condizionale** sezione. 
+Per accedere alla cartella di lavoro per gli accessi tramite i [controlli di concessione](../conditional-access/controls.md), nella sezione **accesso condizionale selezionare accessi** **tramite Concedi controlli**. 
 
-Questa cartella di lavoro vengono visualizzate le seguenti disabilitate Accedi tendenze:
+Questa cartella di lavoro Mostra le tendenze di accesso disabilitate seguenti:
 
 - Richiedere l'autenticazione MFA
  
-- Richiedere le condizioni d'uso
+- Richiedere le condizioni per l'utilizzo
 
-- Richiedere l'informativa sulla privacy
+- Richiedi informativa sulla privacy
 
-- Altri
+- Altro
 
 
-È possibile filtrare ogni tendenza per:
+È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
 - Intervallo di tempo
 
@@ -186,39 +192,39 @@ Questa cartella di lavoro vengono visualizzate le seguenti disabilitate Accedi t
 
 - Utenti
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/50.png)
+![Accessi tramite i controlli Grant](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
-Per ogni tendenza, ottenere una suddivisione dall'app e il protocollo.
+Per ogni tendenza si ottiene una suddivisione in base all'app e al protocollo.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/51.png)
-
-
+![Suddivisione degli accessi recenti](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
-## <a name="sign-ins-failure-analysis"></a>Analisi degli errori di accessi
 
-Usare la **analisi degli errori di accessi** cartella di lavoro per risolvere gli errori con:
+
+## <a name="sign-ins-failure-analysis"></a>Analisi degli errori di accesso
+
+Utilizzare la cartella di lavoro analisi degli errori di **accesso** per risolvere gli errori con i seguenti elementi:
 
 - Accessi
 - Criteri di accesso condizionale
-- Autenticazione legacy. 
+- Autenticazione legacy 
 
 
-Per accedere gli accessi dai dati di accesso condizionale, fare clic su **accessi usando l'autenticazione Legacy** nel **risoluzione dei problemi** sezione. 
+Per accedere agli accessi tramite i dati di accesso condizionale, nella sezione **risoluzione dei problemi** selezionare accessi **usando l'autenticazione legacy**. 
 
 Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Success
+- Riuscito
 
 - In attesa di un'azione
 
-- Esito negativo
+- Errore
 
 
-È possibile filtrare ogni tendenza per:
+È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
 - Intervallo di tempo
 
@@ -226,18 +232,18 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Utenti
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
+![Risoluzione dei problemi relativi agli accessi](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Per risolvere i problemi di accessi, ottenere una suddivisione:
+Per semplificare la risoluzione dei problemi di accesso, monitoraggio di Azure fornisce una suddivisione in base alle categorie seguenti:
 
-- Errori più frequenti
+- Errori principali
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Riepilogo degli errori principali](./media/howto-use-azure-monitor-workbooks/53.png)
 
-- In attesa di intervento dell'utente gli accessi
+- Accessi in attesa sull'azione dell'utente
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Riepilogo degli accessi in attesa dell'azione dell'utente](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +252,4 @@ Per risolvere i problemi di accessi, ottenere una suddivisione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Crea report interattivi con cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Creare report interattivi usando le cartelle di lavoro di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850905"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147165"
 ---
 # <a name="handling-event-grid-events"></a>Gestione degli eventi di Griglia di eventi
 
@@ -24,7 +24,7 @@ Gli eventi di Servizi multimediali consentono alle applicazioni di reagire a num
 
 La disponibilità degli eventi di Servizi multimediali è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi.  
 
-## <a name="media-services-events-and-schemas"></a>Gli schemi e gli eventi di servizi multimediali
+## <a name="media-services-events-and-schemas"></a>Eventi e schemi di servizi multimediali
 
 Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media".
 
@@ -39,6 +39,10 @@ Per le applicazioni che gestiscono gli eventi di Servizi multimediali è consigl
 * Ignorare i campi che non si conoscono.  Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
 * Usare le corrispondenze di prefisso e suffisso "subject" per limitare gli eventi a un determinato evento.
 
+> [!NOTE]
+> Gli eventi sono soggetti alla Contratto di servizio di griglia di eventi [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Per ottenere le notifiche degli eventi usando le API, vedere esempi su come utilizzare gli eventi con [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) o [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Get job state events](job-state-events-cli-how-to.md) (Ottenere gli eventi relativi allo stato del processo)
+* [Monitorare gli eventi-portale](monitor-events-portal-how-to.md)
+* [Monitorare gli eventi-interfaccia della riga di comando](job-state-events-cli-how-to.md)

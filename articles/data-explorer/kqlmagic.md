@@ -1,23 +1,23 @@
 ---
-title: Usare un Notebook di Jupyter per analizzare i dati in Esplora dati di Azure
-description: In questo argomento illustra come analizzare i dati in Esplora dati di Azure usando un Notebook di Jupyter e l'estensione Kqlmagic.
+title: Usare un Jupyter Notebook per analizzare i dati in Azure Esplora dati
+description: Questo argomento illustra come analizzare i dati in Azure Esplora dati usando un Jupyter Notebook e l'estensione Kqlmagic.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/10/2019
+ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045066"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933683"
 ---
-# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Usare un Notebook di Jupyter e Kqlmagic l'estensione per analizzare i dati in Esplora dati di Azure
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Usare un'estensione Jupyter Notebook e Kqlmagic per analizzare i dati in Azure Esplora dati
 
 Jupyter Notebook è un'applicazione Web open source che consente di creare e condividere documenti contenenti codice attivo, equazioni, visualizzazioni e testo narrativo. L'uso include la pulizia e la trasformazione dei dati, simulazioni numeriche, modellazioni statistiche, visualizzazioni di dati e apprendimento automatico.
-[Jupyter Notebook](https://jupyter.org/) supporta funzioni magic che estendono le funzionalità del kernel attraverso il supporto di comandi aggiuntivi. KQL magic è un comando che estende le funzionalità del kernel Python in Jupyter Notebook consentendo all'utente di eseguire le query in linguaggio Kusto in modo nativo. È possibile combinare facilmente il linguaggio di query Kusto e Python per eseguire query e visualizzare i dati tramite la libreria avanzata Plot.ly integrata con i comandi `render`. Le origini dati per l'esecuzione di query sono supportate. Queste origini dati includono Esplora dati di Azure, un servizio di esplorazione dei dati rapido e a scalabilità elevata per i log e dati di telemetria, nonché i log di monitoraggio di Azure e Application Insights. KQL magic funziona anche con Azure Notebooks, Jupyter Lab e l'estensione Jupyter di Visual Studio Code.
+[Jupyter Notebook](https://jupyter.org/) supporta funzioni magic che estendono le funzionalità del kernel attraverso il supporto di comandi aggiuntivi. KQL magic è un comando che estende le funzionalità del kernel Python in Jupyter Notebook consentendo all'utente di eseguire le query in linguaggio Kusto in modo nativo. È possibile combinare facilmente il linguaggio di query Kusto e Python per eseguire query e visualizzare i dati tramite la libreria avanzata Plot.ly integrata con i comandi `render`. Le origini dati per l'esecuzione di query sono supportate. Queste origini dati includono Azure Esplora dati, un servizio di esplorazione dei dati veloce e altamente scalabile per i dati di log e di telemetria, oltre ai log di monitoraggio di Azure e Application Insights. KQL magic funziona anche con Azure Notebooks, Jupyter Lab e l'estensione Jupyter di Visual Studio Code.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,9 +37,11 @@ Jupyter Notebook è un'applicazione Web open source che consente di creare e con
 1. Caricare KQL magic:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Per modificare la versione del kernel in Python 3,6, fare clic su kernel > Change kernel > Python 3,6
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Connettersi al cluster della guida di Esplora dati di Azure
 
 Usare il comando seguente per connettersi al database *Esempi* ospitato nel cluster della *guida*. Per gli utenti non Microsoft AAD, sostituire il nome del tenant `Microsoft.com` con il Tenant AAD.
@@ -165,11 +167,14 @@ In molti scenari di analitica è possibile creare notebook riutilizzabili conten
     %kql --help "help"
     ```
 
+> [!TIP]
+> Per ricevere informazioni su tutte le configurazioni disponibili `%config KQLmagic`, usare. Per risolvere i problemi e acquisire errori di Kusto, ad esempio problemi di connessione e query non corrette, usare`%config Kqlmagic.short_errors=False`
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Eseguire il comando Guida per esplorare i notebook di esempio seguenti contenenti tutte le funzionalità supportate:
 - [Get started with KQL magic for Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) (Introduzione a KQL magic per Esplora dati di Azure) 
 - [Get started with KQL magic for Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) (Introduzione a KQL magic per Application Insights) 
-- [Introduzione a magic KQL per i log di monitoraggio di Azure](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Introduzione a KQL Magic per i log di monitoraggio di Azure](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Parametrize your KQL magic query with Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) (Stabilire i parametri della query di KQL magic con Python) 
 - [Choose colors palette for your KQL magic query chart result](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb) (Scegliere la tavolozza dei colori per il risultato del grafico della query di KQL magic)

@@ -1,42 +1,41 @@
 ---
-title: Rilevare contenuti audaci e per adulti - Visione artificiale
+title: Contenuti per adulti, audace e cruenti Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento di contenuti audaci e per adulti tramite l'API Visione artificiale.
+description: Concetti relativi al rilevamento di contenuto per adulti nelle immagini tramite l'APi Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368342"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718523"
 ---
-# <a name="detect-adult-and-racy-content"></a>Rilevare contenuti audaci e per adulti
+# <a name="detect-adult-content"></a>Rileva contenuto per adulti
 
-Visione artificiale può rilevare materiale per soli adulti nelle immagini per consentire agli sviluppatori di limitare la visualizzazione di tali immagini nel software. Vengono applicati flag di contenuto con un punteggio compreso tra 0 e 1, in modo che gli sviluppatori possano interpretare i risultati in base alle proprie preferenze. 
+Visione artificiale possibile rilevare il materiale per adulti nelle immagini in modo che gli sviluppatori possano limitare la visualizzazione di queste immagini nel software. Vengono applicati flag di contenuto con un punteggio compreso tra 0 e 1, in modo che gli sviluppatori possano interpretare i risultati in base alle proprie preferenze.
 
 > [!NOTE]
-> Questa funzionalità è disponibile anche nel servizio [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview). Vedere questa alternativa per soluzioni per scenari più rigorosi di moderazione del contenuto, ad esempio per flussi di lavoro di moderazione del testo e di revisione umana.
+> Gran parte di questa funzionalità è offerta dal servizio [content moderator di Azure](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) . Vedere questa alternativa per soluzioni per scenari più rigorosi di moderazione del contenuto, ad esempio per flussi di lavoro di moderazione del testo e di revisione umana.
 
 ## <a name="content-flag-definitions"></a>Definizioni dei flag di contenuto
 
-Le immagini per **adulti** sono immagini di natura pornografica in cui sono in genere rappresentati atti sessuali o scene di nudo. 
+All'interno della classificazione "Adult" sono disponibili diverse categorie:
 
-Le immagini **audaci** sono immagini di natura sessualmente allusiva in cui sono presenti contenuti a sfondo sessuale meno espliciti rispetto alle immagini contrassegnate come per **adulti**. 
+- Le immagini **adulte** sono definite in modo esplicito per natura sessuale e spesso rappresentano la nudità e gli atti sessuali.
+- Le immagini **audaci** sono immagini di natura sessualmente allusiva in cui sono presenti contenuti a sfondo sessuale meno espliciti rispetto alle immagini contrassegnate come per **adulti**.
+- Le immagini **cruente** sono definite come quelle che descrivono Gore.
 
-## <a name="identify-adult-and-racy-content"></a>Identificare contenuti audaci e per adulti
+## <a name="use-the-api"></a>Usare l'API
 
-API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce tre proprietà booleane @ no__t-2 @ no__t-3, `isRacyContent` e `isGoryContent` @ no__t-6in la relativa risposta JSON. Il metodo restituisce anche le proprietà corrispondenti @ no__t-0 @ no__t-1, `racyScore` e `goreScore` @ no__t-4which rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
 
-Il metodo Analyze Image restituisce nella risposta JSON del metodo due proprietà booleane, `isAdultContent` e `isRacyContent`, per indicare rispettivamente i contenuti per adulti e quelli audaci. Il metodo restituisce anche due proprietà, `adultScore` e `racyScore`, che rappresentano i punteggi di attendibilità per identificare rispettivamente i contenuti per adulti e quelli audaci.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Concetti relativi al [rilevamento di contenuti specifici di dominio](concept-detecting-domain-content.md) e al [rilevamento dei visi](concept-detecting-faces.md).
+- [Avvio rapido: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Avvio rapido: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

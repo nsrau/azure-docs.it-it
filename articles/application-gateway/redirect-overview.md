@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 3/19/2018
 ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60715802"
 ---
 # <a name="application-gateway-redirect-overview"></a>Panoramica del reindirizzamento nel gateway applicazione
 
-È possibile usare il gateway applicazione per reindirizzare il traffico.  Dispone di un meccanismo di reindirizzamento generico che consente di reindirizzare il traffico ricevuto in un listener a un altro listener o a un sito esterno. In questo modo semplifica la configurazione dell'applicazione, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso.
+È possibile usare il gateway applicazione per reindirizzare il traffico.  Ha un meccanismo di reindirizzamento generico che consente di reindirizzare il traffico ricevuto in un listener a un altro listener o a un sito esterno. In questo modo semplifica la configurazione dell'applicazione, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso.
 
 Uno scenario comune di reindirizzamento per molte applicazioni web deve supportare automatico da HTTP per il reindirizzamento HTTPS per assicurarsi che tutte le comunicazioni tra applicazione e gli utenti si verificano tramite un percorso crittografato. In passato, i clienti hanno usato tecniche come la creazione di un pool back-end dedicato il cui unico scopo è quello di reindirizzare le richieste ricevute su HTTP a HTTPS. Con supporto del reindirizzamento nel Gateway applicazione, è possibile farlo semplicemente tramite l'aggiunta di una nuova configurazione di reindirizzamento a una regola di routing e specificando un altro listener con il protocollo HTTPS come i listener di destinazione.
 

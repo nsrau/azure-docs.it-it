@@ -1,26 +1,25 @@
 ---
-title: Uso di piani per il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+title: Uso dei piani di ripristino nel ripristino di emergenza con Azure Site Recovery
 description: Informazioni su come usare piani per il ripristino di emergenza con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/18/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797396"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814434"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
 Questo articolo descrive i piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.
-
+Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.  È possibile fare riferimento ai computer in più piani di ripristino, in cui i piani successivi ignoreranno la distribuzione o l'avvio del computer se in precedenza è stato distribuito tramite un altro piano di ripristino.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Vantaggi dell'uso di un piano di ripristino
@@ -37,10 +36,10 @@ Un piano di ripristino consente di definire un processo di ripristino sistematic
 
 È possibile pianificare e creare un gruppo di ripristino per acquisire le proprietà specifiche delle app. Considerare, ad esempio, una tipica applicazione a tre livelli, con un back-end SQL, middleware e un front-end Web. In genere, si personalizza il piano di ripristino in modo che i computer in ogni livello si avviino nell'ordine corretto dopo il failover.
 
-    - Il back-end SQL deve essere avviato per primo, seguito dal middleware e successivamente dal front-end Web.
-    - Questo ordine di avvio assicura che l'app sia in funzione nel momento in cui viene avviato l'ultimo computer.
-    - Questo ordine assicura che quando il middleware viene avviato e tenta di connettersi al livello di SQL Server, il livello di SQL Server è già in esecuzione. 
-    - Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
+- Il back-end SQL deve essere avviato per primo, seguito dal middleware e successivamente dal front-end Web.
+- Questo ordine di avvio assicura che l'app sia in funzione nel momento in cui viene avviato l'ultimo computer.
+- Questo ordine assicura che quando il middleware viene avviato e tenta di connettersi al livello di SQL Server, il livello di SQL Server è già in esecuzione. 
+- Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
 
 Per creare questo ordine, aggiungere gruppi al gruppo di ripristino e aggiungere computer ai gruppi.
 - Se l'ordine è specificato, viene usata la sequenziazione. Dove appropriato, le azioni vengono eseguite in parallelo, per migliorare l'obiettivo del tempo di ripristino dell'applicazione.
@@ -61,11 +60,11 @@ Con questa personalizzazione, ecco cosa accade quando si esegue un failover per 
 
 Il ripristino di applicazioni di grandi dimensioni può essere un'attività complessa. I passaggi manuali rendono il processo soggetto a errori e la persona che esegue il failover potrebbe non essere a conoscenza di tutti gli aspetti complessi delle app. È possibile usare un piano di ripristino per determinare l'ordine e automatizzare le azioni necessarie in ogni passaggio, usando i runbook di Automazione di Azure per il failover in Azure oppure gli script. Per le attività che non possono essere automatizzate, è possibile inserire pause per le azioni manuali nei piani di ripristino. Ci sono due tipi di attività che è possibile configurare:
 
-* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio:  
+* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio: 
     * Creare un indirizzo IP pubblico nella macchina virtuale.
     * Assegnare un gruppo di sicurezza di rete alla scheda di rete della macchina virtuale di Azure.
     * Aggiungere un servizio di bilanciamento del carico a un set di disponibilità.
-* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio: 
+* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio:
     * Modificare la stringa di connessione del database all'interno del computer.
     * Modificare la configurazione o le regole del server Web.
 
@@ -84,7 +83,7 @@ Il ripristino di applicazioni di grandi dimensioni può essere un'attività comp
 
 ## <a name="watch-the-video"></a>Video
 
-Guardare un video rapido esempio che mostra un failover tramite clic per un'app di WordPress a due livelli.
+Guarda un breve video di esempio che mostra un failover su un clic per un'app WordPress a due livelli.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

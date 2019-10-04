@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61426732"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizzare i dati di testo in log di Monitoraggio di Azure
 Alcuni dati di log raccolti da Monitoraggio di Azure includeranno più informazioni in una singola proprietà. L'analisi di questi dati in più proprietà ne semplifica l'uso nelle query. Un esempio comune è un [log personalizzato](../../log-analytics/log-analytics-data-sources-custom-logs.md) che raccoglie un'intera voce di registro con più valori in una singola proprietà. Creando proprietà separate per i diversi valori, è possibile eseguire ricerche e aggregare in ciascuna di esse.

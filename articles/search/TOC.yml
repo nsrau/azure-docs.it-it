@@ -2,10 +2,8 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Ricerca di Azure
+    - name: Che cos'è la Ricerca di Azure?
       href: search-what-is-azure-search.md
-    - name: Informazioni sulla ricerca cognitiva
-      href: cognitive-search-concept-intro.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -13,51 +11,85 @@
       href: search-create-service-portal.md
     - name: Portale
       items:
-        - name: Caricare un indice ed eseguire una query
+        - name: Creare e usare un indice
           href: search-get-started-portal.md
-        - name: Arricchirsi con l'intelligenza artificiale (ricerca cognitiva)
+        - name: Arricchire con la ricerca cognitiva (intelligenza artificiale)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
-      items:
-        - name: 1 - Creare un indice
-          href: search-create-index-dotnet.md
-        - name: 2 - Caricare i dati
-          href: search-import-data-dotnet.md
-        - name: 3 - Eseguire la ricerca in un indice
-          href: search-query-dotnet.md
+      href: search-get-started-dotnet.md
+    - name: Java
+      href: search-get-started-java.md
+    - name: Node.js
+      href: search-get-started-nodejs.md
     - name: postman
-      href: search-fiddler.md
+      href: search-get-started-postman.md
     - name: PowerShell
-      href: search-create-index-rest-api.md
+      href: search-get-started-powershell.md
+    - name: Python
+      href: search-get-started-python.md
 - name: Esercitazioni
   items:
+    - name: Creare la prima app
+      items:
+        - name: 1 - Pagina di ricerca di base
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - Aggiungere la suddivisione in pagine dei risultati
+          href: tutorial-csharp-paging.md
+        - name: 3 - Aggiungere il completamento automatico
+          href: tutorial-csharp-type-ahead-and-suggestions.md
+        - name: 4 - Aggiungere facet
+          href: tutorial-csharp-facets.md
+        - name: 5 - Aggiungere l'ordinamento dei risultati
+          href: tutorial-csharp-orders.md
     - name: Indicizzare un database SQL di Azure
       href: search-indexer-tutorial.md
     - name: Indicizzare BLOB JSON di Azure
       href: search-semi-structured-data.md
-    - name: Indicizzare con l'intelligenza artificiale (Servizi cognitivi)
-      href: cognitive-search-tutorial-blob.md
+    - name: Indicizzare più origini dati di Azure
+      href: tutorial-multiple-data-sources.md
+    - name: Arricchirsi con l'intelligenza artificiale (ricerca cognitiva)
+      items:
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: Python
+          href: cognitive-search-tutorial-blob-python.md
 - name: Esempi
   items:
-    - name: Esempi di codice per Azure
-      href: 'https://azure.microsoft.com/resources/samples/?service=search'
+    - name: 'Esempi per C#'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
+    - name: Esempi di Java
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: Esempi JavaScript
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
+    - name: Esempi per Python
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
+    - name: Esempi REST
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest'
 - name: Formazione
   items:
-    - name: Bootcamp sul knowledge mining
-      href: 'https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/'
+    - name: Introduzione (Microsoft Learn)
+      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
     - name: Aggiungere la ricerca nelle app (Pluralsight)
       href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: Corso per Microsoft Azure Developer (Pluralsight)
+    - name: Corso per sviluppatori (Pluralsight)
       href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Concetti
   items:
     - name: Ricerca full-text
       href: search-lucene-query-architecture.md
-    - name: Progettare modelli per la multi-tenancy
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Ricerca cognitiva
+      href: cognitive-search-concept-intro.md
+    - name: Set di competenze
+      href: cognitive-search-working-with-skillsets.md
+    - name: Knowledge store
+      href: knowledge-store-concept-intro.md
+    - name: Proiezioni
+      href: knowledge-store-projection-overview.md
 - name: Guide alle procedure
   items:
-    - name: Pianificazione della capacità
+    - name: Pianificazione
       items:
         - name: Scegliere un livello
           href: search-sku-tier.md
@@ -67,6 +99,8 @@
           href: search-capacity-planning.md
         - name: Strategie e procedure consigliate per la distribuzione
           href: search-performance-optimization.md
+        - name: Architettura multitenant
+          href: search-modeling-multitenant-saas-applications.md
     - name: Security
       items:
         - name: Panoramica della sicurezza
@@ -79,18 +113,20 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtrare in base alle identità AAD
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Gestire le chiavi di crittografia (anteprima)
+          href: search-security-manage-encryption-keys.md
     - name: Sviluppo.
       items:
         - name: Versioni dell'API
           href: search-api-versions.md
         - name: Sviluppare in .NET
           href: search-howto-dotnet-sdk.md
-        - name: Sviluppare in Node.js
-          href: search-get-started-nodejs.md
-        - name: Sviluppare in Java
-          href: search-get-started-java.md
         - name: Aggiornare l'SDK
           items:
+            - name: .NET SDK 10.0
+              href: search-dotnet-sdk-migration-version-10.md
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: .NET SDK 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: .NET SDK 3.0
@@ -107,6 +143,8 @@
           href: search-what-is-an-index.md
         - name: Creare un indice (portale)
           href: search-create-index-portal.md
+        - name: Creare un indice multilingue
+          href: search-language-support.md
         - name: Analizzatori
           items:
             - name: Aggiunta di analizzatori
@@ -119,7 +157,7 @@
           items:
             - name: Creare uno strumento suggerimenti
               href: index-add-suggesters.md
-            - name: 'Esempi (suggerimenti, completamento automatico)'
+            - name: Aggiungere suggerimenti o il completamento automatico
               href: search-autocomplete-tutorial.md
         - name: Sinonimi
           items:
@@ -130,9 +168,7 @@
         - name: Modellare tipi di dati complessi
           href: search-howto-complex-data-types.md
         - name: Modellare dati relazionali
-          href: search-example-adventureworks-modeling.md
-        - name: Modellare i facet multilivello
-          href: search-example-adventureworks-multilevel-faceting.md
+          href: index-sql-relational-data.md
     - name: Caricare i dati
       items:
         - name: Panoramica dell'importazione dei dati
@@ -149,61 +185,89 @@
       items:
         - name: Panoramica degli indicizzatori
           href: search-indexer-overview.md
-        - name: Indicizzatore per l'archivio BLOB
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indicizzatore per l'archivio tabelle
+        - name: Indicizzatore dell'archiviazione tabelle di Azure
           href: search-howto-indexing-azure-tables.md
-        - name: Indicizzatore per il database SQL
+        - name: Indicizzatore del database SQL di Azure
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indicizzatore di Cosmos DB
+        - name: Indicizzatore di Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Indicizzazione BLOB uno-a-molti
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indicizzatore per BLOB CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Indicizzatore per BLOB JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indicizzatore di Archiviazione BLOB di Azure
+          items:
+            - name: Configurare un indicizzatore BLOB
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indicizzare BLOB uno-a-molti
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indicizzare i BLOB CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indicizzare i BLOB JSON
+              href: search-howto-index-json-blobs.md
+        - name: Pianificare gli indicizzatori
+          href: search-howto-schedule-indexers.md
+        - name: Eseguire il mapping dei campi
+          href: search-indexer-field-mappings.md
+        - name: Connettersi a Istanza gestita di SQL
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Connettersi a macchine virtuali di SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Mapping dei campi
-          href: search-indexer-field-mappings.md
-        - name: Risoluzione dei problemi comuni
+        - name: Monitorare gli indicizzatori
+          href: search-howto-monitor-indexers.md
+        - name: Risolvere i problemi comuni
           href: search-indexer-troubleshooting.md
-    - name: Indicizzazione basata su intelligenza artificiale (ricerca cognitiva)
+    - name: Arricchimenti di intelligenza artificiale
       items:
         - name: Collegare una risorsa Servizi cognitivi
           href: cognitive-search-attach-cognitive-services.md
-        - name: Definire un insieme di competenze
-          href: cognitive-search-defining-skillset.md
-        - name: Fare riferimento a un'annotazione
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Eseguire il mapping ai campi dell'indice
-          href: cognitive-search-output-field-mapping.md
-        - name: Elaborare ed estrarre informazioni dalle immagini
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Integrare competenze personalizzate
-          href: cognitive-search-custom-skill-interface.md
-        - name: 'Esempio: competenze personalizzate'
-          href: cognitive-search-create-custom-skill-example.md
+        - name: Set di competenze
+          items:
+            - name: Definire un insieme di competenze
+              href: cognitive-search-defining-skillset.md
+            - name: Fare riferimento a un'annotazione
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: Eseguire il mapping ai campi dell'indice
+              href: cognitive-search-output-field-mapping.md
+            - name: Elaborare ed estrarre informazioni dalle immagini
+              href: cognitive-search-concept-image-scenarios.md
+        - name: Competenze personalizzate
+          items:
+            - name: Integrare competenze personalizzate
+              href: cognitive-search-custom-skill-interface.md
+            - name: Esempio - Funzioni di Azure
+              href: cognitive-search-create-custom-skill-example.md
+            - name: Esempio - Contenitori
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Suggerimenti per la risoluzione dei problemi
           href: cognitive-search-concept-troubleshooting.md
         - name: Collegamenti per la documentazione
           href: cognitive-search-resources-documentation.md
-    - name: Eseguire query sui dati
+        - name: Knowledge store (anteprima)
+          items:
+            - name: Creare un archivio conoscenze nel portale di Azure
+              href: knowledge-store-create-portal.md
+            - name: Creare con REST e Postman
+              href: knowledge-store-create-rest.md
+            - name: Visualizzare con Storage Explorer
+              href: knowledge-store-view-storage-explorer.md
+            - name: Connettersi con Power BI
+              href: knowledge-store-connect-power-bi.md
+        - name: Risolvere i problemi relativi all'arricchimento
+          href: cognitive-search-common-errors-warnings.md
+    - name: Eseguire query su documenti
       items:
-        - name: Creare una query di base
+        - name: Tipi di query e composizione
           href: search-query-overview.md
-        - name: Esplora ricerche (portale)
+        - name: Creare una query semplice
+          href: search-query-simple-examples.md
+        - name: Usare la sintassi Lucene completa
+          href: search-query-lucene-examples.md
+        - name: Usare Esplora ricerche (portale)
           href: search-explorer.md
         - name: Sintassi di query semplice
           href: query-simple-syntax.md
         - name: Sintassi completa della query Lucene
           href: query-lucene-syntax.md
-        - name: Esempi (sintassi semplice)
-          href: search-query-simple-examples.md
-        - name: Esempi (sintassi completa Lucene)
-          href: search-query-lucene-examples.md
-    - name: Filtrare e ordinare i dati
+        - name: moreLikeThis (anteprima)
+          href: search-more-like-this.md
+    - name: Applicare filtri
       items:
         - name: Panoramica dei filtri
           href: search-filters.md
@@ -211,24 +275,24 @@
           href: search-filters-facets.md
         - name: Aggiungere l'esplorazione in base a facet
           href: search-faceted-navigation.md
-        - name: Sintassi ed esempi delle espressioni Filter e OrderBy
-          href: query-odata-filter-orderby-syntax.md
+        - name: Rivolvere i problemi dei filtri di raccolta
+          href: search-query-troubleshoot-collection-filters.md
+        - name: Informazioni sui filtri di raccolta
+          href: search-query-understand-collection-filters.md
+        - name: Esempio di facet multilivello
+          href: search-example-adventureworks-multilevel-faceting.md
     - name: Gestire i risultati
       items:
         - name: Funzionalità correlate alle pagine
           href: search-pagination-page-layout.md
-    - name: Ottimizzazione della pertinenza
-      items:
-        - name: Aggiungere profili di punteggio
+        - name: Ottimizzazione della pertinenza (profili di punteggio)
           href: index-add-scoring-profiles.md
-    - name: Administration
+    - name: Gestire e monitorare
       items:
         - name: Amministrazione del portale
           href: search-manage.md
         - name: Amministrazione di PowerShell
           href: search-manage-powershell.md
-    - name: Monitoraggio
-      items:
         - name: Monitorare le attività e la registrazione
           href: search-monitor-usage.md
         - name: Analisi del traffico di ricerca
@@ -253,6 +317,32 @@
       href: search-api-preview.md
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.search/searchservices
+    - name: Informazioni di riferimento sul linguaggio OData
+      items:
+        - name: Panoramica
+          href: query-odata-filter-orderby-syntax.md
+        - name: $filter
+          href: search-query-odata-filter.md
+        - name: $orderby
+          href: search-query-odata-orderby.md
+        - name: $select
+          href: search-query-odata-select.md
+        - name: 'any, all'
+          href: search-query-odata-collection-operators.md
+        - name: 'eq, ne, gt, lt, ge, le'
+          href: search-query-odata-comparison-operators.md
+        - name: 'search.ismatch, search.ismatchscoring'
+          href: search-query-odata-full-text-search-functions.md
+        - name: 'geo.distance, geo.intersects'
+          href: search-query-odata-geo-spatial-functions.md
+        - name: 'and, or, not'
+          href: search-query-odata-logical-operators.md
+        - name: search.in
+          href: search-query-odata-search-in-function.md
+        - name: search.score
+          href: search-query-odata-search-score-function.md
+        - name: Grammatica del linguaggio OData
+          href: search-query-odata-syntax-reference.md
     - name: Informazioni di riferimento sulle competenze cognitive
       href: cognitive-search-predefined-skills.md
       items:
@@ -260,8 +350,6 @@
           href: cognitive-search-skill-keyphrases.md
         - name: Rilevamento lingua
           href: cognitive-search-skill-language-detection.md
-        - name: Riconoscimento di entità denominate
-          href: cognitive-search-skill-named-entity-recognition.md
         - name: Riconoscimento delle entità
           href: cognitive-search-skill-entity-recognition.md
         - name: Utilità di unione testo
@@ -270,24 +358,33 @@
           href: cognitive-search-skill-textsplit.md
         - name: Valutazione
           href: cognitive-search-skill-sentiment.md
+        - name: Traduzione testuale
+          href: cognitive-search-skill-text-translation.md
         - name: Analisi delle immagini
           href: cognitive-search-skill-image-analysis.md
         - name: OCR
           href: cognitive-search-skill-ocr.md
         - name: Shaper
           href: cognitive-search-skill-shaper.md
-        - name: Competenze deprecate
-          href: cognitive-search-skill-deprecated.md
-    - name: Competenze personalizzate (anteprima)
+        - name: Condizionale
+          href: cognitive-search-skill-conditional.md
+    - name: Competenze personalizzate
       items:
         - name: API Web personalizzata
           href: cognitive-search-custom-skill-web-api.md
+    - name: Competenze deprecate
+      href: cognitive-search-skill-deprecated.md
+      items:
+        - name: Riconoscimento di entità denominate
+          href: cognitive-search-skill-named-entity-recognition.md
 - name: Risorse
   items:
     - name: Supporto della community di Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
     - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Forum di feedback (UserVoice)
+      href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Siti di demo
       items:
         - name: Demo sui file finanziari
@@ -296,8 +393,6 @@
           href: 'https://aka.ms/jfkfiles'
         - name: Demo di opportunità di lavoro a NYC
           href: 'https://aka.ms/azjobsdemo'
-        - name: Demo di Search Analyzer
-          href: 'https://alice.unearth.ai/'
         - name: Eseguire ricerche nei casi d'uso
           href: 'https://searchsamples.azurewebsites.net/'
     - name: Domande frequenti

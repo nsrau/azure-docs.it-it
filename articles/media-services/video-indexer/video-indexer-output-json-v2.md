@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799075"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output a Video Indexer prodotto dall'API
 
@@ -32,7 +33,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -41,7 +42,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 |userName|Nome dell'utente che ha creato la playlist.|
 |created|Ora di creazione della playlist.|
 |privacyMode|Modalità di privacy della playlist (privata/pubblica).|
-|state|Stato della playlist (caricata, in elaborazione, elaborata, non riuscita, in quarantena).|
+|stato|Stato della playlist (caricata, in elaborazione, elaborata, non riuscita, in quarantena).|
 |isOwned|Indica se la playlist è stata creata dall'utente corrente.|
 |isEditable|Indica se l'utente corrente è autorizzato a modificare la playlist.|
 |isBase|Indica se la playlist è una playlist di base (un video) o una playlist composta da altri video (derivata).|
@@ -72,7 +73,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
-|Attributo | DESCRIZIONE|
+|Attributo | Descrizione|
 |---|---|
 |name|Nome del video. Ad esempio, Monitoraggio di Azure.|
 |id|ID del video. Ad esempio, 63c6d532ff.|
@@ -92,12 +93,12 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
 |name|Nome del video.
-|state|Stato del video (caricato, in elaborazione, elaborato, non riuscito, in quarantena).|
+|stato|Stato del video (caricato, in elaborazione, elaborato, non riuscito, in quarantena).|
 |processingProgress|Stato di elaborazione durante l'elaborazione (ad esempio, 20%).|
 |failureCode|Codice di errore, se l'elaborazione non è riuscita (ad esempio, "UnsupportedFileType").|
 |failureMessage|Messaggio di errore, se l'elaborazione non è riuscita.|
@@ -111,7 +112,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|
 |sourceLanguage|Lingua di origine del video.|
-|Linguaggio|Lingua effettiva del video (traduzione).|
+|language|Lingua effettiva del video (traduzione).|
 |indexingPreset|Set di impostazioni usato per indicizzare il video.|
 |streamingPreset|Set di impostazioni usato per pubblicare il video.|
 |linguisticModelId|Modello CRIS usato per la trascrizione del video.|
@@ -151,7 +152,7 @@ Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco del
 |Version|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
-|Linguaggio|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
+|language|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcript|Dimensione [transcript](#transcript).|
 |ocr|Il [OCR](#ocr) dimensione.|
 |keywords|Dimensione [keywords](#keywords).|
@@ -190,18 +191,18 @@ Esempio:
 
 #### <a name="blocks"></a>blocks
 
-Attributo | DESCRIZIONE
+Attributo | Descrizione
 ---|---
 id|ID del blocco.|
 instances|Elenco degli intervalli di tempo di questo blocco.|
 
 #### <a name="transcript"></a>transcript
 
-|Name|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
-|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|language|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
@@ -235,12 +236,12 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
+|language|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 |height|L'altezza del rettangolo di OCR|
 |top|Il percorso di top in px|
@@ -270,12 +271,12 @@ Esempio:
 
 #### <a name="keywords"></a>keywords
 
-|Name|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|Linguaggio|Lingua della parola chiave, quando tradotta.|
+|language|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
@@ -301,7 +302,7 @@ Esempio:
 
 #### <a name="faces"></a>faces
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -346,11 +347,11 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|language|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
 |instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 
@@ -405,7 +406,7 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID della scena.|
 |instances|Un elenco degli intervalli di tempo di questa scena (una scena può avere solo 1 istanza).|
@@ -438,7 +439,7 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco di fotogrammi chiave all'interno della ripresa (ognuno con un ID e un elenco degli intervalli di tempo istanze). Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'anteprima del fotogramma chiave ID.|
@@ -488,7 +489,7 @@ Esempio:
 
 Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscimento vocale e/o nell'OCR del video. Non include il riconoscimento visivo dei marchi o il rilevamento dei logo.
 
-|Name|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
@@ -547,7 +548,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="statistics"></a>statistics
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -557,7 +558,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
@@ -586,7 +587,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -625,7 +626,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
@@ -661,7 +662,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti di testo.|
 |bannedWordsCount |Numero di parole escluse.|
@@ -671,7 +672,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozione identificata potrebbe essere gioia, tristezza, rabbia o paura.
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento emotivo identificato in base ai segnali vocali e audio. L'emozione potrebbe essere gioia, tristezza, rabbia o paura.|
@@ -761,13 +762,13 @@ Video Indexer identifica le emozioni in base a segnali vocali e audio. L'emozion
 
 Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di primo livello. 
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio: "Prodotti farmaceutici".|
-|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio:  "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
+|referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
-|Linguaggio|Lingua usata nell'argomento.|
+|language|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|
 |instances |Video Indexer attualmente non esegue l'indicizzazione di un argomento in base a intervalli di tempo, quindi l'intero video viene usato come intervallo.|
 

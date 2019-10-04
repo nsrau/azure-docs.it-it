@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b7f76211fe810ce1db53e5afaa307d90317464a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057382"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurazione di Azure Multi-Factor Authentication per le App Web IIS
 
 Usare la sezione Autenticazione IIS del server Azure Multi-Factor Authentication (MFA) per abilitare e configurare l'autenticazione IIS per l'integrazione con le applicazioni Web Microsoft IIS. Il server Azure MFA installa un plug-in che può filtrare le richieste inoltrate al server Web IIS per aggiungere Azure Multi-Factor Authentication. Il plug-in di IIS fornisce inoltre il supporto per l'autenticazione basata su form e l'autenticazione HTTP integrata di Windows. È possibile anche configurare gli indirizzi IP attendibili in modo da escludere gli indirizzi IP interni dall'autenticazione a due fattori.
+
+> [!IMPORTANT]
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ![Autenticazione IIS nel Server MFA](./media/howto-mfaserver-iis/iis.png)
 
@@ -76,4 +79,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 1. Fare clic sulla scheda **IP attendibili** nella sezione Autenticazione IIS.
 2. Fare clic su **Aggiungi**.
 3. Quando viene visualizzata la finestra di dialogo Add Trusted IPs (Aggiungi IP attendibili), selezionare il pulsante di opzione **IP singolo**, **Intervallo IP** o **Subnet**.
-4. Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet devono essere incluse nell'elenco. Se si immette una subnet, selezionare la Netmask appropriata e fare clic su **OK**. L'elenco whitelist è stato aggiunto.
+4. Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet a cui deve essere consentito. Se si immette una subnet, selezionare la Netmask appropriata e fare clic su **OK**.

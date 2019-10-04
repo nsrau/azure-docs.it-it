@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333861"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
@@ -83,7 +83,7 @@ La definizione e i valori degli argomenti sono i seguenti:
 * **USQLTargetType=Merge o SyntaxCheck**:
     * **Merge**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
     * **SyntaxCheck**. La modalità SyntaxCheck prima unisce i file code-behind nello script U-SQL. Compila quindi lo script U-SQL per convalidare il codice.
-* **DataRoot =\<percorso di DataRoot >**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
+* **DataRoot =\<percorso di DataRoot >** . DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
 * **EnableDeployment=true** o **false**. EnableDeployment indica se è consentita la distribuzione dei database U-SQL di riferimento durante il processo di compilazione. Se si fa riferimento a un progetto di database U-SQL e si utilizzano gli oggetti di database nello script U-SQL, impostare questo parametro su **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integrazione continua con Azure Pipelines

@@ -1,5 +1,5 @@
 ---
-title: L'aggiornamento di Server Azure MFA - Azure Active Directory
+title: Aggiornamento del server di autenticazione a più fattori di Azure-Azure Active Directory
 description: Passaggi e indicazioni per aggiornare il server Azure Multi-Factor Authentication a una versione più recente.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19ca6d82b80a9ed77a842b638ff8e9ff346342e8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358328"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988550"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
 In questo articolo viene illustrato il processo di aggiornamento del Server Azure multi-Factor Authentication (MFA) alla versione 6.0 o successiva. Se si desidera aggiornare una versione precedente dell'agente PhoneFactor, fare riferimento all'articolo [Aggiornare l'agente PhoneFactor al server Azure Multi-Factor Authentication](howto-mfaserver-deploy-upgrade-pf.md).
 
 Se si esegue l'aggiornamento dalla versione 6.x o precedente alla versione 7.x o successiva, tutti i componenti da .NET 2.0 a .NET 4.5 cambiano. Inoltre per tutti i componenti è necessario l'aggiornamento di Microsoft Visual C++ 2015 1 o versione successiva. Il programma di installazione del server MFA installa entrambe le versioni, x86 e x64, di questi componenti se non sono già installati. Se il Portale utenti e il servizio Web app per dispositivi mobili vengono eseguiti su server diversi, è necessario installare tali pacchetti prima di aggiornare i componenti. È possibile cercare l'aggiornamento più recente di Microsoft Visual C++ 2015 Redistributable nell'[Area download Microsoft](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure a più fattori basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 Riepilogo dei passaggi di aggiornamento:
 
@@ -63,7 +66,7 @@ Se il Portale utenti è su più server, ripetere l'installazione su tutti i serv
 ## <a name="upgrade-the-mobile-app-web-service"></a>Aggiornare il servizio Web app per dispositivi mobili
 
 > [!NOTE]
-> Quando si esegue l'aggiornamento da una versione del server Azure Multi-Factor Authentication precedente alla 8.0 a una versione successiva, il servizio Web per l'app per dispositivi mobili può essere disinstallato dopo l'aggiornamento
+> Quando si esegue l'aggiornamento da una versione del server Azure multi-factor authentication precedente alla 8,0 alla 8.0 +, il servizio Web App per dispositivi mobili può essere disinstallato dopo l'aggiornamento
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Aggiornare le schede AD FS
 

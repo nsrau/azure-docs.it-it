@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65142683"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
 Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server.
@@ -27,7 +27,7 @@ Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macc
 Questo articolo illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
 > [!NOTE]
-> Questo pacchetto autonomo di Windows Server è disponibile in commercio e può essere usato per distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora.
+> Il pacchetto autonomo per Windows Server è disponibile in commercio senza alcun costo e può essere usato per le distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora.
 > 
 > 
 
@@ -135,7 +135,7 @@ Per connettersi a un cluster non protetto, eseguire il seguente comando di Power
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-Ad esempio: 
+Ad esempio:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```

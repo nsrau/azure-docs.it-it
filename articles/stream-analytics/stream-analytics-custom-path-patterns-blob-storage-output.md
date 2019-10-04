@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65789412"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -26,7 +26,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias.
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere nvarchar (max).
 
 ### <a name="example"></a>Esempio
 
@@ -58,11 +58,11 @@ Si noti che ogni record nel BLOB ha una colonna **client_id** corrispondente al 
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. Le chiavi di partizione non fanno distinzione tra maiuscole e minuscole, quindi, ad esempio, "Gianni" e "gianni" sono equivalenti. Inoltre, le espressioni non possono essere usate come chiavi di partizione. Ad esempio, **{columnA + columnB}** non funziona.  
 
-3. Quando un flusso di input è costituito da record con una cardinalità della chiave di partizione inferiore a 8000, i record verranno aggiunti ai BLOB esistenti verranno creati nuovi BLOB solo quando è necessario. Se è la cardinalità è superiore a 8000 non esiste alcuna garanzia che i record vengano scritti nei BLOB esistenti e che non verranno creati nuovi BLOB per un numero arbitrario di record con la stessa chiave di partizione.  
+3. Quando un flusso di input è costituito da record con una cardinalità della chiave di partizione inferiore a 8000, i record verranno aggiunti ai BLOB esistenti verranno creati nuovi BLOB solo quando è necessario. Se è la cardinalità è superiore a 8000 non esiste alcuna garanzia che i record vengano scritti nei BLOB esistenti e che non verranno creati nuovi BLOB per un numero arbitrario di record con la stessa chiave di partizione.
 
 ## <a name="custom-datetime-path-patterns"></a>Modelli di percorso di data/ora personalizzati
 
@@ -72,7 +72,7 @@ I modelli di percorso di data/ora personalizzati consentono di specificare un fo
 
 I token di identificatore del formato seguenti possono essere usati da soli o in combinazione per ottenere formati di data/ora personalizzati:
 
-|Identificatore di formato   |DESCRIZIONE   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
+|Identificatore di formato   |Descrizione   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime:yyyy}|Anno come numero di quattro cifre|2018|
 |{datetime:MM}|Mese da 01 a 12|01|

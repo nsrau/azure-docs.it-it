@@ -1,6 +1,6 @@
 ---
 title: Monitorare sincronizzazione dati SQL di Azure con i log di monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come monitorare sincronizzazione dati SQL di Azure usando i registri di monitoraggio di Azure
+description: Informazioni su come monitorare sincronizzazione dati SQL di Azure usando i log di monitoraggio di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482437"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566412"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorare sincronizzazione dati SQL con i log di monitoraggio di Azure 
 
@@ -32,25 +31,25 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 
-Per individuare i problemi, non è più necessario esaminare singolarmente i log di ogni gruppo di sincronizzazione. È possibile monitorare tutti i gruppi di sincronizzazione da una qualsiasi delle sottoscrizioni in un'unica posizione con una visualizzazione personalizzata di monitoraggio di Azure. Questa vista evidenzia le informazioni importanti per i clienti di sincronizzazione dati SQL.
+Per individuare i problemi, non è più necessario esaminare singolarmente i log di ogni gruppo di sincronizzazione. È possibile monitorare tutti i gruppi di sincronizzazione da una qualsiasi delle sottoscrizioni in un'unica posizione usando una visualizzazione personalizzata di monitoraggio di Azure. Questa vista evidenzia le informazioni importanti per i clienti di sincronizzazione dati SQL.
 
 ![Dashboard di monitoraggio della sincronizzazione dei dati](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notifiche automatiche tramite posta elettronica
 
-Non è più necessario controllare manualmente il log nel portale di Azure oppure tramite PowerShell o l'API REST. Con [monitoraggio di Azure registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), è possibile creare avvisi inviati direttamente agli indirizzi e-mail delle persone che devono vengono visualizzati quando si verifica un errore.
+Non è più necessario controllare manualmente il log nel portale di Azure oppure tramite PowerShell o l'API REST. Con i [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)è possibile creare avvisi che passano direttamente agli indirizzi di posta elettronica delle persone che devono visualizzarli quando si verifica un errore.
 
 ![Notifiche tramite e-mail sulla sincronizzazione dei dati](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Come configurare queste funzioni di monitoraggio 
 
-Implementare un monitoraggio di Azure personalizzato registra soluzione di monitoraggio per la sincronizzazione dati SQL in meno di un'ora eseguendo le operazioni seguenti:
+Implementare una soluzione di monitoraggio dei log di monitoraggio di Azure personalizzata per sincronizzazione dati SQL in meno di un'ora eseguendo le operazioni seguenti:
 
 È necessario configurare tre componenti:
 
--   Un runbook di PowerShell per inserire i dati di log di sincronizzazione dati SQL ai log di monitoraggio di Azure.
+-   Un Runbook di PowerShell per il feed sincronizzazione dati SQL i dati di log nei log di monitoraggio di Azure.
 
--   Un avviso in Monitoraggio di Azure per le notifiche di posta elettronica.
+-   Avviso di monitoraggio di Azure per le notifiche di posta elettronica.
 
 -   Una vista di monitoraggio di Azure per il monitoraggio.
 
@@ -60,7 +59,7 @@ Scaricare i due esempi seguenti:
 
 -   [Runbook PowerShell dei log di sincronizzazione dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Visualizzazione di monitoraggio di Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Visualizzazione monitoraggio di Azure per la sincronizzazione dei dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -72,7 +71,7 @@ Assicurarsi di avere configurato quanto segue:
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook PowerShell per ottenere il log di sincronizzazione dati SQL 
 
-Usare un runbook di PowerShell ospitato in automazione di Azure per inserire i dati dei log di sincronizzazione dati SQL e inviarli a log di monitoraggio di Azure. È incluso uno script di esempio. Come prerequisito è necessario disporre di un account di Automazione di Azure. È quindi necessario creare un runbook e pianificarne l'esecuzione. 
+Usare un Runbook di PowerShell ospitato in automazione di Azure per eseguire il pull dei dati di log sincronizzazione dati SQL e inviarli ai log di monitoraggio di Azure. È incluso uno script di esempio. Come prerequisito è necessario disporre di un account di Automazione di Azure. È quindi necessario creare un runbook e pianificarne l'esecuzione. 
 
 ### <a name="create-a-runbook"></a>Creare un runbook
 
@@ -102,7 +101,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
     2.  Informazioni sul gruppo di sincronizzazione.
 
-    3.  Monitoraggio di Azure registra le informazioni. Trovare queste informazioni nel portale di Azure | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati per i log di monitoraggio di Azure, vedere [inviare i dati di log di monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima)](../azure-monitor/platform/data-collector-api.md).
+    3.  Il monitoraggio di Azure registra le informazioni. Trovare queste informazioni nel portale di Azure | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati ai log di monitoraggio di Azure, vedere [inviare dati ai log di monitoraggio di Azure con l'API dell'agente di raccolta dati http (anteprima)](../azure-monitor/platform/data-collector-api.md).
 
 11. Eseguire il runbook nel riquadro di test. Assicurarsi che sia stato eseguito correttamente.
 
@@ -132,11 +131,11 @@ Per monitorare se l'automazione è in esecuzione come previsto, in **Anteprima**
 
 ## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Creare un avviso del lettore di monitoraggio di Azure per le notifiche di posta elettronica
 
-Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazioni seguenti. Come prerequisito, è necessario che i log di monitoraggio di Azure collegati a un'area di lavoro di Log Analitica.
+Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazioni seguenti. Come prerequisito, è necessario che i log di monitoraggio di Azure siano collegati con un'area di lavoro Log Analytics.
 
 1.  Nel portale di Azure selezionare **Ricerca log**.
 
-2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio: 
+2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -152,9 +151,9 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 6.  Fare clic su **Save**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
 
-## <a name="create-an-azure-monitor-view-for-monitoring"></a>Creare una vista di monitoraggio di Azure per il monitoraggio
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Creare una visualizzazione di monitoraggio di Azure per il monitoraggio
 
-Questo passaggio Crea una visualizzazione di monitoraggio di Azure per monitorare visivamente tutti i gruppi di sincronizzazione specificato. La vista include diversi componenti:
+Questo passaggio crea una visualizzazione di monitoraggio di Azure per monitorare visivamente tutti i gruppi di sincronizzazione specificati. La vista include diversi componenti:
 
 -   Un riquadro di panoramica che indica il numero di errori, le operazioni riuscite e gli avvisi di tutti i gruppi di sincronizzazione.
 
@@ -164,7 +163,7 @@ Questo passaggio Crea una visualizzazione di monitoraggio di Azure per monitorar
 
 Per configurare la visualizzazione di monitoraggio di Azure, eseguire le operazioni seguenti:
 
-1.  Nella home page dell'area di lavoro di Log Analitica, selezionare il segno più a sinistra per aprire la **Progettazione viste**.
+1.  Nell'area di lavoro Log Analytics home page selezionare il segno più a sinistra per aprire **Progettazione viste**.
 
 2.  Selezionare **Importa** nella barra superiore della finestra di progettazione viste. Selezionare quindi il file di esempio "DataSyncLogOMSView".
 
@@ -188,7 +187,7 @@ Nella maggior parte dei casi questa soluzione è gratuita.
 
 **Automazione di Azure:** potrebbe essere addebitato un costo associato all'account di Automazione di Azure, in base all'utilizzo. I primi 500 minuti al mese del tempo di esecuzione processo sono gratuiti. Nella maggior parte dei casi l'utilizzo previsto per questa soluzione è inferiore a 500 minuti al mese. Per evitare costi, pianificare l'esecuzione del runbook a un intervallo di due o più ore. Per altre informazioni, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log di monitoraggio di Azure:** Potrebbe esserci un costo associato con i log di monitoraggio di Azure in base all'utilizzo. Il livello gratuito include 500 MB di dati inseriti al giorno. Nella maggior parte dei casi l'inserimento previsto per questa soluzione è inferiore a 500 MB al mese. Per ridurre l'utilizzo, usare i filtri solo in base all'errore inclusi nel runbook. Se si usano più di 500 MB al giorno, eseguire l'aggiornamento al piano a pagamento per evitare il rischio di interruzione dell'analisi al raggiungimento del limite. Per altre informazioni, vedi [monitoraggio di Azure registra prezzi](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log di monitoraggio di Azure:** I log di monitoraggio di Azure possono avere un costo associato a seconda dell'utilizzo. Il livello gratuito include 500 MB di dati inseriti al giorno. Nella maggior parte dei casi l'inserimento previsto per questa soluzione è inferiore a 500 MB al mese. Per ridurre l'utilizzo, usare i filtri solo in base all'errore inclusi nel runbook. Se si usano più di 500 MB al giorno, eseguire l'aggiornamento al piano a pagamento per evitare il rischio di interruzione dell'analisi al raggiungimento del limite. Per altre informazioni, vedere [prezzi dei log di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Esempi di codice
 
@@ -196,7 +195,7 @@ Scaricare gli esempi di codice descritti in questo articolo dalle posizioni segu
 
 -   [Runbook PowerShell dei log di sincronizzazione dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Visualizzazione di monitoraggio di Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Visualizzazione monitoraggio di Azure per la sincronizzazione dei dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:

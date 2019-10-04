@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Eseguire una ricerca di notizie con C#: API REST Ricerca notizie Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando C# e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c6b050a9637046a8703dd7aaf1d5ac7f1ad1a5da
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074796"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423790"
 ---
-# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Avvio rapido: Cercare le notizie usando C# e l'API REST Ricerca notizie Bing
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Cercare le notizie usando C# e l'API REST Ricerca notizie Bing
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca notizie Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice completo per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
@@ -26,7 +26,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 

@@ -10,17 +10,16 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 414d34065b78db0f76683752b93d5ed89ebcdf75
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546812"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071190"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Creare un'app PHP nel servizio app in Linux
 
@@ -28,7 +27,7 @@ ms.locfileid: "59546812"
 > Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app PHP in Azure](../app-service-web-get-started-php.md).
 >
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app PHP nel Servizio app di Azure in Linux. È necessario creare l'app con l'immagine predefinita usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e usare Git per distribuire il codice PHP nell'app del servizio app.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione di avvio rapido illustra come distribuire un'app PHP in Servizio app di Azure in Linux tramite [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![App di esempio in esecuzione in Azure](media/quickstart-php/hello-world-in-browser.png)
 

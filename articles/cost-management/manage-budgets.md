@@ -1,21 +1,21 @@
 ---
-title: Gestire i budget Cloudyn in Azure | Microsoft Docs
+title: Gestire i budget Cloudyn in Azure
 description: Questo articolo consente di creare rapidamente i budget e di iniziare a gestirli in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: e6afa7eb91daec95c44d76007ea793fca90b61bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009109"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259244"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gestire i budget di Azure con Cloudyn
 
@@ -79,7 +79,7 @@ Nell'esempio precedente si nota che il costo accumulato si è avvicinato al valo
 
 Ecco un esempio.
 
-Nel report di confronto tra costo e budget nel tempo fare clic su **Azioni** e quindi selezionare **Pianifica report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Save**.
+Nel report di confronto tra costo e budget nel tempo fare clic su **Azioni** e quindi selezionare **Pianifica report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**.
 
 ![Creazione di un avviso del budget nella finestra Save or Schedule this report (Salva o pianifica questo report)](./media/manage-budgets/budget-alert.png)
 

@@ -3,7 +3,7 @@ title: Aggiungere l'autenticazione all'app UWP (Universal Windows Platform) | Do
 description: "Informazioni su come usare App per dispositivi mobili del servizio App di Azure per autenticare gli utenti dell'app Universal Windows Platform (UWP) usando un'ampia gamma di provider di identità, tra cui: AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: panarasi
-ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698677"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440226"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Aggiungere l'autenticazione all'app Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) oggi stesso.
+>
+
+## <a name="overview"></a>Panoramica
 In questo argomento viene illustrato come aggiungere l'autenticazione basata su cloud all’app per dispositivi mobili. In questa esercitazione si aggiungerà l'autenticazione al progetto di guida introduttiva UWP (Universal Windows Platform) per App per dispositivi mobili tramite un provider di identità supportato dal Servizio app di Azure. In seguito all'autenticazione e all'autorizzazione da parte dell'app per dispositivi mobili, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione è basata sulla guida introduttiva di App per dispositivi mobili. È necessario completare prima l'esercitazione relativa alla [creazione di un'app per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md).
@@ -160,7 +165,7 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 * [Aggiungere notifiche push all'app Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   : informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per usare Hub di notifica di Azure per l'invio di notifiche push.
 * [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-   (Abilitare la sincronizzazione offline per l'app) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app&mdash;visualizzando, aggiungendo e modificando i dati&mdash;anche se non è disponibile una connessione di rete.
+  (Abilitare la sincronizzazione offline per l'app) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app&mdash;visualizzando, aggiungendo e modificando i dati&mdash;anche se non è disponibile una connessione di rete.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

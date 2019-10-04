@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243192"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
 
-In alcuni casi è tuttavia necessario apportare alcune modifiche alla configurazione predefinita. Di seguito sono riportati alcuni esempi:
+In alcuni casi è tuttavia necessario apportare alcune modifiche alla configurazione predefinita. Ecco alcuni esempi:
 
 * Si prevede di usare la [topologia con più directory di Azure AD](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). In tal caso è necessario applicare un filtro per controllare quali oggetti sincronizzare con una determinata directory di Azure AD.
 * Si esegue una distribuzione pilota per Azure o Office 365 e si vuole solo un subset di utenti in Azure AD. In una distribuzione pilota di dimensioni ridotte la disponibilità di un elenco indirizzi globale completo per illustrare la funzionalità non è importante.
@@ -123,7 +123,7 @@ Per impostare il filtro basato su dominio, seguire questa procedura:
 Per impostare il filtro basato su dominio, seguire questa procedura:
 
 1.  Avviare la procedura guidata Azure AD Connect
-2.  Fare clic su **Configure**.
+2.  Fare clic su **configurare**.
 3.  Selezionare **personalizzare le opzioni di sincronizzazione** e fare clic su **successivo**.
 4.  Immettere le credenziali di Azure AD
 5.  Nel **directory connesse** dello schermo fare clic su **successivo**.
@@ -216,9 +216,9 @@ I filtri in ingresso usano la configurazione predefinita in base alla quale per 
 
 Per determinare gli oggetti da sincronizzare o da non sincronizzare, durante l'applicazione del filtro in ingresso si usa l'**ambito** dove si apportano le modifiche necessarie per rispettare i requisiti dell'organizzazione. Nel modulo di ambito sono disponibili un **gruppo** e una **clausola** per determinare quando una regola di sincronizzazione è nell'ambito. Un gruppo contiene una o più clausole. Tra più clausole viene inserito un operatore AND logico e tra più gruppi un operatore OR logico.
 
-Ecco un esempio:   
+Ecco un esempio:  
 ![Ambito](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Deve essere letto come **(department = IT) OR (department = Sales AND c = US)**.
+Deve essere letto come **(department = IT) OR (department = Sales AND c = US)** .
 
 Negli esempi e nei passaggi seguenti viene usato l'oggetto utente come esempio, ma l'uso può essere esteso a tutti i tipi di oggetto.
 

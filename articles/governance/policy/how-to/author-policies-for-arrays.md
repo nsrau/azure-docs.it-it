@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65979334"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criteri di autore per le proprietà di matrice sulle risorse di Azure
 
@@ -207,9 +207,9 @@ Per altre informazioni, vedere la [append esempi](../concepts/effects.md#append-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](../concepts/definition-structure.md)
-- Vedere [Informazioni sugli effetti di Criteri](../concepts/effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md)
-- Informazioni su come [correggere le risorse non conformi](remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
+- Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

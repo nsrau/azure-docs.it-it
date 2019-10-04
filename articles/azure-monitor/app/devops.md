@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60899717"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -133,7 +133,7 @@ Ad esempio, è facile:
 * Tenere traccia di sessioni e tempi di risposta di determinati utenti per consentire al team operativo e di supporto di fornire assistenza in tempi immediati.
 * Individuare le funzionalità più utilizzate nelle app per rispondere alle domande sulla priorità delle funzionalità.
 
-Dichiara il cliente DNN: "Application Insights è quanto ci mancava per poter combinare, ordinare, interrogare e filtrare i dati a dovere. Permettendo al nostro team di mettere in campo il proprio ingegno e la propria esperienza per trovare i dati con un linguaggio di query avanzato, questa soluzione ci ha consentito di risalire a informazioni e risolvere problemi che nemmeno sapevamo di avere. Da domande del tipo *"Mi chiedo se...*" sono emerse molte risposte interessanti."
+Dichiara il cliente DNN: "Application Insights è quanto ci mancava per poter combinare, ordinare, interrogare e filtrare i dati a dovere. Permettendo al nostro team di mettere in campo il proprio ingegno e la propria esperienza per trovare i dati con un linguaggio di query avanzato, questa soluzione ci ha consentito di risalire a informazioni e risolvere problemi che nemmeno sapevamo di avere. Da domande del tipo *"Mi chiedo se...* " sono emerse molte risposte interessanti."
 
 ## <a name="development-tools-integration"></a>Integrazione di strumenti di sviluppo
 ### <a name="configuring-application-insights"></a>Configurazione di Application Insights

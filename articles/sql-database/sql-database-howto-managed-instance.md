@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60340792"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568058"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Come usare un'istanza gestita nel database SQL di Azure
 
@@ -36,7 +35,7 @@ In questo articolo sono disponibili varie guide, script e spiegazioni che posson
 - [Configurare una rete virtuale e una subnet esistenti per un'istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md): se si intende configurare la rete virtuale e la subnet esistenti per distribuire le istanze gestite all'interno, qui è possibile trovare lo script che controlla i [requisiti di rete](sql-database-managed-instance-connectivity-architecture.md#network-requirements) e che consente di configurare la subnet in base ai requisiti.
 - [Configurare un DNS personalizzato](sql-database-managed-instance-custom-dns.md): è necessario configurare un DNS personalizzato se si intende accedere a risorse esterne in domini personalizzati dall'istanza gestita tramite server collegati di profili di posta elettronica di database.
 - [Sincronizzare la configurazione di rete](sql-database-managed-instance-sync-network-configuration.md): può accadere che, sebbene [l'app in uso sia stata integrata con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md), non sia possibile stabilire una connessione a un'stanza gestita. È possibile provare ad aggiornare la configurazione di rete per il piano di servizio.
-- [Trovare l'indirizzo IP dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md) -istanza gestita di Azure Usa endpoint pubblico per scopi di gestione. È possibile determinare l'indirizzo IP dell'endpoint di gestione tramite lo script descritto qui.
+- [Trova indirizzo IP dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md) : istanza gestita usa l'endpoint pubblico per la gestione. È possibile determinare l'indirizzo IP dell'endpoint di gestione tramite lo script descritto qui.
 - [Verificare la protezione del firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md): per la protezione di Istanza gestita è disponibile un firewall incorporato che consente il traffico solo sulle porte necessarie. È possibile controllare e verificare le regole del firewall incorporato usando lo script descritto in questa guida.
 - [Connettere le applicazioni](sql-database-managed-instance-connect-app.md): la funzione Istanza gestita viene inserita nella rete virtuale di Azure privata in uso con indirizzo IP privato. Informazioni su modelli differenti per connettere le applicazioni all'istanza gestita.
 

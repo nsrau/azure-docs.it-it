@@ -2,19 +2,19 @@
 title: Che cosa sono i documenti paralleli? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: I documenti paralleli sono coppie di documenti in cui uno è la traduzione dell'altro. Un documento della coppia contiene frasi nella lingua di origine, mentre l'altro contiene le stesse frasi tradotte nella lingua di destinazione.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fa3abb9fc7b899fa5c74d6f1cd73ebbbb72b6047
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511388"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595438"
 ---
 # <a name="what-are-parallel-documents"></a>Che cosa sono i documenti paralleli?
 
@@ -23,7 +23,7 @@ Non ha importanza quale lingua è contrassegnata come "di origine" e quale come 
 
 ## <a name="requirements"></a>Requisiti
 
-È necessario un minimo di 10.000 frasi parallele univoche per il training di un sistema. Come procedura consigliata, è possibile aggiungere continuamente contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione.
+Per eseguire il training di un sistema, è necessario un minimo di 10.000 frasi parallele univoche. Come procedura consigliata, è possibile aggiungere continuamente contenuti paralleli e ripetere il training per migliorare la qualità del sistema di traduzione.
 
 Microsoft richiede che i documenti caricati in Custom Translator non violino i diritti di copyright o di proprietà intellettuale di terze parti. Per altre informazioni, vedere le [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Il caricamento di un documento tramite il portale non altera in alcun modo la proprietà intellettuale nel documento stesso.

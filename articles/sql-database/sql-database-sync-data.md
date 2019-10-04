@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483558"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648354"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -32,7 +31,7 @@ La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mante
 
 - **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 - **Applicazioni distribuite:** in molti casi è utile separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
-- **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
+- **Applicazioni distribuite a livello globale:** Molte aziende si estendono in diverse aree geografiche e anche in diversi paesi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
 La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
 
@@ -76,10 +75,10 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 ## <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| | Sincronizzazione dei dati | Replica transazionale |
+| | Sincronizzazione dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database SQL singolo o in pool di Microsoft Azure<br/>- Alti costi di manutenzione |
+| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
 | | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introduzione alla sincronizzazione dati SQL
@@ -119,6 +118,12 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 ### <a name="general-requirements"></a>Requisiti generali
 
 - Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria. 
+
+> [!IMPORTANT]
+> La modifica del valore di una chiave primaria esistente provocherà il comportamento difettoso seguente:   
+>   - I dati tra l'hub e il membro possono essere persi anche se la sincronizzazione non segnala alcun problema.
+> - La sincronizzazione può avere esito negativo perché la tabella di rilevamento include una riga non esistente dall'origine a causa della modifica della chiave primaria.
+
 - L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitazioni generali
@@ -129,6 +134,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 - L'autenticazione di Azure Active Directory non è supportata.
 - Le tabelle con lo stesso nome ma con schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
+- Le colonne con tipi di dati definiti dall'utente non sono supportate
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 
@@ -139,7 +145,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio: 
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.

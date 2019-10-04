@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65550499"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
@@ -82,6 +82,9 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
+
+### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+- Consultare [sui piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MariaDB visualizza una versione di server non corretta. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.

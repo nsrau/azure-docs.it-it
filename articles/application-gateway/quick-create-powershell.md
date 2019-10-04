@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d41480def95137e1dc938c845f8cec1d59e26036
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a55f602833cacd27cd82adafd888c67c544564c2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521785"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359984"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell
 
@@ -23,7 +23,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Se si sceglie di installare e usare Azure PowerShell in locale, per questa eserc
 1. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). 
 2. Eseguire `Login-AzAccount` per creare una connessione con Azure.
 
-### <a name="resource-group"></a>Gruppo di risorse
+### <a name="resource-group"></a>Resource group
 
 In Azure, si allocano le risorse correlate a un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. In questo esempio si creerà un nuovo gruppo di risorse usando il cmdlet [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) come segue: 
 
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>Risorse di rete necessarie
 
-Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale.  La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.  È possibile creare una nuova subnet per il gateway applicazione o usarne una esistente. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. L'IP front-end del gateway applicazione può essere configurato come pubblico o privato a seconda del caso d'uso. In questo esempio si sceglierà un IP front-end pubblico.
+Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale.  La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.  È possibile creare una nuova subnet per il gateway applicazione o usarne una esistente. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. L'IP front-end del gateway applicazione può essere configurato come pubblico o privato a seconda del caso d'uso. In questo esempio si sceglierà un indirizzo IP front-end pubblico.
 
 1. Creare le configurazioni di subnet chiamando [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
 2. Creare la rete virtuale con le configurazioni di subnet chiamando [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
@@ -67,7 +67,8 @@ New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 ### <a name="backend-servers"></a>Server back-end
 
@@ -109,7 +110,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -151,7 +152,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 ### <a name="create-the-backend-pool"></a>Creare il pool back-end
 
 1. Usare [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) per creare il pool back-end per il gateway applicazione. 
-2. Configurare le impostazioni per il pool back-end con [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsettings).
+2. Configurare le impostazioni per il pool back-end con [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -159,7 +160,7 @@ $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name my
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool `
   -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -197,8 +198,8 @@ Dopo aver creato le risorse di supporto necessarie, creare il gateway applicazio
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 New-AzApplicationGateway `
   -Name myAppGateway `
@@ -219,7 +220,7 @@ New-AzApplicationGateway `
 Nonostante l'installazione di IIS non sia necessaria per creare il gateway applicazione, è stata eseguita in questa guida introduttiva per verificare se il gateway applicazione è stato creato correttamente in Azure. Usare IIS per testare il gateway applicazione:
 
 1. Eseguire [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. 
-2. Copiare e incollare l'indirizzo IP pubblico nella barra degli indirizzi del browser. Quando si aggiorna il browser, dovrebbe apparire il nome della macchina virtuale. Una risposta valida verifica che il gateway applicazione sia stato creato correttamente e sia in grado di connettersi correttamente al back-end.
+2. Copiare e incollare l'indirizzo IP pubblico nella barra degli indirizzi del browser. Quando si aggiorna il browser, dovrebbe apparire il nome della macchina virtuale. Una risposta valida verifica che il gateway applicazione sia stato creato correttamente e possa connettersi al back-end.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

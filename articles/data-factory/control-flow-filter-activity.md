@@ -3,21 +3,20 @@ title: Attività filtro in Azure Data Factory | Documenti Microsoft
 description: L'attività filtro consente di filtrare gli input.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: shlo
-ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021833"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915521"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
 È possibile usare un'attività filtro in una pipeline per applicare un'espressione filtro a una matrice di input. 
@@ -39,14 +38,14 @@ ms.locfileid: "54021833"
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Filter`. | string | Yes
-type | Deve essere impostato su **filter**. | string | Yes
-condition | Condizione da usare per il filtraggio dell'input. | Expression | Yes
-items | Matrice di input a cui deve essere applicato il filtro. | Expression | Yes
+name | Nome dell'attività `Filter`. | String | Sì
+type | Deve essere impostato su **filter**. | String | Yes
+condition | Condizione da usare per il filtraggio dell'input. | Expression | Sì
+elementi | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
 
 ## <a name="example"></a>Esempio
 
-In questo esempio, la pipeline include due attività: **Filtro** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach quindi scorre i valori filtrati e attende il numero di secondi specificato dal valore corrente.
+In questo esempio, la pipeline include due attività: **Filtro** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach scorre quindi i valori filtrati e imposta il **test** della variabile sul valore corrente.
 
 ```json
 {
@@ -61,32 +60,53 @@ In questo esempio, la pipeline include due attività: **Filtro** e **ForEach**. 
                 }
             },
             {
-                "name": "MyForEach",
-                "type": "ForEach",
-                "typeProperties": {
-                    "isSequential": "false",
-                    "batchCount": 1,
-                    "items": "@activity('MyFilterActivity').output.value",
-                    "activities": [{
-                        "type": "Wait",
-                        "typeProperties": {
-                            "waitTimeInSeconds": "@item()"
-                        },
-                        "name": "MyWaitActivity"
-                    }]
-                },
-                "dependsOn": [{
+            "name": "MyForEach",
+            "type": "ForEach",
+            "dependsOn": [
+                {
                     "activity": "MyFilterActivity",
-                    "dependencyConditions": ["Succeeded"]
-                }]
+                    "dependencyConditions": [
+                        "Succeeded"
+                    ]
+                }
+            ],
+            "userProperties": [],
+            "typeProperties": {
+                "items": {
+                    "value": "@activity('MyFilterActivity').output.value",
+                    "type": "Expression"
+                },
+                "isSequential": "false",
+                "batchCount": 1,
+                "activities": [
+                    {
+                        "name": "Set Variable1",
+                        "type": "SetVariable",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "variableName": "test",
+                            "value": {
+                                "value": "@string(item())",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
             }
-        ],
+        }],
         "parameters": {
             "inputs": {
                 "type": "Array",
                 "defaultValue": [1, 2, 3, 4, 5, 6]
             }
-        }
+        },
+        "variables": {
+            "test": {
+                "type": "String"
+            }
+        },
+        "annotations": []
     }
 }
 ```

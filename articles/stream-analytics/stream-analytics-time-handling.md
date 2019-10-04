@@ -1,18 +1,18 @@
 ---
 title: Informazioni sulla gestione del tempo in Analisi di flusso di Azure
-description: Informazioni su come gestire il tempo in Analisi di flusso di Azure
+description: Informazioni sul funzionamento della gestione del tempo e su come risolvere i problemi di gestione del tempo in analisi di flusso di Azure.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543288"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172986"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
 
@@ -26,7 +26,7 @@ Per strutturare meglio la discussione, è opportuno definire alcuni concetti di 
 
 - **Ora di elaborazione**: l'ora in cui l'evento raggiunge il sistema di elaborazione e viene osservato. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
 
-- **Limite**: indicatore temporale che indica tutti gli eventi inseriti nel processore di flusso fino a un certo punto. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
+- **Limite**: Indicatore dell'ora dell'evento che indica gli eventi punto che sono stati inseriti nel processore di flusso. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
 
    Il concetto di limite è importante. I limiti consentono ad Analisi di flusso di Azure di determinare quando il sistema è in grado di produrre risultati completi, corretti e ripetibili che non è necessario ritirare. L'elaborazione può essere eseguita in un modo che garantisce prevedibilità e ripetibilità. Ad esempio, se è necessario ripetere un conteggio per una qualche condizione di gestione degli errori, i limiti sono punti di inizio e fine sicuri.
 
@@ -128,7 +128,7 @@ I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi*
 
 È possibile osservare diversi effetti delle tolleranze di ordinamento temporale degli eventi tramite le [metriche dei processi di Analisi di flusso](stream-analytics-monitoring.md). Le metriche seguenti sono rilevanti:
 
-|Metrica  | DESCRIZIONE  |
+|Metrica  | Descrizione  |
 |---------|---------|
 | **Eventi non in ordine** | Indica il numero di eventi ricevuti non in ordine, che sono stati eliminati o a cui è stato assegnato un timestamp modificato. Questa metrica è interessata direttamente dalla configurazione dell'impostazione **Eventi non in ordine** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
 | **Ultimi eventi di input** | Indica il numero di eventi arrivati in ritardo dall'origine. Questa metrica include gli eventi che sono stati eliminati o di cui è stato modificato il timestamp. È interessata direttamente dalla configurazione dell'impostazione **Eventi pervenuti in ritardo** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
@@ -163,7 +163,7 @@ Analisi di flusso di Azure usa lo stato del limite come unico trigger per produr
 
 Quando si usano [funzioni di aggregazione finestra](stream-analytics-window-functions.md), il servizio produce output solo alla fine delle finestre. In alcuni casi gli utenti potrebbero avere l'esigenza di visualizzare le funzioni di aggregazione parziali generate dalle finestre. Le funzioni di aggregazione parziali non sono tuttavia attualmente supportate in Analisi di flusso di Azure.
 
-In altre soluzioni di streaming gli eventi di output potrebbero materializzarsi in corrispondenza di vari punti di trigger, a seconda delle circostanze esterne. È possibile in alcune soluzioni che è stato possibile generare gli eventi di output per una determinata finestra temporale più volte. Man mano che i valori di input vengono ridefiniti, i risultati aggregati diventano più precisi. Gli eventi potrebbero essere soggetti a un'iniziale previsione e quindi essere rivisti nel tempo. Ad esempio, quando un determinato dispositivo è offline, un sistema potrebbe usare un valore stimato. Quando, successivamente, il dispositivo torna online, i dati dell'evento effettivi potrebbero essere inclusi nel flusso di input. I risultati di output dell'elaborazione di tale intervallo di tempo producono un output più preciso.
+In altre soluzioni di streaming gli eventi di output potrebbero materializzarsi in corrispondenza di vari punti di trigger, a seconda delle circostanze esterne. In alcune soluzioni è possibile che gli eventi di output per un determinato intervallo di tempo vengano generati più volte. Man mano che i valori di input vengono ridefiniti, i risultati aggregati diventano più precisi. Gli eventi potrebbero essere soggetti a un'iniziale previsione e quindi essere rivisti nel tempo. Ad esempio, quando un determinato dispositivo è offline, un sistema potrebbe usare un valore stimato. Quando, successivamente, il dispositivo torna online, i dati dell'evento effettivi potrebbero essere inclusi nel flusso di input. I risultati di output dell'elaborazione di tale intervallo di tempo producono un output più preciso.
 
 ## <a name="illustrated-example-of-watermarks"></a>Esempio illustrato di limiti
 
@@ -171,7 +171,7 @@ Le immagini seguenti illustrano lo stato di avanzamento dei limiti in diverse ci
 
 Questa tabella contiene i dati di esempio riportati nei grafici seguenti. Si noti che l'ora dell'evento e l'ora di arrivo cambiano: a volte coincidono, altre volte no.
 
-| Ora dell'evento | Ora di arrivo | deviceId |
+| Ora dell'evento | Ora di arrivo | DeviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2

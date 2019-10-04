@@ -1,22 +1,22 @@
 ---
 title: "Esempio: Esplorare un'app di elaborazione delle immagini in C#"
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: In questa esercitazione si esplora un'applicazione di base per Windows che usa l'API Visione artificiale in Servizi cognitivi Microsoft. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
+titleSuffix: Azure Cognitive Services
+description: Esplorare un'applicazione di base per Windows che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310944"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170041"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
@@ -33,7 +33,7 @@ Esaminare un'applicazione Windows di base che usa Visione artificiale per esegui
 Prima di esplorare l'app di esempio, verificare che i prerequisiti seguenti siano soddisfatti:
 
 * È necessario disporre di [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versioni successive.
-* È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Prendere nota anche dell'URL dell'endpoint servizio.
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
@@ -79,8 +79,9 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
 1. Quando viene visualizzata l'app di esempio, scegliere **Subscription Key Management** (Gestione chiavi di sottoscrizione) dal riquadro di spostamento per visualizzare la pagina di gestione delle chiavi di sottoscrizione.
    ![Pagina di gestione delle chiavi di sottoscrizione](../Images/Vision_UI_Subscription.PNG)  
 1. Immettere la chiave di sottoscrizione in **Subscription Key** (Chiave di sottoscrizione).
-1. Immettere l'URL dell'endpoint, omettendo `/vision/v1.0`, della risorsa Visione artificiale per la chiave di sottoscrizione in **Endpoint**.  
-   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente per l'area di Azure Stati Uniti centro-occidentali: `https://westcentralus.api.cognitive.microsoft.com`
+1. Immettere l'URL dell'endpoint in **Endpoint**.  
+   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente: `https://westcentralus.api.cognitive.microsoft.com`  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Per evitare di immettere nuovamente la chiave di sottoscrizione e l'URL dell'endpoint alla successiva esecuzione dell'app di esempio, scegliere **Save Setting** (Salva impostazione) per salvare la chiave di sottoscrizione e l'URL dell'endpoint nel computer. Se si vuole eliminare la chiave di sottoscrizione e l'URL dell'endpoint salvati in precedenza, scegliere **Delete Setting** (Elimina impostazione).
 
    > [!NOTE]

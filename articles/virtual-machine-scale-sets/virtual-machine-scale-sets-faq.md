@@ -4,7 +4,7 @@ description: Risposte alle domande frequenti sui set di scalabilità di macchine
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683954"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779418"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -69,7 +69,7 @@ Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizi
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
- Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
+Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -134,13 +134,13 @@ Per configurare la scalabilità automatica in un set di scalabilità di macchine
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Una VM arrestata (deallocata) verrà avviata come parte di un'operazione di scalabilità automatica?
 
- No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
+No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
 
 
 
 ## <a name="certificates"></a>Certificati
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Come si invia un certificato alla VM in modo sicuro? Come si effettua il provisioning di un set di scalabilità di macchine virtuali per eseguire un sito Web in cui il certificato SSL per il sito Web viene inviato in modo sicuro da una configurazione del certificato? L'operazione di rotazione del certificato comune è quasi uguale a un'operazione di aggiornamento della configurazione. È disponibile un esempio per questa operazione?
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm"></a>Come si invia un certificato alla VM in modo sicuro?
 
 Per inviare in modo sicuro un certificato alla macchina virtuale, è possibile installare un certificato cliente direttamente nell'archivio certificati Windows dall'insieme di credenziali delle chiavi del cliente.
 
@@ -167,16 +167,14 @@ Il codice supporta Windows e Linux.
 Per altre informazioni, vedere [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx) (Creare o aggiornare un set di scalabilità di macchine virtuali).
 
 
-### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Esempio di certificati autofirmati forniti per i cluster di Service Fabric in Azure.
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Ricerca per categorie usare i certificati autofirmati sottoposti a provisioning per i cluster Azure Service Fabric?
 Per l'esempio più recente usare la seguente istruzione dell'interfaccia della riga di comando di Azure all'interno di Azure Cloud Shell e leggere la documentazione di esempio dell'interfaccia della riga di comando di Service Fabric che verrà visualizzata in StdOut:
 
 ```bash
 az sf cluster create -h
 ```
 
-Leggere la documentazione di Key Vault per le operazioni più recenti relative ai certificati supportate per le API in Azure.
-
-I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) e [Scenari di sicurezza di un cluster di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+I certificati autofirmati non possono essere usati per l'attendibilità fornita da un'autorità di certificazione e non devono essere usati per i cluster di Service Fabric progettati per ospitare soluzioni di produzione aziendale. Per altre indicazioni sulla sicurezza di Service Fabric, vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) e [Scenari di sicurezza di un cluster di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>È possibile specificare una coppia di chiavi SSH da usare per l'autenticazione SSH con un set di scalabilità di macchine virtuali Linux da un modello di Resource Manager?
 
@@ -202,9 +200,7 @@ Includere **osProfile** nel modello:
 }
 ```
 
-Questo blocco JSON viene usato nel [modello di avvio rapido 101-vm-sshkey di GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
-
-Il profilo del sistema operativo viene usato anche nel [modello di avvio rapido grelayhost.json di GitHub](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Questo blocco JSON viene usato nel [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Per altre informazioni, vedere [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration) (Creare o aggiornare un set di scalabilità di macchine virtuali).
 
@@ -212,9 +208,9 @@ Per altre informazioni, vedere [Create or update a virtual machine scale set](ht
 
 Per rimuovere i certificati deprecati, rimuovere il certificato precedente dall'elenco di certificati dell'insieme di credenziali. Lasciare nell'elenco tutti i certificati da conservare nel computer. Questa operazione non rimuove il certificato da tutte le macchine virtuali. Non aggiunge inoltre il certificato alle nuove macchine virtuali create nel set di scalabilità di macchine virtuali.
 
-Per rimuovere il certificato dalle macchine virtuali esistenti, scrivere un'estensione personalizzata dello script per rimuovere manualmente i certificati dall'archivio certificati.
+Per rimuovere il certificato dalle macchine virtuali esistenti, usare un'estensione di script personalizzata per rimuovere manualmente i certificati dall'archivio certificati.
 
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Come si inserisce una chiave pubblica SSH esistente nel livello SSH del set di scalabilità di macchine virtuali durante il provisioning? Si vuole archiviare i valori della chiave pubblica SSH in Azure Key Vault e quindi usarli nel modello di Resource Manager.
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Come si inserisce una chiave pubblica SSH esistente nel livello SSH del set di scalabilità di macchine virtuali durante il provisioning?
 
 Se si fornisce alle macchine virtuali solo una chiave SSH pubblica, non è necessario inserire le chiavi pubbliche in Key Vault. Le chiavi pubbliche non sono segrete.
 
@@ -234,8 +230,8 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 ```
 
 Nome dell'elemento linuxConfiguration | Obbligatorio | Type | DESCRIZIONE
---- | --- | --- | --- 
-ssh | No  | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
+--- | --- | --- | ---
+ssh | No | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
 path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
 keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
 
@@ -243,7 +239,7 @@ Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](http
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando si esegue `Update-AzVmss` dopo avere aggiunto più di un certificato dallo stesso insieme di credenziali delle chiavi, viene visualizzato il messaggio seguente:
 
->Update-AzVmss: L'elenco Secrets contiene istanze ripetute di\<my subscription-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev non è consentita.
+>Update-AzVmss: L'elenco Secret contiene istanze ripetute\<di/subscriptions/My-Subscription-ID >/resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, che non è consentito.
 
 Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso insieme di credenziali invece di usare un nuovo certificato dell'insieme di credenziali per l'insieme di credenziali di origine esistente. Il comando `Add-AzVmssSecret` non funziona correttamente se si aggiungono altri segreti.
 
@@ -303,16 +299,6 @@ Il provider di risorse di calcolo non rende persistenti i segreti dei clienti. S
 
 Questo problema non si verifica durante l'aumento del numero di istanze, perché è disponibile una copia del segreto memorizzata nella cache in Azure Service Fabric nel modello di tenant a infrastruttura singola.
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Perché è necessario specificare la posizione esatta per l'URL del certificato (https:\/\/\<nome dell'insieme di credenziali >.vault.azure.net:443/secrets/\<esatto percorso >), come indicato in [Service Fabric scenari di sicurezza del cluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
-
-La documentazione di Azure Key Vault indica che l'API REST di recupero del segreto deve restituire la versione più recente del segreto nel caso in cui la versione non sia specificata.
-
-Metodo | URL
---- | ---
-GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
-
-Sostituire {*secret-name*} con il nome e {*secret-version*} con la versione del segreto da recuperare. È possibile che la versione del segreto venga esclusa. In questo caso viene recuperata la versione corrente.
-
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Per quale motivo è necessario specificare la versione del certificato quando si usa Key Vault?
 
 Il requisito di Key Vault che richiede di specificare la versione del specificato consente di indicare chiaramente all'utente il certificato che viene distribuito nelle rispettive macchine virtuali.
@@ -325,7 +311,7 @@ Per distribuire le chiavi pubbliche con estensione cer in un set di scalabilità
 
 Per altre informazioni, vedere [Metodo X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Non è presente un'opzione per passare i certificati sotto forma di stringhe Base64, disponibile nella maggior parte degli altri provider di risorse.
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Ricerca per categorie passano i certificati come stringhe Base64?
 
 Per emulare il passaggio di un certificato come stringa Base64, è possibile estrarre l'URL con versione più recente in un modello di Resource Manager. Includere la proprietà JSON seguente nel modello di Resource Manager:
 
@@ -355,7 +341,7 @@ Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.micr
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
 
-Sì. È possibile visualizzare alcuni modelli MSI di esempio nei modelli di avvio rapido di Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Sì. È possibile vedere alcuni modelli MSI di esempio in modelli di avvio rapido di Azure per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Estensioni
@@ -374,38 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 È possibile trovare il valore extensionName in `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>È disponibile che esempio di modello che si integra con monitoraggio di Azure i log di set di scalabilità di macchine virtuali?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>È disponibile un esempio di modello di set di scalabilità di macchine virtuali che si integra con i log di monitoraggio di Azure?
 
-Per scalabilità di macchine virtuali del set di esempio di modello che si integra con i log di monitoraggio di Azure, vedere il secondo esempio nella [distribuire un cluster Azure Service Fabric e abilitare il monitoraggio tramite Monitoraggio di Azure log](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
-
-### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Le estensioni vengono eseguite apparentemente in parallelo nei set di scalabilità di macchine virtuali. Ciò provoca un errore dell'estensione di script personalizzata. Come si può risolvere questo problema?
-
-Per informazioni sulla sequenziazione di estensioni nei set di scalabilità di macchine virtuali, vedere [Extension sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sequenziazione delle estensioni nei set di scalabilità di macchine virtuali di Azure).
-
-### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Come si reimposta la password per le VM nel set di scalabilità di macchine virtuali?
-
-Esistono due modi per modificare la password delle VM nei set di scalabilità.
-
-- Modificare direttamente il modello del set di scalabilità delle macchine virtuali. Disponibile con l'API di calcolo 2017-12-01 e versioni successive.
-
-    Aggiornare le credenziali di amministratore direttamente nel modello del set di scalabilità (ad esempio tramite Azure Resource Explorer, PowerShell o CLI). Una volta aggiornato il set di scalabilità, tutte le nuove VM dispongono delle nuove credenziali. Le VM esistenti avranno le nuove credenziali solo se ne viene ricreata l'immagine.
-
-- Reimpostare la password usando le estensioni di accesso della VM.
-
-    Usare l'esempio di PowerShell seguente:
-
-    ```powershell
-    $vmssName = "myvmss"
-    $vmssResourceGroup = "myvmssrg"
-    $publicConfig = @{"UserName" = "newuser"}
-    $privateConfig = @{"Password" = "********"}
-
-    $extName = "VMAccessAgent"
-    $publisher = "Microsoft.Compute"
-    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-    ```
+Per un esempio di modello di set di scalabilità di macchine virtuali che si integra con i log di monitoraggio di Azure, vedere il secondo esempio in [distribuire un cluster di azure Service Fabric e abilitare il monitoraggio usando i log di monitoraggio di Azure](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Come si aggiunge un'estensione a tutte le macchine virtuali del set di scalabilità di macchine virtuali?
 
@@ -413,11 +370,13 @@ Se i criteri impostati prevedono l'aggiornamento **automatico**, ridistribuendo 
 
 Se i criteri di aggiornamento sono impostati su **manuale**, aggiornare prima di tutto l'estensione e quindi aggiornare manualmente tutte le istanze nelle macchine virtuali.
 
-### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Se le estensioni associate a un set di scalabilità di macchine virtuali esistente vengono aggiornate, l'operazione influisce sulle VM esistenti, ovvero, le VM *non* corrisponderanno al modello di set di scalabilità di macchine virtuali? O verranno ignorate? Quando una macchina virtuale esistente viene sottoposta a ripristino del servizio o ricreazione dell'immagine, gli script attualmente configurati nel set di scalabilità di macchine virtuali vengono eseguiti o vengono usati gli script configurati durante la creazione iniziale della macchina virtuale?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Se le estensioni associate a un set di scalabilità di macchine virtuali esistente vengono aggiornate, l'operazione influisce sulle VM esistenti,
 
 Se la definizione dell'estensione nel modello di set di scalabilità di macchine virtuali viene aggiornata e la proprietà upgradePolicy è impostata su **automatic**, le macchine virtuali vengono aggiornate. Se la proprietà upgradePolicy è impostata su **manual**, le estensioni vengono contrassegnate come non corrispondenti al modello.
 
-Il ripristino del servizio di una VM esistente viene considerato un riavvio e le estensioni non vengono eseguite di nuovo. Se viene ricreata l'immagine, tale operazione è simile alla sostituzione dell'unità del sistema operativo con l'immagine di origine. Vengono eseguite eventuali specializzazioni dal modello più recente, ad esempio le estensioni.
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Le estensioni vengono eseguite di nuovo quando un computer esistente viene risanato o ricreato nell'immagine?
+
+Se una macchina virtuale esistente viene risanata dal servizio, viene visualizzata come riavvio e le estensioni non vengono eseguite nuovamente. Se viene ricreata l'immagine di una macchina virtuale, il processo è simile sostituendo l'unità del sistema operativo con l'immagine di origine. Tutte le specializzazioni del modello più recente, ad esempio le estensioni, vengono eseguite nuovamente.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Come si aggiunge un set di scalabilità di macchine virtuali a un dominio di Active Directory?
 
@@ -450,7 +409,7 @@ Per definire un'estensione, usare la proprietà JsonADDomainExtension:
 }
 ```
 
-### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>L'estensione del set di scalabilità di macchine virtuali sta provando a installare un programma che richiede un riavvio. Ad esempio, "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot"></a>L'estensione del set di scalabilità di macchine virtuali sta provando a installare un programma che richiede un riavvio.
 
 Se l'estensione del set di scalabilità di macchine virtuali prova a installare un programma che richiede un riavvio, è possibile usare l'estensione Automation DSC (Desired State Configuration) per Azure. Se il sistema operativo è Windows Server 2012 R2, Azure esegue il pull del programma di installazione di Windows Management Framework (WMF) 5.0, esegue il riavvio e quindi prosegue con la configurazione.
 
@@ -473,9 +432,36 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>È necessario eseguire uno script personalizzato ospitato in un account di archiviazione privato. Lo script viene eseguito correttamente quando la risorsa di archiviazione è pubblica, ma si verifica un errore quando si prova a usare una firma di accesso condiviso. Viene visualizzato il messaggio seguente: "Parametri obbligatori mancanti per la firma di accesso condiviso valida". Il collegamento e la firma di accesso condiviso funzionano correttamente.
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Ricerca per categorie eseguire uno script personalizzato ospitato in un account di archiviazione privato?
 
-Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [Estensione Script personalizzato per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [estensione script personalizzato](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+
+## <a name="passwords"></a>Password
+
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Come si reimposta la password per le VM nel set di scalabilità di macchine virtuali?
+
+Esistono due modi per modificare la password delle VM nei set di scalabilità.
+
+- Modificare direttamente il modello del set di scalabilità delle macchine virtuali. Disponibile con l'API 2017-12-01 e versioni successive.
+
+    Aggiornare le credenziali di amministratore direttamente nel modello del set di scalabilità (ad esempio tramite Azure Resource Explorer, PowerShell o CLI). Una volta aggiornato il set di scalabilità, tutte le nuove VM dispongono delle nuove credenziali. Le VM esistenti avranno le nuove credenziali solo se ne viene ricreata l'immagine.
+
+- Reimpostare la password usando le estensioni di accesso della VM.
+
+    Usare l'esempio di PowerShell seguente:
+
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
 ## <a name="networking"></a>Rete
 
@@ -533,10 +519,6 @@ Il metodo di allocazione degli indirizzi IP del set di scalabilità di macchine 
 
 Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale di Azure esistente, vedere [Deploy a virtual machine scale set to an existing virtual network](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet) (Distribuire un set di scalabilità di macchine virtuali in una rete virtuale esistente).
 
-### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Come si aggiunge l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello?
-
-Per aggiungere l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello, vedere [Azure Resource Manager: Ottenere gli indirizzi IP privati dei set di scalabilità di macchine virtuali](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
-
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
 Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio
@@ -580,7 +562,7 @@ Per creare un set di scalabilità di macchine virtuali che assegni un indirizzo 
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>È possibile configurare un set di scalabilità da usare con più gateway applicazione?
 
-Sì. È possibile aggiungere ID risorsa per più pool di indirizzi di back-end del gateway applicazione all'elenco _applicationGatewayBackendAddressPools_ nella sezione _ipConfigurations_ del profilo della rete del set di scalabilità.
+Sì. È possibile aggiungere gli ID risorsa per più pool di indirizzi back-end del gateway applicazione all'elenco _applicationGatewayBackendAddressPools_ nella sezione _ipConfigurations_ del profilo di rete del set di scalabilità.
 
 ## <a name="scale"></a>Scalabilità
 
@@ -592,7 +574,7 @@ Un motivo per la creazione di un set di scalabilità di macchine virtuali con me
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Come si cambia il numero di VM in un set di scalabilità di macchine virtuali?
 
-Per modificare il numero di VM in un set di scalabilità di macchine virtuali nel portale di Azure, dalla sezione delle proprietà del set di scalabilità di macchine virtuali fare clic sul pannello "Ridimensionamento" e usare la barra di scorrimento. Per altre modalità di modifica del numero di istanze, vedere [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambiare il numero di istanze di un set di scalabilità di macchine virtuali).
+Per modificare il numero di VM in un set di scalabilità di macchine virtuali nel portale di Azure, dalla sezione delle proprietà del set di scalabilità di macchine virtuali fare clic sul pannello "Ridimensionamento" e usare la barra di scorrimento.
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Come è possibile definire avvisi personalizzati per il raggiungimento di determinate soglie?
 
@@ -623,7 +605,7 @@ La gestione degli avvisi per le soglie specificate offre una certa flessibilità
                 },
                 "webhooks": [
                     {
-                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "serviceUri": "<service uri>",
                         "properties": {
                             "key1": "custommetric",
                             "key2": "scalevmss"
@@ -636,15 +618,14 @@ La gestione degli avvisi per le soglie specificate offre una certa flessibilità
 }
 ```
 
-In questo esempio viene inviato un avviso a Pagerduty.com al raggiungimento di una soglia.
 
 ## <a name="patching-and-operations"></a>Applicazione di patch e operazioni
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Come si crea un set di scalabilità in un gruppo di risorse esistente?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>È possibile creare un set di scalabilità in un gruppo di risorse esistente?
 
-La creazione di set di scalabilità in un gruppo di risorse esistente non è ancora possibile dal portale di Azure, ma è possibile specificare un gruppo di risorse esistente quando si distribuisce un set di scalabilità da un modello di Azure Resource Manager. È anche possibile specificare un gruppo di risorse esistente durante la creazione di un set di scalabilità usando Azure PowerShell o l'interfaccia della riga di comando.
+Sì, è possibile creare un set di scalabilità in un gruppo di risorse esistente.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>È possibile spostare un set di scalabilità in un altro gruppo di risorse?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>È possibile spostare un set di scalabilità in un altro gruppo di risorse?
 
 Sì, è possibile spostare le risorse di un set di scalabilità in una nuova sottoscrizione o in un nuovo gruppo di risorse.
 
@@ -656,18 +637,16 @@ Per aggiornare il set di scalabilità di macchine virtuali a una nuova immagine 
 
 Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine. Se tuttavia il set di scalabilità di macchine virtuali fa riferimento a un'immagine di piattaforma con `version = latest`, la macchina virtuale può essere aggiornata a un'immagine del sistema operativo successiva quando si chiama `reimage`.
 
-Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
-
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>È possibile integrare i set di scalabilità con i log di monitoraggio di Azure?
 
-Sì, è possibile installando l'estensione di monitoraggio di Azure sulla scala set macchine virtuali. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
+Sì, è possibile installando l'estensione di monitoraggio di Azure nelle VM del set di scalabilità. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 È possibile trovare l'ID e la chiave dell'area di lavoro necessari nell'area di lavoro Log Analytics nel portale di Azure. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
 
 > [!NOTE]
-> Se il set di scalabilità _upgradePolicy_ è impostato su manuale, è necessario applicare l'estensione a tutte le VM nel set di chiamata di aggiornamento. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
+> Se il set di scalabilità _upgradePolicy_ è impostato su manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set chiamando l'aggiornamento su di essi. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -722,25 +701,25 @@ La differenza principale tra l'eliminazione di una VM in un set di scalabilità 
   - In relazione a questo scenario è stato creato un motore di ridimensionamento automatico proprio e si vuole ottenere una scalabilità end-to-end più rapida.
 - È presente un set di scalabilità di macchine virtuali distribuito in modo non uniforme nei domini di errore o nei domini di aggiornamento. Questo problema può essere stato causato dall'eliminazione selettiva di VM o dall'eliminazione di VM dopo l'overprovisioning. L'esecuzione di `stop deallocate` seguito da `start` nel set di scalabilità di macchine virtuali consente di distribuire uniformemente le VM nei domini di errore o nei domini di aggiornamento.
 
-### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Come trarre uno snapshot di un'istanza VMSS?
-Creare uno snapshot da un'istanza di un set di scalabilità.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Ricerca per categorie eseguire uno snapshot di un'istanza del set di scalabilità di macchine virtuali?
+Creare uno snapshot da un'istanza di un set di scalabilità di macchine virtuali.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
 $vmssname = "myVMScaleSet"
 $Id = 0
 $location = "East US"
- 
+
 $vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
 $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
-``` 
- 
+```
+
 Creare un disco gestito dallo snapshot.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
-$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')
 ```

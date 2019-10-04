@@ -2,24 +2,17 @@
 title: Eseguire attività di avvio in Servizi cloud di Azure | Documentazione Microsoft
 description: Le attività di avvio consentono di preparare l'ambiente del servizio cloud per l'app. Questo argomento illustra il funzionamento e la modalità di esecuzione delle attività di avvio
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: gwallace
+ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917618"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359470"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
 È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata.
@@ -121,9 +114,9 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
   
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 * **background**  
-   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
+  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
 * **foreground**  
-   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
+  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 Le variabili di ambiente costituiscono un modo per passare le informazioni a un'attività di avvio. È ad esempio possibile inserire il percorso di un BLOB contenente un programma da installare, i numeri di porta che verranno usati dal ruolo o impostazioni per controllare le funzionalità dell'attività di avvio.

@@ -4,18 +4,18 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 766b51f208e7e8f4a49109e32864f2726b8ccd63
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: aa5c4747238b2f2427be3e57c3e84e03c81fd609
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156443"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541755"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuire i moduli di Azure IoT Edge con l'interfaccia della riga di comando di Azure
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare un manifesto della distribuzione JSON e qui
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device-cli.md) con il runtime di IoT Edge installato.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az –-version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -73,7 +73,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -97,7 +97,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

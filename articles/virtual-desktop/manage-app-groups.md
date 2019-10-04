@@ -5,26 +5,30 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578748"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163245"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Esercitazione: Gestire gruppi di app per l'anteprima di Desktop virtuale Windows
 
-Il gruppo di app predefinito creato per un nuovo pool di host dell'anteprima di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu Start.
+Il gruppo di app predefinito creato per un nuovo pool di host dell'anteprima di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu **Start**.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un gruppo di app RemoteApp.
-> * Concedere l'accesso alle app RemoteApp.
+> * Concedere l'accesso ai programmi RemoteApp.
 
-Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="create-a-remoteapp-group"></a>Creare un gruppo di app RemoteApp
 
@@ -40,19 +44,19 @@ Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di 
    Get-RdsAppGroup <tenantname> <hostpoolname>
    ```
 
-3. Eseguire il cmdlet seguente per ottenere un elenco di app del menu Start nell'immagine di macchina virtuale del pool di host. Prendere nota dei valori di **FilePath**, **IconPath**, **IconIndex** e di altre informazioni importanti per l'applicazione da pubblicare.
+3. Eseguire il cmdlet seguente per ottenere un elenco di app del menu **Start** nell'immagine di macchina virtuale del pool di host. Prendere nota dei valori di **FilePath**, **IconPath**, **IconIndex** e di altre informazioni importanti per l'applicazione da pubblicare.
 
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Eseguire il cmdlet seguente per installare l'applicazione basata sul relativo alias. L'alias dell'applicazione diventa visibile quando si esegue l'output del passaggio 3.
+4. Eseguire il cmdlet seguente per installare l'applicazione basata su `AppAlias`. `AppAlias` diventa visibile quando si esegue l'output del passaggio 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Facoltativo) Eseguire il cmdlet seguente per pubblicare una nuova app RemoteApp nel gruppo di applicazioni creato nel passaggio 1.
+5. (Facoltativo) Eseguire il cmdlet seguente per pubblicare un nuovo programma RemoteApp nel gruppo di applicazioni creato nel passaggio 1.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
@@ -65,7 +69,7 @@ Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di 
    ```
 
 7. Ripetere i passaggi da 1 a 5 per ogni applicazione da pubblicare in questo gruppo di app.
-8. Eseguire il cmdlet seguente per concedere agli utenti l'accesso alle app RemoteApp del gruppo.
+8. Eseguire il cmdlet seguente per concedere agli utenti l'accesso ai programmi RemoteApp del gruppo di app.
 
    ```powershell
    Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
@@ -73,7 +77,7 @@ Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato i gruppi di app, creare entità servizio e assegnare i ruoli agli utenti. Per informazioni, vedere l'esercitazione su come creare entità servizio e assegnazioni di ruolo con PowerShell.
+In questa esercitazione si è appreso come creare un gruppo di app, popolarlo con programmi RemoteApp e assegnare utenti. Per informazioni su come creare un pool di host di convalida, vedere l'esercitazione seguente. È possibile usare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di distribuirli nell'ambiente di produzione.
 
 > [!div class="nextstepaction"]
-> [Creare entità servizio e assegnazioni di ruolo con PowerShell](create-service-principal-role-powershell.md)
+> [Creare un pool di host per convalidare gli aggiornamenti dei servizi](./create-validation-host-pool.md)

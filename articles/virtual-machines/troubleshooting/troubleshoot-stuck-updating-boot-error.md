@@ -4,21 +4,20 @@ description: Informazioni su come risolvere il problema per cui l'avvio di una m
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: cff1577eacd0af86d3ad1c99e1eb2164b64318c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443773"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087031"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 

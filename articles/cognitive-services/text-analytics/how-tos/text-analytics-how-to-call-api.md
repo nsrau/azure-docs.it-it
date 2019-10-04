@@ -1,6 +1,6 @@
 ---
 title: Chiamare l'API Analisi del testo
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come chiamare l'API REST Analisi del testo.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011252"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697856"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -30,7 +30,7 @@ Ogni richiesta deve includere la chiave di accesso e un endpoint HTTP. L'endpoin
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Analisi del testo, nonché dell'[endpoint e la chiave di accesso](text-analytics-how-to-access-key.md) che viene generata automaticamente con la registrazione ai Servizi cognitivi. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -40,10 +40,10 @@ L'input deve essere JSON in testo non elaborato e non strutturato. XML non è su
 
 Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di Analisi del testo: sentiment, frase chiave, rilevamento della lingua e identificazione delle entità. In futuro probabilmente lo schema varierà per ogni analisi.
 
-| Elemento | Valori validi | Obbligatorio? | Uso |
+| Elemento | Valori validi | Obbligatorio? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Dati non strutturato testo non elaborato, un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Variabile | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
@@ -84,14 +84,14 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-  + [Riconoscimento di entità](text-analytics-how-to-entity-linking.md)  
+  + [Riconoscimento entità](text-analytics-how-to-entity-linking.md)  
 
 
-6. Fare clic su **Send** (Invia) per inviare la richiesta. È possibile inviare fino a 100 richieste al minuto. 
+6. Fare clic su **Send** (Invia) per inviare la richiesta. Per informazioni sul numero di richieste che è possibile inviare al minuto e al secondo, vedere la sezione relativa ai [limiti dei dati](../overview.md#data-limits) nella panoramica.
 
    In Postman la risposta è visualizzata nella finestra successiva in basso, come singolo documento JSON, con un elemento per ogni ID documento specificato nella richiesta.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti](../text-analytics-resource-faq.md)

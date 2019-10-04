@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314960"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570175"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
-Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga][rls] cooperano per consentire il ridimensionamento del livello dati di un'applicazione multi-tenant con un database SQL di Azure. La combinazione di queste tecnologie consente di creare un'applicazione con un livello dati estremamente scalabile. Il livello dati supporta partizioni multi-tenant e usa **ADO.NET SqlClient** o **Entity Framework**. Per altre informazioni, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](saas-tenancy-app-design-patterns.md).
+[Gli strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga][rls] cooperano per consentire il ridimensionamento del livello dati di un'applicazione multi-tenant con il database SQL di Azure. La combinazione di queste tecnologie consente di creare un'applicazione con un livello dati estremamente scalabile. Il livello dati supporta partizioni multi-tenant e usa **ADO.NET SqlClient** o **Entity Framework**. Per altre informazioni, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](saas-tenancy-app-design-patterns.md).
 
-- Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati tramite procedure di partizionamento orizzontale standard usando librerie .NET e modelli di servizio di Azure. La gestione delle partizioni mediante la [libreria client dei database elastici][s-d-elastic-database-client-library] consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale.
+- Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati tramite procedure di partizionamento orizzontale standard usando librerie .NET e modelli di servizio di Azure. La gestione delle partizioni tramite la [libreria client dei database elastici][s-d-elastic-database-client-library] consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale.
 - La **sicurezza a livello di riga** consente agli sviluppatori di archiviare in modo sicuro i dati di più tenant nello stesso database. I criteri di sicurezza a livello di riga escludono le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di filtro all'interno del database semplifica inoltre la manutenzione e riduce il rischio di errori di sicurezza. L'alternativa di affidarsi esclusivamente a codice client per applicare la sicurezza è troppo rischiosa.
 
 L'utilizzo combinato di queste funzionalità consente a un'applicazione di memorizzare i dati di più tenant nello stesso database di partizionamento. Se i tenant condividono uno stesso database, inoltre, il costo per tenant è inferiore. La stessa applicazione può anche offrire ai tenant "premium" la possibilità di pagare solo per la partizione a singolo tenant dedicata. L'isolamento dei singoli tenant garantisce inoltre prestazioni più stabili. In un database a singolo tenant, infine, non sono presenti altri tenant con cui competere per l'acquisizione delle risorse.
@@ -228,7 +227,7 @@ La sicurezza a livello di riga viene implementata in Transact-SQL: una funzione 
     - Un predicato di BLOCCO impedisce l'inserimento e l'aggiornamento delle righe che non soddisfano le condizioni del filtro.
     - Se SESSION\_CONTEXT non è stato impostato, verrà restituito NULL e non sarà possibile vedere o inserire alcuna riga.
 
-Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'istruzione T-SQL seguente usando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto. Se si usano [processi di database elastici](sql-database-elastic-jobs-overview.md), è possibile automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni.
+Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'istruzione T-SQL seguente usando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto. Se si usano [processi di database elastici](elastic-jobs-overview.md), è possibile automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -339,12 +338,12 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Manutenzione 
+### <a name="maintenance"></a>Manutenzione
 
 - **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare Sicurezza a livello di riga in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
 - **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere usate per archiviare i dati in modo più efficiente, in particolar modo nei casi in cui un elevato numero di tenant dispone solo di poche righe di dati. Le partizioni a singolo tenant possono essere usate invece per supportare tenant "premium" con requisiti di prestazioni e isolamento più rigidi. Per altre informazioni, vedere [Sicurezza a livello di riga][rls].
 

@@ -1,9 +1,9 @@
 ---
-title: Configurare gli avvisi di sicurezza per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
-description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Configurare gli avvisi di sicurezza per i ruoli Azure AD in PIM-Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3984d3276590357866c824d01ea8c51cf5b28fd7
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288548"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804382"
 ---
-# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in PIM
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli Azure AD in PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera avvisi quando vengono eseguite operazioni sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera avvisi in caso di attività sospette o non sicure nell'ambiente in uso. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
-![Avvisi di sicurezza di PIM - screenshot](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Ruoli di Azure AD-riquadro avvisi che elenca gli avvisi e la gravità](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Avvisi di sicurezza
+## <a name="security-alerts"></a>Avvisi sicurezza
 
-Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli di Azure AD, oltre a come risolvere e come evitare. Ecco il significato dei vari livelli di gravità:
+In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di Azure AD, nonché la modalità di correzione e la modalità di prevenzione. Ecco il significato dei vari livelli di gravità:
 
 * **Alta**: richiede un'azione immediata a causa di una violazione dei criteri.
 * **Medium**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
@@ -69,7 +69,7 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli di Azure AD, olt
 
 | | |
 | --- | --- |
-| **Severity** | Media |
+| **Severity** | Medio |
 | **Perché viene visualizzato questo avviso?** | Account in un ruolo con privilegi che non hanno cambiato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
@@ -122,12 +122,12 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli di Azure AD, olt
 
 1. Fare clic su **Impostazioni** e quindi su **Avvisi**.
 
-    ![Passare a impostazioni degli avvisi di sicurezza](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Ruoli di Azure AD-impostazioni con gli avvisi selezionati](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Fare clic sul nome di un avviso per configurarne l'impostazione.
 
-    ![Impostazioni degli avvisi di sicurezza](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Per l'avviso selezionato, riquadro Impostazioni avvisi di sicurezza](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni di ruolo di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Configurare le impostazioni del ruolo Azure AD in PIM](pim-how-to-change-default-settings.md)

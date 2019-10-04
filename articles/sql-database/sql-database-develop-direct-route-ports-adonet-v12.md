@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916173"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568921"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 
@@ -37,17 +36,17 @@ La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'appli
 
 ### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
 
-Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server del database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
+Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server di database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
 
 La sequenza è la seguente:
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
 
-   * Il numero di porta identificato in modo dinamico è compreso tra 11000 a 11999.
-2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
+   * Il numero di porta identificato in modo dinamico è compreso nell'intervallo 11000-11999.
+2. ADO.NET quindi si connette direttamente al server di database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
-Verificare che la porta di 11000-11999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il Database SQL.
+Assicurarsi che gli intervalli di porte di 11000-11999 nel computer client di Azure siano disponibili per le interazioni del client ADO.NET 4,5 con il database SQL.
 
 * In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 * Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
@@ -81,7 +80,7 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 
 * Connect to Azure SQL Database V12 via Redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362 (Connettersi al database SQL di Azure versione 12 tramite reindirizzamento)
 
-* [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
+* [Elenco versioni del protocollo TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Firewall di database SQL di Azure](sql-database-firewall-configure.md)
 * [Procedura: configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)

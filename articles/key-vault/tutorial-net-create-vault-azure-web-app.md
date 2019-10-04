@@ -2,22 +2,19 @@
 title: "Esercitazione: Usare Azure Key Vault con un'app web di Azure in .NET | Microsoft Docs"
 description: In questa esercitazione si configura un'applicazione ASP.NET Core per la lettura di un segreto dall'insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 2c2bb3e4064294bb8d4a63b009069fd6834ca31e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 84256d79ec543d038b4d3d3f3dc6901bbd003871
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370891"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003366"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
@@ -36,7 +33,7 @@ L'esercitazione illustra come:
 > * Assegnare l'autorizzazione per l'app Web.
 > * Eseguire l'app Web in Azure.
 
-Prima di iniziare, leggere i [concetti di base di Azure Key Vault](key-vault-whatis.md#basic-concepts). 
+Prima di iniziare, leggere i [concetti di base di Azure Key Vault](basic-concepts.md). 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -46,14 +43,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * Per Mac: [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/)
 * Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Questa esercitazione richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Questa esercitazione richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>Informazioni sull'identità del servizio gestito
 
 Con Azure Key Vault è possibile archiviare le credenziali in modo sicuro in modo da non visualizzarle nel codice. Tuttavia, è necessario eseguire l'autenticazione con Azure Key Vault per recuperare le chiavi. E per eseguire l'autenticazione con Key Vault servono le credenziali. È un classico circolo vizioso. Identità del servizio gestita risolve questo problema fornendo un'_identità bootstrap_ che semplifica il processo.
 
-Quando si abilita l'identità del servizio gestita per un servizio di Azure, come Macchine virtuali di Microsoft Azure, Servizio app di Azure o Funzioni di Azure, Azure crea un'[entità servizio](key-vault-whatis.md#basic-concepts) per l'istanza del servizio in Azure Active Directory (Azure AD) e inserisce le credenziali dell'entità servizio in tale istanza.
+Quando si abilita l'identità del servizio gestita per un servizio di Azure, come Macchine virtuali di Microsoft Azure, Servizio app di Azure o Funzioni di Azure, Azure crea un'[entità servizio](basic-concepts.md) per l'istanza del servizio in Azure Active Directory (Azure AD) e inserisce le credenziali dell'entità servizio in tale istanza.
 
 ![Diagramma di identità del servizio gestita](media/MSI.png)
 
@@ -194,7 +191,7 @@ Per creare un'app Web .NET Core e pubblicarla in Azure, seguire le istruzioni in
 
 ## <a name="run-the-web-app"></a>Eseguire l'app Web
 
-1. Dal menu principale di Visual Studio 2017 scegliere **Debug** > **Avvia**, con o senza debug. 
+1. Dal menu principale di Visual Studio 2019 scegliere **Debug** > **Avvia**, con o senza debug. 
 1. Nel browser passare alla pagina **Informazioni**.  
     Viene visualizzato il valore per **AppSecret**.
 
@@ -240,7 +237,7 @@ Pubblicare di nuovo l'app Web in Azure per verificare che l'app Web live sia in 
 
 1. In Visual Studio selezionare il progetto **key-vault-dotnet-core-quickstart**.
 2. Selezionare **Pubblica** > **Avvia**.
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 Quando si esegue l'applicazione, dovrebbe essere visualizzato il valore del segreto recuperato.
 
@@ -252,4 +249,4 @@ Quando non servono più, è possibile eliminare la macchina virtuale e l'insieme
 ## <a name="next-steps"></a>Passaggi successivi
 
 >[!div class="nextstepaction"]
->[Guida per gli sviluppatori per Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)

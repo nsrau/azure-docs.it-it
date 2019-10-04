@@ -2,23 +2,19 @@
 title: Modificare l'ID tenant dell'insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione - Azure Key Vault | Microsoft Docs
 description: Informazioni su come modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione a un altro tenant
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: a83bff5a494ce338f43b6e967df5fe67cacfab01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2159b5b515e22458edf3ba0eb5b6f23f3f37ce95
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112190"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990113"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione
 
@@ -35,12 +31,14 @@ Quando si crea un nuovo insieme di credenziali delle chiavi in una sottoscrizion
 Se ad esempio è presente un insieme di credenziali delle chiavi 'myvault' in una sottoscrizione che è stata spostata dal tenant A al tenant B, sarà possibile modificare l'ID tenant per questo insieme di credenziali delle chiavi e rimuovere i criteri di accesso precedenti come segue.
 
 <pre>
-Select-AzSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties
+Select-AzSubscription -SubscriptionId YourSubscriptionID                   # Select your Azure Subscription
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your Keyvault's Resource ID 
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your Keyvault
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your Keyvault resides in
+$vault.Properties.AccessPolicies = @()                                     # Accesspolicies can be updated with real
+                                                                           # applications/users/rights so that it does not need to be                                                                              # done after this whole activity. Here we are not setting 
+                                                                           # any access policies. 
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the kevault's properties.
 </pre>
 
 Prima dello spostamento, questo insieme di credenziali si trovava nel tenant A. Il valore originale di **$vault.Properties.TenantId** è quindi il tenant A, mentre per **(Get-AzContext).Tenant.TenantId** è il tenant B.

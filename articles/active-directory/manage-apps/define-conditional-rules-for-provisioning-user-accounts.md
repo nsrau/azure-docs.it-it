@@ -3,8 +3,8 @@ title: Eseguire il provisioning delle app con filtri di ambito | Microsoft Docs
 description: Informazioni su come usare i filtri di ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebc6c1e8a264c5570f3100885c4fca7d0d0d90d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442855"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812677"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -108,7 +108,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 13. Selezionare **Salva** nella schermata **Mapping attributi**. 
 
 >[!IMPORTANT] 
-> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione.
+> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento a [Ignora eliminazione per gli account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md).
 
 
 ## <a name="related-articles"></a>Articoli correlati

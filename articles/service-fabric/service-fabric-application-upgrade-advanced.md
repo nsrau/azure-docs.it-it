@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3cdddac74552b56dfe3567adf30f1a05b6eb8e24
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a3d0d6077da4df9a7f0d1b246c9752d38488a175
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663792"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963826"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Aggiunta o rimozione di tipi di servizio durante l'aggiornamento di un'applicazione
@@ -85,6 +85,44 @@ app1/
 ```
 
 In altre parole, si crea un pacchetto completo dell'applicazione nel modo consueto e quindi si rimuovono le cartelle dei pacchetti di codice/configurazione/dati delle quali non è stata modificata la versione.
+
+## <a name="upgrade-application-parameters-independently-of-version"></a>Aggiornare i parametri dell'applicazione indipendentemente dalla versione
+
+In alcuni casi è consigliabile modificare i parametri di un'applicazione Service Fabric senza modificare la versione del manifesto. Questa operazione può essere eseguita comodamente usando il flag **-ApplicationParameter** con il cmdlet **Start-ServiceFabricApplicationUpgrade** di Azure Service Fabric PowerShell. Si supponga che un'applicazione Service Fabric con le proprietà seguenti:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
+```
+
+A questo punto, aggiornare l'applicazione usando il cmdlet **Start-ServiceFabricApplicationUpgrade** . Questo esempio illustra un aggiornamento monitorato, ma è anche possibile usare un aggiornamento non monitorato. Per una descrizione completa dei flag accettati da questo cmdlet, vedere le informazioni di [riferimento sui moduli di Azure Service Fabric PowerShell](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+
+```PowerShell
+PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
+
+PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Application1 -ApplicationTypeVers
+ion 1.0.0 -ApplicationParameter $appParams -Monitored
+
+```
+
+Dopo l'aggiornamento, verificare che l'applicazione disponga dei parametri aggiornati e della stessa versione:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
+```
 
 ## <a name="rolling-back-application-upgrades"></a>Rollback degli aggiornamenti dell'applicazione
 

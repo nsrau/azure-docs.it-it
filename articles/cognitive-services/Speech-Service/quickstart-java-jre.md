@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)- Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
 services: cognitive-services
@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554117"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
 
+Sono disponibili guide di avvio rapido anche per la [traduzione con sintesi vocale](quickstart-translate-speech-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
+
+Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) su Windows a 64 bit, Ubuntu Linux 16.04 / 18.04 a 64 bit o macOS 10.13 o versione successiva. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
+In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) in Windows a 64 bit, Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o in macOS 10.13 o versioni successive. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
@@ -30,21 +33,29 @@ In questo articolo, si crea un'applicazione console Java usando [Speech SDK](spe
 
 Questa guida introduttiva richiede:
 
-* Sistema operativo: Windows (a 64 bit), Ubuntu Linux 16.04/18.04 (a 64 bit) o macOS 10.13 o versione successiva
+* Sistema operativo: Windows a 64 bit, Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9), oppure macOS 10.13 o versioni successive
 * [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
-Se si esegue Ubuntu 16.04/18.04, assicurarsi che queste dipendenze siano installate prima di avviare Eclipse.
+Se si esegue Linux, assicurarsi che queste dipendenze siano installate prima di avviare Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+* In Ubuntu:
 
-Se si esegue Windows (64 bit) assicurarsi di avere installato Microsoft Visual C++ Redistributable per la piattaforma in uso.
-* [Scaricare Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.0 libasound2
+  ```
 
+* In Debian 9:
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
+
+Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual C++ Redistributable per la piattaforma in uso.
+* [Scaricare Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Creare e configurare un progetto
 
@@ -82,7 +93,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Guida introduttiva: Traduzione vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)

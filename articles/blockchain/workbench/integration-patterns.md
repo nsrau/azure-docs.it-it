@@ -1,21 +1,21 @@
 ---
-title: Modelli di integrazione dei contratti intelligenti in Azure Blockchain Workbench
-description: Panoramica dei modelli di integrazione dei contratti intelligenti in Azure Blockchain Workbench.
+title: Modelli di integrazione di Smart Contract nell'anteprima di Azure blockchain Workbench
+description: Panoramica dei modelli di integrazione di Smart Contract nell'anteprima di Azure blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 11e0e1436e3f640c30fec5e8d6fd9ca10adbd707
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 80c4f2683efacf575be853b6268ee958f1567440
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330468"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845180"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -180,7 +180,7 @@ In questo modello in cui non è possibile inviare direttamente un messaggio in u
 
 Uno scenario di integrazione comune consiste nell'inclusione in un contratto intelligente di dati di telemetria recuperati da sensori. In base ai dati inviati dai sensori, i contratti intelligenti possono eseguire azioni informate e modificare lo stato del contratto.
 
-Ad esempio, l'aumento della temperatura oltre i 40 gradi in un veicolo usato per il trasporto di medicinali potrebbe influire sull'efficacia dei farmaci e causare un problema di sicurezza pubblica se il problema non venisse rilevato e il veicolo rimosso dalla supply chain. Se una persona guidasse la propria auto a una velocità superiore ai 160 km all'ora, le informazioni del sensore risultanti potrebbero attivare un annullamento dell'assicurazione da parte della relativa compagnia. Se l'auto fosse a noleggio, i dati del GPS potrebbero indicare quando il conducente esce dall'area geografica coperta dal contratto di noleggio e addebitare una penale.
+Ad esempio, l'aumento della temperatura oltre i 40 gradi in un veicolo usato per il trasporto di medicinali potrebbe influire sull'efficacia dei farmaci e causare un problema di sicurezza pubblica se il problema non venisse rilevato e il veicolo rimosso dalla supply chain. Se un driver ha accelerato l'automobile a 100 km all'ora, le informazioni del sensore risultante potrebbero causare l'annullamento delle assicurazioni da parte del provider assicurativo. Se l'auto fosse a noleggio, i dati del GPS potrebbero indicare quando il conducente esce dall'area geografica coperta dal contratto di noleggio e addebitare una penale.
 
 La difficolta sta nel fatto che questi sensori possono inviare costantemente dati e non è appropriato inviare tutti questi dati a un contratto intelligente. Un approccio tipico consiste nel limitare il numero di messaggi inviati alla blockchain, recapitando allo stesso tempo tutti i messaggi a un archivio secondario. Ad esempio, possono essere recapitati solo i messaggi ricevuti a intervalli fissi, ad esempio una volta all'ora, e quando un valore contenuto non rientra nell'intervallo previsto per un contratto intelligente. Il controllo dei valori che non rientrano nelle tolleranze assicura che i dati rilevanti per la logica di business dei contratti vengano ricevuti ed eseguiti. Il controllo del valore in base all'intervallo conferma che il sensore sta ancora inviando dati. Tutti i dati vengono inviati a un archivio di reporting secondario per consentire la creazione di report, l'analisi e l'apprendimento automatico. Ad esempio, se acquisire ogni minuto le letture dei sensori di un sistema GPS potrebbe non essere necessario per un contratto intelligente, ciò potrebbe fornire dati interessanti da usare nei report o per la rappresentazione degli itinerari su una mappa.
 

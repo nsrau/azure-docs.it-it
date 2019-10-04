@@ -3,9 +3,8 @@ title: Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azu
 description: Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -13,16 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: memildin
+ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107475"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202055"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure (anteprima)
-Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Esaminare gli eventi imprevisti e gli avvisi nel centro sicurezza di Azure (ritirato)
+Questo documento consente di usare la funzionalità di analisi (anteprima) nel centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
+
+> [!NOTE]
+> L'esperienza di analisi degli avvisi e degli eventi imprevisti (anteprima) è stata ritirata il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Informazioni sull'indagine nel Centro sicurezza
 La funzionalità Indagine del Centro sicurezza consente di valutare, determinare l'ambito e individuare la causa radice di un potenziale [evento imprevisto relativo alla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -32,7 +34,7 @@ L'obiettivo consiste nel semplificare il processo di indagine collegando tutte l
 
 > [!NOTE]
 > * Gli [avvisi personalizzati](security-center-custom-alert.md) non sono supportati nelle funzionalità di indagine del Centro sicurezza.
-> * Indagine è supportata solo per avvisi basati sui dati raccolti dai server di Windows.
+> * L'analisi è supportata solo per gli avvisi basati sui dati raccolti dai server Windows.
 
 
 ## <a name="how-investigation-works"></a>Funzionamento della funzionalità Indagine
@@ -45,7 +47,7 @@ L'utente può passare da un'entità all'altra selezionandole nel grafico. Il gra
 ### <a name="investigation-path"></a>Percorso di indagine
 Quando l'utente si sposta tra entità diverse, il percorso di indagine consente di tenere traccia del contesto dell'indagine e di spostarsi rapidamente. L'evento imprevisto che contiene i risultati dell'indagine è sempre l'evento visualizzato all'estrema sinistra del percorso di indagine.
 
-![path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informazioni generali
 Quando un'entità viene presentata nel grafico, le schede mostrano informazioni aggiuntive sull'entità. La scheda **Info** presenta informazioni generali sull'entità da diverse origini di informazioni disponibili.
@@ -62,11 +64,11 @@ La scheda **Entità** mostra tutte le entità correlate raggruppate per tipo. È
 
 ![Entità](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 La scheda **Ricerca** presenta tutti i tipi di log disponibili per l'entità. Per ogni tipo di log è possibile visualizzare il numero di record disponibili. La selezione di ogni tipo di log consente di visualizzare la schermata di ricerca. Nella schermata di ricerca è possibile perfezionare la ricerca e usare le diverse funzionalità di ricerca, ad esempio la configurazione degli avvisi. Nella versione corrente la scheda Ricerca è disponibile solo per entità di tipo utenti e computer.
 
-![Ricerca](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Cerca](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Esplorazione
 
@@ -96,7 +98,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
 ## <a name="how-to-perform-an-investigation"></a>Procedura per l'esecuzione di un'indagine
 
-È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi che seguono vengono utilizzati per avviare un'indagine da un avviso:
+È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi seguenti vengono usati per avviare un'indagine da un avviso:
 
 1.  Aprire il dashboard del **Centro sicurezza**.
 2.  Fare clic su **Avvisi di sicurezza** e selezionare l'evento imprevisto da analizzare.
@@ -110,7 +112,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
 A partire da questo punto è possibile esplorare le entità interessate dall'evento imprevisto ed esplorare altri dettagli su ogni entità.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare la funzionalità Indagine nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

@@ -1,21 +1,19 @@
 ---
 title: Modellazione multi-tenancy per l'isolamento dei contenuti in un servizio - Ricerca di Azure
 description: Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant quando si usa Ricerca di Azure.
-manager: jlembicz
+manager: nitinme
 author: LiamCavanagh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
-ms.custom: seodec2018
-ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 8b7538da41241f005298537c2969e5fce72b3c38
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632926"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182227"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.

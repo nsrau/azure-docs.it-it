@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463447"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Creare un account di Servizi multimediali usando il portale di Azure
 
@@ -39,7 +39,7 @@ Questo articolo illustra come creare un account di Servizi multimediali usando i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="create-an-ams-account"></a>Creare un account AMS
 

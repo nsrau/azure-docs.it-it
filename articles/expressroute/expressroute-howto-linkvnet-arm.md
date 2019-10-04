@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65950380"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -175,6 +175,20 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 L'intervallo di *RoutingWeight* va da 0 a 32.000. Il valore predefinito è 0.
+
+## <a name="configure-expressroute-fastpath"></a>Configurare ExpressRoute FastPath 
+È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il circuito ExpressRoute si trova in [ExpressRoute Direct](expressroute-erdirect-about.md) e il gateway virtuale newtork ErGw3AZ o con prestazioni extra. FastPath migliora le prestazioni di percorso dati, ad esempio i pacchetti al secondo e connessioni al secondo tra la rete locale e la rete virtuale. 
+
+> [!NOTE] 
+> Se si ha una connessione di rete virtuale già ma non abilitato FastPath è necessario eliminare la connessione di rete virtuale e crearne uno nuovo. 
+> 
+>  
+
+```azurepowershell-interactive 
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
+$gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
+$connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).

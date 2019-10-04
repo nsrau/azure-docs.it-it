@@ -9,11 +9,11 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124509"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179882"
 ---
 > [!IMPORTANT]
 > A partire dall'1 marzo 2017, non è possibile creare nuovi circuiti di ExpressRoute nel modello di distribuzione classica.

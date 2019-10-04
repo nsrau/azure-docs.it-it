@@ -1,5 +1,5 @@
 ---
-title: Guida alla programmazione - Hub eventi di Azure | Microsoft Docs
+title: Guida per programmatori .NET-Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -7,23 +7,23 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
-ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: c2e23c38abbec5fd0e6010bdfc0feca882a6180d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678582"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309825"
 ---
-# <a name="programming-guide-for-azure-event-hubs"></a>Guida alla programmazione per Hub eventi di Azure
+# <a name="net-programming-guide-for-azure-event-hubs"></a>Guida per programmatori .NET per hub eventi di Azure
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Autori di eventi
 
 L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare e di quando usarlo dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
 
-Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
+Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati (proprietà) e le informazioni di intestazione (SystemProperties) sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
 ## <a name="get-started"></a>Attività iniziali
 Le classi .NET che supportano Hub eventi vengono fornite con il pacchetto NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). È possibile eseguire l'installazione tramite Esplora soluzioni di Visual Studio o la [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
@@ -58,7 +58,7 @@ Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di
 
 ## <a name="event-serialization"></a>Serializzazione degli eventi
 
-La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Ad esempio: 
+La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Esempio:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -70,6 +70,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 ```
 
 ## <a name="partition-key"></a>Chiave di partizione
+
+> [!NOTE]
+> Se non si ha familiarità con le partizioni, vedere [questo articolo](event-hubs-features.md#partitions). 
 
 Quando si inviano i dati degli eventi, è possibile specificare un valore di cui viene eseguito l'hashing per generare un'assegnazione di partizione. Per specificare la partizione si usa la proprietà [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Tuttavia, la decisione di usare le partizioni implica una scelta tra disponibilità e coerenza. 
 
@@ -107,10 +110,10 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Ad esempio: 
+Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Esempio:
 
 > [!NOTE]
-> EventProcessorHost e le classi correlate vengono fornite i **Microsoft.Azure.EventHubs.Processor** pacchetto. Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) o eseguendo il comando seguente nel [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) finestra:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -137,7 +140,10 @@ La classe [EventProcessorHost][] implementa inoltre un meccanismo di impostazion
 
 ## <a name="publisher-revocation"></a>Revoca di publisher
 
-Oltre alle funzionalità di runtime avanzate di [EventProcessorHost][], Hub eventi consente anche di revocare i publisher per impedire a publisher specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+Oltre alle funzionalità avanzate della fase di esecuzione dell'host processore di eventi, il servizio Hub eventi consente la [revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher) per impedire a autori specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+
+> [!NOTE]
+> Attualmente, solo l'API REST supporta questa funzionalità ([revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher)).
 
 Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hub eventi come publisher, vedere l'esempio relativo alla [pubblicazione sicura su larga scala in Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

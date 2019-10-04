@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Cassandra con Python - Azure Cosmos DB'
+title: 'Avvio rapido: API Cassandra con Python - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Apache Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Python.
 author: SnehaGunda
 ms.author: sngun

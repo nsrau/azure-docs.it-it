@@ -2,19 +2,19 @@
 title: Visualizzare i risultati dei test di sistema e distribuzione - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Al termine del training, esaminare i test di sistema per analizzare i risultati del training. Se si è soddisfatti dei risultati del training, inviare una richiesta di distribuzione per il modello sottoposto a training.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438615"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595608"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -26,7 +26,7 @@ Selezionare un progetto, quindi selezionare la scheda Models (Modelli) di quel p
 
 La scheda Test mostra quanto segue:
 
-1.  **Risultati Test di sistema:** Il risultato del processo di test nei corsi di formazione. Il processo di test produce il punteggio BLEU.
+1.  **Risultati test di sistema:** Risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
 
     **Sentence Count** (Numero di frasi): il numero di frasi parallele utilizzate nel set di test.
 
@@ -80,7 +80,7 @@ Per richiedere una distribuzione:
 5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
 >[!Note]
->Microsoft Translator personalizzato supporta 10 modelli distribuiti all'interno di un'area di lavoro in qualsiasi punto nel tempo.
+>Il convertitore personalizzato supporta 10 modelli distribuiti in un'area di lavoro in qualsiasi momento.
 
 ## <a name="update-deployment-settings"></a>Aggiornare le impostazioni di distribuzione
 

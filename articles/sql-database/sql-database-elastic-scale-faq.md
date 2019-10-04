@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulla scalabilità elastica in Azure SQL | Microsoft Docs
+title: Domande frequenti sulla scalabilità elastica in Azure SQL | Documentazione Microsoft
 description: Domande frequenti sulla scalabilità elastica del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2b101aebd048b94ac95e1dba0f6504446d6d6803
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457191"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568439"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Domande frequenti sugli strumenti di database elastici
 

@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
-ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 07/29/2019
+ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995685"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640106"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con C&#x23; e ADO.NET
 
@@ -31,9 +30,12 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 *Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
+> [!TIP]
+> Il modulo gratuito seguente di Microsoft Learn contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inclusa la creazione di un database semplice.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'installazione di [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Installazione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) o versioni successive.
 
 ## <a name="create-a-blank-single-database"></a>Creare un database singolo vuoto
 
@@ -79,9 +81,9 @@ Per creare un database singolo vuoto, seguire questa procedura.
 
    ![notifica](./media/sql-database-design-first-database/notification.png)
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall per gli indirizzi IP a livello di server
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creare una regola del firewall IP a livello di server
 
-Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server a meno che una regola del firewall non consenta allo specifico indirizzo IP di superare il firewall. Per abilitare la connettività esterna al database singolo, è prima di tutto necessario aggiungere una regola del firewall per l'indirizzo IP o l'intervallo di indirizzi IP. Per creare una [regola del firewall per gli indirizzi IP a livello di server di database SQL](sql-database-firewall-configure.md), seguire questa procedura.
+Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server a meno che una regola del firewall non consenta allo specifico indirizzo IP di superare il firewall. Per abilitare la connettività esterna al database singolo, è prima di tutto necessario aggiungere una regola del firewall IP o l'intervallo di indirizzi IP. Per creare una [regola del firewall IP a livello di server di database SQL](sql-database-firewall-configure.md), seguire questa procedura.
 
 > [!IMPORTANT]
 > Il servizio Database SQL comunica sulla porta 1433. Se si intende connettersi al servizio da una rete aziendale, il firewall della rete potrebbe non consentire il traffico in uscita sulla porta 1433. In questo caso, non è possibile connettersi al database singolo a meno che l'amministratore non apra la porta 1433.
@@ -92,13 +94,13 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
    ![Nome del server](./media/sql-database-design-first-database/server-name.png)
 
-3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server del database SQL.
+3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server di database SQL.
 
-   ![regola del firewall per gli indirizzi IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![regola del firewall IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
 4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Fare clic su **Save**. Viene creata una regola del firewall per gli indirizzi IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 

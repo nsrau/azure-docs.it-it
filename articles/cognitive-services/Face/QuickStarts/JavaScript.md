@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bc8d20abcc7bc66d319874978e134c5c86c86e1c
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538732"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859037"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e JavaScript
 
@@ -41,7 +41,7 @@ Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice s
 </html>
 ```
 
-Aggiungere quindi il codice seguente all'interno dell'elemento `body` del documento. Viene così configurata un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
+Aggiungere quindi il codice seguente all'interno dell'elemento `body` del documento. Questo codice configura un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Scrivere lo script JavaScript
 
-Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento. Viene così configurato il codice JavaScript che chiama l'API Viso.
+Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento. Questo codice configura il codice JavaScript che chiama l'API Viso.
 
 ```html
 <script type="text/javascript">
@@ -73,16 +73,8 @@ Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
     
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change 
-        // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<My Endpoint String>.com/face/v1.0/detect";
     
         // Request parameters.
         var params = {
@@ -132,7 +124,9 @@ Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento
 </script>
 ```
 
-Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga l'identificatore di area corretta (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
+Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta. Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Esecuzione dello script
 
@@ -140,7 +134,7 @@ Aprire *detectFaces.html* nel browser. Facendo clic sul pulsante **Analyze face*
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Di seguito è riportato un esempio di risposta JSON con esito positivo.
+Il testo seguente è un esempio di risposta JSON con esito positivo.
 
 ```json
 [

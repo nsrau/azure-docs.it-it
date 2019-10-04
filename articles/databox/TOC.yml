@@ -1,130 +1,195 @@
-items:
 - name: Documentazione di Azure Data Box - Trasferimento offline
   href: /azure/databox
   items:
-  - name: Data Box
-    items:
-    - name: Panoramica
+    - name: Data Box
       items:
-      - name: Informazioni su Data Box
-        href: data-box-overview.md
-    - name: Guide introduttive
+        - name: Panoramica
+          items:
+            - name: Informazioni su Data Box
+              href: data-box-overview.md
+        - name: Guide introduttive
+          expanded: true
+          items:
+            - name: Configurazione - Portale di Azure
+              href: data-box-quickstart-portal.md
+        - name: Esercitazioni
+          items:
+            - name: 1 - Ordinare
+              href: data-box-deploy-ordered.md
+            - name: 2 - Configurare
+              href: data-box-deploy-set-up.md
+            - name: 3 - Connettere e copiare
+              items:
+                - name: Tramite SMB
+                  href: data-box-deploy-copy-data.md
+                - name: Tramite NFS
+                  href: data-box-deploy-copy-data-via-nfs.md
+                - name: Tramite REST
+                  href: data-box-deploy-copy-data-via-rest.md
+                - name: Tramite il servizio di copia dei dati
+                  href: data-box-deploy-copy-data-via-copy-service.md
+                - name: In dischi gestiti
+                  href: data-box-deploy-copy-data-from-vhds.md
+            - name: '4 - Restituire, caricare, verificare'
+              href: data-box-deploy-picked-up.md
+        - name: Concetti
+          items:
+            - name: Leggere le linee guida per la sicurezza
+              href: data-box-safety.md
+            - name: Esaminare il rilevamento e la registrazione
+              href: data-box-logs.md
+            - name: Esaminare i requisiti
+              items:
+                - name: Per Data Box
+                  href: data-box-system-requirements.md
+                - name: Per l'archiviazione BLOB Data Box
+                  href: data-box-system-requirements-rest.md
+            - name: Conoscere i limiti
+              href: data-box-limits.md
+            - name: Esaminare la sicurezza
+              href: data-box-security.md
+            - name: Domande frequenti
+              href: data-box-faq.md
+        - name: Procedure
+          items:
+            - name: Gestire tramite il portale di Azure
+              href: data-box-portal-admin.md
+            - name: Gestire tramite l'interfaccia utente Web locale
+              href: data-box-local-web-ui-admin.md
+            - name: Spostare i dati in un livello BLOB
+              href: data-box-how-to-set-data-tier.md
+            - name: Cablare il dispositivo
+              href: data-box-cable-options.md
+            - name: Contattare il supporto tecnico
+              href: data-box-disk-contact-microsoft-support.md
+            - name: Migrazione
+              items:
+                - name: A SharePoint Online
+                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                - name: A Sincronizzazione file di Azure
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Da archivio HDFS
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+            - name: Risolvere problemi
+              items:
+                - name: Problemi di Data Box
+                  href: data-box-troubleshoot.md
+                - name: Problemi dell'archiviazione BLOB Data Box
+                  href: data-box-troubleshoot-rest.md
+    - name: Data Box Disk
       items:
-      - name: Configurazione - Portale di Azure
-        href: data-box-quickstart-portal.md
-      expanded: true
-    - name: Esercitazioni
+        - name: Panoramica
+          items:
+            - name: Informazioni su Data Box Disk
+              href: data-box-disk-overview.md
+        - name: Guide introduttive
+          expanded: true
+          items:
+            - name: Configurazione - Portale di Azure
+              href: data-box-disk-quickstart-portal.md
+        - name: Esercitazioni
+          items:
+            - name: 1 - Ordinare
+              href: data-box-disk-deploy-ordered.md
+            - name: 2 - Configurare
+              href: data-box-disk-deploy-set-up.md
+            - name: 3 - Copiare e convalidare
+              href: data-box-disk-deploy-copy-data.md
+            - name: 4 - Restituire
+              href: data-box-disk-deploy-picked-up.md
+            - name: 5 - Verificare il caricamento
+              href: data-box-disk-deploy-upload-verify.md
+        - name: Concetti
+          items:
+            - name: Esaminare i requisiti
+              href: data-box-disk-system-requirements.md
+            - name: Conoscere i limiti
+              href: data-box-disk-limits.md
+            - name: Esaminare la sicurezza
+              href: data-box-disk-security.md
+            - name: Domande frequenti
+              href: data-box-disk-faq.md
+        - name: Procedure
+          items:
+            - name: Gestire tramite il portale di Azure
+              href: data-box-portal-ui-admin.md
+            - name: Risolvere problemi
+              items:
+                - name: Problemi di sblocco
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Problemi di copia dei dati
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Problemi di convalida
+                  href: data-box-disk-troubleshoot.md
+                - name: Problemi di caricamento
+                  href: data-box-disk-troubleshoot-upload.md
+            - name: Contattare il supporto tecnico
+              href: data-box-disk-contact-microsoft-support.md
+    - name: Data Box Heavy
       items:
-      - name: 1 - Ordinare
-        href: data-box-deploy-ordered.md
-      - name: 2 - Configurare
-        href: data-box-deploy-set-up.md
-      - name: 3 - Connettere e copiare
-        items:
-        - name: Tramite SMB
-          href: data-box-deploy-copy-data.md
-        - name: Tramite NFS
-          href: data-box-deploy-copy-data-via-nfs.md
-        - name: Tramite REST
-          href: data-box-deploy-copy-data-via-rest.md
-        - name: Tramite il servizio di copia dei dati
-          href: data-box-deploy-copy-data-via-copy-service.md
-        - name: In dischi gestiti
-          href: data-box-deploy-copy-data-from-vhds.md
-      - name: 4 - Restituire, caricare, verificare
-        href: data-box-deploy-picked-up.md
-    - name: Concetti
+        - name: Panoramica
+          items:
+            - name: Informazioni su Data Box Heavy
+              href: data-box-heavy-overview.md
+        - name: Guide introduttive
+          items:
+            - name: Configurazione - Portale di Azure
+              href: data-box-heavy-quickstart-portal.md
+        - name: Esercitazioni
+          items:
+            - name: 1 - Ordinare
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 - Configurare
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 - Connettere e copiare
+              items:
+                - name: Tramite SMB
+                  href: data-box-heavy-deploy-copy-data.md
+                - name: Tramite NFS
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: Tramite REST
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Tramite il servizio di copia dei dati
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: In dischi gestiti
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
+            - name: '4 - Restituire, caricare, verificare'
+              href: data-box-heavy-deploy-picked-up.md
+        - name: Concetti
+          items:
+            - name: Leggere le linee guida per la sicurezza
+              href: data-box-heavy-safety.md
+            - name: Esaminare il rilevamento e la registrazione
+              href: data-box-logs.md
+            - name: Esaminare i requisiti
+              href: data-box-heavy-system-requirements.md
+            - name: Conoscere i limiti
+              href: data-box-heavy-limits.md
+        - name: Procedure
+          items:
+            - name: Gestire tramite il portale di Azure
+              href: data-box-portal-admin.md
+            - name: Gestire tramite l'interfaccia utente Web locale
+              href: data-box-local-web-ui-admin.md
+            - name: Risolvere i problemi dei dispositivi
+              href: data-box-troubleshoot.md
+            - name: Spostare i dati in un livello BLOB
+              href: data-box-how-to-set-data-tier.md
+            - name: Contattare il supporto tecnico
+              href: data-box-disk-contact-microsoft-support.md
+            - name: Migrazione
+              items:
+                - name: A SharePoint Online
+                  href: data-box-heavy-migrate-spo.md
+                - name: A Sincronizzazione file di Azure
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Da archivio HDFS
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+    - name: Risorse
       items:
-      - name: Leggere le linee guida per la sicurezza
-        href: data-box-safety.md
-      - name: Esaminare i requisiti
-        items:
-        - name: Per Data Box
-          href: data-box-system-requirements.md
-        - name: Per l'archiviazione BLOB Data Box
-          href: data-box-system-requirements-rest.md
-      - name: Conoscere i limiti
-        href: data-box-limits.md
-      - name: Esaminare la sicurezza
-        href: data-box-security.md
-      - name: Domande frequenti
-        href: data-box-faq.md
-    - name: Procedure
-      items:
-      - name: Gestire tramite il portale di Azure
-        href: data-box-portal-admin.md
-      - name: Gestire tramite l'interfaccia utente Web locale
-        href: data-box-local-web-ui-admin.md
-      - name: Spostare i dati in un livello BLOB
-        href: data-box-how-to-set-data-tier.md
-      - name: Cablare il dispositivo
-        href: data-box-cable-options.md
-      - name: Contattare il supporto tecnico
-        href: data-box-disk-contact-microsoft-support.md
-      - name: Migrazione
-        items:
-        - name: A SharePoint Online
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
-        - name: A Sincronizzazione file di Azure
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-        - name: Da archivio HDFS
-          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-  - name: Data Box Disk
-    items:
-    - name: Panoramica
-      items:
-      - name: Informazioni su Data Box Disk
-        href: data-box-disk-overview.md
-    - name: Guide introduttive
-      items:
-      - name: Configurazione - Portale di Azure
-        href: data-box-disk-quickstart-portal.md
-      expanded: true
-    - name: Esercitazioni
-      items:
-      - name: 1 - Ordinare
-        href: data-box-disk-deploy-ordered.md
-      - name: 2 - Configurare
-        href: data-box-disk-deploy-set-up.md
-      - name: 3 - Copiare e convalidare
-        href: data-box-disk-deploy-copy-data.md
-      - name: 4 - Restituire, caricare, verificare
-        href: data-box-disk-deploy-picked-up.md
-    - name: Concetti
-      items:
-      - name: Esaminare i requisiti
-        href: data-box-disk-system-requirements.md
-      - name: Conoscere i limiti
-        href: data-box-disk-limits.md
-      - name: Esaminare la sicurezza
-        href: data-box-disk-security.md
-      - name: Domande frequenti
-        href: data-box-disk-faq.md
-    - name: Procedure
-      items:
-      - name: Gestire tramite il portale di Azure
-        href: data-box-portal-ui-admin.md
-      - name: Risolvere i problemi dei dischi
-        href: data-box-disk-troubleshoot.md
-      - name: Contattare il supporto tecnico
-        href: data-box-disk-contact-microsoft-support.md
-  - name: Data Box Heavy
-    items:
-    - name: Panoramica
-      items:
-      - name: Informazioni su Data Box Heavy
-        href: data-box-heavy-overview.md
-  - name: Risorse
-    items:
-    - name: Prodotto Data Box
-      href: https://azure.microsoft.com/services/storage/databox/data/
-    - name: Prezzi per Data Box
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Prezzi per Data Box Disk
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 159fbf5782e51cc316e2b7f4474a5ddc94cf8a59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794007"
+        - name: Prodotto Data Box
+          href: 'https://azure.microsoft.com/services/storage/databox/data/'
+        - name: Prezzi per Data Box
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+        - name: Prezzi per Data Box Disk
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'

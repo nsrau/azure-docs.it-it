@@ -3,8 +3,8 @@ title: Come configurare l'accesso Single Sign-On federato per un'applicazione no
 description: Informazioni su come configurare l'accesso Single Sign-On federato per un'applicazione personalizzata non inclusa nella raccolta e che si intende integrare con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7de7384b93237e240352651eda6e16383bcb143
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291892"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190192"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
 

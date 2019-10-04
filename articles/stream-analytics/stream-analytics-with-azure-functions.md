@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066742"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
 È possibile eseguire Funzioni di Azure da Analisi di flusso di Azure configurando Funzioni come uno dei sink di output per il processo di Analisi di flusso. Funzioni offre un'esperienza di calcolo on demand guidata dagli eventi che consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti. La possibilità offerta da Funzioni di rispondere ai trigger la rende l'output naturale per i processi di Analisi di flusso.
 
@@ -26,9 +26,10 @@ Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un processo di Analisi di flusso.
+> * Creare ed eseguire un processo di Analisi di flusso
+> * Creare un'istanza di Azure Cache per Redis
 > * Creare una funzione di Azure
-> * Configurare una funzione di Azure come output per il processo
+> * Controllare i risultati in Azure Cache per Redis
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -38,16 +39,9 @@ Questa sezione illustra come configurare un processo di Analisi di flusso per es
 
 ![Diagramma che mostra le relazioni tra i servizi di Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
-Per eseguire questa attività sono necessari i passaggi seguenti:
-* [Creare un processo di Analisi di flusso con Hub eventi come input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Creare un'istanza di Azure Cache per Redis  
-* Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis    
-* [Aggiornare il processo di Analisi di flusso con la funzione come output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Controllare i risultati in Azure Cache per Redis  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creare un processo di Analisi di flusso con Hub eventi come input
 
-Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) per creare un hub eventi, avviare l'applicazione di generazione di eventi e creare un processo di Analisi di flusso (ignorare i passaggi per la creazione della query e dell'output, ma fare riferimento alle sezioni seguenti per la configurazione dell'output di Funzioni).
+Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) per creare un hub eventi, avviare l'applicazione di generazione di eventi e creare un processo di Analisi di flusso Ignorare i passaggi per la creazione della query e dell'output, ma fare riferimento alle sezioni seguenti per la configurazione dell'output di Funzioni di Azure.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza di Azure Cache per Redis
 
@@ -61,7 +55,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. L'articolo illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio CSharp.  
 
-2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. (Assicurarsi di sostituire "\<inserire qui la stringa di connessione di Azure Cache per Redis\>" con la stringa di connessione primaria di Azure Cache per Redis recuperata nella sezione precedente.)  
+2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Sostituire **"\<your Azure Cache for Redis connection string goes here\>"** con la stringa di connessione primaria di Azure Cache per Redis recuperata nella sezione precedente. 
 
     ```csharp
     using System;
@@ -112,7 +106,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
    ```
 
-   Quando Analisi di flusso di Azure riceve dalla funzione l'eccezione "Entità richiesta HTTP troppo grande", riduce la dimensione dei batch che invia a Funzioni. Nella funzione usare il codice seguente per verificare che Analisi di flusso non invii batch troppo grandi. Assicurarsi che i valori relativi alle dimensioni massime e al numero massimo di batch usati nella funzione siano conformi ai valori inseriti nel portale di Analisi di flusso.
+   Quando Analisi di flusso di Azure riceve dalla funzione l'eccezione "Entità richiesta HTTP troppo grande", riduce la dimensione dei batch che invia a Funzioni. Il codice seguente verifica che Analisi di flusso non invii batch troppo grandi. Assicurarsi che i valori relativi alle dimensioni massime e al numero massimo di batch usati nella funzione siano conformi ai valori inseriti nel portale di Analisi di flusso.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -121,7 +115,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
         }
    ```
 
-3. In un editor di testo creare un file JSON denominato **project.json**. Usare il codice seguente e salvarlo nel computer locale. Questo file contiene le dipendenze dei pacchetti NuGet richiesti dalla funzione C#.  
+3. In un editor di testo creare un file JSON denominato **project.json**. Incollare il codice seguente e salvarlo nel computer locale. Questo file contiene le dipendenze dei pacchetti NuGet richiesti dalla funzione C#.  
    
     ```json
     {
@@ -145,8 +139,6 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
    ![Schermata dell'editor del servizio app](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aggiornare il processo di Analisi di flusso con la funzione come output
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso.  
@@ -163,9 +155,9 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
    |Numero massimo di batch|Specifica il numero massimo di eventi in ogni batch inviato alla funzione. Il valore predefinito è 100. Questa proprietà è facoltativa.|
    |Chiave|Consente di usare una funzione di un'altra sottoscrizione. Specificare il valore della chiave per accedere alla funzione. Questa proprietà è facoltativa.|
 
-3. Specificare un nome per l'alias di output. In questa esercitazione viene usato il nome **saop1**, ma è possibile usare qualsiasi nome. Specificare gli altri dettagli.  
+3. Specificare un nome per l'alias di output. In questa esercitazione viene usato il nome **saop1**, ma è possibile usare qualsiasi nome. Specificare gli altri dettagli.
 
-4. Aprire il processo di Analisi di flusso e aggiornare la query nel modo seguente. Assicurarsi di sostituire il testo "saop1" se al sink di output è stato assegnato un nome diverso.  
+4. Aprire il processo di Analisi di flusso e aggiornare la query nel modo seguente. Se per il sink di output non è stato specificato il nome **saop1**, ricordarsi di modificarlo nella query.  
 
    ```sql
     SELECT
@@ -178,9 +170,11 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Avviare l'applicazione telcodatagen.exe eseguendo il comando seguente nella riga di comando (usare il formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Avviare l'applicazione telcodatagen.exe eseguendo il comando seguente nella riga di comando. Il comando usa il formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  Avviare il processo di Analisi di flusso.
 
@@ -188,7 +182,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Accedere al portale di Azure e individuare Azure Cache per Redis. Selezionare **Console**.  
 
-2. Usare [i comandi di Azure Cache per Redis](https://redis.io/commands) per verificare che i dati siano in Azure Cache per Redis. Il comando assume il formato Get {chiave}. Ad esempio: 
+2. Usare [i comandi di Azure Cache per Redis](https://redis.io/commands) per verificare che i dati siano in Azure Cache per Redis. Il comando assume il formato Get {chiave}. Ad esempio:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

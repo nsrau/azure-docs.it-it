@@ -4,17 +4,17 @@ description: Questa soluzione di gestione di VM avvia e arresta le macchine virt
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/31/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762940"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476882"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -47,6 +47,55 @@ I runbook per questa soluzione funzionano con un [account RunAs di Azure](automa
 
 È consigliabile usare un Account di automazione separato per la soluzione avvio/arresto della macchina virtuale. Infatti, le versioni dei moduli di Azure vengono aggiornate frequentemente e potrebbero cambiare i relativi parametri. La soluzione avvio/arresto della macchina virtuale non viene aggiornata la stessa cadenza in modo che potrebbe non funzionare con le versioni più recenti dei cmdlet che lo usa. È consigliabile testare gli aggiornamenti di modulo in un Account di automazione di test prima di importarli nell'Account di automazione di produzione.
 
+### <a name="permissions-needed-to-deploy"></a>Autorizzazioni necessarie per la distribuzione
+
+Sono disponibili determinate autorizzazioni che un utente deve disporre per distribuire l'avviare/arrestare VM durante la disattivazione soluzione ore. Queste autorizzazioni sono diverse se si usa un'area di lavoro Log Analitica e Account di automazione creato in precedenza oppure crearne di nuovi durante la distribuzione. Se sei un collaboratore della sottoscrizione e un amministratore globale nel tenant di Azure Active Directory, non devi configurare le autorizzazioni seguenti. Se non si dispone di tali diritti o necessario configurare un ruolo personalizzato, vedere le autorizzazioni necessarie di sotto.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Account preesistenti Account di automazione e Log Analitica
+
+Per distribuire avviare/arrestare VM durante la disattivazione soluzione ore a un Account di automazione e Log Analitica l'utente che distribuisce la soluzione richiede le seguenti autorizzazioni nel **gruppo di risorse**. Per altre informazioni sui ruoli, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
+
+| Autorizzazione | `Scope`|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/variables/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/schedules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/runbooks/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/connections/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/certificates/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/modules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/modules/read | Gruppo di risorse |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/jobs/write | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/jobs/read | Gruppo di risorse |
+| Microsoft.OperationsManagement/solutions/write | Gruppo di risorse |
+| Microsoft.OperationalInsights/workspaces/* | Gruppo di risorse |
+| Microsoft.Insights/diagnosticSettings/write | Gruppo di risorse |
+| Microsoft.Insights/ActionGroups/Write | Gruppo di risorse |
+| Microsoft.Insights/ActionGroups/read | Gruppo di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Gruppo di risorse |
+| Microsoft.Resources/deployments/* | Gruppo di risorse |
+
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nuovo Account di automazione e una nuova area di lavoro di Log Analitica
+
+Per avviare/arrestare VM durante gli orari di minore di distribuire soluzioni per un nuovo Account di automazione e Log Analitica dell'area di lavoro l'utente che distribuisce la soluzione deve disporre di autorizzazioni definiti nella sezione precedente, nonché le autorizzazioni seguenti:
+
+- CO-amministratore della sottoscrizione - necessario solo per creare l'Account runas classico
+- Far parte del [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **sviluppatore di applicazioni** ruolo. Per altre informazioni su come configurare gli account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](manage-runas-account.md#permissions).
+- Collaboratore nella sottoscrizione o le autorizzazioni seguenti.
+
+| Autorizzazione |`Scope`|
+| --- | --- |
+| Microsoft.Authorization/Operations/read | Sottoscrizione|
+| Microsoft.Authorization/permissions/read |Sottoscrizione|
+| Microsoft.Authorization/roleAssignments/read | Sottoscrizione |
+| Microsoft.Authorization/roleAssignments/write | Sottoscrizione |
+| Microsoft.Authorization/roleAssignments/delete | Sottoscrizione |
+| Microsoft.Automation/automationAccounts/connections/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/certificates/read | Gruppo di risorse |
+| Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
+| Microsoft.OperationalInsights/workspaces/write | Gruppo di risorse |
+
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
 Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività all'account di Automazione e quindi configurare le variabili per personalizzarla.
@@ -57,6 +106,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
    > [!NOTE]
    > È possibile anche crearla da qualsiasi posizione nel portale di Azure, facendo clic su **Crea una risorsa**. Nella pagina del Marketplace digitare una parola chiave, ad esempio **Avvio** o **Avvio/Arresto**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. In alternativa, è possibile digitare una o più parole chiave contenute nel nome completo della soluzione e quindi premere INVIO. Selezionare **Avvio/Arresto di macchine virtuali durante gli orari di minore attività** dai risultati della ricerca.
+
 2. Nella pagina **Avvio/Arresto di macchine virtuali durante gli orari di minore attività** per la soluzione selezionata esaminare le informazioni di riepilogo e quindi fare clic su **Crea**.
 
    ![Portale di Azure](media/automation-solution-vm-management/azure-portal-01.png)
@@ -70,7 +120,12 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare un **percorso**. Attualmente le uniche località disponibili sono: **Australia sud-orientale**, **Canada centrale**, **India centrale**, **Stati Uniti orientali**, **Giappone orientale**, **Asia sud-orientale**, **Regno Unito meridionale**, **Europa occidentale** e **Stati Uniti occidentali 2**.
-   - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. Log di monitoraggio di Azure è aggiornato [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e livello Per GB è l'unica opzione.
+   - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)** . Log di monitoraggio di Azure è aggiornato [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e livello Per GB è l'unica opzione.
+
+   > [!NOTE]
+   > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+   >
+   > Per un elenco di coppie di mapping supportati, vedere [mapping di area per area di lavoro di Account di automazione e Log Analitica](how-to/region-mappings.md).
 
 5. Dopo aver specificato le informazioni necessarie nella pagina **area di lavoro Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
 6. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
@@ -84,8 +139,8 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
    In questo caso, viene chiesto di:
    - Specificare i **nomi dei gruppi di risorse di destinazione**. Questi valori sono nomi di gruppi di risorse contenenti le macchine virtuali che devono essere gestite da questa soluzione. È possibile immettere più nomi, separati da una virgola. I valori non fanno distinzione tra maiuscole e minuscole. Per specificare come destinazione le macchine virtuali in tutti i gruppi di risorse della sottoscrizione, è possibile usare un carattere jolly. Questo valore viene archiviato nelle variabili **External_Start_ResourceGroupNames** ed **External_Stop_ResourceGroupnames**.
-   - Specificare l'**elenco di esclusione delle VM (stringa)**. Questo valore è il nome di una o più macchine virtuali del gruppo di risorse di destinazione. È possibile immettere più nomi, separati da una virgola. I valori non fanno distinzione tra maiuscole e minuscole. I caratteri jolly sono supportati. Questo valore viene archiviato nella variabile **External_ExcludeVMNames**.
-   - Selezionare una **pianificazione**. Questo valore è una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione. Per impostazione predefinita, la pianificazione è configurata per 30 minuti a partire da adesso. Non è possibile selezionare un'altra area. Per configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere [Modifica della pianificazione di avvio e arresto](#modify-the-startup-and-shutdown-schedules).
+   - Specificare l'**elenco di esclusione delle VM (stringa)** . Questo valore è il nome di una o più macchine virtuali del gruppo di risorse di destinazione. È possibile immettere più nomi, separati da una virgola. I valori non fanno distinzione tra maiuscole e minuscole. I caratteri jolly sono supportati. Questo valore viene archiviato nella variabile **External_ExcludeVMNames**.
+   - Selezionare una **pianificazione**. Selezionare una data e ora per la pianificazione. Verrà creata una pianificazione giornaliera ricorrente inizia con l'ora in cui è stato selezionato. Non è possibile selezionare un'altra area. Per configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere [Modifica della pianificazione di avvio e arresto](#modify-the-startup-and-shutdown-schedules).
    - Per ricevere **notifiche tramite posta elettronica** da un gruppo di azione, accettare il valore predefinito **Sì** e fornire un indirizzo di posta elettronica valido. Se si seleziona **No** ma in un secondo momento si decide che si desidera ricevere notifiche tramite posta elettronica, è possibile aggiornare il [gruppo di azioni](../azure-monitor/platform/action-groups.md) che viene creato con gli indirizzi di posta elettronica validi separati da una virgola. È anche necessario abilitare le regole di avviso seguenti:
 
      - AutoStop_VM_Child
@@ -93,7 +148,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;**, destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
+     > Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;** , destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
 
 8. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, fare clic su **OK** per chiudere la pagina **Parametri** e selezionare **Crea**. Dopo la convalida di tutte le impostazioni, la soluzione viene distribuita nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
@@ -248,8 +303,8 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 
 |Proprietà | DESCRIZIONE|
 |----------|----------|
-|Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
+|Caller |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
+|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
 |CorrelationId | GUID che rappresenta l'ID di correlazione del processo del runbook.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
@@ -263,14 +318,14 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |SourceSystem | Specifica il sistema di origine per i dati inviati. Per Automazione, il valore è OpsManager|
 |StreamType | Specifica il tipo di evento. I valori possibili sono:<br>- Dettagliato<br>- Output<br>- Errore<br>- Avviso|
 |SubscriptionId | Specifica l'ID sottoscrizione del processo.
-|Tempo | Data e ora di esecuzione del processo del runbook.|
+|Time | Data e ora di esecuzione del processo del runbook.|
 
 ### <a name="job-streams"></a>Flussi di processo
 
 |Proprietà | DESCRIZIONE|
 |----------|----------|
-|Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
+|Caller |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
+|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
@@ -282,7 +337,7 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |RunbookName | Il nome del runbook.|
 |SourceSystem | Specifica il sistema di origine per i dati inviati. Per Automazione, il valore è OpsManager.|
 |StreamType | Il tipo di flusso del processo. I valori possibili sono:<br>- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato|
-|Tempo | Data e ora di esecuzione del processo del runbook.|
+|Time | Data e ora di esecuzione del processo del runbook.|
 
 Quando si esegue una ricerca log che restituisce record di categoria di **JobLogs** o **JobStreams**, è possibile selezionare la visualizzazione **JobLogs** o **JobStreams** che presenta una serie di riquadri di riepilogo degli aggiornamenti restituiti dalla ricerca.
 
@@ -292,8 +347,8 @@ La tabella seguente contiene esempi di ricerche nei log per i record dei process
 
 |Query | DESCRIZIONE|
 |----------|----------|
-|Trova i processi completati per il runbook ScheduledStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Trova i processi completati per il runbook SequencedStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|Trova i processi completati per il runbook ScheduledStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Trova i processi completati per il runbook SequencedStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>Visualizzazione della soluzione
 
@@ -364,7 +419,9 @@ Se non è più necessario usare la soluzione, è possibile eliminarla dall'accou
 
 Per eliminare la soluzione, attenersi alla procedura seguente:
 
-1. Dall'account di Automazione selezionare **Area di lavoro** dalla pagina di sinistra.
+1. Dall'account di automazione, sotto **le risorse correlate**, selezionare **dell'area di lavoro collegato**.
+1. Selezionare **passare all'area di lavoro**.
+1. Sotto **generali**, selezionare **soluzioni**. 
 1. Nella pagina **Soluzioni** selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]). Nella pagina **VMManagementSolution[area di lavoro]** scegliere **Elimina** dal menu.<br><br> ![Eliminare una soluzione di gestione di macchine virtuali](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Nella finestra **Elimina soluzione** confermare di voler eliminare la soluzione.
 1. Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della rimozione della soluzione, è possibile usare la voce **Notifiche** nel menu. Quando il processo di rimozione della soluzione inizia, l'utente viene rimandato alla pagina **Soluzioni**.

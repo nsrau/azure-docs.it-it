@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bec627f114a20033ca4364c39c048763df36b67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66161440"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite Azure PowerShell
 > [!div class="op_single_selector"]

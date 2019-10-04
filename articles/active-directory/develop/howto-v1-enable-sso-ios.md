@@ -2,26 +2,26 @@
 title: Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL | Microsoft Docs
 description: Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Single Sign-On tra le applicazioni.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65962615"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 
@@ -44,7 +44,7 @@ Questa procedura si applica a:
 
 Questa procedura presuppone che si sia in grado di:
 
-* Effettuare il provisioning dell'app tramite il portale legacy per Azure AD. Per altre informazioni, vedere [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md) (Registrare un'app con l'endpoint Azure AD v1.0).
+* Effettuare il provisioning dell'app tramite il portale legacy per Azure AD. Per altre informazioni, vedere [registrare un'app](quickstart-register-app.md)
 * Integrare l'applicazione con l'[SDK iOS di Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Concetti dell'accesso Single Sign-On
@@ -165,7 +165,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK risolvono automatica
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
+1. Assicurarsi che tutte le applicazioni utilizzano lo stesso Client ID o ID applicazione.
 2. Verificare che tutte le applicazioni condividano lo stesso certificato di firma di Apple per poter condividere i portachiavi.
 3. Richiedere lo stesso diritto per i portachiavi per ogni applicazione.
 4. Indicare agli SDK il portachiavi condiviso da usare.

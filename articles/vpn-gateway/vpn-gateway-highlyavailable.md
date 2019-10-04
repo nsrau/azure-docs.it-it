@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60760328"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.

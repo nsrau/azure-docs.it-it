@@ -9,11 +9,11 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888564"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180117"
 ---
 Per aprire una porta, o creare un endpoint, in una macchina virtuale (VM) di Azure si crea un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete collegato alla risorsa che riceve il traffico.
 
@@ -29,7 +29,7 @@ Dopo aver creato una macchina virtuale configurata per elaborare le richieste We
 
    - **Intervalli di porte di origine**: * (consente qualsiasi porta di origine)
 
-   - **Priorità**: immettere un valore di priorità minore di 65.500 e più alto rispetto al valore predefinito della regola in ingresso di accesso negato di tipo catch-all.
+   - **Valore di priorità**: Immettere un valore che è minore di 65.500 e maggiore priorità rispetto al valore predefinito di catch-all negare regola in ingresso.
 
 3. Associare il gruppo di sicurezza di rete alla subnet o all'interfaccia di rete della macchina virtuale.
 

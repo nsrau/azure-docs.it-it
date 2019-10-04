@@ -1,136 +1,105 @@
 ---
-title: Controllare l'aggiunta dei dispositivi ad Azure AD ibrido | Microsoft Docs
-description: Informazioni su come controllare l'aggiunta dei dispositivi ad Azure AD ibrido in Azure Active Directory.
+title: Convalida controllata del join di Azure AD ibrido-Azure AD
+description: Informazioni su come eseguire una convalida controllata del join ibrido di Azure AD prima di abilitarlo in tutta l'organizzazione contemporaneamente
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353109"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851784"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controllare l'aggiunta dei dispositivi ad Azure AD ibrido
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
-L'aggiunta ad Azure Active Directory (Azure AD) ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale in Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. Questo avviene, ad esempio, durante l'implementazione iniziale, per verificare che tutto funzioni come previsto.
+Quando tutti i prerequisiti sono soddisfatti, i dispositivi Windows verranno registrati automaticamente come dispositivi nel tenant del Azure AD. Lo stato di queste identità del dispositivo in Azure AD viene definito ibrido Azure AD join. Altre informazioni sui concetti trattati in questo articolo sono disponibili negli articoli [Introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md) e [pianificare l'implementazione di Azure Active Directory join ibrida](hybrid-azuread-join-plan.md).
 
-Questo articolo offre indicazioni su come controllare l'aggiunta dei dispositivi ad Azure AD ibrido. 
+È possibile che le organizzazioni desiderino eseguire una convalida controllata del join ibrido di Azure AD prima di abilitarlo nell'intera organizzazione. In questo articolo viene illustrato come eseguire una convalida controllata del join di Azure AD ibrido.
 
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Questo articolo presuppone che l'utente abbia familiarità con gli argomento seguenti:
-
--  [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
- 
--  [Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-plan.md)
-
--  [Configurare l'aggiunta ad Azure Active Directory ibrido per i domini gestiti](hybrid-azuread-join-managed-domains.md) o [Configurare l'aggiunta ad Azure Active Directory ibrido per i domini federati](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>Controllare i dispositivi Windows correnti
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Convalida controllata del join Azure AD ibrido nei dispositivi Windows correnti
 
 Per i dispositivi che eseguono il sistema operativo desktop Windows, è supportata la versione 1607 (Aggiornamento dell'anniversario di Windows 10) o successiva. Come procedura consigliata, eseguire l'aggiornamento alla versione più recente di Windows 10.
 
-Tutti i dispositivi Windows correnti vengono registrati automaticamente in Azure AD all'avvio del dispositivo o all'accesso dell'utente. È possibile controllare questo comportamento con un oggetto Criteri di gruppo (GPO) o System Center Configuration Manager.
+Per eseguire una convalida controllata del join Azure AD ibrido nei dispositivi Windows correnti, è necessario:
 
-Per controllare i dispositivi Windows correnti, è necessario: 
-
-
-1.  **Per tutti i dispositivi**: disabilitare la registrazione automatica dei dispositivi.
-2.  **Per i dispositivi selezionati**: abilitare la registrazione automatica dei dispositivi.
-
-Dopo aver verificato che tutto funzioni come previsto, si è pronti per abilitare nuovamente la registrazione automatica dei dispositivi per tutti i dispositivi.
+1. Cancellare la voce del punto di connessione del servizio (SCP) da Active Directory (AD) se esistente
+1. Configurare l'impostazione del registro di sistema sul lato client per SCP nei computer aggiunti a un dominio usando un oggetto Criteri di gruppo (GPO)
+1. Se si utilizza AD FS, è inoltre necessario configurare l'impostazione del registro di sistema sul lato client per SCP nel server AD FS utilizzando un oggetto Criteri di gruppo  
 
 
 
-### <a name="group-policy-object"></a>Oggetto Criteri di gruppo 
+### <a name="clear-the-scp-from-ad"></a>Cancellare SCP da AD
 
-È possibile controllare il comportamento di registrazione dei dispositivi distribuendo l'oggetto Criteri di gruppo seguente: **Registra i computer aggiunti a un dominio come dispositivi**.
+Utilizzare l'editor interfacce Active Directory Services (ADSI Edit) per modificare gli oggetti SCP in Active Directory.
 
-Per impostare l'oggetto Criteri di gruppo:
+1. Avviare l'applicazione desktop **ADSI Edit** da e dalla workstation amministrativa o da un controller di dominio come amministratore dell'organizzazione.
+1. Connettersi al **contesto dei nomi di configurazione** del dominio.
+1. Passare a **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Device Registration Configuration**
+1. Fare clic con il pulsante destro del mouse sull'oggetto foglia in **CN = Device Registration Configuration** e selezionare **Properties**
+   1. Selezionare **parole chiave** dalla finestra **Editor attributi** e fare clic su **modifica** .
+   1. Selezionare i valori di **azureADId** e **azureADName** (uno alla volta) e fare clic su **Rimuovi** .
+1. Chiudi **ADSI Edit**
 
-1.  Aprire **Server Manager** e quindi passare a **Strumenti** > **Gestione Criteri di gruppo**.
 
-2.  Passare al nodo corrispondente al dominio in cui si vuole disabilitare o abilitare la registrazione automatica.
+### <a name="configure-client-side-registry-setting-for-scp"></a>Configurare l'impostazione del registro di sistema sul lato client per SCP
 
-3.  Fare clic con il pulsante destro del mouse su **Oggetti Criteri di gruppo** e quindi scegliere **Nuovo**.
+Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distribuire un'impostazione del registro di sistema configurando una voce SCP nel registro dei dispositivi.
 
-4.  Immettere un nome (ad esempio, **Aggiunta ad Azure AD ibrido**) per l'oggetto Criteri di gruppo. 
+1. Aprire una console di gestione di Criteri di gruppo e creare un nuovo oggetto Criteri di gruppo nel dominio.
+   1. Specificare un nome per l'oggetto Criteri di gruppo appena creato, ad esempio ClientSideSCP.
+1. Modificare l'oggetto Criteri di gruppo e individuare il percorso seguente: > **Preferenze** >  configurazionecomputerregistrodisistemaimpostazionidiWindows > 
+1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo** > **elemento del registro**
+   1. Nella scheda **generale** configurare quanto segue:
+      1. Azione: **Aggiornamento**
+      1. Alveare **HKEY_LOCAL_MACHINE**
+      1. Percorso chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nome valore: **TenantId**
+      1. Tipo valore: **REG_SZ**
+      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell'**ID directory**delle**Proprietà** >  **portale di Azure** > **Azure Active Directory** > )
+   1. Fare clic su **OK**.
+1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo** > **elemento del registro**
+   1. Nella scheda **generale** configurare quanto segue:
+      1. Azione: **Aggiornamento**
+      1. Alveare **HKEY_LOCAL_MACHINE**
+      1. Percorso chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nome valore: **TenantName**
+      1. Tipo valore: **REG_SZ**
+      1. Dati valore: Il **nome di dominio** verificato se si utilizza un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, `contoso.onmicrosoft.com` ad esempio, se si usa l'ambiente gestito
+   1. Fare clic su **OK**.
+1. Chiudere l'editor per l'oggetto Criteri di gruppo appena creato
+1. Collegare l'oggetto Criteri di gruppo appena creato all'unità organizzativa desiderata contenente i computer aggiunti a un dominio che appartengono al popolamento di implementazione controllato
 
-5.  Selezionare **OK**.
+### <a name="configure-ad-fs-settings"></a>Configurare le impostazioni di AD FS
 
-6.  Fare clic con il pulsante destro del mouse sul nuovo oggetto Criteri di gruppo e scegliere **Modifica**.
+Se si utilizza AD FS, è necessario innanzitutto configurare SCP sul lato client utilizzando le istruzioni indicate sopra, ma collegando l'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando viene configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
 
-7.  Passare a **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Registrazione dispositivo**. 
+> [!NOTE]
+> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata locale e AD FS inizierà a eliminare gli oggetti dispositivo dalla directory locale dopo un periodo di tempo stabilito.
 
-8.  Fare clic con il pulsante destro del mouse su **Registra i computer aggiunti a un dominio come dispositivi** e quindi scegliere **Modifica**.
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Convalida controllata del join di Azure AD ibrido nei dispositivi Windows di livello inferiore
 
-    > [!NOTE] 
-    > Questo modello di Criteri di gruppo è stato rinominato dalle versioni precedenti della console Gestione Criteri di gruppo. Se si usa una versione precedente della console, passare a **configurazione Computer** > **criteri** > **modelli amministrativi**  >  **i componenti di Windows** > **servizio registrazione dispositivo** > **Register dominio aggiunto al computer come dispositivo**. 
+Per registrare i dispositivi Windows di livello inferiore, le organizzazioni devono installare [Microsoft Workplace Join per computer non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554), disponibile nell'Area download Microsoft.
 
-9.  Selezionare una delle impostazioni seguenti e quindi selezionare **Applica**:
+È possibile distribuire il pacchetto usando un sistema di distribuzione software come  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro quiet. Configuration Manager Current Branch offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
 
-    - **Disabilitato**: per impedire la registrazione automatica dei dispositivi.
-    - **Enabled**: per abilitare la registrazione automatica dei dispositivi.
+Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto utente. e attivata nel momento in cui l'utente accede a Windows. L'attività aggiunge automaticamente il dispositivo con Azure AD con le credenziali dell'utente dopo l'autenticazione con Azure AD.
 
-10. Selezionare **OK**.
+Per controllare la registrazione del dispositivo, è necessario distribuire il pacchetto di Windows Installer al gruppo selezionato di dispositivi Windows di livello inferiore.
 
-È necessario collegare l'oggetto Criteri di gruppo a una posizione di propria scelta. Ad esempio, per impostare questi criteri per tutti i dispositivi correnti aggiunti a un dominio all'interno dell'organizzazione, collegare l'oggetto Criteri di gruppo al dominio. Per eseguire una distribuzione controllata, impostare questi criteri sui dispositivi correnti di Windows aggiunti a un dominio che appartengono a un'unità organizzativa o a un gruppo di sicurezza.
+> [!NOTE]
+> Se una SCP non è configurata in Active Directory, è necessario seguire lo stesso approccio descritto in [configurare l'impostazione del registro di sistema sul lato client per SCP](#configure-client-side-registry-setting-for-scp)sui computer aggiunti a un dominio usando un oggetto Criteri di gruppo (GPO).
 
-### <a name="configuration-manager-controlled-deployment"></a>Distribuzione controllata di Gestione configurazione 
 
-È possibile controllare il comportamento di registrazione dei dispositivi correnti configurando l'impostazione client seguente: **Registra automaticamente i nuovi dispositivi Windows 10 aggiunti al dominio con Azure Active Directory**.
-
-Per configurare l'impostazione client:
-
-1.  Aprire **Configuration Manager**, selezionare **amministrazione**, quindi passare a **impostazioni Client**.
-
-2.  Aprire le proprietà per **impostazioni Client predefinite** e selezionare **servizi Cloud**.
-
-3.  In **Impostazioni del dispositivo** selezionare una delle impostazioni seguenti per **Registra automaticamente i nuovi dispositivi Windows 10 aggiunti al dominio con Azure Active Directory**:
-
-    - **No**: per impedire la registrazione automatica dei dispositivi.
-    - **Sì**: per abilitare la registrazione automatica dei dispositivi.
-
-4.  Selezionare **OK**.
-
-È necessario collegare questa impostazione client a una posizione di propria scelta. Ad esempio, per configurare questa impostazione client per tutti i dispositivi correnti di Windows nell'organizzazione, collegare l'impostazione client al dominio. Per eseguire una distribuzione controllata, è possibile configurare questa impostazione client sui dispositivi correnti di Windows aggiunti a un dominio che appartengono a un'unità organizzativa o a un gruppo di sicurezza.
-
-> [!Important]
-> Anche se la configurazione precedente interessa dispositivi Windows 10 aggiunti a un dominio esistenti, è possibile che i dispositivi appena aggiunti al dominio tentino ancora di completare l'aggiunta ad Azure AD ibrido a causa di potenziali ritardi nell'applicazione delle impostazioni di Criteri di gruppo o di Gestione configurazione nei dispositivi. 
->
-> Per evitare questo problema, è consigliabile creare una nuova immagine Sysprep (usata come esempio per un metodo di provisioning). Crearla da un dispositivo che non è mai stato aggiunto in precedenza ad Azure AD ibrido e a cui è già stata applicata l'impostazione di Criteri di gruppo o l'impostazione client di Configuration Manager. È anche necessario usare la nuova immagine per il provisioning di nuovi computer che si aggiungono al dominio dell'organizzazione. 
-
-## <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore
-
-Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare il pacchetto di Windows Installer (con estensione msi) dalla pagina [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) (Microsoft Workplace Join per computer non Windows 10) dell'Area download.
-
-È possibile distribuire il pacchetto usando un sistema di distribuzione del software come [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro quiet. Configuration Manager Current Branch offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
-
-Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto dell'utente e attivata nel momento in cui l'utente accede a Windows. L'attività aggiunge automaticamente il dispositivo con Azure AD con le credenziali dell'utente dopo l'autenticazione con Azure AD.
-
-Per controllare la registrazione del dispositivo è necessario distribuire il pacchetto Windows Installer solo a un gruppo selezionato di dispositivi Windows di livello inferiore. Se si è verificato che tutto funzioni come previsto, si è pronti per l'implementazione del pacchetto su tutti i dispositivi di livello inferiore.
-
+Dopo aver verificato che tutto funzioni come previsto, è possibile registrare automaticamente il resto dei dispositivi Windows correnti e di livello inferiore con Azure AD configurando [SCP usando Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
-
-
-
+[Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-plan.md)

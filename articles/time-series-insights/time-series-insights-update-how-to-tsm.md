@@ -2,20 +2,20 @@
 title: Modellazione dei dati in Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sulla modellazione dei dati in Anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 245a69f5e5834e68bbbd17a96859a93bc16eacbe
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555405"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744169"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modellazione dei dati in Anteprima di Azure Time Series Insights
 
@@ -29,12 +29,12 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Tipi** dal menu. Comprimere il pannello per esaminare i tipi di modelli di serie temporali.
 
-    ![Portal_one][1]
+    [![Creazione di un singolo tipo](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **+ Aggiungi**.
 1. Immettere tutti i dettagli relativi ai tipi e selezionare **Crea**. Questa azione crea i tipi nell'ambiente.
 
-    ![Portal_two][2]
+    [![Aggiungere un tipo](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Caricamento in blocco di uno o più tipi
 
@@ -42,19 +42,21 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare il file che contiene il payload del tipo.
 1. Selezionare **Carica**.
 
-    ![Portal_three][3]
+    [![Carica JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Modificare un singolo tipo
 
-Selezionare il tipo e quindi selezionare **Modifica**. Apportare le modifiche necessarie e quindi selezionare **Salva**.
+1. Selezionare il tipo e quindi selezionare **Modifica**. 
+1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-![Portal_four][4]
+    [![Modificare un tipo](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Eliminare un tipo
 
-Selezionare il tipo e quindi selezionare **Elimina**. Se nessuna istanza è associata i tipi, viene eliminato.
+1. Selezionare il tipo e quindi selezionare **Elimina**.
+1. Se nessuna istanza è associata i tipi, viene eliminato.
 
-![Portal_five][5]
+    [![Eliminare un tipo](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Gerarchie
 
@@ -62,19 +64,19 @@ Selezionare il tipo e quindi selezionare **Elimina**. Se nessuna istanza è asso
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Gerarchie** dal menu. Comprimere il pannello per esaminare i tipi di gerarchie di serie temporali.
 
-    ![Portal_six][6]
+    [![Selezione gerarchie](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **+ Aggiungi**.
 
-    ![Portal_seven][7]
+    [![Aggiungere una gerarchia](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. Selezionare **Aggiungi livello** nel riquadro a destra.
+1. Selezionare **+ Aggiungi livello** nel riquadro di destra.
 
-    ![Portal_eight][8]
+    [![Aggiungi un livello](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Immettere i dettagli della gerarchia e selezionare **Crea**.
 
-    ![Portal_nine][9]
+    [![Creazione di un livello](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Caricamento in blocco di una o più gerarchie
 
@@ -82,19 +84,21 @@ Selezionare il tipo e quindi selezionare **Elimina**. Se nessuna istanza è asso
 1. Selezionare il file che contiene il payload della gerarchia.
 1. Selezionare **Carica**.
 
-    ![Portal_ten][10]
+    [![Gerarchie di caricamento bulk](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Modificare una singola gerarchia
 
-Selezionare la gerarchia e quindi selezionare **Modifica**. Apportare le modifiche necessarie e quindi selezionare **Salva**.
+1. Selezionare la gerarchia e quindi selezionare **Modifica**.
+1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-![Portal_eleven][11]
+    [![Modificare una singola gerarchia](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Eliminare una gerarchia
 
-Selezionare la gerarchia e quindi selezionare **Elimina**. Se nessuna istanza è associata alla gerarchia, viene eliminata.
+1. Selezionare la gerarchia e quindi selezionare **Elimina**. 
+1. Se nessuna istanza è associata alla gerarchia, viene eliminata.
 
-![Portal_twelve][12]
+    [![Eliminare una gerarchia](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Istanze
 
@@ -102,11 +106,11 @@ Selezionare la gerarchia e quindi selezionare **Elimina**. Se nessuna istanza è
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Istanze** dal menu. Comprimere il pannello per esaminare le istanze di modelli di serie temporali.
 
-    ![Portal_thirteen][13]
+    [![Creare una singola istanza](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Selezionare **Aggiungi**.
 
-    ![Portal_thirteen][14]
+    [![Aggiungere un'istanza](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Immettere i dettagli dell'istanza, selezionare l'associazione con il tipo e la gerarchia e selezionare **Crea**.
 
@@ -115,40 +119,21 @@ Selezionare la gerarchia e quindi selezionare **Elimina**. Se nessuna istanza è
 1. Selezionare **Carica JSON**.
 1. Selezionare il file che contiene il payload delle istanze.
 
-    ![Portal_fifteen][15]
+    [![Caricamento bulk di una o più istanze](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Selezionare **Carica**.
 
 ### <a name="edit-a-single-instance"></a>Modificare una singola istanza
 
-Selezionare l'istanza e quindi selezionare **Modifica**. Apportare le modifiche necessarie e quindi selezionare **Salva**.
+1. Selezionare l'istanza e quindi selezionare **Modifica**. 
+1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-![Portal_sixteen][16]
-
-### <a name="delete-an-instance"></a>Eliminare un'istanza
-
-Selezionare l'istanza e quindi selezionare **Elimina**. Se nessun evento è associato alle istanze, viene eliminata.
+    [![Modificare una singola istanza](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sui modelli di serie temporali, vedere [Modellazione di dati](./time-series-insights-update-tsm.md).
-- Per altre informazioni sull'anteprima, vedere [Visualizzare dati nello strumento di esplorazione di Anteprima di Azure Time Series Insights](./time-series-insights-update-explorer.md).
-- Per informazioni sulle forme JSON supportate, vedere [Forme JSON supportate](./time-series-insights-send-events.md#json).
 
-<!-- Images -->
-[1]: media/v2-update-how-to-tsm/portal_one.png
-[2]: media/v2-update-how-to-tsm/portal_two.png
-[3]: media/v2-update-how-to-tsm/portal_three.png
-[4]: media/v2-update-how-to-tsm/portal_four.png
-[5]: media/v2-update-how-to-tsm/portal_five.png
-[6]: media/v2-update-how-to-tsm/portal_six.png
-[7]: media/v2-update-how-to-tsm/portal_seven.png
-[8]: media/v2-update-how-to-tsm/portal_eight.png
-[9]: media/v2-update-how-to-tsm/portal_nine.png
-[10]: media/v2-update-how-to-tsm/portal_ten.png
-[11]: media/v2-update-how-to-tsm/portal_eleven.png
-[12]: media/v2-update-how-to-tsm/portal_twelve.png
-[13]: media/v2-update-how-to-tsm/portal_thirteen.png
-[14]: media/v2-update-how-to-tsm/portal_fourteen.png
-[15]: media/v2-update-how-to-tsm/portal_fifteen.png
-[16]: media/v2-update-how-to-tsm/portal_sixteen.png
+- Per altre informazioni sull'anteprima, vedere [Visualizzare dati nello strumento di esplorazione di Anteprima di Azure Time Series Insights](./time-series-insights-update-explorer.md).
+
+- Per informazioni sulle forme JSON supportate, vedere [Forme JSON supportate](./time-series-insights-send-events.md#json).

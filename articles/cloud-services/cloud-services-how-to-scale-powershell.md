@@ -2,24 +2,17 @@
 title: Aumentare o ridurre il numero di istanze per un servizio cloud Azure in Windows PowerShell | Documentazione Microsoft
 description: (classico) Informazioni su come usare PowerShell per aumentare o ridurre il numero di istanze per un ruolo Web o un ruolo di lavoro in Azure.
 services: cloud-services
-documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: mmccrory
-ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: memccror
+ms.openlocfilehash: a1945aad12eb34bad1b593878779e1ceb0dae686
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998006"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359049"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Come aumentare o ridurre il numero di istanze per un servizio cloud in PowerShell
 

@@ -4,23 +4,22 @@ description: Creare una nuova macchina virtuale Windows collegando un disco gest
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443882"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079660"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -37,7 +36,7 @@ Sono disponibili diverse opzioni:
 
 Questo articolo illustra come usare i dischi gestiti. Se è presente una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>Opzione 1: Usare un disco esistente
 
@@ -205,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Per usare questo snapshot per creare una macchina virtuale che deve essere a elevate prestazioni, aggiungere il parametro `-AccountType Premium_LRS` al comando New-AzSnapshotConfig. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
+Per usare questo snapshot per creare una macchina virtuale che deve essere a prestazioni elevate, aggiungere il `-AccountType Premium_LRS` parametro al comando New-AzSnapshotConfig. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creare un nuovo disco dallo snapshot
 

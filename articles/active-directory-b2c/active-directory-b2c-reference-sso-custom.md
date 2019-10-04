@@ -2,26 +2,26 @@
 title: Gestione delle sessioni Single Sign-On tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sulla gestione delle sessioni SSO tramite criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d1d76e3ac995d4ee63e36ac3560d20f473d3ea2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316970"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065389"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La gestione delle sessioni Single sign-on (SSO) in Azure Active Directory (Azure AD) B2C consente agli amministratori di controllare le interazioni con un utente dopo che questi si è autenticato. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale. In questo articolo viene descritto come configurare le impostazioni di SSO per Azure AD B2C.
+La gestione delle sessioni Single Sign-on (SSO) in Azure Active Directory B2C (Azure AD B2C) consente a un amministratore di controllare l'interazione con un utente dopo che l'utente è già stato autenticato. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale. In questo articolo viene descritto come configurare le impostazioni di SSO per Azure AD B2C.
 
 La gestione della sessione SSO è costituita da due parti. La prima riguarda le interazioni dell'utente direttamente con Azure AD B2C, mentre l'altra riguarda le interazioni dell'utente con parti esterne, ad esempio Facebook. Azure AD B2C non esegue l'override né ignora le sessioni SSO che possono essere tenute da parti esterne. Il percorso attraverso Azure AD B2C per arrivare alla parte esterna viene invece "memorizzato", evitando così di chiedere di nuovo all'utente di selezionare i provider di identità basati su social network o aziendali. La decisione SSO finale spetta alla parte esterna.
 
@@ -63,7 +63,7 @@ Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` 
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Questo provider viene usato per eliminare la schermata di selezione del provider di identità. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook. 
+Questo provider viene usato per eliminare la schermata di selezione del provider di identità. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">

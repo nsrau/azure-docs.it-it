@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Node.js"
+title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Node.js"
 titleSuffix: Azure Cognitive Services
 description: Caricare un'immagine usando l'SDK di Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: c46c33b81a1162bdb30edc7a39a04fea8c0abb7d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 07/15/2019
+ms.author: aahi
+ms.openlocfilehash: f0dd0bb82f899146956b5671497d298c7ce076ef
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866934"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360528"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Node.js
 
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con l'SDK per Node.js. Mentre Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 

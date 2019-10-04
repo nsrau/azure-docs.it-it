@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847012"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839348"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Origini dati degli agenti in Monitoraggio di Azure
 I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle origini dati configurate.  I dati degli agenti vengono archiviati come [dati di log](data-platform-logs.md) con un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -29,7 +29,7 @@ I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle orig
 Nella tabella seguente sono elencate le origini dati degli agenti attualmente disponibili in Monitoraggio di Azure.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta. 
 
 
-| Origine dati | Piattaforma | Microsoft Monitoring Agent | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
+| Origine dati | Piattaforma | Agente di log Analytics | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Log personalizzati](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | all'arrivo |
 | [Log personalizzati](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | all'arrivo |

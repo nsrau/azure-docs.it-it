@@ -1,7 +1,7 @@
 ---
-title: Miglioramento dell'accuratezza grazie ai criteri
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Aggiungere modelli di schema per migliorare l'accuratezza della stima nelle applicazioni di LUIS (Language Understanding).
+title: Modelli Aggiungi accuratezza-LUIS
+titleSuffix: Azure Cognitive Services
+description: Aggiungere modelli modello per migliorare l'accuratezza della stima nelle applicazioni Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b6c8ba1517de44d01ffbceec812749403465e63
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196708"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638083"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere i modelli per migliorare l'accuratezza della stima
-Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concept-patterns.md) per migliorare l'accuratezza della stima per espressioni che rivela un criterio in ordine di word e la scelta delle parole. Modelli di utilizzano specifici [sintassi](luis-concept-patterns.md#pattern-syntax) per indicare la posizione del: [entità](luis-concept-entity-types.md), entità [ruoli](luis-concept-roles.md)e il testo facoltativo.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere modelli per migliorare l'accuratezza della stima
+Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](luis-concept-patterns.md) per migliorare l'accuratezza della stima per le espressioni che rivelano un modello in Word Order e Word Choice. I modelli usano una [sintassi](luis-concept-patterns.md#pattern-syntax) specifica per indicare la posizione di: [entità](luis-concept-entity-types.md), [ruoli](luis-concept-roles.md)di entità e testo facoltativo.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Aggiungere l'espressione di modello per creare un criterio
 1. Apri l'applicazione selezionando il corrispettivo nome nella pagina **App personali** e quindi seleziona **Criteri** nel riquadro sinistro, nella sezione **Migliora le prestazioni dell'applicazione**.
@@ -34,7 +34,7 @@ Dopo che un'app LUIS riceve utterances endpoint, usare una [pattern](luis-concep
 
     ![Schermata dell'entità per il criterio](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un unico carattere due punti `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio. 
+    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di `:`due punti,, dopo il `{Location:Origin}`nome dell'entità, ad esempio. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio. 
 
     ![Schermata dell'entità con un ruolo](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ Dopo aver aggiunto, modificato, rimosso o riassegnato un criterio, [esegui il tr
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>Usare contestuale sulla barra degli strumenti
+## <a name="use-contextual-toolbar"></a>Usa barra degli strumenti contestuale
 
-La barra degli strumenti contesto sopra l'elenco di modelli consente di:
+La barra degli strumenti contestuale sopra l'elenco di modelli consente di:
 
-* Ricerca dei modelli
+* Ricerca di modelli
 * Modificare un criterio
 * Riassegnare un criterio singolo a diverse finalità
 * Riassegnare diversi criteri a finalità diverse
-* Delete-a-singolo-pattern
+* Delete-a-singolo modello
 * Eliminare diversi criteri
 * Filtrare l'elenco dei criteri per entità
-* Filter-pattern-list-by-intent
+* Filter-pattern-list-by-Intent
 * Rimuovere il filtro entità o finalità
 * Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [creare un modello](luis-tutorial-pattern.md) con un pattern.any e ruoli con un'esercitazione.
+* Informazioni su come [creare un modello](luis-tutorial-pattern.md) con un modello. tutti i ruoli e con un'esercitazione.
 * Informazioni su come [eseguire il training](luis-how-to-train.md) dell'app.

@@ -2,17 +2,17 @@
 title: Procedure consigliate per l'operatore - Isolamento cluster nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per l'isolamento nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mlearned
+ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465307"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348779"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'isolamento cluster nel servizio Azure Kubernetes (AKS)
 
@@ -28,23 +28,23 @@ Questo articolo sulle procedure consigliate è incentrato sull'isolamento per gl
 
 Kubernetes offre funzionalità che consentono di isolare in modo logico team e carichi di lavoro nello stesso cluster. L'obiettivo consiste nel fornire il minor numero di privilegi, limitati alle risorse di cui ogni team ha bisogno. Uno [spazio dei nomi][k8s-namespaces] in Kubernetes crea un limite di isolamento logico. Ulteriori funzionalità di Kubernetes e considerazioni per l'isolamento e il multi-tenancy includono le aree seguenti:
 
-* La **pianificazione** include l'uso di funzionalità di base come le quote di risorse e i budget di interruzione dei pod. Per altre informazioni su queste funzionalità, vedere [Procedure consigliate per le funzionalità di base dell'utilità di pianificazione in servizio Azure Kubernetes][aks-best-practices-scheduler].
-  * Le funzionalità più avanzate dell'utilità di pianificazione includono taint e tolleranze, selettori di nodo e affinità tra nodi e tra pod o anti-affinità. Per altre informazioni su queste funzionalità, vedere [Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in servizio Azure Kubernetes][aks-best-practices-advanced-scheduler].
+* La **pianificazione** include l'uso di funzionalità di base come le quote di risorse e i budget di interruzione dei pod. Per altre informazioni su queste funzionalità, vedere [procedure consigliate per le funzionalità dell'utilità di pianificazione di base in AKS][aks-best-practices-scheduler].
+  * Le funzionalità più avanzate dell'utilità di pianificazione includono taint e tolleranze, selettori di nodo e affinità tra nodi e tra pod o anti-affinità. Per altre informazioni su queste funzionalità, vedere [procedure consigliate per le funzionalità dell'utilità di pianificazione avanzate in AKS][aks-best-practices-advanced-scheduler].
 * La **rete** include l'uso di criteri di rete per controllare il flusso del traffico in ingresso e in uscita dai pod.
-* L'**autenticazione e l'autorizzazione** includono l'utente del controllo degli accessi in base al ruolo e l'integrazione di Azure Active Directory (AD), le identità del pod e i segreti in Azure Key Vault. Per altre informazioni su queste funzionalità, vedere [Procedure consigliate per l'autenticazione e l'autorizzazione in servizio Azure Kubernetes][aks-best-practices-identity].
+* L'**autenticazione e l'autorizzazione** includono l'utente del controllo degli accessi in base al ruolo e l'integrazione di Azure Active Directory (AD), le identità del pod e i segreti in Azure Key Vault. Per altre informazioni su queste funzionalità, vedere [procedure consigliate per l'autenticazione e l'autorizzazione in AKS][aks-best-practices-identity].
 * I **contenitori** includono i criteri di sicurezza del pod, i contesti di sicurezza del pod e l'analisi di immagini e runtime per le vulnerabilità. Prevedono inoltre l'uso di App Armor o Seccomp (Secure Computing) per limitare l'accesso del contenitore al nodo sottostante.
 
 ## <a name="logically-isolate-clusters"></a>Isolare i cluster in modo logico
 
 **Indicazioni sulle procedure consigliate**. Usare l'isolamento logico per separare team e progetti. Provare a ridurre al minimo il numero di cluster servizio Azure Kubernetes fisici distribuiti per isolare i team o le applicazioni.
 
-Con l'isolamento logico, un singolo cluster servizio Azure Kubernetes può essere usato per più carichi di lavoro, team o ambienti. Gli [spazi dei nomi][k8s-namespaces] di Kubernetes costituiscono il limite di isolamento logico per i carichi di lavoro e le risorse.
+Con l'isolamento logico, un singolo cluster servizio Azure Kubernetes può essere usato per più carichi di lavoro, team o ambienti. Gli [spazi dei nomi][k8s-namespaces] Kubernetes formano il limite di isolamento logico per i carichi di lavoro e le risorse.
 
 ![Isolamento logico di un cluster Kubernetes in servizio Azure Kubernetes](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 La separazione logica dei cluster fornisce in genere una maggiore densità del pod rispetto ai cluster isolati fisicamente. Il risultato è una minore capacità di calcolo in eccesso che resta inattiva nel cluster. Se combinato con il ridimensionamento automatico del cluster Kubernetes, è possibile aumentare o ridurre il numero dei nodi in base alle esigenze. Questa procedura consigliata per il ridimensionamento automatico consente di eseguire solo il numero di nodi richiesti e riduce al minimo i costi.
 
-Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* e altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. In un ambiente multi-tenant, più tenant lavorano su un'infrastruttura condivisa comune. Di conseguenza, se tutti i tenant non possono essere considerati attendibili, è necessario eseguire una pianificazione aggiuntiva per evitare che un tenant influisca sulla sicurezza e sul servizio di un altro tenant. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* e altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
 
 ## <a name="physically-isolate-clusters"></a>Isolare i cluster in modo fisico
 
@@ -60,8 +60,8 @@ I cluster separati fisicamente hanno in genere una bassa densità del pod. Dal m
 
 Questo articolo ha illustrato l'isolamento cluster. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
-* [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]
-* [Funzionalità avanzate dell'utilità di pianificazione di Kubernetes][aks-best-practices-advanced-scheduler]
+* [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
+* [Funzionalità dell'utilità di pianificazione avanzata di Kubernetes][aks-best-practices-advanced-scheduler]
 * [Autenticazione e autorizzazione][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

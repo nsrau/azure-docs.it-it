@@ -1,19 +1,19 @@
 ---
 title: Recuperare dati da un server di Backup di Azure
 description: Recuperare i dati che sono stati protetti in un insieme di credenziali di Servizi di ripristino da qualsiasi server di Backup di Azure registrato in tale insieme di credenziali.
-services: backup
-author: kasinh
-manager: vijayts
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 07/09/2019
+ms.author: dacurwin
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528102"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955054"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Ripristinare i dati da un server di Backup di Azure
 È possibile usare il server di Backup di Azure per recuperare i dati di un backup in un insieme di credenziali di Servizi di ripristino. Il processo per eseguire l'operazione è integrato nella console di gestione del server di Backup di Azure, quindi è simile al flusso di lavoro di ripristino per gli altri componenti di Backup di Azure.
@@ -45,7 +45,7 @@ Per ripristinare i dati da un server di Backup di Azure:
     Viene visualizzato un elenco di file e cartelle nel riquadro inferiore che può essere esplorato e ripristinato in qualsiasi posizione.
 
     ![Punti di ripristino del Server DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Fare clic con il pulsante destro sulla voce appropriata e fare clic su **Ripristino**.
+5. Fare clic con il pulsante destro del mouse sull'elemento appropriato e scegliere **Ripristina**.
 
     ![Ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Verificare la **Selezione ripristino**. Verificare la data e ora della copia di backup da ripristinare, nonché l'origine da cui è stata creata la copia di backup. Se la selezione non è corretta, fare clic su **Annulla** per tornare alla scheda di ripristino e selezionare un punto di ripristino appropriato. Se la selezione è corretta, fare clic su **Avanti**.
@@ -57,7 +57,7 @@ Per ripristinare i dati da un server di Backup di Azure:
 8. Scegliere l'opzione relativa a **Crea copia**, **Ignora** o **Sovrascrivi**.
 
    * **Crea copia**: crea una copia del file se si verifica un conflitto di nome.
-   * **Ignora**: se si verifica un conflitto di nome, non recupera il file e lascia il file originale.
+   * **Ignora** : se si verifica un conflitto di nomi, non ripristina il file, lasciando il file originale.
    * **Sovrascrivi**: se si verifica un conflitto di nome, sovrascrive la copia esistente del file.
 
      Scegliere l'opzione appropriata per **Ripristina protezione**. È possibile applicare le impostazioni di sicurezza del computer di destinazione in cui i dati vengono ripristinati o le impostazioni di sicurezza che erano applicabili al prodotto nel momento in cui è stato creato il punto di ripristino.
@@ -65,7 +65,7 @@ Per ripristinare i dati da un server di Backup di Azure:
      Identificare se viene inviata una **Notifica** dopo che il ripristino è stato completato correttamente.
 
      ![Notifiche di ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. La schermata di **Riepilogo** elenca le opzioni scelte finora. Quando si fa clic su **"Ripristina"**, i dati vengono ripristinati nel percorso locale appropriato.
+9. La schermata di **Riepilogo** elenca le opzioni scelte finora. Quando si fa clic su **"Ripristina"** , i dati vengono ripristinati nel percorso locale appropriato.
 
     ![Riepilogo opzioni di ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -83,21 +83,13 @@ Per ripristinare i dati da un server di Backup di Azure:
 | No. | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 |:---:|:--- |:--- |
 | 1. |Questo server non è registrato nell'insieme di credenziali specificate per le credenziali dell'insieme di credenziali. |**Causa:** questo errore viene visualizzato quando il file di archivio dell'insieme di credenziali selezionato non appartiene a un insieme di credenziali di Servizi di ripristino associato al server di Backup di Azure in cui viene tentato il ripristino. <br> **Risoluzione:** scaricare il file di archivio delle credenziali dall'insieme di credenziali di Servizi di ripristino nel quale il server di Backup di Azure è registrato. |
-| 2. |I dati ripristinabili non sono disponibili o il server selezionato non è un server DPM. |**Causa:** non sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, i server non hanno ancora caricato i metadati o il server selezionato non è un server di Backup di Azure (noto come Windows Server o Client di Windows). <br> **Risoluzione:** se sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, assicurarsi che sia installato l'agente di Backup di Azure più recente. <br>Se sono presenti altri server di Backup di Azure registrati nell'insieme di credenziali di Servizi di ripristino, attendere un giorno dopo l'installazione per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup protetti nel cloud. I dati saranno disponibili per il ripristino. |
+| 2. |I dati ripristinabili non sono disponibili o il server selezionato non è un server DPM. |**Causa:** Non sono presenti altri server di backup di Azure registrati nell'insieme di credenziali di servizi di ripristino oppure i server non hanno ancora caricato i metadati o il server selezionato non è un server di Backup di Azure (usando Windows Server o Windows client). <br> **Risoluzione:** se sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, assicurarsi che sia installato l'agente di Backup di Azure più recente. <br>Se sono presenti altri server di Backup di Azure registrati nell'insieme di credenziali di Servizi di ripristino, attendere un giorno dopo l'installazione per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup protetti nel cloud. I dati saranno disponibili per il ripristino. |
 | 3. |Nessun altro server DPM viene registrato nell'insieme di credenziali. |**Causa:** non ci sono altri server di Backup di Azure registrati nell'insieme di credenziali da cui si sta tentando il ripristino.<br>**Risoluzione:** se sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, assicurarsi che sia installato l'agente di Backup di Azure più recente.<br>Se sono presenti altri server di Backup di Azure registrati nell'insieme di credenziali di Servizi di ripristino, attendere un giorno dopo l'installazione per avviare il processo di ripristino. I processi notturni caricano i metadati per tutti i backup protetti nel cloud. I dati saranno disponibili per il ripristino. |
-| 4. |La passphrase di crittografia fornita non corrisponde alla passphrase associata al server seguente:  **\<nome server >** |**Causa:** la passphrase di crittografia usata nel processo di crittografia dai dati del server di Backup di Azure che è stata ripristinata non corrisponde a quella specificata. L'agente non è in grado di decrittografare i dati. Di conseguenza il ripristino non riesce.<br>**Risoluzione:** specificare esattamente la stessa passphrase di crittografia associata al server di Backup di Azure i cui dati sono stati ripristinati. |
+| 4. |La passphrase di crittografia fornita non corrisponde alla passphrase associata al server seguente:  **\<nome del server >** |**Causa:** la passphrase di crittografia usata nel processo di crittografia dai dati del server di Backup di Azure che è stata ripristinata non corrisponde a quella specificata. L'agente non è in grado di decrittografare i dati. Di conseguenza il ripristino non riesce.<br>**Risoluzione:** specificare esattamente la stessa passphrase di crittografia associata al server di Backup di Azure i cui dati sono stati ripristinati. |
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Perché non è possibile aggiungere un server DPM esterno dopo l'installazione di UR7 e dell'agente Azure Backup più recente?
+Leggere le altre domande frequenti:
 
-Per i server DPM con le origini dati protette nel cloud (utilizzando un aggiornamento cumulativo precedente al 7), è necessario attendere almeno un giorno dopo l'installazione di UR7 e dell'agente Azure Backup più recente per avviare **Aggiungi server DPM esterno**. Questo periodo di un giorno è necessario per caricare i metadati dei gruppi protezione DPM in Azure. I metadati dei gruppi protezione dati vengono caricati la prima volta attraverso un processo notturno.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Qual è la versione minima richiesta per l'agente di Servizi di ripristino di Microsoft Azure?
-
-La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  Per visualizzare la versione dell'agente: aprire il pannello di controllo **>** Tutti gli elementi del Pannello di controllo **>** Programmi e funzionalità **>** Agente di servizi di ripristino di Microsoft Azure. Se la versione è minore di 2.0.8719.0, scaricare e installare l'[agente Azure Backup più recente](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Deselezionare DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Passaggi successivi:
-[Domande frequenti su Backup di Azure](backup-azure-backup-faq.md)
+- [Domande comuni](backup-azure-vm-backup-faq.md) sui backup di macchine virtuali di Azure
+- [Domande comuni](backup-azure-file-folder-backup-faq.md) sull'agente di Backup di Azure

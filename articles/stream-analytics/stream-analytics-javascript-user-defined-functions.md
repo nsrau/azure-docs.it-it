@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192276"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329370"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -100,7 +100,7 @@ Esistono delle differenze tra i tipi supportati da JavaScript e dal linguaggio d
 Analisi di flusso | JavaScript
 --- | ---
 bigint | Numero (per la precisione, JavaScript può rappresentare solo numeri interi fino a 2^53)
-DateTime | Data (JavaScript supporta solo millisecondi)
+Datetime | Data (JavaScript supporta solo millisecondi)
 Double | Number
 nvarchar(MAX) | string
 Record | Oggetto
@@ -114,12 +114,14 @@ Ecco le conversioni da JavaScript ad Analisi di flusso:
 JavaScript | Analisi di flusso
 --- | ---
 Number | Bigint (se il numero è arrotondato e compreso tra long.MinValue e long.MaxValue, in caso contrario è doppio)
-Data | DateTime
+Data | Datetime
 string | nvarchar(MAX)
 Oggetto | Record
 Array | Array
 Null, Undefined | NULL
 Qualsiasi altro tipo (ad esempio, una funzione o un errore) | Non supportato (risultati nell'errore di runtime)
+
+Il linguaggio JavaScript distingue tra maiuscole/minuscole e le maiuscole e le minuscole dei campi oggetto nel codice JavaScript devono corrispondere alle maiuscole e alle minuscole dei campi nei dati in ingresso. Notare che i processi con livello di compatibilità 1.0 convertiranno i campi dall'istruzione SQL SELECT in modo che siano in minuscolo. Nel livello di compatibilità 1.1 e superiore, i campi dall'istruzione SELECT avranno le stesse maiuscole e minuscole come specificate nella query SQL.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.

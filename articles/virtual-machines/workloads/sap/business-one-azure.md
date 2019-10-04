@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878065"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101421"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
 Questo documento contiene indicazioni per la distribuzione di SAP Business One nelle macchine virtuali di Azure, ma non sostituisce la documentazione relativa all'installazione di Business One per SAP. Presenta le linee guida di base per la pianificazione e la distribuzione per consentire l'esecuzione di applicazioni Business One nell'infrastruttura di Azure.
@@ -38,7 +37,7 @@ Per usare questa guida sono necessarie conoscenze di base dei componenti di Azur
 - [Macchine virtuali di Azure in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Macchine virtuali di Azure in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Rete di Azure e gestione di reti virtuali con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [La rete di Azure e le reti virtuali con CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Rete virtuale e reti virtuali di Azure con CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Anche se si è interessati solo a Business One, il documento [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) può essere una buona fonte di informazioni.
@@ -130,7 +129,7 @@ Per distribuire SQL Server come DBMS per Business One, consultare il documento [
 
 La tabella seguente presenta le dimensioni approssimative del lato DBMS per SQL Server:
 
-| Numero di utenti | vCPU | Memoria | Tipi di macchine virtuali di esempio |
+| Numero di utenti | CPU virtuali | Memoria | Tipi di macchine virtuali di esempio |
 | --- | --- | --- | --- |
 | Fino a 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
 | Fino a 40 | 8 | 32 GB | D8s_v3, E8s_v3 |

@@ -1,26 +1,27 @@
 ---
-title: Come selezionare le autorizzazioni per un'API specifica | Microsoft Docs
+title: Selezionare le autorizzazioni per una determinata API | Microsoft Docs
 description: Informazioni sul funzionamento delle richieste di autorizzazioni per le applicazioni client e delle risorse sviluppate dall'utente
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af7206b94342a4844cf272784aff4e4dc5a35f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abae311057ac5cfadb72faa0df525fdbec17f757
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443535"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321049"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Come selezionare le autorizzazioni per un'API specifica 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f738ab5022d1378925d920818e3f89fc2a1ee6d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670524"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828498"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -87,8 +87,7 @@ Per installare l'SDK e il pacchetto di runtime associato tramite lo strumento da
 4. Aggiungere la nuova chiave Gnu Privacy Guard (GnuPG o GPG) al keyring di APT.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Aggiungere la chiave GPG Docker ufficiale al keyring di APT.
@@ -107,7 +106,7 @@ Per installare l'SDK e il pacchetto di runtime associato tramite lo strumento da
 7. Aggiungere la chiave JDK di Azul al keyring di APT e configurare il repository.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
@@ -179,8 +178,8 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recenti |
-RHEL | - | OpenJDK 1.8 | Implicito da npm | più recenti |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | latest |
+RHEL | - | OpenJDK 1.8 | Implicito da npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Configurare un cluster locale
 Dopo aver completato l'installazione, avviare un cluster locale.
@@ -216,19 +215,20 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
 1. Installare Node.js e npm nel computer.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
 2. Installare il generatore di modelli [Yeoman](https://yeoman.io/) nel computer da npm.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Installare il generatore di contenitori Yeo per Service Fabric e il generatore di eseguibili guest da npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
@@ -272,11 +272,11 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Plug-in di Eclipse per][buildship-update]Gradle.
 
 2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
 
-3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse**.
+3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse** .
 
 4. Selezionare **Aggiungi**.
 
@@ -333,7 +333,6 @@ Per rimuovere le istanze di Service Fabric SDK, eseguire i comandi seguenti.
 * [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * [Gestire le applicazioni usando l'interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
-* [Automatizzare l'applicazione di patch al sistema operativo nel cluster Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

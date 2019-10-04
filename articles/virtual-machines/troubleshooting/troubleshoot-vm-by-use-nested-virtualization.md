@@ -4,22 +4,21 @@ description: Come risolvere i problemi relativi a una macchina virtuale di Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad359a19cb42bf115189aca7905d1908d0dc5284
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444374"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087065"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
@@ -41,7 +40,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
-    -  Dimensione: Una serie V3 con almeno due core che supportano la virtualizzazione annidata. Per altre informazioni, vedere [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) (Introduzione alle nuove dimensioni Dv3 ed Ev3 delle macchine virtuali).
+    -  Dimensione: Qualsiasi serie V3 con almeno due core che supportano la virtualizzazione nidificata. Per altre informazioni, vedere [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) (Introduzione alle nuove dimensioni Dv3 ed Ev3 delle macchine virtuali).
 
     -  Posizione, account di archiviazione e gruppo di risorse identici a quelli della macchina virtuale con problemi.
 
@@ -71,7 +70,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 13. Consentire al server di installare il ruolo Hyper-V. Questa operazione richiede alcuni minuti e il server verrà riavviato automaticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare il macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare la macchina virtuale con problemi sul server Hyper-V della macchina virtuale di ripristino
 
 1.  Prendere nota del nome del disco nella macchina virtuale con problemi e quindi eliminare quest'ultima. Assicurarsi di mantenere collegati tutti i dischi. 
 
@@ -87,7 +86,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 4.  Aprire Gestione disco (diskmgmt.msc). Verificare che il disco della macchina virtuale con problemi sia impostato su **Offline**.
 
-5.  Aprire Gestione di Hyper-V: Nelle **Server Manager**, selezionare la **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
+5.  Aprire la console di gestione di Hyper-V: In **Server Manager**selezionare il **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
 
 6.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi scegliere **Nuovo** > **Macchina virtuale** > **Avanti**.
 
@@ -122,7 +121,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 19. È ora possibile usare la macchina virtuale come macchina virtuale locale e quindi eseguire le procedure di risoluzione dei problemi necessarie.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Passaggio 3: Ricreare la VM di Azure in Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Passaggio 3: Ricreare la macchina virtuale di Azure in Azure
 
 1.  Dopo aver ripristinato la macchina virtuale online, arrestare la macchina virtuale nella console di gestione di Hyper-V.
 

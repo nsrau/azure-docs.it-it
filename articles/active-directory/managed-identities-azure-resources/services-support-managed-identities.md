@@ -3,19 +3,19 @@ title: Servizi di Azure che supportano le identità gestite per le risorse di Az
 description: Elenco di servizi che supportano le identità gestite per le risorse di Azure e l'autenticazione di Azure AD
 services: active-directory
 author: MarkusVi
-ms.author: priyamo
-ms.date: 04/15/2019
+ms.author: markvi
+ms.date: 09/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289787"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264238"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -33,7 +33,7 @@ I servizi di Azure seguenti supportano le identità gestite per le risorse di Az
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima | 
-| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Disponibile | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -48,7 +48,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima |
-| Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
+| Assegnata dall'utente | Disponibile | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -63,7 +63,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app di Azure (nelle aree in cui è disponibile):
 
@@ -76,20 +76,20 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Anteprima | Non disponibile | Non disponibile | Non disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dal sistema | Disponibile | Disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Disponibile | Non disponibile | Non disponibile |
 
-Vedere l'elenco seguente per usare un'identità gestita con [progetti Azure](../../governance/blueprints/overview.md):
+Vedere l'elenco seguente per usare un'identità gestita con i [progetti di Azure](../../governance/blueprints/overview.md):
 
-- [Portale di Azure - assegnazione progetto](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [API REST - assegnazione progetto](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Assegnazione portale di Azure-Blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API REST-assegnazione progetto](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
 Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
-| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azure (nelle aree in cui è disponibile):
 
@@ -148,20 +148,31 @@ Vedere l'elenco seguente per configurare l'identità gestita per Istanze di Azur
 - [Modello di Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
+### <a name="azure-container-registry-tasks"></a>Attività di Registro Azure Container
+
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | --- | --- | --- | --- |
+| Assegnata dal sistema | Disponibile | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+
+Vedere l'elenco seguente per configurare l'identità gestita per le attività di Container Registry di Azure (nelle aree in cui sono disponibili):
+
+- [Interfaccia della riga di comando di Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
 
 I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano le identità gestite per le risorse di Azure.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
+Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
-- [Assegnare l'accesso tramite il portale di Azure](howto-assign-access-portal.md)
-- [Assegnare l'accesso tramite Powershell](howto-assign-access-powershell.md)
-- [Assegnare l'accesso tramite comando di Azure](howto-assign-access-CLI.md)
-- [Assegnare l'accesso tramite il modello di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
+- [Assegnare l'accesso tramite portale di Azure](howto-assign-access-portal.md)
+- [Assegnare l'accesso tramite PowerShell](howto-assign-access-powershell.md)
+- [Assegnare l'accesso tramite l'interfaccia della riga di comando Azure](howto-assign-access-CLI.md)
+- [Assegnare l'accesso tramite Azure Resource Manager modello](../../role-based-access-control/role-assignments-template.md)
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://management.azure.com/`| Disponibile |
 | Azure Government | `https://management.usgovcloudapi.net/` | Disponibile |
@@ -170,7 +181,7 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://vault.azure.net`| Disponibile |
 | Azure Government | `https://vault.usgovcloudapi.net` | Disponibile |
@@ -179,16 +190,16 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Disponibile |
 | Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-### <a name="azure-sql"></a>SQL di Azure 
+### <a name="azure-sql"></a>Azure SQL 
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Disponibile |
 | Azure Government | `https://database.usgovcloudapi.net/` | Disponibile |
@@ -197,27 +208,53 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 
 ### <a name="azure-event-hubs"></a>Hub eventi di Azure
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Anteprima |
+| Azure Global | `https://eventhubs.azure.net` | Disponibile |
 | Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
 ### <a name="azure-service-bus"></a>Bus di servizio di Azure
 
-| Cloud | ID risorsa | Stato |
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Anteprima |
-| Azure Government |  | Non disponibile |
+| Azure Global | `https://servicebus.azure.net`  | Disponibile |
+| Azure Government |  | Disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-### <a name="azure-storage-blobs-and-queues"></a>Le code e BLOB di archiviazione di azure
 
-| Cloud | ID risorsa | Stato |
+
+
+
+
+
+
+
+### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di archiviazione di Azure
+
+| cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Disponibile |
-| Azure Government | `https://storage.azure.com/` | Disponibile |
-| Azure Germania | `https://storage.azure.com/` | Disponibile |
-| 21Vianet per Azure Cina | `https://storage.azure.com/` | Disponibile |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponibile |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Disponibile |
+| Azure Germania | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Disponibile |
+| 21Vianet per Azure Cina | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Disponibile |
+
+
+
+
+
+
+
+
+
+
+### <a name="azure-analysis-services"></a>Azure Analysis Services
+
+| cloud | ID risorsa | Stato |
+|--------|------------|--------|
+| Azure Global | `https://*.asazure.windows.net` | Disponibile |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | Disponibile |
+| Azure Germania | `https://*.asazure.cloudapi.de` | Disponibile |
+| 21Vianet per Azure Cina | `https://*.asazure.chinacloudapi.cn` | Disponibile |

@@ -3,22 +3,21 @@ title: Monitorare e gestire le pipeline di dati - Azure | Documentazione Microso
 description: Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025420"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139581"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -76,7 +75,7 @@ In Esplora inventario risorse è possibile visualizzare tutte le risorse della d
 * Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Proprietà nel riquadro a destra.
 * Viene mostrata la definizione JSON dell’oggetto selezionato, se applicabile. Ad esempio: un servizio collegato, un set di dati o una pipeline.
 
-![Scheda Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Esplora inventario risorse](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Per informazioni dettagliate sulle finestre attività, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md).
 
@@ -160,7 +159,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Stato secondario</th><th align="left">DESCRIZIONE</th>
+    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
@@ -188,16 +187,16 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>La convalida è in esecuzione.</td>
+<td rowspan="2">In corso</td><td>Convalida</td><td>La convalida è in esecuzione.</td>
 </tr>
 <td>-</td>
 <td>È in corso l'elaborazione della finestra attività.</td>
 </tr>
 <tr>
-<td rowspan="4">Operazione non riuscita</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>La finestra attività è stata annullata dall'utente.</td>
+<td>Annullato</td><td>La finestra attività è stata annullata dall'utente.</td>
 </tr>
 <tr>
 <td>Convalida</td><td>Convalida non riuscita.</td>
@@ -205,10 +204,10 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <tr>
 <td>-</td><td>Non è stato possibile generare o convalidare la finestra attività.</td>
 </tr>
-<td>Ready</td><td>-</td><td>La finestra attività è pronta per l'utilizzo.</td>
+<td>Pronto</td><td>-</td><td>La finestra attività è pronta per l'utilizzo.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
+<td>Ignorata</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
 </tr>
 <tr>
 <td>Nessuna</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>

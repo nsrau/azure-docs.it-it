@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 84446090da2feaee3005b4ef90ace77b468a3f1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792591"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65827790"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creare un hub IoT usando un modello di Azure Resource Manager (.NET)
 
@@ -29,7 +29,7 @@ ms.locfileid: "59792591"
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Visual Studio 2015 o Visual Studio 2017.
+* Visual Studio.
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 * Un [account di archiviazione di Azure][lnk-storage-account] in cui è possibile archiviare i file del modello di Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
@@ -38,7 +38,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="prepare-your-visual-studio-project"></a>Preparare il progetto di Visual Studio
 
-1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **CreateIoTHub**.
+1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)** . Denominare il progetto **CreateIoTHub**.
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243613"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory: Avvio rapido
@@ -140,7 +140,7 @@ In primo luogo è possibile distribuirlo in modo interattivo eseguendo il file e
 In secondo luogo è possibile creare ed eseguire uno script di distribuzione automatica. Questa opzione è utile per distribuire contemporaneamente più agenti di autenticazione o per installare gli agenti di autenticazione in istanze di Windows Server che non hanno un'interfaccia utente abilitata o che non sono accessibili con Desktop remoto. Di seguito sono riportate le istruzioni per usare questo approccio:
 
 1. Eseguire il comando seguente per installare l'agente di autenticazione: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. È possibile registrare l'agente di autenticazione nel servizio tramite Windows PowerShell. Creare un oggetto credenziali di PowerShell `$cred` contenente un nome utente e una password di amministratore globale per il tenant. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>*:
+2. È possibile registrare l'agente di autenticazione nel servizio tramite Windows PowerShell. Creare un oggetto credenziali di PowerShell `$cred` contenente un nome utente e una password di amministratore globale per il tenant. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

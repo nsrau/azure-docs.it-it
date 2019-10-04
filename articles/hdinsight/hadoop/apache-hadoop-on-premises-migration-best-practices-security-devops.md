@@ -1,7 +1,6 @@
 ---
-title: Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
+title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-sicurezza
 description: Informazioni sulle procedure consigliate per DevOps e sicurezza relative alla migrazione di cluster Hadoop locali in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437504"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736147"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
 
@@ -51,9 +50,9 @@ Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dom
     - **URL LDAPS**: ad esempio `ldaps://contoso.onmicrosoft.com:636`.
     - **Gruppo utenti di accesso**: gruppi di sicurezza i cui utenti si vogliono sincronizzare con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Il gruppo o i gruppi devono essere presenti nella directory prima che venga creato il cluster.
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere i seguenti articoli:
 
-- [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](../domain-joined/apache-domain-joined-introduction.md)
+- [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](../domain-joined/hdinsight-security-overview.md)
 
 - [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configurare un cluster HDInsight aggiunto al dominio con Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
@@ -82,7 +81,7 @@ Per altre informazioni, vedere gli articoli seguenti:
     - Crittografia lato server trasparente con chiavi gestite da Microsoft o dal cliente.
     - Crittografia di dati in transito usando la crittografia lato client, https e TLS.
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere i seguenti articoli:
 
 - [Panoramica di Reti virtuali di Azure](../../virtual-network/virtual-networks-overview.md)
 - [Panoramica dei gruppi di sicurezza di rete di Azure](../../virtual-network/security-overview.md)

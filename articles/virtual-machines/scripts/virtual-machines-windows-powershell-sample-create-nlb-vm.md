@@ -4,24 +4,23 @@ description: Esempio di script di Azure PowerShell - Creare una VM Windows NLB
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18bf494ceb212de07b3e7ee1e0fa0e4de89cb07f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2238f223f22ee43e7afd8b5162fb16cb16a2adf4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976753"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090746"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Bilanciare il carico del traffico tra macchine virtuali a disponibilità elevata
 
@@ -31,7 +30,7 @@ Questo script di esempio crea tutti gli elementi necessari per eseguire più mac
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -68,6 +67,16 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Creare una macchina virtuale. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
+
+È anche possibile creare le macchine virtuali usando l'immagine personalizzata gestita. Nella configurazione della macchina virtuale, per `Set-AzVMSourceImage` usare i parametri `-Id` e `-VM` anziché `-PublisherName`, `-Offer`, `-Skus` e `-Version`.
+
+Di seguito è riportato un esempio di configurazione di macchina virtuale:
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

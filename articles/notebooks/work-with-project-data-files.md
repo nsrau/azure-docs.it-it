@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240387"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Usare file di dati in progetti di Azure Notebooks
@@ -62,11 +62,11 @@ Il resto di questo articolo descrive in dettaglio le operazioni su file a livell
 
 1. Nella finestra popup **Upload status** (Stato caricamento) che viene visualizzata selezionare una **cartella di destinazione** nell'elenco a discesa:
 
-    - Cartella di sessione (*~/*): consente di caricare i file nella sessione corrente del notebook, ma non crea i file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../*.
+    - Cartella di sessione ( *~/* ): consente di caricare i file nella sessione corrente del notebook, ma non crea i file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../* .
 
         La cartella di sessione è utile per fare delle prove ed evita di riempire il progetto di file che potrebbero non servire a lungo termine. Nella cartella di sessione è possibile caricare anche file con nomi identici ai file nel progetto senza che si generino conflitti e che li si debba rinominare. Si supponga ad esempio che nel progetto esista già una versione del file *data.csv*, ma che si voglia sperimentare *una versione diversa*. Se si carica il file nella cartella di sessione, è possibile eseguire il notebook usando i dati presenti nel file caricato (facendovi riferimento nel codice come *../data.csv*) invece di quelli presenti nel file del progetto.
 
-    - Cartella di progetto (*/progetto*): consente di caricare file nel progetto. È possibile accedere a questi file usando percorsi relativi nel codice. La procedura di caricamento di un file in questa cartella è la stessa prevista per il caricamento di un file nel dashboard del progetto. Il file viene salvato con il progetto ed è disponibile nelle sessioni successive.
+    - Cartella di progetto ( */progetto*): consente di caricare file nel progetto. È possibile accedere a questi file usando percorsi relativi nel codice. La procedura di caricamento di un file in questa cartella è la stessa prevista per il caricamento di un file nel dashboard del progetto. Il file viene salvato con il progetto ed è disponibile nelle sessioni successive.
 
         Il caricamento ha esito negativo se si tenta di caricare un file che ha lo stesso nome di uno già esistente nel progetto. Per sovrascrivere un file, caricare invece il nuovo file dal dashboard del progetto. Nel dashboard è infatti disponibile l'opzione di sovrascrittura.
 
@@ -90,7 +90,7 @@ La cartella di progetto è la cartella predefinita, pertanto se si specifica un 
 
 ### <a name="create-files-in-code"></a>Creare file nel codice
 
-Quando si usa codice per la creazione di un file, ad esempio la funzione pandas `write_csv`, i percorsi sono sempre relativi alla cartella di progetto. Se si usa *../*, viene creato un file della sessione che viene eliminato nel momento in cui il notebook viene arrestato e chiuso.
+Quando si usa codice per la creazione di un file, ad esempio la funzione pandas `write_csv`, i percorsi sono sempre relativi alla cartella di progetto. Se si usa *../* , viene creato un file della sessione che viene eliminato nel momento in cui il notebook viene arrestato e chiuso.
 
 ## <a name="export-files"></a>Esportare file
 

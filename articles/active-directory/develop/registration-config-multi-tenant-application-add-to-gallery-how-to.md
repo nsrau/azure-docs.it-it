@@ -3,25 +3,26 @@ title: Aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di 
 description: Viene illustrato come inserire l'applicazione multi-tenant sviluppata personalizzata nella raccolta di applicazioni di AD Azure.
 services: active-directory
 documentationCenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be7f0cbc0d3e5cf8dc507a331384e56a9621482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: def5dc82f8cbda93f6ac18f8a2af41d5c82ce5da
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298054"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936762"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di Azure AD
 
@@ -32,7 +33,7 @@ Azure Active Directory (Azure AD) è un servizio per la gestione delle identità
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se l'applicazione supporta SAML o OpenIDConnect
 Se si dispone di un'applicazione multi-tenant che si vuole inserire nella raccolta di applicazioni di Azure AD, è prima necessario assicurarsi che l'applicazione supporti una delle tecnologie seguenti Single Sign-On:
 
-- **OpenID Connect**: per includere l'app nell'elenco, creare l'applicazione multi-tenant in Azure AD e implementare il [framework di consenso di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) per l'applicazione. Inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token. Inviare l'applicazione usando il processo descritto in [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: per includere l'app nell'elenco, creare l'applicazione multi-tenant in Azure AD e implementare il [framework di consenso di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) per l'applicazione. Inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token. Inviare l'applicazione usando il processo descritto in [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 - **SAML**: se l'applicazione supporta SAML 2.0, l'app può essere inclusa nella raccolta. Attenersi alle istruzioni descritte in [Inserimento dell'applicazione nella raccolta di applicazioni di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 

@@ -1,23 +1,23 @@
 ---
 title: Configurare un nome di dominio personalizzato per l'account di archiviazione di Azure | Microsoft Docs
 description: Usare il portale di Azure per eseguire il mapping del proprio nome canonico (CNAME) all'endpoint di archiviazione BLOB o Web in un account di archiviazione di Azure.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112637"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534334"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurare un nome di dominio personalizzato per l'account di archiviazione di Azure
 
-È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per Archiviazione BLOB di Azure è *\<storage-account-name>.blob.core.windows.net*. È possibile anche usare l'endpoint Web generato come parte della [funzionalità di siti Web statici (anteprima)](storage-blob-static-website.md). Se il mapping di un dominio personalizzato e sottodominio, ad esempio *www\.contoso.com*, all'endpoint blob o web per l'account di archiviazione, gli utenti possono usare tale dominio per accedere ai dati blob nell'account di archiviazione.
+È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per Archiviazione BLOB di Azure è *\<storage-account-name>.blob.core.windows.net*. È anche possibile usare l'endpoint Web generato come parte della [funzionalità siti web statici](storage-blob-static-website.md). Se si esegue il mapping di un dominio personalizzato e di un sottodominio, ad esempio *www\.contoso.com*, al BLOB o all'endpoint Web per l'account di archiviazione, gli utenti possono usare tale dominio per accedere ai dati BLOB nell'account di archiviazione.
 
 > [!IMPORTANT]
 > Archiviazione di Azure non supporta ancora in modo nativo HTTPS con domini personalizzati. Attualmente è possibile [usare la rete CDN di Azure per accedere ai BLOB usando domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md).
@@ -27,29 +27,29 @@ ms.locfileid: "58112637"
 > Gli account di archiviazione attualmente supportano solo un nome di dominio personalizzato per ogni account. Non è possibile eseguire il mapping di un nome di dominio personalizzato agli endpoint sia del servizio BLOB che del servizio Web.
 > 
 > [!NOTE]
-> Il mapping funziona solo per i sottodomini (ad esempio, www\.contoso.com). Se si desidera che l'endpoint web disponibile nel dominio radice (ad esempio, contoso.com), quindi è necessario [usare la rete CDN di Azure con domini personalizzati](storage-https-custom-domain-cdn.md)
+> Il mapping funziona solo per i sottodomini, ad esempio www\.contoso.com. Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio, contoso.com), è necessario [aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-La tabella seguente riporta alcuni URL di esempio per i dati BLOB presenti in un account di archiviazione denominato *mystorageaccount*. Il sottodominio personalizzato registrato per l'account di archiviazione sono *www\.contoso.com*:
+La tabella seguente riporta alcuni URL di esempio per i dati BLOB presenti in un account di archiviazione denominato *mystorageaccount*. Il sottodominio personalizzato registrato per l'account di archiviazione è *www\.contoso.com*:
 
 | Tipo di risorsa | URL predefinito | URL di dominio personalizzato |
 | --- | --- | --- |
-| Account di archiviazione | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| BLOB |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Contenitore radice | http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/$web o http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web o http://www.contoso.com/ o http://www.contoso.com/$web/[indexdoc] o http://www.contoso.com/[indexdoc] |
+| Account di archiviazione | http:\//mystorageaccount.blob.Core.Windows.NET | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.Core.Windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Contenitore radice | http:\//mystorageaccount.blob.Core.Windows.NET/myblob o http:\//mystorageaccount.blob.Core.Windows.net/$root/myblob | http:\//www.contoso.com/myblob o http:\//www.contoso.com/$root/myblob |
+| Web |  http:\//mystorageaccount. [ area]. Web. Core. Windows. NET/$Web/[indexdoc] o http:\//mystorageaccount. [ area]. Web. Core. Windows. NET/[indexdoc] o http:\//mystorageaccount. [ area]. Web. Core. Windows. NET/$Web o http:\//mystorageaccount. [ area]. Web. Core. Windows. NET/ | http:\//www.contoso.com/$Web o http:\//www.contoso.com/o http:\//www.contoso.com/$Web/[indexdoc] o http:\//www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > Come mostrato nelle sezioni seguenti, tutti gli esempi per l'endpoint del servizio BLOB si applicano anche all'endpoint del servizio Web.
 
-## <a name="direct-vs-intermediary-cname-mapping"></a>Diretto e con mapping CNAME intermedio
+## <a name="direct-vs-intermediary-cname-mapping"></a>Mapping diretto e CNAME intermediario
 
-È possibile puntare il dominio personalizzato con preceduto con un sottodominio (ad esempio, www\.contoso.com) all'endpoint blob per l'account di archiviazione in uno dei due modi: 
+È possibile puntare il dominio personalizzato preceduto da un sottodominio (ad esempio www\.contoso.com) all'endpoint BLOB per l'account di archiviazione in uno dei due modi seguenti: 
 * Usare il mapping diretto del record CNAME.
 * Usare il sottodominio intermedio *asverify*.
 
 ### <a name="direct-cname-mapping"></a>Mapping diretto del record CNAME
 
-Il primo e più semplice metodo consiste nel creare un record di nome canonico (CNAME) che esegue il mapping del dominio personalizzato e del sottodominio direttamente all'endpoint BLOB. Un record CNAME è una funzionalità Domain Name System (DNS) tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo esempio, il dominio di origine è il proprio dominio personalizzato e sottodominio (*www\.contoso.com*, ad esempio). Il dominio di destinazione è l'endpoint del servizio BLOB, ad esempio *mystorageaccount.blob.core.windows.net*.
+Il primo e più semplice metodo consiste nel creare un record di nome canonico (CNAME) che esegue il mapping del dominio personalizzato e del sottodominio direttamente all'endpoint BLOB. Un record CNAME è una funzionalità Domain Name System (DNS) tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo esempio, il dominio di origine è un dominio personalizzato e un sottodominio (ad esempio*www\.contoso.com*). Il dominio di destinazione è l'endpoint del servizio BLOB, ad esempio *mystorageaccount.blob.core.windows.net*.
 
 Il metodo diretto è descritto nella sezione "Registrare un dominio personalizzato".
 
@@ -85,11 +85,11 @@ In genere è possibile gestire le impostazioni DNS del dominio sul sito Web del 
 1. Individuare la sezione per la gestione dei record CNAME.  
    Potrebbe essere necessario passare a una pagina di impostazioni avanzate e cercare le parole **CNAME**, **Alias** o **Subdomains**.
 
-1. Creare un nuovo record CNAME, immettere un alias di sottodominio, ad esempio **www** oppure **foto** (sottodominio è obbligatorio, non sono supportati i domini radice) e quindi specificare un nome host.  
+1. Creare un nuovo record CNAME, immettere un alias di sottodominio, ad esempio **www** o **Photos** (il sottodominio è obbligatorio, i domini radice non sono supportati), quindi specificare un nome host.  
    Il nome host è l'endpoint del servizio BLOB. Il formato è *\<mystorageaccount >.blob.core.windows.net*, dove *mystorageaccount* è il nome dell'account di archiviazione. Il nome host da usare viene visualizzato nell'elemento n. 1 del riquadro **Dominio personalizzato** nel [portale di Azure](https://portal.azure.com). 
 
 1. Nella casella di testo del riquadro **Dominio personalizzato** immettere il nome del dominio personalizzato, incluso il sottodominio.  
-   Ad esempio, se il dominio è *contoso.com* ed è l'alias di sottodominio *www*, immettere **www\.contoso.com**. Se il sottodominio è *photos* immettere **photos.contoso.com**.
+   Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere **www\.contoso.com**. Se il sottodominio è *photos* immettere **photos.contoso.com**.
 
 1. Per registrare il dominio personalizzato, selezionare **Salva**.  
    Se la registrazione ha esito positivo, una notifica nel portale informa che l'account di archiviazione è stato aggiornato correttamente.
@@ -116,7 +116,7 @@ Il sottodominio *asverify* è un sottodominio speciale riconosciuto da Azure. An
    Il nome host è l'endpoint del servizio BLOB. Il formato è *asverify.\<mystorageaccount>.blob.core.windows.net*, dove *mystorageaccount* è il nome dell'account di archiviazione. Il nome host da usare viene visualizzato nell'elemento n. 2 del riquadro *Dominio personalizzato* nel [portale di Azure](https://portal.azure.com).
 
 1. Nella casella di testo del riquadro **Dominio personalizzato** immettere il nome del dominio personalizzato, incluso il sottodominio.  
-   Non includere *asverify*. Ad esempio, se il dominio è *contoso.com* ed è l'alias di sottodominio *www*, immettere **www\.contoso.com**. Se il sottodominio è *photos* immettere **photos.contoso.com**.
+   Non includere *asverify*. Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere **www\.contoso.com**. Se il sottodominio è *photos* immettere **photos.contoso.com**.
 
 1. Selezionare la casella di controllo **Usa convalida CNAME indiretta**.
 

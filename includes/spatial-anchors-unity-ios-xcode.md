@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562482"
 ---
 Selezionare **Compila**. Nella finestra di dialogo visualizzata selezionare una cartella in cui esportare il progetto Xcode.
 
@@ -18,7 +18,7 @@ Al termine dell'esportazione, verrà visualizzata una cartella contenente il pro
 > [!NOTE]
 > Se viene visualizzata una finestra in cui si chiede di specificare se sostituire o accodare, è consigliabile selezionare **Accoda** perché è più veloce. Selezionare **Sostituisci** solo se si cambiano gli asset della scena, ad esempio se si aggiungono, rimuovono o cambiano le relazioni padre/figlio oppure se si aggiungono, rimuovono o cambiano le proprietà. Se si stanno solo apportando modifiche al codice sorgente, l'operazione **Accoda**dovrebbe essere sufficiente.
 
-### <a name="open-the-xcode-project"></a>Aprire il progetto Xcode
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Convertire il progetto Xcode in xcworkspace contenente i riferimenti ad Ancoraggi nello spazio di Azure
 
 Nella cartella del progetto Xcode esportato eseguire il comando seguente nel terminale per installare l'utilità CocoaPods necessaria per il progetto:
 

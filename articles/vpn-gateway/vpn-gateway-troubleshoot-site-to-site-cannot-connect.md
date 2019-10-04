@@ -4,7 +4,7 @@ description: Informazioni su come risolvere un problema relativo a una connessio
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458179"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058868"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: la connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -102,7 +102,10 @@ Cercare e rimuovere il routing definito dall'utente o i gruppi di sicurezza di r
 2. Fare clic sull'avviso del certificato.
 3. Se si riceve una risposta, il gateway VPN viene considerato integro. Se non si riceve una risposta, è possibile che il gateway non sia integro oppure il problema è causato da un gruppo di sicurezza di rete nella subnet del gateway. Il testo seguente è una risposta di esempio:
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passaggio 8. Controllare se nel dispositivo VPN locale è abilitata la funzionalità PFS
 

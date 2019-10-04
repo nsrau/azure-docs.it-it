@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330791"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280166"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -99,7 +98,7 @@ Per creare una macchina virtuale di Azure per SQL Server 2017 con una di queste 
 **Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Per una macchina virtuale di SQL Server che usa l'opzione BYOL sarà addebitato solo il costo di esecuzione della macchina virtuale e non la licenza di SQL Server, dato che le licenze e Software Assurance sono già stati acquisiti tramite un programma di contratto multilicenza.
 
 > [!IMPORTANT]
-> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento.
+> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono usare la propria licenza distribuendo un'immagine con pagamento in base al consumo e quindi abilitando il [vantaggio Azure Hybrid](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > Le immagini BYOL sono attualmente disponibili solo per le macchine virtuali Windows. È tuttavia possibile installare manualmente SQL Server in una macchina virtuale solo Linux. Vedere le linee guida nelle [domande frequenti sulla macchina virtuale SQL di Linux](../../linux/sql/sql-server-linux-faq.md).
@@ -110,12 +109,11 @@ Bringing Your Own License per SQL Server attraverso Mobilità delle licenze è c
 
 - **Carichi di lavoro con dimensione e durata note**. Ad esempio un'app che sarà necessaria per l'intero anno e la cui domanda è stata prevista.
 
-Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario avere una licenza di SQL Server Standard o Enterprise e [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), che è un'opzione obbligatoria per alcuni programmi multilicenza e facoltativa per altri. I livelli di prezzi forniti tramite i programmi multilicenza variano in base al tipo di contratto e alla quantità e/o all'impegno con SQL Server. Ma, come regola generale, l'opzione Bringing Your Own License per i carichi di lavoro di produzione continui presenta i seguenti vantaggi:
+Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario avere una licenza di SQL Server Standard o Enterprise e [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), che è un'opzione obbligatoria per alcuni programmi multilicenza e facoltativa per altri. I livelli di prezzi forniti tramite i programmi multilicenza variano in base al tipo di contratto e alla quantità e/o all'impegno con SQL Server. Ma, come regola generale, l'opzione Bringing Your Own License per i carichi di lavoro di produzione continui presenta i seguenti vantaggi:
 
-| Vantaggio dell'opzione BYOL | DESCRIZIONE |
+| Vantaggio dell'opzione BYOL | Descrizione |
 |-----|-----|
-| **Risparmi sui costi** | Bringing Your Own License per SQL Server è più conveniente rispetto al pagamento in base all'uso se un carico di lavoro eseguirà continuativamente SQL Server Standard o Enterprise per *più di 10 mesi*. |
-| **Risparmi a lungo termine** | In media, acquistare o rinnovare una licenza di SQL Server per i primi 3 anni comporta un *risparmio del 30% all'anno*. Inoltre, dopo 3 anni, non è più necessario rinnovare la licenza e si paga solo Software Assurance. A quel punto comporta un *risparmio del 200%*. |
+| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
 | **Replica secondaria passiva gratuita** | Un altro vantaggio dell'opzione Bring Your Own License è la [licenza gratuita per una replica secondaria passiva](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server per scopi di disponibilità elevata. Questo dimezza il costo della licenza di una distribuzione di SQL Server a disponibilità elevata, ad esempio con gruppi di disponibilità Always On. I diritti per eseguire la replica secondaria passiva sono forniti attraverso i vantaggi di Software Assurance per i server di failover. |
 
 Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring Your Own License, vedere le VM con il prefisso "{BYOL}":
@@ -141,7 +139,7 @@ I costi di licenza di SQL Server sono direttamente correlati al numero di CPU vi
 
 Sono disponibili nuove dimensioni per i computer che funzionano bene con determinati tipi di carichi di lavoro di SQL Server. Queste dimensioni di computer mantengono livelli elevati di memoria, archiviazione e larghezza di banda di I/O, ma hanno un basso numero di core virtualizzati. Ad esempio, si consideri l'esempio seguente:
 
-| Dimensioni macchina virtuale | vCPU | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
+| Dimensioni macchina virtuale | CPU virtuali | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | 75% in meno | 57% in meno |

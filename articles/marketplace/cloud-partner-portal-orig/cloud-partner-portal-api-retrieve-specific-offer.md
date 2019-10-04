@@ -1,25 +1,18 @@
 ---
-title: Recuperare un'API specifica dell'offerta | Microsoft Docs
+title: Recuperare un'API specifica offerta | Azure Marketplace
 description: API recupera l'offerta specificata all'interno dello spazio dei nomi del server di pubblicazione.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935430"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
 =========================
@@ -47,11 +40,11 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 
 | **Nome**    | **Descrizione**                                                                          | **Tipo di dati** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherid. Ad esempio, Contoso                                                        | string        |
-| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | string        |
+| publisherId | publisherid. Ad esempio, Contoso                                                        | String        |
+| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | String        |
 | version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
-| api-version | Ultima versione dell'API                                                                    | Data          |
+| api-version | Ultima versione dell'API                                                                    | Date          |
 |  |  |  |
 
 
@@ -65,7 +58,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  |  |
 
 
-<a name="body-example"></a>Esempio del corpo
+<a name="body-example"></a>Esempio di corpo
 ------------
 
 ### <a name="response"></a>Risposta
@@ -179,7 +172,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Identifica il tipo di offerta                                                                                                    |
 |  publisherId    | Identificatore univoco della pubblicazione                                                                                              |
-|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) di seguito.                                  |
+|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                                  |
 |  ID             | GUID che identifica in modo univoco l'offerta                                                                                         |
 |  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione.    |
 |  Definizione     | Definizione effettiva del carico di lavoro                                                                                               |
@@ -193,7 +186,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - La richiesta è stata elaborata correttamente e tutte le offerte nel server di pubblicazione sono state restituite al client.               |
 |  400      | `Bad/Malformed request` - Il corpo della risposta di errore può contenere altre informazioni.                                                 |
-|  403      | `Forbidden` - Il client non ha accesso allo spazio dei nomi specificato.                                                        |
+|  403      | `Forbidden`: il client non ha accesso allo spazio dei nomi specificato.                                                        |
 |  404      | `Not found` - L'entità specificata è inesistente. Il client deve verificare publisherId, offerId e versione (se specificato).      |
 |  |  |
 
@@ -203,10 +196,10 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  **Nome**                   |   **Descrizione**                             |
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | L'offerta non è mai stata pubblicata.               |
-|  NotStarted                 | L'offerta è nuova, ma non è stata avviata.              |
+|  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Succeeded                  | L'invio dell'offerta è stato completato.    |
-|  Canceled                   | L'invio dell'offerta è stato annullato.                |
-|  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
+|  Succeeded                  | Invio dell'offerta completato.    |
+|  Cancellati                   | Invio dell'offerta annullato.                |
+|  Failed                     | Invio dell'offerta non riuscito.                      |
 |  |  |

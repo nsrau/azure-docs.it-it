@@ -6,20 +6,19 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043958"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933264"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
-Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequenza di funzioni in un determinato ordine. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione. Questo articolo descrive la sequenza di concatenamento creata al completamento dell'avvio rapido di Durable Functions ([ C# ](durable-functions-create-first-csharp.md) oppure [JavaScript](quickstart-js-vscode.md)). Per altre informazioni su Durable Functions, vedere [Modelli e concetti tecnici per Durable Functions](durable-functions-concepts.md).
+Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequenza di funzioni in un determinato ordine. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione. Questo articolo descrive la sequenza di concatenamento creata al completamento dell'avvio rapido di Durable Functions ([ C# ](durable-functions-create-first-csharp.md) oppure [JavaScript](quickstart-js-vscode.md)). Per altre informazioni su Durable Functions, vedere [Panoramica di Durable Functions](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -35,7 +34,7 @@ Le sezioni seguenti illustrano la configurazione e il codice usati per gli scrip
 > [!NOTE]
 > Durable Functions in JavaScript è disponibile solo per il runtime 2.x di Funzioni.
 
-## <a name="e1hellosequence"></a>E1_HelloSequence
+## <a name="e1_hellosequence"></a>E1_HelloSequence
 
 ### <a name="functionjson-file"></a>File function.json
 
@@ -72,7 +71,7 @@ Tutte le funzioni di orchestrazione JavaScript devono includere il [modulo `dura
 
 L'oggetto `context` contiene un oggetto `df` che consente di chiamare altre funzioni di *attività* e di passare parametri di input tramite il metodo `callActivity`. Il codice chiama `E1_SayHello` tre volte in sequenza con valori di parametro diversi, usando `yield` per indicare che l'esecuzione deve attendere la restituzione delle chiamate di funzioni di attività asincrone. Il valore restituito di ogni chiamata viene aggiunto all'elenco `outputs`, che viene restituito al termine della funzione.
 
-## <a name="e1sayhello"></a>E1_SayHello
+## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>File function.json
 
@@ -142,7 +141,7 @@ Come si può notare, il `runtimeStatus` dell'istanza è *Completato* e `output` 
 > [!NOTE]
 > L'endpoint HTTP POST che ha avviato la funzione di orchestrazione è implementato nell'applicazione di esempio come una funzione di trigger HTTP denominata "HttpStart". È possibile implementare una logica di avvio simile per altri tipi di trigger, ad esempio `queueTrigger`, `eventHubTrigger`, o `timerTrigger`.
 
-Esaminare i log di esecuzione della funzione. La funzione `E1_HelloSequence` si è avviata e completata più volte a causa del comportamento di riproduzione descritto nella [panoramica](durable-functions-concepts.md). In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
+Esaminare i log di esecuzione della funzione. La `E1_HelloSequence` funzione è stata avviata e completata più volte a causa del comportamento di riproduzione descritto nell'argomento relativo all' [affidabilità dell'orchestrazione](durable-functions-orchestrations.md#reliability) . In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
 
 ## <a name="visual-studio-sample-code"></a>Codice di esempio di Visual Studio
 

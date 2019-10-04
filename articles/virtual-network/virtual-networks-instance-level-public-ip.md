@@ -4,7 +4,7 @@ description: Informazioni sugli IP pubblici a livello di istanza (ILPIP) e su co
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186790"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058414"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Panoramica sugli indirizzi IP pubblici (classici) a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza del ruolo della macchina virtuale o dei servizi cloud in cui risiede l'istanza del ruolo o la macchina virtuale. Un ILPIP non sostituisce l'indirizzo IP virtuale (VIP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.

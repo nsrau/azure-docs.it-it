@@ -4,22 +4,21 @@ description: Modello di operazioni di SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a8ea845dd53048766abc337a1351a408ea7f1bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477894"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099699"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilità e modello operativo
 

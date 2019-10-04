@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471897"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
@@ -115,7 +115,7 @@ Come amministratore, è possibile esaminare tutti i gruppi interessati dalla mod
 
 Ecco un esempio di come potrebbe presentarsi questo processo:
 
-1. È stato inizialmente assegnato il prodotto *Office 365 Enterprise E5* a diversi gruppi. Uno di questi gruppi, denominato *O365 E5 - Exchange only* (O365 E5 - solo Exchange), è progettato in modo da consentire ai membri solo l'uso del servizio *Exchange Online (Piano 2)*.
+1. È stato inizialmente assegnato il prodotto *Office 365 Enterprise E5* a diversi gruppi. Uno di questi gruppi, denominato *O365 E5 - Exchange only* (O365 E5 - solo Exchange), è progettato in modo da consentire ai membri solo l'uso del servizio *Exchange Online (Piano 2)* .
 
 2. Si riceve una notifica da Microsoft in cui si informa che il prodotto E5 sarà esteso con un nuovo servizio denominato *Microsoft Stream*. Quando il servizio diventa disponibile nel proprio tenant, è possibile eseguire le operazioni seguenti:
 
@@ -188,7 +188,7 @@ Quando una licenza di un gruppo viene modificata, Azure AD inizia ad applicare l
    > ```
 
 3. Per visualizzare il log completo dell'elaborazione di un gruppo incluse tutte le modifiche agli utenti, impostare i filtri seguenti:
-   - **Azione avviata da (attore)**: "Microsoft Azure AD Group-Based Licensing"
+   - **Azione avviata da (attore)** : "Microsoft Azure AD Group-Based Licensing"
    - **Intervallo di date** (facoltativo): intervallo personalizzato per quando si conosce l'inizio e la fine dell'elaborazione di un gruppo specifico
 
 Questo output di esempio mostra l'inizio dell'elaborazione, tutte le modifiche utente risultanti e la fine dell'elaborazione.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100310"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335889"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 Questo articolo descrive come risolvere alcuni dei problemi di routing comuni che possono verificarsi per la configurazione del servizio Frontdoor di Azure. 
@@ -62,11 +62,11 @@ Le cause del problema possono essere diverse:
 
 
 3. Controllare le impostazioni delle regole di gestione
-     - Passare alla regola di gestione che deve indirizzare a un pool di back-end dal nome host front-end in questione. Assicurarsi che i protocolli consentiti siano configurati correttamente, o in caso contrario, assicurarsi che il protocollo che verrà utilizzato dal Frontdoor per l'inoltro della richiesta sia configurato correttamente. I _protocolli accettati_ determinano quali richieste deve accettare il Frontdoor e il _Protocollo di trasmissione_ sotto la scheda _Avanzate_ determina quale protocollo deve essere usato dal Frontdoor per inoltrare la richiesta al back-end.
+     - Passare alla regola di gestione che deve indirizzare a un pool di back-end dal nome host front-end in questione. Assicurarsi che i protocolli consentiti siano configurati correttamente, o in caso contrario, assicurarsi che il protocollo che verrà utilizzato dal Frontdoor per l'inoltro della richiesta sia configurato correttamente. I _protocolli accettati_ determinano le richieste che devono essere accettate dal front-end e il _protocollo di invio_ determina il protocollo da usare per inviare la richiesta al back-end.
           - Ad esempio, se il back-end accetta solo richieste HTTP, le configurazioni seguenti saranno valide:
                - _I protocolli accettati_ sono HTTP e HTTPS. _Il protocollo di trasmissione_ è HTTP. La corrispondenza richiesta non funziona, poiché HTTPS è un protocollo consentito e se una richiesta è arrivata come HTTPS, il Frontdoor cercherà di inoltrarla usando HTTPS.
 
                - _I protocolli accettati_ sono HTTP. _Il protocollo di trasmissione_ è una corrispondenza richiesta o HTTPS.
 
-   - Fare clic sulla scheda _Avanzate_ nella parte superiore del riquadro di configurazione regola di gestione. _Riscrittura URL_ è disattivata per impostazione predefinita e occorre usare questo campo solo se si vuole limitare l'ambito delle risorse ospitate dall'origine da rendere disponibili. Se disabilitato, Frontdoor inoltrerà lo stesso percorso di richiesta che riceve. È possibile che questo campo non sia configurato correttamente e che Frontdoor stia richiedendo una risorsa back-end che non è disponibile, restituendo pertanto un codice di stato HTTP 404.
+   - _Riscrittura URL_ è disattivata per impostazione predefinita e occorre usare questo campo solo se si vuole limitare l'ambito delle risorse ospitate dall'origine da rendere disponibili. Se disabilitato, Frontdoor inoltrerà lo stesso percorso di richiesta che riceve. È possibile che questo campo non sia configurato correttamente e che Frontdoor stia richiedendo una risorsa back-end che non è disponibile, restituendo pertanto un codice di stato HTTP 404.
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/18/2019
-ms.author: mayg
-ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 06/30/2019
+ms.author: raynew
+ms.openlocfilehash: da55d83665792f6ea2f4c78aa2a6c3ca26c39233
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082093"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383194"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Failover di macchine virtuali e server fisici 
 
@@ -27,8 +27,8 @@ Usare la tabella seguente per informazioni sulle opzioni di failover fornite da 
 
 | Scenario | Requisito di ripristino dell'applicazione | Flusso di lavoro per Hyper-V | Flusso di lavoro per VMware
 |---|--|--|--|
-|Failover pianificato dovuto a un imminente tempo di inattività del data center| Nessuna perdita di dati per l'applicazione quando viene eseguita un'attività pianificata| Per Hyper-V, ASR replica i dati con una frequenza di copia che viene specificata dall'utente. Il failover pianificato viene usato per eseguire l'override della frequenza e replicare le modifiche finali prima dell'avvio di un failover. <br/> <br/> 1.    Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento dell'azienda. <br/><br/> 2. Informare gli utenti dell'imminente tempo di inattività. <br/><br/> 3. Portare offline l'applicazione rivolta all'utente.<br/><br/>4. Avviare il failover pianificato tramite il portale di ASR. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene anche fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (24 ore di conservazione per Hyper-V). Se la replica è stata interrotta oltre l'intervallo di tempo del periodo di conservazione, i clienti potrebbero ancora essere in grado di eseguire il failover usando i punti di ripristino disponibili più recenti. | Per VMware, ASR replica i dati continuamente tramite CDP. È inclusa un'opzione che consente all'utente di effettuare il failover ai dati più recenti (inclusi quelli dopo l'arresto dell'applicazione).<br/><br/> 1. Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento. <br/><br/>2. Informare gli utenti dell'imminente tempo di inattività. <br/><br/>3.    Portare offline l'applicazione rivolta all'utente. <br/><br/>4.  Tramite il portale di ASR, avviare un failover pianificato nel punto più recente da quando l'applicazione è offline. Usare l'opzione di failover non pianificato del portale e selezionare il punto più recente per il failover. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (72 ore di conservazione per VMware). Se la replica è stata interrotta oltre l'intervallo di tempo del periodo di conservazione, i clienti potrebbero ancora essere in grado di eseguire il failover usando i punti di ripristino disponibili più recenti.
-|Failover dovuto a un tempo di inattività non pianificato del data center (disastro naturale o IT) | Perdita di dati minima per l'applicazione | 1. Avviare il piano BCP dell'organizzazione. <br/><br/>2. Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).| 1. Avviare il piano BCP dell'organizzazione. <br/><br/>2.  Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).
+|Failover pianificato dovuto a un imminente tempo di inattività del data center| Nessuna perdita di dati per l'applicazione quando viene eseguita un'attività pianificata| Per Hyper-V, ASR replica i dati con una frequenza di copia che viene specificata dall'utente. Il failover pianificato viene usato per eseguire l'override della frequenza e replicare le modifiche finali prima dell'avvio di un failover. <br/> <br/> 1. Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento dell'azienda. <br/><br/> 2. Notificare agli utenti i tempi di inattività imminenti. <br/><br/> 3. Portare offline l'applicazione rivolta all'utente.<br/><br/>4. Avviare il failover pianificato usando il portale di ASR. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene anche fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (24 ore di conservazione per Hyper-V). Se la replica è stata interrotta oltre l'intervallo di tempo del periodo di conservazione, i clienti potrebbero ancora essere in grado di eseguire il failover usando i punti di ripristino disponibili più recenti. | Per VMware, ASR replica i dati continuamente tramite CDP. È inclusa un'opzione che consente all'utente di effettuare il failover ai dati più recenti (inclusi quelli dopo l'arresto dell'applicazione).<br/><br/> 1. Pianificare una finestra di manutenzione in base al processo di gestione del cambiamento. <br/><br/>2. Informare gli utenti dell'imminente tempo di inattività. <br/><br/>3. Portare offline l'applicazione rivolta all'utente.<br/><br/>4. Tramite il portale di ASR, avviare un failover pianificato nel punto più recente da quando l'applicazione è offline. Usare l'opzione "failover pianificato" nel portale e selezionare il punto più recente del failover. La macchina virtuale locale si arresta automaticamente.<br/><br/>Perdita di dati effettiva dell'applicazione = 0 <br/><br/>Viene fornito un giornale di registrazione di punti di recupero all'interno di un periodo di conservazione qualora un utente intendesse usare un punto di recupero precedente (72 ore di conservazione per VMware). Se la replica è stata interrotta oltre l'intervallo di tempo del periodo di conservazione, i clienti potrebbero ancora essere in grado di eseguire il failover usando i punti di ripristino disponibili più recenti.
+|Failover dovuto a un tempo di inattività non pianificato del data center (disastro naturale o IT) | Perdita di dati minima per l'applicazione | 1. Avviare il piano BCP dell'organizzazione <br/><br/>2. Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).| 1. Avviare il piano BCP dell'organizzazione. <br/><br/>2. Tramite il portale di ASR, avviare un failover non pianificato nel punto più recente o in un punto all'interno del periodo di conservazione (giornale di registrazione).
 
 
 ## <a name="run-a-failover"></a>Eseguire un failover
@@ -70,9 +70,9 @@ Le macchine virtuali e i server fisici protetti con Site Recovery supportano anc
 
 > [!NOTE]
 > Durante il failover di macchine virtuali Hyper-V da un sito locale a un altro sito locale, per tornare al sito locale primario è prima necessario **eseguire la replica inversa** della macchina virtuale nel sito primario e quindi attivare il failover. Se la macchina virtuale primaria non è disponibile, prima di avviare la **replica inversa** è necessario ripristinare la macchina virtuale da un backup.   
-> 
-> 
-> ## <a name="failover-job"></a>Processo di failover
+ 
+ 
+## <a name="failover-job"></a>Processo di failover
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ In tutti gli altri casi questo passaggio intermedio non è necessario e il tempo
 ## <a name="post-failover-considerations"></a>Considerazioni successive al failover
 Dopo il failover è consigliabile tenere presente quanto segue:
 ### <a name="retaining-drive-letter-after-failover"></a>Mantenimento della lettera di unità dopo il failover
-Per mantenere la lettera di unità nelle macchine virtuali dopo il failover, è possibile impostare il **criterio SAN** per la macchina virtuale su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery gestisce la conservazione delle lettere di unità. [Scopri di più](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) su come viene eseguita quando scegli di escludere alcuni dischi.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 

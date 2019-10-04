@@ -3,18 +3,18 @@ title: Informazioni su Azure IoT Central | Microsoft Docs
 description: Azure IoT Central è una soluzione SaaS end-to-end che è possibile usare per compilare e gestire una soluzione IoT personalizzata. Questo articolo offre una panoramica delle funzionalità di Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5c1f36e77e24b598aa777d384462ee4538bd486
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183272"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048946"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,18 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 Azure IoT Central è una soluzione SaaS (Software-as-a-Service) IoT completamente gestita che semplifica la creazione di prodotti che si connettono ai mondi fisico e digitale. Per realizzare prodotti connessi, è possibile:
 
 - Derivare nuove informazioni dettagliate dai dispositivi connessi allo scopo di migliorare prodotti ed esperienze per i clienti.
 - Creare nuove opportunità di business per l'organizzazione.
 
-Rispetto a un tipico progetto IoT, Azure IoT Central semplifica notevolmente la gestione di una soluzione IoT:
+Rispetto a un progetto IoT tipico, Azure IoT Central:
 
-- Riducendo il carico di gestione.
-- Riducendo costi generali e costi operativi.
-- Semplificando la personalizzazione dell'applicazione e al contempo sfruttando:
+- Riduce il carico di gestione.
+- Riduce costi generali e costi operativi.
+- Semplifica la personalizzazione dell'applicazione e al contempo sfrutta:
   - Tecnologie leader del settore come [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
   - Funzionalità di sicurezza di livello aziendale, come la crittografia end-to-end.
 
@@ -42,7 +44,7 @@ Il video seguente offre una panoramica di Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-Nella parte restante di questo articolo vengono fornite le informazioni seguenti su Azure IoT Central:
+Questo articolo fornisce le informazioni seguenti su Azure IoT Central:
 
 - Descrizione degli utenti tipo associati a un progetto.
 - Procedura per la creazione dell'applicazione.
@@ -51,7 +53,7 @@ Nella parte restante di questo articolo vengono fornite le informazioni seguenti
 
 ## <a name="personas"></a>Utenti tipo
 
-Nella documentazione di Azure IoT Central viene fatto riferimento a quattro utenti tipo standard che interagiscono con un'applicazione Azure IoT Central:
+Nella documentazione di Azure IoT Central viene fatto riferimento a quattro utenti tipo che interagiscono con un'applicazione Azure IoT Central:
 
 - Un _generatore_ è responsabile della definizione dei tipi di dispositivi che si connettono all'applicazione e della personalizzazione dell'applicazione per l'operatore.
 - Un _operatore_ gestisce i dispositivi connessi all'applicazione.
@@ -65,7 +67,7 @@ I generatori usano Azure IoT Central per creare una soluzione IoT ospitata nel c
 - Un'applicazione basata sul cloud che riceve i dati di telemetria dai dispositivi e consente di gestire tali dispositivi.
 - Più dispositivi che eseguono codice personalizzato connessi all'applicazione basata sul cloud.
 
-È possibile distribuire rapidamente una nuova applicazione Azure IoT Central e quindi personalizzarla in base a requisiti specifici direttamente nel browser. I generatori di Azure IoT Central possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Per modello di dispositivo si intende il progetto di un modello di dispositivo condiviso tra tutti i dispositivi creati dallo stesso modello. Un modello di dispositivo consente di definire le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
+È possibile distribuire rapidamente una nuova applicazione Azure IoT Central e quindi personalizzarla in base a requisiti specifici nel browser. I generatori possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Un modello di dispositivo è il progetto che definisce le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
 
 - I dati di telemetrica che invia.
 - Le proprietà di business modificabili da un operatore.
@@ -83,7 +85,7 @@ I generatori possono anche personalizzare l'interfaccia utente dell'applicazione
 
 ## <a name="connect-your-devices"></a>Connettere i dati dell'utente
 
-Dopo che il generatore ha definito i tipi di dispositivi che possono connettersi all'applicazione, uno sviluppatore di dispositivi crea il codice da eseguire nei dispositivi. Gli sviluppatori di dispositivi possono usare gli [SDK di Azure IoT](https://github.com/Azure/azure-iot-sdks) open source di Microsoft per creare il codice del dispositivo. Questi SDK supportano un numero di linguaggi, piattaforme e protocolli tale da soddisfare le esigenze di connessione dei dispositivi all'applicazione Azure IoT Central. Grazie agli SDK è possibile eseguire le attività seguenti sul dispositivo connesso ad Azure IoT Central:
+Dopo che il generatore ha definito i tipi di dispositivi che possono connettersi all'applicazione, uno sviluppatore di dispositivi crea il codice da eseguire nei dispositivi. Gli sviluppatori di dispositivi possono usare gli [SDK di Azure IoT](https://github.com/Azure/azure-iot-sdks) open source di Microsoft per creare il codice del dispositivo. Questi SDK supportano un numero di linguaggi, piattaforme e protocolli tale da soddisfare le esigenze di connessione dei dispositivi all'applicazione Azure IoT Central. Gli SDK consentono di implementare le funzionalità di dispositivo seguenti:
 
 - Creare una connessione sicura.
 - Inviare i dati di telemetria.
@@ -96,15 +98,15 @@ Per altre informazioni, vedere il post di blog [Benefits of using the Azure IoT 
 
 Le applicazioni Azure IoT Central sono completamente ospitate da Microsoft e questo consente di ridurre il carico amministrativo correlato alla gestione delle applicazioni.
 
-Gli operatori usano l'applicazione Azure IoT Central per gestire i dispositivi nella soluzione Azure IoT Central. Gli operatori possono eseguire attività quali:
+Gli operatori usano l'applicazione Azure IoT Central per gestire i dispositivi nella soluzione Azure IoT Central. Gli operatori eseguono attività quali:
 
 - Eseguire il monitoraggio dei dispositivi connessi all'applicazione.
 - Risolvere e correggere i problemi relativi ai dispositivi.
 - Eseguire il provisioning di nuovi dispositivi.
 
-Un generatore può definire regole e azioni personalizzate che operano sui dati in streaming a livello di modello di dispositivo. Un operatore può abilitare o disabilitare queste regole a livello di dispositivo per controllare e automatizzare le attività all'interno dell'applicazione.
+Un generatore può definire regole e azioni personalizzate che operano sullo streaming di dati dai dispositivi connessi. Un operatore può abilitare o disabilitare queste regole a livello di dispositivo per controllare e automatizzare le attività all'interno dell'applicazione.
 
-Gli amministratori possono gestire l'accesso all'applicazione con [regole e autorizzazioni utente](howto-administer.md).
+Gli amministratori gestiscono l'accesso all'applicazione con [regole e autorizzazioni utente](howto-administer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

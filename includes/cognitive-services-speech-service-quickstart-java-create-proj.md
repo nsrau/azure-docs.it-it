@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 8a8611218f47e5600fc02efef24aa7912b630522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ebefe878393b66e5097ebbda5ef6159a8413833f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804321"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298442"
 ---
 1. Avviare Eclipse.
 
@@ -29,7 +29,7 @@ ms.locfileid: "59804321"
 
    ![Screenshot della procedura guidata Nuovo progetto Java](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 
-1. Se viene visualizzata la finestra **Aprire prospettiva associata?**, selezionare **Apri prospettiva**.
+1. Se viene visualizzata la finestra **Aprire prospettiva associata?** , selezionare **Apri prospettiva**.
 
 1. In **Esplora pacchetti**, fare doppio clic sul progetto **quickstart**. Selezionare **Configura** > **Converti in progetto Maven** dal menu di scelta rapida.
 
@@ -45,7 +45,7 @@ ms.locfileid: "59804321"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-   * Aggiungere anche un elemento `dependencies`, con la versione 1.4.0 di Speech SDK come dipendenza:
+   * Aggiungere anche un elemento `dependencies`, con la versione 1.6.0 di Speech SDK come dipendenza:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

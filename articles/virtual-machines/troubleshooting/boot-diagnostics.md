@@ -3,19 +3,19 @@ title: Diagnostica di avvio per le macchine virtuali in Azure | Microsoft Docs
 description: Panoramica delle due funzionalità di debug per le macchine virtuali in Azure
 services: virtual-machines
 author: Deland-Han
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505872"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086481"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
@@ -49,7 +49,7 @@ La procedura seguente si riferisce a una macchina virtuale creata usando il mode
 
 Nella scheda **Gestione**, nella sezione **Monitoraggio**, verificare che l'opzione **Diagnostica di avvio** sia attivata. Nell'elenco a discesa **Account di archiviazione di diagnostica** selezionare un account di archiviazione in cui inserire i file di diagnostica.
  
-![Creare una macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+![Crea macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
 > La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale.

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 5ee9970a255928bca9d08111229be6298f20d7b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7df64c3fb70bdf3e7689787ec558bfe0e4942352
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235635"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754019"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Avvio rapido: Eseguire la migrazione di un notebook di Jupyter locale
 
@@ -36,7 +36,7 @@ Questo argomento di avvio rapido illustra il processo di migrazione di un notebo
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+**:
+1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+** :
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 

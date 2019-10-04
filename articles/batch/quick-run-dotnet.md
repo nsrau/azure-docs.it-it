@@ -3,21 +3,21 @@ title: 'Guida introduttiva di Azure: Eseguire un processo Batch - .NET'
 description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch .NET.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679920"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322338"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Guida introduttiva: Eseguire il primo processo Azure Batch con l'API .NET
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Guida introduttiva: Eseguire il primo processo di Azure Batch con l'API .NET
 
 Questa guida introduttiva esegue un processo Azure Batch da un'applicazione C# compilata con l'API .NET di Azure Batch. L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -27,7 +27,7 @@ Questa guida introduttiva esegue un processo Azure Batch da un'applicazione C# c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
+* [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
 
 * Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md). 
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Passare alla directory contenente il file di soluzione Visual Studio `BatchDotNetQuickstart.sln`.
 
-Aprire il file di soluzione in Visual Studio e aggiornare le stringhe delle credenziali in `Program.cs` con i valori ottenuti per gli account. Ad esempio: 
+Aprire il file di soluzione in Visual Studio e aggiornare le stringhe delle credenziali in `Program.cs` con i valori ottenuti per gli account. Ad esempio:
 
 ```csharp
 // Batch account credentials
@@ -113,7 +113,7 @@ Per altre informazioni, vedere il file `Program.cs` e le sezioni seguenti.
 
 ### <a name="preliminaries"></a>Operazioni preliminari
 
-Per interagire con un account di archiviazione, l'app usa la libreria client di Archiviazione di Azure per .NET. Crea un riferimento all'account con [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), da cui viene quindi creato un oggetto [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+Per interagire con un account di archiviazione, l'app usa la libreria client di Archiviazione di Azure per .NET. Crea un riferimento all'account con [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount), da cui viene quindi creato un oggetto [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795050"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509459"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure
 
@@ -44,7 +44,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
    ![Accesso condizionale](./media/policy-migration-mfa/02.png)
 
-1. Nella sezione **Gestisci**, fare clic su **Criteri classici (anteprima)**.
+1. Nella sezione **Gestisci**, fare clic su **Criteri classici (anteprima)** .
 
    ![Criteri classici](./media/policy-migration-mfa/12.png)
 
@@ -76,42 +76,32 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
    1. Se nel criterio classico sono selezionati tutti gli utenti, fare clic su **Tutti gli utenti**. 
 
-   ![Accesso condizionale](./media/policy-migration/35.png)
+      ![Accesso condizionale](./media/policy-migration/35.png)
 
    1. Se nel criterio classico sono selezionati i gruppi, fare clic su **Utenti e gruppi**, quindi selezionare i gruppi e gli utenti necessari.
 
-   ![Accesso condizionale](./media/policy-migration/36.png)
+      ![Accesso condizionale](./media/policy-migration/36.png)
 
    1. Se sono presenti gruppi esclusi, fare clic sulla scheda**Escludi** e quindi selezionare i gruppi e gli utenti necessari. 
 
-   ![Accesso condizionale](./media/policy-migration/37.png)
+      ![Accesso condizionale](./media/policy-migration/37.png)
 
 1. Nella pagina **Nuovo**, per aprire la pagina **App cloud**, nella sezione **Assegnazioni** fare clic su **App cloud**.
-
 1. Nella pagina **App cloud** attenersi alla procedura seguente:
-
-   ![Accesso condizionale](./media/policy-migration/08.png)
-
    1. Fare clic su **Selezionare le app**.
-
    1. Fare clic su **Seleziona**.
-
    1. Nella pagina **Seleziona** scegliere l'app cloud e quindi fare clic su **Seleziona**.
-
    1. Nella pagina **App cloud** fare clic su **Fatto**.
-
 1. Se è stato selezionato **Richiedi autenticazione a più fattori**:
 
    ![Accesso condizionale](./media/policy-migration/26.png)
 
    1. Nella sezione **Controlli di accesso** fare clic su **Concedi**.
 
-   ![Accesso condizionale](./media/policy-migration/27.png)
+      ![Accesso condizionale](./media/policy-migration/27.png)
 
    1. Nella pagina **Concedi**, fare clic su **Concedi accesso**e quindi su **Richiedi autenticazione a più fattori**.
-
    1. Fare clic su **Seleziona**.
-
 1. Fare clic su **On** per abilitare il criterio.
 
    ![Accesso condizionale](./media/policy-migration/30.png)
@@ -126,4 +116,4 @@ Per disabilitare i criteri classici, fare clic su **Disabilita** nella visualizz
 
 - Per altre informazioni sulla migrazione dei criteri classici, vedere [Migrare i criteri classici nel portale di Azure](policy-migration.md).
 - Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere le [procedure consigliate per l'accesso condizionale](best-practices.md) in Azure Active Directory.

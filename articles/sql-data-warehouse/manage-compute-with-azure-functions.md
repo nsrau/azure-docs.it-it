@@ -11,11 +11,11 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61083862"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usare Funzioni di Azure per gestire le risorse di calcolo in Azure SQL Data Warehouse
 
@@ -53,7 +53,7 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
    ![Selezionare Integrazione per la funzione](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Il valore attualmente visualizzato dovrebbe essere *%ScaleDownTime%* o *%ScaleUpTime%*. Questi valori indicano che la pianificazione è basata sui valori definiti nelle [impostazioni dell'applicazione][Application Settings]. Per il momento è possibile ignorare questo valore e modificare la pianificazione impostando la data e l'ora preferite in base ai passaggi successivi.
+3. Il valore attualmente visualizzato dovrebbe essere *%ScaleDownTime%* o *%ScaleUpTime%* . Questi valori indicano che la pianificazione è basata sui valori definiti nelle [impostazioni dell'applicazione][Application Settings]. Per il momento è possibile ignorare questo valore e modificare la pianificazione impostando la data e l'ora preferite in base ai passaggi successivi.
 
 4. Nell'area relativa alla pianificazione aggiungere l'espressione CRON di data e ora desiderata per riflettere la frequenza con cui si vogliono aumentare le prestazioni di SQL Data Warehouse. 
 

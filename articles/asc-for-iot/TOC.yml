@@ -1,77 +1,89 @@
-items:
-- name: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT
+- name: Documentazione del Centro sicurezza di Azure per IoT
   href: index.yml
 - name: Panoramica
   href: overview.md
   items:
-  - name: Architettura della soluzione
-    href: architecture.md
-  - name: Agenti di sicurezza
-    href: security-agent-architecture.md
-  - name: Modulo di sicurezza per Edge
-    href: security-edge-architecture.md
-  - name: Prerequisiti del servizio
-    href: service-prerequisites.md
-  - name: Introduzione al Centro sicurezza di Azure per IoT
-    href: getting-started.md
+    - name: Architettura della soluzione
+      href: architecture.md
+    - name: Agenti di sicurezza
+      href: security-agent-architecture.md
+    - name: Modulo di sicurezza per Edge
+      href: security-edge-architecture.md
+    - name: Prerequisiti del servizio
+      href: service-prerequisites.md
+    - name: Introduzione al Centro sicurezza di Azure per IoT
+      href: getting-started.md
+      items:
+        - name: Hub IoT
+          href: iot-hub-integration.md
+        - name: Agenti di sicurezza
+          href: security-agents.md
 - name: Guide introduttive
-  items:
-  - name: Abilitare il Centro sicurezza di Azure per IoT nell'hub IoT
-    href: quickstart-onboard-iot-hub.md
-  - name: Configurare la soluzione
-    href: quickstart-configure-your-solution.md
-  - name: Creare un modulo gemello del Centro sicurezza di Azure per IoT
-    href: quickstart-create-security-twin.md
-  - name: Creare avvisi di sicurezza personalizzati
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: Eseguire l'onboarding del Centro sicurezza di Azure per IoT nell'hub IoT
+      href: quickstart-onboard-iot-hub.md
+    - name: Configurare la soluzione
+      href: quickstart-configure-your-solution.md
+    - name: Creare un modulo gemello del Centro sicurezza di Azure per IoT
+      href: quickstart-create-security-twin.md
+    - name: Creare avvisi di sicurezza personalizzati
+      href: quickstart-create-custom-alerts.md
 - name: Concetti
   items:
-  - name: Autenticazione degli agenti di sicurezza
-    href: concept-security-agent-authentication-methods.md
-  - name: Modulo di sicurezza
-    href: concept-security-module.md
-  - name: Avvisi di sicurezza
-    href: concept-security-alerts.md
-  - name: Suggerimenti per la sicurezza
-    href: concept-recommendations.md
-  - name: Prezzi e costi associati
-    href: concept-pricing.md
+    - name: Autenticazione degli agenti di sicurezza
+      href: concept-security-agent-authentication-methods.md
+    - name: Modulo di sicurezza
+      href: concept-security-module.md
+    - name: Avvisi di sicurezza
+      href: concept-security-alerts.md
+    - name: Suggerimenti per la sicurezza
+      href: concept-recommendations.md
+    - name: Di base
+      href: concept-baseline.md
+    - name: Aggregazione di eventi
+      href: event-aggregation.md
+    - name: Prezzi e costi associati
+      href: concept-pricing.md
 - name: Guide alle procedure
   items:
-  - name: Quale agente distribuire?
-    items:
-    - name: Selezionare un agente da distribuire
-      href: how-to-deploy-agent.md
-    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Windows
-      href: how-to-deploy-windows-cs.md
-    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Linux
-      href: how-to-deploy-linux-cs.md
-    - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
-      href: how-to-deploy-linux-c.md
-  - name: Distribuire il modulo di sicurezza per Edge
-    href: how-to-deploy-edge.md
-  - name: Configurare gli agenti di sicurezza
-    href: how-to-agent-configuration.md
-  - name: Inviare messaggi di sicurezza personalizzati
-    href: how-to-send-security-messages.md
-  - name: Accedere a dati non elaborati sulla sicurezza
-    href: how-to-security-data-access.md
-  - name: Analizzare un dispositivo
-    href: how-to-investigate-device.md
+    - name: Quale agente distribuire?
+      items:
+        - name: Selezionare un agente da distribuire
+          href: how-to-deploy-agent.md
+        - name: 'Distribuire un agente di sicurezza basato su C# in un dispositivo Windows'
+          href: how-to-deploy-windows-cs.md
+        - name: 'Distribuire un agente di sicurezza basato su C# in un dispositivo Linux'
+          href: how-to-deploy-linux-cs.md
+        - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
+          href: how-to-deploy-linux-c.md
+    - name: Risolvere i problemi di un agente di sicurezza
+      items:
+        - name: Risolvere i problemi dell'agente di sicurezza Linux del Centro sicurezza di Azure per IoT
+          href: troubleshoot-agent.md
+        - name: Configurazione locale C
+          href: azure-iot-security-local-configuration-c.md
+        - name: 'Configurazione locale C#'
+          href: azure-iot-security-local-configuration-csharp.md
+    - name: Distribuire il modulo di sicurezza per Edge
+      href: how-to-deploy-edge.md
+    - name: Configurare gli agenti di sicurezza
+      href: how-to-agent-configuration.md
+    - name: Inviare messaggi di sicurezza personalizzati
+      href: how-to-send-security-messages.md
+    - name: Accedere a dati non elaborati sulla sicurezza
+      href: how-to-security-data-access.md
+    - name: Analizzare un dispositivo
+      href: how-to-investigate-device.md
+    - name: Personalizzare la soluzione
+      href: how-to-customize-solution.md
 - name: Risorse
   items:
-  - name: Domande frequenti
-    href: resources-frequently-asked-questions.md
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blog su sicurezza, privacy e conformità per Azure
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Disponibilità internazionale
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754587"
+    - name: Domande frequenti
+      href: resources-frequently-asked-questions.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Blog su sicurezza, privacy e conformità per Azure'
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'

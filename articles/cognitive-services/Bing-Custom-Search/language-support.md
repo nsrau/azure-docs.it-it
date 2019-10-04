@@ -3,31 +3,31 @@ title: Supporto per la lingua - API Ricerca personalizzata Bing
 titleSuffix: Azure Cognitive Services
 description: Elenco delle lingue e delle regioni supportate dall'API Ricerca personalizzata Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388570"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Lingua e regioni supportate dall'API Ricerca personalizzata Bing
 
 L'API Ricerca personalizzata Bing supporta più di una quarantina di paesi/aree, molti dei quali con più di una lingua.
 
-Nonostante sia facoltativo, la richiesta dovrebbe specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query)
+Nonostante sia facoltativo, la richiesta dovrebbe specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query)
 
 È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella **Mercati**.
 
-L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a vicenda, quindi non specificarli entrambi. Per informazioni dettagliate, vedere [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a vicenda, quindi non specificarli entrambi. Per informazioni dettagliate, vedere [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countries"></a>Paesi
+## <a name="countriesregions"></a>Paesi/aree geografiche
 
 |Paese/Area geografica|Codice|
 |-------|----|

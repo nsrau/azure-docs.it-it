@@ -4,24 +4,23 @@ description: Distribuire un'applicazione a Cloud Foundry in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4088e593ca7d48a3e7a5c1a6699f316b57fff31
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388506"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083951"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -31,16 +30,16 @@ ms.locfileid: "60388506"
 
 Esistono diverse opzioni per la creazione di un ambiente Cloud Foundry in Azure:
 
-- Usare l'[offerta Pivotal Cloud Foundry][pcf-azuremarketplace] in Azure Marketplace per creare un ambiente standard che include PCF Operations Manager e il Service Broker di Azure. Per le [istruzioni complete][pcf-azuremarketplace-pivotaldocs] per la distribuzione dell'offerta del marketplace, vedere la documentazione di Pivotal.
-- Creare un ambiente personalizzato [distribuendo manualmente Pivotal Cloud Foundry][pcf-custom].
-- [Distribuire i pacchetti open source di Cloud Foundry direttamente][oss-cf-bosh] impostando un [BOSH](https://bosh.io) director, una macchina virtuale che coordina la distribuzione dell'ambiente Cloud Foundry.
+- Usare l' [offerta pivotal Cloud Foundry][pcf-azuremarketplace] in Azure Marketplace per creare un ambiente standard che includa gestione Ops di PCF e la Service Broker di Azure. È possibile trovare [istruzioni complete][pcf-azuremarketplace-pivotaldocs] per la distribuzione dell'offerta Marketplace nella documentazione di Pivotal.
+- Creare un ambiente personalizzato [distribuendo Cloud Foundry pivotal manualmente][pcf-custom].
+- [Distribuire i pacchetti di Cloud Foundry open source direttamente][oss-cf-bosh] impostando un Director [Bosh](https://bosh.io) , una macchina virtuale che coordina la distribuzione dell'ambiente Cloud Foundry.
 
 > [!IMPORTANT] 
 > Se si distribuisce PCF da Azure Marketplace, annotare il SYSTEMDOMAINURL e le credenziali amministratore necessarie per accedere al gestore di app di Pivotal, entrambi descritti nella Guida alla distribuzione dal marketplace. Questi elementi sono necessari per completare questa esercitazione. Per le distribuzioni dal marketplace, il SYSTEMDOMAINURL è nel formato https://system.*ip-address*.cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Connettersi al controller del cloud
 
-Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso, si interagisce con essa tramite l'[interfaccia della riga di comando di Cloud Foundry][cf-cli]. L'interfaccia della riga di comando può essere installata su Linux, MacOS o Windows, ma se si preferisce non installarla è disponibile preinstallata in [Azure Cloud Shell][cloudshell-docs].
+Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso si interagisce con l'interfaccia della riga di comando [Cloud Foundry][cf-cli]. È possibile installare l'interfaccia della riga di comando in Linux, MacOS o Windows, ma se si preferisce non installarla, è disponibile preinstallato nel [Azure cloud Shell][cloudshell-docs].
 
 Per eseguire l'accesso, anteporre `api` al SYSTEMDOMAINURL ottenuto dalla distribuzione dal marketplace. Poiché la distribuzione predefinita usa un certificato autofirmato, è necessario includere anche l'istruzione `skip-ssl-validation`.
 
@@ -73,7 +72,7 @@ cf target -o testorg -s dev
 A questo punto, quando si distribuisce un'applicazione essa viene automaticamente creata nella nuova organizzazione e nel nuovo spazio. Per confermare che non sono attualmente presenti app nella nuova organizzazione/spazio, digitare nuovamente `cf apps`.
 
 > [!NOTE] 
-> Per altre informazioni sulle organizzazioni e gli spazi e su come possono essere usati per il controllo degli accessi in base al ruolo, vedere la [documentazione di Cloud Foundry][cf-orgs-spaces-docs].
+> Per ulteriori informazioni su org e sugli spazi e su come utilizzarli per il controllo degli accessi in base al ruolo (RBAC), vedere la [documentazione Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Distribuire un'applicazione
 
@@ -113,7 +112,7 @@ Per visualizzare l'applicazione hello-spring-cloud, aprire l'URL specificato nel
 ![Interfaccia utente predefinita per Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Per altre informazioni su cosa accade durante `cf push`, vedere [How Applications Are Staged][cf-push-docs] (Come vengono gestite temporaneamente le applicazioni) nella documentazione di Cloud Foundry.
+> Per ulteriori informazioni su ciò che accade `cf push`durante, vedere la pagina relativa alla gestione [temporanea delle applicazioni][cf-push-docs] nella documentazione Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Visualizzare i log applicazioni
 
@@ -144,9 +143,9 @@ L'esecuzione del comando `cf app` nell'applicazione indica che Cloud Foundry sta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Leggere la documentazione di Cloud Foundry][cloudfoundry-docs]
+- [Leggi la documentazione di Cloud Foundry][cloudfoundry-docs]
 - [Configurare il plug-in Azure DevOps Services per Cloud Foundry][vsts-plugin]
-- [Configurare il nozzle di Microsoft Log Analytics per Cloud Foundry][loganalytics-nozzle]
+- [Configurare Microsoft Log Analytics ugello per Cloud Foundry][loganalytics-nozzle]
 
 <!-- LINKS -->
 

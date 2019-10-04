@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708356"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente
 Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
@@ -85,7 +85,7 @@ Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping 
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Se specificato, il primo prefisso di indirizzo non sovrapposto di dimensioni pari a `defaultValue.addressPrefixSize` viene determinato automaticamente in base alle reti virtuali esistenti nella sottoscrizione dell'utente.
 - Il valore predefinito per `defaultValue.name` e `defaultValue.addressPrefixSize` è **null**.
 - Specificare `constraints.minAddressPrefixSize`. Le reti virtuali esistenti con uno spazio indirizzi inferiore al valore specificato non sono disponibili per la selezione.

@@ -3,25 +3,24 @@ title: Richiamare il programma MapReduce da Data factory di Azure
 description: Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110529"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139288"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività Hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
@@ -189,7 +188,7 @@ La pipeline in questo esempio contiene una sola attività di tipo HDInsightMapRe
 | jarFilePath |Percorso del file jar contenente la classe. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. |
 | jarLinkedService |Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo servizio collegato fa riferimento allo spazio di archiviazione associato al cluster HDInsight. |
 | arguments |Il programma wordcount accetta due argomenti, un input e un output. Il file di input è il file davinci.txt. |
-| frequenza/intervallo |I valori per queste proprietà corrispondono al set di dati di output. |
+| frequency/interval |I valori per queste proprietà corrispondono al set di dati di output. |
 | linkedServiceName |fa riferimento al servizio collegato di HDInsight creato in precedenza. |
 
 ```JSON

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 43f8af4f2afc0f7210e49dc5b483a8d2757e6aba
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215355"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314423"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
 Hub eventi di Azure è una piattaforma di streaming di Big Data e un servizio di inserimento di eventi. È in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione.
@@ -29,36 +29,38 @@ Di seguito sono riportati alcuni scenari in cui è possibile usare Hub eventi:
 - Archiviazione di dati
 - Elaborazione di transazioni
 - Elaborazione di dati di telemetria dell'utente
-- Streaming della telemetria dei dispositivi 
+- Streaming della telemetria dei dispositivi
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
 
 I dati sono utili solo quando esiste un modo semplice per elaborare e ottenere in modo tempestivo informazioni dettagliate da origini dati. Hub eventi offre una piattaforma di elaborazione di flusso distribuito con bassa latenza e facile integrazione, con servizi dati e di analisi all'interno e all'esterno di Azure per creare una pipeline di Big Data completa.
 
-Hub eventi rappresenta la "porta principale" per una pipeline di eventi, spesso denominata *inseritore eventi* nelle architetture della soluzione. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi. Hub eventi offre una piattaforma di streaming unificata con buffer basato sul tempo di conservazione, separando i producer di eventi dai consumer di eventi. 
+Hub eventi rappresenta la "porta principale" per una pipeline di eventi, spesso denominata *inseritore eventi* nelle architetture della soluzione. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi. Hub eventi offre una piattaforma di streaming unificata con buffer basato sul tempo di conservazione, separando i producer di eventi dai consumer di eventi.
 
-Le sezioni seguenti descrivono le funzionalità principali del servizio Hub eventi di Azure: 
+Le sezioni seguenti descrivono le funzionalità principali del servizio Hub eventi di Azure:
 
-## <a name="fully-managed-paas"></a>Soluzione PaaS completamente gestita 
+## <a name="fully-managed-paas"></a>Soluzione PaaS completamente gestita
 
 Hub eventi è una soluzione Platform-as-a-Service (PaaS) completamente gestita, con requisiti limitati di configurazione e gestione, consentendo ai clienti di concentrare l'attenzione sulle soluzioni aziendali. [Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) offre l'esperienza di PaaS Kafka senza necessità di dover gestire, configurare o eseguire i cluster.
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Supporto per elaborazione batch e in tempo reale
 
-Inserimento, memorizzazione nel buffer, archiviazione ed elaborazione del flusso in tempo reale per ottenere informazioni dettagliate di utilità pratica. Hub eventi usa un [modello di consumer partizionato](event-hubs-features.md#partitions), consentendo a più applicazioni di elaborare contemporaneamente il flusso e all'utente di controllare la velocità di elaborazione.
+Inserimento, memorizzazione nel buffer, archiviazione ed elaborazione del flusso in tempo reale per ottenere informazioni dettagliate di utilità pratica. Hub eventi usa un [modello di consumer partizionato](event-hubs-scalability.md#partitions), consentendo a più applicazioni di elaborare contemporaneamente il flusso e all'utente di controllare la velocità di elaborazione.
 
-È possibile[acquisire](event-hubs-capture-overview.md) i dati quasi in tempo reale in un [archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) oppure in [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) per l'elaborazione di micro batch o la conservazione a lungo termine. È possibile ottenere questo comportamento con lo stesso flusso usato per la derivazione di analisi in tempo reale. La configurazione dell'acquisizione di dati degli eventi è una procedura rapida. Non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le  [unità elaborate](event-hubs-features.md#throughput-units) in Hub eventi. Hub eventi consente ai clienti di concentrarsi sull'elaborazione dei dati, invece che sull'acquisizione dei dati.
+È possibile[acquisire](event-hubs-capture-overview.md) i dati quasi in tempo reale in un [archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) oppure in [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) per l'elaborazione di micro batch o la conservazione a lungo termine. È possibile ottenere questo comportamento con lo stesso flusso usato per la derivazione di analisi in tempo reale. La configurazione dell'acquisizione di dati degli eventi è una procedura rapida. Non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le  [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Hub eventi consente ai clienti di concentrarsi sull'elaborazione dei dati, invece che sull'acquisizione dei dati.
 
 Hub eventi di Azure si integra inoltre con [Funzioni di Azure](/azure/azure-functions/) per un'architettura senza server.
 
-## <a name="scalable"></a>Scalabile 
+## <a name="scalable"></a>Scalabile
 
-Con Hub eventi, è possibile iniziare con i flussi di dati in MB, per poi aumentare ai GB o TB. La funzionalità [Aumento automatico](event-hubs-auto-inflate.md) è una delle numerose opzioni disponibili per ridimensionare il numero di unità elaborate in modo da soddisfare le esigenze di utilizzo. 
+Con Hub eventi, è possibile iniziare con i flussi di dati in MB, per poi aumentare ai GB o TB. La funzionalità [Aumento automatico](event-hubs-auto-inflate.md) è una delle numerose opzioni disponibili per ridimensionare il numero di unità elaborate in modo da soddisfare le esigenze di utilizzo.
 
 ## <a name="rich-ecosystem"></a>Ecosistema avanzato
 
 [Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) consente ai client e alle applicazioni [Apache Kafka (1.0 e versioni successive)](https://kafka.apache.org/) di comunicare con Hub eventi. Non è necessario impostare, configurare e gestire i propri cluster Kafka.
- 
+
 Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, Go, Node. js)](https://github.com/Azure/azure-event-hubs), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello. L'ecosistema garantisce anche un'integrazione perfetta con servizi di Azure come Analisi di flusso di Azure e Funzioni di Azure, offrendo così la possibilità di compilare architetture senza server.
 
 ## <a name="key-architecture-components"></a>Componenti principali dell'architettura
@@ -77,11 +79,17 @@ La figura seguente illustra l'architettura di elaborazione del flusso di Hub eve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare Hub eventi, vedere i seguenti articoli:
+Per iniziare a usare gli Hub eventi, vedere le esercitazioni per **inviare e ricevere eventi**:
 
-1. **Creare un hub eventi**: [portale di Azure](event-hubs-create.md), [interfaccia della riga di comando di Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modello di Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
-2. **Inviare eventi a un hub eventi**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-3. **Ricevere eventi da un hub eventi**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (solo invio)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (solo ricezione)](event-hubs-storm-getstarted-receive.md)
+
 
 Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 

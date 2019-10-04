@@ -4,20 +4,20 @@ description: Questo articolo descrive come usare i dati di riferimento per cerca
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/21/2019
+ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546476"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937198"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
-I dati di riferimento, noti anche come tabella di ricerca, sono un set di dati limitato di natura statica o soggetti a lenti cambiamenti, usati per eseguire una ricerca o la correlazione con il flusso di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. 
+
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato che è statico o a modifica lenta, usato per eseguire una ricerca o per aumentare i flussi di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. 
 
 Analisi di flusso supporta l'archivio BLOB di Azure e il database SQL di Azure come livello di archiviazione per i dati di riferimento. È anche possibile trasformare e/o copiare i dati di riferimento nell'archiviazione BLOB da Azure Data Factory per usare [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md).
 
@@ -33,28 +33,28 @@ Per configurare i dati di riferimento, è prima di tutto necessario creare un in
 |---------|---------|
 |Alias di input   | Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input.   |
 |Account di archiviazione   | Nome dell'account di archiviazione in cui si trovano i BLOB. Se è incluso nella stessa sottoscrizione del processo di Analisi di flusso, può essere selezionato nell'elenco a discesa.   |
-|Chiave dell'account di archiviazione   | Chiave privata associata all'account di archiviazione. Viene compilata automaticamente se l'account di archiviazione si trova nella stessa sottoscrizione del processo di analisi di flusso.   |
+|Chiave account di archiviazione   | Chiave privata associata all'account di archiviazione. Viene compilata automaticamente se l'account di archiviazione si trova nella stessa sottoscrizione del processo di analisi di flusso.   |
 |Contenitore di archiviazione   | I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB.   |
 |Modello di percorso   | Percorso usato per individuare i BLOB nel contenitore specificato. All'interno del percorso è possibile scegliere di specificare una o più istanze delle 2 variabili seguenti:<BR>{date}, {time}<BR>Esempio 1: products/{date}/{time}/product-list.csv<BR>Esempio 2: products/{date}/product-list.csv<BR>Esempio 3: product-list. csv<BR><br> Se il blob non esiste nel percorso specificato, il processo di analisi di flusso attenderà per un periodo illimitato perché il blob diventi disponibile.   |
 |Formato data [facoltativo]   | Se è stata usata la variabile {date} nel modello di percorso specificato, è possibile selezionare il formato di data in cui sono organizzati i BLOB nell'elenco a discesa dei formati supportati.<BR>Esempio: AAAA/MM/GG, MM/GG/AAAA e così via.   |
 |Formato ora [facoltativo]   | Se è stata usata la variabile {time} nel modello di percorso specificato, è possibile selezionare il formato di ora in cui sono organizzati i BLOB nell'elenco a discesa dei formati supportati.<BR>Esempio: HH, HH/mm o HH-mm.  |
 |Formato di serializzazione eventi   | Per accertarsi che le query funzionino come previsto, l'analisi di flusso deve conoscere il formato di serializzazione usato per i flussi di dati in entrata. Per i dati di riferimento, i formati dati supportati sono CSV e JSON.  |
-|Codifica   | Al momento UTF-8 è l'unico formato di codifica supportato.  |
+|Codifica   | Al momento, UTF-8 è l'unico formato di codifica supportato.  |
 
 ### <a name="static-reference-data"></a>Dati di riferimento statici
 
-Se non è previsto che i dati di riferimento cambino, viene abilitato il supporto dei dati di riferimento statici specificando un percorso statico nella configurazione di input. Analisi di flusso di Azure preleva il BLOB dal percorso specificato. Non sono necessari i token di sostituzione {date} e {time}. I dati di riferimento sono immutabili in Analisi di flusso. Pertanto, non è consigliabile sovrascrivere un BLOB di dati di riferimento statici.
+Se non è previsto che i dati di riferimento cambino, viene abilitato il supporto dei dati di riferimento statici specificando un percorso statico nella configurazione di input. Analisi di flusso di Azure preleva il BLOB dal percorso specificato. Non sono necessari i token di sostituzione {date} e {time}. Poiché i dati di riferimento non sono modificabili in analisi di flusso, è sconsigliabile sovrascrivere un BLOB di dati di riferimento statici.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generare i dati di riferimento in base a una pianificazione
 
 Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è possibile abilitare il supporto per l'aggiornamento dei dati di riferimento specificando un modello di percorso nella configurazione di input con i token di sostituzione {date} e {time}. Analisi di flusso seleziona le definizioni dei dati di riferimento aggiornate in base a questo modello di percorso. Ad esempio, un modello `sample/{date}/{time}/products.csv` con formato di data **"AAAA-MM-GG"** e formato di ora **"HH-mm"** indica ad Analisi di flusso di selezionare il BLOB aggiornato `sample/2015-04-16/17-30/products.csv` alle 17.30 del 16 aprile 2015 nel fuso orario UTC.
 
-Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di dati di riferimento aggiornati a intervalli di un minuto.
+Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di dati di riferimento aggiornati a intervalli di un minuto. Se un BLOB con timestamp 10:30:00 viene caricato con un breve ritardo (ad esempio, 10:30:30), si noterà un piccolo ritardo nel processo di analisi di flusso che fa riferimento a questo BLOB. Per evitare tali scenari, è consigliabile caricare il BLOB prima del tempo effettivo di destinazione (10:30:00 in questo esempio) per consentire al processo di analisi di flusso il tempo sufficiente per individuarlo e caricarlo in memoria ed eseguire operazioni. 
 
 > [!NOTE]
 > Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando la data/ora del computer precede quella codificata nel nome del BLOB. Ad esempio, il processo cercherà `sample/2015-04-16/17-30/products.csv` non appena possibile ma non prima delle 17.30 del 16 aprile 2015 nel fuso orario UTC. Il processo non cercherà *mai* un BLOB con data/ora codificata precedente all'ultima individuata.
 > 
-> ad esempio quando il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` ignora tutti i file con data/ora codificata precedente alle 17.30 del 16 aprile 2015. Di conseguenza, se nello stesso contenitore viene creato un BLOB `sample/2015-04-16/17-25/products.csv` arrivato in ritardo, questo non viene usato dal processo.
+> Ad esempio, quando il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` ignorerà tutti i file con una data codificata precedente alla 5:30 del 16 aprile 2015, quindi se viene creato un BLOB `sample/2015-04-16/17-25/products.csv` in ritardo nello stesso contenitore, il processo non lo userà.
 > 
 > Analogamente, se il file `sample/2015-04-16/17-30/products.csv` viene generato solo alle 22.03 del 16 aprile 2015, ma nel contenitore non è presente alcun BLOB con data/ora precedente, il processo usa questo file a partire dalle 22.03 del 16 aprile 2015 e i dati di riferimento precedenti fino a quel momento.
 > 
@@ -72,13 +72,13 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 3. I BLOB dei dati di riferimento **non** vengono ordinati in base all'ora dell'"ultima modifica" del BLOB, ma solo in base all'ora e alla data specificate nel nome del BLOB con le sostituzioni di {date} e {time}.
 3. Per evitare di dover elencare un numero elevato di BLOB, valutare l'eliminazione dei BLOB molto vecchi per cui non verrà più eseguita l'elaborazione. Si noti che ASA potrebbe doverne rielaborare una piccola quantità in alcuni scenari, ad esempio un riavvio.
 
-## <a name="azure-sql-database-preview"></a>Database SQL di Azure (anteprima)
+## <a name="azure-sql-database"></a>Database SQL di Azure
 
 I dati di riferimento del database SQL di Azure vengono recuperati dal processo di Analisi di flusso archiviati come snapshot in memoria per l'elaborazione. Lo snapshot dei dati di riferimento viene anche archiviato in un contenitore all'interno di un account di archiviazione specificato nelle impostazioni di configurazione. Il contenitore viene creato automaticamente all'avvio del processo. Se il processo viene arrestato o si trova in uno stato di errore, i contenitori creati automaticamente vengono eliminati quando il processo viene riavviato.  
 
 Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è necessario aggiornare periodicamente lo snapshot che viene usato nel processo. Analisi di flusso consente di impostare una frequenza di aggiornamento quando si configura la connessione all'input del database SQL di Azure. Il runtime di Analisi di flusso eseguirà query sul database SQL di Azure all'intervallo specificato dalla frequenza di aggiornamento. La frequenza di aggiornamento più veloce supportata è una volta al minuto. Per ogni aggiornamento, Analisi di flusso archivia un nuovo snapshot nell'account di archiviazione specificato.
 
-Analisi di flusso fornisce due opzioni per eseguire query sul database SQL di Azure. Una query snapshot è obbligatoria e deve essere inclusa in ogni processo. Analisi di flusso esegue la query snapshot periodicamente in base all'intervallo di aggiornamento e usa il risultato della query (lo snapshot) come set di dati di riferimento. La query snapshot dovrebbe essere adatta alla maggior parte degli scenari, ma se si verificano problemi di prestazioni con set di dati di grandi dimensioni e frequenze di aggiornamento veloci, è possibile usare l'opzione della query delta. Le query che richiedono più di 60 secondi per restituire il set di dati di riferimento comporterà un timeout.
+Analisi di flusso fornisce due opzioni per eseguire query sul database SQL di Azure. Una query snapshot è obbligatoria e deve essere inclusa in ogni processo. Analisi di flusso esegue la query snapshot periodicamente in base all'intervallo di aggiornamento e usa il risultato della query (lo snapshot) come set di dati di riferimento. La query snapshot dovrebbe essere adatta alla maggior parte degli scenari, ma se si verificano problemi di prestazioni con set di dati di grandi dimensioni e frequenze di aggiornamento veloci, è possibile usare l'opzione della query delta. Le query che importano più di 60 secondi per restituire il set di dati di riferimento comporteranno un timeout.
 
 Con l'opzione della query delta, Analisi di flusso esegue la query snapshot all'inizio, per ottenere un set di dati di riferimento di base. In seguito, Analisi di flusso esegue la query delta periodicamente in base all'intervallo di aggiornamento per recuperare le modifiche incrementali. Queste modifiche incrementali vengono continuamente applicate al set di dati di riferimento per mantenerlo aggiornato. Usare una query differenziale può essere utile a ridurre i costi di archiviazione e le operazioni di I/O di rete.
 
@@ -86,12 +86,14 @@ Con l'opzione della query delta, Analisi di flusso esegue la query snapshot all'
 
 Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
 
+È possibile usare [istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
+
 |**Nome proprietà**|**Descrizione**  |
 |---------|---------|
 |Alias di input|Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input.|
 |Sottoscrizione|Scegliere la sottoscrizione|
-|Database|Database SQL di Azure che contiene i dati di riferimento.|
-|Username|Nome utente associato al database SQL di Azure.|
+|Database|Database SQL di Azure che contiene i dati di riferimento. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342*|
+|Nome utente|Nome utente associato al database SQL di Azure.|
 |Password|Password associata al database SQL di Azure.|
 |Aggiorna periodicamente|Questa opzione consente di scegliere una frequenza di aggiornamento. Scegliendo "Attivato" è possibile specificare la frequenza di aggiornamento in GG:HH:MM.|
 |Query snapshot|Si tratta dell'opzione di query predefinita che recupera i dati di riferimento dal database SQL.|

@@ -1,25 +1,18 @@
 ---
-title: Offerta di servizi di consulenza per Azure e Dynamics 365 | Microsoft Docs
+title: Offerta del servizio di consulenza di Azure e Dynamics 365 | Azure Marketplace
 description: Guida alla definizione e alla pubblicazione di un'offerta di servizi di consulenza per Dynamics 365 o Azure nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e543c24a8e3549bc53d6074c7008f3d01fcc96c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6c75664e558602429250420f1896b75a74546e67
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334999"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145450"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offerta di servizi di consulenza per Azure e Dynamics 365
 
@@ -40,11 +33,12 @@ Questa sezione descrive gli elementi della pubblicazione di un'offerta di un ser
 
 - [Prerequisiti dei servizi di consulenza](./cpp-consulting-service-prerequisites.md) elenca i requisiti per la pubblicazione di un'offerta di servizio di consulenza per:
  
+    - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance and Operations 
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApps
+    - PowerApp
 - [Creare una nuova offerta](./cpp-consulting-service-create-offer.md) elenca i passaggi necessari per creare la voce dell'offerta di un servizio di consulenza usando il portale Cloud Partner:
     - [Definire le impostazioni dell'offerta](./cpp-consulting-service-define-offer-settings.md).
     - [Immettere i dettagli della vetrina e la preferenza in merito alla pubblicazione in Azure Marketplace o in AppSource.](./cpp-consulting-service-storefront-details.md)

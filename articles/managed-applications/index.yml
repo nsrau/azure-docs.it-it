@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107345"
 documentType: LandingData
 title: Documentazione delle applicazioni gestite di Azure
 metadata:
@@ -22,35 +16,35 @@ metadata:
 abstract:
   description: Le applicazioni gestite di Azure consentono di offrire soluzioni cloud a clienti interni ed esterni. Si definiscono l'infrastruttura per la soluzione e le condizioni per la gestione continuativa della soluzione. Gli addebiti relativi alla soluzione vengono gestiti tramite la fatturazione di Azure.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come pubblicare e distribuire un'applicazione gestita.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come sviluppare applicazioni gestite e offrirle tramite Azure Marketplace.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Informazioni su come pubblicare e distribuire un'applicazione gestita.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Pubblicare un'applicazione gestita per gli utenti interni</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Pubblicare un'applicazione gestita per gli utenti esterni</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Informazioni su come sviluppare applicazioni gestite e offrirle tramite Azure Marketplace.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Pubblicare un'applicazione gestita per gli utenti interni</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Pubblicare un'applicazione gestita per gli utenti esterni</a>
+  - title: riferimento
     items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/managedapp">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: API REST
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: Interfaccia utente
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementi dell'interfaccia utente</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funzioni dell'interfaccia utente</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/managedapp">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: API REST
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Interfaccia utente
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementi dell'interfaccia utente</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funzioni dell'interfaccia utente</a></p>

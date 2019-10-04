@@ -3,20 +3,20 @@ title: Supporto di Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Supporto di Riconoscimento vocale Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3bd996f23c7253dde0a55198068d8535a62bf127
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1b185cf6f69a547c50c8d2cf0e8b5f0da39444e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514928"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965628"
 ---
 # <a name="support"></a>Supporto
 

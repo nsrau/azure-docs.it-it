@@ -1,22 +1,21 @@
 ---
-title: Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
+title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-archiviazione
 description: Informazioni sulle procedure consigliate di archiviazione per la migrazione dei cluster Hadoop locali in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000063"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181136"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
 
 Questo articolo contiene indicazioni per l'archiviazione dei dati nei sistemi Azure HDInsight. L'articolo fa parte di una serie di documenti che descrivono le procedure consigliate per facilitare la migrazione di sistemi Apache Hadoop locali ad Azure HDInsight.
 
@@ -34,7 +33,7 @@ Archiviazione di Azure può eseguire la replica geografica. Sebbene la replica g
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-|Formato di accesso ai dati |DESCRIZIONE |
+|Formato di accesso ai dati |Descrizione |
 |---|---|
 |`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
 |`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
@@ -91,7 +90,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 è lo spazio di archiviazione più recente offerta. Tale versione unifica le funzionalità principali di prima generazione di Azure Data Lake Storage con un endpoint di file system compatibile con Hadoop direttamente integrato in Archiviazione BLOB di Azure. Questo miglioramento combina i vantaggi in termini di scalabilità e di costi dell'archiviazione di oggetti con l'affidabilità e le prestazioni associate in genere a file system locali.
+Azure Data Lake Storage Gen2 è l'offerta di archiviazione più recente. Tale versione unifica le funzionalità principali di prima generazione di Azure Data Lake Storage con un endpoint di file system compatibile con Hadoop direttamente integrato in Archiviazione BLOB di Azure. Questo miglioramento combina i vantaggi in termini di scalabilità e di costi dell'archiviazione di oggetti con l'affidabilità e le prestazioni associate in genere a file system locali.
 
 Azure Data Lake Store Gen2 è compilato sulla base di  [Archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md) e consente di interfacciarsi con i dati usando paradigmi di file system e di archiviazioni di oggetti. Le funzionalità di  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), ad esempio la semantica dei file system, la sicurezza a livello di file e la scalabilità, vengono combinate con un'archiviazione a basso costo e a più livelli, elevata disponibilità/ripristino di emergenza e un SDK/ecosistema di strumenti di grandi dimensioni derivati da  [Archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 offre non solo tutte le qualità dell'archiviazione di oggetti, ma anche i vantaggi di un'interfaccia di file system ottimizzata per i carichi di lavoro di analisi.
 
@@ -111,7 +110,7 @@ In passato, le analisi basate sul cloud imponevano il raggiungimento di un compr
 
 Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati seguenti.
 - `abfs:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Usato durante la comunicazione con un'istanza di Data Lake Storage non predefinita.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Usato durante la comunicazione con un'istanza di Data Lake Storage non predefinita.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -156,7 +155,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
 
-    |Proprietà token|DESCRIZIONE|
+    |Proprietà token|Descrizione|
     |---|---|
     |policy_name|Nome da usare per i criteri archiviati da creare.|
     |storage_account_name|Nome dell'account di archiviazione.|
@@ -172,11 +171,11 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 5. Per limitare l'accesso a un contenitore con firma di accesso condiviso, aggiungere una voce personalizzata alla configurazione core-site per il cluster nella proprietà Ambari HDFS Configs Advanced Custom core-site Add.
 
-6. Per i campi  **Key**  (Chiave) e  **Value**  (Valore), usare i valori seguenti:
+6. Usare i valori seguenti per i campi **Key** e **Value**:
 
     **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valore**: Chiave di firma di accesso condiviso restituita dall'applicazione Python nel passaggio 4 precedente.
 
-7. Fare clic sul pulsante  **Add**  (Aggiungi) per salvare la chiave e il valore e quindi fare clic su  **Save**  (Salva) per salvare le modifiche della configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su  **Save** (Salva).
+7. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
 8. Nell'interfaccia utente Web di Ambari selezionare HDFS dall'elenco a sinistra e quindi selezionare  **Restart All Affected**  (Reimposta tutti gli interessati) dall'elenco a discesa Service Actions (Azioni servizio) a destra. Quando richiesto, selezionare  **Confirm Restart All** (Conferma reimpostazione).
 

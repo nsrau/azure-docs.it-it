@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61430826"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure usando Storage Explorer di Azure
 Esplora archivi di Azure è uno strumento gratuito di Microsoft che consente di lavorare con i dati di Archiviazione di Azure in Windows, MacOS e Linux. Questo argomento descrive come usarlo per caricare e scaricare i dati dall'archiviazione BLOB di Azure. Lo strumento può essere scaricato da [Esplora archivi di Microsoft Azure](https://storageexplorer.com/).
@@ -44,7 +44,7 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esplora archivi Azure. 
 
 1. Avviare Esplora archivi di Microsoft Azure.
-2. Per visualizzare la procedura guidata **Accedi al tuo account...**, selezionare l'icona delle **impostazioni dell'account Azure**, selezionare **Aggiungi un account** e immettere le credenziali. ![Aggiungere un account di archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+2. Per visualizzare la procedura guidata **Accedi al tuo account...** , selezionare l'icona delle **impostazioni dell'account Azure**, selezionare **Aggiungi un account** e immettere le credenziali. ![Aggiungere un account di archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. Per visualizzare la procedura guidata **Connetti ad Archiviazione di Azure**, selezionare l'icona per la **connessione ad Archiviazione di Azure**. ![Fare clic su "Connetti ad Archiviazione di Azure"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. Immettere la chiave di accesso dell'account di archiviazione di Azure nella procedura guidata **Connetti ad Archiviazione di Azure** e selezionare **Avanti**. ![Immettere la chiave di accesso dell'account di archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Immettere il nome dell'account di archiviazione nella casella **Nome account** e selezionare **Avanti**. ![Associa archiviazione esterna](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)

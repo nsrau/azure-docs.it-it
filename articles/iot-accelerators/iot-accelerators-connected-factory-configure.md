@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602274"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428308"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -29,7 +29,7 @@ Ogni fabbrica Contoso ha linee di produzione costituite da tre stazioni ognuna. 
 * Stazione di test
 * Stazione di imballaggio
 
-Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](https://github.com/Azure/iot-edge-opc-publisher) invia i valori di questi nodi a Fabbrica connessa. Sono inclusi:
+Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. Sono inclusi:
 
 * Stato operativo corrente, ad esempio il consumo di energia corrente.
 * Informazioni relative alla produzione, ad esempio il numero di articoli prodotti.
@@ -265,9 +265,9 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
 * NOME
-* DESCRIZIONE
+* Descrizione
 * Image
-* Località
+* Location
 * Unità
 * Visible
 
@@ -282,7 +282,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Fabbrica connessa usa le formule OEE pubblicate su https://www.oeefoundation.org.
+Soluzione di fabbrica connessa Usa le formule OEE pubblicate dal [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 
@@ -307,7 +307,7 @@ Per alcune operazioni, ad esempio la visualizzazione dell'ultimo valore o la cre
 
   Identifica il valore del nodo nel server OPC UA. Il formato della proprietà deve essere quello indicato nella specifica OPC UA. Nei messaggi inseriti questa proprietà viene inviata come **NodeId**.
 
-Vedere [questa](https://github.com/Azure/iot-edge-opc-publisher) pagina di GitHub per altre informazioni sulla modalità di inserimento dei dati di telemetria in Fabbrica connessa tramite il server di pubblicazione OPC.
+Visualizzare [What ' s server di pubblicazione OPC](overview-opc-publisher.md) per altre informazioni sul modo in cui i dati di telemetria vengono inseriti per Connected Factory.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Esempio: modalità di calcolo dell'indicatore KPI1
 
@@ -340,4 +340,4 @@ Una caratteristica del valore del nodo **NumberOfManufactureredProducts** è che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Come passaggio successivo, si consiglia di imparare a [distribuire un gateway in Windows o Linux per l'acceleratore di soluzioni Fabbrica connessa](iot-accelerators-connected-factory-gateway-deployment.md).
+Suggerito il passaggio successivo consiste nel informazioni su come [personalizzare la soluzione di Connected Factory](iot-accelerators-connected-factory-customize.md).

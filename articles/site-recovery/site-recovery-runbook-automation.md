@@ -1,163 +1,162 @@
 ---
-title: Aggiungere runbook di Automazione di Azure ai piani di ripristino di Site Recovery| Microsoft Docs
-description: Informazioni su come estendere i piani di ripristino tramite Automazione di Azure per il ripristino di emergenza con Azure Site Recovery.
+title: Aggiungere manuali operativi di automazione di Azure ai piani di ripristino Site Recovery
+description: Informazioni su come estendere i piani di ripristino con automazione di Azure per il ripristino di emergenza con Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866373"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212876"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
-Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.
 
-Se non si ha familiarità con Automazione di Azure, è possibile [iscriversi](https://azure.microsoft.com/services/automation/) e [scaricare script di esempio](https://azure.microsoft.com/documentation/scripts/). Per altre informazioni e per scoprire come orchestrare il ripristino in Azure tramite i [piani di ripristino](./site-recovery-create-recovery-plans.md), vedere [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Questo articolo descrive come integrare manuali operativi di automazione di Azure per estendere i piani di ripristino del [Azure Site Recovery](site-recovery-overview.md) . Viene illustrato come automatizzare le attività di base che altrimenti richiedono interventi manuali e come convertire un ripristino in più passaggi in un'azione con un solo clic.
 
-Questo articolo descrive come è possibile integrare i runbook di Automazione di Azure nei piani di ripristino. Vengono usati alcuni esempi per automatizzare attività di base che richiedevano in precedenza un intervento manuale. Viene anche descritto come convertire un ripristino in più passaggi in un'azione di ripristino con clic singolo.
+## <a name="recovery-plans"></a>Piani di ripristino 
 
-## <a name="customize-the-recovery-plan"></a>Personalizzare il piano di ripristino
-1. Passare al pannello delle risorse per il piano di ripristino di **Site Recovery**. In questo esempio, al piano di ripristino sono state aggiunte due macchine virtuali per il ripristino. Per iniziare ad aggiungere un runbook, fare clic sulla scheda **Personalizza**.
+È possibile usare i piani di ripristino quando si esegue il failover dei computer locali o delle VM di Azure. I piani di ripristino consentono di definire un processo di ripristino sistematico che definisce la modalità di failover dei computer e il modo in cui vengono avviati e ripristinati dopo il failover. 
 
-    ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/essentials-rp.png)
+Il ripristino di app di grandi dimensioni può risultare complesso. I piani di ripristino consentono di imporre l'ordine in modo che il ripristino sia accurato, ripetibile e automatizzato. È possibile automatizzare le attività all'interno di un piano di ripristino usando gli script, nonché i manuali operativi di automazione di Azure. Esempi tipici potrebbero essere la configurazione di impostazioni in una macchina virtuale di Azure dopo il failover o la riconfigurazione di un'app in esecuzione nella macchina virtuale.
 
-
-2. Fare clic con il pulsante destro del mouse su **Gruppo 1: Avvio** e quindi scegliere **Aggiungi post-azione**.
-
-    ![Fare clic con il pulsante destro del mouse su Gruppo 1: Avvio e Aggiungi post-azione](media/site-recovery-runbook-automation-new/customize-rp.png)
-
-3. Fare clic su **Choose a script** (Scegli uno script).
-
-4. Nel pannello **Aggiorna azione** assegnare il nome **Hello World** allo script.
-
-    ![Pannello Aggiorna azione](media/site-recovery-runbook-automation-new/update-rp.png)
-
-5. Immettere il nome di un account di Automazione.
-    >[!NOTE]
-    > L'account di Automazione può essere in qualsiasi area di Azure e deve trovarsi nella stessa sottoscrizione dell'insieme di credenziali di Azure Site Recovery.
-
-6. Nell'account di Automazione selezionare un runbook. Questo runbook è lo script che viene eseguito durante l'esecuzione del piano di ripristino dopo il ripristino del primo gruppo.
-
-7. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
-
-    ![Post-azione Gruppo 1: Avvio](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
+- [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
+- [Altre](../automation/automation-runbook-types.md) informazioni sui manuali operativi di automazione di Azure.
 
 
-## <a name="considerations-for-adding-a-script"></a>Considerazioni per l'aggiunta di uno script
 
-* Per accedere alle opzioni per **eliminare un passaggio** o **aggiornare lo script**, fare clic con il pulsante destro del mouse sullo script.
-* È possibile eseguire uno script in Azure durante il failover da un computer locale ad Azure. È anche possibile eseguirlo in Azure come script del sito primario prima dell'arresto, durante il failback da Azure a un computer locale.
-* Quando è in esecuzione, inserisce un contesto del piano di ripristino. L'esempio seguente mostra una variabile di contesto:
+## <a name="runbooks-in-recovery-plans"></a>Manuali operativi nei piani di ripristino
 
-    ```
-            {"RecoveryPlanName":"hrweb-recovery",
+Si aggiunge un account di automazione di Azure e manuali operativi a un piano di ripristino. Runbook viene richiamato quando viene eseguito il piano di ripristino.
 
-            "FailoverType":"Test",
+- L'account di automazione può trovarsi in qualsiasi area di Azure e deve trovarsi nella stessa sottoscrizione dell'insieme di credenziali Site Recovery. 
+- Un Runbook può essere eseguito in un piano di ripristino durante il failover da una posizione primaria a una secondaria o durante il failback dalla posizione secondaria al database primario.
+- Manuali operativi in un piano di ripristino vengono eseguite in modo seriale, una dopo l'altra, nell'ordine del set.
+- Se manuali operativi in un piano di ripristino configura le macchine virtuali per l'avvio in gruppi diversi, il piano di ripristino continuerà solo quando Azure segnala tutte le macchine virtuali come in esecuzione.
+- I piani di ripristino continuano l'esecuzione, anche in caso di errore di uno script.
 
-            "FailoverDirection":"PrimaryToSecondary",
+### <a name="recovery-plan-context"></a>Contesto del piano di ripristino
 
-            "GroupId":"1",
+Quando viene eseguito uno script, inserisce un contesto del piano di ripristino in Runbook. Il contesto contiene le variabili riepilogate nella tabella.
 
-            "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
+| **Nome variabile** | **Descrizione** |
+| --- | --- |
+| RecoveryPlanName |Nome del piano di ripristino. Utilizzato nelle azioni in base al nome. |
+| FailoverType |Specifica se si tratta di un failover di test o di produzione. 
+| FailoverDirection | Specifica se il ripristino è in una posizione primaria o secondaria. |
+| GroupID |Identifica il numero del gruppo nel piano di ripristino quando il piano è in esecuzione. |
+| VmMap |Matrice di tutte le macchine virtuali nel gruppo. |
+| VMMap key |Chiave univoca (GUID) per ogni macchina virtuale. |
+| ID della sottoscrizione |ID della sottoscrizione di Azure in cui viene creata la macchina virtuale. |
+| ResourceGroupName | Nome del gruppo di risorse in cui si trova la macchina virtuale.
+| CloudServiceName |Nome del servizio cloud di Azure in cui è stata creata la macchina virtuale. |
+| RoleName |Nome della macchina virtuale di Azure. |
+| RecoveryPointId|Timestamp per il ripristino della macchina virtuale. |
 
-                    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+L'esempio seguente mostra una variabile di contesto:
 
-                    "ResourceGroupName":"ContosoRG",
+```
+{"RecoveryPlanName":"hrweb-recovery",
+"FailoverType":"Test",
+"FailoverDirection":"PrimaryToSecondary",
+"GroupId":"1",
+"VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
+    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+    "ResourceGroupName":"ContosoRG",
+    "CloudServiceName":"pod02hrweb-Chicago-test",
+    "RoleName":"Fabrikam-Hrweb-frontend-test",
+    "RecoveryPointId":"TimeStamp"}
+    }
+}
+```
 
-                    "CloudServiceName":"pod02hrweb-Chicago-test",
-
-                    "RoleName":"Fabrikam-Hrweb-frontend-test",
-
-                    "RecoveryPointId":"TimeStamp"}
-
-                    }
-
-            }
-    ```
-
-    La tabella seguente indica il nome e la descrizione di ogni variabile nel contesto.
-
-    | **Nome variabile** | **Descrizione** |
-    | --- | --- |
-    | RecoveryPlanName |Nome del piano in esecuzione. Questa variabile consente di eseguire azioni diverse in base al nome del piano di ripristino. È anche possibile riutilizzare lo script. |
-    | FailoverType |Specifica se il failover è di test, pianificato o non pianificato. |
-    | FailoverDirection |Specifica se il ripristino avviene in un sito primario o secondario. |
-    | GroupID |Identifica il numero del gruppo nel piano di ripristino quando il piano è in esecuzione. |
-    | VmMap |Matrice di tutte le macchine virtuali nel gruppo. |
-    | VMMap key |Chiave univoca (GUID) per ogni macchina virtuale. È uguale all'ID di Azure Virtual Machine Manager (VMM) della macchina virtuale, se applicabile. |
-    | SubscriptionId |ID della sottoscrizione di Azure in cui viene creata la macchina virtuale. |
-    | RoleName |Nome della macchina virtuale di Azure in corso di ripristino. |
-    | CloudServiceName |Nome del servizio cloud di Azure in cui è stata creata la macchina virtuale. |
-    | ResourceGroupName|Nome del gruppo di risorse di Azure in cui è stata creata la macchina virtuale. |
-    | RecoveryPointId|Timestamp del ripristino della macchina virtuale. |
-
-* Assicurarsi che l'account di Automazione abbia i moduli seguenti:
-    * AzureRM.profile
-    * AzureRM.Resources
-    * AzureRM.Automation
-    * AzureRM.Network
-    * AzureRM.Compute
-
-Tutti i moduli devono essere di versioni compatibili. Un modo semplice per assicurarsi che tutti i moduli siano compatibili consiste nell'usare le versioni più recenti di tutti i moduli.
-
-### <a name="access-all-vms-of-the-vmmap-in-a-loop"></a>Accedere a tutte le macchine virtuali di VMMap in ciclo
-Usare il frammento di codice seguente per accedere a tutte le macchine virtuali di Microsoft VMMap in ciclo:
+Se si vuole accedere a tutte le macchine virtuali in VMMap in un ciclo, è possibile usare il codice seguente:
 
 ```
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
- foreach($VMID in $VMinfo)
- {
-     $VM = $vmMap.$VMID                
-             if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
-         #this check is to ensure that we skip when some data is not available else it will fail
- Write-output "Resource group name ", $VM.ResourceGroupName
- Write-output "Rolename " = $VM.RoleName
-     }
- }
-
+    foreach($VMID in $VMinfo)
+    {
+        $VM = $vmMap.$VMID                
+            if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
+            #this check is to ensure that we skip when some data is not available else it will fail
+    Write-output "Resource group name ", $VM.ResourceGroupName
+    Write-output "Rolename " = $VM.RoleName
+            }
+        }
 ```
 
-> [!NOTE]
-> Il nome del gruppo di risorse e il nome del ruolo sono vuoti quando lo script è una pre-azione per un gruppo di avvio. I valori vengono popolati solo se il failover della macchina virtuale di tale gruppo ha esito positivo. Lo script è una post-azione del gruppo di avvio.
 
-## <a name="use-the-same-automation-runbook-in-multiple-recovery-plans"></a>Usare lo stesso runbook di Automazione in più piani di ripristino
+Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è un esempio utile di uno [script del contesto del piano di ripristino](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
 
-È possibile usare un unico script in più piani di ripristino servendosi di variabili esterne. È possibile usare le [variabili di Automazione di Azure](../automation/automation-variables.md) per archiviare i parametri da passare per l'esecuzione di un piano di ripristino. Aggiungendo il nome del piano di ripristino come prefisso per la variabile, è possibile creare singole variabili per ogni piano di ripristino. Usare quindi le variabili come parametri. È possibile modificare un parametro senza modificare lo script, cambiando comunque il funzionamento dello script.
+
+
+## <a name="before-you-start"></a>Prima di iniziare
+
+- Se non si ha familiarità con automazione di Azure, è possibile [iscriversi](https://azure.microsoft.com/services/automation/) e [scaricare gli script di esempio](https://azure.microsoft.com/documentation/scripts/).
+- Assicurarsi che l'account di Automazione abbia i moduli seguenti:
+    - AzureRM.profile
+    - AzureRM.Resources
+    - AzureRM.Automation
+    - AzureRM.Network
+    - AzureRM.Compute
+
+    Tutti i moduli devono essere di versioni compatibili. Il modo più semplice consiste nell'usare sempre le versioni più recenti di tutti i moduli.
+
+
+
+## <a name="customize-the-recovery-plan"></a>Personalizzare il piano di ripristino
+
+1. Nell'insieme di credenziali selezionare **piani di ripristino (Site Recovery)**
+2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](/site-recovery-create-recovery-plans.md) Se si dispone già di un piano di ripristino, selezionare per aprirlo.
+3. Nella pagina piano di ripristino fare clic su **Personalizza**.
+
+    ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
+
+2. Fare clic sui puntini di sospensione (... **) accanto al gruppo 1: Avviare**Aggiungi > **post-azione**.
+3. In **Inserisci azione**verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
+4. Specificare un account di automazione e selezionare un Runbook. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
+
+
+## <a name="reuse-a-runbook-script"></a>Riutilizza uno script Runbook
+
+È possibile usare un singolo script Runbook in più piani di ripristino, usando variabili esterne. 
+
+- Usare le [variabili di automazione di Azure](../automation/automation-variables.md) per archiviare i parametri per l'esecuzione di un piano di ripristino.
+- Aggiungendo il nome del piano di ripristino come prefisso per la variabile, è possibile creare singole variabili per ogni piano di ripristino. Usare quindi le variabili come parametri.
+- È possibile modificare un parametro senza modificare lo script, cambiando comunque il funzionamento dello script.
 
 ### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Usare una variabile di tipo stringa semplice nello script di un runbook
 
-In questo esempio, uno script accetta l'input di un gruppo di sicurezza di rete e lo applica alle macchine virtuali di un piano di ripristino.
+In questo esempio uno script accetta l'input di un gruppo di sicurezza di rete (NSG) e lo applica alle macchine virtuali in un piano di ripristino. 
 
-Per fare in modo che lo script rilevi quale piano di ripristino è in esecuzione, usare il contesto del piano di ripristino:
+1. In modo che lo script possa rilevare il piano di ripristino in esecuzione, usare questo contesto del piano di ripristino:
 
-```
-workflow AddPublicIPAndNSG {
-    param (
-          [parameter(Mandatory=$false)]
-          [Object]$RecoveryPlanContext
-    )
+    ```
+    workflow AddPublicIPAndNSG {
+        param (
+              [parameter(Mandatory=$false)]
+              [Object]$RecoveryPlanContext
+        )
 
-    $RPName = $RecoveryPlanContext.RecoveryPlanName
-```
+        $RPName = $RecoveryPlanContext.RecoveryPlanName
+    ```
 
-Per applicare un gruppo di sicurezza di rete esistente, è necessario conoscere il nome e il gruppo di risorse del gruppo sicurezza di rete. Usare queste variabili come input per gli script dei piani di ripristino. A tale scopo, creare due variabili negli asset dell'account di Automazione. Aggiungere il nome del piano di ripristino per il quale si stanno creando i parametri come prefisso del nome della variabile.
-
-1. Creare una variabile per archiviare il nome del gruppo sicurezza di rete. Aggiungere un prefisso al nome della variabile usando il nome del piano di ripristino.
+2. Prendere nota del nome e del gruppo di risorse di NSG. Queste variabili vengono usate come input per gli script del piano di ripristino. 
+1. Negli asset dell'account di automazione. creare una variabile per archiviare il nome del NSG. Aggiungere un prefisso al nome della variabile con il nome del piano di ripristino.
 
     ![Creare una variabile per il nome del gruppo sicurezza di rete](media/site-recovery-runbook-automation-new/var1.png)
 
-2. Creare una variabile per archiviare il nome del gruppo di risorse del gruppo sicurezza di rete. Aggiungere un prefisso al nome della variabile usando il nome del piano di ripristino.
+2. Creare una variabile per archiviare il nome del gruppo di risorse per la risorsa NSG. Aggiungere un prefisso al nome della variabile con il nome del piano di ripristino.
 
     ![Creare un nome del gruppo di risorse del gruppo sicurezza di rete](media/site-recovery-runbook-automation-new/var2.png)
 
 
-3.  Nello script usare il codice di riferimento seguente per ottenere i valori delle variabili:
+3.  Nello script usare questo codice di riferimento per ottenere i valori delle variabili:
 
     ```
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
@@ -182,14 +181,24 @@ Per applicare un gruppo di sicurezza di rete esistente, è necessario conoscere 
     }
     ```
 
-Creare variabili indipendenti per ogni piano di ripristino, in modo che sia possibile riutilizzare lo script. Aggiungere un prefisso con il nome del piano di ripristino. Per uno script completo per questo scenario, vedere [Add a public IP and NSG to VMs during test failover of a Site Recovery recovery plan](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee) (Aggiungere un indirizzo IP pubblico e un gruppo di sicurezza di rete alle macchina virtuali durante il failover di test di un piano di ripristino di Site Recovery).
+
+Creare variabili indipendenti per ogni piano di ripristino, in modo che sia possibile riutilizzare lo script. Aggiungere un prefisso con il nome del piano di ripristino. 
+
+Per uno script end-to-end completo per questo scenario, esaminare [questo script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Usare una variabile complessa per archiviare altre informazioni
 
-Si consideri uno scenario in cui si vuole usare un singolo script per attivare un indirizzo IP pubblico in macchine virtuali specifiche. In un altro scenario potrebbe essere necessario applicare gruppi di sicurezza di rete diversi in diverse macchine virtuali e non in tutte le macchine virtuali. È possibile creare uno script riutilizzabile per qualsiasi piano di ripristino. Ogni piano di ripristino può avere un numero variabile di macchine virtuali. Ad esempio, un ripristino di SharePoint ha due front-end. Un'applicazione line-of-business (LOB) semplice ha un solo front-end. Non è possibile creare variabili separate per ogni piano di ripristino.
+In alcuni scenari potrebbe non essere possibile creare variabili separate per ogni piano di ripristino. Si consideri uno scenario in cui si vuole che un singolo script assegni un indirizzo IP pubblico in macchine virtuali specifiche. In un altro scenario potrebbe essere necessario applicare gruppi di sicurezza di rete diversi in diverse macchine virtuali e non in tutte le macchine virtuali. Si noti che:
 
-Nell'esempio seguente viene usata una nuova tecnica e viene creata una [variabile complessa](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) negli asset dell'account di Automazione di Azure. Questo risultato si ottiene specificando più valori. Per eseguire questa procedura, è necessario usare Azure PowerShell:
+- È possibile creare uno script riutilizzabile per qualsiasi piano di ripristino.
+- Ogni piano di ripristino può avere un numero variabile di macchine virtuali.
+- Ad esempio, un ripristino di SharePoint ha due front-end. Un'applicazione line-of-business (LOB) semplice ha un solo front-end.
+- In questo scenario non è possibile creare variabili separate per ogni piano di ripristino.
+
+Nell'esempio seguente viene creata una [variabile complessa](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) nell'account di automazione di Azure.
+
+Questa operazione viene eseguita specificando più valori, usando Azure PowerShell.
 
 1. In PowerShell accedere alla sottoscrizione di Azure:
 
@@ -244,16 +253,17 @@ Per distribuire gli script di esempio nell'account di Automazione, fare clic sul
 
 [![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-Per un altro esempio, vedere il video seguente che mostra come ripristinare un'applicazione di WordPress a due livelli in Azure:
+Questo video fornisce un altro esempio. che mostra come ripristinare un'applicazione di WordPress a due livelli in Azure:
 
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
-* [Account RunAs per il servizio Automazione di Azure](../automation/automation-create-runas-account.md)
-* [Panoramica di Automazione di Azure](https://msdn.microsoft.com/library/azure/dn643629.aspx "Panoramica di Automazione di Azure")
-* [Script di esempio di Automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Script di esempio di Automazione di Azure")
-
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni](site-recovery-failover.md) sull'esecuzione dei failover.
+
+- Informazioni su un [account RunAs di automazione di Azure](../automation/automation-create-runas-account.md)
+- Esaminare gli [script di esempio di automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+- [Altre informazioni](site-recovery-failover.md) sull'esecuzione dei failover.
+
+
+

@@ -3,9 +3,8 @@ title: Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure | Mic
 description: " Informazioni su come abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
-ms.author: monhaber
-ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: memildin
+ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901585"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202190"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -38,10 +37,10 @@ Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abil
 > [!NOTE]
 > La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando è abilitato il monitoraggio dell'integrità dei File, è necessario un **Change Tracking** risorsa di tipo **soluzione**. Per dettagli sulla frequenza di raccolta dati, vedere [Change Tracking informazioni dettagliate sulla raccolta dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [rilevamento modifiche dettagli sulla raccolta dei dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
 
 > [!NOTE]
-> Se si rimuove il **Change Tracking** risorsa, è anche disabiliterà l'integrità del File di funzionalità nel Centro sicurezza di monitoraggio.
+> Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
 
 ## <a name="which-files-should-i-monitor"></a>Quali file è necessario monitorare?
 Quando si scelgono i file da monitorare, è necessario considerare quali sono critici per il sistema e le applicazioni. Prendere in considerazione di scegliere i file che non si prevede di modificare senza pianificazione. Scegliendo i file che vengono modificati di frequente dalle applicazioni o dal sistema operativo (ad esempio file di log e file di testo) si crea molto disturbo, che rende difficile identificare un attacco.
@@ -137,7 +136,7 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
    ![Configurazione dell'area di lavoro][12]
 
-2. Selezionare la protezione di un'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
+2. Selezionare una protezione dell'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
 
    ![Rilevamento delle modifiche][13]
 

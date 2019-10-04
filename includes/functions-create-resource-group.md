@@ -4,21 +4,22 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c20f86fe7fdcfc7ecc940923a8c98fa1fbf4cf65
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0fba49ec5a610d03ece2dce7fa5bb0d9d094ab4c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246970"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203125"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app per le funzioni, database e account di archiviazione.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app per le funzioni, database e account di archiviazione.
 
 Nell'esempio seguente viene creato il gruppo di risorse denominato `myResourceGroup`.  
-Se non si usa Cloud Shell, prima accedere usando `az login`.
+Se non si usa Cloud Shell, eseguire prima l'accesso usando `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-In genere, il gruppo di risorse e le risorse vengono create in un'area vicina alla località dell'utente. Per visualizzare tutte le località supportate per i piani di Servizio app, eseguire il comando [az appservice list-locations](/cli/azure/appservice#az-appservice-list-locations).
+
+In genere, il gruppo di risorse e le risorse vengono creati in un'[area](https://azure.microsoft.com/global-infrastructure/regions/) vicina alla località dell'utente. 

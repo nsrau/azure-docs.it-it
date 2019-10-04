@@ -3,7 +3,7 @@ title: Creare un'applicazione Java Reliable Actors di Azure Service Fabric in Li
 description: Informazioni su come creare e distribuire un'applicazione Java Reliable Actors di Service Fabric in cinque minuti.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664241"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599674"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 È opportuno citare le regole seguenti relative alle interfacce dell'attore:
 
 * I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
-*  I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+* I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 * Non sono supportate interfacce generiche.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
@@ -185,7 +185,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Compilare l'applicazione
+## <a name="build-the-application"></a>Compilare l'applicazione.
 I modelli Yeoman di Service Fabric includono uno script di compilazione per [Gradle](https://gradle.org/), che può essere usato per compilare l'applicazione dal terminale.
 Le dipendenze Java di Service Fabric vengono recuperate da Maven. Per compilare e usare le applicazioni Java di Service Fabric, è necessario verificare che siano installati JDK e Gradle. Se non sono installati, vedere [Introduzione a Service Fabric con Linux](service-fabric-get-started-linux.md#set-up-java-development) per istruzioni sull'installazione di JDK e Gradle.
 
@@ -243,7 +243,7 @@ Gli attori non eseguono alcuna operazione in modo indipendente, ma richiedono un
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3. La replica di servizi primaria gestisce le operazioni di lettura e scrittura.  Modifiche allo stato del servizio vengono quindi replicate nelle repliche secondarie, in esecuzione nei nodi 0 e 1 nello screenshot seguente.
+2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3. La replica di servizi primaria gestisce le operazioni di lettura e scrittura.  Le modifiche allo stato del servizio vengono quindi replicate nelle repliche secondarie, in esecuzione sui nodi 0 e 1 nella schermata seguente.
 
     ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]
 

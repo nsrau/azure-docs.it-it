@@ -1,45 +1,43 @@
 ---
-title: 'Esempio: creare una competenza personalizzata nella pipeline di ricerca cognitiva - Ricerca di Azure'
-description: Illustra come usare l'API Traduzione testuale in una competenza personalizzata mappata a una pipeline di indicizzazione di ricerca cognitiva in Ricerca di Azure.
-manager: pablocas
+title: 'Esempio: Creazione di una competenza cognitiva personalizzata con API Ricerca entità Bing ricerca di Azure'
+description: Illustra l'uso del servizio Ricerca entità Bing in un'abilità personalizzata mappata a una pipeline di indicizzazione di ricerca cognitiva in ricerca di Azure.
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883628"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266341"
 ---
-# <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Esempio: creare una competenza personalizzata usando l'API Traduzione testuale
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: Creare una competenza personalizzata usando il API Ricerca entità Bing
 
-Questo esempio illustra come creare una competenza personalizzata in formato API Web che accetta il testo in qualsiasi lingua e lo traduce in inglese. L'esempio usa una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping dell'[API Traduzione testuale](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) in modo che implementi l'interfaccia della competenza personalizzata.
+In questo esempio viene illustrato come creare un'API Web personalizzata. Questa competenza accetterà le località, le cifre pubbliche e le organizzazioni e restituirà le descrizioni. Nell'esempio viene usata una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping del [API ricerca entità Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) in modo che implementi l'interfaccia skill personalizzata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Leggere l'articolo sull'[interfaccia per le competenze personalizzate](cognitive-search-custom-skill-interface.md) se non si ha familiarità con l'interfaccia di input/output che una competenza personalizzata deve implementare.
++ Se non si ha familiarità con l'interfaccia di input/output che deve essere implementata da un'abilità personalizzata, vedere l'articolo informazioni sull' [interfaccia di competenze personalizzate](cognitive-search-custom-skill-interface.md) .
 
-+ [Iscriversi per l'API Traduzione testuale](../cognitive-services/translator/translator-text-how-to-signup.md) e ottenere una chiave API per usarla.
++ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ [Installare Visual Studio 2017 versione 15.5 o successiva](https://www.visualstudio.com/vs/) con il carico di lavoro Sviluppo di Azure.
++ Installare [Visual Studio 2019](https://www.visualstudio.com/vs/) o versione successiva, incluso il carico di lavoro di sviluppo di Azure.
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
-Questo esempio usa una funzione di Azure per ospitare un'API Web, tuttavia non si tratta di un requisito obbligatorio.  Purché si rispettino i [requisiti di interfaccia per una competenza cognitiva](cognitive-search-custom-skill-interface.md), l'approccio adottato è irrilevante. Funzioni di Azure, tuttavia, rende la creazione di una competenza personalizzata estremamente semplice.
+Anche se in questo esempio viene usata una funzione di Azure per ospitare un'API Web, non è obbligatorio.  Purché si rispettino i [requisiti di interfaccia per una competenza cognitiva](cognitive-search-custom-skill-interface.md), l'approccio adottato è irrilevante. Funzioni di Azure, tuttavia, rende la creazione di una competenza personalizzata estremamente semplice.
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 1. In Visual Studio selezionare **Nuovo** > **Progetto** dal menu File.
 
-1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#** > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
+1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#**  > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere C# valido come spazio dei nomi, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
-1. Selezionare **funzioni di Azure v2 (.NET Core)**. È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
+1. Selezionare **funzioni di Azure V2 (.NET Core)** . È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
 
 1. Selezionare il tipo **Trigger HTTP**
 
@@ -47,7 +45,7 @@ Questo esempio usa una funzione di Azure per ospitare un'API Web, tuttavia non s
 
 1. Selezionare **OK** per creare il progetto di funzione e la funzione attivata da HTTP.
 
-### <a name="modify-the-code-to-call-the-translate-cognitive-service"></a>Modificare il codice in modo da chiamare il servizio cognitivo di traduzione
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Modificare il codice per chiamare il servizio Ricerca entità Bing
 
 Visual Studio crea un progetto e all'interno di esso una classe che contiene il codice boilerplate per il tipo di funzione scelto. L'attributo *FunctionName* nel metodo imposta il nome della funzione. L'attributo *HttpTrigger* specifica che la funzione è attivata da una richiesta HTTP.
 
@@ -55,166 +53,300 @@ A questo punto, sostituire tutto il contenuto del file *Function1.cs* con il cod
 
 ```csharp
 using System;
-using System.Net.Http;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.IO;
-using System.Text;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace TranslateFunction
+namespace SampleSkills
 {
-    // This function will simply translate messages sent to it.
-    public static class Function1
+    /// <summary>
+    /// Sample custom skill that wraps the Bing entity search API to connect it with a 
+    /// cognitive search pipeline.
+    /// </summary>
+    public static class BingEntitySearch
     {
-        static string path = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+        #region Credentials
+        // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
+        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string key = "<enter your api key here>";  
+        #endregion
 
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "<enter your api key here>";
-
-        #region classes used to serialize the response
-        private class WebApiResponseError
+        #region Class used to deserialize the request
+        private class InputRecord
         {
-            public string message { get; set; }
+            public class InputRecordData
+            {
+                public string Name { get; set; }
+            }
+
+            public string RecordId { get; set; }
+            public InputRecordData Data { get; set; }
         }
 
-        private class WebApiResponseWarning
+        private class WebApiRequest
         {
-            public string message { get; set; }
-        }
-
-        private class WebApiResponseRecord
-        {
-            public string recordId { get; set; }
-            public Dictionary<string, object> data { get; set; }
-            public List<WebApiResponseError> errors { get; set; }
-            public List<WebApiResponseWarning> warnings { get; set; }
-        }
-
-        private class WebApiEnricherResponse
-        {
-            public List<WebApiResponseRecord> values { get; set; }
+            public List<InputRecord> Values { get; set; }
         }
         #endregion
 
-        [FunctionName("Translate")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
-            TraceWriter log)
-        {
-            log.Info("C# HTTP trigger function processed a request.");
+        #region Classes used to serialize the response
 
-            string recordId = null;
-            string originalText = null;
-            string toLanguage = null;
-            string translatedText = null;
+        private class OutputRecord
+        {
+            public class OutputRecordData
+            {
+                public string Name { get; set; } = "";
+                public string Description { get; set; } = "";
+                public string Source { get; set; } = "";
+                public string SourceUrl { get; set; } = "";
+                public string LicenseAttribution { get; set; } = "";
+                public string LicenseUrl { get; set; } = "";
+            }
+
+            public class OutputRecordMessage
+            {
+                public string Message { get; set; }
+            }
+
+            public string RecordId { get; set; }
+            public OutputRecordData Data { get; set; }
+            public List<OutputRecordMessage> Errors { get; set; }
+            public List<OutputRecordMessage> Warnings { get; set; }
+        }
+
+        private class WebApiResponse
+        {
+            public List<OutputRecord> Values { get; set; }
+        }
+        #endregion
+
+        #region Classes used to interact with the Bing API
+        private class BingResponse
+        {
+            public BingEntities Entities { get; set; }
+        }
+        private class BingEntities
+        {
+            public BingEntity[] Value { get; set; }
+        }
+
+        private class BingEntity
+        {
+            public class EntityPresentationinfo
+            {
+                public string[] EntityTypeHints { get; set; }
+            }
+
+            public class License
+            {
+                public string Url { get; set; }
+            }
+
+            public class ContractualRule
+            {
+                public string _type { get; set; }
+                public License License { get; set; }
+                public string LicenseNotice { get; set; }
+                public string Text { get; set; }
+                public string Url { get; set; }
+            }
+
+            public ContractualRule[] ContractualRules { get; set; }
+            public string Description { get; set; }
+            public string Name { get; set; }
+            public EntityPresentationinfo EntityPresentationInfo { get; set; }
+        }
+        #endregion
+
+        #region The Azure Function definition
+
+        [FunctionName("EntitySearch")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("Entity Search function: C# HTTP trigger function processed a request.");
+
+            var response = new WebApiResponse
+            {
+                Values = new List<OutputRecord>()
+            };
 
             string requestBody = new StreamReader(req.Body).ReadToEnd();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
+            var data = JsonConvert.DeserializeObject<WebApiRequest>(requestBody);
 
-            // Validation
-            if (data?.values == null)
+            // Do some schema validation
+            if (data == null)
             {
-                return new BadRequestObjectResult(" Could not find values array");
+                return new BadRequestObjectResult("The request schema does not match expected schema.");
             }
-            if (data?.values.HasValues == false || data?.values.First.HasValues == false)
+            if (data.Values == null)
             {
-                // It could not find a record, then return empty values array.
-                return new BadRequestObjectResult(" Could not find valid records in values array");
-            }
-
-            recordId = data?.values?.First?.recordId?.Value as string;
-            originalText = data?.values?.First?.data?.text?.Value as string;
-            toLanguage = data?.values?.First?.data?.language?.Value as string;
-
-            if (recordId == null)
-            {
-                return new BadRequestObjectResult("recordId cannot be null");
+                return new BadRequestObjectResult("The request schema does not match expected schema. Could not find values array.");
             }
 
-            translatedText = TranslateText(originalText, toLanguage).Result;
-        
-            // Put together response.
-            WebApiResponseRecord responseRecord = new WebApiResponseRecord();
-            responseRecord.data = new Dictionary<string, object>();
-            responseRecord.recordId = recordId;
-            responseRecord.data.Add("text", translatedText);
+            // Calculate the response for each value.
+            foreach (var record in data.Values)
+            {
+                if (record == null || record.RecordId == null) continue;
 
-            WebApiEnricherResponse response = new WebApiEnricherResponse();
-            response.values = new List<WebApiResponseRecord>();
-            response.values.Add(responseRecord);
+                OutputRecord responseRecord = new OutputRecord
+                {
+                    RecordId = record.RecordId
+                };
+
+                try
+                {
+                    responseRecord.Data = GetEntityMetadata(record.Data.Name).Result;
+                }
+                catch (Exception e)
+                {
+                    // Something bad happened, log the issue.
+                    var error = new OutputRecord.OutputRecordMessage
+                    {
+                        Message = e.Message
+                    };
+
+                    responseRecord.Errors = new List<OutputRecord.OutputRecordMessage>
+                    {
+                        error
+                    };
+                }
+                finally
+                {
+                    response.Values.Add(responseRecord);
+                }
+            }
 
             return (ActionResult)new OkObjectResult(response);
         }
 
+        #endregion
 
+        #region Methods to call the Bing API
         /// <summary>
-        /// Use Cognitive Service to translate text from one language to another.
+        /// Gets metadata for a particular entity based on its name using Bing Entity Search
         /// </summary>
-        /// <param name="originalText">The text to translate.</param>
-        /// <param name="toLanguage">The language you want to translate to.</param>
-        /// <returns>Asynchronous task that returns the translated text. </returns>
-        async static Task<string> TranslateText(string originalText, string toLanguage)
+        /// <param name="entityName">The name of the entity to extract data for.</param>
+        /// <returns>Asynchronous task that returns entity data. </returns>
+        private async static Task<OutputRecord.OutputRecordData> GetEntityMetadata(string entityName)
         {
-            System.Object[] body = new System.Object[] { new { Text = originalText } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            var uri = $"{path}&to={toLanguage}";
-
-            string result = "";
+            var uri = bingApiEndpoint + "?q=" + entityName + "&mkt=en-us&count=10&offset=0&safesearch=Moderate";
+            var result = new OutputRecord.OutputRecordData();
 
             using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
+            using (var request = new HttpRequestMessage {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(uri)
+            })
             {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await client.SendAsync(request);
+                string responseBody = await response?.Content?.ReadAsStringAsync();
 
-                dynamic data = JsonConvert.DeserializeObject(responseBody);
-                result = data?.First?.translations?.First?.text?.Value as string;
-
+                BingResponse bingResult = JsonConvert.DeserializeObject<BingResponse>(responseBody);
+                if (bingResult != null)
+                {
+                    // In addition to the list of entities that could match the name, for simplicity let's return information
+                    // for the top match as additional metadata at the root object.
+                    return AddTopEntityMetadata(bingResult.Entities?.Value);
+                }
             }
+
             return result;
         }
+
+        private static OutputRecord.OutputRecordData AddTopEntityMetadata(BingEntity[] entities)
+        {
+            if (entities != null)
+            {
+                foreach (BingEntity entity in entities.Where(
+                    entity => entity?.EntityPresentationInfo?.EntityTypeHints != null
+                        && (entity.EntityPresentationInfo.EntityTypeHints[0] == "Person"
+                            || entity.EntityPresentationInfo.EntityTypeHints[0] == "Organization"
+                            || entity.EntityPresentationInfo.EntityTypeHints[0] == "Location")
+                        && !String.IsNullOrEmpty(entity.Description)))
+                {
+                    var rootObject = new OutputRecord.OutputRecordData
+                    {
+                        Description = entity.Description,
+                        Name = entity.Name
+                    };
+
+                    if (entity.ContractualRules != null)
+                    {
+                        foreach (var rule in entity.ContractualRules)
+                        {
+                            switch (rule._type)
+                            {
+                                case "ContractualRules/LicenseAttribution":
+                                    rootObject.LicenseAttribution = rule.LicenseNotice;
+                                    rootObject.LicenseUrl = rule.License.Url;
+                                    break;
+                                case "ContractualRules/LinkAttribution":
+                                    rootObject.Source = rule.Text;
+                                    rootObject.SourceUrl = rule.Url;
+                                    break;
+                            }
+                        }
+                    }
+
+                    return rootObject;
+                }
+            }
+
+            return new OutputRecord.OutputRecordData();
+        }
+        #endregion
     }
 }
 ```
 
-Assicurarsi di immettere nel metodo *TranslateText* il valore della *chiave* ottenuto in fase di iscrizione per l'API Traduzione testuale.
+Assicurarsi di immettere un valore di *chiave* personalizzato nella `key` costante in base alla chiave ottenuta al momento dell'iscrizione all'API ricerca entità Bing.
 
-Questo esempio è un enricher semplice che funziona su un solo record per volta. Questo aspetto diventerà importante più avanti, al momento dell'impostazione della dimensione del batch per il set di competenze.
+Questo esempio include tutto il codice necessario in un singolo file per praticità. È possibile trovare una versione leggermente più strutturata della stessa abilità nel [repository Power Skills](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+
+Naturalmente, è possibile rinominare il file da `Function1.cs` a. `BingEntitySearch.cs`
 
 ## <a name="test-the-function-from-visual-studio"></a>Testare la funzione da Visual Studio
 
-Premere **F5** per eseguire il programma e testare i comportamenti della funzione. In questo caso viene usata la funzione seguente per tradurre un testo spagnolo in inglese. Usare Postman o Fiddler per eseguire una chiamata simile alla seguente:
+Premere **F5** per eseguire il programma e testare i comportamenti della funzione. In questo caso, verrà usata la funzione seguente per cercare due entità. Usare Postman o Fiddler per eseguire una chiamata simile alla seguente:
 
 ```http
-POST https://localhost:7071/api/Translate
+POST https://localhost:7071/api/EntitySearch
 ```
+
 ### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
-   "values": [
+    "values": [
         {
-            "recordId": "a1",
+            "recordId": "e1",
             "data":
             {
-               "text":  "Este es un contrato en Inglés",
-               "language": "en"
+                "name":  "Pablo Picasso"
+            }
+        },
+        {
+            "recordId": "e2",
+            "data":
+            {
+                "name":  "Microsoft"
             }
         }
-   ]
+    ]
 }
 ```
+
 ### <a name="response"></a>Risposta
 La risposta dovrebbe essere simile all'esempio seguente:
 
@@ -222,13 +354,19 @@ La risposta dovrebbe essere simile all'esempio seguente:
 {
     "values": [
         {
-            "recordId": "a1",
+            "recordId": "e1",
             "data": {
-                "text": "This is a contract in English"
+                "name": "Pablo Picasso",
+                "description": "Pablo Ruiz Picasso was a Spanish painter [...]",
+                "source": "Wikipedia",
+                "sourceUrl": "http://en.wikipedia.org/wiki/Pablo_Picasso",
+                "licenseAttribution": "Text under CC-BY-SA license",
+                "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
             },
             "errors": null,
             "warnings": null
-        }
+        },
+        "..."
     ]
 }
 ```
@@ -241,73 +379,104 @@ Quando si è soddisfatti del comportamento della funzione, è possibile pubblica
 
 1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
 
-1. Seguire le istruzioni visualizzate sullo schermo. Viene chiesto di specificare l'account di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione da usare. Se non sono già disponibili, è possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un account di archiviazione. Al termine selezionare **Crea**
+1. Seguire le istruzioni visualizzate sullo schermo. Viene richiesto di specificare un nome univoco per il servizio app, la sottoscrizione di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione che si vuole usare. Se non sono già disponibili, è possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un account di archiviazione. Al termine selezionare **Crea**
 
-1. Al termine della distribuzione prendere nota dell'URL del sito. Questo è l'indirizzo dell'app per le funzioni in Azure. 
+1. Al termine della distribuzione, si noti l'URL del sito. Questo è l'indirizzo dell'app per le funzioni in Azure. 
 
-1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse e cercare la funzione di traduzione pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Selezionare l'icona **Copia** icona per la chiave host *predefinita*.  
+1. Nella [portale di Azure](https://portal.azure.com)passare al gruppo di risorse e cercare la `EntitySearch` funzione pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Selezionare l'icona **Copia** icona per la chiave host *predefinita*.  
 
 ## <a name="test-the-function-in-azure"></a>Testare la funzione in Azure
 
 Ora che si dispone della chiave host predefinita, testare la funzione come segue:
 
 ```http
-POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
+POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
-### <a name="request-body"></a>Request Body
+
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
-   "values": [
+    "values": [
         {
-            "recordId": "a1",
+            "recordId": "e1",
             "data":
             {
-               "text":  "Este es un contrato en Inglés",
-               "language": "en"
+                "name":  "Pablo Picasso"
+            }
+        },
+        {
+            "recordId": "e2",
+            "data":
+            {
+                "name":  "Microsoft"
             }
         }
-   ]
+    ]
 }
 ```
 
-Questo dovrebbe produrre un risultato simile a quello visualizzato in precedenza durante l'esecuzione della funzione nell'ambiente locale.
+Questo esempio dovrebbe produrre lo stesso risultato visualizzato in precedenza durante l'esecuzione della funzione nell'ambiente locale.
 
 ## <a name="connect-to-your-pipeline"></a>Connettersi alla pipeline
-A questo punto è possibile aggiungere la competenza personalizzata al proprio set di competenze. L'esempio seguente mostra come chiamare la competenza. Poiché la competenza non gestisce i batch, aggiungere un'istruzione che indichi una dimensione massima dei batch pari a ```1```, per inviare i documenti uno alla volta.
+A questo punto è possibile aggiungere la competenza personalizzata al proprio set di competenze. Nell'esempio seguente viene illustrato come chiamare la skill per aggiungere descrizioni alle organizzazioni nel documento (questo potrebbe essere esteso per lavorare anche su posizioni e persone). Sostituire `[your-entity-search-app-name]` con il nome dell'app.
 
 ```json
 {
     "skills": [
-      ...,  
+      "[... your existing skills remain here]",  
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
-        "batchSize":1,
-        "context": "/document",
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/content"
-          },
-          {
-            "name": "language",
-            "source": "/document/destinationLanguage"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "translatedText"
-          }
-        ]
+        "description": "Our new Bing entity search custom skill",
+        "uri": "https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]",
+          "context": "/document/merged_content/organizations/*",
+          "inputs": [
+            {
+              "name": "name",
+              "source": "/document/merged_content/organizations/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "description",
+              "targetName": "description"
+            }
+          ]
       }
   ]
 }
 ```
 
+Qui viene conteggiata la competenza incorporata per il [riconoscimento delle entità](cognitive-search-skill-entity-recognition.md) in modo che sia presente nell'insieme di competenze e che il documento venga arricchito con l'elenco delle organizzazioni. Per riferimento, di seguito è riportato un esempio di configurazione delle competenze di estrazione delle entità, sufficiente per la generazione dei dati necessari:
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "name": "#1",
+    "description": "Organization name extraction",
+    "context": "/document/merged_content",
+    "categories": [ "Organization" ],
+    "defaultLanguageCode": "en",
+    "inputs": [
+        {
+            "name": "text",
+            "source": "/document/merged_content"
+        },
+        {
+            "name": "languageCode",
+            "source": "/document/language"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "organizations",
+            "targetName": "organizations"
+        }
+    ]
+},
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! La creazione del primo enricher personalizzato è stata completata. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
+La procedura è stata completata. Il primo arricchimento personalizzato è stato creato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
 
 + [Aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

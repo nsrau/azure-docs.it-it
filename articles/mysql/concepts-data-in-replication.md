@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.date: 09/13/2019
+ms.openlocfilehash: 5ef11e86b85a537a809352325d56ac3ff983c2c1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691523"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993055"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -22,6 +22,8 @@ Gli scenari principali da considerare quando si usa la funzione di replica dei d
 
 - **Sincronizzazione dei dati ibrida:** con la replica dei dati in ingresso è possibile mantenere sincronizzati i dati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
 - **Sincronizzazione multi-cloud:** per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
+ 
+Per gli scenari di migrazione, usare il [servizio migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/)(DMS).
 
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
@@ -34,11 +36,16 @@ Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-
 - Ogni tabella deve avere una chiave primaria.
 - Il server master deve usare il motore InnoDB di MySQL.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
+- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso `mysql.az_replication_change_master` nel stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
+- Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
+- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare la replica dei dati in ingresso](howto-data-in-replication.md)
 - Informazioni sulla [replica in Azure con repliche in lettura](concepts-read-replicas.md)
+- Informazioni su come [eseguire la migrazione dei dati con tempi di inattività minimi con DMS](howto-migrate-online.md)

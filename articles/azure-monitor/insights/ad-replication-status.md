@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495178"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
@@ -106,7 +106,7 @@ Come accennato in precedenza, il riquadro del dashboard per la soluzione Stato r
 >
 
 ### <a name="ad-replication-status-details"></a>Dettagli di Stato replica di Active Directory
-Quando si fa clic su un elemento in uno degli elenchi, è possibile accedere ad altre informazioni usando una query di log. I risultati vengono filtrati per indicare solo gli errori correlati all'elemento. Se ad esempio si fa clic sul primo controller di dominio elencato in **Stato server di destinazione (ADDC02)**, i risultati della query vengono filtrati per indicare gli errori con quel controller di dominio elencato come server di destinazione:
+Quando si fa clic su un elemento in uno degli elenchi, è possibile accedere ad altre informazioni usando una query di log. I risultati vengono filtrati per indicare solo gli errori correlati all'elemento. Se ad esempio si fa clic sul primo controller di dominio elencato in **Stato server di destinazione (ADDC02)** , i risultati della query vengono filtrati per indicare gli errori con quel controller di dominio elencato come server di destinazione:
 
 ![Errori di stato replica di Active Directory nei risultati della query](./media/ad-replication-status/oms-ad-replication-search-details.png)
 

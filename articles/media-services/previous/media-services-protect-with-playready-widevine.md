@@ -14,24 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: df967c56d84650894d2e07054e9ec8d6f830192b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294689"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014949"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-playready-widevine.md)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
->
-
 > [!NOTE]
-> Per ottenere la versione più recente di Java SDK e iniziare a sviluppare con Java, vedere [Introduzione a Java Client SDK per Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Per scaricare la versione più recente di PHP SDK per Servizi multimediali, cercare la versione 0.5.7 del pacchetto Microsoft/WindowAzure nel [repository Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+>   
 
 ## <a name="overview"></a>Panoramica
 
@@ -149,7 +143,7 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](https://aka.ms/azuremediaplayer).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
@@ -569,7 +563,7 @@ namespace DynamicEncryptionWithDRM
             // Get a reference to the streaming manifest file from the 
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 
@@ -618,7 +612,10 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
+
 * [Usare la crittografia comune con più tecnologie DRM e il controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
 * [Configure Widevine packaging with Media Services (Configurare pacchetti Widewine con Servizi multimediali)](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+* [Introduzione a Java client SDK per servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* Per scaricare la versione più recente di PHP SDK per Servizi multimediali, cercare la versione 0.5.7 del pacchetto Microsoft/WindowAzure nel [repository Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+

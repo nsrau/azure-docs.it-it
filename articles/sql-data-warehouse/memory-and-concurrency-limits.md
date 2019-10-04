@@ -1,21 +1,21 @@
 ---
-title: Limiti di memoria e concorrenza - Azure SQL Data Warehouse | Microsoft Docs
+title: Limiti di memoria e concorrenza in Azure SQL Data Warehouse | Microsoft Docs
 description: Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: workload-management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890791"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595569"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse. Per altre informazioni e per applicare queste funzionalità al piano di gestione del carico di lavoro, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). 
@@ -67,7 +67,7 @@ I livelli di servizio per la Prima generazione sono compresi tra DW100 e DW6000.
 | DW1500            | 15            | 4                              | 360                            |
 | DW2000            | 20            | 3                              | 480                            |
 | DW3000            | 30            | 2                              | 720                            |
-| DW6000            | 60            | 1                              | 1.440                           |
+| DW6000            | 60            | 1                              | 1\.440                           |
 
 ## <a name="concurrency-maximums"></a>Valori massimi di concorrenza
 Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base a importanza e slot di concorrenza. Le query in attesa nella coda fino a quando non sono disponibili slot di concorrenza sufficienti. [Importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e slot di concorrenza determinano priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)

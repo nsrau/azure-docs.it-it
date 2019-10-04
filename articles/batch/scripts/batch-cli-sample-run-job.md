@@ -4,7 +4,7 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: ''
 ms.service: batch
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ddcc2541bd31c887c17e549209270c60d735351
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a5e81393014dd70ae83f66e2a1d41f4de3c14205
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472287"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321859"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Esempio di interfaccia della riga di comando: Eseguire un processo e attività con Azure Batch
 

@@ -3,8 +3,8 @@ title: Come usare l'accesso alle applicazioni self-service | Microsoft Docs
 description: Abilitare l'accesso alle applicazioni self-service per consentire agli utenti di trovare le proprie applicazioni
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afe915f4fa1d9c1c36860d23912ac0e01088724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55da8731855c8afda496edff33f3fbb7982cd44b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784546"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 

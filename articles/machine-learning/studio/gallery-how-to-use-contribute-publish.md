@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811511"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
@@ -120,7 +120,7 @@ Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, pa
 
 * Nome dell'esperimento
 * Riepilogo o descrizione
-* Tag
+* `Tags`
 * Image
 * Impostazione di visibilità, tra **Public** (Pubblico) e **Unlisted** (Non in elenco)
 

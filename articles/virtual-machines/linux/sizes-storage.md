@@ -4,27 +4,26 @@ description: Elenca le diverse dimensioni ottimizzate per l'archiviazione per le
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: a72ff65c7b9434ca2f43e4e4f06fc4e95dfbb4e7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 7320acc3a00702b66800af5bfd9a240f4b146670
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997343"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100839"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per l'archiviazione
 
-[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
+[!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
@@ -39,4 +38,4 @@ ms.locfileid: "59997343"
 
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
 
-Informazioni su come [ottimizzare le prestazioni nelle macchine virtuali serie Lsv2](storage-performance.md).
+Informazioni su come [ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2](storage-performance.md).

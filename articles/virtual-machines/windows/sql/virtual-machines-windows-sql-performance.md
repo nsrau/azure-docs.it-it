@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6a386096d8a94c240e9a00457d87d04254e02920
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448564"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102016"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -42,7 +41,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 | --- | --- |
 | [Dimensioni macchina virtuale](#vm-size-guidance) | - [DS3_v2](../sizes-general.md) o successiva per SQL Enterprise Edition.<br/><br/> - [DS2_v2](../sizes-general.md) o successiva per SQL Standard Edition e Web Edition. |
 | [Archiviazione](#storage-guidance) | - Usare [unità SSD Premium](../disks-types.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/> - Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/> * Disabilitare l'[archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
-| [Dischi](#disks-guidance) | - Usare almeno 2 [dischi P30](../disks-types.md#premium-ssd) (1 per i file di log, 1 per i file di dati inclusi TempDB). Per i carichi di lavoro che richiedono circa 50.000 operazioni di I/O al secondo, è consigliabile usare un'unità Ultra SSD. <br/><br/> - Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/> - Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/> - Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.  **Importante**: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/> - Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/> - Formattare con dimensioni di allocazione documentate. <br/><br/> - Posizionare TempDB sull'unità SSD locale per carichi di lavoro SQL Server di importanza strategica (dopo aver scelto le dimensioni della macchina virtuale corrette). |
+| [Dischi](#disks-guidance) | - Usare almeno 2 [dischi P30](../disks-types.md#premium-ssd) (1 per i file di log, 1 per i file di dati inclusi TempDB). Per i carichi di lavoro che richiedono circa 50.000 operazioni di I/O al secondo, è consigliabile usare un'unità Ultra SSD. <br/><br/> - Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/> - Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/> - Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.  **Importante**: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/> - Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/> - Formattare con dimensioni di allocazione documentate. <br/><br/> -Collocare tempdb nell'unità SSD `D:\` locale per i carichi di lavoro mission-critical SQL Server (dopo aver scelto le dimensioni corrette della macchina virtuale). Altre informazioni nel Blog sull' [uso di unità SSD per archiviare tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).  |
 | [I/O](#io-guidance) |- Abilitare la compressione di pagina del database.<br/><br/> - Abilitare l'inizializzazione immediata per i file di dati.<br/><br/> - Limitare l'aumento automatico delle dimensioni per il database.<br/><br/> - Disabilitare la compattazione automatica del database.<br/><br/> - Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/> - Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/> - Configurare il percorso predefinito del file di backup e del file di database.<br/><br/> - Abilitare le pagine bloccate.<br/><br/> - Applicare le correzioni delle prestazioni di SQL Server. |
 | [Elementi specifici delle funzionalità](#feature-specific-guidance) | - Eseguire il backup direttamente nell'archivio BLOB. |
 
@@ -55,7 +54,7 @@ Per le applicazioni sensibili alle prestazioni, è consigliabile usare le seguen
 * **SQL Server Enterprise Edition**: DS3_v2 o versione successiva
 * **SQL Server Standard e Web Edition**: DS2_v2 o versione successiva
 
-Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) supportano l'archiviazione premium, consigliata per prestazioni ottimali. Le dimensioni consigliate di seguito sono di base, ma le dimensioni effettive della macchina dipendono dalle esigenze del carico di lavoro richiesto. Le macchine virtuali della serie DSv2 sono macchine virtuali per utilizzo generico, adatte per un'ampia gamma di carichi di lavoro, mentre altre dimensioni delle macchine sono ottimizzate per carichi di lavoro specifici. Ad esempio, la [serie M](../sizes-memory.md#m-series) offre il maggior numero di vCPU e memoria per i carichi di lavoro più grandi di SQL Server. La [serie GS](../sizes-memory.md#gs-series) e la [serie DSv2 11-15](../sizes-memory.md#dsv2-series-11-15) sono ottimizzate per i requisiti di memoria di grandi dimensioni. Entrambe le serie sono disponibili anche in [dimensioni core vincolate](../../windows/constrained-vcpu.md), consentendo di risparmiare denaro per i carichi di lavoro con inferiori richieste di calcolo. Le macchine [serie Ls](../sizes-storage.md) sono ottimizzate per elevata velocità effettiva del disco e I/O. È importante prendere in considerazione il carico di lavoro specifico di SQL Server per la selezione della serie e delle dimensioni della macchina virtuale.
+Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) supportano l'archiviazione premium, consigliata per prestazioni ottimali. Le dimensioni consigliate di seguito sono di base, ma le dimensioni effettive della macchina dipendono dalle esigenze del carico di lavoro richiesto. Le macchine virtuali della serie DSv2 sono macchine virtuali per utilizzo generico, adatte per un'ampia gamma di carichi di lavoro, mentre altre dimensioni delle macchine sono ottimizzate per carichi di lavoro specifici. Ad esempio, la [serie M](../sizes-memory.md#m-series) offre il maggior numero di vCPU e memoria per i carichi di lavoro più grandi di SQL Server. La [serie GS](../sizes-previous-gen.md#gs-series) e la [serie DSv2 11-15](../sizes-memory.md#dsv2-series-11-15) sono ottimizzate per i requisiti di memoria di grandi dimensioni. Entrambe le serie sono disponibili anche in [dimensioni core vincolate](../../windows/constrained-vcpu.md), consentendo di risparmiare denaro per i carichi di lavoro con inferiori richieste di calcolo. Le macchine [serie Ls](../sizes-storage.md) sono ottimizzate per elevata velocità effettiva del disco e I/O. È importante prendere in considerazione il carico di lavoro specifico di SQL Server per la selezione della serie e delle dimensioni della macchina virtuale.
 
 ## <a name="storage-guidance"></a>Linee guida per l'archiviazione
 
@@ -90,11 +89,11 @@ Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico d
 
 Per le macchine virtuali che supportano le unità SSD Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta le unità SSD Premium con la memorizzazione nella cache di lettura abilitata.
 
-Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D**, che in macchine di queste dimensioni è anche basata su SSD._
+Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D**, che in macchine di queste dimensioni è anche basata su SSD._ Per altre informazioni, vedere il Blog relativo all' [uso di SSD con tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) . 
 
 ### <a name="data-disks"></a>Dischi dati
 
-* **Usare i dischi dati per i file di dati e di log**: se non si usa lo striping del disco, usare due dischi P30 SSD Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni unità SSD Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come illustrato nell'articolo [Selezionare un tipo di disco](../disks-types.md). Se si utilizza una tecnica di striping del disco, come Spazi di archiviazione, si ottengono prestazioni ottimali con due pool, uno per il/i file di log e l'altro per i file di dati. Tuttavia, se si prevede di usare le istanze cluster di failover (FCI) di SQL Server, è necessario configurare un pool.
+* **Usare i dischi dati per i file di dati e di log**: Se non si usa lo striping del disco, usare due dischi P30 SSD Premium in cui un disco contiene i file di log e l'altro contiene i dati e TempDB (ad eccezione dei carichi di lavoro mission-critical e Write-heavy come indicato in precedenza). Ogni unità SSD Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come illustrato nell'articolo [Selezionare un tipo di disco](../disks-types.md). Se si utilizza una tecnica di striping del disco, come Spazi di archiviazione, si ottengono prestazioni ottimali con due pool, uno per il/i file di log e l'altro per i file di dati. Tuttavia, se si prevede di usare le istanze cluster di failover (FCI) di SQL Server, è necessario configurare un pool.
 
    > [!TIP]
    > - Per i risultati dei test in diverse configurazioni del disco e del carico di lavoro, vedere il post di blog seguente: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Linee guida per la configurazione dell'archiviazione per SQL Server nelle macchine virtuali di Azure).
@@ -179,13 +178,24 @@ Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo int
 
 Alcune distribuzioni possono ottenere ulteriori miglioramenti delle prestazioni usando tecniche di configurazione più avanzate. Nell'elenco seguente vengono evidenziate alcune funzionalità di SQL Server che consentono di ottenere prestazioni migliori:
 
-* **Backup nell'archiviazione di Azure**: quando si eseguono backup per SQL Server in esecuzione in macchine virtuali di Azure, è possibile usare [Backup di SQL Server nell'URL](https://msdn.microsoft.com/library/dn435916.aspx). Questa funzionalità è disponibile a partire da SQL Server 2012 SP1 CU2 ed è consigliata per il backup su dischi dati associati. Quando si esegue il backup o il ripristino da e verso l'archiviazione di Azure, seguire le indicazioni offerte in [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL e Ripristino da backup archiviati nell'archiviazione di Azure](https://msdn.microsoft.com/library/jj919149.aspx). È anche possibile automatizzare i backup usando [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Backup in archiviazione di Azure
+quando si eseguono backup per SQL Server in esecuzione in macchine virtuali di Azure, è possibile usare [Backup di SQL Server nell'URL](https://msdn.microsoft.com/library/dn435916.aspx). Questa funzionalità è disponibile a partire da SQL Server 2012 SP1 CU2 ed è consigliata per il backup su dischi dati associati. Quando si esegue il backup o il ripristino da e verso l'archiviazione di Azure, seguire le indicazioni offerte in [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL e Ripristino da backup archiviati nell'archiviazione di Azure](https://msdn.microsoft.com/library/jj919149.aspx). È anche possibile automatizzare i backup usando [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup.md).
 
-    Prima di SQL Server 2012, usare lo [strumento di backup di SQL Server in Azure](https://www.microsoft.com/download/details.aspx?id=40740). Questo strumento consente di aumentare la velocità effettiva di backup usando più destinazioni di backup in striping.
+Prima di SQL Server 2012, usare lo [strumento di backup di SQL Server in Azure](https://www.microsoft.com/download/details.aspx?id=40740). Questo strumento consente di aumentare la velocità effettiva di backup usando più destinazioni di backup in striping.
 
-* **File di dati di SQL Server in Azure**: questa nuova funzionalità ([File di dati di SQL Server in Azure](https://msdn.microsoft.com/library/dn385720.aspx)) è disponibile a partire da SQL Server 2014. L'esecuzione di SQL Server con file di dati in Azure dimostra le caratteristiche di prestazioni paragonabili a quelle dei dischi dati di Azure.
+### <a name="sql-server-data-files-in-azure"></a>SQL Server file di dati in Azure
 
-## <a name="next-steps"></a>Fasi successive
+questa nuova funzionalità ([File di dati di SQL Server in Azure](https://msdn.microsoft.com/library/dn385720.aspx)) è disponibile a partire da SQL Server 2014. L'esecuzione di SQL Server con file di dati in Azure dimostra le caratteristiche di prestazioni paragonabili a quelle dei dischi dati di Azure.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Istanza del cluster di failover e spazi di archiviazione
+
+Se si usa spazi di archiviazione, quando si aggiungono nodi al cluster nella pagina **conferma** deselezionare la casella **di controllo Aggiungi tutte le archiviazioni idonee al cluster**. 
+
+![Deseleziona archiviazione idonea](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Se si usa Spazi di archiviazione e non si deseleziona **Aggiungi tutte le risorse di archiviazione idonee al cluster**, Windows rende non visibili i dischi virtuali durante il processo di clustering. Di conseguenza, tali dischi non vengono visualizzati in Gestione disco o in Esplora risorse fino a quando gli spazi di archiviazione non vengono rimossi dal cluster e ricollegati usando PowerShell. Spazi di archiviazione consente di raggruppare più dischi in pool di archiviazione. Per altre informazioni, vedere [Spazi di archiviazione](/windows-server/storage/storage-spaces/overview).
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su archiviazione e prestazioni, vedere [Linee guida di configurazione dell'archiviazione per SQL Server in macchine virtuali di Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 

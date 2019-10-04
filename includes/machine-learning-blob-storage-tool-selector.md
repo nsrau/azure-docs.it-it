@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cgronlun
 ms.openlocfilehash: 674c34082823d57de51e894ea64241a8f3399ba9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265577"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180678"
 ---
 <!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
 -->
 Questo menu contiene collegamenti alle tecnologie che è possibile usare per spostare dati da e verso un archivio BLOB di Azure:
 
-> [!div class="op_single_selector" title1="Blob storage tools"]
+> [!div class="op_single_selector" title1="Strumenti di archiviazione BLOB"]
 > * [Panoramica](../articles/machine-learning/team-data-science-process/move-azure-blob.md)
 > * [Azure Storage Explorer](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)
 > * [AzCopy](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md)

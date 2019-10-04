@@ -6,22 +6,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/22/2017
+ms.date: 12/22/2018
 ms.author: sngun
-ms.openlocfilehash: dbaafca8692b144b0032315c0b40eb02bec0e3ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 269b2bd1c1457b9e70ea4ada758aacb2f2ae96f3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438670"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614629"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -76,7 +73,7 @@ La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` 
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
+## <a id="Connect"></a>Passaggio 3: collegarsi a un account di Azure Cosmos DB
 Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. L'endpoint e la chiave primaria di Azure Cosmos DB sono necessari all'applicazione per conoscere la destinazione della connessione e ad Azure Cosmos DB per considerare attendibile la connessione dell'applicazione.
 
 Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su **Chiavi**. Copiare l'URI dal portale e incollarlo in `https://FILLME.documents.azure.com` nel file Program.java. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `FILLME`.
@@ -108,7 +105,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
 
-    // Azure Cosmos DB collections can be reserved with throughput specified in request units/second. 
+    // Azure Cosmos containers can be reserved with throughput specified in request units/second. 
     // Here we create a collection with 400 RU/s.
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.setOfferThroughput(400);

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106832"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508367"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Aggiungere un repository di elementi al lab in DevTest Labs
-DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo aver creata la macchina virtuale. Questo elemento può essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli elementi sono definiti in un file JSON caricato da un repository VSTS Git o GitHub. 
+DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo aver creata la macchina virtuale. Questo elemento può essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli elementi sono definiti in un file JSON caricato da un repository GitHub o Git di DevOps di Azure. 
 
 Il [repository di elementi pubblici](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), gestita da DevTest Labs, fornisce molti strumenti comuni per Windows e Linux. Un collegamento a questo repository viene aggiunto automaticamente al lab. È possibile creare il proprio repository di elementi con gli strumenti specifici che non sono disponibili nel repository di elementi pubblici. Per altre informazioni sulla creazione di elementi personalizzati, vedere [creare elementi personalizzati](devtest-lab-artifact-author.md).
 
@@ -46,7 +46,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 10. Chiudere GitHub.   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Ottenere l'URL clone di Azure Repos e il token di accesso personale
-1. Aprire la home page della raccolta del team (ad esempio, https://contoso-web-team.visualstudio.com)) e quindi selezionare il progetto.
+1. Aprire la home page della raccolta del team (ad esempio, https://contoso-web-team.visualstudio.com) ) e quindi selezionare il progetto.
 2. Nella home page del progetto, selezionare **Codice**.
 3. Per visualizzare l'URL del clone, nella pagina **Codice** del progetto selezionare **Clone**.
 4. Salvare l'URL. L'URL verrà usato in seguito.
@@ -232,7 +232,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.
@@ -303,7 +303,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -348,7 +348,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parametri
 Lo script di PowerShell di esempio in questo articolo accetta i parametri seguenti:
 
-| Parametro | DESCRIZIONE | 
+| Parametro | Descrizione | 
 | --------- | ----------- | 
 | LabName | Il nome del lab. |
 | ArtifactRepositoryName | Nome per il nuovo repository di elementi. Se non è specificato, lo script crea un nome casuale per il repository. |

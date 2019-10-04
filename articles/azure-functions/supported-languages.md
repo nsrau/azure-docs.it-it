@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65148805"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
@@ -37,7 +37,7 @@ Sono disponibili [due versioni del runtime di Funzioni di Azure](functions-versi
 
 ### <a name="experimental-languages"></a>Linguaggi sperimentali
 
-I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corretta scalabilità e non supportano tutte le associazioni. Il supporto sperimentale per PowerShell nella versione 1.x, ad esempio, è disponibile solo per la versione 5.1 perché è la versione installata per impostazione predefinita nelle macchine virtuali in cui vengono eseguite le app per le funzioni. Se si vuole eseguire gli script PowerShell, prendere in considerazione [Automazione di Azure](https://azure.microsoft.com/services/automation/).
+I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corretta scalabilità e non supportano tutte le associazioni.
 
 Non usare le funzionalità sperimentali perché non è disponibile alcun supporto ufficiale. Non si possono aprire richieste di supporto per problemi con i linguaggi sperimentali. 
 

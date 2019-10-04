@@ -1,5 +1,5 @@
 ---
-title: Classificazione delle immagini - Visione artificiale
+title: Categorizzazione immagini-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di classificazione delle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203323"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945316"
 ---
-# <a name="categorize-images-by-subject-matter"></a>Classificare le immagini in base alla materia
+# <a name="categorize-images-by-subject-matter"></a>Categorizzare le immagini in base al soggetto
 
 Oltre ai tag e a una descrizione, Visione artificiale restituisce le categorie basate su tassonomia rilevate in un'immagine. A differenza dei tag, le categorie sono organizzate in una gerarchia ereditaria padre/figlio e ne è disponibile un numero inferiore (86, rispetto alle migliaia di tag). Tutti i nomi di categoria sono in inglese. La categorizzazione può essere eseguita da sola o insieme al più recente modello basato sui tag.
 
 ## <a name="the-86-category-concept"></a>Categoria basata su 86 concetti
 
-Visione artificiale può classificare un'immagine su vasta scala o in modo specifico, usando l'elenco di 86 categorie nel diagramma seguente. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
+Visione artificiale consente di categorizzare un'immagine in modo esteso o specifico, usando l'elenco di 86 categorie nel diagramma seguente. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
 
 ![Elenchi raggruppati di tutte le categorie nella tassonomia delle categorie](./Images/analyze_categories-v2.png)
 

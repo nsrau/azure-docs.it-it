@@ -4,21 +4,20 @@ description: Informazioni su come risolvere un errore RDP a causa della scheda d
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 742026a8ff35f318f58674ebc2fb5c03e45161a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319004"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057912"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata
 
@@ -53,8 +52,7 @@ Per abilitare l'interfaccia per la macchina virtuale, usare il controllo seriale
 
     Ad esempio, se il nome dell'interfaccia di rete è "Ethernet 2", eseguire il comando seguente:
 
-        netsh interface set interface name=""Ethernet 2" admin=enabled
-
+        netsh interface set interface name="Ethernet 2" admin=enabled
 
 4.  Controllare di nuovo lo stato dell'interfaccia di rete per assicurarsi che sia abilitata.
 

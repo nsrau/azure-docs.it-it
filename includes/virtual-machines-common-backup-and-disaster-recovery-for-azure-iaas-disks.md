@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: storage
-author: luywang
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 06/05/2018
-ms.author: luywang
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443373"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180144"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -148,7 +148,7 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
     b. Dal menu **Insiemi di credenziali dei servizi di ripristino** scegliere **Aggiungi** e seguire la procedura per la creazione di un nuovo insieme di credenziali nella stessa area in cui si trova la VM. Se ad esempio la VM si trova nell'area Stati Uniti occidentali, scegliere Stati Uniti occidentali per l'insieme di credenziali.
 
-1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in **Insiemi di credenziali dei servizi di ripristino** e passare a **Impostazioni** > **Configurazione backup**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
+1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Sotto l'insieme di credenziali di accesso **insiemi di credenziali dei servizi di ripristino** e passare alla **delle proprietà** > **configurazione Backup** > **Update** . Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
 
 1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 

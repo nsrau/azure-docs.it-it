@@ -3,23 +3,22 @@ title: Vantaggio Azure Hybrid per Windows Server | Microsoft Docs
 description: Informazioni su come ottimizzare i vantaggi di Software Assurance per Windows per trasferire le licenze locali in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: xujing
-manager: jeconnoc
+author: xujing-ms
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.author: xujing
+ms.openlocfilehash: e3928d865178d0afc3d814ae0d7794f981f49d47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079405"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,10 +32,10 @@ Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Serv
 >
 
 > [!NOTE]
-> Per le macchine virtuali classiche, è supportata solo la distribuzione nuova macchina virtuale da su immagini personalizzate locali. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
+> Per le macchine virtuali classiche, è supportata solo la distribuzione di una nuova macchina virtuale da immagini locali personalizzate. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Modalità di utilizzo del vantaggio Azure Hybrid per Windows Server
 Esistono più modi per usare macchine virtuali di Windows con il vantaggio Azure Hybrid:
@@ -65,7 +64,7 @@ New-AzVm `
     -LicenseType "Windows_Server"
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
@@ -111,7 +110,7 @@ Nel pannello della macchina virtuale del portale è possibile aggiornare la macc
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 - Convertire una macchina virtuale Windows Server esistente affinché usi il vantaggio Azure Hybrid per Windows Server
 
     ```azurecli
@@ -144,7 +143,7 @@ Location                 : westus
 LicenseType              :
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
@@ -165,13 +164,13 @@ $vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Distribuire un set di scalabilità di macchine virtuali con il vantaggio Azure Hybrid per Windows Server
-Nei modelli Resource Manager per set di scalabilità di macchine virtuali, è necessario specificare il parametro aggiuntivo `licenseType` nella proprietà VirtualMachineProfile. È possibile eseguire questa operazione durante la creazione o aggiornamento per il set di scalabilità tramite il modello ARM, PowerShell, CLI Azure o REST.
+Nei modelli Resource Manager per set di scalabilità di macchine virtuali, è necessario specificare il parametro aggiuntivo `licenseType` nella proprietà VirtualMachineProfile. Questa operazione può essere eseguita durante la creazione o l'aggiornamento del set di scalabilità tramite il modello ARM, PowerShell, l'interfaccia della riga di comando di Azure o REST
 
 Nell'esempio seguente viene usato il modello ARM con un'immagine di Windows Server 2016 Datacenter:
 ```json

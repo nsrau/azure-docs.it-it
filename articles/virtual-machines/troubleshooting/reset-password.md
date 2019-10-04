@@ -4,21 +4,21 @@ description: Viene illustrata la procedura per reimpostare la password di Linux 
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306952"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153563"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Come reimpostare la password di Linux locale nelle VM di Azure
 
@@ -30,11 +30,14 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
 
 ## <a name="manual-password-reset-procedure"></a>Procedura di reimpostazione manuale della password
 
-1.  Eliminare la VM e mantenere i dischi collegati.
+> [!NOTE]
+> I passaggi seguenti non si applicano alla macchina virtuale con disco non gestito.
 
-2.  Collegare l'unità del sistema operativo come disco dati a un'altra VM temporale nella stessa posizione.
+1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi alporre il disco a una VM di risoluzione dei problemi. Per altre informazioni, vedere [risolvere i problemi di una VM Windows connettendo il disco del sistema operativo a una VM di ripristino usando il portale di Azure](troubleshoot-recovery-disks-portal-linux.md).
 
-3.  Usare il comando SSH seguente nella VM temporale per diventare utente con privilegi avanzati.
+2. Connettersi alla macchina virtuale per la risoluzione dei problemi usando Desktop remoto.
+
+3.  Eseguire il comando SSH seguente nella macchina virtuale per la risoluzione dei problemi per diventare un utente con privilegi avanzati.
 
     ```bash
     sudo su
@@ -98,12 +101,12 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
     umount /tempmount
     ```
 
-11. Scollegare il disco dal portale di gestione.
+11. In portale di Azure scollegare il disco dalla macchina virtuale per la risoluzione dei problemi.
 
-12. Ricreare la macchina virtuale.
+12. [Modificare il disco del sistema operativo per la macchina virtuale interessata](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Risolvere i problemi della macchina virtuale di Azure collegando il disco del sistema operativo a un'altra macchina virtuale di Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Comando di Azure: Come eliminare e ridistribuire una macchina virtuale dal disco rigido virtuale](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [INTERFACCIA della riga di comando di Azure: Come eliminare e ridistribuire una macchina virtuale da un disco rigido virtuale](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

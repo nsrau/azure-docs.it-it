@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801982"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357033"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
  
@@ -55,18 +55,18 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                                       | Data Box Gateway | Data Box Edge   | Data factory di Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | NA                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pre-elaborazione dei dati                           | No                          | Sì, tramite il calcolo Edge    | Sì                                                           |
-| Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                             |
-| Trasferimento da altri cloud                    | No                          | No                        | Sì                                                           |
+| Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Yes                                                           |
+| Cache locale<br>(per archiviare i dati locali)    | Yes                        | Sì                      | No                                                            |
+| Trasferimento da altri cloud                    | No                         | No                       | Yes                                                           |
 | Prezzi                                       | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Trasferire dati con AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Altre informazioni sul trasferimento dei dati con le API REST di Archiviazione](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
+- [Altre informazioni sul trasferimento dei dati con le API REST di Archiviazione](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
 - Informazioni su come:
     - [Trasferire dati con Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Trasformare i dati con Data Box Edge prima dell'invio ad Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).

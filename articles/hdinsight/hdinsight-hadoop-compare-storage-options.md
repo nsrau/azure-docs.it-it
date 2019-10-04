@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/17/2019
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361790"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180778"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
-È possibile scegliere tra alcuni servizi di archiviazione di Azure diverso quando si creano cluster HDInsight:
+È possibile scegliere tra alcuni servizi di archiviazione di Azure diversi quando si creano cluster HDInsight:
 
 * Archiviazione di Azure
 * Azure Data Lake Storage Gen2
@@ -24,34 +24,38 @@ ms.locfileid: "59361790"
 
 Questo articolo offre una panoramica di questi tipi di archiviazione e delle relative funzionalità univoche.
 
-La tabella seguente riepiloga i servizi di archiviazione di Azure che sono supportati con versioni diverse di HDInsight:
+La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con diverse versioni di HDInsight:
 
-| Servizio di archiviazione | Tipo di account | Tipo Namespace | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | HDInsight Version | Tipo di cluster |
+| Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | Versione HDInsight | Tipo di cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (file System) | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
-|Archiviazione di Azure| Archiviazione BLOB | Oggetto | BLOB | Standard | Accesso frequente, ad accesso sporadico, archivio | Tutti | Tutti |
-|Azure Data Lake Storage Gen1| N/D | Gerarchico (file System) | N/D | N/D | N/D | 3.6 solo | Tutti tranne HBase |
+|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v2 | Object | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v1 | Object | Blob | Standard | N/D | Tutti | Tutti |
+|Archiviazione di Azure| Archiviazione BLOB * * | Object | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
+|Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
-Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere [archiviazione Blob di Azure: Premium (anteprima), i livelli di archiviazione di frequente, sporadico e archivio](../storage/blobs/storage-blob-storage-tiers.md)
+\* * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.
 
-È possibile creare un cluster utilizzando combinazioni diverse di servizi primaria e facoltativo archiviazione secondaria. La tabella seguente riepiloga le configurazioni di archiviazione cluster che sono attualmente supportate in HDInsight:
+Per altre informazioni sui tipi di account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md)
 
-| HDInsight Version | Risorsa di archiviazione primaria | Archiviazione secondaria | Supportato |
+Per altre informazioni sui livelli di accesso di archiviazione di Azure [, vedere Archiviazione BLOB di Azure: Livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio](../storage/blobs/storage-blob-storage-tiers.md)
+
+È possibile creare un cluster usando diverse combinazioni di servizi per l'archiviazione secondaria primaria e facoltativa. Nella tabella seguente sono riepilogate le configurazioni di archiviazione del cluster attualmente supportate in HDInsight:
+
+| Versione HDInsight | Archiviazione primaria | Archiviazione secondaria | Supportato |
 |---|---|---|---|
-| 3.6 & 4.0 | Blob standard | Blob standard | Sì |
-| 3.6 & 4.0 | Blob standard | Data Lake Storage Gen2 | No  |
-| 3.6 & 4.0 | Blob standard | Data Lake Storage Gen1 | Sì |
-| 3.6 & 4.0 | Data Lake Store Gen2 * | Data Lake Storage Gen2 | Sì |
-| 3.6 & 4.0 | Data Lake Store Gen2 * | Blob standard | Sì |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No  |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
-| 3.6 | Data Lake Storage Gen1 | Blob standard | Sì |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No  |
-| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No  |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Yes |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Yes |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
+| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0 | Data Lake Storage Gen1 | Any | No |
 
-* = Potrebbe trattarsi di uno o più account Data Lake Storage Gen2,, purché siano tutte le impostazioni da usare la stessa identità gestita per l'accesso del cluster.
+\* = Può trattarsi di uno o più account Data Lake Storage Gen2, purché tutti i set di impostazioni usino la stessa identità gestita per l'accesso al cluster.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Usare Azure Data Lake Storage Gen2 con Apache Hadoop in Azure HDInsight
 
@@ -91,9 +95,9 @@ Per altre informazioni, vedere [Driver del file system del BLOB di Azure: un dri
 
 Azure Data Lake Storage Gen2 usa un nuovo schema URI per accedere ai file in Archiviazione di Azure da HDInsight:
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-Lo schema URI offre l'accesso con crittografia SSL (prefisso `abfss://`) e l'accesso non crittografato (prefisso `abfs://`). Se possibile, usare `abfss` anche per accedere ai dati presenti nella stessa area di Azure.
+Lo schema URI fornisce l'accesso crittografato tramite SSL.
 
 `<FILE_SYSTEM_NAME>` identifica il percorso del file system di Data Lake Storage Gen2.
 
@@ -104,8 +108,8 @@ Lo schema URI offre l'accesso con crittografia SSL (prefisso `abfss://`) e l'acc
 Se i valori per `<FILE_SYSTEM_NAME>` e `<ACCOUNT_NAME>` non vengono specificati, viene usato il file system predefinito. Per i file presenti nel file system predefinito, usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file `hadoop-mapreduce-examples.jar` incluso nei cluster HDInsight usando uno dei percorsi seguenti:
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]
@@ -117,15 +121,15 @@ Per altre informazioni, vedere [Usare l'URI di Azure Data Lake Storage Gen2](../
 
 Archiviazione di Azure è una soluzione di archiviazione affidabile di utilizzo generico che si integra perfettamente con HDInsight. HDInsight può usare un contenitore BLOB in Archiviazione di Azure come file system predefinito per il cluster. Grazie a un'interfaccia HDFS, tutti i componenti disponibili in HDInsight possono agire direttamente su dati strutturati o non strutturati archiviati come BLOB.
 
-È consigliabile usare i contenitori di archiviazione separato per la risorsa di archiviazione cluster predefinita e i dati aziendali, per isolare i log di HDInsight e i file temporanei dai propri dati di business. È inoltre consigliabile eliminare il contenitore blob predefinito, che contiene l'applicazione e i registri di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
+Si consiglia di usare contenitori di archiviazione separati per l'archiviazione del cluster predefinita e i dati aziendali, per isolare i log HDInsight e i file temporanei dai dati aziendali. È inoltre consigliabile eliminare il contenitore BLOB predefinito, che contiene i registri applicazioni e di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
-Se si sceglie di proteggere l'account di archiviazione con il **firewall e reti virtuali** restrizioni sulle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti attendibili Microsoft servizi...**  in modo che HDInsight può accedere all'account di archiviazione.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere alla risorsa di archiviazione account.
 
 ### <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
 
 Nel diagramma seguente viene sintetizzata l'architettura HDInsight di Archiviazione di Azure:
 
-![Diagramma che mostra il modo in cui i cluster Hadoop usano l'API HDFS per accedere ai dati strutturati e non strutturati e archiviarli nell'archiviazione BLOB](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "Architettura di Archiviazione HDInsight")
+![Architettura archiviazione HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architettura archiviazione HDInsight")
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 
@@ -133,7 +137,7 @@ HDInsight offre accesso al file system distribuito collegato localmente ai nodi 
 
 Tramite HDInsight è anche possibile accedere ai dati in Archiviazione di Azure. La sintassi è la seguente:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Tenere conto delle considerazioni seguenti quando si usa un account di Archiviazione di Azure con cluster HDInsight:
 
@@ -213,7 +217,7 @@ Data Lake Storage Gen1 usa Azure Active Directory per l'autenticazione e gli ele
 
 | **Funzionalità** | **Descrizione** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 si integra con Azure Active Directory (Azure AD) per la gestione delle identità e degli accessi per tutti i dati in esso archiviati. Grazie a questa integrazione, Data Lake Storage Gen1 usufruisce di tutte le funzionalità di Azure AD. Queste funzionalità includono l'autenticazione a più fattori, l'accesso condizionale, il controllo degli accessi in base al ruolo, il monitoraggio dell'uso delle applicazioni, la sicurezza, il monitoraggio e gli avvisi di sicurezza e così via. Data Lake Storage Gen1 supporta il protocollo OAuth 2.0 per l'autenticazione nell'interfaccia REST. Vedere [Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 si integra con Azure Active Directory (Azure AD) per la gestione delle identità e degli accessi per tutti i dati in esso archiviati. Grazie a questa integrazione, Data Lake Storage Gen1 usufruisce di tutte le funzionalità di Azure AD. Queste funzionalità includono l'autenticazione a più fattori, l'accesso condizionale, il controllo degli accessi in base al ruolo, il monitoraggio dell'utilizzo delle applicazioni, il monitoraggio della sicurezza e gli avvisi e così via. Data Lake Storage Gen1 supporta il protocollo OAuth 2.0 per l'autenticazione nell'interfaccia REST. Vedere [Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
 | Controllo di accesso |Data Lake Storage Gen1 offre il controllo di accesso mediante il supporto delle autorizzazioni di tipo POSIX esposte dal protocollo WebHDFS. Gli elenchi di controllo di accesso possono essere abilitati nella cartella radice, nelle sottocartelle e nei singoli file. Per altre informazioni sul funzionamento degli ACL nel contesto di Data Lake Storage Gen1, vedere [Controllo di accesso in Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Crittografia |Data Lake Storage Gen1 offre anche la crittografia per i dati archiviati nell'account. Le impostazioni della crittografia vengono specificate durante la creazione di un account Data Lake Storage Gen1. È possibile scegliere di crittografare i dati oppure di fare a meno della crittografia. Per altre informazioni, vedere [Crittografia in Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Per istruzioni su come specificare una configurazione relativa alla crittografia, vedere [Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 

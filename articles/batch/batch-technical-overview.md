@@ -4,23 +4,22 @@ description: Informazioni sull'uso del servizio Azure Batch per carichi di lavor
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/19/2018
-ms.author: mscurrell
+ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ee61f0f550a09640469914d29bde175028b59142
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730956"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094334"
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 

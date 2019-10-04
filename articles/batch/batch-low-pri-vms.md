@@ -3,21 +3,20 @@ title: Eseguire i carichi di lavoro su macchine virtuali convenienti con priorit
 description: Informazioni su come eseguire il provisioning di macchine virtuali con priorità bassa per ridurre i costi dei carichi di lavoro di Azure Batch.
 services: batch
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 33d448bc95f4cb12f5a06232cbab168a43d522c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546794"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095187"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 

@@ -2,19 +2,20 @@
 title: Supporto di condivisione delle risorse multiorigine (CORS) | Microsoft Docs
 description: Informazioni su come attivare il supporto CORS per i servizi di archiviazione di Microsoft Azure.
 services: storage
-author: cbrooksmsft
+author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
-ms.author: cbrooks
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65147681"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](https://www.w3.org/TR/cors/).
@@ -130,8 +131,8 @@ Successivamente, considerare le seguenti richieste CORS:
 | Richiesta |  |  | Risposta |  |
 | --- | --- | --- | --- | --- |
 | **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato** |
-| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
-| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Seconda regola |Success |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Prima regola |Riuscito |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Seconda regola |Riuscito |
 | **GET** |http:\//www.contoso.com |x-ms-client-request-id |Seconda regola |Esito negativo |
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
@@ -164,13 +165,13 @@ Nella tabella seguente viene indicata la risposta del servizio di archiviazione 
 | Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Risposta |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini(*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
-| No  |No  |No  |No  |No  |No  |No  |
-| No  |Sì |No  |No  |Sì |No  |No  |
-| No  |Sì |Sì |No  |No  |Sì |Sì |
-| Sì |No  |No  |No  |No  |No  |No  |
-| Sì |Sì |No  |Sì |Sì |No  |Sì |
-| Sì |Sì |No  |No  |Sì |No  |No  |
-| Sì |Sì |Sì |No  |No  |Sì |Sì |
+| No |No |No |No |No |No |No |
+| No |Sì |No |No |Sì |No |No |
+| No |Yes |Sì |No |No |Yes |Sì |
+| Sì |No |No |No |No |No |No |
+| Yes |Sì |No |Yes |Sì |No |Yes |
+| Sì |Sì |No |No |Sì |No |No |
+| Yes |Sì |Sì |No |No |Yes |Yes |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.

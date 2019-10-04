@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560856"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566382"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 
-Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.
+Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL di Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.
 
 Il periodo di conservazione della cronologia temporale può essere configurato a livello di singola tabella, per consentire agli utenti di creare criteri di giacenza flessibili. L'applicazione della conservazione temporale è semplice: è necessario configurare un solo parametro durante la creazione della tabella o la modifica dello schema.
 

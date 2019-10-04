@@ -7,15 +7,14 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790121"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338190"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definire e assegnare un progetto nel portale
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Guida introduttiva: Definire e assegnare un progetto nel portale
 
 Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
@@ -70,11 +69,11 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    1. Modificare **Tipo** in **Predefinito**. In **Ricerca** immettere **tag**.
 
-   1. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Applica tag e relativo valore predefinito ai gruppi di risorse**.
+   1. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Accorda tag e relativo valore predefinito ai gruppi di risorse**.
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-1. Selezionare la riga dell'assegnazione di criteri **Applica tag e relativo valore predefinito ai gruppi di risorse**.
+1. Selezionare la riga dell'assegnazione di criteri **Accorda tag e relativo valore predefinito ai gruppi di risorse**.
 
 1. Viene visualizzata la finestra per fornire i parametri per l'artefatto come parte della definizione del progetto, in cui è possibile impostare i parametri per tutte le assegnazioni (parametri statici) in base a questo progetto anziché durante l'assegnazione (parametri dinamici). Dal momento che ai fini di questo esempio vengono usati parametri dinamici durante l'assegnazione del progetto, lasciare le impostazioni predefinite e selezionare **Annulla**.
 
@@ -224,7 +223,7 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
    1. Selezionare l'**offerta** disponibile nell'elenco a discesa.
 
-   1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
+   1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/overview.md) di cui la sottoscrizione sarà un elemento figlio.
 
    1. Selezionare **Crea** nella parte inferiore della pagina.
 

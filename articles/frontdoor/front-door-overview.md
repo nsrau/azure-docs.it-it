@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 346fa5721df6c9ce0cf355adea21f59c93a394a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040483"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330827"
 ---
 # <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, rendendo le prestazioni ottimali e il failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare il consumer globale (multi-area) e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni, in API, con contenuti che raggiungono un audience globale grazie ad Azure.
@@ -61,6 +61,13 @@ Il servizio Frontdoor di Azure consente di creare regole di Web application fire
 
 La stessa piattaforma Frontdoor è protetta da [Protezione DDoS di Azure](../virtual-network/ddos-protection-overview.md) di Siti Web Basic. Per una protezione maggiore, Protezione DDoS Standard di Azure può essere abilitata nelle reti virtuali per proteggere le risorse dagli attacchi a livello di rete (TCP/UDP) attraverso l'ottimizzazione automatica e la mitigazione. Frontdoor è un proxy inverso di livello 7 e consente solo al traffico Web di attraversare i back-end e bloccare altri tipi di traffico per impostazione predefinita.
 
+## <a name="url-redirection"></a>Reindirizzamento URL
+Con la forte richiesta degli addetti ai lavori per un supporto solo per comunicazioni sicure, le applicazioni Web dovrebbero reindirizzare automaticamente il traffico da HTTP a HTTPS. Questo garantisce che tutte le comunicazioni tra gli utenti e l'applicazione si verifichino tramite un percorso crittografato. 
+
+Tradizionalmente, i proprietari delle applicazioni soddisfano questo requisito con la creazione di un servizio dedicato, il cui unico scopo è il reindirizzamento a HTTPS delle richieste ricevute su HTTP. Il servizio Frontdoor di Azure offre la possibilità di reindirizzare il traffico da HTTP a HTTPS. Questo semplifica la configurazione delle applicazioni, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il reindirizzamento degli URL dal servizio Frontdoor di Azure non è limitato al reindirizzamento da HTTP a HTTPS, ma anche a un nome host diverso, a un percorso diverso o a una nuova stringa di query nell'URL.
+
+Per altre informazioni, vedere come [reindirizzare il traffico](front-door-url-redirect.md) con il servizio Frontdoor di Azure.
+
 ## <a name="url-rewrite"></a>Riscrittura URL
 Frontdoor supporta [URL rewrite](front-door-url-rewrite.md) (riscrivere URL) consentendo di configurare un percorso di trasferimento personalizzato opzionale da usare quando si costruisce la richiesta da trasferire al back-end. Frontdoor consente inoltre di configurare l'Intestazione host da inviare quando si trasferisce la richiesta al back-end.
 
@@ -75,5 +82,5 @@ Per informazioni sui prezzi, vedere [Prezzi di Frontdoor](https://azure.microsof
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [come creare un Frontdoor](quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

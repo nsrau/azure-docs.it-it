@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
-ms.author: annahar
-ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.author: anavin
+ms.openlocfilehash: fcb9cc817128bce9498312d3fb016761b6382634
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650565"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612746"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Assegnare più indirizzi IP alle macchine virtuali usando il portale di Azure
 

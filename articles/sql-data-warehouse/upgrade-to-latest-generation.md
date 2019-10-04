@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310324"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575295"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Ottimizzare le prestazioni aggiornando SQL Data Warehouse
 
@@ -63,7 +63,7 @@ Questo aggiornamento si applica ai data warehouse di livello Gen1 con ottimizzaz
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Migrazione da Gen1 a Gen2 tramite il portale di Azure è permanente. Non è un processo per la restituzione al Gen1.  
+> La migrazione da Gen1 a Gen2 tramite il portale di Azure è permanente. Non esiste un processo per tornare a Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -185,7 +185,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Passare al data warehouse SQL per cui si desidera creare un punto di ripristino.
+2. Passare alla SQL Data Warehouse per la quale si desidera creare un punto di ripristino.
 
 3. Nella parte superiore della sezione della panoramica, selezionare **+ Nuovo punto di ripristino**.
 
@@ -198,7 +198,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Ripristinare un database attivo o sospeso con il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare al data warehouse SQL da ripristinare e selezionarlo.
+2. Passare al SQL Data Warehouse da cui si desidera eseguire il ripristino.
 3. Nella parte superiore della sezione della panoramica, selezionare **+ Ripristino**.
 
     ![ Panoramica del servizio di ripristino](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
@@ -215,7 +215,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per ripristinare un database, usare il [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
+Per ripristinare un database, usare il cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) .
 
 > [!NOTE]
 > È possibile eseguire un ripristino geografico alla seconda generazione. A tale scopo, specificare ServiceObjectiveName di seconda generazione (ad es. DW1000**c**) come parametro facoltativo.

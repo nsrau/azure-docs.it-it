@@ -4,23 +4,22 @@ description: Usare l'interfaccia della riga di comando di Azure Classico per cre
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083708"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Creare un ambiente Linux completo con l'interfaccia della riga di comando di Azure Classic
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
@@ -1097,7 +1096,7 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
   --network-security-group-name myNetworkSecurityGroup
 ```
 
-## <a name="create-an-availability-set"></a>Creare un set di disponibilità
+## <a name="create-an-availability-set"></a>Crea set di disponibilità
 I set di disponibilità agevolano la distribuzione delle VM nei domini di errore e domini di aggiornamento. Si creerà un set di disponibilità per le VM. Nell'esempio seguente viene creato un set di disponibilità chiamato `myAvailabilitySet`:
 
 ```azurecli

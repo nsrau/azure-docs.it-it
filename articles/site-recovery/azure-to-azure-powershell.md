@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: d11ebad3eaa629a1b03d22c6548f3b7ad591cf5b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003809"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671898"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>Impostare il contesto dell'insieme di credenziali
 
-> [!TIP]
-> Il modulo di PowerShell per Azure Site Recovery (modulo Az.RecoveryServices) viene fornito con alias di facile utilizzo per la maggior parte dei cmdlet. I cmdlet nel modulo assumono la forma  *\<operazione >-**AzRecoveryServicesAsr**\<oggetto >* e hanno alias equivalenti che assumono la forma  *\< Operazione >-**Azure Site Recovery**\<oggetto >*. In questo articolo vengono usati gli alias dei cmdlet per una maggiore semplicità di lettura.
 
-Impostare il contesto dell'insieme di credenziali da usare nella sessione di PowerShell. A tale scopo, scaricare il file con le impostazioni dell'insieme di credenziali e importare il file scaricato nella sessione di PowerShell per impostare il contesto dell'insieme di credenziali.
-
-In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
+Impostare il contesto dell'insieme di credenziali da usare nella sessione di PowerShell. In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -160,6 +153,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+Per una migrazione a Azure ad Azure, è possibile impostare il contesto dell'insieme di credenziali per l'insieme di credenziali appena creato: 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Preparare l'insieme di credenziali per avviare la replica delle macchine virtuali di Azure
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Creare un oggetto di infrastruttura di Site Recovery per rappresentare l'area primaria (di origine)
@@ -408,11 +411,11 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 # Data disk
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
@@ -607,6 +610,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Dopo aver completata la riprotezione, è possibile avviare il failover nella direzione inversa (Stati Uniti occidentali negli Stati Uniti orientali) ed eseguire il failback all'area di origine.
+
+## <a name="disable-replication"></a>Disabilitare la replica
+
+È possibile disabilitare la replica usando il cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Visualizza i [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) per informazioni su come è possibile eseguire altre attività, ad esempio la creazione di piani di ripristino e test del failover dei piani di ripristino tramite PowerShell.

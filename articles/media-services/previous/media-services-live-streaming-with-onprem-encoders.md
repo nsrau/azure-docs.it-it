@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.author: juliako
+ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188357"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015472"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso di canali che ricevono il flusso live a bitrate multipli da codificatori locali
 
@@ -45,7 +45,7 @@ A partire da Servizi multimediali versione 2.10, quando si crea un canale è pos
 > [!NOTE]
 > Questo articolo illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->Per informazioni su consigliata su codificatori locali, vedere [consigliato codificatori locali su](media-services-recommended-encoders.md).
+>Per informazioni sui codificatori locali consigliati, vedere la pagina [relativa ai codificatori locali consigliati](media-services-recommended-encoders.md).
 
 Il diagramma seguente rappresenta un flusso di lavoro di streaming live che usa un codificatore live locale per generare flussi in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output.
 
@@ -187,9 +187,9 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
 | **Avvio** |**Avvio** |No (stato temporaneo) |
-| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Sì |
+| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Yes |
 | **Arresto** |**Arresto** |No (stato temporaneo) |
-| **Stopped** |**Stopped** |No  |
+| **Stopped** |**Stopped** |No |
 
 ## <a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci
 La tabella seguente illustra gli standard supportati per i sottotitoli codificati e l'inserimento di annunci.
@@ -229,9 +229,9 @@ Ecco altre considerazioni relative all'uso dei canali e dei componenti correlati
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati
-[In codificatori locali consigliati](media-services-recommended-encoders.md)
+[Codificatori locali consigliati](media-services-recommended-encoders.md)
 
-[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
+[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](../media-services-fmp4-live-ingest-overview.md)
 
 [Panoramica e scenari comuni di Servizi multimediali di Azure](media-services-overview.md)
 

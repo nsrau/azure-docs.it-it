@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: f92c0faaaa3aa0cd2af16a031f3bed4c6b41fc22
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462589"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706837"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informazioni di riferimento su Project URL Preview v7
 
@@ -59,10 +60,10 @@ Per informazioni sull'utilizzo consentito e la visualizzazione dei risultati, ve
 > 
 > Inoltre, alcuni parametri non sono attualmente significativi per l'API Anteprima URL, ma potranno essere usati in futuro per un processo migliore di globalizzazione.
 
-## <a name="headers"></a>Headers
+## <a name="headers"></a>Intestazioni
 Di seguito sono riportate le intestazioni che una richiesta e una risposta possono includere.
 
-|Intestazione|DESCRIZIONE|
+|Intestazione|Descrizione|
 |------------|-----------------|
 |<a name="market" />BingAPIs-Market|Intestazione della risposta.<br /><br /> Il mercato usato dalla richiesta. Il formato è \<languageCode\>-\<countryCode\>, ad esempio en-US.|
 |<a name="traceid" />BingAPIs-TraceId|Intestazione della risposta.<br /><br /> L'ID della voce di registro che contiene i dettagli della richiesta. In caso di errore acquisire questo ID. Se non si riesce a individuare e risolvere il problema, includere questo ID con le altre informazioni inviate al team di supporto.|
@@ -73,11 +74,11 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 ## <a name="query-parameters"></a>Parametri della query
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query. La query deve essere un URL assoluto con schema http o https; non sono supportati URL relativi o altri schemi, ad esempio ftp://
 
-|Name|Value|Type|Obbligatorio|
+|NOME|Value|Type|Obbligatoria|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|String|Sì|
-|<a name="query" />q|URL per l'anteprima|String|Sì|
-|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No |
+|<a name="query" />q|URL per l'anteprima|String|Yes|
+|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No|
 |<a name="safesearch"/>safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e il flag *isFamilyFriendly* non viene restituito. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |String|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.|
 
 ## <a name="response-objects"></a>Oggetti della risposta
@@ -87,10 +88,10 @@ Lo schema di risposta è [WebPage] o ErrorResponse, come nell'API Ricerca Web. S
 |------------|-----------------|
 |[WebPage](#webpage)|Oggetto JSON di livello superiore che contiene gli attributi dell'anteprima.|
 
-### <a name="error"></a>Tipi di errore
+### <a name="error"></a>Errore
 Definisce l'errore che si è verificato.
 
-|Elemento|DESCRIZIONE|Type|
+|Elemento|Descrizione|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|String|
 |<a name="error-message" />message|Descrizione dell'errore.|String|
@@ -110,7 +111,7 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="webpage"></a>WebPage
 Definisce le informazioni su una pagina Web in anteprima.
 
-|Name|Value|Type|
+|NOME|Valore|Type|
 |----------|-----------|----------|
 |name|Titolo della pagina, non necessariamente il titolo HTML|String|
 |url|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|String|
@@ -127,9 +128,9 @@ Definisce le informazioni su una pagina Web in anteprima.
 
 Di seguito sono riportati i possibili codici di stato HTTP restituiti da una richiesta.
 
-|Codice di stato|DESCRIZIONE|
+|Codice di stato|Descrizione|
 |-----------------|-----------------|
-|200|Completamento della procedura.|
+|200|Riuscite.|
 |400|Uno dei parametri di query manca o non è valido.|
 |400|ServerError, subCode ResourceError: impossibile raggiungere l'URL richiesto|
 |400|ServerError, subCode ResourceError: l'URL richiesto non ha restituito un codice di riuscita (anche se ha restituito HTTP 404)|

@@ -2,23 +2,23 @@
 title: Gestire le app e l'accesso alle risorse tramite gruppi - Azure Active Directory | Microsoft Docs
 description: Informazioni su come gestire l'accesso alle app basate sul cloud, alle app locali e alle risorse dell'organizzazione con i gruppi di Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acbc19c2148a2b62ff1aa28d705591430b4fad20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248458"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561828"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gestire le app e l'accesso alle risorse tramite i gruppi di Azure Active Directory
 Azure Active Directory (Azure AD) consente di gestire le app basate sul cloud, le app locali e le risorse usando i gruppi dell'organizzazione. Le risorse possono far parte della directory, come ad esempio le autorizzazioni per gestire oggetti tramite i ruoli nella directory, o essere esterne alla directory, come ad esempio le app SaaS (Software as a Service, software come un servizio), i servizi di Azure, i siti di SharePoint e le risorse locali.

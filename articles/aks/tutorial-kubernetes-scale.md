@@ -2,18 +2,18 @@
 title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2a962b5bdb6eeb139275ea6a7f585b36ff84b61f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784126"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965141"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -70,20 +70,21 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del proprio cluster servizio Azure Kubernetes, usare il comando [az servizio Azure Kubernetes show][az-aks-show], come illustrato nell'esempio seguente:
+Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del proprio cluster servizio Azure Kubernetes, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
+> [!NOTE]
+> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Server delle metriche per Kuberenetes 1.8 e versioni successive][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
-
-Per usare la scalabilità automatica, i pod devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` con il contenitore front-end è richiesto già un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le richieste e i limiti delle risorse vengono definiti come illustrato nel frammento di codice di esempio seguente:
+Per usare la scalabilità automatica, i pod e i contenitori al loro interno devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` con il contenitore front-end è richiesto già un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le richieste e i limiti delle risorse vengono definiti come illustrato nel frammento di codice di esempio seguente:
 
 ```yaml
 resources:
@@ -93,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
+L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo medio della CPU tra tutti i pod supera il 50% dell'utilizzo richiesto, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

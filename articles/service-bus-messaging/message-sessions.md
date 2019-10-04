@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403765"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091822"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -40,6 +40,9 @@ La funzionalità di sessione nel bus di servizio consente un'operazione di ricez
 Nel portale impostare il flag con la casella di controllo seguente:
 
 ![][2]
+
+> [!NOTE]
+> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client ***non possono più*** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
 
 Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Esiste un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione del ciclo di ricezione.
 
@@ -77,10 +80,19 @@ Tutte le sessioni esistenti in una coda o una sottoscrizione possono essere enum
 
 Lo stato della sessione conservato in una coda o in una sottoscrizione viene conteggiato per il raggiungimento della quota di archiviazione dell'entità. Quando un'applicazione finisce di usare una sessione, è quindi consigliabile che esegua la pulizia dello stato conservato, per evitare costi di gestione esterni.
 
+## <a name="impact-of-delivery-count"></a>Effetti del conteggio recapito
+
+La definizione del numero di recapiti per messaggio nel contesto delle sessioni varia leggermente rispetto alla definizione nella l'assenza delle sessioni. Di seguito è riportata una tabella che riepiloga quando viene incrementato il numero di recapito.
+
+| Scenario | Conteggio recapito del messaggio incrementato |
+|----------|---------------------------------------------|
+| La sessione viene accettata, ma il blocco della sessione scade (a causa del timeout) | Sì |
+| La sessione viene accettata, i messaggi all'interno della sessione non vengono completati (anche se sono bloccati) e la sessione viene chiusa. | No |
+| La sessione viene accettata, i messaggi vengono completati e la sessione viene chiusa in modo esplicito | N/d (questo è il flusso standard. Qui i messaggi vengono rimossi dalla sessione. |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esempio completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) di invio e ricezione di messaggi basati su sessione dalle code del bus di servizio con la libreria .NET Standard.
-- [Esempio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) che usa il client .NET Framework per gestire i messaggi in grado di riconoscere le sessioni. 
+- Vedere gli esempi [Microsoft. Azure. ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) o [Microsoft. ServiceBus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) per un esempio che usa il client di .NET Framework per gestire i messaggi in grado di riconoscere la sessione. 
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
 

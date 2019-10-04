@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133337"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180644"
 ---
 1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto di app di Windows Store e quindi scegliere **Store** > **Associa applicazione a Store**.
 

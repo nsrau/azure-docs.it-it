@@ -3,7 +3,7 @@ title: Come usare il plug-in Apache Cordova per le app per dispositivi mobili di
 description: Come usare il plug-in Apache Cordova per le app per dispositivi mobili di Azure
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 327cb3a3667c63454549ec694790769c9ea1fd58
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004211"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446430"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library) oggi stesso.
+>
+
+## <a name="overview"></a>Panoramica
 Questa guida descrive come eseguire scenari comuni usando il più recente [plug-in Apache Cordova per le app per dispositivi mobili di Azure]. Se non si ha familiarità con le app per dispositivi mobili di Azure, completare prima di tutto l' [esercitazione introduttiva sulle app per dispositivi mobili di Azure] per creare un back-end e una tabella e per scaricare un progetto Apache Cordova predefinito. In questa guida si esaminerà il plug-in Apache Cordova.
 
 ## <a name="supported-platforms"></a>Piattaforme supportate

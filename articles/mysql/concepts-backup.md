@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfbf416c93c78e6ba5e23819084d69e57c47edc8
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532135"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273662"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -19,7 +19,7 @@ Database di Azure per MySQL crea automaticamente backup del server e li archivia
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per MySQL crea backup completi, differenziali e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Database di Azure per MySQL crea backup completi, differenziali e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
@@ -38,7 +38,7 @@ Database di Azure per MySQL offre fino al 100% delle risorse di archiviazione de
 
 Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono disponibili 250 GB per l'archiviazione dei backup senza costi aggiuntivi. Lo spazio di archiviazione oltre 250 GB viene addebitato.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 

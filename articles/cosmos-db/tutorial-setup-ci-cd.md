@@ -4,15 +4,15 @@ description: Esercitazione su come configurare il flusso di lavoro di compilazio
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882012"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597679"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -31,7 +31,7 @@ Per usare l'attività di compilazione, è innanzitutto necessario installarla ne
 Successivamente, scegliere l'organizzazione in cui installare l'estensione. 
 
 > [!NOTE]
-> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![Scegliere un'organizzazione di Azure DevOps in cui installare un'estensione](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -39,7 +39,7 @@ Successivamente, scegliere l'organizzazione in cui installare l'estensione.
 
 Ora che l' estensione è installata, accedere al proprio account Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo**  \> **Nuova pipeline di compilazione**
+1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo** \> **Nuova pipeline di compilazione**
 
    ![Creazione di una nuova pipeline di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -48,6 +48,9 @@ Ora che l' estensione è installata, accedere al proprio account Azure DevOps e 
    ![Selezionare il progetto team, il repository e il ramo per la pipeline di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Selezionare infine il modello desiderato per la pipeline di compilazione. In questa esercitazione viene selezionato il modello **ASP.NET**. 
+
+> [!NOTE]
+> Il pool di agenti da selezionare per questa integrazione continua deve avere Docker per Windows installato, a meno che l'installazione non venga eseguita manualmente in un'attività precedente come parte dell'integrazione continua. Per un elenco di pool di agenti tra cui scegliere, vedere l'articolo [Agenti ospitati da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml). È consigliabile iniziare con `Hosted VS2017` o `Hosted VS2019`. 
 
 A questo punto la pipeline di compilazione può essere configurata per l'uso dell'attività di compilazione dell'emulatore di Azure Cosmos DB. 
 

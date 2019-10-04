@@ -3,20 +3,22 @@ title: Monitorare i dispositivi in Azure IoT Central | Microsoft Docs
 description: Un operatore può usare l'applicazione Azure IoT Central per monitorare i dispositivi.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/01/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760473"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875476"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Esercitazione: Usare Azure IoT Central per monitorare i dispositivi
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Questa esercitazione illustra come un operatore può usare l'applicazione Microsoft Azure IoT Central per monitorare i dispositivi e modificare le impostazioni.
 

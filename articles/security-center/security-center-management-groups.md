@@ -3,9 +3,8 @@ title: Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 description: Informazioni su come ottenere visibilità a livello di tenant nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: memildin
+ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045765"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201961"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -50,7 +49,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
     - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. 
     - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
-      ![Create](./media/security-center-management-groups/create_context_menu.png)  
+      ![Crea](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure
@@ -145,16 +144,16 @@ Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Cent
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Assicurarsi di selezionare nel selettore delle sottoscrizioni tutte le sottoscrizioni da visualizzare nel Centro sicurezza.
 
-    ![Screenshot del selettore di sottoscrizione](./media/security-center-management-groups/subscription-selector.png)
+    ![Schermata selezione sottoscrizioni](./media/security-center-management-groups/subscription-selector.png)
 
 1. Selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Centro sicurezza**.
 2. In **Panoramica** è presente un grafico relativo alla copertura delle sottoscrizioni.
 
-    ![Screenshot del grafico di code coverage sottoscrizione](./media/security-center-management-groups/security-center-subscription-coverage.png)
+    ![Schermata del grafico di copertura della sottoscrizione](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
 3. Fare clic su **Copertura** per visualizzare l'elenco di sottoscrizioni coperte. 
 
-    ![Schermata di elenco di code coverage sottoscrizione](./media/security-center-management-groups/security-center-coverage.png)
+    ![Schermata dell'elenco di code coverage della sottoscrizione](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati 
 Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati agli utenti, l'amministratore del tenant deve rimuovere se stesso dal ruolo Amministratore Accesso utenti.

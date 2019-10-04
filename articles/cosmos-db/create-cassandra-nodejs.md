@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Cassandra con Node.js - Azure Cosmos DB'
+title: 'Avvio rapido: API Cassandra con Node.js - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con Node.js
 author: SnehaGunda
 ms.author: sngun

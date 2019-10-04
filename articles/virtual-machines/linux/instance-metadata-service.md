@@ -1,6 +1,6 @@
 ---
 title: Servizio metadati dell'istanza di Azure | Microsoft Docs
-description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, di rete e di manutenzione previsti di una macchina virtuale Linux.
+description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, di rete e di manutenzione imminenti della macchina virtuale Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KumariSupriya
@@ -8,41 +8,40 @@ manager: harijayms
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c3e2102b5794fb3770b1c77e241320fa7d2222c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8e45bfc605aa48f01a9392184755cb9f412fc615
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850778"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082987"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
 Il Servizio metadati dell'istanza di Azure fornisce informazioni sull'esecuzione delle istanze di macchine virtuali che possono essere utilizzate per gestire e configurare le macchine virtuali.
-Le informazioni includono ad esempio SKU, configurazione di rete ed eventi di manutenzione previsti. Per altre informazioni sul tipo di informazioni disponibili, vedere le [categorie di metadati](#instance-metadata-data-categories).
+Le informazioni includono ad esempio SKU, configurazione di rete ed eventi di manutenzione previsti. Per altre informazioni sul tipo di informazioni disponibili, vedere [API dei metadati](#metadata-apis).
 
-Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile alle macchine virtuali IaaS create tramite [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.254`) a cui è possibile accedere solo dalla macchina virtuale.
 
 > [!IMPORTANT]
-> Questo servizio è **disponibile a livello generale** nelle aree di Azure.  Il servizio riceve regolarmente aggiornamenti per esporre nuove informazioni sulle istanze di macchine virtuali. Questa pagina riporta le [categorie di dati](#instance-metadata-data-categories) attualmente disponibili.
+> Questo servizio è **disponibile a livello generale** in tutte le aree di Azure.  Il servizio riceve regolarmente aggiornamenti per esporre nuove informazioni sulle istanze di macchine virtuali. Questa pagina riflette le [API dei metadati](#metadata-apis) aggiornate disponibili.
 
 ## <a name="service-availability"></a>Disponibilità del servizio
 
 Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni API potrebbero non essere tutte disponibili in tutte le aree di Azure.
 
-Regioni                                        | Disponibilità                                 | Versioni supportate
+Regions                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure per la Cina](https://www.azure.cn/)                                                           | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure per la Cina](https://www.azure.cn/)                                                     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 
 Questa tabella viene aggiornata quando sono disponibili aggiornamenti del servizio o nuove versioni supportate.
 
@@ -52,13 +51,15 @@ Per provare il Servizio metadati dell'istanza, creare una macchina virtuale da [
 
 ### <a name="versioning"></a>Controllo delle versioni
 
-Il Servizio metadati dell'istanza è con versione. Le versioni sono obbligatorie e la versione corrente in Azure a livello globale è `2018-10-01`. Le versioni correnti supportate sono (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
+Il servizio metadati dell'istanza è con versione e la specifica della versione API nella richiesta HTTP è obbligatoria.
+
+È possibile visualizzare le versioni più recenti elencate in questa [tabella di disponibilità](#service-availability).
 
 Quando vengono aggiunte versioni più recenti, quelle precedenti rimangono comunque accessibili per la compatibilità, se gli script presentano dipendenze in formati di dati specifici.
 
-Quando viene specificata alcuna versione, viene restituito un errore con un elenco delle versioni supportate più recenti.
+Quando non viene specificata alcuna versione, viene restituito un errore con un elenco delle versioni supportate più recenti.
 
-> [!NOTE] 
+> [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
 
 **Richiesta**
@@ -96,38 +97,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Tutte le query dei metadati dell'istanza fanno distinzione tra maiuscole e minuscole.
 
 ### <a name="data-output"></a>Output dei dati
+
 Per impostazione predefinita, il Servizio metadati dell'istanza restituisce i dati in formato JSON (`Content-Type: application/json`). Tuttavia, API diverse restituiscono dati in formati diversi se necessario.
 La tabella seguente costituisce un riferimento per gli altri formati di dati che le API possono supportare.
 
 API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
 /instance | json | text
-/scheduledevents | json | Nessuno
-/attested | json | Nessuno
+/scheduledevents | json | none
+/attested | json | none
 
-Per accedere a un formato di risposta non predefinito, specificare il formato richiesto come parametro della stringa di query nella richiesta. Ad esempio: 
+Per accedere a un formato di risposta non predefinito, specificare il formato richiesto come parametro della stringa di query nella richiesta. Ad esempio:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
-> Per i nodi foglia di `format=json` non funziona. Per queste query `format=text` deve essere specificata in modo esplicito se il formato predefinito è json.
+> Per i nodi foglia `format=json` il non funziona. Per queste query `format=text` è necessario specificare in modo esplicito se il formato predefinito è JSON.
 
 ### <a name="security"></a>Security
 
 L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
 È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
 
-### <a name="error"></a>Tipi di errore
+### <a name="error"></a>Errore
 
 In caso di elementi dati non trovati o di richiesta non valida, il Servizio metadati dell'istanza restituisce errori HTTP standard. ad esempio:
 
 Codice di stato HTTP | Motivo
 ----------------|-------
 200 - OK |
-400 - Richiesta non valida | Missing `Metadata: true` intestazione o manca il formato quando si eseguono query di un nodo foglia
-404 - Non trovato | L'elemento richiesto non esiste
+400 - Richiesta non valida | Manca `Metadata: true` l'intestazione o il formato quando si esegue una query su un nodo foglia
+404 Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET` e `POST`
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
@@ -135,7 +137,7 @@ Codice di stato HTTP | Motivo
 ### <a name="examples"></a>esempi
 
 > [!NOTE]
-> Tutte le risposte delle API sono stringhe JSON. Tutte le risposte di esempio seguenti sono di tipo pretty-Print per una migliore leggibilità.
+> Tutte le risposte delle API sono stringhe JSON. Tutte le risposte di esempio seguenti sono abbastanza stampate per migliorare la leggibilità.
 
 #### <a name="retrieving-network-information"></a>Recupero delle informazioni di rete
 
@@ -189,7 +191,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Richiesta**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
 ```
 
 **Risposta**
@@ -200,7 +202,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -217,6 +220,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "publicKeys": [],
     "publisher": "bitnami",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
@@ -260,13 +264,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 I metadati dell'istanza possono essere recuperati in Windows tramite l'utilità PowerShell `curl`: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
 Oppure tramite il cmdlet `Invoke-RestMethod`:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
+
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get 
 ```
 
 **Risposta**
@@ -277,7 +282,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -294,6 +300,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "publicKeys": [],
     "publisher": "bitnami",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
@@ -330,42 +337,63 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="instance-metadata-data-categories"></a>Categorie di dati dei metadati dell'istanza
+## <a name="metadata-apis"></a>API dei metadati
 
-Tramite il Servizio metadati dell'istanza sono disponibili le categorie di dati seguenti:
+#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Le API seguenti sono disponibili tramite l'endpoint dei metadati:
 
-Dati | DESCRIZIONE | Versione introdotta
+Data | DESCRIZIONE | Versione introdotta
 -----|-------------|-----------------------
-azEnvironment | Ambiente di Azure in cui la macchina virtuale è in esecuzione in | 2018-10-01
+attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
+identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
+scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
+
+#### <a name="instance-api"></a>API dell'istanza
+##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Le categorie di calcolo seguenti sono disponibili tramite l'API dell'istanza:
+
+> [!NOTE]
+> Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/calcolo
+
+Data | DESCRIZIONE | Versione introdotta
+-----|-------------|-----------------------
+azEnvironment | Ambiente Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
+customData | Vedere [dati personalizzati](#custom-data) | 2019-02-01
 location | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
 name | Nome della VM | 2017-04-02
-offer | Offre informazioni per l'immagine della macchina virtuale. Questo valore è presente solo per le immagini distribuite dalla raccolta di immagini di Azure. | 2017-04-02
-publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
-sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
-version | Versione dell'immagine della macchina virtuale | 2017-04-02
+offer | Fornire informazioni per l'immagine di macchina virtuale ed è presente solo per le immagini distribuite dalla raccolta immagini di Azure | 2017-04-02
 osType | Linux o Windows | 2017-04-02
+placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
+piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenente il nome, il prodotto e il server di pubblicazione per una macchina virtuale se è un'immagine di Azure Marketplace | 2018-04-02
 platformUpdateDomain |  [Dominio di aggiornamento](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
 platformFaultDomain | [Dominio di errore](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
-vmSize | [Dimensioni macchina virtuale](sizes.md) | 2017-04-02
+un provider | Provider della macchina virtuale | 2018-10-01
+publicKeys | [Raccolta di chiavi pubbliche](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnate alla VM e ai percorsi | 2018-04-02
+publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
+resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
+resourceId | ID [completo della risorsa](https://docs.microsoft.com/rest/api/resources/resources/getbyid) | 2019-03-11
+sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
 subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
 tags | [Tag](../../azure-resource-manager/resource-group-using-tags.md) per la macchina virtuale  | 2017-08-01
-resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
-placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) del set di scalabilità di macchine virtuali | 2017-08-01
-piano | [Pianificare](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale nel relativo un'immagine di Marketplace di Azure, contiene nome, prodotto e server di pubblicazione | 2018-04-02
-provider | Provider della macchina virtuale | 2018-10-01
-publicKeys | [Raccolta di chiavi pubbliche](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnato alla VM e i percorsi | 2018-04-02
+Tag | Tag formattati come matrice JSON per un'analisi più semplice a livello di codice  | 2019-06-04
+version | Versione dell'immagine della macchina virtuale | 2017-04-02
+vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
 vmScaleSetName | [Nome del set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del proprio set di scalabilità di macchine virtuali | 2017-12-01
+vmSize | [Dimensioni macchina virtuale](sizes.md) | 2017-04-02
 zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della macchina virtuale | 2017-12-01
+
+##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Le seguenti categorie di rete sono disponibili tramite l'API dell'istanza:
+
+> [!NOTE]
+> Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/rete/interfaccia
+
+Data | DESCRIZIONE | Versione introdotta
+-----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
 subnet/address | Indirizzo della subnet della macchina virtuale | 2017-04-02
 subnet/prefix | Prefisso della subnet, ad esempio 24 | 2017-04-02
 ipv6/ipAddress | Indirizzo IPv6 locale della macchina virtuale | 2017-04-02
 macAddress | Indirizzo mac della macchina virtuale | 2017-04-02
-scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
-identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 
 ## <a name="attested-data"></a>Dati con attestazione
 
@@ -373,21 +401,21 @@ Il servizio metadati dell'istanza risponde nell'endpoint HTTP in 169.254.169.254
 
 ### <a name="example-attested-data"></a>Esempio di dati con attestazione
 
- > [!NOTE]
+> [!NOTE]
 > Tutte le risposte delle API sono stringhe JSON. Le risposte di esempio seguenti sono riformattate per offrire una migliore leggibilità.
 
  **Richiesta**
-
 
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
 ```
 
-API-version è un campo obbligatorio e la versione supportata per i dati con attestazione è 2018-10-01.
+API-Version è un campo obbligatorio. Vedere la sezione relativa alla [disponibilità del servizio](#service-availability) per le versioni API supportate.
 L'elemento nonce è una stringa facoltativa di 10 cifre fornita. L'elemento nonce può essere usato per tenere traccia della richiesta e, se non specificato, nella stringa di risposta codificata viene restituito il timestamp UTC corrente.
 
  **Risposta**
+
 > [!NOTE]
 > La risposta è una stringa JSON. La risposta di esempio che segue è di tipo pretty-print per una migliore leggibilità.
 
@@ -397,7 +425,7 @@ L'elemento nonce è una stringa facoltativa di 10 cifre fornita. L'elemento nonc
 }
 ```
 
- > Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ai dettagli della macchina virtuale, ad esempio gli elementi vmId, nonce e timeStamp, per la creazione e la scadenza del documento e le informazioni sul piano relative all'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
+> Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ai dettagli della macchina virtuale, ad esempio vmId, nonce, subscriptionId, timeStamp per la creazione e la scadenza del documento e le informazioni del piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Recupero dei metadati con attestazione in una macchina virtuale Windows
 
@@ -415,7 +443,7 @@ curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
 ```
 
-API-version è un campo obbligatorio e la versione supportata per i dati con attestazione è 2018-10-01.
+API-Version è un campo obbligatorio. Vedere la sezione relativa alla disponibilità del servizio per le versioni API supportate.
 L'elemento nonce è una stringa facoltativa di 10 cifre fornita. L'elemento nonce può essere usato per tenere traccia della richiesta e, se non specificato, nella stringa di risposta codificata viene restituito il timestamp UTC corrente.
 
  **Risposta**
@@ -429,7 +457,8 @@ L'elemento nonce è una stringa facoltativa di 10 cifre fornita. L'elemento nonc
 }
 ```
 
-> Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ai dettagli della macchina virtuale, ad esempio gli elementi vmId, nonce e timeStamp, per la creazione e la scadenza del documento e le informazioni sul piano relative all'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
+> Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ai dettagli della macchina virtuale, ad esempio vmId, nonce, subscriptionId, timeStamp per la creazione e la scadenza del documento e le informazioni del piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
+
 
 ## <a name="example-scenarios-for-usage"></a>Scenari di utilizzo di esempio  
 
@@ -505,18 +534,26 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure offre vari cloud sovrani, ad esempio [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). In taluni casi, per alcune decisioni di runtime è necessario l'ambiente di Azure. L'esempio seguente illustra come è possibile ottenere questo comportamento.
 
 **Richiesta**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Risposta**
+```bash
+AzurePublicCloud
 ```
-AZUREPUBLICCLOUD
-```
+Il cloud e i valori dell'ambiente Azure sono elencati di seguito.
 
-### <a name="getting-the-tags-for-the-vm"></a>Ottenere i tag per la macchina virtuale
+ Cloud   | Ambiente Azure
+---------|-----------------
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure per la Cina](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-Si potrebbero aver assegnato i tag nelle VM di Azure per organizzare logicamente in una tassonomia. I tag assegnati a una macchina virtuale possono essere recuperati tramite la richiesta seguente.
+### <a name="getting-the-tags-for-the-vm"></a>Recupero dei tag per la macchina virtuale
+
+È possibile che i tag siano stati applicati alla macchina virtuale di Azure per organizzarli in modo logico in una tassonomia. I tag assegnati a una macchina virtuale possono essere recuperati usando la richiesta riportata di seguito.
 
 **Richiesta**
 
@@ -530,21 +567,45 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-> [!NOTE]
-> I tag sono separati da punti e virgola. Se viene scritto un parser per estrarre a livello di codice i tag, i nomi di tag e i valori non devono contenere un punto e virgola nell'ordine per il parser per funzionare correttamente.
+Il `tags` campo è una stringa con i tag delimitati da punti e virgola. Questo può costituire un problema se i punti e virgola vengono usati nei tag stessi. Se viene scritto un parser per estrarre i tag a livello di codice, è necessario basarsi sul `tagsList` campo che è una matrice JSON senza delimitatori e, di conseguenza, è più facile da analizzare.
+
+**Richiesta**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+```
+
+**Risposta**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Verifica dell'esecuzione della macchina virtuale in Azure
 
- I fornitori di Marketplace vogliono garantire che il software venga concesso in licenza solo per l'esecuzione in Azure. È necessario un modo per rilevare se qualcuno copia il disco rigido virtuale in locale. Con una chiamata al servizio metadati dell'istanza, i fornitori di Marketplace possono ottenere i dati firmati che garantiscono la provenienza della risposta solo da Azure.
+I fornitori di Marketplace vogliono garantire che il software venga concesso in licenza solo per l'esecuzione in Azure. È necessario un modo per rilevare se qualcuno copia il disco rigido virtuale in locale. Con una chiamata al servizio metadati dell'istanza, i fornitori di Marketplace possono ottenere i dati firmati che garantiscono la provenienza della risposta solo da Azure.
 
- > [!NOTE]
+> [!NOTE]
 > Richiede l'installazione di jq.
 
- **Richiesta**
+**Richiesta**
 
  ```bash
   # Get the signature
-   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2018-10-01 | jq -r '.["signature"]' > signature
+   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
   # Decode the signature
   base64 -d signature > decodedsignature
   #Get PKCS7 format
@@ -574,30 +635,32 @@ Verification successful
     "createdOn":"11/28/18 00:16:17 -0000",
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 }
 ```
 
-Dati | DESCRIZIONE
+Data | Descrizione
 -----|------------
 nonce | Stringa facoltativa fornita dall'utente con la richiesta. Se nella richiesta non è presente l'elemento nonce, viene restituito il timestamp UTC corrente
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore
 timestamp/createdOn | Timestamp relativo alla creazione del primo documento firmato
 timestamp/expiresOn | Timestamp relativo alla scadenza del documento firmato
 vmId |  [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale
+subscriptionId | Sottoscrizione di Azure per la macchina virtuale, introdotta in`2019-04-30`
 
 #### <a name="verifying-the-signature"></a>Verifica della firma
 
-Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga da Microsoft. È anche possibile verificare il certificato intermedio e la catena di certificati.
+Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga da Microsoft. È anche possibile verificare il certificato intermedio e la catena di certificati. Infine, è possibile verificare che l'ID sottoscrizione sia corretto.
 
 > [!NOTE]
 > Il certificato per il cloud pubblico e il cloud sovrano sarà diverso.
 
- Regioni | Certificate
+ Cloud | Certificato
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure per la Cina](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure per la Cina](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -613,6 +676,9 @@ openssl x509 -noout -issuer -in intermediate.pem
 # Verify the certificate chain
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
+
+Nei casi in cui non è possibile scaricare il certificato intermedio a causa di vincoli di rete durante la convalida, il certificato intermedio può essere bloccato. Tuttavia, Azure eseguirà il rollup dei certificati in base alle procedure standard di infrastruttura a chiave pubblica. I certificati aggiunti devono essere aggiornati quando si verifica il rollover. Ogni volta che viene pianificata una modifica per l'aggiornamento del certificato intermedio, il Blog di Azure verrà aggiornato e i clienti di Azure riceveranno una notifica. I certificati intermedi sono disponibili [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ognuna delle aree possono essere diversi.
+
 ### <a name="failover-clustering-in-windows-server"></a>Clustering di failover in Windows Server
 
 Per alcuni scenari, quando si eseguono query sul servizio metadati dell'istanza con il cluster di failover, è necessario aggiungere una route alla tabella di routing.
@@ -658,12 +724,43 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
+### <a name="custom-data"></a>Dati personalizzati
+Il servizio metadati dell'istanza offre la possibilità per la macchina virtuale di accedere ai dati personalizzati. Il numero di dati binari deve essere inferiore a 64 KB e viene fornito alla macchina virtuale nel formato con codifica Base64.
+
+I dati personalizzati di Azure possono essere inseriti nella macchina virtuale tramite le API REST, i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o un modello ARM.
+
+Per un esempio di interfaccia della riga di comando di Azure, vedere [dati personalizzati e cloud-init in Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+Per un esempio di modello ARM, vedere [distribuire una macchina virtuale con CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+I dati personalizzati sono disponibili per tutti i processi in esecuzione nella macchina virtuale. È consigliabile che i clienti non inserino informazioni segrete nei dati personalizzati.
+
+Attualmente, è garantita la disponibilità di dati personalizzati durante il bootstrap di una macchina virtuale. Se vengono apportati aggiornamenti alla macchina virtuale, ad esempio l'aggiunta di dischi o il ridimensionamento della macchina virtuale, il servizio metadati dell'istanza non fornirà dati personalizzati. È attualmente in corso la fornitura permanente di dati personalizzati tramite il servizio metadati dell'istanza.
+
+#### <a name="retrieving-custom-data-in-virtual-machine"></a>Recupero di dati personalizzati nella macchina virtuale
+Il servizio metadati dell'istanza fornisce dati personalizzati alla macchina virtuale nel formato con codifica Base64. Nell'esempio seguente viene decodificata la stringa con codifica Base64.
+
+> [!NOTE]
+> I dati personalizzati in questo esempio vengono interpretati come una stringa ASCII che legge "My Custom Data".
+
+**Richiesta**
+
+```bash
+curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+```
+
+**Risposta**
+
+```text
+My custom data.
+```
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Esempi di chiamate del Servizio metadati con diversi linguaggi all'interno della macchina virtuale
 
 Linguaggio | Esempio
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Vai  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

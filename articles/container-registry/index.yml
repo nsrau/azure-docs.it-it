@@ -5,14 +5,12 @@ metadata:
   title: 'Documentazione di Registro Azure Container: esercitazioni | Microsoft Docs'
   description: 'Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.'
 sections:

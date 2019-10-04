@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967981"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155619"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="for-domain-joined-vms"></a>Per le macchine virtuali aggiunte a un dominio
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se la comunicazione fra il controller di dominio e la macchina virtuale è buona ma il controller di dominio non è sufficientemente integro da aprire una sessione RDP, è possibile provare a riavviarlo.
 
-Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A questo scopo, seguire questa procedura:
+Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A tale scopo, effettuare le operazioni seguenti:
 
 1. Creare uno script di nome Unjoin.ps1 usando il contenuto seguente, quindi distribuirlo come estensione script personalizzata nel portale di Azure:
 

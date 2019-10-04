@@ -1,27 +1,27 @@
 ---
-title: Architettura di Azure Blockchain Workbench
-description: Panoramica dell'architettura di Azure Blockchain Workbench e dei relativi componenti.
+title: Architettura di anteprima di Azure blockchain Workbench
+description: Panoramica dell'architettura di anteprima di Azure blockchain Workbench e dei relativi componenti.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330637"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845205"
 ---
-# <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-architecture"></a>Architettura di anteprima di Azure blockchain Workbench
 
-Azure Blockchain Workbench semplifica lo sviluppo di applicazioni blockchain fornendo una soluzione che usa diversi componenti di Azure. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
+Azure blockchain Workbench Preview semplifica lo sviluppo di applicazioni blockchain fornendo una soluzione che usa diversi componenti di Azure. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
 
-![Architettura di Blockchain Workbench](./media/architecture/architecture.png)
+![Architettura di blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identità e autenticazione
 
@@ -45,7 +45,7 @@ Nell'applicazione Web gli utenti autorizzati possono accedere alla Console di am
 * Caricare e distribuire i propri contratti intelligenti.
 * Assegnare a un utente l'accesso al contratto intelligente nel contesto di un ruolo specifico.
 
-Per altre informazioni, vedere: [Le applicazioni client di Azure Blockchain Workbench esempio su GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+Per altre informazioni, vedere: [Le applicazioni client di Azure Blockchain Workbench esempio su GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## <a name="gateway-service-api"></a>API del servizio gateway
 

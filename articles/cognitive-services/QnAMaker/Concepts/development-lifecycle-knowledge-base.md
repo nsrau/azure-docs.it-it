@@ -3,20 +3,20 @@ title: Ciclo di vita della knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/16/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 09/25/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684022"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695106"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 
@@ -28,14 +28,14 @@ L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta i
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test e aggiornamento della knowledge base
 
-La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Test interattiva possono essere eseguiti nel portale di QnA Maker tramite il **Test** pannello immettendo le query utente comuni e verifica che le risposte restituite con la risposta corretta e il punteggio di confidenza sufficienti. 
+La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Il test interattivo può essere eseguito nel portale di QnA Maker tramite il pannello di **test** immettendo query utente comuni e verificando che le risposte restituite con la risposta corretta e un punteggio di confidenza sufficiente. 
 
-* **Per correggere i punteggi di confidenza basso in**: aggiungere domande alternative. 
-* **Quando una query restituisce in modo errato il [risposta predefinita](confidence-score.md#change-default-answer)**: aggiungere nuove risposte per la domanda corretta. 
+* **Per correggere i punteggi di confidenza basso**: aggiungere domande alternative. 
+* **Quando una query restituisce erroneamente la [risposta predefinita](confidence-score.md#change-default-answer)** , aggiungere nuove risposte alla domanda corretta. 
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per la Knowledge base di grandi dimensioni, utilizzare test automatici con il [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e il `isTest` proprietà body le query che il `test` della knowledge base anziché knowledge base pubblicata. 
+Per i dati di grandi dimensioni, utilizzare test automatizzati con l' [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà del corpo `isTest` che esegue una query sulla knowledge base `test` invece che sulla Knowledge base pubblicata. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Una volta testata la knowledge base, è possibile pubblicarla. La pubblicazione 
 
 In questo modo, eventuali modifiche apportate alla versione di test della knowledge base non influiscono sulla versione pubblicata, che potrebbe essere in uso in un'applicazione di produzione.
 
-Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Usando le API, è possibile assegnare la versione di prova della knowledge base con `isTest` proprietà nella chiamata generateAnswer body.
+Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge base con la proprietà del corpo `isTest` nella chiamata generateAnswer.
 
 Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
@@ -62,12 +62,20 @@ Per poter registrare i log di chat del servizio, è necessario abilitare Applica
 
 In base alle informazioni ottenute dall'analisi, apportare [aggiornamenti alla knowledge base](../How-To/edit-knowledge-base.md) come appropriato.
 
+## <a name="version-control-of-a-knowledge-base"></a>Controllo della versione di una Knowledge base
+
+Il controllo della versione non viene fornito dal QnA Maker. È necessario esportare la Knowledge base dalla pagina **Impostazioni** e utilizzare la metodologia e gli strumenti personalizzati.
+
+L'esportazione della Knowledge base nel formato TSV o XLS viene completata dalla pagina **Impostazioni** . 
+
+Quando è necessario tornare a una versione specifica, è necessario importare il file dal sistema locale. Dalla pagina **Impostazioni** importare il file TSV o xls. In questo articolo vengono sostituite le domande e le risposte attualmente presenti nella Knowledge base con il contenuto del file importato.   
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Punteggio di attendibilità](./confidence-score.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Knowledge base](./knowledge-base.md)
 [Panoramica di QnA Maker](../Overview/overview.md)

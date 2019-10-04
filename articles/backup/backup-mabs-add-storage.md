@@ -1,19 +1,19 @@
 ---
 title: Usare Modern Backup Storage con il server di Backup di Azure
 description: Informazioni sulle nuove funzionalità del server di Backup di Azure. In questo articolo viene descritto come aggiornare l'installazione del server di backup.
-services: backup
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: dacurwin
+ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852866"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019077"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -75,13 +75,13 @@ Con l'archiviazione del carico di lavoro, è possibile selezionare i volumi in c
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-È possibile impostare backup di archiviazione con riconoscimento del carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage che aggiorna le proprietà di un volume nel pool di archiviazione in un Server di Backup di Azure. 
+È possibile configurare l'archiviazione in grado di riconoscere il carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage, che aggiorna le proprietà di un volume nel pool di archiviazione in un server di Backup di Azure. 
 
 Sintassi:
 
 `Parameter Set: Volume`
 
-```
+```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 Nella schermata seguente viene illustrato il cmdlet Update-DPMDiskStorage nella finestra di PowerShell.

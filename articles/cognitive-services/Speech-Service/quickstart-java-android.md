@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, Java (Android) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, Java (Android) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Java in Android con Speech SDK
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009179"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559494"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come sviluppare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione è basata sulla versione 1.4.0 del pacchetto Maven di Speech SDK e su Android Studio 3.3.
+L'applicazione è basata sulla versione 1.6.0 del pacchetto Maven di Speech SDK e su Android Studio 3.3.
 Speech SDK è attualmente compatibile con i dispositivi Android con processori ARM a 32/64 bit e Intel x86/x64 compatibili.
 
 > [!NOTE]
@@ -34,47 +34,7 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 ## <a name="create-and-configure-a-project"></a>Creare e configurare un progetto
 
-1. Avviare Android Studio e selezionare **Start a new Android Studio project** (Avvia un nuovo progetto di Android Studio) nella schermata iniziale.
-
-    ![Screenshot della finestra iniziale di Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
-
-1. Nella procedura guidata **Choose your project** (Scegliere il progetto) visualizzata, selezionare **Phone and Tablet** (Telefono e tablet) e quindi **Empty Activity** (Attività vuota) nella casella di selezione dell'attività. Selezionare **Avanti**.
-
-   ![Screenshot della procedura guidata Choose your project](media/sdk/qs-java-android-02-target-android-devices.png)
-
-1. Nella schermata **Configure your project** (Configurare il progetto) immettere **Quickstart** (Avvio rapido) come **nome**, **samples.speech.cognitiveservices.microsoft.com** come **Package name** (Nome pacchetto) e scegliere una directory di progetto. Per **Minimum API level** (Livello API minimo) scegliere **API 23: Android 6.0 (Marshmallow)**. Lasciare deselezionate tutte le altre caselle di controllo e scegliere **Finish** (Fine).
-
-   ![Screenshot della procedura guidata Configure your project](media/sdk/qs-java-android-03-create-android-project.png)
-
-Android Studio richiede qualche momento per preparare il nuovo progetto Android. Successivamente, configurare il progetto per conoscere Speech SDK e usare Java 8.
-
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
-
-Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste.
-È ospitato in un repository Maven in https:\//csspeechstorage.blob.core.windows.net/maven/.
-
-Di seguito viene descritto come configurare il progetto per usare Speech SDK. Aprire la finestra Struttura del progetto, scegliendo **File** > **Struttura del progetto** dalla barra del menu Android Studio. Nella finestra Struttura del progetto, apportare le modifiche seguenti:
-
-1. Nell'elenco sul lato sinistro della finestra, selezionare **Progetto**. Modificare le impostazioni del **Repository predefinito della libreria** aggiungendo una virgola e l'URL del repository Maven racchiuso tra virgolette singole. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
-
-   ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-06-add-maven-repository.png)
-
-1. Nella stessa schermata, sul lato sinistro, selezionare **app**. Quindi selezionare la scheda **Dipendenze** nella parte superiore della finestra. Selezionare il segno verde più (+) e scegliere **Dipendenza della libreria** dal menu a discesa.
-
-   ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-07-add-module-dependency.png)
-
-1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`. Selezionare **OK**.
-   A questo punto Speech SDK viene aggiunto all'elenco delle dipendenze come illustrato di seguito:
-
-   ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
-
-1. Fare clic sulla scheda **Proprietà**. Selezionare **1.8** sia per **Source Compability** (Compatibilità di origine) che per **Target Compatibility** (Compatibilità di destinazione).
-
-   ![](media/sdk/qs-java-android-09-dependency-added.png)
-
-1. Selezionare **OK** per chiudere la finestra Struttura del progetto e applicare le modifiche apportate al progetto.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## <a name="create-user-interface"></a>Creare l'interfaccia utente
 
@@ -116,7 +76,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
 1. Per compilare l'applicazione, premere Ctrl + F9 o scegliere **Compila** > **Crea progetto** dalla barra del menu.
 
-1. Per avviare l'applicazione, premere MAIUSC + F10 oppure scegliere **Esegui** > **Esegui 'app'**.
+1. Per avviare l'applicazione, premere MAIUSC + F10 oppure scegliere **Esegui** > **Esegui 'app'** .
 
 1. Nella finestra di destinazione della distribuzione che viene visualizzata, selezionare il dispositivo Android.
 
@@ -131,7 +91,7 @@ Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al ri
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

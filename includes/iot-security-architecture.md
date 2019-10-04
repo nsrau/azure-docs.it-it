@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125233"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180805"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
 
@@ -169,15 +169,15 @@ Questa sezione illustra l'architettura descritta in precedenza attraverso l'obie
 
 In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo esempio si prova ad attenuare una serie di diverse minacce nelle varie fasi in cui esistono dati e/o informazioni: processo, comunicazione e archiviazione. Di seguito viene fornita una panoramica delle minacce più comuni per la categoria "processo", seguita da una panoramica su come sia possibile attenuarle:
 
-**Spoofing (S)**: un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
+**Spoofing (S)** : un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
-**Denial of Service (D)**: un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
+**Denial of Service (D)** : un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
 
-**Manomissione (T)**: un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
+**Manomissione (T)** : un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
 
-**Diffusione di informazioni (I)**: se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
+**Diffusione di informazioni (I)** : se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
 
-**Elevazione dei privilegi (E)**: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
+**Elevazione dei privilegi (E)** : è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
 | **Componente** | **Minaccia** | **Attenuazione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |

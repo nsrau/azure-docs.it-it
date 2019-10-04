@@ -1,6 +1,6 @@
 ---
 title: Informazioni sull'API Ricerca entità Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'API Ricerca entità Bing per estrarre e cercare entità e luoghi da query di ricerca.
 services: cognitive-services
 author: swhite-msft
@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8f43401296a154ee40e7c214ad63da878129244a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733045"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424019"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Informazioni sull'API Ricerca entità Bing
 
-L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Bing restituisce località se la query specifica il nome dell'azienda locale o richiede un tipo di azienda (ad esempio, ristoranti nelle vicinanze). Bing restituisce entità se la query specifica persone, oggetti o località note (attrazioni, stati, paesi e così via).
+L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Bing restituisce località se la query specifica il nome dell'azienda locale o richiede un tipo di azienda (ad esempio, ristoranti nelle vicinanze). Bing restituisce entità se la query specifica persone, oggetti o località note (attrazioni, stati, paesi/aree geografiche e così via).
 
 |Funzionalità  |DESCRIZIONE  |
 |---------|---------|
@@ -39,5 +39,5 @@ L'API Ricerca entità Bing è un servizio Web RESTful, facile da chiamare da qua
 
 * Provare la [demo interattiva](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) per l'API Ricerca entità Bing. 
 * Per iniziare rapidamente con la prima richiesta, provare una [guida introduttiva](quickstarts/csharp.md).
-* Sezione di riferimento sull'[API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference).
+* Sezione di riferimento sull'[API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
 * I [requisiti per l'uso e la visualizzazione di Bing](./use-display-requirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.

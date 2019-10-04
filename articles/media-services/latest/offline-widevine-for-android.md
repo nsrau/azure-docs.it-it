@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312258"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341024"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 
-- Alcuni provider di contenuti potrebbero disattivare la distribuzione di licenze DRM oltre i confini di un paese. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
-- In alcuni paesi la disponibilità di Internet e/o la larghezza di banda sono limitate. Gli utenti possono quindi scegliere di scaricare il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente.
+- Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre i confini di un paese/area geografica. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
+- In alcuni paesi/aree geografiche, disponibilità di Internet e/o della larghezza di banda è limitata. Gli utenti possono quindi scegliere di scaricare il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente.
 
 Questo articolo illustra come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android. Con la tecnologia DRM offline è possibile fornire modelli di sottoscrizione, noleggio e acquisto per i servizi di contenuto offerti in modo da consentire ai clienti di usare il contenuto scaricato anche quando non sono connessi a Internet.
 
@@ -38,6 +38,9 @@ Per creare un'app lettore per Android vengono presentate tre opzioni:
 > * Le estensioni EME (Encrypted Media Extension) ed MSE (Media Source Extension) nel browser Chrome per dispositivi mobili versione 62 o successive
 
 L'articolo include inoltre le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.
+
+> [!NOTE]
+> Tecnologia DRM offline viene fatturato solo per una singola richiesta per ottenere una licenza quando si scarica il contenuto. Tutti gli errori non vengono fatturati.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -206,6 +209,6 @@ Per migliorare la velocità di download sono disponibili due diverse strategie:
     1.  Modalità controllata dal client: l'app lettore seleziona automaticamente il livello di qualità video e le tracce audio da scaricare oppure è l'utente stesso a farlo.
     2.  Modalità controllata dal servizio: è possibile usare la funzionalità di manifesto dinamico in Servizi multimediali di Azure per creare un filtro (globale) che limiti la playlist HLS o il file MPD (Media Presentation Description) DASH a un singolo livello di qualità video e a tracce audio selezionate. L'URL di download presentato agli utenti finali includerà pertanto questo filtro.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

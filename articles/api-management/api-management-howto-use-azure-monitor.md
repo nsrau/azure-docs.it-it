@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072349"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -64,8 +63,9 @@ Per accedere alle metriche:
 
     ![Metriche](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste gateway riuscite**. È anche possibile aggiungere più metriche al grafico.
-3. Il grafico mostra il numero totale di chiamate API con esito positivo.
+1. Dall'elenco a discesa selezionare le metriche desiderate. Ad esempio, **Richieste**. 
+1. Il grafico mostra il numero totale di chiamate API.
+1. È possibile filtrare il grafico usando le dimensioni della metrica **Richieste**. Ad esempio, fare clic su **Aggiungi filtro**, scegliere **Backend Response Code** (Codice di risposta back-end) e immettere 500 come valore. Il grafico mostra ora il numero di richieste non riuscite nel back-end dell'API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurare una regola di avviso per le richieste non autorizzate
 
@@ -193,8 +193,8 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
 | resourceId | stringa | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
-| statico | stringa | Metodo HTTP della richiesta in ingresso |
-| URL | stringa | URL della richiesta in ingresso |
+| method | stringa | Metodo HTTP della richiesta in ingresso |
+| url | stringa | URL della richiesta in ingresso |
 | clientProtocol | stringa | Versione del protocollo HTTP della richiesta in ingresso |
 | responseCode | numero intero | Codice di stato della risposta HTTP inviata a un client |
 | backendMethod | stringa | Metodo HTTP della richiesta inviata a un back-end |
@@ -213,13 +213,13 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | userId | stringa | Identificatore dell'entità utente per la richiesta corrente | 
 | apimSubscriptionId | stringa | Identificatore dell'entità sottoscrizione per la richiesta corrente | 
 | backendId | stringa | Identificatore dell'entità back-end per la richiesta corrente | 
-| LastError | object | Errore di elaborazione dell'ultima richiesta | 
+| lastError | object | Errore di elaborazione dell'ultima richiesta | 
 | elapsed | numero intero | Numero di millisecondi trascorsi da quando il gateway ha ricevuto la richiesta fino al momento in cui si è verificato l'errore | 
-| una sezione source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
+| source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
 | scope | stringa | Ambito del documento dei criteri contenente il criterio che ha causato l'errore | 
 | section | stringa | Sezione del documento dei criteri contenente il criterio che ha causato l'errore | 
 | reason | stringa | Motivo dell'errore | 
-| Message | stringa | Messaggio di errore | 
+| message | stringa | Messaggio di errore | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

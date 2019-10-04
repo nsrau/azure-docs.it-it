@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343478"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repository GIT con esempi per Hub eventi di Azure 
@@ -27,14 +27,14 @@ ms.locfileid: "60343478"
 
 ## <a name="net-samples"></a>Esempi .NET
 
-| Nome esempio | DESCRIZIONE | 
+| Nome esempio | Descrizione | 
 | ----------- | ----------- | 
 | [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Questo esempio illustra come scrivere un'applicazione console .NET Core che invia un set di eventi a un hub eventi. |
 | [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Questo esempio illustra come scrivere un'applicazione console .NET Core che riceve un set di eventi da un hub eventi usando la libreria dell'host processore di eventi.  | 
 
 ## <a name="java-samples"></a>Esempi di Java
 
-| Nome esempio | DESCRIZIONE | 
+| Nome esempio | Descrizione | 
 | ----------- | ----------- | 
 | [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | Questo esempio illustra come inserire batch di eventi nell'hub eventi. | 
 | [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | Questo esempio illustra come inserire eventi nell'hub eventi. |

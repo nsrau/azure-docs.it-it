@@ -2,18 +2,18 @@
 title: Passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 38824c40db1f4fb3de9a0a124f74b71eb1ee2f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 327f2fdcd4d1bc9e71e3aabb3541c6fd30f02811
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342254"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672358"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Passare dalla modalità di visualizzazione alla modalità di modifica dei report e viceversa nelle raccolte di aree di lavoro di Power BI
 
@@ -111,7 +111,7 @@ report.switchMode("edit");
 
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempio introduttivo](get-started-sample.md)  
 [Incorporare un report](embed-report.md)  

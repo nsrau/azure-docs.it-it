@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/26/2018
-ms.author: adgera
+ms.date: 10/02/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 35078d9cf705351a9f64f52738c9eaca90814f7a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b8f6e13fc7de06729cbc2165a5b8847cb86e1b41
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805748"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845476"
 ---
 > [!TIP]
 > Viene fornita un'anteprima di prova di Swagger per mostrare il set di funzionalità delle API.
@@ -25,7 +25,7 @@ ms.locfileid: "53805748"
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOME | Sostituire con |
+| Attività | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali di Azure |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |

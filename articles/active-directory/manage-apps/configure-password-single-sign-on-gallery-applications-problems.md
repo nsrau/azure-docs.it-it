@@ -1,10 +1,10 @@
 ---
-title: Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD | Microsoft Docs
+title: Problemi di configurazione dell'accesso Single Sign-on basato su password per Azure AD app della raccolta | Microsoft Docs
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291603"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381137"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD
 
@@ -59,7 +59,7 @@ Se il problema persiste, è possibile che sia stata apportata una modifica sul l
 
 Mentre Microsoft dispone di tecnologie per rilevare automaticamente le interruzioni delle integrazioni delle applicazioni, potrebbe non essere possibile rilevare i problemi immediatamente oppure i problemi richiedono tempo per essere risolti. Quando un'integrazione non funziona correttamente, è possibile aprire un caso di supporto per risolvere il problema nel più breve tempo possibile. 
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,****può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>L'estensione funziona in Chrome e Firefox, ma non in Internet Explorer
 
@@ -73,7 +73,7 @@ Esistono due soluzioni principali a questo problema:
 
   * Questa situazione può variare a seconda della versione del browser in uso, della velocità del computer o del sito visitato. Si consiglia in questo caso di contattare il supporto Microsoft in modo da correggere l'integrazione per questa applicazione specifica.
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,****può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Controllare se la pagina di accesso dell'applicazione è cambiata di recente o richiede un campo aggiuntivo
 
@@ -81,7 +81,7 @@ Se la pagina di accesso dell'applicazione è cambiata drasticamente, talvolta è
 
 Mentre Microsoft dispone di tecnologie per rilevare automaticamente le interruzioni delle integrazioni delle applicazioni, potrebbe non essere possibile rilevare i problemi immediatamente oppure i problemi richiedono tempo per essere risolti. Quando un'integrazione non funziona correttamente, è possibile aprire un caso di supporto per risolvere il problema nel più breve tempo possibile. 
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,****può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/howto-app-gallery-listing.md).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Come installare l'estensione del browser per il pannello di accesso
 

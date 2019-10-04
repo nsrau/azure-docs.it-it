@@ -2,20 +2,20 @@
 title: Definizioni di cookie - Azure Active Directory B2C | Microsoft Docs
 description: Fornisce le definizioni per i cookie usati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ac422a00a919903063c96ac096882036b99a63e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: marsma
+ms.subservice: B2C
+ms.openlocfilehash: af3244a32e9d02a1ba5053da85547bf614053127
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384987"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587403"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Definizioni dei cookie per Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ La tabella seguente elenca i cookie usati in Azure Active Directory B2C.
 | x-ms-cpim-cache:{id}_n | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine della [sessione del browser](active-directory-b2c-token-session-sso.md), autenticazione riuscita | Utilizzato per gestire lo stato della richiesta. |
 | x-ms-cpim-csrf | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Token per la protezione CRSF Cross-Site Request Forgery. |
 | x-ms-cpim-dc | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Utilizzato per il routing di rete di Azure AD B2C. |
-| x-ms-cpim-ctx | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Context |
+| x-ms-cpim-ctx | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Contesto |
 | x-ms-cpim-rp | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per archiviare dati di appartenenza per il tenant del provider di risorse. |
 | x-ms-cpim-rc | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per archiviare i cookie di inoltro. |
 

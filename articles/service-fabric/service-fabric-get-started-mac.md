@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662242"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035282"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -174,8 +173,9 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     brew install gradle
     ```
 
-    >[!TIP]
-    > Verificare che sia installata la versione corretta di JDK. 
+    > [!IMPORTANT]
+    > Le versioni correnti `brew cask install java` di possono installare una versione più recente del JDK.
+    > Assicurarsi di installare JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale
 
@@ -202,7 +202,7 @@ Installare il [.NET Core 2.0 SDK per Mac](https://www.microsoft.com/net/core#mac
 
 Azure Service Fabric fornisce un plug-in per Eclipse Neon (o versione successiva) per l'ambiente IDE Java. Il plug-in semplifica il processo di creazione, compilazione e distribuzione di servizi Java. Per installare o aggiornare il plug-in Service Fabric per Eclipse alla versione più recente, seguire [questa procedura](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Sono applicabili anche gli altri passaggi della [documentazione di Service Fabric per Eclipse](service-fabric-get-started-eclipse.md): compilare un'applicazione, aggiungere un servizio a un'applicazione, disinstallare un'applicazione e così via.
 
-L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio: 
+L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

@@ -3,21 +3,22 @@ title: 'Guida introduttiva: creare un registro Docker privato in Azure - Portale
 description: Informazioni su come apprendere rapidamente a creare un registro contenitori Docker privato con il portale di Azure.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298416"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68309476"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: Creare un registro contenitori privato usando il portale di Azure
 
-Un registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva viene creato un registro contenitori di Azure con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
+Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva viene creato un registro contenitori di Azure con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 
 Per accedere al registro e usare immagini del contenitore, questa guida introduttiva richiede l'esecuzione dell'interfaccia della riga di comando di Azure (consigliata la versione 2.0.55 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
@@ -61,7 +62,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 Per elencare le immagini presenti nel registro, passare al registro nel portale e scegliere **Repository**, quindi selezionare il repository creato con `docker push`.
 
-In questo esempio è stato selezionato il repository **busybox** ed è possibile vedere l'immagine contraddistinta dal tag `v1` in **TAGS**.
+In questo esempio è stato selezionato il repository **hello-world** ed è possibile vedere l'immagine `v1` contrassegnata in **TAGS**.
 
 ![Elencare le immagini del contenitore nel portale di Azure][qs-portal-09]
 

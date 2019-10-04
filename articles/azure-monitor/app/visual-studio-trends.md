@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66255898"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
 Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo degli eventi di telemetria importanti dell'app Web, consentendo di identificare rapidamente problemi e anomalie. Collegando l'utente a informazioni di diagnostica più dettagliate, Tendenze consente di migliorare le prestazioni dell'app, ricostruire le cause delle eccezioni e individuare informazioni utili dagli eventi personalizzati.
@@ -94,7 +94,7 @@ Per annullare l'applicazione di uno di questi filtri, fare clic sul pulsante **R
 ![Filtri multipli](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Trovare le anomalie
-Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)**. Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
+Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)** . Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
 
 ![I punti colorati indicano anomalie](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano ano
 | --- | --- |
 | **[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/visual-studio-trends/34.png) |
 | **[Aggiungere altri dati](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Uso del portale Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Uso del portale Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

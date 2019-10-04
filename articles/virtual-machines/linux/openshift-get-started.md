@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80f0ec57aa287bae9b10d9a4cdb013014aab3332
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542425"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082562"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -32,17 +31,17 @@ OpenShift include Kubernetes per la gestione e l'orchestrazione di contenitori. 
 - Semplicità di distribuzione e scalabilità.
 - Gestione del ciclo di vita a lungo termine per i team e le applicazioni.
 
-Sono disponibili più versioni di OpenShift.  Queste versioni, solo due sono attualmente disponibili per i clienti possono distribuire in Azure: OpenShift Container Platform e OKD (noto in precedenza come OpenShift Origin).
+Sono disponibili più versioni di OpenShift.  Di queste versioni, attualmente sono disponibili solo due per i clienti per la distribuzione in Azure: OpenShift container Platform e OKD (in precedenza OpenShift Origin).
+
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure Red Hat OpenShift è un'offerta completamente gestita di OpenShift in esecuzione in Azure. Questo servizio è congiuntamente gestito e supportato da Microsoft e Red Hat. Per altri dettagli, vedere la documentazione del [servizio OpenShift di Azure Red Hat](https://docs.microsoft.com/azure/openshift/) .
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
 Container Platform è una [versione commerciale](https://www.openshift.com) per uso aziendale di Red Hat supportata da Red Hat. Con questa versione, il cliente acquista i diritti necessari per OpenShift Container Platform ed è responsabile dell'installazione e della gestione dell'intera infrastruttura.
 
-In quanto cliente è "proprietario" dell'intera piattaforma, è possibile installarlo nel proprio data center locale o in un cloud pubblico (ad esempio Azure).
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure Red Hat OpenShift è un'offerta completamente gestita di OpenShift in esecuzione in Azure. Questo servizio è congiuntamente gestito e supportato da Microsoft e Red Hat. Il cluster verrà distribuito nella sottoscrizione di Azure del cliente. Il servizio è pianificato per essere disponibili a livello generale intorno a maggio 2019. Documentazione separata per i servizi gestiti sarà disponibile quando il servizio è a livello generale.
+Poiché i clienti "possiedono" l'intera piattaforma, possono installarla nel Data Center locale o in un cloud pubblico, ad esempio Azure.
 
 ## <a name="okd"></a>OKD
 
@@ -52,7 +51,7 @@ ODK è un progetto upstream [open source](https://www.okd.io/) di OpenShift supp
 
 - [Configurare i prerequisiti comuni per OpenShift in Azure](./openshift-prerequisites.md)
 - [Distribuire OpenShift Container Platform in Azure](./openshift-container-platform.md)
-- [Distribuire l'offerta sul Marketplace autogestiti piattaforma contenitore OpenShift](./openshift-marketplace-self-managed.md)
+- [Distribuisci l'offerta del Marketplace self-Managed OpenShift container Platform](./openshift-marketplace-self-managed.md)
 - [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md) (Distribuire OpenShift in Azure Stack)
 - [Attività di post-distribuzione](./openshift-post-deployment.md)
 - [Risoluzione dei problemi relativi alla distribuzione di OpenShift](./openshift-troubleshooting.md)

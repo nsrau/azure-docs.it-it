@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523988"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014863"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
 
@@ -331,14 +332,14 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. È necessario caricare i file come BLOB in blocchi. I BLOB di pagine non sono supportati da Servizi multimediali di Azure.  
 
 > [!NOTE]
-> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
+> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Aggiornare l'entità AssetFile
-Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. Ad esempio: 
+Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. Ad esempio:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -458,7 +459,7 @@ Il seguente codice include la richiesta dell'ID del codificatore.
        ]
     }
 
-### <a name="create-a-job"></a>Creare un processo
+### <a name="create-a-job"></a>Crea un processo
 Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](https://msdn.microsoft.com/library/mt269960) supportati dal processore di Media Encoder Standard.  
@@ -820,7 +821,7 @@ Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i 
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:     
+Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. Ad esempio:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -910,7 +911,7 @@ Per trasmettere in streaming contenuti MPEG DASH, aggiungere (format=mpd-time-cs
 
 
 ## <a id="play"></a>Riprodurre i contenuti
-Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](https://aka.ms/azuremediaplayer).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 

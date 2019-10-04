@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Contenuto di immagini specifico di dominio - REST, Python'
+title: 'Guida introduttiva: Contenuto specifico di dominio - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identificheranno celebrità e luoghi di interesse in un'immagine in base a modelli di dominio usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bdbff3777949298fbefec80ecb6608d6af10037b
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 24fc695a2f832374a109b11ee6a87813146f13ed
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651652"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137599"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Usare un modello di dominio usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Usare un modello di dominio usando l'API REST e Python in Visione artificiale
 
 In questa guida introduttiva si identificheranno luoghi di interesse o celebrità in un'immagine archiviata in remoto in base a un modello di dominio usando l'API REST di Visione artificiale. Con il metodo [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), è possibile applicare un modello specifico di un dominio per riconoscere contenuti all'interno di un'immagine.
 
@@ -31,17 +31,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Creare ed eseguire i luoghi di interesse di esempio
 
 Per creare ed eseguire il luogo di interesse di esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine in cui si vuole identificare i luoghi di interesse.
+1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine in cui si vuole identificare i luoghi di interesse.
 1. Salvare il codice in un file con estensione `.py`. Ad esempio: `get-landmarks.py`.
 1. Aprire una finestra del prompt dei comandi.
 1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python get-landmarks.py`.
@@ -49,33 +46,30 @@ Per creare ed eseguire il luogo di interesse di esempio, seguire questa procedur
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
+# Add your Computer Vision subscription key and endpoint to your environment variables.
+if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
+    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+else:
+    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
+    sys.exit()
 
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the "westus" region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+if 'COMPUTER_VISION_ENDPOINT' in os.environ:
+    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-landmark_analyze_url = vision_base_url + "models/landmarks/analyze"
+landmark_analyze_url = endpoint + "vision/v2.0/models/landmarks/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -133,7 +127,7 @@ Per creare ed eseguire il luogo di interesse di esempio, seguire questa procedur
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -151,8 +145,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()

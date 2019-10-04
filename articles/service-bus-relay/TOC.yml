@@ -32,8 +32,12 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Concetti
   items:
-    - name: Autenticazione e autorizzazione
-      href: relay-authentication-and-authorization.md
+    - name: Security
+      items:
+        - name: Autenticazione e autorizzazione
+          href: relay-authentication-and-authorization.md
+        - name: Criteri di sicurezza integrati
+          href: service-bus-relay-security-controls.md
     - name: Protocollo per connessioni ibride
       href: relay-hybrid-connections-protocol.md
 - name: Procedure
@@ -46,8 +50,6 @@
       items:
         - name: Creare uno spazio dei nomi
           href: relay-create-namespace-portal.md
-        - name: Usare Inoltro WCF per esporre servizi WCF a client esterni
-          href: relay-wcf-dotnet-get-started.md
         - name: API disponibili
           href: relay-api-overview.md
           items:

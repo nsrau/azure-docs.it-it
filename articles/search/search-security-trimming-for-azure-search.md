@@ -4,17 +4,17 @@ description: Controllo di accesso sul contenuto di Ricerca di Azure con i filtri
 ms.service: search
 ms.topic: conceptual
 services: search
-ms.date: 08/07/2017
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453491"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186482"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per limitare i risultati in Ricerca di Azure
 
@@ -61,7 +61,7 @@ Si supponga di avere un indice dei file protetti e che ogni file sia accessibile
 Eseguire una richiesta HTTP POST all'endpoint dell'URL dell'indice. Il corpo della richiesta HTTP è un oggetto JSON che contiene i documenti da aggiungere:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -119,7 +119,7 @@ Si noti che questo esempio mostra come eseguire la ricerca di documenti con una 
 Inviare la richiesta HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -150,11 +150,11 @@ Specificare il filtro nel corpo della richiesta:
  ]
 }
 ```
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
-Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile utilizzare questa funzione per passare gli identificatori di entità per l'utente richiedente per confrontare gli identificatori dell'entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
+Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base all'identità di Active Directory tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtri in Ricerca di Azure](search-filters.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9fa0a1eb590d99b48e737794352625848f3d3dc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5a88b2ec46332e329c7c703a2f89e58b8323820
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533978"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090399"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copiare dati da Drill tramite Azure Data Factory (anteprima)
 
@@ -28,9 +28,18 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
+Questo connettore di drill è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
+
 È possibile copiare dati da Drill a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -46,7 +55,7 @@ Per il servizio collegato di Drill sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Drill**. | Sì |
 | connectionString | Stringa di connessione ODBC per la connessione a Drill. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `pwd` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -108,7 +117,9 @@ Per copiare dati da Drill, impostare la proprietà type del set di dati su **Dri
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **DrillTable** | Sì |
-| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
+| schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
+| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e`table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -117,11 +128,12 @@ Per copiare dati da Drill, impostare la proprietà type del set di dati su **Dri
     "name": "DrillDataset",
     "properties": {
         "type": "DrillTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Drill linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -170,6 +182,10 @@ Per copiare dati da Drill, impostare il tipo di origine nell'attività di copia 
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

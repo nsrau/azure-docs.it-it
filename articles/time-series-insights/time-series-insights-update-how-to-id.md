@@ -2,20 +2,20 @@
 title: Procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sulle procedure consigliate per scegliere un ID serie temporale in Anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556612"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947195"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -29,6 +29,7 @@ Scegliere un ID serie temporale è come scegliere una chiave di partizione per u
 > L'ID serie temporale fa distinzione tra maiuscole e minuscole ed è immutabile, ovvero non può essere modificato dopo essere stato impostato.
 
 Tenendo questo a mente, la selezione dell'ID serie temporale appropriato è un fattore di importanza critica. Quando si seleziona un ID serie temporale, tenere in considerazione le procedure consigliate seguenti:
+
 * Scegliere un nome proprietà che contenga un'ampia gamma di valori e abbia anche modelli di accesso. È consigliabile avere una chiave di partizione con molti valori distinti (ad esempio centinaia o migliaia). Per molti clienti, questa chiave sarà simile al valore DeviceID o SensorID in JSON.
 * L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./time-series-insights-update-tsm.md).
 * Una stringa di caratteri del nome della proprietà ID serie temporale può contenere fino a 128 caratteri e i valori della proprietà ID serie temporale possono contenere fino a 1024 caratteri.
@@ -41,13 +42,13 @@ Tenendo questo a mente, la selezione dell'ID serie temporale appropriato è un f
 
 Gli scenari seguenti descrivono la selezione di più di una proprietà chiave come ID serie temporale:  
 
-### <a name="scenario-1"></a>Scenario 1
+### <a name="scenario-one"></a>Scenario uno
 
-* Sono presenti flotte di asset legacy, ognuna con una chiave univoca. 
-* Ad esempio, una flotta viene identificata in modo univoco dalla proprietà *deviceId* e un'altra dalla proprietà univoca *objectId*. Nessuna delle due flotte contiene la proprietà univoca dell'altra flotta. In questo esempio si selezionerebbero due chiavi, deviceId e objectId, come chiavi univoche. 
+* Sono presenti flotte di asset legacy, ognuna con una chiave univoca.
+* Ad esempio, una flotta viene identificata in modo univoco dalla proprietà *deviceId* e un'altra dalla proprietà univoca *objectId*. Nessuna delle due flotte contiene la proprietà univoca dell'altra flotta. In questo esempio si selezionerebbero due chiavi, deviceId e objectId, come chiavi univoche.
 * I valori Null vengono accettati e la mancanza di una proprietà nel payload dell'evento viene è considerata come valore `null`. Questo è anche il modo appropriato di gestire l'invio di dati a due diverse origini evento dove i dati in ogni origine evento hanno un ID serie temporale univoco.
 
-### <a name="scenario-2"></a>Scenario 2
+### <a name="scenario-two"></a>Scenario due
 
 * È necessario che più proprietà siano univoche nella stessa flotta di asset. 
 * Si pensi, ad esempio, a un costruttore di edifici intelligenti che installa sensori in ogni stanza. In ogni stanza si hanno generalmente gli stessi valori per *sensorId*, ad esempio *sensor1*, *sensor2* e *sensor3*.
@@ -57,4 +58,5 @@ Gli scenari seguenti descrivono la selezione di più di una proprietà chiave co
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulla [modellazione di dati](./time-series-insights-update-tsm.md).
+
 * Pianificare l'[ambiente Azure Time Series Insights (anteprima)](./time-series-insights-update-plan.md).

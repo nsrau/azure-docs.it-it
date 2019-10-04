@@ -3,7 +3,7 @@ title: Aggiungere notifiche push all'app Xamarin.iOS tramite il servizio app di 
 description: Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: 32a8c36d223e2b0c12f5d82ec748af66ae841b01
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9edd5e755b4a42fe881a0863bb284039299ec713
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819023"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446273"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Aggiungere notifiche push all'app Xamarin.iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-push) oggi stesso.
+>
 
 ## <a name="overview"></a>Panoramica
 
@@ -147,7 +151,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
    > [!NOTE]
    > È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 4. Ripetere il passaggio 2 e chiudere immediatamente l'app, quindi verificare che venga visualizzata una notifica push.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011623"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308577"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -158,7 +158,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
-- **Azure Active Directory (Azure AD)**: il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
+- **Azure Active Directory (Azure AD)** : il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
 
   > **Uso consigliato**: quando si vuole offrire un'esperienza Single Sign-On, usare dati basati su Graph o autenticare utenti in base al dominio.
   > 
@@ -170,7 +170,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   > 
   > **Come iniziare**: per altre informazioni sull'autenticazione nel servizio app, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../../app-service/overview-authentication-authorization.md).
 
-Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](../../security/security-best-practices-and-patterns.md).
+Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
 ### <a name="monitoring"></a>Monitoraggio
 
@@ -199,7 +199,7 @@ Azure è una piattaforma cloud globale disponibile a livello generale in molte a
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Scegliere l'area più adatta per l'applicazione e i dati
 
-Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. È preferibile, ad esempio, scegliere l'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche necessario selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi. È sempre da considerare procedura consigliata l'archiviazione dei dati delle applicazioni nello stesso centro dati che ospita la relativa applicazione o nel centro dati più vicino possibile.
+Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. È preferibile, ad esempio, scegliere l'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. Potrebbe anche essere opportuno selezionare la propria area per soddisfare i requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche. È sempre da considerare procedura consigliata l'archiviazione dei dati delle applicazioni nello stesso centro dati che ospita la relativa applicazione o nel centro dati più vicino possibile.
 
 ### <a name="multi-region-apps"></a>App con più aree
 
@@ -234,12 +234,12 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni tramite Azure SDK specifici di ogni piattaforma, tra cui gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/javascript/azure)
+-   [Node.JS](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](https://docs.microsoft.com/python/azure)
+-   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/go/azure)
+-   [Go](https://docs.microsoft.com/azure/go)
 
 Per servizi quali [App per dispositivi mobili](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Servizi multimediali di Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) sono disponibili SDK lato client per l'accesso ai servizi dal Web e da app client per dispositivi mobili.
 
@@ -267,7 +267,7 @@ Ogni sottoscrizione di Azure ha una relazione di trust con un'istanza di Azure A
 
 Oltre ad account identità di Azure singoli, detti anche *utenti*, in Azure AD è possibile definire *gruppi*. La creazione di gruppi di utenti è un metodo efficiente per la gestione dell'accesso alle risorse in una sottoscrizione tramite il controllo degli accessi in base al ruolo. Per informazioni sulla creazione di gruppi, vedere [Creare un gruppo in Azure Active Directory (anteprima)](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). È possibile creare e gestire gruppi anche [tramite PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
-### <a name="manage-your-subscriptions"></a>Gestire le sottoscrizioni
+### <a name="manage-your-subscriptions"></a>Gestione delle sottoscrizioni
 
 Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Per un elenco per tipo delle offerte di sottoscrizione disponibili , vedere [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
 
@@ -281,7 +281,7 @@ Azure Resource Explorer è un ottimo strumento per la visualizzazione delle riso
 
 Quando si consente l'accesso alle risorse di Azure, la procedura sempre consigliata è di concedere agli utenti i privilegi minimi necessari per eseguire un'attività specifica.
 
-- **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. Il controllo degli accessi in base al ruolo consente di distribuire un set di risorse in un gruppo di risorse e di concedere autorizzazioni a un utente o a un gruppo specifico. Consente inoltre di limitare l'accesso alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../../role-based-access-control/overview.md)
+- **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. Il controllo degli accessi in base al ruolo consente di distribuire un set di risorse in un gruppo di risorse e di concedere autorizzazioni a un utente o a un gruppo specifico. Consente inoltre di limitare l'accesso solo alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../../role-based-access-control/overview.md)
 
   > **Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
   > 

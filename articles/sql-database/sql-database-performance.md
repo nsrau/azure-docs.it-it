@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453009"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567071"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorare e migliorare le prestazioni
 
@@ -40,10 +39,10 @@ Questa vista offre una panoramica delle prestazioni del database e facilita le o
 
 ![Prestazioni](./media/sql-database-performance/performance.png)
 
-* Il riquadro **Raccomandazioni** offre un elenco di raccomandazioni di ottimizzazione per il database (vengono visualizzate le tre raccomandazioni principali se ne sono presenti di più). Se si fa clic su questo riquadro vengono visualizzate le **[Raccomandazioni per le prestazioni](#performance-recommendations)**. 
+* Il riquadro **Raccomandazioni** offre un elenco di raccomandazioni di ottimizzazione per il database (vengono visualizzate le tre raccomandazioni principali se ne sono presenti di più). Se si fa clic su questo riquadro vengono visualizzate le **[Raccomandazioni per le prestazioni](#performance-recommendations)** . 
 * Il riquadro **Attività di ottimizzazione** fornisce un riepilogo delle operazioni di ottimizzazione in corso e completate per il database e offre una vista rapida della cronologia delle attività di ottimizzazione. Se si fa clic su questo riquadro viene visualizzata la cronologia di ottimizzazione completa per il database.
 * Il riquadro **Ottimizzazione automatica** visualizza la [configurazione di ottimizzazione automatica](sql-database-automatic-tuning-enable.md) per il database, ovvero le opzioni di ottimizzazione applicate automaticamente al database. Se si fa clic su questo riquadro viene visualizzata la finestra di dialogo di configurazione dell'automazione.
-* Il riquadro **Query su database** visualizza un riepilogo delle prestazioni delle query per il database (uso complessivo di DTU e query con il maggior consumo di risorse). Se si fa clic su questo riquadro viene visualizzata la pagina **[Informazioni dettagliate prestazioni query](#query-performance-insight)**.
+* Il riquadro **Query su database** visualizza un riepilogo delle prestazioni delle query per il database (uso complessivo di DTU e query con il maggior consumo di risorse). Se si fa clic su questo riquadro viene visualizzata la pagina **[Informazioni dettagliate prestazioni query](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
 
@@ -73,7 +72,7 @@ I database SQL di Azure possono ottimizzare automaticamente le prestazioni del d
 
   ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
 
-Altre informazioni su questa pagina sono disponibili nell'articolo **[Usare Informazioni dettagliate prestazioni query](sql-database-query-performance.md)**.
+Altre informazioni su questa pagina sono disponibili nell'articolo **[Usare Informazioni dettagliate prestazioni query](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,38 +1,52 @@
 ---
-title: Panoramica della verifica in due passaggi - Azure Active Directory | Microsoft Docs
-description: Altre informazioni su come configurare e usare la verifica in due passaggi.
+title: Panoramica per la verifica a due fattori e l'account aziendale o dell'istituto di istruzione - Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare i metodi di verifica della sicurezza per usare la verifica a due fattori con l'account aziendale o dell'istituto di istruzione.
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
-ms.service: active-directory
+ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.workload: identity
+ms.service: active-directory
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 07/30/2018
+ms.date: 08/05/2019
 ms.author: lizross
+ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174045"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615992"
 ---
-# <a name="two-step-verification-overview"></a>Panoramica della verifica in due passaggi
+# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione
 
-Si riceve una e-mail da un referente IT o dal proprio capo in cui si afferma che l'organizzazione ha aggiunto altre verifiche di sicurezza all'account. Cosa significa? Significa che l'organizzazione sta prendendo altri provvedimenti per accertare l'identità dell'utente al momento dell'accesso. Questa verifica aggiuntiva, nota anche come verifica in due passaggi, viene eseguita con una combinazione di nome utente, password e dispositivo mobile o telefono.
+Si riceve una e-mail da un referente IT o dal proprio capo in cui si afferma che l'organizzazione ha aggiunto altre verifiche di sicurezza all'account. Cosa significa? Significa che l'organizzazione sta prendendo altri provvedimenti per accertare l'identità dell'utente al momento dell'accesso. Questa verifica aggiuntiva, nota anche come verifica a due fattori, viene eseguita con una combinazione di nome utente, password e dispositivo mobile o telefono.
 
-Si tratta di un metodo più sicuro rispetto alla sola password perché si basa su due forme di autenticazione, ovvero un elemento noto e un elemento che l'utente ha con sé. L'elemento noto è la password. L'elemento che l'utente normalmente ha con sé è un telefono o un dispositivo. Con la verifica in due passaggi si impedisce ai pirati informatici di fingere di essere un utente autorizzato, perché anche se hanno la password dell'utente, è improbabile che abbiano anche il suo dispositivo.
+Si tratta di un metodo più sicuro rispetto alla sola password perché si basa su due forme di autenticazione, ovvero un elemento noto e un elemento che l'utente ha con sé. L'elemento noto è la password. L'elemento che l'utente normalmente ha con sé è un telefono o un dispositivo. Con la verifica a due fattori si impedisce ai pirati informatici di fingere di essere un utente autorizzato, perché anche se possiedono la password dell'utente, è improbabile che abbiano anche il suo dispositivo.
 
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>
+>Il contenuto di questo articolo fornisce informazioni solo per l'utilizzo dell'account aziendale o dell'istituto di istruzione, ovvero l'account fornito all'utente dalla propria organizzazione, ad esempio alain@contoso.com. Se si verificano problemi con la verifica a due fattori e l'account Microsoft personale, ovvero l'account configurato personalmente,ad esempio danielle@outlook.com, vedere [Attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+## <a name="who-decides-if-you-use-this-feature"></a>Chi decide se usare questa funzionalità?
+
+A seconda del tipo di account, l'organizzazione potrebbe decidere che è necessario usare la verifica a due fattori oppure si potrebbe deciderlo autonomamente.
+
+- **Account aziendale o dell'istituto di istruzione.** Se si usa un account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, spetta all'organizzazione scegliere se usare la verifica a due fattori, insieme ai metodi di verifica specifici. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla individualmente.
+
+- **Account Microsoft personale.** È possibile scegliere di impostare la verifica a due fattori per gli account Microsoft personali, ad esempio alain@outlook.com. Se si riscontrano problemi con la verifica a due fattori e l'account Microsoft personale, vedere [Attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Poiché si ha la libertà di scegliere se usare questa funzionalità, è possibile attivarla o disattivarla ogni volta che si desidera.
+
+## <a name="two-factor-verification-related-articles"></a>Articoli correlati alla verifica a due fattori
+
+Per informazioni e istruzioni dettagliate sulla configurazione, l'utilizzo e la gestione della verifica a due fattori, vedere gli articoli seguenti:
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-|[Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) |Descrive come configurare la verifica in due passaggi per la prima volta.|
-|[Introduzione alla verifica in due passaggi](multi-factor-authentication-end-user.md)|Descrive il significato della verifica in due passaggi per l'utente.| 
-|[Come effettuare l'accesso](user-help-sign-in.md)|Descrive come effettuare l'accesso usando il metodo di verifica specificato.|
-|[Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni, ad esempio il numero di telefono o il metodo di iscrizione preferito.|
-|[Guida alla verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) |Descrive come risolvere i problemi comuni relativi alla verifica in due passaggi.|
-|[Gestire le password delle app](multi-factor-authentication-end-user-app-passwords.md) |Descrive come creare e usare le password delle app.|
+| [Configurare la verifica a due fattori per l'account aziendale o dell'istituto di istruzione](multi-factor-authentication-end-user-first-time.md) | Descrive come configurare la verifica a due fattori per la prima volta. |
+| [Modifica delle impostazioni del metodo di verifica di sicurezza](multi-factor-authentication-end-user-manage-settings.md) | Descrive come modificare le impostazioni, ad esempio il numero di telefono o il metodo di iscrizione preferito. |
+| [Come effettuare l'accesso usando il metodo di verifica di sicurezza](user-help-sign-in.md) | Descrive come effettuare l'accesso usando il metodo di verifica specificato. |
+| [Risoluzione dei problemi della verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md) | Descrive come risolvere i problemi comuni relativi alla verifica a due fattori. |
+| [Gestire le password delle app](multi-factor-authentication-end-user-app-passwords.md) | Descrive come creare e usare le password delle app. |

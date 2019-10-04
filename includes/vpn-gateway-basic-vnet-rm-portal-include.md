@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109243"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673396"
 ---
 Seguendo questa procedura è possibile creare una rete virtuale con il modello di distribuzione Resource Manager e il portale di Azure. Per altre informazioni sulle reti virtuali, vedere la [panoramica di Rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Seguendo questa procedura è possibile creare una rete virtuale con il modello d
 >
 >
 
-1. Accedere al [portale di Azure](http://portal.azure.com) e selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuova**.
 
 2. Nel campo **Cerca nel Marketplace** immettere *rete virtuale* e quindi selezionare **Rete virtuale** nell'elenco restituito. Verrà visualizzata la pagina **Rete virtuale**.
 
@@ -38,7 +38,7 @@ Seguendo questa procedura è possibile creare una rete virtuale con il modello d
 
    - **Spazio indirizzi**: immettere lo spazio indirizzi. Se si hanno più spazi indirizzi da aggiungere, immettere il primo in questo campo. È possibile aggiungere altri spazi indirizzi in un secondo momento, dopo aver creato la rete virtuale.
 
-   - **Sottoscrizione**: verificare che la sottoscrizione riportata sia quella corretta. È possibile cambiare sottoscrizione tramite l'elenco a discesa.
+   - **Sottoscrizione** verificare che la sottoscrizione riportata sia quella corretta. È possibile cambiare sottoscrizione tramite l'elenco a discesa.
 
    - **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo immettendone il nome. Se si crea un nuovo gruppo, assegnare il nome al gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
 

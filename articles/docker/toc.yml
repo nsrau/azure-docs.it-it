@@ -1,40 +1,33 @@
-items:
 - name: Documentazione di Docker
   href: index.md
 - name: Guida introduttiva
-  items:
-  - name: Modello del Marketplace per Docker
-    href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS
   expanded: true
+  items:
+    - name: Modello del Marketplace per Docker
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
 - name: Esercitazioni
   items:
-  - name: App Web Python con Docker e PostgreSQL
-    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-  - name: Integrazione continua/distribuzione continua con Docker Swarm e Azure DevOps
-    href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
-  - name: Integrazione continua e distribuzione continua con Docker, Jenkins e Linux
-    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+    - name: App Web Python con Docker e PostgreSQL
+      href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+    - name: Integrazione continua/distribuzione continua con Docker Swarm e Azure DevOps
+      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+    - name: 'Integrazione continua e distribuzione continua con Docker, Jenkins e Linux'
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
 - name: Guide alle procedure
   items:
-  - name: Estensione della macchina virtuale Docker
-    href: /azure/virtual-machines/linux/dockerextension
-  - name: Computer Docker
-    href: /azure/virtual-machines/linux/docker-machine
-  - name: Registro contenitori di Docker
-    href: /azure/container-registry/container-registry-get-started-portal
+    - name: Estensione della macchina virtuale Docker
+      href: /azure/virtual-machines/linux/dockerextension
+    - name: Computer Docker
+      href: /azure/virtual-machines/linux/docker-machine
+    - name: Registro contenitori di Docker
+      href: /azure/container-registry/container-registry-get-started-portal
 - name: Risorse
   items:
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Driver di Docker per Azure
-    href: https://docs.docker.com/machine/drivers/azure/
-  - name: Sito di Docker per Azure
-    href: https://www.docker.com/docker-azure
-  - name: Sito di Docker
-    href: https://docker.com
-ms.openlocfilehash: 79a7bf072be65038000cbcbc17983b4d3b80684f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433770"
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Driver di Docker per Azure
+      href: 'https://docs.docker.com/machine/drivers/azure/'
+    - name: Sito di Docker per Azure
+      href: 'https://www.docker.com/docker-azure'
+    - name: Sito di Docker
+      href: 'https://docker.com'

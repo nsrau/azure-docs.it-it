@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: c7bbe8c6b2ad51ed7272cd215552807c7cea3aee
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799066"
 ---
 # <a name="video-indexer-concepts"></a>Concetti di Video Indexer
  
@@ -36,6 +37,6 @@ I blocchi sono concepiti per semplificare l'esame dei dati. Ad esempio, i blocch
 
 Per informazioni su come iniziare, vedere [Come iscriversi e caricare il primo video](video-indexer-get-started.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Video Indexer](video-indexer-overview.md)

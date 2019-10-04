@@ -3,23 +3,22 @@ title: Monitorare identità e accesso nel Centro sicurezza di Azure | Microsoft 
 description: Informazioni su come usare le funzionalità per identità e accesso nel Centro sicurezza di Azure per monitorare l'attività di accesso degli utenti e i problemi correlati all'identità.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/30/2018
+ms.author: memildin
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098773"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268856"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -39,7 +38,6 @@ Il monitoraggio delle attività associate alle identità consente di intraprende
 > [!NOTE]
 > Se la sottoscrizione include più di 600 account, il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per la sottoscrizione. I consigli non applicati sono elencati nella sezione "Valutazioni non disponibili", descritta di seguito.
 Il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per gli agenti di amministrazione di un partner Cloud Solution Provider (CSP).
->
 >
 
 Vedere [Consigli](security-center-identity-access.md#recommendations) per l'elenco dei consigli relativi a Identità e accesso offerti dal Centro sicurezza.
@@ -66,7 +64,7 @@ In **Identità e accesso** sono presenti due schede:
 ### <a name="overview-section"></a>Sezione Panoramica
 In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la raccomandazione. La seconda colonna visualizza il numero totale di sottoscrizioni interessate dal consiglio. La terza colonna indica la gravità del problema.
 
-1. Selezionare un consiglio. Viene aperta la finestra del consiglio, che visualizza:
+1. Selezionare un consiglio. Verrà visualizzata la finestra raccomandazioni con i seguenti elementi:
 
    - Descrizione del consiglio
    - Elenco delle sottoscrizioni non integre e integre
@@ -79,7 +77,7 @@ In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la 
 ### <a name="subscriptions-section"></a>Sezione Sottoscrizioni
 In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna elenca le sottoscrizioni. La seconda colonna visualizza il numero totale di consigli per ogni sottoscrizione. La terza colonna indica il livello di gravità dei problemi.
 
-![Scheda Sottoscrizioni][4]
+![Scheda sottoscrizioni][4]
 
 1. Selezionare una sottoscrizione. Viene aperta una visualizzazione di riepilogo con tre schede:
 
@@ -106,34 +104,31 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Indicazione|Descrizione|
 |----|----|----|----|
-|Sottoscrizione|50|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
-|Sottoscrizione|50|Abilitare il Centro sicurezza le sottoscrizioni |Abilitare il Centro sicurezza in tutte le sottoscrizioni per il rilevamento delle minacce avanzato, JIT, l'inserimento delle applicazioni nell'elenco elementi consentiti e consigli avanzati |
-|Sottoscrizione|50|Abilitare il livello standard del Centro sicurezza nelle sottoscrizioni |Abilitare il livello standard del Centro sicurezza in tutte le sottoscrizioni per il rilevamento delle minacce avanzato, JIT, l'inserimento delle applicazioni nell'elenco elementi consentiti e consigli avanzati.|
-|Sottoscrizione|40|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di scrittura per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di scrittura per impedire una violazione degli account o delle risorse.|
-|Sottoscrizione|30|Remove external accounts with owner permissions from your subscription (Rimuovere gli account esterni con autorizzazioni di proprietario dalla sottoscrizione)|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato. |
-|Sottoscrizione|30|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di lettura per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di lettura per impedire una violazione degli account o delle risorse.|
-|Sottoscrizione|25|Rimuovere gli account esterni con autorizzazioni di scrittura dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura in modo da evitare l'accesso non monitorato. |
-|Sottoscrizione|20|Rimuovere gli account deprecati con autorizzazioni di proprietario dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni.|
-|Sottoscrizione|5|Rimuovere gli account deprecati dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
-|Sottoscrizione|5|Designare più di un proprietario per la sottoscrizione|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
-|Sottoscrizione|5|Designare fino a 3 proprietari per la sottoscrizione|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
-|Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Sottoscrizione|15|Rimuovere gli account esterni con autorizzazioni di lettura dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.|
-|Sottoscrizione|1|Specificare dettagli del contatto per la sicurezza|Specificare le informazioni di contatto per la sicurezza per ogni sottoscrizione. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono. Le informazioni vengono usate per contattare l'utente se il team della sicurezza rileva risorse compromesse|
+|Sottoscrizione|50|L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
+|Sottoscrizione|40|Autenticazione a più fattori deve essere abilitata per gli account di sottoscrizione con autorizzazioni di scrittura|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di scrittura per impedire una violazione degli account o delle risorse.|
+|Sottoscrizione|30|Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato.|
+|Sottoscrizione|30|Autenticazione a più fattori deve essere abilitata per gli account di sottoscrizione con le autorizzazioni di lettura|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di lettura per impedire una violazione degli account o delle risorse.|
+|Sottoscrizione|25|Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura in modo da evitare l'accesso non monitorato. |
+|Sottoscrizione|20|Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni.|
+|Sottoscrizione|5|Gli account deprecati devono essere rimossi dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
+|Sottoscrizione|5|Alla sottoscrizione deve essere assegnato più di un proprietario|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
+|Sottoscrizione|5|Per la sottoscrizione devono essere designati al massimo 3 proprietari|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
+|Insieme di credenziali delle chiavi|5|I log di diagnostica in Key Vault devono essere abilitati|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Sottoscrizione|15|Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.| 
 
-> ![NOTA] Se è stato creato un criterio di accesso condizionale che richiede l'autenticazione a più fattori ma prevede esclusioni, la valutazione per i consigli sull'autenticazione a più fattori del Centro sicurezza considera i criteri come non conformi perché consentono ad alcuni utenti di accedere ad Azure senza l'autenticazione a più fattori.
->
+> [!NOTE]
+> Se sono stati creati criteri di accesso condizionale che richiedono l'autenticazione a più fattori ma sono state impostate esclusioni, la valutazione dell'autenticazione a più fattori del Centro sicurezza considera i criteri non conformi, perché consente ad alcuni utenti di accedere ad Azure senza autenticazione a più fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
+Per altre informazioni sui suggerimenti applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:
 
-- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
+- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 - [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 - [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del Centro sicurezza.

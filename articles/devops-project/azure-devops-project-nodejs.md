@@ -1,28 +1,27 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per Node.js con Azure DevOps Projects'
+title: Creare una pipeline CI/CD per Node.js con Azure DevOps Projects
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c59df73e7fa1d19db4c83a1c9a317f9b69ec8a37
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164525"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091175"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Node.js con Azure DevOps Projects 
 
@@ -54,9 +53,9 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 
 1. Creare una nuova organizzazione di Azure DevOps Services o scegliere un'organizzazione esistente. 
 
-    a. Scegliere un nome per il progetto. 
+    a. Immettere un nome per il progetto.
 
-    b. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine**.  
+    b. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'applicazione, quindi selezionare **Fine**.  
     Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
      
 3. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
@@ -78,7 +77,7 @@ Questo collegamento apre una visualizzazione del repository Git appena creato.
 1. Sul lato sinistro del browser passare al file **views/index.pug**.
 
 1. Selezionare **Modifica** e quindi apportare una modifica al titolo h2.  
-    Ad esempio, digitare **Iniziare subito con il progetto DevOps di Azure** o apportare altre modifiche.
+    Ad esempio, immettere **Iniziare subito con Azure DevOps Projects** o apportare altre modifiche.
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 

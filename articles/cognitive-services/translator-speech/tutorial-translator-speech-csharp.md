@@ -3,20 +3,20 @@ title: 'Esercitazione: API Traduzione vocale C#'
 titleSuffix: Azure Cognitive Services
 description: Usare l'API Traduzione vocale per tradurre il testo in tempo reale.
 services: cognitive-services
-author: v-jerkin
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: v-jerkin
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 669322aefb152729cc120abc0d7a52ce9d1151da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900829"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965292"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Esercitazione: Applicazione Traduzione vocale in C#
 
@@ -34,7 +34,7 @@ Questa esercitazione consente di esplorare uno strumento di traduzione vocale in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa esercitazione è necessario disporre di un'edizione qualsiasi di Visual Studio 2017, inclusa la Community Edition.
+Per questa esercitazione è necessario disporre di un'edizione qualsiasi di Visual Studio 2019, inclusa la Community Edition.
 
 La soluzione di Visual Studio crea anche un programma di installazione per l'applicazione. Per il supporto di questa funzionalità sono necessari [WiX Toolset](http://wixtoolset.org/) e l'[estensione di Visual Studio per WiX Toolset](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension).
 

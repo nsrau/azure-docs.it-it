@@ -10,17 +10,17 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8563e0ac060e5cce6853472dfb1c51c6c2c36a4d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548146"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071080"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -144,7 +144,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio app è possibile [configurare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard [os.environ](https://docs.python.org/3/library/os.html#os.environ). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard [os.environ](https://docs.python.org/3/library/os.html#os.environ). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -182,8 +182,6 @@ I framework Web più diffusi consentono di accedere alle informazioni `X-Forward
 - [Accedere al flusso di log](#access-diagnostic-logs).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-L'immagine incorporata di Python nel servizio app in Linux è attualmente in anteprima ed è possibile personalizzare il comando usato per avviare l'app. È anche possibile creare app Python di produzione usando un contenitore personalizzato.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: App Python con PostgreSQL](tutorial-python-postgresql-app.md)

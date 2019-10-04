@@ -2,7 +2,7 @@
 title: Gestione traffico di Azure | Microsoft Docs
 description: Questo articolo offre una panoramica di Gestione traffico di Azure. È possibile scoprire se si tratta della scelta giusta per il bilanciamento del carico del traffico utente per l'applicazione specifica.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: a8504cea3af6eb7633cf6738a73f757767d83138
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 95ef493ed44da8fd8372c11f15c3ab712961783e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071016"
 ---
 # <a name="what-is-traffic-manager"></a>Gestione traffico di Azure
 Gestione traffico di Azure è un servizio di bilanciamento del carico basato su DNS che consente di distribuire il traffico in modo ottimale ai servizi nelle aree globali di Azure, offrendo al tempo stesso disponibilità e velocità di risposta elevate.

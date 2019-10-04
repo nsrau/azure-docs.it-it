@@ -4,7 +4,7 @@ description: Usare l'interfaccia della riga di comando di Azure per creare da ze
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcaa3ae105490fe4f38a9de47ba0450c33da5ee1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328639"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671628"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux completa con l'interfaccia della riga di comando di Azure
 Per creare rapidamente una macchina virtuale in Azure, è possibile usare un singolo comando dell'interfaccia della riga di comando di Azure che si serve dei valori predefiniti per creare tutte le risorse di supporto richieste. Le risorse, ad esempio una rete virtuale, l'indirizzo IP pubblico e regole del gruppo di sicurezza di rete, vengono create automaticamente. Per un maggiore controllo dell'ambiente di produzione è possibile creare queste risorse in anticipo e quindi aggiungervi le macchine virtuali. In questo articolo descrive come creare una macchina virtuale e tutte le risorse di supporto, una alla volta.

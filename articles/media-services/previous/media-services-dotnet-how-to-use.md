@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64724111"
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
 

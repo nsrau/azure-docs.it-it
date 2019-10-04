@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.author: rajraj
-ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: jeconnoc
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123437"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326695"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso di set di scalabilità di macchine virtuali di grandi dimensioni
 È ora possibile creare [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure con capacità fino a 1.000 VM. In questo documento è definito _set di scalabilità di macchine virtuali di grandi dimensioni_ un set di scalabilità ridimensionabile fino a oltre 100 VM. Tale funzionalità è impostata da una proprietà del set di scalabilità (_singlePlacementGroup=False_). 
@@ -42,7 +42,7 @@ Per stabilire se l'applicazione può usare in modo efficace set di scalabilità 
 - Il bilanciamento del carico di livello 4 con set di scalabilità costituiti da più gruppi di posizionamento richiede lo [SKU Standard di Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). Lo SKU Standard di Load Balancer offre altri vantaggi, ad esempio la possibilità di bilanciare il carico tra più set di scalabilità. Lo SKU Standard richiede anche che al set di scalabilità sia associato un gruppo di sicurezza di rete. In caso contrario, i pool NAT non funzioneranno correttamente. Se è necessario usare lo SKU Basic di Azure Load Balancer, verificare che il set di scalabilità sia configurato per l'uso di un singolo gruppo di posizionamento, come da impostazione predefinita.
 - Il bilanciamento del carico di livello 7 con il gateway applicazione di Azure è supportato per tutti i set di scalabilità.
 - Un set di scalabilità è definito con una singola subnet. Verificare che lo spazio indirizzi della subnet sia sufficiente per tutte le VM necessarie. Per impostazione predefinita, un set di scalabilità effettua un provisioning eccessivo (ossia crea VM aggiuntive, per cui non vengono applicati addebiti, in fase di distribuzione o quando si aumenta il numero di istanze) per migliorare l'affidabilità e le prestazioni della distribuzione. Prevedere uno spazio indirizzi superiore del 20% rispetto al numero di VM a cui si intende eseguire il ridimensionamento.
-- I domini di errore e di aggiornamento sono coerenti solo all'interno di un gruppo di posizionamento. Questa architettura non modifica la disponibilità generale di un set di scalabilità, perché le VM sono distribuite in modo uniforme su hardware fisico distinto. Se è necessario garantire che due VM risiedano in hardware diverso, tuttavia, verificare che si trovino in domini di errore diversi nello stesso gruppo di posizionamento. Vedere questo collegamento [Consultare Disponibilità e aree di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- I domini di errore e di aggiornamento sono coerenti solo all'interno di un gruppo di posizionamento. Questa architettura non modifica la disponibilità generale di un set di scalabilità, perché le VM sono distribuite in modo uniforme su hardware fisico distinto. Se è necessario garantire che due VM risiedano in hardware diverso, tuttavia, verificare che si trovino in domini di errore diversi nello stesso gruppo di posizionamento. Vedere le [Opzioni di disponibilità](/azure/virtual-machines/windows/availability)del collegamento. 
 - Il dominio di errore e l'ID del gruppo di posizionamento sono riportati nella _visualizzazione dell'istanza_ di una VM del set di scalabilità. La visualizzazione dell'istanza di una VM del set di scalabilità è disponibile in [Esplora risorse di Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Creazione di un set di scalabilità di grandi dimensioni

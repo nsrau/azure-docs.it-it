@@ -1,20 +1,19 @@
 ---
 title: Creare cluster Apache Hadoop con .NET - Azure HDInsight
 description: Informazioni su come creare cluster Apache Hadoop, Apache HBase, Apache Storm, o Apache Spark in Linux per HDInsight usando HDInsight .NET SDK.
-services: hdinsight
-author: mamccrea
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.author: mamccrea
-ms.openlocfilehash: 0106063cfe376f31040b5dcd6856282ee09ae5c9
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: hrasheed
+ms.openlocfilehash: fccb29167dc04bf75a85935eeb57b0420b151f64
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447945"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916494"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
@@ -34,11 +33,11 @@ Informazioni su come creare un cluster [Apache Hadoop](https://hadoop.apache.org
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un account di archiviazione di Azure**. Vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>Creare i cluster
 
-1. Aprire Visual Studio 2017.
+1. Aprire Visual Studio.
 2. Creare una nuova applicazione console in Visual C#.
 3. Nel menu **Strumenti** fare clic su **Gestione pacchetti NuGet**, quindi su **Console di Gestione pacchetti**.
 4. Eseguire il comando seguente nella console per installare i pacchetti:
@@ -394,7 +393,6 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 
 ### <a name="run-jobs"></a>Eseguire i processi
 * [Eseguire processi Apache Hive con .NET SDK in HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Eseguire processi Apache Pig con .NET SDK in HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Eseguire processi Apache Sqoop con .NET SDK in HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie-linux-mac.md)
 

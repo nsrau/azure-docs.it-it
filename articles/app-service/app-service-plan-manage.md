@@ -11,17 +11,16 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 10/31/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 936abe80a66c1dbe99e7d8a255fe8995a2df0803
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715661"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067214"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -97,7 +96,7 @@ L'area in cui viene eseguita l'app è l'area del piano di servizio app. Tuttavia
 
 ## <a name="scale-an-app-service-plan"></a>Scalare un piano di servizio app
 
-Per passare a un piano tariffario superiore per un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
+Per passare a un piano tariffario superiore per un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
 
 Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
@@ -113,7 +112,7 @@ Per evitare costi imprevisti, quando si elimina l'ultima app in un piano di serv
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md)
+> [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

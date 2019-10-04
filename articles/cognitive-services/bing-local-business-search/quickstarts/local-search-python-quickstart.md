@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing in Python | Microsoft Docs"
+title: "Avvio rapido: Inviare una query all'API Ricerca attività commerciali locali Bing in Python"
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per iniziare a usare l'API di ricerca di attività locali Bing in Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 241ade7d4866186946c371aa1786bc913d045483
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 2ed4ba5081ba91318b56fdc65027664640542ca0
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335930"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994371"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing in Python
 

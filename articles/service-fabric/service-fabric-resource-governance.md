@@ -3,7 +3,7 @@ title: Governance delle risorse di Azure Service Fabric per contenitori e i serv
 description: Azure Service Fabric consente di specificare limiti di risorse per i servizi in esecuzione all'interno o all'esterno di contenitori.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: aljo, subramar
-ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: subramar
+ms.openlocfilehash: ed9ea8f9c340331fd9b8fcc014ab1af88e7b3bae
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669249"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599245"
 ---
 # <a name="resource-governance"></a>Governance delle risorse
 
@@ -58,7 +58,7 @@ Esistono tuttavia due casi in cui altri processi potrebbero contendersi la CPU. 
 
 * *Combinazione di servizi e contenitori regolamentati e non regolamentati*: se un utente crea un servizio senza specificare la governance delle risorse, il runtime ritiene che non consumi risorse e può inserirlo nel nodo dell'esempio precedente. In questo caso, il nuovo processo consuma CPU a spese dei servizi già in esecuzione sul nodo. Esistono due soluzioni a questo problema. Evitare l'uso combinato di servizi regolamentati e non regolamentati nello stesso cluster oppure usare [vincoli di selezione host](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) in modo che questi due tipi di servizi non vengano inseriti nello stesso set di nodi.
 
-* *Quando viene avviato un altro processo sul nodo, all'esterno di Service Fabric (ad esempio, un servizio del sistema operativo)*: In questa situazione il processo esterno a Service Fabric si contenderà anche la CPU con i servizi esistenti. Per risolvere il problema, impostare correttamente le capacità del nodo per tenere conto del sovraccarico del sistema operativo, come descritto nella sezione seguente.
+* *Quando viene avviato un altro processo sul nodo, all'esterno di Service Fabric (ad esempio, un servizio del sistema operativo)* : In questa situazione il processo esterno a Service Fabric si contenderà anche la CPU con i servizi esistenti. Per risolvere il problema, impostare correttamente le capacità del nodo per tenere conto del sovraccarico del sistema operativo, come descritto nella sezione seguente.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configurazione del cluster per l'abilitazione della governance delle risorse
 

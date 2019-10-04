@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825609"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale  
 ## <a name="overview"></a>Panoramica
@@ -42,7 +42,7 @@ Configurazione delle attività (set di impostazioni). Quando si crea un'attivit�
 >
 
 ### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | DESCRIZIONE |
+| Nome attributo | Descrizione |
 | --- | --- |
 |AdvancedOutput| Se si imposta AdvancedOutput su true, l'output JSON conterrà dati posizionali per ogni singola parola (oltre alle aree e le frasi). Se non si intende visualizzare i dettagli, impostare il flag su false. Il valore predefinito è False. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Linguaggio |(Facoltativo) Descrive la lingua del testo da cercare. Uno dei seguenti: AutoDetect (impostazione predefinita), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
@@ -103,11 +103,11 @@ L'output OCR del video include dati con segmentazione temporale sui caratteri de
 
 L'output contiene gli attributi seguenti:
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | Scala cronologica |"Scatti" al secondo del video |
 | Offset |Differenza di orario dei timestamp Nella versione 1.0 delle API Video, questo valore è sempre 0. |
-| Frequenza fotogrammi |Fotogrammi al secondo del video |
+| Framerate |Fotogrammi al secondo del video |
 | width |Larghezza del video in pixel |
 | height |Altezza del video in pixel |
 | Frammenti |Matrice di porzioni temporali di video in cui i metadati sono suddivisi in blocchi |

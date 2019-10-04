@@ -5,33 +5,31 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632775"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67622105"
 ---
-#### <a name="expressroute-limits"></a>Limiti di ExpressRoute
-I limiti seguenti si applicano alle risorse di Azure ExpressRoute per ogni sottoscrizione.
-
-| Risorsa | Limite predefinito o massimo |
+| Risorsa | Limite predefinito/massimo |
 | --- | --- |
 | Circuiti ExpressRoute per ogni sottoscrizione |10 |
-| Circuiti ExpressRoute per area per sottoscrizione, con Azure Resource Manager |10 |
-| Numero massimo di route per il peering privato di Azure con ExpressRoute Standard |4.000 |
-| Numero massimo di route per il peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
-| Numero massimo di route per il peering privato di Azure dallo spazio degli indirizzi della rete virtuale per una connessione ExpressRoute |200 | 
-| Numero massimo di route per il peering di Microsoft Azure con ExpressRoute Standard |200 |
-| Numero massimo di route per il peering di Microsoft Azure con il componente aggiuntivo ExpressRoute Premium |200 |
+| Circuiti ExpressRoute per area per ogni sottoscrizione, con Azure Resource Manager |10 |
+| Numero massimo di route annunciate al peering privato di Azure con ExpressRoute standard |4\.000 |
+| Numero massimo di route annunciate al peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
+| Numero massimo di route annunciate dal peering privato di Azure dallo spazio di indirizzi della VNet per una connessione ExpressRoute |200 |
+| Numero massimo di route annunciate al peering Microsoft con ExpressRoute standard |200 |
+| Numero massimo di route annunciate al peering Microsoft con il componente aggiuntivo ExpressRoute Premium |200 |
+| Numero massimo di circuiti ExpressRoute collegati alla stessa rete virtuale nella stessa posizione di peering |4 |
 | Numero massimo di circuiti ExpressRoute collegati alla stessa rete virtuale in diverse posizioni di peering |4 |
-| Numero di collegamenti alla rete virtuale consentiti per ogni circuito ExpressRoute |Vedere la tabella seguente. |
+| Numero di collegamenti alla rete virtuale consentiti per ogni circuito ExpressRoute |Vedere il [numero di reti virtuali per ogni tabella del circuito ExpressRoute](#vnetpercircuit) .  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Numero di reti virtuali per ogni circuito ExpressRoute
-| **Dimensioni circuito** | **Numero di collegamenti di rete virtuale per il livello Standard** | **Numero di collegamenti di rete virtuale con il componente aggiuntivo Premium** |
+#### <a name="vnetpercircuit"></a>Numero di reti virtuali per ogni circuito ExpressRoute
+| **Dimensioni del circuito** | **Numero di collegamenti di rete virtuale per standard** | **Numero di collegamenti alla rete virtuale con componente aggiuntivo Premium** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |
@@ -41,4 +39,7 @@ I limiti seguenti si applicano alle risorse di Azure ExpressRoute per ogni sotto
 | 2 Gbps |10 |60 |
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
+| 40 Gbps * |10 |100 |
+| 100 Gbps * |10 |100 |
 
+**Solo ExpressRoute a 100 Gbps*

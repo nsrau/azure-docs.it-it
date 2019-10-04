@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f8a86c0b71a5248164ea522472f9f2ecb2ce36bc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789992"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827351"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modifiche di denominazione e terminologia in Monitoraggio di Azure
 Di recente sono state apportate modifiche significative a Monitoraggio di Azure, con diversi servizi consolidati per semplificare il servizio di monitoraggio da parte dei clienti di Azure. Questo articolo descrive le recenti modifiche apportate alla terminologia e ai nomi all'interno della documentazione di Monitoraggio di Azure.
@@ -26,7 +26,7 @@ Di recente sono state apportate modifiche significative a Monitoraggio di Azure,
 Dopo il consolidamento di diversi servizi in Monitoraggio di Azure, stiamo affrontando il passaggio successivo con la modifica della terminologia nella documentazione per descrivere meglio il servizio di Monitoraggio di Azure e i relativi componenti. 
 
 ### <a name="log-analytics"></a>Log Analytics
-I dati di log di Monitoraggio di Azure rimangono archiviati in un'area di lavoro Log Analytics e vengono ancora raccolti e analizzati dal servizio Log Analytics stesso, tuttavia è in corso, in molte posizioni, la modifica del termine _Log Analytics_, in _Log di Monitoraggio di Azure_ . Questo termine riflette meglio il relativo ruolo in Monitoraggio di Azure e fornisce una migliore consistenza per le [metriche in Monitoraggio di Azure](platform/data-platform-metrics.md).
+I dati di log di Monitoraggio di Azure rimangono archiviati in un'area di lavoro Log Analytics e vengono ancora raccolti e analizzati dal servizio Log Analytics stesso, tuttavia è in corso, in molte posizioni, la modifica del termine _Log Analytics_, in _Log di Monitoraggio di Azure_ . Questo termine riflette meglio il proprio ruolo in monitoraggio di Azure e offre una maggiore coerenza con le [metriche in monitoraggio di Azure](platform/data-platform-metrics.md).
 
 Il termine _Log Analytics_ si applica ora principalmente alla pagina nel portale di Azure usata per scrivere, eseguire query e analizzare i dati di log. È l'equivalente funzionale di [Esplora metriche](platform/metrics-charts.md), ovvero la pagina nel portale di Azure usata per analizzare i dati delle metriche.
 

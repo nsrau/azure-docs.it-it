@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione code e ai Servizi connessi di Visual Studi
 description: Informazioni su come iniziare a usare il servizio di archiviazione di accodamento di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391231"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510800"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Oltre a **string**, il parametro può essere una matrice di byte, un oggetto **CloudQueueMessage** o un oggetto POCO definito dall'utente.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Nell'esempio seguente, il messaggio in coda contiene JSON per un oggetto **BlobInformation** che include una proprietà **BlobName**. L'SDK deserializza automaticamente l'oggetto.
 
 ```csharp
@@ -190,7 +190,7 @@ Per altre informazioni, vedere l'articolo sull' [arresto normale dei processi We
 Per scrivere una funzione che crea un nuovo messaggio di coda, usare l'attributo **Queue** . Come per l'attributo **QueueTrigger**, si passa il nome della coda come stringa oppure è possibile [configurare dinamicamente il nome della coda](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Messaggi stringa in coda
-Il seguente esempio di codice non asincrono crea nella coda denominata "outputqueue" un nuovo messaggio di coda con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, usare **IAsyncCollector<T>** come illustrato più avanti in questa sezione.
+Il seguente esempio di codice non asincrono crea nella coda denominata "outputqueue" un nuovo messaggio di coda con lo stesso contenuto del messaggio di coda ricevuto nella coda denominata "inputqueue". Per le funzioni asincrone, **usare\<IAsyncCollector T >** come illustrato più avanti in questa sezione.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Per creare un messaggio di coda contenente un oggetto POCO anziché una stringa, passare il tipo POCO come parametro di output al costruttore dell'attributo **Queue** .
 
 ```csharp
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 L'SDK deserializza automaticamente l'oggetto in JSON. Viene sempre creato un messaggio in coda, anche se l'oggetto è null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Creare più messaggi o in funzioni asincrone
-Per creare più messaggi, impostare il tipo di parametro per la coda di output **ICollector<T>** o **IAsyncCollector<T>**, come illustrato nell'esempio seguente.
+Per creare più messaggi, fare in modo che il tipo di parametro per la coda di output **\<ICollector t >** o **\<IAsyncCollector t >** , come illustrato nell'esempio seguente.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Per un oggetto POCO archiviato nel formato JSON nel messaggio della coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro **blobPath** dell'attributo **Queue**. È anche possibile usare nomi di proprietà dei metadati di coda come segnaposto. Vedere [Ottenere i metadati della coda o del messaggio in coda](#get-queue-or-queue-message-metadata).
 
 Il seguente esempio copia un BLOB in un nuovo BLOB con un'estensione diversa. Il messaggio di coda è un oggetto **BlobInformation** che include le proprietà **BlobName** e **BlobNameWithoutExtension**. I nomi delle proprietà vengono usati come segnaposto nel percorso BLOB per gli attributi **Blob** .
@@ -342,7 +342,7 @@ I messaggi il cui contenuto comporta l'esito negativo di una funzione sono denom
 ### <a name="automatic-poison-message-handling"></a>Gestione automatica dei messaggi non elaborabili
 L'SDK chiamerà una funzione fino a 5 volte per elaborare un messaggio nella coda. Se il quinto tentativo non riesce, il messaggio viene spostato in una coda non elaborabile. È possibile vedere come configurare il numero massimo di tentativi nell'argomento relativo a [come impostare le opzioni di configurazione](#how-to-set-configuration-options).
 
-La coda non elaborabile è denominata *{nomecodaoriginale}*-poison. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
+La coda non elaborabile è denominata *{nomecodaoriginale}* -poison. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
 
 Nell'esempio seguente, la funzione **CopyBlob** non riesce quando un messaggio della coda contiene il nome di un BLOB inesistente. In questo caso, il messaggio viene spostato dalla coda copyblobqueue alla coda non elaborabile copyblobqueue-poison. **ProcessPoisonMessage** registra quindi il messaggio non elaborabile.
 
@@ -544,7 +544,7 @@ Nel dashboard di WebJobs SDK le 100 righe più recenti dell'output di Console ve
 
 ![Attiva/Disattiva Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{nomeprocessoweb}*/job_log.txt nel file system dell'app Web.
+In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/ *{nomeprocessoweb}* /job_log.txt nel file system dell'app Web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

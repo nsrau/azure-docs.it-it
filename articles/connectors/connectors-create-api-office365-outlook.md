@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
+ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215639"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105055"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365
 Il connettore Office 365 Outlook consente l'interazione con Outlook in Office 365. Usare questo connettore per creare, modificare e aggiornare i contatti e gli elementi del calendario e anche per ottenere, inviare e rispondere ai messaggio di posta elettronica.
@@ -68,7 +68,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 ## <a name="use-an-action"></a>Usare un'azione
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
+1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione**, o uno del **ulteriori** opzioni.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Selezionare **Aggiungi un'azione**.
@@ -91,6 +91,6 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/office365connector/). 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 

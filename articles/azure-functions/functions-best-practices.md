@@ -8,17 +8,16 @@ manager: jeconnoc
 keywords: funzioni di azure, modelli, procedure consigliate, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848950"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933047"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -37,7 +36,7 @@ Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di f
 
 ### <a name="cross-function-communication"></a>Comunicazioni tra funzioni
 
-Le [funzioni permanenti](durable/durable-functions-concepts.md) e le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) sono progettate per gestire transazioni di stato e comunicazioni tra più funzioni.
+Le [funzioni permanenti](durable/durable-functions-overview.md) e le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) sono progettate per gestire transazioni di stato e comunicazioni tra più funzioni.
 
 Se per integrare più funzioni non si usano queste due soluzioni, è opportuno in genere usare le code di archiviazione per la comunicazione tra funzioni.  Il motivo principale è che le code di archiviazione sono più economiche ed è molto più facile sottoporle a provisioning. 
 
@@ -84,7 +83,7 @@ Le funzioni all'interno di un'app per le funzioni condividono le risorse. Ad ese
 
 Prestare attenzione a quello che si carica nelle app per le funzioni di produzione. La memoria viene calcolata in ogni funzione nell'app.
 
-Se si dispone di un assembly condiviso a cui fa riferimento più funzioni .NET, inserirlo in una cartella condivisa comune. Fare riferimento all'assembly con un'istruzione simile all'esempio seguente se si usano script C# (con estensione csx): 
+Se si dispone di un assembly condiviso a cui si fa riferimento in più funzioni .NET, inserirlo in una cartella condivisa comune. Fare riferimento all'assembly con un'istruzione simile all'esempio seguente se si usano script C# (con estensione csx): 
 
     #r "..\Shared\MyAssembly.dll". 
 

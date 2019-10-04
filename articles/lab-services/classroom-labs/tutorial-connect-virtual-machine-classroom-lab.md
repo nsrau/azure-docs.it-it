@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: cf1bd223c852db930835ea1b56a93a381e8312c5
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545264"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161415"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Esercitazione: Accedere a un lab per le classi in Azure Lab Services
 Questa esercitazione descrive come uno studente può connettersi a una macchina virtuale (VM) in un lab per le classi. 
@@ -27,21 +27,40 @@ Questa esercitazione descrive come uno studente può connettersi a una macchina 
 In questa esercitazione vengono completate le azioni seguenti:
 
 > [!div class="checklist"]
-> * Usare il collegamento di registrazione 
-> * Connettersi alla macchina virtuale
+> * Registrarsi al lab
+> * Avviare la VM
+> * Connettersi alla VM
 
-## <a name="use-the-registration-link"></a>Usare il collegamento di registrazione
+## <a name="register-to-the-lab"></a>Registrarsi al lab
 
 1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
-2. Al termine della registrazione, verificare che le macchine virtuali per i lab a cui si ha accesso siano disponibili. 
-3. Attendere che la macchina virtuale sia pronta e quindi **avviarla**. L'esecuzione di questo processo richiede tempo.  
+
+    > [!NOTE]
+    > Per l'uso di Azure Lab Services, è necessario un account Microsoft. Se si prova a usare un account non Microsoft, ad esempio Yahoo o Google, per accedere al portale, seguire le istruzioni per creare un account Microsoft che verrà collegato all'account non Microsoft. Quindi, seguire la procedura per completare il processo di registrazione. 
+1. Al termine della registrazione, verificare che le macchine virtuali per i lab a cui si ha accesso siano disponibili. 
+1. Attendere che la macchina virtuale sia pronta. Nel riquadro della macchina virtuale osservare i campi seguenti:
+    1. Nella parte superiore del riquadro viene visualizzato il **nome del lab**.
+    1. A destra viene visualizzata l'icona che rappresenta il **sistema operativo** della macchina virtuale. In questo esempio si tratta di Windows. 
+    1. L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al numero di [ore della quota](how-to-configure-student-usage.md#set-quotas-for-users) assegnate all'utente. Questo intervallo di tempo è il tempo aggiuntivo assegnato all'utente oltre al tempo pianificato per il lab. 
+    1. Nella parte inferiore del riquadro vengono visualizzati i pulsanti/icone per avviare e arrestare la macchina virtuale, nonché per connettersi alla macchina virtuale. 
+    1. A destra dei pulsanti viene visualizzato lo stato della macchina virtuale. Verificare che lo stato della macchina virtuale sia **Arrestato**. 
+
+        ![Macchina virtuale nello stato Arrestato](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-the-vm"></a>Avviare la VM
+1. **Avviare** la macchina virtuale selezionando il primo pulsante, indicato nell'immagine seguente. L'esecuzione di questo processo richiede tempo.  
 
     ![Avviare la VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. Verificare che lo stato della macchina virtuale sia **In esecuzione**. 
 
-## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
+    ![Macchina virtuale nello stato In esecuzione](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-1. Selezionare **Connetti** sul riquadro della macchina virtuale del lab a cui si vuole accedere. 
+    Si noti che l'icona del primo pulsante cambia per rappresentare un'operazione di **arresto**. È possibile selezionare questo pulsante per arrestare la macchina virtuale. 
+
+## <a name="connect-to-the-vm"></a>Connettersi alla VM
+
+1. Selezionare il secondo pulsante indicato nell'immagine seguente per **connettersi** alla macchina virtuale del lab. 
 
     ![Connettersi alla macchina virtuale](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Eseguire uno dei passaggi seguenti: 

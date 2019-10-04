@@ -1,25 +1,18 @@
 ---
-title: Client di verifica automatica per la convalida preliminare di una macchina virtuale - Azure Marketplace | Microsoft Docs
+title: Verificano automatica di client pre-convalidare una macchina virtuale | Azure Marketplace
 description: Come creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938714"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
 
@@ -69,7 +62,7 @@ Request body:    The Request body parameters should use the following JSON forma
 La tabella seguente descrive i campi dell'API.
 
 
-|      Campo         |    DESCRIZIONE    |
+|      Campo         |    Descrizione    |
 |  ---------------   |  ---------------  |
 |  Authorization     |  La stringa "Bearer xxxx-xxxx-xxxx-xxxxx" contiene il token client di Azure Active Directory (AD), che può essere creato usando PowerShell.          |
 |  DNSName           |  Nome DNS della macchina virtuale da testare    |
@@ -271,7 +264,7 @@ Seguire questa procedura per registrare l'app client.
     ![Configurare il supporto multi-tenant per l'app](./media/stclient-select-api.png)
 
 12. In **Aggiungi accesso all'API** fare clic su **Selezionare le autorizzazioni**.
-13. Selezionare **Accesso "API Gestione dei servizi Microsoft Azure"**.
+13. Selezionare **Accesso "API Gestione dei servizi Microsoft Azure"** .
 
     ![Abilitare l'accesso all'API per l'app](./media/stclient-enable-api-access.png)
 
@@ -300,7 +293,7 @@ Seguire questa procedura per registrare l'app client.
 
 Per creare e ottenere un token tramite l'API REST di OAuth, è possibile usare uno qualsiasi dei programmi seguenti:
 
-- postman
+- Postman
 - cURL in Linux
 - C&#35;
 - PowerShell

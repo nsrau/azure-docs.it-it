@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Python - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa Guida introduttiva Python basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services
 author: diberry
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: f74d43d90a288a145887878305a95e1052ab8c05
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880016"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802969"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Ottenere risposte a una domanda da una knowledge base con Python
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Guida introduttiva: Ottenere risposte a una domanda da una knowledge base con Python
 
 Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md), ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata più attendibile. 
 
@@ -43,6 +43,8 @@ Aprire VSCode e creare un nuovo file denominato `get-answer-3x.py`.
 All'inizio del file `get-answer-3x.py` aggiungere le dipendenze necessarie al progetto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 L'host e la route sono diversi rispetto a quanto visualizzato nella pagina **Pubblica**. Questo avviene perché la libreria di Python non consente alcun routing nell'host. Il routing che viene visualizzato nella pagina **Pubblica** come parte dell'host è stato spostato alla route.
 
@@ -79,4 +81,4 @@ Altre informazioni su [richiesta](../how-to/metadata-generateanswer-usage.md#gen
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

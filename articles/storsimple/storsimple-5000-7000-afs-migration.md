@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65150744"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Eseguire la migrazione dei dati da StorSimple serie 5000/7000 a Sincronizzazione file di Azure
 
@@ -56,7 +56,7 @@ Di seguito sono elencati i prerequisiti per la migrazione di un dispositivo lega
 - I volumi StorSimple vengono montati nell'host e contengono condivisioni file.
 - L'host dispone di spazio di archiviazione locale sufficiente per contenere i dati memorizzati nella cache locale.
 - Livello di accesso come proprietario della sottoscrizione di Azure che si userà per distribuire Sincronizzazione file di Azure. Si potrebbero riscontrare problemi durante la creazione di un endpoint cloud per il gruppo di sincronizzazione se non si dispone di autorizzazioni a livello di amministratore o proprietario.
-- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
   - Come [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo di migrazione
@@ -87,7 +87,7 @@ Eseguire la procedura seguente per effettuare la migrazione di condivisione file
     Ignorare questo passaggio e andare al passaggio successivo, se si usa un altro host di Windows Server. Se si usa lo stesso Server di file di Windows per AFS, si verificheranno alcuni minuti di inattività. 
     - **Il tempo di inattività inizia** -eliminare l'endpoint del server che è stato creato nel *passaggio 1F*. 
     - Creare un nuovo endpoint di server con il percorso in cui si desidera che verranno trovati i dati successivamente.
-    - Quando l'endpoint del server viene mostrato come Integro (l'operazione potrebbe richiedere alcuni minuti), si visualizzeranno i dati nella nuova posizione. È ora possibile configurare l'host di Windows Server per rendere disponibili i file da questo nuovo percorso. -**Tempo di inattività finisce**.
+    - Quando l'endpoint del server viene mostrato come Integro (l'operazione potrebbe richiedere alcuni minuti), si visualizzeranno i dati nella nuova posizione. È ora possibile configurare l'host di Windows Server per rendere disponibili i file da questo nuovo percorso. - **Tempo di inattività finisce**.
 5.  Se si usa un altro file Server di Windows per Sincronizzazione file di Azure, non si verificheranno tempi di inattività. 
     - Aggiungere un altro endpoint server con il percorso della risorsa di archiviazione locale che si è pronti a usare come cache anziché il dispositivo StorSimple. 
     - Sarà possibile visualizzare i file nel nuovo server in pochi minuti. Sarà possibile passare dal dispositivo StorSimple al nuovo percorso nell'host in qualsiasi momento.

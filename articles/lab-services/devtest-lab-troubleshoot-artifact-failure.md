@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546366"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991373"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticare errori di elementi nel lab 
 Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto esito positivo o negativo. I log degli elementi in Azure DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore di un elemento. Ci sono due modi per visualizzare le informazioni del log degli elementi per una macchina virtuale Windows:
@@ -52,7 +52,8 @@ Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto e
 
 3. Aprire il file di **stato**.
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+Per istruzioni su come trovare i file di log in una macchina virtuale **Linux** , vedere l'articolo seguente: [Usare l'estensione di script personalizzata di Azure versione 2 con macchine virtuali Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
 * [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di Active Directory esistente usando un modello di Resource Manager in DevTest Labs)

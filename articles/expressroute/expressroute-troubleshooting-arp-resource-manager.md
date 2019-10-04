@@ -9,11 +9,11 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66151576"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ Se si verificano problemi con la sessione locale o provider di connettività su 
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-o
+oppure
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   
@@ -173,7 +173,7 @@ o
 * Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering. 
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Convalidare le configurazioni di livello 3 per il circuito ExpressRoute
   * Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP 
   * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute

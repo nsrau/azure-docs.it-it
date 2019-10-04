@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344309"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300860"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Piani e fatturazione per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà l'Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
 ## <a name="job-collection-plans"></a>Piani di raccolta di processi
 
@@ -80,7 +80,7 @@ Le raccolte di processi P20 Premium forniscono le stesse funzionalità delle rac
 
   Le fatture del servizio Utilità di pianificazione sono basate sul numero di raccolte di processi attive Standard o Premium.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)

@@ -2,26 +2,26 @@
 title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento ContentDefinitions di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313316"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064325"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-È possibile personalizzare l'aspetto di qualsiasi [profilo tecnico autocertificato](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato condivisione di risorse tra le origini (CORS). 
+È possibile personalizzare l'aspetto di qualsiasi [profilo tecnico autocertificato](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) esegue il codice nel browser del cliente e usa un approccio moderno denominato condivisione risorse tra le origini (CORS).
 
 Per personalizzare l'interfaccia utente, si specifica un URL nell'elemento **ContentDefinition** con contenuto HTML personalizzato. Nel profilo tecnico autocertificato oppure **OrchestrationStep**, si punta a tale identificatore di definizione del contenuto. La definizione del contenuto può contenere un elemento **LocalizedResourcesReferences** che specifica un elenco di risorse localizzate da caricare. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi mostra la pagina all'utente.
 
@@ -67,26 +67,26 @@ L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
 L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
-| RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. | 
-| DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |  
-| Metadata | 1:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. | 
+| RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
+| DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
+| Metadata | 1:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
 
 ### <a name="datauri"></a>DataUri
 
 L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I seguenti elenchi tabella degli identificatori di pagina che è possibile usare.
 
-| Value |   DESCRIZIONE |
+| Value |   Descrizione |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. | 
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. | 
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. | 
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. |
 
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
@@ -95,13 +95,13 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | Un elenco di riferimenti di risorse localizzate per la definizione del contenuto. | 
+| LocalizedResourcesReference | 1:n | Un elenco di riferimenti di risorse localizzate per la definizione del contenuto. |
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Linguaggio | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
+| Linguaggio | Yes | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
 | LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
 
 Nell'esempio seguente viene mostrata una definizione del contenuto di iscrizione o accesso:
@@ -141,7 +141,7 @@ Per informazioni su come aggiungere il supporto di localizzazione per le definiz
 
 L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina correlato alla definizione del contenuto. L'elemento definisce il contesto a cui un modello personalizzato HTML5/CSS viene applicato. La tabella seguente descrive il set degli ID definizione del contenuto riconosciuti dal framework di gestione dell'identità e i tipi di pagina correlati. È possibile creare le definizioni del contenuto con un ID arbitrario.
 
-| ID | Modello predefinito | DESCRIZIONE | 
+| id | Modello predefinito | Descrizione |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**: Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità** - Elenca i provider di identità tra cui gli utenti possono scegliere durante l'iscrizione. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
@@ -153,4 +153,4 @@ L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina c
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di iscrizione a un account social**: mostra un modulo che gli utenti devono completare quando effettuano l'iscrizione usando un account esistente da un provider di identità social. Questa pagina è simile alla pagina di iscrizione dell'account di social network descritta in precedenza, ad eccezione dei campi di immissione della password. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina di aggiornamento profilo**: mostra un modulo a cui gli utenti possono accedere per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social network, ad eccezione dei campi di immissione della password. |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Pagina unificata per l'iscrizione o accesso**: viene gestito il processo di iscrizione e accesso dell'utente. Gli utenti possono usare provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook o Google +, o account locali. |
- 
+

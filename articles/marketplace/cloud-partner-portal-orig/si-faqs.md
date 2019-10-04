@@ -1,25 +1,18 @@
 ---
-title: Domande frequenti su Informazioni dettagliate del venditore | Microsoft Docs
+title: Domande frequenti su Informazioni dettagliate del venditore
 description: Domande frequenti sulla funzionalità Informazioni dettagliate del venditore del portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943108"
 ---
 <a name="seller-insights-faq"></a>Domande frequenti su Informazioni dettagliate del venditore
 ===================
@@ -48,7 +41,7 @@ Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcolare i ricavi per periodo di utilizzo del cliente
 ------------------------------------------
 
-Dopo aver scaricato le transazioni dal modulo relative ai proventi, individuare la colonna con etichettata **lo stato della transazione**e filtrare il valore "Paid".   Per ogni transazione elencato, la colonna con etichetta **proventi quantità (PC)** rappresenta l'importo è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
+Dopo aver scaricato le transazioni dal modulo relative ai proventi, individuare la colonna con etichettata **lo stato della transazione**e filtrare il valore "Paid".   Per ogni transazione elencato, la colonna con etichetta **proventi quantità (PC)**  rappresenta l'importo è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
 
 
 <a name="calculate-your-bad-debt"></a>Calcolare i crediti inesigibili

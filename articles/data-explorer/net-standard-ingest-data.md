@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)'
-description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando .NET Standard SDK.
+title: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
+description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure con .NET SDK Standard.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/18/2018
-ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66496883"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
 
-Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
+Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo, è innanzitutto necessario creare una tabella e i mapping dei dati in un cluster di test. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -226,7 +226,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
+Se si prevede di eseguire gli altri articoli, mantenere le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
@@ -234,5 +234,4 @@ Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Scrivere query](write-queries.md)
+* [Scrivere query](write-queries.md)

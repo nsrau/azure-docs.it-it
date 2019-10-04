@@ -4,28 +4,27 @@ description: In questa esercitazione viene illustrato come usare il portale di A
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190561"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103530"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 
-È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si ripristina da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una VM Linux che esegue nginx. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [Guida introduttiva Linux](quick-create-cli.md). In questa esercitazione si apprenderà come:
+È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una VM Linux che esegue nginx. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [Guida introduttiva Linux](quick-create-cli.md). In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un backup di una macchina virtuale

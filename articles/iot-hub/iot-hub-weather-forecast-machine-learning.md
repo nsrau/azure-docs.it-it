@@ -11,11 +11,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
 ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61441015"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
 
@@ -184,7 +184,7 @@ Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di tem
 
    ![Ottenere i risultati delle previsioni meteo con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Azure Machine Learning è stato usato per stimare la probabilità di pioggia in base ai dati di temperatura e umidità ricevuti dall'hub IoT.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: mbullwin
 ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60904832"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 

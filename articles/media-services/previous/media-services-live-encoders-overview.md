@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708084"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Come configurare i codificatori locali quando si usa Servizi multimediali di Azure per creare flussi a bitrate multipli
 Questo argomento elenca i codificatori live locali che è possibile usare per acquisire gli eventi live e inviare un flusso live a bitrate singolo ai canali di AMS con codifica live abilitata per un'ulteriore elaborazione. L'argomento contiene anche i collegamenti alle esercitazioni che illustrano come configurare i codificatori elencati.
@@ -37,7 +37,7 @@ Per informazioni su come configurare il codificatore [Haivision KB Encoder](http
 Per informazioni su come configurare il codificatore [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-Per informazioni su come configurare il codificatore [Tricaster](http://newtek.com/products/tricaster-40.html) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Tricaster](media-services-configure-tricaster-live-encoder.md).
+Per informazioni su come configurare il codificatore [Tricaster](https://newtek.com/products/tricaster-40.html) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Per altre informazioni, vedere [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

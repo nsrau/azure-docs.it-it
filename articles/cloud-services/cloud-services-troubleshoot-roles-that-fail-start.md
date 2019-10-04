@@ -4,23 +4,22 @@ description: Informazioni su alcuni motivi comuni del mancato avvio di un ruolo 
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792777"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122738"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -75,10 +74,10 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 
 * Errore del server nell'applicazione '/'.
-* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
-* Dettagli eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly ' Microsoft.WindowsAzure.StorageClient, versione Version=1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
+* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
+* Dettagli eccezione: System.IO.FIleNotFoundException: Non è stato possibile caricare il file o l'assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
 
-Ad esempio: 
+Esempio:
 
 ![Errore esplicito del server nell'applicazione '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

@@ -4,7 +4,7 @@ description: Informazioni su come risolvere i problemi di connessione da punto a
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457477"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695534"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -45,11 +45,10 @@ Per risolvere il problema, seguire questa procedura:
 
 2. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificate | Location |
+    | Certificato | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
-    | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Computer locale\Autorità di certificazione radice attendibili|
+    | AzureRoot. cer    | Computer locale\Autorità di certificazione radice attendibili|
 
 3. Passare a C:\Users\<NomeUtente>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e installare manualmente il certificato ( file *.cer) nell'archivio dell'utente e del computer.
 
@@ -58,17 +57,17 @@ Per altre informazioni su come installare il certificato client, vedere [Generar
 > [!NOTE]
 > Quando si importa il certificato client, non selezionare l'opzione **Abilita protezione avanzata chiave privata**.
 
-## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connessione di rete tra il computer e il server VPN non è stato possibile stabilire perché il server remoto non risponde
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Non è stato possibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde
 
 ### <a name="symptom"></a>Sintomo
 
-Quando si prova a connettersi a una rete virtuale di Azure di gteway utilizzando IKEv2 in Windows, è visualizzato il messaggio di errore seguente:
+Quando si tenta di connettersi a un gateway di rete virtuale di Azure tramite IKEv2 in Windows, viene ricevuto il messaggio di errore seguente:
 
-**La connessione di rete tra il computer e il server VPN non è stato possibile stabilire perché il server remoto non risponde**
+**Non è stato possibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde**
 
 ### <a name="cause"></a>Causa
  
- Il problema si verifica se la versione di Windows non include il supporto per la frammentazione IKE
+ Il problema si verifica se la versione di Windows non supporta la frammentazione IKE
  
 ### <a name="solution"></a>Soluzione
 
@@ -78,14 +77,14 @@ Per preparare Windows 10 o Server 2016 per IKEv2:
 
 1. Installare l'aggiornamento.
 
-   | Versione del sistema operativo | Data | Numero/collegamento |
+   | Versione del sistema operativo | Date | Numero/collegamento |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 versione 1607 | 17 gennaio 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 versione 1703 | 17 gennaio 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 versione 1709 | 22 marzo 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Impostare il valore della chiave del Registro di sistema. Creare o impostare su 1 la chiave REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" del Registro di sistema.
+2. Impostare il valore della chiave del Registro di sistema. Creare o impostare la chiave REG_DWORD `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` nel registro di sistema su 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Errore del client VPN: Messaggio imprevisto o in formato non corretto
 
@@ -122,7 +121,7 @@ Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN,
 
 1. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificate | Location |
+    | Certificato | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
     | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
@@ -246,37 +245,11 @@ Se il certificato ha superato il 50% del ciclo di vita, ne viene eseguito il rol
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, scaricare di nuovo e ridistribuire il punto al pacchetto del sito in tutti i client.
+Per risolvere il problema, scaricare di nuovo e ridistribuire il pacchetto da punto a sito in tutti i client.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Troppi client VPN connessi contemporaneamente
 
 È stato raggiunto il numero massimo di connessioni consentite. È possibile visualizzare il numero totale di client connessi nel portale di Azure.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>La VPN da punto a sito aggiunge erroneamente una route per 10.0.0.0/8 alla tabella delle route
-
-### <a name="symptom"></a>Sintomo
-
-Quando si effettua la connessione VPN nel client da punto a sito, il client VPN deve aggiungere una route verso la rete virtuale di Azure. Il servizio helper IP deve aggiungere una route per la subnet dei client VPN. 
-
-L'intervallo di client VPN appartiene a una subnet più piccola di 10.0.0.0/8, ad esempio 10.0.12.0/24. Invece di una route per 10.0.12.0/24, viene aggiunta una route per 10.0.0.0/8 con priorità più alta. 
-
-Questo route errata interrompe la connettività con altre reti locali che potrebbero appartenere a un'altra subnet compresa nell'intervallo 10.0.0.0/8, ad esempio 10.50.0.0/24, per cui non è definita una route specifica. 
-
-### <a name="cause"></a>Causa
-
-Questo è il comportamento da progettazione per i client Windows. Il client, quando usa il protocollo PPP IPCP, ottiene l'indirizzo IP per l'interfaccia del tunnel dal server, in questo caso il gateway VPN. A causa di una limitazione nel protocollo tuttavia il client non ha la subnet mask. Poiché non è possibile ottenerla in altro modo, il client prova a ipotizzare la subnet mask in base alla classe dell'indirizzo IP dell'interfaccia del tunnel. 
-
-Viene quindi aggiunta una route in base al mapping statico seguente: 
-
-Se l'indirizzo appartiene alla classe A --> si applica /8
-
-Se l'indirizzo appartiene alla classe B --> si applica /16
-
-Se l'indirizzo appartiene alla classe C --> si applica /24
-
-### <a name="solution"></a>Soluzione
-
-Disporre di route per altre reti inserite nella tabella di routing con corrispondenza più lunga del prefisso o metrica inferiore (e di conseguenza priorità superiore) rispetto alla soluzione da punto a sito. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>Il client VPN non riesce ad accedere alle condivisioni file di rete
 
@@ -382,7 +355,7 @@ Questo problema è causato dalla configurazione di un tipo di gateway non corret
 
 Il tipo di gateway VPN di Azure deve essere VPN e il tipo di VPN deve essere **RouteBased**.
 
-## <a name="vpn-package-installer-doesnt-complete"></a>Il programma di installazione del pacchetto VPN non viene completato
+## <a name="vpn-package-installer-doesnt-complete"></a>Il programma di installazione del pacchetto VPN non è stato completato
 
 ### <a name="cause"></a>Causa
 

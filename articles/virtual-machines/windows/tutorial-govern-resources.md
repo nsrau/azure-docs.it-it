@@ -4,22 +4,21 @@ description: In questa esercitazione viene descritto come usare Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540653"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100323"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Esercitazione: Gestione delle macchine virtuali Windows con Azure PowerShell
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850293"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570140"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Esplorare l'analisi basata su SaaS con il database SQL di Azure, SQL Data Warehouse, Data Factory e Power BI
 
@@ -87,22 +86,22 @@ Questa esercitazione esplora l'analisi sui dati relativi alle vendite di bigliet
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuire SQL Data Warehouse, Data Factory e l'archivio BLOB 
 Nell'app Wingtip Tickets, i dati transazionali dei tenant sono distribuiti in più database. Azure Data Factory viene usato per orchestrare l'estrazione, il caricamento e la trasformazione di tali dati nel data warehouse. Per caricare i dati in SQL Data Warehouse nel modo più efficiente, Azure Data Factory estrae i dati in file BLOB intermedi e quindi usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) per caricare i dati nel data warehouse.   
 
-In questo passaggio si distribuiscono le risorse aggiuntive usate nell'esercitazione: un'istanza di SQL Data Warehouse denominata _tenantanalytics_, un'istanza di Azure Data Factory denominata _dbtodwload-\<utente\>_ e un account di archiviazione di Azure denominato _wingtipstaging\<utente\>_. L'account di archiviazione viene usato per inserirvi temporaneamente i file di dati estratti come BLOB prima di caricarli nel data warehouse. Questo passaggio include anche la distribuzione dello schema del data warehouse e la definizione delle pipeline di Azure Data Factory che orchestrano il processo di estrazione, caricamento e trasformazione.
+In questo passaggio si distribuiscono le risorse aggiuntive usate nell'esercitazione: un'istanza di SQL Data Warehouse denominata _tenantanalytics_, un'istanza di Azure Data Factory denominata _dbtodwload-\<utente\>_ e un account di archiviazione di Azure denominato _wingtipstaging\<utente\>_ . L'account di archiviazione viene usato per inserirvi temporaneamente i file di dati estratti come BLOB prima di caricarli nel data warehouse. Questo passaggio include anche la distribuzione dello schema del data warehouse e la definizione delle pipeline di Azure Data Factory che orchestrano il processo di estrazione, caricamento e trasformazione.
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e impostare:
     - **$DemoScenario** = **2** (distribuzione di data warehouse, archivio BLOB e data factory per l'analisi dei tenant) 
 1. Premere **F5** per eseguire lo script dimostrativo e distribuire le risorse di Azure. 
 
 Esaminare ora le risorse di Azure distribuite.
 #### <a name="tenant-databases-and-analytics-store"></a>Database tenant e archivio di analisi
-Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;**. Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare account di accesso = *sviluppatore* e la Password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;** . Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare login = *Developer* and password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![Connettersi al server di database SQL da SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 In Esplora oggetti:
 
-1. Espandere il server *tenants1-dpt-&lt;utente&gt;*.
+1. Espandere il server *tenants1-dpt-&lt;utente&gt;* .
 1. Espandere il nodo Database per visualizzare l'elenco dei database dei tenant.
-1. Espandere il server *catalog-dpt-&lt;utente&gt;*.
+1. Espandere il server *catalog-dpt-&lt;utente&gt;* .
 1. Verificare che venga visualizzato l'archivio di analisi contenente gli oggetti seguenti:
     1. Tabelle **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues**, che contengono i dati non elaborati estratti dai database tenant.
     1. Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
@@ -111,7 +110,7 @@ In Esplora oggetti:
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
-1. Nel [portale di Azure](https://ms.portal.azure.com) passare al gruppo di risorse usato per la distribuzione dell'applicazione. Verificare che sia stato aggiunto un account di archiviazione denominato **wingtipstaging\<utente\>**.
+1. Nel [portale di Azure](https://ms.portal.azure.com) passare al gruppo di risorse usato per la distribuzione dell'applicazione. Verificare che sia stato aggiunto un account di archiviazione denominato **wingtipstaging\<utente\>** .
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
@@ -121,12 +120,12 @@ In Esplora oggetti:
 1. Verificare che **configfile** contenga un file JSON denominato **TableConfig.json**. Tale file contiene i nomi delle tabelle di origine e di destinazione, i nomi delle colonne e il nome della colonna di monitoraggio.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory
-Nel [portale di Azure](https://ms.portal.azure.com) verificare nel gruppo di risorse che sia stata aggiunta un'istanza di Azure Data Factory denominata _dbtodwload-\<utente\>_. 
+Nel [portale di Azure](https://ms.portal.azure.com) verificare nel gruppo di risorse che sia stata aggiunta un'istanza di Azure Data Factory denominata _dbtodwload-\<utente\>_ . 
 
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Questa sezione esamina la data factory creata. Per avviare la data factory, seguire questa procedura:
-1. Nel portale fare clic sulla data factory denominata **dbtodwload-\<utente\>**.
+1. Nel portale fare clic sulla data factory denominata **dbtodwload-\<utente\>** .
 2. Fare clic sul riquadro **Crea e monitora** per avviare la finestra di progettazione di Data Factory in una scheda separata. 
 
 ## <a name="extract-load-and-transform-data"></a>Estrarre, caricare e trasformare i dati
@@ -189,13 +188,13 @@ I dati nello schema star includono tutti i dati relativi alle vendite di bigliet
 Seguire questa procedura per connettersi a Power BI e importare le viste create in precedenza:
 
 1. Avviare Power BI Desktop.
-2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
+2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro** dal menu.
 3. Nella finestra **Recupera dati** selezionare **Database SQL di Azure**.
 4. Nella finestra di accesso al database immettere il nome del server, ossia **catalog-dpt-&lt;utente&gt;.database.windows.net**. Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su **OK**. 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

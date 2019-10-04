@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835782"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570305"
 ---
-# <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL partizionato multi-tenant di Azure
+# <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL di Azure partizionato multi-tenant
 
 L'articolo illustra il provisioning e la catalogazione di nuovi tenant, in uno schema o modello di *database partizionato multi-tenant*.
 
@@ -115,7 +114,7 @@ I dati del tenant vengono quindi inizializzati e registrati nella mappa partizio
 
 ## <a name="tutorial-begins"></a>Inizio dell'esercitazione
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
 > * Eseguire il provisioning di un tenant in un database multi-tenant
@@ -161,7 +160,7 @@ Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di te
    - **$VenueType** = **blues**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
    - **$DemoScenario** = **1** per eseguire il provisioning di un tenant in un database condiviso con altri tenant.
 
-2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi della riga 38 contenente il testo: *New-Tenant `*, quindi premere **F9**.
+2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi della riga 38 contenente il testo: *New-Tenant `* , quindi premere **F9**.
 
    ![punto di interruzione](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -237,7 +236,7 @@ L'elenco completo dei tenant e i database corrispondenti a ciascuno è disponibi
 - Il nome del tenant viene archiviato nella tabella Tenants.
 - Il nome del database viene archiviato nelle tabelle di gestione delle partizioni.
 
-1. In SQL Server Management Studio (SSMS), connettersi al server del tenant **catalog-MT.\<utente\>. database.windows.net**, con account di accesso = **developer**e la Password =  **P\@ssword1**
+1. In SQL Server Management Studio (SSMS) connettersi al server tenant in **Catalog-mt.\<utente\>. database.Windows.NET**, con login = **Developer**e password = **P ssword1\@**
 
     ![Finestra di dialogo di connessione di SQL Server Management Studio](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

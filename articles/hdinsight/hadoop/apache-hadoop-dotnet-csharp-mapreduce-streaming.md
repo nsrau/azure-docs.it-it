@@ -1,7 +1,6 @@
 ---
 title: Usare C# con MapReduce in Hadoop in HDInsight - Azure
 description: Informazioni su come usare C# per creare soluzioni di MapReduce con Apache Hadoop in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 5784fb4f4ab0f46d2db7e5e8cfe9deeafabb4e90
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545095"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066952"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
@@ -151,19 +150,19 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
 
 3. Se richiesto, immettere le credenziali della sottoscrizione di Azure, quindi fare clic su **Accedi**.
 
-4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__.
+4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__ .
 
-    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__.
+    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__ .
 
-    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__.
+    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__ .
 
 5. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 
    * Se si usa un __Account di Archiviazione di Azure__, fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **mapper**. Selezionare infine il file **mapper.exe** e fare clic su **Ok**.
 
-       ![icona relativa al caricamento](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![Icona di caricamento HDInsight per Mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * Se si usa __Azure Data Lake Storage__, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco di file e quindi scegliere __Carica__. Selezionare infine il file **mapper.exe** e fare clic su **Apri**.
 

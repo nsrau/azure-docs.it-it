@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60411832"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
@@ -338,7 +338,7 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, l
 
 ### <a name="connections5"></a>Passaggio 8: Creare le connessioni
 
-Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]**, perché i gateway si trovano in sottoscrizioni diverse. Per passare tra sottoscrizioni utilizzano `az account list --all` per elencare le sottoscrizioni disponibili per l'account, quindi usare `az account set --subscription <subscriptionID>` per passare alla sottoscrizione che si desidera utilizzare.
+Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]** , perché i gateway si trovano in sottoscrizioni diverse. Per passare tra sottoscrizioni utilizzano `az account list --all` per elencare le sottoscrizioni disponibili per l'account, quindi usare `az account set --subscription <subscriptionID>` per passare alla sottoscrizione che si desidera utilizzare.
 
 1. **[Sottoscrizione 1]** Eseguire l'accesso e connettersi alla sottoscrizione 1. Usare il comando seguente per ottenere il nome e l'ID del gateway dall'output:
 

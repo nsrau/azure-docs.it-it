@@ -1,29 +1,29 @@
 ---
 title: Registro Azure Container - ruoli e autorizzazioni
-description: Usare il controllo degli accessi in base al ruolo di Azure (RBAC) e gestione delle identità e degli accessi (IAM) per concedere autorizzazioni con granularità fine alle risorse in un registro contenitori di Azure.
+description: Usare il controllo degli accessi in base al ruolo di Azure e gestione delle identità e degli accessi per concedere autorizzazioni con granularità fine alle risorse in un Registro Azure Container.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427021"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310592"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
 Il servizio Registro Azure Container supporta un set di ruoli di Azure che offrono livelli diversi di autorizzazioni a un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) di Azure per assegnare autorizzazioni specifiche agli utenti o a entità che devono interagire con un registro di sistema.
 
-| Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager) | [Creare/eliminare registro di sistema](#create-and-delete-registry) | [Eseguire il push dell'immagine](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Elimina dati di immagine](#delete-image-data) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
+| Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager) | [Creare/eliminare registro di sistema](#create-and-delete-registry) | [Eseguire il push dell'immagine](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Elimina dati immagine](#delete-image-data) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietario | X | X | X | X | X | X |  |  
 | Collaboratore | X | X | X |  X | X | X |  |  
-| Reader | X |  |  | X |  |  |  |
+| Reader | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -63,7 +63,7 @@ La possibilità di `docker pull` un'immagine non in quarantena o di eseguire il 
 
 ## <a name="delete-image-data"></a>Eliminare i dati di immagini
 
-La possibilità [eliminare le immagini del contenitore](container-registry-delete.md), o eliminare altri [supportato elementi](container-registry-image-formats.md) , quali i grafici Helm, un registro di sistema.
+La possibilità di [eliminare immagini del contenitore](container-registry-delete.md)o di eliminare altri [elementi supportati](container-registry-image-formats.md) , ad esempio i grafici Helm, da un registro di sistema.
 
 ## <a name="change-policies"></a>Modificare i criteri
 

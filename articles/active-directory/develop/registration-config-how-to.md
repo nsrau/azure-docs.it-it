@@ -1,26 +1,27 @@
 ---
-title: Come selezionare le autorizzazioni per un'API specifica | Microsoft Docs
+title: Configurare gli endpoint | Microsoft Docs
 description: Come trovare gli endpoint di autenticazione per un'applicazione personalizzata che si sta sviluppando o registrando con Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0962e5381a6e0a8da96bc7379c38aae73ee400
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6547266b92cbeee2754871d4cdca7a2de261fc8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250331"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325358"
 ---
 # <a name="how-to-configure-endpoints"></a>Come configurare gli endpoint
 

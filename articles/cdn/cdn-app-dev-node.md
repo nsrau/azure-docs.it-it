@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548644"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594142"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;**, con i valori necessari.
+2. È necessario definire alcune costanti che i metodi useranno.  Aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;** , con i valori necessari.
    
     ``` javascript
     //Tenant app constants

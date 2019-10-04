@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66237352"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
@@ -54,7 +54,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         ```
 
     2. **Time-based backup schedule** (Pianificazione backup basata sul tempo): questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici ogni giorno o ogni settimana. Il tipo di frequenza di pianificazione può essere giornaliero o settimanale.
-        1. **Pianificazione backup basata sul tempo _Giornaliera_**: questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle_9:00_ e alle _18:00_ di ogni giorno.
+        1. **Pianificazione backup basata sul tempo _Giornaliera_** : questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Giornaliera_ e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Ad esempio `0001-01-01T18:00:00` rappresenta le _18:00_ di ogni giorno e la parte della data _0001-01-01_ viene ignorata. L'esempio seguente visualizza la configurazione che attiva un backup giornaliero alle_9:00_ e alle _18:00_ di ogni giorno.
 
             ```json
             {
@@ -67,7 +67,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             }
             ```
 
-        2. **Pianificazione backup basata sul tempo _Settimanale_**: questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_, quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
+        2. **Pianificazione backup basata sul tempo _Settimanale_** : questo tipo di pianificazione può essere usato quando è necessario eseguire il backup dei dati in orari specifici del giorno. Per fare ciò impostare `ScheduleFrequencyType` su _Settimanale_, quindi impostare `RunDays` sull'elenco dei giorni della settimana in cui va attivato il backup e impostare `RunTimes` sull'elenco di orari della giornata desiderati, in formato ISO 8601. La data specificata insieme all'ora viene ignorata. Elenco dei giorni della settimana in cui attivare il backup periodico. L'esempio seguente visualizza una configurazione che attiva il backup giornaliero alle _9:00_ e alle _18.00_ ogni giorno da lunedì a venerdì.
 
             ```json
             {
@@ -137,9 +137,6 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> A causa di un problema del runtime, assicurarsi che la durata della conservazione nei criteri di conservazione sia configurata per essere minore di 24 giorni. In caso contrario, il servizio di backup/ripristino attiverebbe il failover post-replica per perdita del quorum.
 
 ## <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito i criteri di backup in modo da soddisfare i requisiti per il backup dei dati, è necessario associare i criteri di backup a un'_applicazione_, a un _servizio_ o a una _partizione_.

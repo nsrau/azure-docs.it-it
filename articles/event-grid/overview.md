@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077149"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -22,7 +22,7 @@ Griglia di eventi di Azure consente di compilare facilmente applicazioni con arc
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile.
 
-Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina 21Vianet o Azure per enti pubblici.
+Griglia di eventi di Azure viene distribuito per ottimizzare la disponibilità tramite la distribuzione nativa in più domini di errore in ogni area e nelle zone di disponibilità (nelle aree che le supportano). Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina 21Vianet o Azure per enti pubblici.
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
@@ -56,6 +56,7 @@ Per informazioni dettagliate complete sulle funzionalità di ogni gestore, con a
 * [App per la logica](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Archiviazione code](event-handlers.md#queue-storage)
+* [Bus di servizio](event-handlers.md#service-bus-queue-preview) (Anteprima)
 * [Webhook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concetti

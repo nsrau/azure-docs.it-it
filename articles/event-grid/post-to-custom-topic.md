@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66304202"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -76,7 +76,10 @@ Per gli argomenti personalizzati, i dati di livello principale contengono gli st
 ]
 ```
 
-Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Per ogni evento nella matrice il limite è 64 KB.
+Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitata a 64 KB (a livello generale) o 1 MB (anteprima).
+
+> [!NOTE]
+> Un evento di dimensioni fino a 64 KB è coperto da GA (General Availability) del servizio a livello di contratto. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
 
 Ad esempio, uno schema di dati evento valido è:
 
@@ -100,7 +103,7 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 
 |Risultato  |Risposta  |
 |---------|---------|
-|Success  | 200 - OK  |
+|Riuscito  | 200 - OK  |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
 |Chiave di accesso non valida | 401 - Non autorizzato |
 |Endpoint non corretto | 404 - Non trovato |

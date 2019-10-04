@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60621422"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modellare un'applicazione in Service Fabric
 Questo articolo fornisce una panoramica del modello applicativo di Azure Service Fabric e come definire un'applicazione e un servizio attraverso file manifesto.

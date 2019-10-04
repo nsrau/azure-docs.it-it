@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491322"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211865"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console usando l'identità dell'app
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
 
@@ -41,9 +39,7 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
-> * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni: Rapida (Opzione 1 di seguito) e Manuale (Opzione 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
@@ -78,16 +74,16 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 > > [Apporta queste modifiche per me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Già configurata](media/quickstart-v2-windows-desktop/green-check.png) L'applicazione è configurata con questi attributi.
+> > ![Già configurata](media/quickstart-v2-netcore-daemon/green-check.png) L'applicazione è configurata con questi attributi.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
-[Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
-1. Aprire la soluzione **daemon-console.sln** in Visual Studio (facoltativo).
+1. Aprire la soluzione **1-Call-MSGraph\daemon-console.sln** in Visual Studio (facoltativo).
 1. Modificare **appsettings.json** e sostituire i valori dei campi `ClientId`, `Tenant` e `ClientSecret` con il codice seguente:
 
     ```json
@@ -98,15 +94,19 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Generare un nuovo segreto client]()
     
+    > [!div class="sxs-lookup" renderon="portal"]
+    > > [!NOTE]
+    > > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Dove:
-    >> * `Enter_the_Application_Id_Here` - è l'**ID applicazione (client)** per l'applicazione registrata.
-    >> * `Enter_the_Tenant_Id_Here` - sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` - sostituire questo valore con il segreto client creato nel passaggio 1.
+    >> * `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
+    >> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here`: sostituire questo valore con il segreto client creato nel passaggio 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
-    > > Per trovare i valori di **ID applicazione (client)** e **ID della directory (tenant)**, passare alla pagina **Panoramica** dell'app nel portale di Azure. Per generare una nuova chiave, passare alla pagina **Certificati e segreti**.
+    > > Per trovare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , passare alla pagina **Panoramica** dell'app nel portale di Azure. Per generare una nuova chiave, passare alla pagina **Certificati e segreti**.
     
 #### <a name="step-4-admin-consent"></a>Passaggio 4: Consenso dell'amministratore
 
@@ -132,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Dove:
->> * `Enter_the_Tenant_Id_Here` - sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - è l'**ID applicazione (client)** per l'applicazione registrata.
+>> * `Enter_the_Tenant_Id_Here`: sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` è l'**ID applicazione (client)** per l'applicazione registrata.
 
 > [!NOTE]
 > Dopo aver concesso il consenso all'app usando l'URL precedente, potrebbe essere visualizzato l'errore *'AADSTS50011: No reply address is registered for the application'* (AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione). Ciò accade perché questa applicazione e l'URL non hanno un URI di reindirizzamento. Ignorare l'errore.
@@ -143,7 +143,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 Se si usa Visual Studio, premere **F5** per eseguire l'applicazione. In caso contrario, eseguire l'applicazione tramite il prompt dei comandi o la console:
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -159,12 +159,12 @@ Come risultato si dovrebbe vedere un elenco di utenti nel tenant di Azure AD.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Come descritto, questo avvio rapido richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)*. Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Come descritto, questo avvio rapido richiede i token usando l'identità propria dell'applicazione invece delle autorizzazioni delegate. Il flusso di autenticazione usato in questo caso è noto come *[flusso delle credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)* . Per altre informazioni su come usare MSAL.NET con il flusso delle credenziali client, vedere [questo articolo](https://aka.ms/msal-net-client-credentials).
 
  È possibile installare MSAL.NET eseguendo questo comando in **Console di Gestione pacchetti** in Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 In alternativa, se non si usa Visual Studio, è possibile eseguire il comando seguente per aggiungere MSAL al progetto:
@@ -198,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
 > | `config.Authority`    | (Facoltativo) Endpoint del servizio token di sicurezza per l'utente da autenticare, in genere <https://login.microsoftonline.com/{tenant}> per il cloud pubblico, dove {tenant} è il nome del tenant o l'ID tenant.|
 
-Per altre informazioni, vedere la [documentazione di riferimento`ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Per altre informazioni, vedere la [documentazione di riferimento`ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Richiesta di token
 
@@ -213,14 +213,21 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti. Per i client riservati, dovrebbe essere usato un formato simile a `{Application ID URI}/.default` per indicare che gli ambiti che vengono richiesti sono quelli definiti in modo statico nell'oggetto app impostato nel portale di Azure. Per Microsoft Graph, `{Application ID URI}` punta a `https://graph.microsoft.com`. Per le API Web personalizzate, `{Application ID URI}` è definito nella sezione **Esporre un'API** della registrazione dell'applicazione (anteprima) del portale di Azure. |
 
-Per altre informazioni, vedere la [documentazione di riferimento`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+Per altre informazioni, vedere la [documentazione di riferimento`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Per altre informazioni sulle applicazioni daemon, vedere la pagina di destinazione dello scenario
+
 > [!div class="nextstepaction"]
-> [Esempio di daemon di .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Applicazione daemon che chiama le API Web](scenario-daemon-overview.md)
+
+Per l'esercitazione sull'applicazione daemon, vedere:
+
+> [!div class="nextstepaction"]
+> [Esercitazione sulla console .NET Core (daemon)](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Altre informazioni sulle autorizzazioni e sul consenso:
 
@@ -232,5 +239,7 @@ Per altre informazioni sul flusso di autenticazione per questo scenario, vedere 
 > [!div class="nextstepaction"]
 > [Flusso di credenziali client OAuth](v2-oauth2-client-creds-grant-flow.md)
 
+Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
+
 > [!div class="nextstepaction"]
-> [Client credential flows with MSAL.NET (Flussi di credenziali client con MSAL.NET)](https://aka.ms/msal-net-client-credentials)
+> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

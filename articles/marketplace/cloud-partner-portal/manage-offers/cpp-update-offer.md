@@ -1,25 +1,18 @@
 ---
-title: Aggiornare le offerte del Marketplace - Azure Marketplace | Microsoft Docs
+title: Aggiornare le offerte di marketplace | Azure Marketplace
 description: Aggiornare le offerte nei marketplace Azure e AppSource usando il portale Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942387"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Aggiornare le offerte di Azure Marketplace e AppSource
 

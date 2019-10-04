@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492312"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113482"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -61,11 +61,14 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 3. In **Nome del gruppo di risorse** immettere **Test-FW-RG**.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
-6. Selezionare **Create**.
+6. Selezionare **Create** (Crea).
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
 Questa rete virtuale conterrà tre subnet.
+
+> [!NOTE]
+> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. In **Rete** selezionare **Rete virtuale**.
@@ -75,11 +78,8 @@ Questa rete virtuale conterrà tre subnet.
 7. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
 8. In **Località** selezionare la stessa località usata in precedenza.
 9. In **Subnet** immettere **AzureFirewallSubnet** per **Nome**. Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
-10. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
+10. In **Intervallo indirizzi** digitare **10.0.1.0/26**.
 11. Accettare le altre impostazioni predefinite e quindi selezionare **Crea**.
-
-> [!NOTE]
-> La dimensione minima della subnet AzureFirewallSubnet è /26.
 
 ### <a name="create-additional-subnets"></a>Creare subnet aggiuntive
 
@@ -87,7 +87,7 @@ Successivamente, creare le subnet per il jump server e una subnet per i server d
 
 1. Nella home page del portale di Azure selezionare **Gruppi di risorse** > **Test-FW-RG**.
 2. Selezionare la rete virtuale **Test-FW-VN**.
-3. Selezionare **Subnet** > **+Subnet**.
+3. Selezionare **Subnet** >  **+Subnet**.
 4. In **Nome** immettere **Workload-SN**.
 5. In **Intervallo indirizzi** immettere **10.0.2.0/24**.
 6. Selezionare **OK**.
@@ -104,14 +104,14 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 
    |Impostazione  |Valore  |
    |---------|---------|
-   |Gruppo di risorse     |**Test-FW-RG**|
+   |Resource group     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Jump**|
    |Region     |Come precedente|
    |Nome utente amministratore     |**azureuser**|
    |Password     |**Azure123456!**|
 
 4. In **Regole porta in ingresso** selezionare **Consenti porte selezionate** per **Porte in ingresso pubbliche**.
-5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)**.
+5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)** .
 
 6. Accettare tutte le altre impostazioni predefinite e selezionare **Avanti: Dischi**.
 7. Accettare tutte le impostazioni predefinite del disco e selezionare **Avanti: Rete**.
@@ -126,8 +126,8 @@ Usare le informazioni nella tabella seguente per configurare un'altra macchina v
 |Impostazione  |Valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
-|IP pubblico|**Nessuna**|
-|Porte in ingresso pubbliche|**Nessuna**|
+|IP pubblico|**Nessuno**|
+|Porte in ingresso pubbliche|**Nessuno**|
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
 
@@ -140,10 +140,10 @@ Distribuire il firewall nella rete virtuale.
 
    |Impostazione  |Valore  |
    |---------|---------|
-   |Sottoscrizione     |\<sottoscrizione in uso\>|
-   |Gruppo di risorse     |**Test-FW-RG** |
+   |Subscription     |\<sottoscrizione in uso\>|
+   |Resource group     |**Test-FW-RG** |
    |NOME     |**Test-FW01**|
-   |Località     |Selezionare la stessa località usata in precedenza|
+   |Location     |Selezionare la stessa località usata in precedenza|
    |Scegliere una rete virtuale     |**Use existing** (Usa esistente): **Test-FW-VN**|
    |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
@@ -165,7 +165,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. Per **Gruppo di risorse** selezionare **Test-FW-RG**.
 7. In **Località** selezionare la stessa località usata in precedenza.
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 9. Selezionare **Aggiorna** e quindi selezionare la tabella di route **Firewall-route**.
 10. Selezionare **Subnet** e quindi **Associa**.
 11. Selezionare **Rete virtuale** > **Test-FW-VN**.
@@ -236,12 +236,12 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
 1. Nel portale di Azure rivedere le impostazioni di rete per la macchina virtuale **Srv-Work** e annotare l'indirizzo IP privato.
 2. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e accedere. Da qui aprire una connessione Desktop remoto all'indirizzo IP privato **Srv-Work**.
 
-3. Aprire Internet Explorer e passare a http://www.google.com.
+3. Aprire Internet Explorer e passare a https://www.google.com.
 4. Selezionare **OK** > **Close** negli avvisi di sicurezza di Internet Explorer.
 
    Verrà visualizzata la home page di Google.
 
-5. Passare a http://www.microsoft.com.
+5. Passare a https://www.microsoft.com.
 
    Si verrà bloccati dal firewall.
 
@@ -257,4 +257,4 @@ A questo punto si è verificato che le regole del firewall funzionano:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

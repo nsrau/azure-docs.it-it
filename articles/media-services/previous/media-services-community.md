@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000046"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016639"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
 
@@ -56,16 +56,8 @@ Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-me
 
 ## <a name="contact-the-team"></a>Contattare il team
 
-Servizi multimediali di Azure tramite posta elettronica di supporto è: **amshelp\@microsoft.com**.
+L'indirizzo di posta elettronica principale per il supporto di Servizi multimediali di Azure è: **amshelp@microsoft.com** .
 
-La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari per ogni funzionalità:
+## <a name="next-steps"></a>Passaggi successivi
 
-| Funzionalità | Email |
-| --- | --- |
-| Analisi Servizi multimediali di Azure |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Progettazione flussi di lavoro |mepd@microsoft.com |
-| Streaming dei file e creazione di pacchetti |amsstreaming@microsoft.com |
-| Streaming live e creazione di pacchetti |amslived@microsoft.com |
-
+[Panoramica](media-services-overview.md)

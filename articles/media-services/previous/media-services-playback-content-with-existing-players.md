@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257432"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015301"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
 Servizi multimediali di Azure supporta molti formati di streaming noti, ad esempio Smooth Streaming, HTTP Live Streaming (HLS) e MPEG-DASH. Questo argomento descrive i lettori esistenti che possono essere usati per testare i propri flussi.
@@ -31,12 +31,13 @@ Fare clic sul video desiderato (assicurarsi che sia stato [pubblicato](media-ser
 
 Considerazioni applicabili:
 
-* Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Il **LETTORE DI CONTENUTI DI SERVIZI MULTIMEDIALI** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, usare un altro lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Usare il [lettore multimediale di Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html) per riprodurre i contenuti (in chiaro o protetti) in uno dei seguenti formati:
+
+Usare il [lettore multimediale di Azure](https://aka.ms/azuremediaplayer) per riprodurre i contenuti (in chiaro o protetti) in uno dei seguenti formati:
 
 * Smooth Streaming
 * MPEG DASH
@@ -44,20 +45,22 @@ Usare il [lettore multimediale di Azure](https://amsplayer.azurewebsites.net/azu
 * MP4 progressivo
 
 ### <a name="flash-player"></a>Flash Player
+
 #### <a name="aes-encrypted-with-token"></a>Con crittografia AES con token
+
 [https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
-### <a name="silverlight-players"></a>Lettori Silverlight
-
 #### <a name="playready-with-token"></a>PlayReady con token
+
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>Lettori DASH
+
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o

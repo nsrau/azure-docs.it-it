@@ -6,30 +6,30 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395051"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "65471791"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Componenti logici
-**Utilità di avvio plug-in di diagnostica (DiagnosticsPluginLauncher.exe)**: Avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
+**Utilità di avvio plug-in di diagnostica (DiagnosticsPluginLauncher.exe)** : Avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
 
-**Plug-in di diagnostica (DiagnosticsPlugin.exe)**: configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
+**Plug-in di diagnostica (DiagnosticsPlugin.exe)** : configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
 
-**Agente di monitoraggio (processi MonAgent\*.exe)**: Monitora, raccoglie e trasferisce i dati di diagnostica.  
+**Agente di monitoraggio (processi MonAgent\*.exe)** : Monitora, raccoglie e trasferisce i dati di diagnostica.  
 
 ## <a name="logartifact-paths"></a>Percorsi di log ed elementi
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
-| Elemento | path |
+| Elemento | `Path` |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\Config.txt |
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
@@ -40,7 +40,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-| Elemento | path |
+| Elemento | `Path` |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\RuntimeSettings |
 | **File di log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di configurazione dell'agente di monitoraggio** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>\WAD0107\Configuration\MaConfig.xml |
 | **File di stato** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\Status |
 | **Pacchetto dell'estensione Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>|
-| **Percorso dell'utilità di raccolta dei log** | C:\WindowsAzure\Packages |
+| **Percorso dell'utilità di raccolta dei log** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mancata visualizzazione dei dati relativi alle metriche nel portale di Azure
@@ -81,7 +81,7 @@ Se non sono presenti dati per la metrica specifica, controllare in **Diagnostics
 Se la configurazione è impostata correttamente ma i dati relativi alle metriche non vengono comunque visualizzati, usare le linee guida seguenti per risolvere il problema.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Mancato avvio di diagnostica di Azure
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnostica di Azure non viene avviato
 Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza.
 
 Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log nel percorso indicato per `MonAgentHost log file` nella sezione precedente.
@@ -104,15 +104,15 @@ La causa più comune per cui non viene visualizzato alcun dato di eventi è la d
 
 Soluzione: correggere la configurazione della diagnostica e reinstallare Diagnostica.
 
-Se l'account di archiviazione è configurato correttamente, accedere in remoto la macchina e verificare che *DiagnosticsPlugin.exe* e *MonAgentCore.exe* sono in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting).
+Se l'account di archiviazione è configurato correttamente, accedere in remoto al computer e verificare che *DiagnosticsPlugin. exe* e *MonAgentCore. exe* siano in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting).
 
 Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale?](#is-data-getting-captured-locally) e seguire le istruzioni riportate in tale sottoparagrafo.
 
-Se ciò non risolve il problema, provare a:
+Se il problema persiste, provare a:
 
 1. Disinstallare l'agente
 2. Rimuovi directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Installare di nuovo agente
+3. Installare di nuovo Agent
 
 
 ### <a name="part-of-the-data-is-missing"></a>Alcuni dati sono mancanti
@@ -167,7 +167,7 @@ Le tabelle in Archiviazione di Azure contenenti gli eventi ETW vengono denominat
             tableName = "WAD" + eventDestination;
 ```
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -207,7 +207,7 @@ Di seguito è fornito un esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| Event | Nome tabella |
+| event | Nome tabella |
 | --- | --- |
 | provider="prov1" &lt;Event id=v1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
@@ -230,9 +230,9 @@ Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:
 
-| Codice di uscita | DESCRIZIONE |
+| Codice di uscita | Descrizione |
 | --- | --- |
-| 0 |Completamento della procedura. |
+| 0 |Riuscite. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: Questo errore si verifica quando un file di configurazione non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
@@ -250,7 +250,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 | -108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -110 |Errore di configurazione generale di Diagnostica.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -111 |Impossibile avviare l'agente di monitoraggio.<p><p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti. |
-| -112 |Errore generale: |
+| -112 |Errore generale |
 
 ### <a name="local-log-extraction"></a>Estrazione dei log locali
 L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito:

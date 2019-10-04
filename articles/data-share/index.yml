@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Documentazione di Condivisione dati di Azure (anteprima)
+summary: Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti.
+metadata:
+  title: Condivisione dati di Azure (anteprima)
+  description: Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti.
+  services: data-share
+  ms.service: data-share
+  ms.subservice: subservice
+  ms.topic: landing-page
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: d75af1eea77bea89f3facf782b836a26fcdabdde
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71218003"
+landingContent:
+- title: Informazioni su Condivisione dati di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Condivisione dati di Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Concetti relativi a Condivisione dati di Azure
+      url: terminology.md
+    - text: Ruoli e requisiti per Condivisione dati di Azure
+      url: concepts-roles-permissions.md
+- title: Condividere dati
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Condividere dati con Condivisione dati di Azure
+      url: share-your-data.md
+    - text: Accettare e ricevere dati con Condivisione dati di Azure
+      url: subscribe-to-data-share.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i mapping dei set di dati
+      url: how-to-configure-mapping.md
+    - text: Aggiungere set di dati
+      url: how-to-add-datasets.md
+- title: Monitorare e gestire
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorare Condivisione dati di Azure
+      url: how-to-monitor.md
+    - text: Risolvere i problemi comuni
+      url: data-share-troubleshoot.md
+    - text: Aggiungere set di dati
+      url: how-to-add-datasets.md
+    - text: Eliminare un invito
+      url: how-to-delete-invitation.md
+    - text: Revocare una sottoscrizione di condivisione
+      url: how-to-revoke-share-subscription.md

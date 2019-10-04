@@ -1,9 +1,9 @@
 ---
 title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabric | Microsoft Docs
-description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un registro contenitori di Azure e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
+description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
-ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/08/2019
+ms.author: atsenthi
+ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048470"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232404"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio
 > * Creare un database SQL di Azure
-> * Creare un registro contenitori di Azure
+> * Creare un Registro Azure Container
 > * Distribuire un'applicazione di Service Fabric in Azure
 
 
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
 3. Installare il [runtime di Service Fabric versione 6.2 o successiva](service-fabric-get-started.md) e [Service Fabric SDK versione 3.1](service-fabric-get-started.md) o versioni successive.
-4. Installare [Visual Studio 2017 versione 15.7](https://www.visualstudio.com/) o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+4. Installare [Visual Studio 2019 versione 16.1](https://www.visualstudio.com/) o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 5. Installare [Azure PowerShell][link-azure-powershell-install]
  
 
@@ -130,7 +130,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
-Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [registro contenitori di Azure](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
+Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [Registro Azure Container](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
 Prima di distribuire l'applicazione in Azure, eseguire il push dell'immagine del contenitore in questo registro.  Quando l'applicazione viene distribuita nel cluster in Azure, l'immagine del contenitore viene recuperata tramite pull da questo registro.
 
 ```powershell
@@ -183,7 +183,7 @@ Durante la creazione del cluster:
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Consentire all'applicazione in esecuzione in Azure di accedere al database SQL
-In precedenza è stata creata una regola del firewall SQL per concedere l'accesso all'applicazione in esecuzione in locale.  A questo punto è necessario consentire all'applicazione in esecuzione in Azure di accedere al database SQL.  Creare un [endpoint di servizio di rete virtuale](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) per il cluster di Service Fabric e quindi creare una regola per consentire a tale endpoint di accedere al database SQL. Assicurarsi di specificare la variabile del gruppo di risorse cluster di cui si è preso nota durante la creazione del cluster. 
+In precedenza è stata creata una regola del firewall SQL per concedere l'accesso all'applicazione in esecuzione in locale.  A questo punto è necessario consentire all'applicazione in esecuzione in Azure di accedere al database SQL.  Creare un [endpoint servizio di rete virtuale](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) per il cluster di Service Fabric e quindi creare una regola per consentire a tale endpoint di accedere al database SQL. Assicurarsi di specificare la variabile del gruppo di risorse cluster di cui si è preso nota durante la creazione del cluster. 
 
 ```powershell
 # Create a virtual network service endpoint
@@ -266,7 +266,7 @@ Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio
 > * Creare un database SQL di Azure
-> * Creare un registro contenitori di Azure
+> * Creare un Registro Azure Container
 > * Distribuire un'applicazione di Service Fabric in Azure
 
 Nella parte successiva dell'esercitazione, apprendere come [distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
@@ -284,8 +284,5 @@ Nella parte successiva dell'esercitazione, apprendere come [distribuire un'appli
 [link-azure-sql]: /azure/sql-database/
 
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
-[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
-[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
-m-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
 [publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png

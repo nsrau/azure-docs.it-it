@@ -1,19 +1,19 @@
 ---
-title: 'Esercitazione: Copiare i dati nel dispositivo Microsoft Azure Data Box tramite il servizio di copia dati | Microsoft Docs'
+title: Esercitazione per copiare dati nel dispositivo Azure Data Box tramite il servizio di copia dati | Microsoft Docs
 description: In questa esercitazione si apprende come copiare i dati nel dispositivo Azure Data Box tramite il servizio di copia dei dati
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343528"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206052"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box (anteprima)
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare è necessario:
+Prima di iniziare, verificare che:
 
 1. Aver completato questa esercitazione: [Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto il dispositivo Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
@@ -59,7 +59,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
     |-------------------------------|---------|
     |**Nome processo**                       |Nome univoco contenente meno di 230 caratteri per il processo. Nel nome del processo non sono consentiti i caratteri seguenti: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
     |**Percorso di origine**                |Specificare il percorso SMB dell'origine dati nel formato `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
-    |**Nome utente**                       |Nome utente in formato `\\<DomainName><UserName>` per accedere all'origine dati.        |
+    |**Nome utente**                       |Nome utente in formato `\\<DomainName><UserName>` per accedere all'origine dati. Se un amministratore locale si connette, necessiterà di autorizzazioni di sicurezza esplicite. Fare clic con il pulsante destro del mouse sulla cartella, scegliere **Proprietà** e quindi selezionare **Sicurezza**. In questo modo si aggiunge l'amministratore locale nella scheda **Sicurezza**.       |
     |**Password**                       |Password per accedere all'origine dati.           |
     |**Account di archiviazione di destinazione**    |Selezionare nell'elenco l'account di archiviazione di destinazione in cui caricare i dati.         |
     |**Tipo di destinazione**       |Selezionare il tipo di archiviazione di destinazione dall'elenco: **BLOB in blocchi**, **BLOB di pagine** o **File di Azure**.        |

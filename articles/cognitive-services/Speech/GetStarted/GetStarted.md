@@ -3,20 +3,20 @@ title: Introduzione al Servizio di riconoscimento e sintesi vocale Microsoft | M
 titlesuffix: Azure Cognitive Services
 description: Usare il Servizio di riconoscimento e sintesi vocale Microsoft.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7b7a286bb3f38982f6c55e37e186c524a8a92266
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847d9f53e725ef2edc92dadf08ecb167528b6fd9
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515279"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965919"
 ---
 # <a name="get-started-with-bing-speech"></a>Introduzione a Riconoscimento vocale Bing
 

@@ -1,26 +1,27 @@
 ---
-title: Eseguire operazioni nell'archivio code di Azure con PowerShell | Microsoft Docs
+title: Eseguire operazioni nell'archivio code di Azure con PowerShell-archiviazione di Azure
 description: Come eseguire operazioni nell'archivio code di Azure con PowerShell
-services: storage
-author: roygara
+author: mhopkins-msft
+ms.author: mhopkins
+ms.date: 05/15/2019
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/14/2017
-ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 9992673ab36d5b4b2cc1ca18a5108107c14a1eb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488952"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721218"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
 Archiviazione code di Azure è un servizio che consente di archiviare grandi quantità di messaggi a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Per informazioni dettagliate, vedere [Introduzione alle code di Azure](storage-queues-introduction.md). Questa procedura illustra le operazioni più comuni nell'archivio code. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una coda
+>
+> * Crea una coda
 > * Recuperare una coda
 > * Aggiungere un messaggio
 > * Leggere un messaggio
@@ -50,9 +51,9 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-resource-group"></a>Crea gruppo di risorse
 
-Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Archiviare il nome del gruppo di risorse in una variabile per uso futuro. In questo esempio viene creato un gruppo di risorse denominato *howtoqueuesrg* nell'area *eastus*.
 
@@ -61,7 +62,7 @@ $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Crea account di archiviazione
+## <a name="create-storage-account"></a>Creare un account di archiviazione
 
 Creare un account di archiviazione standard per utilizzo generico con archiviazione con ridondanza locale mediante [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Ottenere il contesto che definisce l'account di archiviazione da usare. Quando si usa un account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali.
 
@@ -75,7 +76,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 
 Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Viene poi chiamato il cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) per creare una coda denominata 'queuename'.
 
@@ -102,35 +103,35 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Aggiungere un messaggio a una coda
 
-Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio della classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://msdn.microsoft.com/library/azure/jj732474.aspx). Quindi, chiamare il metodo [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
+Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio, [Microsoft. Azure. storage. Queue. CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) . Quindi, chiamare il metodo [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
 
 L'esempio seguente mostra come aggiungere un messaggio alla coda.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+# Add two more messages to the queue
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
-$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
+$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 3"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Se si usa [Azure Storage Explorer](https://storageexplorer.com), è possibile connettersi al proprio account Azure, visualizzare le code nell'account di archiviazione ed eseguire il drill-down in una di esse per visualizzare i messaggi contenuti nella coda. 
+Se si usa [Azure Storage Explorer](https://storageexplorer.com), è possibile connettersi al proprio account Azure, visualizzare le code nell'account di archiviazione ed eseguire il drill-down in una di esse per visualizzare i messaggi contenuti nella coda.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Leggere un messaggio dalla coda e quindi eliminarlo
 
 I messaggi vengono letti nell'ordine first in, first out, ma senza alcuna garanzia. Quando il messaggio viene letto dalla coda, diventa invisibile a tutti gli altri processi che esaminano la coda. Ciò garantisce che, qualora il codice non riesca a elaborare il messaggio a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare.  
 
-Questo **periodo di invisibilità** definisce per quanto tempo il messaggio rimane invisibile prima di diventare di nuovo disponibile per l'elaborazione. Il valore predefinito è 30 secondi. 
+Questo **periodo di invisibilità** definisce per quanto tempo il messaggio rimane invisibile prima di diventare di nuovo disponibile per l'elaborazione. Il valore predefinito è 30 secondi.
 
-Il codice legge il messaggio dalla coda in due passaggi. Chiamando il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), si ottiene il messaggio successivo nella coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
+Il codice legge il messaggio dalla coda in due passaggi. Quando si chiama il metodo [Microsoft. Azure. storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) , si ottiene il messaggio successivo nella coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, chiamare il metodo [Microsoft. Azure. storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
 Nell'esempio seguente vengono letti i tre messaggi in coda, seguiti da 10 secondi di attesa, il periodo di invisibilità. I tre messaggi vengono quindi letti di nuovo ed eliminati dopo la lettura chiamando **DeleteMessage**. Se si tenta di leggere la coda dopo l'eliminazione dei messaggi, $queueMessage viene restituito come NULL.
 
@@ -147,7 +148,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -166,7 +167,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo Remove-AzStorageQueue. L'esempio seguente mostra come eliminare la coda specifica usata in questo esercizio con il cmdlet Remove-AzStorageQueue.
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -183,11 +184,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 In questa procedura è stata illustrata la gestione di base dell'archivio delle code con PowerShell, tra cui come:
 
 > [!div class="checklist"]
-> * Creare una coda
+>
+> * Crea una coda
 > * Recuperare una coda
 > * Aggiungere un messaggio
 > * Leggere il messaggio successivo
-> * Eliminare un messaggio 
+> * Eliminare un messaggio
 > * Eliminare una coda
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlet di archiviazione per Microsoft Azure PowerShell

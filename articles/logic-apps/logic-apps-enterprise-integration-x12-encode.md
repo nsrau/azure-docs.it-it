@@ -10,12 +10,12 @@ ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427527"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705691"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Encode X12 in App per la logica di Azure con Enterprise Integration Pack
 

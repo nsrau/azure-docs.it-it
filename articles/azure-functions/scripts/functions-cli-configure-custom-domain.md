@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075474"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Esegue il mapping di un dominio personalizzato a un'app per le funzioni
 
-Questo script di esempio crea un'app per le funzioni in un piano di servizio app e quindi ne esegue il mapping a un dominio personalizzato specificato. Quando l'app per le funzioni è ospitata in un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Questo esempio crea un piano di servizio app e richiede un record A per il mapping del dominio. 
+Questo script di esempio crea un'app per le funzioni in un piano di servizio app e quindi ne esegue il mapping a un dominio personalizzato specificato. Quando l'app per le funzioni è ospitata in un [piano Premium](../functions-scale.md#premium-plan) o un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Questo esempio crea un piano di servizio app e richiede un record A per il mapping del dominio. 
 
 Per eseguire questo script di esempio, è necessario che nel dominio personalizzato sia già configurato un record A che punta al nome di dominio predefinito dell'app Web. Per altre informazioni, vedere le [istruzioni per il mapping di un dominio personalizzato per il servizio app di Azure](https://aka.ms/appservicecustomdns). 
 
@@ -40,7 +40,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

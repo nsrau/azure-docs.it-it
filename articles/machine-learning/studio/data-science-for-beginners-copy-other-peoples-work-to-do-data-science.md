@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751819"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
@@ -52,14 +52,14 @@ Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svo
 
 Microsoft offre un servizio basato su cloud, chiamato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), che può essere valutato gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 
-Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning Studio, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
+Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/)** . Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning Studio, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
 
 ![Raccolta di intelligenza artificiale per Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Se si fa clic su **Experiments** (Esperimenti) nella parte superiore, verranno visualizzati numerosi esperimenti tra i più recenti e diffusi disponibili nella raccolta. È possibile cercare nel resto degli esperimenti facendo clic su **Browse All** (Esplora tutto) nella parte superiore dello schermo e quindi immettere i termini di ricerca e scegliere i filtri di ricerca.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Trovare e usare un esempio di algoritmo di clustering
-Si supponga, ad esempio, di voler vedere un esempio del funzionamento del clustering. Si cercheranno quindi gli esperimenti relativi a **"clustering sweep"**.
+Si supponga, ad esempio, di voler vedere un esempio del funzionamento del clustering. Si cercheranno quindi gli esperimenti relativi a **"clustering sweep"** .
 
 ![Cercare esperimenti di clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

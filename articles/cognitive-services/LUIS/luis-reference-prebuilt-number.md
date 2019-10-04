@@ -1,6 +1,6 @@
 ---
-title: Entità predefinita numero
-titleSuffix: Azure
+title: Numero di entità predefinite-LUIS
+titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita numero in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 83f7cc7c0da2682244fa9c4e0e2b153aff2e2380
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: cb97cc5b0004442e00b970202dd01f76aa971a2a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339301"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677580"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione. 
@@ -41,6 +41,10 @@ Il numero viene gestito dal repository GitHub [Recognizers-text](https://github.
 LUIS include il valore riconosciuto di un'entità **`builtin.number`** nel campo `resolution` della risposta JSON restituita.
 
 ## <a name="resolution-for-prebuilt-number"></a>Risoluzione per il numero predefinito
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+
 L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione del valore 24, per l'espressione "due dozzine".
 
 ```json
@@ -79,6 +83,68 @@ L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione 
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ]
+        }
+    }
+}
+```
+
+Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "two dozen",
+                        "startIndex": 6,
+                        "length": 9,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+* * * 
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni su [valuta](luis-reference-prebuilt-currency.md), [ordinale](luis-reference-prebuilt-ordinal.md) e [percentuale](luis-reference-prebuilt-percentage.md). 

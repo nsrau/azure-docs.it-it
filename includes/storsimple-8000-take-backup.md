@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888913"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180199"
 ---
 ### <a name="to-take-a-backup"></a>Per eseguire un backup
 

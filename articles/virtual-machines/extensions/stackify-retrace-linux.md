@@ -4,22 +4,21 @@ description: Distribuire l'agente Linux di Stackify Retrace in una macchina virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: darinhoward
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
-ms.author: roiyz
-ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: akjosh
+ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792420"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173970"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Estensione dell'agente Linux dello Stackify Retrace
 
@@ -88,7 +87,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione dell'agente
     }      
 ```
 
-## <a name="template-deployment"></a>Distribuzione del modello 
+## <a name="template-deployment"></a>Distribuzione modello 
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione agente Linux di Stackify Retrace durante la distribuzione di un modello di Azure Resource Manager.  
 
@@ -184,7 +183,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Significato | Azione possibile |
+| Codice errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 10 | Errore di installazione | wget è obbligatorio |
 | 20 | Errore di installazione | python è obbligatorio |
@@ -192,7 +191,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Errore di installazione | activationKey è obbligatorio |
 | 51 | Errore di installazione | Distribuzione del sistema operativo non supportata |
 | 60 | Errore di installazione | l'ambiente è obbligatorio |
-| 70 | Errore di installazione | Sconosciuto |
+| 70 | Errore di installazione | Sconosciute |
 | 80 | Errore di abilitazione | L'installazione del servizio non è riuscita |
 | 90 | Errore di abilitazione | L'avvio del servizio non è riuscito |
 | 100 | Errore di disabilitazione | L'interruzione del servizio non è riuscita |

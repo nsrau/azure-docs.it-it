@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345465"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schema di eventi di Griglia di eventi di Azure per il Registro contenitori
 
@@ -157,47 +157,47 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
+| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| id | stringa | L'ID evento. |
-|  timestamp | stringa | L'ora in cui si è verificato l'evento. |
-| action | stringa | L'azione che comprende l'evento specificato. |
+| id | string | L'ID evento. |
+| timestamp | string | L'ora in cui si è verificato l'evento. |
+| action | string | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
-| richiesta | object | La richiesta che ha generato l'evento. |
+| request | object | La richiesta che ha generato l'evento. |
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| mediaType | stringa | Tipo MIME dell'oggetto di riferimento. |
+| mediaType | string | Tipo MIME dell'oggetto di riferimento. |
 | size | numero intero | Numero di byte del contenuto. Uguale al campo Length. |
-| digest | stringa | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
+| digest | string | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
 | length | numero intero | Numero di byte del contenuto. Uguale al campo Size. |
-| repository | stringa | Nome del repository. |
-| tag | stringa | Nome tag. |
-| name | stringa | Il nome del grafico. |
-| version | stringa | La versione del grafico. |
+| repository | string | Nome del repository. |
+| tag | string | Nome tag. |
+| name | string | Il nome del grafico. |
+| version | string | La versione del grafico. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| id | stringa | ID della richiesta che ha avviato l'evento. |
-| indirizzo | stringa | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
-| host | stringa | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
-| statico | stringa | Metodo di richiesta che ha generato l'evento. |
-| userAgent | stringa | Intestazione agente utente della richiesta. |
+| id | string | ID della richiesta che ha avviato l'evento. |
+| indirizzo | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
+| host | string | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
+| method | string | Metodo di richiesta che ha generato l'evento. |
+| useragent | string | Intestazione agente utente della richiesta. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,20 +3,20 @@ title: 'Esercitazione: Usare la libreria client di Azure Batch per Node.js | Mic
 description: Informazioni sui concetti di base di Azure Batch e compilazione di una soluzione semplice con Node.js.
 services: batch
 author: shwetams
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shwetams
-ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: shg
+ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772175"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323409"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
@@ -48,7 +48,7 @@ Il client Node.js distribuisce un processo batch con un'attività di preparazion
 >
 >
 
-## <a name="build-the-application"></a>Compilare l'applicazione
+## <a name="build-the-application"></a>Compilare l'applicazione.
 
 Verrà ora illustrato in modo dettagliato il processo per la compilazione del client Node.js.
 

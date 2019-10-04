@@ -7,21 +7,18 @@ manager: cfowler
 editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.reviewer: yevbronsh
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336032"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260149"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
-
-> [!NOTE] 
-> Il supporto dell'identità gestita per Servizio app in Linux e in App Web per contenitori è attualmente in anteprima.
 
 > [!Important] 
 > Le identità gestite per il servizio app e per Funzioni di Azure non funzionano come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni/tenant. L'app dovrà ottenere una nuova identità disabilitando e abilitando di nuovo la funzionalità. Vedere [Rimozione di un'identità](#remove) più avanti. Per usare la nuova identità, anche le risorse a valle dovranno disporre di criteri di accesso aggiornati.
@@ -29,8 +26,8 @@ ms.locfileid: "58336032"
 Questo argomento illustra come creare un'identità gestita per le applicazioni del servizio app e di Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità gestita di Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da AAD, come Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestite in AAD, vedere [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 All'applicazione possono essere concessi due tipi di identità: 
-- Un'**identità assegnata dal sistema** viene associata all'applicazione e viene eliminata in caso di eliminazione dell'app. A un'app può essere associata una sola identità assegnata dal sistema. Il supporto dell'identità assegnata dal sistema è disponibile a livello generale per le app di Windows. 
-- Un'**identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente. Il supporto dell'identità assegnata dall'utente è in anteprima per tutti i tipi di app.
+- Un'**identità assegnata dal sistema** viene associata all'applicazione e viene eliminata in caso di eliminazione dell'app. A un'app può essere associata una sola identità assegnata dal sistema.
+- Un'**identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
 
 ## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema
 
@@ -46,7 +43,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 3. Selezionare **Identità gestita**.
 
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**.
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**.
 
 ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -157,17 +154,11 @@ Quando viene creato, il sito ha le proprietà aggiuntive seguenti:
 Dove `<TENANTID>` e `<PRINCIPALID>` vengono sostituiti con GUID. La proprietà tenantId identifica a quale tenant AAD appartiene l'identità. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In AAD, l'entità servizio ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Aggiunta di un'identità assegnata dall'utente (anteprima)
-
-> [!NOTE] 
-> Le identità assegnate dall'utente sono attualmente in anteprima. I cloud sovrani non sono ancora supportati.
+## <a name="adding-a-user-assigned-identity"></a>Aggiunta di un'identità assegnata dall'utente
 
 La creazione di un'app con un'identità assegnata dall'utente richiede la creazione dell'identità e quindi l'aggiunta dell'identificatore di risorsa corrispondente alla configurazione dell'app.
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
-
-> [!NOTE] 
-> Questa esperienza del portale è in corso di distribuzione e potrebbe non essere ancora disponibile in tutte le aree.
 
 Sarà prima di tutto necessario creare una risorsa identità assegnata dall'utente.
 
@@ -179,7 +170,7 @@ Sarà prima di tutto necessario creare una risorsa identità assegnata dall'uten
 
 4. Selezionare **Identità gestita**.
 
-5. Nella scheda **Assegnate dall'utente (anteprima)** fare clic su **Aggiungi**.
+5. Nella scheda **assegnato dall'utente** fare clic su **Aggiungi**.
 
 6. Cercare l'identità creata in precedenza e selezionarla. Fare clic su **Aggiungi**.
 
@@ -276,6 +267,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle relative operazioni esposte, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication] e l'[esempio di servizio app e insieme di credenziali delle chiavi con MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
+
+### <a name="using-the-azure-sdk-for-java"></a>Uso di Azure SDK per Java
+
+Per le applicazioni e le funzioni Java, il modo più semplice per usare un'identità gestita è tramite [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java). In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
+
+1. Aggiungere un riferimento alla [libreria Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Per i progetti Maven, è possibile aggiungere questo frammento `dependencies` di codice alla sezione del file POM del progetto:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. Utilizzare l' `AppServiceMSICredentials` oggetto per l'autenticazione. Questo esempio Mostra come questo meccanismo può essere usato per lavorare con Azure Key Vault:
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### <a name="using-the-rest-protocol"></a>Uso del protocollo API
 
 Un'app con un'identità gestita ha due variabili di ambiente definite:
@@ -285,16 +304,19 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> |Nome parametro|In ingresso|DESCRIZIONE|
+> |Nome parametro|In ingresso|Descrizione|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
 > |secret|Intestazione|Valore della variabile di ambiente MSI_SECRET. Questa intestazione viene usata per mitigare gli attacchi SSRF (Server Side Request Forgery).|
-> |clientid|Query|(Facoltativo) L'ID dell'identità assegnata dall'utente da usare. Se omesso, viene usata l'identità assegnata dal sistema.|
+> |clientid|Query|(Facoltativo a meno che non sia assegnato dall'utente) ID dell'identità assegnata dall'utente da utilizzare. Se omesso, viene usata l'identità assegnata dal sistema.|
+
+> [!IMPORTANT]
+> Se si sta tentando di ottenere i token per le identità assegnate dall'utente, è necessario includere la `clientid` proprietà. In caso contrario, il servizio token tenterà di ottenere un token per un'identità assegnata dal sistema, che può essere o meno esistere.
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> |Nome proprietà|DESCRIZIONE|
+> |Nome proprietà|Descrizione|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|
@@ -359,6 +381,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>In Python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>In PowerShell:

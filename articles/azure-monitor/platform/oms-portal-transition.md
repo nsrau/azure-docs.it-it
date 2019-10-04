@@ -10,23 +10,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790095"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915861"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
 > [!NOTE]
 > Questo articolo si applica sia al cloud pubblico che al cloud per enti pubblici di Azure, salvo altrimenti indicato.
 
-Il portale di Azure è l'hub per tutti i servizi di Azure e offre un'avanzata esperienza di gestione con funzionalità come ad esempio i dashboard per il blocco delle risorse, la ricerca intelligente per le risorse di individuazione e assegnazione di tag per la gestione delle risorse. Per consolidare e semplificare il flusso di lavoro di monitoraggio e gestione, l'azienda ha iniziato ad aggiungere le funzionalità del portale di OMS al portale di Azure. Tutte le funzionalità del portale di OMS fanno ora parte del portale di Azure. In realtà, alcune delle nuove funzionalità, ad esempio Analisi del traffico, sono disponibili solo nel portale di Azure. L'utente sarà in grado di eseguire tutto ciò che era nel portale di OMS con il portale di Azure e molto altro. È consigliabile iniziare a usare il portale di Azure oggi stesso!
+**Il portale di OMS per il cloud pubblico di Azure è stato ufficialmente ritirato. Il portale di OMS per il cloud del governo degli Stati Uniti di Azure è stato ufficialmente ritirato il 15 maggio 2019.** L'azienda è entusiasta di passare al portale di Azure e prevede che la transizione sarà semplice. Ma è comprensibile che le modifiche siano complesse e che possano rivelarsi dannose. Il resto di questo articolo tratterà degli scenari chiave e della Guida di orientamento per questa transizione.
 
-**Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019** per il cloud commerciale di Azure e per il cloud Azure Governo degli Stati Uniti il portale di OMS **verrà ritirato ufficialmente il 30 marzo 2019.** L'azienda è entusiasta di passare al portale di Azure e prevede che la transizione sarà semplice. Ma è comprensibile che le modifiche siano complesse e che possano rivelarsi dannose. Inviare eventuali domande, commenti e suggerimenti o sottoporre problemi al **LAUpgradeFeedback\@microsoft.com**. Il resto di questo articolo tratterà degli scenari chiave e della Guida di orientamento per questa transizione.
+Il portale di Azure è l'hub per tutti i servizi di Azure e offre un'avanzata esperienza di gestione con funzionalità come ad esempio i dashboard per il blocco delle risorse, la ricerca intelligente per le risorse di individuazione e assegnazione di tag per la gestione delle risorse. Per consolidare e semplificare il flusso di lavoro di monitoraggio e gestione, l'azienda ha iniziato ad aggiungere le funzionalità del portale di OMS al portale di Azure. Tutte le funzionalità del portale di OMS fanno ora parte del portale di Azure. In realtà, alcune delle nuove funzionalità, ad esempio Analisi del traffico, sono disponibili solo nel portale di Azure. L'utente sarà in grado di eseguire tutto ciò che era nel portale di OMS con il portale di Azure e molto altro. È consigliabile iniziare a usare il portale di Azure oggi stesso!
 
 ## <a name="what-is-changing"></a>Cosa cambierà 
 Vengono annunciate le seguenti modifiche con la deprecazione del portale di OMS. Ognuna di queste modifiche viene descritta più nei dettagli nelle sezioni seguenti.
@@ -47,10 +47,10 @@ Mentre la maggior parte delle funzionalità continuerà a funzionare senza esegu
 - È necessario [eseguire la migrazione delle autorizzazioni utente](#user-access-and-role-migration) al portale di Azure.
 - Vedere [Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure](../../automation/migrate-oms-update-deployments.md) per informazioni dettagliate sulla transizione della soluzione Gestione aggiornamenti.
 
-Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. Inviare commenti e suggerimenti, domande o dubbi al **LAUpgradeFeedback\@microsoft.com**.
+Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. 
 
 ## <a name="user-access-and-role-migration"></a>Migrazione del ruolo e dell'accesso utente
-La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [Gestire le aree di lavoro](manage-access.md#manage-accounts-and-users) per informazioni dettagliate sulla gestione dell'accesso in Log Analytics.
+La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [progettazione dell'area di lavoro log di monitoraggio di Azure](design-logs-deployment.md) per informazioni dettagliate sulla gestione dell'accesso in log Analytics.
 
 > [!NOTE]
 > Le versioni precedenti di questo articolo dichiaravano che le autorizzazioni che venivano convertite automaticamente dal portale di OMS al portale di Azure. La conversione automatica non è più prevista. È quindi necessario eseguire la conversione manualmente.
@@ -76,10 +76,7 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 
 ### <a name="alert-extension"></a>Estensione dell'avviso  
 
-> [!NOTE]
-> Gli avvisi sono stati interamente estesi al portale di Azure per il cloud pubblico. Le regole di avviso esistenti possono essere visualizzate anche nel portale di OMS, ma possono essere gestite solo nel portale di Azure. L'estensione degli avvisi nel portale di Azure verrà avviata per il cloud di Azure per enti pubblici a febbraio 2019.
-
-Gli avvisi sono stati [estesi al portale di Azure](alerts-extend.md). Dopo questa procedura guidata, le azioni di gestione degli avvisi saranno disponibili solo nel portale di Azure. Gli avvisi esistenti continueranno a essere elencati nel portale di OMS, Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
+Gli avvisi sono stati [estesi nel portale di Azure gli](alerts-extend.md) avvisi esistenti continueranno a essere elencati nel portale di OMS, ma è possibile gestirli solo in portale di Azure. Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
 Diversamente da quanto annunciato in precedenza, la [soluzione Gestione avvisi](alert-management-solution.md) continuerà a essere disponibile e completamente supportata nel portale di Azure. È possibile continuare a installare la soluzione da Azure Marketplace.
@@ -94,7 +91,7 @@ L'app per dispositivi mobili OMS subirà la terminazione del servizio insieme al
 ## <a name="application-insights-connector-and-solution"></a>Connettore di Application Insights e soluzione
 [Connettore di Application Insights](app-insights-connector.md) fornisce un modo per includere i dati di Application Insights in un'area di lavoro di Log Analytics. Questa duplicazione dei dati è stata necessaria per abilitare la visibilità tra i dati dell'infrastruttura e dell'applicazione. Con il supporto della conservazione dei dati di Application Insights esteso fino a marzo 2019 e la possibilità di eseguire [query tra risorse](../log-query/cross-workspace-query.md) oltre ad aggiungere [visualizzazione multipla di risorse di Application Insights di monitoraggio di Azure](../log-query/unify-app-resource-data.md), non è necessario duplicare i dati dalle risorse di Application Insights e inviarli a Log Analytics. Inoltre, il connettore invia un subset delle proprietà delle applicazioni a Log Analytics, mentre le query tra risorse offrono maggiore flessibilità.  
 
-Di conseguenza, il connettore di Application Insights verrà deprecato e rimosso da Azure Marketplace insieme al portale OMS il 30 marzo 2019, mentre le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019. Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Questa operazione sarà supportata tramite l'API REST che verrà resa disponibile a gennaio 2019, con pubblicazione di una notifica negli [aggiornamenti di Azure](https://azure.microsoft.com/updates/). 
+Di conseguenza, Connettore di Application Insights è stato deprecato e rimosso da Azure Marketplace insieme alla deprecazione del portale di OMS il 30 marzo 2019. Le connessioni esistenti continueranno a funzionare fino al 30 giugno 2019. Con la deprecazione del portale OMS, non è disponibile alcun modo per configurare e rimuovere le connessioni esistenti dal portale. Questa operazione sarà supportata tramite l'API REST che verrà resa disponibile a gennaio 2019, con pubblicazione di una notifica negli [aggiornamenti di Azure](https://azure.microsoft.com/updates/). 
 
 ## <a name="azure-network-security-group-analytics"></a>Analisi del gruppo di sicurezza di rete di Azure
 La [soluzione Analisi gruppo di sicurezza di rete di Azure](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) verrà sostituita con l'ultimo lancio [Analisi del traffico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) che offre visibilità nelle attività e nell'applicazione dell'utente su reti cloud. Analisi del traffico consente di controllare l'attività di rete dell'organizzazione, proteggere applicazioni e dati, ottimizzare le prestazioni dei carichi di lavoro e garantire la conformità. 

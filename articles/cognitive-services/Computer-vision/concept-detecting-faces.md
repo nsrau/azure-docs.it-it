@@ -1,7 +1,7 @@
 ---
-title: Rilevamento dei visi - Visione artificiale
+title: Rilevamento viso-Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Informazioni sui concetti relativi alla funzionalità di rilevamento viso dell'API visione artificiale.
+description: Informazioni sui concetti relativi alla funzionalità di rilevamento viso del API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368136"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945237"
 ---
 # <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
 

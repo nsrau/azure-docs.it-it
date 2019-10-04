@@ -3,7 +3,7 @@ title: Gestire certificati in un cluster di Azure Service Fabric | Documentazion
 description: Questo articolo descrive come aggiungere nuovi certificati, eseguire il rollover di certificati e rimuovere certificati da o in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: atsenthi
+ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050238"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599945"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
 
-Il certificato predefinito del comportamento di carico di Azure Service Fabric SDK, consiste nel distribuire e usare un certificato definito con una data di scadenza futura; indipendentemente dalla relativa definizione di configurazione primaria o secondaria. Eseguire il fallback per il comportamento classico è non avanzata azione consigliata e, è necessario impostare il valore del parametro "UseSecondaryIfNewer" impostazione su false nella configurazione Fabric.Code.
+Il certificato predefinito del comportamento di carico di Azure Service Fabric SDK, consiste nel distribuire e usare un certificato definito con una data di scadenza futura; indipendentemente dalla relativa definizione di configurazione primaria o secondaria. Il fallback al comportamento classico è un'azione avanzata non consigliata e richiede l'impostazione del valore del parametro "UseSecondaryIfNewer" su false nella configurazione Fabric. code.
 
 Service Fabric consente di specificare due certificati cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster, oltre ai certificati client. Per informazioni dettagliate sulla loro configurazione in fase di creazione, vedere l'argomento relativo alla [creazione di un di cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster di Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Se si specifica un solo certificato cluster in fase di creazione, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
 
@@ -48,7 +48,7 @@ Se si intende rimuovere il certificato contrassegnato come primario, è necessar
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Aggiungere un certificato secondario tramite PowerShell per Resource Manager
 > [!TIP]
-> È ora migliore e più semplice modo aggiungere un certificato secondario tramite il [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. Non è necessario seguire i passaggi rimanenti in questa sezione.  Inoltre, non è necessario il modello usato originariamente per creare e distribuire il cluster quando si usa la [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> È ora disponibile un modo migliore e più semplice per aggiungere un certificato secondario usando il cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) . Non è necessario seguire i passaggi rimanenti in questa sezione.  Inoltre, non è necessario che il modello venga usato originariamente per creare e distribuire il cluster quando si usa il cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) .
 
 Questi passaggi presuppongono che si abbia familiarità con il funzionamento di Resource Manager, che sia stato distribuito almeno un cluster di Service Fabric usando un modello di Resource Manager e che il modello usato per configurare il cluster sia a portata di mano. Si presuppone anche che si abbia dimestichezza con l'uso di JSON.
 
@@ -117,7 +117,7 @@ Il file 5-VM-1-NodeTypes-Secure_Step2.JSON contiene tutte le modifiche illustrat
          }
     ``` 
 
-4. Apportare modifiche a **tutte** le definizioni di risorse **Microsoft.Compute/virtualMachineScaleSets**. Trovare la definizione della risorsa Microsoft.Compute/virtualMachineScaleSets. Scorrere fino a "publisher": "Sezione", in "virtualMachineProfile".
+4. Apportare modifiche a **tutte** le definizioni di risorse **Microsoft.Compute/virtualMachineScaleSets**. Trovare la definizione della risorsa Microsoft.Compute/virtualMachineScaleSets. Scorrere fino a "Publisher": "Microsoft. Azure. ServiceFabric", in "virtualMachineProfile".
 
     Nelle impostazioni di pubblicazione di Service Fabric dovrebbe essere presente una sezione simile alla seguente.
     
@@ -262,7 +262,7 @@ Per riferimento rapido ecco il comando per ottenere l'integrità del cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuzione dei certificati client per il cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuzione dei certificati client al cluster.
 
 Per fare in modo che i certificati vengano distribuiti da un insieme di credenziali delle chiavi ai nodi, è possibile usare la stessa procedura descritta nel passaggio 5 precedente. È sufficiente definire e usare parametri diversi.
 

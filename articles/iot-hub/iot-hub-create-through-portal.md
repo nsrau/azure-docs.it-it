@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515846"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432640"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
 
@@ -34,13 +34,13 @@ Per eseguire i passaggi in questa esercitazione, è necessaria una sottoscrizion
 
 Di seguito sono riportate alcune delle proprietà che possono essere impostate per un hub IoT:
 
-**Piano tariffario e scalabilità**: è possibile usare questa proprietà per eseguire la migrazione a un piano diverso o impostare il numero di unità dell'hub IoT. 
+**Prezzi e scalabilità**: È possibile usare questa proprietà per eseguire la migrazione a un livello diverso o impostare il numero dell'IoT Hub di unità. 
 
-**Monitoraggio operazioni**: attivare o disattivare le diverse categorie di monitoraggio, ad esempio la registrazione per gli eventi correlati ai messaggi da dispositivo a cloud o ai messaggi da cloud a dispositivo.
+**Monitoraggio delle operazioni**: Attivare o disattivare, le diverse categorie di monitoraggio, ad esempio la registrazione per gli eventi correlati ai messaggi da dispositivo a cloud o i messaggi da cloud a dispositivo.
 
-**Filtro IP**: specificare un intervallo di indirizzi IP che verranno accettati o rifiutati dall'hub IoT.
+**Filtro IP**: Specificare un intervallo di indirizzi IP che verrà accettati o rifiutati dall'hub IoT.
 
-**Proprietà**: fornisce l'elenco delle proprietà che è possibile copiare e usare in altre posizioni, ad esempio l'ID risorsa, il gruppo di risorse, la posizione e così via.
+**Proprietà**: Fornisce l'elenco delle proprietà che è possibile copiare e usare in altre posizioni, ad esempio l'ID di risorsa, gruppo di risorse, posizione e così via.
 
 ### <a name="shared-access-policies"></a>Criteri di accesso condivisi
 
@@ -50,13 +50,15 @@ Fare clic su **Aggiungi** per aprire il pannello **Aggiungi un criterio di acces
 
 ![Screenshot che illustra l'aggiunta di un criterio di accesso condiviso](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* I criteri **Lettura registro** e **Scrittura registro** consentono di concedere diritti di accesso in lettura e scrittura per il registro delle identità. La scelta dell'opzione di scrittura include automaticamente l'opzione di lettura.
+* I criteri **Lettura registro** e **Scrittura registro** consentono di concedere diritti di accesso in lettura e scrittura per il registro delle identità. Queste autorizzazioni vengono usate dai servizi cloud back-end per gestire le identità dei dispositivi. La scelta dell'opzione di scrittura include automaticamente l'opzione di lettura.
 
-* I criteri **Connessione servizio** concedono le autorizzazioni per accedere agli endpoint del servizio, ad esempio per la **ricezione di messaggi da dispositivo a cloud**. 
+* Il **connessione al servizio** vengono concesse autorizzazioni per accedere agli endpoint di servizio. Questa autorizzazione viene usata dai servizi cloud back-end per inviare e ricevere messaggi dai dispositivi anche per aggiornare e leggere i dati del dispositivo gemello e il modulo gemello.
 
-* I criteri **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi tramite gli endpoint sul lato dispositivo dell'hub IoT.
+* I criteri **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi tramite gli endpoint sul lato dispositivo dell'hub IoT. Questa autorizzazione viene usata dai dispositivi per inviare e ricevere messaggi da un hub IoT, aggiornare e leggere i dati del dispositivo gemello e il modulo gemello ed eseguire caricamenti di file.
 
 Fare clic su **Crea** per aggiungere i criteri appena creati all'elenco esistente.
+
+Per altre informazioni sull'accesso concesso da autorizzazioni specifiche, vedere [autorizzazioni per l'IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Routing dei messaggi per un hub IoT
 

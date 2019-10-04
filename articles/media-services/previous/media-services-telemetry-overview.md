@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60545521"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
@@ -74,13 +74,13 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
 
-Proprietà|Valore|Esempi/note
+Proprietà|Value|Esempi/note
 ---|---|---
 PartitionKey|{ID account}_{ID entità}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L'ID dell'account viene incluso nella chiave di partizione per semplificare i flussi di lavoro in quei casi in cui nello stesso account di archiviazione scrivono più account di Servizi multimediali.
 RowKey|{secondi a mezzanotte}_{valore casuale}|01688_00199<br/><br/>La chiave di riga inizia con il numero di secondi che mancano alla mezzanotte per consentire le principali query di stile all'interno di una partizione. Per altre informazioni, vedere [questo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) articolo. 
 Timestamp|Data/ora|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
-NOME|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
+Name|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L'ora (UTC) in cui si è verificato l'evento di telemetria|2016-09-09T22:42:36.924Z<br/><br/>L'ora osservata è fornita dall'entità che invia i dati di telemetria (ad esempio un canale). Poiché possono esserci problemi di sincronizzazione tra i componenti, questo valore è approssimativo
 ServiceID|{ID servizio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Proprietà specifiche di entità|Come definito dall'evento|NomeFlusso: flusso1, bitrate 10123, ...<br/><br/>Vengono definite le proprietà rimanenti per il tipo di evento specificato. Il contenuto della tabella di Azure corrisponde a coppie valore-chiave.  (ovvero a diverse righe della tabella corrispondono diversi set di proprietà).
@@ -95,13 +95,13 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 
 **Endpoint di streaming**
 
-Proprietà|Valore|Esempi
+Proprietà|Value|Esempi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Type|StreamingEndpoint
-NOME|NOME|StreamingEndpointRequestLog
+Name|NOME|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|Nome host dell'endpoint|builddemoserver.Origin.mediaservices.Windows.NET
@@ -114,13 +114,13 @@ E2ELatency|Latenza end-to-end media|250
 
 **Canale live**
 
-Proprietà|Valore|Esempi/note
+Proprietà|Value|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Type|canale
-NOME|NOME|ChannelHeartbeat
+Name|NOME|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo di testo traccia di testo/video/audio|video/audio
@@ -132,20 +132,20 @@ OverlapCount|Sovrapposizione nell'inserimento|0
 DiscontinuityCount|Discontinuità di traccia|0
 LastTimestamp|Timestamp degli ultimi dati inseriti|1800488800
 NonincreasingCount|Numero di frammenti scartati a causa del timestamp invariato|2
-UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |True 
-UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|True 
-UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True 
+UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |True
+UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|True
+UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
 Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Archivio live**
 
-Proprietà|Valore|Esempi/note
+Proprietà|Value|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Type|Archiviazione
-NOME|NOME|ArchiveHeartbeat
+Name|Name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|URL del programma|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism

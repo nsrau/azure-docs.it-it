@@ -1,24 +1,17 @@
 ---
 title: Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse | Microsoft Docs
 description: Illustra come specificare come destinazione più gruppi di sottoscrizioni e risorse di Azure durante la distribuzione.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 33b0a998206b68f1807f5bfa3c3f39164798842c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107005"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205478"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
@@ -169,7 +162,7 @@ Se si crea un collegamento a un modello separato, le funzioni nel modello colleg
 
 I modelli seguenti mostrano distribuzioni tra più gruppi di risorse. Dopo la tabella sono mostrati script per distribuire i modelli.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Modello tra più sottoscrizioni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Distribuisce un account di archiviazione in un gruppo di risorse e un account di archiviazione in un secondo gruppo di risorse. Includere un valore per l'ID sottoscrizione quando il secondo gruppo di risorse è in una sottoscrizione diversa. |
 |[Modello di proprietà a più gruppi di risorse](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Mostra in che modo si risolve la funzione `resourceGroup()`. Non distribuisce alcuna risorsa. |

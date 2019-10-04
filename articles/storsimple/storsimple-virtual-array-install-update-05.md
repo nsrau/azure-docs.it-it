@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
 ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61445421"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.5 nell'array virtuale StorSimple
 

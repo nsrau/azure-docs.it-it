@@ -2,21 +2,19 @@
 title: Elaborare ed estrarre testo da immagini nella ricerca cognitiva - Ricerca di Azure
 description: Elaborare ed estrarre testo e altre informazioni da immagini in pipeline di ricerca cognitiva all'interno di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344190"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265859"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -30,21 +28,20 @@ Questo articolo illustra nel dettaglio il processo di elaborazione delle immagin
 
 Nell'ambito del processo di individuazione dei documenti, è disponibile un nuovo set di parametri di configurazione dell'indicizzatore per la gestione di file di immagine o di immagini incorporate nei file. Questi parametri consentono di normalizzare le immagini in modo da poterle elaborare ulteriormente. La normalizzazione delle immagini le rende più uniformi. Le immagini di grandi dimensioni vengono ridimensionate a un'altezza e una larghezza tali da poter essere usate. Per le immagini che forniscono metadati sull'orientamento, la rotazione dell'immagine viene impostata per il caricamento verticale. Le modifiche a livello di metadati vengono acquisite in un tipo complesso creato per ogni immagine. 
 
-Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate.
+Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | DESCRIZIONE |
+| Parametro di configurazione | Descrizione |
 |--------------------|-------------|
-| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, verranno estratti prime 1000 e verrà generato un avviso. |
-|  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
-|  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
+| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
+|  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000. | 
+|  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000.|
 
 > [!NOTE]
 > Se si imposta la proprietà *imageAction* su un valore diverso da "none", non sarà possibile impostare la proprietà *parsingMode* su un valore diverso da "default".  Nella configurazione dell'indicizzatore è possibile impostare solo una di queste due proprietà su un valore non predefinito.
 
 Impostare il parametro **parsingMode** su `json`, per indicizzare ogni BLOB come un singolo documento, oppure su `jsonArray`, se i BLOB contengono matrici JSON ed è necessario trattare ogni elemento di una matrice come un documento separato.
 
-Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). Se si aumentano i limiti massimi, è possibile che l'elaborazione di immagini di dimensioni maggiori non riesca.
-
+Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). La [skill OCR](cognitive-search-skill-ocr.md) supporta una larghezza e un'altezza massime di 4200 per le lingue diverse dall'inglese e 10000 per la lingua inglese.  Se si aumentano i limiti massimi, l'elaborazione potrebbe avere esito negativo sulle immagini più grandi a seconda della definizione del suo competenze e della lingua dei documenti. 
 
 Specificare imageAction nella [definizione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) come indicato di seguito:
 
@@ -64,15 +61,16 @@ Specificare imageAction nella [definizione dell'indicizzatore](https://docs.micr
 
 Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *normalized_images* conterrà una matrice di immagini. Ogni immagine è un tipo complesso che contiene i membri seguenti:
 
-| Membro immagine       | DESCRIZIONE                             |
+| Membro immagine       | Descrizione                             |
 |--------------------|-----------------------------------------|
-| data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
+| dati               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
 | height             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
 | originalHeight      | Altezza originale dell'immagine prima della normalizzazione. |
 | rotationFromOriginal |  Rotazione in senso antiorario, espressa in gradi, effettuata per creare l'immagine normalizzata. Un valore compreso tra 0 e 360 gradi. Questo passaggio legge i metadati dall'immagine generata da una fotocamera o da uno scanner. In genere, è un multiplo di 90 gradi. |
-| contentOffset |L'offset di carattere all'interno del campo di contenuto da cui è stata estratta l'immagine. Questo campo è applicabile solo ai file con immagini incorporate. |
+| contentOffset | L'offset di carattere all'interno del campo di contenuto da cui è stata estratta l'immagine. Questo campo è applicabile solo ai file con immagini incorporate. |
+| pageNumber | Se l'immagine è stata estratta o sottoposta a rendering da un file PDF, questo campo contiene il numero di pagina nel file PDF da cui è stato estratto o sottoposto a rendering, a partire da 1.  Se l'immagine non è stata da un file PDF, questo campo sarà 0.  |
 
  Valore di esempio di *normalized_images*:
 ```json
@@ -84,7 +82,8 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```
@@ -102,8 +101,6 @@ La [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.
 ### <a name="ocr-skill"></a>Competenza OCR
 
 La [competenza OCR](cognitive-search-skill-ocr.md) estrae il testo da file di immagine in formato JPG, PNG e bitmap. È possibile estrarre sia il testo sia informazioni di layout. Le informazioni di layout presentano rettangoli di selezione per ogni stringa identificata.
-
-La competenza OCR consente di selezionare l'algoritmo da usare per il rilevamento del testo nelle immagini. Supporta attualmente due algoritmi, uno per il testo stampato e uno per il testo scritto.
 
 ## <a name="embedded-image-scenario"></a>Scenario di immagine incorporata
 
@@ -217,7 +214,7 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
         }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
 + [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)

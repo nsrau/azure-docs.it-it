@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/05/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 108bf3f50b863428a63e745c1dac470d4caaf623
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869815"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180236"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Abilitare il provider di risorse di Griglia di eventi
 

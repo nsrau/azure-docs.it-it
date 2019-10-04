@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 09/04/2019
+ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887268"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309493"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
-Questo articolo illustra come creare e gestire le repliche in lettura nella stessa area di Azure del master nel servizio Database di Azure per MySQL usando il portale di Azure. Questa funzionalità è attualmente in anteprima pubblica.
+In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MySQL usando il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,9 +38,18 @@ Questo articolo illustra come creare e gestire le repliche in lettura nella stes
 
    ![Database di Azure per MySQL - Replica](./media/howto-read-replica-portal/add-replica.png)
 
-5. Immettere un nome per il server di replica e fare clic su **OK** per confermare la creazione della replica.
+5. Immettere un nome per il server di replica.
 
-   ![Database di Azure per MySQL - Creare la replica](./media/howto-read-replica-portal/create-replica.png)
+    ![Database di Azure per MySQL-nome replica](./media/howto-read-replica-portal/replica-name.png)
+
+6. Selezionare il percorso per il server di replica. Il percorso predefinito è identico a quello del server master.
+
+    ![Database di Azure per MySQL-percorso di replica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+
+7. Selezionare **OK** per confermare la creazione della replica.
 
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
@@ -115,7 +124,7 @@ Per eliminare un server master dal portale di Azure, seguire questa procedura:
 
 2. Nella sezione **Monitoraggio** della barra laterale selezionare **Metriche**.
 
-3. Selezionare **Replication lag in seconds** (Intervallo di replica in secondi) nell'elenco a discesa delle metriche disponibili. 
+3. Selezionare **Replication lag in seconds** (Intervallo di replica in secondi) nell'elenco a discesa delle metriche disponibili.
 
    ![Selezionare l'intervallo di replica](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

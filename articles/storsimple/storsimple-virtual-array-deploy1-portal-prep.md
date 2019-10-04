@@ -12,20 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088707"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517096"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Questo è il primo articolo della serie di esercitazioni necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI tramite il modello di Resource Manager. Questo articolo illustra la preparazione necessaria per creare e configurare il servizio Gestione dispositivi StorSimple prima di eseguire il provisioning di un array virtuale. Questo articolo contiene anche i collegamenti a un elenco di controllo configurazione della distribuzione e i prerequisiti di configurazione.
 

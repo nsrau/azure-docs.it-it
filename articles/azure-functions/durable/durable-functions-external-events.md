@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eb024e11b78d13d5ab4544c634acef2ade8141c2
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608982"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933404"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
 
@@ -202,10 +201,7 @@ Internamente `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript) accoda un mess
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come configurare le orchestrazioni perenni](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Eseguire un esempio in attesa di eventi esterni](durable-functions-phone-verification.md)
+> [Informazioni su come implementare la gestione degli errori](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Eseguire un esempio in attesa di interazione umana](durable-functions-phone-verification.md)

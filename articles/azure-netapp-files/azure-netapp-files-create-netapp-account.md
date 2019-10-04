@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113640"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70012576"
 ---
 # <a name="create-a-netapp-account"></a>Creare un account di NetApp
 La creazione di un account di NetApp consente di configurare un pool di capacità e successivamente di creare un volume. Usare il pannello di Azure NetApp Files per creare un nuovo account di NetApp.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-È necessario aver registrato la sottoscrizione per l'uso del provider di risorse NetApp e della funzionalità di anteprima pubblica.
+È necessario avere ricevuto un messaggio di posta elettronica dal team di Azure NetApp Files per confermare che è stato concesso l'accesso al servizio. Vedere [inviare una richiesta di attesa per l'accesso al servizio](azure-netapp-files-register.md#waitlist).
 
-[Effettuare la registrazione ad Azure NetApp Files](azure-netapp-files-register.md)
+È anche necessario aver registrato la sottoscrizione per l'uso del provider di risorse NetApp. Vedere [registrare il provider di risorse NetApp](azure-netapp-files-register.md#resource-provider).
 
 ## <a name="steps"></a>Passaggi 
 
@@ -48,7 +48,7 @@ La creazione di un account di NetApp consente di configurare un pool di capacit�
      Selezionare una sottoscrizione tra le sottoscrizioni esistenti.
    * **Gruppo di risorse**   
      Usare un gruppo di risorse esistente oppure crearne uno nuovo.
-   * **Posizione**  
+   * **Location**  
      Selezionare l'area in cui si vogliono posizionare l'account e le relative risorse figlio.  
 
      ![Nuovo account di NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
@@ -56,6 +56,11 @@ La creazione di un account di NetApp consente di configurare un pool di capacit�
 
 5. Fare clic su **Create**(Crea).     
    L'account di NetApp creato verrà ora visualizzato nel pannello di Azure NetApp Files. 
+
+> [!NOTE] 
+> Se non è stato concesso l'accesso al servizio Azure NetApp Files, viene visualizzato l'errore seguente quando si tenta di creare il primo account NetApp:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

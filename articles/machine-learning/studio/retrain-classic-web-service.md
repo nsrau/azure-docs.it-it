@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65234062"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Ripetere il training e distribuire un servizio Web classico di Studio
 
@@ -134,7 +134,7 @@ Il valore del parametro *Name* in *Resources* deve corrispondere al nome della r
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel menu a sinistra fare clic su **Machine Learning**.
 1. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
-1. In Nome fare clic su **Census Model [predictive exp.]**.
+1. In Nome fare clic su **Census Model [predictive exp.]** .
 1. Fare clic sul nuovo endpoint aggiunto.
 1. Nel dashboard dell'endpoint fare clic su **Aggiorna risorsa**.
 1. Nella pagina della documentazione sull'aggiornamento dell'API di risorsa per il servizio Web è possibile trovare **Nome risorsa** in **Risorse aggiornabili**.

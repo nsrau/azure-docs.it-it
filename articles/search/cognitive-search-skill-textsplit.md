@@ -2,21 +2,19 @@
 title: Competenza Divisione del testo della ricerca cognitiva - Ricerca di Azure
 description: Suddividere il testo in blocchi o pagine di testo in base alla lunghezza in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c860066608f1b78d9a4c45b03fb3948b3c888e25
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894207"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265677"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -32,7 +30,7 @@ Microsoft.Skills.Text.SplitSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textSplitMode      | "Pagine" o "frasi" | 
 | maximumPageLength | Se textSplitMode è impostato su "pagine", si riferisce alla lunghezza massima della pagina misurata da `String.Length`. Il valore minimo è 100.  Se textSplitMode è impostato su "pages", l'algoritmo tenterà di suddividere il testo in blocchi con una dimensione massima di "maximumPageLength". In questo caso, l'algoritmo cercherà di interrompere una frase al suo termine, per questo motivo la dimensione del blocco potrebbe essere leggermente inferiore a "maximumPageLength". | 
@@ -41,14 +39,14 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome parametro       | DESCRIZIONE      |
+| Nome parametro       | Descrizione      |
 |----------------------|------------------|
 | text  | Testo da suddividere in sottostringhe. |
 | languageCode  | (Facoltativo) Codice lingua per il documento.  |
 
 ## <a name="skill-outputs"></a>Output competenze 
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textItems | Una matrice di sottostringhe che sono state estratte. |
 
@@ -80,7 +78,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-input"></a>Input di esempio
+##  <a name="sample-input"></a>Campiona input
 
 ```json
 {
@@ -88,7 +86,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },
@@ -133,7 +131,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Se una lingua non è supportata, viene generato un avviso e il testo viene suddiviso in base ai limiti di carattere.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

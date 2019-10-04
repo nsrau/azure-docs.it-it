@@ -7,21 +7,20 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 034/08/2019
-ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/08/2019
+ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331537"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316651"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
-L'opzione di distribuzione database singolo crea un database nel database SQL di Azure con il proprio set di risorse e viene gestita tramite un server di database SQL. Con un database singolo, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con una dimensione di calcolo garantita.
+L'opzione di distribuzione database singolo crea un database nel database SQL di Azure con il proprio set di risorse e viene gestita tramite un server di database SQL. Con un database singolo, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con dimensioni di calcolo garantite.
 
 > [!IMPORTANT]
 > Il database singolo è una delle tre opzioni di distribuzione per il database SQL di Azure. Le altre due sono i [pool elastici](sql-database-elastic-pool.md) e l'[istanza gestita](sql-database-managed-instance.md).
@@ -30,7 +29,7 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 
 ## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
-È possibile creare la prima app in un database singolo di piccole dimensioni a un costo mensile contenuto nel livello di servizio prezzo/prestazioni basso e quindi [modificare il livello di servizio manualmente o a livello di codice](sql-database-single-database-scale.md) in qualsiasi momento passando al livello di servizio prezzo/prestazioni più alto per soddisfare le esigenze della propria soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Puoi creare la tua prima app in un database di piccole dimensioni, a basso costo nel livello di calcolo senza server (anteprima) o in una piccola dimensione di calcolo nel livello di calcolo con provisioning. È possibile modificare il [livello di calcolo o di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 ## <a name="single-databases-and-elastic-pools"></a>Database singoli e pool elastici
 
@@ -42,7 +41,7 @@ Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-I database singoli, i pool elastici e tutte le istanze gestite forniscono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
+Tutti i database singoli, i pool elastici e le istanze gestite offrono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Differenze di Transact-SQL
 
@@ -56,10 +55,10 @@ Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL dur
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
-> Database SQL di Azure (tutte le opzioni di distribuzione), ha ottenuto la certificazione per numerosi standard di conformità. Per altre informazioni, vedere la [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
+> Il database SQL di Azure (tutte le opzioni di distribuzione) è stato certificato rispetto a una serie di standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare rapidamente a usare un database singolo, partire con [Avvio rapido per database singolo](sql-database-single-database-quickstart-guide.md).
+- Per iniziare rapidamente a usare un singolo database, iniziare con la [Guida introduttiva a database singolo](sql-database-single-database-quickstart-guide.md).
 - Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-single-database-migrate.md).
 - Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database features](sql-database-features.md) (Funzioni del database SQL di Azure).

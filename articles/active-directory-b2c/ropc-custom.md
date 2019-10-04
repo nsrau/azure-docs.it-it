@@ -2,26 +2,26 @@
 title: Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419185"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678133"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory (Azure AD) B2C, il flusso delle credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione standard OAuth. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
+In Azure Active Directory B2C (Azure AD B2C), il flusso di credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione OAuth standard. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
 
 Nel flusso ROPC sono supportate le opzioni seguenti:
 
@@ -39,16 +39,9 @@ I flussi seguenti non sono supportati:
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registrare un'applicazione
+## <a name="register-an-application"></a>Registra un'applicazione
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi **Aggiungi**.
-5. Immettere un nome per l'applicazione, ad esempio *ROPC_Auth_app*.
-6. Selezionare **No** per **App Web/API Web** e quindi **Sì** per **Client nativo**.
-7. Lasciare tutti gli altri valori così come sono e quindi selezionare **Crea**.
-8. Selezionare la nuova applicazione e prendere nota dell'ID applicazione per usarlo in seguito.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  <a name="create-a-resource-owner-policy"></a>Creare un criterio per il proprietario della risorsa
 
@@ -88,7 +81,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -140,7 +133,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     </TechnicalProfile>
     ```
 
-    Sostituire il **DefaultValue** del **client_id** e di **resource_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creato nell'esercitazione preliminare.
+    Sostituire il **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire **DefaultValue** di **RESOURCE_ID** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
 
 5. Aggiungere gli elementi **ClaimsProvider** seguenti con i relativi profili tecnici all'elemento **ClaimsProviders**:
 
@@ -245,7 +238,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. L'ID criteri è il nome dei criteri. Ad esempio, **B2C_1A_ROPC_Auth**.
 3. Modificare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** con `ResourceOwnerPasswordCredentials`.
 4. Modificare l'elemento **OutputClaims** affinché contenga soltanto le attestazioni seguenti:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -255,7 +248,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     ```
 
 5. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
-6. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
+6. Abilitare **Sovrascrivi il criterio se esistente**, quindi individuare e selezionare il file *ROPC_Auth. XML* .
 7. Fare clic su **Carica**.
 
 ## <a name="test-the-policy"></a>Testare i criteri
@@ -269,7 +262,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 | Chiave | Value |
 | --- | ----- |
-| username | `user-account` |
+| userName | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |

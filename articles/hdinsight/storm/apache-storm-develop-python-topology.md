@@ -1,7 +1,6 @@
 ---
-title: Apache Storm con componenti Python - Azure HDInsight
-description: Informazioni su come creare una topologia Apache Storm che usa componenti Python.
-services: hdinsight
+title: Apache Storm con i componenti Python-Azure HDInsight
+description: Informazioni su come creare una topologia di Apache Storm che usa componenti Python in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
@@ -10,19 +9,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a15506632e90edae235c3d1889603ca4997a3398
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634593"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813888"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Sviluppare topologie Apache Storm con Python in HDInsight
 
 Informazioni su come creare una topologia [Apache Storm](https://storm.apache.org/) che usa componenti Python. Apache Storm supporta più linguaggi, consentendo di combinare in un'unica topologia componenti in più lingue. Il framework [Flux](https://storm.apache.org/releases/current/flux.html), introdotto con Storm 0.10.0, consente di creare facilmente soluzioni che usino i componenti Python.
 
 > [!IMPORTANT]  
-> Le informazioni contenute in questo documento sono state testate usando Storm in HDInsight 3.6. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Le informazioni contenute in questo documento sono state testate usando Storm in HDInsight 3.6. 
 
 Il codice per questo progetto è disponibile presso il sito [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -34,7 +33,7 @@ Il codice per questo progetto è disponibile presso il sito [https://github.com/
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (Facoltativo) Un ambiente locale di sviluppo Storm. L'ambiente locale di Storm è necessario solo se si vuole eseguire la topologia in locale. Per altre informazioni, vedere [Setting up a development environment](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html) (Impostazione di un ambiente di sviluppo).
+* (Facoltativo) Un ambiente locale di sviluppo Storm. L'ambiente locale di Storm è necessario solo se si vuole eseguire la topologia in locale. Per altre informazioni, vedere [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html) (Impostazione di un ambiente di sviluppo).
 
 ## <a name="storm-multi-language-support"></a>Supporto per più linguaggi in Storm
 
@@ -148,5 +147,4 @@ Per arrestare la topologia, usare __CTRL+C__.
 
 Vedere i documenti seguenti per altri modi di usare Python con HDInsight:
 
-* [Come usare Python per il flusso di processi MapReduce](../hadoop/apache-hadoop-streaming-python.md)
 * [Come usare funzioni definite dall'utente Python in Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md)

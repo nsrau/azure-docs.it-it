@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408162"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273694"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
-Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. L'uso di Hub eventi, quindi, spesso aumenta dopo che si è iniziato a usare il servizio. Questo utilizzo richiede di aumentare le prestazioni di Hub eventi aumentando le [unità elaborate](event-hubs-features.md#throughput-units) predeterminate e di gestire velocità di trasferimento più alte. La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le prestazioni aumentando il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
+Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile. L'uso di Hub eventi, quindi, spesso aumenta dopo che si è iniziato a usare il servizio. Questo utilizzo richiede di aumentare le prestazioni di Hub eventi aumentando le [unità elaborate](event-hubs-scalability.md#throughput-units) predeterminate e di gestire velocità di trasferimento più alte. La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le prestazioni aumentando il numero di unità elaborate per soddisfare le esigenze di utilizzo. L'aumento delle unità elaborate previene scenari di limitazione in cui:
 
 * Le velocità di ingresso dei dati superano le unità elaborate impostate.
 * Le velocità di richiesta dei dati in uscita superano le unità elaborate impostate.
@@ -32,7 +32,7 @@ Il servizio Hub eventi aumenta la velocità effettiva quando il carico supera la
 
 ## <a name="how-auto-inflate-works"></a>Funzionamento di Aumento automatico
 
-Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-features.md#throughput-units). Una singola unità elaborata consente 1 MB al secondo in ingresso e il doppio in uscita. Gli hub eventi standard possono essere configurati con un numero di unità elaborate compreso tra 1 e 20. Aumento automatico consente di iniziare gradualmente con il minimo di unità elaborate richiesto a scelta. La funzionalità aumenta quindi automaticamente le unità elaborate fino al limite massimo necessario, a seconda dell'aumento del traffico. Aumento automatico offre i seguenti vantaggi:
+Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-scalability.md#throughput-units). Una singola unità elaborata consente 1 MB al secondo in ingresso e il doppio in uscita. Gli hub eventi standard possono essere configurati con un numero di unità elaborate compreso tra 1 e 20. Aumento automatico consente di iniziare gradualmente con il minimo di unità elaborate richiesto a scelta. La funzionalità aumenta quindi automaticamente le unità elaborate fino al limite massimo necessario, a seconda dell'aumento del traffico. Aumento automatico offre i seguenti vantaggi:
 
 - Un meccanismo di scala efficiente per iniziare con poche unità elaborate e aumentarle al bisogno.
 - Aumenta automaticamente le unità elaborate fino al limite superiore specificato senza problemi di limitazioni.
@@ -73,7 +73,7 @@ Dopo avere abilitato questa opzione, è possibile iniziare con un numero ridotto
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Abilitare Aumento automatico usando un modello di Azure Resource Manager
 
-È possibile abilitare Aumento automatico durante la distribuzione di un modello di Azure Resource Manager. Ad esempio, impostare la proprietà `isAutoInflateEnabled` su **true**, quindi impostare `maximumThroughputUnits` su 10. Ad esempio: 
+È possibile abilitare Aumento automatico durante la distribuzione di un modello di Azure Resource Manager. Ad esempio, impostare la proprietà `isAutoInflateEnabled` su **true**, quindi impostare `maximumThroughputUnits` su 10. Ad esempio:
 
 ```json
 "resources": [

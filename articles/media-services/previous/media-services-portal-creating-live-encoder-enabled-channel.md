@@ -1,5 +1,5 @@
 ---
-title: Eseguire lo streaming live con servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure | Microsoft Docs
+title: Eseguire lo streaming live con servizi multimediali di Azure per creare flussi a bitrate multipli con portale di Azure | Microsoft Docs
 description: Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917091"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015216"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con il portale di Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure  
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "58917091"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
@@ -39,11 +39,11 @@ Per altre informazioni concettuali sui canali correlati abilitati per la codific
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
-> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
+> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 
 1. Connettere una videocamera a un computer. <br/>Per alcune idee per la configurazione, vedere [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Configurazione semplice e portabile di attrezzature video per eventi).
 
-    Se non hai accesso a una fotocamera, strumenti, ad esempio [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) consente di generare un feed live da un file video.
+    Se non si ha accesso a una fotocamera, è possibile usare strumenti come [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per generare un feed live da un file video.
 1. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vedere anche questo blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produzione di streaming live con OBS).
 
     Questa operazione può essere eseguita anche dopo la creazione del canale.
@@ -66,11 +66,11 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 Per completare l'esercitazione è necessario quanto segue.
 
 * Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. 
-  Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+  Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
-## <a name="create-a-channel"></a>Creare un canale
+## <a name="create-a-channel"></a>Crea un canale
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare Servizi multimediali e fare clic sul nome dell'account Servizi multimediali.
 2. Selezionare **Streaming live**.
@@ -100,7 +100,7 @@ Per completare l'esercitazione è necessario quanto segue.
 6. Nella scheda **Anteprima** applicare la restrizione IP sull'anteprima.
 7. Nella scheda **Codifica** specificare il set di impostazioni di codifica. 
 
-    Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**. Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente. 
+    Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)** . Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente. 
 
 > [!NOTE]
 > Attualmente, l'avvio del canale può richiedere più di 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
@@ -114,7 +114,7 @@ Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
-![URL di inserimento](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![inserire URL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Creare e gestire eventi
 
@@ -167,7 +167,7 @@ Facendo clic su **Sospendi trasmissione**vengono arrestati tutti gli eventi live
 ## <a name="watch-the-event"></a>Guardare l'evento
 Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta. 
 
-![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Data creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta.
 
@@ -186,7 +186,7 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 ![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerazioni
-* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
+* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 * Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**.
 
 ## <a name="next-step"></a>Passaggio successivo

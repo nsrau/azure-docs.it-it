@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025549"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202911"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 

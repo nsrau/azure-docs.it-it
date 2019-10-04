@@ -3,17 +3,17 @@ title: Gestire le proprie preferenze relative all'applicazione in IoT Central | 
 description: Come gestire l'applicazione e le preferenze personali in IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5c0dbcb1c1f483bd7499de08c9f1949adff415b
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518420"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850137"
 ---
 # <a name="manage-your-application-preferences"></a>Gestire le preferenze delle applicazioni
 
@@ -23,17 +23,20 @@ IoT Central offre la flessibilità per personalizzare le applicazioni in base al
 
 ## <a name="changing-language"></a>Modifica della lingua
 
-IoT Central è supportato in più lingue. È possibile passare la lingua preferita tramite il **Selezione lingua** sull'icona delle impostazioni sulla barra di spostamento superiore. Dopo aver modificato la lingua, IoT Central ricorda la selezione e lo applica in tutte le applicazioni. Si noti che personalizzazione all'interno dell'applicazione che non sono localizzate delle immagini del dashboard.
+IoT Central è supportato in più lingue. È possibile cambiare la lingua preferita usando la **selezione lingua** sull'icona delle impostazioni nella barra di spostamento superiore. Una volta modificata la lingua, IoT Central memorizza la selezione e la applica a tutte le applicazioni. Personalizzazione all'interno dell'applicazione tali immagini del dashboard non sono localizzate.
 
 ## <a name="changing-theme"></a>Modifica del tema
 
-È disponibile un supporto sia per il tema scuro sia per il tema chiaro. Anche se il tema chiaro è il valore predefinito, è possibile modificare selezionando l'icona delle impostazioni sulla barra di spostamento superiore.
+È disponibile un supporto sia per il tema scuro sia per il tema chiaro. Mentre il tema chiaro è l'impostazione predefinita, è possibile modificare il tema selezionando l'icona impostazioni nella barra di spostamento superiore.
 
 ![Selezione del tema di IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> L'opzione per scegliere il tema chiaro o scuro non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo avere appreso come gestire il profilo in Azure IoT Central, il prossimo passaggio suggerito è:
 
 > [!div class="nextstepaction"]
-> [Configurare il dashboard dell'applicazione](howto-configure-homepage.md)
+> [Attiva/Nascondi Live Chat](howto-show-hide-chat.md)

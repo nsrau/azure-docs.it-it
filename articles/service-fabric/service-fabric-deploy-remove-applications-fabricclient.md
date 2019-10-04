@@ -3,7 +3,7 @@ title: Distribuzione dell'applicazione Azure Service Fabric | Microsoft Docs
 description: Usare le API del client Fabric per distribuire e rimuovere le applicazioni in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: atsenthi
+ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393288"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599636"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
@@ -32,22 +32,22 @@ ms.locfileid: "60393288"
 
 <br/>
 
-Dopo aver creato il [pacchetto di un tipo di applicazione][10], è possibile distribuirlo in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
+Una volta creato il pacchetto, un [tipo di applicazione][10]è pronto per la distribuzione in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
 
 1. Caricamento del pacchetto dell'applicazione nell'archivio di immagini
 2. Registrare il tipo di applicazione
 3. Rimuovere il pacchetto applicazione da Image Store.
 4. Creare l'istanza dell'applicazione
 
-Dopo che un'applicazione è stata distribuita e un'istanza è in esecuzione nel cluster, è possibile eliminare l'istanza dell'applicazione e il tipo di applicazione corrispondente. Per rimuovere completamente un'applicazione dal cluster, sono necessari i passaggi seguenti:
+Dopo aver distribuito un'applicazione ed eseguito un'istanza nel cluster, è possibile eliminare l'istanza dell'applicazione e il tipo di applicazione. Rimuovere completamente un'applicazione dal cluster attenendosi alla procedura seguente:
 
 1. Rimuovere (o eliminare) l'istanza dell'applicazione in esecuzione
 2. Annullare la registrazione del tipo di applicazione se non è più necessario
 
-Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi precedenti vengono gestiti automaticamente tramite uno script di PowerShell.  Questo script è disponibile nella cartella *Scripts* del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio. 
+Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi precedenti vengono gestiti automaticamente tramite uno script di PowerShell.  Questo script è disponibile nella cartella *Scripts* del progetto dell'applicazione. Questo articolo fornisce informazioni di base sulle operazioni eseguite dallo script, in modo da poter eseguire le stesse operazioni all'esterno di Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
-Connettersi al cluster tramite la creazione di un'istanza [client Fabric](/dotnet/api/system.fabric.fabricclient) prima di eseguire uno degli esempi di codice forniti in questo articolo. Per esempi di connessione a un cluster di sviluppo locale, un cluster remoto o un cluster protetto usando Azure Active Directory, certificati X509 o Windows Active Directory, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Per connettersi al cluster di sviluppo locale eseguire le operazioni seguenti:
+Connettersi al cluster tramite la creazione di un'istanza [client Fabric](/dotnet/api/system.fabric.fabricclient) prima di eseguire uno degli esempi di codice forniti in questo articolo. Per esempi di connessione a un cluster di sviluppo locale, un cluster remoto o un cluster protetto usando Azure Active Directory, certificati X509 o Windows Active Directory, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Per connettersi al cluster di sviluppo locale, eseguire l'esempio seguente:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Caricare il pacchetto applicazione
-Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti dei servizi e i pacchetti di codice, configurazione e dati, si trova in *C:\Users\&lt;username&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*.
+Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti del servizio e i pacchetti di codice/configurazione/dati, si trova in *\&C:\Users lt; nomeutente&gt;\Documenti\Visual Studio 2019 \ Projects\MyApplication\ MyApplication\pkg\Debug*.
 
-Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ad esempio prima di caricarlo, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
+Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ovvero prima di caricarlo, utilizzare il cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
 L'API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carica il pacchetto dell'applicazione nell'archivio immagini del cluster. 
 
@@ -83,7 +83,7 @@ Per qualsiasi versione di un tipo di applicazione registrato, è possibile crear
 Per vedere quali applicazioni e servizi denominati sono in esecuzione nel cluster, eseguire le API [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) e [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync).
 
 ## <a name="create-a-service-instance"></a>Creare un'istanza del servizio
-È possibile creare un'istanza di un servizio da un tipo di servizio usando l'API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Se il servizio è dichiarato come servizio predefinito nel manifesto dell'applicazione, viene creata un'istanza del servizio durante la creazione dell'istanza dell'applicazione.  La chiamata all'API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) per un servizio di cui è già stata creata un'istanza restituirà un'eccezione di tipo FabricException contenente un codice di errore con un valore di FabricErrorCode.ServiceAlreadyExists.
+È possibile creare un'istanza di un servizio da un tipo di servizio usando l'API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Se il servizio è dichiarato come servizio predefinito nel manifesto dell'applicazione, viene creata un'istanza del servizio durante la creazione dell'istanza dell'applicazione.  La chiamata dell'API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) per un servizio di cui è già stata creata un'istanza restituirà un'eccezione di tipo fabricexception. L'eccezione conterrà un codice di errore con il valore FabricErrorCode. ServiceAlreadyExists.
 
 ## <a name="remove-a-service-instance"></a>Rimuovere un'istanza del servizio
 Quando un'istanza del servizio non è più necessaria, è possibile rimuoverla dall'istanza dell'applicazione in esecuzione tramite la chiamata all'API [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync).  
@@ -98,7 +98,7 @@ Quando un'istanza dell'applicazione non è più necessaria, è possibile rimuove
 > Tale operazione non può essere annullata e lo stato dell'applicazione non può essere recuperato.
 
 ## <a name="unregister-an-application-type"></a>Annullare la registrazione di un tipo di applicazione
-Quando una determinata versione di un tipo di applicazione non è più necessaria, è consigliabile annullare la registrazione di quella specifica versione del tipo di applicazione usando l'API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). L'annullamento della registrazione delle versioni inutilizzate dei tipi di applicazioni rilascia lo spazio di archiviazione usato dall'archivio immagini. È possibile annullare la registrazione di una versione di un tipo di applicazione solo se non sono state create istanze di applicazioni basate su quella versione del tipo di applicazione e non vi sono aggiornamenti di applicazioni in sospeso che fanno riferimento a quella versione del tipo di applicazione.
+Quando una determinata versione di un tipo di applicazione non è più necessaria, è consigliabile annullare la registrazione di quella specifica versione del tipo di applicazione usando l'API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). L'annullamento della registrazione delle versioni inutilizzate dei tipi di applicazioni rilascia lo spazio di archiviazione usato dall'archivio immagini. È possibile annullare la registrazione di una versione di un tipo di applicazione purché non venga creata un'istanza di alcuna applicazione rispetto a quella versione del tipo di applicazione. Il tipo di applicazione, inoltre, non può contenere aggiornamenti di applicazioni in sospeso che fanno riferimento a quella versione del tipo di applicazione.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage chiede un parametro ImageStoreConnectionString
@@ -132,26 +132,26 @@ ImageStoreConnectionString è disponibile nel manifesto del cluster:
 Per informazioni agguntive sull'archivio di immagini e ImageStoreConnectionString, vedere [Understand the image store connection string](service-fabric-image-store-connection-string.md) (Comprendere la stringa di connessione dell'archivio di immagini).
 
 ### <a name="deploy-large-application-package"></a>Distribuire un pacchetto dell'applicazione di grandi dimensioni
-Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API verifica il timeout per un pacchetto di applicazione di grandi dimensioni (nell'ordine di GB).
+Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) Timeout dell'API per un pacchetto di applicazioni di grandi dimensioni (ordine di GB).
 Soluzione:
 - Specificare un timeout maggiore per il metodo [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) con il parametro `timeout`. Il timeout è di 30 minuti per impostazione predefinita.
 - Controllare la connessione di rete tra il computer di origine e il cluster. Se la connessione è lenta, provare a usare una macchina con una connessione di rete più veloce.
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
 - Controllare se si stiano raggiungendo le limitazioni esterne. Ad esempio, quando l'archivio immagini è configurato per usare l'archiviazione di Azure, il caricamento potrebbe essere limitato.
 
-Problema: Caricare il pacchetto è stato tuttavia [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API verifica il timeout. Soluzione:
+Problema: Il pacchetto di caricamento è stato completato, ma si verifica il timeout dell'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) . Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini.
-La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento potrebbe risultare più lenta (specialmente se si include il tempo di compressione), ma registrazione e relativo annullamento del tipo dell'applicazione saranno più veloci.
+La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento può essere più lenta, soprattutto se si include il tempo di compressione, ma la registrazione e l'annullamento della registrazione del tipo di applicazione sono più veloci.
 - Specificare un timeout maggiore per l'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con il parametro `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuire un pacchetto di applicazione con numerosi file
-Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) raggiunge il timeout per un pacchetto di applicazione con molti file (nell'ordine di migliaia).
+Problema: Si verifica il timeout di [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) per un pacchetto di applicazione con molti file (ordine di migliaia).
 Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini. La compressione riduce il numero dei file.
 - Specificare un timeout maggiore per il metodo [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con il parametro `timeout`.
 
 ## <a name="code-example"></a>Esempio di codice
-L'esempio seguente copia un pacchetto dell'applicazione nell'archivio immagini, effettua il provisioning del tipo di applicazione, crea un'istanza dell'applicazione, crea un'istanza del servizio, rimuove l'istanza dell'applicazione, annulla il provisioning del tipo di applicazione ed elimina il pacchetto dell'applicazione dall'archivio immagini.
+L'esempio seguente copia un pacchetto dell'applicazione nell'archivio immagini ed effettua il provisioning del tipo di applicazione. Viene quindi creata un'istanza dell'applicazione e viene creata un'istanza del servizio. Infine, nell'esempio viene rimossa l'istanza dell'applicazione, si annulla il provisioning del tipo di applicazione ed Elimina il pacchetto dell'applicazione dall'archivio immagini.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

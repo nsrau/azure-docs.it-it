@@ -3,7 +3,7 @@ title: Distribuire in un contenitore i servizi di Azure Service Fabric in Window
 description: Informazioni su come distribuire in un contenitore i servizi Reliable Services di Service Fabric e Reliable Actors in Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: anmola
+ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079827"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599198"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Distribuire in un contenitore Reliable Services di Service Fabric e Reliable Actors in Windows
 
@@ -119,6 +119,16 @@ Questo documento fornisce linee guida per eseguire il servizio all'interno di un
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione. Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile. Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Per testare questa applicazione, è necessario distribuirla in un cluster che esegue la versione 5.7 o versioni successive. Per le versioni runtime 6.1 o precedenti, è necessario modificare e aggiornare le impostazioni del cluster per abilitare questa funzionalità in anteprima. Seguire la procedura in questo [articolo](service-fabric-cluster-fabric-settings.md) per aggiungere l'impostazione illustrata di seguito.
     ```

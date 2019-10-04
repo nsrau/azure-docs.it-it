@@ -11,17 +11,16 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315532"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071367"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
@@ -64,7 +63,7 @@ Copiare l'URL webhook. Per aggiungere un webhook per l'hub Docker, vedere <a hre
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione al Servizio app di Azure in Linux](./app-service-linux-intro.md)
-* [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/)
+* [Registro Azure Container](https://azure.microsoft.com/services/container-registry/)
 * [Creare un'app Web .NET nel Servizio app in Linux](quickstart-dotnetcore.md)
 * [Creare un'app Web Ruby nel servizio app in Linux](quickstart-ruby.md)
 * [Distribuire un'app Web Docker/Go in app Web per contenitori](quickstart-docker-go.md)

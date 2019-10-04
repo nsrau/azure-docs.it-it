@@ -1,158 +1,143 @@
 ---
-title: Creare azioni o flussi di lavoro basati su eventi - App per la logica di Azure | Microsoft Docs
-description: Automatizzare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
+title: Creare le attività basate su eventi e flussi di lavoro nelle App per la logica di Azure
+description: Attivare, sospendere e riprendere le attività automatizzate, processi e flussi di lavoro basati sugli eventi che si verificano in un endpoint con le App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
-ms.topic: article
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 07/21/2016
-ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2658df185d4836210c496d2c46a00a3541257a2
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447207"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541388"
 ---
-# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
+# <a name="automate-event-based-tasks-and-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Automatizzare le attività basate su eventi e flussi di lavoro usando i webhook HTTP nelle App per la logica di Azure
 
-Con l'azione e il trigger webhook è possibile attivare, sospendere e riprendere flussi per eseguire queste attività:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e il connettore HTTP Webhook incorporato, è possibile automatizzare i flussi di lavoro che attendere ed eseguire in base agli eventi specifici che si verificano in un endpoint HTTP o HTTPS mediante la compilazione di App per la logica. Ad esempio, è possibile creare un'app per la logica che monitora un endpoint del servizio in attesa di un evento specifico prima di attivare il flusso di lavoro e che esegue le azioni specificate, anziché controllare regolarmente o *polling* quell'endpoint.
 
-* Eseguire l'attivazione da un [Hub eventi di Azure](https://github.com/logicappsio/EventHubAPI) alla ricezione di un elemento
-* Attendere l'approvazione prima di continuare un flusso di lavoro
+Ecco alcuni esempio basato su eventi i flussi di lavoro:
 
-Altre informazioni su [come creare API personalizzate che supportano un webhook](../logic-apps/logic-apps-create-api-app.md).
+* Attendere che un elemento in arrivo da un' [Hub eventi di Azure](https://github.com/logicappsio/EventHubAPI) prima di attivare un'esecuzione dell'app per la logica.
+* Attendere l'approvazione prima di continuare un flusso di lavoro.
 
-## <a name="use-the-webhook-trigger"></a>Usare il trigger webhook
+## <a name="how-do-webhooks-work"></a>Come funzionano i webhook?
 
-Un [*trigger*](../connectors/apis-list.md) è un evento che avvia un flusso di lavoro nell'app per la logica. Il trigger webhook è basato su eventi, che non variano a polling per nuovi elementi. Quando si salva l'app per la logica con un trigger di webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* per il servizio specificato o l'endpoint registrando un *URL callback* con tale servizio o dell'endpoint. Il trigger Usa quindi tale URL per eseguire l'app per la logica in base alle esigenze. Ad esempio la [trigger di richiesta](connectors-native-reqres.md), app per la logica viene attivata immediatamente quando si verifica l'evento previsto. Il trigger *Annulla la sottoscrizione* se si rimuove il trigger e salvare l'app per la logica, o quando si modifica l'app per la logica da abilitato a disabilitato.
+Un trigger di webhook HTTP è basato su eventi, che non dipendono dal controllo o regolarmente il polling per i nuovi elementi. Quando si salva un'app per la logica che inizia con un trigger webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* a un servizio specifico o un endpoint registrando un *URL callback* con tale servizio o dell'endpoint. Attende quindi il trigger per tale servizio o dell'endpoint da chiamare all'URL, che viene avviata l'esecuzione dell'app per la logica. Simile al [trigger di richiesta](connectors-native-reqres.md), app per la logica viene attivata immediatamente quando si verifica l'evento specificato. Il trigger *Annulla la sottoscrizione* dal servizio o endpoint se si rimuove il trigger e salvare l'app per la logica, o quando si modifica l'app per la logica da abilitato a disabilitato.
 
-Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo all'API che segue il [modello di "subscribe" e "unsubscribe" del webhook nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
-
-**Per aggiungere il trigger webhook**
-
-1. Aggiungere il trigger **HTTP Webhook** come primo passaggio in un'app per la logica.
-2. Specificare i parametri per le chiamate "subscribe" e "unsubscribe" del webhook.
-
-   Questo passaggio segue lo stesso modello del formato dell'[azione HTTP](connectors-native-http.md).
-
-     ![Trigger HTTP](./media/connectors-native-webhook/using-trigger.png)
-
-3. Aggiungere almeno un'azione.
-4. Fare clic su **Salva** per pubblicare l'app per la logica. Questo passaggio chiama l'endpoint "subscribe" con l'URL di callback necessario per attivare questa app per la logica.
-5. Ogni volta che il servizio esegue un `HTTP POST` all'URL di callback, viene attivata l'app per la logica, inclusi i dati passati nella richiesta.
-
-## <a name="use-the-webhook-action"></a>Usare l'azione webhook
-
-Un' [ *azione* ](../connectors/apis-list.md) è un'operazione definita e l'esecuzione da parte del flusso di lavoro dell'app per la logica. Quando un'app per la logica viene eseguita un'azione webhook, tale azione *sottoscrive* per il servizio specificato o dell'endpoint tramite la registrazione di un *URL di callback* con tale servizio o dell'endpoint. Quindi l'azione di webhook attende che l'URL prima i curricula di app per la logica che esegue chiamate al servizio. Annulla la sottoscrizione dell'app per la logica del servizio o un endpoint in questi casi: 
+È anche un'azione di webhook HTTP basato su eventi e *sottoscrive* a un servizio specifico o un endpoint tramite la registrazione di un *URL di callback* con tale servizio o dell'endpoint. L'azione webhook sospende del flusso di lavoro dell'app per la logica e attende fino a quando il servizio o dell'endpoint dell'URL prima che i curricula di app per la logica che esegue chiamate. L'app per la logica di azione *Annulla la sottoscrizione* dal servizio o endpoint in questi casi:
 
 * Quando l'azione webhook è stata completata correttamente
 * Se l'esecuzione dell'app per la logica è stata annullata durante l'attesa di una risposta
 * Prima la logica app verifica il timeout
 
-Ad esempio, il [ **inviare posta elettronica di approvazione** ](connectors-create-api-office365-outlook.md) azione è riportato un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio tramite l'azione webhook. 
+Ad esempio, Office 365 Outlook del connettore [ **inviare posta elettronica di approvazione** ](connectors-create-api-office365-outlook.md) azione è riportato un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio tramite l'azione webhook.
 
-Ecco un esempio che mostra come configurare un azione webhook in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo a un'API che segue il [modello di "subscribe" e "unsubscribe" del webhook usato nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
+Per altre informazioni, vedere gli argomenti seguenti:
 
-**Per aggiungere un'azione webhook**
+* [Parametri di trigger HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [I Webhook e le sottoscrizioni](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
+* [Creare API personalizzate che supportano un webhook](../logic-apps/logic-apps-create-api-app.md)
 
-1. Scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+## <a name="prerequisites"></a>Prerequisiti
 
-2. Nella casella di ricerca digitare "webhook" per trovare l'azione **HTTP Webhook**.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-    ![Selezionare l'azione di query](./media/connectors-native-webhook/using-action-1.png)
+* API che supporta il webhook o l'URL per un endpoint già distribuito sottoscrivere e annullare la sottoscrizione di modello per [trigger di webhook nelle App per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) oppure [le azioni webhook nelle App per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-actions) come appropriato
 
-3. Specificare i parametri per le chiamate "subscribe" e "unsubscribe" del webhook
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
-   Questo passaggio segue lo stesso modello del formato dell'[azione HTTP](connectors-native-http.md).
+* L'app per la logica in cui si desidera attendere eventi specifici nell'endpoint di destinazione. Per il trigger HTTP Webhook, per iniziare [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione di HTTP Webhook, avviare l'app per la logica con un qualsiasi trigger desiderato. Questo esempio Usa il trigger HTTP come primo passaggio.
 
-     ![Completare l'azione di query](./media/connectors-native-webhook/using-action-2.png)
-   
-   In fase di esecuzione, l'app per la logica chiama l'endpoint "subscribe" dopo il raggiungimento di tale passaggio.
+## <a name="add-an-http-webhook-trigger"></a>Aggiungere un trigger HTTP Webhook
 
-4. Fare clic su **Salva** per pubblicare l'app per la logica.
+Questo trigger predefinito registra un URL di callback con il servizio specificato e attende che invia una richiesta HTTP POST all'URL del servizio. Quando si verifica questo evento, il trigger viene attivato e viene eseguito immediatamente l'app per la logica.
 
-## <a name="technical-details"></a>Dettagli tecnici
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in Progettazione App per la logica.
 
-Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
+1. Nella finestra di progettazione, nella casella di ricerca immettere "webhook http" come filtro. Dal **trigger** elenco, selezionare la **HTTP Webhook** trigger.
 
-## <a name="webhook-triggers"></a>Trigger webhook
+   ![Selezionare il trigger HTTP Webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-| Azione | DESCRIZIONE |
-| --- | --- |
-| HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze. |
+   Questo esempio mostra come rinominare il trigger "Trigger di HTTP Webhook" in modo che il passaggio ha un nome più descrittivo. Inoltre, nell'esempio viene successivamente viene aggiunta un'azione HTTP Webhook e che entrambi i nomi devono essere univoci.
 
-### <a name="trigger-details"></a>Dettagli del trigger
+1. Specificare i valori per il [parametri di trigger HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) che si desidera utilizzare per il "Subscribe" e "UNSUBSCRIBE" chiamate, ad esempio:
 
-#### <a name="http-webhook"></a>HTTP Webhook
+   ![Immettere i parametri di trigger HTTP Webhook](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze.
-L'asterisco (*) indica che il campo è obbligatorio.
+1. Per aggiungere altri parametri disponibili, aprire il **Aggiungi nuovo parametro** elencare e selezionare i parametri desiderati.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
-| --- | --- | --- |
-| Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
-| Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
-| Unsubscribe Method* |statico |Metodo HTTP da usare per annullare la richiesta di sottoscrizione |
-| Unsubscribe URI* |Uri |URI HTTP da usare per annullare la richiesta di sottoscrizione |
-| Subscribe Body |body |Request body HTTP per la sottoscrizione |
-| Subscribe Headers |headers |Intestazioni della richiesta HTTP per la sottoscrizione |
-| Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
-| Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
-| Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+   Per altre informazioni sui tipi di autenticazione disponibili per il HTTP Webhook, vedere [l'autenticazione HTTP trigger e azioni](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-**Dettagli dell'output**
+1. Proseguire con la creazione del flusso di lavoro dell'app per la logica con azioni da eseguire all'attivazione del trigger.
 
-Richiesta Webhook
+1. Quando hai finito, termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione, selezionare **salvare**.
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
-| --- | --- | --- |
-| headers |object |Intestazioni della richiesta webhook |
-| Corpo |object |Oggetto della richiesta webhook |
-| Codice di stato |int |Codice di stato della richiesta webhook |
+   Salvataggio dell'app per la logica chiama l'endpoint "Subscribe" e registra l'URL di callback per l'attivazione dell'app per la logica.
 
-## <a name="webhook-actions"></a>Azioni webhook
+1. A questo punto, ogni volta che il servizio di destinazione invia un `HTTP POST` richiesta all'URL callback, viene attivato l'app per la logica e include tutti i dati che viene passati tramite la richiesta.
 
-| Azione | DESCRIZIONE |
-| --- | --- |
-| HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze. |
+## <a name="add-an-http-webhook-action"></a>Aggiungi un'azione HTTP Webhook
 
-### <a name="action-details"></a>Informazioni dettagliate sulle azioni
+Questa azione integrata registra un URL di callback con il servizio specificato, viene sospeso del flusso di lavoro dell'app per la logica e in attesa di inviare una richiesta HTTP POST all'URL del servizio. Quando si verifica questo evento, l'azione viene ripresa l'esecuzione dell'app per la logica.
 
-#### <a name="http-webhook"></a>HTTP Webhook
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica in Logic App Designer.
 
-Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze.
-L'asterisco (*) indica che il campo è obbligatorio.
+   Questo esempio Usa il trigger HTTP Webhook come primo passaggio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
-| --- | --- | --- |
-| Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
-| Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
-| Unsubscribe Method* |statico |Metodo HTTP da usare per annullare la richiesta di sottoscrizione |
-| Unsubscribe URI* |Uri |URI HTTP da usare per annullare la richiesta di sottoscrizione |
-| Subscribe Body |body |Request body HTTP per la sottoscrizione |
-| Subscribe Headers |headers |Intestazioni della richiesta HTTP per la sottoscrizione |
-| Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
-| Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
-| Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+1. Sotto il passaggio in cui si desidera aggiungere l'azione di HTTP Webhook, selezionare **nuovo passaggio**.
 
-**Dettagli dell'output**
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) che viene visualizzata e quindi selezionare **Aggiungi un'azione**.
 
-Richiesta Webhook
+1. Nella finestra di progettazione, nella casella di ricerca immettere "webhook http" come filtro. Dal **azioni** elenco, selezionare la **HTTP Webhook** azione.
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
-| --- | --- | --- |
-| headers |object |Intestazioni della richiesta webhook |
-| Corpo |object |Oggetto della richiesta webhook |
-| Codice di stato |int |Codice di stato della richiesta webhook |
+   ![Selezionare l'azione di HTTP Webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
+
+   Questo esempio mostra come rinominare l'azione da "Azione di HTTP Webhook" in modo che il passaggio ha un nome più descrittivo.
+
+1. Specificare i valori per il HTTP Webhook parametri dell'azione, che sono simili per il [parametri di trigger HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) che si desidera utilizzare per il "Subscribe" e "UNSUBSCRIBE" chiamate, ad esempio:
+
+   ![Immettere i parametri di azione HTTP Webhook](./media/connectors-native-webhook/http-webhook-action-parameters.png)
+
+   Durante la fase di esecuzione, l'app per la logica chiama l'endpoint "Subscribe" quando si esegue questa azione. App per la logica, quindi sospende il flusso di lavoro e attende che il servizio di destinazione inviare un `HTTP POST` richiesta all'URL di callback. Se l'azione viene completata correttamente, l'azione Annulla la sottoscrizione dall'endpoint e riprende l'app per la logica che esegue il flusso di lavoro.
+
+1. Per aggiungere altri parametri disponibili, aprire il **Aggiungi nuovo parametro** elencare e selezionare i parametri desiderati.
+
+   Per altre informazioni sui tipi di autenticazione disponibili per il HTTP Webhook, vedere [l'autenticazione HTTP trigger e azioni](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione, selezionare **salvare**.
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per altre informazioni sui parametri di trigger e azione, che sono simili tra loro, vedere [i parametri del HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+
+### <a name="output-details"></a>Dettagli dell'output
+
+Di seguito sono riportate altre informazioni sugli output da un HTTP Webhook trigger o azione, che restituisce queste informazioni:
+
+| Nome proprietà | Type | Descrizione |
+|---------------|------|-------------|
+| headers | object | Le intestazioni della richiesta |
+| body | object | Oggetto JSON | L'oggetto con il contenuto del corpo della richiesta |
+| status code | int | Il codice di stato della richiesta |
+|||
+
+| status code | Descrizione |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Richiesta non valida |
+| 401 | Non autorizzata |
+| 403 | Accesso negato |
+| 404 | Non trovato |
+| 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
+|||
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Trovare altri connettori](apis-list.md)
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

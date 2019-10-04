@@ -1,25 +1,18 @@
 ---
-title: Aggiornare un'offerta di modulo Azure IoT Edge esistente | Microsoft Docs
+title: Aggiornare un'offerta esistente di modulo Azure IoT Edge | Azure Marketplace
 description: Come aggiornare un'offerta di modulo IoT Edge esistente in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 1dc6832fe09a610634ad934e3b173be6cc3331e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942164"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Aggiornare un'offerta di modulo IoT Edge esistente
 

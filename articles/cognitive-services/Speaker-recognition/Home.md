@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
-ms.author: dwlin
-ms.openlocfilehash: 86162b4d4e752bc11c0d739f6e343c7a357ea0af
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9cdfd5d09451968487bafbcad643e179ffe82aa7
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873717"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707172"
 ---
 # <a name="speaker-recognition-api"></a>API Riconoscimento voce
 

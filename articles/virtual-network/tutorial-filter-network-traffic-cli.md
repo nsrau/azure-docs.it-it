@@ -3,8 +3,8 @@ title: Filtrare il traffico di rete - Interfaccia della riga di comando di Azure
 description: Questo articolo illustra come filtrare il traffico di rete a una subnet, con un gruppo di sicurezza di rete, usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2c24634a42fd420eae204437418b82479869bbe5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728811"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
@@ -177,7 +177,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione della VM, viene 
 }
 ```
 
-Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.  Creare una VM che funge da server di gestione:
+Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.  Creare una VM che funge da server di gestione:
 
 ```azurecli-interactive
 az vm create \

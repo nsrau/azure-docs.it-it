@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507536"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60821667"
 ---
 # <a name="use-firewall-rules"></a>Usare le regole del firewall
 
@@ -54,7 +54,7 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > - Esplora dati di Azure
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
-> - App Web di Azure 
+> - App Web di Azure
 > - Funzioni di Azure
 
 ### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Creazione di una regola del firewall con i modelli di Azure Resource Manager
@@ -69,7 +69,7 @@ Parametri del modello:
 - **ipMask** è un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. Ad esempio, nella notazione CIDR, 70.37.104.0/24 rappresenta i 256 indirizzi IPv4, da 70.37.104.0 a 70.37.104.255, con 24 che indica il numero di bit di prefisso significativi per l'intervallo.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > from
@@ -149,7 +149,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso ad Hub eventi dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Usare gli endpoint del servizio Rete virtuale con Hub eventi di Azure][lnk-vnet]
+- [Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure][lnk-vnet]
 
 <!-- Links -->
 

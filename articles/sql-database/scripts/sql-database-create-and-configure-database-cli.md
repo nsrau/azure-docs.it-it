@@ -7,17 +7,16 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-manager: craigg
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/08/2019
-ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: f6051c5c83f43f20e453b5f87aabb1a80d7a0487
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361428"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569980"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall
 
@@ -31,14 +30,14 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -49,7 +48,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita un database singolo o un pool elastico. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Crea una regola del firewall per consentire l'accesso a tutti i database singoli in pool elastici presenti sul server del database SQL dall'intervallo di indirizzi IP immesso. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Crea una regola del firewall per consentire l'accesso a tutti i database singoli in pool elastici presenti sul server di database SQL dall'intervallo di indirizzi IP immesso. |
 | [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Crea un database singolo o un pool elastico. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

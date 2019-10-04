@@ -1,23 +1,17 @@
 ---
 title: 'Funzioni del modello di Azure Resource Manager: logiche | Microsoft Docs'
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608913"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194795"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -37,11 +31,11 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
-| arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No  |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
+| arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
+| Argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -75,10 +69,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
@@ -91,7 +85,7 @@ Converte il parametro in un valore booleano.
 
 | Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
+| arg1 |Yes |stringa o numero intero |Valore da convertire in un valore booleano. |
 
 ### <a name="return-value"></a>Valore restituito
 Valore booleano del valore convertito.
@@ -130,9 +124,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | NOME | Type | Valore |
 | ---- | ---- | ----- |
-| trueString | Bool | True  |
+| trueString | Bool | True |
 | falseString | Bool | False |
-| trueInt | Bool | True  |
+| trueInt | Bool | True |
 | falseInt | Bool | False |
 
 ## <a name="if"></a>if
@@ -143,19 +137,19 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| condition |Sì |boolean |Valore da controllare se è true o false. |
+| condition |Sì |boolean |Valore per verificare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
-| falseValue |Sì | string, int, object o array |Valore da restituire quando la condizione è false. |
+| falseValue |Yes | string, int, object o array |Valore da restituire quando la condizione è false. |
 
 ### <a name="return-value"></a>Valore restituito
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
-Quando la condizione è **True**, viene valutato solo il valore true. Quando la condizione è **False**, viene valutato solo il valore false. Con il **se** (funzione), è possibile includere le espressioni in modo condizionale solo validi. Ad esempio, è possibile fare riferimento a una risorsa esistente in una condizione, ma non nell'altra condizione. Nella sezione seguente è illustrato un esempio di in modo condizionale la valutazione delle espressioni.
+Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
 ### <a name="examples"></a>Esempi
 
@@ -186,17 +180,17 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| yesOutput | string | Sì |
-| noOutput | string | no |
-| objectOutput | Oggetto | { "test": "value1" } |
+| yesOutput | String | sì |
+| noOutput | String | no |
+| objectOutput | Object | { "test": "value1" } |
 
-Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) viene illustrato come utilizzare questa funzione con le espressioni in modo condizionale solo validi.
+Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -250,7 +244,7 @@ Converte il valore booleano nel valore opposto.
 
 | Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Valore da convertire. |
+| arg1 |Yes |boolean |Valore da convertire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -284,10 +278,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
@@ -308,9 +302,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True  |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>oppure
 
@@ -322,9 +316,9 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 | Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
-| arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No  |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
+| arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
+| Argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -358,10 +352,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Valore |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True  |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Passaggi successivi

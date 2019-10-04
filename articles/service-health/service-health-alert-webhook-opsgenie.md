@@ -1,20 +1,19 @@
 ---
-title: Configurare gli avvisi di integrità dei servizi di Azure con OpsGenie | Microsoft Docs
+title: Inviare gli avvisi di integrità servizio di Azure con OpsGenie usando i webhook
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di OpsGenie.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067174"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Configurare gli avvisi di integrità dei servizi con OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Inviare gli avvisi di integrità servizio di Azure con OpsGenie usando i webhook
 
 Questo articolo illustra come configurare gli avvisi di integrità dei servizi di Azure con OpsGenie usando un webhook. Usando l'integrazione dell'integrità dei servizi di Azure di [OpsGenie](https://www.opsgenie.com/) è possibile inoltrare gli avvisi sull'integrità dei servizi di Azure a OpsGenie. OpsGenie può determinare i destinatari delle notifiche in base alla pianificazione della reperibilità usando posta elettronica, SMS, chiamate telefoniche, notifiche push di iOS e Android ed eseguendo l'escalation degli avvisi finché non vengono confermati o chiusi.
 

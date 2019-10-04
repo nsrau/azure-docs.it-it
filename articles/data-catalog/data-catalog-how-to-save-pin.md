@@ -1,19 +1,17 @@
 ---
 title: Salvare le ricerche e aggiungere gli asset di dati in Azure Data Catalog
 description: Articolo che include procedure che illustrano le funzionalità di Azure Data Catalog per il salvataggio delle origini dati e risorse dei dati per un uso successivo.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002018"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976808"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salvare le ricerche e aggiungere gli asset di dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -39,7 +37,7 @@ Per creare una ricerca salvata, seguire questa procedura:
 ### <a name="manage-saved-searches"></a>Gestire le ricerche salvate
 Dopo avere salvato una o più ricerche, viene visualizzata un'opzione **Ricerche salvate** sotto la casella **Ricerca corrente**. Quando l'elenco viene espanso, vengono visualizzate tutte le ricerche salvate.
 
- ![Elenco di ricerche salvate](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog-elenco di ricerche salvate](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Eseguire una di queste operazioni:
 
@@ -58,23 +56,23 @@ Eseguire una di queste operazioni:
 ### <a name="organizational-saved-searches"></a>Ricerche salvate dall'organizzazione
 Tutti gli utenti dell'organizzazione possono salvare le ricerche per usarle a livello personale. Anche gli amministratori dei dati del catalogo possono salvare le ricerche per tutti gli utenti all'interno dell'organizzazione. Quando gli amministratori salvano una ricerca, viene visualizzata l'opzione **Condividere all'interno dell'azienda**. Se si seleziona questa opzione, la ricerca salvata viene condivisa con tutti gli utenti dell'organizzazione.
 
- ![Ricerche salvate dall'organizzazione](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog-ricerche salvate dall'organizzazione](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Risorse di dati aggiunte
 Con le ricerche salvate, è possibile salvare e usare di nuovo le definizioni di ricerca. Gli asset di dati restituiti dalle ricerche possono cambiare nel tempo perché cambiano i contenuti del catalogo. Quando si aggiungono asset di dati, è possibile identificare esplicitamente asset di dati specifici per semplificarne l'accesso senza dovere usare una ricerca.
 
 L'aggiunta di un asset di dati è molto semplice. Per inserire l'asset di dati nell'elenco di elementi aggiunti, è sufficiente fare clic sull'icona **aggiungi**. L'icona viene visualizzata nell'angolo del riquadro dell'asset nella visualizzazione affiancata e nella colonna all'estrema sinistra della visualizzazione elenco nel portale di Azure Data Catalog.
 
-![Icona aggiungi dell'asset di dati](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog-icona del pin Data-asset](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Anche la rimozione di un asset di dati è molto semplice. È sufficiente fare clic sull'icona **rimuovi** per disattivare l'impostazione per l'asset selezionato.
 
-![Icona rimuovi dell'asset di dati](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog-icona di Rimuovi dell'asset di dati](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>Sezione Asset personali
 La home page del portale di Data Catalog include una sezione **Asset personali** che visualizza le risorse di interesse dell'utente corrente. Questa sezione include sia le risorse aggiunte che le ricerche salvate.
 
 ![Sezione Asset personali nella home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Azure Data Catalog offre funzionalità che semplificano l'individuazione delle origini dati necessarie, in modo che tutti i membri dell'organizzazione possano dedicare meno tempo alla ricerca dei dati e concentrarsi invece sull'uso dei dati. Le ricerche salvate e gli asset di dati aggiunti si basano su queste funzionalità di base, in modo che gli utenti possano identificare con facilità le origini dati con cui lavorano ripetutamente.

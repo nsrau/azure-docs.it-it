@@ -2,35 +2,62 @@
 title: Distribuire più istanze delle risorse di Azure | Documentazione Microsoft
 description: Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/15/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f2d82ba6103382d7f9ff850bb6f1930ebbeb9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904594"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675092"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iterazione di risorse, proprietà o variabili nei modelli di Azure Resource Manager
 
-Questo articolo illustra come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-group-authoring-templates.md#condition).
+Questo articolo illustra come creare più di un'istanza di una risorsa, di una variabile o di una proprietà nel modello di Azure Resource Manager. Per creare più istanze, aggiungere l'oggetto `copy` al modello.
 
-Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
+Se usato con una risorsa, l'oggetto Copy ha il formato seguente:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Se usato con una variabile o una proprietà, l'oggetto Copy ha il formato seguente:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Entrambi gli usi sono descritti in modo più dettagliato in questo articolo. Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
+
+Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
+
+## <a name="copy-limits"></a>Limiti di copia
+
+Per specificare il numero di iterazioni, fornire un valore per la proprietà Count. Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive, l'interfaccia della riga di comando di Azure 2.0.74 o versione successiva o l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+
+Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con Copy. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
+
+I limiti per il conteggio sono gli stessi se usati con una risorsa, una variabile o una proprietà.
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. 
+Se si desidera creare più di un'istanza di una risorsa in una distribuzione, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento Copy specificare il numero di iterazioni e un nome per il ciclo.
 
 La risorsa da ricreare più volte assume il formato seguente:
 
@@ -71,7 +98,7 @@ Crea questi nomi:
 * storage1
 * storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni da eseguire viene comunque specificato nell'elemento copia, ma il valore di copyIndex è compensato dal valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di copyIndex è offset in base al valore specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -86,25 +113,25 @@ Crea questi nomi:
 L'operazione di copia è utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Usare la funzione `length` nella matrice per specificare il conteggio per le iterazioni e `copyIndex` per recuperare l'indice corrente nella matrice. Quindi l'esempio seguente:
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -114,9 +141,9 @@ Crea questi nomi:
 * storagefabrikam
 * storagecoho
 
-Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. L'ordine di creazione non è garantito. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
+Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non viene applicato alcun limite al numero di risorse distribuite in parallelo, oltre al limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
 
-Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
+Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento. Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
 Ad esempio, per distribuire in modo seriale gli account di archiviazione due alla volta, usare:
 
@@ -149,13 +176,15 @@ Ad esempio, per distribuire in modo seriale gli account di archiviazione due all
 
 La proprietà mode accetta anche **parallel**, che è il valore predefinito.
 
+Per informazioni sull'uso di Copy con i modelli annidati, vedere [uso di Copy](resource-group-linked-templates.md#using-copy).
+
 ## <a name="property-iteration"></a>Iterazione delle proprietà
 
 Per creare più valori per una proprietà in una risorsa, aggiungere una matrice `copy` nell'elemento properties. Questa matrice contiene oggetti ai quali sono associate le proprietà riportate di seguito.
 
 * name: il nome della proprietà per la quale creare più valori
-* count: il numero di valori da creare. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
-* input: un oggetto che contiene i valori da assegnare alla proprietà  
+* count: il numero di valori da creare.
+* input: un oggetto che contiene i valori da assegnare alla proprietà
 
 Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dataDisks in una macchina virtuale:
 
@@ -275,7 +304,7 @@ L'elemento di copia è una matrice, pertanto è possibile specificare più di un
 
 Per creare più istanze di una variabile, usare la proprietà `copy` nella sezione variables. Si crea una matrice di elementi costruita dal valore della proprietà `input`. È possibile usare la proprietà `copy` all'interno di una variabile o al livello superiore della sezione variables. Quando si usa `copyIndex` all'interno di un'iterazione delle variabili, è necessario specificare il nome dell'iterazione.
 
-Per un semplice esempio di creazione di una matrice di valori stringa, vedere [modello di matrice di copia](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+Per un semplice esempio di creazione di una matrice di valori stringa, vedere [Copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
 L'esempio seguente illustra diversi modi per creare variabili di matrice con elementi costruiti in modo dinamico. Mostra come usare copy all'interno di una variabile per creare matrici di oggetti e stringhe. Viene inoltre illustrato l'uso di copy al livello superiore per creare matrici di oggetti, stringhe e numeri interi.
 
@@ -351,7 +380,7 @@ L'esempio seguente illustra diversi modi per creare variabili di matrice con ele
 }
 ```
 
-Il tipo della variabile che viene creato dipende l'oggetto di input. Ad esempio, la variabile denominata **top-livello--matrice di oggetti** nell'esempio precedente restituisce:
+Il tipo di variabile che viene creato dipende dall'oggetto di input. Ad esempio, la variabile denominata **Top-Level-Object-array** nell'esempio precedente restituisce:
 
 ```json
 [
@@ -383,7 +412,7 @@ Il tipo della variabile che viene creato dipende l'oggetto di input. Ad esempio,
 ]
 ```
 
-E, la variabile denominata **top-livello--matrice di stringhe** restituisce:
+La variabile denominata **Top-Level-String-array** restituisce:
 
 ```json
 [
@@ -421,9 +450,9 @@ L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita d
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -459,7 +488,7 @@ Si supponga, ad esempio, di definire in genere un set di dati come una risorsa f
 
 Per creare più set di dati, spostarlo all'esterno della data factory. Il set di dati deve essere sullo stesso livello della data factory, di cui è comunque una risorsa figlio. La relazione fra set di dati e data factory viene mantenuta con le proprietà type e name. Poiché non è possibile dedurre il tipo dalla sua posizione nel modello, è necessario specificarne il nome completo nel formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Per stabilire una relazione padre/figlio con un'istanza della data factory, specificare il nome del set di dati che include il nome della risorsa padre. Usare il formato: `{parent-resource-name}/{child-resource-name}`.  
+Per stabilire una relazione padre/figlio con un'istanza della data factory, specificare il nome del set di dati che include il nome della risorsa padre. Usare il formato: `{parent-resource-name}/{child-resource-name}`.
 
 Nell'esempio seguente viene descritta l'implementazione:
 
@@ -488,7 +517,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |

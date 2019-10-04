@@ -11,12 +11,12 @@ ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: ae77488df6ce58d8cab61933f50d24edec35b1ab
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229333"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050720"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitorare e gestire Trello con App per la logica di Azure
 
@@ -32,7 +32,7 @@ Con App per la logica di Azure e il connettore Trello, è possibile creare attiv
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'account Trello e le credenziali utente.
 
@@ -57,7 +57,7 @@ Con App per la logica di Azure e il connettore Trello, è possibile creare attiv
    Nell'elenco delle azioni scegliere l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Se viene chiesto di accedere a Trello, autorizzare l'accesso per l'app per la logica e accedere.
 

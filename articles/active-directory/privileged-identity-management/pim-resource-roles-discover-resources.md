@@ -1,9 +1,9 @@
 ---
-title: Individuare le risorse di Azure per la gestione di PIM - Azure Active Directory | Microsoft Docs
+title: Individuare le risorse di Azure da gestire in PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come scoprire risorse di Azure da gestire in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef1f1712ab7474747829c8744a39e74b78777668
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288155"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804170"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Individuare le risorse di Azure per la gestione in PIM
 
-Usa Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile migliorare la protezione delle risorse di Azure. Ciò è utile per le organizzazioni che già usano PIM per proteggere i ruoli di Azure AD e ai proprietari di sottoscrizione e gruppo di gestione che mirano a proteggere le risorse di produzione.
+Usando Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile migliorare la protezione delle risorse di Azure. Questa operazione è utile per le organizzazioni che già usano PIM per proteggere i ruoli di Azure AD e per i proprietari di gruppi di gestione e sottoscrizioni che vogliono proteggere le risorse di produzione.
 
 Quando si configura per la prima volta PIM per le risorse di Azure, è necessario individuare e selezionare le risorse da proteggere con PIM. Non ci sono limiti al numero di risorse che è possibile gestire con PIM. È tuttavia consigliabile iniziare con le risorse più cruciali, ossia quelle di produzione.
 
-## <a name="discover-resources"></a>Individuare le risorse
+## <a name="discover-resources"></a>Individua le risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -37,15 +37,15 @@ Quando si configura per la prima volta PIM per le risorse di Azure, è necessari
 
     Se si usa PIM per la prima volta per le risorse di Azure, sarà mostrato il riquadro Individua le risorse.
 
-    ![Individua le risorse - primo utilizzo](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Riquadro individua risorse senza risorse elencate per la prima volta](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     Se un altro amministratore di risorse o di directory dell'organizzazione sta già gestendo risorse di Azure in PIM, verrà visualizzato un elenco delle risorse che sono attualmente gestite.
 
-    ![Riquadro Individua le risorse](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Riquadro individua risorse che elenca le risorse attualmente gestite](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. Fare clic su **Individua le risorse** per avviare l'individuazione.
 
-    ![Riquadro di individuazione](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Riquadro individuazione che elenca le risorse che possono essere gestite, ad esempio le sottoscrizioni e i gruppi di gestione](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. Nel riquadro di individuazione usare il **filtro relativo allo stato della risorsa** e **Selezionare il tipo di risorsa** per filtrare i gruppi di gestione o le sottoscrizioni per cui si ha l'autorizzazione di scrittura. Probabilmente è più semplice iniziare selezionando **Tutti**.
 
@@ -58,11 +58,11 @@ Quando si configura per la prima volta PIM per le risorse di Azure, è necessari
     > [!NOTE]
     > Una volta che una sottoscrizione o un gruppo di gestione è stato impostato come gestito, non può più essere non gestito. Questo impedisce che un altro amministratore delle risorse rimuova impostazioni di PIM.
 
-    ![Individuazione - Gestisci risorsa](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Riquadro individuazione con una risorsa selezionata e l'opzione Gestisci risorsa evidenziata](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. Se viene visualizzato un messaggio per confermare l'onboarding della risorsa selezionata per la gestione, fare clic su **Sì**.
 
-    ![Individuazione - Messaggio Gestisci risorsa](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Messaggio che conferma l'onboarding delle risorse selezionate per la gestione](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

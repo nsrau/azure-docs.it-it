@@ -1,32 +1,23 @@
 ---
 title: Convertire una macchina virtuale Windows da dischi non gestiti a dischi gestiti - Azure Managed Disks | Microsoft Docs
 description: Come convertire i dischi non gestiti di una VM Windows in dischi gestiti usando PowerShell nel modello di distribuzione Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2018
-ms.author: cynthn
-ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: rogarana
+ms.openlocfilehash: d43ad941fe68707bca873fa969fbc27806ba96a5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120789"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698816"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 
 Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è possibile convertire le VM all'uso di dischi gestiti mediante il servizio [Azure Managed Disks](managed-disks-overview.md). Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -37,7 +28,7 @@ Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è poss
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-
+* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [trovare ed eliminare dischi gestiti e non gestiti di Azure non collegati](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
@@ -99,7 +90,6 @@ Se le macchine virtuali che si desidera convertire in dischi gestiti si trovano 
 Se si verifica un errore durante la conversione o se una VM si trova in uno stato di errore a causa di problemi in una conversione precedente, eseguire di nuovo il cmdlet `ConvertTo-AzVMManagedDisk`. In genere è sufficiente riprovare per sbloccare la situazione.
 Prima di eseguire la conversione, assicurarsi che lo stato di tutte le estensioni di macchina virtuale corrisponda a 'Provisioning completato'. In caso contrario, la conversione avrà esito negativo con codice di errore 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Eseguire la conversione usando il portale di Azure
 
 È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
@@ -108,7 +98,7 @@ Prima di eseguire la conversione, assicurarsi che lo stato di tutte le estension
 2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
 3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
 4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.
-5. Se la macchina virtuale è in un set di disponibilità, nel pannello **Eseguire la migrazione a Managed Disks** apparirà un avviso che indica che è necessario prima convertire il set di disponibilità. L'avviso deve avere un collegamento su cui si può fare clic per convertire il set di disponibilità. Dopo avere convertito il set di disponibilità o se la macchina virtuale non è in un set di disponibilità, fare clic su **Esegui la migrazione** per avviare il processo di migrazione dei dischi ai dischi gestiti. 
+5. Se la macchina virtuale è in un set di disponibilità, nel pannello **Eseguire la migrazione a Managed Disks** apparirà un avviso che indica che è necessario prima convertire il set di disponibilità. L'avviso deve avere un collegamento su cui si può fare clic per convertire il set di disponibilità. Dopo avere convertito il set di disponibilità o se la macchina virtuale non è in un set di disponibilità, fare clic su **Esegui la migrazione** per avviare il processo di migrazione dei dischi ai dischi gestiti.
 
 La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
 

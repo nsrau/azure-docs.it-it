@@ -1,21 +1,19 @@
 ---
-title: Come usare l'archiviazione code da Ruby | Microsoft Docs
+title: Come usare l'archiviazione di Accodamento da Ruby-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Ruby.
-services: storage
-author: tamram
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456273"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721299"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Come usare l'archiviazione di accodamento da Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -150,7 +148,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)

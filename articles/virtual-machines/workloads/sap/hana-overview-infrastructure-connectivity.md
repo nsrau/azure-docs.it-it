@@ -4,22 +4,21 @@ description: Configurare l'infrastruttura di connettività necessaria per l'uso 
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477298"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101166"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Distribuzione di SAP HANA (istanze Large) 
 
@@ -37,6 +36,7 @@ Per la distribuzione di unità di istanze Large di HANA, Microsoft richiede le i
 - Per ogni area di distribuzione di Azure:
     - Intervallo di indirizzi IP /29 per le connessioni ER-P2P che connettono le reti virtuali di Azure a istanze Large di HANA.
     - Blocco CIDR /24 usato per il pool di indirizzi IP del server di istanze Large di HANA.
+    - Facoltativo quando si usa [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana o il routing tra unità di istanze large di Hana in diverse aree di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo specifico potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
 - Valori dell'intervallo di indirizzi IP usati nell'attributo dello spazio di indirizzi di ogni rete virtuale di Azure che si connette alle istanze Large di HANA.
 - Dati per ogni sistema di istanze Large di HANA:
   - Nome host desiderato, preferibilmente con un nome di dominio completo.

@@ -3,19 +3,20 @@ title: Esercitazione sulla progettazione in Unity per Progetto Acustica
 titlesuffix: Azure Cognitive Services
 description: Questa esercitazione descrive il flusso di lavoro della progettazione per Progetto Acustica in Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd00e4105ce4edae9d014df2a83c5ae3aaf778da
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310626"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854275"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Esercitazione sulla progettazione in Unity per Progetto Acustica
 Questa esercitazione descrive gli strumenti e il flusso di lavoro della progettazione per Progetto Acustica in Unity.

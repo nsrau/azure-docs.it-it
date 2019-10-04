@@ -1,115 +1,240 @@
 ---
-title: Usare le azioni di richiesta e risposta | Documentazione Microsoft
-description: Panoramica del trigger e dell'azione di richiesta e risposta in un'app per la logica di Azure
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+title: Ricevere e rispondere alle chiamate HTTPS-app per la logica di Azure
+description: Gestire le richieste e gli eventi HTTPS in tempo reale usando app per la logica di Azure
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewers: klam, LADocs
+manager: carmonm
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/06/2019
+tags: connectors
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60538131"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122724"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
-Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
 
-Ad esempio, è possibile:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione di risposta o il trigger di richiesta incorporato è possibile creare attività e flussi di lavoro automatizzati che ricevono e rispondono alle richieste HTTPS in ingresso. Ad esempio, è possibile avere l'app per la logica:
 
-* Rispondere a una richiesta HTTP con i dati di un database locale tramite un'app per la logica.
-* Attivare un'app per la logica da un evento webhook esterno.
-* Chiamare un'app per la logica con un'azione di richiesta e risposta dall'interno di un'altra app per la logica.
+* Ricevere e rispondere a una richiesta HTTPS per i dati in un database locale.
+* Attiva un flusso di lavoro quando si verifica un evento del webhook esterno.
+* Ricevere e rispondere a una chiamata HTTPS da un'altra app per la logica.
 
-Per informazioni su come iniziare a usare le azioni di richiesta e risposta in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Il trigger request supporta *solo* HTTPS. Per eseguire invece chiamate HTTP o HTTPS in uscita, usare l' [azione o il trigger http](../connectors/connectors-native-http.md)predefinito.
 
-## <a name="use-the-http-request-trigger"></a>Usare il trigger di richiesta HTTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. 
-[Altre informazioni sui trigger](../connectors/apis-list.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-Ecco una sequenza di esempio di come configurare una richiesta HTTP in Progettazione App per la logica.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
-1. Aggiungere il trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica. È possibile facoltativamente fornire uno schema JSON (usando uno strumento come [JSONSchema.net](https://jsonschema.net)) per il corpo della richiesta. In questo modo la finestra di progettazione potrà generare i token per le proprietà nella richiesta HTTP.
-2. Aggiungere un'altra azione per poter salvare l'app per la logica.
-3. Dopo il salvataggio dell'app per la logica, è possibile ottenere l'URL della richiesta HTTP dalla scheda di richiesta.
-4. Un HTTP POST (è possibile usare uno strumento come [Postman](https://www.getpostman.com/)) all'URL attiva l'app per la logica.
+* Informazioni di base sulle app per la [logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, scoprire [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-> [!NOTE]
-> Se non viene definita un'azione di risposta, una risposta `202 ACCEPTED` viene restituita immediatamente al chiamante. È possibile usare l'azione di risposta per personalizzare una risposta.
-> 
-> 
+<a name="add-request"></a>
 
-![Trigger di risposta](./media/connectors-native-reqres/using-trigger.png)
+## <a name="add-request-trigger"></a>Aggiungi trigger di richiesta
 
-## <a name="use-the-http-response-action"></a>Usare l'azione di risposta HTTP
-L'azione di risposta HTTP è valida solo quando viene usata in un flusso di lavoro attivato da una richiesta HTTP. Se non viene definita un'azione di risposta, una risposta `202 ACCEPTED` viene restituita immediatamente al chiamante.  È possibile aggiungere un'azione di risposta in qualsiasi passaggio nel flusso di lavoro. L'app per la logica mantiene aperta la richiesta in ingresso per una risposta solo per un minuto.  Dopo un minuto, se non è stata inviata alcuna risposta dal flusso di lavoro (e nella definizione è presente un'azione di risposta), viene restituito un `504 GATEWAY TIMEOUT` al chiamante.
+Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica. Per altre informazioni sulla definizione JSON sottostante del trigger e su come chiamare questo trigger, vedere il [tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-Ecco come aggiungere un'azione di risposta HTTP:
+1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
-1. Fare clic sul pulsante **Nuovo passaggio** .
-2. Selezionare **Aggiungi un'azione**.
-3. Nella casella di ricerca azione digitare **response** per elencare l'azione di risposta.
-   
-    ![Selezionare l'azione di risposta](./media/connectors-native-reqres/using-action-1.png)
-4. Aggiungere i parametri richiesti per il messaggio di risposta HTTP.
-   
-    ![Completare l'azione di risposta](./media/connectors-native-reqres/using-action-2.png)
-5. Fare clic sull'angolo in alto a sinistra della barra degli strumenti per salvare e pubblicare (attivare) l'app per la logica.
+1. Dopo l'apertura di progettazione app per la logica, nella casella di ricerca immettere "richiesta http" come filtro. Dall'elenco trigger selezionare il trigger **quando viene ricevuta una richiesta http** , che è il primo passaggio del flusso di lavoro dell'app per la logica.
 
-## <a name="request-trigger"></a>Trigger di richiesta
-Ecco i dettagli per il trigger supportato da questo connettore. È disponibile un solo trigger di richiesta.
+   ![Seleziona trigger di richiesta](./media/connectors-native-reqres/select-request-trigger.png)
 
-| Trigger | DESCRIZIONE |
-| --- | --- |
-| Richiesta |Si verifica quando viene ricevuta una richiesta HTTP |
+   Il trigger di richiesta Mostra queste proprietà:
 
-## <a name="response-action"></a>Azione di risposta
-Ecco i dettagli per l'azione supportata da questo connettore. Esiste una sola azione di risposta che può essere usata solo quando è accompagnata da un trigger di richiesta.
+   ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-| Azione | DESCRIZIONE |
-| --- | --- |
-| response |Restituisce una risposta alla richiesta HTTP correlata |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   |---------------|--------------------|----------|-------------|
+   | **URL POST HTTP** | {none} | Yes | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
+   | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
+   |||||
 
-### <a name="trigger-and-action-details"></a>Dettagli sui trigger e le azioni
-Le tabelle seguenti descrivono i campi di input per il trigger e l'azione e i corrispondenti dettagli di output.
+1. Nella casella **dello schema JSON del corpo della richiesta** , immettere facoltativamente uno schema JSON che descrive il corpo della richiesta in ingresso, ad esempio:
 
-#### <a name="request-trigger"></a>Trigger di richiesta
-Di seguito è riportato un campo di input per il trigger da una richiesta HTTP in ingresso.
+   ![Schema JSON di esempio](./media/connectors-native-reqres/provide-json-schema.png)
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
-| --- | --- | --- |
-| Schema JSON |schema |Lo schema JSON del corpo della richiesta HTTP |
+   La finestra di progettazione utilizza questo schema per generare token per le proprietà nella richiesta. In questo modo, l'app per la logica può analizzare, utilizzare e passare i dati dalla richiesta tramite il trigger nel flusso di lavoro.
 
-<br>
+   Di seguito è riportato lo schema di esempio:
 
-**Dettagli dell'output**
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-Di seguito sono indicati i dettagli di output per la richiesta.
+   Quando si immette uno schema JSON, la finestra di progettazione Mostra un promemoria `Content-Type` per includere l'intestazione nella richiesta e impostare tale valore `application/json`di intestazione su. Per altre informazioni, vedere [gestire i tipi di contenuto](../logic-apps/logic-apps-content-type.md).
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
-| --- | --- | --- |
-| headers |object |Intestazioni della richiesta |
-| Corpo |object |Oggetto della richiesta |
+   ![Promemoria per includere l'intestazione "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
-#### <a name="response-action"></a>Azione di risposta
-Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un asterisco (*) indica che è un campo obbligatorio.
+   Ecco come appare questa intestazione in formato JSON:
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
-| --- | --- | --- |
-| Codice di stato* |statusCode |Il codice di stato HTTP |
-| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
-| Corpo |Corpo |Il corpo della risposta |
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
+
+   Per generare uno schema JSON basato sul payload previsto (dati), è possibile usare uno strumento come [JSONSchema.NET](https://jsonschema.net)oppure è possibile seguire questa procedura:
+
+   1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
+
+      ![Genera schema dal payload](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. Immettere il payload di esempio e selezionare **fine**.
+
+      ![Genera schema dal payload](./media/connectors-native-reqres/enter-payload.png)
+
+      Ecco il payload di esempio:
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
+
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   |---------------|--------------------|----------|-------------|
+   | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
+   | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
+   |||||
+
+   In questo esempio viene aggiunta la proprietà **Method** :
+
+   ![Aggiungi parametro del metodo](./media/connectors-native-reqres/add-parameters.png)
+
+   La proprietà **Method** viene visualizzata nel trigger, in modo che sia possibile selezionare un metodo nell'elenco.
+
+   ![Seleziona metodo](./media/connectors-native-reqres/select-method.png)
+
+1. Aggiungere ora un'altra azione come passaggio successivo nel flusso di lavoro. Sotto il trigger selezionare **passaggio successivo** in modo che sia possibile trovare l'azione che si desidera aggiungere.
+
+   Ad esempio, è possibile rispondere alla richiesta [aggiungendo un'azione di risposta](#add-response), che è possibile usare per restituire una risposta personalizzata ed è descritta più avanti in questo argomento.
+
+   L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso `504 GATEWAY TIMEOUT` di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l' `202 ACCEPTED` app per la logica restituisce immediatamente una risposta al chiamante.
+
+1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. 
+
+   Questo passaggio genera l'URL da usare per l'invio della richiesta che attiva l'app per la logica. Per copiare questo URL, selezionare l'icona di copia accanto all'URL.
+
+   ![URL da usare per l'attivazione dell'app per la logica](./media/connectors-native-reqres/generated-url.png)
+
+1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato. Ad esempio, è possibile usare uno strumento come [postazione](https://www.getpostman.com/).
+
+### <a name="trigger-outputs"></a>Output dei trigger
+
+Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
+
+| Nome proprietà JSON | Tipo di dati | Descrizione |
+|--------------------|-----------|-------------|
+| `headers` | Object | Oggetto JSON che descrive le intestazioni della richiesta |
+| `body` | Object | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>Aggiungere un'azione di risposta
+
+È possibile usare l'azione di risposta per rispondere con un payload (dati) a una richiesta HTTPS in ingresso, ma solo in un'app per la logica attivata da una richiesta HTTPS. È possibile aggiungere l'azione di risposta in qualsiasi punto del flusso di lavoro. Per ulteriori informazioni sulla definizione JSON sottostante per questo trigger, vedere il [tipo di azione risposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+
+L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso `504 GATEWAY TIMEOUT` di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l' `202 ACCEPTED` app per la logica restituisce immediatamente una risposta al chiamante.
+
+1. Nella finestra di progettazione dell'app per la logica, sotto il passaggio in cui si vuole aggiungere un'azione di risposta, selezionare **nuovo passaggio**.
+
+   Ad esempio, usando il trigger di richiesta precedente:
+
+   ![Aggiungi nuovo passaggio](./media/connectors-native-reqres/add-response.png)
+
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
+
+1. In **scegliere un'azione**, nella casella di ricerca, immettere "risposta" come filtro e selezionare l'azione **risposta** .
+
+   ![Selezionare l'azione di risposta](./media/connectors-native-reqres/select-response-action.png)
+
+   Il trigger di richiesta è compresso in questo esempio per semplicità.
+
+1. Aggiungere i valori necessari per il messaggio di risposta. 
+
+   In alcuni campi, quando si fa clic all'interno delle caselle viene aperto l'elenco di contenuto dinamico. È quindi possibile selezionare i token che rappresentano gli output disponibili dei passaggi precedenti del flusso di lavoro. Le proprietà dello schema specificato nell'esempio precedente vengono ora visualizzate nell'elenco di contenuto dinamico.
+
+   Ad esempio, per la casella **intestazioni** , includere `Content-Type` come nome chiave e impostare il valore della chiave su `application/json` come indicato in precedenza in questo argomento. Per la casella **corpo** è possibile selezionare l'output del corpo del trigger dall'elenco di contenuto dinamico.
+
+   ![Dettagli azione risposta](./media/connectors-native-reqres/response-details.png)
+
+   Per visualizzare le intestazioni in formato JSON, selezionare **passa a visualizzazione testo**.
+
+   ![Intestazioni-passa alla visualizzazione testo](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
+
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   |---------------|--------------------|----------|-------------|
+   | **Codice di stato** | `statusCode` | Yes | Codice di stato da restituire nella risposta |
+   | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
+   | **Corpo** | `body` | No | Il corpo della risposta |
+   |||||
+
+1. Per specificare proprietà aggiuntive, ad esempio uno schema JSON per il corpo della risposta, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
+
+1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
+* [Connettori per app per la logica](../connectors/apis-list.md)

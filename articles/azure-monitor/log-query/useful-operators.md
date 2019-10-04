@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61424139"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Operatori utili nelle query di log di Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ La tabella di seguito riporta alcune funzioni comuni da usare per diversi scenar
 
 ## <a name="useful-operators"></a>Operatori utili
 
-Categoria                                |Funzione di analisi pertinente
+Category                                |Funzione di analisi pertinente
 ----------------------------------------|----------------------------------------
 Alias di colonna e selezione            |`project`, `project-away`, `extend`
 Costanti e tabelle temporanee          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 

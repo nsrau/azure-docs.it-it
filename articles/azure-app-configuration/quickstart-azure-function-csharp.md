@@ -14,30 +14,34 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a15b4e10938c39ba599ffb1ce7437feb788b1115
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579581"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075954"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Guida introduttiva: Creare una funzione di Azure con Configurazione app
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Guida introduttiva: Creare una funzione di Azure con Configurazione app di Azure
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida di avvio rapido mostra come incorporare il servizio in una funzione di Azure. 
-
-Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
-
-![Guida di avvio rapido completa in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
+In questa guida di avvio rapido si incorpora il servizio Configurazione app di Azure in una funzione di Azure per centralizzare l'archiviazione e la gestione di tutte le impostazioni dell'applicazione separatamente dal codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**. Installare anche gli [strumenti di Funzioni di Azure più recenti](../azure-functions/functions-develop-vs.md#check-your-tools-version).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro **Sviluppo di Azure**.
+- [Strumenti di Funzioni di Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+
+    | Chiave | Valore |
+    |---|---|
+    | TestApp:Settings:Message | Dati di Configurazione app di Azure |
+
+    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -48,12 +52,13 @@ Per completare questa guida di avvio rapido, installare [Visual Studio 2017](htt
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Aprire *Function1.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
+2. Aprire *Function1.cs* e aggiungere un riferimento al provider di configurazione generale .NET Core e al provider di Configurazione app .NET Core.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
@@ -114,4 +119,4 @@ Per completare questa guida di avvio rapido, installare [Visual Studio 2017](htt
 In questa guida di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con una funzione di Azure. Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
 
 > [!div class="nextstepaction"]
-> [Identità gestite per l'integrazione di risorse di Azure](./integrate-azure-managed-service-identity.md)
+> [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)

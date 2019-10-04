@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con Java e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: e1799f2af89fd0498c11f3d695d84ccd93a9c857
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 1f7d9620198042adc7f96e7c4aaa269f73870df0
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681931"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479002"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java
 
@@ -221,4 +221,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../overview.md )
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

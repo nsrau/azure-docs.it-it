@@ -9,17 +9,17 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452823"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180736"
 ---
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
 Se è stata disabilitata l'opzione "Richiede l'autorizzazione client" durante la creazione del servizio di inoltro, è possibile inviare le richieste all'URL di Connessioni ibride con qualsiasi browser. Per l'accesso a endpoint protetti, è necessario creare e passare un token nell'intestazione `ServiceBusAuthorization`, come illustrato di seguito.
 
-In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
+In Visual Studio creare un nuovo progetto **App console (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
 

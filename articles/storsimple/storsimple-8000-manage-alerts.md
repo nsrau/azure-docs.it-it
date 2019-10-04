@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320389"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
@@ -159,8 +159,8 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Failover del dispositivo su <*nome dispositivo*>. |Failover non pianificato. |StorSimple è progettato per eseguire il ripristino automatico dai failover non pianificati. Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. |
 | Failover del dispositivo su <*nome dispositivo*>. |Causa diversa/sconosciuta. |Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 | Un servizio critico del dispositivo è segnalato come non riuscito. |Errore del servizio percorso dati. |Contattare il supporto tecnico Microsoft per ottenere assistenza. |
-| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #*> è segnalato come non riuscito. |Causa diversa/sconosciuta. |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #*> è segnalato come non riuscito. |Impossibile connettere l'indirizzo IP per nome interfaccia: <*DATA #*>. `<IP address>` Nella rete è stato rilevato un indirizzo IP duplicato. |Assicurarsi che l'indirizzo IP duplicato venga rimosso dalla rete o riconfigurare l'interfaccia con un altro indirizzo IP. |
+| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #* > è segnalato come non riuscito. |Causa diversa/sconosciuta. |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #* > è segnalato come non riuscito. |Impossibile connettere l'indirizzo IP per nome interfaccia: <*DATA #* >. `<IP address>` Nella rete è stato rilevato un indirizzo IP duplicato. |Assicurarsi che l'indirizzo IP duplicato venga rimosso dalla rete o riconfigurare l'interfaccia con un altro indirizzo IP. |
 
 ### <a name="disaster-recovery-alerts"></a>Avvisi di ripristino di emergenza
 
@@ -209,7 +209,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate | |
 |:--- |:--- |:--- | --- |
 | Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.|
-| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| Non è stato possibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 

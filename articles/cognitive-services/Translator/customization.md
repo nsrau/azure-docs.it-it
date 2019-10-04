@@ -1,21 +1,21 @@
 ---
 title: Personalizzazione della traduzione - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'hub di Microsoft Translator per creare il proprio sistema di traduzione automatica usando la terminologia e lo stile preferiti.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918230"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257616"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
@@ -29,7 +29,7 @@ Con Custom Translator è possibile creare sistemi di traduzione neurali che comp
 
 ### <a name="how-does-it-work"></a>Come funziona?
 
-Usare i documenti tradotti in precedenza (opuscoli, pagine Web, documentazione e così via) per creare un sistema di traduzione che riflette la terminologia specifica del dominio e lo stile meglio di un sistema di traduzione generico. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
+USA i documenti tradotti in precedenza (volantini, pagine Web, documentazione e così via) per creare un sistema di traduzione che rispecchi la terminologia e lo stile specifici del dominio, meglio di un sistema di conversione standard. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
 
 Il sistema accetta anche i dati paralleli a livello di documento, ma non ancora allineati a livello di frase. Se gli utenti hanno accesso alle versioni dello stesso contenuto in più lingue, ma in documenti separati, Custom Translator sarà in grado di associare automaticamente frasi tra documenti.  Il sistema può anche usare dati monolingue in una o entrambe le lingue per integrare i dati di training paralleli per migliorare le traduzioni.
 
@@ -43,7 +43,7 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 ## <a name="microsoft-translator-hub"></a>Hub di Microsoft Translator
 
 > [!NOTE]
-> Microsoft Translator Hub legacy verrà ritirato il 30 aprile 2019. [Visualizzare le date e le informazioni sulla migrazione importante](https://www.microsoft.com/translator/business/hub/).  
+> L'Hub Microsoft Translator legacy verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator e Hub
 
@@ -51,17 +51,15 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Sì   | No  |
-| Personalizzazione NMT | No     | Sì |
-| Personalizzazione dei nuovi servizi voce unificati | No     | Sì |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Sì |
+| Personalizzazione SMT | Yes   | No |
+| Personalizzazione NMT | No    | Yes |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Yes |
+| [Nessuna traccia](https://www.aka.ms/notrace) | Yes  | Yes |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 
 > [!NOTE]
 > A partire da 1 febbraio 2018 AddTranslation() e AddTranslationArray() non sono più disponibili per l'uso con l'API Traduzione testuale versione 2.0. Questi metodi non riusciranno e non verrà scritto nulla. L'API Traduzione testuale V3.0 non supporta questi metodi.
-> 
-> Una funzionalità simile è disponibile nell'API Translator Hub. Vedere [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

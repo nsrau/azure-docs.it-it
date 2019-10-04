@@ -1,5 +1,5 @@
 ---
-title: Servizi multimediali di Azure diagnostica registra schemi - Azure
+title: Schemi dei log di diagnostica di servizi multimediali di Azure-Azure
 description: Questo articolo illustra gli schemi dei log di diagnostica di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322251"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261090"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e log di diagnostica che consentono di comprendere prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per i log e delle metriche raccolte. È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli agli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)e di esportarli per [Log Analitica](https://azure.microsoft.com/services/log-analytics/), o usare servizi di terze parti 3rd.
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
-Per informazioni dettagliate, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Per informazioni dettagliate, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/resource-logs-overview.md).
 
 Questo articolo descrive gli schemi dei log di diagnostica di servizi multimediali.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schema dei log di diagnostica di primo livello
 
-Per una descrizione dettagliata dello schema di primo livello dei log di diagnostica, vedere [supportati servizi, schemi e categorie per i log di diagnostica di Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="key-delivery-log-schema"></a>Schema del log di distribuzione delle chiavi
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
-Queste proprietà sono specifiche per lo schema di log di distribuzione delle chiavi.
+Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
-|Name|DESCRIZIONE|
+|Attività|Descrizione|
 |---|---|
 |keyId|ID della chiave richiesta.|
-|keyType|Può avere uno dei valori seguenti: "Clear" (Nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
-|policyName|Nome dei criteri di Azure Resource Manager.|
+|keyType|Può avere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
+|policyName|Nome Azure Resource Manager del criterio.|
 |tokenType|Tipo di token.|
-|statusMessage|Il messaggio di stato.|
+|statusMessage|Messaggio di stato.|
 
 ### <a name="examples"></a>Esempi
 
-Proprietà dello schema di richieste di distribuzione delle chiavi.
+Proprietà dello schema delle richieste di recapito delle chiavi.
 
 ```json
 {

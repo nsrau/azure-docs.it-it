@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 09/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 244d6be318662be794cac58aaa8350b433b6cb37
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: a852807ab685e85b76d26e5b39c99a32f645bbd7
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825460"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838173"
 ---
-Non associare una tabella di route che include una route a una destinazione di 0.0.0.0/0 per la subnet del gateway. Ciò impedirebbe il corretto funzionamento del gateway.
+Le route definite dall'utente con una destinazione 0.0.0.0/0 e gruppi in GatewaySubnet **non sono supportate**. I gateway creati con questa configurazione verranno bloccati dalla creazione. Per il corretto funzionamento dei gateway è necessario l'accesso ai controller di gestione.

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999036"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594102"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -42,46 +42,46 @@ Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di
 ## <a name="geography-reports-map-based"></a>Report geografici (basati su mappe)
 Esistono cinque report che sfruttano una mappa per indicare le aree da cui il contenuto viene richiesto. Questi report sono Mappa del mondo, Mappa Stati Uniti, Mappa Canada, Mappa Europa e Mappa Asia Pacifico.
 
-Ogni report basato su mappa classifica le entità geografiche (ad esempio, paesi, stati e province) in base alla percentuale di accessi originati dall'area specifica. Una mappa consente anche di visualizzare le posizioni da cui il contenuto viene richiesto. A questo scopo, contraddistingue con il colore ogni area in base alla quantità di domanda proveniente da tale area. Le aree con una sfumatura più chiara indicano una domanda minore di contenuto, mentre le aree più scure indicano livelli più alti di domanda di contenuto.
+Ogni report basato su mappa classifica le entità geografiche (ad esempio, paesi/aree geografiche, una mappa viene fornita per consentire di visualizzare le posizioni da cui viene richiesto il contenuto. A questo scopo, contraddistingue con il colore ogni area in base alla quantità di domanda proveniente da tale area. Le aree con una sfumatura più chiara indicano una domanda minore di contenuto, mentre le aree più scure indicano livelli più alti di domanda di contenuto.
 
-Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e sulla larghezza di banda per ogni area. In questo modo è possibile visualizzare il numero totale di riscontri, la percentuale di riscontri, la quantità totale di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per ogni area. Visualizzare una descrizione per ogni metrica. Infine, quando si passa il puntatore su un'area (ad esempio, un paese, uno stato o una provincia), il nome e la percentuale di riscontri che si sono verificati nell'area verranno visualizzati come descrizione comando.
+Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e sulla larghezza di banda per ogni area. In questo modo è possibile visualizzare il numero totale di riscontri, la percentuale di riscontri, la quantità totale di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per ogni area. Visualizzare una descrizione per ogni metrica. Infine, quando si passa il mouse su un'area (ad esempio, paese/area geografica, stato o provincia), il nome e la percentuale di riscontri che si sono verificati nell'area verrà visualizzato come descrizione comando.
 
 Di seguito viene fornita una breve descrizione di ogni tipo di report geografico basato su mappa.
 
-| Nome report | DESCRIZIONE |
+| Nome report | Descrizione |
 | --- | --- |
-| Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Sulla mappa del mondo ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
+| Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Ogni paese/area geografica sono contraddistinte da colorato sulla mappa del mondo per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Stati Uniti |Questo report consente di visualizzare la domanda del contenuto della rete CDN negli Stati Uniti. Su questa mappa ogni stato è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Canada |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Canada. Su questa mappa ogni provincia è contraddistinta dal colore per indicare la percentuale di riscontri originati da tale area. |
-| Mappa Europa |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Europa. Su questa mappa ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
-| Mappa Asia Pacifico |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Su questa mappa ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
+| Mappa Europa |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Europa. Ogni paese è contraddistinto dal colore sulla mappa per indicare la percentuale di riscontri originati da tale area. |
+| Mappa Asia Pacifico |Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Ogni paese è contraddistinto dal colore sulla mappa per indicare la percentuale di riscontri originati da tale area. |
 
 ## <a name="geography-reports-bar-charts"></a>Report geografici (grafici a barre)
-Esistono altri due report che forniscono informazioni statistiche basate sulla geografia, Città principali e Paesi principali. Questi report classificano rispettivamente città e paesi, in base al numero di riscontri originati da queste aree. Immediatamente dopo la generazione di questo tipo di report, un grafico a barre indicherà le prime 10 città o i primi 10 paesi che hanno richiesto il contenuto su una piattaforma specifica. Questo grafico a barre consente di valutare rapidamente le aree che generano il numero più alto di richieste per il contenuto.
+Esistono altri due report che forniscono informazioni statistiche basate sulla geografia, Città principali e Paesi principali. Questi report classificano le città e paesi/aree geografiche, rispettivamente, in base al numero di riscontri originati da questi paesi/aree geografiche. Immediatamente dopo la generazione di questo tipo di report, un grafico a barre indicherà le prime 10 città o paesi/aree geografiche che hanno richiesto il contenuto su una piattaforma specifica. Questo grafico a barre consente di valutare rapidamente le aree che generano il numero più alto di richieste per il contenuto.
 
 Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'area specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta per ognuna delle prime 10 aree.
 
 ### <a name="using-the-bar-charts"></a>Uso dei grafici a barre
 * Se si passa il puntatore su una barra, il nome e il numero totale di riscontri che si sono verificati nell'area verrà visualizzato come descrizione comando.
-* La descrizione comando per il report Città principali identifica una città con nome, stato/provincia e abbreviazione del paese.
-* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese è sconosciuto, verranno visualizzati due punti di domanda (vale a dire, ??).
-* Un report può includere le metriche per l'area "Europa" o "Asia/Pacifico". Tali elementi non servono a offrire informazioni statistiche su tutti gli indirizzi IP in tali aree, ma si applicano solo alle richieste originate dagli indirizzi IP distribuiti in Europa o in Asia/Pacifico invece che in una città o in un paese specifico.
+* La descrizione comando per il report città principali identifica una città con nome, stato/provincia e abbreviazione paese/area geografica.
+* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese/area geografica è sconosciuto, due punti interrogativi (ad esempio,??), verrà visualizzato.
+* Un report può includere le metriche per l'area "Europa" o "Asia/Pacifico". Tali elementi non servono a offrire informazioni statistiche su tutti gli indirizzi IP in tali aree, Piuttosto, si applicano solo alle richieste che hanno origine da indirizzi IP distribuiti in Europa o Asia/Pacifico invece di una specifica città o paese/area geografica.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri, la percentuale di riscontri, la quantità di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per le prime 250 aree. Visualizzare una descrizione per ogni metrica.
 
 Per entrambi i tipi di report seguenti viene fornita una breve descrizione.
 
-| Nome report | DESCRIZIONE |
+| Nome report | Descrizione |
 | --- | --- |
 | Città principali |Questo report classifica le città in base al numero di riscontri originati da una determinata area. |
-| Paesi principali |Questo report classifica i paesi in base al numero di riscontri originati da una determinata area. |
+| Paesi principali |Questo report classifica i paesi/aree geografiche in base al numero di riscontri originati da tale paese/area geografica. |
 
 ## <a name="daily-summary"></a>Riepilogo giornaliero
 Il report Riepilogo giornaliero consente di visualizzare il numero totale di riscontri e i dati trasferiti ogni giorno su una determinata piattaforma. Queste informazioni possono essere usate per individuare velocemente gli schemi di attività della rete CDN. Questo report, ad esempio, consente di rilevare in quali giorni il traffico è stato superiore o inferiore al previsto.
 
 Immediatamente dopo la generazione di questo tipo di report, un grafico a barre offrirà un'indicazione visiva della quantità di domanda specifica della piattaforma generata ogni giorno durante il periodo di tempo coperto dal report. A questo scopo, nel report verrà visualizzata una barra per ogni giorno. Ad esempio, selezionando il periodo di tempo "Ultima settimana", verrà generato un grafico con sette barre. Ogni barra indicherà il numero totale di riscontri rilevati nel giorno corrispondente.
 
-Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nella data specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data (formato: AAAA-MM-GG) per ogni giorno incluso nel report.
+Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nella data specificata. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data (formato: YYYY-MM-DD) per ogni giorno incluso nel report.
 
 > [!TIP]
 > Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati in tale data verrà visualizzato come descrizione comando.
@@ -95,7 +95,7 @@ Il report Per ora consente di visualizzare il numero totale di riscontri e i dat
 
 Immediatamente dopo la generazione di questo tipo di report, un grafico a barre offrirà un'indicazione visiva della quantità di domanda specifica della piattaforma generata ogni ora durante il periodo di tempo coperto dal report. A questo scopo, nel report verrà visualizzata una barra per ogni ora considerata dal report. Se, ad esempio, si seleziona un periodo di tempo di 24 ore, verrà generato un grafico con ventiquattro barre. Ogni barra indicherà il numero totale di riscontri rilevati durante l'ora corrispondente.
 
-Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'ora specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data/ora (formato: AAAA-MM-GG hh:mm) per ogni ora inclusa nel report. L'ora viene indicata con il formato di 24 ore e specificata con il fuso orario UTC/GMT.
+Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'ora specificata. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data/ora (formato: YYYY-MM-DD HH: mm) per ogni ora inclusa nel report. L'ora viene indicata con il formato di 24 ore e specificata con il fuso orario UTC/GMT.
 
 > [!TIP]
 > Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati durante tale ora verrà visualizzato come descrizione comando.
@@ -119,7 +119,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 ## <a name="by-file-detail"></a>Per dettaglio file
 Il report Per dettaglio file consente di visualizzare la quantità di domanda e il traffico generato su una determinata piattaforma per un asset specifico. All'inizio di questo report si trova l'opzione Dettagli file per. Questa opzione fornisce un elenco degli asset più richiesti sulla piattaforma selezionata. Per generare un report Per dettaglio file, sarà necessario selezionare l'asset desiderato dall'opzione Dettagli file per. Un grafico a barre indicherà quindi la quantità di domanda giornaliera generata nel periodo di tempo specificato.
 
-Il lato sinistro del grafico (asse y) indica il numero totale di richieste per un asset in un giorno specifico. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data (formato: AAAA-MM-GG) per cui è stata inserita nel report la domanda della rete CDN per l'asset.
+Il lato sinistro del grafico (asse y) indica il numero totale di richieste per un asset in un giorno specifico. Proprio sotto il grafico (asse x), si noterà un'etichetta indicante la data (formato: YYYY-MM-DD) per la rete CDN di cui è stato segnalato richiesta per l'asset.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri e la quantità di dati trasferiti (in gigabyte) per ogni giorno considerato dal report.
 
@@ -199,7 +199,7 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)

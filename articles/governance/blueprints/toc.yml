@@ -1,7 +1,6 @@
 - name: Documentazione di Azure Blueprint
   href: index.yml
 - name: Panoramica
-  expanded: true
   items:
     - name: Panoramica di Azure Blueprint
       displayName: 'templates, policy, definition, assignment, rbac'
@@ -12,11 +11,13 @@
     - name: Creare un progetto - Portale
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-portal.md
+    - name: Creare un progetto - PowerShell
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-powershell.md
     - name: Creare un progetto - API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
 - name: Esercitazioni
-  expanded: true
   items:
     - name: Creare da un esempio di progetto
       displayName: 'template, resource group, rbac, role assignment'
@@ -25,11 +26,46 @@
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
 - name: Esempi
-  expanded: true
   items:
     - name: Indice
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: Canada Federal PBMM
+      items:
+        - name: Panoramica
+          displayName: 'standards, canada, federal, pbmm'
+          href: ./samples/canada-federal-pbmm/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, canada, federal, pbmm'
+          href: ./samples/canada-federal-pbmm/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, canada, federal, pbmm'
+          href: ./samples/canada-federal-pbmm/deploy.md
+    - name: CIS Microsoft Azure Foundations Benchmark
+      items:
+        - name: Panoramica
+          href: ./samples/cis-azure-1.1.0/index.md
+        - name: Mapping di raccomandazioni
+          href: ./samples/cis-azure-1.1.0/control-mapping.md
+    - name: IRS 1075
+      items:
+        - name: Panoramica
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/control-mapping.md
+    - name: ISO 27001
+      items:
+        - name: Panoramica
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/deploy.md
     - name: ISO 27001 - Servizi condivisi
       items:
         - name: Panoramica
@@ -52,8 +88,67 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: NIST SP 800-53 Rev 4
+      items:
+        - name: Panoramica
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/deploy.md
+    - name: PCI-DSS v3.2.1
+      items:
+        - name: Panoramica
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/deploy.md
+    - name: SWIFT CSP v2020
+      items:
+        - name: Panoramica
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/deploy.md
+    - name: UK OFFICIAL e UK NHS
+      items:
+        - name: Panoramica
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/deploy.md
+    - name: Definizione della base di Cloud Adoption Framework
+      items:
+        - name: Panoramica
+          displayName: 'caf, foundation'
+          href: ./samples/caf-foundation/index.md
+        - name: Procedura per la distribuzione
+          displayName: 'caf, foundation, deploy'
+          href: ./samples/caf-foundation/deploy.md
+    - name: Zona di destinazione per la migrazione di Cloud Adoption Framework
+      items:
+        - name: Panoramica
+          displayName: 'caf, migrate, landing zone'
+          href: ./samples/caf-migrate-landing-zone/index.md
+        - name: Procedura per la distribuzione
+          displayName: 'caf, migrate, landing zone, deploy'
+          href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Concetti
-  expanded: true
   items:
     - name: Ciclo di vita di un progetto
       displayName: 'publish, edit, delete, assignments'
@@ -71,21 +166,25 @@
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guide alle procedure
-  expanded: true
   items:
     - name: Gestire le assegnazioni con PowerShell
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: Importare ed esportare con PowerShell
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: Aggiornare le assegnazioni esistenti dal portale
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: Configurare l'ambiente per un operatore di Blueprint
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: Gestire progetti come codice (community)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
 - name: Riferimenti
-  expanded: true
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'
@@ -97,6 +196,8 @@
       href: 'https://www.powershellgallery.com/packages/Az.Blueprint'
     - name: PSGallery (modulo community)
       href: 'https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint'
+    - name: Funzioni di progetto
+      href: ./reference/blueprint-functions.md
 - name: Risorse
   items:
     - name: GitHub - Esempi di Azure Blueprints

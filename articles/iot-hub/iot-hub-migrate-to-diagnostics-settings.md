@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: b6cde8402c699a7477cd0efc79a44b3f5e150ad0
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 0feca8b477a1d76eae9e3f41de0026a33cc3249d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792651"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259345"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Eseguire la migrazione dell'hub IoT dalla funzionalità Monitoraggio operazioni a Impostazioni di diagnostica
 
-I clienti che usano la funzionalità [Monitoraggio operazioni](iot-hub-operations-monitoring.md) per tenere traccia delle operazioni nell'hub IoT possono eseguire la migrazione di tale flusso di lavoro alla funzionalità [Impostazioni di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md), una funzionalità di Monitoraggio di Azure. La funzionalità Impostazioni di diagnostica fornisce informazioni di diagnostica a livello di risorse per numerosi servizi di Azure.
+I clienti che usano la funzionalità [Monitoraggio operazioni](iot-hub-operations-monitoring.md) per tenere traccia delle operazioni nell'hub IoT possono eseguire la migrazione di tale flusso di lavoro alla funzionalità [Impostazioni di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md), una funzionalità di Monitoraggio di Azure. La funzionalità Impostazioni di diagnostica fornisce informazioni di diagnostica a livello di risorse per numerosi servizi di Azure.
 
-**Le operazioni di funzionalità di monitoraggio dell'IoT Hub è deprecata**ed è stato rimosso dal portale. In questo articolo viene descritta la procedura dettagliata per spostare i carichi di lavoro dalla funzionalità Monitoraggio operazioni alla funzionalità Impostazioni di diagnostica. Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**La funzionalità di monitoraggio delle operazioni dell'hub Internet è deprecata**ed è stata rimossa dal portale. In questo articolo viene descritta la procedura dettagliata per spostare i carichi di lavoro dalla funzionalità Monitoraggio operazioni alla funzionalità Impostazioni di diagnostica. Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>Aggiornare l'hub IoT
 
@@ -30,9 +30,9 @@ Per aggiornare l'hub IoT nel portale di Azure, attivare la funzionalità Imposta
 ### <a name="turn-off-operations-monitoring"></a>Disattivare la funzionalità Monitoraggio operazioni
 
 > [!NOTE]
-> Come avviene di 11 marzo 2019, le operazioni di funzionalità di monitoraggio viene rimosso dall'interfaccia del portale dell'IoT Hub Azure. I passaggi seguenti non sono più valide. Per eseguire la migrazione, verificare che le categorie corrette siano attivate nelle impostazioni diagnostica di monitoraggio di Azure precedente.
+> A partire dall'11 marzo 2019, la funzionalità monitoraggio operazioni viene rimossa dall'interfaccia portale di Azure dell'hub Internet. I passaggi seguenti non sono più applicabili. Per eseguire la migrazione, assicurarsi che le categorie corrette siano attivate nelle impostazioni di diagnostica di monitoraggio di Azure.
 
-Una volta testare le nuove impostazioni di diagnostica nel flusso di lavoro, è possibile disattivare la funzionalità monitoraggio operazioni. 
+Una volta testate le nuove impostazioni di diagnostica nel flusso di lavoro, è possibile disattivare la funzionalità monitoraggio operazioni. 
 
 1. Nel menu dell'hub IoT selezionare **Monitoraggio operazioni**.
 
@@ -44,7 +44,7 @@ Una volta testare le nuove impostazioni di diagnostica nel flusso di lavoro, è 
 
 Gli schemi delle funzionalità Monitoraggio operazioni e Impostazioni di diagnostica variano leggermente. È importante aggiornare subito le applicazioni che usano la funzionalità Monitoraggio operazioni per eseguire il mapping allo schema usato dalla funzionalità Impostazioni di diagnostica. 
 
-Inoltre, le impostazioni di diagnostica offre cinque nuove categorie per il rilevamento. Dopo avere aggiornato le applicazioni per lo schema esistente, aggiungere le nuove categorie:
+Inoltre, le impostazioni di diagnostica offrono cinque nuove categorie per il rilevamento. Dopo avere aggiornato le applicazioni per lo schema esistente, aggiungere le nuove categorie:
 
 * Operazioni da cloud a dispositivi gemelli
 * Operazioni da dispositivi gemelli a cloud
@@ -56,7 +56,7 @@ Per le strutture di schemi specifiche, vedere [Informazioni sullo schema per la 
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Monitoraggio degli eventi di connessione e disconnessione di un dispositivo con bassa latenza
 
-Per monitorare dispositivi connettere e disconnettere gli eventi nell'ambiente di produzione, è consigliabile sottoscrivere i [ **dispositivi disconnessi** evento](iot-hub-event-grid.md#event-types) in griglia di eventi per ricevere avvisi e monitorare lo stato di connessione del dispositivo. Per informazioni su come integrare il dispositivo connesso e gli eventi dispositivo connesso dall'hub IoT nella soluzione IoT, usare questa [esercitazione](iot-hub-how-to-order-connection-state-events.md).
+Per monitorare gli eventi di connessione e disconnessione del dispositivo nell'ambiente di produzione, è consigliabile sottoscrivere l' [evento **Device disconnected** ](iot-hub-event-grid.md#event-types) in griglia di eventi per ottenere gli avvisi e monitorare lo stato di connessione del dispositivo. Per informazioni su come integrare il dispositivo connesso e gli eventi dispositivo connesso dall'hub IoT nella soluzione IoT, usare questa [esercitazione](iot-hub-how-to-order-connection-state-events.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

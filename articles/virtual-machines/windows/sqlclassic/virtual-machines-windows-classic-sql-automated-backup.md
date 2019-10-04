@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da40b635b0fc094275d8d46b8c5ad6d3d90bea24
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096300"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101819"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -67,7 +66,7 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico. Nella macchine virtuali classiche, per configurare queste impostazioni è necessario usare PowerShell.
 
-| Impostazione | Intervallo (impostazione predefinita) | DESCRIZIONE |
+| Impostazione | Intervallo (impostazione predefinita) | Descrizione |
 | --- | --- | --- |
 | **Backup automatico** |Enable/Disable (disabilitato) |Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2014 Standard o Enterprise. |
 | **Periodo di conservazione** |1-30 giorni (30 giorni) |Numero di giorni di conservazione di un backup. |

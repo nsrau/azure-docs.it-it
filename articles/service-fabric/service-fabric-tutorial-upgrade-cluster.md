@@ -3,7 +3,7 @@ title: Aggiornare il runtime Service Fabric in Azure | Microsoft Docs
 description: In questa esercitazione si apprenderà come usare PowerShell per aggiornare il runtime di un cluster di Service Fabric ospitato in Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bb3760879682f9fc828d2a43690d34afb110403
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046241"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598752"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric in Azure
 
@@ -55,7 +55,7 @@ Prima di iniziare questa esercitazione:
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in Azure
-* Configurare un ambiente di sviluppo Windows. Installare [Visual Studio 2017](https://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
+* Configurare un ambiente di sviluppo Windows. Installare [Visual Studio 2019](https://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -76,7 +76,7 @@ Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztes
     | Select-Object ClusterCodeVersion
 ```
 
-In alternativa, è possibile ottenere l'elenco di tutti i cluster nella sottoscrizione con il codice seguente:
+In alternativa, è possibile ottenere l'elenco di tutti i cluster nella sottoscrizione con l'esempio seguente:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ Questa esercitazione illustra come:
 > * Aggiornare il runtime del cluster
 > * Effettuare il monitoraggio dell'aggiornamento
 
-[!div class="checklist"]
-> * Ottenere la versione del runtime del cluster
-> * Aggiornare il runtime del cluster
-> * Effettuare il monitoraggio dell'aggiornamento
+Passare all'esercitazione successiva:
 
+> [!div class="nextstepaction"]
+> [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180756"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203187"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -28,19 +28,19 @@ Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse
 | Autorizzazione            | Admin | Sola lettura |
 |----------------       |-------|-----------|
 | Visualizza soluzione         | Sì   | Sì       |
-| Aggiornare avvisi         | Sì   | No         |
-| Eliminare avvisi         | Sì   | No         |
-| Creare dispositivi        | Sì   | No         |
-| Aggiornare dispositivi        | Sì   | No         |
-| Eliminare dispositivi        | Sì   | No         |
-| Creare gruppi di dispositivi  | Sì   | No         |
-| Aggiornare gruppi di dispositivi  | Sì   | No         |
-| Eliminare gruppi di dispositivi  | Sì   | No         |
-| Creazione di regole          | Sì   | No         |
-| Aggiornare regole          | Sì   | No         |
-| Eliminare regole          | Sì   | No         |
-| Creare processi           | Sì   | No         |
-| Aggiornare la gestione di SIM | Sì   | No         |
+| Aggiornare avvisi         | Sì   | No        |
+| Eliminare avvisi         | Sì   | No        |
+| Creare dispositivi        | Sì   | No        |
+| Aggiornare dispositivi        | Sì   | No        |
+| Eliminare dispositivi        | Sì   | No        |
+| Creare gruppi di dispositivi  | Sì   | No        |
+| Aggiornare gruppi di dispositivi  | Sì   | No        |
+| Eliminare gruppi di dispositivi  | Sì   | No        |
+| Creazione di regole          | Sì   | No        |
+| Aggiornare regole          | Sì   | No        |
+| Eliminare regole          | Sì   | No        |
+| Creare processi           | Sì   | No        |
+| Aggiornare la gestione di SIM | Sì   | No        |
 
 Per impostazione predefinita, l'utente che ha distribuito la soluzione viene assegnato automaticamente al ruolo **Admin** ed è proprietario di un'applicazione di Azure Active Directory. Come proprietario dell'applicazione, può anche assegnare ruoli ad altri utenti tramite il portale di Azure. Se si vuole consentire a un altro utente di assegnare ruoli nella soluzione, è necessario impostare anche tale utente come proprietario dell'applicazione nel portale di Azure.
 
@@ -91,11 +91,11 @@ I passaggi seguenti descrivono come aggiungere un ruolo a un'applicazione in Azu
 
 1. Trovare la **registrazione per l'app** relativa alla soluzione nel portale di Azure. Il nome dell'applicazione corrisponde a quello della soluzione di monitoraggio remoto. Nello screenshot seguente il nome visualizzato della soluzione e dell'applicazione è **contoso-rm4**.
 
-    ![Registrazione delle app](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registrazione delle app](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selezionare l'applicazione e quindi fare clic su **Manifesto**. È possibile visualizzare i due [ruoli di app](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) già definiti per l'applicazione:
 
-    ![Visualizzare il manifesto](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Visualizzare il manifesto](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Modificare il manifesto per aggiungere un ruolo denominato **ManageDevices**, come illustrato nel frammento di codice seguente. Per l'ID del nuovo ruolo è necessario specificare una stringa univoca, ad esempio un GUID. È possibile generare un nuovo GUID usando un servizio come [Online GUID Generator](https://www.guidgenerator.com/):
 

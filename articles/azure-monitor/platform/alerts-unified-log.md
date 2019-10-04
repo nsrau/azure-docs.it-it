@@ -1,19 +1,19 @@
 ---
 title: Avvisi del log in Monitoraggio di Azure
 description: Attivare messaggi di posta elettronica e notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni di query di analisi specificate per Avvisi di Azure.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/20/2019
-ms.author: vinagara
+ms.date: 5/31/2019
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345882"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677742"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -27,13 +27,13 @@ Un avviso di log è costituito da regole di ricerca log create per i [log di mon
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regole di avviso di ricerca log - Definizioni e tipi
 
-Le regole di ricerca log vengono create da Avvisi di Azure in modo da eseguire automaticamente le query di log specificate a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni tramite [gruppi di azioni](../../azure-monitor/platform/action-groups.md). Potrebbe essere necessario il ruolo di [Collaboratore di Monitoraggio di Azure](../../azure-monitor/platform/roles-permissions-security.md) per creare, modificare e aggiornare gli avvisi dei log, oltre ai diritti di accesso ed esecuzione di query per le destinazioni dell'analisi in una regola di avviso o una query di avviso. Se l'utente che crea non ha accesso a tutti i database di destinazione per l'analisi nella regola di avviso o nella query di avvisi, la creazione della regola può avere esito negativo e la regola di avviso dei log verrà eseguita con risultati parziali.
+Le regole di ricerca log vengono create da Avvisi di Azure in modo da eseguire automaticamente le query di log specificate a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni tramite [gruppi di azioni](../../azure-monitor/platform/action-groups.md). Potrebbe essere necessario il ruolo di [Collaboratore di Monitoraggio di Azure](../../azure-monitor/platform/roles-permissions-security.md) per creare, modificare e aggiornare gli avvisi dei log, oltre ai diritti di accesso ed esecuzione di query per le destinazioni dell'analisi in una regola di avviso o una query di avviso. Se la creazione dell'utente non ha accesso a tutte le destinazioni di analisi nella regola di avviso o nella query di avviso, la creazione della regola potrebbe non riuscire o la regola di avviso del log verrà eseguita con risultati parziali.
 
 Le regole di ricerca log sono definite dai dettagli seguenti:
 
 - **Query di log**.  La query eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query vengono usati per determinare se deve essere attivato un avviso. La query di analisi può essere applicata a un'area di lavoro di Log Analytics o un'app di Application Insights specifica e addirittura a [più risorse di Log Analytics e Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), purché l'utente abbia i diritti di accesso e di query su tutte le risorse. 
     > [!IMPORTANT]
-    > Gli avvisi dei log **non** supportano l'uso delle [funzioni](../log-query/functions.md) per motivi di sicurezza. Inoltre, le [query tra più risorse](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sono supportate solo negli avvisi dei log per Application Insights e negli avvisi dei log per [Log Analytics configurati con l'API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md).
+    > supporto [delle query tra risorse](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) negli avvisi del log per Application Insights e avvisi del log per [log Analytics configurate solo con l'API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) .
 
     Alcuni comandi e combinazioni di analisi non sono compatibili con l'uso negli avvisi dei log. Per informazioni più dettagliate, vedere [Query per avvisi dei log in Monitoraggio di Azure](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -45,8 +45,8 @@ Le regole di ricerca log sono definite dai dettagli seguenti:
 
 Le regole di ricerca log, sia per i [log di monitoraggio di Azure](../../azure-monitor/learn/tutorial-viewdata.md) sia per [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
 
-- **[Numero di risultati](#number-of-results-alert-rules)**. Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
-- **[Unità di misura della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
+- **[Numero di risultati](#number-of-results-alert-rules)** . Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
+- **[Unità di misura della metrica](#metric-measurement-alert-rules)** .  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
 
 Di seguito sono riportate le differenze tra i tipi di regola di avviso.
 
@@ -76,7 +76,7 @@ L'avviso esegue la query ogni 5 minuti, con 30 minuti di dati, per cercare tutti
 
 ### <a name="metric-measurement-alert-rules"></a>Regole di avviso Unità di misura della metrica
 
-Le regole di avviso **Unità di misura della metrica** creano un avviso per ogni oggetto in una query con un valore che supera una soglia specificata.  Presentano le differenze seguenti dalle regole di avviso **Numero di risultati**.
+Le regole di avviso di **misurazione delle metriche** creano un avviso per ogni oggetto in una query con un valore che supera una soglia specificata e una condizione di trigger specificata. Diversamente dalle regole **di avviso numero di risultati** , le regole di avviso di **misurazione delle metriche** funzionano quando il risultato dell'analisi fornisce una serie temporale. Presentano le differenze seguenti dalle regole di avviso **Numero di risultati**.
 
 - **Funzione di aggregazione**: Determina il calcolo che viene eseguito e potenzialmente un campo numerico da aggregare.  Ad esempio, **count()** restituisce il numero di record nella query, **avg(CounterValue)** restituisce la media del campo CounterValue nell'intervallo. La funzione di aggregazione nella query deve essere denominata: AggregatedValue e fornire un valore numerico. 
 
@@ -127,16 +127,16 @@ Dato che l'avviso è configurato per attivarsi nel caso in cui il totale delle v
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regola di avviso di ricerca log - attivazione e stato
 
-La regola di avviso di ricerca log funziona sulla logica dichiarata dall'utente in base alla configurazione e alla query di analisi personalizzata usata. Questo perché la logica della condizione esatta o il motivo per cui dovrebbe attivarsi la regola di avviso è incapsulato in una query di Analytics, che può differire in ogni regola di avviso di log. Il servizio Avvisi di Azure dispone di poche informazioni sulla specifica causa radice sottostante all'interno dei risultati del log quando viene soddisfatta o superata la condizione di soglia della regola di avviso di ricerca log. Gli avvisi di log vengono quindi definiti come senza stato e generati ogni volta che il risultato della ricerca log è sufficiente a superare la soglia specificata negli avvisi dei log del tipo di condizione *numero di risultati* o *unità di misurazione*. Le regole di avviso di log continueranno inoltre a essere generate, fintanto che la condizione di avviso viene soddisfatta dal risultato della query di analisi personalizzata specificata; senza l'avviso tutto viene risolto. Poiché la logica della causa radice esatta dell'errore di monitoraggio è mascherata nella query di analisi specificata dall'utente, non esiste modo con cui Avvisi di Azure deduca se il risultato della ricerca log che non soddisfa la soglia indica la risoluzione del problema.
+La regola di avviso di ricerca log funziona sulla logica dichiarata dall'utente in base alla configurazione e alla query di analisi personalizzata usata. Poiché la logica di monitoraggio che include la condizione esatta o il motivo per cui deve essere attivata la regola di avviso è incapsulata in una query di analisi, che può variare in ogni regola di avviso del log. Gli avvisi di Azure hanno informazioni scarse sullo scenario di causa radice (o) specifico sottostante che viene valutato quando la condizione di soglia della regola di avviso di ricerca log viene soddisfatta o superata. Gli avvisi del log vengono quindi definiti senza stato. E le regole di avviso del log continueranno a essere attivate, purché la condizione di avviso venga soddisfatta dal risultato della query di analisi personalizzata fornita. Senza l'avviso ogni viene risolto, perché la logica dell'esatta causa radice di un errore di monitoraggio viene nascosta nella query di analisi fornita dall'utente. Non esiste attualmente alcun meccanismo per gli avvisi di monitoraggio di Azure per dedurre definitivamente la causa principale da risolvere.
 
-Supponiamo ora di avere una regola di avviso di log denominata *Contoso-Log-Alert*, come da configurazione nell'[esempio presentato per l'avviso di log di tipo Numero di risultati](#example-of-number-of-records-type-log-alert). 
-- Alle 13.05, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 0 record: sotto la soglia e quindi non viene generato alcun avviso. 
-- Alla successiva iterazione che avviene alle 13.10, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 5 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) associato. 
-- Alle 13.15, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 2 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) associato.
-- Alla successiva iterazione delle 13:20, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto di nuovo 0 record: sotto la soglia e quindi non viene generato alcun avviso.
+Ci consentirà di vedere lo stesso con un esempio pratico. Si supponga di disporre di una regola di avviso del log denominata *Contoso-Log-Alert*, in base alla configurazione nell' [esempio fornito per il tipo di avviso del log di tipo numero di risultati](#example-of-number-of-records-type-log-alert) , in cui la query di avviso personalizzata è progettata per cercare il codice risultato 500 nei log.
 
-Nel caso sopra elencato, tuttavia, alle 13.15 Avvisi di Azure non può determinare che i problemi sottostanti incontrati alle 13:10 persistono e se si sono verificati errori del tutto nuovi. Poiché la query specificata dall'utente potrebbe prendere in considerazione i record precedenti, Avvisi di Azure non può avere certezze. Per sicurezza, quando Contoso-Log-Alert viene eseguito alle 13:15, viene nuovamente generato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) configurato. Alle 13.20, quando non vengono riscontrati record, Avvisi di Azure non può essere certo che la causa dei record sia stata risolta. Contoso-Log-Alert non verrà pertanto impostato su Risolto nel dashboard di Avvisi di Azure e/o non verranno inviate notifiche di risoluzione dell'avviso.
+- Alle 1:05 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca log hanno restituito zero record con il codice risultato 500. Poiché zero è al di sotto della soglia e l'avviso non viene generato.
+- Alla successiva iterazione alle 1:10 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca nei log hanno fornito cinque record con codice risultato 500. Poiché cinque supera la soglia e l'avviso viene generato con le azioni associate, viene attivato.
+- Alle 1:15 PM quando contoso-Log-Alert è stato eseguito da avvisi di Azure, i risultati della ricerca log fornivano due record con codice risultato 500. Poiché due superano la soglia e l'avviso viene generato con le azioni associate viene attivato.
+- Ora alla successiva iterazione alle 1:20 PM quando contoso-Log-Alert è stato eseguito da avviso di Azure, i risultati della ricerca nei log sono stati restituiti con il codice risultato 500. Poiché zero è al di sotto della soglia e l'avviso non viene generato.
 
+Tuttavia, nel caso indicato in precedenza, alle 1:15 PM-gli avvisi di Azure non possono determinare che i problemi sottostanti visualizzati a 1:10 vengono mantenuti e in caso di errori di rete. Poiché la query fornita dall'utente può tenere conto dei record precedenti, è possibile che gli avvisi di Azure siano sicuri. Poiché la logica per l'avviso è incapsulata nella query di avviso, è possibile che i due record con codice risultato 500 visualizzato a 1:15 PM non siano già visibili alle 1:10 PM. Quindi, per errare sul lato della cautela, quando contoso-Log-Alert viene eseguito alle 1:15 PM, l'azione configurata viene nuovamente attivata. Ora alle 1:20, quando vengono visualizzati zero record con il codice risultato 500, gli avvisi di Azure non possono essere certi che la causa del codice di risultato 500 è stata rilevata alle 1:10 e 1:15 PM è stata risolta e gli avvisi di monitoraggio di Azure possono dedurre in modo sicuro i problemi di errore 500 che non si verificheranno per lo stesso motivo di nuovo. Di conseguenza, contoso-Log-Alert non cambierà in risolto nel dashboard degli avvisi di Azure e/o le notifiche inviate indicando la risoluzione dell'avviso. In alternativa, l'utente che riconosce la condizione esatta o il motivo per la logica incorporata nella query di analisi può [contrassegnare l'avviso come chiuso](alerts-managing-alert-states.md) se necessario.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione degli avvisi dei log
 
@@ -154,6 +154,8 @@ Per rimuovere le risorse scheduleQueryRules nascoste create per le regole di avv
 
 - Può [cambiare la preferenza dell'API per le regole di avviso nell'area di lavoro di Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e, senza perdere le regole di avviso o il monitoraggio, passare all'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) conforme ad Azure Resource Manager. In questo modo non è più necessario creare pseudo-regole di avviso nascoste per la fatturazione.
 - Se l'utente non vuole cambiare la preferenza dell'API, dovrà **eliminare** la pianificazione e l'azione di avviso originali usando l'[API legacy Log Analytics](api-alerts.md) o eliminare nel [portale di Azure la regola di avviso dei log originale](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal).
+
+Inoltre, per le risorse scheduleQueryRules nascoste create per la fatturazione di regole di avviso tramite l' [API log Analytics legacy](api-alerts.md), qualsiasi operazione di modifica, ad esempio PUT, avrà esito negativo. Poiché le pseudo regole del tipo `microsoft.insights/scheduledqueryrules` hanno lo scopo di addebitare le regole di avviso create usando l' [API log Analytics legacy](api-alerts.md). Qualsiasi modifica della regola di avviso deve essere eseguita usando l' [api log Analytics legacy](api-alerts.md) (o) l'utente può [cambiare la preferenza API per le regole di avviso per l'uso dell'](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C++ (macOS) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in macOS con Speech SDK
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12abb7fb6d5e93e226ae539f8161566e3c30bd65
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012349"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803322"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su macOS con Speech SDK
 
@@ -30,8 +30,6 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 ## <a name="install-speech-sdk"></a>Installare Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
 
 Speech SDK per macOS è disponibile per il download come bundle framework compresso in https://aka.ms/csspeech/macosbinary.
 
@@ -82,7 +80,7 @@ Scaricare e installare SDK come indicato di seguito:
 * Eseguire il comando seguente per compilare l'applicazione.
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
@@ -111,8 +109,7 @@ Scaricare e installare SDK come indicato di seguito:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)
-

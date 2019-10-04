@@ -1,24 +1,22 @@
 ---
 title: API per l'automazione delle prenotazioni di Azure | Microsoft Docs
 description: Informazioni sulle API di Azure utilizzabili per ottenere informazioni sulle prenotazioni a livello di codice.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 50de654fb9222951a7380a322160496421006e7a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371207"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719674"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
 
@@ -32,7 +30,38 @@ Usare l'API Raccomandazioni di prenotazione per ottenere consigli su quale piano
 
 ## <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
-Attualmente non è possibile acquistare una prenotazione a livello di codice. Per acquistare una prenotazione, vedere gli articoli seguenti:
+È possibile acquistare prenotazioni di Azure e piani software a livello di codice con le API REST. Per altre informazioni, vedere l'[API Ordine di prenotazione - Acquisto](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Ecco una richiesta di esempio per l'acquisto tramite l'API REST:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Corpo della richiesta:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+È possibile acquistare una prenotazione anche nel portale di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
 Piani di servizio:
 - [Macchina virtuale](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
@@ -55,7 +84,7 @@ Se si ritiene che le prenotazioni dell'organizzazione siano sottoutilizzate:
 - Assicurarsi che le macchine virtuali create dall'organizzazione corrispondano alle dimensioni delle macchine virtuali riportate nella prenotazione.
 - Assicurarsi che la flessibilità delle dimensioni istanza sia attiva. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Modificare l'ambito della prenotazione impostandolo su condiviso in modo che venga applicato più su larga scala. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Scambiare la quantità inutilizzata. Per altre informazioni, vedere [Gestire le prenotazioni - Annullamenti e scambi](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Scambiare la quantità inutilizzata. Per altre informazioni, vedere [Gestire le prenotazioni](billing-manage-reserved-vm-instance.md).
 
 ## <a name="give-access-to-reservations"></a>Concedere l'accesso alle prenotazioni
 
@@ -75,7 +104,7 @@ Per unire due prenotazioni in una prenotazione, usare l'API [Reservation - Merge
 
 ## <a name="change-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
 
-L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+L'ambito di una prenotazione può essere una singola sottoscrizione, un singolo gruppo di risorse o tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione o un singolo gruppo di risorse, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si elimina o si sposta la sottoscrizione o il gruppo di risorse, la prenotazione non verrà utilizzata.  Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione. È possibile selezionare l'ambito al momento dell'acquisto o modificarlo in qualsiasi momento dopo l'acquisto. Per altre informazioni, vedere [Gestire le prenotazioni - Modificare l'ambito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Per modificare l'ambito a livello di codice, usare l'API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 

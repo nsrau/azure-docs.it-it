@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7bd554896d739a567d04e7b978fba72960762805
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60365182"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
 
@@ -41,7 +41,7 @@ Accedere all'ambiente Azure classico e quindi ottenere la chiave servizio.
    Add-AzureAccount
    ```
 
-2.  Selezionare la sottoscrizione di Azure appropriata.
+2. Selezionare la sottoscrizione di Azure appropriata.
 
    ```powershell
    Select-AzureSubscription "<Enter Subscription Name here>"
@@ -70,7 +70,7 @@ Accedere all'ambiente Resource Manager e creare un nuovo gruppo di risorse.
    Connect-AzAccount
    ```
 
-2.  Selezionare la sottoscrizione di Azure appropriata.
+2. Selezionare la sottoscrizione di Azure appropriata.
 
    ```powershell
    Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription

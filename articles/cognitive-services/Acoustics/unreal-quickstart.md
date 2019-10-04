@@ -3,26 +3,27 @@ title: Avvio rapido per Progetto Acustica con Unreal
 titlesuffix: Azure Cognitive Services
 description: Usando il contenuto di esempio, sperimentare i controlli di progettazione di Progetto Acustica in Unreal e Wwise ed eseguire la distribuzione in Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492406"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933046"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Avvio rapido per Progetto Acustica con Unreal/Wwise
 Questo argomento di avvio rapido consente di sperimentare i controlli di progettazione di Progetto Acustica usando il contenuto di esempio fornito per Unreal Engine e Wwise.
 
-Requisiti software:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Requisiti software per l'uso del contenuto di esempio:
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Scaricare il pacchetto di esempio
 Scaricare il [pacchetto di esempio Unreal + Wwise per Progetto Acustica](https://www.microsoft.com/download/details.aspx?id=58090). Il pacchetto di esempio contiene un progetto Unreal Engine, il progetto Wwise per il progetto Unreal e il plug-in Wwise per Progetto Acustica.
@@ -50,14 +51,20 @@ Il plug-in Unreal per Progetto Acustica richiede l'esposizione di comportamenti 
 
     ![Screenshot della finestra di Esplora risorse di Windows che mostra lo script per distribuire patch al progetto Wwise](media/patch-wwise-script.png)
 
-* Se DirectX SDK non è installato, è necessario impostare come commento la riga che contiene DXSDK_DIR in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se DirectX SDK non è installato, a seconda della versione di Wwise in uso, può essere necessario impostare come commento la riga che contiene `DXSDK_DIR` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Screenshot dell'editor di codice che mostra DXSDK impostato come commento](media/directx-sdk-comment.png)
+
+* Se si esegue la compilazione con Visual Studio 2019, per ovviare a un errore di collegamento con Wwise modificare manualmente il valore predefinito di `VSVersion` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` specificando `vc150`:
+
+    ![Screenshot dell'editor di codice con la modifica di VSVersion in vc150](media/vsversion-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Aprire il progetto Unreal. 
 Quando viene chiesto di ricompilare i moduli, fare clic su Yes (Sì).
 
-Se non è possibile aprire il progetto in caso di errori di compilazione, verificare che la versione installata del plug-in Wwise per Progetto Acustica sia uguale a quella di Wwise usata nel progetto di esempio di Progetto Acustica.
+>Se non è possibile aprire il progetto in caso di errori di compilazione, verificare che la versione installata del plug-in Wwise per Progetto Acustica sia uguale a quella di Wwise usata nel progetto di esempio di Progetto Acustica.
+
+>Se si usa una versione di [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) precedente alla 2019.1, non sarà possibile generare librerie audio con il progetto di esempio di Progetto Acustica.  Per un uso corretto è necessario integrare Wwise versione 2019.1 nel progetto di esempio.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Sperimentare i controlli di progettazione di Progetto Acustica
 Ascoltare l'audio della scena facendo clic sul pulsante di riproduzione nell'editor Unreal. Sul desktop usare i tasti W, A, S, D e il mouse per spostarsi. Per visualizzare i tasti di scelta rapida per altri controlli, premere **F1**. Ecco alcune attività di progettazione da provare:

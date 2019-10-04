@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728577"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180225"
 ---
 ## <a name="c-program-example"></a>Esempio di programma C#
 
@@ -37,7 +37,7 @@ Il diagramma entità-relazione mostra la relazione tra le due tabelle. I valori 
 
 Il programma C# è logicamente un unico file con estensione cs ed è suddiviso fisicamente in diversi blocchi di codice, in modo da semplificare la comprensione di ogni blocco. Per compilare ed eseguire il programma, seguire questa procedura:
 
-1. Creare un progetto C# in Visual Studio. Il tipo di progetto deve essere un'applicazione *console*, da un elemento simile alla gerarchia seguente: **Modelli** > **Visual C#** > **Desktop classico di Windows** > **App console (.NET Framework)**.
+1. Creare un progetto C# in Visual Studio. Il tipo di progetto deve essere un'applicazione *console*, da un elemento simile alla gerarchia seguente: **Modelli** > **Visual C#**  > **Desktop classico di Windows** > **App console (.NET Framework)** .
 
 1. Nel file *Program.cs* sostituire le righe iniziali del codice con i passaggi seguenti:
 

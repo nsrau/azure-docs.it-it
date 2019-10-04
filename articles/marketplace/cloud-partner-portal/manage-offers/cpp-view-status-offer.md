@@ -1,31 +1,24 @@
 ---
-title: Visualizzare lo stato delle offerte di Marketplace - Azure Marketplace | Microsoft Docs
+title: Visualizzare lo stato delle offerte del marketplace | Azure Marketplace
 description: Visualizzare lo stato delle offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064313"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visualizzare lo stato di pubblicazione delle offerte di Azure Marketplace e AppSource
 
 Dopo aver creato un'offerta e in particolare durante il processo di pubblicazione, è possibile visualizzare lo stato dell'offerta nel portale Cloud Partner.  Lo stato di pubblicazione generale è disponibile nelle pagine [**Tutte le offerte**](../portal-tour/cpp-all-offers-page.md) e [**Approvazioni**](../portal-tour/cpp-approvals-page.md) del portale.  Per ogni offerta deve essere visualizzato uno degli indicatori di stato seguenti.  
 
-|            Stato              |   DESCRIZIONE                                                           |
+|            Stato              |   Descrizione                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | L'offerta è stata creata, ma processo di pubblicazione non è iniziato.            |
 | **Pubblicazione in corso**        | L'offerta sta attraversando le varie fasi del processo di pubblicazione.   |
@@ -46,7 +39,7 @@ La scheda **Stato** dell'esempio successivo relativa a un servizio di consulenza
 
 ![Scheda Stato relativa a un servizio di consulenza contenente un errore](./media/consulting-service-error.png)
 
-La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  È presente un collegamento ipertestuale all'elemento VSTS che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
+La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  Contiene un collegamento ipertestuale all'elemento di DevOps di Azure che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
 
 ![Scheda Stato relativa a un'app di Azure contenente un problema di revisione](../azure-applications/media/status-tab-ms-review.png)
 

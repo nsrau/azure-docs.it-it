@@ -1,21 +1,21 @@
 ---
-title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (Node.js) | Microsoft Docs
+title: 'Guida introduttiva: Inviare dati di telemetria ad Azure IoT (Node.js)'
 description: In questa guida introduttiva si eseguono due applicazioni Node.js di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: a4f0761af7da1add6a295b7627783daae6fac07c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: mvc, seo-javascript-september2019
+ms.date: 06/21/2019
+ms.openlocfilehash: 859bb580f5fa974eec70c120297f094247fa2a9b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007093"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967195"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario avere Node.js v4.x.x o versione successiva nel computer di sviluppo.
+Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
 
 È possibile scaricare Node.js per più piattaforme da [nodejs.org](https://nodejs.org).
 
@@ -86,12 +86,12 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name YourIoTHubName --output table
+    az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
     ```
 
     Annotare la stringa di connessione del servizio, che avrà questo aspetto:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Il valore verrà usato più avanti in questa guida introduttiva. La stringa di connessione del servizio è diversa dalla stringa di connessione del dispositivo.
 

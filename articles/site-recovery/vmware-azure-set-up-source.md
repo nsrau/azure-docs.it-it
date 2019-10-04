@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 075f86b24e2915d9689db8097889a830bade74c5
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723427"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -69,7 +69,7 @@ Escludere le cartelle seguenti dal software antivirus per la replica senza probl
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - Directory di installazione del server ASR. Ad esempio:  E:\Programmi (x86)\Microsoft Azure Site Recovery
+  - Directory di installazione del server ASR. Ad esempio: E:\Programmi (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Se il software antivirus è attivo sul server di elaborazione scale-out/database di destinazione master
 

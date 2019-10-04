@@ -1,21 +1,21 @@
 ---
-title: Procedure consigliate per Query Store in Database di Azure per PostgreSQL
-description: Questo articolo illustra le procedure consigliate per Query Store in Database di Azure per PostgreSQL.
+title: Query Store procedure consigliate nel database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive le procedure consigliate per la Query Store nel database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: af68d5cdc891a8c924ca493d8e798edaa4670ab5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 5/6/2019
+ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483996"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764226"
 ---
 # <a name="best-practices-for-query-store"></a>Procedure consigliate per Query Store
 
-**Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
+**Si applica a:** Database di Azure per PostgreSQL: versioni a server singolo 9,6, 10, 11
 
 Questo articolo illustra le procedure consigliate per usare Query Store in Database di Azure per PostgreSQL.
 
@@ -24,9 +24,9 @@ Consentire a Query Store di acquisire i dati importanti.
 
 |**pg_qs.query_capture_mode** | **Scenario**|
 |---|---|
-|_Tutti_  |Analizzare l'intero carico di lavoro esaminando tutte le query, la rispettiva frequenza di esecuzione e altre statistiche. Identificare le nuove query nel carico di lavoro. Rilevare se le query ad hoc vengono usate per identificare le opportunità di parametrizzazione automatica o dell'utente. La modalità _All_ comporta un costo maggiore per il consumo delle risorse. |
+|_Tutti_  |Analizzare l'intero carico di lavoro esaminando tutte le query, la rispettiva frequenza di esecuzione e altre statistiche. Identificare le nuove query nel carico di lavoro. Rilevare se vengono usate query ad hoc per identificare le opportunità di parametrizzazione automatica o dell'utente. La modalità _All_ comporta un costo maggiore per il consumo delle risorse. |
 |_Top_  |Concentrare l'attenzione sulle query più frequenti, ovvero quelle emesse dai client.
-|_Nessuno_ |Sono già stati acquisiti un set di query e un intervallo di tempo da analizzare e si vogliono eliminare eventuali distrazioni causate da altre query. La modalità _None_ è adatta agli ambienti di test e di benchmark. La modalità _None_ deve essere usata con attenzione perché potrebbe impedire di tenere traccia di nuove query importanti e di ottimizzarle. Non è possibile ripristinare i dati negli intervalli di tempo trascorsi. |
+|_None_ |Sono già stati acquisiti un set di query e un intervallo di tempo da analizzare e si vogliono eliminare eventuali distrazioni causate da altre query. La modalità _None_ è adatta agli ambienti di test e di benchmark. La modalità _None_ deve essere usata con attenzione perché potrebbe impedire di tenere traccia di nuove query importanti e di ottimizzarle. Non è possibile ripristinare i dati negli intervalli di tempo trascorsi. |
 
 Query Store include anche un archivio per le statistiche di attesa. Esiste un'altra modalità di acquisizione delle query che regola le statistiche di attesa: **pgms_wait_sampling.query_capture_mode** può essere impostata su _none_ o su _all_. 
 

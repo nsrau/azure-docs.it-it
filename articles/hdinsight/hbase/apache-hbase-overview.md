@@ -1,26 +1,25 @@
 ---
-title: Informazioni su HBase in Azure HDInsight
+title: Informazioni su Apache HBase in Azure HDInsight
 description: Introduzione ad Apache HBase in HDInsight, un database NoSQL basato su Hadoop. Informazioni sui casi di utilizzo e confronto di HBase con altri cluster Hadoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/22/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: e48a0c69dc04325c3f3c2ff7b73a26c6366816c9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337347"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137450"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Informazioni su Apache HBase in HDInsight: un database NoSQL che fornisce funzionalità di tipo BigTable per Apache Hadoop
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Informazioni su Apache HBase in Azure HDInsight
+
 [Apache HBase](https://hbase.apache.org/) è un database NoSQL open source basato su [Apache Hadoop](https://hadoop.apache.org/) e modellato su [Google BigTable](https://cloud.google.com/bigtable/). HBase fornisce accesso casuale e coerenza assoluta per quantità elevate di dati non strutturati e semistrutturati in un database privo di schema organizzato per famiglie di colonne.
 
 Dal punto di vista dell'utente, HBase è simile a un database. I dati sono archiviati nelle righe e nelle colonne di una tabella e i dati di ogni riga sono raggruppati in base al tipo di colonna. HBase è un database privo di schema, poiché non è necessario definire le colonne o i tipi di dati archiviati nelle colonne prima dell'uso. Il codice open source offre scalabilità lineare, in modo da gestire petabyte di dati in migliaia di nodi. Può contare su ridondanza dei dati, elaborazione batch e altre funzionalità offerte dalle applicazioni distribuite nell'ecosistema di Hadoop.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Modalità di implementazione di Apache HBase in Azure HDInsight
 
@@ -51,12 +50,7 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
     Le applicazioni possono essere eseguite su HBase, usato come un archivio dati. Alcuni esempi sono Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji e Titan. Le applicazioni possono anche essere integrate con HBase, ad esempio [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/) e [Apache Drill](https://drill.apache.org/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Introduzione all'uso di Apache HBase con Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Creare cluster HDInsight nella rete virtuale di Azure](./apache-hbase-provision-vnet.md)
 * [Configurare la replica geografica di Apache HBase in HDInsight](apache-hbase-replication.md)
-* [Usare Apache Maven per compilare applicazioni Java che usano Apache HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>Vedere anche
-* [Apache HBase](https://hbase.apache.org/)
-* [Guida di riferimento di Apache HBase](https://hbase.apache.org/book.html)
-* [Bigtable: un sistema di archiviazione distribuita per dati strutturati](https://research.google.com/archive/bigtable.html)

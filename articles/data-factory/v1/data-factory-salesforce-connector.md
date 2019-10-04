@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309176"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839602"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-salesforce-connector.md)
 > * [Versione 2 (corrente)](../connector-salesforce.md)
 
@@ -52,7 +52,7 @@ In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQU
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -70,7 +70,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **Salesforce**. |Sì |
-| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> -Il valore predefinito è "https:\//login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No  |
+| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> -Il valore predefinito è "https:\//login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No |
 | username |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente. |Sì |
 | securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |
@@ -107,11 +107,11 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 
 ## <a name="query-tips"></a>Suggerimenti di query
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recupero di dati tramite la clausola where nella colonna DateTime
-Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio: 
+Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
 
 * **Esempio SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Esempio SQL**:
-    * **Uso della procedura di copia guidata per specificare la query:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Uso della procedura di copia guidata per specificare la query:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Uso della modifica JSON per specificare la query (usare correttamente il carattere di escape):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recupero di dati dal report di Salesforce
@@ -124,7 +124,7 @@ Per eseguire una query sui record eliminati temporaneamente dal Cestino di Sales
 * Per eseguire query su tutti i record inclusi quelli esistenti ed eliminati, specificare "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Esempio di JSON: Copiare dati da Salesforce a BLOB di Azure
-L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+Nell'esempio seguente fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando il [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 Ecco gli elementi di Data Factory che è necessario creare per implementare lo scenario. Le sezioni che seguono l'elenco forniscono informazioni dettagliate su questi passaggi.
 
@@ -286,24 +286,24 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 | Tipo Salesforce | Tipo basato su .NET |
 | --- | --- |
-| Numero automatico |string |
-| Casella di controllo |boolean |
-| Valuta |Decimal |
-| Data |Datetime |
-| Data/ora |Datetime |
-| Email |string |
-| ID |string |
-| Relazione di ricerca |string |
-| Elenco a discesa seleziona multipla |string |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Data/ora |DateTime |
+| Email |String |
+| ID |String |
+| Relazione di ricerca |String |
+| Elenco a discesa seleziona multipla |String |
 | Number |Decimal |
-| Percentuale |Decimal |
-| Telefono |string |
-| Elenco a discesa |string |
-| Text |string |
-| Area di testo |string |
-| Area di testo (Long) |string |
-| Area di testo (Rich) |string |
-| Testo (Crittografato) |string |
+| Percent |Decimal |
+| Telefono |String |
+| Elenco a discesa |String |
+| Text |String |
+| Area di testo |String |
+| Area di testo (Long) |String |
+| Area di testo (Rich) |String |
+| Testo (Crittografato) |String |
 | URL |String |
 
 > [!NOTE]

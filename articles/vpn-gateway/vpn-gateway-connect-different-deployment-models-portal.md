@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 722907328fe17c4116f4f8d948e081f9582ca712
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099172"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266568"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -79,7 +78,7 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Sezione 1: Configurare le impostazioni di una rete virtuale classica
 
@@ -144,20 +143,13 @@ In questa sezione vengono creati il gateway di rete virtuale e il gateway di ret
 * Nome subnet = Subnet-1 <br>
 * Intervallo di indirizzi = 192.168.1.0/24 <br>
 
-
 Se non si ha una rete virtuale di Resource Manager e si esegue questa procedura come esercizio, creare una rete virtuale seguendo la procedura descritta in [Creare una rete virtuale](../virtual-network/quick-create-portal.md) e usando i valori di esempio.
 
-### <a name="2-create-a-gateway-subnet"></a>2. Creare una subnet del gateway
+### <a name="creategw"></a>2. Creare un gateway di rete virtuale
 
-**Valore di esempio:** GatewaySubnet = 192.168.0.0/26
+Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
 
-Prima di creare un gateway di rete virtuale è necessario creare una subnet del gateway. Creare una subnet del gateway con conteggio CIDR /28 o superiore (/27, /26 e così via). Se si crea questa configurazione come esercizio, è possibile usare valori di esempio.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Creare un gateway di rete virtuale
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Valori di esempio:**
 
@@ -167,18 +159,21 @@ Prima di creare un gateway di rete virtuale è necessario creare una subnet del 
 * SKU = VpnGw1 <br>
 * Località = Stati Uniti orientali <br>
 * Rete virtuale = RMVNet <br>
+* GatewaySubnet = 192.168.0.0/26 <br>
 * Prima configurazione IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4. Creare un gateway di rete locale
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Creare un gateway di rete locale
 
 **Valori di esempio:** Gateway di rete locale = ClassicVNetLocal
 
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
-| RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|
 
 Il gateway di rete locale specifica l'intervallo di indirizzi e l'indirizzo IP pubblico associati alla rete virtuale classica e al relativo gateway di rete virtuale. Se si eseguono questi passaggi come esercizio, fare riferimento ai valori di esempio.
 

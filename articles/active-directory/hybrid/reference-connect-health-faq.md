@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62096121"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -67,10 +67,10 @@ Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezio
 
 | Ruoli | Funzionalità | Supportato nel cloud di Azure in Germania |
 | ------ | --------------- | --- |
-| Connect Health per la sincronizzazione | Monitoraggio/informazioni dettagliate/avvisi/analisi | No  |
-|  | Report degli errori di sincronizzazione | Sì |
-| Connect Health per file system distribuito di Azure | Monitoraggio/informazioni dettagliate/avvisi/analisi | No  |
-| Connect Health per ADDS | Monitoraggio/informazioni dettagliate/avvisi/analisi | No  |
+| Connect Health per la sincronizzazione | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
+|  | Report degli errori di sincronizzazione | Yes |
+| Connect Health per file system distribuito di Azure | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
+| Connect Health per ADDS | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
 
 Per garantire la connettività degli agenti di Connect Health per la sincronizzazione, configurare il [requisito di installazione](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) di conseguenza.
 
@@ -95,7 +95,7 @@ I numeri seguenti sono approssimativi:
 
 **D: È necessario riavviare i server durante l'installazione degli agenti di Azure AD Connect Health?**
 
- No. Per l'installazione degli agenti non è necessario il riavvio del server. L'installazione di alcuni passaggi preliminare può richiedere tuttavia un riavvio del server.
+No. Per l'installazione degli agenti non è necessario il riavvio del server. L'installazione di alcuni passaggi preliminare può richiedere tuttavia un riavvio del server.
 
 In Windows Server 2008 R2, ad esempio, l'installazione di .NET 4.5 Framework richiede un riavvio del server.
 
@@ -112,7 +112,7 @@ Se è necessario configurare un proxy durante la registrazione dell'agente, modi
 
 **D: Il servizio Azure AD Connect Health supporta l'autenticazione di base per la connessione ai proxy HTTP?**
 
- No. Non è attualmente supportato alcun meccanismo per specificare in modo arbitrario un nome utente o una password per l'autenticazione di base.
+No. Non è attualmente supportato alcun meccanismo per specificare in modo arbitrario un nome utente o una password per l'autenticazione di base.
 
 **D: Quali porte del firewall è necessario aprire per garantire il funzionamento dell'agente di Azure AD Connect Health?**
 

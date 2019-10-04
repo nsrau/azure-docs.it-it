@@ -12,17 +12,16 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fdbd77db349eed62af2eb8cf539ef749217a187a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899129"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066677"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nel Servizio app di Azure
 Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle app ospitate nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
@@ -83,7 +82,7 @@ Per accedere alla diagnostica del servizio app, passare alla app del servizio ap
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio app include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app.
 
-È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/**.
+È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/** .
 
 Elementi forniti dalla console Kudu:
 
@@ -102,14 +101,14 @@ Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post d
 #### <a name="scale-the-app"></a>Ridimensionare l'app
 Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effettiva è possibile modificare la scalabilità in cui è in esecuzione l'applicazione. Aumentare le prestazioni di un'app implica due azioni correlate: passare a un piano tariffario superiore e configurare determinate impostazioni una volta adottato il nuovo piano.
 
-Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel Servizio app di Azure](web-sites-scale.md).
+Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel Servizio app di Azure](manage-scale-up.md).
 
 È anche possibile scegliere di eseguire l'applicazione in più di un'istanza. In questo modo, non solo si ottiene una maggiore capacità di elaborazione, ma si può usufruire della tolleranza di errore. Se il processo si arresta in un'istanza, l'altra istanza continuerà a gestire le richieste.
 
 È possibile impostare il ridimensionamento manuale o automatico.
 
 #### <a name="use-autoheal"></a>Usare la funzionalità AutoHeal
-La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app. Si noti che queste impostazioni funzionano allo stesso modo anche se l'applicazione non .NET.
+La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app. Si noti che queste impostazioni funzionano allo stesso modo anche se l'applicazione non è .NET.
 
 Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

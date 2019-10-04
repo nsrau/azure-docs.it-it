@@ -1,25 +1,18 @@
 ---
-title: Presentazione del portale Cloud Partner di Azure | Microsoft Docs
-description: .
+title: Presentazione del portale Partner Cloud di Azure | Azure Marketplace
+description: Panoramica dell'esperienza utente del portale per Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01b93a667fef8c56d6b7c78e8c6346357a2ff36c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943424"
 ---
 # <a name="cloud-partner-portal-tour"></a>Presentazione del portale Cloud Partner
 

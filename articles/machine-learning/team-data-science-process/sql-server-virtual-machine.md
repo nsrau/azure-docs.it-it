@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904185"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036607"
 ---
 # <a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
@@ -87,7 +87,7 @@ Di seguito è riportata una breve introduzione sui dati di posizione relativi a 
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est.
 * Una cifra nell'ordine delle centinaia diversa da zero indica che si sta usando la longitudine invece della latitudine.
 * Una cifra nell'ordine delle decine indica una posizione a circa 1.000 km. Inoltre, fornisce informazioni utili sul continente o sull'oceano in cui si trova l'utente.
-* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Inoltre, indica in quale stato o regione si trova l'utente.
+* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Può indicare approssimativamente lo stato, il paese o l'area geografica in cui ci si trova.
 * La prima posizione decimale è caratterizzata da un valore massimo di 11,1 km: consente di rilevare la posizione di una grande città da una circostante.
 * La seconda posizione decimale è caratterizzata da un valore massimo di 1,1 km: consente di dividere un paese dall'altro.
 * La terza posizione decimale è caratterizzata da un valore massimo di 110 m: consente di identificare un campo agricolo o una sede istituzionale.
@@ -116,7 +116,7 @@ Queste funzionalità basate sulla posizione possono essere usate anche per gener
 > 
 
 ### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
-La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile generare funzionalità o accedere a quelle già create usando il modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning, come illustrato di seguito:
+La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. Le funzionalità possono essere generate o accessibili se già create, usando il modulo [Import Data (Importa dati][import-data] ) in Azure machine learning come illustrato di seguito:
 
 ![lettori azureml][1] 
 

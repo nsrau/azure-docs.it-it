@@ -1,21 +1,21 @@
 ---
 title: Metodo Dictionary Examples dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Examples dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: swmachan
+ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578270"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934027"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Esempi di dizionari
 
@@ -34,8 +34,8 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Parametro di query</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
@@ -45,7 +45,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>in</td>
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
 </table>
@@ -53,10 +53,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Intestazioni</th>
+  <th>Descrizione</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -123,13 +123,9 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come ricercare esempi per la coppia formata dal termine inglese `fly` e la sua traduzione in spagnolo `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
-
----
 
 Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 

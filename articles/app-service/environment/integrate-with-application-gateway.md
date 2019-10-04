@@ -9,23 +9,22 @@ ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069476"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 
 L'[ambiente del servizio app](./intro.md) è una distribuzione del servizio app di Azure nella subnet della rete virtuale di Azure di un cliente. Può essere distribuito con un endpoint pubblico o privato per l'accesso dell'app. La distribuzione dell'ambiente del servizio app con un endpoint privato, ovvero un servizio di bilanciamento del carico interno, viene definita ambiente del servizio app con bilanciamento del carico interno.  
 
-I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure usare il [gateway applicazione di Azure][appgw].
+I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure è possibile usare il [Gateway applicazione Azure][appgw].
 
 Il gateway applicazione di Azure è un'appliance virtuale che offre bilanciamento del carico di livello 7, offload SSL e protezione WAF. Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
 
@@ -53,7 +52,7 @@ Per integrare il gateway applicazione con l'ambiente del servizio app con bilanc
     
 * Un nome DNS pubblico che verrà usato in un secondo momento per puntare al gateway applicazione. 
 
-Per altre informazioni su come creare un ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un ambiente del servizio app con bilanciamento del carico interno][ilbase].
+Per informazioni dettagliate su come creare un ambiente del servizio app ILB, vedere [creazione e uso di un ambiente del servizio app ILB][ilbase].
 
 Questo articolo presuppone che si voglia creare un gateway applicazione nella stessa rete virtuale di Azure in cui è distribuito l'ambiente del servizio app. Prima di iniziare a creare il gateway applicazione, selezionare o creare una subnet da usare per ospitare il gateway. 
 
@@ -117,7 +116,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Impostare il nome di dominio personalizzato per l'app][8]
 
-Per informazioni sull'impostazione di nomi di dominio personalizzato per le app Web, vedere [Impostazione di nomi di dominio personalizzato per l'app Web][custom-domain]. Tuttavia, per un'app di un ambiente del servizio app con bilanciamento del carico interno non è prevista alcuna convalida del nome di dominio. Poiché si è proprietari del DNS che gestisce gli endpoint dell'app, è possibile inserirvi qualsiasi elemento. In questo caso non è necessario che il nome di dominio personalizzato che si aggiunge sia nel DNS, ma è ugualmente necessario configurarlo con l'app. 
+Sono disponibili informazioni sull'impostazione di nomi di dominio personalizzati per le app Web nell'articolo [impostazione dei nomi di dominio personalizzati per l'app Web][custom-domain]. Tuttavia, per un'app di un ambiente del servizio app con bilanciamento del carico interno non è prevista alcuna convalida del nome di dominio. Poiché si è proprietari del DNS che gestisce gli endpoint dell'app, è possibile inserirvi qualsiasi elemento. In questo caso non è necessario che il nome di dominio personalizzato che si aggiunge sia nel DNS, ma è ugualmente necessario configurarlo con l'app. 
 
 Dopo aver completato la configurazione e aver lasciato passare un breve intervallo di tempo per consentire la propagazione delle modifiche del DNS, è possibile accedere all'app con il nome di dominio personalizzato creato. 
 

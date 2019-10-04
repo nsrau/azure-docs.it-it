@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443488"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231483"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
@@ -29,7 +29,7 @@ Una buona soluzione di ripristino di emergenza deve consentire la modellazione d
 
 Questo articolo descrive dettagliatamente come proteggere un'applicazione di SharePoint usando [Azure Site Recovery](site-recovery-overview.md). Questo articolo descrive le procedure consigliate per la replica di un'applicazione di SharePoint in Azure, l'esecuzione di un'esercitazione sul ripristino di emergenza e il failover dell'applicazione in Azure.
 
-È possibile guardare il video di seguito sul ripristino di un'applicazione multilivello in Azure.
+È possibile guardare il video seguente sul ripristino di un'applicazione multilivello in Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -56,24 +56,17 @@ SharePoint può essere distribuito in uno o più server usando topologie a livel
 
 ## <a name="site-recovery-support"></a>Supporto di Site Recovery
 
-Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows Server 2012 R2 Enterprise. Sono stati usati SharePoint 2013 Enterprise Edition e SQL Server 2014 Enterprise Edition. Poiché la replica di Site Recovery è indipendente dall'applicazione, i consigli inclusi in questo articolo saranno validi anche per gli scenari seguenti.
+Site Recovery è indipendente dall'applicazione e dovrebbe funzionare con qualsiasi versione di SharePoint in esecuzione in un computer supportato. Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows Server 2012 R2 Enterprise. Sono stati usati SharePoint 2013 Enterprise Edition e SQL Server 2014 Enterprise Edition.
 
 ### <a name="source-and-target"></a>Origine e destinazione
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Sì | Sì
-**VMware** | Sì | Sì
+**Hyper-V** | Yes | Sì
+**VMware** | Yes | Sì
 **Server fisico** | Sì | Sì
-**Azure** | ND | Sì
+**Azure** | ND | Yes
 
-### <a name="sharepoint-versions"></a>Versioni di SharePoint
-Sono supportate le versioni di SharePoint Server seguenti.
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>Aspetti da considerare
 
@@ -196,7 +189,7 @@ Seguire [queste linee guida](site-recovery-test-failover-to-azure.md) per esegui
 
 Per le linee guida su come eseguire il failover di test per Active Directory e DNS, fare riferimento al documento [Considerazioni sul failover di test per Active Directory e DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Per le linee guida su come eseguire il failover di test per gruppi di disponibilità SQL AlwaysOn, fare riferimento al documento [Esecuzione di un failover di test per SQL AlwaysOn](site-recovery-sql.md#steps-to-do-a-test-failover).
+Per istruzioni su come eseguire il failover di test per i gruppi di disponibilità Always ON di SQL, vedere l'articolo relativo al ripristino di emergenza [dell'applicazione con Azure Site Recovery e il](site-recovery-sql.md#disaster-recovery-of-an-application) documento di failover
 
 ## <a name="doing-a-failover"></a>Esecuzione di un failover
 Seguire [queste linee guida](site-recovery-failover.md) per eseguire un failover.

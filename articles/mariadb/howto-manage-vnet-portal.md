@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 6644b6ae3a9482a1bd3f840a814d3bb6361517fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 392428c0498458f49c439a0553d581a302c0c242
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790060"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610105"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB tramite il portale di Azure
 
@@ -24,10 +24,10 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 
 1. Nella pagina del server MariaDB, in Impostazioni, fare clic su **Sicurezza connessione** per aprire la pagina Sicurezza connessione per Database di Azure per MariaDB.
 
-2. Verificare che la Consenti l'accesso al controllo di servizi di Azure è impostata su **OFF**.
+2. Verificare che il controllo Consenti l'accesso a servizi di Azure sia impostato su **disattivato**.
 
 > [!Important]
-> Se si imposta su ON, il server di MariaDB Database Azure accetta la comunicazione da qualsiasi subnet. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità endpoint del servizio rete virtuale di Microsoft Azure, in combinazione con la funzionalità delle regole della rete virtuale del Database di Azure per MariaDB, consente di ridurre la superficie di sicurezza.
+> Se lo si imposta su ON, il server di database MariaDB di Azure accetta la comunicazione da qualsiasi subnet. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità dell'endpoint del servizio Rete virtuale di Microsoft Azure, in coordinamento con la funzionalità delle regole della rete virtuale del database di Azure per MariaDB, può ridurre la superficie di attacco della sicurezza.
 
 3. Fare quindi clic su **+ Aggiunta di una rete virtuale esistente**. Se non si dispone di una rete virtuale, è possibile fare clic su **+ Crea nuova rete virtuale** per crearne una. Vedere [Avvio rapido: Creare una rete virtuale usando il portale di Azure](../virtual-network/quick-create-portal.md)
 
@@ -45,10 +45,10 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
     
    Altre informazioni sui [ruoli predefiniti](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
     
-   Le reti virtuali e le risorse dei servizi di Azure possono essere nella stessa sottoscrizione o in sottoscrizioni diverse. Se la rete virtuale e le risorse dei servizi di Azure si trovano in sottoscrizioni diverse, le risorse devono trovarsi nello stesso tenant di Active Directory (AD).
+   Le reti virtuali e le risorse dei servizi di Azure possono essere nella stessa sottoscrizione o in sottoscrizioni diverse. Se la rete virtuale e le risorse dei servizi di Azure si trovano in sottoscrizioni diverse, le risorse devono trovarsi nello stesso tenant di Active Directory (AD). Verificare che il provider di risorse **Microsoft. SQL** sia registrato per entrambe le sottoscrizioni. Per altre informazioni, vedere [Resource-Manager-Registration][resource-manager-portal]
 
    > [!IMPORTANT]
-   > Prima configurare gli endpoint di servizio è consigliabile leggere questo articolo in cui sono riportate considerazioni e istruzioni di configurazione per gli endpoint di servizio. **Endpoint del servizio di rete virtuale:** un [endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Gli endpoint dei servizi di rete virtuale usano il nome del tipo di servizio **Microsoft.Sql**, che fa riferimento al servizio di Azure denominato Database SQL. Questo tag di servizio si applica al database SQL di Azure e ai servizi di Database di Azure per MariaDB, PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i servizi di Database di Azure, tra cui i server Database SQL di Azure, Database di Azure per PostgreSQL, Database di Azure per MariaDB e Database di Azure per MySQL nella subnet.
+   > Prima configurare gli endpoint di servizio è consigliabile leggere questo articolo in cui sono riportate considerazioni e istruzioni di configurazione per gli endpoint di servizio. **Endpoint del servizio di rete virtuale:** un [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Gli endpoint dei servizi di rete virtuale usano il nome del tipo di servizio **Microsoft.Sql**, che fa riferimento al servizio di Azure denominato Database SQL. Questo tag di servizio si applica al database SQL di Azure e ai servizi di Database di Azure per MariaDB, PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i servizi di Database di Azure, tra cui i server Database SQL di Azure, Database di Azure per PostgreSQL, Database di Azure per MariaDB e Database di Azure per MySQL nella subnet.
    > 
 
 5. Dopo aver completato la procedura di abilitazione, fare clic su **OK**. Si noterà che gli endpoint di servizio di rete virtuale sono abilitati insieme a una regola di rete virtuale.
@@ -58,3 +58,6 @@ Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di ind
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulla [Configurazione di SSL nel Database di Azure per MariaDB](howto-configure-ssl.md)
 - Con una procedura analoga, è possibile creare script per [abilitare gli endpoint di servizio di rete virtuale e creare una regola di rete virtuale per Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure](howto-manage-vnet-cli.md).
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

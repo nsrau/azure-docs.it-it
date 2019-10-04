@@ -2,20 +2,20 @@
 title: Usare Analisi di flusso di Azure con SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per l'uso di Analisi di flusso di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873274"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usare Analisi di flusso di Azure con SQL Data Warehouse
 Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure][Introduction to Azure Stream Analytics]. È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].

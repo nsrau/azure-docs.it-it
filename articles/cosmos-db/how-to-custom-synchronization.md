@@ -1,34 +1,35 @@
 ---
 title: Come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate in Azure Cosmos DB
-description: Informazioni su come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate in Azure Cosmos DB
-author: markjbrown
+description: Informazioni su come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate in Azure Cosmos DB.
+author: rimman
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 43cb73784806358bccb9758be2923d3df5e9badd
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 05/23/2019
+ms.author: rimman
+ms.openlocfilehash: 8fce14496b9f8fa17f2dbfd04b7ea42f1495a8a9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414882"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093349"
 ---
-# <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Come implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate
+# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementare la sincronizzazione personalizzata per ottimizzare l'ambiente per disponibilità e prestazioni più elevate
 
-Azure Cosmos DB offre cinque livelli di coerenza ben definiti tra cui scegliere per bilanciare il compromesso tra coerenza, prestazioni e disponibilità. La coerenza assoluta assicura che i dati vengano replicati in modo sincrono e resi persistenti in modo durevole in ogni area in cui è disponibile l'account Azure Cosmos. Pur garantendo il massimo livello di durabilità, questa configurazione ha un costo in termini di prestazioni e disponibilità. Se si vuole controllare/diminuire la durabilità dei dati per soddisfare i requisiti di un'applicazione senza compromettere la disponibilità, è possibile usare la sincronizzazione personalizzata al livello di applicazione per ottenere il livello desiderato di durabilità.
+Azure Cosmos DB offre [cinque livelli di coerenza ben definiti](consistency-levels.md) tra cui scegliere per bilanciare il compromesso tra coerenza, prestazioni e disponibilità. La coerenza assoluta consente di assicurarsi che i dati vengano replicati in modo sincrono e resi persistenti in modo durevole in ogni area in cui è disponibile l'account Azure Cosmos. Questa configurazione offre il livello di durabilità più elevato, ma a discapito delle prestazioni e della disponibilità. Se si desidera controllare o diminuire la durabilità dei dati per soddisfare i requisiti dell'applicazione senza compromettere la disponibilità, è possibile usare la *sincronizzazione personalizzata* al livello dell'applicazione per ottenere il livello desiderato di durabilità.
 
-Il diagramma seguente mostra visivamente il modello di sincronizzazione personalizzata.
+L'immagine seguente mostra visivamente il modello di sincronizzazione personalizzata:
 
 ![Sincronizzazione personalizzata](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-In questo scenario un contenitore Azure Cosmos viene replicato a livello globale tra più aree e in più continenti. In questo scenario l'uso della coerenza assoluta per tutte le aree influirebbe sulle prestazioni. Per assicurare un livello più elevato di durabilità dei dati senza compromettere la latenza in scrittura, l'applicazione può usare due client che condividono lo stesso token di sessione.
+In questo scenario, un contenitore Azure Cosmos viene replicato a livello globale su più aree e in più continenti. In questo scenario, l'uso della coerenza assoluta per tutte le aree influisce sulle prestazioni. Per assicurare un livello più elevato di durabilità dei dati senza compromettere la latenza in scrittura, l'applicazione può usare due client che condividono lo stesso [token di sessione](how-to-manage-consistency.md#utilize-session-tokens).
 
-Il primo client può scrivere i dati nell'area locale, ad esempio Stati Uniti occidentali. Il secondo client, ad esempio negli Stati Uniti orientali, è un client di lettura usato per assicurare la sincronizzazione. Passando il token di sessione dalla risposta in scrittura alla lettura successiva, il client di lettura assicurerà la sincronizzazione delle scritture negli Stati Uniti orientali. Azure Cosmos DB assicurerà che le scritture vengano viste da almeno un'area e che ne sia garantita la sopravvivenza in caso di interruzione locale, se l'area di scrittura originale diventasse non disponibile. In questo scenario ogni scrittura viene sincronizzata con gli Stati Uniti orientali, riducendo la latenza derivante dall'uso della coerenza assoluta in tutte le aree. In uno scenario multimaster, in cui le scritture si verificano in ogni area, questo modello può essere esteso per eseguire la sincronizzazione con più aree in parallelo.
+Il primo client può scrivere i dati nell'area locale, ad esempio Stati Uniti occidentali. Il secondo client, ad esempio negli Stati Uniti orientali, è un client di lettura usato per assicurare la sincronizzazione. Passando il token di sessione dalla risposta in scrittura alla lettura successiva, il client di lettura assicura la sincronizzazione delle scritture negli Stati Uniti orientali. Azure Cosmos DB garantisce che le scritture siano visibili per almeno un'area. Le scritture saranno conservate anche dopo un'interruzione, se l'area di scrittura originale diventa inattiva. In questo scenario, ogni scrittura viene sincronizzata con gli Stati Uniti orientali, riducendo la latenza derivante dall'uso della coerenza assoluta in tutte le aree. In uno scenario multimaster, in cui le scritture si verificano in ogni area, questo modello può essere esteso per eseguire la sincronizzazione con più aree in parallelo.
 
 ## <a name="configure-the-clients"></a>Configurare i client
 
-L'esempio seguente mostra il livello di accesso ai dati che crea un'istanza di due client per questo scopo.
+L'esempio seguente mostra un livello di accesso ai dati che crea un'istanza di due client per la sincronizzazione personalizzata:
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -64,10 +65,35 @@ class MyDataAccessLayer
 }
 ```
 
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "West US";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "East US";
+
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        readClient = new CosmosClient(accountEndpoint, key, readConnectionOptions);
+    }
+}
+```
+
 ## <a name="implement-custom-synchronization"></a>Implementare la sincronizzazione personalizzata
 
 Dopo l'inizializzazione dei client, l'applicazione può eseguire scritture nell'area locale (Stati Uniti occidentali) e forzarne la sincronizzazione con gli Stati Uniti orientali come segue.
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -82,16 +108,32 @@ class MyDataAccessLayer
 }
 ```
 
-Questo modello può essere esteso per eseguire la sincronizzazione con più aree in parallelo.
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
+    }
+}
+```
+
+È possibile estendere il modello per eseguire la sincronizzazione con più aree in parallelo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla distribuzione globale e sulla coerenza in Azure Cosmo DB, vedere gli articoli seguenti:
+Per altre informazioni sulla distribuzione globale e sulla coerenza in Azure Cosmos DB, vedere gli articoli seguenti:
 
-* [Scelta del livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-
+* [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromessi tra coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-
-* [Come gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md)
-
+* [Gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md)
 * [Partizionamento e distribuzione dei dati in Azure Cosmos DB](partition-data.md)

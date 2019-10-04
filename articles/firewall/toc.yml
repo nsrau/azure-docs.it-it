@@ -10,7 +10,7 @@
     - name: Distribuire e configurare
       href: tutorial-firewall-deploy-portal.md
     - name: Distribuire in una rete ibrida
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: Filtrare il traffico in ingresso con DNAT
       href: tutorial-firewall-dnat.md
     - name: Monitorare i log di diagnostica
@@ -39,14 +39,24 @@
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell
       href: deploy-ps.md
+    - name: Eseguire la distribuzione in una rete ibrida - PowerShell
+      href: tutorial-hybrid-ps.md
+    - name: Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+      href: deploy-cli.md
     - name: Eseguire la distribuzione usando un modello
       href: deploy-template.md
+    - name: Eseguire la distribuzione con più IP pubblici
+      href: deploy-multi-public-ip-powershell.md
+    - name: Eseguire la distribuzione con zone di disponibilità
+      href: deploy-availability-zone-powershell.md
     - name: Integrazione con il servizio di bilanciamento del carico
       href: integrate-lb.md
+    - name: Regole dell'applicazione con FQDN di SQL
+      href: sql-fqdn-filtering.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/network
+      href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

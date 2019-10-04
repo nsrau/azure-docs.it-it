@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475085"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915985"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
+
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
@@ -29,22 +30,22 @@ Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'ass
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
-- Le password per le app vengono generate automaticamente e immesse una sola volta per ogni app.
+- Le password dell'app vengono generate automaticamente e devono essere create e immesse una volta per ogni app.
 
 - Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
-
-- Usare una sola password per dispositivo, non per app. Ad esempio, creare una singola password per tutte le app del portatile e un'altra per tutte le app sul PC desktop.
 
     >[!Note]
     >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
 ## <a name="create-new-app-passwords"></a>Creare nuove password per l'app
+
 Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e l'amministratore ha disattivato l'esperienza delle informazioni di sicurezza, è possibile creare ed eliminare le password delle app usando la pagina **Info di sicurezza**.
 
 >[!Note]
 >Se l'amministratore non ha attivato l'esperienza delle informazioni di sicurezza, è necessario seguire le istruzioni e le informazioni nella sezione [Gestire le password delle app per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md).
 
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
+
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
@@ -64,10 +65,11 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 5. Copiare il testo dalla casella **Password**, incollare la password nell'apposita area dell'app (in questo esempio Outlook 2010) e quindi selezionare **Fine**.
 
     ![Pagina Password dell'app, con il nome dell'app](media/security-info/securityinfo-myprofile-password-copytext.png)
-    
+
     La password viene aggiunta ed è possibile accedere all'app a partire da questo momento.
 
 ## <a name="delete-your-app-passwords"></a>Elimina le password dell'app
+
 Se non è più necessario usare un'app che richiede una password, è possibile eliminare la password dell'app associata. L'eliminazione della password dell'app libera uno dei posti disponibili per la password dell'app da usare in futuro.
 
 >[!Important]
@@ -82,4 +84,5 @@ Se non è più necessario usare un'app che richiede una password, è possibile e
 2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare la **password dell'app**. La password dell'app, dopo essere stata eliminata, viene rimossa dalle informazioni di sicurezza e non viene più visualizzata nella pagina **Info di sicurezza**.
 
 ## <a name="for-more-information"></a>Per altre informazioni
+
 - Per altre informazioni sulla pagina **Info di sicurezza** e su come configurarla, vedere [Panoramica delle informazioni di sicurezza](user-help-security-info-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio delle prestazioni del database SQL di Azure con DMV | Microsoft Docs
-description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il Database SQL di Microsoft Azure.
+description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il database SQL di Microsoft Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563950"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881568"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
 
@@ -29,7 +28,7 @@ Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestion
 - Visualizzazioni a gestione dinamica relative all'esecuzione.
 - Visualizzazioni a gestione dinamica relative alle transazioni.
 
-Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server.
+Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [Visualizzazioni a gestione dinamica e funzioni (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) nella documentazione Online di SQL Server. 
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -238,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare la contesa di `tempdb`, usare [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia con `2:x:y` dove 2 è `tempdb` è l'ID database, `x` è l'ID file e `y` è l'ID pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. `tempdb` Per confermare ulteriormente la contesa, utilizzare [sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore di wait_resource `2:x:y` inizi con dove `tempdb` 2 è l'ID del `x` database, è l'ID del `y` file e è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 
@@ -335,7 +334,7 @@ ORDER BY start_time ASC;
 
 Se il tipo di attesa più frequente è `RESOURCE_SEMAHPORE` e non si riscontra un problema di utilizzo elevato della CPU, è possibile che si stia verificando un problema di attesa della concessione di memoria.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
 
 Usare la query seguente per determinare se un'attesa `RESOURCE_SEMAHPORE` è una delle attese più frequenti
 
@@ -485,7 +484,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Monitoraggio delle connessioni
 
-È possibile usare la visualizzazione [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) per recuperare informazioni sulle connessioni stabilite con il server del database SQL specifico di Azure e i dettagli di ogni connessione. Inoltre, la visualizzazione [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) è utile durante il recupero di informazioni su tutte le connessioni utente attive e le attività interne.
+È possibile usare la visualizzazione [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) per recuperare informazioni sulle connessioni stabilite con uno specifico server di database SQL di Azure e i dettagli di ogni connessione. Inoltre, la visualizzazione [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) è utile durante il recupero di informazioni su tutte le connessioni utente attive e le attività interne.
 La query seguente recupera le informazioni sulla connessione corrente.
 
 ```sql
@@ -513,7 +512,7 @@ WHERE c.session_id = @@SPID;
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 È possibile usare la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in ogni database SQL. La vista **sys.dm_db_resource_stats** mostra i dati recenti sull'uso delle risorse rispetto al livello di servizio. Le percentuali medie relative a CPU, I/O dei dati, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
@@ -534,17 +533,17 @@ FROM sys.dm_db_resource_stats;
 
 Per altre query, vedere gli esempi in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
-La vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive utili per il monitoraggio dell'uso delle prestazioni del database SQL ai relativi livello di servizio e dimensione di calcolo. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per analisi cronologiche a lungo termine dell'uso delle risorse del database SQL.
+La vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database **master** fornisce informazioni aggiuntive utili per il monitoraggio dell'uso delle prestazioni del database SQL ai relativi livello di servizio e dimensioni di calcolo. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per analisi cronologiche a lungo termine dell'uso delle risorse del database SQL.
 
-Il grafico seguente illustra l'uso di risorse della CPU per un database Premium con dimensione di calcolo P2 per ogni ora nell'arco di una settimana. Questo grafico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'uso di risorse nell'applicazione è molto inferiore.
+Il grafico seguente illustra l'uso di risorse della CPU per un database Premium con dimensioni di calcolo P2 per ogni ora nell'arco di una settimana. Questo grafico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'uso di risorse nell'applicazione è molto inferiore.
 
 ![Uso delle risorse del database SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-In base ai dati, per la dimensione di calcolo P2 il carico massimo della CPU di questo database attualmente supera di poco il 50% dell'uso della CPU (a mezzogiorno di martedì). Se la CPU è il fattore più importante nel profilo delle risorse dell'applicazione, si può scegliere P2 come dimensione di calcolo idonea a garantire che il carico di lavoro sia sempre adeguato. Se si prevede che un'applicazione presenti un incremento nel tempo, è consigliabile avere un buffer di risorse aggiuntivo, in modo che l'applicazione non raggiunga mai il limite del livello di prestazioni. Se si aumenta la dimensione di calcolo, è possibile evitare gli errori visibili ai clienti che si possono verificare se un database non ha risorse sufficienti per elaborare in modo efficiente le richieste, in particolare in ambienti sensibili alla latenza. Un esempio è costituito da un database che supporta un'applicazione per la creazione di pagine Web in base ai risultati delle chiamate al database.
+In base ai dati, per le dimensioni di calcolo P2 il carico massimo della CPU di questo database attualmente supera di poco il 50% dell'uso della CPU (a mezzogiorno di martedì). Se la CPU è il fattore più importante nel profilo delle risorse dell'applicazione, si può scegliere P2 come dimensioni di calcolo idonee a garantire che il carico di lavoro sia sempre adeguato. Se si prevede che un'applicazione presenti un incremento nel tempo, è consigliabile avere un buffer di risorse aggiuntivo, in modo che l'applicazione non raggiunga mai il limite del livello di prestazioni. Se si aumentano le dimensioni di calcolo, è possibile evitare gli errori visibili ai clienti che si possono verificare se un database non ha risorse sufficienti per elaborare in modo efficiente le richieste, in particolare in ambienti sensibili alla latenza. Un esempio è costituito da un database che supporta un'applicazione per la creazione di pagine Web in base ai risultati delle chiamate al database.
 
-Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafico. Se ad esempio un'applicazione prova a elaborare i dati del libro paga ogni giorno e usa lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con una dimensione di calcolo P1. Il valore di DTU della dimensione di calcolo P1 è pari a 100, mentre quello della dimensione di calcolo P2 è pari a 200. Il livello di prestazioni fornito dalla dimensione di calcolo P2 è doppio rispetto a quello fornito dalla dimensione di calcolo P1. Il 50% dell'uso della CPU nel livello P2 equivale quindi al 100% dell'uso della CPU in P1. Se l'applicazione non presenta timeout, è possibile che non sia rilevante se il completamento di un processo richiede 2 ore o 2,5 ore, se viene completato in giornata. Per un'applicazione che rientra in questa categoria è probabilmente sufficiente usare la dimensione di calcolo P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'uso delle risorse è inferiore, in modo da spalmare un picco massimo in altri momenti nel corso della giornata. La dimensione di calcolo P1 può essere ottimale per questo tipo di applicazione e può consentire di limitare i costi, purché i processi vengano completati in orario ogni giorno.
+Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafico. Se ad esempio un'applicazione prova a elaborare i dati del libro paga ogni giorno e usa lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con dimensioni di calcolo P1. Il valore di DTU delle dimensioni di calcolo P1 è pari a 100, mentre quello delle dimensioni di calcolo P2 è pari a 200. Il livello di prestazioni fornito dalle dimensioni di calcolo P2 è doppio rispetto a quello fornito dalle dimensioni di calcolo P1. Il 50% dell'uso della CPU nel livello P2 equivale quindi al 100% dell'uso della CPU in P1. Se l'applicazione non presenta timeout, è possibile che non sia rilevante se il completamento di un processo richiede 2 ore o 2,5 ore, se viene completato in giornata. Per un'applicazione che rientra in questa categoria è probabilmente sufficiente usare le dimensioni di calcolo P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'uso delle risorse è inferiore, in modo da spalmare un picco massimo in altri momenti nel corso della giornata. Le dimensioni di calcolo P1 possono essere ottimali per questo tipo di applicazione e possono consentire di limitare i costi, purché i processi vengano completati in orario ogni giorno.
 
 Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche, invece che per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
 
@@ -574,7 +573,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
     ORDER BY start_time DESC;
     ```
 
-2. Per verificare l'idoneità del carico di lavoro per la dimensione di calcolo, è necessario eseguire il drill-down in ogni aspetto delle metriche delle risorse, ovvero CPU, operazioni di lettura e scrittura, numero di thread di lavoro e numero di sessioni. Ecco la query modificata usando**sys.resource_stats** per segnalare i valori medi e massimi di queste metriche delle risorse:
+2. Per verificare l'idoneità del carico di lavoro per le dimensioni di calcolo, è necessario eseguire il drill-down in ogni aspetto delle metriche delle risorse, ovvero CPU, operazioni di lettura e scrittura, numero di thread di lavoro e numero di sessioni. Ecco la query modificata usando**sys.resource_stats** per segnalare i valori medi e massimi di queste metriche delle risorse:
 
     ```sql
     SELECT
@@ -592,11 +591,11 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità della dimensione di calcolo scelta in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con la dimensione di calcolo S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per la dimensione di calcolo S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in una dimensione di calcolo inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU della dimensione di calcolo inferiore per il numero di DTU della dimensione di calcolo corrente e moltiplicare il risultato per 100:
+3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità delle dimensioni di calcolo scelte in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con le dimensioni di calcolo S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in dimensioni di calcolo inferiori prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU delle dimensioni di calcolo inferiori per il numero di DTU delle dimensioni di calcolo correnti e moltiplicare il risultato per 100:
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
-    Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra le due dimensioni di calcolo. Se l'uso delle risorse non supera questa quantità, il carico di lavoro potrebbe essere idoneo per la dimensione di calcolo inferiore. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di uso delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nella dimensione di calcolo inferiore. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in questo esempio:
+    Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra le due dimensioni di calcolo. Se l'uso delle risorse non supera questa quantità, il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo inferiori. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di uso delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nelle dimensioni di calcolo inferiori. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in questo esempio:
 
    ```sql
     SELECT
@@ -607,15 +606,15 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    In base livello di servizio del database, è possibile stabilire se il carico di lavoro può rientrare nella dimensione di calcolo inferiore. Se l'obiettivo del carico di lavoro del database è 99,9% e la query precedente restituisce valori superiori al 99,9% per tutte e tre le dimensioni della risorsa, è probabile che il carico di lavoro possa rientrare nella dimensione di calcolo inferiore.
+    In base livello di servizio del database, è possibile stabilire se il carico di lavoro può rientrare nelle dimensioni di calcolo inferiori. Se l'obiettivo del carico di lavoro del database è 99,9% e la query precedente restituisce valori superiori al 99,9% per tutte e tre le dimensioni della risorsa, è probabile che il carico di lavoro possa rientrare nelle dimensioni di calcolo inferiori.
 
-    La percentuale calcolata in precedenza consente inoltre di stabilire se è opportuno usare la dimensione di calcolo superiore a quella attualmente in uso per soddisfare l'obiettivo. Ad esempio, userdb1 mostra il valore di uso della CPU seguente per la settimana precedente:
+    La percentuale calcolata in precedenza consente inoltre di stabilire se è opportuno usare le dimensioni di calcolo superiori a quelle attualmente in uso per soddisfare l'obiettivo. Ad esempio, userdb1 mostra il valore di uso della CPU seguente per la settimana precedente:
 
    | Percentuale CPU media | Percentuale CPU massima |
    | --- | --- |
-   | 24,5 |100,00 |
+   | 24,5 |100.00 |
 
-    L'uso medio della CPU corrisponde a circa un quarto del limite della dimensione di calcolo, che potrebbe rientrare nella dimensione di calcolo del database. Il valore massimo corrisponde tuttavia al limite della dimensione di calcolo del database. È necessario passare alla dimensione di calcolo superiore a quella attualmente in uso? Considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e quindi confrontare tale numero con l'obiettivo del carico di lavoro del database.
+    L'uso medio della CPU corrisponde a circa un quarto del limite delle dimensioni di calcolo, che potrebbe rientrare nelle dimensioni di calcolo del database. Il valore massimo corrisponde tuttavia al limite delle dimensioni di calcolo del database. È necessario passare alle dimensioni di calcolo superiori a quelle attualmente in uso? Considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e quindi confrontare tale numero con l'obiettivo del carico di lavoro del database.
 
     ```sql
     SELECT
@@ -626,7 +625,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Se questa query restituisce un valore inferiore a 99,9% per qualsiasi delle tre dimensioni della risorsa, è consigliabile prendere in esame la possibilità di passare alla dimensione di calcolo superiore o usare tecniche di ottimizzazione dell'applicazione per ridurre il carico nel database SQL.
+    Se questa query restituisce un valore inferiore a 99,9% per qualsiasi delle tre dimensioni della risorsa, è consigliabile prendere in esame la possibilità di passare alle dimensioni di calcolo superiori o usare tecniche di ottimizzazione dell'applicazione per ridurre il carico nel database SQL.
 
 4. Questo esercizio tiene in considerazione anche l'aumento di carico di lavoro previsto in futuro.
 
@@ -707,7 +706,7 @@ Nell'esempio seguente vengono restituite informazioni sulle prime cinque query c
 
 ### <a name="monitoring-blocked-queries"></a>Monitoraggio delle query bloccate
 
-Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la visualizzazione in sys.dm_tran_locks per ottenere informazioni sulle attività di blocco corrente nel Database di SQL Azure. Per codice di esempio, vedere [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nella documentazione online di Microsoft SQL Server.
+Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la visualizzazione in sys.dm_tran_locks per ottenere informazioni sulle attività di blocco corrente nel database SQL di Azure. Per codice di esempio, vedere [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nella documentazione online di Microsoft SQL Server.
 
 ### <a name="monitoring-query-plans"></a>Monitoraggio dei piani di query
 
@@ -733,6 +732,6 @@ Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'e
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)

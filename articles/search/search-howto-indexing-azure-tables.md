@@ -1,21 +1,21 @@
 ---
 title: Indicizzare il contenuto dell'Archiviazione tabelle di Azure per la ricerca full-text - Ricerca di Azure
 description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con un indicizzatore di Ricerca di Azure.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306885"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648176"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indicizzare in Archiviazione tabelle di Azure con Ricerca di Azure
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.
@@ -49,7 +49,7 @@ Per l'indicizzazione delle tabelle, l'origine dati deve possedere le proprietà 
 
 Per creare un'origine dati:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ L'indice consente di specificare i campi in un documento, gli attributi e altri 
 
 Per creare un indice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -95,12 +95,12 @@ Per creare un indice:
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
+### <a name="step-3-create-an-indexer"></a>Passaggio 3: Crea un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati. 
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -114,6 +114,8 @@ Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 L'indicizzatore verrà eseguito ogni due ore. L'intervallo di pianificazione è impostato su "PT2H". Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di cinque minuti. La pianificazione è facoltativa; se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
 Per altre informazioni sull'API di creazione dell'indicizzatore dati, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Gestire nomi campo diversi
 I nomi campo nell'indice esistente sono talvolta diversi dai nomi proprietà nella tabella. È possibile usare i mapping dei campi per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
@@ -133,7 +135,7 @@ Quando un indicizzatore di tabelle viene configurato per l'esecuzione in base a 
 
 Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, è possibile usare una strategia di eliminazione temporanea. Invece di eliminare una riga, aggiungere una proprietà che ne indica l'eliminazione e impostare norme di rilevamento dell'eliminazione temporanea nell'origine dati. Il tipo di norme seguente, ad esempio, indica che una riga viene eliminata se la proprietà `IsDeleted` della riga è impostata sul valore `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

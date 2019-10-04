@@ -3,28 +3,28 @@ title: 'Guida introduttiva: SDK di Ricerca visiva Bing, Python'
 titleSuffix: Azure Cognitive Services
 description: Configurare l'applicazione console SDK di Ricerca visiva per Python.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: 970b3e7e8e45e5d5249fb5a45c966d9395b130a0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884155"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204028"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per Python
 
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con l'SDK per Python. Mentre Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Python](https://www.python.org/) 2.x o 3.x
-* È consigliabile usare un [ambiente virtuale](https://docs.python.org/3/tutorial/venv.html). Installare e inizializzare l'ambiente virtuale con il [modulo venv](https://pypi.python.org/pypi/virtualenv). Installare virtualenv per Python 2.7.
+* È consigliabile usare un [ambiente virtuale](https://docs.python.org/3/tutorial/venv.html). Installare e inizializzare l'ambiente virtuale con il [modulo venv](https://pypi.python.org/pypi/virtualenv).
 * SDK di Ricerca visiva Bing per Python. È possibile installarlo con i comandi seguenti:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
@@ -50,6 +50,7 @@ Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dett
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. Creare variabili per la chiave di sottoscrizione, l'ID di configurazione personalizzata e l'immagine che si vuole caricare. 
     
@@ -63,7 +64,7 @@ Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dett
 3. Creare un'istanza del client
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-the-search-request"></a>Inviare la richiesta di ricerca

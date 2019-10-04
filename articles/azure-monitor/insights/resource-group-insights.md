@@ -12,11 +12,11 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119422"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 

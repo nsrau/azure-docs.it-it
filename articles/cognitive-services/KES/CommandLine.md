@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815134"
 ---
 # <a name="command-line-interface"></a>Interfaccia della riga di comando
 
@@ -36,7 +36,7 @@ Il comando **build_index** compila un file di indice binario da un file di defin
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
-| Parametro      | DESCRIZIONE               |
+| Parametro      | Descrizione               |
 |----------------|---------------------------|
 | `<schemaFile>` | Percorso dello schema di input |
 | `<dataFile>`   | Percorso dei dati di input   |
@@ -61,7 +61,7 @@ Il comando **build_grammar** compila una grammatica specificata in XML in un fil
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
-| Parametro       | DESCRIZIONE               |
+| Parametro       | Descrizione               |
 |-----------------|---------------------------|
 | `<xmlFile>`     | Percorso della specifica di grammatica XML di input |
 | `<grammarFile>` | Percorso dell'output di grammatica compilato         |
@@ -76,13 +76,13 @@ Il comando **host_service** ospita un'istanza del servizio KES nel computer loca
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
-| Parametro       | DESCRIZIONE                |
+| Parametro       | Descrizione                |
 |-----------------|----------------------------|
 | `<grammarFile>` | Percorso della grammatica binaria di input         |
 | `<indexFile>`   | Percorso dell'indice binario di input           |
 | `--port <port>` | Numero di porta locale.  Predefinito: 8000 |
 
-Questi file possono essere specificati da percorsi di file locali o percorsi URL di BLOB di Azure.  Un servizio Web verrà ospitato in http://localhost:&lt;porta&gt;/.  Vedere [Interfaccia API Web](WebAPI.md) per un elenco delle operazioni supportate.
+Questi file possono essere specificati da percorsi di file locali o percorsi URL di BLOB di Azure.  Un servizio Web verrà ospitato in http://localhost:&lt ;porta&gt; /.  Vedere [Interfaccia API Web](WebAPI.md) per un elenco delle operazioni supportate.
 
 All'esterno dell'ambiente di Azure, i servizi ospitati in locale sono limitati a file di indice di dimensioni fino a 1 MB, 10 richieste al secondo e 1.000 chiamate in totale.  Per superare queste limitazioni, eseguire **host_service** all'interno di una macchina virtuale di Azure oppure distribuire un servizio cloud di Azure usando **deploy_service**.
 
@@ -94,7 +94,7 @@ Il comando **deploy_service** distribuisce un'istanza del servizio KES in un ser
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| Parametro       | DESCRIZIONE                  |
+| Parametro       | Descrizione                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | Percorso della grammatica binaria di input           |
 | `<indexFile>`   | Percorso dell'indice binario di input             |
@@ -114,7 +114,7 @@ Il comando **describe_index** restituisce informazioni su un file di indice, inc
 
 `kes.exe describe_index <indexFile>`
 
-| Parametro     | DESCRIZIONE      |
+| Parametro     | Descrizione      |
 |---------------|------------------|
 | `<indexFile>` | Percorso dell'indice di input |
 
@@ -128,7 +128,7 @@ Il comando **describe_grammar** restituisce la specifica di grammatica originale
 
 `kes.exe describe_grammar <grammarFile>`
 
-| Parametro       | DESCRIZIONE      |
+| Parametro       | Descrizione      |
 |-----------------|------------------|
 | `<grammarFile>` | Percorso della grammatica di input |
 

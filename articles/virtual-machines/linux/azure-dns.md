@@ -4,22 +4,21 @@ description: Scenari di risoluzione dei nomi per macchine virtuali Linux in IaaS
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 16dc7d16b3e8f2a4c95e93f9b85c74027291ce19
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819145"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084032"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
 Per impostazione predefinita, Azure fornisce la risoluzione dei nomi DNS per tutte le macchine virtuali contenute in una singola rete virtuale. È possibile implementare la soluzione di risoluzione dei nomi DNS configurando i servizi DNS nelle macchine virtuali ospitate da Azure. Gli scenari seguenti consentono di scegliere quello più adatto alla situazione specifica.
@@ -72,7 +71,7 @@ Sono disponibili diversi pacchetti di memorizzazione nella cache DNS, ad esempio
 **Ubuntu (usa resolvconf)**
   * Installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
 
-**SUSE (usa netconf)**:
+**SUSE (usa netconf)** :
 1. Installare il pacchetto dnsmasq ("sudo zypper install dnsmasq").
 2. Abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service").
 3. Avviare il servizio dnsmasq ("systemctl start dnsmasq.service").

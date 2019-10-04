@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478556"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato di file dei metadati e delle proprietà di Importazione/Esportazione di Azure
 È possibile specificare i metadati e le proprietà per uno o più BLOB nell'ambito di un processo di importazione o esportazione. Per impostare i metadati o le proprietà per i BLOB che vengono creati nell'ambito di un processo di importazione, occorre fornire un file di metadati o delle proprietà nel disco rigido contenente i dati da importare. In un processo di esportazione, i metadati e le proprietà vengono scritti in un file di metadati o delle proprietà che viene incluso nel disco rigido restituito all'utente.  
@@ -30,10 +30,10 @@ Il formato del file di metadati è indicato di seguito:
 </Metadata>  
 ```
   
-|Elemento XML|Type|DESCRIZIONE|  
+|Elemento XML|Type|Descrizione|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento radice|L'elemento radice del file di metadati.|  
-|`metadata-name`|string|facoltativo. L'elemento XML specifica il nome dei metadati per il BLOB e il relativo valore specifica il valore dell'impostazione dei metadati.|  
+|`metadata-name`|String|facoltativo. L'elemento XML specifica il nome dei metadati per il BLOB e il relativo valore specifica il valore dell'impostazione dei metadati.|  
   
 ## <a name="properties-file-format"></a>Formato del file delle proprietà  
 Il formato di un file delle proprietà è indicato di seguito:  
@@ -52,17 +52,17 @@ Il formato di un file delle proprietà è indicato di seguito:
 </Properties>  
 ```
   
-|Elemento XML|Type|DESCRIZIONE|  
+|Elemento XML|Type|Descrizione|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento radice|L'elemento radice del file delle proprietà.|  
-|`Last-Modified`|string|facoltativo. L'ora dell'ultima modifica per il BLOB. Solo per i processi di esportazione.|  
-|`Etag`|string|facoltativo. Il valore ETag del BLOB. Solo per i processi di esportazione.|  
-|`Content-Length`|string|facoltativo. La dimensione del BLOB in byte. Solo per i processi di esportazione.|  
-|`Content-Type`|string|facoltativo. Il tipo di contenuto del BLOB.|  
-|`Content-MD5`|string|facoltativo. L'hash MD5 del BLOB.|  
-|`Content-Encoding`|string|facoltativo. La codifica del contenuto del BLOB.|  
-|`Content-Language`|string|facoltativo. La lingua del contenuto del BLOB.|  
-|`Cache-Control`|string|facoltativo. La stringa di controllo della cache per il BLOB.|  
+|`Last-Modified`|String|facoltativo. L'ora dell'ultima modifica per il BLOB. Solo per i processi di esportazione.|  
+|`Etag`|String|facoltativo. Il valore ETag del BLOB. Solo per i processi di esportazione.|  
+|`Content-Length`|String|facoltativo. La dimensione del BLOB in byte. Solo per i processi di esportazione.|  
+|`Content-Type`|String|facoltativo. Il tipo di contenuto del BLOB.|  
+|`Content-MD5`|String|facoltativo. L'hash MD5 del BLOB.|  
+|`Content-Encoding`|String|facoltativo. La codifica del contenuto del BLOB.|  
+|`Content-Language`|String|facoltativo. La lingua del contenuto del BLOB.|  
+|`Cache-Control`|String|facoltativo. La stringa di controllo della cache per il BLOB.|  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

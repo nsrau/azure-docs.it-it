@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60554499"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -38,7 +38,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 
 È possibile visualizzare e configurare le impostazioni seguenti tramite il **menu Risorse**.
 
-* [Overview](#overview)
+* [Panoramica](#overview)
 * [Log attività](#activity-log)
 * [Controllo di accesso (IAM)](#access-control-iam)
 * [Tag](#tags)
@@ -82,7 +82,7 @@ Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cac
 
 La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo nel portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Tag
+### <a name="tags"></a>`Tags`
 
 La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -398,13 +398,13 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 > 
 > 
 
-| Impostazione | Valore predefinito | DESCRIZIONE |
+| Impostazione | Valore predefinito | Descrizione |
 | --- | --- | --- |
 | `databases` |16 |Il numero predefinito di database è 16, ma è possibile configurare un numero diverso in base al piano tariffario.<sup>1</sup> Il database predefinito è DB 0, ma è possibile selezionarne uno diverso in base alla connessione usando `connection.GetDatabase(dbid)` dove `dbid` è un numero compreso tra `0` e `databases - 1`. |
 | `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo valore è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |
 | `maxmemory-policy` |`volatile-lru` |Il criterio maxmemory è l'impostazione che serve a stabilire il modo in cui Redis seleziona gli elementi da rimuovere quando viene raggiunto il valore di `maxmemory` (la dimensione dell'offerta della cache selezionata in fase di creazione della cache). Con Cache Redis di Azure l'impostazione predefinita è `volatile-lru`, che rimuove le chiavi con una scadenza impostata usando l'algoritmo LRU. Questa impostazione può essere configurata nel portale di Azure. Per altre informazioni, vedere [Criteri di memoria](#memory-policies). |
 | `maxmemory-samples` |3 |Per risparmiare memoria, gli algoritmi LRU e TTL minimo sono algoritmi approssimativi anziché precisi. Per impostazione predefinita Redis controlla tre chiavi e sceglie quella usata meno di recente. |
-| `lua-time-limit` |5.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
+| `lua-time-limit` |5\.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
 | `lua-event-limit` |500 |Dimensione massima della coda di eventi di script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 

@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66305923"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
-Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una macchina virtuale (VM) di Azure usando la funzionalità di pubblicazione **Macchine virtuali di Microsoft Azure** di Visual Studio 2017.  
+Questo documento descrive come pubblicare un'applicazione web ASP.NET in una macchina virtuale di Azure (VM) tramite il **macchine virtuali di Microsoft Azure** funzionalità di pubblicazione in Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtuale di Azure, la macchina virtuale deve essere configurata correttamente.
@@ -34,7 +34,7 @@ Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtu
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Pubblicare l'app Web ASP.NET nella macchina virtuale di Azure con Visual Studio
 La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esistente in una macchina virtuale di Azure.
 
-1. Aprire la soluzione app Web in Visual Studio 2017.
+1. Aprire la soluzione app web in Visual Studio 2019.
 2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
 3. Usare la freccia a destra della pagina per scorrere le opzioni di pubblicazione fino a trovare **Macchine virtuali di Microsoft Azure**.  
 
@@ -58,7 +58,7 @@ La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esisten
 
 7. Fare clic su OK per avviare la pubblicazione.
 
-8. Quando vengono chieste le credenziali, specificare il nome utente e la password di un account utente nella macchina virtuale di destinazione configurato con diritti di pubblicazione (in genere il nome utente e la password di amministratore usati per la creazione della macchina virtuale).  
+8. Quando richiesto per le credenziali, specificare il nome utente e la password di un account utente nella macchina virtuale è configurata con diritti di pubblicazione di destinazione. Queste credenziali sono in genere il nome utente amministratore e la password usati durante la creazione della macchina virtuale.  
 
    ![Accesso a WebDeploy]
 
@@ -99,12 +99,12 @@ Le impostazioni saranno simili a quanto segue:
 ![Impostazioni di pubblicazione - Pagina di connessione]
 
 #### <a name="save-user-name-and-password"></a>Salvare nome utente e password
-- Per evitare di fornire informazioni di autenticazione ogni volta che si esegue la pubblicazione, è possibile popolare i campi **Nome utente** e **Password** e selezionare la casella **Salva password**.
+- Evitare di fornire le informazioni di autenticazione ogni volta che pubblica. A tale scopo, popolare la **nome utente** e **Password** campi e selezionare il **Salva password** casella.
 - Usare il pulsante **Convalida connessione** per verificare di avere immesso le informazioni esatte.
 
 #### <a name="deploy-to-clean-web-server"></a>Eseguire la distribuzione in un server Web pulito
 
-- Per assicurarsi che il server Web abbia una copia pulita dell'applicazione Web dopo ogni caricamento (e non rimangano altri file di una distribuzione precedente), è possibile selezionare la casella di controllo **Rimuovi file aggiuntivi nella destinazione** nella scheda **Impostazioni**.
+- Se si desidera assicurarsi che il server web ha una copia pulita dell'applicazione web dopo ogni caricamento e che nessun altro file vengono lasciato da una distribuzione precedente, è possibile controllare la **Rimuovi file aggiuntivi nella destinazione** lacaselladicontrollo **Impostazioni** scheda.
 
 - Avviso: Pubblicazione con questa impostazione consente di eliminare tutti i file presenti sul server web (directory wwwroot). Assicurarsi di conoscere lo stato del computer prima di eseguire la pubblicazione con questa opzione abilitata. 
 

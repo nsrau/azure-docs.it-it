@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113079"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146754"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -92,7 +92,12 @@ availabilityResults
 
    ![Screenshot della creazione di una nuova funzione](./media/automate-custom-reports/function-app-03.png)
 
-5. Selezionare il **_modello digest pianificato di Application Insights_**.
+5. Selezionare il **_modello digest pianificato di Application Insights_** .
+
+     > [!NOTE]
+     > Per impostazione predefinita, le app per le funzioni vengono create con la versione 2. x del runtime. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights.  ![schermata di runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+
+
 
    ![Screenshot del modello di Application Insights per la nuova app per le funzioni](./media/automate-custom-reports/function-app-04.png)
 
@@ -117,7 +122,7 @@ availabilityResults
      > [!NOTE]
      > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
 
-9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)**.
+9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)** .
 
      ![Screenshot dell'output](./media/automate-custom-reports/function-app-09.png)
 

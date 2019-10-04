@@ -1,10 +1,10 @@
 ---
 title: Come configurare un'applicazione proxy dell'applicazione | Microsoft Docs
-description: Informazioni su come creare e configurare un'applicazione proxy dell'applicazione in pochi semplici passaggi
+description: Informazioni su come creare e configurare un'applicazione Proxy dell'applicazione in pochi semplici passaggi
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443183"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807845"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Come configurare un'applicazione proxy dell'applicazione
 
-Questo articolo spiega come configurare un'applicazione proxy dell'applicazione in Azure AD per esporre le applicazioni locali nel cloud.
+Questo articolo aiuta a comprendere come configurare un'applicazione Proxy dell'applicazione all'interno di Azure AD per esporre le applicazioni locali nel cloud.
 
-## <a name="recommended-documents"></a>Documenti consigliati 
+## <a name="recommended-documents"></a>Documenti consigliati
 
 Per altre informazioni sulle configurazioni iniziali e sulla creazione di un'applicazione proxy dell'applicazione tramite il portale di amministrazione, vedere [Pubblicare applicazioni mediante il proxy dell'applicazione Azure AD](application-proxy-add-on-premises-application.md).
 
@@ -39,19 +39,15 @@ Per informazioni sul caricamento di certificati e sull'uso di domini personalizz
 
 Se si seguono i passaggi nel documento [Pubblicare applicazioni mediante il proxy dell'applicazione di Azure AD](application-proxy-add-on-premises-application.md) e si riceve un errore durante la creazione dell'applicazione, vedere i dettagli dell'errore per informazioni e suggerimenti per la correzione dell'applicazione. La maggior parte dei messaggi di errore include una correzione suggerita. Per evitare errori comuni, verificare quanto segue:
 
--   Si dispone del ruolo di amministratore con l'autorizzazione a creare un'applicazione proxy dell'applicazione
+- Si dispone del ruolo di amministratore con l'autorizzazione a creare un'applicazione proxy dell'applicazione
+- L'URL interno è univoco
+- L'URL esterno è univoco
+- Gli URL iniziano con http o https e terminano con un carattere "/"
+- L'URL deve essere un nome di dominio e non un indirizzo IP
 
--   L'URL interno è univoco
+Il messaggio di errore deve visualizzare nell'angolo superiore destro quando si crea l'applicazione. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
 
--   L'URL esterno è univoco
-
--   Gli URL iniziano con http o https e terminano con un carattere "/"
-
--   L'URL deve essere un nome di dominio e non un indirizzo IP
-
-Quando si crea l'applicazione, il messaggio di errore dovrebbe essere visualizzato in alto a destra. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
-
-   ![Prompt di notifica](./media/application-proxy-config-how-to/error-message.png)
+![Viene illustrato dove trovare la richiesta di notifica nel portale di Azure](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Configurare connettori/gruppi di connettori
 
@@ -61,19 +57,16 @@ Se i connettori sono inattivi, non sono in grado di raggiungere il servizio. Spe
 
 ## <a name="upload-certificates-for-custom-domains"></a>Caricare certificati per domini personalizzati
 
-I domini personalizzati consentono di specificare il dominio degli URL esterni. Per usare un dominio personalizzato, è necessario caricare il certificato per tale dominio. Per informazioni sull'uso di certificati e domini personalizzati, vedere [Utilizzo di domini personalizzati nel proxy dell'applicazione di Azure AD](application-proxy-configure-custom-domain.md). 
+I domini personalizzati consentono di specificare il dominio degli URL esterni. Per usare un dominio personalizzato, è necessario caricare il certificato per tale dominio. Per informazioni sull'uso di certificati e domini personalizzati, vedere [Utilizzo di domini personalizzati nel proxy dell'applicazione di Azure AD](application-proxy-configure-custom-domain.md).
 
 Se si verificano problemi durante il caricamento del certificato, cercare i messaggi di errore nel portale per altre informazioni sul problema con il certificato. Problemi comuni relativi ai certificati:
 
--   Certificato scaduto
+- Certificato scaduto
+- Certificato autofirmato
+- Certificato privo di chiave privata
 
--   Certificato autofirmato
-
--   Certificato privo di chiave privata
-
-Quando si tenta di caricare il certificato, il messaggio di errore viene visualizzato nell'angolo superiore destro. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
-
-   ![Prompt di notifica](./media/application-proxy-config-how-to/error-message2.png)
+Il messaggio di errore visualizzato nell'angolo superiore destro quando si tenta di caricare il certificato. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md)

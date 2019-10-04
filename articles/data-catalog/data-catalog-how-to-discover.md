@@ -5,19 +5,19 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007866"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736365"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 
 ## <a name="introduction"></a>Introduzione
 
-Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per le origini dati aziendali. In altre parole, Data Catalog permette agli utenti individuare, comprendere e utilizzare origini dati. Consente alle organizzazioni di ottenere maggior valore dai dati esistenti. Dopo che un'origine dati è stata registrata con Data Catalog, i metadati vengono indicizzati dal servizio, in modo che sia possibile eseguire facilmente ricerche per trovare i dati necessari.
+Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per le origini dati aziendali. In altre parole, Data Catalog consente agli utenti di individuare, comprendere e usare le origini dati. Consente alle organizzazioni di ottenere maggior valore dai dati esistenti. Dopo che un'origine dati è stata registrata con Data Catalog, i metadati vengono indicizzati dal servizio, in modo che sia possibile eseguire facilmente ricerche per trovare i dati necessari.
 
 ## <a name="searching-and-filtering"></a>Ricerca e filtri
 
@@ -33,7 +33,7 @@ Usando una combinazione di ricerca e filtri, gli utenti possono spostarsi rapida
 
 Anche se la ricerca di testo libero predefinita è semplice e intuitiva, è possibile usare anche la sintassi di ricerca di Data Catalog per un maggiore controllo sui risultati della ricerca. La ricerca di Data Catalog supporta le tecniche seguenti:
 
-| Tecnica | Uso | Esempio |
+| Tecnica | Utilizzo | Esempio |
 | --- | --- | --- |
 | Ricerca di base |Ricerca di base che usa uno o più termini di ricerca. I risultati sono gli asset che corrispondono alle proprietà di uno o più termini specificati. |`sales data` |
 | Ambito della proprietà |Restituire solo le origini dati dove il termine di ricerca corrisponde alla proprietà specificata. |`name:finance` |
@@ -50,13 +50,13 @@ Quando si visualizzano i risultati della ricerca, le proprietà visualizzate che
 > [!NOTE]
 > Per disattivare l'evidenziazione dei risultati, usare l'opzione **Evidenzia** nel portale di Data Catalog.
 
-Quando si visualizzano i risultati della ricerca, potrebbe non essere sempre evidente il motivo per cui un asset di dati viene incluso, anche con evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. E poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni, non tutti i metadati viene visualizzato nell'elenco dei risultati della ricerca.
+Quando si visualizzano i risultati della ricerca, è possibile che non siano sempre evidenti i motivi per cui un asset di dati è incluso, anche con l'evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. Poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni personalizzati, non tutti i metadati vengono visualizzati nell'elenco dei risultati della ricerca.
 
 Nella visualizzazione affiancata predefinita ogni riquadro che appare nei risultati della ricerca include un'icona **Visualizza corrispondenze con i termini di ricerca**, per poter visualizzare rapidamente il numero di corrispondenze e il relativo percorso e di passare a esse se necessario.
 
  ![Evidenziazione dei risultati e corrispondenze di ricerca nel portale catalogo dati di Azure.](./media/data-catalog-how-to-discover/search-matches.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Poiché la registrazione di un'origine dati con Data Catalog copia i metadati strutturali e descrittivi dall'origine dati al servizio catalogo, diventa più facile trovare e comprendere l'origine dati. Dopo avere registrato un'origine dati, è possibile trovarla usando i filtri e la ricerca dal portale di Data Catalog.
 

@@ -23,12 +23,16 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: Eseguire il failback
           href: azure-to-azure-tutorial-failback.md
-    - name: Spostare macchine virtuali di Azure
+    - name: Spostamento
       items:
         - name: Spostare macchine virtuali di Azure in un'altra area
           href: azure-to-azure-tutorial-migrate.md
         - name: Spostare macchine virtuali di Azure nelle zone di disponibilità
           href: move-Azure-VMs-AVset-Azone.md
+        - name: Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche
+          href: region-move-cross-geos.md
+        - name: Spostare un insieme di credenziali in un'area diversa
+          href: move-vaults-across-regions.md
     - name: Ripristino di emergenza di VM VMware in Azure
       items:
         - name: Preparare Azure
@@ -91,9 +95,11 @@
           href: vmware-azure-about-disaster-recovery.md
         - name: Domande frequenti
           href: vmware-azure-common-questions.md
-        - name: Matrice di supporto da VMware/server fisici ad Azure
+        - name: Matrice di supporto da VMware/computer fisici ad Azure
           href: vmware-physical-azure-support-matrix.md
-        - name: Requisiti di supporto per la distribuzione dei server di configurazione
+        - name: 'Informazioni sui componenti di Site Recovery (server di configurazione, server elaborazione e server di destinazione master)'
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Requisiti di supporto per i server di configurazione e di elaborazione
           href: vmware-azure-configuration-server-requirements.md
         - name: Architettura da VMware ad Azure
           href: vmware-azure-architecture.md
@@ -111,7 +117,7 @@
           href: hyper-v-azure-architecture.md
     - name: Informazioni sul ripristino di emergenza di server fisici in Azure
       items:
-        - name: Matrice di supporto da VMware/server fisici ad Azure
+        - name: Matrice di supporto da VMware/computer fisici ad Azure
           href: vmware-physical-azure-support-matrix.md
         - name: Architettura da server fisico ad Azure
           href: physical-azure-architecture.md
@@ -149,6 +155,8 @@
           items:
             - name: Preparare la rete per il ripristino di emergenza di VM di Azure
               href: azure-to-azure-about-networking.md
+            - name: Personalizzare le configurazioni di rete della VM di Azure di destinazione
+              href: azure-to-azure-customize-networking.md
             - name: Configurare il mapping di rete e conservare gli indirizzi IP dopo il failover
               href: azure-to-azure-network-mapping.md
             - name: Esempi di conservazione degli indirizzi IP dopo il failover
@@ -163,6 +171,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Abilitare la replica da Azure ad Azure per le macchine virtuali S2D
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Abilitare la replica per un disco aggiunto
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Escludere dischi
               href: azure-to-azure-exclude-disks.md
             - name: Riproteggere le VM di Azure dopo il failover
@@ -173,10 +183,16 @@
           items:
             - name: Aggiornare il servizio Mobility per le VM di Azure
               href: azure-to-azure-autoupdate.md
-            - name: Aggiornamenti in Azure Site Recovery
+            - name: Gestire gli aggiornamenti di Site Recovery
               href: service-updates-how-to.md
+            - name: Rimuovere server e disabilitare la protezione
+              href: site-recovery-manage-registration-and-protection.md
+            - name: Eliminare un insieme di credenziali
+              href: delete-vault.md
     - name: Ripristino di emergenza da VMware ad Azure
       items:
+        - name: Configurare il ripristino di emergenza su vasta scala
+          href: vmware-physical-large-deployment.md
         - name: Configurare la rete
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure
@@ -191,6 +207,8 @@
               items:
                 - name: Panoramica e prerequisiti
                   href: site-recovery-deployment-planner.md
+                - name: Cronologia delle versioni di Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Eseguire lo strumento Deployment Planner
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Analizzare il report generato
@@ -249,7 +267,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Gestire server vCenter
               href: vmware-azure-manage-vcenter.md
-            - name: Aggiornamenti in Azure Site Recovery
+            - name: Gestire gli aggiornamenti di Site Recovery
               href: service-updates-how-to.md
             - name: Rimuovere server e disabilitare la protezione
               href: site-recovery-manage-registration-and-protection.md
@@ -257,6 +275,8 @@
               href: delete-vault.md
     - name: Ripristino di emergenza da computer fisico ad Azure
       items:
+        - name: Configurare il ripristino di emergenza su vasta scala
+          href: vmware-physical-large-deployment.md
         - name: Configurare la rete
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure
@@ -265,6 +285,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: Configurare il ripristino di emergenza
           items:
+            - name: Procedura dettagliata - Configurare il ripristino di emergenza
+              href: physical-azure-disaster-recovery.md
             - name: Configurare l'ambiente di origine
               href: physical-azure-set-up-source.md
             - name: Configurare l'ambiente di destinazione
@@ -277,8 +299,6 @@
                   href: vmware-azure-install-mobility-service.md
                 - name: Distribuire il servizio Mobility con System Center Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: Procedura dettagliata - Configurare il ripristino di emergenza
-                  href: physical-azure-disaster-recovery.md
         - name: Eseguire il failover e il failback
           href: physical-to-azure-failover-failback.md
         - name: Gestisci
@@ -291,7 +311,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Rimuovere server e disabilitare la protezione
               href: site-recovery-manage-registration-and-protection.md
-            - name: Aggiornamenti in Azure Site Recovery
+            - name: Gestire gli aggiornamenti di Site Recovery
               href: service-updates-how-to.md
             - name: Eliminare un insieme di credenziali
               href: delete-vault.md
@@ -313,6 +333,8 @@
               items:
                 - name: Panoramica e prerequisiti
                   href: hyper-v-deployment-planner-overview.md
+                - name: Cronologia delle versioni di Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Eseguire lo strumento Deployment Planner
                   href: hyper-v-deployment-planner-run.md
                 - name: Analizzare il report generato
@@ -343,7 +365,7 @@
               href: upgrade-2012R2-to-2016.md
             - name: Rimuovere server e disabilitare la protezione
               href: site-recovery-manage-registration-and-protection.md
-            - name: Aggiornamenti in Azure Site Recovery
+            - name: Gestire gli aggiornamenti di Site Recovery
               href: service-updates-how-to.md
             - name: Eliminare un insieme di credenziali
               href: delete-vault.md
@@ -403,37 +425,49 @@
       href: hyper-v-azure-powershell-resource-manager.md
     - name: Configurare il ripristino di emergenza di VM Hyper-V (con VMM) in Azure con PowerShell
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: Aggiungere runbook di Automazione di Azure ai piani di ripristino per l'orchestrazione del failover
+    - name: Aggiungere runbook di automazione ai piani di ripristino
       href: site-recovery-runbook-automation.md
-- name: Monitorare e risolvere i problemi
+- name: Monitoraggio
   items:
-    - name: Monitorare Azure Site Recovery
+    - name: Domande frequenti sul monitoraggio
+      href: monitoring-common-questions.md
+    - name: Monitorare Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Macchine virtuali di Azure
+    - name: Monitorare Site Recovery con i log di Monitoraggio di Azure
+      href: monitor-log-analytics.md
+    - name: Monitorare i server di elaborazione
+      href: vmware-physical-azure-monitor-process-server.md
+- name: risoluzione dei problemi
+  items:
+    - name: Risolvere i problemi delle VM di Azure
       items:
-        - name: Risolvere gli errori di replica per le macchine virtuali di Azure
+        - name: Risolvere i problemi di replica delle VM di Azure
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Risolvere i problemi della replica in corso per le macchine virtuali di Azure
+        - name: Risolvere i problemi di connettività delle VM di Azure
+          href: azure-to-azure-troubleshoot-network-connectivity.md
+        - name: Risolvere i problemi della replica in corso
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Risolvere i problemi del servizio Mobility per le VM di Azure
+        - name: Risolvere i problemi del servizio Mobility
           href: site-recovery-extension-troubleshoot.md
-    - name: VMware/server fisico
+    - name: Risolvere i problemi di VM/server fisici VMware
       items:
-        - name: Risolvere i problemi della replica da VMware ad Azure
+        - name: Risolvere i problemi di replica di VM/server fisici VMware
           href: vmware-azure-troubleshoot-replication.md
-        - name: Risolvere i problemi del server di configurazione
+        - name: Risolvere i problemi dei server di configurazione
           href: vmware-azure-troubleshoot-configuration-server.md
-        - name: Risolvere i problemi dell'installazione push del servizio Mobility per VM VMware/server fisici
+        - name: Risolvere i problemi dei server di elaborazione
+          href: vmware-physical-azure-troubleshoot-process-server.md
+        - name: Risolvere i problemi dell'installazione push del servizio Mobility
           href: vmware-azure-troubleshoot-push-install.md
         - name: Risolvere i problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Risolvere i problemi di riprotezione e failback delle VM VMware
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Risoluzione dei problemi di aggiornamento del provider di Microsoft Azure Site Recovery
+        - name: Risolvere gli errori di aggiornamento del provider
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: Risoluzione dei problemi di individuazione di vCenter
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Risolvere i problemi di Hyper-V
       items:
         - name: Risolvere i problemi relativi alla replica Hyper-V
           href: hyper-v-azure-troubleshoot.md

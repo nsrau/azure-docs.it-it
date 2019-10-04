@@ -5,7 +5,6 @@ services: security-center
 documentationcenter: na
 author: pipposera
 manager: dsavage
-editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563795"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202857"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva:  Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
 Dopo l'onboarding della sottoscrizione di Azure, è possibile abilitare il Centro sicurezza per proteggere le macchine virtuali in esecuzione in Azure Stack aggiungendo l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** dal Marketplace di Azure Stack.

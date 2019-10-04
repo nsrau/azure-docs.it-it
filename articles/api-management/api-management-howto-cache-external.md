@@ -10,16 +10,15 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527834"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072494"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Usare una cache di Azure esterna per Redis in Gestione API di Azure
 
@@ -41,11 +40,6 @@ Contenuto dell'esercitazione:
 > [!div class="checklist"]
 > * Aggiungere una cache esterna in Gestione API
 
-## <a name="availability"></a>Disponibilità
-
-> [!NOTE]
-> Questa funzionalità è attualmente disponibile solo nel livello **A consumo** di Gestione API di Azure.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario:
@@ -66,7 +60,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 ![Funzionalità Bring Your Own Cache per Gestione API](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> Il **usare da** impostazione consente di specificare che Gestione API di distribuzione a livello di area per le comunicazioni con la cache configurata in caso di una configurazione di più area di gestione API. Le cache specificate come **predefinite** verranno sostituite dalle cache con un valore a livello di area.
+> L'impostazione **use from** specifica quale distribuzione regionale di gestione API comunicherà con la cache configurata in caso di configurazione a più aree di gestione API. Le cache specificate come **predefinite** verranno sostituite dalle cache con un valore a livello di area.
 >
 > Se ad esempio Gestione API è ospitato nelle aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale e sono presenti due cache configurate, una per **Predefinita** e una per **Asia sud-orientale**, Gestione API in **Asia sud-orientale** userà la propria cache, mentre le altre due aree useranno la voce della cache **Predefinita**.
 
@@ -76,7 +70,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 2. Selezionare la scheda **External cache** (Cache esterna) dal menu a sinistra.
 3. Fare clic sul pulsante **+ Aggiungi**.
 4. Selezionare la cache nel campo a discesa **Cache instance** (Istanza della cache).
-5. Selezionare **predefinite** oppure specificare l'area desiderata nella **usare da** campo a discesa.
+5. Selezionare **predefinito** o specificare l'area desiderata nel campo **utilizza da** elenco a discesa.
 6. Fare clic su **Save**.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Aggiungere una cache di Azure per Redis ospitata al di fuori della sottoscrizione di Azure corrente o di Azure in generale
@@ -85,7 +79,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 2. Selezionare la scheda **External cache** (Cache esterna) dal menu a sinistra.
 3. Fare clic sul pulsante **+ Aggiungi**.
 4. Selezionare **Personalizzata** nel campo a discesa **Cache instance** (Istanza della cache).
-5. Selezionare **predefinite** oppure specificare l'area desiderata nella **usare da** campo a discesa.
+5. Selezionare **predefinito** o specificare l'area desiderata nel campo **utilizza da** elenco a discesa.
 6. Fornire la stringa di connessione della cachedi Azure per Redis nel campo **Stringa di connessione**.
 7. Fare clic su **Save**.
 
@@ -94,6 +88,7 @@ Seguire i passaggi indicati di seguito per aggiungere una cache esterna per Redi
 Dopo essere stata configurata in Gestione API di Azure, la cache esterna può essere usata tramite i criteri di memorizzazione nella cache. Vedere [Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure](api-management-howto-cache.md) per la procedura dettagliata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
+
 * Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) nell'argomento [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).
 * Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 

@@ -1,21 +1,21 @@
 ---
-title: "Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure"
-description: Questa esercitazione illustra come creare e configurare il primo server Database di Azure per PostgreSQL ed eseguire query con l'interfaccia della riga di comando di Azure.
+title: "Esercitazione: Progettare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure"
+description: Questa esercitazione illustra come creare e configurare il primo Database di Azure per PostgreSQL - Server singolo ed eseguire query usando l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
-ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/25/2019
+ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992090"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447230"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Esercitazione: Progettare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
 > [!div class="checklist"]
 > * Creare un database di Azure per il server PostgreSQL
@@ -121,15 +121,21 @@ Il risultato è in formato JSON. Annotare l'**administratorLogin** e il **fullyQ
 Se nel computer client è installato PostgreSQL, è possibile usare un'istanza locale di [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) o la console Cloud di Azure per connettersi a un server PostgreSQL di Azure. Si usi ora l'utilità della riga di comando psql per connettersi al Database di Azure per il server PostgreSQL.
 
 1. Eseguire il comando psql seguente per connettersi a un Database di Azure per PostgreSQL:
-   ```azurecli-interactive
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
    Ad esempio, il comando seguente consente di connettersi al database predefinito denominato **postgres** nel server PostgreSQL **mydemoserver.postgres.database.azure.com** usando le credenziali di accesso. Immettere il valore di `<server_admin_password>` scelto quando viene chiesta la password.
   
-   ```azurecli-interactive
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > Se si preferisce usare un percorso URL per connettersi a Postgres, l'URL codifica il segno @ nel nome utente con `%40`. Ad esempio la stringa di connessione per psql sarà
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
 2. Dopo aver eseguito la connessione al server, creare un database vuoto al prompt:
    ```sql

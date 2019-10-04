@@ -3,7 +3,7 @@ title: Monitoraggio e diagnostica per i contenitori di Windows su Service Fabric
 description: In questa esercitazione si apprenderà come configurare i log di Monitoraggio di Azure per il monitoraggio e la diagnostica dei contenitori di Windows in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.date: 07/22/2019
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663163"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68598778"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
@@ -86,7 +86,7 @@ Apportare le modifiche seguenti nel file *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Aggiungere Microsoft Monitoring Agent come estensione macchina virtuale. Trovare la risorsa set di scalabilità di macchine virtuali: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. In *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* aggiungere la descrizione di estensione seguente nell'estensione *ServiceFabricNode*: 
+3. Aggiungere Microsoft Monitoring Agent come estensione macchina virtuale. Trovare la risorsa set di scalabilità di macchine virtuali: *resources* >  *"apiVersion": "[variables('vmssApiVersion')]"* . In *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* aggiungere la descrizione di estensione seguente nell'estensione *ServiceFabricNode*: 
     
     ```json
     {

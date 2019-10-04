@@ -3,7 +3,7 @@ title: Distribuire un eseguibile esistente in Azure Service Fabric | Documentazi
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670594"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599464"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuire un eseguibile esistente in Service Fabric
 In Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest.
@@ -33,7 +33,7 @@ L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta num
 * Monitoraggio dell’integrità. Il monitoraggio dell'integrità di Service Fabric rileva se un'applicazione è in esecuzione e fornisce informazioni di diagnostica in caso di errore.   
 * Gestione del ciclo di vita delle applicazioni. Oltre a garantire aggiornamenti senza tempi di inattività, Service Fabric consente il ripristino automatico della versione precedente se durante un aggiornamento viene segnalato un evento di integrità negativo.    
 * Densità. È possibile eseguire più applicazioni in un cluster, eliminando la necessità che ogni applicazione venga eseguita nel proprio hardware.
-* Individuazione: Uso di REST è possibile chiamare il servizio di Service Fabric Naming per trovare altri servizi nel cluster. 
+* Individuazione Con REST è possibile chiamare il servizio Service Fabric Naming per trovare altri servizi nel cluster. 
 
 ## <a name="samples"></a>Esempi
 * [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

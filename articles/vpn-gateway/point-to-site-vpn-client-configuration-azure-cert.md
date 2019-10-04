@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525168"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961611"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -74,7 +74,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 
 ## <a name="installmac"></a>Mac (OS X)
 
- È necessario configurare manualmente il client VPN IKEv2 nativo in ogni Mac che si connetterà ad Azure. Azure non fornisce il file mobileconfig per l'autenticazione del certificato di Azure nativo. **Generic** contiene tutte le informazioni che occorrono per la configurazione. Se la cartella Generic non viene visualizzata nel download, è probabile che non sia stato selezionato IKEv2 come tipo di tunnel. Si noti che il gateway VPN SKU Basic non supporta IKEv2. Dopo la selezione di IKEv2, generare di nuovo il file con estensione zip per recuperare la cartella Generic.<br>La cartella Generic contiene i file seguenti:
+ È necessario configurare manualmente il client VPN IKEv2 nativo in ogni Mac che si connetterà ad Azure. Azure non fornisce il file mobileconfig per l'autenticazione del certificato di Azure nativo. **Generic** contiene tutte le informazioni che occorrono per la configurazione. Se la cartella Generic non viene visualizzata nel download, è probabile che non sia stato selezionato IKEv2 come tipo di tunnel. Si noti che lo SKU Basic del gateway VPN non supporta IKEv2. Dopo la selezione di IKEv2, generare di nuovo il file con estensione zip per recuperare la cartella Generic.<br>La cartella Generic contiene i file seguenti:
 
 * **VpnSettings.xml**, che contiene impostazioni importanti come l'indirizzo del server e il tipo di tunnel. 
 * **VpnServerRoot.cer**, che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito.
@@ -109,45 +109,37 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
    ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
-   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![applica](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Nella finestra di dialogo **Rete** fare clic su **Applica** per salvare tutte le modifiche. Fare quindi clic su **Connect** (Connetti) per avviare la connessione da punto a sito alla rete virtuale di Azure.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### <a name="extract-the-key-and-certificate"></a>Estrarre la chiave e il certificato
+### <a name="installstrongswan"></a>Installare strongSwan
 
-Per strongSwan è necessario estrarre la chiave e il certificato dal certificato client (file con estensione PFX) e salvarli in singoli file con estensione PEM.
-Attenersi ai passaggi indicati di seguito:
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Scaricare e installare OpenSSL da [OpenSSL](https://www.openssl.org/source/).
-2. Aprire una finestra della riga di comando e passare alla directory in cui è installato OpenSSL, ad esempio C:\OpenSLL-Win64\bin\'.
-3. Eseguire il comando seguente per estrarre la chiave privata dal certificato client e salvarla in un nuovo file denominato "privatekey.pem":
+### <a name="genlinuxcerts"></a>Genera certificati
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Eseguire ora il comando seguente per estrarre il certificato pubblico e salvarlo in un nuovo file:
+Se non sono ancora stati generati certificati, attenersi alla procedura seguente:
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Installare e configurare
 
-Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.4. Ubuntu 16.0.10 non supporta l'interfaccia utente grafica strongSwan. Se si intende comunque usare Ubuntu 16.0.10, sarà quindi necessario ricorrere alla [riga di comando](#linuxinstallcli). A seconda delle versioni di Linux e strongSwan in uso, è possibile che le schermate riportate negli esempi seguenti non corrispondano a quelle effettivamente visualizzate.
+In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non supporta l'interfaccia utente grafica strongSwan. Se si intende comunque usare Ubuntu 16.0.10, sarà quindi necessario ricorrere alla [riga di comando](#linuxinstallcli). A seconda delle versioni di Linux e strongSwan in uso, è possibile che le schermate riportate negli esempi seguenti non corrispondano a quelle effettivamente visualizzate.
 
-1. Aprire il **Terminale** per installare **strongSwan** e il relativo gestore di rete eseguendo il comando riportato nell'esempio. Se si riceve un errore relativo a *libcharon-extra-plugins*, sostituirlo con "strongswan-plugin-eap-mschapv2".
+1. Aprire il **Terminale** per installare **strongSwan** e il relativo gestore di rete eseguendo il comando riportato nell'esempio.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
-2. Selezionare l'icona **Network Manager** (Gestione rete) usando le frecce su/giù e selezionare **Edit Connections** (Modifica connessioni).
+2. Selezionare **Impostazioni** , quindi fare clic su **rete**.
 
    ![Modificare le connessioni](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Fare clic sul pulsante **Aggiungi** per creare una nuova connessione.
+3. Fare clic **+** sul pulsante per creare una nuova connessione.
 
    ![Aggiungere una connessione](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Selezionare **IPsec/IKEv2 (strongswan)** dal menu a discesa e fare clic su **Create** (Crea). In questo passaggio è possibile rinominare la connessione.
+4. Selezionare **IPSec/IKEv2 (strongSwan)** dal menu e fare doppio clic su. In questo passaggio è possibile assegnare un nome alla connessione.
 
    ![Scegliere un tipo di connessione](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Aprire il file **VpnSettings.xml** dalla cartella **Generic** (Generale) contenuta nei file di configurazione client scaricati. Trovare il tag denominato **VpnServer** e copiare il nome, che inizia con "azuregateway" e termina con ".cloudapp.net".
@@ -156,17 +148,20 @@ Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.
 6. Incollare il nome nel campo **Address** (Indirizzo) della nuova connessione VPN nella sezione **Gateway**. Successivamente, selezionare l'icona della cartella alla fine del campo **Certificate** (Certificato), passare alla cartella **Generic** e selezionare il file **VpnServerRoot**.
 7. Nella sezione **Client** della connessione, per **Authentication** (Autenticazione) selezionare **Certificate/private key** (Certificato/Chiave privata). Per **Certificate** (Certificato) e **Private key** (Chiave privata) scegliere il certificato e la chiave privata creati in precedenza. In **Options** (Opzioni) selezionare **Request an inner IP address** (Richiedi un indirizzo IP interno). Fare quindi clic su **Aggiungi**.
 
-   ![Richiedere un indirizzo IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Fare clic sull'icona **Network Manager** (Gestione rete) (freccia su/freccia giù) e passare il mouse su **Connessioni VPN**. Viene visualizzata la connessione VPN creata. Fare clic per avviare la connessione.
+   ![Richiedere un indirizzo IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. **Attivare la connessione.**
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
 ### <a name="install-strongswan"></a>Installare strongSwan
 
-Per installare strongSwan è possibile usare i comandi seguenti dell'interfaccia della riga di comando oppure i passaggi di strongSwan nel [GUI](#install).
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### <a name="generate-certificates"></a>Generare i certificati
+
+Se non sono ancora stati generati certificati, attenersi alla procedura seguente:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install-and-configure"></a>Installare e configurare
 

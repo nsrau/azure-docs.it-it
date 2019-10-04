@@ -3,7 +3,7 @@ title: Distribuire un'applicazione contenitore con CI/CD in un cluster di Azure 
 description: In questa esercitazione si apprenderà come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric usando Visual Studio e Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668807"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68598903"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
@@ -137,7 +137,7 @@ Fare clic su **Impostazioni di Docker** e quindi su **Configura le impostazioni 
 
 ![Agente della pipeline di versione][release-pipeline-agent]
 
-Aggiungere quindi un elemento alla pipeline in modo da consentire alla definizione della versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**->**+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
+Aggiungere quindi un elemento alla pipeline in modo da consentire alla definizione della versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**-> **+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
 
 ![Aggiungere un elemento][add-artifact]
 

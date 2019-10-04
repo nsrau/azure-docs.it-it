@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 0222450e1b85c255f2028adff750b9257f109be7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61464964"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gestire gli endpoint di streaming con .NET SDK  
 

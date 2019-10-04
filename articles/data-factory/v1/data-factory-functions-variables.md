@@ -2,23 +2,20 @@
 title: Funzioni e variabili di sistema di Data Factory | Microsoft Docs
 description: Fornisce un elenco delle funzioni e delle variabili di sistema di Azure Data Factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-services: data-factory
-ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 243923fba5b81ef68d6e4e560182d228e3b8ad1a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486516"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139754"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
@@ -28,12 +25,12 @@ In questo articolo vengono fornite informazioni sulle funzioni e le variabili su
 
 ## <a name="data-factory-system-variables"></a>Variabili di sistema di Data Factory
 
-| Nome variabile | DESCRIZIONE | Ambito dell'oggetto | Ambito JSON e casi d'uso |
+| Nome variabile | Descrizione | Ambito dell'oggetto | Ambito JSON e casi d'uso |
 | --- | --- | --- | --- |
-| WindowStart |Inizio dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |activity |<ol><li>Definizione delle query di selezione dei dati. Vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .</li> |
+| WindowStart |Inizio dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |attività |<ol><li>Definizione delle query di selezione dei dati. Vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .</li> |
 | WindowEnd |Fine dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |attività |uguale a WindowStart. |
-| SliceStart |Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione |activity<br/>dataset |<ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'uso dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol> |
-| SliceEnd |Fine dell'intervallo di tempo relativo alla sezione di dati corrente. |activity<br/>dataset |uguale a SliceStart. |
+| SliceStart |Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione |attività<br/>dataset |<ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'uso dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol> |
+| SliceEnd |Fine dell'intervallo di tempo relativo alla sezione di dati corrente. |attività<br/>dataset |uguale a SliceStart. |
 
 > [!NOTE]
 > Attualmente Data Factory richiede che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella sezione relativa alla disponibilità del set di dati di output. Il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd viene quindi sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
@@ -59,7 +56,7 @@ Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengo
 
 1. Definizione delle query di selezione dei dati (vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .
    
-   La sintassi per chiamare una funzione della data factory è:  **$$ \<funzione >** per le query di selezione dei dati e altre proprietà dell'attività e i set di dati.  
+   La sintassi per richiamare una funzione Data Factory è:  **$$ \<Function >** per le query di selezione dei dati e altre proprietà nell'attività e nei set di dati.  
 2. Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.
    
     La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.     
@@ -80,23 +77,23 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 
 | Category | Funzione | Parametri | DESCRIZIONE |
 | --- | --- | --- | --- |
-| Tempo |AddHours(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Tempo |AddMinutes(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Tempo |StartOfHour(X) |X: Datetime |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |AddDays(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |AddMonths(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |AddQuarters(X,Y) |X: Datetime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |AddWeeks(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y * 7 giorni a X.<br/><br/>Esempio: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM<br/><br/>È possibile anche sottrarre settimane specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |AddYears(X,Y) |X: Datetime<br/><br/>Y: int |Aggiunge Y anni a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>È possibile anche sottrarre anni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Day(X) |X: Datetime |Ottiene il componente giorno di X.<br/><br/>Esempio: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek(X) |X: Datetime |Ottiene il giorno del componente settimana di X.<br/><br/>Esempio: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |DayOfYear(X) |X: Datetime |Ottiene il giorno dell'anno rappresentato dal componente anno di X.<br/><br/>Esempi:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth(X) |X: Datetime |Ottiene i giorni del mese rappresentati dal componente mese del parametro X.<br/><br/>Esempio: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |EndOfDay(X) |X: Datetime |Ottiene la data e ora che rappresenta la fine del giorno (componente giorno) X.<br/><br/>Esempio: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |EndOfMonth(X) |X: Datetime |Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e ora che rappresentano la fine del mese di settembre) |
-| Data |StartOfDay(X) |X: Datetime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datetime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
-| Datetime |Ticks(X) |X: Datetime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
+| Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |StartOfHour(X) |X: Datetime |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>[https://login.microsoftonline.com/consumers/](`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`).<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y * 7 giorni a X.<br/><br/>Esempio: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM<br/><br/>È possibile anche sottrarre settimane specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y anni a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>È possibile anche sottrarre anni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Data |Day(X) |X: DateTime |Ottiene il componente giorno di X.<br/><br/>Esempio: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: DateTime |Ottiene il giorno del componente settimana di X.<br/><br/>Esempio: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: DateTime |Ottiene il giorno dell'anno rappresentato dal componente anno di X.<br/><br/>Esempi:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: DateTime |Ottiene i giorni del mese rappresentati dal componente mese del parametro X.<br/><br/>Esempio: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay(X) |X: DateTime |Ottiene la data e ora che rappresenta la fine del giorno (componente giorno) X.<br/><br/>Esempio: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: DateTime |Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e ora che rappresentano la fine del mese di settembre) |
+| Date |StartOfDay(X) |X: DateTime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
+| DateTime |Ticks(X) |X: DateTime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
 | Text |Format(X) |X: variabile String |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
 
 > [!IMPORTANT]

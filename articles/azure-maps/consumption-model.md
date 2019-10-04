@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60797909"
 ---
 # <a name="consumption-model"></a>Modello di utilizzo
 

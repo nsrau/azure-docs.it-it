@@ -1,20 +1,18 @@
 ---
 title: Sviluppare per File di Azure con Python | Microsoft Docs
 description: Informazioni su come sviluppare applicazioni e servizi Python che usano File di Azure per archiviare i dati dei file.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: tamram
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 06c0256043ef27e6298cc4e30dc3f372e6bd3959
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456596"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699387"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Sviluppare per File di Azure con Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -90,7 +88,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-## <a name="upload-a-file"></a>Caricare un file 
+## <a name="upload-a-file"></a>Carica un file 
 Una condivisione file di Azure contiene almeno una directory radice in cui possono risiedere i file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
 Per creare un file e caricare dati, usare i metodi `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` o `create_file_from_text`. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
@@ -103,13 +101,13 @@ Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel fi
 from azure.storage.file import ContentSettings
 file_service.create_file_from_path(
     'myshare',
-    None, # We want to create this blob in the root directory, so we specify None for the directory_name
+    None,  # We want to create this blob in the root directory, so we specify None for the directory_name
     'myfile',
     'sunset.png',
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-## <a name="download-a-file"></a>Scaricare un file
+## <a name="download-a-file"></a>Scarica file
 Per scaricare i dati da un file, usare `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes` o `get_file_to_text`. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
 Nell'esempio seguente viene illustrato l'uso di `get_file_to_path` per scaricare il contenuto del file **myfile** e archiviarlo nel file **out-sunset.png**.
@@ -151,7 +149,8 @@ shares = list(file_service.list_shares(include_snapshots=True))
 È possibile esplorare il contenuto di ogni snapshot di condivisione per recuperare file e directory da un determinato momento.
 
 ```python
-directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+directories_and_files = list(
+    file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
 ## <a name="get-file-from-share-snapshot"></a>Ottenere file da uno snapshot di condivisione
@@ -159,7 +158,8 @@ directories_and_files = list(file_service.list_directories_and_files(share_name,
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
-    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+    file = file_service.get_file_to_stream(
+        share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
 ## <a name="delete-a-single-share-snapshot"></a>Eliminare un singolo snapshot di condivisione  

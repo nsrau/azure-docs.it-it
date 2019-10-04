@@ -3,7 +3,7 @@
   items:
     - name: Informazioni su Riconoscimento del parlante
       href: Home.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Informazioni di riferimento sulle API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
@@ -12,7 +12,7 @@
           items:
             - name: Android
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
-            - name: Windows
+            - name: ' Windows'
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
 - name: Risorse
   items:

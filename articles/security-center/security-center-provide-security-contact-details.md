@@ -3,23 +3,22 @@ title: Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di 
 description: Questo documento illustra come specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 08/09/2019
+ms.author: memildin
+ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107939"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201014"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
@@ -33,20 +32,20 @@ Le notifiche di avviso tramite posta elettronica vengono inviate:
 - Ogni messaggio di posta elettronica contiene un unico avviso, non un'aggregazione di avvisi
  
 Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvisare l'utente di un attacco RDP, questo non riceverà nessun altro messaggio di posta elettronica relativo all'attacco RDP nello stesso giorno, anche se viene attivato un altro avviso. 
- 
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
->
->
 
-## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. In **Raccomandazioni** selezionare **Specificare i dettagli dei contatti di sicurezza**.
-   ![Specificare contatti per la sicurezza][1]
-2. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto.
-3. Si aprirà **Notifiche tramite posta elettronica**.
+## Configurare le notifiche di posta elettronica per gli avvisi<a name="email"></a>
 
-   ![Specificare dettagli del contatto per la sicurezza][2]
+1. Dal portale selezionare **prezzi & impostazioni**.
+1. Fare clic sulla sottoscrizione.
+1. Fare clic su **Notifiche tramite posta elettronica**.
+
+> [!NOTE]
+> Se si sta implementando una raccomandazione, in **raccomandazioni**selezionare **specificare i dettagli dei contatti di sicurezza**e selezionare la sottoscrizione di Azure in cui inserire le informazioni di contatto. Si aprirà **Notifiche tramite posta elettronica**.
+
+   ![Specificare i dettagli dei contatti di sicurezza][2]
 
    * Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere.
    * Immettere un numero di telefono internazionale per il contatto di sicurezza.
@@ -54,7 +53,7 @@ Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvis
    * In futuro, sarà possibile inviare notifiche tramite posta elettronica ai proprietari di sottoscrizioni. Attualmente questa opzione non è disponibile.
    * Selezionare **Salva** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.

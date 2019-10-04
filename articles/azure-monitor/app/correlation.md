@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338179"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -35,7 +35,7 @@ Ogni operazione in uscita, ad esempio una chiamata HTTP a un altro componente, �
 
 È possibile creare una visualizzazione dell'operazione logica distribuita usando `operation_Id`, `operation_parentId` e `request.id` con `dependency.id`. Questi campi definiscono anche l'ordine della causalità delle chiamate di telemetria.
 
-In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, è necessario eseguire query sui dati da ogni elemento di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
+In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, il Application Insights UX esegue query sui dati da ogni elemento di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
 
 ## <a name="example"></a>Esempio
 
@@ -51,42 +51,75 @@ Un'applicazione denominata Stock Prices mostra il prezzo di mercato di un'azione
 
 Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation_Id` radice. Quando viene eseguita una chiamata Ajax dalla pagina, viene assegnato un nuovo ID univoco (`qJSXU`) alla telemetria delle dipendenze e l'ID di pageView viene usato come `operation_ParentId`. La richiesta server usa quindi l'ID Ajax come `operation_ParentId`.
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Pagina Stock                |              | STYz               | STYz         |
 | dipendenza | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| richiesta    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| request    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
 | dipendenza | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
 Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno, si vuole conoscere l'identità del relativo server per poter impostare correttamente il campo `dependency.target`. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Se tuttavia il servizio identifica se stesso restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente ad Application Insights di creare una traccia distribuita eseguendo query sui dati di telemetria di quel servizio.
 
 ## <a name="correlation-headers"></a>Intestazioni di correlazione
 
-Microsoft sta lavorando a una proposta RFC per il [protocollo HTTP per la correlazione](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Questa proposta definisce due intestazioni:
-
-- `Request-Id`: contiene l'ID globalmente univoco della chiamata.
-- `Correlation-Context`: contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
-
-Lo standard definisce anche due schemi per la generazione di `Request-Id`: semplice e gerarchico. Con lo schema semplice, una chiave di `Id` nota viene definita per la raccolta `Correlation-Context`.
-
-Application Insights definisce l'[estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo HTTP per la correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
-
-### <a name="w3c-distributed-tracing"></a>Analisi distribuita W3C
-
-Microsoft sta eseguendo la transizione al [formato di analisi distribuita W3C](https://w3c.github.io/trace-context/), che definisce quanto segue:
+È in corso la transizione a [W3C Trace-context](https://w3c.github.io/trace-context/) che definisce:
 
 - `traceparent`: contiene l'ID operazione globalmente univoco e un identificatore univoco della chiamata.
 - `tracestate`: contiene il contesto specifico del sistema di analisi.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
+Le versioni più recenti di Application Insights SDK supportano il protocollo del contesto di traccia, ma potrebbe essere necessario acconsentire esplicitamente (la compatibilità con il protocollo di correlazione precedente supportata da ApplicationInsights SDK) verrà mantenuta.
 
+Il [protocollo http di correlazione aka Request-ID](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) si trova nel percorso di deprecazione. Questo protocollo definisce due intestazioni:
+
+- `Request-Id`: contiene l'ID globalmente univoco della chiamata.
+- `Correlation-Context`: contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
+
+Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
+
+### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
+ 
+  > [!NOTE]
+  > Nessuna configurazione necessaria a partire da `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` 
+
+Il supporto del contesto di traccia W3C viene eseguito in modo compatibile con le versioni precedenti e la correlazione dovrebbe funzionare con le applicazioni instrumentate con le versioni precedenti di SDK (senza supporto W3C). 
+
+Se per qualsiasi motivo si vuole continuare a usare il protocollo legacy `Request-Id`, è possibile *disabilitare* il contesto di traccia con la configurazione seguente
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Se si esegue una versione precedente dell'SDK, è consigliabile aggiornarla o applicare la configurazione seguente per abilitare il contesto di traccia.
 Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` a partire dalla versione 2.8.0-beta1.
 È disabilitata per impostazione predefinita. Per abilitarla, modificare `ApplicationInsights.config`:
 
 - In `RequestTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersExtraction` con il valore impostato su `true`.
 - In `DependencyTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersInjection` con il valore impostato su `true`.
+- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto il `TelemetryInitializers` simile a 
 
-#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
+
+### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
+
+ > [!NOTE]
+  > Non è necessaria alcuna configurazione a partire da `Microsoft.ApplicationInsights.AspNetCore` versione 2.8.0.
+ 
+Il supporto del contesto di traccia W3C viene eseguito in modo compatibile con le versioni precedenti e la correlazione dovrebbe funzionare con le applicazioni instrumentate con le versioni precedenti di SDK (senza supporto W3C). 
+
+Se per qualsiasi motivo si vuole continuare a usare il protocollo legacy `Request-Id`, è possibile *disabilitare* il contesto di traccia con la configurazione seguente
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Se si esegue una versione precedente dell'SDK, è consigliabile aggiornarla o applicare la configurazione seguente per abilitare il contesto di traccia.
 
 Questa funzionalità si trova nella versione 2.5.0-beta1 di `Microsoft.ApplicationInsights.AspNetCore` e nella versione 2.8.0-beta1 di `Microsoft.ApplicationInsights.DependencyCollector`.
 È disabilitata per impostazione predefinita. Per abilitarla, impostare `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` su `true`:
@@ -100,7 +133,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
+### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
 
 - **Configurazione in ingresso**
 
@@ -137,6 +170,39 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > Assicurarsi che entrambe le configurazioni in ingresso e in uscita siano identiche.
 
+### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app Web
+
+Questa funzionalità è `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare la configurazione `distributedTracingMode`. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati:
+
+- **Installazione di NPM (ignora se si usa l'installazione del frammento)**
+
+  ```javascript
+  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
+
+  const appInsights = new ApplicationInsights({ config: {
+    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+    distributedTracingMode: DistributedTracingModes.W3C
+    /* ...Other Configuration Options... */
+  } });
+  appInsights.loadAppInsights();
+  ```
+  
+- **Impostazione del frammento (ignora se si usa l'installazione di NPM)**
+
+  ```
+  <script type="text/javascript">
+  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
+  (
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY",
+      distributedTracingMode: 2 // DistributedTracingModes.W3C
+      /* ...Other Configuration Options... */
+    }
+  );
+  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+  </script>
+  ```
+
 ## <a name="opentracing-and-application-insights"></a>OpenTracing e Application Insights
 
 La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i modelli di dati di Application Insights eseguono il mapping nel modo seguente:
@@ -168,7 +234,7 @@ La [guida alle attività](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio di una nuova attività.
 
-`System.Net.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
+`System.Net.Http.HttpClient`, a partire dalla versione 4.1.0, supporta l'inserimento automatico delle intestazioni HTTP di correlazione e il monitoraggio della chiamata HTTP come attività.
 
 È disponibile un nuovo modulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando `DiagnosticSource`. Avvia un'attività in base alle intestazioni di richiesta in ingresso. Correla anche i dati di telemetria dalle diverse fasi dell'elaborazione delle richieste, anche quando ogni fase dell'elaborazione di Internet Information Services (IIS) viene eseguita in un thread gestito diverso.
 
@@ -186,7 +252,7 @@ La propagazione automatica del contesto attraverso tecnologie di messaggistica (
 
 ### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlazione di dati di telemetria nell'applicazione Java asincrona
 
-Per correlare i dati di telemetria all'applicazione Spring Boot asincrona, seguire [ciò](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) articolo approfondito. Vengono fornite informazioni aggiuntive per la strumentazione di Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) nonché [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+Per correlare i dati di telemetria nell'applicazione di Spring boot asincrona, seguire [questo](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) articolo dettagliato. Fornisce indicazioni per la strumentazione di [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) di Spring e [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
 
 
 <a name="java-role-name"></a>
@@ -217,6 +283,7 @@ Potrebbe a volte essere necessario personalizzare il modo in cui i nomi dei comp
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scrivere [dati di telemetria personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
+- Per gli scenari di correlazione avanzati in ASP.NET Core e ASP.NET, vedere l'articolo [tenere traccia delle operazioni personalizzate](custom-operations-tracking.md) .
 - Altre informazioni sull'[impostazione di cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) per altri SDK.
 - Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](../../azure-monitor/app/platforms.md).
 - Per informazioni sui tipi di Application Insights, vedere il [modello di dati](../../azure-monitor/app/data-model.md).

@@ -5,15 +5,15 @@ services: virtual-network
 author: jimdial
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/09/2018
-ms.author: jdial
+ms.date: 05/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114339"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180070"
 ---
 ## <a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
@@ -51,7 +51,8 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
 
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+È consigliabile esaminare la versione più recente la documentazione per la distribuzione di Linux. 
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:

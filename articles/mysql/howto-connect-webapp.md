@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: eb2fee7c76bcf29aee2dcd70d7975d7631bb23f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 5/21/2019
+ms.openlocfilehash: 3fbffc805afb540499e38f1c0853260968228b22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548953"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002014"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connessione di un servizio app di Azure esistente al Database di Azure per MySQL
 Questo argomento descrive come connettere un Servizio app di Azure esistente al database di Azure per il server MySQL.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Accedere al [Portale di Azure](https://portal.azure.com). Creare un database di Azure per il server MySQL. Per informazioni dettagliate, vedere [Come creare il database di Azure per il server MySQL dal portale](quickstart-create-mysql-server-database-using-azure-portal.md) o [Come creare il database di Azure per il server MySQL con l'interfaccia della riga di comando](quickstart-create-mysql-server-database-using-azure-cli.md).
+Accedere al [portale di Azure](https://portal.azure.com). Creare un database di Azure per il server MySQL. Per informazioni dettagliate, vedere [Come creare il database di Azure per il server MySQL dal portale](quickstart-create-mysql-server-database-using-azure-portal.md) o [Come creare il database di Azure per il server MySQL con l'interfaccia della riga di comando](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Attualmente sono disponibili due soluzioni per abilitare l'accesso dal servizio app di Azure a un database di Azure per MySQL. Entrambe le soluzioni implicano la configurazione di regole firewall a livello di server.
 
@@ -48,6 +48,23 @@ Sebbene il servizio app di Azure tenti di mantenere gli indirizzi IP costanti ne
 
 ## <a name="ssl-configuration"></a>Configurazione SSL
 Il database di Azure per MySQL dispone dell'autenticazione SSL abilitata per impostazione predefinita. Se l'applicazione non usa l'autenticazione SSL per connettersi al database, è necessario disabilitare SSL nel server MySQL. Per informazioni dettagliate su come configurare l'autenticazione SSL, vedere [Uso di SSL con il database di Azure per MySQL](howto-configure-ssl.md).
+
+### <a name="django-pymysql"></a>Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle stringhe di connessione, vedere l'argomento relativo alle [stringhe di connessione](howto-connection-string.md).

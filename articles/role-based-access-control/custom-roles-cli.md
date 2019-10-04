@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56584897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118774"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
 

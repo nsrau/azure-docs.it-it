@@ -4,24 +4,23 @@ description: Domande frequenti sul Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, linux, oss, app Web per contenitori, multi-contenitore, più contenitori
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525127"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066912"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -39,13 +38,15 @@ In caso di domande, inviare commenti su questo articolo.
 
 **Quali sono i valori previsti per la sezione relativa al file di avvio quando si configura lo stack di runtime?**
 
-| Stack     | Valore previsto                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | un comando per avviare il `.jar` applicazione                                    |
-| Tomcat    | il percorso di uno script per eseguire eventuali configurazioni per l'app          |
-| Node.js   | il file di configurazione PM2 o il file script                                |
-| .Net Core | il nome della DLL compilato come `dotnet <myapp>.dll`                                 |
-| Ruby      | lo script Ruby che si desidera inizializzazione dell'app                     |
+| Stack           | Valore previsto                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | percorso di uno script per eseguire tutte le configurazioni necessarie (ad esempio, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | il file di configurazione PM2 o il file di script                                |
+| .Net Core       | nome della DLL compilata come`dotnet <myapp>.dll`                                 |
+| Ruby            | script Ruby con cui si vuole inizializzare l'app                     |
+
+Questi comandi o script vengono eseguiti dopo l'avvio del contenitore Docker incorporato, ma prima dell'avvio del codice dell'applicazione.
 
 ## <a name="management"></a>Gestione
 
@@ -58,14 +59,14 @@ Questa azione equivale a un riavvio di Docker.
 Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgente.
 
 > [!NOTE]
-> È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Debug remoto e SHH nel servizio app in Linux).
+> È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html) (Debug remoto e SHH nel servizio app in Linux).
 >
 
 **Come è possibile creare un piano di servizio app Linux tramite un SDK o un modello di Azure Resource Manager?**
 
 È necessario impostare il campo **reserved** del servizio app su *true*.
 
-## <a name="continuous-integration-and-deployment"></a>Integrazione e distribuzione continue
+## <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
 **L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione e distribuzione continua di contenitori personalizzati?**
 
@@ -83,7 +84,7 @@ Sì, è necessario impostare `WEBSITE_WEBDEPLOY_USE_SCM` nell'app su *false*.
 
 Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una delle opzioni seguenti per distribuire il codice dell'applicazione:
 
-- Usare la funzionalità Recapito continuo (anteprima): È possibile archiviare il codice sorgente dell'app in un repository Git di DevOps di Azure o un repository di GitHub usare recapito continuo di Azure. Per altre informazioni, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
+- Usare la funzionalità Recapito continuo (anteprima): Per usare il recapito continuo di Azure, è possibile archiviare il codice sorgente dell'app in un repository git DevOps di Azure o in un repository GitHub. Per altre informazioni, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
 
 - Usare la [l'API per la distribuzione ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): per usare questa API, attivare una connessione [SSH nell'app Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e passare alla cartella in cui si vuole distribuire il codice. Eseguire il codice seguente:
 
@@ -93,7 +94,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 
    Se si verifica un errore che indica l'impossibilità di trovare il comando `curl`, assicurarsi di installare curl tramite `apt-get install curl` prima di eseguire il comando `curl` precedente.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto per la lingua
 
 **Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 
@@ -117,10 +118,7 @@ Sì, durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'ap
 
 **Uso un contenitore personalizzato. Desidero che la piattaforma monti una condivisione SMB nella directory `/home/`.**
 
-È possibile specificare l'impostazione di app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *true*. Si tenga presente che questo causerà il riavvio del contenitore quando lo spazio di archiviazione della piattaforma subisce una modifica.
-
->[!NOTE]
->Se l'impostazione `WEBSITES_ENABLE_APP_SERVICE_STORAGE` non è specificata o è *false*, la directory `/home/` non verrà condivisa tra istanze scalabili e i file scritti non verranno mantenuti tra i riavvii.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o èimpostata su true `/home/` , la directory **verrà condivisa** tra le istanze della scala e i file scritti **verranno mantenuti** tra i riavvii. Se si imposta `WEBSITES_ENABLE_APP_SERVICE_STORAGE` in modo esplicito su *false* , il montaggio viene disabilitato.
 
 **L'avvio del contenitore personalizzato richiede molto tempo e la piattaforma riavvia il contenitore prima del completamento di questa operazione. Come si risolve il problema?**
 
@@ -136,7 +134,7 @@ Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (a
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
-Attualmente non è disponibile il supporto per l'esposizione di più porte.
+Non è supportata l'esposizione di più di una porta.
 
 **È possibile usare la propria archiviazione?**
 
@@ -154,16 +152,16 @@ Il sito SCM viene eseguito in un contenitore separato. Non è possibile controll
 
 No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end condivisi.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Più contenitori con Docker Compose e Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Più contenitori con Docker Compose
 
 **Come si configura Registro Azure Container da usare con più contenitori?**
 
-Per usare Registro Azure Container con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro Azure Container. Quando sono nello stesso server del registro contenitori, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione di Kubernetes o Docker Compose per includere il nome dell'immagine di Registro Azure Container.
+Per usare Registro Azure Container con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro Azure Container. Una volta che si trovano nello stesso server del registro di sistema, sarà necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione Docker Compose per includere il nome dell'immagine ACR.
 
 Definire le impostazioni dell'applicazione seguenti:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ad esempio: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (URL completo, ad esempio `https://<server-name>.azurecr.io`:)
 - DOCKER_REGISTRY_SERVER_PASSWORD (abilitare l'accesso di amministratore nelle impostazioni di Registro Azure Container)
 
 Nel file di configurazione fare riferimento all'immagine di Registro Azure Container come nell'esempio seguente:
@@ -202,5 +200,5 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
-- [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare ambienti di servizio App di Azure di staging](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md)

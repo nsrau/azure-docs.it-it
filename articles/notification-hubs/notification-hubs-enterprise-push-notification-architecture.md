@@ -3,9 +3,9 @@ title: 'Hub di notifica: architettura push aziendale'
 description: Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,19 +13,21 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372413"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211912"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
 
 Al giorno d'oggi, le aziende stanno gradualmente passando alla creazione di applicazioni per dispositivi mobili sia per gli utenti finali (esterni) che per i dipendenti (interni). Le aziende dispongono di sistemi back-end già esistenti, ovvero mainframe o applicazioni LoB che è necessario integrare nell'architettura delle applicazioni per dispositivi mobili. In questa Guida verrà illustrato come eseguire questa integrazione nel modo migliore possibile, fornendo possibili soluzioni per scenari comuni.
 
-Una richiesta frequente riguarda l'invio di notifiche push agli utenti tramite l'applicazione per dispositivi mobili in uso quando si verifica un evento di interesse nei sistemi back-end. ad esempio, un cliente bancario che dispone di app di servizi bancari della banca in un iPhone vuole ricevere notifiche quando viene effettuato un addebito sopra una certa quantità dall'account aziendale o una rete Intranet in cui vuole che un dipendente del reparto finanziario che dispone di un'app per l'approvazione del budget per un Windows Phone  Per ricevere una notifica quando viene ricevuta la richiesta di approvazione.
+Una richiesta frequente riguarda l'invio di notifiche push agli utenti tramite l'applicazione per dispositivi mobili in uso quando si verifica un evento di interesse nei sistemi back-end. Ad esempio, un cliente della banca che ha l'app Bank Bank su un iPhone vuole ricevere una notifica quando un addebito viene effettuato oltre una determinata quantità dall'account o da uno scenario Intranet in cui un dipendente del reparto finanziario che ha un'app di approvazione del budget su un Windows Phone vuole  per ricevere una notifica quando viene ricevuta la richiesta di approvazione.
 
 È probabile che l'elaborazione del conto o dell'approvazione venga eseguita in un qualche sistema back-end che deve avviare un'operazione push verso l'utente. È possibile che siano presenti diversi sistemi back-end che devono eseguire la stessa tipologia di logica per eseguire un push quando un evento attiva una notifica. In questo caso la complessità è dovuta alla necessità di integrare numerosi back-end con un singolo sistema di push, dove gli utenti finali possono aver eseguito la sottoscrizione a diverse notifiche e dove possono essere usate più applicazioni mobili. Ad esempio, applicazioni per dispositivi mobili intranet che possono ricevere notifiche da diversi sistemi back-end. I sistemi back-end non conoscono o non hanno necessità di conoscere la semantica e/o la tecnologia di push. Per questo motivo, una soluzione comunemente usata fino ad ora consiste nell'introdurre un componente che esegue il polling dei sistemi back-end per qualsiasi evento di interesse ed è responsabile dell'invio di messaggi push al client.
 
@@ -265,7 +267,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 ### <a name="running-the-sample"></a>Esecuzione dell'esempio
 
 1. Assicurarsi che il processo Web venga eseguito correttamente e che sia pianificato per l'esecuzione continua.
-2. Eseguire la **EnterprisePushMobileApp**, che avvia l'app di Windows Store.
+2. Eseguire **EnterprisePushMobileApp**, che avvia l'app di Windows Store.
 3. Eseguire l'applicazione console **EnterprisePushBackendSystem** che simula il back-end LOB e avvia l'invio di messaggi. Verranno visualizzate notifiche di tipo avviso popup simili all'immagine seguente:
 
     ![][5]

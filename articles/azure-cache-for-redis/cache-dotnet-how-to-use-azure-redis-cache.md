@@ -15,29 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237893"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324439"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Guida introduttiva: Usare Cache Redis di Azure con un'applicazione .NET
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Guida introduttiva: Usare Azure Cache for Redis con un'applicazione .NET Framework
 
-
-
-Questa guida introduttiva illustra come iniziare a usare Cache Redis di Microsoft Azure con .NET. Cache Redis di Microsoft Azure si basa sulla popolare cache Redis open source e consente di accedere a una cache Redis sicura e dedicata gestita da Microsoft. Una cache creata con Cache Redis di Azure sarà accessibile da qualsiasi applicazione all'interno di Microsoft Azure.
-
-In questa guida introduttiva si userà il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C\# in un'app console. Verrà creata una cache e poi verrà configurata l'app client .NET. Verranno quindi aggiunti e aggiornati gli oggetti nella cache. 
-
-![App console completata](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Framework per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* Con il client StackExchange.Redis è richiesto [.NET Framework 4 o versione successiva](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 o versione successiva](https://www.microsoft.com/net/download/dotnet-framework-runtime), richiesto dal client StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Creare una cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

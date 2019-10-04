@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f2097532284373763fcac21ecee00477527d6018
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6877ba6240806f3213cadc66fdc74d89b2e9ba31
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979582"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877982"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -34,9 +34,9 @@ Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di s
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Informazioni sull'estensione Script personalizzato di Azure
@@ -109,10 +109,6 @@ Ogni istanza di macchina virtuale nel set di scalabilità scarica ed esegue lo s
 Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) e [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
-# Get information about the scale set
-$vmss = Get-AzVmss `
-            -ResourceGroupName "myResourceGroup" `
-            -VMScaleSetName "myScaleSet"
 
 #Create a rule to allow traffic over port 80
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -147,11 +143,6 @@ $frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
 
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 
-# Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
 ```
 
 

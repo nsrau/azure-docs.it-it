@@ -2,19 +2,19 @@
 title: Come gestire le impostazioni - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Come gestire le impostazioni, creare un'area di lavoro, condividere l'area di lavoro e gestire la chiave di sottoscrizione in Custom Translator.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513920"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595777"
 ---
 # <a name="how-to-manage-settings"></a>Come gestire le impostazioni
 

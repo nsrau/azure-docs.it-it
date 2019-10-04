@@ -4,74 +4,85 @@ description: Informazioni su come risolvere i problemi delle distribuzioni di ma
 title: Documentazione sulla risoluzione dei problemi delle macchine virtuali di Azure | Microsoft Docs
 services: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 1fdf195e5d02c9264bf24d9cf3ac8b1a47ed850b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878031"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059155"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali di Azure
 
-- Errori di allocazione
-    - [Errori di allocazione](allocation-failure.md)
-    - [Errori di allocazione per distribuzioni classiche](allocation-failure-classic.md)
+## <a name="tools-for-troubleshooting"></a>Strumenti per la risoluzione dei problemi
+
+- [Console seriale](serial-console-windows.md)
 - [Diagnostica di avvio](boot-diagnostics.md)
-- RDP
-    - [Reimpostare RDP](reset-rdp.md)
-    - [Risoluzione dei problemi di RDP](troubleshoot-rdp-connection.md)
-    - [Risoluzione dettagliata dei problemi di RDP](detailed-troubleshoot-rdp.md)
-    - [Risolvere errori specifici ](troubleshoot-specific-rdp-errors.md)
-- SSH 
-    - [Risoluzione dei problemi di SSH](troubleshoot-ssh-connection.md)
-    - [Risoluzione dettagliata dei problemi di SSH](detailed-troubleshoot-ssh-connection.md)
-    - [Messaggi di errore comuni](error-messages.md)
-    - [ Problemi di prestazioni con VM Windows](performance-diagnostics.md  )
-    - [Come usare PerfInsights](how-to-use-perfInsights.md)
-    - [Estensione di diagnostica delle prestazioni](performance-diagnostics-vm-extension.md)
-- [ Installare l'agente di macchine virtuali Windows offline](install-vm-agent-offline.md)
+- [VM Windows: collegare il disco del sistema operativo a un'altra VM per la risoluzione di problemi](troubleshoot-recovery-disks-portal-windows.md)
+- [VM Linux: collegare il disco del sistema operativo a un'altra VM per la risoluzione di problemi](troubleshoot-recovery-disks-portal-linux.md)
+
+## <a name="cant-connect-to-the-vm"></a>Non è possibile connettersi alla VM
+
+### <a name="windows"></a>Windows
+
+**Soluzione comune**
+
+- [Reimpostare RDP](reset-rdp.md)
+- [Risoluzione dei problemi di RDP](troubleshoot-rdp-connection.md)
+- [Risoluzione dettagliata dei problemi di RDP](detailed-troubleshoot-rdp.md)
+
+**Errori di RDP**
+
+- [Nessuna licenza server](troubleshoot-rdp-no-license-server.md)
+- [Errore interno ](Troubleshoot-rdp-internal-error.md)
+- [Errori di autenticazione](troubleshoot-authentication-error-rdp-vm.md)
+- [Risolvere errori specifici ](troubleshoot-specific-rdp-errors.md)
+
+**Errori di avvio di VM**
+
+* [Errori di avvio di BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [All'avvio viene indicato il controllo in corso del file system](troubleshoot-check-disk-boot-error.md)
+* [Errori con schermata blu](troubleshoot-common-blue-screen-error.md)
+* [L'avvio della VM si blocca su un messaggio analogo a "Preparazione di Windows](troubleshoot-vm-boot-configure-update.md)
+* [Errore "SI È VERIFICATO UN ERRORE DI UN SERVIZIO CRITICO" sulla schermata blu](troubleshoot-critical-service-failed-boot-error.md)
+* [Problema del ciclo di riavvio](troubleshoot-reboot-loop.md)
+* [L'avvio di una macchina virtuale di Azure si blocca nella fase di Windows Update](troubleshoot-stuck-updating-boot-error.md)
+* [Avvio di VM in modalità provvisoria](troubleshoot-rdp-safe-mode.md)
+
+**Altri**
+- [Reimpostare la password di VM Windows offline](reset-local-password-without-agent.md)
+- [Reimpostare la scheda di interfaccia di rete dopo una configurazione errata](reset-network-interface.md)
+
+### <a name="linux"></a>Linux
+
+- [Risoluzione dei problemi di SSH](troubleshoot-ssh-connection.md)
+- [Risoluzione dettagliata dei problemi di SSH](detailed-troubleshoot-ssh-connection.md)
+- [Messaggi di errore comuni](error-messages.md)
+- [Reimpostare la password di VM Linux offline](reset-password.md)
+
+## <a name="vm-deployment-issues"></a>Problemi di distribuzione di VM
+
+- [Errori di allocazione](allocation-failure.md)
 - Ridistribuire una VM
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)
-- Reimpostare la password della VM
-    - [Windows](reset-local-password-without-agent.md)
-    - [Linux](reset-password.md)
-- [Reimpostare la scheda di interfaccia di rete](reset-network-interface.md)
-- [Riavvio o ridimensionamento di una VM](restart-resize-error-troubleshooting.md)
-- Usare la console seriale
-    - [VM Linux](serial-console-linux.md)
-        - [Modalità utente singolo/GRUB con la console seriale](serial-console-grub-single-user-mode.md)
-        - [NMI/SysRq con la console seriale](serial-console-nmi-sysrq.md)
-    - [VM Windows](serial-console-windows.md)
-        - [CMD e comandi di PowerShell](serial-console-cmd-ps-commands.md)
-- [Errori durante l'eliminazione di risorse di archiviazione](storage-resource-deletion-errors.md      )
-- [Riavvii imprevisti delle macchine virtuali con dischi rigidi virtuali collegati](unexpected-reboots-attached-vhds.md)
-- [Problemi di attivazione di Windows](troubleshoot-activation-problems.md)
-- [Problemi di accesso alle applicazioni](troubleshoot-app-connection.md)
 - Risolvere i problemi delle distribuzioni
     - [Linux](troubleshoot-deploy-vm-linux.md)
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Modifiche ai nomi dei dispositivi](troubleshoot-device-names-problems.md)
-- Accesso di ripristino di macchine virtuali
-    -  Windows
-        - [PowerShell](troubleshoot-recovery-disks-windows.md)
-        - [Portale di Azure](troubleshoot-recovery-disks-portal-windows.md)
-    - Linux
-        - [CLI](troubleshoot-recovery-disks-linux.md)
-    - [Portale di Azure](troubleshoot-recovery-disks-portal-linux.md)
-- [Errori di avvio](boot-error-troubleshoot.md)
-- [Errori di BitLocker](troubleshoot-bitlocker-boot-error.md)
-- [Controllo degli errori del file system](troubleshoot-check-disk-boot-error.md)
-- [Errori con schermata blu](troubleshoot-common-blue-screen-error.md)
-- [Errori di limitazione](troubleshooting-throttling-errors.md)
-- [Usare la virtualizzazione annidata](troubleshoot-vm-by-use-nested-virtualization.md)
-- [Informazioni sul riavvio del sistema](understand-vm-reboot.md)
+- [ Installare l'agente di macchine virtuali Windows offline](install-vm-agent-offline.md)
+- [Riavvio o ridimensionamento di una VM](restart-resize-error-troubleshooting.md)
 
+## <a name="vm-performance-issue"></a>Problema di prestazioni della VM
+- [Problemi di prestazioni con le macchine virtuali](performance-diagnostics.md)
+- Windows
+    - [Come usare PerfInsights](how-to-use-perfinsights.md)
+    - [Estensione di diagnostica delle prestazioni](performance-diagnostics-vm-extension.md)
+- Linux
+    - [Come usare PerfInsights](how-to-use-perfinsights-linux.md)

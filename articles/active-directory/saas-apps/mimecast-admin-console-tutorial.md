@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Admin Console
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Mimecast Admin Console](#create-mimecast-admin-console-test-user)**: per avere una controparte di Britta Simon in Mimecast Admin Console collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Mimecast Admin Console](#create-mimecast-admin-console-test-user)** : per avere una controparte di Britta Simon in Mimecast Admin Console collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
     > [!NOTE] 
     > L’URL di accesso è specifico dell’area geografica.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -164,7 +164,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
     >[!NOTE]
     >Il valore di Login URL e il valore Logout URL per Mimecast Admin Console sono identici.
     
-    g. Aprire il certificato con codifica Base 64 scaricato dal portale di Azure nel Blocco note, rimuovere la prima riga ("*--*") e l'ultima riga ("*--*"), copiare il contenuto rimanente negli Appunti e quindi incollarlo nella casella di testo **Identity Provider Certificate (Metadata)** (Certificato provider di identità - Metadati).
+    g. Aprire il certificato con codifica Base 64 scaricato dal portale di Azure nel Blocco note, rimuovere la prima riga (" *--* ") e l'ultima riga (" *--* "), copiare il contenuto rimanente negli Appunti e quindi incollarlo nella casella di testo **Identity Provider Certificate (Metadata)** (Certificato provider di identità - Metadati).
     
     h. Selezionare **Allow Single Sign On**.
     

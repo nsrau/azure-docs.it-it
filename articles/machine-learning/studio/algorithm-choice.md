@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60752974"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Come scegliere gli algoritmi di Azure Machine Learning Studio
 
@@ -41,7 +41,7 @@ Queste indicazioni sono commenti e suggerimenti compilati da parte di scienziati
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Come utilizzare il foglio informativo
 
-Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;etichetta percorso&gt;* usare *&lt;algoritmo&gt;*". Ad esempio, "Per *velocità* usare *regressione logistica a due classi*". A volte è possibile applicare più di una branca.
+Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;etichetta percorso&gt;* usare *&lt;algoritmo&gt;* ". Ad esempio, "Per *velocità* usare *regressione logistica a due classi*". A volte è possibile applicare più di una branca.
 A volte nessuno di essi sarà la scelta perfetta. Devono essere considerati consigli generali, pertanto non è necessario che siano esatti.
 Diversi scienziati dei dati che sono state presentate con detto che l'unico modo sicuro per trovare l'algoritmo migliore consiste nel provare tutti gli elementi.
 
@@ -202,7 +202,7 @@ La [percezione media a due classi](/azure/machine-learning/studio-module-referen
 Le macchine a vettori di supporto (SVM) consentono di individuare il limite che separa le classi con un margine più ampio possibile. Quando le due classi non possono essere separate nettamente, gli algoritmi trovano il limite migliore possibile. Come scritto in Azure Machine Learning Studio, il [SVM a due classi](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine) farlo con solo una linea retta (in parlando di SVM, utilizza un kernel lineare).
 Poiché rende quest’approssimazione lineare, è in grado di funzionare molto rapidamente. Dove eccelle davvero è con funzionalità con un uso intensivo dei dati, ad esempio testo o dati di genomica. In questi casi le SVM sono in grado di separare le classi più rapidamente e con meno sovradattamento rispetto alla maggior parte degli altri algoritmi, oltre a richiedere solo una modesta quantità di memoria.
 
-![Limite di classe della macchina a vettori di supporto ](./media/algorithm-choice/image7.png)
+![Limite di classe della macchina a vettori di supporto](./media/algorithm-choice/image7.png)
 
 ***Un limite di classe tipico della macchina a vettore di supporto ottimizza il margine separando due classi***
 

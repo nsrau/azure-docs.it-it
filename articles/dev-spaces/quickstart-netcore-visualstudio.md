@@ -1,42 +1,40 @@
 ---
-title: Sviluppare con .NET Core nel servizio Azure Kubernetes con Azure Dev Spaces e Visual Studio 2017
+title: Debug e iterazione con Visual Studio e .NET Core nel servizio Azure Kubernetes con Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361250"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725851"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Guida introduttiva: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio 2017)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Guida introduttiva: Debug e iterazione con Visual Studio e .NET Core in Kubernetes con Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
 - Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
-- Sviluppare codice in modo iterativo nei contenitori con Visual Studio 2017.
-- Eseguire il debug del codice in esecuzione nel cluster con Visual Studio 2017.
+- Sviluppare codice in modo iterativo nei contenitori con Visual Studio.
+- Eseguire il debug del codice in esecuzione nel cluster con Visual Studio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/free).
-- Visual Studio 2017 in Windows con il carico di lavoro Sviluppo Web installato. Se non è installato, scaricarlo da [qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools) installato.
+- Visual Studio 2019 in Windows con il carico di lavoro Sviluppo di Azure installato. Si può anche usare Visual Studio 2017 in Windows con il carico di lavoro Sviluppo Web e [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools) installato. Se Visual Studio non è installato, scaricarlo [qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
-È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Per creare un cluster:
+È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata][supported-regions]. Per creare un cluster:
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Selezionare *+Crea una risorsa > Servizio Kubernetes*. 
@@ -55,7 +53,7 @@ Passare al cluster del servizio Azure Kubernetes nel portale di Azure e fare cli
 
 ## <a name="create-a-new-aspnet-web-app"></a>Creare una nuova app Web ASP.NET
 
-1. Aprire Visual Studio 2017.
+1. Aprire Visual Studio.
 1. Creare un nuovo progetto.
 1. Scegliere *Applicazione Web ASP.NET Core* e assegnare al progetto il nome *webfrontend*.
 1. Fare clic su *OK*.
@@ -97,9 +95,11 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 Nell'esempio precedente l'URL pubblico è http://webfrontend.1234567890abcdef1234.eus.azds.io/. Passare all'URL pubblico del servizio e interagire con il servizio in esecuzione nel proprio spazio.
 
+È possibile che questo processo abbia disabilitato l'accesso pubblico al proprio servizio. Per abilitare l'accesso pubblico, è possibile aggiornare il [valore ingress in *values.yaml*][ingress-update].
+
 ## <a name="update-code"></a>Aggiornare il codice
 
-Se Visual Studio 2017 è ancora connesso al proprio spazio, fare clic sul pulsante Arresta. Cambiare la riga 20 di `Controllers/HomeController.cs` in:
+Se Visual Studio è ancora connesso allo spazio di sviluppo, fare clic sul pulsante Arresta. Cambiare la riga 20 di `Controllers/HomeController.cs` in:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -111,9 +111,9 @@ Invece di ricompilare e ridistribuire una nuova immagine del contenitore ogni vo
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Impostazione e uso di punti di interruzione per il debug
 
-Se Visual Studio 2017 è ancora connesso al proprio spazio, fare clic sul pulsante Arresta. Aprire `Controllers/HomeController.cs` e fare clic in un punto della riga 20 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*. Per avviare il servizio in modalità debug nello spazio di Dev Spaces, premere *F5* oppure fare clic su *Debug* e quindi su *Avvia debug*.
+Se Visual Studio è ancora connesso allo spazio di sviluppo, fare clic sul pulsante Arresta. Aprire `Controllers/HomeController.cs` e fare clic in un punto della riga 20 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*. Per avviare il servizio in modalità debug nello spazio di Dev Spaces, premere *F5* oppure fare clic su *Debug* e quindi su *Avvia debug*.
 
-Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio 2017 e notare che la riga 20 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 20. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
+Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio e notare che la riga 20 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 20. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
 
 Durante l'esecuzione del servizio in Kubernetes con un debugger collegato, si ha accesso completo alle informazioni di debug, ad esempio su stack di chiamate, variabili locali ed eccezioni.
 
@@ -131,3 +131,6 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

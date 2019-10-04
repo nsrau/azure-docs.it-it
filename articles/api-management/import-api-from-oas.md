@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959700"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072131"
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
@@ -59,7 +58,10 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
     |**Schema URL**|*HTTPS*|Determina i protocolli da usare per l'accesso all'API. |
     |**Prodotti**|*Illimitato*| Pubblicare l'API associandola a un prodotto. Per aggiungere facoltativamente questa nuova API a un prodotto, digitare il nome del prodotto. Questo passaggio può essere ripetuto più volte per aggiungere l'API a più prodotti.<br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**. |
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
+
+> [!NOTE]
+> Le limitazioni relative all'importazione delle API sono documentate in [un altro articolo](api-management-api-import-restrictions.md).
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 

@@ -1,19 +1,19 @@
 ---
 title: Pianificazione della capacità dei cluster in Azure HDInsight
-description: Come specificare un cluster HDInsight per capacità e prestazioni.
+description: Identificare le domande chiave per la pianificazione della capacità e delle prestazioni di un cluster HDInsight di Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253315"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916568"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -43,7 +43,7 @@ La risorsa di archiviazione predefinita, che può essere un account di Archiviaz
 
 Se si dispone già di un account di archiviazione o di Data Lake Storage contenente i dati personali e si vuole usare questa risorsa di archiviazione come predefinita del cluster, è necessario distribuire il cluster nella stessa posizione.
 
-### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+### <a name="storage-size"></a>Dimensioni archiviazione
 
 Dopo aver distribuito un cluster HDInsight, è possibile associare altri account di Archiviazione di Azure o accedere ad altri archivi Data Lake Storage. Tutti gli account di archiviazione devono trovarsi nella stessa posizione del cluster, mentre un archivio Data Lake Storage può trovarsi anche in una posizione diversa, ma questo può comportare una certa latenza di lettura/scrittura dei dati.
 
@@ -60,7 +60,7 @@ Per un cluster a 48 nodi si consigliano da 4 a 8 account di archiviazione. Anche
 
 ## <a name="choose-a-cluster-type"></a>Scegliere un tipo di cluster
 
-Il tipo di cluster determina il carico di lavoro per il quale il cluster HDInsight è configurato, ad esempio [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Per una descrizione dettagliata dei tipi di cluster disponibili, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Ogni tipo di ogni cluster ha una topologia di distribuzione specifica che include i requisiti relativi alle dimensioni e al numero di nodi.
+Il tipo di cluster determina il carico di lavoro per il quale il cluster HDInsight è configurato, ad esempio [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Per una descrizione dettagliata dei tipi di cluster disponibili, vedere [Introduzione ad Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Ogni tipo di ogni cluster ha una topologia di distribuzione specifica che include i requisiti relativi alle dimensioni e al numero di nodi.
 
 ## <a name="choose-the-vm-size-and-type"></a>Scegliere il tipo e le dimensioni della macchina virtuale
 
@@ -82,7 +82,7 @@ La scalabilità di un cluster è determinata dalla quantità di nodi della macch
 
 In base al tipo di cluster, aumentando il numero di nodi di lavoro si introduce capacità di calcolo aggiuntiva (ad esempio, più core), ma si aumenta anche la quantità totale di memoria necessaria all'intero cluster per supportare l'archiviazione in memoria dei dati in elaborazione. Come per la scelta del tipo e della dimensione della macchina virtuale, anche la scelta del grado di scalabilità del cluster viene eseguita in modo empirico usando carichi di lavoro simulati o query canary.
 
-È possibile aumentare le istanze del cluster per soddisfare richieste di picchi di carico e ridurle quando non sono più necessari nodi aggiuntivi. Per altre informazioni, vedere [Ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md).
+È possibile aumentare le istanze del cluster per soddisfare richieste di picchi di carico e ridurle quando non sono più necessari nodi aggiuntivi. La [funzionalità di scalabilità](hdinsight-autoscale-clusters.md) automatica consente di ridimensionare automaticamente il cluster in base alle metriche e agli intervalli predeterminati. Per altre informazioni sul ridimensionamento manuale dei cluster, vedere [ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo di vita del cluster
 
@@ -94,19 +94,16 @@ In genere, i costi vengono addebitati per l'intera durata di un cluster. Se è n
 
 ### <a name="isolate-cluster-job-errors"></a>Isolare gli errori di processo del cluster
 
-L'esecuzione parallela di più componenti di mapping e la riduzione dei componenti su un cluster multinodo possono generare talvolta degli errori. Per isolare il problema, provare a effettuare test distribuiti eseguendo prima più processi simultanei su un cluster a singolo nodo e quindi espandere questo approccio eseguendo contemporaneamente più processi su cluster a più nodi. Per creare un cluster HDInsight a singolo nodo in Azure, usare l'opzione *Avanzate*.
+L'esecuzione parallela di più componenti di mapping e la riduzione dei componenti su un cluster multinodo possono generare talvolta degli errori. Per isolare il problema, provare a eseguire il test distribuito eseguendo più processi simultanei in un singolo cluster di nodi del ruolo di lavoro, quindi espandere questo approccio per eseguire più processi simultaneamente nei cluster che contengono più di un nodo. Per creare un cluster HDInsight a nodo singolo in Azure, usare l'opzione *personalizzata (dimensioni, impostazioni, app)* e usare il valore 1 per il *numero di nodi del* ruolo di lavoro nella sezione **dimensioni del cluster** durante il provisioning di un nuovo cluster nel portale.
 
-È possibile anche installare un ambiente di sviluppo a singolo nodo nel computer locale ed eseguire qui il test della soluzione. Hortonworks offre un ambiente di sviluppo locale a singolo nodo per soluzioni basate su Hadoop, particolarmente utile per le attività iniziali di sviluppo, la creazione di un modello di verifica e il testing. Per altre informazioni, vedere [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Per identificare il problema in un cluster locale a singolo nodo, è possibile ripetere l'esecuzione dei processi non riusciti modificando i dati di input o usando set di dati più piccoli. Le modalità di esecuzione dei processi dipendono dalla piattaforma e dal tipo di applicazione.
 
 ## <a name="quotas"></a>Quote
 
 Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione può avere il limite di 30 core nell'area Stati Uniti orientali. Se è necessario richiedere un aumento della quota, eseguire questa procedura:
 
-1. Accedere al portale di Azure.
-1. Fare clic su **Guida e supporto tecnico** nell'angolo in basso a sinistra della pagina.
-1. Fare clic su **Nuova richiesta di supporto**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Selezionare **Guida e supporto** nel lato inferiore sinistro della pagina.
+1. Selezionare su **nuova richiesta di supporto**.
 1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
    - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
@@ -114,10 +111,10 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
     
      ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Fare clic su **Avanti**.
-1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema e selezionare la modalità di contatto preferita.
-1. Fare clic su **Avanti: Rivedi e crea**.
-1. Nella pagina **Rivedi e crea** fare clic su **Crea**.
+1. Selezionare **Avanti: Soluzioni > >** .
+1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema, il metodo di contatto preferito e altri campi obbligatori.
+1. Selezionare **Avanti: Esaminare + creare > >** .
+1. Nella scheda **Verifica e crea** selezionare **Crea**.
 
 > [!NOTE]  
 > Se occorre aumentare la quota di core HDInsight in un'area privata, [inviare una richiesta di aggiunta all'elenco elementi consentiti](https://aka.ms/canaryintwhitelist).

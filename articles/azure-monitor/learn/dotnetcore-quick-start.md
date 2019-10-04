@@ -5,29 +5,29 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801080"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916176"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
 Con Azure Application Insights, è possibile monitorare facilmente la disponibilità, le prestazioni e l'uso dell'applicazione Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. 
 
-Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.NET Core esistente. 
+Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.NET Core esistente. Per informazioni sulla configurazione di Application Insights senza Visual Studio, vedere questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- [Installare Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
   - Sviluppo Web e ASP.NET
   - Sviluppo di Azure
 - [Installare .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
@@ -47,14 +47,14 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 1. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
-   ![Aggiunta di una risorsa di Application Insights](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Se è la prima volta che si crea una risorsa di Application Insights, consultare il documento [Create an Application Insights Resource (Creare una risorsa di Application Insights)](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per ulteriori informazioni.
 
     Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        |  Valore           | DESCRIZIONE  |
+   | Impostazioni        |  Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
-   | **Tipo di applicazione** | Applicazione Web ASP.NET | Tipo di app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
@@ -70,7 +70,9 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 3. Selezionare l'account e la sottoscrizione > selezionare la **risorsa esistente** creata nel portale di Azure > fare clic su **Registra**.
 
-4. Selezionare **Debug** > **Avvia senza eseguire debug** (CTRL+F5) per avviare l'app.
+4. Selezionare **Progetto** > **Gestisci pacchetti NuGet** > **Origine pacchetto: nuget.org** > **Aggiorna** per aggiornare i pacchetti di Application Insights SDK all'ultima versione stabile.
+
+5. Selezionare **Debug** > **Avvia senza eseguire debug** (CTRL+F5) per avviare l'app.
 
     ![Menu della panoramica di Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -95,31 +97,14 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
    ![Grafici Integrità - Panoramica sequenza temporale](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-   Per abilitare la popolazione del grafico **Tempo di caricamento della visualizzazione pagina** con i dati di **telemetria lato client**, aggiungere questo script a ogni pagina da verificare:
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
-
 5. A sinistra fare clic su **Metrica**. Usare Esplora metriche per esaminare l'integrità e l'utilizzo della risorsa. È possibile fare clic su **Aggiungi nuovo grafico** per creare altre visualizzazioni personalizzate oppure selezionare **Modifica** per modificare tipi, altezze, tavolozza dei colori, raggruppamenti e metriche dei grafici esistenti. È ad esempio possibile creare un grafico che visualizza il tempo medio di caricamento delle pagine del browser selezionando "Tempo di caricamento della pagina del browser" nel menu a discesa Metriche e "Media" nell'aggregazione. Per altre informazioni su Esplora metriche di Azure, vedere [Introduzione Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Scheda Metriche: grafico sul tempo medio di caricamento delle pagine del browser](./media/dotnetcore-quick-start/8metrics.png)
+
+## <a name="video"></a>Video
+
+- Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le risorse correlate. A tale scopo, seguire questa procedura.

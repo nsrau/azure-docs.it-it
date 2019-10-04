@@ -11,17 +11,16 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7c00946ed9de88df43a4435c23ebef27b5c64e5c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793442"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071318"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -33,12 +32,12 @@ Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la 
 
 | Linguaggio | Versioni supportate |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (con JRE 8 in esecuzione) |
-| PHP | 5.6, 7.0, 7.2 |
-| Python (anteprima) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>Deployments
 
@@ -71,18 +70,13 @@ Controllare il [dashboard dello stato di Azure](https://azure.microsoft.com/stat
 
 Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per l'app Web per i contenitori. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili sul portale.
 
-In Linux il servizio app è supportato solo nei piani di servizio app [Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux.  
+In Linux il servizio app è supportato solo nei piani di servizio app [Gratuito, Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux non è possibile creare app Web in un piano di servizio app che ospita già app Web non Linux.  
 
-In base a una limitazione corrente, non è possibile combinare app di Windows e Linux nello stesso gruppo di risorse.
+In base a una limitazione corrente, non è possibile combinare app di Windows e Linux per lo stesso gruppo di risorse nella stessa area.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP.
-Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log di diagnostica**.
-
-![Abilitazione della registrazione][2]
-
-L'impostazione ha effetto immediato. Il servizio app rileva la modifica delle impostazioni e riavvia automaticamente il contenitore per l'utente.
+Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP. Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log del servizio app**. L'impostazione ha effetto immediato. Il servizio app rileva la modifica e riavvia automaticamente il contenitore.
 
 È possibile accedere al sito SCM da **Strumenti avanzati** nel menu **Strumenti di sviluppo**.
 

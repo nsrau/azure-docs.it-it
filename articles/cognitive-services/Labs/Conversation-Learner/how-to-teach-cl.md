@@ -3,19 +3,20 @@ title: Come eseguire il training con Conversation Learner - Servizi cognitivi Mi
 titleSuffix: Azure
 description: Informazioni su come eseguire il training con Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: a18d4c31da4ffeefebd4bda9aa441fdfec062be9
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322890"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705257"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Come eseguire il training con Conversation Learner 
 

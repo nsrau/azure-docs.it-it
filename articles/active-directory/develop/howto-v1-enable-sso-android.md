@@ -3,27 +3,26 @@ title: Come abilitare l'accesso Single Sign-On tra app su Android tramite ADAL |
 description: Come usare le funzionalità dell'SDK ADAL per abilitare l'accesso Single Sign-On tra le applicazioni.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65962632"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 
@@ -39,7 +38,7 @@ In questa procedura si apprenderà come configurare l'SDK all'interno dell'appli
 
 Questa procedura presuppone che si sia in grado di:
 
-- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre informazioni, vedere [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md) (Registrare un'app con l'endpoint Azure AD v1.0).
+- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre informazioni, vedere [registrare un'app](quickstart-register-app.md)
 - Integrare l'applicazione con [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concetti dell'accesso Single Sign-On

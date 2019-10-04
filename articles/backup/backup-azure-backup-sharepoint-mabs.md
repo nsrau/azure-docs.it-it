@@ -1,21 +1,21 @@
 ---
 title: Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint in Azure
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/8/2018
-ms.author: kasinh
-ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/08/2018
+ms.author: dacurwin
+ms.openlocfilehash: bdf0f64bf24f77d54a8fed8714a0cc7c3de814b1
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074982"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210475"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure"></a>Eseguire il backup di una farm di SharePoint in Azure
+# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con MAB
 Il backup di una farm di SharePoint in Azure si esegue tramite il server di Backup di Microsoft Azure (MABS) in modo analogo al backup delle altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. Offre inoltre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versioni supportate di SharePoint e relativi scenari di protezione
@@ -42,8 +42,8 @@ Il server di Backup di Azure viene eseguito come account LocalSystem. Per esegui
 
 Se la farm di SharePoint ha un database di SQL Server configurato con alias di SQL Server, installare i componenti del client di SQL Server nel server Web front-end da proteggere con MABS.
 
-### <a name="sharepoint-server"></a>SharePoint Server
-Mentre le prestazioni dipendono da molti fattori, ad esempio la dimensione della farm di SharePoint, in linea generale un solo MABS può proteggere una farm di SharePoint da 25 TB.
+### <a name="sharepoint-server"></a>Server SharePoint
+Mentre le prestazioni dipendono da molti fattori, ad esempio le dimensioni della farm di SharePoint, come guida generale un MAB può proteggere una farm di SharePoint da 25 TB.
 
 ### <a name="whats-not-supported"></a>Attività non supportate
 * MABS protegge una farm di SharePoint, ma non protegge gli indici di ricerca e i database di servizio dell'applicazione. Occorre configurare separatamente la protezione di questi database.
@@ -108,7 +108,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
    > Per assicurarsi che il traffico di rete non venga influenzato, selezionare un'ora fuori dell'orario di produzione.
    >
    >
-8. MABS garantisce l'integrità dei dati mediante l'esecuzione di verifiche della coerenza sulla replica. Sono disponibili due opzioni: È possibile definire una pianificazione per eseguire verifiche della coerenza oppure DPM può eseguire automaticamente verifiche di coerenza sulla replica quando diventa incoerente.  Selezionare l'opzione preferita e fare clic su **Avanti**.
+8. MABS garantisce l'integrità dei dati mediante l'esecuzione di verifiche della coerenza sulla replica. Sono disponibili due opzioni: È possibile definire una pianificazione per eseguire verifiche della coerenza oppure DPM può eseguire automaticamente verifiche di coerenza sulla replica quando diventa incoerente. Selezionare l'opzione preferita e fare clic su **Avanti**.
 
     ![Verifica coerenza](./media/backup-azure-backup-sharepoint/consistency-check.png)
 9. Nella pagina **Specifica i dati da proteggere online** selezionare la farm di SharePoint che si vuole proteggere e fare clic su **Avanti**.
@@ -135,7 +135,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
     ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 13. Esaminare le impostazioni selezionate nella pagina di **riepilogo** e fare clic su **Crea gruppo**. Dopo aver creato il gruppo di protezione dati, viene visualizzato un messaggio di corretto completamento.
 
-    ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
+    ![Riepilogo](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Ripristinare un elemento di SharePoint dal disco tramite MABS
 Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato accidentalmente eliminato e deve essere ripristinato.
@@ -216,20 +216,13 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Close**.
+    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Chiudi**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Fare clic sull'oggetto di SharePoint visualizzato nella scheda **Ripristino** di MABS per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento e scegliere **Ripristina**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. A questo punto seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.
-
-## <a name="faqs"></a>Domande frequenti
-D: È possibile ripristinare un elemento di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn (con protezione su disco)?<br>
-R: Sì, l'elemento può essere ripristinato nel sito originale di SharePoint.
-
-D: È possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?<br>
-R: Poiché i database di SharePoint sono configurati in SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza MABS non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
 
 ## <a name="next-steps"></a>Fasi successive
 

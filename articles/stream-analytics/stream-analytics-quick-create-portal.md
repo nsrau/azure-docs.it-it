@@ -4,20 +4,20 @@ description: Questa guida introduttiva descrive come iniziare a creare un proces
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311926"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449240"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite il portale di Azure
 
-Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di streaming in tempo reale e filtra i messaggi con una temperatura maggiore di 27. Il processo di Analisi di flusso leggerà i dati da un dispositivo hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi. 
+Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di streaming in tempo reale e filtra i messaggi con una temperatura maggiore di 27. Il processo di Analisi di flusso leggerà i dati dall'hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -27,7 +27,7 @@ Questa guida introduttiva descrive come iniziare a creare un processo di Analisi
 
 ## <a name="prepare-the-input-data"></a>Preparare i dati di input
 
-Prima di definire il processo di Analisi di flusso, è necessario preparare i dati, che saranno poi configurati come input per il processo. Per preparare i dati di input richiesti dal processo, completare questa procedura:
+Prima di definire il processo di Analisi di flusso, è necessario preparare i dati di input. I dati del sensore in tempo reale vengono inseriti nell'hub IoT, che viene in seguito configurato come input del processo. Per preparare i dati di input richiesti dal processo, completare questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -82,7 +82,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 2. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.  
 
-3. Selezionare **Dati e analisi** > **Processo di Analisi di flusso** nell'elenco dei risultati.  
+3. Selezionare **Analisi** > **Processo di Analisi di flusso** nell'elenco risultati.  
 
 4. Compilare la pagina del processo di Analisi di flusso con le informazioni seguenti:
 
@@ -99,7 +99,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 5. Selezionare la casella **Aggiungi al dashboard** per inserire il processo nel dashboard e quindi selezionare **Crea**.  
 
-6. In alto a destra nella finestra del browser verrà visualizzata la notifica *Distribuzione in corso...*. 
+6. In alto a destra nella finestra del browser verrà visualizzata la notifica *Distribuzione in corso...* . 
 
 ## <a name="configure-job-input"></a>Configurare l'input del processo
 
@@ -179,7 +179,7 @@ In questa sezione si configurerà l'input del dispositivo hub IoT per il process
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di Analisi di flusso e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi selezionare il nome della risorsa creata.  
 
@@ -187,7 +187,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso con il portale di Azure. È anche possibile distribuire processi di Analisi di flusso usando [PowerShell](stream-analytics-quick-create-powershell.md) e [Visual Studio](stream-analytics-quick-create-vs.md).
+In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso con il portale di Azure. È anche possibile distribuire processi di Analisi di flusso usando [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-vs-code.md).
 
 Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
 

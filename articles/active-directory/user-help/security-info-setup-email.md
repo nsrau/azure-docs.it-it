@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec93574a8da051b5cf77a37af1030d0c22dfc4a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480594"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382908"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurare le informazioni di sicurezza (anteprima) per usare l'indirizzo di posta elettronica
+
 È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Info di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 Dopo aver configurato il metodo di reimpostazione della password, è necessario configurare anche il metodo di verifica a due fattori, usando un [app di autenticazione](security-info-setup-auth-app.md), l'[invio di SMS](security-info-setup-text-msg.md) o una [chiamata telefonica](security-info-setup-phone-number.md).
@@ -27,6 +28,7 @@ Dopo aver configurato il metodo di reimpostazione della password, è necessario 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurare l'indirizzo di posta elettronica dalla pagina Info di sicurezza
+
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare l'indirizzo di posta elettronica come metodo per le informazioni di sicurezza.
 
 >[!Note]
@@ -60,6 +62,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
     Le informazioni di sicurezza vengono aggiornate ed è possibile usare l'indirizzo di posta elettronica per verificare l'identità quando si usa la reimpostazione della password.
 
 ## <a name="delete-your-email-address-from-your-security-info-methods"></a>Eliminare l'indirizzo di posta elettronica dai metodi di gestione delle informazioni di sicurezza
+
 Per non usare più l'indirizzo di posta elettronica come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverlo dalla pagina **Info di sicurezza**.
 
 >[!Important]
@@ -74,6 +77,7 @@ Per non usare più l'indirizzo di posta elettronica come metodo di gestione dell
 2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare l'account di **posta elettronica**. L'account di posta elettronica, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Info di sicurezza**.
 
 ## <a name="additional-security-info-methods"></a>Metodi aggiuntivi per le informazioni di sicurezza
+
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
@@ -82,8 +86,10 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 

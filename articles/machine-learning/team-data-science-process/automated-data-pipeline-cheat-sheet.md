@@ -12,11 +12,11 @@ ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60826196"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 Il **foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui  i dati stessi possono essere classificati dal modello di analisi predittiva.

@@ -4,25 +4,24 @@ description: Questo articolo elenca le domande frequenti relative alla connettiv
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805587"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154881"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Connettività e problemi di rete per servizi Cloud di Azure: Domande frequenti (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per servizi cloud di Azure: Domande frequenti (FAQ)
 
 Questo articolo include le domande frequenti relative ai problemi di connettività e rete per [Servizi cloud di Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la [pagina Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).
 
@@ -65,14 +64,14 @@ L'algoritmo di distribuzione usato è un hash a 5 tuple (IP di origine, porta di
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>In che modo è possibile reindirizzare il traffico in ingresso per l'URL predefinito del servizio cloud a un URL personalizzato?
 
-URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché URL Rewrite module è abilitata nei ruoli web per impostazione predefinita e le regole sono configurate in Web. config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dalla riavvii/ricreazione delle immagini. Per altre informazioni, vedere:
+URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché il modulo URL Rewrite è abilitato nei ruoli Web per impostazione predefinita e le regole sono configurate nel file Web. config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dai riavvii o dalle ricreazioni delle immagini. Per ulteriori informazioni, vedere:
 
 - [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creare regole di riscrittura per URL Rewrite Module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Rimuovere un collegamento predefinito)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Come posso bloccare/disabilitare il traffico in ingresso per l'URL predefinito del servizio cloud?
 
-È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un nome DNS personalizzato (ad esempio, www.MyCloudService.com) nella configurazione del binding del sito nel file di definizione del servizio cloud (*.csdef), come indicato:
+È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un nome DNS personalizzato (ad esempio, www\.MyCloudService.com) nella configurazione dell'associazione del sito nel file di definizione del servizio cloud (*. csdef), come indicato di seguito:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,7 +103,7 @@ Per assicurarsi che l'indirizzo IP pubblico del servizio cloud (noto anche come 
 - [Riservare l'indirizzo IP di un servizio cloud esistente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associare un indirizzo IP riservato a un servizio cloud usando un file cscfg](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Se si dispone di più istanze dei ruoli, l'associazione RIP con il servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile elenco elementi consentiti l'intervallo di IP del Data Center Azure. È possibile trovare tutti gli intervalli IP di Azure nel [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Se si dispone di più di un'istanza per i ruoli, l'associazione del RIP con il servizio cloud non dovrebbe causare alcun tempo di inattività. In alternativa, è possibile aggiungere l'intervallo IP del Data Center di Azure a un elenco Consenti. È possibile trovare tutti gli intervalli IP di Azure nell'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di calcolo, SQL e archiviazione, usati nei data center di Azure. Ogni settimana viene pubblicato un file aggiornato che riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. Scaricare il nuovo file con estensione xml ogni settimana e apportare le modifiche necessarie nel sito per identificare correttamente i servizi in esecuzione in Azure. Gli utenti di Azure ExpressRoute potrebbero notare che questo file viene usato per aggiornare l'annuncio BGP dello spazio di Azure la prima settimana del mese.
 

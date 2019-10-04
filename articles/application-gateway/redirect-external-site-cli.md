@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1ddbc84004622c2a5fa9dc08d4396e1f300474f2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728385"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382024"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
 
@@ -93,7 +93,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www.consoto.org* al listener per *www.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* al gateway applicazione usando [AZ Network Application-Gateway redirect-config create ](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -137,7 +137,7 @@ Nel browser dovrebbe essere visualizzato *bing.com*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > * Configurare la rete
 > * Creare un listener e una regola di reindirizzamento

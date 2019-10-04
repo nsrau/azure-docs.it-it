@@ -1,120 +1,97 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Cisco Webex | Microsoft Docs'
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cisco Webex | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
+manager: mtillman
+ms.reviewer: celested
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272700"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104437"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Webex
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cisco Webex
 
-Questa esercitazione descrive come integrare Cisco Webex con Azure Active Directory (Azure AD).
-L'integrazione di Cisco Webex con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Cisco Webex con Azure Active Directory (Azure AD). Integrando Cisco Webex con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Cisco Webex.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Cisco Webex con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a Cisco Webex.
+* Abilitare gli utenti per l'accesso automatico a Cisco Webex con gli account Azure AD personali.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Cisco Webex, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Cisco Webex abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Cisco Webex abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
-
-* Cisco Webex supporta l'accesso SSO avviato da **SP**
-
-* Cisco Webex supporta il provisioning utenti **automatizzato**
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Cisco Webex supporta l'accesso SSO avviato da **SP** e il provisioning utenti **Automatico**.
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Aggiunta di Cisco Webex dalla raccolta
 
 Per configurare l'integrazione di Cisco Webex in Azure AD, è necessario aggiungere Cisco Webex dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Cisco Webex dalla raccolta, seguire questa procedura:**
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Cisco Webex** nella casella di ricerca.
+1. Selezionare **Cisco Webex** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-cisco-webex"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Cisco Webex
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Configurare e testare l'accesso SSO di Azure AD con Cisco Webex usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Cisco Webex.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+Per configurare e testare l'accesso SSO di Azure AD con Cisco Webex, completare le procedure di base seguenti:
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
+2. **[Configurare Cisco Webex](#configure-cisco-webex)** per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+    1. **[Creare un utente di test di Cisco Webex](#create-cisco-webex-test-user)** per avere una controparte di B. Simon in Cisco Webex collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-4. Nella casella di ricerca digitare **Cisco Webex**, selezionare **Cisco Webex** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella pagina di integrazione dell'applicazione **Cisco Webex** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-     ![Cisco Webex nell'elenco dei risultati](common/search-new-app.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+4. Nella sezione **Configurazione SAML di base** caricare il **file di metadati del provider di servizi** e configurare l'applicazione seguendo questa procedura:
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Cisco Webex mediante un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Cisco Webex.
+    >[!Note]
+    >Si otterrà il file di metadati del provider di servizi in base alla procedura descritta più avanti nella sezione **Configurare Cisco Webex** dell'esercitazione. 
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Cisco Webex, è necessario completare le procedure di base seguenti:
+    a. Fare clic su **Carica il file di metadati**.
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Cisco Webex](#configure-cisco-webex-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Cisco Webex](#create-cisco-webex-test-user)**: per avere una controparte di Britta Simon in Cisco Webex collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+    c. Al termine del caricamento del file di metadati del provider di servizi, i valori dell'**Identificatore** e dell'**URL di risposta** vengono popolati automaticamente nella sezione **Configurazione SAML di base**:
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
+    Nella casella di testo **URL di accesso** incollare il valore **URL di risposta**, che viene compilato automaticamente dal caricamento del file di metadati del provider di servizi.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Cisco Webex, seguire questa procedura:
-
-1. Nella pagina di integrazione dell'applicazione **Cisco Webex** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
-
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
-
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Cisco Webex](common/sp-identifier.png)
-
-    a. Nella casella di testo **URL di accesso** digitare un URL, ad esempio: `https://web.ciscospark.com/#/signin`
-
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://idbroker.webex.com/<Org Id>`
-
-    > [!NOTE]
-    > Il valore di questo identificatore non è reale. è necessario aggiornare questo valore con l'ID effettivo. Se sono disponibili i metadati del provider di servizi, caricarli nella sezione **Configurazione SAML di base**. A questo punto il valore di **Identificatore (ID entità)** verrà popolato automaticamente.
-
-5. L'applicazione Cisco Webex prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aggiungere gli attributi.
+5. L'applicazione Cisco Webex prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 
@@ -138,124 +115,94 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cisco Webex, seguire qu
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **Ok**
+    f. Fare clic su **OK**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
-    ![Collegamento di download del certificato](common/metadataxml.png)
+   ![Collegamento di download del certificato](common/metadataxml.png)
 
-8. Nella sezione **Configura Cisco Webex** copiare gli URL appropriati in base alle proprie esigenze.
+1. Nella sezione **Configura Cisco Webex** copiare gli URL appropriati in base alle esigenze.
 
-    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+   ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-    b. Identificatore di Azure AD
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-    c. URL di chiusura sessione
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
-### <a name="configure-cisco-webex-single-sign-on"></a>Configurare l'accesso Single Sign-On di Cisco Webex
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Cisco Webex.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Cisco Webex**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+
+   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Collegamento Aggiungi utente](common/add-assign-user.png)
+
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+## <a name="configure-cisco-webex"></a>Configurare Cisco Webex
 
 1. Accedere a [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) con le credenziali di amministratore complete.
 
 2. Selezionare **Settings** (Impostazioni) e quindi nella sezione **Authentication** (Autenticazione) fare clic su **Modify** (Modifica).
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Selezionare **Integrate a 3rd-party identity provider. (Advanced)** (Integra provider di terze parti - Avanzate) e passare alla schermata successiva.
 
 4. Nella pagina **Import Idp Metadata** (Importa metadati Idp) trascinare il file di metadati di Azure AD nella pagina o usare l'opzione di esplorazione dei file per individuare e caricare il file di metadati di Azure AD. Selezionare quindi **Require certificate signed by a certificate authority in Metadata (more secure)** (Richiedi certificato firmato da un'autorità di certificazione in metadati - più sicura) e fare clic su **Next** (Avanti).
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Selezionare **Test SSO Connection** (Test connessione SSO) e, quando viene aperta una nuova scheda del browser, eseguire l'autenticazione con Azure AD effettuando l'accesso.
 
 6. Tornare alla scheda **Cisco Cloud Collaboration Management** del browser. Se il test ha avuto esito positivo, selezionare l'opzione **This test was successful. Enable Single Sign-On**  (Test riuscito. Abilita Single Sign-On), quindi fare clic su **Next** (Avanti).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon**.
-  
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Create**(Crea).
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Cisco Webex.
-
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Cisco Webex**.
-
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
-
-2. Nell'elenco delle applicazioni selezionare **Cisco Webex**.
-
-    ![Collegamento di Cisco Webex nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
 ### <a name="create-cisco-webex-test-user"></a>Creare un utente di test per Cisco Webex
 
-In questa sezione viene creato un utente chiamato Britta Simon in Cisco Webex. In questa sezione viene creato un utente chiamato Britta Simon in Cisco Webex.
+In questa sezione viene creato un utente di nome B.Simon in Cisco Webex. In questa sezione viene creato un utente di nome B.Simon in Cisco Webex.
 
 1. Accedere a [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) con le credenziali di amministratore complete.
 
 2. Fare clic su **Users** (Utenti) e quindi su **Manage Users** (Gestisci utenti).
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Nella finestra **Manage User** (Gestisci utenti) selezionare **Manually add or modify users** (Aggiungi o modifica manualmente gli utenti) e fare clic su **Next** (Avanti).
 
 4. Selezionare **Names and Email address** (Nomi e indirizzi di posta elettronica). Compilare quindi la casella di testo come indicato di seguito:
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
-    a. Nella casella di testo **First Name** (Nome) digitare il nome dell'utente, ad esempio **Britta**.
+    a. Nella casella di testo **First Name** (Nome) digitare il nome dell'utente, ad esempio **B**.
 
     b. Nella casella di testo **Last name** (Cognome) digitare il cognome dell'utente, ad esempio **Simon**.
 
-    c. Nella casella di testo **Email address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente, ad esempio **britta.simon\@contoso.com**.
+    c. Nella casella di testo **Email address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente, ad esempio b.simon@contoso.com.
 
-5. Fare clic sul segno più per aggiungere Britta Simon. Quindi fare clic su **Next**.
+5. Fare clic sul segno più per aggiungere B.Simon. Quindi fare clic su **Next**.
 
 6. Nella finestra **Add Services for Users** (Aggiungi servizi per utenti) fare clic su **Save** (Salva) e quindi su **Finish** (Fine).
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
-
-Quando si fa clic sul riquadro di Cisco Webex nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Cisco Webex per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Cisco Webex nel Pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Cisco Webex per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -265,4 +212,4 @@ Quando si fa clic sul riquadro di Cisco Webex nel pannello di accesso, si dovreb
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configura provisioning utenti](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 
+- [Provare Cisco Webex con Azure AD](https://aad.portal.azure.com)

@@ -4,14 +4,14 @@ description: Informazioni su come usare il driver ODBC di Azure Cosmos DB per cr
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851049"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616889"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -23,9 +23,9 @@ Il driver ODBC di Azure Cosmos DB è conforme a ODBC 3.8 e supporta la sintassi 
 > La connessione ad Azure Cosmos DB con il driver ODBC è attualmente supportata solo per gli account dell'API SQL di Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Perché è necessario normalizzare i dati?
-Azure Cosmos DB è un database senza schema, che consente lo sviluppo rapido di applicazioni e la possibilità di eseguire l'iterazione sui modelli di dati senza essere limitati da uno schema rigoroso. Un singolo database di Azure Cosmos DB può contenere documenti JSON con varie strutture. Questa novità è ideale per lo sviluppo rapido delle applicazioni, ma quando si desidera analizzare e creare report dei dati usando gli strumenti di analisi e BI, è spesso necessario adattare e conformare tali dati a uno schema specifico.
+Azure Cosmos DB è un database senza schema, che consente lo sviluppo rapido di applicazioni e la possibilità di eseguire l'iterazione sui modelli di dati senza essere limitati da uno schema rigoroso. Un singolo database di Azure Cosmos può contenere documenti JSON di varie strutture. Questa novità è ideale per lo sviluppo rapido delle applicazioni, ma quando si desidera analizzare e creare report dei dati usando gli strumenti di analisi e BI, è spesso necessario adattare e conformare tali dati a uno schema specifico.
 
-È qui che entra in gioco il driver ODBC. Tramite il driver ODBC è ora possibile rinormalizzare i dati in Azure Cosmos DB in tabelle e visualizzazioni in base alle proprie esigenze di analisi dei dati e creazione di report. Gli schemi rinormalizzati non hanno effetto sui dati sottostanti e non costringono gli sviluppatori a conformarsi a essi. Permettono invece di sfruttare gli strumenti conformi a ODBC per accedere ai dati. Ora il database di Azure Cosmos DB non sarà apprezzato solo dal team di sviluppo, ma anche dagli analisti dei dati.
+È qui che entra in gioco il driver ODBC. Tramite il driver ODBC è ora possibile rinormalizzare i dati in Azure Cosmos DB in tabelle e visualizzazioni in base alle proprie esigenze di analisi dei dati e creazione di report. Gli schemi rinormalizzati non hanno effetto sui dati sottostanti e non costringono gli sviluppatori a conformarsi a essi. Permettono invece di sfruttare gli strumenti conformi a ODBC per accedere ai dati. Ora, il tuo database di Azure Cosmos non solo è un preferito per il tuo team di sviluppo, ma anche gli analisti dei tuoi dati lo ameranno.
 
 Attività iniziali con il driver ODBC.
 
@@ -48,7 +48,7 @@ Attività iniziali con il driver ODBC.
 
     ![Amministrazione origine dati ODBC di Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Passaggio 2: Connettersi al database Azure Cosmos DB
+## <a id="connect"></a>Passaggio 2: Connettersi al database di Azure Cosmos
 
 1. Dopo aver [installato il driver ODBC di Azure Cosmos DB](#install), nella finestra **Amministrazione origine dati ODBC** fare clic su **Aggiungi**. È possibile creare un DSN utente o di sistema. In questo esempio viene creato un DSN utente.
 
@@ -82,7 +82,7 @@ Attività iniziali con il driver ODBC.
 
 Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolta** o i **delimitatori di tabella**. Una sessione di campionamento può usare entrambi i metodi, ma ogni raccolta può usarne solo uno specifico. La procedura seguente crea uno schema per i dati in una o più raccolte mediante il metodo di mapping raccolta. Questo metodo di campionamento recupera i dati nella pagina di una raccolta per determinare la struttura degli stessi e trasforma la raccolta in una tabella in ODBC. Questo metodo di campionamento è rapido ed efficiente quando i dati in una raccolta sono omogenei. Se una raccolta contiene tipi eterogenei di dati, è consigliabile usare il metodo di [mapping con delimitatori di tabelle](#table-mapping) in quanto consente un campionamento più efficiente per determinare le strutture di dati nella raccolta. 
 
-1. Dopo aver completato i passaggi 1-4 in [Connettersi al database Azure Cosmos DB](#connect), fare clic su **Editor schemi** nella finestra **Azure Cosmos DB ODBC Driver DSN Setup** (Configurazione DSN driver ODBC di Azure Cosmos DB).
+1. Dopo aver completato i passaggi 1-4 in [connettersi al database di Azure Cosmos](#connect), fare clic su **Editor schemi** nella finestra di **Azure Cosmos DB impostazione DSN del driver ODBC** .
 
     ![Pulsante Editor schemi nella finestra Azure Cosmos DB ODBC Driver DSN Setup (Configurazione DSN driver ODBC di Azure Cosmos DB)](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. Nella finestra **Editor schema**, fare clic su **Crea nuovo**.
@@ -97,7 +97,7 @@ Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolt
 
 1. Dopo aver completato la definizione dello schema, fare clic su **File** | **Salva**, passare alla directory in cui salvare lo schema e fare clic su **Salva**.
 
-1. Per usare questo schema con un DSN, aprire il **finestra Azure Cosmos DB ODBC Driver DSN Setup** (tramite l'amministrazione origine dati ODBC), fare clic su **opzioni avanzate**e quindi il **FilediSchema** finestra, passare allo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
+1. Per utilizzare questo schema con un DSN, aprire la **finestra di Azure Cosmos DB impostazione DSN driver ODBC** (tramite Amministrazione origine dati ODBC), fare clic su **Opzioni avanzate**, quindi nella casella **file di schema** passare allo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
 
 ## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di mapping con delimitatori di tabella
 
@@ -105,7 +105,7 @@ Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolt
 
 La procedura seguente crea uno schema per i dati in una o più raccolte mediante il metodo di **delimitatori di tabella**. È consigliabile usare questo metodo di campionamento quando le raccolte contengono tipi eterogenei di dati. È possibile usare questo metodo per definire come ambito di campionamento un set di attributi e i valori corrispondenti. Ad esempio, se un documento contiene una proprietà "Tipo", è possibile definire il campionamento per i valori di questa proprietà. Il risultato finale del campionamento sarà un set di tabelle per ciascun valore della proprietà Tipo specificata. Ad esempio, Tipo = Car produrrà una tabella Car mentre Tipo = Plane produrrà una tabella Plane.
 
-1. Dopo aver completato i passaggi 1-4 in [Connettersi al database Azure Cosmos DB](#connect), fare clic su **Editor schemi** nella finestra Azure Cosmos DB ODBC Driver DSN Setup (Configurazione DSN driver ODBC di Azure Cosmos DB).
+1. Dopo aver completato i passaggi 1-4 in [connettersi al database di Azure Cosmos](#connect), fare clic su **Editor schemi** nella finestra di Azure Cosmos DB impostazione DSN del driver ODBC.
 
 1. Nella finestra **Editor schema**, fare clic su **Crea nuovo**.
     La finestra **Generate Schema** (Genera schema) mostra tutte le raccolte nell'account di Azure Cosmos DB. 
@@ -229,7 +229,7 @@ Quindi eseguire le operazioni seguenti nella finestra **Definizioni visualizzazi
 
 1. È ora possibile creare oggetti visivi usando Power BI e facendo clic sulla scheda Report ![Scheda Report in Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), quindi su **Nuovo oggetto visivo** e personalizzando il riquadro. Per altre informazioni sulla creazione di visualizzazioni in Power BI Desktop, vedere [Tipi di visualizzazioni in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se viene visualizzato il seguente errore, verificare che i valori **Host** e **Chiave di accesso** copiati nel portale di Azure nel [passaggio 2](#connect) siano corretti, quindi riprovare. Usare i pulsanti di copia a destra dei valori **Host** e **Chiave di accesso** nel portale di Azure per evitare errori.
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400602"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773181"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -37,10 +37,10 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
 
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure](https://portal.azure.com) a livello di codice tramite le [API REST di risorsa dell'hub IoT](/rest/api/iothub/iothubresource) o tramite il comando dell'interfaccia della riga di comando [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest). Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
-  | Criterio di accesso condiviso | Autorizzazioni |
+  | Criteri di accesso condiviso | Autorizzazioni |
   | -------------------- | ----------- |
   | iothubowner | Tutte le autorizzazioni |
-  | service | Autorizzazioni **ServiceConnect** |
+  | servizio | Autorizzazioni **ServiceConnect** |
   | device | Autorizzazioni **DeviceConnect** |
   | registryRead | Autorizzazioni **RegistryRead** |
   | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
@@ -108,7 +108,7 @@ Quando si usa SASL PLAIN con AMQP, un client che si connette a un hub IoT potrà
 
 ## <a name="scope-iot-hub-level-credentials"></a>Definire l'ambito delle credenziali a livello di hub IoT
 
-È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}**. Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
+È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}** . Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
 
 Questo meccanismo è simile ai [criteri dell'entità di pubblicazione di Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) e consente di implementare metodi di autenticazione personalizzati.
 
@@ -134,7 +134,7 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Value | DESCRIZIONE |
+| Valore | Descrizione |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
 | {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio: `myHub.azure-devices.net/devices/device1` |
@@ -156,7 +156,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     var toSign = resourceUri + '\n' + expires;
 
     // Use crypto
-    var hmac = crypto.createHmac('sha256', new Buffer(signingKey, 'base64'));
+    var hmac = crypto.createHmac('sha256', Buffer.from(signingKey, 'base64'));
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
@@ -174,14 +174,14 @@ Per fare un confronto, l'equivalente in termini di codice Python per generare un
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
-from urllib import quote_plus, urlencode
+from urllib import parse
 from hmac import HMAC
 
 def generate_sas_token(uri, key, policy_name, expiry=3600):
     ttl = time() + expiry
-    sign_key = "%s\n%d" % ((quote_plus(uri)), int(ttl))
+    sign_key = "%s\n%d" % ((parse.quote_plus(uri)), int(ttl))
     print sign_key
-    signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+    signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
 
     rawtoken = {
         'sr' :  uri,
@@ -192,8 +192,13 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     if policy_name is not None:
         rawtoken['skn'] = policy_name
 
-    return 'SharedAccessSignature ' + urlencode(rawtoken)
+    return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
+
+Di seguito sono riportate le istruzioni di installazione per i prerequisiti.
+
+[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
 
 La funzionalità di C# per generare un token di sicurezza è la seguente:
 
@@ -358,7 +363,7 @@ Per altre informazioni sull'autenticazione tramite l'autorità di certificazione
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrare un certificato X.509 per un dispositivo
 
-Il componente [Azure IoT SDK per servizi per C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service) (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati X.509.
+Il componente [Azure IoT SDK per servizi per C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati X.509.
 
 È anche possibile usare il comando di estensione dell'interfaccia della riga di comando [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) per configurare i certificati X.509 per i dispositivi.
 
@@ -385,7 +390,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>Usare un certificato X.509 durante le operazioni di runtime
 
-[Azure IoT SDK per dispositivi per .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device) (versione 1.0.11+) supporta l'uso dei certificati X.509.
+[Azure IoT SDK per dispositivi per .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (versione 1.0.11+) supporta l'uso dei certificati X.509.
 
 ### <a name="c-support"></a>Supporto per C\#
 
@@ -436,11 +441,11 @@ Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo d
 
 La tabella seguente elenca le autorizzazioni che è possibile usare per controllare l'accesso all'hub IoT.
 
-| Autorizzazione | Note |
+| Autorizzazioni | Note |
 | --- | --- |
 | **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
-| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per il recupero degli acknowledgement di recapito per caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per recuperare i riconoscimenti di recapito per i caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. <br/>Concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. <br/>Concede l'autorizzazione per il caricamento di file da un dispositivo. <br/>Concede l'autorizzazione per la ricezione di notifiche su particolari proprietà del dispositivo gemello e l'aggiornamento delle proprietà segnalate di quest'ultimo. <br/>Concede l'autorizzazione per il caricamento di file. <br/>Questa autorizzazione viene usata dai dispositivi. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento

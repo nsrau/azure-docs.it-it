@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98574bc3447482429d7a028c6b47197e08e2e38
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263571"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850227"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creare il bridge di dispositivi IoT Central per connettere altri cloud IoT a IoT Central
 
@@ -28,7 +28,7 @@ Il bridge di dispositivi IoT Central è una soluzione open source in GitHub. È 
 -   Piano a consumo
 -   Azure Key Vault
 
-L'app per le funzioni è la parte critica del bridge stesso dispositivo. Riceve le richieste HTTP POST da altre piattaforme IoT o da qualsiasi piattaforma personalizzata tramite un'integrazione webhook semplice. Sono disponibili esempi che illustrano come connettersi ai cloud Sigfox, Particle e TTN. È possibile estendere facilmente questa soluzione per la connessione al cloud IoT personalizzato se la piattaforma può inviare richieste HTTP POST all'app per le funzioni.
+L'app per le funzioni è la parte critica del Bridge del dispositivo. Riceve le richieste HTTP POST da altre piattaforme IoT o da qualsiasi piattaforma personalizzata tramite un'integrazione webhook semplice. Sono disponibili esempi che illustrano come connettersi ai cloud Sigfox, Particle e TTN. È possibile estendere facilmente questa soluzione per la connessione al cloud IoT personalizzato se la piattaforma può inviare richieste HTTP POST all'app per le funzioni.
 L'app per le funzioni trasforma i dati in un formato accettato da IoT Central e li inoltra tramite le API DPS.
 
 ![Screenshot di Funzioni di Azure](media/howto-build-iotc-device-bridge/azfunctions.png)

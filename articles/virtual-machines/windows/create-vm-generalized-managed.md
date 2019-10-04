@@ -4,28 +4,27 @@ description: Creare una macchina virtuale Windows da un'immagine gestita general
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977559"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079705"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 
 È possibile creare più macchine virtuali da un'immagine di macchina virtuale gestita di Azure tramite il portale di Azure o PowerShell. Un'immagine di macchina virtuale gestita contiene le informazioni necessarie per creare una macchina virtuale, inclusi i dischi dati e del sistema operativo. I dischi rigidi virtuali (VHD) che costituiscono l'immagine, inclusi i dischi del sistema operativo e qualsiasi disco dati, vengono archiviati come dischi gestiti. 
 
-Prima di creare una nuova macchina virtuale, sarà necessario [creare un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare come immagine di origine. 
+Prima di creare una nuova macchina virtuale, è necessario [creare un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare come immagine di origine e concedere l'accesso in lettura all'immagine a qualsiasi utente che deve avere accesso all'immagine. 
 
 
 ## <a name="use-the-portal"></a>Usare il portale
@@ -44,7 +43,7 @@ Prima di creare una nuova macchina virtuale, sarà necessario [creare un'immagin
 
 È possibile usare PowerShell per creare una macchina virtuale da un'immagine usando il set di parametri semplificato per il cmdlet [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L'immagine deve trovarsi nello stesso gruppo di risorse in cui verrà creata la macchina virtuale.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Il set di parametri semplificato per [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) richiede solo di specificare nome, gruppo di risorse e nome per l'immagine da cui creare una macchina virtuale. New-AzVm userà il valore del parametro **-Name** come nome di tutte le risorse create automaticamente. In questo esempio, vengono forniti nomi più dettagliati per ogni risorsa, ma consentendo al cmdlet di crearli automaticamente. È anche possibile creare in anticipo le risorse, ad esempio la rete virtuale, e passare il nome della risorsa nel cmdlet. Se è possibile trovarle in base al nome, New-AzVm userà le risorse esistenti.
 

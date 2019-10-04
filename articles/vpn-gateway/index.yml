@@ -1,65 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione sul gateway VPN di Azure
+### YamlMime:Landing
+title: Documentazione del gateway VPN
+summary: Informazioni su come configurare, creare e gestire un gateway VPN di Azure. È possibile creare connessioni locali crittografate alla rete virtuale da posizioni locali oppure creare connessioni crittografate tra reti virtuali.
 metadata:
-  document_id: null
-  title: 'Documentazione sul gateway VPN: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
-  meta.description: 'Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.'
+  title: Documentazione del gateway VPN
+  description: Informazioni su come configurare, creare e gestire un gateway VPN di Azure.
   services: vpn-gateway
-  author: cherylmc
-  manager: jeconnoc
   ms.service: vpn-gateway
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Informazioni su come configurare, creare e gestire un gateway VPN di Azure. È possibile creare connessioni locali crittografate alla rete virtuale da posizioni locali oppure creare connessioni crittografate tra reti virtuali.'
-sections:
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come creare, configurare e gestire gateway VPN di Azure.'
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">Creare e gestire un gateway VPN</a>
-  - title: Video di formazione gratuiti su PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Amministratore di Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Architetto delle soluzioni di Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: Esempi di script per attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/vpn-gateway/powershell-samples">PowerShell</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: '<p><a href="/powershell/module/az.network#vpn">PowerShell</a></p><p><a href="/cli/azure/network/vnet-gateway">Interfaccia della riga di comando di Azure</a></p>'
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/network-gateway/">Informazioni di riferimento sulle API REST</a></p>
+  ms.date: 08/28/2019
+  ms.openlocfilehash: 5a75e2ef81c2ea584e7819d278f63e5ae53b9ce9
+  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70885614"
+landingContent:
+- title: Informazioni sul gateway VPN
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è un Gateway VPN?
+      url: vpn-gateway-about-vpngateways.md
+  - linkListType: concept
+    links:
+    - text: Connessioni da punto a sito
+      url: point-to-site-about.md
+    - text: BGP
+      url: vpn-gateway-bgp-overview.md
+    - text: Gateway con ridondanza della zona
+      url: about-zone-redundant-vnet-gateways.md
+    - text: Domande frequenti sul gateway VPN
+      url: vpn-gateway-vpn-faq.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un gateway VPN
+      url: create-routebased-vpn-gateway-portal.md
+    - text: Creare una connessione da sito a sito
+      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+    - text: Creare una connessione da punto a sito
+      url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Creare e gestire un gateway VPN
+      url: vpn-gateway-tutorial-create-gateway-powershell.md
+    - text: Creare e gestire una connessione da sito a sito
+      url: vpn-gateway-tutorial-vpnconnection-powershell.md
+- title: Dispositivi VPN
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dispositivi VPN per connessioni da sito a sito
+      url: vpn-gateway-about-vpn-devices.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i dispositivi VPN
+      url: vpn-gateway-3rdparty-device-config-overview.md
+    - text: Scaricare script di configurazione dei dispositivi
+      url: vpn-gateway-download-vpndevicescript.md
+- title: Gestisci
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Impostazioni per la configurazione del gateway
+      url: vpn-gateway-about-vpn-gateway-settings.md
+    - text: Routing da punto a sito
+      url: vpn-gateway-about-point-to-site-routing.md
+    - text: SKU del gateway
+      url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+  - linkListType: how-to-guide
+    links:
+    - text: Verificare un gateway VPN
+      url: vpn-gateway-verify-connection-resource-manager.md
+    - text: Eliminare un gateway VPN
+      url: vpn-gateway-delete-vnet-gateway-portal.md
+    - text: Modificare un gateway di rete locale
+      url: vpn-gateway-modify-local-network-gateway-portal.md
+- title: Sicurezza e monitoraggio
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Controlli di sicurezza
+      url: vpn-gateway-security-controls.md
+  - linkListType: how-to-guide
+    links:
+    - text: Monitoraggio e avvisi
+      url: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+- title: riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: /cli/azure/network/vnet-gateway
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#vpn
+    - text: REST
+      url: /rest/api/network-gateway

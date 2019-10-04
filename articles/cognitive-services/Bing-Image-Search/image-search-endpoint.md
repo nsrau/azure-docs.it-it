@@ -3,23 +3,23 @@ title: Endpoint per l'API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
 description: Elenco degli endpoint disponibili per l'API Ricerca immagini Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: v-gedod
-ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: aahi
+ms.openlocfilehash: fc1a0670767b134ad6e330fb41fc5564c754d91c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336141"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883413"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Endpoint per l'API Ricerca immagini Bing
 
-L'**API Ricerca immagini** include tre endpoint.  L'endpoint 1 restituisce immagini dal Web in base a una query. L'endpoint 2 restituisce [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  L'endpoint 3 restituisce immagini di tendenza.
+L'**API Ricerca immagini** include tre endpoint.  L'endpoint 1 restituisce immagini dal Web in base a una query. L'endpoint 2 restituisce [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  L'endpoint 3 restituisce immagini di tendenza.
 
 ## <a name="endpoints"></a>Endpoint
 
@@ -34,9 +34,9 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Una richiesta GET restituisce informazioni dettagliate su un'immagine, ad esempio le pagine Web che includono l'immagine. Includere il parametro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) con una richiesta `GET`.
+Una richiesta GET restituisce informazioni dettagliate su un'immagine, ad esempio le pagine Web che includono l'immagine. Includere il parametro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) con una richiesta `GET`.
 
-In alternativa, è possibile includere un'immagine binaria nel corpo di una richiesta `POST` e impostare il parametro [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) su `RecognizedEntities`. Viene restituito un parametro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) da usare in una richiesta `GET` successiva che restituirà le informazioni sulle persone nell'immagine.  Impostare il valore `modules` su `All` per ottenere tutte le informazioni dettagliate tranne `RecognizedEntities` nei risultati di `POST` senza eseguire un'altra chiamata usando il parametro `insightsToken`.
+In alternativa, è possibile includere un'immagine binaria nel corpo di una richiesta `POST` e impostare il parametro [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) su `RecognizedEntities`. Viene restituito un parametro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) da usare in una richiesta `GET` successiva che restituirà le informazioni sulle persone nell'immagine.  Impostare il valore `modules` su `All` per ottenere tutte le informazioni dettagliate tranne `RecognizedEntities` nei risultati di `POST` senza eseguire un'altra chiamata usando il parametro `insightsToken`.
 
 
 **Endpoint 3:** restituisce immagini di tendenza in base alle richieste di ricerca di altri utenti. Le immagini sono suddivise in diverse categorie, ad esempio in base a eventi o persone importanti.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 
 Per un elenco dei mercati che supportano le immagini di tendenza, vedere [Immagini di tendenza](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
-Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento per l'[API Ricerca immagini Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento per l'[API Ricerca immagini Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
 ## <a name="response-json"></a>Risposta JSON
 La risposta a una richiesta di ricerca di immagini include i risultati come oggetti JSON. Per esempi di analisi dei risultati, vedere l'[esercitazione](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) e il [codice sorgente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 

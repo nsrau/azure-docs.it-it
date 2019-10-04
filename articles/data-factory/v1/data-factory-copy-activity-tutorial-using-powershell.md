@@ -9,23 +9,21 @@ editor: ''
 ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 191840b8f49dad4903af362d1651206adda9eef2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482404"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140320"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -120,7 +118,7 @@ Tenere presente quanto segue:
     ```
 * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
 * Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
-* È possibile che venga visualizzato l'errore seguente: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory.**" Eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+* È possibile che venga visualizzato l'errore seguente: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory.** " Eseguire una di queste operazioni e provare a ripetere la pubblicazione:
 
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory:
 
@@ -283,8 +281,8 @@ In questo passaggio viene creato un set di dati denominato InputDataset che punt
     | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. In questa esercitazione adftutorial è il contenitore BLOB e la cartella è la cartella radice. | 
     | fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono selezionati tutti i file da folderPath. In questa esercitazione come fileName si specifica **emp.txt** e viene quindi selezionato per l'elaborazione solo tale file. |
     | format -> type |Il file di input è in formato testo, quindi viene usato **TextFormat**. |
-    | columnDelimiter | Le colonne nel file di input sono delimitate da **virgola (`,`)**. |
-    | frequenza/intervallo | La frequenza è impostata su **Hour** e l'intervallo è impostato su **1**, quindi le sezioni di input sono disponibili con cadenza **oraria**. In altre parole, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB specificato (**adftutorial**). Cerca i dati compresi tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+    | columnDelimiter | Le colonne nel file di input sono delimitate da **virgola (`,`)** . |
+    | frequency/interval | La frequenza è impostata su **Hour** e l'intervallo è impostato su **1**, quindi le sezioni di input sono disponibili con cadenza **oraria**. In altre parole, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB specificato (**adftutorial**). Cerca i dati compresi tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
     | external | Questa proprietà è impostata su **true** se i dati non vengono generati da questa pipeline. I dati di input in questa esercitazione sono nel file emp.txt, che non viene generato da questa pipeline, quindi questa proprietà viene impostata su true. |
 
     Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
@@ -346,7 +344,7 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
     | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
     | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
-    | frequenza/intervallo | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+    | frequency/interval | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
 
     La tabella emp del database include tre colonne: **ID**, **FirstName** e **LastName**. ID è una colonna Identity, quindi in questo caso è necessario specificare solo **FirstName** e **LastName**.
 
@@ -463,7 +461,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-    Ad esempio: 
+    Ad esempio:
     ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
@@ -556,7 +554,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 Vedere le [informazioni di riferimento per i cmdlet di Data factory](/powershell/module/az.datafactory) per la documentazione completa sui cmdlet di Data factory.
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 1. Creare **servizi collegati**:

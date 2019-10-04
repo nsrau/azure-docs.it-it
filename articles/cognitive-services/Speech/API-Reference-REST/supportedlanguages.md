@@ -3,20 +3,20 @@ title: Lingue supportate in Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Elenco delle lingue parlate supportate da Riconoscimento vocale Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e53980482a2d355c0fb024658f8012d65354c7a5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515402"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965946"
 ---
 # <a name="supported-languages"></a>Lingue supportate
 
@@ -29,7 +29,7 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `
 |Codice | Linguaggio | Codice | Linguaggio |
 |-----|-----|-----|-----|
 | ar-EG | Arabo (Egitto), standard moderno | hi-IN | Hindi (India) |
-| ca-ES | Catalano (Spagna) | it-IT | Italiano (Italia)  |
+| ca-ES | Catalano | it-IT | Italiano (Italia)  |
 | da-DK | Danese (Danimarca) | ja-JP | Giapponese (Giappone) |
 | de-DE | Tedesco (Germania) |ko-KR | Coreano (Corea) |
 | en-AU | Inglese (Australia) |nb-NO | Norvegese (Bokmål) (Norvegia)  |

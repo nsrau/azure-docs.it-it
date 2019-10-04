@@ -9,11 +9,11 @@ ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192168"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180265"
 ---
 Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire codice ai dispositivi IoT Edge dal cloud. I **moduli IoT Edge** sono pacchetti eseguibili implementati come contenitori. In questa sezione viene distribuito un modulo predefinito dalla [sezione Moduli IoT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
 
@@ -33,7 +33,7 @@ Per distribuire il primo modulo da Azure Marketplace, eseguire i passaggi seguen
 
    3. **Nome del dispositivo IoT Edge**: se è stato usato il nome del dispositivo suggerito in precedenza in questa guida introduttiva, immettere **myEdgeDevice**. In alternativa, selezionare **Trova dispositivo** per scegliere una voce di un elenco dei dispositivi IoT Edge nell'hub IoT. 
    
-   4. Selezionare **Create**.
+   4. Selezionare **Create** (Crea).
 
 3. Dopo avere scelto un modulo IoT Edge da Azure Marketplace e un dispositivo IoT Edge per riceverlo, viene visualizzata una procedura guidata in tre passaggi che consente di definire esattamente come distribuire il modulo. Nel passaggio **Aggiungi moduli** della procedura guidata il modulo **SimulatedTemperatureSensor** viene inserito automaticamente. Nelle esercitazioni si userà questa pagina per aggiungere altri moduli alla distribuzione. Per questa guida introduttiva, è sufficiente distribuire un modulo. Selezionare **Avanti** per continuare con il passaggio successivo della procedura guidata.
 

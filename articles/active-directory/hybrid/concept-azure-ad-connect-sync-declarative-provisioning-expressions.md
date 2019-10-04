@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245512"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -53,7 +53,7 @@ Un parametro è definito da un connettore o da un amministratore tramite PowerSh
 
 Active Directory Connector fornisce i parametri seguenti per le regole di sincronizzazione in entrata:
 
-| Nome parametro | Comment |
+| Nome parametro | Commento |
 | --- | --- |
 | Domain.Netbios |Formato Netbios del dominio attualmente importato, ad esempio FABRIKAMSALES |
 | Domain.FQDN |Formato FQDN del dominio attualmente importato, ad esempio sales.fabrikam.com |
@@ -62,10 +62,10 @@ Active Directory Connector fornisce i parametri seguenti per le regole di sincro
 | Forest.FQDN |Formato FQDN del nome della foresta attualmente importato, ad esempio FABRIKAMCORP |
 | Forest.LDAP |Formato FQDN del nome della foresta attualmente importato, ad esempio DC=fabrikam,DC=com |
 
-Il sistema fornisce il parametro seguente, usato per ottenere l'identificatore del connettore attualmente in esecuzione:   
+Il sistema fornisce il parametro seguente, usato per ottenere l'identificatore del connettore attualmente in esecuzione:  
 `Connector.ID`
 
-L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbios del dominio in cui si trova l'utente:   
+L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbios del dominio in cui si trova l'utente:  
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operatori
@@ -74,7 +74,7 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 * **Confronto**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matematici**: +, -, \*, -
 * **Stringa**: & (concatenazione)
-* **Logici**: &amp;&amp;amp;amp; (AND), || (OR)
+* **Logici**: &&amp;amp;amp;amp; (AND), || (OR)
 * **Ordine di valutazione**: ( )
 
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, \* (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2\*(5+3) è diversa da 2\*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
@@ -82,7 +82,7 @@ Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità 
 ## <a name="multi-valued-attributes"></a>Attributi multivalore
 Le funzioni possono essere usate con gli attributi a valore singolo e multivalore. Per gli attributi multivalore la funzione agisce su ogni valore e viene applicata la stessa funzione a ogni valore.
 
-Ad esempio   
+Ad esempio  
 `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attributo proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Per ogni valore che contiene un carattere @-sign, sostituire il dominio con @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.

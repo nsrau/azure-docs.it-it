@@ -1,5 +1,5 @@
 ---
-title: Entità di espressioni normali
+title: 'Esercitazione: Entità di espressione regolare - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Estrarre dati formattati coerentemente da un'espressione usando l'entità di espressione regolare.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867270"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307595"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Esercitazione: Ottenere dati formattati in modo corretto dall'espressione
 Questa esercitazione illustra come creare un'app per estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
@@ -125,7 +125,11 @@ Creare un'entità di espressione regolare per indicare a Language Understanding 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Andare alla fine dell'URL nell'indirizzo e immettere `When were HRF-123456 and hrf-234567 published in the last year?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
+2. Andare alla fine dell'URL nell'indirizzo e immettere l'espressione seguente:
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
 
     ```json
     {

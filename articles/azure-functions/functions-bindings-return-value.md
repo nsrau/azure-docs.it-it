@@ -1,27 +1,26 @@
 ---
-title: Usando il valore restituito da una funzione di Azure
-description: Informazioni su come gestire i valori restituiti per le funzioni di Azure
+title: Uso del valore restituito da una funzione di Azure
+description: Informazioni su come gestire i valori restituiti per funzioni di Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740425"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086415"
 ---
-# <a name="using-the-azure-function-return-value"></a>Usando il valore restituito di funzione di Azure
+# <a name="using-the-azure-function-return-value"></a>Uso del valore restituito della funzione di Azure
 
-Questo articolo illustra come restituire valori lavoro all'interno di una funzione.
+Questo articolo illustra in che modo i valori restituiti funzionano all'interno di una funzione.
 
-Nei linguaggi che hanno un valore restituito, è possibile associare una funzione [associazione di output](./functions-triggers-bindings.md#binding-direction) al valore restituito:
+Nei linguaggi che hanno un valore restituito, è possibile associare un' [associazione di output](./functions-triggers-bindings.md#binding-direction) di funzione al valore restituito:
 
 * In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
 * In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.

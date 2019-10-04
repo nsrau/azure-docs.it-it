@@ -3,7 +3,7 @@ title: Creare una VM con un indirizzo IP privato statico - Azure PowerShell | Mi
 description: Informazioni su come creare una macchina virtuale con un indirizzo IP privato tramite PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9115386b0543e1ac840aec29fc7f57e7c98c03bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685341"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP privato statico tramite PowerShell
 
@@ -100,7 +100,7 @@ ms.locfileid: "58104353"
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute:
+Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

@@ -3,17 +3,18 @@ title: Guida introduttiva - Creare un registro Docker privato in Azure - Interfa
 description: Informazioni su come apprendere rapidamente a creare un registro Docker privato con l'interfaccia della riga di comando di Azure.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 37b1c8516268611a1174edfe20fef36dfb6b36c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295832"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68309524"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
@@ -39,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 In questa guida introduttiva viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [SKU di Registro Azure Container][container-registry-skus].
 
-Creare un'istanza di Registro Azure Container usando il comando [az acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
+Creare un'istanza di Registro Azure Container usando il comando [azure acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -95,13 +96,13 @@ Output:
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-L'esempio seguente elenca i tag presenti nel repository **busybox**.
+L'esempio seguente elenca i tag nel repository **hello-world**.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Output:

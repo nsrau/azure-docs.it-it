@@ -3,23 +3,19 @@ title: Come usare la diagnostica di Azure (.NET) con i servizi cloud | Documenta
 description: Uso della diagnostica di Azure per raccogliere dati dai servizi cloud di Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337392"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68359695"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Abilitazione di Diagnostica di Azure in servizi cloud di Azure
 Vedere [Cenni preliminari sulla diagnostica di Azure](../azure-diagnostics.md) per un background sulla diagnostica di Azure.
@@ -28,7 +24,7 @@ Vedere [Cenni preliminari sulla diagnostica di Azure](../azure-diagnostics.md) p
 Questa procedura dettagliata descrive come implementare un ruolo di lavoro di Azure che emette i dati di telemetria con la classe EventSource .NET. Il modulo Diagnostica Azure viene usato per raccogliere i dati di telemetria e memorizzarli in un account di archiviazione di Azure. Quando si crea un ruolo di lavoro, Visual Studio abilita automaticamente Diagnostica 1.0 come parte della soluzione in Azure SDK per .NET 2.4 e versioni precedenti. Le seguenti istruzioni descrivono il processo per creare il ruolo di lavoro, disabilitare Diagnostica 1.0 dalla soluzione e implementare Diagnostica 1.2 o 1.3 nel ruolo di lavoro.
 
 ### <a name="prerequisites"></a>Prerequisiti
-In questo articolo si presuppone che l'utente disponga di una sottoscrizione di Azure e che usi Visual Studio con Azure SDK. Se non si ha una sottoscrizione di Azure, è possibile ottenere una [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
+In questo articolo si presuppone che l'utente disponga di una sottoscrizione di Azure e che usi Visual Studio con Azure SDK. Se non si dispone di una sottoscrizione di Azure, è possibile iscriversi alla [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passaggio 1: Creare un ruolo di lavoro
 1. Avviare **Visual Studio**.
@@ -39,7 +35,7 @@ In questo articolo si presuppone che l'utente disponga di una sottoscrizione di 
 6. Compilare la soluzione per verificare che non ci siano errori.
 
 ### <a name="step-2-instrument-your-code"></a>Passaggio 2: Instrumentare il codice
-Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][EventSource Class], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. Il primo parametro per il metodo **WriteEvent** definisce l'ID per il rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ognuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
+Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][EventSource Class], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e HighFreq. Il primo parametro per il metodo **WriteEvent** definisce l'ID per il rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ognuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -140,7 +136,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento** -> **Elementi di Visual C#** -> **Dati** -> **File XML**. Assegnare al file il nome "WadExample.xml".
+2. Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento** -> **Elementi di Visual C#**  -> **Dati** -> **File XML**. Assegnare al file il nome "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. Associare WadConfig.xsd al file di configurazione. Assicurarsi che la finestra dell'editor di WadExample.xml sia la finestra attiva. Premere **F4** per aprire la finestra **Proprietà**. Fare clic sulla proprietà **Schemi** nella finestra **Proprietà**. Fare clic su **...** in the **Schemi** . Fare clic su **Aggiungi** , passare al percorso in cui si è salvato il file XSD e selezionare il file WadConfig.xsd. Fare clic su **OK**.

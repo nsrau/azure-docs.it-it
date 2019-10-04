@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117745"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066996"
 ---
 # <a name="what-is-azure-data-box"></a>Che cos'è Azure Data Box?
 
@@ -109,13 +109,9 @@ Durante questo processo si riceve una notifica tramite posta elettronica a ogni 
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Data Box può trasferire i dati in base all'area in cui è distribuito il servizio, al paese in cui viene spedito il dispositivo e all'account di archiviazione di Azure di destinazione in cui verranno trasferiti i dati. 
+Data Box può trasferire i dati in base all'area in cui è distribuito il servizio, al paese o all'area geografica in cui viene spedito il dispositivo e all'account di archiviazione di Azure di destinazione in cui verranno trasferiti i dati. 
 
-- **Disponibilità del servizio**: per questa versione, il servizio Data Box è disponibile nelle aree seguenti:
-    - Tutte le aree negli Stati Uniti: Stati Uniti centro-occidentali, Stati Uniti occidentali 2, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti orientali e Stati Uniti orientali 2.
-    - Unione europea: Europa occidentale ed Europa settentrionale.
-    - Regno Unito: Regno Unito meridionale e Regno Unito occidentale.
-    - Francia: Francia centrale e Francia meridionale.
+- **Disponibilità del servizio**: per informazioni sulla disponibilità a livello di area, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). È possibile distribuire Data Box anche nel cloud Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure in cui è disponibile il servizio.  
 

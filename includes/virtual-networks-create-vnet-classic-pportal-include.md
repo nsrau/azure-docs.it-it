@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 815a217526117325ff80759701141b2b4d148514
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805302"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180061"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Come creare una rete virtuale classica nel portale di Azure
 Per creare una rete virtuale classica in base allo scenario precedente, seguire questa procedura.

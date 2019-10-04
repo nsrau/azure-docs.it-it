@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64926237"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account o un contenitore di archiviazione oppure un file BLOB di pagine *.vhd della versione classica di Azure. 
@@ -37,7 +37,7 @@ Una risorsa "disco" viene usata per montare un file BLOB di pagine *.vhd in una 
 3. Dopo aver interrotto il lease dei dischi, è possibile eliminare i BLOB di pagine. Un account o un contenitore di archiviazione può essere eliminato dopo che sono state eliminate tutte le risorse "disco" in esso contenute.
 
 >[!NOTE] 
->Se l'utente elimina la macchina virtuale ma non il disco rigido virtuale, i costi di archiviazione continueranno ad accumularsi nel file *.vhd BLOB di pagine. Gli addebiti saranno in linea con il tipo di account di archiviazione. Per altre informazioni, controllare la [pagina dei prezzi](https://azure.microsoft.com/en-us/pricing/details/storage/). Se l'utente non ha più intenzione di usare i dischi rigidi virtuali, eliminarli per evitare addebiti in futuro. 
+>Se l'utente elimina la macchina virtuale ma non il disco rigido virtuale, i costi di archiviazione continueranno ad accumularsi nel file *.vhd BLOB di pagine. Gli addebiti saranno in linea con il tipo di account di archiviazione. Per altre informazioni, controllare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/). Se l'utente non ha più intenzione di usare i dischi rigidi virtuali, eliminarli per evitare addebiti in futuro. 
 
 ## <a name="unable-to-delete-storage-account"></a>Impossibilità di eliminare l'account di archiviazione 
 
@@ -99,7 +99,7 @@ Nel portale possono verificarsi due situazioni in base all'elenco di BLOB selezi
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verificherà l'errore seguente. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : Il server remoto ha restituito un errore: (412) Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta. Codice stato HTTP: 412 - Messaggio di errore HTTP: Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.</span>
 

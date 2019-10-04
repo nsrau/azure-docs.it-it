@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a7ff2d7e02b557676d2ba569f7baa216d07221b9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662636"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192542"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Differenze tra Service Fabric in Linux e in Windows
 
@@ -31,6 +31,7 @@ Alcune funzionalità sono supportate in Windows ma non ancora in Linux. Questo g
 * Servizio di analisi degli errori in Linux
 * Servizio DNS per i servizi di Service Fabric (il servizio DNS è supportato per i contenitori in Linux)
 * Comandi dell'interfaccia della riga di comando equivalenti ad alcuni comandi di Powershell (vedere l'elenco seguente, che si applica per la maggior parte solo a cluster autonomi)
+* [Differenze nell'implementazione del log che possono influire sulla scalabilità](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlet di Powershell che non funzionano in un cluster di Service Fabric in Linux
 

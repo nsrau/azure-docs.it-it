@@ -4,7 +4,7 @@ description: Informazioni su come creare una VM Linux con più schede di interfa
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 04aaa1da304657ac3cc305b8939ac4fcce126145
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732839"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671175"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -100,7 +100,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM
 I passaggi precedenti hanno consentito di creare una VM con più schede di interfaccia di rete. È anche possibile aggiungere schede di interfaccia di rete a una macchina virtuale esistente con l'interfaccia della riga di comando di Azure. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza. Se necessario, è possibile [ridimensionare una VM](change-vm-size.md).
@@ -138,7 +138,7 @@ Avviare la VM con [az vm start](/cli/azure/vm):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM
 Per rimuovere una scheda di interfaccia di rete da una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la VM denominata *myVM*:
@@ -183,7 +183,7 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 
 È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/template-samples.md).
 
-Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
+Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
 

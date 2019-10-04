@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 54cb9f604e9d1b817947990e657390387df6c881
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664914"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035258"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric.

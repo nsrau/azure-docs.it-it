@@ -1,6 +1,6 @@
 ---
 title: Informazioni sull'API Ricerca personalizzata Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate per specifici argomenti di interesse.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 03/4/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337737"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405164"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Informazioni sull'API Ricerca personalizzata Bing
 
@@ -49,8 +49,10 @@ Per informazioni sull'uso dei risultati delle ricerche nei servizi e nelle appli
 
 È consigliabile acquisire familiarità con il contenuto di riferimento per ognuno degli endpoint di ricerca personalizzata. La documentazione di riferimento contiene gli endpoint, le intestazioni e i parametri di query da usare per richiedere risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
 
-- [API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
-- [API Ricerca personalizzata immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [API Video personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
-- [API Suggerimenti automatici personalizzati](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+
+- [API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [API Ricerca personalizzata immagini](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [API Video personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [API Suggerimenti automatici personalizzati](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
 

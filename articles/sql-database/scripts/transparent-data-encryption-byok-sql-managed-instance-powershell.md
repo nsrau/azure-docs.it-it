@@ -10,28 +10,27 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8f0f4a8e603a9040d166b00682077cff23abd8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390716"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569702"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Gestire Transparent Data Encryption in un'istanza gestita usando la propria chiave di Azure Key Vault (anteprima)
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Gestire Transparent Data Encryption in un Istanza gestita usando la propria chiave da Azure Key Vault (anteprima)
 
-Questo esempio di script di PowerShell Configura Transparent Data Encryption (TDE) in uno scenario Bring Your Own Key (anteprima) per istanza gestita SQL Azure, usando una chiave di Azure Key Vault. Per altre informazioni su TDE con il supporto Bring Your Own Key (BYOK), vedere [Bring Your Own Key di TDE per SQL Azure](../transparent-data-encryption-byok-azure-sql.md).
+Questo esempio di script di PowerShell configura Transparent Data Encryption (Transparent Data Encryption) in uno scenario di Bring Your Own Key (anteprima) per Istanza gestita SQL di Azure, usando una chiave Azure Key Vault. Per altre informazioni su TDE con il supporto Bring Your Own Key (BYOK), vedere [Bring Your Own Key di TDE per SQL Azure](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'istanza gestita esistente. Visualizzare [istanza gestita di usare PowerShell per creare un Database SQL di Azure](sql-database-create-configure-managed-instance-powershell.md).
+- Istanza gestita esistente. Vedere [usare PowerShell per creare un'istanza gestita di database SQL di Azure](sql-database-create-configure-managed-instance-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Usando entrambe PowerShell in locale o Azure Cloud Shell richiede PowerShell AZ 1.1.1 o una successiva versione di anteprima. Se è necessario eseguire l'aggiornamento, vedere [modulo di installare Azure PowerShell](/powershell/azure/install-az-ps), o eseguire il seguente script di esempio per installare il modulo.
+L'uso di PowerShell in locale o con Azure Cloud Shell richiede AZ PowerShell 1.1.1-Preview o una versione di anteprima successiva. Se è necessario eseguire l'aggiornamento, vedere [install Azure PowerShell Module](/powershell/azure/install-az-ps)o eseguire lo script di esempio seguente per installare il modulo.
 
 `Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
 

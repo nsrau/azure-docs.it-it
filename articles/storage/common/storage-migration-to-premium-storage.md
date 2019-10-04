@@ -2,18 +2,19 @@
 title: Migrazione di VM ad Archiviazione Premium di Azure | Documentazione Microsoft
 description: Eseguire la migrazione delle VM esistenti in Archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1bf46240303d1f31cd09c1a2723e18d27d3ef789
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372319"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124695"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
 
@@ -60,7 +61,7 @@ Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni de
 | IOPS per disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo |
 
-A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](../../virtual-machines/windows/premium-storage-performance.md#disk-striping). Se si esegue lo striping di dischi dati di Archiviazione Premium con [Spazi di archiviazione][4], è consigliabile configurare una colonna per ogni disco usato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](../../virtual-machines/windows/premium-storage-performance.md#disk-striping). Se si esegue lo striping dei dischi dati di Archiviazione Premium usando gli [spazi di archiviazione][4], è necessario configurarlo con una colonna per ciascun disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 #### <a name="storage-account-scalability-targets"></a>Obiettivi di scalabilità per gli account di archiviazione
 Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità oltre agli [obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md). Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra tali account di archiviazione.
@@ -72,9 +73,9 @@ Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità 
 Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco
-Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate usando il [portale di Azure](https://portal.azure.com) o il *- HostCaching* parametro del *Set-AzureDataDisk* cmdlet.
+Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate usando il [portale di Azure](https://portal.azure.com) o il parametro *-HostCaching* del cmdlet *set-AzureDataDisk* .
 
-#### <a name="location"></a>Località
+#### <a name="location"></a>Location
 Selezionare una posizione in cui è disponibile il servizio Archiviazione Premium di Azure. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) . Le macchine virtuali presenti nella stessa area dell'account di archiviazione in cui sono archiviati i dischi per la macchina virtuale offrono prestazioni superiori rispetto a quelle ubicate in aree separate.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Altre impostazioni di configurazione delle macchine virtuali di Azure
@@ -158,7 +159,7 @@ Creare un account di archiviazione per mantenere i dischi rigidi virtuali. Consi
 Per i dischi dati, è possibile scegliere di mantenerne alcuni in un account di archiviazione Standard, ad esempio, i dischi che dispongono di un'archiviazione meno problematica, ma è consigliabile spostare tutti i dati affinché il carico di lavoro di produzione usi l'archiviazione Premium.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Passaggio 3. Copia del disco rigido virtuale con AzCopy o PowerShell
-Per elaborare una di queste due opzioni è necessario individuare il percorso del container e la chiave dell'account di archiviazione. Il percorso del contenitore e la chiave dell'account di archiviazione sono reperibili in **Portale di Azure** > **Archiviazione**. Il contenitore URL sarà simile a "https:\//myaccount.blob.core.windows.net/mycontainer/".
+Per elaborare una di queste due opzioni è necessario individuare il percorso del container e la chiave dell'account di archiviazione. Il percorso del contenitore e la chiave dell'account di archiviazione sono reperibili in **Portale di Azure** > **Archiviazione**. L'URL del contenitore sarà simile a "https\/:/myaccount.blob.Core.Windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opzione 1: copia di un disco rigido virtuale con AzCopy (copia asincrona)
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.
@@ -167,23 +168,23 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 2. Aprire Azure PowerShell e passare alla cartella in cui è installato AzCopy.
 3. Utilizzare il seguente comando per copiare il file di disco rigido virtuale da "Source" a "Destination".
 
-    ```azcopy
-    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-    ```
+   ```azcopy
+   AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
     Esempio:
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
     ```
+ 
+   Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-    Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
-
-   * **/Source: *&lt;origine&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey: *&lt;chiave-account-origine&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest: *&lt;destinazione&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey: *&lt;chiave-account-dest&gt;:*** chiave dell'account di archiviazione di destinazione.
-   * **/Pattern: *&lt;nome-file&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Source:** _origine:&gt; &lt;_ percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey:** _source-account-Key&gt;: &lt;_ chiave dell'account di archiviazione di origine.
+   * **/Dest:** _destinazione:&gt; &lt;_ URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey:** _dest-account-Key&gt;: &lt;_ chiave dell'account di archiviazione di destinazione.
+   * **/Pattern:** _nomefile&gt;: &lt;_ specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -255,7 +256,7 @@ Dopo avere creato il disco rigido virtuale nella directory locale, è possibile 
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Ad esempio <Uri> può essere ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Un esempio <FileInfo> potrebbe essere ***"C:\path\to\upload.vhd"***.
+Ad esempio \<Uri > potrebbe essere **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** . Ad esempio \<FileInfo > può essere **_"C:\path\to\upload.vhd"_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opzione 2: uso di AzCopy per caricare il file con estensione vhd
 Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Internet. A seconda della dimensione dei dischi rigidi virtuali, tale operazione potrebbe richiedere tempo. Ricordarsi di verificare i limiti di ingresso/uscita dell’account di archiviazione quando si utilizza questa opzione. Vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md) per i dettagli.
@@ -264,24 +265,24 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 2. Aprire Azure PowerShell e passare alla cartella in cui è installato AzCopy.
 3. Utilizzare il seguente comando per copiare il file di disco rigido virtuale da "Source" a "Destination".
 
-    ```azcopy
-    AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
-    ```
+   ```azcopy
+      AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
+   ```
 
-    Esempio:
+   Esempio:
 
-    ```azcopy
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+   ```azcopy
+      AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
+   ```
 
-    Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
+   Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-   * **/Source: *&lt;origine&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey: *&lt;chiave-account-origine&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest: *&lt;destinazione&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey: *&lt;chiave-account-dest&gt;:*** chiave dell'account di archiviazione di destinazione.
+   * **/Source:** _origine:&gt; &lt;_ percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey:** _source-account-Key&gt;: &lt;_ chiave dell'account di archiviazione di origine.
+   * **/Dest:** _destinazione:&gt; &lt;_ URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey:** _dest-account-Key&gt;: &lt;_ chiave dell'account di archiviazione di destinazione.
    * **/BlobType: page:** specifica che la destinazione è un BLOB di pagine.
-   * **/Pattern: *&lt;nome-file&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Pattern:** _nomefile&gt;: &lt;_ specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 

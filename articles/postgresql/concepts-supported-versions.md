@@ -1,34 +1,43 @@
 ---
-title: Versioni supportate in Database di Azure per PostgreSQL
-description: In questo articolo vengono descritte le versioni supportate nel Database di Azure per PostgreSQL.
+title: Versioni supportate nel database di Azure per PostgreSQL-server singolo
+description: Descrive le versioni supportate nel database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 5b06128979bf448a0b85084d5178d9291beb7691
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/06/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b77fd082be43b8cbdedf7cbe5875a8931eb0474a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422066"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837900"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versione supportate del database PostgreSQL
-Microsoft punta a supportare n-2 versioni del motore PostgreSQL nel servizio Database di Azure per PostgreSQL. Le versioni sono la versione principale attuale in Azure (n) e le due versioni principali precedenti (-2).
+Microsoft mira a supportare le versioni n-2 del motore PostgreSQL nel database di Azure per PostgreSQL: singolo server. Le versioni sono la versione principale attuale in Azure (n) e le due versioni principali precedenti (-2).
 
-Al momento il Database di Azure per PostgreSQL supporta le versioni seguenti:
+Database di Azure per PostgreSQL supporta attualmente le versioni principali seguenti:
 
-## <a name="postgresql-version-105"></a>PostgreSQL versione 10.5
-Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-5.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
+## <a name="postgresql-version-11"></a>PostgreSQL versione 11
+La versione secondaria corrente è 11,4. Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-4.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
-## <a name="postgresql-version-9610"></a>PostgreSQL versione 9.6.10
-Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-10.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
+## <a name="postgresql-version-10"></a>PostgreSQL versione 10
+La versione secondaria corrente è 10,9. Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-9.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
-## <a name="postgresql-version-9514"></a>PostgreSQL versione 9.5.14
-Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-14.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
+## <a name="postgresql-version-96"></a>PostgreSQL versione 9,6
+La versione secondaria corrente è 9.6.14. Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-14.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
-## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
-Database di Azure per PostgreSQL gestisce automaticamente le patch per le versioni secondarie. L'aggiornamento di versione principale non è attualmente supportato. Ad esempio, l'aggiornamento da PostgreSQL 9.5 a PostgreSQL 9.6 non è supportato. Se si vuole eseguire l'aggiornamento alla versione principale successiva, creare un database [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
+## <a name="postgresql-version-95"></a>PostgreSQL versione 9,5
+La versione secondaria corrente è 9.5.18. Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-18.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
+
+## <a name="managing-upgrades"></a>Gestione degli aggiornamenti
+Database di Azure per PostgreSQL gestisce automaticamente gli aggiornamenti della versione secondaria. 
+
+L'aggiornamento automatico della versione principale non è supportato. Ad esempio, non è disponibile un aggiornamento automatico da PostgreSQL 9,5 a PostgreSQL 9,6. Per eseguire l'aggiornamento alla versione principale successiva, creare un [dump del database ed](./howto-migrate-using-dump-and-restore.md) eseguire il ripristino in un server creato con la nuova versione del motore.
+
+### <a name="version-syntax"></a>Sintassi della versione
+Prima di PostgreSQL versione 10, i [criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) consideravano un aggiornamento della _versione principale_ come un aumento del primo _o_ del secondo numero. Ad esempio, 9,5 a 9,6 è stato considerato un aggiornamento della versione _principale_ . A partire dalla versione 10, solo una modifica nel primo numero viene considerata un aggiornamento della versione principale. Ad esempio, 10,0 a 10,1 è un aggiornamento della versione _secondaria_ . La versione da 10 a 11 è un aggiornamento della versione _principale_ .
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sul supporto delle diverse estensioni di PostgreSQL, vedere [Estensioni di PostgreSQL](concepts-extensions.md).
+Per informazioni sulle estensioni PostgreSQL supportate, vedere [il documento sulle estensioni](concepts-extensions.md).

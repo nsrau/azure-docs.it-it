@@ -1,5 +1,5 @@
 ---
-title: Esecuzione e test di processi di U-SQL locali con Azure Data Lake U-SQL SDK
+title: Eseguire processi U-SQL in locale-Azure Data Lake SDK U-SQL
 description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089965"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309693"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -63,7 +63,7 @@ Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso a
 
 Quando si esegue lo script U-SQL localmente, durante la compilazione viene creata una directory di lavoro nella directory di lavoro corrente. Oltre agli output di compilazione, nella directory di lavoro verrà creata una copia shadow dei file di runtime necessari per l'esecuzione locale. La cartella radice della directory di lavoro è denominata "ScopeWorkDir" e i file nella directory di lavoro sono i seguenti:
 
-|Directory/File|Directory/File|Directory/File|Definizione|DESCRIZIONE|
+|Directory/File|Directory/File|Directory/File|Definizione|Descrizione|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Stringa di hash della versione di runtime|Copia shadow dei file di runtime necessari per l'esecuzione locale|
 | |Script_66AE4909AA0ED06C| |Nome di script + stringa hash del percorso dello script|Output di compilazione e registrazione del passaggio di esecuzione|
@@ -137,7 +137,7 @@ Il comando **run** viene usato per compilare lo script ed eseguire i risultati c
 Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 
-|Argomento|Valore predefinito|DESCRIZIONE|
+|Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
 |-CodeBehind|False|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
@@ -154,7 +154,7 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 |-OptFlags| |Elenco delimitato da virgole con i flag di ottimizzazione|
 
 
-Ad esempio:
+Di seguito è riportato un esempio:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -169,7 +169,7 @@ Il comando **compile** viene usato per compilare uno script di U-SQL in file ese
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
 
-|Argomento|DESCRIZIONE|
+|Argomento|Descrizione|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -207,7 +207,7 @@ Il comando **execute** viene usato per eseguire i risultati compilati.
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **execute**:
 
-|Argomento|Valore predefinito|DESCRIZIONE|
+|Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
 |-DataRoot | '' |Radice dei dati per l'esecuzione dei metadati. Il valore predefinito è la variabile di ambiente **LOCALRUN_DATAROOT**.|
 |-MessageOut | '' |Esecuzione del dump dei messaggi della console in un file.|
@@ -223,7 +223,7 @@ Ecco un esempio d'uso:
 
 Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possibile usarle per integrare le funzionalità dell'SDK U-SQL e il framework di test di C# per scalare il test locale dello script U-SQL. In questo articolo verrà usato il progetto di unit test C# standard per mostrare come usare queste interfacce per testare lo script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# configurazione e progetto di unit test
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# unit test progetto e la configurazione
 
 - Creare un progetto per unit test C# tramite File > Nuovo > Progetto > Visual C# > Test > Progetto unit test.
 - Aggiungere LocalRunHelper.exe come riferimento per il progetto. LocalRunHelper.exe si trova in \build\runtime\LocalRunHelper.exe nel pacchetto NuGet.
@@ -240,7 +240,7 @@ Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possi
 
 - Assicurarsi di copiare tutti i file di dipendenza in NugetPackage\build\runtime\ nella directory di lavoro del progetto che generalmente si trova in ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Creare test case di script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Crea script U-SQL test case
 
 Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per i test, è necessario preparare script, file di input e file di output previsti.
 
@@ -332,39 +332,39 @@ LocalRunHelper.exe offre le interfacce di programmazione per la compilazione e l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|DESCRIZIONE|
+|Parametro|Type|Descrizione|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 **Proprietà**
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
-|AlgebraPath|stringa|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
-|CodeBehindReferences|stringa|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
-|CppSdkDir|stringa|Directory CppSDK|
-|CurrentDir|stringa|La directory corrente|
-|DataRoot|stringa|Il percorso della radice dei dati|
-|DebuggerMailPath|stringa|Il percorso alla porta di inserimento/espulsione del debugger|
+|AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
+|CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
+|CppSdkDir|string|Directory CppSDK|
+|CurrentDir|string|La directory corrente|
+|DataRoot|string|Il percorso della radice dei dati|
+|DebuggerMailPath|string|Il percorso alla porta di inserimento/espulsione del debugger|
 |GenerateUdoRedirect|bool|Se si vuole generare il reindirizzamento di caricamento dell'assembly eseguire l'override della configurazione|
 |HasCodeBehind|bool|Indica se lo script ha code-behind|
-|InputDir|stringa|La directory per i dati di input|
-|MessagePath|stringa|Il percorso del file dump del messaggio|
-|OutputDir|stringa|La directory per i dati di output|
+|InputDir|string|La directory per i dati di input|
+|MessagePath|string|Il percorso del file dump del messaggio|
+|OutputDir|string|La directory per i dati di output|
 |Parallelismo|int|Il parallelismo per eseguire l'algebra|
 |ParentPid|int|Il PID dell'entità principale in cui il servizio esegue il monitoraggio per uscire, impostato su 0 o su un numero negativo se va ignorato|
-|ResultPath|stringa|Il percorso del file dump del risultato|
-|RuntimeDir|stringa|La directory di runtime|
-|ScriptPath|stringa|Indica dove trovare lo script|
+|ResultPath|string|Il percorso del file dump del risultato|
+|RuntimeDir|string|La directory di runtime|
+|ScriptPath|string|Indica dove trovare lo script|
 |Shallow|bool|Indica se la compilazione è superficiale o no|
-|TempDir|stringa|Directory Temp|
-|UseDataBase|stringa|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
-|WorkDir|stringa|La directory di lavoro preferita|
+|TempDir|string|Directory Temp|
+|UseDataBase|string|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
+|WorkDir|string|La directory di lavoro preferita|
 
 
 **Metodo**
 
-|Metodo|DESCRIZIONE|Return|Parametro|
+|Metodo|Descrizione|Return|Parametro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Consente di compilare lo script U-SQL|Se l'esito è positivo, restituisce il valore true| |
 |public bool DoExec()|Esegue il risultato compilato|Se l'esito è positivo, restituisce il valore true| |
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: Errore interno. Could not load file or assembly 'ScopeEng
 
 Verificare quanto segue:
 
-- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di test deve essere x64; fare riferimento a **passaggio 1: Creare C# configurazione e progetto di unit test** sopra.
+- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di testing devono essere **x64, fare riferimento al passaggio 1: Creare C# unit test progetto e la** configurazione precedenti.
 - Assicurarsi di aver copiato nella directory di lavoro tutti i file di dipendenza presenti in NugetPackage\build\runtime\.
 
 

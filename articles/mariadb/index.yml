@@ -1,64 +1,121 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517012"
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Database di Azure per MariaDB
+summary: Database di Azure per MariaDB è un servizio di database relazionale basato sul motore del server MariaDB open source.  È un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con Database di Azure per MariaDB sfruttando la piattaforma e gli strumenti open source preferiti. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Database di Azure per MariaDB.
 metadata:
-  title: Documentazione su MariaDB in Azure - Esercitazioni e informazioni di riferimento sulle API
   description: Database di Azure per MariaDB è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato sul motore di database MariaDB open source.
   author: ajlam
   ms.author: andrela
+  ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 03/25/2019
-abstract:
-  description: Database di Azure per MariaDB è un servizio di database relazionale basato sul motore del server MariaDB open source.  È un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con Database di Azure per MariaDB sfruttando la piattaforma e gli strumenti open source preferiti. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Database di Azure per MariaDB.
-sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come creare un database MariaDB in Azure con:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Portale di Azure
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: 'Informazioni su come progettare il database e sviluppare app:'
-  - type: list
-    style: unordered
-    items:
-    - html: Progettare un database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">portale di Azure</a> | <a href="/azure/mariadb/tutorial-design-database-cli">interfaccia della riga di comando di Azure</a>
-- title: Esempi
-  items:
-  - type: paragraph
-    text: Trovare script per gestire le attività comuni.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Interfaccia della riga di comando di Azure</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/mariadb">Interfaccia della riga di comando di Azure</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mariadb/">API REST</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Modelli di Resource Manager</a></p>
+  ms.openlocfilehash: bd4bb93a43bd493069ed03f6197595fe782d605a
+  ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70735370"
+landingContent:
+- title: Informazioni su Database di Azure per MariaDB
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è Database di Azure per MariaDB?
+      url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Consultare il blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/bg-p/ADforMariaDB
+- title: Creare un server
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare un server con il portale di Azure
+      url: quickstart-create-mariadb-server-database-using-azure-portal.md
+    - text: Creare un server con l'interfaccia della riga di comando di Azure
+      url: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - linkListType: concept
+    links:
+    - text: Informazioni sui piani tariffari
+      url: concepts-pricing-tiers.md
+    - text: Conoscere i limiti
+      url: concepts-limits.md
+    - text: Informazioni sulle versioni supportate di MariaDB
+      url: concepts-supported-versions.md
+    - text: Configurare i parametri del server
+      url: howto-server-parameters.md
+    - text: Pianificare la disponibilità elevata
+      url: concepts-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Progettare un database con il portale di Azure
+      url: tutorial-design-database-using-portal.md
+    - text: Progettare un database con l'interfaccia della riga di comando di Azure
+      url: tutorial-design-database-cli.md
+- title: Eseguire il backup e il ripristino dei dati
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Eseguire il backup e il ripristino
+      url: concepts-backup.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ripristinare un server con il portale di Azure
+      url: howto-restore-server-portal.md
+    - text: Ripristinare un server con l'interfaccia della riga di comando di Azure
+      url: howto-restore-server-cli.md
+- title: Connettersi a Database di Azure per MariaDB
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informazioni sul firewall
+      url: concepts-firewall-rules.md
+    - text: Informazioni su SSL
+      url: concepts-ssl-connection-security.md
+    - text: Informazioni sulle reti virtuali
+      url: concepts-data-access-security-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare regole del firewall
+      url: howto-manage-firewall-portal.md
+    - text: Configurare la connettività SSL
+      url: howto-configure-ssl.md
+    - text: Creare gli utenti
+      url: howto-create-users.md
+    - text: Gestire le reti virtuali
+      url: howto-manage-vnet-portal.md
+    - text: Risolvere i problemi di connessione
+      url: howto-troubleshoot-common-connection-issues.md
+  - linkListType: get-started
+    links:
+    - text: Connettersi con MySQL Workbench
+      url: connect-workbench.md
+    - text: Stringhe di connessione
+      url: howto-connection-string.md
+- title: Replicare i dati
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informazioni sulla replica dei dati in ingresso
+      url: concepts-data-in-replication.md
+    - text: Informazioni sulle repliche in lettura
+      url: concepts-read-replicas.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare la replica dei dati in ingresso
+      url: howto-data-in-replication.md
+    - text: Creare una replica in lettura con il portale di Azure
+      url: howto-read-replicas-portal.md
+- title: Scrivere codice con le API di programmazione
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Script dell'interfaccia della riga di comando di Azure per attività comuni
+      url: /azure/mariadb/sample-scripts-azure-cli/
+  - linkListType: reference
+    links:
+    - text: Informazioni di riferimento per sviluppatori sull'interfaccia della riga di comando di Azure
+      url: /rest/api/mariadb/
+    - text: Informazioni di riferimento per sviluppatori sulle API REST
+      url: /cli/azure/mariadb
+    - text: Modelli di Gestione risorse di Azure
+      url: /azure/templates/microsoft.dbformariadb/allversions

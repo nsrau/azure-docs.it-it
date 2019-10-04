@@ -1,22 +1,21 @@
 ---
-title: 'Guida introduttiva: Creare un indice basato su intelligenza artificiale nel portale di Azure - Ricerca di Azure'
+title: "Guida introduttiva: Informazioni sull'arricchimento con intelligenza artificiale per la ricerca cognitiva nel portale di Azure - Ricerca di Azure"
 description: Estrazione dei dati, linguaggio naturale e competenze di elaborazione delle immagine in un portale di indicizzazione di Ricerca di Azure, usando il portale di Azure e dati di esempio.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265016"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265891"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di indicizzazione di intelligenza naturale con competenze cognitive e dati di esempio
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Guida introduttiva: Creare una pipeline di arricchimento con intelligenza artificiale usando competenze cognitive in Ricerca di Azure
 
 Ricerca di Azure si integra con [Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/) aggiungendo estrazione di contenuto, elaborazione del linguaggio naturale e competenze di elaborazione di immagini a una pipeline di indicizzazione di Ricerca di Azure, semplificando le ricerche di contenuto non ricercabile o non strutturato. 
 
@@ -33,9 +32,9 @@ In questo argomento di avvio rapido è possibile creare la prima pipeline di arr
 Questa guida di avvio rapido viene eseguita con il servizio gratuito, ma il numero di transazioni gratuite è limitato a 20 documenti al giorno. Se si vuole eseguire la guida più di una volta al giorno, usare un set di file più piccolo in modo da far rientrare più esecuzioni.
 
 > [!NOTE]
-> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario collegare una risorsa fatturabile di Servizi cognitivi. Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini vengono applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -45,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 I [Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/) forniscono l'intelligenza artificiale. Questa guida di avvio rapido include la procedura per aggiungere queste risorse inline, quando si specifica la pipeline. Non è necessario configurare account in anticipo.
 
-Per fornire gli input per la pipeline di indicizzazione, sono necessari i servizi di Azure. È possibile usare qualsiasi origine dati supportata dagli [indicizzatori di Ricerca di Azure](search-indexer-overview.md), ad eccezione di archiviazione tabelle di Azure, che non è supportata per l'indicizzazione dell'intelligenza artificiale. In questa guida si usa [archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) come contenitore per i file delle origini dati. 
+Per fornire gli input per la pipeline di indicizzazione, sono necessari i servizi di Azure. È possibile usare qualsiasi origine dati supportata dagli [indicizzatori di Ricerca di Azure](search-indexer-overview.md). In questa guida si usa [archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) come contenitore per i file delle origini dati. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurare il servizio BLOB di Azure e caricare i dati di esempio
 
@@ -166,11 +165,13 @@ Un altro concetto importante è che le competenze vengono eseguite tramite campi
 
 Infine, si è appreso che la visualizzazione dei risultati viene ottenuta eseguendo una query dell'indice. Infine, Ricerca di Azure offre un indice ricercabile, in cui è possibile eseguire una query utilizzando la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) oppure [completamente estesa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un indice che contiene campi arricchiti è come qualsiasi altro. Se si intende incorporare [analizzatori personalizzati](search-analyzers.md) o standard, [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinonimi](search-synonyms.md), [filtri con facet](search-filters-facets.md), ricerca geografica o qualsiasi altra funzionalità di Ricerca di Azure, è possibile farlo.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up"></a>Eseguire la pulizia
 
-Se l'esplorazione è conclusa, il modo più veloce per pulire le risorse consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure e il servizio BLOB di Azure.  
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
-Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questo esercizio. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
+Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
+
+Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e origini dati è limitato a tre. Per non superare il limite, è possibile eliminare i singoli elementi nel portale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

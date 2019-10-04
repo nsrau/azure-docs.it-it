@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715227"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -39,7 +39,7 @@ Se si verifica un problema durante la prima distribuzione del dispositivo, consi
 * Controllare i prerequisiti per la distribuzione. Assicurarsi di disporre di tutte le informazioni descritte nel [elenco di controllo configurazione distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
 * Controllare le note sulla versione di StorSimple per vedere se il problema è stato descritto. Le note sulla versione includono soluzioni alternative per i problemi di installazione noti. 
 
-Durante la distribuzione del dispositivo, i problemi più comuni riscontrati dagli utenti, si verificano quando si esegue la configurazione guidata e quando si registra il dispositivo tramite Windows PowerShell per StorSimple. Utilizzare Windows PowerShell per StorSimple per registrare e configurare il dispositivo StorSimple. Per ulteriori informazioni sulla registrazione del dispositivo, vedere [passaggio 3: configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+Durante la distribuzione del dispositivo, i problemi più comuni riscontrati dagli utenti, si verificano quando si esegue la configurazione guidata e quando si registra il dispositivo tramite Windows PowerShell per StorSimple. Utilizzare Windows PowerShell per StorSimple per registrare e configurare il dispositivo StorSimple. Per altre informazioni sulla registrazione del dispositivo, vedere [passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
 Le sezioni seguenti facilitano la risoluzione dei problemi che si verificano quando si configura il dispositivo StorSimple per la prima volta.
 
@@ -69,24 +69,24 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 * Registrazione del dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Errori durante le impostazioni di rete necessarie
-|  No. | Messaggio di errore | Possibili cause | Azione consigliata |
+| No. | Messaggio di errore | Possibili cause | Azione consigliata |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: questo comando può essere eseguito solo sul controller attivo. |La configurazione veniva eseguita solo sul controller passivo. |Eseguire il comando dal controller attivo. Per altre informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| 2 |Invoke-HcsSetupWizard: dispositivo non pronto. |Sono presenti problemi con la connettività di rete su DATA 0. |Controllare la connettività di rete fisica in DATA 0. |
-| 3 |Invoke-HcsSetupWizard: è presente un conflitto di indirizzo IP con un altro sistema della rete (eccezione da HRESULT: 0x80070263). |L'IP fornito per i DATA 0 era già utilizzato da un altro sistema. |Fornire un nuovo IP non in uso. |
-| 4 |Invoke-HcsSetupWizard: errore di risorsa cluster (eccezione da HRESULT: 0x800713AE). |Duplica VIP. L'IP fornito è già in uso. |Fornire un nuovo IP non in uso. |
-| 5 |Invoke-HcsSetupWizard: indirizzo IPv4 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv4 Addressing][1] (Indirizzamento Ipv4). |
-| 6 |Invoke-HcsSetupWizard: indirizzo IPv6 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv6 Addressing][2] (Indirizzamento Ipv6). |
-| 7 |Richiamare HcsSetupWizard: non esistono Nessun endpoint disponibile nel mapping degli endpoint. (Eccezione da HRESULT: 0x800706D9) |La funzionalità del cluster non funziona. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
+| 1 |Invoke-HcsSetupWizard: Questo comando può essere eseguito solo sul controller attivo. |La configurazione veniva eseguita solo sul controller passivo. |Eseguire il comando dal controller attivo. Per altre informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| 2 |Invoke-HcsSetupWizard: Dispositivo non pronto. |Sono presenti problemi con la connettività di rete su DATA 0. |Controllare la connettività di rete fisica in DATA 0. |
+| 3 |Invoke-HcsSetupWizard: Si verifica un conflitto di indirizzi IP con un altro sistema sulla rete (eccezione da HRESULT: 0x80070263). |L'IP fornito per i DATA 0 era già utilizzato da un altro sistema. |Fornire un nuovo IP non in uso. |
+| 4 |Invoke-HcsSetupWizard: Una risorsa cluster non è riuscita. (Eccezione da HRESULT: 0x800713AE). |Duplica VIP. L'IP fornito è già in uso. |Fornire un nuovo IP non in uso. |
+| 5 |Invoke-HcsSetupWizard: Indirizzo IPv4 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv4 Addressing][1] (Indirizzamento Ipv4). |
+| 6 |Invoke-HcsSetupWizard: Indirizzo IPv6 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv6 Addressing][2] (Indirizzamento Ipv6). |
+| 7 |Invoke-HcsSetupWizard: Non esistono Nessun endpoint disponibile nel mapping degli endpoint. (Eccezione da HRESULT: 0x800706D9) |La funzionalità del cluster non funziona. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Errori durante le impostazioni del proxy web facoltative
 | di serie | Messaggio di errore | Possibili cause | Azione consigliata |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: parametro non valido (eccezione da HRESULT: 0x80070057) |Uno dei parametri forniti per le impostazioni proxy non è valido. |URI non fornito nel formato corretto. Usare il seguente formato: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
-| 2 |Invoke-HcsSetupWizard: server RPC non disponibile (eccezione da HRESULT: 0x800706ba) |La causa principale è una delle seguenti:<ol><li>Il cluster non è attivo.</li><li>Il controller passivo non può comunicare con quello attivo e il comando viene eseguito dal controller passivo.</li></ol> |A seconda della causa principale:<ol><li>[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per assicurarsi che il cluster sia attivo.</li><li>Eseguire il comando dal controller attivo. Se si desidera eseguire il comando dal controller passivo, è necessario verificare che il controller passivo sia in grado di comunicare con il controller attivo. È necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) se la connettività viene interrotta.</li></ol> |
-| 3 |Invoke-HcsSetupWizard: chiamata RPC non riuscita (eccezione da HRESULT: 0x800706be) |Cluster non attivo. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per assicurarsi che il cluster sia attivo. |
-| 4 |Invoke-HcsSetupWizard: risorsa cluster non trovata (eccezione da HRESULT: 0x8007138f) |La risorsa del cluster non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta. |Potrebbe essere necessario ripristinare le impostazioni predefinite del dispositivo. [Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per creare una risorsa cluster. |
-| 5 |Invoke-HcsSetupWizard: risorsa cluster non online (eccezione da HRESULT: 0x8007138c) |Le risorse del cluster non sono in linea. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
+| 1 |Invoke-HcsSetupWizard: Parametro non valido (eccezione da HRESULT: 0x80070057) |Uno dei parametri forniti per le impostazioni proxy non è valido. |URI non fornito nel formato corretto. Usare il formato seguente: http:// *\<IP indirizzo o FQDN del server proxy web >* : *\<numero di porta TCP >* |
+| 2 |Invoke-HcsSetupWizard: Server RPC non disponibile (eccezione da HRESULT: 0x800706ba) |La causa principale è una delle seguenti:<ol><li>Il cluster non è attivo.</li><li>Il controller passivo non può comunicare con quello attivo e il comando viene eseguito dal controller passivo.</li></ol> |A seconda della causa principale:<ol><li>[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per assicurarsi che il cluster sia attivo.</li><li>Eseguire il comando dal controller attivo. Se si desidera eseguire il comando dal controller passivo, è necessario verificare che il controller passivo sia in grado di comunicare con il controller attivo. È necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) se la connettività viene interrotta.</li></ol> |
+| 3 |Invoke-HcsSetupWizard: Chiamata RPC non riuscita (eccezione da HRESULT: 0x800706be) |Cluster non attivo. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per assicurarsi che il cluster sia attivo. |
+| 4 |Invoke-HcsSetupWizard: Risorsa cluster non trovata (eccezione da HRESULT: 0x8007138f) |La risorsa del cluster non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta. |Potrebbe essere necessario ripristinare le impostazioni predefinite del dispositivo. [Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per creare una risorsa cluster. |
+| 5 |Invoke-HcsSetupWizard: Risorsa cluster non online (eccezione da HRESULT: 0x8007138c) |Le risorse del cluster non sono in linea. |[Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Errori legati alla password amministratore del dispositivo
 La password di amministratore del dispositivo predefinita è **Password1**. La password scade dopo il primo accesso. Pertanto, sarà necessario utilizzare la configurazione guidata per modificarla. Quando si registra il dispositivo per la prima volta, è necessario fornire una nuova password di amministratore del dispositivo. 
@@ -103,7 +103,7 @@ Per altre informazioni sulla password amministratore del dispositivo, vedere [Us
 
 È possibile riscontrare uno o più dei seguenti errori quando si configurano le password di amministratore del dispositivo e Gestione snapshot StorSimple.
 
-|  No. | Messaggio di errore | Azione consigliata |
+| No. | Messaggio di errore | Azione consigliata |
 | --- | --- | --- |
 | 1 |La password supera la lunghezza massima. |La password di amministratore dispositivo deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. |
 | 2 |La password non soddisfa la lunghezza richiesta. |La password di amministratore dispositivo deve avere una lunghezza compresa tra gli 8 e i 15 caratteri.|
@@ -126,17 +126,17 @@ Le password vengono raccolte prima della registrazione del dispositivo ma vengon
 ## <a name="errors-during-device-registration"></a>Errori durante la registrazione del dispositivo
 Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorSimple in esecuzione su Microsoft Azure. Durante la registrazione del dispositivo, potrebbero essere riscontrati uno o più dei seguenti problemi.
 
-|  No. | Messaggio di errore | Possibili cause | Azione consigliata |
+| No. | Messaggio di errore | Possibili cause | Azione consigliata |
 | --- | --- | --- | --- |
-| 1 |Errore 350027: impossibile registrare il dispositivo con Gestione dispositivi StorSimple. | |Attendere alcuni minuti e ripetere l'operazione. Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md). |
-| 2 |Errore 350013: si è verificato un errore nella registrazione del dispositivo. L'errore potrebbe essere dovuto a una chiave di registrazione del servizio non corretta. | |Registrare nuovamente il dispositivo con la chiave di registrazione del servizio corretta. Per altre informazioni, vedere [Ottenere la chiave di registrazione del servizio.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
-| 3 |Errore 350063: l'autenticazione al servizio Gestione dispositivi StorSimple è riuscita ma la registrazione no. Ripetere l'operazione dopo alcuni minuti. |Questo errore indica che l'autenticazione con ACS è riuscita ma non la chiamata di registro effettuata al servizio. Potrebbe trattarsi di un risultato di un problema di rete sporadico. |Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md). |
-| 4 |Errore 350049: impossibile raggiungere il servizio durante la registrazione. |Quando viene effettuata la chiamata al servizio, viene ricevuta un'eccezione Web. In alcuni casi, il problema potrebbe essere risolto ripetendo l'operazione in un secondo momento. |Controllare l'indirizzo IP e il nome DNS, quindi ripetere l'operazione. Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) |
-| 5 |Errore 350031: il dispositivo è già stato registrato. | |Nessuna azione necessaria. |
-| 6 |Errore 350016: registrazione del dispositivo non riuscita. | |Assicurarsi che il codice di registrazione sia corretto. |
-| 7 |Invoke-HcsSetupWizard: si è verificato un errore durante la registrazione del dispositivo. La causa potrebbe essere l’indirizzo IP o il nome DNS non corretto. Verificare le impostazioni di rete e riprovare. Se il problema persiste, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md). [ERROR] 350050 |Assicurarsi che il dispositivo possa eseguire il ping della rete esterna. Se non si dispone di connettività per una rete esterna, potrebbe verificarsi questo errore e la mancata registrazione. L'errore potrebbe derivare da una combinazione di una o più delle seguenti cause:<ul><li>IP non corretto</li><li>Subnet non corretta</li><li>Gateway non corretto</li><li>Impostazioni DNS non corrette</li></ul> |Vedere i passaggi nell' [esempio dettagliato di risoluzione dei problemi](#step-by-step-storsimple-troubleshooting-example). |
-| 8 |Invoke-HcsSetupWizard: l'operazione corrente non è riuscita a causa di un errore interno del servizio [0x1FBE2]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |Si tratta di un errore generico generato per tutti gli errori invisibili all'utente dal servizio o agente. La ragione più comune potrebbe essere che l'autenticazione ACS non è riuscita. Una possibile causa dell'errore è che si verificano problemi con la configurazione del server NTP e che l'orario nel dispositivo non è impostato correttamente. |Correggere l'orario (in caso di problemi) e ripetere l'operazione di registrazione. Se si usa il comando Set-HcsSystem -Timezone per modificare il fuso orario, usare l'iniziale maiuscola per ciascuna parola del fuso orario, ad esempio "Ora Solare Pacifico".  Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
-| 9 |Avviso: impossibile attivare il dispositivo. Le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. |Se la registrazione ha esito negativo, le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. | |
+| 1 |Errore 350027: Impossibile registrare il dispositivo con Gestione dispositivi StorSimple. | |Attendere alcuni minuti e ripetere l'operazione. Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md). |
+| 2 |Errore 350013: Si è verificato un errore nella registrazione del dispositivo. L'errore potrebbe essere dovuto a una chiave di registrazione del servizio non corretta. | |Registrare nuovamente il dispositivo con la chiave di registrazione del servizio corretta. Per altre informazioni, vedere [Ottenere la chiave di registrazione del servizio.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
+| 3 |Errore 350063: Autenticazione al servizio Gestione dispositivi StorSimple passata ma la registrazione non riuscita. Ripetere l'operazione dopo alcuni minuti. |Questo errore indica che l'autenticazione con ACS è riuscita ma non la chiamata di registro effettuata al servizio. Potrebbe trattarsi di un risultato di un problema di rete sporadico. |Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md). |
+| 4 |Errore 350049: Non è possibile raggiungere il servizio durante la registrazione. |Quando viene effettuata la chiamata al servizio, viene ricevuta un'eccezione Web. In alcuni casi, il problema potrebbe essere risolto ripetendo l'operazione in un secondo momento. |Controllare l'indirizzo IP e il nome DNS, quindi ripetere l'operazione. Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) |
+| 5 |Errore 350031: Il dispositivo è già stato registrato. | |Nessuna azione necessaria. |
+| 6 |Errore 350016: Impossibile registrare il dispositivo. | |Assicurarsi che il codice di registrazione sia corretto. |
+| 7 |Invoke-HcsSetupWizard: Si è verificato un errore durante la registrazione del dispositivo, è possibile a causa di un indirizzo IP non corretto o il nome DNS. Verificare le impostazioni di rete e riprovare. Se il problema persiste, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md). [ERROR] 350050 |Assicurarsi che il dispositivo possa eseguire il ping della rete esterna. Se non si dispone di connettività per una rete esterna, potrebbe verificarsi questo errore e la mancata registrazione. L'errore potrebbe derivare da una combinazione di una o più delle seguenti cause:<ul><li>IP non corretto</li><li>Subnet non corretta</li><li>Gateway non corretto</li><li>Impostazioni DNS non corrette</li></ul> |Vedere i passaggi nell' [esempio dettagliato di risoluzione dei problemi](#step-by-step-storsimple-troubleshooting-example). |
+| 8 |Invoke-HcsSetupWizard: L'operazione corrente non è riuscita a causa di un errore di servizio interno [0x1FBE2]. Ripetere l'operazione dopo qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft. |Si tratta di un errore generico generato per tutti gli errori invisibili all'utente dal servizio o agente. La ragione più comune potrebbe essere che l'autenticazione ACS non è riuscita. Una possibile causa dell'errore è che si verificano problemi con la configurazione del server NTP e che l'orario nel dispositivo non è impostato correttamente. |Correggere l'orario (in caso di problemi) e ripetere l'operazione di registrazione. Se si usa il comando Set-HcsSystem -Timezone per modificare il fuso orario, usare l'iniziale maiuscola per ciascuna parola del fuso orario, ad esempio "Ora Solare Pacifico".  Se il problema persiste, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per i passaggi successivi. |
+| 9 |Avviso: Impossibile attivare il dispositivo. Le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. |Se la registrazione ha esito negativo, le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple
 StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. incluse le seguenti:
@@ -169,13 +169,13 @@ Un pacchetto di supporto contiene tutti i log pertinenti per assistere il team d
 ## <a name="cmdlets-available-for-troubleshooting"></a>Cmdlet disponibili per la risoluzione dei problemi
 Utilizzare i seguenti cmdlet di Windows PowerShell per rilevare errori di connettività.
 
-* `Get-NetAdapter`: Utilizzare questo cmdlet per rilevare lo stato delle interfacce di rete.
+* `Get-NetAdapter`: Utilizzare questo cmdlet per rilevare l'integrità delle interfacce di rete.
 * `Test-Connection`: Utilizzare questo cmdlet per verificare la connettività di rete all'interno e all'esterno della rete.
 * `Test-HcsmConnection`: Utilizzare questo cmdlet per verificare la connettività di un dispositivo registrato correttamente.
 * `Sync-HcsTime`: Utilizzare questo cmdlet per visualizzare l'ora del dispositivo e forzare la sincronizzazione dell'ora con il server NTP.
-* `Enable-HcsPing` e `Disable-HcsPing`: utilizzare questi cmdlet per consentire gli host eseguire il ping le interfacce di rete nel dispositivo StorSimple. Per impostazione predefinita, le interfacce di rete StorSimple non rispondono alle richieste di ping.
+* `Enable-HcsPing` e `Disable-HcsPing`: Usare questi cmdlet per consentire gli host eseguire il ping le interfacce di rete nel dispositivo StorSimple. Per impostazione predefinita, le interfacce di rete StorSimple non rispondono alle richieste di ping.
 * `Trace-HcsRoute`: Usare questo cmdlet come uno strumento di analisi della route. Invia pacchetti a ogni router nel percorso verso la destinazione finale in un periodo di tempo e calcola quindi i risultati in base ai pacchetti restituiti da ogni hop. Poiché `Trace-HcsRoute` Mostra il grado di perdita di pacchetti in un dato router o collegamento, è possibile individuare quali router o collegamenti possono causare problemi di rete.
-* `Get-HcsRoutingTable`: Utilizzare questo cmdlet per visualizzare la tabella di routing IP locale.
+* `Get-HcsRoutingTable`: Usare questo cmdlet per visualizzare la tabella di routing IP locale.
 
 ## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Risoluzione dei problemi con il cmdlet Get-NetAdapter
 Quando si configurano le interfacce di rete per una prima distribuzione del dispositivo, lo stato dell'hardware non è disponibile nell'interfaccia utente del servizio Gestione dispositivi StorSimple perché il dispositivo non è ancora registrato con il servizio. Inoltre, il pannello **Integrità hardware** potrebbe non riflettere correttamente lo stato del dispositivo, soprattutto in caso di problemi che influiscono sulla sincronizzazione del servizio. In queste situazioni, è possibile utilizzare il `Get-NetAdapter` cmdlet per determinare l'integrità e lo stato delle interfacce di rete.

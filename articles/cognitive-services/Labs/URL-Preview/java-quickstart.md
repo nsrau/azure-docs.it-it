@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.author: rosh
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec9d9757a776601bdf79b796cf6b7b2987411257
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259602"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705178"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Guida introduttiva: Anteprima URL con Java
 
@@ -23,7 +24,7 @@ L'esempio in Java seguente crea un'anteprima URL per il sito Web SwiftKey: https
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="request"></a>Richiesta 
 

@@ -3,8 +3,8 @@ title: Gestione dell'accesso alle app con Azure AD | Documentazione Microsoft
 description: Descrive come Azure Active Directory consente alle organizzazioni di specificare le app a cui ha accesso ogni utente.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440731"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477101"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 La gestione dell'accesso, la valutazione dell'utilizzo e la creazione di report durante l'utilizzo continuano a rappresentare una sfida dopo l'integrazione di un'app nel sistema di identità dell'organizzazione. Nella maggior parte dei casi, gli amministratori IT o l'helpdesk devono assumere un ruolo attivo nella gestione dell'accesso alle app. In alcuni casi, l'assegnazione viene eseguita da un team IT generale o di reparto. Spesso, la decisione di assegnazione deve essere delegata al responsabile aziendale, di cui è richiesta l'approvazione prima che l'IT esegua l'assegnazione.  Altre organizzazioni investono nell'integrazione mediante sistemi automatizzati esistenti di gestione dell'accesso e dell'identità, quali il controllo degli accessi in base al ruolo (RBAC) o il controllo degli accessi in base all'attributo (ABAC). Lo sviluppo mediante integrazione e regole tende a essere specializzato e costoso. Il monitoraggio o la creazione di report in entrambi gli approcci di gestione è di per sé un investimento isolato, complesso e costoso.
@@ -27,7 +27,7 @@ La gestione dell'accesso, la valutazione dell'utilizzo e la creazione di report 
 ## <a name="how-does-azure-active-directory-help"></a>Quale contributo può offrire Azure Active Directory?
  Azure AD supporta la gestione estesa degli accessi per le applicazioni configurate, consentendo alle organizzazioni di ottenere facilmente gli opportuni criteri di accesso: dall'assegnazione automatica o in base agli attributi (scenari ABAC o RBAC), alla delega, inclusa la gestione degli amministratori. Con Azure AD si possono facilmente ottenere criteri complessi, combinando più modelli di gestione per una singola applicazione, e addirittura riusare regole di gestione nelle applicazioni con gli stessi destinatari.
 
-* [Aggiunta di applicazioni nuove o esistenti](configure-single-sign-on-portal.md)
+* [Aggiunta di applicazioni nuove o esistenti](add-gallery-app.md)
 
   L’assegnazione dell’applicazione di Azure AD riguarda due modalità di assegnazione primaria:
 
@@ -51,8 +51,8 @@ Con Azure AD, applicazioni come Salesforce possono essere preconfigurate per l'a
 
 In questo caso, per tutti gli utenti assegnati viene eseguito il provisioning automatico in Salesforce e, mentre vengono aggiunti a gruppi diversi, in Salesforce viene aggiornata la relativa assegnazione al ruolo. Gli utenti potranno individuare e accedere a Salesforce tramite il pannello di accesso dell'applicazione Microsoft, i client Web di Office, o anche passando alla pagina di accesso aziendale di Salesforce. Gli amministratori potranno visualizzare facilmente lo stato di assegnazione e utilizzo mediante la funzionalità di creazione di report di Azure AD.
 
-Gli amministratori possono utilizzare l' [accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md) per impostare criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
+Gli amministratori possono utilizzare [Azure ad accesso condizionale](../active-directory-conditional-access-azure-portal.md) per impostare i criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Sicurezza delle app con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle app con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
 * [Gestione di gruppi self-service/SSAA](../users-groups-roles/groups-self-service-management.md)

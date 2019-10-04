@@ -9,17 +9,16 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bf66a9e9aeee859953b4e1e2021a385491c6298e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109895"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069666"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
@@ -29,7 +28,7 @@ ms.locfileid: "56109895"
 
 È possibile creare gli ambienti del servizio app di Azure con un endpoint accessibile da Internet o un endpoint di un indirizzo interno di una rete virtuale di Azure. Quando viene creato con un endpoint interno, tale endpoint dispone di un componente Azure denominato servizio di bilanciamento del carico interno (ILB). L'ambiente del servizio app in un indirizzo IP interno è chiamato ambiente del servizio app con bilanciamento del carico interno. L'ambiente del servizio app con un endpoint pubblico è chiamato ambiente del servizio app esterno. 
 
-È possibile creare un ambiente del servizio app usando il portale di Azure o un modello di Azure Resource Manager. Questo articolo illustra i passaggi e la sintassi necessari per creare un ambiente del servizio app esterno o con bilanciamento del carico interno con i modelli di Resource Manager. Per informazioni su come creare un ambiente del servizio app nel portale di Azure, vedere [Creare un ambiente del servizio app esterno][MakeExternalASE] o [Creare un ambiente del servizio app con bilanciamento del carico interno][MakeILBASE].
+È possibile creare un ambiente del servizio app usando il portale di Azure o un modello di Azure Resource Manager. Questo articolo illustra i passaggi e la sintassi necessari per creare un ambiente del servizio app esterno o con bilanciamento del carico interno con i modelli di Resource Manager. Per informazioni su come creare un ambiente del servizio app nella portale di Azure, vedere creare un ambiente del servizio app [esterno][MakeExternalASE] o [creare un][MakeILBASE]ambiente del servizio app ILB.
 
 Quando si crea un ambiente del servizio app nel portale di Azure, è possibile creare contemporaneamente la rete virtuale o scegliere una rete virtuale preesistente in cui eseguire la distribuzione. Quando si crea un modello, è necessario iniziare con: 
 
@@ -49,9 +48,9 @@ Per automatizzare la creazione dell'ambiente del servizio app:
 
 
 ## <a name="create-the-ase"></a>Creare l'ambiente del servizio app
-Un modello di Resource Manager che crea un ambiente del servizio app e il file dei parametri associati sono disponibili [in un esempio][quickstartasev2create] in GitHub.
+Un modello di Gestione risorse che crea un ambiente del servizio app e il file dei parametri associato è disponibile [in un esempio][quickstartasev2create] su GitHub.
 
-Per creare un ambiente del servizio app con bilanciamento del carico interno, usare questi [esempi][quickstartilbasecreate] di modello di Resource Manager. I modelli soddisfano questo caso d'uso. La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione degli ambienti del servizio app con bilanciamento del carico interno e degli ambienti del servizio app esterni. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con bilanciamento del carico interno:
+Se si vuole creare un ambiente del servizio app ILB, usare questi [esempi][quickstartilbasecreate]di modelli gestione risorse. I modelli soddisfano questo caso d'uso. La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione degli ambienti del servizio app con bilanciamento del carico interno e degli ambienti del servizio app esterni. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con bilanciamento del carico interno:
 
 * *internalLoadBalancingMode*: nella maggior parte dei casi impostare su 3. In questo modo, sia il traffico HTTP/HTTPS sulle porte 80/443 sia le porte dei canali di controllo/dati ascoltati dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dal servizio di bilanciamento del carico interno. Se questa proprietà viene impostata su 2, solo le porte correlate al servizio FTP (canali di controllo e dati) vengono associate a un indirizzo del servizio di bilanciamento del carico interno. Il traffico HTTP/HTTPS resta nell'indirizzo VIP pubblico.
 * *dnsSuffix*: questo parametro indica il dominio radice predefinito che viene assegnato all'ambiente del servizio app. Nella variante pubblica del servizio app di Azure, il dominio radice predefinito per tutte le app Web è *azurewebsites.net*. Poiché un ambiente del servizio app con servizio di bilanciamento del carico interno è interno alla rete virtuale di un cliente, non ha senso usare il dominio radice predefinito del servizio pubblico. Un ambiente del servizio app con servizio di bilanciamento del carico interno deve invece avere un dominio radice predefinito appropriato per la rete virtuale interna dell'azienda. Un'azienda Contoso Corporation potrebbe ad esempio usare un dominio radice predefinito *internal-contoso.com* per le app che devono essere risolvibili e accessibili solo nella rete virtuale di Contoso. 
@@ -69,12 +68,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 La creazione dell'ambiente del servizio app richiede circa un'ora. L'ambiente del servizio app viene quindi visualizzato nel portale nell'elenco di ambienti del servizio app per la sottoscrizione che ha attivato la distribuzione.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Caricare e configurare il certificato SSL "predefinito"
-È necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito" usato per stabilire le connessioni SSL alle app. Se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, una connessione a https://some-random-app.internal-contoso.com richiede un certificato SSL valido per **.internal-contoso.com*. 
+È necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito" usato per stabilire le connessioni SSL alle app. Se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, una connessione a https://some-random-app.internal-contoso.com richiede un certificato SSL valido per * *.internal-contoso.com*. 
 
 Ottenere un certificato SSL valido usando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o usando un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
-* **Soggetto**: questo attributo deve essere impostato su **.nome-dominio-radice.com*
-* **Nome alternativo del soggetto**: questo attributo deve includere sia **.nome-dominio-radice.com* sia **.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
+* **Soggetto**: questo attributo deve essere impostato su * *.nome-dominio-radice.com*
+* **Nome alternativo del soggetto**: questo attributo deve includere sia * *.nome-dominio-radice.com* sia * *.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
 
 Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/Salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
@@ -87,7 +86,7 @@ Usare il frammento di codice di PowerShell seguente per:
 * Convertire il file PXF in una stringa con codifica Base 64.
 * Salvare la stringa con codifica Base 64 in un file separato. 
 
-Questo codice PowerShell per la codifica Base 64 è stato adattato dal [blog di script di PowerShell][examplebase64encoding]:
+Questo codice di PowerShell per la codifica Base64 è stato adattato dal [Blog degli script di PowerShell][examplebase64encoding]:
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -103,7 +102,7 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-Dopo avere generato il certificato SSL e averlo convertito in una stringa con codifica Base 64, usare il modello di esempio di Resource Manager disponibile in GitHub, [Configure the default SSL certificate][quickstartconfiguressl] (Configurare il certificato SSL predefinito). 
+Dopo che il certificato SSL è stato generato e convertito in una stringa con codifica Base64, usare il modello di esempio Gestione risorse [configurare il certificato SSL predefinito][quickstartconfiguressl] su GitHub. 
 
 I parametri del file *azuredeploy.parameters.json* sono elencati qui:
 
@@ -154,7 +153,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 L'applicazione della modifica richiede circa 40 minuti per ogni front-end dell'ambiente del servizio app. Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiede all'incirca un'ora e 20 minuti. Durante l'esecuzione del modello, l'ambiente del servizio app non può essere ridimensionato.  
 
-Quando il modello è completato, le app nell'ambiente del servizio app con bilanciamento del carico interno sono accessibili tramite HTTPS. Le connessioni vengono protette usando il certificato SSL predefinito. Il certificato SSL predefinito viene usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito. Ad esempio, https://mycustomapp.internal-contoso.com usa il certificato SSL predefinito per **.internal-contoso.com*.
+Quando il modello è completato, le app nell'ambiente del servizio app con bilanciamento del carico interno sono accessibili tramite HTTPS. Le connessioni vengono protette usando il certificato SSL predefinito. Il certificato SSL predefinito viene usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito. Ad esempio, https://mycustomapp.internal-contoso.com usa il certificato SSL predefinito per * *.internal-contoso.com*.
 
 Tuttavia, come per le app eseguite nel servizio multi-tenant pubblico, gli sviluppatori possono configurare nomi host personalizzati per le singole app. Possono anche configurare associazioni di certificati SSL basati su SNI univoche per le singole app.
 
@@ -163,9 +162,9 @@ Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Le informaz
 
 In ASEv1 si gestiscono manualmente tutte le risorse, inclusi front-end, ruoli di lavoro e indirizzi IP usati per la connessione SSL basata su IP. Per poter aumentare il numero di istanze di un piano di servizio app, è necessario aumentare il numero di istanze del pool di lavoro in cui si vuole ospitare il piano.
 
-ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i vCPU allocati, inclusi i vCPU usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduzione all'ambiente del servizio app 1][ASEv1Intro].
+ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i vCPU allocati, inclusi i vCPU usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni su ASEv1, vedere [Introduzione a ambiente del servizio app V1][ASEv1Intro].
 
-Per creare un ambiente del servizio app 1 usando un modello di Resource Manager, vedere [Creare un ambiente del servizio app con bilanciamento del carico interno 1 con un modello di Resource Manager][ILBASEv1Template].
+Per creare un ASEv1 usando un modello di Gestione risorse, vedere creare un ambiente del servizio app [ILB V1 con un modello di gestione risorse][ILBASEv1Template].
 
 
 <!--Links-->

@@ -1,18 +1,17 @@
 ---
-ms.assetid: ''
 title: Scenari di sicurezza di Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 86438ab7ebecc53aa716e72662965276b19f1b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e18befe05e5a1d33aa4e5445b80c6d6fd7239af
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461298"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883184"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Scenari di sicurezza di Azure Key Vault e confini geografici
 

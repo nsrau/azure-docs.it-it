@@ -3,8 +3,8 @@ title: Come riattivare spazi dei nomi disabilitati del Servizio di controllo di 
 description: Informazioni su come trovare e abilitare gli spazi dei nomi disabilitati del Servizio di controllo di accesso (ACS) e richiedere un'estensione per mantenerli abilitati fino al 4 febbraio 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299719"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482700"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare spazi dei nomi del Servizio di controllo di accesso disabilitati
 
@@ -90,7 +90,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
 
 ### <a name="to-request-an-extension"></a>Per richiedere un'estensione
 
-1. Accedere al portale di Azure e creare una [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
+1. Accedere al portale di Azure e creare un [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
 1. Compilare il nuovo modulo di richiesta di supporto, come illustrato nell'esempio seguente.
 
     | Campo della richiesta di supporto | Value |
@@ -102,7 +102,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |
 
-   ![Nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Viene illustrato un esempio di una nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

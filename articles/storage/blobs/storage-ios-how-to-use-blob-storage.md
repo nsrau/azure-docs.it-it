@@ -1,20 +1,18 @@
 ---
 title: Come usare l'archivio oggetti (BLOB) da iOS - Azure | Microsoft Docs
 description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
-services: storage
-author: michaelhauss
-ms.service: storage
-ms.devlang: objective-c
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 11/20/2018
-ms.author: michaelhauss
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.topic: conceptual
+ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007271"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726411"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
@@ -25,16 +23,19 @@ Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviaz
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importare la libreria iOS di Archiviazione di Azure nell'applicazione
+
 È possibile importare la libreria iOS di archiviazione di Azure nell'applicazione tramite l'uso del [CocoaPod di Archiviazione di Azure](https://cocoapods.org/pods/AZSClient) o importando il file **Framework** . CocoaPod è lo strumento consigliato, in quanto semplifica l'integrazione della libreria. Tuttavia, l'importazione dal file del framework è meno impegnativa per il progetto esistente.
 
 Per usare questa libreria, sono necessari i componenti seguenti:
+
 - iOS 8+
 - Xcode 7+
 
 ## <a name="cocoapod"></a>CocoaPod
+
 1. Se non ancora installato, [installare CocoaPod](https://guides.cocoapods.org/using/getting-started.html#toc_3) nel computer aprendo una finestra del terminale ed eseguendo il comando seguente
-    
-    ```shell   
+
+    ```shell
     sudo gem install cocoapods
     ```
 
@@ -50,13 +51,14 @@ Per usare questa libreria, sono necessari i componenti seguenti:
 
 3. Nella finestra del terminale passare alla directory del progetto ed eseguire il comando seguente
 
-    ```shell    
+    ```shell
     pod install
     ```
 
 4. Se il file con estensione xcodeproj è aperto in Xcode, chiuderlo. Nella directory del progetto aprire il file di progetto appena creato che avrà l'estensione xcworkspace. Si tratta del file che verrà usato d'ora in poi.
 
 ## <a name="framework"></a>Framework
+
 L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 
 1. Per prima cosa, scaricare o clonare il [repository azure-storage-ios](https://github.com/azure/azure-storage-ios).
@@ -73,13 +75,14 @@ L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 5. Nella sezione *Linked Frameworks and Libraries* fare clic sul pulsante Add (+).
 6. Nell'elenco di librerie già fornito cercare `libxml2.2.tbd` e aggiungerla al progetto.
 
-## <a name="import-the-library"></a>Importare la libreria 
+## <a name="import-the-library"></a>Importare la libreria
+
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
 
-Se si usa Swift, è necessario creare un'intestazione provvisoria e importare <AZSClient/AZSClient.h> qui:
+Se si utilizza Swift, sarà necessario creare un'intestazione bridging e importare \<AZSClient/AZSClient. h >:
 
 1. Creare un file di intestazione `Bridging-Header.h` e aggiungere l'istruzione di importazione precedente.
 2. Passare alla scheda *Build Settings* (Impostazioni compilazione) e cercare *Objective-C Bridging Header* (Intestazione provvisoria Objective-C).
@@ -90,12 +93,12 @@ Se si usa Swift, è necessario creare un'intestazione provvisoria e importare <A
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="asynchronous-operations"></a>Operazioni asincrone
+
 > [!NOTE]
 > Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
-> 
-> 
 
 ## <a name="create-a-container"></a>Creare un contenitore
+
 Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seguente mostra come creare un contenitore, denominato *newcontainer*, nell'account di archiviazione se non esiste già. Quando si sceglie un nome per il contenitore, tenere presenti le regole indicate in precedenza.
 
 ```objc
@@ -127,11 +130,12 @@ Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seg
 È possibile verificarne il funzionamento controllando [Esplora archivi di Microsoft Azure](https://storageexplorer.com) e accertandosi che *newcontainer* sia nell'elenco di contenitori dell'account di archiviazione.
 
 ## <a name="set-container-permissions"></a>Impostare le autorizzazioni del contenitore
+
 Per impostazione predefinita, le autorizzazioni di un contenitore vengono configurate per l'accesso **Privato** . I contenitori, tuttavia, offrono alcune opzioni diverse per l'accesso al contenitore:
 
-* **Privato**: i dati BLOB e del contenitore possono essere letti solo dal proprietario dell'account.
-* **BLOB**: I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
-* **Contenitore**: i dati BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
+- **Privato**: i dati BLOB e del contenitore possono essere letti solo dal proprietario dell'account.
+- **BLOB**: I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
+- **Contenitore**: i dati BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
 L'esempio seguente mostra come creare un contenitore con autorizzazioni di accesso **Contenitore**, che consentono l'accesso pubblico in sola lettura a tutti gli utenti in Internet:
 
@@ -162,6 +166,7 @@ L'esempio seguente mostra come creare un contenitore con autorizzazioni di acces
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Caricare un BLOB in un contenitore
+
 Come accennato nella sezione Concetti del servizio BLOB, l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. La libreria iOS di Archiviazione di Azure supporta tutti e tre i tipi di BLOB. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
 
 L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in questo contenitore esiste già un BLOB con lo stesso nome, i contenuti del BLOB verranno sovrascritti.
@@ -205,25 +210,28 @@ L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in qu
 
 È possibile verificarne il funzionamento controllando [Esplora archivi di Microsoft Azure](https://storageexplorer.com) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è anche possibile passare all'URI dei BLOB:
 
-    https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
+```http
+https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
+```
 
 Oltre che per caricare un BLOB in blocchi da NSString, esistono metodi simili per NSData, NSInputStream o un file locale.
 
 ## <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
-L'esempio seguente mostra come elencare tutti i BLOB in un contenitore. Quando si esegue questa operazione, tenere presenti i parametri seguenti:     
 
-* **continuationToken** : il token di continuazione indica dove deve iniziare l'operazione di elenco. Se non viene specificato alcun token, i BLOB verranno elencati dall'inizio. È possibile elencare qualsiasi numero di BLOB, da zero a un massimo impostato. Anche se questo metodo restituisce zero risultati, se `results.continuationToken` non è nil, il servizio potrebbe includere altri BLOB che non sono stati elencati.
-* **prefix** : è possibile specificare il prefisso da usare per l'elenco di BLOB. Verranno elencati solo i BLOB che iniziano con questo prefisso.
-* **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati. Questa funzionalità sarà disponibile a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
-* **blobListingDetails** : è possibile specificare quali elementi includere quando si elencano i BLOB
-  * _AZSBlobListingDetailsNone_: elenca solo i BLOB di cui è stato eseguito il commit e non restituisce i metadati dei BLOB.
-  * _AZSBlobListingDetailsSnapshots_: elenca i BLOB di cui è stato eseguito il commit e gli snapshot dei BLOB.
-  * _AZSBlobListingDetailsMetadata_: recupera i metadati per ogni BLOB restituito nell'elenco.
-  * _AZSBlobListingDetailsUncommittedBlobs_: elenca i BLOB sottoposti a commit e non sottoposti a commit.
-  * _AZSBlobListingDetailsCopy_: include le proprietà di copia nell'elenco.
-  * _AZSBlobListingDetailsAll_: elenca tutti i BLOB sottoposti a commit, i BLOB non sottoposti e commit e gli snapshot disponibili, restituisce tutti i metadati e copia lo stato di tali BLOB.
-* **maxResults** : numero massimo di risultati da restituire per questa operazione. Per non impostare un limite, usare -1.
-* **completionHandler** : blocco di codice da eseguire con i risultati dell'operazione di elenco.
+L'esempio seguente mostra come elencare tutti i BLOB in un contenitore. Quando si esegue questa operazione, tenere presenti i parametri seguenti:
+
+- **continuationToken** : il token di continuazione indica dove deve iniziare l'operazione di elenco. Se non viene specificato alcun token, i BLOB verranno elencati dall'inizio. È possibile elencare qualsiasi numero di BLOB, da zero a un massimo impostato. Anche se questo metodo restituisce zero risultati, se `results.continuationToken` non è nil, il servizio potrebbe includere altri BLOB che non sono stati elencati.
+- **prefix** : è possibile specificare il prefisso da usare per l'elenco di BLOB. Verranno elencati solo i BLOB che iniziano con questo prefisso.
+- **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati. Questa funzionalità sarà disponibile a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
+- **blobListingDetails** : è possibile specificare quali elementi includere quando si elencano i BLOB
+  - _AZSBlobListingDetailsNone_: elenca solo i BLOB di cui è stato eseguito il commit e non restituisce i metadati dei BLOB.
+  - _AZSBlobListingDetailsSnapshots_: elenca i BLOB di cui è stato eseguito il commit e gli snapshot dei BLOB.
+  - _AZSBlobListingDetailsMetadata_: recupera i metadati per ogni BLOB restituito nell'elenco.
+  - _AZSBlobListingDetailsUncommittedBlobs_: elenca i BLOB sottoposti a commit e non sottoposti a commit.
+  - _AZSBlobListingDetailsCopy_: include le proprietà di copia nell'elenco.
+  - _AZSBlobListingDetailsAll_: elenca tutti i BLOB sottoposti a commit, i BLOB non sottoposti e commit e gli snapshot disponibili, restituisce tutti i metadati e copia lo stato di tali BLOB.
+- **maxResults** : numero massimo di risultati da restituire per questa operazione. Per non impostare un limite, usare -1.
+- **completionHandler** : blocco di codice da eseguire con i risultati dell'operazione di elenco.
 
 In questo esempio viene usato un metodo helper per chiamare in modo ricorsivo il metodo list blobs ogni volta che viene restituito un token di continuazione.
 
@@ -279,6 +287,7 @@ In questo esempio viene usato un metodo helper per chiamare in modo ricorsivo il
 ```
 
 ## <a name="download-a-blob"></a>Scaricare un BLOB
+
 L'esempio seguente mostra come scaricare un BLOB in un oggetto NSString.
 
 ```objc
@@ -314,6 +323,7 @@ L'esempio seguente mostra come scaricare un BLOB in un oggetto NSString.
 ```
 
 ## <a name="delete-a-blob"></a>Eliminare un BLOB
+
 L'esempio seguente mostra come eliminare un BLOB.
 
 ```objc
@@ -346,6 +356,7 @@ L'esempio seguente mostra come eliminare un BLOB.
 ```
 
 ## <a name="delete-a-blob-container"></a>Eliminare un contenitore BLOB
+
 L'esempio seguente mostra come eliminare un contenitore.
 
 ```objc
@@ -375,13 +386,13 @@ L'esempio seguente mostra come eliminare un contenitore.
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire questi collegamenti per acquisire maggiori informazioni sulla libreria iOS e il servizio di archiviazione.
 
-* [Libreria client di archiviazione di Azure per iOS](https://github.com/azure/azure-storage-ios)
-* [Documentazione di riferimento iOS di Archiviazione di Azure](https://azure.github.io/azure-storage-ios/)
-* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage)
+- [Libreria client di archiviazione di Azure per iOS](https://github.com/azure/azure-storage-ios)
+- [Documentazione di riferimento iOS di Archiviazione di Azure](https://azure.github.io/azure-storage-ios/)
+- [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
 In caso di domande sulla libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
-

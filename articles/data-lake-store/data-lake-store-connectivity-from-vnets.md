@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878869"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accedere ad Azure Data Lake Storage Gen1 dalle macchine virtuali di una rete virtuale di Azure
 Azure Data Lake Storage Gen1 è un servizio PaaS eseguito su indirizzi IP Internet pubblici. Qualunque server in grado di connettersi alla rete Internet pubblica può generalmente connettersi anche agli endpoint di Azure Data Lake Storage Gen1. Per impostazione predefinita, tutte le macchine virtuali delle reti virtuali di Azure possono accedere a Internet e quindi anche ad Azure Data Lake Storage Gen1. Tuttavia, è possibile configurare le macchine virtuali di una rete virtuale per l'accesso a Internet. Anche per queste macchine virtuali, l'accesso ad Azure Data Lake Storage Gen1 è limitato. L'accesso a Internet pubblico per le macchine virtuali delle reti virtuali di Azure può essere bloccato tramite uno degli approcci seguenti:
@@ -50,7 +50,7 @@ Quando l'accesso a Internet è bloccato da route di tipo UDR o scambiate tramite
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Abilitare la connettività dalle macchine virtuali con ExpressRoute
 Quando viene configurato un circuito ExpressRoute, i server locali possono accedere a Data Lake Storage Gen1 tramite peering pubblico. Per altre informazioni sulla configurazione di ExpressRoute per il peering pubblico, consultare le [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protezione dei dati archiviati in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 

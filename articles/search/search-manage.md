@@ -2,7 +2,7 @@
 title: Amministrazione del servizio per Ricerca di Azure nel portale - Ricerca di Azure
 description: Gestire un servizio di Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775595"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719875"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 > [!div class="checklist"]
 > * Gestire l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
 > * Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
-> * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
+> * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello di servizio.
 
 Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
@@ -60,7 +60,7 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
-Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione. È possibile eseguire il provisioning di risorse esterne, ad esempio il monitoraggio di Azure, se si desidera acquisire e salvare in modo permanente gli eventi registrati. Per altre informazioni, vedere [ricerca di Azure Monitoring](search-monitor-usage.md).
+Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione. È possibile effettuare il provisioning di risorse esterne, ad esempio monitoraggio di Azure, se si desidera acquisire e rendere permanente gli eventi registrati. Per altre informazioni, vedere [monitoraggio di ricerca di Azure](search-monitor-usage.md).
 
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 
@@ -79,10 +79,9 @@ Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione p
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
-Poiché Ricerca di Azure non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Il codice dell'applicazione usato per la creazione e la compilazione di un indice è l'opzione di ripristino di fatto se si elimina un indice per errore. 
+Poiché Ricerca di Azure non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Tuttavia, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup della definizione dell'indice e dello snapshot in una serie di file JSON e quindi usare questi file per ripristinare l'indice, se necessario. Questo strumento può inoltre spostare gli indici tra i livelli di servizio.
 
-Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario.
-
+In caso contrario, il codice dell'applicazione utilizzato per creare e popolare un indice è l'opzione di ripristino de facto se si elimina un indice per errore. Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario.
 
 <a id="scale"></a>
 

@@ -3,17 +3,17 @@ title: Distribuire la soluzione di monitoraggio remota in locale (tramite IDE di
 description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite Visual Studio a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309980"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967500"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -60,9 +60,9 @@ Eseguire questo comando per avviare il contenitore Docker per il servizio di sim
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuire tutti gli altri microservizi nel computer locale
 
-I passaggi seguenti mostrano come eseguire i microservizi di monitoraggio remoto in Visual Studio 2017:
+I passaggi seguenti mostrano come eseguire i microservizi di monitoraggio remoto in Visual Studio:
 
-1. Avviare Visual Studio 2017
+1. Avviare Visual Studio.
 1. Aprire la soluzione **remote-monitoring.sln** nella cartella **servizi** nella copia locale del repository.
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse e quindi scegliere **Proprietà**.
 1. Selezionare **Proprietà comuni > Progetto di avvio**.
@@ -83,7 +83,7 @@ Ogni servizio Web consente di aprire una finestra del Web browser e il prompt de
 Per avviare il processo di analisi di flusso, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è quello scelto per la soluzione scelto quando è stato eseguito lo script **start.cmd**.
+1. Passare al **gruppo di risorse** creato per la soluzione. Il nome del gruppo di risorse è il nome della soluzione scelto quando è stato eseguito lo script **start.cmd**.
 1. Fare clic su **Processo di Analisi di flusso** nell'elenco delle risorse.
 1. Nella pagina di **panoramica** del processo di Analisi di flusso fare clic sul pulsante **Avvia**. Fare clic su **Avvia** per avviare il processo.
 

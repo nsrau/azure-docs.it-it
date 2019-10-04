@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322685"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937292"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio utilizza [le sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per indirizzare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
 
 In questo articolo si userà l'interfaccia della riga di comando di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. In questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
@@ -69,7 +69,7 @@ Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Ad esempio: 
+    Esempio:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -79,15 +79,15 @@ Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione
 
     ```azurecli
     az eventgrid event-subscription create \
-    --resource-id $amsResourceId \
+    --source-resource-id $amsResourceId \
     --name <event_subscription_name> \
     --endpoint <endpoint_URL>
     ```
 
-    Ad esempio: 
+    Esempio:
 
     ```
-    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
     ```    
 
     > [!TIP]

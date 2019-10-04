@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710931"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento Microsoft.Common.PasswordBox dell'interfaccia utente
 Controllo che può essere usato per fornire e confermare una password.
@@ -48,7 +48,7 @@ Controllo che può essere usato per fornire e confermare una password.
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Questo elemento non supporta la proprietà `defaultValue`.
 - Per i dettagli sull'implementazione di `constraints`, vedere [Microsoft.Common.TextBox](microsoft-common-textbox.md).
 - Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.

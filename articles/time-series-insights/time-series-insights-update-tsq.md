@@ -2,20 +2,20 @@
 title: Esecuzione di query sui dati nell'anteprima di Azure Time Series Insights | Microsoft Docs
 description: Esecuzione di query sui dati nell'anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555422"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935200"
 ---
 # <a name="data-querying"></a>Esecuzione di query sui dati
 
@@ -25,9 +25,9 @@ In Time Series Insights sono disponibili tre categorie di API principali.
 
 * **API di ambiente**: consentono di eseguire query dell'ambiente Time Series Insights. Esempi di query sono l'elenco di ambienti a cui il chiamante può accedere e i metadati di ambiente.
 
-* **API TSM-Q (Time Series Model-Query)**: consentono di creare, leggere, aggiornare ed eliminare operazioni sui metadati archiviati nella parte di ambiente del modello di serie temporali. Esempi sono costituiti da istanze, tipi e gerarchie.
+* **API TSM-Q (Time Series Model-Query)** : consentono di creare, leggere, aggiornare ed eliminare operazioni sui metadati archiviati nella parte di ambiente del modello di serie temporali. Esempi sono costituiti da istanze, tipi e gerarchie.
 
-* **API TSQ (Time Series Query)**: consentono di recuperare dati di eventi come vengono registrati dal provider di origine. Tali API possono eseguire operazioni per trasformare, combinare ed eseguire calcoli sui dati delle serie temporali.
+* **API TSQ (Time Series Query)** : consentono di recuperare dati di eventi come vengono registrati dal provider di origine. Tali API possono eseguire operazioni per trasformare, combinare ed eseguire calcoli sui dati delle serie temporali.
 
 Il [linguaggio TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) è una quarta categoria potente. Tale linguaggio usa i modelli di serie temporali per abilitare la composizione di calcoli avanzati.
 
@@ -35,9 +35,9 @@ Il [linguaggio TSX (Time Series Expression)](https://docs.microsoft.com/rest/api
 
 Sono supportate le API principali seguenti.
 
-![tsq][1]
+[![Panoramica delle query su serie temporali](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>API di ambiente
+## <a name="environment-apis"></a>API di ambiente
 
 Sono disponibili le API di ambiente seguenti.
 
@@ -45,7 +45,7 @@ Sono disponibili le API di ambiente seguenti.
 * [API Get Environment Availability](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): restituisce la distribuzione del numero di eventi rispetto al timestamp di eventi `$ts`. Tale API consente di stabilire se sono presenti eventi nel timestamp restituendo il numero di eventi, se presenti.
 * [API Get Event Schema](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): restituisce i metadati dello schema di eventi per un intervallo di ricerca specificato. Tale API consente di recuperare tutti i metadati e le proprietà disponibili nello schema per l'intervallo di ricerca specificato.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)
+## <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)
 
 Sono disponibili le API TSM-Q (Time Series Model-Query) seguenti.
 
@@ -54,7 +54,7 @@ Sono disponibili le API TSM-Q (Time Series Model-Query) seguenti.
 * [API Hierarchies](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): abilita le operazioni CRUD sulle gerarchie di serie temporali e sui percorsi di campo associati.
 * [API Instances](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): abilita le operazioni CRUD sulle istanze di serie temporali e sui campi delle istanze associate.
 
-### <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
+## <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
 
 Sono disponibili le API TSQ (Time Series Query) seguenti.
 
@@ -75,11 +75,8 @@ Sono disponibili le API TSQ (Time Series Query) seguenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni
+- Scopri di più sull' [archiviazione e](./time-series-insights-update-storage-ingress.md) sul traffico in ingresso nella Azure Time Series Insights anteprima.
 
-- [Archiviazione e ingresso nell'anteprima di Time Series Insights](./time-series-insights-update-storage-ingress.md)
-- [Data modeling](./time-series-insights-update-tsm.md) (Modellazione di dati)
-- [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID di serie temporale)
+- Vedere l'articolo sulla [modellazione dei dati](./time-series-insights-update-tsm.md) di Time Series Insights Preview.
 
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png
+- Individuare le [procedure consigliate per la scelta di un ID di serie temporale](./time-series-insights-update-how-to-id.md).

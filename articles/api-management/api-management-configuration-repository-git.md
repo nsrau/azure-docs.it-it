@@ -9,16 +9,15 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793272"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104976"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -53,11 +52,11 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Eventuali segreti non definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a disabilitarla e riabilitare l'accesso a Git. Valori denominati rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazione dell'API e criteri, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
+> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e si riabilita l'accesso git. I valori denominati forniscono una posizione sicura per gestire i valori stringa costanti, inclusi i segreti, in tutti i criteri e la configurazione dell'API, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
 >
 >
 
-Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](/rest/api/apimanagement/tenantaccess?EnableGit).
+Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Per salvare la configurazione del servizio nel repository Git
 
@@ -69,7 +68,7 @@ Dopo qualche secondo la configurazione viene salvata e viene visualizzato lo sta
 
 Dopo che la configurazione è stata salvata nel repository, può essere clonata.
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa all'esecuzione del commit di uno snapshot della configurazione tramite l'API REST](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa all'esecuzione del commit di uno snapshot della configurazione tramite l'API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Per clonare il repository nel computer locale
 
@@ -100,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 Se viene generato un errore, provare a codificare con URL la parte della password del comando. Un metodo rapido per eseguire questa operazione consiste nell'aprire Visual Studio, eseguendo il comando seguente nella **finestra di controllo immediato**. Per aprire la **finestra di controllo immediato**, aprire qualsiasi soluzione o progetto in Visual Studio oppure creare una nuova applicazione console vuota e quindi **Finestre** e quindi **Controllo immediato** dal menu **Debug**.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Per creare il comando git, usare la password codificata con il nome utente e il percorso del repository.
@@ -143,7 +142,7 @@ git push
 
 Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 
@@ -173,9 +172,9 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 > [!NOTE]
 > Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
 >
-> * [Utenti](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
-> * [Sottoscrizioni](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
-> * [Valori denominati](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
+> * [Utenti](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Sottoscrizioni](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Valori denominati](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Entità del portale per sviluppatori diverse dagli stili
 >
 
@@ -204,10 +203,10 @@ Le prime quattro impostazioni (`RegistrationEnabled`, `UserRegistrationTerms`, `
 | Impostazione | Mapping a |
 | --- | --- |
 | RegistrationEnabled |Presenza del provider di identità per **nome utente e password** |
-| UserRegistrationTerms |**Terms of use on user signup**  |
+| UserRegistrationTerms |**Terms of use on user signup** |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** |
-| UserRegistrationTermsConsentRequired |**Richiedi consenso**  |
-| RequireUserSigninEnabled |**Redirect anonymous users to**  |
+| UserRegistrationTermsConsentRequired |**Richiedi consenso** |
+| RequireUserSigninEnabled |**Redirect anonymous users to** |
 
 Le quattro impostazioni successive (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) sono mappate alle impostazioni seguenti della scheda **Delegation** (Delega) della sezione **Security** (Sicurezza).
 
@@ -223,14 +222,14 @@ L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni de
 ### <a name="apis-folder"></a>Cartella apis
 La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
-* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/apis/get) con `export=true` nel formato `application/json`.
+* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) con `export=true` nel formato `application/json`.
 * `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
 
 ### <a name="groups-folder"></a>Cartella groups
 La cartella `groups` contiene una cartella per ogni gruppo definito nell'istanza del servizio.
 
-* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://docs.microsoft.com/rest/api/apimanagement/group/get) .
+* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) .
 * `groups\<group name>\description.html`: descrizione del gruppo. Corrisponde alla proprietà `description` dell'[entità relativa al gruppo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Cartella policies
@@ -250,10 +249,10 @@ La cartella `portalStyles` contiene la configurazione e i fogli di stile delle p
 ### <a name="products-folder"></a>Cartella products
 La cartella `products` contiene una cartella per ogni prodotto definito nell'istanza del servizio.
 
-* `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/product/get) .
+* `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
 * `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
 
-### <a name="templates"></a>Modelli
+### <a name="templates"></a>modelli
 La cartella `templates` contiene la configurazione per i [modelli di posta elettronica](api-management-howto-configure-notifications.md) dell'istanza del servizio.
 
 * `<template name>\configuration.json` : configurazione del modello di posta elettronica.

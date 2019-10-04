@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979752"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65143282"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quanto costa partecipare all'anteprima?
 
-Al momento non sono previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima di Mesh. Gli utenti sono tuttavia invitati a eliminare le risorse distribuite e a non lasciarle in esecuzione, a meno che non ne eseguano attivamente i test.
+Non sono attualmente previsti addebiti per la distribuzione di applicazioni o contenitori per l'anteprima di rete. Guarda per gli aggiornamenti nel mese di maggio per l'abilitazione per la fatturazione. Tuttavia, si consiglia di eliminare le risorse si distribuisce e lasciarli non in esecuzione a meno che non si esegue attivamente il test li.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>È previsto un limite di quota per il numero di core e la RAM?
 
@@ -49,7 +49,7 @@ Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo
 
 In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo il comando `az mesh app show` nell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ad esempio:  
+Ad esempio: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -77,7 +77,9 @@ Ad esempio:
 
 Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="supported-container-os-images"></a>Immagini di sistema operativo contenitore supportate
+## <a name="deployments"></a>Deployments
+
+### <a name="what-container-images-are-supported"></a>Le immagini del contenitore sono supportati?
 
 Se le attività di sviluppo vengono eseguite in un computer con Windows Fall Creators Update (versione 1709), è possibile usare solo le immagini Docker di Windows versione 1709.
 
@@ -86,10 +88,19 @@ Se le attività di sviluppo vengono eseguite in un computer Windows 10 con aggio
 Per distribuire i servizi, possono essere usate le immagini del sistema operativo contenitore seguenti:
 
 - Windows: windowsservercore e nanoserver
-    - Windows Server versione 1709
-    - Windows Server versione 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Nessuna limitazione nota
+
+> [!NOTE]
+> Strumenti per la rete Mesh di Visual Studio non supporta ancora la distribuzione in contenitori 1809 e Windows Server 2019.
+
+### <a name="what-types-of-applications-can-i-deploy"></a>I tipi di applicazioni è possibile distribuire? 
+
+È possibile distribuire qualsiasi elemento che viene eseguito nei contenitori che rientrano nelle restrizioni posizionate in una risorsa di applicazione (vedere sopra per altre informazioni sulle quote). Se viene rilevato che si sta utilizzando Mesh per l'esecuzione di carichi di lavoro non validi o abuso del sistema (ad esempio di data mining), quindi Microsoft si riserva il diritto di interrompere le distribuzioni e blocklist la sottoscrizione da in esecuzione nel servizio. Rivolgersi a Microsoft se hai domande sull'esecuzione di un carico di lavoro specifico. 
 
 ## <a name="developer-experience-issues"></a>Problemi relativi all'esperienza di sviluppatore
 
@@ -99,7 +110,7 @@ Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS p
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
 - Se il nome del servizio da solo non funziona, provare a specificare il nome completo: ServiceName.ApplicationName.
-- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio: 
+- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
 
 ```Dockerfile
 EXPOSE 80
@@ -132,6 +143,10 @@ Il problema verrà risolto anche se l'app è già distribuita localmente in uno 
 Più applicazioni non possono essere distribuite in un cluster con un solo nodo. Per attenuare il problema:
 - Usare un cluster con cinque nodi durante la distribuzione di più app in un cluster locale.
 - Rimuovere le app attualmente non in fase di test.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Strumenti VS ha supporto limitato per i contenitori Windows
+
+Gli strumenti di Visual Studio supportano solo la distribuzione di contenitori di Windows con una versione del sistema operativo base di Windows Server 1709 e 1803 oggi stesso. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lacune di funzionalità e altri problemi noti
 

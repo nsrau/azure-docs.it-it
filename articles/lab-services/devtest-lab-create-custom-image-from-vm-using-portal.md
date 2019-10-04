@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60868509"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Creare un'immagine personalizzata da una macchina virtuale
 
@@ -39,7 +39,7 @@ ms.locfileid: "57550089"
  
 1. Nel riquadro **Macchine virtuali personali** selezionare la macchina virtuale da cui creare l'immagine personalizzata.
 
-1. Nel riquadro di gestione della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)**.
+1. Nel riquadro di gestione della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)** .
 
     ![Voce di menu Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image.png)
 

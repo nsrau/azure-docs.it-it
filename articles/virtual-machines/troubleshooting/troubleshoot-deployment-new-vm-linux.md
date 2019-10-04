@@ -4,23 +4,22 @@ description: Risolvere i problemi della distribuzione Resource Manager quando si
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450285"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090014"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,29 +42,29 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**S:** Se il sistema operativo è un sistema Linux generalizzato e viene caricato e/o acquisito con l'impostazione generalizzata, quindi non saranno gli eventuali errori. Analogamente, se il sistema operativo Linux è specializzato e viene caricato e/o acquisito con l'impostazione specializzata, non si verificheranno errori.
+**S:** Se il sistema operativo è Linux generalizzato e viene caricato e/o acquisito con l'impostazione generalizzata, non si verificano errori. Analogamente, se il sistema operativo Linux è specializzato e viene caricato e/o acquisito con l'impostazione specializzata, non si verificheranno errori.
 
 **Errori di caricamento:**
 
-**N<sup>1</sup>:** Se il sistema operativo è un sistema Linux generalizzato e viene caricato come specializzato, si verificherà un errore di timeout del provisioning perché la macchina virtuale è bloccata nella fase di provisioning.
+**N<sup>1</sup>:** Se il sistema operativo è Linux generalizzato e viene caricato come specializzato, si otterrà un errore di timeout del provisioning perché la macchina virtuale è bloccata nella fase di provisioning.
 
-**N<sup>2</sup>:** Se il sistema operativo Linux specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning perché la nuova macchina virtuale è in esecuzione con il nome del computer, nome utente e la password originale.
+**N<sup>2</sup>:** Se il sistema operativo è Linux specializzato e viene caricato come generalizzato, si otterrà un errore di provisioning perché la nuova VM è in esecuzione con il nome del computer, il nome utente e la password originali.
 
 **Risoluzione:**
 
-Per risolvere entrambi questi errori, caricare il file VHD originale, disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision.
+Per risolvere entrambi questi errori, caricare il disco rigido virtuale originale, disponibile in locale, con la stessa impostazione del sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision.
 
 **Errori di acquisizione:**
 
-**N<sup>3</sup>:** Se il sistema operativo è un sistema Linux generalizzato e viene acquisito come specializzato, si verificherà un errore di timeout del provisioning perché la macchina virtuale originale non può essere usata essendo contrassegnata come generalizzata.
+**N<sup>3</sup>:** Se il sistema operativo è Linux generalizzato e viene acquisito come specializzato, si otterrà un errore di timeout del provisioning perché la macchina virtuale originale non è utilizzabile perché è contrassegnata come generalizzata.
 
-**N<sup>4</sup>:** Se il sistema operativo Linux specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova macchina virtuale è in esecuzione con il nome del computer, nome utente e la password originale. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
+**N<sup>4</sup>:** Se il sistema operativo è Linux specializzato e viene acquisito come generalizzato, si otterrà un errore di provisioning perché la nuova VM è in esecuzione con il nome del computer, il nome utente e la password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
 
 **Risoluzione:**
 
 Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Custom / raccolta / immagine del marketplace; Errore di allocazione
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del Marketplace; errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
 **Causa 1:** Il cluster non supporta le dimensioni della macchina virtuale richieste.

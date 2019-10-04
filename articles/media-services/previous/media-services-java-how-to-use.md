@@ -14,16 +14,17 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a12d0e7d4382d1f8feac721c103d9231e54ad249
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869017"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra in modo dettagliato la procedura di implementazione di un servizio di base per la distribuzione di contenuto video con Servizi multimediali di Azure Media Services tramite Java Client SDK.
 

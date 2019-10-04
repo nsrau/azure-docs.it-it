@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903647"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147921"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
@@ -105,7 +105,7 @@ Eseguire la procedura seguente per modificare l'ordine.
 
 ## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
 
-Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il disco viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completa, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
+Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il disco viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completata, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
 
 Eseguire la procedura seguente per modificare i dettagli di notifica.
 
@@ -129,8 +129,8 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 |Ricevuto     | I dischi sono stati ricevuti nel data center di Azure. La copia dei dati inizierà a breve.        |
 |Dati copiati     |La copia dei dati è in corso.<br> Attendere il completamento della copia dei dati.         |
 |Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
-|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori. <br> Esaminare i log di copia usando il percorso specificato nella **Panoramica**. Per altre informazioni, passare a [Scaricare i log di diagnostica](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
-|Canceled            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine.     |
+|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori. <br> Esaminare i log degli errori per il caricamento usando il percorso specificato nella **Panoramica**. Per altre informazioni, passare a [Scaricare i log di errori di caricamento](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine.     |
 
 
 

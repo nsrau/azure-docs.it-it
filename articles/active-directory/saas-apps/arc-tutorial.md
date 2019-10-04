@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb088af37133269977c1f8ae9a5ad19a3b3e4513
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Esercitazione: Integrazione di Azure Active Directory con Arc Publishing - SSO
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Arc Publishing - SSO, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Arc Publishing - SSO](#configure-arc-publishing---sso-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Arc Publishing - SSO](#create-arc-publishing---sso-test-user)**: per avere una controparte di Britta Simon in Arc Publishing - SSO collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Arc Publishing - SSO](#configure-arc-publishing---sso-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Arc Publishing - SSO](#create-arc-publishing---sso-test-user)** : per avere una controparte di Britta Simon in Arc Publishing - SSO collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Arc Publishing - SSO, s
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Arc Publishing - SSO, s
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |    
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -154,7 +154,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Arc Publishing - SSO, s
     > [!NOTE]
     > In questo caso, il mapping dell'attributo **groups** viene eseguito con **user.assignedroles**. Si tratta di ruoli personalizzati creati in Azure AD per eseguire di nuovo il mapping dei nomi di gruppo nell'applicazione. Per altre informazioni su come creare ruoli personalizzati in Azure AD, vedere [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management). 
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

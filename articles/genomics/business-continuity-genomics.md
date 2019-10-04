@@ -1,23 +1,21 @@
 ---
 title: Continuità aziendale - Genomica di Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come Genomica di Microsoft supporta la continuità aziendale
+description: Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza. Vengono fornite informazioni sulle opzioni per il ripristino dopo eventi che possono causare interruzioni del funzionamento, ad esempio un'interruzione di un'area di Azure, con conseguente perdita di dati.
 keywords: Ripristino di emergenza, continuità aziendale
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: cb3825cb89aff386c4f7c3f3b0d771d73fe637b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60641110"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Panoramica della continuità aziendale con Genomica di Microsoft
 Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza. Vengono fornite informazioni sulle opzioni per il ripristino dopo eventi che possono causare interruzioni del funzionamento, ad esempio un'interruzione di un'area di Azure, con conseguente perdita di dati. 

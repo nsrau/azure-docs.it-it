@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60561625"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Ridistribuire una macchina virtuale in un lab in Azure DevTest Labs
 Se non è possibile connettersi a una macchina virtuale (VM) in un lab tramite una connessione desktop remoto, ridistribuire la macchina virtuale e riprovare a connettersi a esso. Quando si ridistribuisce una VM, DevTest Labs sposta la macchina virtuale dal nodo in cui è in esecuzione in un nuovo nodo dell'infrastruttura di Azure. La macchina virtuale viene avviata e tutte le opzioni di configurazione e le risorse associate vengono mantenute. Questa funzionalità consente di risparmiare il tempo impiegato per la risoluzione dei problemi di connessione desktop remoto o accesso all'applicazione per le macchine virtuali basate su Windows nel lab. 

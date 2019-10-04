@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cb59fa0fe9094943dfc942d1d6e664891996c9e3
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050615"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569291"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorare le prestazioni, integrità e sull'utilizzo con le metriche di Esplora dati di Azure
 
@@ -42,14 +42,14 @@ Nel riquadro delle metriche:
 
     **Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica**
     |---|---|---|---|
-    | Uso della cache | Percentuale | Avg, Max, Min | Percentuale delle risorse di cache allocate attualmente in uso da parte del cluster. Cache si riferisce alle dimensioni dell'unità SSD allocata per l'attività degli utenti in base ai criteri di cache definito. Un utilizzo della cache medio dell'80% o meno è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore all'80%, il cluster deve essere [aumentato](manage-cluster-scale-up.md) in un archivio ottimizzato piano tariffario o [aumentato](manage-cluster-scale-out.md) alle altre istanze. In alternativa, adattare i criteri di cache (un minor numero di giorni nella cache). Se l'uso della cache è superiore a 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è più grande che le dimensioni totali della cache nel cluster. |
-    | CPU | Percentuale | Avg, Max, Min | Percentuale delle risorse di calcolo allocate attualmente in uso dal computer del cluster. Un utilizzo medio della CPU dell'80% o meno è sostenibile per un cluster. Il valore massimo della CPU è 100%, ovvero non sono presenti risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non è soddisfacenti, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche che vengono bloccate. |
+    | Uso della cache | Percent | Avg, Max, Min | Percentuale delle risorse di cache allocate attualmente in uso da parte del cluster. Cache si riferisce alle dimensioni dell'unità SSD allocata per l'attività degli utenti in base ai criteri di cache definito. Un utilizzo della cache medio dell'80% o meno è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore all'80%, il cluster deve essere [aumentato](manage-cluster-vertical-scaling.md) in un archivio ottimizzato piano tariffario o [aumentato](manage-cluster-horizontal-scaling.md) alle altre istanze. In alternativa, adattare i criteri di cache (un minor numero di giorni nella cache). Se l'uso della cache è superiore a 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è più grande che le dimensioni totali della cache nel cluster. |
+    | CPU | Percent | Avg, Max, Min | Percentuale delle risorse di calcolo allocate attualmente in uso dal computer del cluster. Un utilizzo medio della CPU dell'80% o meno è sostenibile per un cluster. Il valore massimo della CPU è 100%, ovvero non sono presenti risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non è soddisfacenti, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche che vengono bloccate. |
     | Eventi elaborati (per gli hub eventi) | Conteggio | Max, Min, Sum | Numero totale di eventi di lettura da hub eventi ed elaborati dal cluster. Gli eventi vengono suddivisi in eventi rifiutati e accettato dal motore di cluster. |
     | Latenza di inserimento | Secondi | Avg, Max, Min | Latenza di inserimento, dal momento in cui che sono stati ricevuti i dati nel cluster fino a quando non è pronto per le query di dati. Il periodo di latenza di inserimento varia a seconda dello scenario di inserimento. |
     | Risultato di inserimento | Conteggio | Conteggio | Numero totale di operazioni di inserimento che non è riuscita e ha avuto esito positivo. Uso **applica la suddivisione** creare bucket di successo e avere esito negativo dei risultati e analizzare le dimensioni (**valore** > **stato**).|
-    | Utilizzo di inserimento | Percentuale | Avg, Max, Min | Percentuale delle risorse effettive usato per inserire dati nelle risorse totale allocata, nei criteri di capacità, per eseguire l'inserimento. I criteri di capacità predefinita non sono più di 512 operazioni di inserimento simultanee o 75% delle risorse del cluster investite nel processo di inserimento. L'utilizzo medio inserimento dell'80% o meno è uno stato sostenibile per un cluster. Valore massimo dell'utilizzo di inserimento è 100%. questo significa che tutte le capacità di inserimento dei cluster viene usato e potrebbe causare una coda di inserimento. |
+    | Utilizzo di inserimento | Percent | Avg, Max, Min | Percentuale delle risorse effettive usato per inserire dati nelle risorse totale allocata, nei criteri di capacità, per eseguire l'inserimento. I criteri di capacità predefinita non sono più di 512 operazioni di inserimento simultanee o 75% delle risorse del cluster investite nel processo di inserimento. L'utilizzo medio inserimento dell'80% o meno è uno stato sostenibile per un cluster. Valore massimo dell'utilizzo di inserimento è 100%. questo significa che tutte le capacità di inserimento dei cluster viene usato e potrebbe causare una coda di inserimento. |
     | Volume di inserimento (in MB) | Conteggio | Max, Min, Sum | Le dimensioni totali dei dati inseriti nel cluster (in MB) prima della compressione. |
-    | Keep-alive | Conteggio | Media | Registra la velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster disconnesso o bloccato restituisce 0. |
+    | Keep-alive | Conteggio | AVG | Registra la velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster disconnesso o bloccato restituisce 0. |
     | Durata delle query | Secondi | Count, Avg, Min, Max, Sum | Totale tempo fino a quando non vengono ricevuti i risultati della query (non include la latenza di rete). |
     | | | |
 

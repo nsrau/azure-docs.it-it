@@ -1,20 +1,19 @@
 ---
 title: Usare Data Lake Storage Gen1 con Hadoop in Azure HDInsight
 description: Informazioni su come eseguire query sui dati da Azure Data Lake Storage Gen1 e archiviare i risultati dell'analisi.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: ed8884462030e10625f332b182bd900e833f34f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/10/2019
+ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65546289"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage Gen1 con i cluster Azure HDInsight
 
@@ -43,12 +42,12 @@ Attualmente, solo alcuni dei tipi/versioni di cluster HDInsight supportano l'uso
 
 | Tipo di cluster HDInsight | Data Lake Storage Gen1 come risorsa di archiviazione predefinita | Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva| Note |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versione 4.0 | No  | No  |Gen1 Azure Data Lake Store non è supportato con HDInsight 4.0 |
-| HDInsight versione 3.6 | Sì | Sì | Ad eccezione di HBase|
-| HDInsight versione 3.5 | Sì | Sì | Ad eccezione di HBase|
-| HDInsight versione 3.4 | No  | Sì | |
-| HDInsight versione 3.3 | No  | No  | |
-| HDInsight versione 3.2 | No  | Sì | |
+| HDInsight versione 4.0 | No | No |Gen1 Azure Data Lake Store non è supportato con HDInsight 4.0 |
+| HDInsight versione 3.6 | Yes | Yes | Ad eccezione di HBase|
+| HDInsight versione 3.5 | Yes | Yes | Ad eccezione di HBase|
+| HDInsight versione 3.4 | No | Yes | |
+| HDInsight versione 3.3 | No | No | |
+| HDInsight versione 3.2 | No | Yes | |
 | Storm | | |È possibile usare Data Lake Storage Gen1 per scrivere dati da una topologia Storm. È anche possibile usare Data Lake Storage per archiviare dati di riferimento che possono essere letti da una topologia Storm.|
 
 > [!WARNING]  
@@ -109,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva
 
-È possibile usare Data Lake Storage Gen1 anche come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Storage. Se si eseguono processi di HDInsight sui dati archiviati in Data Lake Storage come risorsa di archiviazione aggiuntiva, è necessario usare il percorso completo dei file. Ad esempio: 
+È possibile usare Data Lake Storage Gen1 anche come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Storage. Se si eseguono processi di HDInsight sui dati archiviati in Data Lake Storage come risorsa di archiviazione aggiuntiva, è necessario usare il percorso completo dei file. Ad esempio:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Si noti che al momento non esiste alcun **cluster_root_path** nell'URL. In questo caso, infatti, Data Lake Storage non è una risorsa di archiviazione predefinita. È pertanto sufficiente indicare il percorso dei file.
 
-Per poter usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario semplicemente concedere all'entità servizio l'accesso ai percorsi in cui sono archiviati i file.  Ad esempio: 
+Per poter usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario semplicemente concedere all'entità servizio l'accesso ai percorsi in cui sono archiviati i file.  Ad esempio:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -183,6 +182,9 @@ $certPassword = Read-Host "Enter Certificate Password"
 # 2 - read cert from key vault
 $certSource = 0
 
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
+
 if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
@@ -213,16 +215,13 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzAccount
-Select-AzSubscription -SubscriptionId $subscriptionId
-
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

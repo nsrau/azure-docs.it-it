@@ -4,22 +4,21 @@ description: Fornisce la procedura per risolvere i problemi di attivazione della
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791712"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058138"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -51,11 +50,9 @@ In genere si verificano problemi di attivazione della macchina virtuale di Azure
 >
 >Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Potrebbe non essere possibile attivare la VM di Azure tramite ExpressRoute).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Passaggio 1 Configurare la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata (per Windows Server 2016 e Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata
 
-Per la VM creata da un'immagine personalizzata di Windows Server 2016 o Windows Server 2012 R2, è necessario configurare la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata per la VM.
-
-Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzionalità di attivazione automatica della macchina virtuale, supportata solo da Windows Server 2016 e Windows Server 2012 R2.
+Per la macchina virtuale creata da un'immagine personalizzata, è necessario configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata per la macchina virtuale.
 
 1. Eseguire **slmgr.vbs /dlv** in un prompt dei comandi con privilegi elevati. Controllare il valore Description nell'output e quindi determinare se è stato creato da un supporto per licenze al dettaglio (canale RETAIL) o per contratti multilicenza (VOLUME_KMSCLIENT):
   
@@ -86,7 +83,6 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
 
 3. Verificare che la VM sia configurata per usare il server di gestione delle chiavi di Azure corretto. A tale scopo, usare il comando seguente:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -95,36 +91,33 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
 
 4. Usando Psping verificare di avere la connettività al server di gestione delle chiavi. Passare alla cartella in cui si è estratto il download Pstools.zip e quindi eseguire quanto segue:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    Nelle righe dalla seconda all'ultima dell'output verificare che sia visualizzato: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
    Se Lost è maggiore di 0 (zero), la VM non ha la connettività al server di gestione delle chiavi. In questo caso, se la VM è in una rete virtuale ed è specificato un server DNS personalizzato, è necessario verificare che il server DNS possa risolvere kms.core.windows.net. In alternativa, sostituire il server DNS con uno che risolve kms.core.windows.net.
 
    Tenere presente che, se si rimuovono tutti i server DNS da una rete virtuale, le VM usano il servizio DNS interno di Azure. Questo servizio può risolvere kms.core.windows.net.
   
-Verificare anche che il firewall guest non sia stato configurato in modo tale da bloccare i tentativi di attivazione.
+    Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 
-1. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
+5. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-Un'attivazione corretta restituisce informazioni simili alle seguenti:
-
-**Attivazione di Windows(R), Server Datacenter Edition (12345678-1234-1234-1234-12345678) in corso… Attivazione prodotto completata.**
+    Un'attivazione corretta restituisce informazioni simili alle seguenti:
+    
+    **Attivazione di Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Il prodotto è stato attivato correttamente.**
 
 ## <a name="faq"></a>Domande frequenti 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Windows Server 2016 è stato creato da Azure Marketplace. È necessario configurare una chiave del servizio di gestione delle chiavi per attivare Windows Server 2016? 
 
  
- No. L'immagine in Azure Marketplace ha la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata già configurata. 
+No. L'immagine in Azure Marketplace ha la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata già configurata. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>L'attivazione di Windows funziona allo stesso modo indipendentemente dal fatto che la VM usi il vantaggio Azure Hybrid Use o meno? 
 

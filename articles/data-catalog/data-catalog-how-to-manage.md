@@ -1,19 +1,17 @@
 ---
 title: Gestire gli asset di dati in Azure Data Catalog
 description: L'articolo illustra come controllare la visibilità e la proprietà degli asset di dati registrati in Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000641"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736335"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -52,7 +50,7 @@ Se un asset di dati ha già un proprietario, gli altri utenti non possono sempli
 ### <a name="remove-owners"></a>Rimuovere i proprietari
 Qualsiasi proprietario di asset può rimuovere i relativi comproprietari.
 
-Un proprietario di un asset che rimuove se stesso come proprietario, non potrà più gestire l'asset. Se il proprietario di un asset rimuove se stesso come proprietario e non esistono altri comproprietari, l'asset torna allo stato senza proprietario.
+Un proprietario di asset che si rimuove se stesso come proprietario non può più gestire l'asset. Se il proprietario dell'asset rimuove se stesso come proprietario e non esistono altri comproprietari, l'asset viene ripristinato in uno stato non di proprietà.
 
 ## <a name="control-visibility"></a>Controllare la visibilità
 La visibilità degli asset di dati è controllata dai relativi proprietari. Per limitare la visibilità come impostazione predefinita, in cui tutti gli utenti di Data Catalog possono trovare e visualizzare l'asset di dati, il proprietario dell'asset può alternare l'impostazione di visibilità tra **Tutti** e **Proprietario e questi utenti** nelle proprietà dell'asset. I proprietari possono quindi aggiungere utenti e gruppi di sicurezza specifici.
@@ -65,5 +63,5 @@ La visibilità degli asset di dati è controllata dai relativi proprietari. Per 
 ## <a name="catalog-administrators"></a>Amministratori del catalogo
 Gli amministratori di Data Catalog sono implicitamente comproprietari di tutti gli asset nel catalogo. I proprietari di asset non possono rimuovere la visibilità dagli amministratori, che possono gestire la proprietà e la visibilità per tutti gli asset di dati nel catalogo.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il modello di crowdsourcing di Data Catalog per l'individuazione di asset di dati e metadati consente a tutti gli utenti del catalogo di contribuire all'individuazione. L'edizione Standard di Data Catalog è progettata per la proprietà e la gestione per poter limitare la visibilità e l'uso di asset di dati specifici.

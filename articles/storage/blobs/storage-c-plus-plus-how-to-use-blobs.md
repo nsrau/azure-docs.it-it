@@ -1,19 +1,18 @@
 ---
 title: Come usare l'archivio oggetti (BLOB) da C++ - Azure | Microsoft Docs
 description: Archiviare i dati non strutturati nel cloud con Archivio BLOB di Azure (oggetti).
-services: storage
-author: MichaelHauss
-ms.service: storage
-ms.topic: conceptual
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 03/21/2018
-ms.author: michaelhauss
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.topic: conceptual
+ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993219"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726420"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 
@@ -67,7 +66,7 @@ Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Sta
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.  
 
-## <a name="retrieve-your-connection-string"></a>Recuperare la stringa di connessione
+## <a name="retrieve-your-storage-account"></a>Recuperare l'account di archiviazione
 Per visualizzare le informazioni dell'account di archiviazione, è possibile usare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .  
 
 ```cpp

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 388d42cd41d34a8aebed41dafc48e42006a78457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807703"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Condivisione esterna di Office 365 e Collaborazione B2B di Azure Active Directory
 
@@ -32,7 +32,7 @@ La gestione degli inviti di OneDrive/SharePoint Online è separata. Il supporto 
 
 - Gli utenti invitati di Collaborazione B2B di Azure AD possono essere selezionati nelle finestre di dialogo di condivisione di OneDrive/SharePoint Online. Dopo avere riscattato gli inviti, gli utenti invitati di OneDrive/SharePoint Online vengono visualizzati anche in Azure AD.
 
-- I requisiti di licenza sono diversi. Per ogni licenza di Azure AD a pagamento, è possibile consentire a un massimo di 5 utenti guest di accedere alle funzionalità di Azure AD a pagamento. Per altre informazioni sulle licenze, vedere [Linee guida sulla Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) e ["Che cos'è un utente esterno?" in Panoramica della condivisione esterna di SharePoint Online](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-is-an-external-user).
+- I requisiti di licenza sono diversi. Per ogni licenza di Azure AD a pagamento, è possibile consentire a un massimo di 5 utenti guest di accedere alle funzionalità di Azure AD a pagamento. Per altre informazioni sulle licenze, vedere [Linee guida sulla Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) e ["Che cos'è un utente esterno?" in Panoramica della condivisione esterna di SharePoint Online](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
 Per gestire la condivisione esterna in OneDrive/SharePoint Online con Collaborazione B2B di Azure AD, configurare l'impostazione relativa alla condivisione esterna in OneDrive/SharePoint Online su **Allow sharing only with the external users that already exist in your organization's directory** (Consenti la condivisione solo con gli utenti esterni già nella directory dell'organizzazione). Gli utenti possono accedere a siti condivisi esternamente e scegliere tra i collaboratori esterni che l'amministratore ha aggiunto. L'amministratore può aggiungere i collaboratori esterni tramite le API di invito di Collaborazione B2B.
 

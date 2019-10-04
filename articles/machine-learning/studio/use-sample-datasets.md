@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736616"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets

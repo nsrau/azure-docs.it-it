@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65914306"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
 
@@ -43,7 +43,7 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 
@@ -198,7 +198,7 @@ In questa sezione si aggiornerà un esempio di provisioning denominato **prov\_d
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio consente di riconoscere il dispositivo e di assegnarlo all'hub IoT configurato nel gruppo di registrazione.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -279,7 +279,7 @@ Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-* [Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* [Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
 * Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 

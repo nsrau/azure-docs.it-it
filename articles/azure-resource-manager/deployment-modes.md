@@ -1,22 +1,17 @@
 ---
 title: Modalità di distribuzione di Azure Resource Manager| Microsoft Docs
 description: Viene descritto come specificare se usare una modalità di distribuzione completa o incrementale con Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791285"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258970"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -26,27 +21,31 @@ Per entrambe le modalità, Resource Manager prova a creare tutte le risorse spec
 
 ## <a name="complete-mode"></a>Modalità completa
 
-Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](resource-group-authoring-templates.md#condition) restituisce false, non vengono eliminate.
+Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](conditional-resource-deployment.md) restituisce false, non vengono eliminate.
 
-Esistono alcune differenze nel modo in cui i tipi di risorsa gestiscono la modalità completa le operazioni di eliminazione. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se viene eliminata la risorsa padre. 
+Prestare attenzione usando la modalità completa con i [cicli di copia](resource-group-create-multiple.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
-Ad esempio, se il gruppo di risorse contiene una zona DNS (tipo di risorsa Microsoft.Network/dnsZones) e un record CNAME (tipo di risorsa Microsoft.Network/dnsZones/CNAME), la zona DNS è la risorsa padre per il record CNAME. Se si distribuisce in la modalità completa e non si include la zona DNS nel modello, la zona DNS e il record CNAME vengono entrambi eliminati. Se si include la zona DNS nel modello ma non include il record CNAME, non viene eliminato il record CNAME. 
+Esistono alcune differenze nel modo in cui i tipi di risorse gestiscono le eliminazioni in modalità completa. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se la risorsa padre viene eliminata. 
+
+Ad esempio, se il gruppo di risorse contiene una zona DNS (tipo di risorsa Microsoft.Network/dnsZones) e un record CNAME (tipo di risorsa Microsoft.Network/dnsZones/CNAME), la zona DNS è la risorsa padre per il record CNAME. Se si distribuisce in la modalità completa e non si include la zona DNS nel modello, la zona DNS e il record CNAME vengono entrambi eliminati. Se si include la zona DNS nel modello, ma non si include il record CNAME, il CNAME non viene eliminato. 
 
 Per informazioni dettagliate sul modo in cui i tipi di risorsa gestiscono l'eliminazione, vedere [Eliminazione delle risorse di Azure per le distribuzioni in modalità completa](complete-mode-deletion.md).
 
-Se il gruppo di risorse [bloccata](resource-group-lock-resources.md), la modalità completa non elimina le risorse.
+Se il gruppo di risorse è [bloccato](resource-group-lock-resources.md), la modalità di completamento non comporta l'eliminazione delle risorse.
 
 > [!NOTE]
 > Solo i modelli a livello di radice supportano la modalità di distribuzione completa. Per modelli [collegati o annidati](resource-group-linked-templates.md), è necessario usare la modalità di distribuzione incrementale. 
 >
-> [Le distribuzioni a livello di sottoscrizione](deploy-to-subscription.md) non supportano la modalità completa.
+> Le [distribuzioni a livello di sottoscrizione](deploy-to-subscription.md) non supportano la modalità completa.
 >
 > Attualmente, il portale non supporta la modalità completa.
 >
 
 ## <a name="incremental-mode"></a>Modalità incrementale
 
-Nella modalità incrementale, Resource Manager **lascia invariate** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Quando si ridistribuisce una risorsa in modalità incrementale, specificare tutti i valori delle proprietà per la risorsa, non solo quelli che si sta aggiornando. Se non si specificano determinate proprietà, Resource Manager interpreta l'aggiornamento come sovrascrittura di questi valori.
+Nella modalità incrementale, Resource Manager **lascia invariate** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
+
+Tuttavia, quando si ridistribuisce una risorsa esistente in modalità incrementale, il risultato è diverso. Specificare tutte le proprietà per la risorsa, non solo quelle che si sta aggiornando. Un equivoco comune consiste nel pensare che le proprietà che non sono specificate rimangano invariate. Se non si specificano determinate proprietà, Resource Manager interpreta l'aggiornamento come sovrascrittura di questi valori.
 
 ## <a name="example-result"></a>Risultati di esempio
 

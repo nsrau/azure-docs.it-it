@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con TOPdesk - Secure, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di TOPdesk - Secure](#configure-topdesk---secure-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di TOPdesk - Secure](#create-topdesk---secure-test-user)**: per avere una controparte di Britta Simon in TOPdesk - Secure collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di TOPdesk - Secure](#configure-topdesk---secure-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di TOPdesk - Secure](#create-topdesk---secure-test-user)** : per avere una controparte di Britta Simon in TOPdesk - Secure collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -109,7 +109,7 @@ Per configurare Single Sign-On di Azure AD con TOPdesk - Secure, seguire questa 
 
     b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<companyname>.topdesk.net/tas/public/login/saml`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di TOPdesk - Secure](https://www.topdesk.com/us/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -180,7 +180,7 @@ Per configurare Single Sign-On di Azure AD con TOPdesk - Secure, seguire questa 
 
     b. Per caricare il file del certificato, in **Certificate (RSA)** (Certificato RSA) fare clic su **Browse** (Sfoglia).
 
-    c. Per la **chiave privata (RSA, PKCS8, DER)**, è possibile caricare la propria chiave privata o, in alternativa, contattare [il team di supporto TOPdesk - Secure Client](http://www.topdesk.com/us/support) per ottenere la chiave privata.
+    c. Per la **chiave privata (RSA, PKCS8, DER)** , è possibile caricare la propria chiave privata o, in alternativa, contattare [il team di supporto TOPdesk - Secure Client](https://www.topdesk.com/us/support) per ottenere la chiave privata.
 
     d. Per caricare il file del logo ottenuto dal team di supporto del team di TOPdesk, in **Logo icon** (Icona logo) fare clic su **Browse** (Sfoglia).
 
@@ -250,7 +250,7 @@ Nel caso di TOPdesk - Secure, il provisioning è un'attività manuale.
 
 1. Accedere al sito aziendale di **TOPdesk - Secure** come amministratore.
 
-2. Nel menu in alto fare clic su **TOPdesk \> New (Nuovo) \> Support Files (File di supporto) \> Operator (Operatore)**.
+2. Nel menu in alto fare clic su **TOPdesk \> New (Nuovo) \> Support Files (File di supporto) \> Operator (Operatore)** .
 
     ![Operator](./media/topdesk-secure-tutorial/ic790610.png "Operator")
 

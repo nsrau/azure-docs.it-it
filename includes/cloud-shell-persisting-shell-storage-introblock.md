@@ -5,11 +5,11 @@ ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
 ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58052166"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180485"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.

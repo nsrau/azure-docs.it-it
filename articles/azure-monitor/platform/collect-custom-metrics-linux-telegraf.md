@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775612"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883235"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -33,23 +33,23 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 Creare una nuova VM Linux: 
 
-1. Fare clic sull'opzione **Crea una risorsa** nel riquadro di spostamento a sinistra. 
-1. Cercare **Macchina virtuale**.  
+1. Selezionare l'opzione **Crea una risorsa** nel riquadro di spostamento a sinistra. 
+1. Cercare **Macchina virtuale**.  
 1. Selezionare **Ubuntu 16.04 LTS** e fare clic su **Crea**. 
-1. Specificare un nome per la VM, ad esempio **MacchinaVirtualeTelegraf**.  
-1. Lasciare il tipo di disco come **SSD**. Quindi specificare uno **username**, ad esempio  **azureuser**. 
-1. Per  **Tipo di autenticazione** selezionare **Password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
-1. Scegliere di  **Creare un nuovo gruppo di risorse**. Quindi specificare un nome, ad esempio **myResourceGroup**. Selezionare la propria  **Posizione**. Quindi selezionare **OK**. 
+1. Specificare un nome di macchina virtuale come **MyTelegrafVM**.  
+1. Lasciare il tipo di disco come **SSD**. Specificare quindi un **nome utente**, adesempio azureuser. 
+1. In **tipo di autenticazione**selezionare **password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
+1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Selezionare **OK**. 
 
     ![Creare una VM Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. Selezionare una dimensione per la VM. È possibile ad esempio filtrare in base a  **Tipo di calcolo**  oppure a  **Tipo di disco**. 
+1. Selezionare una dimensione per la VM. È possibile filtrare in base a **Tipo di calcolo** oppure a **Tipo di disco**, ad esempio. 
 
     ![Panoramica delle dimensioni della macchina virtuale dell'agente Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Nella pagina **Impostazioni** , in  **Rete** > **Gruppo di sicurezza di rete** > **Selezionare le porte in ingresso pubbliche**, selezionare **HTTP** e **SSH (22)**. Accettare tutte le impostazioni predefinite e selezionare **OK**. 
+1. Nella pagina **Impostazioni** del gruppo >  > di sicurezza di rete**selezionare porte in ingresso pubbliche**, selezionare http e **SSH (22)** . Accettare tutte le impostazioni predefinite e selezionare **OK**. 
 
-1. Nella pagina di riepilogo selezionare  **Crea** per avviare la distribuzione della macchina virtuale. 
+1. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale. 
 
 1. La macchina virtuale viene aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale. 
 
@@ -59,11 +59,11 @@ Creare una nuova VM Linux:
  
 ## <a name="connect-to-the-vm"></a>Connettersi alla VM 
 
-Creare una connessione SSH con la macchina virtuale. Selezionare il pulsante  **Connetti** nella pagina di panoramica per la macchina virtuale. 
+Creare una connessione SSH con la macchina virtuale. Selezionare il pulsante **Connetti** nella pagina di panoramica per la macchina virtuale. 
 
 ![Pagina di panoramica della VM Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-Nella pagina **Connect to virtual machine**  (Connetti a macchina virtuale) mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **Login using VM local account** (Accedi con l'account locale della macchina virtuale) viene visualizzato un comando di connessione. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH: 
+Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **login using VM local account**viene visualizzato un comando Connection. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -77,7 +77,7 @@ Per installare il pacchetto Debian Telegraf nella VM, eseguire i comandi seguent
 
 ```cmd
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
@@ -108,7 +108,7 @@ A questo punto l'agente raccoglierà le metriche da ogni plug-in di input specif
 
 1. Aprire il [portale di Azure](https://portal.azure.com). 
 
-1. Passare alla nuova scheda  **Monitor** . Quindi selezionare  **Metrica**.  
+1. Passare alla scheda nuovo **monitoraggio** . Selezionare quindi **metrica**.  
 
      ![Monitor - Metrica (anteprima)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -128,7 +128,7 @@ Inoltre, questa procedura dettagliata ha consentito di usare l'agente Telegraf p
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
-Quando non servono più è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo selezionare il gruppo di risorse per la macchina virtuale e fare clic su  **Elimina**. Confermare quindi il nome del gruppo di risorse da eliminare. 
+Quando non servono più è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale e selezionare **Elimina**. Confermare quindi il nome del gruppo di risorse da eliminare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).

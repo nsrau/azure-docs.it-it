@@ -1,19 +1,19 @@
 ---
 title: Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud in Azure | Microsoft Docs
 description: Usare gli strumenti di diagnostica, le metriche e gli avvisi per risolvere i problemi e monitorare un'applicazione cloud.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
-ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: normesta
+ms.reviewer: fryu
+ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259990"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844891"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -51,7 +51,7 @@ Gli avvisi sono un metodo per inviare messaggi di posta elettronica agli amminis
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Passare all'account di archiviazione nel portale di Azure
 
-Nella sezione **Monitoraggio** selezionare **Avvisi (versione classica)**.
+Nella sezione **Monitoraggio** selezionare **Avvisi (versione classica)** .
 
 Selezionare **Aggiungi avviso per la metrica (versione classica)** e completare il modulo **Aggiungi regola** inserendo le informazioni richieste. Nell'elenco a discesa **Metrica** selezionare `SASClientOtherError`. Per consentire l'attivazione dell'avviso al primo errore, nell'elenco a discesa **Condizione** selezionare **Maggiore o uguale a**.
 
@@ -105,7 +105,7 @@ Quando il log si apre, è possibile visualizzare gli eventi di archiviazione. Co
 
 ![Analizzatore messaggi di Microsoft: visualizzazione degli eventi](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un altro strumento che può essere usato per interagire con gli account di archiviazione, includendo il contenitore **$logs** e i registri in esso contenuti.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un altro strumento che può essere usato per interagire con gli account di archiviazione, includendo il contenitore **$logs** e i log in esso contenuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

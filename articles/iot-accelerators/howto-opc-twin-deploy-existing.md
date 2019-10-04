@@ -1,143 +1,145 @@
 ---
-title: Come distribuire un modulo gemello OPC a un progetto Azure esistente | Microsoft Docs
-description: Come distribuire gemello OPC a un progetto esistente.
+title: Come distribuire un modulo OPC gemelle in un progetto Azure esistente | Microsoft Docs
+description: Come distribuire un dispositivo OPC gemello a un progetto esistente.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493247"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972273"
 ---
-# <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire OPC dei dispositivi gemelli in un progetto esistente
+# <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire un dispositivo OPC gemello a un progetto esistente
 
-Il modulo gemello OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge per i servizi del Registro di sistema e il gemello OPC. 
+Il modulo OPC gemello viene eseguito su IoT Edge e fornisce diversi servizi perimetrali ai servizi OPC gemello e registro di sistema.
 
-Il servizio di micro OPC gemello facilita la comunicazione tra gli operatori di factory e i dispositivi server OPC UA nell'ambiente di produzione tramite un modulo IoT Edge gemello di OPC. Il servizio micro espone servizi OPC UA (Sfoglia, lettura, scrittura ed Execute) tramite l'API REST. 
+Il microservizio OPC gemello semplifica la comunicazione tra gli operatori Factory e i dispositivi server OPC UA nel piano Factory tramite un modulo OPC gemello IoT Edge. Il microservizio espone i servizi OPC UA (Browse, Read, Write ed Execute) tramite l'API REST. 
 
-Il microservizio del Registro di sistema del dispositivo OPC UA fornisce accesso alle applicazioni registrate OPC UA e i relativi endpoint. Gli operatori e gli amministratori possono registrare e annullare la registrazione di nuove applicazioni OPC UA e individuare quelle esistenti, inclusi i relativi endpoint. Oltre all'applicazione e la gestione di endpoint, il servizio Registro di sistema possono essere visualizzate i moduli di IoT Edge gemello di OPC registrati. L'API del servizio ti offre controllo della funzionalità modulo edge, ad esempio, avviare o arrestare l'individuazione server (servizi di analisi) o attivazione nuovi dispositivi gemelli di endpoint che è possibile accedere tramite il servizio di micro gemello OPC.
+Il microservizio registro di sistema del dispositivo OPC UA fornisce l'accesso alle applicazioni OPC UA registrate e ai relativi endpoint. Gli operatori e gli amministratori possono registrare e annullare la registrazione di nuove applicazioni OPC UA ed esplorare quelle esistenti, inclusi i relativi endpoint. Oltre alla gestione di applicazioni ed endpoint, il servizio Registro di sistema cataloga anche i moduli IoT Edge OPC gemelli registrati. L'API del servizio consente di controllare la funzionalità del modulo perimetrale, ad esempio l'avvio o l'arresto dell'individuazione del server (servizi di analisi) o l'attivazione di nuovi endpoint gemelli a cui è possibile accedere tramite il microservizio OPC gemello.
 
-Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gemello endpoint, che corrisponde agli endpoint del server OPC UA che vengono attivati mediante l'API di registro OPC UA corrispondente. Dispositivi gemelli questo endpoint traducono OPC UA JSON ricevuto dal servizio micro gemello OPC in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato per l'endpoint gestito. Il Supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione di dispositivi per il servizio di onboarding dispositivo OPC UA per l'elaborazione, in cui questi eventi che gli aggiornamenti al Registro di sistema OPC UA.  Questo articolo illustra come distribuire il modulo gemello OPC a un progetto esistente. 
+Il nucleo del modulo è l'identità del supervisore. Il supervisore gestisce l'endpoint gemello, che corrisponde agli endpoint server OPC UA attivati mediante l'API del registro di sistema OPC UA corrispondente. Questo endpoint gemelli traduce il JSON OPC UA ricevuto dal microservizio OPC gemello in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato all'endpoint gestito. Il supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione dei dispositivi al servizio di caricamento dei dispositivi OPC UA per l'elaborazione, in cui questi eventi generano aggiornamenti al registro OPC UA.  Questo articolo illustra come distribuire il modulo OPC gemelle in un progetto esistente.
 
 > [!NOTE]
-> Per altre informazioni sui dettagli di distribuzione e istruzioni, vedere GitHub [repository](https://github.com/Azure/azure-iiot-opc-twin-module).
+> Per ulteriori informazioni sui dettagli e le istruzioni per la distribuzione, vedere il [repository](https://github.com/Azure/azure-iiot-opc-twin-module)github.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Assicurarsi di disporre di PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) estensioni installate.   Se non si fatto ancora, clonare questo repository GitHub.  Aprire un prompt dei comandi o terminale ed eseguire:
+Verificare che siano installate le estensioni [PowerShell e AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) . Se non è già stato fatto, clonare questo repository GitHub. Eseguire i comandi seguenti in PowerShell:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
-## <a name="deploy-industrial-iot-services-to-azure"></a>Distribuire i servizi IoT industriali in Azure
+## <a name="deploy-industrial-iot-services-to-azure"></a>Distribuisci i servizi di Industrial Internet in Azure
 
-1. Nel prompt dei comandi aperta o terminale eseguire:
+1. Nella sessione di PowerShell eseguire:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
-2. Seguire le istruzioni per assegnare un nome al gruppo di risorse della distribuzione e un nome per il sito Web.   Lo script distribuisce i microservizi e le relative dipendenze di piattaforma di Azure nel gruppo di risorse nella sottoscrizione di Azure.  Lo script registra inoltre un'applicazione nel tenant di Azure Active Directory (AAD) per supportare l'autenticazione basata su OAUTH.  Distribuzione richiederà alcuni minuti.  Un esempio di ciò che viene viene visualizzato dopo aver distribuita la soluzione:
+2. Seguire le istruzioni per assegnare un nome al gruppo di risorse della distribuzione e un nome al sito Web.   Lo script distribuisce i microservizi e le relative dipendenze della piattaforma Azure nel gruppo di risorse nella sottoscrizione di Azure.  Lo script registra anche un'applicazione nel tenant di Azure Active Directory (AAD) per supportare l'autenticazione basata su OAUTH.  La distribuzione può richiedere diversi minuti.  Un esempio di ciò che si vedrebbe dopo che la soluzione è stata distribuita correttamente:
 
-   ![Dispositivo gemello di OPC IoT industriale distribuire al progetto esistente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
+   ![Distribuzione di Internet delle cose OPC gemelli nel progetto esistente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
    L'output include l'URL dell'endpoint pubblico. 
 
-3. Una volta lo script viene completato correttamente, selezionare se si desidera salvare il file con estensione env.  Se si desidera connettersi all'endpoint cloud usando strumenti come la Console o distribuire i moduli per lo sviluppo e il debug, è necessario il file con estensione env dell'ambiente.
+3. Dopo aver completato lo script, selezionare se si desidera salvare il `.env` file.  È necessario il `.env` file dell'ambiente se si desidera connettersi all'endpoint cloud utilizzando strumenti come la console di o distribuire moduli per lo sviluppo e il debug.
 
 ## <a name="troubleshooting-deployment-failures"></a>Risoluzione degli errori di distribuzione
 
 ### <a name="resource-group-name"></a>Nome del gruppo di risorse
 
-Assicurarsi di che usare il nome di un gruppo di risorse a breve e semplice.  Il nome viene usato anche assegnare nomi alle risorse di conseguenza che deve rispondere con i requisiti di denominazione.  
+Assicurarsi di usare un nome di gruppo di risorse breve e semplice.  Il nome viene usato anche per assegnare un nome alle risorse, in quanto deve essere conforme ai requisiti di denominazione delle risorse.  
 
-### <a name="website-name-already-in-use"></a>Nome del sito Web già in uso
+### <a name="website-name-already-in-use"></a>Il nome del sito Web è già in uso
 
-È possibile che il nome del sito Web è già in uso.  Se si verifica questo errore, è necessario usare un nome di applicazione diversi.
+È possibile che il nome del sito Web sia già in uso.  Se si esegue questo errore, è necessario usare un nome di applicazione diverso.
 
-### <a name="azure-active-directory-aad-registration"></a>Registrazione con Azure Active Directory (AAD)
+### <a name="azure-active-directory-aad-registration"></a>Registrazione di Azure Active Directory (AAD)
 
-Lo script di distribuzione tenta di registrare due applicazioni AAD in Azure Active Directory.  A seconda di diritti per il tenant di AAD selezionato, la distribuzione potrebbe non riuscire. Sono disponibili due opzioni:
+Lo script di distribuzione tenta di registrare due applicazioni AAD in Azure Active Directory.  A seconda dei diritti per il tenant AAD selezionato, la distribuzione potrebbe non riuscire. Sono disponibili due opzioni:
 
-1. Se si sceglie un tenant di AAD da un elenco di tenant, riavviare lo script e scegliere una diversa dall'elenco.
-2. In alternativa, distribuire un tenant AAD privato in un'altra sottoscrizione, riavviare lo script e selezionare questa opzione per usarlo.
+1. Se si sceglie un tenant AAD da un elenco di tenant, riavviare lo script e sceglierne uno diverso dall'elenco.
+2. In alternativa, distribuire un tenant AAD privato in un'altra sottoscrizione, riavviare lo script e selezionare per usarlo.
 
 > [!WARNING]
-> Non continuano mai senza autenticazione.  Se si sceglie di eseguire questa operazione, tutti gli utenti possono accedere agli endpoint OPC gemello da Internet non autenticati.   È sempre possibile scegliere il [opzione di distribuzione "local"](howto-opc-twin-deploy-dependencies.md) per provarla prima del.
+> NON continuare senza autenticazione.  Se si sceglie di eseguire questa operazione, chiunque può accedere agli endpoint di OPC gemelli da Internet non autenticato.   È sempre possibile scegliere l' [opzione di distribuzione "locale"](howto-opc-twin-deploy-dependencies.md) per avviare le gomme.
 
-## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Distribuire una demo di servizi IoT industriale all-in-one
+## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Distribuzione di una demo dei servizi Internet delle cose industriali all-in-One
 
-È anche possibile distribuire una demo di all-in-one anziché solo i servizi e le dipendenze.  Il tutto in una demo contiene tre server OPC UA, il modulo gemello OPC, tutti i microservizi e un'applicazione Web di esempio.  Destinato a scopo dimostrativo.
+Anziché solo i servizi e le dipendenze, è anche possibile distribuire una demo All-in-One.  Il tutto in un'unica demo contiene tre server OPC UA, il modulo OPC gemello, tutti i microservizi e un'applicazione Web di esempio.  È destinato a scopi dimostrativi.
 
-1. Assicurarsi di avere un clone del repository (vedere sopra). Aprire un prompt dei comandi o terminale nella radice del repository ed eseguire:
+1. Assicurarsi di avere un clone del repository (vedere sopra). Aprire un prompt di PowerShell nella radice del repository ed eseguire:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
-2. Seguire le istruzioni per assegnare un nuovo nome per il gruppo di risorse e un nome per il sito Web.  Dopo aver distribuito correttamente, lo script verrà visualizzato l'URL dell'endpoint dell'applicazione web.
+2. Seguire le istruzioni per assegnare un nuovo nome al gruppo di risorse e un nome al sito Web.  Una volta distribuita correttamente, lo script visualizzerà l'URL dell'endpoint dell'applicazione Web.
 
-## <a name="deployment-script-options"></a>Opzioni di script di distribuzione
+## <a name="deployment-script-options"></a>Opzioni dello script di distribuzione
 
 Lo script accetta i parametri seguenti:
 
-```bash
+```powershell
 -type
 ```
 
-Il tipo di distribuzione (macchina virtuale locale, demo)
+Tipo di distribuzione (macchina virtuale, locale, demo)
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
-Può essere il nome di un gruppo di risorse nuovo o esistente.
+Può essere il nome di un gruppo di risorse esistente o nuovo.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
-Facoltativo, l'ID sottoscrizione in cui verranno distribuite risorse.
+Facoltativo, ID sottoscrizione in cui verranno distribuite le risorse.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 O il nome della sottoscrizione.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
-Facoltativo, il percorso di un gruppo di risorse. Se specificato, tenterà di creare un nuovo gruppo di risorse in questa posizione.
+Facoltativo, percorso del gruppo di risorse. Se specificato, tenterà di creare un nuovo gruppo di risorse in questa posizione.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Un nome per l'applicazione di AAD registrare in. 
+Nome dell'applicazione AAD con cui eseguire la registrazione.
 
-```bash
+```powershell
 -tenantId
 ```
 
 Tenant di AAD da usare.
 
-```bash
+```powershell
 -credentials
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come distribuire OPC gemello di un progetto esistente, ecco il passaggio successivo consigliato:
+Ora che si è appreso come distribuire un dispositivo OPC gemello a un progetto esistente, ecco il passaggio successivo suggerito:
 
 > [!div class="nextstepaction"]
-> [Proteggere la comunicazione del Client OPC e OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Comunicazione sicura di client OPC UA e OPC UA PLC](howto-opc-vault-secure.md)

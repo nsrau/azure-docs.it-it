@@ -1,34 +1,32 @@
 ---
 title: Panoramica di Funzioni di Azure | Documentazione Microsoft
 description: Informazioni su come usare Funzioni di Azure per ottimizzare i carichi di lavoro asincroni in pochi minuti.
-services: functions
 documentationcenter: na
 author: mattchenderson
 manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f3fc7691fc3afa3a1fe886655353d9ed41f631cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605445"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096070"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introduzione a Funzioni di Azure  
-Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. Funzioni può rendere più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, F#, Node.js, Java o PHP. Pagare solo per il tempo in cui il codice viene eseguito ed essere certi che Azure venga ridimensionato in base alle esigenze. Funzioni di Azure consente di sviluppare applicazioni [senza server](https://azure.microsoft.com/solutions/serverless/) in Microsoft Azure.
+Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. Funzioni può rendere ancora più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, Java, JavaScript, PowerShell e Python. Pagare solo per il tempo in cui il codice viene eseguito ed essere certi che Azure venga ridimensionato in base alle esigenze. Funzioni di Azure consente di sviluppare applicazioni [senza server](https://azure.microsoft.com/solutions/serverless/) in Microsoft Azure.
 
 Questo argomento offre una panoramica generale di Funzioni di Azure. Se si vuole iniziare immediatamente a usare Funzioni, passare a [Creare la prima funzione di Azure](functions-create-first-azure-function.md). Per informazioni più tecniche su Funzioni, vedere [Guida di riferimento per gli sviluppatori](functions-reference.md).
 
 ## <a name="features"></a>Funzionalità
 Ecco alcune delle principali funzionalità di Funzioni:
 
-* **Scelta del linguaggio**: è possibile scrivere le funzioni scegliendo tra C#, F# o Javascript. Per altre opzioni, vedere [Linguaggi supportati](supported-languages.md).
+* **Scelta del linguaggio**: è possibile scrivere le funzioni scegliendo tra C#, Java, Javascript, Python e altri linguaggi. Per l'elenco completo, vedere [Linguaggi supportati](supported-languages.md).
 * **Modello tariffario in base al consumo** : si paga solo per il tempo impiegato per l'esecuzione del codice. Visualizzare l'opzione del piano di hosting A consumo nella [sezione relativa ai prezzi](#pricing).  
 * **Trasferimento delle dipendenze** : Funzioni supporta NuGet e NPM, quindi è possibile usare le librerie preferite.  
 * **Sicurezza integrata** : è possibile proteggere le funzioni attivate da HTTP con provider OAuth, ad esempio Azure Active Directory, Facebook, Google, Twitter e account Microsoft.  
@@ -75,11 +73,11 @@ Per altre informazioni sui piani di hosting, vedere [Confronto di piani di hosti
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
-   Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
+  Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
 * [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-   Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
+  Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.
+  Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 * [Informazioni sul servizio app di Azure](../app-service/overview.md)  

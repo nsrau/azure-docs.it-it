@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d009749b7bc31595be26124b9d1eee7666e95bd4
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662670"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551681"
 ---
 # <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
 Le notifiche consentono ai client di tenere traccia delle modifiche apportate a un oggetto a cui sono interessati. Due tipi di oggetti supportano le notifiche: *Reliable State Manager* e *Reliabledictionary*.
@@ -34,7 +34,7 @@ Le notifiche vengono attivate come parte dell'applicazione dell'operazione. Per 
 ## <a name="reliable-state-manager-notifications"></a>Notifiche di Reliable State Manager
 Reliable State Manager prevede notifiche per gli eventi seguenti:
 
-* Transazione
+* Transaction
   * Commit
 * State Manager
   * Ricompilazione
@@ -112,7 +112,7 @@ Reliable Dictionary prevede notifiche per gli eventi seguenti.
 * Ricostruzione: Chiamato quando **ReliableDictionary** ha recuperato il proprio stato da un backup o lo stato locale copiato o ripristinato.
 * Chiaro: Chiamato quando lo stato del **ReliableDictionary** è stato cancellato tramite il **ClearAsync** (metodo).
 * Aggiungere: Chiamato quando un elemento è stato aggiunto **ReliableDictionary**.
-* Aggiorna: Chiamato quando un elemento **IReliableDictionary** è stata aggiornata.
+* Aggiornamento: Chiamato quando un elemento **IReliableDictionary** è stata aggiornata.
 * Rimuovere: Chiamato quando un elemento **IReliableDictionary** è stata eliminata.
 
 Per ricevere le notifiche di Reliable Dictionary, è necessario registrarsi nel gestore eventi **DictionaryChanged** in **IReliableDictionary**. Una posizione frequente per la registrazione in questi gestori eventi è la notifica di aggiunta **ReliableStateManager.StateManagerChanged** .
@@ -167,7 +167,7 @@ Il gestore eventi **DictionaryChanged** usa **NotifyDictionaryChangedEventArgs**
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **Notifydictionarychangedaction. Add** e **notifydictionarychangedaction. Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 

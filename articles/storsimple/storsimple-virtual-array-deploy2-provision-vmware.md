@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247844"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516832"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Questa esercitazione illustra come eseguire il provisioning di StorSimple Virtual Array e connettersi all'array in un sistema host che esegue VMware ESXi 5.0, 5.5, 6.0 o 6.5. Le informazioni all'interno di questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure nonché nel cloud di Microsoft Azure per enti pubblici.
 
 È necessario disporre dei privilegi di amministratore per eseguire il provisioning e connettersi a un dispositivo virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
@@ -131,7 +134,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 18. Nella pagina **Virtual Machine Version** (Versione macchina virtuale) selezionare **Virtual Machine Version: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Nella pagina relativa al **sistema operativo guest** selezionare il **sistema operativo guest** come **Windows**. Per **Version** (Versione), nell'elenco a discesa selezionare **Microsoft Windows Server 2012 (64-bit)**.
+19. Nella pagina relativa al **sistema operativo guest** selezionare il **sistema operativo guest** come **Windows**. Per **Version** (Versione), nell'elenco a discesa selezionare **Microsoft Windows Server 2012 (64-bit)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. Nella pagina **CPUs**, regolare **Number of virtual sockets** (Numero di prese virtuali) e **Number of cores per virtual socket** (Numero di core per presa virtuale) in modo che **Total number of cores** (Numero totale di core) sia almeno 4. Fare clic su **Avanti**.
@@ -173,10 +176,10 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Fare clic su **Fine**.
+33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Scegliere **Fine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Fine**.
+34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Scegliere **Fine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. Con la macchina virtuale selezionata nel riquadro a destra, passare alla scheda **Summary** . Rivedere le impostazioni per la macchina virtuale.

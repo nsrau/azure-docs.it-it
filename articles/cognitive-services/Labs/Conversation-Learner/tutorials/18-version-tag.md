@@ -1,21 +1,22 @@
 ---
-title: Come usare l'assegnazione di tag alle versioni con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare l'assegnazione di tag di versione con un modello di Conversation Learner-Servizi cognitivi di Azure | Microsoft Docs
 titleSuffix: Azure
 description: Informazioni su come usare il controllo delle versioni e l'assegnazione di tag con un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0279363c039e3ec3c2deac3bc7f71c32c547e9d1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086310"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703370"
 ---
 # <a name="how-to-use-version-tagging"></a>Come usare l'assegnazione di tag alle versioni
 
@@ -109,4 +110,4 @@ Ora si modificherà il modello per distinguerlo dalla versione 1.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Demo: Reimpostazione della password](./demo-password-reset.md)
+> [Entità enum e impostare le azioni dell'entità](./tutorial-enum-set-entity.md)

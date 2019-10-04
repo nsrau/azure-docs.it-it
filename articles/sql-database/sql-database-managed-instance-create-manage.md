@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bbba3910315be39d9fca81b95083f32ebd60e64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359145"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567600"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Riferimento all'API di gestione per Istanza gestita di database SQL di Azure
 
@@ -31,7 +30,7 @@ Per una guida introduttiva che illustra come creare Istanza gestita di database 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -44,10 +43,10 @@ Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usar
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Restituisce informazioni su Istanza gestita di database SQL di Azure|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Imposta le proprietà di Istanza gestita di database SQL di Azure|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Rimuove Istanza gestita di database SQL di Azure|
-|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea un database di Istanza gestita di database SQL di Azure|
-|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Restituisce informazioni sul database di Istanza gestita di database SQL di Azure|
-|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Rimuove un database di Istanza gestita di database SQL di Azure|
-|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Ripristina un database di Istanza gestita di database SQL di Azure|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea un database dell'istanza gestita di database SQL di Azure|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Restituisce informazioni sul database dell'istanza gestita di database SQL di Azure|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Rimuove un database dell'istanza gestita di database SQL di Azure|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Ripristina un database dell'istanza gestita di database SQL di Azure|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>Interfaccia della riga di comando di Azure: Creare e gestire istanze gestite
 
@@ -79,8 +78,8 @@ Per creare e gestire un database dell'istanza dopo la creazione dell'istanza ges
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database di Istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica un database di Istanza gestita di database SQL di Azure.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database dell'istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica un database dell'istanza gestita di database SQL di Azure.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Creare e gestire istanze gestite
 

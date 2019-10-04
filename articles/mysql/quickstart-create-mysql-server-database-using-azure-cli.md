@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un server Database di Azure per MySQL - Interfaccia della riga di comando di Azure'
+title: 'Guida introduttiva: Creare un server Database di Azure per MySQL - Interfaccia della riga di comando di Azure'
 description: Questa guida di avvio rapido descrive come usare l'interfaccia della riga di comando di Azure per creare un database di Azure per il server MySQL in un gruppo di risorse di Azure.
 author: ajlam
 ms.author: andrela
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160392"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Avvio rapido: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Guida introduttiva: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 
 > [!TIP]
 > Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) (attualmente in anteprima). Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).
@@ -43,7 +43,7 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creare un server Database di Azure per MySQL
-Creare un database di Azure per il server MySQL con il comando **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)**. Un server può gestire più database. In genere, viene usato un database separato per ogni progetto o per ogni utente.
+Creare un database di Azure per il server MySQL con il comando **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)** . Un server può gestire più database. In genere, viene usato un database separato per ogni progetto o per ogni utente.
 
 **Impostazione** | **Valore di esempio** | **Descrizione**
 ---|---|---
@@ -78,7 +78,7 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver  --l
 > 
 
 ## <a name="configure-firewall-rule"></a>Configurare una regola del firewall
-Creare una regola del firewall a livello di server per il database di Azure per il server MySQL con il comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio lo strumento della riga di comando **mysql.exe** o MySQL Workbench, di connettersi al server tramite il firewall del servizio MySQL Azure. 
+Creare una regola del firewall a livello di server per il database di Azure per il server MySQL con il comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** . Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio lo strumento della riga di comando **mysql.exe** o MySQL Workbench, di connettersi al server tramite il firewall del servizio MySQL Azure. 
 
 L'esempio seguente crea una regola firewall denominata `AllowMyIP` che consente connessioni da un indirizzo IP specifico, 192.168.0.1. Sostituire con l'indirizzo IP o l'intervallo di indirizzi IP corrispondenti alla posizione da cui si effettuerà la connessione. 
 
@@ -223,7 +223,7 @@ Se queste risorse non sono necessarie per un'altra guida introduttiva/esercitazi
 az group delete --name myresourcegroup
 ```
 
-Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)**.
+Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)** .
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

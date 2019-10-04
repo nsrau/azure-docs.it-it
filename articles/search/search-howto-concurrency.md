@@ -2,19 +2,19 @@
 title: Come gestire le scritture simultanee nelle risorse - Ricerca di Azure
 description: Usare la concorrenza ottimistica per evitare conflitti a livello di aggiornamento o di eliminazione in indici, indicizzatori e origini dati di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499426"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656728"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
 
@@ -27,7 +27,7 @@ Quando si gestiscono le risorse di Ricerca di Azure, ad esempio indici e origini
 
 La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 
-Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
+Tutte le risorse hanno un [*tag di entità (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
 
 + L'API REST usa un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) nell'intestazione della richiesta.
 + .NET SDK imposta l'ETag tramite un oggetto accessCondition, impostando l'[intestazione If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) per la risorsa. Tutti gli oggetti che ereditano da [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) hanno un oggetto accessCondition.
@@ -170,7 +170,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto dal [sinonimi (anteprima) C# esempio di ricerca di Azure](search-synonyms-tutorial-sdk.md).
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è riportato nell' [esempio C# di sinonimo di ricerca di Azure](search-synonyms-tutorial-sdk.md).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 
@@ -215,7 +215,7 @@ Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti Ac
 + [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Esempio di .NET SDK in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Common HTTP request and response headers (Intestazioni di richiesta e risposta HTTP comuni)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP status codes (Codici di stato HTTP)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

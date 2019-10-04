@@ -17,11 +17,11 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65738344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Esercitazione: Integrazione di Azure Active Directory con più account di Amazon Web Service (AWS)
 
@@ -107,8 +107,8 @@ In Amazon Web Services (AWS) assegnare il valore del **nome utente** di Azure AD
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Amazon Web Service (AWS), è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -139,7 +139,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME  | Source Attribute  | Spazio dei nomi |
+    | Name  | Attributo di origine  | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Ruolo            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |

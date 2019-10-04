@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Questa esercitazione mostra come configurare il port forwarding con Azure Load Balancer per creare connessioni alle macchine virtuali in una rete virtuale di Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007509"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273440"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -42,15 +42,15 @@ Per tutti i passaggi in questa esercitazione, accedere al portale di Azure all'i
 
 ## <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
-Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico in grado di bilanciare il traffico nelle macchine virtuali. Un servizio di bilanciamento del carico standard supporta solo indirizzi IP pubblici standard. Quando si crea un servizio di bilanciamento del carico standard, si crea anche un nuovo indirizzo IP pubblico standard configurato come front-end del bilanciamento del carico, denominato **LoadBalancerFrontEnd** per impostazione predefinita.  
+Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico in grado di bilanciare il traffico nelle macchine virtuali. Un servizio di bilanciamento del carico standard supporta solo indirizzi IP pubblici standard. Quando si crea un servizio di bilanciamento del carico standard, si crea anche un nuovo indirizzo IP pubblico standard configurato come front-end del bilanciamento del carico, denominato **LoadBalancerFrontEnd** per impostazione predefinita. 
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
-    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
+    | Subscription               | Selezionare la propria sottoscrizione.    |    
+    | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
@@ -78,7 +78,7 @@ Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al p
    - **Gruppo di risorse**: selezionare nell'elenco a discesa **Seleziona esistente**, quindi **MyResourceGroupLB**. 
    - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    ![Crea rete virtuale](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
 
@@ -111,7 +111,7 @@ Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al p
    
 1. Aggiungere la macchina virtuale a un pool back-end di bilanciamento del carico creato:
    
-   1. In **BILANCIAMENTO DEL CARICO** > **Posizionare questa macchina virtuale prima di una soluzione di bilanciamento del carico esistente?**, selezionare **Sì**. 
+   1. In **BILANCIAMENTO DEL CARICO** > **Posizionare questa macchina virtuale prima di una soluzione di bilanciamento del carico esistente?** , selezionare **Sì**. 
    1. In **Opzioni di bilanciamento del carico**, selezionare **Bilanciamento del carico di Azure** nel menù a discesa. 
    1. In **Seleziona un servizio di bilanciamento del carico**, selezionare **MyLoadBalancer** nell'elenco a discesa. 
    1. In **Seleziona un pool back-end**, selezionare **Crea nuovo**, quindi digitare *MyBackendPool*, infine selezionare **Crea**. 

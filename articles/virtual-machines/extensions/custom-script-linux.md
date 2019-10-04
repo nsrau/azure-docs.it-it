@@ -3,24 +3,23 @@ title: Eseguire script personalizzati nelle macchine virtuali Linux | Microsoft 
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: akjosh
+ms.openlocfilehash: 3a999b93ce7246a91db8dd3df7536513b6e11029
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082042"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174049"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -76,9 +75,9 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 ```json
 {
   "name": "config-app",
-  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "type": "Extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -107,19 +106,19 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio | Tipo di dati | 
+| Attività | Valore/Esempio | Tipo di dati | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | stringa |
-| type | CustomScript | stringa |
+| apiVersion | 2019-03-01 | date |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (es.) | python MyPythonScript.py <my-param1> | stringa |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | stringa |
+| fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | matrice |
+| commandToExecute (es.) | Python MyPythonScript.py \<My-param1 > | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (esempio) | false | boolean |
 | timestamp  (esempio) | 123456789 | valore integer a 32 bit |
-| storageAccountName (es.) | examplestorageacct | stringa |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
+| storageAccountName (es.) | examplestorageacct | string |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 * `skipDos2Unix`: (facoltativo, booleano) ignorare la conversione dos2unix dello script o degli URL di file basati su script.
@@ -201,7 +200,7 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
  1. Eseguire lo script usando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 
-## <a name="template-deployment"></a>Distribuzione del modello
+## <a name="template-deployment"></a>Distribuzione modello
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione di script personalizzata durante la distribuzione di un modello di Azure Resource Manager. Un modello di esempio che include l'estensione script personalizzata è disponibile su [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 
@@ -210,7 +209,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
   "name": "config-app",
   "type": "extensions",
   "location": "[resourceGroup().location]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-03-01",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
@@ -329,7 +328,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Quando viene eseguita l'estensione per script personalizzati, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
 ```bash
@@ -364,7 +363,7 @@ L'estensione per script di Azure genera un log che è possibile trovare in quest
 /var/log/azure/custom-script/handler.log
 ```
 
-È possibile cercare singole esecuzioni, che sarà simile a:
+È necessario cercare la singola esecuzione, che avrà un aspetto simile al seguente:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

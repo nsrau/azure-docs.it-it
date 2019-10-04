@@ -3,8 +3,8 @@ title: Usare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo 
 description: Questo articolo descrive come creare un'acquisizione di pacchetti attivata da un avviso con Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048759"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165148"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -80,11 +80,11 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Nome app**|PacketCaptureExample|Nome dell'app per le funzioni.|
     |**Sottoscrizione**|[Sottoscrizione] sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
-    |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Piano di hosting**|Piano A consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
+    |**Location**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
-3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** >**+**.
+3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** > **+** .
 
 4. Selezionare **HttpTrigger-Powershell** e quindi immettere le informazioni rimanenti. Selezionare infine **Crea** per creare la funzione.
 
@@ -137,11 +137,11 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
     * Az.Resources
 
-1. Fare doppio clic il **Az.Network** sottocartella e quindi selezionare **Carica file**. 
+1. Fare clic con il pulsante destro del mouse sulla sottocartella **AZ. Network** , quindi scegliere **Carica file**. 
 
-6. Passare ai moduli di Azure. In locale **Az.Network** cartella, selezionare tutti i file nella cartella. Selezionare **OK**. 
+6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Selezionare **OK**. 
 
-7. Ripetere questi passaggi per **Az.Accounts** e **Az.Resources**.
+7. Ripetere questi passaggi per **AZ. Accounts** e **AZ.** resources.
 
     ![Caricare file][functions6]
 
@@ -208,7 +208,7 @@ L'ID client è l'ID applicazione di un'applicazione in Azure Active Directory.
    > [!NOTE]
    > La password usata per la creazione dell'applicazione deve essere la stessa creata in precedenza durante il salvataggio del file di chiave.
 
-1. Nel portale di Azure selezionare **Sottoscrizioni**. Selezionare la sottoscrizione da usare e quindi fare clic su **Controllo di accesso (IAM)**.
+1. Nel portale di Azure selezionare **Sottoscrizioni**. Selezionare la sottoscrizione da usare e quindi fare clic su **Controllo di accesso (IAM)** .
 
     ![IAM delle funzioni][functions9]
 
@@ -305,8 +305,7 @@ L'esempio seguente è codice PowerShell che può essere usato nella funzione. È
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
 
                 #Get existing packetCaptures
                 $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher

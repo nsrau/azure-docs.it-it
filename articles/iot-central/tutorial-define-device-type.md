@@ -3,20 +3,22 @@ title: Definire un nuovo tipo di dispositivo in Azure IoT Central | Microsoft Do
 description: Questa esercitazione illustra come definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central. L'utente definisce i dati di telemetria, lo stato, le proprietà e le impostazioni per il tipo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681251"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099615"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Questa esercitazione illustra come usare un modello di dispositivo per definire un nuovo tipo di dispositivo nell'applicazione Microsoft Azure IoT Central. Un modello di dispositivo definisce i dati di telemetria, lo stato, le proprietà e le impostazioni per il tipo di dispositivo.
 
@@ -47,7 +49,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Central. Se è stato completato l'avvio rapido [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md), è possibile usare nuovamente l'applicazione creata nella guida. In caso contrario, completare i passaggi seguenti per creare un'applicazione Azure IoT Central vuota:
 
-1. Passare alla pagina [Application Manager](https://aka.ms/iotcentral) (Gestione applicazioni) di Azure IoT Central.
+1. Passare al sito Web di [gestione applicazioni di Azure IoT Central](https://aka.ms/iotcentral).
 
 2. Immettere l'indirizzo di posta elettronica e la password usati per accedere alla sottoscrizione di Azure:
 
@@ -67,7 +69,7 @@ Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Cen
     
    * È facoltativamente possibile scegliere un nome descrittivo per l'applicazione, ad esempio **Condizionatori Contoso**. Azure IoT Central genera un prefisso URL univoco. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
     
-   * Selezionare **Create**.
+   * Selezionare **Create** (Crea).
 
      ![Pagina Crea applicazione di Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
@@ -287,7 +289,7 @@ Le *proprietà dell'applicazione* sono usate per archiviare informazioni sul dis
 
     | Campo                | Valore                |
     | -------------------- | -------------------- |
-    | Nome visualizzato         | Località             |
+    | Nome visualizzato         | Location             |
     | Nome campo           | location             |
     | Valore iniziale        | Seattle, WA          |
     | DESCRIZIONE          | Posizione dispositivo      |

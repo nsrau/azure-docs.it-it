@@ -1,18 +1,18 @@
 ---
-title: Architettura del ripristino di emergenza da VMware ad Azure in Azure Site Recovery | Microsoft Docs
+title: Architettura del ripristino di emergenza da VMware ad Azure in Azure Site Recovery
 description: Questo articolo offre una panoramica dell'architettura e dei componenti usati per configurare il ripristino di emergenza di macchine virtuali VMware locali in Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7c21b8d7a4a2723ddf10c4ac88f8b1ce4a5d6b47
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310762"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814592"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
@@ -25,7 +25,7 @@ La tabella e l'immagine seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azure** | Una sottoscrizione di Azure, account di archiviazione di Azure per la cache, Managed Disks e rete di Azure. | I dati replicati da macchine virtuali locali vengono archiviati in archiviazione di Azure. Le macchine virtuali di Azure vengono create con i dati replicati durante l'esecuzione di un failover dal sito locale ad Azure. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Azure** | Una sottoscrizione di Azure, l'account di archiviazione di Azure per la cache, il disco gestito e la rete di Azure. | I dati replicati da macchine virtuali locali vengono archiviati in archiviazione di Azure. Le macchine virtuali di Azure vengono create con i dati replicati durante l'esecuzione di un failover dal sito locale ad Azure. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
 **Computer server di configurazione** | Un singolo computer locale. È consigliabile eseguirlo come macchina virtuale VMware che possa essere distribuita da un modello OVF scaricato.<br/><br/> Il computer esegue tutti componenti di Site Recovery locali, tra cui il server di configurazione, il server di elaborazione e il server di destinazione master. | **Server di configurazione**: coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.<br/><br/> **Server di elaborazione** Installato per impostazione predefinita nel server di configurazione. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility di Azure Site Recovery nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali locali. Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.<br/><br/> **Server master di destinazione**: Installato per impostazione predefinita nel server di configurazione. Gestisce i dati di replica durante il failback da Azure. Per distribuzioni di grandi dimensioni, è possibile aggiungere un altro server di destinazione master separato per il failback.
 **Server VMware** | Le macchine virtuali VMware sono ospitate in server vSphere ESXi locali. È consigliabile usare un server vCenter per gestire gli host. | Durante la distribuzione di Site Recovery, aggiungere i server VMware all'insieme di credenziali di Servizi di ripristino.
 **Computer replicati** | Il servizio Mobility viene installato in ogni macchina virtuale VMware da replicare. | È consigliabile consentire l'installazione automatica dal server di elaborazione. In alternativa, è possibile installare manualmente il servizio o usare un metodo di distribuzione automatico, ad esempio System Center Configuration Manager.
@@ -45,7 +45,7 @@ La tabella e l'immagine seguenti offrono una visualizzazione generale dei compon
         - **Conservazione del punto di ripristino**. Questa impostazione specifica quanto indietro nel tempo si vuole andare quando si verifica un'interruzione. Il periodo massimo di conservazione per l'archiviazione Premium è di 24 ore. Per l'archiviazione standard è 72 ore. 
         - **Snapshot coerenti con l'app**. È possibile acquisire snapshot coerenti con l'app a intervalli compresi tra 1 e 12 ore, a seconda delle esigenze dell'app. Si tratta di snapshot BLOB di Azure standard. L'agente di mobilità in esecuzione in una macchina virtuale richiede uno snapshot VSS conforme a questa impostazione e fa riferimento a quel momento come punto coerente con l'applicazione nel flusso di replica.
 
-2. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare Azure ExpressRoute con il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering). La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
+2. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare Azure ExpressRoute con il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
 3. Al termine della replica iniziale, viene avviata la replica differenziale in Azure. Le modifiche rilevate per un computer vengono inviate al server di elaborazione.
 4. Le comunicazioni avvengono nel modo seguente:
 
@@ -53,6 +53,7 @@ La tabella e l'immagine seguenti offrono una visualizzazione generale dei compon
     - Il server di configurazione orchestra la replica con Azure attraverso la porta HTTPS 443 in uscita.
     - Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
     - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
+5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure, denominato disco di inizializzazione ASR. I punti di ripristino vengono creati su questo disco.
 
 
 

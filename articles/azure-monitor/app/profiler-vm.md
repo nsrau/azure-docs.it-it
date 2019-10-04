@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66226257"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilare le app Web in esecuzione in una macchina virtuale di Azure o un set di scalabilità di macchine virtuali usando Application Insights Profiler
 
@@ -31,7 +31,8 @@ ms.locfileid: "58260044"
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuire Profiler in una macchina virtuale o un set di scalabilità di macchine virtuali
 Questo articolo illustra come eseguire Application Insights Profiler nella macchina virtuale di Azure o nel set di scalabilità di macchine virtuali di Azure. Profiler viene installato con l'estensione Diagnostica di Azure per le macchine virtuali. Configurare l'estensione per l'esecuzione di Profiler e compilare Application Insights SDK nell'applicazione.
 
-1. Aggiungere Application Insights SDK nell'[applicazione ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) o nell'[applicazione .NET](windows-services.md?toc=/azure/azure-monitor/toc.json) normale.  
+1. Aggiungere Application Insights SDK per le [applicazione ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    Per visualizzare i profili per le richieste, è necessario inviare i dati di telemetria delle richieste ad Application Insights.
 
 1. Installare l'estensione Diagnostica di Azure nella macchina virtuale. Per gli esempi di modello di Resource Manager, vedere:  

@@ -1,6 +1,6 @@
 ---
-title: Processi di database SQL elastici di Azure | Microsoft Docs
-description: Configurare i processi di database elastici per eseguire script Transact-SQL (T-SQL) in un set di uno o più database SQL di Azure
+title: Processi di database elastici SQL di Azure (anteprima) | Microsoft Docs
+description: Configurare i processi di database elastici (anteprima) per eseguire script Transact-SQL (T-SQL) in un set di uno o più database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264421"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935086"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 
@@ -76,7 +75,7 @@ Attualmente, l'anteprima è limitata a 100 processi simultanei.
 
 Per garantire che le risorse non siano sovraccariche quando si eseguono processi sul database in un pool elastico SQL, è possibile configurare i processi in modo da limitare il numero di database in cui un processo può essere eseguito contemporaneamente.
 
-Impostare il numero di database simultanei, un processo viene eseguito, impostando il `sp_add_jobstep` stored della procedure `@max_parallelism` parametro in T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Impostare il numero di database simultanei in cui viene eseguito un processo `sp_add_jobstep` impostando `@max_parallelism` il parametro del stored procedure in T- `Add-AzSqlElasticJobStep -MaxParallelism` SQL o in PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedure consigliate per la creazione di processi
 

@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61042884"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
 Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Vengono analizzati i tre metodi di campionamento più comuni:

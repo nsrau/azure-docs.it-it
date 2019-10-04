@@ -1,0 +1,97 @@
+### YamlMime:Landing
+title: Documentazione del servizio Azure Blockchain
+summary: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
+metadata:
+  title: Documentazione del servizio Azure Blockchain - Esercitazioni e informazioni di riferimento sulle API
+  description: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 09/18/2019
+  ms.openlocfilehash: f0abf5d3c81f7bd81c4fef6a15f34f753c1e1a24
+  ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71718545"
+landingContent:
+- title: Informazioni sul servizio Azure Blockchain
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il servizio Azure Blockchain?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Reti blockchain per consorzi privati
+      url: consortium.md
+    - text: Accesso ai dati e sicurezza
+      url: data-security.md
+    - text: Strumenti di sviluppo
+      url: develop.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Creare un membro della blockchain - Portale
+      url: create-member.md
+    - text: Creare un membro della blockchain - Interfaccia della riga di comando
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: Usare Visual Studio Code per connettersi alla rete di un consorzio
+      url: connect-vscode.md
+    - text: Usare MetaMask per connettersi e Remix per distribuire un contratto intelligente
+      url: connect-metamask.md
+    - text: Usare Geth per connettersi a un nodo della transazione
+      url: connect-geth.md
+    - text: Usare Truffle per connettersi a un nodo della transazione
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: Distribuire e configurare la rete
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: Scrivere e testare contratti intelligenti con VS Code
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: Inviare dati al libro mastro
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: Pubblicare eventi e dati del libro mastro
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: Integrare
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Integrare blockchain usando App per la logica di Azure
+      url: ethereum-logic-app.md
+  - linkListType: video
+    links:
+    - text: Usare il connettore blockchain di Ethereum con App per la logica di Azure
+      url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
+    - text: Scenari comuni di connessione di blockchain con App per la logica di Azure
+      url: https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true
+    - text: Generare servizi Web da contratti intelligenti
+      url: https://channel9.msdn.com/Shows/Blocktalk/Generating-Web-Services-from-Smart-Contracts-Based-on-Logic-Apps-Flows-and-Azure-Functions?term=logic%20apps%20blockchain&lang-en=true
+    - text: Pubblicare eventi di contratto intelligente in Griglia di eventi di Azure o nel bus di servizio di Azure
+      url: https://channel9.msdn.com/Shows/Blocktalk/Generate-Logic-Apps-and-Flows-to-Publish-Smart-Contract-Events-to-Event-Grid-and-Service-Bus?term=logic%20apps%20blockchain&lang-en=true
+- title: Gestisci
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire i membri della blockchain - Interfaccia della riga di comando
+      url: manage-cli.md
+    - text: Gestire i membri del consorzio - PowerShell
+      url: manage-consortium-powershell.md
+    - text: Configurare nodi delle transazioni
+      url: configure-transaction-nodes.md
+    - text: Configurare l'accesso ad Active Directory
+      url: configure-aad.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/blockchain

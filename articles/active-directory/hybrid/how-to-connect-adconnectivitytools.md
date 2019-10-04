@@ -1,28 +1,28 @@
 ---
 title: 'Azure AD Connect: Informazioni sul modulo di PowerShell ADConnectivityTool | Microsoft Docs'
-description: Questo documento illustra il nuovo modulo di PowerShell ADConnectivity
+description: Questo documento introduce il nuovo modulo di ADConnectivity PowerShell e come può essere usato per risolvere i problemi.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571123"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>Informazioni sul modulo ADConnectivityTool di PowerShell
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Risolvere i problemi di connettività di Azure Active Directory con il modulo ADConnectivityTool PowerShell
 
 Lo strumento ADConnectivity è un modulo di PowerShell che viene usato in una delle situazioni seguenti:
 
-- Durante l'installazione quando un problema di connettività di rete impedisce di convalidare correttamente le credenziali di Active Directory fornite dall'utente nella procedura guidata.
+- Durante l'installazione quando un problema di connettività di rete impedisce la convalida ha esito positivo di Active Directory le credenziali utente fornite nella procedura guidata.
 - Dopo l'installazione da parte di un utente che chiama le funzioni da una sessione di PowerShell.
 
 Lo strumento si trova in: **C:\Programmi\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 

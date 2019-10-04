@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 11/20/2017
+ms.date: 11/20/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b849db465bb9a30456e9f93f9439c53cb26c9e52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66480185"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Node.js: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -51,6 +51,6 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -1,27 +1,30 @@
 ---
 title: Attendibilità dei contenuti in Registro Azure Container
-description: Informazioni su come abilitare l'attendibilità dei contenuti per Registro Azure Container ed eseguire il push e il pull di immagini firmate.
+description: Informazioni su come abilitare il trust del contenuto per il registro contenitori di Azure e per eseguire il push e il pull delle immagini firmate.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 08/20/2018
+ms.topic: article
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.openlocfilehash: f14d4d32d2423b12786095da17305af605088fb7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727342"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300429"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
-Per ogni sistema distribuito progettato con particolare attenzione alla sicurezza, è importante verificare sia l'*origine* che l'*integrità* dei dati in ingresso nel sistema. I consumer dei dati devono poter verificare l'editore (origine) dei dati, nonché assicurarsi che i dati non siano stati modificati dopo la pubblicazione (integrità). Registro Azure Container supporta entrambe le operazioni grazie all'implementazione del modello di [attendibilità dei contenuti][docker-content-trust] Docker e questo articolo fornisce le informazioni introduttive.
+Registro Azure Container implementa il modello di [attendibilità del contenuto][docker-content-trust] di Docker, abilitando il push e il pull delle immagini firmate. Questo articolo illustra come abilitare l'attendibilità del contenuto nei registri contenitori.
 
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> [!NOTE]
+> L'attendibilità del contenuto è una funzionalità dello [SKU Premium](container-registry-skus.md) di Registro Azure Container.
 
 ## <a name="how-content-trust-works"></a>Funzionamento dell'attendibilità dei contenuti
+
+Per ogni sistema distribuito progettato con particolare attenzione alla sicurezza, è importante verificare sia l'*origine* che l'*integrità* dei dati in ingresso nel sistema. I consumer dei dati devono poter verificare l'editore (origine) dei dati, nonché assicurarsi che i dati non siano stati modificati dopo la pubblicazione (integrità). 
 
 L'attendibilità dei contenuti consente a un editore di immagini di **firmare** le immagini di cui viene eseguito il push nel registro. I consumer delle immagini (persone o sistemi che eseguono il pull delle immagini dal registro) possono configurare i client per eseguire il pull *solo* delle immagini firmate. Quando il consumer di un'immagine esegue il pull di un'immagine firmata, il client Docker verifica l'integrità dell'immagine. In questo modello, i consumer hanno la certezza che le immagini firmate siano state effettivamente pubblicate dall'editore indicato e che non siano state modificate dopo la pubblicazione.
 
@@ -31,16 +34,16 @@ L'attendibilità dei contenuti funziona con i **tag** in un repository. I reposi
 
 ### <a name="signing-keys"></a>Chiavi di firma
 
-L'attendibilità dei contenuti viene gestita tramite l'uso di un set di chiavi di firma crittografiche. Queste chiavi sono associate a un repository specifico in un registro. Ci sono diversi tipi di chiavi di firma che i client Docker e il registro usano per gestire l'attendibilità per i tag in un repository. Quando si abilita l'attendibilità dei contenuti e la si integra nella pipeline di pubblicazione e utilizzo dei contenitori, è necessario gestire queste chiavi con attenzione. Per altre informazioni, vedere [Gestione delle chiavi](#key-management) più avanti in questo articolo e [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
+L'attendibilità dei contenuti viene gestita tramite l'uso di un set di chiavi di firma crittografiche. Queste chiavi sono associate a un repository specifico in un registro. Ci sono diversi tipi di chiavi di firma che i client Docker e il registro usano per gestire l'attendibilità per i tag in un repository. Quando si abilita l'attendibilità dei contenuti e la si integra nella pipeline di pubblicazione e utilizzo dei contenitori, è necessario gestire queste chiavi con attenzione. Per altre informazioni, vedere [Gestione delle chiavi](#key-management) più avanti in questo articolo e [Gestire le chiavi per l'attendibilità dei contenuti][docker-manage-keys] nella documentazione di Docker.
 
 > [!TIP]
-> Quella fornita è una panoramica molto generale del modello di attendibilità dei contenuti Docker. Per un'analisi approfondita dell'attendibilità dei contenuti, vedere [Content trust in Docker][docker-content-trust] (Attendibilità dei contenuti in Docker).
+> Quella fornita è una panoramica molto generale del modello di attendibilità dei contenuti Docker. Per un'analisi approfondita dell'attendibilità dei contenuti, vedere [Attendibilità dei contenuti in Docker][docker-content-trust].
 
 ## <a name="enable-registry-content-trust"></a>Abilitare l'attendibilità dei contenuti nel registro
 
 Il primo passaggio consiste nell'abilitare l'attendibilità dei contenuti a livello di registro. Una volta abilita l'attendibilità dei contenuti, i client (utenti o servizi) possono eseguire il push delle immagini firmate nel registro. L'abilitazione dell'attendibilità dei contenuti nel registro non limita l'utilizzo del registro ai soli consumer per cui è abilitata l'attendibilità dei contenuti. I consumer per cui non è abilitata l'attendibilità dei contenuti possono continuare a usare normalmente il registro. I consumer nei cui client è abilitata l'attendibilità dei contenuti, tuttavia, potranno visualizzare *solo* le immagini firmate nel registro.
 
-Per abilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **CRITERI** selezionare **Attendibilità dei contenuti (anteprima)** > **Abilitata** > **Salva**.
+Per abilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **Criteri** selezionare **Attendibilità contenuto** > **Abilitata** > **Salva**. È anche possibile usare il comando [AZ ACR config content-Trust Update][az-acr-config-content-trust-update] nell'interfaccia della riga di comando di Azure.
 
 ![Abilitazione dell'attendibilità dei contenuti per un registro nel portale di Azure][content-trust-01-portal]
 
@@ -71,13 +74,16 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Concedere autorizzazioni di firma delle immagini
 
-Solo gli utenti o i sistemi a cui è stata concessa l'autorizzazione possono eseguire il push di immagini attendibili nel registro. Per concedere l'autorizzazione per il push di immagini attendibili a un utente (o a un sistema che usa un'entità servizio), concedere alle relative identità di Azure Active Directory il ruolo `AcrImageSigner`. Questo ruolo è in aggiunta al ruolo `Contributor` (o `Owner`) richiesto per il push delle immagini nel registro.
+Solo gli utenti o i sistemi a cui è stata concessa l'autorizzazione possono eseguire il push di immagini attendibili nel registro. Per concedere l'autorizzazione per il push di immagini attendibili a un utente (o a un sistema che usa un'entità servizio), concedere alle relative identità di Azure Active Directory il ruolo `AcrImageSigner`. Questo ruolo è in aggiunta al ruolo `AcrPush` (o equivalente) richiesto per il push delle immagini nel registro. Per informazioni dettagliate, vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md).
+
+> [!NOTE]
+> Non è possibile concedere l'autorizzazione push di un'immagine attendibile all' [account amministratore](container-registry-authentication.md#admin-account) di un registro contenitori di Azure.
 
 I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e nell'interfaccia della riga di comando di Azure sono illustrati di seguito.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)** > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
+Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)**  > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
 
 In questo esempio sono state assegnate due entità al ruolo `AcrImageSigner`: un'entità servizio denominata "service-principal" e un utente denominato "Azure User".
 
@@ -110,6 +116,9 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro Azure Container, vedere [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md).
 
+> [!IMPORTANT]
+> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere [gestire l'accesso alle risorse di Azure con RBAC e l'interfaccia della riga](../role-based-access-control/role-assignments-cli.md) di comando di Azure e [risolvere i problemi di RBAC per le risorse di Azure](../role-based-access-control/troubleshooting.md)
+
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 
 Per eseguire il push di un tag di un'immagine attendibile nel registro contenitori, abilitare l'attendibilità dei contenuti ed eseguire il push dell'immagine con `docker push`. La prima volta che si esegue il push di un tag firmato, viene chiesto di creare una passphrase sia per una chiave di firma radice che per una chiave di firma del repository. Entrambe le chiavi di firma, del repository e radice, vengono generate e archiviate in locale nel computer.
@@ -138,7 +147,7 @@ Dopo la prima esecuzione di `docker push` con l'attendibilità dei contenuti abi
 
 ## <a name="pull-a-trusted-image"></a>Eseguire il pull di un'immagine attendibile
 
-Per eseguire il pull di un'immagine attendibile, abilitare l'attendibilità dei contenuti ed eseguire normalmente il comando `docker pull`. I consumer per cui è abilitata l'attendibilità dei contenuti possono eseguire il pull solo di immagini con tag firmati. Ecco un esempio di pull di un tag firmato:
+Per eseguire il pull di un'immagine attendibile, abilitare l'attendibilità dei contenuti ed eseguire normalmente il comando `docker pull`. Per eseguire il pull delle immagini attendibili, il ruolo `AcrPull` è sufficiente per i normali utenti. Non sono necessari ruoli aggiuntivi, ad esempio un ruolo `AcrImageSigner`. I consumer per cui è abilitata l'attendibilità dei contenuti possono eseguire il pull solo di immagini con tag firmati. Ecco un esempio di pull di un tag firmato:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -169,13 +178,13 @@ Come indicato nell'output di `docker push` quando si esegue il push della prima 
 ~/.docker/trust/private
 ```
 
-Eseguire il backup delle chiavi radice e del repository comprimendole in un archivio e archiviandole in modo sicuro offline (ad esempio in un dispositivo di archiviazione USB). Ad esempio, in Bash:
+Eseguire il backup delle chiavi radice e del repository comprimendole in un archivio e archiviandole in una posizione sicura. Ad esempio, in Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro Azure Container quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Manage keys for content trust][docker-manage-keys] (Gestire le chiavi per l'attendibilità dei contenuti) nella documentazione di Docker.
+Insieme alle chiavi radice e del repository generate in locale ne vengono generate e archiviate anche altre da Registro Azure Container quando si esegue il push di un'immagine attendibile. Per informazioni dettagliate sulle diverse chiavi nell'implementazione dell'attendibilità dei contenuti di Docker, incluse indicazioni aggiuntive sulla gestione, vedere [Gestire le chiavi per l'attendibilità dei contenuti][docker-manage-keys] nella documentazione di Docker.
 
 ### <a name="lost-root-key"></a>Chiave radice persa
 
@@ -184,15 +193,15 @@ Se si perde l'accesso alla chiave radice, si perde l'accesso ai tag firmati in t
 > [!WARNING]
 > Disabilitando e quindi abilitando di nuovo l'attendibilità dei contenuti nel registro **vengono eliminati tutti i dati di attendibilità per tutti i tag firmati in ogni repository nel registro**. Questa azione è irreversibile e Registro Azure Container non può ripristinare i dati di attendibilità eliminati. La disabilitazione dell'attendibilità dei contenuti non elimina le immagini stesse.
 
-Per disabilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **CRITERI** selezionare **Attendibilità dei contenuti (anteprima)** > **Disabilitata** > **Salva**. Verrà visualizzato un avviso relativo alla perdita di tutte le firme nel registro. Selezionare **OK** per eliminare in modo permanente tutte le firme nel registro.
+Per disabilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **Criteri** selezionare **Attendibilità contenuto** > **Disabilitata** > **Salva**. Verrà visualizzato un avviso relativo alla perdita di tutte le firme nel registro. Selezionare **OK** per eliminare in modo permanente tutte le firme nel registro.
 
 ![Disabilitazione dell'attendibilità dei contenuti per un registro nel portale di Azure][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'attendibilità dei contenuti, vedere la documentazione di Docker. Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
+* Per altre informazioni sull'attendibilità del contenuto, vedere [Attendibilità dei contenuti in Docker][docker-content-trust]. Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
 
-[Content trust in Docker][docker-content-trust] (Attendibilità dei contenuti in Docker)
+* Per un esempio relativo all'uso dell'attendibilità dei contenuti quando si compila e si esegue il push di un'immagine Docker, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/build/content-trust).
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
@@ -209,3 +218,4 @@ Per altre informazioni sull'attendibilità dei contenuti, vedere la documentazio
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

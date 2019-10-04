@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61449505"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -103,7 +103,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
 1. Selezionare l'account di Data Lake Store creato nei passaggi precedenti e specificare la struttura di cartelle per lo streaming dei dati nell'archivio.
 
-1. Nel campo Formato data immettere **/streaming/{date}/{time}**. Lasciare i valori predefiniti per il formato della data (YYYY/MM/DD) e dell'ora (HH).
+1. Nel campo Formato data immettere **/streaming/{date}/{time}** . Lasciare i valori predefiniti per il formato della data (YYYY/MM/DD) e dell'ora (HH).
 
     ![Specificare la struttura di cartelle](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
@@ -178,6 +178,6 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
     ![Esplorare i dati di streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per eseguire analisi di Big Data sui set di dati di Data Lake Store è possibile usare Azure Data Lake Analytics. Per altre informazioni, vedere la [documentazione di Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

@@ -3,7 +3,7 @@ title: Visualizzare i log dei contenitori in Azure Service Fabric | Microsoft Do
 description: Viene descritto come visualizzare i log dei contenitori per un servizio contenitore di Service Fabric in esecuzione tramite Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: aljo
-ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662823"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599722"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
 Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [contenitori Linux e Windows](service-fabric-containers-overview.md).  Questo articolo descrive come visualizzare i log dei contenitori di un servizio contenitore in esecuzione o di un contenitore non utilizzato, in modo da diagnosticare e risolvere i problemi.
@@ -29,7 +29,7 @@ I log dei contenitori sono accessibili mediante [Service Fabric Explorer](servic
 
 I log dei contenitori sono disponibili nel nodo del cluster in cui è in esecuzione l'istanza del servizio contenitore. Ad esempio, è possibile visualizzare i log del contenitore front-end Web dell'[applicazione di voto di esempio per Linux](service-fabric-quickstart-containers-linux.md). Nella visualizzazione struttura ad albero espandere **Cluster**>**Applicazioni**>**VotingType**>**fabric:/Voting/azurevotefront**.  Espandere quindi la partizione (d1aa737e-f22a-e347-be16-eec90be24bc1 in questo esempio) e verificare che il contenitore sia in esecuzione nel nodo del cluster *_lnxvm_0*.
 
-Nella visualizzazione struttura ad albero individuare il pacchetto di codice nel nodo *_lnxvm_0* espandendo **Nodi**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Pacchetti di codice**>**codice**.  Selezionare quindi l'opzione **Log contenitori** per visualizzare i log del contenitore.
+Nella visualizzazione struttura ad albero individuare il pacchetto di codice nel nodo *_lnxvm_0* espandendo **Nodi**> **_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Pacchetti di codice**>**codice**.  Selezionare quindi l'opzione **Log contenitori** per visualizzare i log del contenitore.
 
 ![Piattaforma Service Fabric][Image1]
 

@@ -1,18 +1,18 @@
 ---
 title: Suggerimenti sulle prestazioni di Azure Cosmos DB per Async Java
-description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB
+description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos database
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 7a470193110fda0bb675e56e17a8f5647ebda5ab
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041799"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614980"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Async Java
 
@@ -30,7 +30,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="same-region"></a>
 1. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
-    Quando possibile, posizionare eventuali applicazioni che chiamano Azure Cosmos DB nella stessa area del database Azure Cosmos DB. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
+    Quando possibile, inserire tutte le applicazioni che chiamano Azure Cosmos DB nella stessa area del database di Azure Cosmos. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
     ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/performance-tips/same-region.png)
 
@@ -162,14 +162,14 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```
 
 Per le altre piattaforme (Red Hat, Windows, Mac e così via), fare riferimento a queste istruzioni https://netty.io/wiki/forked-tomcat-native.html
 
-## <a name="indexing-policy"></a>Criterio di indicizzazione
+## <a name="indexing-policy"></a>Criteri di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
@@ -198,7 +198,7 @@ Per le altre piattaforme (Red Hat, Windows, Mac e così via), fare riferimento a
 
     La complessità di una query influisce sulla quantità di unità richiesta usate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine sono tutti fattori che incidono sul costo delle operazioni di query.
 
-    Per misurare l'overhead di qualsiasi operazione (create, update o delete), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) per determinare il numero di unità richiesta usate da queste operazioni. È anche possibile esaminare la proprietà RequestCharge equivalente in ResourceResponse<T> o FeedResponse<T>.
+    Per misurare l'overhead di qualsiasi operazione (create, update o delete), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) per determinare il numero di unità richiesta usate da queste operazioni. È anche possibile esaminare la proprietà RequestCharge equivalente in ResourceResponse\<t > o FeedResponse\<t >.
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,

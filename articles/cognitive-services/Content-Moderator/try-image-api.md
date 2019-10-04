@@ -1,6 +1,6 @@
 ---
 title: Moderare le immagini con la console dell'API - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'API di moderazione di immagini in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093821"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561255"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 

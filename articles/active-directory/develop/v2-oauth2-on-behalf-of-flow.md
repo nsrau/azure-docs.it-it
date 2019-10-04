@@ -3,8 +3,8 @@ title: Piattaforma delle identità Microsoft e il flusso On-Behalf-Of di OAuth2.
 description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296879"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482159"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Piattaforma delle identità Microsoft e il flusso di OAuth 2.0 On-Behalf-Of
 
@@ -42,7 +42,7 @@ Si supponga che l'utente sia stato autenticato in un'applicazione usando il [flu
 
 I passaggi che seguono costituiscono il flusso OBO e vengono descritti con l'aiuto del diagramma seguente.
 
-![Flusso On-Behalf-Of di OAuth2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Viene illustrato il flusso On-Behalf-Of di OAuth2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. L'applicazione client esegue una richiesta all'API A con il token A, con un'attestazione `aud` dell'API A.
 1. L'API A esegue l'autenticazione per l'endpoint di rilascio dei token di Microsoft identity platform e richiede un token per accedere alle API B.
@@ -135,7 +135,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri seguenti.
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `token_type` | Indica il valore del tipo di token. L'unico tipo da Microsoft identity platform supporta è `Bearer`. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | `scope` | L'ambito di accesso concesso nel token. |
@@ -163,7 +163,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
-Quando si tenta di acquisire un token di accesso per l'API downstream, se questa dispone di criteri di accesso condizionale, ad esempio l'autenticazione a più fattori impostata, l'endpoint del token restituisce una risposta con errore. Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che questa possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
+Quando si tenta di acquisire un token di accesso per l'API downstream, se questa dispone di un criterio di accesso condizionale (ad esempio l'autenticazione a più fattori) impostato su di esso, viene restituita una risposta di errore dall'endpoint del token. Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che l'applicazione client può fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
 ```
 {

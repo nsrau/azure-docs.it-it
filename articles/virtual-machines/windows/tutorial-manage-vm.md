@@ -4,24 +4,23 @@ description: In questa esercitazione viene descritto come usare Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/28/2018
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991202"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101582"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Esercitazione: Creare e gestire VM Windows con Azure PowerShell
 
@@ -184,9 +183,9 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 | Type                     | Dimensioni comuni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
-| [Ottimizzate per il calcolo](sizes-compute.md)   | Fsv2, Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
-| [Ottimizzate per la memoria](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
-| [Ottimizzate per l'archiviazione](sizes-storage.md)      | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
+| [Ottimizzate per il calcolo](sizes-compute.md)   | Fsv2          | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
+| [Ottimizzate per la memoria](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Ottimizzate per l'archiviazione](sizes-storage.md)      | Lsv2, Ls              | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
 | [Prestazioni elevate](sizes-hpc.md) | H        | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). |
 

@@ -1,21 +1,19 @@
 ---
 title: Eseguire il mapping dei campi di input migliorati di ricerca cognitiva ai campi di output -Ricerca di Azure
 description: Estrarre e migliorare i campi dati di origine ed eseguire il mapping ai campi di output in un indice di Ricerca di Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: dd62119b01465392a92c7e68231fed8027b04da2
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750532"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265497"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Come eseguire il mapping dei campi migliorati a un indice ricercabile
 
@@ -26,7 +24,7 @@ In questo articolo si apprenderà come eseguire il mapping dei campi di input mi
 Per eseguire il mapping dei campi, aggiungere `outputFieldMappings` alla definizione dell'indicizzatore, come illustrato di seguito:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```

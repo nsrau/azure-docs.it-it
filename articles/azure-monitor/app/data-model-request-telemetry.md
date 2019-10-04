@@ -13,11 +13,11 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900532"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Dati di telemetria richiesta: Modello di dati di Application Insights
 
@@ -25,7 +25,7 @@ In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un 
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>NOME
+## <a name="name"></a>Name
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
@@ -45,7 +45,7 @@ URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>Source (Sorgente)
+## <a name="source"></a>`Source`
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
@@ -61,7 +61,7 @@ Risultato dell'esecuzione di una richiesta. Codice di stato HTTP per le richiest
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="success"></a>Success
+## <a name="success"></a>Riuscito
 
 Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false`, una richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
 

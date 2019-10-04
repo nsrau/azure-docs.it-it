@@ -3,8 +3,8 @@ title: Domande frequenti su Analisi del traffico di Azure | Microsoft Docs
 description: Ottenere le risposte ad alcune delle domande più frequenti su Analisi del traffico.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.author: kumud
+ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549372"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610257"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -54,11 +54,11 @@ Per abilitare Analisi del traffico, l'account deve soddisfare una delle seguenti
         
 Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
-1. Accedere ad Azure usando **account di accesso-AzAccount**. 
+1. Accedere ad Azure usando **login-AzAccount**. 
 
-2. Selezionare la sottoscrizione necessaria utilizzando **Select AzSubscription**. 
+2. Selezionare la sottoscrizione necessaria usando **Select-AzSubscription**. 
 
-3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzRoleAssignment - SignInName [indirizzo di posta elettronica utente] - IncludeClassicAdministrators**. 
+3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
 Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -95,12 +95,19 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali
 - Stati Uniti occidentali 2
-- Stati Uniti orientali
+- Stati Uniti centro-meridionali
+- Stati Uniti centrali
+- East US
+- Stati Uniti orientali 2
 - Francia centrale
 - Europa occidentale
+- Europa settentrionale
 - Regno Unito meridionale
+- Australia orientale
 - Australia sud-orientale
+- Asia orientale
 - Asia sud-orientale 
 - Corea del Sud centrale
 - India centrale
@@ -117,7 +124,7 @@ Sì.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
+Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics?
 
@@ -125,17 +132,11 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
- No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
+No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 
 Selezionare un'area supportata. Se si seleziona un'area non supportata, viene visualizzato un errore "Non trovato". Le regioni supportate sono state elencate in precedenza in questo articolo.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Perché viene visualizzato l'errore "è stato possibile aggiornare le impostazioni dei log di flusso per... ... InternalServerError "non corretto Quando si abilita NSG in US Gov Virginia?
-
-Ciò è dovuto a un bug in cui i provider di risorse 'Microsoft. Network' non è nuovamente registrato per una sottoscrizione di US Gov Virginia. Il team sta lavorando la correzione per questo oggetto. Come soluzione alternativa, dovrà [registrare di nuovo manualmente 'Microsoft. Network' applicazione relying Party](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Se il problema persiste, contattare il supporto. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Cosa accade se si ottiene lo stato "Impossibile caricare" nella pagina dei log di flusso NSG?
 
@@ -173,7 +174,7 @@ Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un client o modello di Azure Resource Manager?
 
-È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione dei flussi e analitica di traffico per un gruppo di sicurezza di rete specifico tramite il cmdlet Set, vedere [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione dei flussi e lo stato di analitica di traffico per un gruppo di sicurezza di rete specifico, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione del flusso e analisi del traffico per un NSG specifico usando il cmdlet Set, vedere [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione del flusso e lo stato di analisi del traffico per uno specifico NSG, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Attualmente, non è possibile utilizzare un modello di Azure Resource Manager per configurare Analisi del traffico.
 
@@ -245,28 +246,28 @@ Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa su
 
 Si consideri ad esempio il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/) dell'area Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico corrispondono a 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x $ 2,3 + 1 x $ 2,76 = $ 25,76
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Frequenza con cui il traffico di Analitica elabori i dati?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza Analisi del traffico elaborare i dati?
 
-Vedere il [sezione aggregazione dei dati](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) nello Schema di Analitica di traffico e documento di aggregazione di dati
+Vedere la [sezione aggregazione dei dati](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in analisi del traffico schema e il documento di aggregazione dei dati
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Come traffico Analitica decidere che un indirizzo IP sia dannoso? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>In che modo Analisi del traffico decide che un indirizzo IP è dannoso? 
 
-Il traffico Analitica si basa su sistemi di business intelligence Microsoft delle minacce interne per considerare un indirizzo IP come dannoso. Questi sistemi sfruttano origini dati di telemetria diversi, ad esempio i prodotti Microsoft e servizi, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) e feed esterni e creare molti business intelligence su di esso. Alcuni di questi dati è Microsoft interno. Se un indirizzo IP noto recupero risulta essere malicios, creare un ticket di supporto per conoscere i dettagli.
+Analisi del traffico si basa su sistemi di intelligence per le minacce interne Microsoft per considerare un IP come dannoso. Questi sistemi sfruttano diverse origini di telemetria come prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DC), Microsoft Security Response Center (MSRC) e feed esterni e creano numerose funzionalità di intelligence. Alcuni di questi dati sono interni Microsoft. Se un indirizzo IP noto viene contrassegnato come dannoso, rivolgersi a un ticket di supporto per conoscere i dettagli.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Come è possibile impostare avvisi per i dati di Analitica di traffico?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Come è possibile impostare gli avvisi per Analisi del traffico dati?
 
-Il traffico Analitica non è supporto incorporato per gli avvisi. Tuttavia, poiché il traffico Analitica dati vengono archiviati nel Log Analitica è possibile scrivere query personalizzate e impostare avvisi su di essi. Procedura:
-- È possibile usare il collegamento breve per Log Analitica nel traffico Analitica. 
-- Usare la [schema documentato qui](traffic-analytics-schema.md) per scrivere le query 
-- Fare clic su "Nuova regola di avviso" creazione dell'avviso
-- Fare riferimento a [documentazione degli avvisi di log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) per creare l'avviso
+Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttavia, poiché i dati Analisi del traffico vengono archiviati in Log Analytics è possibile scrivere query personalizzate e impostare avvisi su di essi. Passaggi
+- È possibile usare notifica per Log Analytics in Analisi del traffico. 
+- Usare lo [schema descritto qui](traffic-analytics-schema.md) per scrivere le query 
+- Fare clic su "nuova regola di avviso" per creare l'avviso
+- Vedere la [documentazione relativa agli avvisi di log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della mappa geografica fornisce i pulsanti per selezionare i filtri di distribuzione del traffico (ad esempio, Distribuzione, Traffico dai paesi e Di tipo dannoso). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
-- **Mappa**: sotto al banner, la sezione Mappa mostra la distribuzione del traffico tra i data center di Azure e i paesi.
+- **Banner**: Il banner nella parte superiore della mappa geografica include i pulsanti per selezionare i filtri per la distribuzione del traffico, ad esempio la distribuzione, il traffico da paesi/aree geografiche e dannosi. Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Mappa**: Sotto il banner, la sezione della mappa mostra la distribuzione del traffico tra i Data Center di Azure e i paesi/aree geografiche.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
     

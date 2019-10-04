@@ -4,16 +4,16 @@ description: Informazioni su come configurare i criteri di Apache Ranger per Hiv
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60536599"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918192"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
@@ -37,7 +37,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
     Attualmente, Ranger è compatibile solo con Yarn e Hive.
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
-Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In questa esercitazione vengono usati i due account utente.
+Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In questo articolo vengono usati i due account utente.
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati tramite la procedura descritta in [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Nella sezione successiva verranno verificati i due criteri in Excel.
@@ -74,16 +74,16 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 ## <a name="create-hive-odbc-data-source"></a>Creare un'origine dati Hive ODBC
 Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Proprietà  |DESCRIZIONE |
+ | Proprietà  |Descrizione |
  | --- | --- |
  | Data Source Name | Assegnare un nome all'origine dati |
  | Host | Immettere &lt;HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
- | Porta | Utilizzare **443**. Questa porta è passata da 563 a 443. |
+ | Port | Utilizzare **443**. Questa porta è passata da 563 a 443. |
  | Database | Usare l'**impostazione predefinita**. |
  | Hive Server Type | Selezionare **Hive Server 2** |
- | Mechanism | Selezionare **Azure HDInsight Service** |
+ | Meccanismo | Selezionare **Azure HDInsight Service** |
  | HTTP Path | Lasciare vuoto. |
- | User Name | Immettere hiveuser1@contoso158.onmicrosoft.com. Se diverso, aggiornare il nome di dominio. |
+ | Nome utente | Immettere hiveuser1@contoso158.onmicrosoft.com. Se diverso, aggiornare il nome di dominio. |
  | Password | Immettere la password per hiveuser1. |
 
 Assicurarsi di fare clic su **Test** prima di salvare l'origine dati.
@@ -99,7 +99,7 @@ Nell'ultima sezione, sono stati configurati due criteri.  hiveuser1 dispone dell
 4. Nelle origini dati ODBC selezionare il nome dell'origine dati creato nel passaggio precedente e quindi fare clic su **Avanti**.
 5. Immettere nuovamente la password per il cluster nella procedura guidata e quindi fare clic su **OK**. Attendere l'apertura della finestra di dialogo **Seleziona database e tabella** . Questa operazione potrebbe richiedere alcuni secondi.
 6. Selezionare **hivesampletable**, quindi fare clic su **Avanti**.
-7. Fare clic su **Fine**.
+7. Scegliere **Fine**.
 8. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A questo scopo, fare clic su **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
 9. Fare clic sulla scheda **Definizione**. Il testo del comando è:
 

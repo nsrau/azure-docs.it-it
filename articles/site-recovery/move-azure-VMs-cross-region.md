@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192923"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375727"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -53,7 +53,7 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
     - Per le macchine virtuali Windows, installare gli aggiornamenti di Windows più recenti in modo che nella macchina virtuale siano presenti tutti i certificati radice trusted. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
     - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati.
 2. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali che si prevede di spostare.
-3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documentare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamento del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici, per la verifica.
 
 ## <a name="prepare-the-target-region"></a>Preparare l'area di destinazione
@@ -67,8 +67,8 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
    Azure Site Recovery individua e crea automaticamente una rete virtuale e un account di archiviazione quando si abilita la replica per la macchina virtuale di origine. È anche possibile creare prima queste risorse e assegnarle alla macchina virtuale come parte del passaggio di abilitazione della replica, ma tutte le altre risorse devono essere create manualmente nell'area di destinazione. Per creare le risorse di rete usate più di frequente in base alla configurazione della macchina virtuale di origine, vedere i documenti seguenti:
 
    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+   - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
    Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
@@ -80,11 +80,11 @@ Nella procedura seguente viene usato Azure Site Recovery per copiare i dati nell
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>Creare l'insieme di credenziali in tutte le aree tranne l'origine
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)**.
+2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
 3. Per **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse **ContosoRG**.
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere [Prezzi di Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Per gli insiemi di credenziali di Servizi di ripristino, selezionare **Panoramica** > **ContosoVMVault** > **+Replica**.
+6. Per gli insiemi di credenziali di Servizi di ripristino, selezionare **Panoramica** > **ContosoVMVault** >  **+Replica**.
 7. Per **Origine** selezionare **Azure**.
 8. Per **Percorso di origine** selezionare l'area di Azure di origine in cui le macchine virtuali sono attualmente in esecuzione.
 9. Selezionare il modello di distribuzione Azure Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.

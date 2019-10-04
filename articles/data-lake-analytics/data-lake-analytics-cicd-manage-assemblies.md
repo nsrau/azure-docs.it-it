@@ -1,21 +1,17 @@
 ---
-title: Procedure consigliate per la gestione di assembly U-SQL in una pipeline di CI/CD per Azure Data Lake
+title: Gestire gli assembly U-SQL in una pipeline CI/CD-Azure Data Lake
 description: Informazioni sulle procedure consigliate per la gestione di assembly C# U-SQL in una pipeline di CI/CD con Azure DevOps.
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-ms.reviewer: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334267"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315857"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Procedure consigliate per la gestione di assembly U-SQL in una pipeline di CI/CD
 
@@ -58,7 +54,7 @@ Seguire questi passaggi per creare progetti e aggiungere riferimenti.
 
 7. Aggiungere eventuali **dipendenze gestite** e **file aggiuntivi**. Quando si aggiungono file, lo strumento usa il percorso relativo per assicurarsi di poter trovare gli assembly sul computer locale e sul computer di compilazione in un momento successivo.
 
-**\@_DeployTempDirectory** nell'editor di finestra nella parte inferiore è una variabile predefinita che fa riferimento lo strumento per la cartella di output di compilazione. Nella cartella di output della compilazione ogni assembly dispone di una sottocartella il cui nome fa riferimento a quello dell'assembly. Tutte le DLL e i file aggiuntivi si trovano in quella sottocartella.
+_DeployTempDirectory nella finestra dell'editor nella parte inferiore è una variabile predefinita che punta lo strumento alla cartella di output di compilazione.  **\@** Nella cartella di output della compilazione ogni assembly dispone di una sottocartella il cui nome fa riferimento a quello dell'assembly. Tutte le DLL e i file aggiuntivi si trovano in quella sottocartella.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilare un progetto di database U-SQL
 

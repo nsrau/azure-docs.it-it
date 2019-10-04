@@ -1,20 +1,19 @@
 ---
 title: Scheda Ottimizza per i flussi di dati di mapping di Azure Data Factory
-description: Ottimizzare i flussi di dati di mapping di Azure Data Factory con le impostazioni di partizionamento nella scheda Ottimizza
+description: Ottimizzare Azure Data Factory il Mapping di flusso dei dati usando la scheda ottimizzare con le impostazioni della partizione
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728778"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190652"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Scheda Ottimizza per la trasformazione dei flussi di dati di mapping
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapping dei dati di trasformazione del flusso di ottimizzare scheda
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,8 +45,13 @@ Questa opzione usa intervalli dinamici di Spark in base alle colonne o alle espr
 
 ### <a name="fixed-range"></a>Fixed Range (Intervallo fisso)
 
-È necessario creare un'espressione che fornisca un intervallo fisso per i valori all'interno delle colonne di dati partizionati. Prima di usare questa opzione, è bene avere una buona comprensione dei dati, per evitare l'asimmetria delle partizioni. Il valore immesso per l'espressione verrà usato come parte di una funzione di partizione. È possibile impostare il numero di partizioni fisiche.
+È necessario creare un'espressione che fornisca un intervallo fisso per i valori all'interno delle colonne di dati partizionati. Prima di usare questa opzione, è bene avere una buona comprensione dei dati, per evitare l'asimmetria delle partizioni. I valori che immessi per l'espressione da utilizzare come parte di una funzione di partizione. È possibile impostare il numero di partizioni fisiche.
 
 ### <a name="key"></a>Chiave
 
 Se si ha una buona comprensione della cardinalità dei dati, il partizionamento con chiavi può essere una buona strategia di partizionamento. Il partizionamento con chiavi crea partizioni per ogni valore univoco nella colonna. Non è possibile impostare il numero di partizioni, perché questo numero è basato su valori univoci nei dati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Guida alle prestazioni del flusso di dati di mapping](concepts-data-flow-performance.md)
+[del flusso di dati di monitoraggio](concepts-data-flow-monitoring.md)

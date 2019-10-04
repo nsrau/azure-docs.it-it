@@ -10,16 +10,15 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073829"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
 
@@ -44,7 +43,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a> Elenco API  
+## <a name="APIList"></a> Elenco API  
  Il modello **Elenco API** consente di personalizzare il corpo della pagina di elenco API nel portale per sviluppatori.  
   
  ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API del portale per sviluppatori in Gestione API")  
@@ -88,7 +87,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apis`|Raccolta di entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|Le API visibili all'utente corrente.|  
   
@@ -112,7 +111,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 }  
 ```  
   
-##  <a name="Product"></a> Operazione  
+## <a name="Product"></a> Operazione  
  Il modello **Operazione** consente di personalizzare il corpo della pagina dell'operazione nel portale per sviluppatori.  
   
  ![Pagina dell'operazione nel portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Pagina dell'operazione nel portale per sviluppatori in Gestione API")  
@@ -343,14 +342,14 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|`apiId`|stringa|ID dell'API corrente.|  
-|`apiName`|stringa|Nome dell'API.|  
-|`apiDescription`|stringa|Descrizione dell'API.|  
+|`apiId`|string|ID dell'API corrente.|  
+|`apiName`|string|Nome dell'API.|  
+|`apiDescription`|string|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
 |`operation`|[operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
-|`sampleUrl`|stringa|L'URL per l'operazione corrente.|  
+|`sampleUrl`|string|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
 |`samples`|Raccolta di entità [Esempio di codice](api-management-template-data-model-reference.md#Sample).|Gli esempi di codice per l'operazione corrente.|  
@@ -642,7 +641,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 }  
 ```  
   
-##  <a name="CodeSamples"></a> Esempi di codice  
+## <a name="CodeSamples"></a> Esempi di codice  
  I modelli seguenti consentono di personalizzare il corpo degli esempi di codice singoli nella pagina operazione.  
   
  ![Modelli per esempi di codice nel portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Modelli per esempi di codice nel portale per sviluppatori in Gestione API")  
@@ -663,7 +662,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> Curl  
+### <a name="Curl"></a> Curl  
  Il modello **DocumentationSamplesCurl** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -716,12 +715,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  Il modello **DocumentationSamplesCsharp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -895,12 +894,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a> Java  
+### <a name="Stub"></a> Java  
  Il modello **DocumentationSamplesJava** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -991,12 +990,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a> JavaScript  
+### <a name="JavaScript"></a> JavaScript  
  Il modello **DocumentationSamplesJs** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -1080,12 +1079,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a> Objective C  
+### <a name="ObjectiveC"></a> Objective C  
  Il modello **DocumentationSamplesObjc** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1192,12 +1191,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a> PHP  
+### <a name="PHP"></a> PHP  
  Il modello **DocumentationSamplesPhp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1282,12 +1281,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a> Python  
+### <a name="Python"></a> Python  
  Il modello **DocumentationSamplesPython** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1363,7 +1362,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Controlli  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
@@ -1400,12 +1399,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a> Ruby  
+### <a name="Ruby"></a> Ruby  
  Il modello **DocumentationSamplesRuby** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

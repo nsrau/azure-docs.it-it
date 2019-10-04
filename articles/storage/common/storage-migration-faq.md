@@ -3,17 +3,18 @@ title: Domande frequenti sulla migrazione di Archiviazione di Azure | Microsoft 
 description: Risposte alle domande comuni sulla migrazione di Archiviazione di Azure
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310847"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090809"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -37,7 +38,7 @@ Lo script di automazione è progettato per la distribuzione di Azure Resource Ma
 
 **Sono previsti costi per la copia dei dati tra due condivisioni file diverse nello stesso account di archiviazione all'interno della stessa area?**
 
- No. Per questo processo non vengono addebitati costi.
+No. Per questo processo non vengono addebitati costi.
 
 **Come si esegue il backup dell'intero account di archiviazione in un altro account di archiviazione?**
 
@@ -193,7 +194,7 @@ Usare AzCopy per copiare i dati in un altro account di archiviazione e quindi sp
 
 **Esistono prerequisiti per la modifica della replica di un account di archiviazione passando dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale?**
 
- No. 
+No. 
 
 **Come si accede all'archiviazione ridondante di File di Azure?**
 
@@ -276,13 +277,13 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Usare uno dei metodi seguenti:  
       
-    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:   
+    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
-**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" vengono visualizzati come "https:\//www.contoso.com/images/image.gif"?**
+**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare in modo che\/"https:/mystorageaccountname.blob.Core.Windows.net/images/image.gif" venga visualizzato\/come "https:/www.contoso.com/images/image.gif"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).
@@ -291,7 +292,7 @@ Gli account di archiviazione con domini personalizzati attualmente non supportan
 
 Non è possibile accedere direttamente a un account di archiviazione usando FTP. È però possibile configurare una macchina virtuale di Azure e quindi installare un server FTP nella macchina virtuale. È possibile fare in modo che il server FTP archivi i file in una condivisione di File di Azure o in un disco dati disponibile per la macchina virtuale.
 
-Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 **Eseguire la migrazione di oggetti BLOB da un account di archiviazione all'altro**
 

@@ -6,21 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.localizationpriority: high
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387469"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307689"
 ---
+::: zone target="docs"
+
 # <a name="azure-data-box-disk-system-requirements"></a>Requisiti di sistema di Azure Data Box Disk
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Disk e per i client connessi a Data Box Disk. Prima di distribuire Data Box Disk è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
 
 I requisiti di sistema includono le piattaforme supportate per i client che si connettono ai dischi, gli account di archiviazione supportati e i tipi di archiviazione.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="review-prerequisites"></a>Esaminare i prerequisiti
+
+1. È necessario aver ordinato Data Box Disk seguendo le indicazioni dell'[Esercitazione: ](data-box-disk-deploy-ordered.md)Ordinare Azure Data Box Disk. Oltre ai dischi è stato ricevuto un cavo di collegamento per ogni disco.
+2. Sia disponibile un computer client da cui è possibile copiare i dati. Il computer client deve:
+
+    - Eseguire un sistema operativo supportato.
+    - Includere eventuale altro software richiesto.
+
+::: zone-end
 
 ## <a name="supported-operating-systems-for-clients"></a>Sistemi operativi supportati per i client
 
@@ -29,7 +45,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per lo sblocco
 | **Sistema operativo** | **Versioni testate** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| Windows (a 64 bit) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Altri software obbligatori per i client Windows
@@ -70,7 +86,7 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data 
 
 ## <a name="supported-storage-types-for-upload"></a>Tipi di archiviazione supportati per il caricamento
 
-Ecco un elenco dei tipi di archiviazione supportati per caricato in Azure usando Data Box Disk.
+Ecco un elenco dei tipi di archiviazione supportati per il caricamento in Azure con Data Box Disk.
 
 | **Formato file** | **Note** |
 | --- | --- |
@@ -79,8 +95,11 @@ Ecco un elenco dei tipi di archiviazione supportati per caricato in Azure usando
 | File di Azure  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Passaggio successivo
 
 * [Distribuire Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2018
-ms.author: erikre
-ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 334fb0f4df318b1984c1b6653845af564506230b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370986"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719621"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Esaminare l'utilizzo di risorse di Azure usando l'API REST
 
@@ -89,7 +89,7 @@ Configurare i parametri del report nel corpo della richiesta HTTP. Nell'esempio 
 }
 ```
 
-Il valore di 
+Il valore di
 
 ## <a name="filtering-reports"></a>Filtraggio di report
 

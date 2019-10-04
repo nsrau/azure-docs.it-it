@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533384"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300940"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Livelli elevati di disponibilità e affidabilità per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà l'Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 
 L'Utilità di pianificazione di Azure offre livelli elevati di [disponibilità](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) e di affidabilità per i processi. Per altre informazioni, vedere il [contratto di servizio per l'Utilità di pianificazione](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -70,7 +70,7 @@ Il tipo di azione per l'azione alternativa può essere diverso dall'azione origi
 
 Per informazioni su come configurare un endpoint alternativo, vedere [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)

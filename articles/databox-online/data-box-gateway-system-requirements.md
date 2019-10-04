@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65442375"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Gateway di dati finestra Azure
 
@@ -29,7 +29,7 @@ I requisiti di sistema per il dispositivo virtuale Data Box Gateway includono:
 
 Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale:
 
-| Specifiche                                          | DESCRIZIONE              |
+| Specifiche                                          | Descrizione              |
 |---------------------------------------------------------|--------------------------|
 | Processori virtuali (core)   | Minimo 4 |
 | Memoria  | Minimo 8 GB|
@@ -50,7 +50,7 @@ Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicar
 
 | **Sistema operativo/piattaforma**  |**Versioni**   |**Note**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6,5 <br> 6.7       |Gli strumenti VMware non sono supportati.         |
 
 

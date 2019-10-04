@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: fca459291fbf25c5404427fdcfc96947c52a1e74
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05b870fb0d836a89be2a7212436c5c6f91982837
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544308"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705448"
 ---
 # <a name="quickstart-query-for-facts"></a>Guida introduttiva: Query per i fatti
 

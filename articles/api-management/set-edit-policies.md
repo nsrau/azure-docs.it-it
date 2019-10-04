@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008267"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071695"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
 
@@ -34,28 +33,30 @@ Per impostare o modificare un criterio, seguire questa procedura:
 2. Passare all'istanza di Gestione API.
 3. Fare clic sulla scheda **API**.
 
-    ![Modificare i criteri](./media/set-edit-policies/code-editor.png)
+    ![Modifica criterio](./media/set-edit-policies/code-editor.png)
 
 4. Selezionare una delle API importate in precedenza.
 5. Selezionare la scheda **Progettazione**.
 6. Selezionare un'operazione a cui si vuole applicare il criterio. Per applicare il criterio a tutte le operazioni, selezionare **Tutte le operazioni**.
 7. Selezionare l'icona **</>** (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita**.
 8. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```XML
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>Configurare l'ambito
 

@@ -7,21 +7,20 @@ author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: 955ba0aae41d7e555c1248cf04073b1b6e3f2d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9e93cb6cf57a42463e631332fb4714457b9b675f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499965"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275482"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
-Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
+Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
 
 > [!IMPORTANT]
 > Questa pagina è applicabile ai ruoli Web e ai ruoli di lavoro dei servizi cloud in esecuzione su un sistema operativo guest. **Non si applica** alle macchine virtuali IaaS.
@@ -39,9 +38,24 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 >
 >
 
-In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste informazioni][cloud updates].
+In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="september-4-2019"></a>**4 settembre 2019**
+È stato rilasciato il sistema operativo guest di agosto.
+
+###### <a name="july-26-2019"></a>**26 luglio 2019**
+È stato rilasciato il sistema operativo guest di luglio.
+
+###### <a name="july-8-2019"></a>**8 luglio 2019**
+È stato rilasciato il sistema operativo guest di giugno.
+
+###### <a name="june-6-2019"></a>**6 giugno 2019**
+È stato rilasciato il sistema operativo guest di maggio.
+
+###### <a name="may-7-2019"></a>**7 maggio 2019**
+È stato rilasciato il sistema operativo guest di aprile.
 
 ###### <a name="march-26-2019"></a>**26 marzo 2019**
 È stato rilasciato il sistema operativo guest di marzo.
@@ -67,7 +81,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ###### <a name="october-12-2018"></a>**12 ottobre 2018**
 È stato rilasciato il sistema operativo guest di settembre.
 
-## <a name="releases"></a>Rilasci
+## <a name="releases"></a>Versioni
 
 ## <a name="family-6-releases"></a>Versioni della famiglia 6
 **Windows Server 2019**
@@ -75,22 +89,27 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 Versione .NET Framework installata: 3.5, 4.7.2
 
 > [!NOTE]
-> Windows Azure SDK per .NET - 3.0 può essere scaricato [qui][Windows Azure SDK].
+> Windows Azure SDK per .NET-3,0 può essere scaricato [qui][Windows Azure SDK].
 >
 >Passaggi per l'installazione:
->1. Disinstallare eventuali versioni meno recenti di MicrosoftAzureAuthoringTools*.msi
->2. Installare il [Azure SDK per .NET - 3.0][Windows Azure SDK]
+>1. Disinstallare le versioni precedenti di MicrosoftAzureAuthoringTools*. msi
+>2. Installare [Azure SDK per .NET-3,0][Windows Azure SDK]
 >3. Riavviare il computer
->4. Creare un nuovo progetto servizio Cloud e aggiungere un singolo ruolo di lavoro
->5. Modificare la famiglia del sistema operativo su 6 e compilare un pacchetto
+>4. Creare un nuovo progetto di servizio cloud e aggiungere un singolo ruolo di lavoro
+>5. Modificare la famiglia del sistema operativo in 6 e compilare un pacchetto
 >6. Distribuire il pacchetto in Azure usando il portale di Azure o Visual Studio
 >
 
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-6.5_201903-01 |26 marzo 2019 |Post 6.7 |
-| WA-GUEST-OS-6.4_201902-01 |12 marzo 2019 |Post 6.6 |
+| WA-GUEST-OS-6.10 _201908-01 |  4 agosto 2019  |  Post 6,12  |  
+| WA-GUEST-OS-6.9 _201907-01 |26 luglio 2019 |Post 6,11 |
+|~~WA-GUEST-OS-6.8 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-6.7 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 gennaio 2019 |5 febbraio 2019 |
@@ -98,7 +117,7 @@ Versione .NET Framework installata: 3.5, 4.7.2
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
 **Windows Server 2016**
 
-Versione .NET Framework installata: 3.5, 4.6.2
+Versione .NET Framework installata: 3,5, 4,6
 
 > [!NOTE]
 > La password di RDP per la famiglia di sistemi operativi 5 deve contenere almeno 10 caratteri.
@@ -107,8 +126,13 @@ Versione .NET Framework installata: 3.5, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-5.29_201903-01 |26 marzo 2019 |Post 5.31 |
-| WA-GUEST-OS-5.28_201902-01 |12 marzo 2019 |Post 5,30 |
+| WA-GUEST-OS-5.34 _201908-01  |  4 agosto 2019  |  Post 5,36  |  
+| WA-GUEST-OS-5.33 _201907-01 |26 luglio 2019 |Post 5,35 |  
+|~~WA-GUEST-OS-5.32 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-5.31 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -118,12 +142,17 @@ Versione .NET Framework installata: 3.5, 4.6.2
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
 **Windows Server 2012 R2**
 
-Versione .NET Framework installata: 3.5, 4.5.1
+Versione .NET Framework installata: 3.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-4.64_201903-01 |26 marzo 2019 |Post 4.66 |
-| WA-GUEST-OS-4.63_201902-01 |12 marzo 2019 |Post 4.65 |
+| WA-GUEST-OS-4.69 _201908-01 |  4 agosto 2019  |  Post 4,71  |  
+| WA-GUEST-OS-4.68 _201907-01 | 26 luglio 2019  |Post 4,70 |
+|~~WA-GUEST-OS-4.67 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-4.66 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -137,8 +166,13 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-3.71_201903-01 |26 marzo 2019 |Post 3,73 |
-| WA-GUEST-OS-3.70_201902-01 |12 marzo 2019 |Post 3.72 |
+| WA-GUEST-OS-3.76 _201908-01 |  4 agosto 2019  |  Post 3,78  |  
+| WA-GUEST-OS-3,75 _201907-01 | 26 luglio 2019 |Post 3,77 |
+|~~WA-GUEST-OS-3.74 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-3.73 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -148,12 +182,17 @@ Versione .NET Framework installata: 3.5, 4.5
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
 
-Versione .NET Framework installata: 3.5 (include le versioni 2.0 e 3.0)
+Versione .NET Framework installata: 3,5 (include 2,0 e 3,0), 4,5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
-| WA-GUEST-OS-2.84_201903-01 |26 marzo 2019 |Post 2.86 |
-| WA-GUEST-OS-2.83_201902-01 |12 marzo 2019 |Post 2.85 |
+| WA-GUEST-OS-2.89 _201908-01 |  4 agosto 2019  |  Post 2,91  |  
+| WA-GUEST-OS-2.88 _201907-01 | 26 luglio 2019 |Post 2,90 |
+|~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
+|~~WA-GUEST-OS-2.86 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
@@ -161,10 +200,10 @@ Versione .NET Framework installata: 3.5 (include le versioni 2.0 e 3.0)
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
 
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC
-L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni mese è disponibile [qui][patches].
+L'elenco delle patch incluse in ogni versione del sistema operativo guest mensile è disponibile [qui][patches].
 
 ## <a name="sdk-support"></a>Supporto SDK
-Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
+Anche se i [criteri di ritiro per Azure SDK][retire policy sdk] indicano che sono supportate solo le versioni sopra 2,2, le famiglie specifiche del sistema operativo guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni SDK compatibili |
 | --- | --- |
@@ -180,19 +219,19 @@ Sono tre le date importanti per le versioni dei sistemi operativi guest: la data
 
 La finestra temporale fra la data di **disabilitazione** e la data di **scadenza** offre un margine di tempo che facilita la transizione da un sistema operativo guest a un altro più recente. Se si usa l'opzione *automatico* come sistema operativo guest, la versione usata sarà sempre la più recente e non ci si dovrà preoccupare della scadenza.
 
-Quando si supera la data di **scadenza** , qualsiasi servizio cloud che usa ancora quel sistema operativo guest verrà arrestato, eliminato o costretto all'aggiornamento. Altre informazioni sui criteri di ritiro sono disponibili [qui][retirepolicy].
+Quando si supera la data di **scadenza** , qualsiasi servizio cloud che usa ancora quel sistema operativo guest verrà arrestato, eliminato o costretto all'aggiornamento. Per altre informazioni sui criteri di ritiro, vedere [qui][retirepolicy].
 
 ## <a name="guest-os-family-version-explanation"></a>Spiegazione delle versioni delle famiglie di sistemi operativi guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
 * **Guest OS family**  
-   Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
+  Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
 * **Versione del sistema operativo guest**  
-  Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
+  Specifico per un'immagine della famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] disponibili alla data in cui viene prodotta la nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
 
     I numeri iniziano da 0 e vengono incrementati di 1 a ogni aggiunta di un nuovo set di aggiornamenti. Gli zeri finali vengono visualizzati solo se sono importanti; ad esempio, la versione 2.10 è una versione diversa e successiva rispetto alla versione 2.1.
 * **Rilascio del sistema operativo guest**  
-   Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure consentirà agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
+  Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure consentirà agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
 
 Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il rilascio.
 
@@ -209,9 +248,9 @@ Gli aggiornamenti di Microsoft Azure vengono rilasciati costantemente. Il sistem
 
 Quando viene pubblicato un nuovo rilascio del sistema operativo guest, la propagazione completa in Azure può richiedere tempo. Man mano che i servizi vengono aggiornati al nuovo sistema operativo guest, vengono riavviati rispettando i domini di aggiornamento. Un rilascio sarà innanzitutto fornito ai servizi per cui sono stati impostati gli aggiornamenti automatici. Dopo l'aggiornamento, la nuova versione del sistema operativo guest sarà elencata per il servizio nel portale di Azure. Durante questo periodo possono essere introdotti dei nuovi rilasci. Alcune versioni potrebbero essere distribuite per periodi più lunghi ed è possibile che i riavvii di aggiornamenti automatici non si verifichino per molte settimane dopo la data di rilascio ufficiale. Quando un sistema operativo guest diventa disponibile, è possibile scegliere esplicitamente tale versione dal portale o nel file di configurazione.
 
-Per molte informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti dei sistemi operativi guest e host, vedere il post del blog su MSDN relativo ai [riavvii dell'istanza del ruolo dovuti ad aggiornamenti del sistema operativo][restarts].
+Per molte informazioni importanti sui riavvii e sui puntatori ad altre informazioni sui dettagli tecnici degli aggiornamenti del sistema operativo guest e host, vedere il post del Blog MSDN relativo [ai riavvii dell'istanza del ruolo a causa di aggiornamenti del sistema operativo][restarts].
 
-Se si aggiorna manualmente il sistema operativo guest, vedere [Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure][retirepolicy] per altre informazioni.
+Se si aggiorna manualmente il sistema operativo guest, vedere i [criteri di ritiro del sistema operativo guest][retirepolicy] per ulteriori informazioni.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].

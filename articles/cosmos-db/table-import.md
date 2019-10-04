@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876818"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242578"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 
@@ -109,7 +109,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>Eseguire la migrazione dei dati mediante AzCopy
 
-L'utilità da riga di comando AzCopy è l'altra opzione per eseguire la migrazione dei dati dall'archiviazione tabelle di Azure all'API Table di Azure Cosmos DB. Per usare AzCopy, è prima necessario esportare i dati come descritto in [Esportare dati da Archiviazione tabelle](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), quindi importare i dati in Azure Cosmos DB come descritto nell'[API Tabelle di Azure Cosmos DB](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+L'utilità da riga di comando AzCopy è l'altra opzione per eseguire la migrazione dei dati dall'archiviazione tabelle di Azure all'API Table di Azure Cosmos DB. Per usare AzCopy, è prima necessario esportare i dati come descritto in [Esportare dati da Archiviazione tabelle](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage), quindi importare i dati in Azure Cosmos DB come descritto nell'[API Tabelle di Azure Cosmos DB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage).
 
 Quando si esegue l'importazione in Azure Cosmos DB, vedere l'esempio seguente. Si noti che il valore /Dest usa cosmosdb, non core.
 

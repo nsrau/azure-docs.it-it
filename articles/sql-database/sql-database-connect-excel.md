@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: joseidz
 ms.author: craigg
 ms.reviewer: ''
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103401"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569360"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
 
@@ -37,9 +36,9 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
    ![Selezionare l'origine dati: Connettere Excel al database SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Si apre la Connessione guidata dati.
-3. Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** per il database SQL a cui si vuole stabilire la connessione nel formato <*nomeserver*>**.database.windows.net**. Ad esempio, **msftestserver.database.windows.net**. Se si vuole, immettere il nome del database. Scegliere **OK** per aprire la finestra delle credenziali. 
+3. Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** per il database SQL a cui si vuole stabilire la connessione nel formato <*nomeserver*> **.database.windows.net**. Ad esempio, **msftestserver.database.windows.net**. Se si vuole, immettere il nome del database. Scegliere **OK** per aprire la finestra delle credenziali. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Finestra di dialogo Connetti al server di database](media/sql-database-connect-excel/server-name.png)
 
 4. Nella finestra di dialogo **Database SQL Server** selezionare **Database** sul lato sinistro e quindi immettere il **nome utente** e la **password** per il server di database SQL a cui ci si vuole connettere. Selezionare **Connetti** per aprire lo **Strumento di navigazione**. 
 
@@ -68,7 +67,7 @@ Ora che è stata stabilita la connessione, è possibile caricare i dati in diver
 
 > [!TIP]
 > Per connettere altre cartelle di lavoro e altri fogli di lavoro di Excel al database, selezionare la scheda **Dati** e quindi selezionare **Origini recenti** per aprire la finestra di dialogo **Origini recenti**. In questa finestra selezionare la connessione creata dall'elenco e fare clic su **Apri**.
-> ![Connessioni recenti](media/sql-database-connect-excel/recent-connections.png)
+> ![Finestra di dialogo origini recenti](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Creare una connessione permanente mediante un file con estensione odc
 
@@ -78,7 +77,7 @@ Per salvare i dettagli della connessione in modo permanente, è possibile creare
    1. Selezionare **Sfoglia** per aprire la finestra di dialogo **Seleziona origine dati**.   
    2. Selezionare il file **+NewSqlServerConnection.odc** e quindi scegliere **Apri** per aprire la **Connessione guidata dati**.
 
-      ![Nuova connessione](media/sql-database-connect-excel/new-connection.png)
+      ![Finestra di dialogo nuova connessione](media/sql-database-connect-excel/new-connection.png)
 
 2. In **Connessione guidata dati** digitare il nome del server e le credenziali del database SQL. Selezionare **Avanti**. 
    1. Nell'elenco a discesa selezionare il database che contiene i dati. 

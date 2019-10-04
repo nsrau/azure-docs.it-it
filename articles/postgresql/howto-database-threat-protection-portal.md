@@ -1,19 +1,19 @@
 ---
-title: Advanced Threat Protection - Database di Azure per PostgreSQL
+title: Server singolo di Advanced Threat Protection - Database di Azure per PostgreSQL-
 description: La Protezione dalle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067456"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Advanced Threat Protection per Database di Azure per PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Protezione avanzata dalle minacce per il Database di Azure per PostgreSQL - Server singolo
 
 Advanced Threat Protection per Database di Azure per PostgreSQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
@@ -28,8 +28,8 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Passare alla pagina di configurazione del Database di Azure per PostgreSQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
-3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
+2. Passare alla pagina di configurazione del Database di Azure per PostgreSQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)** .
+3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)** :
 
    - Abilita Advanced Threat Protection nel server.
    - In **Impostazioni di Advanced Threat Protection**, nella casella di testo **Invia avvisi a**, viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.

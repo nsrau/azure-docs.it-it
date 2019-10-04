@@ -1,32 +1,33 @@
 ---
 title: Usare Analisi archiviazione di Azure per raccogliere dati di metriche e log | Microsoft Docs
 description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l'archiviazione di BLOB, code e tabelle.
-services: storage
-author: roygara
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: eb85f8c756e7373a8dedabbce362cfa534e56fd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849177"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844852"
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
 
 Analisi archiviazione di Azure esegue la registrazione e fornisce le metriche dei dati per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Usare la [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties), e [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties)operazioni per abilitare archiviazione Analitica per ogni servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dalla [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [imposta](/rest/api/storageservices/set-blob-service-properties)proprietà servizio BLOB, [Imposta proprietà servizio](/rest/api/storageservices/set-queue-service-properties)di Accodamento, [Imposta proprietà servizio tabelle](/rest/api/storageservices/set-table-service-properties)e [Imposta proprietà servizio file](/rest/api/storageservices/Get-File-Service-Properties) per abilitare analisi archiviazione per ogni servizio.
 
 I dati aggregati vengono archiviati in un BLOB noto (per la registrazione) e in tabelle note (per le metriche), a cui è possibile accedere tramite le API del servizio BLOB e del servizio tabelle.
 
 Analisi archiviazione può archiviare un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Per informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
 Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="billing-for-storage-analytics"></a>Fatturazione per Analisi archiviazione
 

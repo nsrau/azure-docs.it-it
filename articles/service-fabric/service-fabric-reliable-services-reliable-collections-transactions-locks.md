@@ -3,7 +3,7 @@ title: Transazioni e modalità di blocco delle raccolte Reliable Collections in 
 description: Transazioni e blocco delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: aljo
-ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662041"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599323"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
 
@@ -46,7 +46,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Primaria | Secondario |
+| Operazione\Ruolo | Primario | Secondario |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |
@@ -75,10 +75,10 @@ Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma c
 
 La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 
-| Richiesto\Concesso | Nessuno | Condiviso | Aggiornamento | Esclusivo |
+| Richiesto\Concesso | Nessuno | Condiviso | Aggiorna | Esclusivo |
 | --- |:--- |:--- |:--- |:--- |
 | Condiviso |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
-| Aggiornamento |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
+| Aggiorna |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Esclusivo |Nessun conflitto |Conflitto |Conflitto |Conflitto |
 
 Per il rilevamento dei deadlock viene usato un argomento timeout delle API Reliable Collections.

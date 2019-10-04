@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447982"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -174,7 +174,7 @@ Se si dispone di un file **proto**, il passaggio successivo consiste nel generar
 
 1. [Scaricare il compilatore Protobuf da GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio: 
+1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Aprire il file **WebService\appsettings.ini** e modificare le impostazioni nel m
 
 Per impostazione predefinita, i file JSON e JS del nuovo modello di dispositivo non verranno copiati all'interno della soluzione creata. È necessario includerli esplicitamente.
 
-Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio: 
+Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

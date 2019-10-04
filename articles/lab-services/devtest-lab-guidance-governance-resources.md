@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60561668"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governance dell'infrastruttura di Azure DevTest Labs - Risorse
 Questo articolo descrive l'allineamento e la gestione delle risorse di DevTest Labs all'interno dell'organizzazione. 
@@ -68,7 +68,7 @@ Come è possibile determinare il rapporto tra utenti per lab e numero complessiv
 
 Potrebbe anche essere necessario considerare i limiti geografici. Gli sviluppatori nell'area degli Stati Uniti nordorientali potrebbero ad esempio usare un lab sottoposto a provisioning nell'area degli Stati Uniti orientali 2. E gli sviluppatori a Dallas, in Texas, e a Denver, in Colorado, potrebbero essere indirizzati all'uso di una risorsa negli Stati Uniti centro-meridionali. In caso di un'attività collaborativa con una terza parte esterna, quest'ultima potrebbe essere assegnata a un lab non usato dagli sviluppatori interni. 
 
-È anche possibile usare un lab per un progetto specifico all'interno dei progetti di Azure DevOps. In questo caso, applicare la sicurezza tramite un gruppo di Azure Active Directory specificato, che consente l'accesso a entrambi i set di risorse. La rete virtuale assegnata al lab può essere un altro limite al consolidamento degli utenti.
+È anche possibile usare un lab per un progetto specifico all'interno di Azure DevOps Projects. In questo caso, applicare la sicurezza tramite un gruppo di Azure Active Directory specificato, che consente l'accesso a entrambi i set di risorse. La rete virtuale assegnata al lab può essere un altro limite al consolidamento degli utenti.
 
 ## <a name="deletion-of-resources"></a>Eliminazione di risorse
 

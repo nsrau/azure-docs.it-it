@@ -3,19 +3,20 @@ title: Esercitazione sulla progettazione con Unreal in Progetto Acustica
 titlesuffix: Azure Cognitive Services
 description: Questa esercitazione descrive il flusso di lavoro della progettazione per Progetto Acustica in Unreal e Wwise.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 817a11171c5b4b4ef205e5fbb04f9b6d6d85b248
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784677"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854254"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Esercitazione sulla progettazione con Unreal/Wwise in Progetto Acustica
 Questa esercitazione descrive il flusso di lavoro e la configurazione della progettazione per Progetto Acustica in Unreal e Wwise.
@@ -122,6 +123,11 @@ Per gestire da soli lo streaming dei dati acustici invece che lo streaming autom
 Le dimensioni del riquadro devono essere già impostate prima di chiamare Force Load Tile (Forza caricamento riquadro). Ad esempio, è possibile eseguire un'operazione simile per caricare un file ACE, impostare le dimensioni del riquadro ed eseguire lo streaming in un'area:
 
 ![Screenshot delle opzioni di configurazione dello streaming in Unreal](media/streaming-setup.png)
+
+La funzione di progetto Load Acoustics Data usata in questo esempio contiene i parametri seguenti:
+
+* **Target** (Destinazione): L'attore AcousticsSpace.
+* **Nuovo bake:** L'asset di dati acustici da caricare. Lasciando questo valore vuoto/impostandolo su null, il bake corrente di scaricherà senza il caricamento di uno nuovo.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Facoltativamente eseguire una query per la prossimità della superficie
 Se si vuole vedere quanto sono vicine le superfici in una particolare direzione intorno al listener, è possibile usare la funzione Query Distance. Questa funzione può essere utile per la guida di riflessi ritardati direzionali o per altre logiche di gioco basate sulla prossimità della superficie. La query è meno costosa di un ray-cast perché i risultati sono ricavati dalla tabella di ricerca acustica.

@@ -2,19 +2,20 @@
 title: Crittografia lato client con Python per Archiviazione di Microsoft Azure | Microsoft Docs
 description: La libreria client di archiviazione di Azure per Python offre supporto per la crittografia lato client per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd8ba51b960703fa25371d874ed2bb50e7df2fde
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011128"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360050"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Crittografia lato client con Python per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -50,7 +51,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 ## <a name="encryption-mechanism"></a>Meccanismo di crittografia
 La libreria client di archiviazione usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>BLOB
 La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti utilizzano i metodi **create**\*. Per i download, sono supportati sia i download completi che quelli di intervallo ed è disponibile il calcolo parallelo dei download e degli upload.
 
 Durante la crittografia, la libreria client genererà un vettore di inizializzazione (IV) casuale di 16 byte con una chiave di crittografia del contenuto (CEK) casuale di 32 byte ed eseguirà la crittografia envelope dei dati BLOB utilizzando queste informazioni. La CEK con wrapping e alcuni metadati di crittografia aggiuntivi vengono quindi archiviati come metadati BLOB insieme al BLOB crittografato nel servizio.
@@ -66,7 +67,7 @@ Il download di un intervallo arbitrario (metodi **get**\* con parametri di inter
 
 I BLOB in blocchi e BLOB di pagine possono essere crittografati/decrittografati solamente con questo schema. Attualmente non è disponibile nessun supporto per la crittografia dei blob di accodamento.
 
-### <a name="queues"></a>Queues
+### <a name="queues"></a>Code
 Poiché i messaggi in coda possono essere in qualsiasi formato, la libreria client definisce un formato personalizzato che include il vettore di inizializzazione (IV) e la chiave di crittografia del contenuto crittografato (CEK) nel testo del messaggio.
 
 Durante la crittografia, la libreria client genera un vettore di inizializzazione casuale di 16 byte con una CEK casuale di 32 byte ed esegue la crittografia envelope del testo del messaggio in coda utilizzando queste informazioni. Al messaggio in coda crittografato vengono quindi aggiunti la CEK con wrapping e alcuni metadati di crittografia aggiuntivi. Questo messaggio modificato (illustrato di seguito) viene archiviato nel servizio.
@@ -138,7 +139,7 @@ Il resolver di chiavi deve implementare almeno un metodo che, dato un ID della c
   * Se specificato per ottenere la chiave, viene richiamato il resolver di chiave. Se il resolver è specificato, ma non dispone di un mapping per l'identificatore di chiave, viene generato un errore.
   * Se il resolver non è specificato, ma viene specificata una chiave, la chiave viene utilizzata se l’identificatore corrisponde all’identificatore della chiave richiesta. Se l'identificatore non corrisponde, viene generato un errore.
 
-    Gli esempi di crittografia in azure.storage.samples <fix URL>rappresentano uno scenario end-to-end più dettagliato per BLOB, code e tabelle.
+    Gli esempi di crittografia in Azure. storage. Samples illustrano uno scenario end-to-end più dettagliato per BLOB, code e tabelle.
       Esempi di implementazione del resolver di chiavi e della chiave KEK sono forniti nei file di esempio come KeyWrapper e KeyResolver.
 
 ### <a name="requireencryption-mode"></a>Modalità RequireEncryption
@@ -150,7 +151,7 @@ Impostare i campi del criterio di crittografia per l'oggetto blockblobservice. T
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -162,7 +163,8 @@ my_block_blob_service.key_encryption_key = kek
 my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
 # Upload the encrypted contents to the blob.
-my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+my_block_blob_service.create_blob_from_stream(
+    container_name, blob_name, stream)
 
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
@@ -174,7 +176,7 @@ Impostare i campi del criterio di crittografia per l'oggetto queueservice. Tutto
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -200,7 +202,7 @@ Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richi
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-kek = KeyWrapper('local:key1') # Key identifier
+kek = KeyWrapper('local:key1')  # Key identifier
 
 # Create the key resolver used for decryption.
 # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
@@ -208,10 +210,13 @@ key_resolver = KeyResolver()
 key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
+
+
 def my_encryption_resolver(pk, rk, property_name):
     if property_name == 'foo':
         return True
     return False
+
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -223,7 +228,8 @@ my_table_service.insert_entity(table_name, entity)
 
 # Retrieve Entity
 # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+my_table_service.get_entity(
+    table_name, entity['PartitionKey'], entity['RowKey'])
 ```
 
 ### <a name="using-attributes"></a>Utilizzo di attributi

@@ -1,30 +1,30 @@
 ---
-title: Aggiungi entità
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Creare entità per estrarre i dati della chiave da espressioni utente nelle App LUIS (Language Understanding).
+title: Aggiungere entità-LUIS
+titleSuffix: Azure Cognitive Services
+description: Creare entità per estrarre i dati chiave da espressioni utente nelle app Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196142"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932929"
 ---
 # <a name="create-entities-without-utterances"></a>Creare entità senza espressioni
 
-L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'entità rappresenta una classe come una raccolta di oggetti simili (luoghi, cose, persone, eventi o concetti). Le entità descrivono le informazioni rilevanti per la finalità e sono talvolta essenziali affinché l'app svolga la sua attività. È possibile creare entità quando si aggiunge un utterance a un intent o distanti tra loro da (prima o dopo) aggiunta di emissione di un suono da un intent.
+L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Un'entità rappresenta una classe che include una raccolta di oggetti simili (luoghi, elementi, persone, eventi o concetti). Le entità descrivono le informazioni rilevanti per la finalità e sono talvolta essenziali affinché l'app svolga la sua attività. È possibile creare entità quando si aggiunge un enunciato a un preventivo o a parte (prima o dopo) aggiungendo un enunciato a uno scopo.
 
 È possibile aggiungere, modificare o eliminare entità nell'app LUIS tramite l'**elenco di entità** nella pagina **Entities** (Entità). LUIS offre due tipi principali di entità: le [entità predefinite](luis-reference-prebuilt-entities.md) e le [entità personalizzate](luis-concept-entity-types.md#types-of-entities).
 
-Dopo aver creata un'entità apprese macchina, è necessario contrassegnare tale entità in tutte le utterance di esempio di tutti gli Intent in che si trova.
+Una volta creata un'entità appresa dal computer, è necessario contrassegnare l'entità in tutte le espressioni di esempio di tutti gli Intent in cui si trova.
 
 <a name="add-prebuilt-entity"></a>
 
@@ -42,7 +42,7 @@ Le entità predefinite più comuni aggiunte a un'applicazione sono *number* e *d
 
 <a name="add-simple-entities"></a>
 
-## <a name="add-simple-entities-for-single-concepts"></a>Aggiungere le entità semplici per i concetti singoli
+## <a name="add-simple-entities-for-single-concepts"></a>Aggiungere entità semplici per i singoli concetti
 
 Un'entità semplice descrive un singolo concetto. Usare la procedura seguente per creare un'entità che estrae i nomi dei reparti aziendali, ad esempio *Human resources* o *Operations*.   
 
@@ -56,7 +56,7 @@ Un'entità semplice descrive un singolo concetto. Usare la procedura seguente pe
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Aggiungere le entità di espressione regolare per informazioni sui concetti altamente strutturati
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Aggiungere entità di espressioni regolari per concetti altamente strutturati
 
 Un'entità di espressione regolare viene usata per estrarre dati dall'espressione in base all'espressione regolare specificata. 
 
@@ -64,34 +64,11 @@ Un'entità di espressione regolare viene usata per estrarre dati dall'espression
 
 1. Nella finestra di dialogo popup immettere `Human resources form name` nella casella **Entity name** (Nome entità), selezionare **Regular expression** (Espressione regolare) nell'elenco **Entity type** (Tipo di entità), immettere l'espressione regolare `hrf-[0-9]{6}` e quindi selezionare **Done** (Fine). 
 
-    Questa espressione regolare corrisponde al carattere letterale `hrf-`, quindi 6 cifre per rappresentare un form numero per un modulo di gestione delle risorse umane.
-
-## <a name="add-hierarchical-entities"></a>Aggiungere entità gerarchiche
-
-Un'entità gerarchica è una categoria di entità con apprendimento su base contestuale e correlate per concetto. Nell'esempio seguente, l'entità contiene ubicazioni di origine e destinazione. 
-
-Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
-
-Per aggiungere entità gerarchiche, seguire questa procedura: 
-
-1. Nel pannello di spostamento a sinistra dell'app selezionare **Entities** (Entità) e quindi selezionare **Create new entity** (Crea nuova entità).
-
-1. Nella finestra di dialogo popup digitare `Location` nella casella **Entity name** (Nome entità) e quindi selezionare **Hierarchical** (Gerarchica) nell'elenco **Entity type** (Tipo di entità).
-
-    ![Aggiungere un'entità gerarchica](./media/add-entities/hier-location-entity-creation.png)
-
-1. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare `Origin` nella casella **Child #1** (Figlio n. 1). 
-
-1. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare `Destination` nella casella **Child #2** (Figlio n. 2). Selezionare **Operazione completata**.
-
-    >[!CAUTION]
-    >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
-
-    Dopo avere creato questa entità, passare a tutte le finalità con espressioni di esempio contenenti l'entità. Selezionare il testo nell'espressione di esempio e contrassegnarlo come entità. 
+    Questa espressione regolare corrisponde ai caratteri `hrf-`letterali, quindi 6 cifre per rappresentare un numero di modulo per un modulo di risorse umane.
 
 <a name="add-composite-entities"></a>
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Aggiungere le entità composte da raggruppare in una relazione padre-figlio
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Aggiungere entità Composite al gruppo in una relazione padre-figlio
 
 È possibile definire relazioni tra entità di tipi diversi creando un'entità composita. Nell'esempio seguente l'entità contiene un'espressione regolare e un'entità predefinita del nome.  
 
@@ -115,7 +92,7 @@ Nell'espressione `Send hrf-123456 to John Smith` il testo `hrf-123456` viene ass
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Aggiungere le entità Pattern.any per acquisire le entità in formato libero
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Aggiungere pattern. Any per acquisire entità in formato libero
 
 Le entità [Pattern.any](luis-concept-entity-types.md) sono valide solo nei [criteri](luis-how-to-model-intent-pattern.md) e non nelle finalità. Questo tipo di entità consente a LUIS di trovare la fine di entità di lunghezza e scelta delle parole variabili. Poiché questa entità viene usata in un criterio, LUIS sa dove si trova la fine dell'entità nel modello dell'espressione.
 
@@ -135,17 +112,15 @@ Nell'espressione `Where is Request relocation from employee new to the company o
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Aggiungere un ruolo per distinguere i diversi contesti
 
-Un ruolo è un sottotipo denominato in base al contesto. È disponibile in tutte le entità incluse le entità predefinite e non-machine-appreso. 
+Un ruolo è un sottotipo denominato basato sul contesto. È disponibile in tutte le entità, incluse le entità predefinite e non apprese dal computer. 
 
-Usando lo stesso esempio dell'entità gerarchica delle città di origine e di destinazione, la differenza è che viene denominato Origin un ruolo invece di un elemento figlio gerarchico. 
-
-La sintassi per un ruolo è **{Entityname:Rolename}** dove il nome dell'entità è seguito da due punti e quindi dal nome del ruolo. Ad esempio: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintassi per un ruolo è **`{Entityname:Rolename}`** la posizione in cui il nome dell'entità è seguito da due punti, quindi il nome del ruolo. Ad esempio `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 
-1. Selezionare **Create new entity** (Crea nuova entità). Immettere il nome di `LocationUsingRoles`. Selezionare il tipo **Simple** (Semplice) e quindi selezionare **Done** (Fatto). 
+1. Selezionare **Create new entity** (Crea nuova entità). Immettere il nome di `Location`. Selezionare il tipo **Simple** (Semplice) e quindi selezionare **Done** (Fatto). 
 
-1. Selezionare **Entities** (Entità) nel pannello a sinistra, quindi selezionare la nuova entità **LocationUsingRoles** creata nel passaggio precedente.
+1. Selezionare **entità** dal pannello sinistro, quindi selezionare la nuova **posizione** dell'entità creata nel passaggio precedente.
 
 1. Nella casella di testo **Role name** (Nome ruolo) immettere il nome del ruolo `Origin` e quindi premere INVIO. Aggiungere un secondo nome del ruolo di `Destination`. 
 
@@ -153,7 +128,7 @@ La sintassi per un ruolo è **{Entityname:Rolename}** dove il nome dell'entità 
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>Aggiungere l'elenco di entità per la corrispondenza esatta
+## <a name="add-list-entities-for-exact-matches"></a>Aggiungere entità elenco per corrispondenze esatte
 
 Le entità elenco rappresentano un set fisso e chiuso di parole correlate. 
 
@@ -204,7 +179,7 @@ LUIS non consente di modificare il tipo di entità perché non conoscere gli ele
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Creare un modello da un utterance di esempio
+## <a name="create-a-pattern-from-an-example-utterance"></a>Creare un modello da un enunciato di esempio
 
 Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

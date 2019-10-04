@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite Python'
+title: Creare un database e un cluster di Esplora dati di Azure tramite Python
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 2fc2b847c18cecbcea3c137312b18bb274398cc6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045202"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326636"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 
@@ -22,9 +22,9 @@ ms.locfileid: "59045202"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [Modello ARM](create-cluster-database-resource-manager.md)
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando Python.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,6 +36,8 @@ Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire 
 
 ```
 pip install azure-mgmt-kusto
+pip install adal
+pip install msrestazure
 ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creare il cluster di Esplora dati di Azure
@@ -45,10 +47,19 @@ pip install azure-mgmt-kusto
     ```Python
     from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from adal import AuthenticationContext
+    from msrestazure.azure_active_directory import AdalAuthentication
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
+    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
+                                         resource="https://management.core.windows.net/",
+                                         client_id=client_id,
+                                         client_secret=client_secret)
+
     location = 'Central US'
     sku = 'D13_v2'
     capacity = 5
@@ -71,7 +82,7 @@ pip install azure-mgmt-kusto
 
     Sono disponibili altri parametri facoltativi che è possibile usare, ad esempio la capacità del cluster.
     
-1. Impostare le [*proprie credenziali*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Impostare le [*proprie credenziali*](/azure/python/python-sdk-azure-authenticate)
 
 1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
@@ -119,7 +130,7 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-* Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create.
+* Se si prevede di seguire gli altri articoli, è necessario salvare le risorse create.
 * Per pulire le risorse, eliminare il cluster. Quando si elimina un cluster, vengono eliminati anche tutti i database al suo interno. Usare il comando seguente per eliminare il cluster:
 
     ```Python
@@ -128,5 +139,4 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+* [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)

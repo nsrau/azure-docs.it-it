@@ -1,34 +1,37 @@
 ---
 title: Distribuire contenitori con Helm in Kubernetes in Azure
-description: Informazioni su come usare lo strumento di creazione di pacchetti Helm per distribuire contenitori in un cluster Azure Kubernetes Service (AKS)
+description: Informazioni su come usare lo strumento di creazione di pacchetti Helm per distribuire i contenitori in un cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465037"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305283"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installare le applicazioni con Helm nel servizio Azure Kubernetes
 
-[Helm][helm] è uno strumento per la creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
+[Helm][helm] è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
 Questo articolo illustra come configurare e usare Helm in un cluster Kubernetes nel servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
-È necessario installare l'interfaccia della riga di comando di Helm, un client eseguito nel sistema di sviluppo che consente di avviare, arrestare e gestire applicazioni con Helm. Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per le istruzioni di installazione nella piattaforma locale, vedere [Installing Helm][helm-install] (Installazione di Helm).
+È anche necessario che sia installata l'interfaccia della riga di comando di Helm, ovvero il client in esecuzione nel sistema di sviluppo. Consente di avviare, arrestare e gestire le applicazioni con Helm. Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per le istruzioni di installazione nella piattaforma locale, vedere [installazione di Helm][helm-install].
+
+> [!IMPORTANT]
+> Helm è progettato per l'esecuzione su nodi Linux. Se nel cluster sono presenti nodi di Windows Server, è necessario assicurarsi che i pod Helm siano pianificati per l'esecuzione solo nei nodi Linux. È anche necessario assicurarsi che tutti i grafici Helm installati siano pianificati per l'esecuzione nei nodi corretti. I comandi di questo articolo usano i selettori di [nodo][k8s-node-selector] per assicurarsi che i pod siano pianificati per i nodi corretti, ma non tutti i grafici Helm possono esporre un selettore di nodo. È anche possibile prendere in considerazione l'uso di altre opzioni nel cluster, ad esempio [macchie][taints].
 
 ## <a name="create-a-service-account"></a>Creare un account del servizio
 
-Prima di poter distribuire Helm in un cluster servizio Azure Kubernetes abilitato per il controllo degli accessi in base al ruolo, sono necessari un account del servizio e un'associazione di ruolo per il servizio Tiller. Per altre informazioni sulla sicurezza di Helm/Tiller in un cluster abilitato per il controllo degli accessi in base al ruolo, vedere [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, spazi dei nomi ed RBAC). Se il cluster del servizio Azure Kubernetes non è abilitato per il controllo degli accessi in base al ruolo, ignorare questo passaggio.
+Prima di poter distribuire Helm in un cluster servizio Azure Kubernetes abilitato per il controllo degli accessi in base al ruolo, sono necessari un account del servizio e un'associazione di ruolo per il servizio Tiller. Per ulteriori informazioni sulla protezione di Helm/Tiller in un cluster abilitato per il controllo degli accessi in base al ruolo, vedere [Tiller, Namespaces e RBAC][tiller-rbac]. Se il cluster del servizio Azure Kubernetes non è abilitato per il controllo degli accessi in base al ruolo, ignorare questo passaggio.
 
 Creare un file denominato `helm-rbac.yaml` e copiarlo nel codice YAML seguente:
 
@@ -61,16 +64,18 @@ kubectl apply -f helm-rbac.yaml
 
 ## <a name="secure-tiller-and-helm"></a>Proteggere Tiller e Helm
 
-Il client Helm e il servizio Tiller si autenticano e comunicano tra loro tramite TLS/SSL. Questo metodo di autenticazione consente di proteggere il cluster Kubernetes e di stabilire i servizi che possono essere distribuiti. Per migliorare la sicurezza, è possibile generare i propri certificati firmati. Ogni utente Helm riceverà il proprio certificato client e Tiller verrà inizializzato nel cluster Kubernetes con i certificati applicati. Per altre informazioni, vedere [Using TLS/SSL between Helm and Tiller][helm-ssl] (Uso di TLS/SSL tra Helm e Tiller).
+Il client Helm e il servizio Tiller si autenticano e comunicano tra loro tramite TLS/SSL. Questo metodo di autenticazione consente di proteggere il cluster Kubernetes e di stabilire i servizi che possono essere distribuiti. Per migliorare la sicurezza, è possibile generare i propri certificati firmati. Ogni utente Helm riceverà il proprio certificato client e Tiller verrà inizializzato nel cluster Kubernetes con i certificati applicati. Per altre informazioni, vedere [uso di TLS/SSL tra Helm e Tiller][helm-ssl].
 
-Con un cluster Kubernetes abilitato per il controllo degli accessi in base al ruolo, è possibile controllare il livello di accesso di Tiller al cluster. È possibile definire lo spazio dei nomi Kubernetes in cui viene distribuito Tiller e limitare gli spazi dei nomi in cui Tiller può distribuire le risorse. Questo approccio consente di creare istanze di Tiller in diversi spazi dei nomi, stabilire i limiti della distribuzione e stabilire l'ambito degli utenti di Helm in determinati spazi dei nomi. Per altre informazioni, vedere [Helm role-based access controls][helm-rbac] (Controllo degli accessi in base al ruolo di Helm).
+Con un cluster Kubernetes abilitato per il controllo degli accessi in base al ruolo, è possibile controllare il livello di accesso di Tiller al cluster. È possibile definire lo spazio dei nomi Kubernetes in cui viene distribuito Tiller e limitare gli spazi dei nomi in cui Tiller può distribuire le risorse. Questo approccio consente di creare istanze di Tiller in diversi spazi dei nomi, stabilire i limiti della distribuzione e stabilire l'ambito degli utenti di Helm in determinati spazi dei nomi. Per altre informazioni, vedere [controlli degli accessi in base al ruolo Helm][helm-rbac].
 
 ## <a name="configure-helm"></a>Configurare Helm
 
-Per distribuire un'applicazione Tiller di base in un cluster del servizio Azure Kubernetes, usare il comando [helm init][helm-init]. Se il cluster non è abilitato per il controllo degli accessi in base al ruolo, rimuovere l'argomento e il valore `--service-account`. Se TLS/SSL non è configurato per Tiller e Helm, ignorare questo passaggio di inizializzazione di base e fornire invece il valore `--tiller-tls-` necessario come illustrato nell'esempio seguente.
+Per distribuire un Tiller di base in un cluster AKS, usare il comando [Helm init][helm-init] . Se il cluster non è abilitato per il controllo degli accessi in base al ruolo, rimuovere l'argomento e il valore `--service-account`. Negli esempi seguenti viene anche impostata la [cronologia-max][helm-history-max] su 200.
+
+Se TLS/SSL non è configurato per Tiller e Helm, ignorare questo passaggio di inizializzazione di base e fornire invece il valore `--tiller-tls-` necessario come illustrato nell'esempio seguente.
 
 ```console
-helm init --service-account tiller
+helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 Se tra Helm e Tiller è configurato TLS/SSL fornire i parametri e i nomi dei certificati `--tiller-tls-*` come illustrato nell'esempio seguente:
@@ -82,12 +87,14 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --history-max 200 \
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 ## <a name="find-helm-charts"></a>Trovare i grafici Helm
 
-I grafici Helm vengono usati per distribuire applicazioni in un cluster Kubernetes. Per cercare i grafici Helm già creati, usare il comando [helm search][helm-search]:
+I grafici Helm vengono usati per distribuire applicazioni in un cluster Kubernetes. Per cercare i grafici Helm già creati, usare il comando [Helm Search][helm-search] :
 
 ```console
 helm search
@@ -136,83 +143,67 @@ $ helm repo update
 Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈
+Update Complete.
 ```
 
 ## <a name="run-helm-charts"></a>Eseguire i grafici Helm
 
-Per installare i grafici con Helm, usare il comando [helm install] [ helm-install] e specificare il nome del grafico da installare. Per visualizzare questa azione, è possibile installare una distribuzione base di Wordpress con un grafico Helm. Se TLS/SSL è configurato, aggiungere il parametro `--tls` per usare il certificato client Helm.
+Per installare i grafici con Helm, utilizzare il comando [Helm install][helm-install] e specificare il nome del grafico da installare. Per visualizzare l'installazione di un grafico Helm in azione, è necessario installare una distribuzione nginx di base usando un grafico Helm. Se TLS/SSL è configurato, aggiungere il parametro `--tls` per usare il certificato client Helm.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 L'output di esempio sintetico seguente mostra lo stato della distribuzione delle risorse Kubernetes create dal grafico Helm:
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-L'indirizzo *EXTERNAL-IP* del servizio Wordpress viene popolato in uno o due minuti ed è possibile accedervi con un Web browser.
+Sono necessari un minuto o due per l'indirizzo *IP esterno* del servizio nginx-ingress-controller da popolare e consentire l'accesso con un Web browser.
 
 ## <a name="list-helm-releases"></a>Elencare le versioni di Helm
 
-Per visualizzare un elenco di versioni installate nel cluster, usare il comando [helm list][helm-list]. L'esempio seguente illustra la versione di Wordpress distribuita nel passaggio precedente. Se TLS/SSL è configurato, aggiungere il parametro `--tls` per usare il certificato client Helm.
+Per visualizzare un elenco di versioni installate nel cluster, usare il comando [Helm list][helm-list] . L'esempio seguente illustra la versione di nginx-ingress distribuita nel passaggio precedente. Se TLS/SSL è configurato, aggiungere il parametro `--tls` per usare il certificato client Helm.
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire le risorse, usare il comando `helm delete` e specificare il nome della versione che si trova nel precedente comando `helm list`. Nell'esempio seguente viene eliminata la versione denominata *wishful mastiff*:
+Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire le risorse, usare il comando `helm delete` e specificare il nome della versione che si trova nel precedente comando `helm list`. Nell'esempio seguente viene eliminata la versione denominata *Agitator-Alpaca*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -229,6 +220,7 @@ Per altre informazioni sulla distribuzione delle applicazioni Kubernetes con Hel
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
@@ -239,3 +231,5 @@ Per altre informazioni sulla distribuzione delle applicazioni Kubernetes con Hel
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

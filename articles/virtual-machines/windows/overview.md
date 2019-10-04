@@ -4,28 +4,27 @@ description: Informazioni sulla creazione e gestione di macchine virtuali Window
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482046"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102573"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
-Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](../../app-service/overview-compare.md) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
+Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](/azure/architecture/guide/technology-choices/compute-decision-tree) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
 
 Una VM di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la VM eseguendo determinate attività, ovvero configurazione, applicazione di patch e installazione del software in esecuzione sulla macchina virtuale.
 
@@ -80,7 +79,7 @@ Azure fornisce molte [immagini Marketplace](https://azure.microsoft.com/marketpl
 
 Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'immagine.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | --- | --- |
 | Portale di Azure |I valori vengono specificati automaticamente quando si seleziona un'immagine da usare. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *località*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *località* -Publisher *nomeEditore*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *località* -Publisher *nomeEditore* -Offer *nomeOfferta* |
@@ -101,14 +100,14 @@ Le [estensioni](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows
 ### <a name="related-resources"></a>Risorse correlate
 Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o essere create quando si crea la VM.
 
-| Risorsa | Obbligatorio | DESCRIZIONE |
+| Risorsa | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) |Sì |La VM deve essere contenuta in un gruppo di risorse. |
 | [Account di archiviazione](../../storage/common/storage-create-storage-account.md) |Sì |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
 | [Rete virtuale](../../virtual-network/virtual-networks-overview.md) |Sì |La VM deve appartenere a una rete virtuale. |
-| [Indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No  |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
-| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
-| [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No  |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
+| [Indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
+| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Yes |La VM richiede l'interfaccia di rete per comunicare in rete. |
+| [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM
 Sono disponibili diverse opzioni per creare una VM. La scelta dipende dall'ambiente interessato. 
@@ -132,7 +131,7 @@ Le VM possono essere gestite mediante un portale basato su browser, gli strument
 ### <a name="get-information-about-a-vm"></a>Visualizzare informazioni su una macchina virtuale
 Questa tabella illustra alcuni dei metodi attraverso i quali è possibile ottenere informazioni su una VM.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | --- | --- |
 | Portale di Azure |Nel menu Hub fare clic su **Macchine virtuali** e quindi selezionare una VM dall'elenco. Nel pannello della VM è possibile accedere alle informazioni generali, ai valori di impostazione e alle metriche di monitoraggio. |
 | Azure PowerShell |Per informazioni sull'uso di PowerShell per gestire le macchine virtuali, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |

@@ -2,19 +2,19 @@
 title: Implementare Analisi del traffico di ricerca - Ricerca di Azure
 description: Abilitare Analisi del traffico di ricerca per Ricerca di Azure per aggiungere dati di telemetria ed eventi avviati dall'utente nei file di log.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bb12ed2f18df100ab3f679e7a8a3ef1e7c1aca45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079665"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647808"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementare Analisi del traffico di ricerca in Ricerca di Azure
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.
@@ -79,7 +79,7 @@ Per altre piattaforme e altri linguaggi, vedere l'[elenco](https://docs.microsof
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Per altre piattaforme e altri linguaggi, vedere l'[elenco](https://docs.microsof
 
 Ogni volta che un utente esegue una richiesta di ricerca, è necessario registrarla come evento di ricerca con lo schema seguente in un evento personalizzato di Application Insights:
 
-**ServiceName**: (string) nome del servizio di ricerca **SearchId**: (guid) identificatore univoco della query di ricerca (incluso nella risposta alla ricerca) **IndexName**: (string) indice del servizio di ricerca da sottoporre a query **QueryTerms**: (string) termini di ricerca immessi dall'utente **ResultCount**: (int) numero di documenti restituiti (incluso nella risposta alla ricerca) **ScoringProfile**: (string) nome del profilo di punteggio usato, se disponibile
+**SearchServiceName**: (String) nome del servizio di ricerca SearchId: (Guid) identificatore univoco della query di ricerca (si trova nella rispostadi ricerca) IndexName: (String) indice del servizio di ricerca da sottoporre a query **QueryTerms**: (String) search termini immessi dall'utente **Resultcount**: (int) numero di documenti restituiti (in risposta alla ricerca) **ScoringProfile**: (String) nome del profilo di punteggio usato, se disponibile.
 
 > [!NOTE]
 > Richiedere il conteggio nelle query generate dall'utente mediante l'aggiunta di $count=true alla query di ricerca. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).

@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: creare una knowledge base in REST, Java - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva basata su Java REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: ddeccd34cbdc72d76d8dd26e36a533f44a9274b8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 06e2a772bfad7b1964f813a6cb6266efe61c6ccf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866305"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206846"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: creare una knowledge base in QnA Maker con Java
 
@@ -100,7 +100,7 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 ```
 
 ## <a name="add-a-main-method"></a>Aggiungere un metodo Main
-Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. Viene restituito l'**ID operazione** _create_ nel campo di intestazione della risposta POST **Location**, quindi usato come parte della route nella richiesta GET. ** Il ciclo `while` ritenta il polling dello stato se non è completo.
+Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. L'ID operazione viene restituito nel campo di intestazione della risposta POST **Location** e quindi viene usato come parte della route nella richiesta GET. Il ciclo `while` ritenta il polling dello stato se non è completo.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 
@@ -114,7 +114,7 @@ Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. Vi
 
 2. Per eseguire il programma, immettere il comando seguente a una riga di comando. La richiesta per creare la knowledge base verrà inviata all'API QnA Maker e verrà eseguito il polling dei risultati ogni 30 secondi. Ogni risposta viene stampata nella finestra della console.
 
-    ```base
+    ```bash
     java -cp ",;libs/*" CreateKB
     ```
 
@@ -125,4 +125,4 @@ Dopo aver creato la knowledge base, è possibile visualizzarla nella pagina [My 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494610"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967780"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "60494610"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,12 +64,18 @@ ms.locfileid: "60494610"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+                                                        <h3>Novità</h3>
+                                                        <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoraggio non codificato per le applicazioni Azure VM e set di scalabilità di macchine virtuali di Azure</a><br>
+                                                            <a href="./app/kubernetes.md">Monitorare le applicazioni Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor V2 per le app IIS</a><br>
+                                                        </p>
+                                                        <br><br>
                                                         <h3>Guide introduttive</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">Monitoraggio sul lato browser/client</a>
                                                         </p>
@@ -155,6 +146,7 @@ ms.locfileid: "60494610"
                                                             <a href="./app/asp-net.md">Configurazione dettagliata del monitoraggio</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
                                                             <a href="./app/azure-web-apps.md">Monitoraggio del servizio app</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoraggio delle applicazioni del set di scalabilità di macchine virtuali e VM</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Repository GitHub per .NET SDK open source</a>
                                                         </p>
@@ -192,7 +184,7 @@ ms.locfileid: "60494610"
                                                     <div class="cardText">
                                                         <h3>Analisi del comportamento degli utenti</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Overview</a><br>
+                                                            <a href="./app/usage-overview.md">Panoramica</a><br>
                                                             <a href="./app/usage-send-user-context.md">Inviare gli ID di contesto utente</a><br>
                                                             <a href="./app/usage-segmentation.md">Utenti, sessioni ed eventi</a><br>
                                                             <a href="./app/usage-funnels.md">Grafici a imbuto</a><br>
@@ -225,7 +217,7 @@ ms.locfileid: "60494610"
                                                         <br><br>
                                                         <h3>Modello di dati</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Overview</a><br>
+                                                            <a href="./app/data-model.md">Panoramica</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">Richiesta</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dipendenza</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Eccezione</a><br>

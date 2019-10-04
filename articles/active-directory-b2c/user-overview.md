@@ -2,30 +2,30 @@
 title: Panoramica degli account utente in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sugli account utente in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419085"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063150"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C consente l'utilizzo di diversi tipi di account. Azure AD, Azure AD B2B e Azure AD B2C condividono i tipi di account utente che possono essere usati.
+In Azure Active Directory B2C (Azure AD B2C), è possibile usare diversi tipi di account. Azure AD, Azure AD B2B e Azure AD B2C condividono i tipi di account utente che possono essere usati.
 
 Sono disponibili i tipi di account seguenti:
 
 - **Account aziendale**: un account aziendale può accedere alle risorse in un tenant; se dispone di un ruolo di amministratore, può gestire i tenant.
-- **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant. 
-- **Account consumer**: un account consumer viene creato tramite un flusso utente di iscrizione in un'applicazione di Azure AD B2C o usando l'API Graph di Azure AD. Viene usato dagli utenti delle applicazioni registrate in Azure AD B2C. 
+- **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant.
+- **Account consumer**: un account consumer viene creato tramite un flusso utente di iscrizione in un'applicazione di Azure AD B2C o usando l'API Graph di Azure AD. Viene usato dagli utenti delle applicazioni registrate in Azure AD B2C.
 
 ## <a name="work-account"></a>Account aziendale
 
@@ -35,12 +35,12 @@ Quando si aggiunge un nuovo account aziendale, è necessario prendere in conside
 
 - **Nome** e **Nome utente** - La proprietà **Nome** contiene il nome e il cognome dell'utente. Il **Nome utente** è l'identificatore che l'utente immette per accedere e include il dominio completo. La parte del nome di dominio del nome utente deve essere il nome di dominio predefinito iniziale *dominio.onmicrosoft.com* o un nome di dominio verificato, non federato, [personalizzato](../active-directory/fundamentals/add-custom-domain.md), ad esempio *contoso.com*.
 - **Profilo** - L'account è configurato con un profilo di dati utente. È possibile immettere nome, cognome, posizione e nome del reparto. Dopo aver creato l'account, è possibile modificare il profilo.
-- **Gruppi** - Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente. È possibile inserire il nuovo account in un [gruppo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) esistente del tenant. 
+- **Gruppi** - Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente. È possibile inserire il nuovo account in un [gruppo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) esistente del tenant.
 - **Ruolo della directory** - È necessario specificare il livello di accesso dell'account utente alle risorse del tenant. Sono disponibili i seguenti livelli di autorizzazione:
 
     - **Utente** - Gli utenti possono accedere alle risorse assegnate, ma non possono gestire la maggior parte delle risorse del tenant.
     - **Amministratore globale**- Gli amministratori globali hanno il controllo completo su tutte le risorse del tenant.
-    - **Amministratore con limitazioni** - Selezionare il ruolo o i ruoli amministrativi per l'utente. Per altre informazioni sui ruoli che è possibile selezionare, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
+    - **Amministratore con limitazioni** - Selezionare il ruolo o i ruoli amministrativi per l'utente. Per altre informazioni sui ruoli che è possibile selezionare, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="create-a-work-account"></a>Creare un account aziendale
 
@@ -58,7 +58,7 @@ Per aggiornare un profilo utente è possibile usare le informazioni seguenti:
 
 ### <a name="reset-a-password-for-a-user"></a>Reimpostare la password di un utente
 
-Per reimpostare la password di un utente è possibile usare le informazioni seguenti: 
+Per reimpostare la password di un utente è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)

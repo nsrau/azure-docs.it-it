@@ -6,19 +6,20 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c4ccc189c0f8ed3de868c9965d7068ad9670cbcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516ecd8842e7b673201cc640b283c081a02d2b2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799551"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Personalizzare un modello linguistico con Video Indexer
 
-Video Indexer supporta il riconoscimento vocale automatico tramite l'integrazione con il [Servizio di riconoscimento vocale personalizzato](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/) di Microsoft. È possibile personalizzare il modello linguistico caricando il testo di adattamento, ovvero il testo dal dominio al cui vocabolario si intende adattare il motore. Quando si esegue il training del modello, le nuove parole visualizzate nel testo di adattamento vengono riconosciute, presupponendo una pronuncia predefinita, e il modello linguistico apprenderà nuove sequenze probabili di parole. I modelli linguistici personalizzati sono supportati per italiano, inglese, spagnolo, francese, tedesco, cinese (semplificato), giapponese, russo, portoghese (brasiliano), hindi e coreano. 
+Video Indexer supporta il riconoscimento vocale automatico tramite l'integrazione con il [Servizio di riconoscimento vocale personalizzato](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/) di Microsoft. È possibile personalizzare il modello linguistico caricando il testo di adattamento, ovvero il testo dal dominio al cui vocabolario si intende adattare il motore. Quando si esegue il training del modello, le nuove parole visualizzate nel testo di adattamento vengono riconosciute, presupponendo una pronuncia predefinita, e il modello linguistico apprenderà nuove sequenze probabili di parole. Modelli di lingua personalizzati sono supportati per l'inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo, portoghese (Brasile), Hindi e coreano. 
 
 Prendiamo come esempio una parola estremamente specifica, come "Kubernetes" (nel contesto del servizio Azure Kubernetes). Poiché la parola è nuova in Video Indexer, viene riconosciuta come "community". È necessario eseguire il training del modello affinché la parola venga riconosciuta come "Kubernetes". In altri casi le parole esistono, ma il modello linguistico non prevede che vengano visualizzate in un determinato contesto. "Servizio contenitore", ad esempio, non è una sequenza di 2 parole che un modello linguistico non specializzato riconoscerebbe come un set specifico di parole.
 

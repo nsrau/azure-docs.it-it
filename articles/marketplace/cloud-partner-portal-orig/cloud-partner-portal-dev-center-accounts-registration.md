@@ -1,25 +1,18 @@
 ---
-title: Creare un account di Microsoft Developer | Microsoft Docs
+title: Creare un account Microsoft Developer | Azure Marketplace
 description: Requisiti e procedure per la creazione di un account di Microsoft Developer.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935854"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 ====================================
@@ -28,7 +21,7 @@ Questo articolo descrive come diventare uno sviluppatore Microsoft approvato per
 
 ## <a name="create-a-microsoft-account"></a>Creare un account Microsoft
 
-Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)**.
+Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)** .
 
 ### <a name="general-account-guidelines"></a>Linee guida per gli account generici
 
@@ -106,7 +99,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
    ![Selezionare un paese o un'area geografica](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Paesi di origine della vendita: per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati riportati nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
+    >"Di origine della vendita" paesi/aree geografiche: Per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno degli approvati "di origine della vendita" paesi/aree geografiche nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
 
 5. Selezionare **Società** come "Tipo di account" e quindi selezionare **Avanti**.
 

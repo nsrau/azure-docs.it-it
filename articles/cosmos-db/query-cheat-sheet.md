@@ -4,14 +4,14 @@ description: Fogli informativi stampabili in PDF che consentono di usare le API 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66256987"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Fogli informativi sulle query per Azure Cosmos DB
 

@@ -4,19 +4,19 @@ description: In questo articolo viene descritto come aggiungere un set di dati d
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/15/2018
+ms.date: 08/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 138894f10a4865a5ea251caff6683ed70721c000
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101228"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172915"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
 
@@ -24,11 +24,11 @@ In questo articolo viene descritto come aggiungere un set di dati di riferimento
 
 Un set di dati di riferimento è una raccolta di elementi che aumentano gli eventi dell'origine evento. Il motore in ingresso di Time Series Insights crea un join tra ogni evento dell'origine evento e la riga di dati corrispondente nel set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulla colonna o le colonne di chiavi primarie definite nel set di dati di riferimento.
 
-Non viene creato un join dei dati di riferimento in maniera retroattiva. Questo significa che solo i dati in ingresso correnti e futuri vengono uniti in join al set di dati di riferimento, appena viene configurato e caricato.
+Non viene creato un join dei dati di riferimento in maniera retroattiva. In questo modo, solo i dati in ingresso correnti e futuri vengono abbinati e aggiunti al set di date di riferimento, una volta che è stato configurato e caricato.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>In questo video viene illustrato il modello di dati di riferimento di Time Series Insight.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Informazioni sul modello di dati di riferimento di Time Series Insights.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
@@ -36,66 +36,68 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Questo 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Individuare l'ambiente Time Series Insights esistente. Fare clic su **Tutte le risorse** nel menu sul lato sinistro del portale di Azure. Selezionare l'ambiente Time Series Insights.
+1. Individuare l'ambiente Time Series Insights esistente. Selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure. Selezionare l'ambiente Time Series Insights.
 
-3. Selezionare la pagina **Panoramica**. Individuare l'**URL di Time Series Insights Explorer** e aprire il collegamento.  
+1. Selezionare la pagina **Panoramica**. Individuare l'**URL di Time Series Insights Explorer** e aprire il collegamento.  
 
    Visualizzare l'Explorer del proprio ambiente Time Series Insights (TSI).
 
-4. Espandere il selettore di ambiente in TSI Explorer. Scegliere l'ambiente attivo. Selezionare l'icona dei dati di riferimento nell'angolo superiore destro della pagina dell'Explorer.
+1. Espandere il selettore di ambiente in TSI Explorer. Scegliere l'ambiente attivo. Selezionare l'icona dei dati di riferimento nell'angolo superiore destro della pagina dell'Explorer.
 
-   ![Aggiungere i dati di riferimento](media/add-reference-data-set/add_reference_data.png)
+   [![Aggiungere dati di riferimento](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
-5. Selezionare il pulsante **+ Aggiungi un set di dati** per iniziare ad aggiungere un nuovo set di dati.
+1. Selezionare il pulsante **+ Aggiungi un set di dati** per iniziare ad aggiungere un nuovo set di dati.
 
-   ![Aggiungi un set di dati](media/add-reference-data-set/add_data_set.png)
+   [![Aggiungi set di dati](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
-6. Nella pagina **Nuovo set di dati di riferimento** scegliere il formato dei dati: 
-   - Scegliere **CSV** per i dati delimitati da virgole. La prima riga viene considerata una riga di intestazione. 
+1. Nella pagina **Nuovo set di dati di riferimento** scegliere il formato dei dati:
+   - Scegliere **CSV** per i dati delimitati da virgole. La prima riga viene considerata una riga di intestazione.
    - Scegliere **Matrice JSON** per i dati in formato JavaScript Object Notation (JSON).
 
-   ![Scegliere il formato dei dati.](media/add-reference-data-set/add_data.png)
+   [![Scegliere il formato dati.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
-7. Specificare i dati usando uno dei due metodi seguenti:
+1. Specificare i dati usando uno dei due metodi seguenti:
    - Incollare i dati nell'editor di testo. Quindi scegliere il pulsante **Analizza dati di riferimento**.
-   - Selezionare il pulsante **Scegli file** per aggiungere i dati da un file di testo locale. 
+   - Selezionare il pulsante **Scegli file** per aggiungere i dati da un file di testo locale.
 
-   Ad esempio, incollare dati CSV: ![Dati CSV incollati](media/add-reference-data-set/csv_data_pasted.png)
+   Ad esempio, incollare dati CSV: [![Dati CSV incollati](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
 
-   Ad esempio, incollare dati della matrice JSON: ![Incollare i dati JSON](media/add-reference-data-set/json_data_pasted.png)
+   Ad esempio, incollare dati della matrice JSON: [![Incollare i dati JSON](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
 
    In caso di errore di analisi dei valori dei dati, l'errore viene visualizzato in rosso in fondo alla pagina, ad esempio: `CSV parsing error, no rows extracted`.
 
-8. Se l'analisi dei dati riesce, viene visualizzata una griglia con le colonne e le righe che rappresentano i dati.  Esaminare la griglia dei dati per verificarne la correttezza.
+1. Se l'analisi dei dati riesce, viene visualizzata una griglia con le colonne e le righe che rappresentano i dati.  Esaminare la griglia dei dati per verificarne la correttezza.
 
-   ![Aggiungere i dati di riferimento](media/add-reference-data-set/parse_data.png)
+   [![Aggiungere dati di riferimento](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
 
-9. Esaminare ogni colonna per verificare il tipo di dati presupposto e cambiarlo se necessario.  Selezionare il simbolo del tipo di dati nell'intestazione di colonna: **#** per il tipo di dati Double (dati numerici), **T|F** per il tipo di dati booleano o **Abc** per il tipo di dati stringa.
+1. Esaminare ogni colonna per verificare il tipo di dati presupposto e cambiarlo se necessario.  Selezionare il simbolo del tipo di dati nell'intestazione di colonna: **#** per il tipo di dati Double (dati numerici), **T|F** per il tipo di dati booleano o **Abc** per il tipo di dati stringa.
 
-   ![Scegliere i tipi di dati nelle intestazioni di colonna.](media/add-reference-data-set/choose_datatypes.png)
+   [![Scegliere i tipi di dati nelle intestazioni di colonna.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
 
-10. Rinominare le intestazioni di colonna se necessario. Il nome di colonna chiave è necessario per creare un join con la proprietà corrispondente nell'origine evento. Verificare che i nomi di colonna chiave dei dati di riferimento corrispondano esattamente al nome evento nei dati in entrata, inclusa la combinazione di maiuscole/minuscole. I nomi non di colonna chiave vengono usati per aumentare i dati in entrata con i valori dei dati di riferimento corrispondenti.
+1. Rinominare le intestazioni di colonna se necessario. Il nome di colonna chiave è necessario per creare un join con la proprietà corrispondente nell'origine evento. Verificare che i nomi di colonna chiave dei dati di riferimento corrispondano esattamente al nome evento nei dati in entrata, inclusa la combinazione di maiuscole/minuscole. I nomi non di colonna chiave vengono usati per aumentare i dati in entrata con i valori dei dati di riferimento corrispondenti.
 
-11. Fare clic su **Aggiungi una riga** o **Aggiungi una colonna** per aggiungere altri valori di dati di riferimento, se necessario.
+1. Selezionare **Aggiungi una riga** o **Aggiungi una colonna** per aggiungere altri valori dei dati di riferimento, in base alle esigenze.
 
-12. Digitare un valore nel campo **Filtra righe** per esaminare righe specifiche in base alle necessità. Il filtro è utile per esaminare i dati, ma non viene applicato quando si caricano i dati.
- 
-13. Assegnare un nome al set di dati specificandolo nel campo **Nome del set di dati** sopra la griglia dei dati.
+1. Digitare un valore nel campo **Filtra righe** per esaminare righe specifiche in base alle necessità. Il filtro è utile per esaminare i dati, ma non viene applicato quando si caricano i dati.
 
-    ![Assegnare un nome al set di dati.](media/add-reference-data-set/name_reference_dataset.png)
+1. Assegnare un nome al set di dati specificandolo nel campo **Nome del set di dati** sopra la griglia dei dati.
 
-14. Specificare la colonna **Chiave primaria** nel set di dati, selezionandola dall'elenco a discesa sopra la griglia dei dati.
+    [![Assegnare un nome al set di dati.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
-    ![Selezionare la colonna o le colonne chiave.](media/add-reference-data-set/set_primary_key.png)
+1. Specificare la colonna **Chiave primaria** nel set di dati, selezionandola dall'elenco a discesa sopra la griglia dei dati.
+
+    [![Selezionare la colonna o le colonne chiave.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
 
     Facoltativamente, selezionare il pulsante **+** per aggiungere una colonna chiave secondaria, come una chiave primaria composta. Se occorre annullare la selezione, selezionare il valore vuoto nell'elenco a discesa per rimuovere la chiave secondaria.
 
-15. Per caricare i dati, selezionare il pulsante **Carica righe**.
+1. Per caricare i dati, selezionare il pulsante **Carica righe**.
 
-    ![Caricamento](media/add-reference-data-set/upload_rows.png)
+    [![Caricare](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     La pagina conferma il completamento del caricamento e visualizza il messaggio **Il set di dati è stato caricato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.
-* Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](/rest/api/time-series-insights/ga-reference-data-api).
+
+* Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

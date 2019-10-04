@@ -7,16 +7,16 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/11/2019
+ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116182"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612285"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Esercitazione: Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
+
 Analisi di flusso di Azure permette di usare uno dei principali strumenti di Business Intelligence, [Microsoft Power BI](https://powerbi.com/). Questo articolo illustra come creare strumenti di Business Intelligence usando Power BI come output per i processi di Analisi di flusso di Azure. Illustra anche come creare e usare un dashboard in tempo reale.
 
 Questo articolo continua dall'esercitazione sul [rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) in Analisi di flusso. Esso si basa sul flusso di lavoro creato in tale esercitazione e aggiunge un output di Power BI in modo che sia possibile visualizzare le chiamate telefoniche fraudolente rilevate da un processo di Analisi di flusso. 
@@ -38,41 +38,31 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso creato in precedenza. Se si usa il nome suggerito, il processo è denominato `sa_frauddetection_job_demo`.
 
-2. Selezionare la casella **Output** al centro del dashboard del processo e quindi selezionare **+ Aggiungi**.
+2. Nel menu a sinistra, selezionare **Outputs** sotto **topologia processo**. Quindi, selezionare **+ Aggiungi** e scegliere **Power BI** nel menu a discesa.
 
-3. In **Alias di output** immettere `CallStream-PowerBI`. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. 
+3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **Autorizza**:
 
-4. In **Sink** selezionare **Power BI**.
+   |**Impostazione**  |**Valore consigliato**  |
+   |---------|---------|
+   |Alias di output  |  CallStream-PowerBI  |
+   |Nome del set di dati  |   sa-dataset  |
+   |Nome tabella |  fraudulent-calls  |
 
-   ![Creare un output per Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Configurare l'output Analisi di flusso di Azure](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Fare clic su **Autorizza**.
+   > [!WARNING]
+   > Se Power BI dispone di un set di dati e di una tabella con gli stessi nomi specificati nel processo di Analisi di flusso, i dati esistenti vengono sovrascritti.
+   > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
+   >
 
-    Verrà visualizzata una finestra in cui è possibile specificare le credenziali di Azure per l'account aziendale o dell'istituto di istruzione. 
-
-    ![Immettere le credenziali per l'accesso a Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Immettere le credenziali. È necessario considerare che quando si immettono le credenziali, si autorizza il processo di Analisi di flusso ad accedere all'area di Power BI.
-
-7. Quando si torna al pannello **Nuovo output** immettere le informazioni seguenti:
-
-   * **Area di lavoro del gruppo**: selezionare un'area di lavoro nel tenant Power BI in cui si desidera creare il set di dati.
-   * **Nome del set di dati**:  Immettere `sa-dataset`. È possibile usare un nome diverso. In questo caso prenderne nota perché servirà in un momento successivo.
-   * **Nome della tabella**: Immettere `fraudulent-calls`. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati.
-
-     ![Set di tati e tabella dell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > Se Power BI dispone di un set di dati e di una tabella con gli stessi nomi specificati nel processo di Analisi di flusso, i dati esistenti vengono sovrascritti.
-     > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
-     >
+4. Quando si seleziona **Autorizza**, viene visualizzata una finestra popup in cui viene chiesto di fornire le credenziali per l'autenticazione dell'account di Power BI. Una volta completato il processo di autorizzazione, fare clic su **Salva** per salvare le impostazioni.
 
 8. Fare clic su **Create**(Crea).
 
 Il set di dati viene creato con le impostazioni seguenti:
 
-* **defaultRetentionPolicy: BasicFIFO**: dati FIFO, con un massimo di 200.000 righe.
-* **defaultMode: pushStreaming**: il set di dati supporta sia i riquadri in streaming che gli oggetti visivi tradizionali basati sui report, detti anche push.
+* **defaultRetentionPolicy: BasicFIFO** -Data è FIFO, con un massimo di 200.000 righe.
+* **defaultMode: pushStreaming** -il set di dati supporta sia i riquadri in streaming e basati sui report gli oggetti visivi tradizionali (noto anche come push).
 
 Attualmente non è possibile creare set di dati con altri flag.
 
@@ -90,54 +80,52 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
     >[!NOTE]
     >Se non è stato assegnato un nome all'input `CallStream` nell'esercitazione sul rilevamento delle frodi, sostituire il nome per `CallStream` nelle clausole **FROM** e **JOIN** della query.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. Fare clic su **Save**.
 
 
 ## <a name="test-the-query"></a>Testare la query
+
 Questa sezione è facoltativa ma consigliata. 
 
 1. Se l'app TelcoStreaming non è attualmente in esecuzione, avviarla seguendo questa procedura:
 
-    * Aprire una finestra di comando.
+    * Aprire il prompt dei comandi.
     * Passare alla cartella in cui si trovano il file telcogenerator.exe e il file modificato telcodatagen.exe.config.
     * Eseguire il comando seguente:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Nel pannello **Query** fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Campiona dati da input**.
+2. Nel **Query** pagina per il processo di Stream Analitica, fare clic sui puntini accanto al `CallStream` di input e quindi selezionare **Campiona dati da input**.
 
 3. Specificare che si desidera ottenere i dati di tre minuti e fare clic su **OK**. Attendere fino a quando non si riceve la notifica che i dati sono stati campionati.
 
-4. Fare clic su **Test** e assicurarsi di ottenere i risultati.
-
+4. Fare clic su **Test** ed esaminare i risultati.
 
 ## <a name="run-the-job"></a>Eseguire il processo
 
 1. Assicurarsi che l'app TelcoStreaming sia in esecuzione.
 
-2. Chiudere il pannello **Query**.
-
-3. Nel pannello del processo fare clic su **Avvia**.
+2. Passare al **Overview** pagina per il processo di Stream Analitica e selezionare **avviare**.
 
     ![Avviare il processo di analisi di flusso](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -214,7 +202,7 @@ Per calcolare il valore e visualizzare la finestra in secondi, è possibile usar
 
 ![Equazione per calcolare il valore e visualizzare la finestra in secondi](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Ad esempio: 
+Ad esempio:
 
 * Sono presenti 1.000 dispositivi che inviano dati a intervalli di un secondo.
 * Si usa lo SKU di Power BI Pro che supporta 1.000.000 righe l'ora.
@@ -254,5 +242,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

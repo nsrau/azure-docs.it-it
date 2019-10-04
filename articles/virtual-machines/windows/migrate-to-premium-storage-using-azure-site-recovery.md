@@ -11,11 +11,11 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60849887"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -77,7 +77,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passaggio 1: Creare un insieme di credenziali di Servizi di ripristino
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Selezionare **Crea una risorsa** > **Gestione** > **Backup e Site Recovery (OMS)**. In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**.
+2. Selezionare **Crea una risorsa** > **Gestione** > **Backup e Site Recovery (OMS)** . In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**.
    >[!NOTE]
    >Backup e Site Recovery in precedenza faceva parte della ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
 1. Specificare un'area in cui verranno replicate le macchine virtuali. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. 
@@ -144,7 +144,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-walk
 ### <a name="step-6-plan-capacity"></a>Passaggio 6: Pianificare la capacità
 
 1. Usare [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md) per stimare con precisione la larghezza di banda di rete, lo spazio di archiviazione e gli altri requisiti per poter soddisfare le esigenze di replica. 
-2. Al termine scegliere **Operazione completata** in **È stata completata la pianificazione della capacità?**.
+2. Al termine scegliere **Operazione completata** in **È stata completata la pianificazione della capacità?** .
 
    ![Casella per confermare di aver completato la pianificazione della capacità][11]
 

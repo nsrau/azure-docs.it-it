@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Node.js - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa Guida introduttiva Node.js basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services
 author: diberry
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: a1caec1cd0c05fbc306b1a19c88fbe469be7fa6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ed5225591065082d937f1cac92893886bf90e40
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881750"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802936"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Ottenere risposte a una domanda da una knowledge base con Node.js
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Guida introduttiva: Ottenere risposte a una domanda da una knowledge base con Node.js
 
 Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md), ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata più attendibile. 
 
@@ -85,4 +85,4 @@ Altre informazioni su [richiesta](../how-to/metadata-generateanswer-usage.md#gen
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

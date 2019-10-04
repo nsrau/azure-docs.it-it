@@ -6,16 +6,15 @@ metadata:
   title: 'Documentazione sul database SQL di Azure: esercitazioni e informazioni di riferimento sulle API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: jovanpop-msft
-  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
-  ms.tgt_pltfrm: na
-  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
+  author: jovanpop-msft
   ms.author: jovanpop-msft
+  ms.reviewer: carlrab
+  manager: craigg
+  ms.date: 04/26/2019
 abstract:
   description: 'Il database SQL di Azure è un database relazionale distribuito come servizio (DBaaS) basato sull''ultima versione stabile del motore di database di Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, facile da usare e a prestazioni elevate che consente di creare nuove applicazioni, siti Web e microservizi nel linguaggio di programmazione preferito, senza dover gestire l''infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.'
   aside:
@@ -64,18 +63,6 @@ sections:
             html: '<p>È possibile proteggere il database con l''autenticazione di Azure AD, le reti virtuali, i firewall e connessioni Always Encrypted. La sicurezza predefinita consente di identificare le minacce e le vulnerabilità.</p>'
             image:
               src: media/index/i_security.svg
-  - title: Funzionalità nuove e di anteprima
-    items:
-      - type: paragraph
-        text: 'Il database SQL viene costantemente migliorato con nuove funzionalità e il feedback degli utenti sulle nuove funzionalità seguenti sarà molto apprezzato:'
-      - type: list
-        style: unordered
-        items:
-          - html: (Anteprima) Livello <a href="sql-database-service-tier-hyperscale">Hyperscale</a> che supporta database fino a 100 TB e più repliche leggibili.
-          - html: '(Anteprima) Nuove funzionalità di <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">elaborazione query intelligente</a> di SQL Server 2019, ad esempio <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">compilazione posticipata delle variabili di tabella</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">modalità batch per tabelle rowstore</a> e <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">inlining di funzioni definite dall''utente scalari</a>.'
-          - html: '(Anteprima) Nuove funzionalità del linguaggio Transact-SQL, ad esempio <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">aggregazione APPROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">importazione in blocco dall''archivio BLOB di Azure</a>.'
-          - html: '(Anteprima) Nuove operazioni di <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">compilazione</a> e ricompilazione dell''indice columnstore cluster di SQL Server 2019 Online.'
-          - html: '(Anteprima) Nuovi <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Machine Learning Services (con R) nel database SQL di Azure</a>.'
   - title: Guide di avvio rapido di cinque minuti
     items:
       - type: paragraph

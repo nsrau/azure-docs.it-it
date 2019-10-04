@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 83439a913989875c5e26ee51901f10558e5debd5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793815"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955605"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure as code
 
@@ -57,25 +57,25 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -86,15 +86,58 @@ Per distribuire l'applicazione usando Azure Resource Manager, è prima di tutto 
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
-microservices_sfpkg = zipfile.ZipFile(self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
+microservices_sfpkg = zipfile.ZipFile(
+    self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
 package_length = len(self.microservices_app_package_path)
 
 for root, dirs, files in os.walk(self.microservices_app_package_path):
     root_folder = root[package_length:]
     for file in files:
-        microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
+        microservices_sfpkg.write(os.path.join(
+            root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configurazione dell'aggiornamento automatico del sistema operativo della macchina virtuale di Azure 
+L'aggiornamento delle macchine virtuali è un'operazione avviata dall'utente ed è consigliabile usare l' [aggiornamento automatico del sistema operativo del set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) per i cluster di Azure Service Fabric host gestione delle patch; Patch Orchestration Application è una soluzione alternativa destinata a se ospitata all'esterno di Azure, sebbene il POA possa essere usato in Azure, con un sovraccarico del POA di hosting in Azure, un motivo comune per preferire l'aggiornamento automatico del sistema operativo della macchina virtuale su POA. Di seguito è riportato il set di scalabilità di macchine virtuali di calcolo Gestione risorse le proprietà del modello per abilitare l'aggiornamento automatico del sistema operativo:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata un dominio di aggiornamento alla volta per mantenere la disponibilità elevata dei servizi in esecuzione in Service Fabric. Per usare gli aggiornamenti automatici del sistema operativo in Service Fabric, il cluster deve essere configurato per usare il livello di durabilità Silver o superiore.
+
+Verificare che la seguente chiave del registro di sistema sia impostata su false per impedire che i computer host Windows avviino gli aggiornamenti non coordinati: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Di seguito è riportato il set di scalabilità di macchine virtuali di calcolo Gestione risorse le proprietà del modello per impostare la chiave del registro di sistema WindowsUpdate su false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configurazione dell'aggiornamento del cluster di Azure Service Fabric
+Di seguito è riportata la proprietà Service Fabric cluster Gestione risorse template per abilitare l'aggiornamento automatico:
+```json
+"upgradeMode": "Automatic",
+```
+Per aggiornare manualmente il cluster, scaricare la distribuzione CAB/deb in una macchina virtuale del cluster e quindi richiamare il seguente PowerShell:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

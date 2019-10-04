@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 704c26670f9fe2a3d7d0011fee4621a8e8c33028
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055294"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -236,7 +236,7 @@ Al termine della codifica del processo, il passaggio successivo consiste nel ren
 
 Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, **PredefinedStreamingPolicy.ClearStreamingOnly**.
+Quando si crea un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. 
@@ -363,6 +363,10 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

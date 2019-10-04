@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727150"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorie supportate in Mappe di Azure
 
@@ -105,7 +105,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | REPAIR\_FACILITY | carrozzerie, gommisti, officine di riparazione, centri di sostituzione cristalli auto, riparazione auto generale, vendita e installazione di accessori auto, riparazione di motocicli, servizio di riparazione autocarri, struttura di riparazione |
 | RESEARCH\_FACILITY | research facility |
 | RESIDENTIAL\_ACCOMMODATION | casa di riposo, complesso residenziale pubblico, complesso di appartamenti, condominio, mercato immobiliare residenziale, alloggi residenziali |
-| RESTAURANT | tedesco, creolo-Cajun, olandese, sale banchetti, bistrot, israeliano, slovacco, giamaicano, vegetariano, pesce, vietnamita, maltese, di Sechuan, gallese, cinese, giapponese, algerino, californiano, fusion, Shandong, insalate, savoiardo, spagnolo, etiope, taiwanese, ciambelle, iraniano, canadese, americano, norvegese, francese, Hunan, polinesiano, afgano, autogrill, orientale, svizzero, crêperie, surinamese, egiziano, ungherese, nepalese, carne alla griglia, hot pot, hamburger, mediterraneo, latinoamericano, tapas, britannico, messicano, Guangdong, asiatico (altro), buffet, sushi, mongolo, internazionale, frutti di mare, thai, venezuelano, rumeno, pollo, zuppe, kosher, steak house, bar di yogurt/succhi, italiano, coreano, cipriota, bosniaco, boliviano, dominicano, belga, tunisino, scozzese, inglese, pakistano, ceco, hawaiano, magrebino, tibetano, arabo, mediorientale, cileno, Shangai, polacco, filippino, sudanese, armeno, burmese, brasiliano, scandinavo, bulgaro, soul food, colombiano, ebraico, pizza, siciliano, organico, greco, basco, uruguayano, self-service, finlandese, africano, corso, siriano, caraibico, Dongbei, russo, grill, take-away, fast food, australiano, irlandese, ristorante pub, fonduta, libanese, indonesiano, danese, provenzale, Teppanyaki, indiano, mauriziano, continentale occidentale, peruviano, cambogiano, spuntini, svedese, macrobiotico, gelateria, slavo, turco, argentino, austriaco, esotico, portoghese, lussemburghese, marocchino, panini, cubano, ristorante |
+| RESTAURANT | Tedesco, haitiano Cajun, olandese, chat cena di rappresentanza, bistro, israeliani, slovacco, giamaicano, Vegetariano, frutti di mare, vietnamita, Maltese, Sichuan, gallese, cinese, giapponese, algerina, Californian, fusione, Shandong, barra snack bar, Savoia an, spagnolo, Birr, Taiwanese, grafici, Iraniane, Canada, America, norvegese, francese, Hunan, Polynesian, afghan, strada, Asia, Svizzera, erotic, crêperie, Surinamese, egiziano, ungherese, Nepalese, al barbecue, Teapot di frequente, hamburger, mar, America latina, tapas, British, Messico, Guangdong, lingue asiatiche (altro), buffet, international mongolo, sushi, mitili, tailandese, venezuelani, rumeno, pollo, basata su acronimi, kosher, casa steak, barra yogurt/succo, italiano, coreano, Greco cipriota, Bosnian, boliviana, Repubblica dominicana, Belgio, tunisina, Gaelico, Inglese, campione era, ceco, hawaiano, Maghrib, tibetano, Emirati Arabi Uniti, Medio Oriente, Cile, Shanghai, polacco, pilipino, Sudanese, armeno, Birmano, brasiliano, Scandinavia, bulgaro, anima cibo, Colombia, ebraico, pizza, Sicilian, organica, greco, basca, Praticata, caffetterie, finlandese, Centrafricana, Corsican, siriana, Caraibi, Dongbei, russo, della griglia, sottrarre, cibi, pub irlandese, Australia, cibo, fondue, libanese, indonesiano, danese, Provenzale, teppanyaki, continentali indiano, Mauritian, Europa occidentale, Peruviano, Riel, allenamenti, svedese, tedesco, macrobiotic gelato parlor, Slavo, turco, argentino, Austria, originali, portoghese, lussemburghese, Dirham, ristorante, peso sandwich, |
 | RESTAURANT\_AREA | restaurant area |
 | REST\_AREA | area di riposo, luogo di sosta |
 | SCENIC\_PANORAMIC\_VIEW | vista panoramica/scenografica, punto di osservazione |

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
-ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: jeconnoc
+ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089897"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875092"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usare Jenkins per compilare e distribuire le applicazioni Linux
 Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue delle app. Ecco come compilare e distribuire l'applicazione di Azure Service Fabric usando Jenkins.
@@ -259,7 +259,7 @@ I passaggi descritti in questa sezione mostrano come configurare un processo Jen
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        Se il file PFX è protetto da password, includere la password nel parametro `-passin`. Ad esempio: 
+        Se il file PFX è protetto da password, includere la password nel parametro `-passin`. Ad esempio:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

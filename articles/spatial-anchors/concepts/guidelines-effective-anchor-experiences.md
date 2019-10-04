@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60566030"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creare un'esperienza efficace ancoraggio usando gli ancoraggi spaziale di Azure
 

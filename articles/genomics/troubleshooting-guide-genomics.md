@@ -12,11 +12,11 @@ ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
 ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790505"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 

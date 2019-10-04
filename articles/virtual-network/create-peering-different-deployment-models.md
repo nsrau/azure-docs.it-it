@@ -3,8 +3,8 @@ title: Creare un peering di rete virtuale di Azure - Modelli di distribuzione di
 description: Informazioni su come creare un peering di rete virtuale tra reti virtuali distribuite con modelli di distribuzione di Azure diversi e incluse nella stessa sottoscrizione di Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.reviewer: anavin
+ms.openlocfilehash: 720351463a9f8d5712c76401f3fbba64c3177e84
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652366"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871964"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione, stessa sottoscrizione
 
@@ -50,7 +51,7 @@ Per creare un peering di rete virtuale, è possibile usare il portale di Azure, 
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
     - **Sottoscrizione** Selezionare la propria sottoscrizione
-    - **Gruppo di risorse**: Selezionare Crea nuovo e immettere *myResourceGroup*
+    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroup*
     - **Località**: *Stati Uniti orientali*
 4. Fare clic su **+ Nuovo**. Nella casella **Cerca nel Marketplace** digitare *Rete virtuale*. Fare clic su **Rete virtuale** quando viene visualizzato nei risultati della ricerca.
 5. Nel pannello **Rete virtuale** selezionare **Classico** nella casella **Selezionare un modello di distribuzione** e fare clic su **Crea**.
@@ -144,7 +145,7 @@ Completare i passaggi seguenti con l'interfaccia della riga di comando classica 
 
 ## <a name="powershell"></a>Creare un peering - PowerShell
 
-1. Installare la versione più recente di PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az](https://www.powershellgallery.com/packages/Az/) moduli. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
+1. Installare la versione più recente dei moduli [Azure](https://www.powershellgallery.com/packages/Azure) e [AZ](https://www.powershellgallery.com/packages/Az/) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere ad Azure immettendo il comando `Add-AzureAccount`. L'account con cui che si esegue l'accesso deve disporre delle autorizzazioni necessarie per creare un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Per creare una rete virtuale con distribuzione classica con PowerShell, è necessario creare un nuovo file di configurazione di rete o modificarne uno esistente. Informazioni su come [esportare, aggiornare e importare il file di configurazione di rete](virtual-networks-using-network-configuration-file.md). Il file deve includere l'elemento **VirtualNetworkSite** seguente per la rete virtuale usata in questa esercitazione:

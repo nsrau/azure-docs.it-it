@@ -2,20 +2,20 @@
 title: Guida introduttiva di Striim con Azure SQL Data Warehouse | Microsoft Docs
 description: Informazioni su come iniziare rapidamente a usare Striim e Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873403"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guida all'installazione dell'offerta Striim nel marketplace di Azure SQL DW
 

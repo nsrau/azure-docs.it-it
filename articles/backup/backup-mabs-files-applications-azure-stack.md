@@ -1,21 +1,22 @@
 ---
-title: Eseguire il backup dei file nelle macchine virtuali di Azure Stack
+title: Eseguire il backup di file in Azure Stack macchine virtuali
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
-services: backup
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/5/2018
-ms.author: adigan
-ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.date: 06/05/2018
+ms.author: dacurwin
+ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301476"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210217"
 ---
-# <a name="back-up-files-on-azure-stack"></a>Eseguire il backup dei file in Azure Stack
+# <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
+
 È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
 
 > [!NOTE]
@@ -23,7 +24,6 @@ ms.locfileid: "55301476"
 >
 
 Questo articolo non tratta l'installazione del server di Backup di Azure nell'ambiente Azure Stack. Per installare il server di Backup di Azure in Azure Stack, vedere l'articolo [Installazione del server di Backup di Azure](backup-mabs-install-azure-stack.md).
-
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Eseguire il backup di file e cartelle nelle macchine virtuali di Azure Stack su Azure
 
@@ -41,7 +41,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-    Viene visualizzata la schermata **Selezione membri del gruppo**. 
+    Viene visualizzata la schermata **Selezione membri del gruppo**.
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
@@ -63,7 +63,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
     > **Non** è necessario conservare i dati di ripristino operativo (backup) nei dischi collegati al server di Backup di Azure per più di cinque giorni.
     >
 
-    ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+    ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     Anziché selezionare un intervallo per i backup incrementali, per eseguire un backup completo rapido subito prima di ogni punto di recupero pianificato, fare clic su **Immediatamente prima di un punto di ripristino**. Se si vogliono proteggere i carichi di lavoro dell'applicazione, il server di Backup di Azure crea punti di recupero per la pianificazione di frequenza di sincronizzazione, a condizione che l'applicazione supporti i backup incrementali. Se l'applicazione non supporta i backup incrementali, il server di Backup di Azure esegue un backup completo rapido.
 
@@ -80,13 +80,13 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
 9. Se si è scelto di eseguire il backup in Azure, nella pagina **Specifica i dati da proteggere online** verificare che siano selezionati i carichi di lavoro di cui eseguire il backup in Azure.
 
-10. Nella pagina **Specificare la pianificazione dei backup online** indicare quando devono essere eseguiti i backup incrementali in Azure. 
+10. Nella pagina **Specificare la pianificazione dei backup online** indicare quando devono essere eseguiti i backup incrementali in Azure.
 
     È possibile pianificare l'esecuzione di backup giornalieri, settimanali, mensili e annuali nonché la data e l'ora in cui eseguirli. È possibile eseguire i backup fino a due volte al giorno. Ogni volta che viene eseguito un processo di backup, viene creato in Azure un punto di recupero dei dati dalla copia dei dati di backup archiviati nel disco del server di Backup di Azure.
 
 11. In **Specificare i criteri di conservazione online** indicare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
-12. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. 
+12. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati.
 
 13. In **Riepilogo** esaminare le impostazioni. Quando fa clic su **Crea gruppo** viene eseguita la replica iniziale dei dati. Al termine della replica dei dati, nella pagina **Stato** lo stato del gruppo protezione dati è **OK**. Il processo di backup iniziale viene eseguito in linea con le impostazioni del gruppo protezione dati.
 
@@ -115,11 +115,10 @@ Usare la console del server di Backup di Azure per recuperare i dati nella macch
     * **Notifica** Scegliere di **inviare un messaggio di posta elettronica al termine del recupero** e specificare i destinatari che riceveranno la notifica. Separare gli indirizzi di posta elettronica con virgole.
     * Dopo aver effettuato le selezioni, fare clic su **Avanti**
 
-7. Rivedere le impostazioni di recupero e fare clic su **Recupera**. 
+7. Rivedere le impostazioni di recupero e fare clic su **Recupera**.
 
-    > [!Note] 
-    > Mentre il processo di recupero è in corso, vengono annullati tutti i processi di sincronizzazione per gli elementi selezionati per il recupero.
-    >
+    >[!Note]
+    >Mentre il processo di recupero è in corso, vengono annullati tutti i processi di sincronizzazione per gli elementi selezionati per il recupero.
 
 Se si usa Modern Backup Storage (MBS), il recupero dati del file server gestito dall'utente non è supportato. Il recupero gestito dall'utente (EUR) delle risorse del file server ha una dipendenza nel Servizio Copia Shadow del volume, che Modern Backup Storage non usa. Se EUR è abilitato, usare la procedura seguente per recuperare i dati:
 
@@ -128,12 +127,16 @@ Se si usa Modern Backup Storage (MBS), il recupero dati del file server gestito 
 2. Nel menu **Proprietà** fare clic su **Versioni precedenti** e scegliere la versione da recuperare.
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Visualizzare il server di Backup di Azure con un insieme di credenziali
-Per visualizzare le entità del server di Backup di Azure nel portale di Azure, è possibile attenersi alla procedura seguente:
+
+Per visualizzare server di Backup di Azure entità nell'portale di Azure, attenersi alla procedura seguente:
+
 1. Aprire l'insieme di credenziali dei Servizi di ripristino.
 2. Fare clic su Infrastruttura di backup.
 3. Visualizzare i server di gestione dei backup.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
+
 Per informazioni sull'uso del server di Backup di Azure per proteggere altri carichi di lavoro, vedere uno degli articoli seguenti:
-- [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Eseguire il backup di SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+
+* [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+* [Eseguire il backup di SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

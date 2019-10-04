@@ -1,6 +1,6 @@
 ---
 title: Raccogliere i dati per i modelli di produzione
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come raccogliere i dati del modello di input di Azure Machine Learning in un archivio BLOB di Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -9,21 +9,24 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/3/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842635"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350580"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
-In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Kubernetes di Azure in un archivio BLOB di Azure. 
+>[!IMPORTANT]
+> Questo SDK verrà ritirato a breve e verrà sostituito con il [monitoraggio semplificato dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+
+In questo articolo si apprenderà come raccogliere i dati del modello di input da Azure Machine Learning distribuiti in un cluster Azure Kubernetes (AKS) in un archivio BLOB di Azure. 
 
 Una volta abilitata, la raccolta dei dati consente di:
-* Monitorare le deviazioni mentre i dati di produzione attraversano il modello
+* [Monitorare le deviazioni dei dati](how-to-monitor-data-drift.md) quando i dati di produzione entrano nel modello
 
 * Prendere decisioni migliori sui casi in cui ripetere il training o ottimizzare il modello
 
@@ -50,9 +53,9 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
+- Un'area di lavoro di Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
 - Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes. Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
 
@@ -61,7 +64,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 - [Configurare l'ambiente](how-to-configure-environment.md) e installare [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
-È possibile abilitare la raccolta dei dati indipendentemente dal fatto che il modello venga distribuito tramite il servizio Azure Machine Learning o con altri strumenti. 
+La raccolta dati può essere abilitata indipendentemente dal modello distribuito tramite Azure Machine Learning o altri strumenti. 
 
 Per abilitarla, è necessario:
 
@@ -109,7 +112,7 @@ Per abilitarla, è necessario:
 
 Se si dispone già di un servizio con le dipendenze installate nel **file di ambiente** e nel **file di assegnazione dei punteggi**, abilitare la raccolta di dati nel modo seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a [portale di Azure](https://portal.azure.com).
 
 1. Aprire l'area di lavoro.
 
@@ -144,6 +147,8 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Selezionare **Aggiorna** per applicare la modifica.
 
+  È anche possibile accedere a queste impostazioni nella [pagina di destinazione dell'area di lavoro (anteprima)](https://ml.azure.com).
+
 + Opzione 2: uso di Python per disabilitare la raccolta dei dati:
 
   ```python 
@@ -172,7 +177,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Analisi dei dati del modello tramite Power BI
 
-1. Scaricare e aprire [Power BI Desktop](https://www.powerbi.com)
+1. Scaricare e aprire [Power bi desktop](https://www.powerbi.com)
 
 1. Selezionare **Recupera dati** e fare clic su [**Archivio BLOB di Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -218,7 +223,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
     [![Tabella di database](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Aggiornare il percorso dei dati. Di seguito è fornito un esempio: 
+1. Aggiornare il percorso dei dati. Di seguito è fornito un esempio:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

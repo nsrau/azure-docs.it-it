@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
-ms.author: vidarmsft
-ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.author: alkohli
+ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312492"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876113"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -48,7 +48,7 @@ Il servizio StorSimple Data Manager identifica i dati di StorSimple nel cloud da
 StorSimple Data Manager è disponibile nelle sette aree seguenti:
 
  - Asia sud-orientale
- - Stati Uniti orientali
+ - East US
  - Stati Uniti occidentali
  - Stati Uniti occidentali 2
  - Stati Uniti centro-occidentali
@@ -68,9 +68,9 @@ Questo set di aree è più ampio perché la distribuzione delle risorse in una d
  - L'account di archiviazione di origine, ovvero quello associato al dispositivo StorSimple, e l'account di archiviazione di destinazione, in cui i dati verranno archiviati in formato nativo, devono trovarsi nella stessa area di Azure.
  - Data Manager e la definizione del processo devono essere attivati nell'area che contiene l'account di archiviazione StorSimple. Se questo non è possibile, attivare Data Manager nell'area di Azure più vicina e quindi creare la definizione del processo nella stessa area dell'account di archiviazione StorSimple. 
 
-    Se l'account di archiviazione di StorSimple non è disponibile in 26 aree che supportano la creazione di definizioni di processo, è consigliabile non eseguire StorSimple Data Manager come noterete lunghe latenze e potenziali costi di uscita.
+    Se l'account di archiviazione StorSimple non è presente nelle 26 aree che supportano la creazione della definizione del processo, è consigliabile non eseguire StorSimple Data Manager perché vengono visualizzate le latenze prolungate e i potenziali addebiti in uscita.
     
-Microsoft è impegnata garantire che servizi di Azure siano sempre disponibili in tutte le aree. Tuttavia, possono verificarsi interruzioni non pianificate dei servizi per brevi periodi, in una determinata area. In questi casi, è possibile visualizzare una definizione di gestione dati e processi in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. Potrebbero verificarsi latenza aggiuntiva in tale scenario, ma può trattarsi di una strategia di ripristino nel raro caso di un'interruzione di area.
+Microsoft si impegna a garantire che i servizi di Azure siano sempre disponibili in tutte le aree geografiche. Tuttavia, le interruzioni del servizio non pianificate possono verificarsi per brevi periodi in una determinata area. In questi casi, è possibile visualizzare un Data Manager e la definizione di un processo in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. È possibile che si verifichi una latenza aggiuntiva in uno scenario di questo tipo, ma questa è la strategia di recupero nel raro caso di un'interruzione a livello di area.
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841428"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179853"
 ---
-|Nome parametro| type | DESCRIZIONE| Valori possibili|
+|Nome parametro| Type | Descrizione| Valori possibili|
 |-|-|-|-|
 | /Modalità server|Mandatory|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Mandatory|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|

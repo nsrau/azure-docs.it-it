@@ -2,22 +2,22 @@
 title: Guida introduttiva per accedere e creare un nuovo tenant - Azure Active Directory | Microsoft Docs
 description: Istruzioni per trovare Azure Active Directory e creare un nuovo tenant per l'organizzazione.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798639"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562059"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Guida introduttiva: Creare un nuovo tenant in Azure Active Directory
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
@@ -49,7 +49,7 @@ Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo t
 
     - Nella casella **Paese o area geografica** lasciare l'opzione _Stati Uniti_.
 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 Viene creato il nuovo tenant con il dominio contoso.onmicrosoft.com.
 

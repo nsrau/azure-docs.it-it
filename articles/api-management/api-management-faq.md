@@ -10,16 +10,15 @@ ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793306"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073676"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -38,8 +37,7 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Come si configurano più ambienti in una sola API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [È possibile usare SOAP con Gestione API?](#can-i-use-soap-with-api-management)
-* [L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* È possibile configurare un server di autorizzazione OAuth 2.0 con la sicurezza AD FS?
+* [È possibile configurare un server di autorizzazione OAuth 2.0 con la sicurezza AD FS?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [Quale metodo di routing usa Gestione API nelle distribuzioni in più posizioni geografiche?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [È possibile usare un modello di Azure Resource Manager per creare un'istanza del servizio Gestione API?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [È possibile usare un certificato SSL autofirmato per un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -65,7 +63,7 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
-* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di Gestione API l'indirizzo IP del gateway rimane invariato, con alcune [precisazioni](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
+* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di gestione API, ad eccezione del livello di consumo, l'indirizzo IP del gateway rimane costante, con alcune avvertenze descritte nell' [articolo della documentazione IP](api-management-howto-ip-addresses.md).
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
@@ -87,7 +85,7 @@ Ecco come è possibile aggiungere un utente al gruppo di amministratori:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al gruppo di risorse con l'istanza di Gestione API che si vuole aggiornare.
-3. In Gestione API assegnare il ruolo **Api Management Contributor** (Collaboratore Gestione API) all'utente.
+3. In gestione API assegnare il ruolo di collaboratore del **servizio gestione API** all'utente.
 
 Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft.com/powershell/azure/overview) di Azure PowerShell. Ecco come accedere come amministratore:
 
@@ -108,19 +106,6 @@ Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di p
 ### <a name="can-i-use-soap-with-api-management"></a>È possibile usare SOAP con Gestione API?
 Ora è disponibile il supporto per il [pass-through SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Gli amministratori possono importare il file WSDL del servizio SOAP e Gestione API di Azure creerà un front-end SOAP. Per i servizi SOAP sono disponibili la documentazione del portale per sviluppatori, la console di test, i criteri e l'analisi.
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?
-In tutti i livelli di Gestione API l'indirizzo IP pubblico (VIP) del tenant di Gestione API è statico per l'intero ciclo di vita del tenant, con alcune eccezioni. L'indirizzo IP viene modificato in queste circostanze:
-
-* Il servizio viene eliminato e quindi ricreato.
-* La sottoscrizione al servizio viene [sospesa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o [avvisata](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states), ad esempio per mancato pagamento, e quindi ripristinata.
-* Si aggiunge o si rimuove la rete virtuale di Azure. È possibile usare la rete virtuale solo nel piano Premium o Developer.
-
-Per le distribuzioni in più aree, l'indirizzo dell'area viene modificato se l'area viene liberata e quindi reintegrata. È possibile usare la distribuzione in più aree solo con il piano Premium.
-
-Ai tenant nel piano Premium configurati per la distribuzione in più aree viene assegnato un indirizzo IP pubblico per ogni area.
-
-È possibile ottenere l'indirizzo IP (o gli indirizzi nel caso di una distribuzione in più aree) nella pagina dei tenant nel portale di Azure.
-
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>È possibile configurare un server di autorizzazione OAuth 2.0 con la sicurezza AD FS?
 Per informazioni su come configurare un server di autorizzazione OAuth 2.0 con la sicurezza di Active Directory Federation Services (AD FS), vedere [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso di AD FS in Gestione API).
 
@@ -128,7 +113,7 @@ Per informazioni su come configurare un server di autorizzazione OAuth 2.0 con l
 Gestione API usa il [metodo di routing del traffico relativo alle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance) nelle distribuzioni in più posizioni geografiche. Il traffico in ingresso viene instradato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Altre informazioni sui metodi di routing sono disponibili in [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>È possibile usare un modello di Azure Resource Manager per creare un'istanza del servizio Gestione API?
-Sì. Vedere i modelli di avvio rapido del [Servizio Gestione API di Azure](https://aka.ms/apimtemplate).
+Sì. Vedere i modelli di avvio rapido del [servizio gestione API di Azure](https://aka.ms/apimtemplate) .
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>È possibile usare un certificato SSL autofirmato per un back-end?
 Sì. Questa operazione può essere eseguita tramite PowerShell o eseguendo direttamente l'invio all'API. La convalida della catena di certificati verrà quindi disabilitata e si consentirà l'utilizzo di certificati autofirmati o firmati privatamente per le comunicazioni da Gestione API ai servizi back-end.
@@ -137,7 +122,7 @@ Sì. Questa operazione può essere eseguita tramite PowerShell o eseguendo diret
 Usare i cmdlet PowerShell[`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`. 
 
 ```powershell
-$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 

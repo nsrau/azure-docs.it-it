@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733315"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516587"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
@@ -49,8 +49,8 @@ Le applicazioni possono definire i propri codici per la proprietà `DeadLetterRe
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing e SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Il messaggio è scaduto ed è stato configurato come non recapitabile. |
 | SubscriptionDescription.RequiresSession |L'ID sessione ha valore null. |L'entità attivata dalla sessione non consente il recapito di un messaggio il cui identificatore di sessione è null. |
-| !dead letter queue |MaxTransferHopCountExceeded |Null |
-| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione  |Specificato dall'applicazione |Specificato dall'applicazione |
+| !dead letter queue | MaxTransferHopCountExceeded | Numero massimo di hop consentiti durante l'invio tra le code. Il valore è impostato su 4. |
+| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione |Specificato dall'applicazione |Specificato dall'applicazione |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superamento di MaxDeliveryCount
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Percorso della coda dei messaggi non recapitabili
+È possibile accedere alla coda dei messaggi non recapitabili utilizzando la sintassi seguente:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
+```
+
+Se si usa .NET SDK, è possibile ottenere il percorso della coda dei messaggi non recapitabili usando il Metodo SubscriptionClient. FormatDeadLetterPath (). Questo metodo accetta il nome dell'argomento e il nome della sottoscrizione e i suffissi con **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

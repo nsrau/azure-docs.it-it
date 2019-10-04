@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico interno in Gestione risorse con un modello
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: allensu
+ms.openlocfilehash: f05c90948fe95f204f268d84c01e1e8773bec468
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671676"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275376"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creare un servizio di bilanciamento del carico interno usando un modello
 
@@ -45,7 +45,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
-4. Eseguire la **New-AzResourceGroupDeployment** cmdlet per creare un gruppo di risorse usando il modello.
+4. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

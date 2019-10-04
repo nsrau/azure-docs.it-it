@@ -1,27 +1,25 @@
 ---
-ms.assetid: ''
-title: Endpoint del servizio di rete virtuale per Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Panoramica degli endpoint del servizio di rete virtuale per Key Vault
+title: Endpoint servizio di rete virtuale per Azure Key Vault - Azure Key Vault | Microsoft Docs
+description: Panoramica degli endpoint servizio di rete virtuale per Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: barbkess
+manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b39482f5c753fbfe6cc6663dda4f5381300c2c21
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201262"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71017243"
 ---
-# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint del servizio di rete virtuale per Azure Key Vault
+# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
-Gli endpoint del servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specifica. Gli endpoint consentono anche di limitare l'accesso a un elenco di intervalli di indirizzi IPv4 (protocollo internet versione 4). L'accesso viene negato a tutti gli utenti che si connettono all'insieme di credenziali delle chiavi dall'esterno di tali origini.
+Gli endpoint servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specifica. Gli endpoint consentono anche di limitare l'accesso a un elenco di intervalli di indirizzi IPv4 (protocollo internet versione 4). L'accesso viene negato a tutti gli utenti che si connettono all'insieme di credenziali delle chiavi dall'esterno di tali origini.
 
-Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentito esplicitamente a usare servizi Microsoft attendibili, le connessioni da tali servizi sono consentire attraverso il firewall. Ad esempio, questi servizi includono Office 365 Exchange Online, Office 365 SharePoint Online, Calcolo di Azure, Azure Resource Manager e Backup di Azure. Questi utenti devono comunque presentare un token di Azure Active Directory valido e devono avere le autorizzazioni, configurate come criteri di accesso, per eseguire l'operazione richiesta. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
+Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentito esplicitamente a usare servizi Microsoft attendibili, le connessioni da tali servizi sono consentire attraverso il firewall. Ad esempio, questi servizi includono Office 365 Exchange Online, Office 365 SharePoint Online, Calcolo di Azure, Azure Resource Manager e Backup di Azure. Questi utenti devono comunque presentare un token di Azure Active Directory valido e devono avere le autorizzazioni, configurate come criteri di accesso, per eseguire l'operazione richiesta. Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Scenari di utilizzo
 
@@ -53,16 +51,16 @@ Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Azu
 
 > [!NOTE]
 > Tenere presente le seguenti limitazioni di configurazione:
-> * Sono consentite al massimo 127 regole della rete virtuale e 127 regole IPv4. 
+> * Sono consentite al massimo 127 regole di rete virtuale e 127 regole IPv4. 
 > * Gli intervalli di indirizzi di piccole dimensioni che usano dimensioni di prefisso "/31" o "/32" non sono supportati. Configurare questi intervalli usando le regole dei singoli indirizzi IP.
-> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con **10.**, **172.16-31**, e **192.168.**. 
+> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono indirizzi che iniziano con **10.** , **172.16-31**e **192,168.** . 
 > * Attualmente sono supportati solo gli indirizzi IPv4.
 
 ## <a name="trusted-services"></a>Servizi attendibili
 
 Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad accedere a un insieme di credenziali delle chiavi se è abilitata l'opzione **Allow trusted services** (Consenti servizi attendibili).
 
-|Servizio attendibile|Scenari di utilizzo|
+|Servizio attendibile|Scenari di utilizzo supportati|
 | --- | --- |
 |Servizio di distribuzione di Macchine virtuali di Azure|[Distribuire i certificati alle macchine virtuali da Key Vault gestito dal cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Servizio di distribuzione dei modelli di Azure Resource Manager|[Passare valori protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
@@ -70,11 +68,12 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Backup di Azure|Consentire il backup e ripristino di segreti e chiavi pertinenti durante il backup delle macchine virtuali di Azure usando [Backup di Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio di archiviazione di Azure con [Chiave cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Consentire l'accesso alla chiave del tenant per [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection).|
-|Servizio app di Azure|[Distribuire un certificato dell'app Web di Azure con Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Servizio app di Azure|[Distribuire un certificato dell'app Web di Azure con Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Database SQL di Azure|[Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Archiviazione di Azure|[Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Archivio Azure Data Lake|[Crittografia dei dati in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
+|Gestione API di Azure|[Distribuire i certificati per un dominio personalizzato da Key Vault usando MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

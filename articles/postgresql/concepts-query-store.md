@@ -1,21 +1,21 @@
 ---
-title: Query Store in Database di Azure per PostgreSQL
-description: Questo articolo descrive la funzionalità Query Store di Database di Azure per PostgreSQL.
+title: Query Store nel database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive la funzionalità Query Store di database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 08/21/2019
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485918"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764407"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
-**Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
+**Si applica a:** Database di Azure per PostgreSQL: versioni a server singolo 9,6, 10, 11
 
 La funzionalità Query Store di Database di Azure per PostgreSQL offre la possibilità di tenere traccia delle prestazioni delle query nel tempo. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Query Store acquisisce automaticamente una cronologia delle query e le statistiche di runtime e le conserva a scopo di verifica. I dati vengono separati per intervalli di tempo per consentire l'individuazione dei modelli di utilizzo dei database. I dati relativi a tutti gli utenti, tutti i database e tutte le query vengono archiviati in un database denominato **azure_sys** nell'istanza di Database di Azure per PostgreSQL.
 
@@ -29,14 +29,14 @@ Query Store è una funzionalità con consenso esplicito e non è quindi attivo p
 1. Accedere al portale di Azure e selezionare il server di Database di Azure per PostgreSQL.
 2. Selezionare **Parametri del server** nella sezione **Impostazioni** del menu.
 3. Cercare il `pg_qs.query_capture_mode` parametro.
-4. Impostare il valore su `TOP` e **salvare**.
+4. Impostare il valore su `TOP` e **Salva**.
 
-Per abilitare le statistiche di attesa in Store la Query: 
+Per abilitare le statistiche di attesa nei Query Store: 
 1. Cercare il `pgms_wait_sampling.query_capture_mode` parametro.
-1. Impostare il valore su `ALL` e **salvare**.
+1. Impostare il valore su `ALL` e **Salva**.
 
 
-In alternativa è possibile impostare questi parametri tramite la CLI di Azure.
+In alternativa, è possibile impostare questi parametri usando l'interfaccia della riga di comando di Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -86,16 +86,16 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | Nessuno | none, top, all |
+| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | none | none, top, all |
 | pg_qs.max_query_text_length | Imposta la lunghezza massima di query che è possibile salvare. Le query più lunghe verranno troncate. | 6000 | 100-10000 |
 | pg_qs.retention_period_in_days | Imposta il periodo di conservazione. | 7 | 1-30 |
-| pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |
+| pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | sì | on, off |
 
 Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | Nessuno | none, all|
+| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | none | none, all|
 | Pgms_wait_sampling.history_period | Imposta la frequenza di campionamento degli eventi di attesa, in millisecondi. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -109,7 +109,7 @@ Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Quest
 
 Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
 
-### <a name="querystoreqsview"></a>query_store.qs_view
+### <a name="query_storeqs_view"></a>query_store.qs_view
 Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni specifico ID database, ID utente e ID query. 
 
 |**Nome**   |**Tipo** | **Riferimenti**  | **Descrizione**|
@@ -120,15 +120,15 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |query_id   |bigint  || Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
 |query_sql_text |Varchar(10000)  || Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 |plan_id    |bigint |   |ID del piano corrispondente alla query, non ancora disponibile|
-|start_time | timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
-|end_time   | timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
-|calls  |bigint  || Numero di volte in cui la query è stata eseguita|
+|start_time |timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
+|end_time   |timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
+|chiamate  |bigint  || Numero di volte in cui la query è stata eseguita|
 |total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
 |min_time   |double precision   ||  Tempo minimo di esecuzione della query, in millisecondi|
 |max_time   |double precision   ||  Tempo massimo di esecuzione della query, in millisecondi|
 |mean_time  |double precision   ||  Tempo medio di esecuzione della query, in millisecondi|
 |stddev_time|   double precision    ||  Deviazione standard del tempo di esecuzione della query, in millisecondi |
-|rows   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
+|righe   |bigint ||  Numero totale di righe recuperate o interessate dall'istruzione|
 |shared_blks_hit|   bigint  ||  Numero totale di riscontri nella cache dei blocchi condivisi ottenuto dall'istruzione|
 |shared_blks_read|  bigint  ||  Numero totale dei blocchi condivisi letti dall'istruzione|
 |shared_blks_dirtied|   bigint   || Numero totale dei blocchi condivisi modificati ma non salvati dall'istruzione |
@@ -142,7 +142,7 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |blk_read_time  |double precision    || Tempo totale impiegato dall'istruzione per la lettura dei blocchi, in millisecondi (se il parametro track_io_timing è abilitato, in caso contrario è zero)|
 |blk_write_time |double precision    || Tempo totale impiegato dall'istruzione per la scrittura dei blocchi, in millisecondi (se il parametro track_io_timing è abilitato, in caso contrario è zero)|
     
-### <a name="querystorequerytextsview"></a>query_store.query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Questa vista restituisce i dati del testo delle query in Query Store. Contiene una riga per ogni specifico query_text.
 
 |**Nome**|  **Tipo**|   **Descrizione**|
@@ -150,7 +150,7 @@ Questa vista restituisce i dati del testo delle query in Query Store. Contiene u
 |query_text_id  |bigint     |ID della tabella query_texts|
 |query_sql_text |Varchar(10000)     |Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 
-### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
+### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
 
 |**Nome**|  **Tipo**|   **Riferimenti**| **Descrizione**|
@@ -160,7 +160,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
 |event_type |text       ||Tipo di evento atteso dal back-end|
 |event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
-|calls  |Integer        ||Numero dello stesso evento acquisito|
+|chiamate  |Integer        ||Numero dello stesso evento acquisito|
 
 
 ### <a name="functions"></a>Funzioni
@@ -175,6 +175,7 @@ Query_store.staging_data_reset() restituisce void
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 - Se un server PostgreSQL ha il parametro default_transaction_read_only on, Query Store non può acquisire i dati.
 - La funzionalità Query Store può essere interrotta se si verificano query Unicode lunghe (> = 6000 byte).
+- Le [repliche di lettura](concepts-read-replicas.md) replicano query Store dati dal server master. Ciò significa che la Query Store di una replica di lettura non fornisce statistiche sulle query eseguite nella replica di lettura.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

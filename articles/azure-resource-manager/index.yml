@@ -1,78 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Resource Manager in Azure
+### YamlMime:Landing
+title: Documentazione di Azure Resource Manager
+summary: Il modello di Resource Manager è un file JSON (JavaScript Object Notation) che definisce l'infrastruttura e la configurazione del progetto.
 metadata:
-  title: 'Documentazione di Resource Manager in Azure - Esercitazioni, esempi, informazioni di riferimento e risorse'
-  description: Informazioni su come usare Resource Manager per distirbuire e gestire a gruppi le risorse di una soluzione e per creare modelli per una distribuzione coerente e ripetibile delle risorse.
+  title: Documentazione di Azure Resource Manager
+  description: Informazioni su come sviluppare modelli di Resource Manager da usare per distribuire le risorse di Azure
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: 'Resource Manager, azure, devops, esercitazioni, esempi, informazioni di riferimento, documentazione'
-  author: mumian
-  manager: dougeby
-  ms.author: jgao
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 12/10/2018
-abstract:
-  description: 'Informazioni su come usare Resource Manager per distribuire, monitorare e gestire a gruppi le risorse di una soluzione. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare gruppi di risorse e creare modelli per una distribuzione coerente e ripetibile.'
-sections:
-  - title: Guide introduttive
-    items:
-      - type: paragraph
-        text: Usare diversi strumenti per creare modelli di Azure Resource Manager per la distribuzione di risorse di Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Generare un modello con il portale di Azure
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Creare un modello con Visual Studio Code
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Creare un modello con Visual Studio
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come creare modelli di Azure Resource Manager per la distribuzione di risorse di Azure.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilizzare le informazioni di riferimento sui modelli di Resource Manager</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Creare più istanze di una risorsa di Azure</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Impostare l''ordine di distribuzione delle risorse</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Usare le condizioni</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrare Azure Key Vault</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Creare modelli collegati</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Distribuire estensioni di macchina virtuale</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Distribuire estensioni SQL</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Proteggere gli artefatti dei modelli</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Usare procedure di distribuzione sicure</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Risoluzione dei problemi relativi alle distribuzioni dei modelli</a>.'
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: Modelli di configurazione di esempio per attività di distribuzione comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelli di avvio rapido di Azure</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (anteprima)</a>'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Modelli
-            html: <p><a href="/azure/templates/">Informazioni di riferimento sul modello</a></p><p><a href="/azure/resource-group-template-functions">Funzioni di modello</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funzioni di definizione dell'interfaccia utente</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementi di definizione dell'interfaccia utente</a></p>
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/resource">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-          - title: Lingue
-            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/resources/">API REST</a></p>
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 09/25/2019
+  ms.openlocfilehash: 5ce4115713315f41176819fdbd306e604706d9db
+  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71827500"
+landingContent:
+- title: Informazioni su Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Resource Manager
+      url: resource-group-overview.md
+    - text: Cos'è il modello di Resource Manager?
+      url: template-deployment-overview.md
+  - linkListType: concept
+    links:
+    - text: Procedure consigliate
+      url: template-best-practices.md
+    - text: Modalità di distribuzione
+      url: deployment-modes.md
+    - text: Modelli collegati
+      url: resource-group-linked-templates.md
+    - text: Distribuzioni a livello di sottoscrizione
+      url: deploy-to-subscription.md
+    - text: Deployment Manager
+      url: deployment-manager-overview.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare modelli - Portale
+      url: resource-manager-quickstart-create-templates-use-the-portal.md
+    - text: Creare modelli - VS Code
+      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - text: Creare modelli - Visual Studio
+      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Distribuire più istanze
+      url: resource-manager-tutorial-create-multiple-instances.md
+    - text: Impostare l'ordine della distribuzione
+      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
+    - text: Integrare Key Vault
+      url: resource-manager-tutorial-use-key-vault.md
+- title: Sviluppare modelli
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Usare VS Code
+      url: resource-manager-tools-vs-code.md
+    - text: Usare le funzioni
+      url: resource-group-template-functions.md
+    - text: Definire i parametri
+      url: template-parameters.md
+    - text: Definire le variabili
+      url: template-variables.md
+    - text: Definire le risorse
+      url: child-resource-name-type.md
+    - text: Definire gli output
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Modelli di avvio rapido di Azure
+      url: template-deployment-overview.md
+- title: Distribuire modelli
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Con PowerShell
+      url: resource-group-template-deploy.md
+    - text: Con l'interfaccia della riga di comando
+      url: resource-group-template-deploy-cli.md
+    - text: Con il portale
+      url: resource-group-template-deploy-portal.md
+    - text: Uso dell'API REST
+      url: resource-group-template-deploy-rest.md
+- title: Gestire i modelli
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Esporta modelli
+      url: export-template-portal.md
+    - text: Integrazione continua/Distribuzione continua
+      url: vs-resource-groups-project-devops-pipelines.md
+- title: Gestire risorse
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Spostare le risorse
+      url: resource-group-move-resources.md
+    - text: Aggiungere tag alle risorse
+      url: resource-group-using-tags.md
+    - text: Bloccare le risorse
+      url: resource-group-lock-resources.md
+- title: Monitorare e risolvere i problemi
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualizzare log di attività
+      url: resource-group-audit.md
+    - text: Visualizzare le operazioni di distribuzione
+      url: resource-manager-deployment-operations.md
+    - text: Risolvere gli errori relativi alla distribuzione
+      url: resource-manager-common-deployment-errors.md
+- title: Esplorare il contenuto di riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Provider e tipi di risorse
+      url: resource-manager-supported-services.md
+    - text: Informazioni di riferimento sul modello
+      url: /azure/templates/

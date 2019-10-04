@@ -4,9 +4,9 @@ description: In questa esercitazione viene illustrato come usare Hub di notifica
 services: notification-hubs
 keywords: notifiche push di ios,messaggi push,notifiche push,messaggio push
 documentationcenter: xamarin
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 94268d47eaf23e1bac54bb9791ec149bb5cccacb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/23/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/23/2019
+ms.openlocfilehash: 7427421719b44839e766234194640817ea686e3c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855657"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213589"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app Xamarin.iOS con Hub di notifica di Azure
 
@@ -57,25 +59,6 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configurare l'hub di notifica per l'invio di notifiche push di iOS
-
-Questa sezione illustra come creare un nuovo hub di notifica e configurare l'autenticazione con il servizio APN usando il certificato push **.p12** creato in precedenza. Se si vuole usare un hub di notifica che è già stato creato, è possibile ignorare il passaggio 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>Configurare le impostazioni di iOS per l'hub di notifica
-
-1. Selezionare **Apple (APNS)** nel gruppo **NOTIFICATION SETTINGS** (IMPOSTAZIONI DI NOTIFICA).
-2. Selezionare **Certificato**, fare clic sull'icona del **file** e quindi selezionare il file con estensione **p12** esportato in precedenza.
-3. Immettere la **password** per il certificato.
-4. Selezionare la modalità **Sandbox**. Usare la modalità **Production** (Produzione) solo se si vuole inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.
-
-    ![Configurare il servizio APN nel portale di Azure][6]
-
-    ![Configurare il certificato APN nel portale di Azure][7]
-
-L'hub di notifica è ora configurato per l'uso con il servizio APN e sono disponibili le stringhe di connessione per la registrazione dell'app e l'invio di notifiche push.
-
 ## <a name="connect-your-app-to-the-notification-hub"></a>Connettere l'app all'hub di notifica
 
 ### <a name="create-a-new-project"></a>Creare un nuovo progetto
@@ -90,7 +73,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 
     ![Visual Studio - Configurazione di un'app iOS][32]
 
-4. Nella visualizzazione della soluzione fare doppio clic su `Entitlements.plist` e verificare che l'opzione **Abilita Notifiche push**"** sia selezionata.
+4. Nella visualizzazione della soluzione fare doppio clic su `Entitlements.plist` e verificare che l'opzione **Abilita notifiche push** sia selezionata.
 
     ![Visual Studio - Configurazione di entitlement iOS][33]
 
@@ -108,6 +91,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 
     ```csharp
     using WindowsAzure.Messaging;
+    using UserNotifications
     ```
 
 8. Dichiarare un'istanza di `SBNotificationHub`:
@@ -123,7 +107,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

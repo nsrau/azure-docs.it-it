@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: jdial
-ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.author: timlt
+ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694551"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295566"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Creare una rete per applicazioni multilivello
 

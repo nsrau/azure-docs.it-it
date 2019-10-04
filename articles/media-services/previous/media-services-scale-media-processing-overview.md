@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918349"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102906"
 ---
 # <a name="scaling-media-processing-overview"></a>Panoramica del ridimensionamento dell'elaborazione multimediale 
 Questa pagina presenta una panoramica di come e perché ridimensionare l'elaborazione multimediale. 
@@ -33,9 +33,9 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. For
 
 |Tipo di unità richiesta|Scenario|Risultati di esempio per il [video di 7 min con risoluzione 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|La codifica in file MP4 con risoluzione SD e velocità in bit singola tramite "Codec video H.264 a bitrate singolo con risoluzione 16x9 SD" richiede 10 minuti.|
-| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 720p" richiede circa 8 minuti.<br/><br/>La codifica con set di impostazioni "Codec video H.264 a bitrate multipli con risoluzione 720p" richiede circa 16,8 minuti.|
-| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 1080p" richiede circa 4 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 8 minuti.|
+| **S1**|Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|La codifica in un file MP4 di risoluzione SD a bitrate singolo con "H264 Single bitrate SD 16x9" richiede circa 7 minuti.|
+| **S2**|Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD.|La codifica con il set di impostazioni "H264 a bitrate singolo 720p" richiede circa 6 minuti.<br/><br/>La codifica con il set di impostazioni "H264 a bitrate multipli 720p" richiede circa 12 minuti.|
+| **S3**|Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido.|La codifica con il set di impostazioni "H264 Single bitrate 1080p" richiede circa 3 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 8 minuti.|
 
 ## <a name="considerations"></a>Considerazioni
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. For
 
 ## <a name="billing"></a>Fatturazione
 
-L'addebito è basato sul numero di minuti che viene effettuato il provisioning di Media Reserved unit nel tuo account. Questo errore si verifica indipendentemente dal fatto che sono presenti tutti i processi in esecuzione nell'account. Per una spiegazione dettagliata, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).   
+L'addebito è basato sul numero di minuti per cui viene effettuato il provisioning di media reserved Unit nell'account. Ciò si verifica indipendentemente dalla presenza di processi in esecuzione nell'account. Per una spiegazione dettagliata, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Quote e limitazioni
 Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).

@@ -15,11 +15,11 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60733573"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configurazione e requisiti della licenza Apple FairPlay 
 
@@ -35,7 +35,7 @@ Se si usa Servizi multimediali per crittografare il contenuto HLS crittografato 
 * Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Indicare che è già stato implementato il modulo KSM (Key Security Module) con Servizi multimediali e che si sta richiedendo il pacchetto FPS finale. Il pacchetto FPS finale contiene istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione, che verrà usata per configurare FairPlay.
 * È necessario impostare quanto segue in aggiunta alla distribuzione delle chiavi/licenze di Servizi multimediali:
 
-    * **App Cert (AC)**: file con estensione pfx contenente la chiave privata. Creare il file e crittografarlo con una password. Il file con estensione pfx deve avere il formato Base64.
+    * **App Cert (AC)** : file con estensione pfx contenente la chiave privata. Creare il file e crittografarlo con una password. Il file con estensione pfx deve avere il formato Base64.
 
         La procedura seguente descrive come generare un file di certificato pfx per FairPlay:
 
@@ -54,7 +54,7 @@ Se si usa Servizi multimediali per crittografare il contenuto HLS crittografato 
     
 * Sul lato client FPS è necessario impostare quanto segue:
 
-  * **App Cert (AC)**: file con estensione cer/der contenente la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che Servizi multimediali lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
+  * **App Cert (AC)** : file con estensione cer/der contenente la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che Servizi multimediali lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
 
 * Per riprodurre un flusso crittografato FairPlay, ottenere prima una chiave privata dell'applicazione reale, quindi generare un certificato reale. Questo processo crea tutte le 3 parti:
 

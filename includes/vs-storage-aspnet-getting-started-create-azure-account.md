@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: 1db7be902c768889dbc82bef0adc0310b9fac02c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440241"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180046"
 ---
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 Il modo più semplice per creare il primo account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

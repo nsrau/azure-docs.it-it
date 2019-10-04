@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ef49cb2e245e4af7b5d7f7d250194761cf0b375
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279670"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: integrazione di Azure Active Directory con Meta Networks Connector
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Meta Networks Connector, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Meta Networks Connector](#configure-meta-networks-connector-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Meta Networks Connector](#create-meta-networks-connector-test-user)**: per avere una controparte di Britta Simon in Meta Networks Connector collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Meta Networks Connector](#configure-meta-networks-connector-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Meta Networks Connector](#create-meta-networks-connector-test-user)** : per avere una controparte di Britta Simon in Meta Networks Connector collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornare tali valori con i valori reali di identificatore, URL di risposta e URL di accesso. La procedura viene descritta più avanti nell'esercitazione.
 
-6. L'applicazione Meta Networks Connector prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di attributi token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+6. L'applicazione Meta Networks Connector prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di attributi token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
     
@@ -172,7 +172,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 1. Aprire una nuova scheda del browser e accedere all'account amministratore di Meta Networks Connector.
     
     > [!NOTE]
-    > Meta Networks Connector è un sistema sicuro. Di conseguenza, prima di accedere al portale, è necessario ottenere un indirizzo IP pubblico incluso nell'elenco degli indirizzi consentiti sul lato del portale. Per ottenere l'indirizzo IP pubblico, seguire il collegamento specificato [qui](https://whatismyipaddress.com/). Inviare l'indirizzo IP al [team di supporto clienti di Meta Networks Connector](mailto:support@metanetworks.com) perché venga inserito nell'elenco degli indirizzi IP consentiti.
+    > Meta Networks Connector è un sistema sicuro. Di conseguenza, prima di accedere al portale, è necessario aggiungere l'indirizzo IP in un elenco di indirizzi consentiti sul lato del portale. Per ottenere l'indirizzo IP pubblico, seguire il collegamento specificato [qui](https://whatismyipaddress.com/). Inviare l'indirizzo IP al [team di supporto clienti di Meta Networks Connector](mailto:support@metanetworks.com) perché venga inserito nell'elenco degli indirizzi IP consentiti.
     
 2. Passare ad **Amministratore** e selezionare **Impostazioni**.
     
@@ -208,7 +208,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Meta Networks Connector
 
     c. Aprire il certificato scaricato dal portale di Azure nel Blocco note e incollarlo nella casella di testo **Certificato X.509**.
 
-    d. Abilitare il **provisioning JIT (Just-in-Time)**.
+    d. Abilitare il **provisioning JIT (Just-in-Time)** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 

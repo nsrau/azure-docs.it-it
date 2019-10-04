@@ -38,7 +38,7 @@ sections:
             image:
               src: /azure/cdn/media/index/cdn.svg
             title: RETE CDN
-          - href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
             html: <p>Riprodurre contenuti multimediali da Servizi multimediali di Microsoft Azure su una vasta gamma di browser e dispositivi.</p>
             image:
               src: /azure/media-services/latest/media/index/AMSIcons-Player.svg

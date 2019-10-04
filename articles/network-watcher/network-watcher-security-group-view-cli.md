@@ -3,8 +3,8 @@ title: Analizzare la protezione di rete con la visualizzazione del gruppo di sic
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per analizzare la protezione di macchine virtuali con la visualizzazione di un gruppo di sicurezza.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 68222a90eb60ab4f84a34b5e46833128ea081ec1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962896"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64724446"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con l'interfaccia della riga di comando di Azure
 

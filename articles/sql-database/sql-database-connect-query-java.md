@@ -1,5 +1,5 @@
 ---
-title: Usare Java per eseguire query sul database SQL di Azure | Microsoft Docs
+title: Usare Java per eseguire query su un database SQL di Azure
 description: Illustra come usare Java per creare un programma che si connette a un database SQL di Azure ed eseguire query sul database con istruzioni T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.custom: seo-java-july2019. seo-java-august2019
+ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447942"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624072"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Java per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Java per connettersi a un database SQL di Azure ed eseguire query
 
 Questo articolo illustra come usare [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) per connettersi a un database SQL di Azure. È quindi possibile usare istruzioni T-SQL per eseguire query sui dati.
 
@@ -33,12 +33,11 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  
   > [!IMPORTANT]
   > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
 
@@ -56,7 +55,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Passare alla pagina **Database SQL** o **Istanze gestite di SQL**.
+2. Selezionare **Database SQL** o aprire la pagina **Istanze gestite di SQL**.
 
 3. Nella pagina **Panoramica** verificare il nome completo del server accanto a **Nome server** per un database singolo o accanto a **Host** per un'istanza gestita. Per copiare il nome del server o il nome host, passare il puntatore su di esso e selezionare l'icona **Copia**. 
 

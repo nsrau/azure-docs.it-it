@@ -1,20 +1,20 @@
 ---
-title: Risolvere i problemi di connessione a Database di Azure per PostgreSQL
-description: Informazioni su come risolvere i problemi di connessione a Database di Azure per PostgreSQL.
+title: Risolvere i problemi di connessione al Database di Azure per PostgreSQL - Server singolo
+description: Informazioni su come risolvere i problemi di connessione al Database di Azure per PostgreSQL - singolo Server.
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65952099"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Risolvere i problemi di connessione a Database di Azure per PostgreSQL
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al Database di Azure per PostgreSQL - Server singolo
 
 I problemi di connessione possono avere varie cause tra cui:
 
@@ -53,7 +53,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 
 1. Impostare le [regole del firewall](howto-manage-firewall-using-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
-2. Verificare che la porta 3306 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet.
+2. Tutti i firewall tra il client e internet, assicurarsi che la porta 5432 sia aperta per le connessioni in uscita.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione.
 4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che vi sia un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con Database di Azure per PostgreSQL](concepts-business-continuity.md) per la procedura di ripristino in una nuova area.
 

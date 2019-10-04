@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 15154844c954e53ca1add5d3fbaa3e9d02152ad2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568244"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262165"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
-Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database di Istanza gestita.
+Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database dell'istanza gestita.
 
 Intelligent Insights usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni. Dopo aver rilevato questo tipo di eventi, viene eseguita un'analisi dettagliata che genera un log di diagnostica con una valutazione intelligente del problema. Questa valutazione è costituita da un'analisi della causa radice del problema di prestazioni del database e, dove possibile, da raccomandazioni per il miglioramento delle prestazioni.
 
@@ -65,7 +64,7 @@ Per una panoramica pratica sull'uso di Intelligent Insights con Analisi SQL di A
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL e istanza gestita, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL e dell'istanza gestita, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 ## <a name="configure-intelligent-insights"></a>Configurare Intelligent Insights
 
@@ -97,7 +96,7 @@ Di seguito è riportato un esempio del report di Intelligent Insights attraverso
 
 ### <a name="set-up-with-event-hubs"></a>Configurare con Hub eventi
 
-Per usare Intelligent Insights con Hub eventi e configurare i dati di log di Intelligent Insights da trasmettere all'Hub eventi, vedere [Trasmettere i log di diagnostica di Azure agli hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Per usare Intelligent Insights con Hub eventi e configurare i dati di log di Intelligent Insights da trasmettere all'Hub eventi, vedere [Trasmettere i log di diagnostica di Azure agli hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Per usare Hub di eventi per configurare gli avvisi e il monitoraggio personalizzati, vedere [Cosa fare con le metriche e i log di diagnostica in Hub eventi](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -113,7 +112,7 @@ Per usare Intelligent Insights con strumenti di terze parti o per la creazione d
 
 Le metriche usate per i modelli di rilevamento per la generazione di analisi intelligenti si basano sul monitoraggio degli elementi seguenti:
 
-- Durata delle query
+- Durata query
 - Richieste di timeout
 - Tempo di attesa eccessivo
 - Richieste che hanno generato errori
@@ -128,7 +127,7 @@ Tutte le metriche vengono prese in considerazione complessivamente in diverse re
 - Analisi della causa radice dei problemi rilevati.
 - Dove possibile, consigli su come migliorare le prestazioni del database SQL monitorato.
 
-## <a name="query-duration"></a>Durata delle query
+## <a name="query-duration"></a>Durata query
 
 Il modello di riduzione delle prestazioni basato sulla durata delle query analizza le singole query e rileva l'aumento del tempo necessario per compilare ed eseguire una query rispetto alla baseline delle prestazioni.
 
@@ -180,4 +179,4 @@ Nel caso in cui una delle eccezioni critiche monitorate superi le soglie assolut
 - Informazioni su come [risolvere i problemi di prestazioni del database SQL con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Usare il [log di diagnostica delle prestazioni del database SQL generato da Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Informazioni su come [monitorare un database SQL usando Analisi SQL](../azure-monitor/insights/azure-sql.md).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md).

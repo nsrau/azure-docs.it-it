@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60577248"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Failover su un dispositivo StorSimple serie 8000 fisico
 
@@ -32,7 +32,7 @@ Per altre informazioni sul failover del dispositivo e su come usarlo per il ripr
 Per eseguire il failover di un dispositivo fisico StorSimple su un'appliance cloud StorSimple, passare a [Eseguire il failover in un'appliance cloud StorSimple](storsimple-8000-device-failover-cloud-appliance.md). Per eseguire il failover di un dispositivo fisico su se stesso, passare a [Eseguire il failover sullo stesso dispositivo fisico StorSimple](storsimple-8000-device-failover-same-device.md).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di aver esaminato le considerazioni relative al failover dei dispositivi. Per altre informazioni, leggere [Considerazioni per il failover del dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 

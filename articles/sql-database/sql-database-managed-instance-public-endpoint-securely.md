@@ -1,6 +1,6 @@
 ---
-title: Proteggere gli endpoint pubblici di istanza gestita - Database SQL di Azure istanza gestita | Microsoft Docs
-description: Usare in modo sicuro gli endpoint pubblici in Azure con istanza gestita
+title: Endpoint pubblici di istanze gestite sicure-istanza gestita di database SQL di Azure | Microsoft Docs
+description: Usare in modo sicuro gli endpoint pubblici in Azure con un'istanza gestita
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,45 +9,48 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: 9d5a3d18e8a7d3c5a6cb08e16e74dd4fbda9ca31
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 05/08/2019
+ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014022"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567371"
 ---
-# <a name="using-azure-sql-database-managed-instance-securely-with-public-endpoint"></a>Istanza in modo sicuro con endpoint pubblici gestita di Database SQL di Azure
+# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usare un'istanza gestita di database SQL di Azure in modo sicuro con gli endpoint pubblici
 
-Istanza gestita è stato possibile abilitare per fornire connettività degli utenti nel Database SQL di Azure [endpoint pubblico](../virtual-network/virtual-network-service-endpoints-overview.md). Questo articolo fornisce indicazioni come effettuare questa configurazione più sicura.
+Le istanze gestite del database SQL di Azure possono fornire la connettività degli utenti sugli [endpoint pubblici](../virtual-network/virtual-network-service-endpoints-overview.md). Questo articolo illustra come rendere più sicura questa configurazione.
 
 ## <a name="scenarios"></a>Scenari
 
-Istanza gestita offre endpoint privato per abilitare la connettività tra la propria rete virtuale. L'opzione predefinita è per garantire l'isolamento massimo. Tuttavia, esistono scenari in cui è necessaria una connessione all'endpoint pubblico:
+Un'istanza gestita di database SQL fornisce un endpoint privato per consentire la connettività dall'interno della rete virtuale. L'opzione predefinita prevede l'isolamento massimo. Esistono tuttavia scenari in cui è necessario fornire una connessione all'endpoint pubblico:
 
-- Integrazione con offerte PaaS sole multi-tenant.
-- Velocità effettiva superiore dello scambio di dati rispetto all'uso di VPN.
-- Criteri aziendali impediscono alle PaaS all'interno delle reti aziendale.
+- L'istanza gestita deve integrarsi con offerte di piattaforma distribuita come servizio (PaaS) multi-tenant.
+- È necessaria una velocità effettiva maggiore dello scambio di dati rispetto a quella possibile quando si usa una VPN.
+- I criteri aziendali proibiscono PaaS all'interno delle reti aziendali.
 
-## <a name="deploying-managed-instance-for-public-endpoint-access"></a>Distribuzione di istanza gestita per l'accesso agli Endpoint pubblico
+## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Distribuire un'istanza gestita per l'accesso a endpoint pubblici
 
-Benché non sia obbligatorio, il modello di distribuzione comuni per un'istanza gestita con accesso all'endpoint pubblico consiste nel creare l'istanza in una rete virtuale isolata dedicata. In questa configurazione, la rete virtuale viene usata solo per l'isolamento del cluster virtuale. Non è rilevante se lo spazio di indirizzi IP gestito istanza si sovrappone a uno spazio di indirizzi IP di rete aziendale.
+Sebbene non obbligatorio, il modello di distribuzione comune per un'istanza gestita con accesso a endpoint pubblico consiste nel creare l'istanza in una rete virtuale isolata dedicata. In questa configurazione, la rete virtuale viene usata solo per l'isolamento dei cluster virtuali. Non è importante se lo spazio degli indirizzi IP dell'istanza gestita si sovrappone allo spazio di indirizzi IP di una rete aziendale.
 
-## <a name="securing-data-in-motion"></a>Protezione dei dati in movimento
+## <a name="secure-data-in-motion"></a>Proteggere i dati in movimento
 
-Se il driver del client supporta la crittografia, il traffico dei dati di istanza gestita è sempre crittografato. I dati tra l'istanza gestita e altre macchine virtuali di Azure o servizi di Azure non lascia mai la backbone di Azure. Se è presente un'istanza gestita a una connessione di rete locale, è consigliabile usare Expressroute con peering Microsoft. Circuito Expressroute consentirà di evitare lo spostamento dei dati sulla rete Internet pubblica (per la connettività privata di istanza gestita, solo il peering privato può essere usato).
+Il traffico dati dell'istanza gestita è sempre crittografato se il driver client supporta la crittografia. I dati inviati tra l'istanza gestita e altre macchine virtuali di Azure o i servizi di Azure non lasciano mai la spina dorsale di Azure. Se è presente una connessione tra l'istanza gestita e una rete locale, è consigliabile usare Azure ExpressRoute con il peering Microsoft. ExpressRoute consente di evitare lo stato di trasferimento dei dati sulla rete Internet pubblica. Per la connettività privata dell'istanza gestita, è possibile usare solo il peering privato.
 
-## <a name="locking-down-inbound-and-outbound-connectivity"></a>Bloccare la connettività in ingresso e in uscita
+## <a name="lock-down-inbound-and-outbound-connectivity"></a>Blocca la connettività in ingresso e in uscita
 
-Il diagramma seguente mostra le configurazioni di sicurezza consigliata.
+Il diagramma seguente illustra le configurazioni di sicurezza consigliate:
 
-![managed-instance-vnet.png](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
+![Configurazioni di sicurezza per il blocco della connettività in ingresso e in uscita](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Istanza gestita ha un [indirizzo endpoint pubblico dedicato](sql-database-managed-instance-find-management-endpoint-ip-address.md). Questo indirizzo IP deve essere impostato nel firewall in uscita sul lato client delle regole del gruppo di sicurezza di rete per limitare la connettività in uscita.
+Un'istanza gestita ha un [indirizzo endpoint pubblico dedicato](sql-database-managed-instance-find-management-endpoint-ip-address.md). Nel firewall in uscita lato client e nelle regole del gruppo di sicurezza di rete impostare questo indirizzo IP dell'endpoint pubblico per limitare la connettività in uscita.
 
-Per garantire il traffico all'istanza gestita è provenienti da origini attendibili, è consigliabile per la connessione da origini diverse con gli indirizzi IP conosciuti. Limitare l'accesso all'endpoint pubblico di istanza gestita sulla porta 3342 usando un gruppo di sicurezza di rete.
+Per garantire che il traffico verso l'istanza gestita provenga da origini attendibili, è consigliabile connettersi da origini con indirizzi IP noti. Usare un gruppo di sicurezza di rete per limitare l'accesso all'endpoint pubblico dell'istanza gestita sulla porta 3342.
 
-Quando i client devono avviare una connessione da una rete locale, assicurarsi che l'indirizzo di origine viene convertito in un set noto di indirizzi IP. Se non si riscontra che (ad esempio, in uno scenario tipico della forza lavoro mobile), è consigliabile per usare [Point-to-site VPN connessioni e un endpoint privato](sql-database-managed-instance-configure-p2s.md).
+Quando i client devono avviare una connessione da una rete locale, assicurarsi che l'indirizzo di origine venga convertito in un set noto di indirizzi IP. Se non è possibile eseguire questa operazione (ad esempio, una forza lavoro mobile è uno scenario tipico), si consiglia di usare [connessioni VPN da punto a sito e un endpoint privato](sql-database-managed-instance-configure-p2s.md).
 
-Se vengono avviate le connessioni da Azure, è consigliabile che il traffico proviene da noto assegnato [VIP](../virtual-network/virtual-networks-reserved-public-ip.md) (ad esempio, le macchine virtuali). Per semplificare la gestione degli indirizzi VIP, i clienti potrebbero considerare l'uso [prefisso dell'indirizzo IP pubblico](../virtual-network/public-ip-address-prefix.md).
+Se le connessioni vengono avviate da Azure, è consigliabile che il traffico provenga da un [indirizzo IP virtuale](../virtual-network/virtual-networks-reserved-public-ip.md) assegnato ben noto (ad esempio, una macchina virtuale). Per semplificare la gestione degli indirizzi IP virtuali (VIP), è consigliabile usare i [prefissi degli indirizzi IP pubblici](../virtual-network/public-ip-address-prefix.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Informazioni su come configurare l'endpoint pubblico per la gestione delle istanze: [Configurare l'endpoint pubblico](sql-database-managed-instance-public-endpoint-configure.md)

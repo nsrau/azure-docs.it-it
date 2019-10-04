@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843675"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593619"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 
@@ -38,7 +38,7 @@ Per un elenco aggiornato delle posizioni dei nodi della rete CDN, vedere [Locali
 ## <a name="how-it-works"></a>Funzionamento
 ![Panoramica della rete CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Un utente (Alice) richiede un file, detto anche asset, usando un URL con un nome di dominio particolare, ad esempio _&lt;nome endpoint&gt;_.azureedge.net. Questo nome può essere un nome host dell'endpoint o un dominio personalizzato. Il servizio DNS instrada la richiesta alla località POP (Point of Presence) che offre le migliori prestazioni, in genere quella geograficamente più vicina all'utente.
+1. Un utente (Alice) richiede un file, detto anche asset, usando un URL con un nome di dominio particolare, ad esempio _&lt;nome endpoint&gt;_ .azureedge.net. Questo nome può essere un nome host dell'endpoint o un dominio personalizzato. Il servizio DNS instrada la richiesta alla località POP (Point of Presence) che offre le migliori prestazioni, in genere quella geograficamente più vicina all'utente.
     
 2. Se nella cache dei server perimetrali del POP il file non è disponibile, il POP richiede il file al server di origine. Il server di origine può essere un'app Web di Azure, il servizio Cloud di Azure, un account di archiviazione di Azure o qualsiasi server Web accessibile pubblicamente.
    

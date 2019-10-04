@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616289"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423621"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#
 
@@ -23,9 +23,9 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Per installare `Newtonsoft.Json` come pacchetto NuGet in Visual Studio:
-    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul file della soluzione.
+    1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file della soluzione.
     1. Scegliere **Gestisci pacchetti NuGet per la soluzione**.
     1. Cercare `Newtonsoft.Json` e installare il pacchetto.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
@@ -81,8 +81,9 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
         HttpResponseMessage response = new HttpResponseMessage();
         // add the rest of the code snippets here (except for main())...
     }
+    ```
 
-2. Create the URI for your request by appending your host, path, and parameters.
+2. Creare l'URI per la richiesta aggiungendo l'host, il percorso e i parametri.
     
     ```csharp
     string uri = host + path + params_;
@@ -187,4 +188,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
-- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

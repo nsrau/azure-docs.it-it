@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344349"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300855"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà l'Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
 I processi dell'Utilità di pianificazione di Azure potrebbero dover chiamare servizi che richiedono l'autenticazione, ad esempio altri servizi di Azure, Salesforce.com, Facebook e siti Web personalizzati protetti. Il servizio chiamato può determinare se il processo dell'Utilità di pianificazione può accedere alle risorse richieste. 
 
@@ -44,19 +44,19 @@ L'Utilità di pianificazione supporta questi modelli di autenticazione:
 
 Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.  
 
-| Elemento | Obbligatorio | DESCRIZIONE |
+| Elemento | Richiesto | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
-| **pfx** | Sì | Contenuto del file PFX in codifica base64. |
-| **password** | Sì | Password per accedere al file PFX. |
+| **type** | Yes | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **pfx** | Yes | Contenuto del file PFX in codifica base64. |
+| **password** | Yes | Password per accedere al file PFX. |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo della risposta - Certificato client 
 
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi di autenticazione.
 
-| Elemento | DESCRIZIONE | 
+| Elemento | Descrizione | 
 |---------|-------------| 
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
 | **type** | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
@@ -164,19 +164,19 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `Basic`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Obbligatorio | DESCRIZIONE |
+| Elemento | Richiesto | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. | 
-| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
-| **username** | Sì | Nome utente per eseguire l'autenticazione. | 
-| **password** | Sì | Password per eseguire l'autenticazione. |
+| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
+| **username** | Yes | Nome utente per eseguire l'autenticazione. | 
+| **password** | Yes | Password per eseguire l'autenticazione. |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo della risposta - Autenticazione di base
 
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi di autenticazione.
 
-| Elemento | DESCRIZIONE | 
+| Elemento | Descrizione | 
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. |
 | **type** | Il tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
@@ -282,21 +282,21 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `ActiveDirectoryOAuth`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Obbligatorio | DESCRIZIONE |
+| Elemento | Richiesto | Descrizione |
 |---------|----------|-------------|
-| **authentication** (elemento padre) | Sì | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
-| **tenant** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
-| **audience** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
-| **clientId** | Sì | Identificatore client per l'applicazione Azure AD | 
-| **secret** | Sì | Segreto del client che richiede il token | 
+| **authentication** (elemento padre) | Yes | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
+| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
+| **tenant** | Yes | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
+| **audience** | Yes | Questo valore è impostato su `https://management.core.windows.net/`. | 
+| **clientId** | Yes | Identificatore client per l'applicazione Azure AD | 
+| **secret** | Yes | Segreto del client che richiede il token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo della risposta - Autenticazione OAuth Active Directory
 
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi di autenticazione.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
 | **type** | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
@@ -403,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)

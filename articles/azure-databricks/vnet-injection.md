@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003446"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62126682"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Distribuire Azure Databricks in una rete virtuale (anteprima)
 
@@ -37,7 +37,7 @@ Distribuzione delle risorse di Azure Databricks per la propria rete virtuale con
 
 La rete virtuale che si distribuisce l'area di lavoro Azure Databricks deve soddisfare i requisiti seguenti:
 
-### <a name="location"></a>Location
+### <a name="location"></a>Località
 
 La rete virtuale deve trovarsi nella stessa località dell'area di lavoro Azure Databricks.
 
@@ -121,7 +121,7 @@ Se si usa questo modello senza usare anche il modello di gruppi di sicurezza di 
 
 Se non si usa la [portale di Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) oppure [modelli di Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare gruppi di sicurezza di rete, è necessario consentire il traffico seguenti nelle subnet.
 
-|Direction|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|
+|Direction|Protocol|`Source`|Porta di origine|Destination|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|Indirizzi IP NAT piano di controllo|\*|\*|22|

@@ -1,197 +1,195 @@
 ---
-title: Creare un'app Node.js in Linux - Servizio app di Azure | Microsoft Docs
-description: Distribuire la prima app Hello World Node.js in un Servizio app di Azure in Linux in pochi minuti.
-services: app-service\web
-documentationcenter: ''
+title: Creare un'app Web Node.js - Servizio app di Azure
+description: Come distribuire un'app Node.js nel Servizio app di Azure
 author: msangapu
-manager: jeconnoc
-editor: ''
-ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 08/12/2019
+ms.topic: quickstart
+ms.service: app-service
+ms.devlang: javascript
+ms.openlocfilehash: b28e8e4dccf75d36b318e838e35de23d176c5c23
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548679"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176707"
 ---
-# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Creare un'app Node.js nel servizio app di Azure in Linux
+# <a name="create-a-nodejs-app-in-azure"></a>Creare un'app Node.js in Azure
 
-> [!NOTE]
-> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Node.js in Azure](../app-service-web-get-started-nodejs.md).
->
+Il Servizio app di Azure offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questo argomento di avvio rapido illustra come distribuire un'app Node.js in Servizio app di Azure.
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se non si ha un account Azure [iscriversi](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) per ottenere un account gratuito con USD 200 in crediti di Azure per provare qualsiasi combinazione di servizi.
 
-![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
+È necessario che sia installato [Visual Studio Code](https://code.visualstudio.com/) insieme a [Node.js e npm](https://nodejs.org/en/download), lo strumento di gestione dei pacchetti Node.js.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+È anche necessario installare l'[estensione del servizio app di Azure](vscode:extension/ms-azuretools.vscode-azureappservice), che è possibile usare per creare, gestire e distribuire app Web Linux nella piattaforma distribuita come servizio (PaaS) di Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+### <a name="sign-in"></a>Accesso
 
-## <a name="download-the-sample"></a>Scaricare l'esempio
+Una volta installata l'estensione, accedere all'account Azure. Sulla barra delle attività fare clic sul logo di Azure per visualizzare lo strumento di esplorazione dei **servizi app di Azure**. Fare clic su **Accedi ad Azure** e seguire le istruzioni.
 
-In Cloud Shell creare una directory quickstart e passare ad essa.
+![Accedere ad Azure](./media/quickstart-nodejs/sign-in.png)
+
+### <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se viene visualizzato l'errore **"Impossibile trovare la sottoscrizione [ID sottoscrizione]"** , è possibile che un proxy impedisca di raggiungere l'API di Azure. Configurare le variabili di ambiente `HTTP_PROXY` e `HTTPS_PROXY` con le informazioni del proxy nel terminale usando `export`.
+
+```sh
+export HTTPS_PROXY=https://username:password@proxy:8080
+export HTTP_PROXY=http://username:password@proxy:8080
+```
+
+Se l'impostazione delle variabili di ambiente non consente di risolvere il problema, contattare il supporto facendo clic sul pulsante **Si è verificato un problema** sotto.
+
+### <a name="prerequisite-check"></a>Controllo dei prerequisiti
+
+Prima di continuare, assicurarsi che tutti i prerequisiti siano installati e configurati.
+
+In VS Code dovrebbero essere visualizzati l'indirizzo di posta elettronica di Azure nella barra di stato e la sottoscrizione nello strumento di esplorazione dei **servizi app di Azure**.
+
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
+
+## <a name="create-your-nodejs-application"></a>Creare l'applicazione Node.js
+
+Creare quindi un'applicazione Node.js che possa essere distribuita nel cloud. Questo argomento di avvio rapido usa un generatore di applicazioni per eseguire rapidamente lo scaffolding dell'applicazione da un terminale.
+
+> [!TIP]
+> Se è già stata completata l'[esercitazione su Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), è possibile passare alla sezione [Distribuire il sito Web](#deploy-the-website).
+
+### <a name="install-the-express-generator"></a>Installare il generatore Express
+
+[Express](https://www.expressjs.com) è un framework di uso comune per la creazione e l'esecuzione di applicazioni Node.js. È possibile eseguire lo scaffolding (creazione) di una nuova applicazione Express usando lo strumento [generatore Express](https://expressjs.com/en/starter/generator.html). Il generatore Express viene fornito come modulo npm e installato tramite un comando `npm` dello strumento da riga di comando npm.
 
 ```bash
-mkdir quickstart
-
-cd quickstart
+npm install -g express-generator
 ```
 
-Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
+L'opzione `-g` installa il generatore Express globalmente nel computer, in modo che sia possibile eseguirlo da qualsiasi posizione.
+
+### <a name="scaffold-a-new-application"></a>Eseguire lo scaffolding di una nuova applicazione
+
+Eseguire quindi lo scaffolding di una nuova applicazione Express denominata `myExpressApp` eseguendo:
 
 ```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+express myExpressApp --view pug --git
 ```
 
-Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
+I parametri `--view pug --git` indicano al generatore di usare il motore di modelli [pug](https://pugjs.org/api/getting-started.html) (noto in precedenza come `jade`) e creare un file `.gitignore`.
+
+Per installare tutte le dipendenze dell'applicazione, passare alla nuova cartella ed eseguire `npm install`.
 
 ```bash
-Cloning into 'nodejs-docs-hello-world'...
-remote: Counting objects: 40, done.
-remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
-Unpacking objects: 100% (40/40), done.
-Checking connectivity... done.
+cd myExpressApp
+npm install
 ```
 
-> [!NOTE]
-> Il file index. js di esempio imposta la porta di ascolto su process.env.PORT. Questa variabile di ambiente viene assegnata dal Servizio app di Azure.
->
+### <a name="run-the-application"></a>Eseguire l'applicazione
 
-## <a name="create-a-web-app"></a>Creare un'app Web
-
-Passare alla directory contenente il codice di esempio ed eseguire il comando `az webapp up`.
-
-Nell'esempio seguente sostituire <app_name> con un nome di app univoco.
+Assicurarsi quindi che l'applicazione venga eseguita correttamente. Dal terminale avviare l'applicazione usando il comando `npm start` per avviare il server.
 
 ```bash
-cd nodejs-docs-hello-world
-
-az webapp up -n <app_name>
+npm start
 ```
 
-L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
+Aprire quindi il browser e passare a [http://localhost:3000](http://localhost:3000), dove dovrebbe venire visualizzato un contenuto simile al seguente:
 
-```json
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
-Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
-App service plan creation complete
-Creating app '<app_name>' ....
-Webapp creation complete
-Updating app settings to enable build after deployment
-Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
-Preparing to deploy and build contents to app.
-Fetching changes.
+![Esecuzione dell'applicazione Express](./media/quickstart-nodejs/express.png)
 
-Generating deployment script.
-Generating deployment script.
-Generating deployment script.
-Running deployment command...
-Running deployment command...
-Running deployment command...
-Deployment successful.
-All done.
-{
-  "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
-  "name": "<app_name>",
-  "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
-  "sku": "STANDARD",
-  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
-  "version_detected": "6.9",
-  "version_to_create": "node|6.9"
-}
-```
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-Il comando `az webapp up` esegue le azioni seguenti:
+## <a name="deploy-the-website"></a>Distribuire il sito Web
 
-- Crea un gruppo di risorse predefinito.
+In questa sezione si distribuisce il sito Web Node.js usando VS Code e l'estensione del servizio app di Azure. Questo argomento di avvio rapido usa il modello di distribuzione più semplice in cui l'app viene compressa e distribuita in un'app Web di Azure in Linux.
 
-- Crea un piano di servizio app predefinito.
+### <a name="deploy-using-azure-app-service"></a>Eseguire la distribuzione usando il servizio app di Azure
 
-- Crea un'app con il nome specificato.
-
-- [Distribuire file ZIP](https://docs.microsoft.com/azure/app-service/deploy-zip) i dalla directory di lavoro corrente all'app.
-
-## <a name="browse-to-the-app"></a>Passare all'app
-
-Passare all'applicazione distribuita con il Web browser. Sostituire <app_name> con il nome dell'app.
+Aprire prima di tutto la cartella dell'applicazione in VS Code.
 
 ```bash
-http://<app_name>.azurewebsites.net
+code .
 ```
 
-Il codice di esempio Node.js è in esecuzione nel servizio app in Linux con un'immagine predefinita.
+Nello strumento di esplorazione dei **servizi app di Azure** fare clic sull'icona a forma di freccia blu per distribuire l'app in Azure.
 
-![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
+![Eseguire la distribuzione nell'app Web](./media/quickstart-nodejs/deploy.png)
 
-**Congratulazioni** La distribuzione della prima app Node.js nel Servizio app in Linux è stata completata.
+> [!TIP]
+> È anche possibile eseguire la distribuzione dal **riquadro comandi** (CTRL+MAIUSC+P) digitando "Distribuisci nell'app Web" ed eseguendo il comando **Servizio app di Azure: Distribuisci nell'app Web**.
 
-## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
+1. Scegliere la directory attualmente aperta, `myExpressApp`.
 
-In Cloud Shell digitare `nano index.js` per aprire l'editor di testo Nano.
+2. Scegliere **Crea una nuova app Web**.
 
-![File index.js di Nano](media/quickstart-nodejs/nano-indexjs.png)
+3. Digitare un nome univoco a livello globale per l'app Web e premere INVIO. I caratteri validi per il nome dell'app sono "a-z", "0-9" e "-".
 
- Apportare una piccola modifica al testo nella chiamata a `response.end`:
+4. Scegliere un'opzione per **Versione di Node.js**. Il valore consigliato è LTS.
 
-```nodejs
-response.end("Hello Azure!");
-```
+    Il canale di notifica mostra le risorse di Azure che vengono create per l'app.
 
-Salvare le modifiche e uscire da Nano. Usare il comando `^O` per salvare e `^X` per uscire.
+Fare clic su **Sì** quando viene richiesto di aggiornare la configurazione per eseguire `npm install` nel server di destinazione. L'app viene quindi distribuita.
 
-A questo punto occorre ridistribuire l'app. Sostituire `<app_name>` con l'app.
+![Distribuzione configurata](./media/quickstart-nodejs/server-build.png)
 
-```bash
-az webapp up -n <app_name>
-```
+All'avvio della distribuzione, viene richiesto di aggiornare l'area di lavoro in modo che le distribuzioni successive usino automaticamente come destinazione la stessa app Web del servizio app. Scegliere **Sì** per assicurarsi che le modifiche vengano distribuite nell'app corretta.
 
-Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
+![Distribuzione configurata](./media/quickstart-nodejs/save-configuration.png)
 
-![App di esempio aggiornata in esecuzione in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
+> [!TIP]
+> Assicurarsi che l'applicazione sia in ascolto sulla porta fornita dalla variabile di ambiente PORT: `process.env.PORT`.
 
-## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
+### <a name="browse-the-website"></a>Esplorare il sito Web
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
+Una volta completata la distribuzione, fare clic su **Esplora il sito Web** nel messaggio per visualizzare il sito Web appena distribuito.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+### <a name="troubleshooting"></a>risoluzione dei problemi
 
-![Passaggio all'app di Azure nel portale](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie per visualizzare la directory o la pagina"** , è probabile che l'applicazione non sia stata avviata correttamente. Passare alla sezione successiva e visualizzare l'output del log per individuare e correggere l'errore. Se non è possibile risolvere il problema, contattare il supporto facendo clic sul pulsante **Si è verificato un problema** sotto. Microsoft sarà lieta di fornire aiuto.
 
-Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile completare attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-![Pagina del servizio app nel portale di Azure](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
+### <a name="updating-the-website"></a>Aggiornamento del sito Web
 
-Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
+È possibile distribuire le modifiche all'app usando lo stesso processo e scegliendo l'app esistente invece di crearne una nuova.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="viewing-logs"></a>Visualizzazione dei log
 
-Nei passaggi precedenti sono state create risorse di Azure in un gruppo di risorse. Se non si prevede di aver bisogno di queste risorse in futuro, eliminare il gruppo di risorse da Cloud Shell. Se è stata modificata l'area, aggiornare il nome del gruppo di risorse `appsvc_rg_Linux_CentralUS` sostituendolo con il gruppo di risorse specifico dell'app.
+In questa sezione viene illustrato come visualizzare i log dal sito Web in esecuzione. Tutte le chiamate di `console.log` nel sito vengono visualizzate nella finestra di output in Visual Studio Code.
 
-```azurecli-interactive
-az group delete --name appsvc_rg_Linux_CentralUS
-```
+Trovare l'app nello strumento di esplorazione dei **servizi app di Azure**, fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
 
-L'esecuzione del comando può richiedere un minuto.
+Quando viene richiesto, scegliere di abilitare la registrazione e riavviare l'applicazione. Una volta riavviata l'app, verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
+
+![Comando Visualizza log in streaming](./media/quickstart-nodejs/view-logs.png)
+
+![Abilitare la registrazione e riavviare](./media/quickstart-nodejs/enable-restart.png)
+
+Dopo alcuni secondi verrà visualizzato un messaggio che indica che si è connessi al servizio di streaming di log. Aggiornare la pagina alcune volte per visualizzare altre attività.
+
+    ```bash
+    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+    ```
+
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Esercitazione: App Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
+L'argomento avvio rapido è stato completato.
 
-> [!div class="nextstepaction"]
-> [Configurare l'app Node.js](configure-language-nodejs.md)
+Vedere ora le altre estensioni di Azure.
+
+* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Strumenti di Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+* [Strumenti dell'interfaccia della riga di comando di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+
+In alternativa, è possibile ottenere tutte queste soluzioni installando il pacchetto di estensioni [Node per Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).

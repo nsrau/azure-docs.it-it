@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
 ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60888436"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-usql-activity.md)
 > * [Versione corrente](transform-data-using-data-lake-analytics.md)
 
@@ -36,11 +36,11 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà                 | Descrizione                              | Obbligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Sì                                      |
-| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
-| **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                        |
-| **subscriptionId**       | ID sottoscrizione di Azure                    | No                                        |
-| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                        |
+| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Yes                                      |
+| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Yes                                      |
+| **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                       |
+| **subscriptionId**       | ID sottoscrizione di Azure                    | No                                       |
+| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 Per connettersi al servizio Azure Data Lake Analytics, il servizio collegato di Azure Data Lake Analytics richiede l'autenticazione di un'entità servizio. Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a questa l'accesso ai servizi Data Lake Analytics e Data Lake Store che usa. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
@@ -57,7 +57,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Sì      |
 | **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
-| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
+| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes      |
 
 **Esempio: autenticazione di un'entità servizio**
 ```json
@@ -119,17 +119,17 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà            | Descrizione                              | Obbligatorio |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome dell'attività nella pipeline     | Sì      |
-| description         | Testo che descrive l'attività.  | No        |
-| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
-| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
-| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
-| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Sì      |
-| degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No        |
-| priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No        |
-| Parametri          | Parametri da passare allo script U-SQL.    | No        |
-| runtimeVersion      | Versione di runtime del motore di U-SQL da usare. | No        |
-| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti: **Semantic:** esegue solo controlli semantici e i controlli di integrità necessari. **Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No  |
+| name                | Nome dell'attività nella pipeline     | Yes      |
+| description         | Testo che descrive l'attività.  | No       |
+| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Yes      |
+| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Yes       |
+| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Yes      |
+| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Yes      |
+| degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | N.       |
+| priorità            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | N.       |
+| parameters          | Parametri da passare allo script U-SQL.    | No       |
+| runtimeVersion      | Versione di runtime del motore di U-SQL da usare. | No       |
+| compilationMode     | <p>Modalità di compilazione di U-SQL. Deve essere uno dei valori seguenti: **Semantic:** esegue solo controlli semantici e i controlli di integrità necessari. **Full:** esegue la compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** esegue la compilazione completa, con TargetType impostato su SingleBox. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No |
 
 Per la definizione dello script, vedere [SearchLogProcessing.txt](#sample-u-sql-script). 
 
@@ -176,7 +176,7 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 }
 ```
 
-È anche possibile usare parametri dinamici. Ad esempio:  
+È anche possibile usare parametri dinamici. Ad esempio: 
 
 ```json
 "parameters": {

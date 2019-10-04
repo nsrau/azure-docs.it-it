@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/20/2019
+ms.openlocfilehash: 172921dcb082f511d16394b7693f40edf8394821
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855691"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826041"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
 
-In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load, estrazione, trasformazione e caricamento dei dati) tramite Azure Databricks. I dati vengono estratti da Azure Data Lake Storage Gen2 in Azure Databricks, vengono sottoposti a trasformazioni in Azure Databricks e dopo vengono caricati in Azure SQL Data Warehouse.
+In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load, estrazione, trasformazione e caricamento dei dati) tramite Azure Databricks. I dati vengono estratti da Azure Data Lake Storage Gen2 in Azure Databricks, vengono sottoposti a trasformazioni in Azure Databricks e quindi vengono caricati in Azure SQL Data Warehouse.
 
 I passaggi in questa esercitazione usano il connettore di SQL Data Warehouse per Azure Databricks per trasferire i dati in Azure Databricks. Questo connettore usa a sua volta l'Archiviazione BLOB di Azure come archivio temporaneo per i dati trasferiti tra un cluster di Azure Databricks e Azure SQL Data Warehouse.
 
@@ -42,30 +41,29 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 > [!Note]
 > Questa esercitazione non può essere eseguita usando una **sottoscrizione di valutazione gratuita di Azure**.
-> Per usare un account gratuito per creare il cluster Azure Databricks, prima di creare il cluster, passare al profilo personale e impostare la sottoscrizione per il **pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/).
+> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
      
 ## <a name="prerequisites"></a>Prerequisiti
 
 Completare queste attività prima di iniziare questa esercitazione:
 
-* Creare un'istanza di Azure SQL Data Warehouse, creare una regola del firewall a livello di server e connettersi al server come amministratore del server. Vedere [Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Creare un'istanza di Azure SQL Data Warehouse, creare una regola del firewall a livello di server e connettersi al server come amministratore del server. Vedere [Avvio rapido: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Creare una chiave master del database per Azure SQL Data Warehouse. Vedere [Creare una chiave master del database](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Creare un account di archiviazione BLOB di Azure e un contenitore all'interno di tale account. Recuperare anche la chiave di accesso per accedere all'account di archiviazione. Vedere [Avvio rapido: Creare un account di archiviazione BLOB di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Creare un account di archiviazione BLOB di Azure e un contenitore all'interno di tale account. Recuperare anche la chiave di accesso per accedere all'account di archiviazione. Vedere [Avvio rapido: Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Creare un account di archiviazione di Azure Data Lake Storage Gen2. Vedere [Creare un account di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Creare un account di archiviazione di Azure Data Lake Storage Gen2. Vedere [Avvio rapido: Creare un account di archiviazione di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-*  Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
 
-   * Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+   * Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio nell'ambito dell'account di Data Lake Storage Gen2. Se si assegna un ruolo al gruppo di risorse padre o alla sottoscrizione, si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
-     > [!IMPORTANT]
-     > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
+      Se si preferisce usare un elenco di controllo di accesso (ACL) per associare l'entità servizio a una directory o a un file specifico, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
+   * Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e password in un file di testo. Saranno necessari a breve.
 
 * Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -105,11 +103,9 @@ In questa sezione si crea un servizio Azure Databricks con il portale di Azure.
     |**Posizione**     | Selezionare **Stati Uniti occidentali 2**.  Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).      |
     |**Piano tariffario**     |  Selezionare **Standard**.     |
 
-3. Selezionare **Aggiungi al dashboard** e quindi **Crea**.
+3. La creazione dell'account richiede alcuni minuti, Per monitorare lo stato dell'operazione, visualizzare l'indicatore di stato nella parte superiore.
 
-4. La creazione dell'account richiede alcuni minuti, durante i quali il portale visualizza il riquadro **Invio della distribuzione per Azure Databricks** a destra. Per monitorare lo stato dell'operazione, visualizzare l'indicatore di stato nella parte superiore.
-
-    ![Riquadro di distribuzione Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Riquadro di distribuzione Databricks")
+4. Selezionare **Aggiungi al dashboard** e quindi **Crea**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Creare un cluster Spark in Azure Databricks
 
@@ -127,8 +123,6 @@ In questa sezione si crea un servizio Azure Databricks con il portale di Azure.
 
     * Immettere un nome per il cluster.
 
-    * Per questo articolo, creare un cluster con il runtime **5.1**.
-
     * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di inattività). Se il cluster non viene usato, specificare una durata in minuti per terminarlo.
 
     * Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegarvi notebook ed eseguire processi Spark.
@@ -139,7 +133,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al servizio Azure Databricks creato e selezionare **Launch Workspace** (Avvia l'area di lavoro).
 
-2. A sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)** > **Notebook**.
+2. A sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)**  > **Notebook**.
 
     ![Creare un notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Creare un notebook in Databricks")
 
@@ -147,28 +141,54 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
     ![Specificare i dettagli per un notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Specificare i dettagli per un notebook in Databricks")
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 
-5. Copiare e incollare il blocco di codice seguente nella prima cella.
+5. Il blocco di codice seguente imposta le credenziali dell'entità servizio predefinita per qualsiasi account di Azure Data Lake Storage Gen 2 a cui si accede nella sessione Spark. Il secondo blocco di codice accoda il nome dell'account all'impostazione per specificare le credenziali per un account di Azure Data Lake Storage Gen 2 specifico.  Copiare e incollare uno dei due blocchi di codice nella prima cella del notebook di Azure Databricks.
+
+   **Configurazione della sessione**
 
    ```scala
-   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   val appID = "<appID>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
+
+   spark.conf.set("fs.azure.account.auth.type", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. In questo blocco di codice sostituire i valori segnaposto `application-id`, `authentication-id`, `tenant-id` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
+   **Configurazione dell'account**
 
-   * `application-id` e `authentication-id` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
+   ```scala
+   val storageAccountName = "<storage-account-name>"
+   val appID = "<app-id>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
 
-   * `tenant-id` proviene dalla sottoscrizione.
+   spark.conf.set("fs.azure.account.auth.type." + storageAccountName + ".dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type." + storageAccountName + ".dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id." + storageAccountName + ".dfs.core.windows.net", "" + appID + "")
+   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + password + "")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint." + storageAccountName + ".dfs.core.windows.net", "https://login.microsoftonline.com/" + tenantID + "/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://" + fileSystemName  + "@" + storageAccountName + ".dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+   ```
 
-   * `storage-account-name` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
+6. In questo blocco di codice sostituire i valori segnaposto `<app-id>`, `<password>`, `<tenant-id>` e `<storage-account-name>` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `<file-system-name>` con il nome che si vuole assegnare al file system.
+
+   * `<app-id>` e `<password>` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
+
+   * `<tenant-id>` proviene dalla sottoscrizione.
+
+   * `<storage-account-name>` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
 
 7. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 
@@ -184,7 +204,7 @@ Nella cella, premere **MAIUSC+INVIO** per eseguire il codice.
 
 In una nuova cella al di sotto di questa immettere il codice seguente, sostituendo i valori tra parentesi con gli stessi valori usati in precedenza:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://" + fileSystemName + "@" + storageAccountName + ".dfs.core.windows.net/")
 
 Nella cella, premere **MAIUSC+INVIO** per eseguire il codice.
 
@@ -195,11 +215,6 @@ Nella cella, premere **MAIUSC+INVIO** per eseguire il codice.
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
    ```
-
-   * Sostituire il valore segnaposto `file-system-name` con il nome assegnato al file system in Storage Explorer.
-
-   * Sostituire il segnaposto `storage-account-name` con il nome del proprio account di archiviazione.
-
 2. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 
 3. Eseguire il codice seguente per visualizzare il contenuto del dataframe:
@@ -325,7 +340,7 @@ Come indicato in precedenza, il connettore di SQL Data Warehouse usa l'Archiviaz
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Specificare i valori per la connessione all'istanza di Azure SQL Data Warehouse. È necessario che sia stata creata un'istanza di SQL Data Warehouse come prerequisito.
+4. Specificare i valori per la connessione all'istanza di Azure SQL Data Warehouse. È necessario che sia stata creata un'istanza di SQL Data Warehouse come prerequisito. Usare il nome completo del server per **dwServer**. Ad esempio: `<servername>.database.windows.net`.
 
    ```scala
    //SQL Data Warehouse related settings
@@ -346,15 +361,13 @@ Come indicato in precedenza, il connettore di SQL Data Warehouse usa l'Archiviaz
        "spark.sql.parquet.writeLegacyFormat",
        "true")
 
-   renamedColumnsDF.write
-       .format("com.databricks.spark.sqldw")
-       .option("url", sqlDwUrlSmall) 
-       .option("dbtable", "SampleTable")
-       .option( "forward_spark_azure_storage_credentials","True")
-       .option("tempdir", tempDir)
-       .mode("overwrite")
-       .save()
+   renamedColumnsDF.write.format("com.databricks.spark.sqldw").option("url", sqlDwUrlSmall).option("dbtable", "SampleTable")       .option( "forward_spark_azure_storage_credentials","True").option("tempdir", tempDir).mode("overwrite").save()
    ```
+
+   > [!NOTE]
+   > Questo esempio usa il flag `forward_spark_azure_storage_credentials`, che fa sì che SQL Data Warehouse acceda ai dati dall'archiviazione BLOB tramite una chiave di accesso. Questo è l'unico metodo di autenticazione supportato.
+   >
+   > Se l'archiviazione BLOB di Azure è limitata alla selezione di reti virtuali, SQL Data Warehouse richiede l'[identità del servizio gestita anziché le chiavi di accesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questo comportamento provoca l'errore "This request is not authorized to perform this operation" (La richiesta non è autorizzata a eseguire questa operazione).
 
 6. Connettersi al database SQL e verificare che sia visualizzato un database denominato **SampleTable**.
 

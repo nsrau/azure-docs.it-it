@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Preparare un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come preparare e compilare con Docker Compose un'app multicontenitore che è quindi possibile distribuire nel servizio Azure Kubernetes.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002015"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71264466"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 
@@ -32,7 +32,7 @@ In altre esercitazioni l'immagine del contenitore verrà caricata in un'istanza 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, ad esempio contenitori, immagini del contenitore e comandi `docker`. Per una panoramica sulle nozioni di base dei contenitori, vedere [Get started with Docker][docker-get-started] (Introduzione a Docker).
+Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, ad esempio contenitori, immagini del contenitore e comandi `docker`. Per una panoramica sulle nozioni di base dei contenitori, vedere l'[introduzione a Docker][docker-get-started].
 
 Per completare questa esercitazione, è necessario un ambiente di sviluppo Docker locale in cui sono in esecuzione i contenitori Linux. Docker offre pacchetti che consentono di configurare Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
@@ -97,13 +97,13 @@ Per vedere l'applicazione in esecuzione, immettere `http://localhost:8080` in un
 
 Ora che le funzionalità dell'applicazione sono state verificate, i contenitori in esecuzione possono essere arrestati e rimossi. Non eliminare le immagini del contenitore perché nell'esercitazione successiva l'immagine *azure-vote-front* verrà caricata in un'istanza di Registro Azure Container.
 
-Arrestare e rimuovere le istanze e le risorse di contenitore con il comando [docker-compose down][docker-compose-down]:
+Arrestare e rimuovere le istanze di contenitore e le risorse con il comando [docker-compose down][docker-compose-down]:
 
 ```console
 docker-compose down
 ```
 
-Dopo che l'applicazione locale è stata rimossa, è disponibile un'immagine Docker contenente l'applicazione Azure Vote, *azure-front-front*, da usare nell'esercitazione successiva.
+Dopo che l'applicazione locale è stata rimossa, è disponibile un'immagine Docker contenente l'applicazione Azure Vote, *azure-vote-front*, da usare nell'esercitazione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

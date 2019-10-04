@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.author: sutalasi
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149315"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736403"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -48,10 +48,10 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 **URL** | **Dettagli**  
 --- | ---
-*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conosce il contenuto della cache degli account di archiviazione per le macchine virtuali, è possibile elenco elementi consentiti gli URL di account di archiviazione specifico (ad esempio: cache1.blob.core.windows.net e cache2.blob.core.windows.net) invece di *. blob.core.windows.net
+*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile aggiungere all'elenco elementi consentiti gli URL specifici dell'account di archiviazione (ad esempio, cache1.blob.core.windows.net e cache2.blob.core.windows.net) anziché *. blob.core.windows.net
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il corrispondente 'Site Recovery IP' se il proxy firewall supporta gli indirizzi IP.
-*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare il 'sito ripristino monitoraggio indirizzo IP corrispondente' se il proxy firewall supporta gli indirizzi IP.
+*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il ' Site Recovery IP ' corrispondente se il proxy del firewall supporta gli IP.
+*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. Se il proxy del firewall supporta gli IP, è possibile usare il ' Site Recovery IP di monitoraggio ' corrispondente.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
@@ -77,7 +77,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
    Europa settentrionale | 40.69.212.238 | 52.169.18.8
    Europa occidentale | 52.166.13.64 | 40.68.93.145
-   Stati Uniti orientali | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    Stati Uniti occidentali | 40.83.179.48 | 104.40.26.199
    Stati Uniti centro-meridionali | 13.84.148.14 | 104.210.146.250
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
@@ -104,11 +104,20 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
    Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
    US Gov Virginia | 52.227.178.114 | 23.97.0.197
-   Governo degli Stati Uniti - Iowa | 13.72.184.23 | 23.97.16.186
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
    US Gov Arizona | 52.244.205.45 | 52.244.48.85
    US Gov Texas | 52.238.119.218 | 52.238.116.60
-   US DoD (area orientale) | 52.181.164.103 | 52.181.162.129
-   US DoD (area centrale) | 52.182.95.237 | 52.182.90.133
+   US DoD East | 52.181.164.103 | 52.181.162.129
+   US DoD Central | 52.182.95.237 | 52.182.90.133
+   Cina settentrionale | 40.125.202.254 | 42.159.4.151
+   Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
+   Cina orientale | 42.159.205.45 | 42.159.132.40
+   Cina orientale 2 | 40.73.118.52| 40.73.100.125
+   Germania settentrionale| 51.116.208.58| 51.116.58.128
+   Germania centro-occidentale | 51.116.156.176 | 51.116.154.192
+   Svizzera occidentale | 51.107.231.223| 51.107.154.128
+   Svizzera settentrionale | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 
 In questo esempio viene illustrato come configurare le regole NSG per una macchina virtuale da replicare.
@@ -128,7 +137,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
 
-   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
 
@@ -142,9 +151,9 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
 
-   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
-   Stati Uniti centrali | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
 
@@ -165,9 +174,9 @@ Se si usano appliance virtuali di rete per controllare il traffico di rete in us
 
 ### <a name="forced-tunneling"></a>Tunneling forzato
 
-È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso dell'indirizzo 0.0.0.0/0 con una [route personalizzata](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e deviare il traffico delle macchine virtuali a un'appliance virtuale di rete locale (NVA), ma questa configurazione non è consigliata per la replica Site Recovery. Se si usano route personalizzate, [creare un endpoint del servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
+È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso dell'indirizzo 0.0.0.0/0 con una [route personalizzata](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e deviare il traffico delle macchine virtuali a un'appliance virtuale di rete locale (NVA), ma questa configurazione non è consigliata per la replica Site Recovery. Se si usano route personalizzate, [creare un endpoint servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](site-recovery-azure-to-azure.md).
 - Altre informazioni sul [Mantenimento degli indirizzi IP](site-recovery-retain-ip-azure-vm-failover.md) per il failover delle macchine virtuali di Azure.
-- Altre informazioni sul ripristino di emergenza [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Scopri di più sul ripristino di emergenza di [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

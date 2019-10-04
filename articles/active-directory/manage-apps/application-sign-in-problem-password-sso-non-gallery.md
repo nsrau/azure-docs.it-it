@@ -1,10 +1,10 @@
 ---
-title: Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password | Microsoft Docs
-description: Vengono descritte le aree problematiche e offerte linee guida per la risoluzione dei problemi relativi all'accesso alle applicazioni della raccolta di Azure AD configurate per il Single Sign-On basato su password
+title: Single Sign-on (SSO) basato su password nel pannello di accesso | Microsoft Docs
+description: Vengono descritte le aree problematiche che forniscono indicazioni per la risoluzione dei problemi relativi all'accesso alle applicazioni della raccolta Azure AD configurate per l'accesso Single Sign-on basato su password.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11411a780333268e19d53ea2bd472fe36bc0eb62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437882"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381231"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
 

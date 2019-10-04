@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084440"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
@@ -106,7 +105,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ## <a name="troubleshooting-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure o con l'interfaccia della riga di comando di Azure.
 

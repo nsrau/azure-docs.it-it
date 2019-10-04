@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32b3c3b45c627d8dfdb42642228a7f9d9786111e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357000"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569961"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Usare PowerShell per creare un'istanza gestita di database SQL di Azure
 
@@ -26,7 +25,7 @@ Questo esempio di script di PowerShell crea un'istanza gestita di database SQL d
 > [!IMPORTANT]
 > Per le limitazioni, vedere le [aree supportate](../sql-database-managed-instance-resource-limits.md#supported-regions) e i [tipi di sottoscrizione](../sql-database-managed-instance-resource-limits.md#supported-subscription-types) supportati.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

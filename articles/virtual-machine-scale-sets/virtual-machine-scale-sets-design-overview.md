@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60618473"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).

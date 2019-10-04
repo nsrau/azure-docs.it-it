@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407894"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "70934118"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
@@ -40,7 +40,7 @@ Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
 2. Selezionare **Esplora server** e accedere all'account Azure. Per creare le risorse del sito Web nell'account è necessario eseguire l'accesso.
 
 3. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo progetto**.
-4. Espandere **Visual C#**, selezionare **Web** e fare clic su **Applicazione Web ASP.NET**.
+4. Espandere **Visual C#** , selezionare **Web** e fare clic su **Applicazione Web ASP.NET**.
 
 5. Nella casella **Nome** digitare **AppBackend** e quindi selezionare **OK**.
 
@@ -158,7 +158,7 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
 
 3. Nell'elenco dei risultati fare clic su **Hub di notifica di Microsoft Azure** e quindi selezionare **Installa**. Completare l'installazione e quindi chiudere la finestra di Gestione pacchetti NuGet.
 
-    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Creare un nuovo file di classe che rappresenta la connessione con l'hub di notifica usato per inviare le notifiche. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**. Assegnare alla nuova classe il nome **Notifications.cs** e quindi selezionare **Aggiungi** per generarla.
 
@@ -170,7 +170,7 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub, disponibile nel [portale di Azure](http://portal.azure.com):
+6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub, disponibile nel [portale di Azure](https://portal.azure.com):
 
     ```csharp
     public class Notifications
@@ -185,6 +185,9 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
         }
     }
     ```
+    > [!IMPORTANT]
+    > Immettere il **nome** e il valore **DefaultFullSharedAccessSignature** dell'hub prima di continuare. 
+    
 7. Creare quindi un nuovo controller denominato **RegisterController**. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi fare clic su **Controller**.
 
 8. Fare clic su **Controller Web API 2 - Vuoto** e selezionare **Aggiungi**.
@@ -389,7 +392,7 @@ L'app verrà ora distribuita in un sito Web Azure per renderla accessibile da tu
 
 3. Nella finestra **Crea servizio app** selezionare l'account Azure. Selezionare **Modifica tipo** > **App Web**. Mantenere il valore di **Nome app Web** predefinito e selezionare la **sottoscrizione**, il **gruppo di risorse** e il **piano di servizio app**.
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 
 5. Prendere nota della proprietà **URL sito** nella scheda **Riepilogo**. Questo URL sarà l'*endpoint back-end* più avanti nell'esercitazione.
 

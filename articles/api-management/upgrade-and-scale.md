@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319861"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018231"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -53,8 +53,11 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 
 È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. L'aggiornamento o il downgrade può rimuovere alcune funzionalità. Se ad esempio si effettua il downgrade dal livello Premium al livello Standard o Basic, possono essere rimosse le reti virtuali o la distribuzione in più aree.
 
->[!NOTE]
->Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Al termine viene inviata una notifica.
+> [!NOTE]
+> Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceverà una notifica al termine dell'operazione.
+
+> [!NOTE]
+> Il servizio gestione API nel livello **consumo** si ridimensiona automaticamente in base al traffico.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
 
@@ -66,6 +69,10 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 4. Specificare il numero di **unità** da aggiungere. A tale scopo, è possibile usare il dispositivo di scorrimento o digitare il numero di unità.  
     Se si sceglie il livello **Premium**, è prima necessario selezionare un'area.
 5. Premere **Salva**.
+
+## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
+Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

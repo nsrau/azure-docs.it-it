@@ -4,24 +4,23 @@ description: In questa esercitazione viene descritto come usare Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 24a382680860890e57c8d5a380b8a1bb097baaa1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285982"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101679"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
@@ -33,6 +32,8 @@ Le immagini personalizzate sono come le immagini di marketplace, ma si possono c
 > * Creare una VM da un'immagine personalizzata
 > * Elencare tutte le immagini nella sottoscrizione
 > * Eliminare un'immagine
+
+È disponibile in anteprima pubblica il servizio [generatore di immagini di VM di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). È sufficiente descrivere le personalizzazioni in un modello, i passaggi per la creazione dell'immagine di questo articolo verranno gestiti dal servizio. [Provare il generatore di immagini di Azure (anteprima)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

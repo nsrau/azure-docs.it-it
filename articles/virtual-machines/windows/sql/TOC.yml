@@ -2,6 +2,8 @@
   items:
     - name: Informazioni su una VM di SQL Server
       href: virtual-machines-windows-sql-server-iaas-overview.md
+    - name: Quale opzione di SQL scegliere?
+      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json&bc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2fbreadcrumb%2ftoc.json
     - name: Note sulla versione
       href: virtual-machines-windows-sql-server-iaas-release-notes.md
 - name: Guide introduttive
@@ -34,6 +36,12 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: Gestione
       items:
+        - name: Host dedicato
+          href: virtual-machines-windows-sql-dedicated-host.md
+        - name: Con il portale di Azure
+          href: virtual-machines-windows-sql-manage-portal.md
+        - name: Estendere il supporto per SQL 2008 e R2
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Connettersi a una macchina virtuale
           href: virtual-machines-windows-sql-connect.md
         - name: Configurare l'archivio
@@ -54,12 +62,18 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Usare Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
+    - name: Eseguire la registrazione con il provider di risorse
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: Cambiare il modello di licenza per la macchina virtuale SQL
       href: virtual-machines-windows-sql-ahb.md
+    - name: Cambiare edizione di SQL Server
+      href: virtual-machines-windows-sql-change-edition.md
     - name: Migrazione
       items:
         - name: Eseguire la migrazione di un database SQL Server
           href: virtual-machines-windows-migrate-sql.md
+        - name: VM in una nuova area
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurare la disponibilità elevata
       items:
         - name: Usare Archiviazione di Azure per il backup e il ripristino
@@ -106,8 +120,6 @@
       href: virtual-machines-windows-sql-server-iaas-faq.md
     - name: Prezzi
       href: virtual-machines-windows-sql-server-pricing-guidance.md
-    - name: PaaS o IaaS
-      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
     - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server Management Studio (SSMS)

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60691099"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurare un pool di capacità
 

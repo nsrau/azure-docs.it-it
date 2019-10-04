@@ -10,11 +10,11 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66156417"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -31,7 +31,7 @@ Per usare PowerShell con Data Lake Analytics, raccogliere le informazioni seguen
 * **Gruppo di risorse**: il nome del gruppo di risorse di Azure che contiene l'account Data Lake Analytics.
 * **Nome dell'account Data Lake Analytics**: il nome dell'account Data Lake Analytics.
 * **Nome dell'account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
-* **Posizione**: la posizione dell'account Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate.
+* **Località**: la posizione dell'account Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate.
 
 I frammenti di codice di PowerShell in questa esercitazione usano le variabili seguenti per archiviare queste informazioni
 
@@ -243,7 +243,7 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Usare il parametro `-Result` per rilevare se i processi finiti sono stati completati correttamente. Dispone di questi valori:
 
 * Operazione annullata
-* Operazione non riuscita
+* Failed
 * Nessuna
 * Succeeded
 

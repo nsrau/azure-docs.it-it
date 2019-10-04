@@ -14,26 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: a4578703ebe224747c10956736b3be9c33a954dd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64867226"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorare lo stato del processo di codifica con il portale di Azure
-> [!div class="op_single_selector"]
-> * [Portale](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Panoramica
-> [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. 
 

@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009711"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976799"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
 
@@ -32,15 +32,15 @@ Usando il glossario aziendale di Data Catalog, un'organizzazione può spiegare i
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilità e privilegi del glossario
 
-Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per regolamentata.
+Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per l'assegnazione di tag regolamentata.
 
 È possibile accedere al glossario aziendale tramite l'opzione **Glossario** nel menu di spostamento del portale di Data Catalog.  
 
-![Accesso al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Data Catalog-accedere al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Gli amministratori di Data Catalog e i membri del ruolo Amministratori del glossario possono creare, modificare ed eliminare i termini del glossario aziendale. Tutti gli utenti di Data Catalog possono visualizzare le definizioni dei termini e assegnare agli asset tag usando i termini del glossario.
 
-![Aggiunta di un nuovo termine di glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Data Catalog-aggiungere un nuovo termine del glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Creazione dei termini di glossario
 
@@ -55,7 +55,7 @@ Facendo clic sul pulsante **Nuovo termine**, gli amministratori di Data Catalog 
 
 Usando il glossario aziendale di Data Catalog, un'organizzazione può descrivere il proprio vocabolario aziendale come gerarchia di termini e creare una classificazione dei termini che rappresentano meglio la tassonomia aziendale.
 
-Un termine deve essere univoco in un determinato livello della gerarchia. Non sono consentiti nomi duplicati. Non esiste alcun limite al numero di livelli in una gerarchia. Una gerarchia risulta tuttavia di più facile comprensione se è costituita da non oltre tre livelli.
+Un termine deve essere univoco in un determinato livello della gerarchia. I nomi duplicati non sono consentiti. Non esiste alcun limite al numero di livelli in una gerarchia. Una gerarchia risulta tuttavia di più facile comprensione se è costituita da non oltre tre livelli.
 
 L'uso delle gerarchie nel glossario aziendale è facoltativo. Se non viene specificato il campo del termine padre, viene creato un elenco semplice, vale a dire senza gerarchia, di termini di glossario.  
 
@@ -76,7 +76,7 @@ Nel portale di Data Catalog i due tipi di tag sono visivamente distinti e presen
 
 È possibile cercare sia che i tag di glossario che i tag utente e applicarli come filtri in una ricerca.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Usando il glossario aziendale di Azure Data Catalog e la relativa assegnazione di tag regolamentata, è possibile identificare, gestire e trovare asset di dati in modo coerente. Il glossario aziendale può facilitare l'apprendimento del vocabolario aziendale ai membri dell'organizzazione. Il glossario aiuta anche a trovare i metadati significativi, semplificando così l'individuazione e la comprensione degli asset.
 

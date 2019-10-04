@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
+ms.subservice: security
+ms.date: 04/30/2019
 ms.author: kavithaj
-ms.reviewer: igorstan
-ms.openlocfilehash: 477123ec6696ea44b1fea16689d7f1961bde4b61
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.reviewer: rortloff
+ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840580"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "65143170"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 > [!div class="op_single_selector"]

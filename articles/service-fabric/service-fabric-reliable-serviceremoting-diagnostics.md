@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: suchiagicha
-ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: chackdan
+ms.openlocfilehash: 4e9aa2bbb99cac2ffc2b57ccb9299bf4ee7a729e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666155"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876265"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
 Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
@@ -28,7 +28,7 @@ Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable ServiceRemoting definisce le categorie di contatori delle prestazioni seguenti.
 
-| Categoria | DESCRIZIONE |
+| Category | Descrizione |
 | --- | --- |
 | Servizio Service Fabric |Contatori specifici per Azure Service Fabric Serivce Remoting, ad esempio tempo medio impiegato per elaborare la richiesta |
 | Metodo del servizio Service Fabric |Contatori specifici dei metodi implementati da Service Fabric Remoting Service, ad esempio per la frequenza con cui viene richiamato un metodo di un servizio |
@@ -100,5 +100,5 @@ Quando un client richiama un metodo tramite un oggetto proxy di servizio, viene 
 | Servizio Service Fabric |Average milliseconds for response serialization |Tempo richiesto (in millisecondi) per serializzare il messaggio di risposta del servizio nel servizio prima dell’invio della risposta al client |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Codice di esempio](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [Codice di esempio](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

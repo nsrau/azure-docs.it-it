@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca di notizie - SDK di Ricerca notizie Bing per C#'
+title: "Guida introduttiva: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per C# ed elaborare la risposta.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 06/18/2019
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 626596cc88b1b3b1067d7d6d157a548f92fb621a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262891"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206027"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Guida introduttiva: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
 
@@ -24,7 +24,7 @@ Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Rice
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.m
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi quanto segue nel file di codice principale.
+1. Creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi quanto segue nel file di codice principale.
     
     ```csharp
     using System;

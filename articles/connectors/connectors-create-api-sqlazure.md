@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544024"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050762"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Connettersi a SQL Server o al database SQL di Azure - App per la logica di Azure
 
@@ -24,9 +24,9 @@ Questo articolo illustra come accedere ai dati del database SQL da un'app per la
 
 È possibile creare app per la logica che vengono eseguite in seguito all'attivazione da eventi che si verificano nel database SQL o in altri sistemi, ad esempio Dynamics CRM Online. Le app per la logica possono anche recuperare, inserire ed eliminare dati, oltre a eseguire query SQL e stored procedure. È possibile, ad esempio, creare un'app per la logica che verifichi automaticamente la presenza di nuovi record in Dynamics CRM Online, che aggiunga elementi al database SQL per ogni nuovo record e che invii avvisi tramite posta elettronica.
 
-Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/sql/" target="blank">informazioni di riferimento sul connettore SQL Server</a>.
+Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore SQL Server](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * L'app per la logica da cui accedere al database SQL. Per avviare l'app per la logica con un trigger SQL, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 2. Nella casella di ricerca immettere "sql server" come filtro. Nell'elenco dei trigger selezionare il trigger SQL desiderato. 
 
-   Per questo esempio, selezionare il trigger: **SQL Server - When an item is created** (SQL Server - Quando viene creato un elemento)
+   Per questo esempio, selezionare questo trigger: **SQL Server-quando viene creato un elemento**
 
    ![Selezionare il trigger "SQL Server - When an item is created" (SQL Server - Quando viene creato un elemento)](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -73,7 +73,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
    Per visualizzare il nuovo elemento nella tabella, ad esempio, è possibile aggiungere altre azioni, come creare un file con i campi della tabella, e quindi inviare avvisi tramite posta elettronica. 
    Per informazioni sulle altre azioni disponibili per questo e per altri connettori, vedere [Connettori di App per la logica](../connectors/apis-list.md).
 
-5. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**. 
+5. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione. 
 
    Con questo passaggio l'app per la logica viene automaticamente abilitata e pubblicata in Azure. 
 
@@ -85,16 +85,16 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel portale di Azure o in Visual Studio aprire l'app per la logica in Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. In Progettazione app per la logica, sotto il trigger o l'azione, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+2. Nella finestra di progettazione dell'app per la logica, sotto il trigger o l'azione, selezionare **nuovo passaggio** > **Aggiungi un'azione**.
 
-   ![Scegliere "Nuovo passaggio", "Aggiungi un'azione"](./media/connectors-create-api-sqlazure/add-action.png)
+   ![Selezionare "nuovo passaggio", "Aggiungi un'azione"](./media/connectors-create-api-sqlazure/add-action.png)
    
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
-   Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
+   Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 2. Nella casella di ricerca immettere "sql server" come filtro. Nell'elenco delle azioni scegliere l'azione SQL desiderata. 
 
-   Per questo esempio, selezionare questa azione in modo da ottenere un singolo record: **SQL Server - Get row** (SQL Server - Ottieni riga)
+   Per questo esempio, selezionare questa azione, che consente di ottenere un singolo record: **SQL Server-Ottieni riga**
 
    ![Immettere "sql server", selezionare "SQL Server - Get row" (SQL Server - Ottieni riga)](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -106,33 +106,36 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    In questo esempio viene restituita solo una riga della tabella selezionata. 
    Per visualizzare i dati contenuti nella riga è possibile aggiungere altre azioni che consentono di creare un file con i campi della riga, da rivedere in seguito, e archiviare il file in un account di archiviazione cloud. Per informazioni sulle altre azioni disponibili in questo o in altri connettori, vedere [Connettori di App per la logica](../connectors/apis-list.md).
 
-4. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**. 
+4. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione. 
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-your-database"></a>Connettersi al database
+## <a name="connect-to-your-database"></a>Connetti al database
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Elaborare i dati in bulk
+## <a name="handle-bulk-data"></a>Gestire i dati in blocco
 
-Se si usano set di risultati di dimensioni tali che il connettore non riesce a restituire tutti i risultati contemporaneamente o se si vuole un controllo migliore sulle dimensioni e sulla struttura dei set di risultati, è possibile usare la *paginazione*, che consente di gestire i risultati in set più piccoli. 
+In alcuni casi, potrebbe essere necessario lavorare con i set di risultati in modo tale che il connettore non restituisca tutti i risultati contemporaneamente oppure si desidera un controllo migliore sulle dimensioni e sulla struttura per i set di risultati. Ecco alcuni modi in cui è possibile gestire set di risultati di grandi dimensioni:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Per semplificare la gestione dei risultati come set più piccoli, attivare l' *impaginazione*. Per ulteriori informazioni, vedere [Get bulk data, Records and items by using impaginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Creare una stored procedure
+* Creare una stored procedure per organizzare i risultati nel modo desiderato.
 
-Se si ottengono o si inseriscono più righe, l'app per la logica può scorrere questi elementi usando un [*ciclo Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) nell'ambito di questi [limiti](../logic-apps/logic-apps-limits-and-config.md). In alcuni casi, tuttavia, l'app per la logica deve interagire con set di record talmente grandi, ad esempio migliaia o milioni di righe, che si vuole ridurre al minimo i costi delle chiamate al database. 
+  Quando si recuperano o si inseriscono più righe, l'app per la logica può scorrere queste righe usando un [*ciclo until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) entro questi [limiti](../logic-apps/logic-apps-limits-and-config.md). 
+  Tuttavia, quando l'app per la logica deve usare set di record di grandi dimensioni, ad esempio migliaia o milioni di righe, si vuole ridurre al minimo i costi derivanti dalle chiamate al database.
 
-In questi casi, è possibile creare una <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> in modo che venga eseguita nell'istanza di SQL e usi l'istruzione **SELECT - ORDER BY** per organizzare i risultati nel modo desiderato. Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server. 
+  Per organizzare i risultati nel modo desiderato, è possibile creare un [*stored procedure*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) eseguito nell'istanza di SQL e utilizza l'istruzione **SELECT-ORDER BY** . 
+  Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. 
+  L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server.
 
-Per informazioni dettagliate sulla soluzione, vedere gli articoli seguenti:
+  Per informazioni dettagliate sulla soluzione, vedere gli articoli seguenti:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a> (Paginazione SQL per il trasferimento di dati in bulk con App per la logica)
+  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx) (Paginazione SQL per il trasferimento di dati in bulk con App per la logica)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">Clausola SELECT - ORDER BY</a>
+  * [Clausola SELECT - ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 

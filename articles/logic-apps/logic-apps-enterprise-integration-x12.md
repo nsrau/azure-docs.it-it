@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728748"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -53,11 +53,11 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 4. Selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
    Se non è presente il riquadro dei contratti, aggiungerlo. 
 
-   ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. In **Contratti** scegliere **Aggiungi**.
 
-   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. In **Aggiungi**, digitare un **nome** per il contratto. 
    Come tipo di contratto selezionare **X12**. 
@@ -68,7 +68,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
     | Proprietà | DESCRIZIONE |
     | --- | --- |
-    | NOME |Nome del contratto |
+    | Name |Nome del contratto |
     | Tipo di contratto | Deve essere X12 |
     | Host Partner (Partner host) |Un contratto prevede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che configura il contratto. |
     | Host Identity (Identità host) |Un identificatore per il partner host |
@@ -97,7 +97,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ![Impostare le proprietà degli identificatori](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | ISA1 (Qualificatore di autorizzazione) |Selezionare il valore relativo al qualificatore di autorizzazione nell'elenco a discesa. |
 | ISA2 |facoltativo. Immettere il valore relativo alle informazioni di autorizzazione. Se il valore immesso per ISA1 è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
@@ -108,7 +108,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ![Impostare le proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | TA1 expected (Previsto TA1) |Restituisce un riconoscimento tecnico al mittente dell'interscambio |
 | FA expected (Previsto FA) |Restituisce un riconoscimento funzionale al mittente dell'interscambio. Specificare quindi se si vuole il riconoscimento 997 o 999, in base alla versione dello schema |
@@ -120,9 +120,9 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 ![Selezionare lo schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| Versione |Selezionare la versione X12 |
+| Version |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Sender Application (GS02) (Applicazione mittente (GS02)) |Selezionare l'applicazione del mittente |
 | SCHEMA |Selezionare il file di schema che si vuole usare. Gli schemi vengono aggiunti all'account di integrazione. |
@@ -134,7 +134,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 ![Specificare il separatore in un set di transazioni: scegliere un Identificatore standard o un Separatore ripetizioni](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore di occorrenze ripetute di un elemento dati semplice o di una struttura dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
@@ -142,9 +142,9 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 ![Selezionare la modalità di gestione dei numeri di controllo duplicati](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Consente di bloccare gli interscambi duplicati. Verifica il numero di controllo dell'interscambio (ISA13) del numero di controllo dell'interscambio ricevuto. Se viene rilevata una corrispondenza, la pipeline di ricezione non elabora l'interscambio. È possibile specificare il numero di giorni per l'esecuzione del controllo assegnando il valore appropriato all'opzione *Verifica ISA13 duplicati ogni (giorni)*. |
+| Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Consente di bloccare gli interscambi duplicati. Verifica il numero di controllo dell'interscambio (ISA13) del numero di controllo dell'interscambio ricevuto. Se viene rilevata una corrispondenza, la pipeline di ricezione non elabora l'interscambio. È possibile specificare il numero di giorni per l'esecuzione del controllo assegnando il valore appropriato all'opzione *Verifica ISA13 duplicati ogni (giorni)* . |
 | Disallow Group control number duplicates (Non consentire duplicati di numeri di controllo di gruppo) |Consente di bloccare gli interscambi con numeri di controllo di gruppo duplicati. |
 | Disallow Transaction set control number duplicates (Non consentire duplicati di numeri di controllo set di transazioni) |Consente di bloccare gli interscambi con numeri di controllo di set di transazioni duplicati. |
 
@@ -154,7 +154,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Tipo messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |
@@ -167,7 +167,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ![Selezionare le impostazioni interne](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Converti formato decimale implicito Nn in valore numerico in base 10 |Converte un numero EDI specificato nel formato Nn in un valore numerico in base 10 |
 | Crea tag XML vuoti se sono consentiti separatori finali |Selezionare questa casella di controllo se si vuole che il mittente dell'interscambio includa tag XML vuoti come separatori finali. |
@@ -193,7 +193,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ![Impostare le proprietà degli identificatori](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | ISA1 (Qualificatore di autorizzazione) |Selezionare il valore relativo al qualificatore di autorizzazione nell'elenco a discesa. |
 | ISA2 |Immettere il valore relativo alle informazioni di autorizzazione. Se questo valore è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
@@ -204,7 +204,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ![Impostare le proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | TA1 expected (Previsto TA1) |Restituisce un riconoscimento tecnico (TA1) al mittente dell'interscambio. Questa impostazione specifica che il partner host che invia il messaggio richiede un riconoscimento dal partner guest nel contratto. Questi riconoscimenti sono attesi dal partner host in base alle impostazioni di ricezione del contratto. |
 | FA expected (Previsto FA) |Restituisce un riconoscimento funzionale (FA) al mittente dell'interscambio. Specificare se si vuole il riconoscimento 997 o 999, in base alle versioni dello schema in uso. Questi riconoscimenti sono attesi dal partner host in base alle impostazioni di ricezione del contratto. |
@@ -214,9 +214,9 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ![Selezionare lo schema da usare](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| Versione |Selezionare la versione X12 |
+| Version |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Schema |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Se si seleziona prima lo schema, viene automaticamente configurata la versione e il tipo di transizione  |
 
@@ -227,7 +227,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ![Specificare il separatore in un set di transazioni: scegliere un Identificatore standard o un Separatore ripetizioni](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore di occorrenze ripetute di un elemento dati semplice o di una struttura dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
@@ -235,7 +235,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ![Specificare le proprietà del numero di controllo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Numero versione controllo (ISA12) |Selezionare la versione dello standard X12 |
 | Indicatore di utilizzo (ISA15) |Selezionare il contesto di un interscambio.  I valori sono informazioni, dati di produzione o dati di test |
@@ -259,7 +259,7 @@ Oltre al set di caratteri, è possibile immettere un set di delimitatori diverso
 
 ![Specificare i delimitatori per i tipi di messaggio](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Set di caratteri da usare |Per convalidare le proprietà selezionare il set di caratteri X12. Le opzioni sono: Basic, Extended e UTF8. |
 | SCHEMA |Selezionare uno schema nell'elenco a discesa. Dopo aver completato ogni riga, viene aggiunta automaticamente una nuova riga. Per lo schema selezionato, selezionare il set di separatori da usare, in base alle descrizioni di separatore seguenti. |
@@ -279,7 +279,7 @@ Oltre al set di caratteri, è possibile immettere un set di delimitatori diverso
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Tipo messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |

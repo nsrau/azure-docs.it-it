@@ -11,36 +11,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840903"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084872"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Installazione generale
 
-**D: Come posso protezione avanzata del server di Azure AD Connect per ridurre la superficie di attacco della sicurezza?**
+**D: Come è possibile indurire il server Azure AD Connect per ridurre la superficie di attacco alla sicurezza?**
 
-Microsoft consiglia di protezione avanzata dei server di Azure AD Connect per ridurre la superficie di attacco di sicurezza per questo componente fondamentale dell'ambiente IT.  Seguire le indicazioni riportate di seguito consentirà di ridurre i rischi di sicurezza per l'organizzazione.
+Microsoft consiglia di eseguire la protezione avanzata del server Azure AD Connect per ridurre la superficie di attacco alla sicurezza per questo componente critico dell'ambiente IT.  Seguendo le indicazioni riportate di seguito si ridurranno i rischi per la sicurezza per l'organizzazione.
 
-* Distribuire Azure AD Connect in un server di dominio e limitare l'accesso amministrativo per gli amministratori di dominio o altri gruppi di sicurezza strettamente controllato
+* Distribuire Azure AD Connect in un server aggiunto a un dominio e limitare l'accesso amministrativo agli amministratori di dominio o ad altri gruppi di sicurezza strettamente controllati
 
 Per altre informazioni, vedere: 
 
-* [Protezione dei gruppi di amministratori](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Sicurezza dei gruppi Administrators](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protezione degli account amministratore predefinito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Protezione degli account di amministratore predefiniti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Miglioramento della protezione e sustainment riducendo le superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Miglioramento della sicurezza e mantenimento della riduzione delle superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [La riduzione della superficie di attacco di Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Riduzione della superficie di attacco Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **D: L'installazione funziona se per l'amministrazione globale di Azure Active Directory (Azure AD) è abilitata l'autenticazione a due fattori (2FA)?**  
 A partire dalle build di febbraio 2016, questo scenario è supportato.
@@ -62,7 +62,7 @@ Sì, questo scenario è supportato. Fare riferimento a [Supporto di più domini]
 **D: La presenza di più connettori per lo stesso dominio di Active Directory è supportata in Azure AD Connect?**  
 No, la presenza di più connettori per lo stesso dominio di AD non è supportata. 
 
-**D: È possibile spostare il database di Azure AD Connect da un database locale a un'istanza di SQL Server remota?**   
+**D: È possibile spostare il database di Azure AD Connect da un database locale a un'istanza di SQL Server remota?**    
 Sì. I passaggi seguenti rappresentano materiale sussidiario su come eseguire questa operazione. È attualmente in corso la preparazione di un documento più dettagliato.
 1. Eseguire il backup del database LocalDB ADSync.
 Il modo più semplice per eseguire questa operazione consiste nell'usare SQL Server Management Studio, installato nello stesso computer in cui è installato Azure AD Connect. Connettersi a *(LocalDb).\ADSync* e quindi eseguire il backup del database ADSync.
@@ -77,6 +77,47 @@ Il modo più semplice per eseguire questa operazione consiste nell'usare SQL Ser
       Con la build più recente, l'amministratore SQL può ora effettuare il provisioning del database fuori banda e quindi l'amministratore di Azure AD Connect può eseguire l'installazione con diritti di proprietario del database. Per altre informazioni, vedere [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](how-to-connect-install-sql-delegation.md).
 
 Per semplicità, è consigliabile che gli utenti che installano Azure AD Connect siano amministratori di sistema in SQL Server. Con le build recenti, tuttavia, l'installazione può essere eseguita anche da amministratori SQL con delega, come descritto in [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](how-to-connect-install-sql-delegation.md).
+
+**D: Quali sono alcune delle procedure consigliate per il campo?**  
+
+Di seguito è riportato un documento informativo in cui vengono illustrate alcune delle procedure consigliate che la progettazione, il supporto e i consulenti hanno sviluppato nel corso degli anni.  Viene visualizzato in un elenco di punti elenco a cui è possibile fare riferimento rapidamente.  Sebbene questo elenco tenti di essere completo, potrebbero essere presenti procedure consigliate aggiuntive che potrebbero non essere ancora state rese disponibili nell'elenco.
+
+- Se si usa la versione completa di SQL, deve rimanere locale rispetto a Remote
+    - Meno hop
+    - Semplificare la risoluzione dei problemi
+    - Minor complessità
+    - È necessario designare le risorse in SQL e consentire il sovraccarico per Azure AD Connect e sistema operativo
+- Ignora proxy, se possibile, se non è possibile ignorare il proxy, è necessario assicurarsi che il valore di timeout sia maggiore di 5 minuti.
+- Se il proxy è obbligatorio, è necessario aggiungere il proxy al file Machine. config
+- Tenere presente i processi e la manutenzione SQL locali e il modo in cui avranno un effetto Azure AD Connect, in particolare la reindicizzazione
+- Verificare che il DNS sia in grado di risolvere l'esterno
+- Verificare che le [specifiche del server](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) siano per raccomandazione se si utilizzano server fisici o virtuali
+- Assicurarsi che se si utilizza un server virtuale dedicato alle risorse necessarie
+- Assicurarsi che la configurazione del disco e del disco soddisfi le procedure consigliate per SQL Server
+- Installare e configurare Azure AD Connect Health per il monitoraggio
+- Utilizzare la soglia di eliminazione incorporata in Azure AD Connect.
+- Esaminare attentamente gli aggiornamenti della versione per prepararsi per tutte le modifiche e i nuovi attributi che possono essere aggiunti
+- Esegui backup di tutto
+    - Chiavi di backup
+    - Regole di sincronizzazione del backup
+    - Configurazione del server di backup
+    - Backup database SQL
+- Verificare che non siano presenti agenti di backup di terze parti che eseguono il backup di SQL senza SQL VSS Writer (comune nei server virtuali con snapshot di terze parti)
+- Limitare la quantità di regole di sincronizzazione personalizzate usate durante l'aggiunta della complessità
+- Considera i server Azure AD Connect come server di livello 0
+- Si tratta di una modifica delle regole di sincronizzazione cloud senza una conoscenza approfondita dell'effetto e dei driver aziendali appropriati
+- Assicurarsi che le porte dell'URL e del firewall corrette siano aperte per supportare Azure AD Connect e Azure AD Connect Health
+- Utilizzare l'attributo filtro cloud per risolvere i problemi e impedire gli oggetti fantasma
+- Con il server di staging assicurarsi di utilizzare il documento di configurazione Azure AD Connect per la coerenza tra i server
+- I server di gestione temporanea devono trovarsi in data center distinti (percorsi fisici
+- I server di gestione temporanea non sono destinati a essere una soluzione a disponibilità elevata, ma è possibile disporre di più server di gestione temporanea
+- L'introduzione di un server di staging "lag" potrebbe ridurre il rischio di tempi di inattività in caso di errore
+- Testare e convalidare prima tutti gli aggiornamenti nel server di staging
+- Convalidare sempre le esportazioni prima di passare alla gestione temporanea serverLeverage il server di staging per le importazioni complete e le sincronizzazioni complete per ridurre l'effetto aziendale
+- Mantieni la coerenza della versione tra Azure AD Connect Server il più possibile 
+
+**D: È possibile consentire Azure AD Connect di creare l'account del connettore Azure AD sul computer del gruppo di lavoro?**
+No.  Per consentire Azure AD Connect di creare automaticamente l'account del connettore Azure AD, il computer deve essere aggiunto a un dominio.  
 
 ## <a name="network"></a>Rete
 **D: Un firewall, un dispositivo di rete o un altro meccanismo limita il tempo massimo di apertura delle connessioni all'interno della rete. Quale deve essere la soglia di timeout lato client quando si usa Azure AD Connect?**  
@@ -95,7 +136,7 @@ No, Azure AD Connect non supporta foreste e domini locali il cui nome NetBIOS co
 No, Azure AD Connect non supporta un ambiente IPv6 puro.
 
 **D: È presente un ambiente a più foreste, dove la rete tra due foreste usa NAT (Network Address Translation). L'uso di Azure AD Connect tra le due foreste è supporto?**</br>
- No, l'uso di Azure AD Connect con NAT non è supportato. 
+No, l'uso di Azure AD Connect con NAT non è supportato. 
 
 ## <a name="federation"></a>Federazione
 **D: Cosa occorre fare se si riceve un messaggio di posta elettronica che richiede il rinnovo del certificato di Office 365?**  
@@ -104,9 +145,18 @@ Per materiale sussidiario sul rinnovo del certificato, vedere [Rinnovare i certi
 **D: L'opzione "Aggiorna automaticamente componente" è impostata per la relying party Office 365. È necessario eseguire un'azione quando il certificato per la firma di token esegue automaticamente il rollover?**  
 Seguire il materiale sussidiario illustrato nell'articolo [Rinnovare i certificati](how-to-connect-fed-o365-certs.md).
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>Ambiente
 **D: Il fatto di rinominare il server dopo l'installazione di Azure AD Connect è supportato?**  
- No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
+No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
+
+**D: Le regole di sincronizzazione per crittografia (NGC) di prossima generazione sono supportate in un computer abilitato per FIPS?**  
+No.  Non sono supportate.
+
+**D. Se è stato disattivato un dispositivo sincronizzato, ad esempio: HAADJ) nel portale di Azure, perché è riabilitato?**<br>
+I dispositivi sincronizzati possono essere creati o gestiti in locale. Se un dispositivo sincronizzato è abilitato in locale, potrebbe essere riabilitato nella portale di Azure anche se è stato precedentemente disabilitato da un amministratore. Per disabilitare un dispositivo sincronizzato, usare la Active Directory locale per disabilitare l'account del computer.
+
+**D. Se si blocca l'accesso utente nel portale di Office 365 o Azure AD per gli utenti sincronizzati, perché viene sbloccato al momento dell'accesso?**<br>
+Gli utenti sincronizzati possono essere creati o gestiti in locale. Se l'account è abilitato in locale, può sbloccare il blocco di accesso inserito dall'amministratore.
 
 ## <a name="identity-data"></a>Dati di identità
 **D: Perché l'attributo userPrincipalName (UPN) in Azure AD non corrisponde all'UPN locale?**  
@@ -128,16 +178,16 @@ No, l'impostazione manuale dell'attributo ImmutableId di oggetti contatto o grup
 Fatta eccezione per i cmdlet documentati in questo sito, i cmdlet di PowerShell disponibili in Azure AD Connect non sono supportati per l'uso da parte degli utenti.
 
 **D: È possibile usare le opzioni "Server esportazione" e "Server importazione" disponibili in Synchronization Service Manager per spostare la configurazione da un server all'altro?**  
- No. Questa opzione non recupera tutte le impostazioni di configurazione e non deve essere usata. Usare invece la procedura guidata per creare la configurazione di base per il secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell e spostare regole personalizzate da un server all'altro. Per altre informazioni, vedere [Migrazione swing](how-to-upgrade-previous-version.md#swing-migration).
+No. Questa opzione non recupera tutte le impostazioni di configurazione e non deve essere usata. Usare invece la procedura guidata per creare la configurazione di base per il secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell e spostare regole personalizzate da un server all'altro. Per altre informazioni, vedere [Migrazione swing](how-to-upgrade-previous-version.md#swing-migration).
 
-**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"*?**  
+**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"* ?**  
 La modifica degli attributi HTML del campo **Password**, tra cui il tag autocomplete, non è attualmente supportata. È attualmente in fase di elaborazione una funzionalità che consente la creazione di codice JavaScript personalizzato che consenta di aggiungere qualsiasi attributo al campo **Password**.
 
 **D: La pagina di accesso di Azure visualizza i nomi utente che in precedenza hanno eseguito l'accesso correttamente. Questo comportamento può essere disattivato?**  
 La modifica degli attributi HTML del campo di input **Password**, tra cui il tag autocomplete, non è attualmente supportata. È attualmente in fase di elaborazione una funzionalità che consente la creazione di codice JavaScript personalizzato che consenta di aggiungere qualsiasi attributo al campo **Password**.
 
 **D: Esiste un modo per impedire sessioni simultanee?**  
- No.
+No.
 
 ## <a name="auto-upgrade"></a>Aggiornamento automatico
 
@@ -208,7 +258,7 @@ In rari casi, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In
 **D: Quali rischi si corrono quando si esegue l'aggiornamento a una versione più recente di Azure AD Connect? È possibile ricevere assistenza telefonica per eseguire correttamente l'aggiornamento?**  
 Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Connect più recente, aprire un ticket di supporto nella pagina [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Creare una richiesta di servizio per contattare il supporto di Office 365).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
@@ -220,3 +270,7 @@ Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Conne
 * Cercare domande e risposte tecniche o porre le proprie domande visitando [la community di Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Ottenere supporto per Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**D: Perché vengono visualizzati gli eventi 6311 e 6401 dopo gli errori del passaggio di sincronizzazione?**
+
+Gli eventi 6311- **il server ha rilevato un errore imprevisto durante l'esecuzione di un callback** e 6401- **il controller dell'agente di gestione ha rilevato un errore imprevisto** . viene sempre registrato dopo un errore del passaggio di sincronizzazione. Per risolvere questi errori, è necessario pulire gli errori dei passaggi di sincronizzazione.  Per ulteriori informazioni, vedere [risoluzione degli errori durante la sincronizzazione](tshoot-connect-sync-errors.md) e [risoluzione dei problemi di sincronizzazione degli oggetti con Azure ad Connect sincronizzazione](tshoot-connect-objectsync.md)

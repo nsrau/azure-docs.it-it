@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101688"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123373"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
@@ -29,7 +29,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
    
    * Abilitare il peering privato di Azure: abilitare questo peering per la connessione alle macchine virtuali e ai servizi cloud distribuiti nelle reti virtuali.
 
-   * Abilitare il peering Microsoft: abilitare questo peering per accedere ai servizi Office 365 e Dynamics 365. Inoltre, tutti i servizi PaaS di Azure sono accessibili tramite il peering Microsoft.
+   * Abilita peering Microsoft: Abilita questo per accedere a Office 365. Inoltre, tutti i servizi PaaS di Azure sono accessibili tramite il peering Microsoft.
      
      > [!IMPORTANT]
      > Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
@@ -43,7 +43,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 Ogni circuito ExpressRoute prevede due stati:
 
 * Stato di provisioning del provider di servizi
-* Status
+* Stato
 
 Status rappresenta lo stato di provisioning di Microsoft. Questa proprietà è impostata su Enabled quando si crea un circuito Expressroute
 

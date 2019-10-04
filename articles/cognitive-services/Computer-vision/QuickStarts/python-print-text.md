@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aba6e57c9e6d51024390d629ebc088326dc4c64e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 7ae005fe4bc822346e69d23c013cd597b7645c7e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652349"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137530"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST di Visione artificiale e Python
 
 In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -31,17 +31,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
+1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
 1. Salvare il codice in un file con estensione `.py`. Ad esempio: `get-printed-text.py`.
 1. Aprire una finestra del prompt dei comandi.
 1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python get-printed-text.py`.
@@ -49,34 +46,31 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image
 from io import BytesIO
 
-# Replace <Subscription Key> with your valid subscription key.
-subscription_key = "<Subscription Key>"
-assert subscription_key
+# Add your Computer Vision subscription key and endpoint to your environment variables.
+if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
+    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+else:
+    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
+    sys.exit()
 
-# You must use the same region in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from
-# westus, replace "westcentralus" in the URI below with "westus".
-#
-# Free trial subscription keys are generated in the "westus" region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+if 'COMPUTER_VISION_ENDPOINT' in os.environ:
+    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-ocr_url = vision_base_url + "ocr"
+ocr_url = endpoint + "vision/v2.0/ocr"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
     "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
+params = {'language': 'unk', 'detectOrientation': 'true'}
+data = {'url': image_url}
 response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
@@ -99,11 +93,27 @@ for word in word_infos:
     bbox = [int(num) for num in word["boundingBox"].split(",")]
     text = word["text"]
     origin = (bbox[0], bbox[1])
-    patch  = Rectangle(origin, bbox[2], bbox[3], fill=False, linewidth=2, color='y')
+    patch = Rectangle(origin, bbox[2], bbox[3],
+                      fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
 ```
+
+## <a name="upload-image-from-local-storage"></a>Caricare un'immagine dalla risorsa di archiviazione locale
+
+Per analizzare un'immagine locale, impostare l'intestazione Content-Type su application/octet-stream e impostare il corpo della richiesta su una matrice di byte anziché sui dati JSON.
+
+```python
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+```
+
 
 ## <a name="examine-the-response"></a>Esaminare i risultati
 

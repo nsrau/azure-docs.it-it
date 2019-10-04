@@ -14,30 +14,36 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051440"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076318"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app ASP.NET Core con Configurazione app di Azure
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in un'app Web ASP.NET Core. 
-
-ASP.NET Core crea un singolo oggetto configurazione basato su una coppia chiave-valore usando le impostazioni di una o più origini dati specificate da un'applicazione. Queste origini dati sono note come *provider di configurazione*. Poiché il client .NET Core di Configurazione app viene implementato come tale provider, il servizio sembra simile a un'altra origine dati.
-
-Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Web ASP.NET Core per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice. ASP.NET Core crea un singolo oggetto configurazione basato su una coppia chiave-valore usando le impostazioni di una o più origini dati specificate da un'applicazione. Queste origini dati sono note come *provider di configurazione*. Poiché il client .NET Core di Configurazione app viene implementato come tale provider, il servizio sembra simile a un'altra origine dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+
+    | Chiave | Valore |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | Bianco |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Nero |
+    | TestApp:Settings:Message | Dati di Configurazione app di Azure |
+
+    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
@@ -51,9 +57,9 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
 
 ## <a name="add-secret-manager"></a>Aggiungere Secret Manager
 
-Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
+Per usare Secret Manager, aggiungere un elemento `UserSecretsId` al file con estensione *csproj*.
 
-- Aprire il file con estensione *csproj*. Aggiungere un elemento `UserSecretsId` come illustrato di seguito e sostituire il relativo valore con il proprio, che in genere è un GUID. Salvare il file.
+- Aprire il file con estensione *csproj*. Aggiungere un elemento `UserSecretsId` come illustrato di seguito. È possibile usare lo stesso GUID oppure sostituire questo valore con uno proprio. Salvare il file.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -71,11 +77,13 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
     </Project>
     ```
 
+Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente. Per altre informazioni su Secret Manager, vedere [Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
 
-1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` eseguendo il comando seguente:
+1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` eseguendo il comando seguente:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
 
@@ -89,11 +97,14 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Secret Manager viene usato solo per testare l'app Web in locale. Quando l'app verrà distribuita, ad esempio nel [Servizio app di Azure](https://azure.microsoft.com/services/app-service/web), verrà usata un'impostazione dell'applicazione, ad esempio **Stringhe di connessione** nel servizio app. È possibile usare questa impostazione invece di archiviare la stringa di connessione con Secret Manager.
+    > [!IMPORTANT]
+    > Alcune shell troncheranno la stringa di connessione se non è racchiusa tra virgolette. Verificare che l'output del comando `dotnet user-secrets` mostri l'intera stringa di connessione. In caso contrario, eseguire di nuovo il comando racchiudendo la stringa di connessione tra virgolette.
+
+    Secret Manager viene usato solo per testare l'app Web in locale. Quando l'app viene distribuita in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/web), ad esempio, viene usata un'impostazione applicazione **Stringhe di connessione** nel servizio app, invece di Secret Manager per archiviare la stringa di connessione.
 
     È possibile accedere al segreto con l'API di configurazione. Con l'API di configurazione è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Aprire *Program.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
+4. Aprire *Program.cs* e aggiungere un riferimento al provider di Configurazione app .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -107,22 +118,17 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Aprire Index.cshtml nella directory Views > Home e sostituirne il contenuto con il codice seguente:
+6. Aprire *Index.cshtml* nella directory Views > Home e sostituirne il contenuto con il codice seguente:
 
     ```html
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    <!DOCTYPE html>
-    <html lang="en">
     <style>
         body {
             background-color: @Configuration["TestApp:Settings:BackgroundColor"]
@@ -132,16 +138,11 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
             font-size: @Configuration["TestApp:Settings:FontSize"];
         }
     </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    </body>
-    </html>
+
+    <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-7. Aprire il file _Layout.cshtml nella directory Views > Shared e sostituire il relativo contenuto con il codice seguente:
+7. Aprire il file *_Layout.cshtml* nella directory Views > Shared e sostituire il relativo contenuto con il codice seguente:
 
     ```html
     <!DOCTYPE html>
@@ -180,15 +181,13 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
 3. Aprire una finestra del browser e passare a `http://localhost:5000`, che è l'URL predefinito per l'app Web ospitata in locale.
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-app-launch-local.png)
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con un'app Web ASP.NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
+In questo argomento di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con un'app Web ASP.NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per altre informazioni su come usare Configurazione app, passare all'esercitazione successiva che illustra come configurare l'app Web per l'aggiornamento dinamico delle impostazioni di configurazione.
 
 > [!div class="nextstepaction"]
-> [Identità gestite per l'integrazione di risorse di Azure](./integrate-azure-managed-service-identity.md)
+> [Usare la configurazione dinamica in un'app ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

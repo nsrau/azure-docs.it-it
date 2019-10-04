@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049439"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301005"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Informazioni sull'anteprima di Desktop virtuale Windows 
 
@@ -26,6 +26,14 @@ Di seguito è riportato cosa si può fare quando si esegue Desktop virtuale Wind
 * Portare i desktop e le app esistenti di Servizi Desktop remoto e Windows Server in qualsiasi computer
 * Virtualizzare sia i desktop che le app
 * Gestire i desktop e le app di Windows 10, Windows Server e Windows 7 con un'esperienza di gestione unificata
+
+## <a name="introductory-video"></a>Video introduttivo
+
+Per informazioni su Desktop virtuale Windows, sui motivi della sua unicità e sulle novità, guardare questo video:
+
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+Per altri video su Desktop virtuale Windows, vedere la [playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -54,12 +62,12 @@ Con Desktop virtuale Windows è possibile configurare un ambiente scalabile e fl
 
 Sono necessari alcuni requisiti per configurare Desktop virtuale Windows e collegare correttamente gli utenti ai relativi desktop e applicazioni Windows.
 
-In primo luogo, assicurarsi di avere le [licenze appropriate](https://azure.microsoft.com/pricing/details/virtual-desktop/) per gli utenti in base al desktop e alle app che si prevede di distribuire:
+Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi quindi di avere le [licenze appropriate](https://azure.microsoft.com/pricing/details/virtual-desktop/) per gli utenti in base al desktop e alle app che si prevede di distribuire:
 
 |OS|Licenza richiesta|
 |---|---|
-|Windows 10 Enterprise multisessione o Windows 10 a singola sessione|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multisessione o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licenza CAL Servizi Desktop remoto con Software Assurance|
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
@@ -68,14 +76,14 @@ L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 * Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. Ciò può essere abilitato tramite:
   * Azure AD Connect
   * Servizi di dominio Azure Active Directory
+  >[!NOTE]
+  >Desktop virtuale Windows supporta solo gli utenti di Azure AD Domain Services che provengono da Azure Active Directory. Gli utenti di Windows Server AD non sono al momento supportati.
 * Una sottoscrizione di Azure contenente una rete virtuale che contiene o è collegata all'istanza di Windows Server Active Directory
   
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
 * [Aggiunte a un dominio standard](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) oppure [aggiunte ad AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Le macchine virtuali non possono essere aggiunte ad Azure AD.
-* Eseguire una delle immagini del sistema operativo supportate seguenti:
-  * Windows 10 Enterprise multisessione
-  * Windows Server 2016
+* In esecuzione su una delle [immagini del sistema operativo supportate](#supported-virtual-machine-os-images) seguenti.
 
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
@@ -85,12 +93,22 @@ Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli u
 Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
 * La latenza di round trip (RTT) dalla rete del client all'area di Azure in cui sono stati distribuiti i pool di host deve essere inferiore a 150 ms.
-* Il flusso del traffico di rete può avvenire al di fuori dei confini nazionali quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
+* Il flusso del traffico di rete può avvenire al di fuori dei confini del paese o dell'area geografica quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
 * Per ottimizzare le prestazioni della rete, si consiglia di collocare le macchine virtuali dell'host della sessione nella stessa area di Azure del servizio di gestione.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="supported-remote-desktop-clients"></a>Client Desktop remoto supportati
 
-Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community. Al momento non vengono accettati casi di supporto mentre Desktop virtuale Windows è in anteprima.
+I seguenti client Desktop remoto supportano Desktop virtuale Windows:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+## <a name="supported-virtual-machine-os-images"></a>Immagini di sistema operativo supportate per le macchine virtuali
+
+Desktop virtuale Windows supporta le immagini di sistema operativo seguenti:
+
+* Windows 10 Enterprise multisessione
+* Windows Server 2016
 
 ## <a name="next-steps"></a>Passaggi successivi
 

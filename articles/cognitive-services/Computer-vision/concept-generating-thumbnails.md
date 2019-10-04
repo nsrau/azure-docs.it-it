@@ -1,5 +1,5 @@
 ---
-title: Generazione di anteprime - Visione artificiale
+title: Anteprime ritagliate in modo intelligente-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi alla generazione di anteprime di immagini tramite l'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372857"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945223"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generazione di anteprime con ritaglio intelligente con Visione artificiale
 
@@ -24,8 +24,8 @@ Un'immagine di anteprima è una rappresentazione di dimensioni ridotte di un'imm
 
 L'algoritmo di generazione di anteprime di Visione artificiale funziona nel modo seguente:
 
-1. Vengono rimossi gli elementi di distrazione dall'immagine e viene identificata l'_area di interesse_&mdash;l'area dell'immagine in cui compare l'oggetto principale.
-1. L'immagine viene ritagliata in base all'_area di interesse_ identificata.
+1. Vengono rimossi gli elementi di distrazione dall'immagine e viene identificata l' _&mdash;l'area dell'immagine in cui compare l'oggetto principale.
+1. L'immagine viene ritagliata in base all' _ identificata.
 1. Le proporzioni vengono modificate per adattare le dimensioni all'anteprima di destinazione.
 
 ## <a name="area-of-interest"></a>Area di interesse
@@ -38,15 +38,15 @@ Quando si carica un'immagine, l'API Visione artificiale la analizza per determin
 
 L'anteprima generata può variare notevolmente a seconda dei valori specificati per l'altezza, la larghezza e il ritaglio intelligente, come illustrato nell'immagine seguente.
 
-![Un'immagine di mountain accanto alle varie configurazioni di ritaglio](./Images/thumbnail-demo.png)
+![Un'immagine Mountain accanto a diverse configurazioni di ritaglio](./Images/thumbnail-demo.png)
 
 La tabella seguente illustra anteprime tipiche generate da Visione artificiale per le immagini di esempio. Le anteprime sono state generate per un'altezza e una larghezza di destinazione pari a 50 pixel, con ritaglio intelligente abilitato.
 
-| Image | Immagine di anteprima |
+| Image | Anteprima |
 |-------|-----------|
-|![Mountain outdoor al tramonto, con sagoma una persona](./Images/mountain_vista.png) | ![Anteprima della Outdoor Mountain al tramonto, con sagoma una persona](./Images/mountain_vista_thumbnail.png) |
+|![Mountain outdoor al tramonto, con la silhouette di una persona](./Images/mountain_vista.png) | ![Anteprima della montagna esterna al tramonto, con la silhouette di una persona](./Images/mountain_vista_thumbnail.png) |
 |![Fiore bianco su sfondo verde](./Images/flower.png) | ![Anteprima di fiore - Analisi visione](./Images/flower_thumbnail.png) |
-|![Donna sul tetto di un edificio](./Images/woman_roof.png) | ![Anteprima di una donna sul tetto di un edificio apartment](./Images/woman_roof_thumbnail.png) |
+|![Donna sul tetto di un edificio](./Images/woman_roof.png) | ![Anteprima di una donna sul tetto di un edificio di appartamenti](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

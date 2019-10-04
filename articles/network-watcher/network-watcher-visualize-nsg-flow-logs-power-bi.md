@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
 ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60860769"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
 

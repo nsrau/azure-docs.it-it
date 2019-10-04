@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668416"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385047"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 

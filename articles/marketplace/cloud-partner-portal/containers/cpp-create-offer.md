@@ -1,25 +1,18 @@
 ---
-title: Creare un'offerta di contenitori di Azure | Microsoft Docs
+title: Creare un'offerta di contenitori di Azure | Azure Marketplace
 description: Come pubblicare una nuova offerta di un contenitore per il Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942686"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Creare una nuova offerta di un contenitore nel portale Cloud Partner
 

@@ -1,19 +1,17 @@
 ---
 title: Come connettere le origini dati in Azure Data Catalog
 description: Articolo sulle procedure di connessione alle origini dati individuate con il catalogo dati di Azure.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000573"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976778"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione
@@ -30,7 +28,7 @@ Quando si utilizza la visualizzazione affiancata predefinita, questo menu è dis
 
 Quando si utilizza la visualizzazione elenco, il menu è disponibile nella barra di ricerca nella parte superiore della finestra del portale.
 
- ![Apertura di un report di SQL Server Reporting Services in Gestione Report dalla barra di ricerca](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Apertura di un report SQL Server Reporting Services in Gestione report](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Applicazioni client supportate
 Quando si usa il menu "Apri in...." per le origini dati nel portale di Azure Data Catalog, è necessario che nel computer client sia installata l'applicazione client corretta.
@@ -58,8 +56,8 @@ Per rendere il tutto più semplice per gli utenti che individuano un'origine dat
 
  ![Informazioni sulla connessione con istruzioni fornite per la richiesta di accesso](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati con il **Azure Data Catalog** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta che un'origine dati è stata registrata e individuata, gli utenti possono connettersi all'origine dati dal menu "Apri in..." del portale **Azure Data Catalog** o usando gli strumenti dati preferiti.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .

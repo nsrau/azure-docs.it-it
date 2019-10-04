@@ -4,24 +4,23 @@ description: Informazioni su come usare più macchine virtuali per garantire alt
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: c7de139c83128f92c9c28fbdb002246f6dbbf0ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888706"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079237"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestire la disponibilità delle macchine virtuali Windows in Azure 
 

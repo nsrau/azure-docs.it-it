@@ -3,18 +3,18 @@ title: Autenticazione con Mappe di Azure | Microsoft Docs
 description: Autenticazione per l'uso dei servizi di Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
-ms.topic: tutorial
+ms.date: 07/11/2019
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9dfe4024607e106565984d6d49de94d793bf7a8f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010413"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838045"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -31,7 +31,7 @@ Per informazioni sulla visualizzazione delle chiavi, vedere [Visualizzare i dett
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticazione con Azure Active Directory (anteprima)
 
-Mappe di Azure offre ora l'integrazione di [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) per l'autenticazione delle richieste per i servizi di Mappe di Azure. Azure AD fornisce un'autenticazione basata sull'identificazione che include il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) per consentire l'accesso alle risorse di Mappe di Azure a livello di utente o di applicazione. Le sezioni seguenti illustrano i concetti e i componenti dell'integrazione di Mappe di Azure con Azure AD.
+Mappe di Azure offre ora l'integrazione di [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) per l'autenticazione delle richieste per i servizi di Mappe di Azure. Azure AD fornisce l'autenticazione basata sull'identità, tra cui [controllo di accesso basato sui ruoli (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), per concedere l'accesso a livello di utente, a livello di gruppo e a livello di applicazione per le risorse di mappe di Azure. Le sezioni seguenti illustrano i concetti e i componenti dell'integrazione di Mappe di Azure con Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Autenticazione con token di accesso OAuth
 
@@ -75,9 +75,9 @@ Per informazioni sulla visualizzazione dell'ID client, vedere [Visualizzare i de
 
 ## <a name="control-access-with-rbac"></a>Controllare l'accesso con il controllo degli accessi in base al ruolo
 
-Azure AD consente di controllare l'accesso alle risorse protette utilizzando il controllo degli accessi in base al ruolo. Dopo aver creato l'account Mappe di Azure e aver registrato l'applicazione Azure AD di Mappe di Azure nel tenant di Azure AD, è possibile configurare il controllo degli accessi in base al ruolo per un utente, un'applicazione o una risorsa di Azure nella pagina del portale dell'account Mappe di Azure.
+Azure AD consente di controllare l'accesso alle risorse protette utilizzando il controllo degli accessi in base al ruolo. Dopo aver creato l'account mappe di Azure e registrare l'applicazione di mappe di Azure AD Azure all'interno del tenant di Azure AD, è possibile configurare RBAC per un utente, gruppo, applicazioni o risorse di Azure nella pagina del portale account mappe di Azure.
 
-Mappe di Azure supporta il controllo dell'accesso in lettura per singoli utenti di Azure AD, applicazioni e servizi di Azure tramite le identità gestite per le risorse di Azure.
+Mappe di Azure supporta il controllo di accesso in lettura per i singoli utenti, gruppi, applicazioni e servizi di Azure tramite le identità gestito per le risorse di Azure AD Azure.
 
 ![Lettore di dati per Mappe di Azure (anteprima)](./media/azure-maps-authentication/concept.png)
 

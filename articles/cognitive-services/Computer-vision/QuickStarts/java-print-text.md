@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b53eb35754f1d402a63c14e5381d4903acdb5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 73d5effa3341337f3238c49c17a2227942af4958
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313246"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141354"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST e Java in Visione artificiale
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST Visione artificiale e Java
 
 In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario aver installato la piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](https://aka.ms/azure-jdks) (JDK 7 o 8).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
@@ -53,10 +53,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
    import org.json.JSONObject;
    ```
 
-1. Sostituire la classe pubblica `Main` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
-   1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-   1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-   1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
+1. Sostituire la classe pubblica `Main` con il codice seguente.
+1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
 1. Salvare e quindi compilare il progetto Java.
 1. Se si usa un ambiente di sviluppo integrato, eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
 
@@ -66,19 +64,13 @@ public class Main {
     // *** Update or verify the following values. ***
     // **********************************************
 
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // After setting, close and then re-open your command shell or project for the changes to take effect.
+    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    String endpoint = ("COMPUTER_VISION_ENDPOINT");
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    private static final String uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr";
+    private static final String uriBase = endpoint + 
+            "vision/v2.0/ocr";
 
     private static final String imageToAnalyze =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
@@ -217,10 +209,6 @@ REST Response:
   "language": "en"
 }
 ```
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non sono più necessari, eliminare il progetto Java con la classe compilata e le librerie importate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

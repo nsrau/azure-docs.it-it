@@ -10,35 +10,38 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f1a6e5b1e8191c1497e437cc26e1caf1255ba7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 58b61186a876af90c812ec7faf41fa9f5b14bf4e
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210357"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336912"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gestione delle unità amministrative in Azure Active Directory (anteprima pubblica)
+# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestione delle unità amministrative in Azure Active Directory (anteprima)
 
-Questo articolo descrive le unità amministrative, un nuovo contenitore di risorse di Azure Active Directory (Azure AD) che può essere usato per la delega di autorizzazioni amministrative su subset di utenti e per l'applicazione di criteri a un subset di utenti. In Azure Active Directory, le unità amministrative consentono agli amministratori centrali di delegare le autorizzazioni agli amministratori regionali o di impostare criteri a livello dettagliato.
+Questo articolo descrive le unità amministrative in Azure Active Directory (Azure AD). Un'unità amministrativa è una risorsa Azure AD che può essere un contenitore per altre risorse Azure AD. In questa versione di anteprima, queste risorse possono essere solo gli utenti. Ad esempio, un amministratore dell'account utente con ambito unità amministrativa può aggiornare le informazioni del profilo, reimpostare le password e assegnare le licenze per gli utenti solo nell'unità amministrativa.
 
-Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, una grande università è costituita da molte scuole autonome (facoltà di gestione aziendale, facoltà di ingegneria, ecc.) indipendenti tra loro. Tali divisioni dispongono dei propri amministratori IT che controllano l'accesso, gestiscono gli utenti e impostano i criteri in modo specifico per la propria facoltà. Gli amministratori centrali desiderano essere in grado di concedere a questi amministratori di divisione autorizzazioni sugli utenti delle proprie divisioni. In particolare, utilizzando questo esempio, un amministratore centrale può, ad esempio, creare un'unità amministrativa per una facoltà particolare (facoltà di gestione aziendale) e popolarla con solo gli utenti della facoltà. Quindi un amministratore centrale può aggiungere il personale IT della facoltà di gestione aziendale a un ruolo con ambito, ovvero, concedere al personale IT della facoltà di gestione aziendale autorizzazioni amministrative solo per l'unità amministrativa della facoltà.
+È possibile utilizzare unità amministrative per delegare le autorizzazioni amministrative su subset di utenti e applicare criteri a un subset di utenti. È possibile utilizzare le unità amministrative per delegare le autorizzazioni agli amministratori regionali o per impostare criteri a livello granulare.
 
-> [!IMPORTANT]
-> Per usare unità amministrative, è necessario che l'amministratore con ambito unità amministrativa abbia una licenza Azure Active Directory Premium e che siano disponibili licenze Azure Active Directory Basic per tutti gli utenti nell'unità amministrativa. Per altre informazioni, vedere [Introduzione a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
->
+## <a name="deployment-scenario"></a>Scenario di distribuzione
 
+Le unità amministrative possono essere utili nelle organizzazioni con divisioni indipendenti. Si consideri l'esempio di un'Università di grandi dimensioni costituita da molte scuole autonome (School of business, School of Engineering e così via) che ognuno ha i propri amministratori IT che controllano l'accesso, gestiscono gli utenti e impostano i criteri per la propria scuola. Un amministratore centrale può creare un'unità amministrativa per la School of business e popolarla solo con gli studenti e il personale dell'Istituto di istruzione. Quindi, l'amministratore centrale può aggiungere il personale IT dell'Istituto di istruzione a un ruolo con ambito che concede autorizzazioni amministrative solo ai Azure AD utenti dell'unità amministrativa dell'Istituto di istruzione.
 
-Dal punto di vista dell'amministratore centrale, un'unità amministrativa è un oggetto directory che può essere creato e popolato con le risorse. **In questa versione di anteprima, queste risorse possono essere solo gli utenti.**  Dopo averla creata e popolata, l'unità amministrativa può essere utilizzata come ambito per limitare le autorizzazioni concesse solo alle risorse contenute nell’unità amministrativa.
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
+
+Per usare le unità amministrative è necessario disporre di una licenza di Azure Active Directory Premium per ogni amministratore di unità amministrative. Per altre informazioni, vedere [Introduzione a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
 
 ## <a name="managing-administrative-units"></a>Gestione delle unità amministrative
-In questa versione di anteprima, è possibile creare e gestire le unità amministrative utilizzando i cmdlet del modulo di Microsoft Azure Active Directory per Windows PowerShell. Per ulteriori informazioni su come eseguire queste operazioni, vedere [Uso di unità amministrative](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Per ulteriori informazioni sui requisiti software e l'installazione del modulo di Azure AD e per informazioni sui cmdlet di modulo di Azure AD per la gestione di unità amministrative, tra cui sintassi, descrizioni dei parametri ed esempi, vedere [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+In questa versione di anteprima, l'unico modo per creare e gestire le unità amministrative consiste nell'usare il modulo Azure Active Directory per i cmdlet di Windows PowerShell, come descritto in [utilizzo di unità amministrative](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
+
+Per ulteriori informazioni sui requisiti software e sull'installazione del modulo Azure AD e per informazioni di riferimento sui cmdlet del modulo Azure AD per la gestione delle unità amministrative, incluse sintassi, descrizioni dei parametri ed esempi, vedere [Azure Active PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)per la directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md)

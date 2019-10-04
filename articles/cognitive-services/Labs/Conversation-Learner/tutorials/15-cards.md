@@ -3,19 +3,20 @@ title: 'Come usare le schede con un modello di Conversation Learner: parte 1 - S
 titleSuffix: Azure
 description: Informazioni su come usare le schede con un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: a2db74e4c5688c0a2a3975ff828caf20c3cf7904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 426d7c8de29abeb88833e94962a7291a641702ac
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406360"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703758"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Come usare le schede (parte 2 di 2)
 

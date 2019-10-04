@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678540"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983773"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -36,7 +36,7 @@ I componenti sono parti dell'applicazione distribuita o di microservizi, distrib
 
 È possibile visualizzare la topologia completa dell'applicazione con più livelli di componenti dell'applicazione correlati. I componenti possono essere risorse di Application Insights diverse o ruoli diversi in una singola risorsa. La mappa delle app consente di trovare i componenti seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. 
 
-Questa esperienza inizia con la progressiva individuazione dei componenti. Quando si carica innanzitutto la mappa delle applicazioni, viene attivato un set di query per individuare i componenti correlati a questo componente. Un pulsante nell'angolo superiore sinistro viene aggiornato con il numero di componenti dell'applicazione individuati. 
+Questa esperienza inizia con la progressiva individuazione dei componenti. Quando si carica la mappa delle applicazioni per la prima volta, viene attivato un set di query per individuare i componenti correlati a questo componente. Un pulsante nell'angolo superiore sinistro viene aggiornato con il numero di componenti dell'applicazione individuati. 
 
 Quando si fa clic sul pulsante per aggiornare i componenti della mappa, la mappa viene aggiornata con tutti i componenti individuati fino a quel momento. A seconda della complessità dell'applicazione, l'operazione potrebbe richiedere un minuto per il caricamento.
 
@@ -50,7 +50,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esaminare gli errori
+### <a name="investigate-failures"></a>Esamina errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +58,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esaminare le prestazioni
+### <a name="investigate-performance"></a>Esamina prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -68,7 +68,7 @@ Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina presta
 
 ### <a name="go-to-details"></a>Vai ai dettagli
 
-Selezionare **Vai ai dettagli** per esplorare l'esperienza Transazione end-to-end che può offrire le visualizzazioni create a livello di stack di chiamate.
+Selezionare **Vai a dettagli** per esplorare l'esperienza di transazione end-to-end, che può offrire visualizzazioni fino al livello dello stack di chiamate.
 
 ![Screenshot del pulsante Vai ai dettagli](media/app-map/go-to-details.png)
 
@@ -90,11 +90,13 @@ Per visualizzare gli avvisi attivi e le regole sottostanti che attivano gli avvi
 
 ![Screenshot dell'esperienza di analisi](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Nome del ruolo cloud set
+## <a name="set-cloud-role-name"></a>Imposta il nome del ruolo Cloud
 
-Mappa delle applicazioni Usa il **nome del ruolo cloud** proprietà per identificare i componenti sulla mappa. SDK di Application Insights aggiunge automaticamente la proprietà nome del ruolo cloud per i dati di telemetria generati dai componenti. Ad esempio, il SDK aggiungerà un nome di sito web o ruolo del servizio per la proprietà nome del ruolo cloud. Tuttavia, vi sono casi in cui si desidera eseguire l'override del valore predefinito. Eseguire l'override di nome del ruolo cloud e modificare ciò che viene visualizzato nella mappa delle applicazioni:
+La mappa delle applicazioni usa la proprietà **nome ruolo Cloud** per identificare i componenti sulla mappa. Application Insights SDK aggiunge automaticamente la proprietà nome ruolo Cloud ai dati di telemetria emessi dai componenti. Ad esempio, l'SDK aggiungerà un nome del sito Web o un nome del ruolo del servizio alla proprietà del nome del ruolo cloud. Tuttavia, vi sono casi in cui si desidera eseguire l'override del valore predefinito. Per eseguire l'override del nome del ruolo Cloud e modificare le informazioni visualizzate nella mappa delle applicazioni:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Scrivere personalizzata telemetryinitializer personalizzati come indicato di seguito.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -110,16 +112,16 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
 
-**Caricare l'inizializzatore**
+**App ASP.NET: Carica inizializzatore nel TelemetryConfiguration attivo**
 
-In ApplicationInsights.config:
+In ApplicationInsights. config:
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,7 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-Un metodo alternativo è quello di creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
+Un metodo alternativo per le app Web ASP.NET è creare un'istanza dell'inizializzatore nel codice, ad esempio in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -142,6 +144,22 @@ Un metodo alternativo è quello di creare un'istanza dell'inizializzatore nel co
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
     }
+```
+
+> [!NOTE]
+> L'aggiunta di `ApplicationInsights.config` un inizializzatore tramite o utilizzando `TelemetryConfiguration.Active` non è valida per le applicazioni ASP.NET Core. 
+
+**App ASP.NET Core: Carica l'inizializzatore in TelemetryConfiguration**
+
+Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di `TelemetryInitializer` un nuovo viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita `ConfigureServices` nel metodo `Startup.cs` della classe.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js
@@ -171,32 +189,32 @@ Se si usa Spring Boot con l'utilità di avvio Spring Boot di Application Insight
 
 `spring.application.name=<name-of-app>`
 
-L'utilità di avvio Spring Boot verrà assegnato automaticamente il nome di ruolo cloud per il valore che immesso per la proprietà spring.application.name.
+L'Starter Spring boot assegna automaticamente il nome del ruolo cloud al valore immesso per la proprietà spring.application.name.
 
-Per altre informazioni su Java correlazione e su come configurare il ruolo cloud assegnare un nome per l'estrazione di applicazioni non SpringBoot ciò [sezione](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sulla correlazione.
+Per ulteriori informazioni sulla correlazione Java e su come configurare il nome del ruolo Cloud per le applicazioni non SpringBoot, vedere questa [sezione](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sulla correlazione.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript lato client/browser
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
 ```
 
-### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nome del ruolo cloud conoscenza all'interno del contesto di mappa delle applicazioni
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Informazioni sul nome del ruolo Cloud nel contesto della mappa delle applicazioni
 
-Per quanto riguarda come pensi **nome del ruolo cloud**, può essere utile esaminare una mappa delle applicazioni che dispone di più nomi di ruolo cloud presenti:
+Per quanto concerne il nome del **ruolo Cloud**, può essere utile esaminare una mappa delle applicazioni con più nomi di ruolo Cloud presenti:
 
 ![Screenshot della mappa delle applicazioni](media/app-map/cloud-rolename.png)
 
-Nella mappa delle applicazioni di sopra di ognuno dei nomi nelle caselle di colore verde è valori di nome di ruolo per i vari aspetti di questa particolare applicazione distribuita a cloud. In modo che per questa app relativi ruoli costituiti da: `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+Nella mappa delle applicazioni sopra ognuno dei nomi in caselle verdi sono presenti i valori del nome del ruolo Cloud per diversi aspetti di questa particolare applicazione distribuita. Per questa app, quindi, i ruoli sono `Authentication`costituiti `Inventory Management`da: `Payment Processing Worker Role`, `acmefrontend`,, a. 
 
-Nel caso di questa app ognuno di questi nomi di ruolo cloud rappresenta anche un'altra risorsa di Application Insights univoca con le proprie chiavi di strumentazione. Poiché il proprietario di questa applicazione può accedere a ognuno di questi quattro diverse risorse di Application Insights, mappa delle applicazioni è in grado di mettere insieme una mappa delle relazioni sottostante.
+Nel caso di questa app, ognuno di questi nomi di ruolo cloud rappresenta anche una risorsa Application Insights univoca diversa con le rispettive chiavi di strumentazione. Poiché il proprietario di questa applicazione ha accesso a ognuna di queste quattro risorse Application Insights diversi, la mappa delle applicazioni è in grado di unire una mappa delle relazioni sottostanti.
 
-Per il [definizioni ufficiali](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+Per le [definizioni ufficiali](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
 ```
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
@@ -208,13 +226,13 @@ Per il [definizioni ufficiali](https://github.com/Microsoft/ApplicationInsights-
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-In alternativa **istanza del ruolo cloud** può essere utile per scenari in cui **nome del ruolo cloud** indica il problema è in qualche punto del front-end Web, ma si potrebbe essere in esecuzione il front-end tra più server con carico bilanciato così la possibilità di analizzare i dati di un livello più profondo tramite query Kusto e sapere se il problema sta influenzando tutti i front-end server/istanze web o solo uno può essere estremamente importante.
+In alternativa, l' **istanza del ruolo Cloud** può essere utile per gli scenari in cui il **nome del ruolo Cloud** indica che il problema si trova nel front-end Web, ma è possibile che sia in esecuzione il front-end Web tra più server con carico bilanciato, in modo che sia possibile eseguire il drill-down di un livello più approfondito tramite le query kusto e sapere se il problema ha effetto su tutte le istanze o i server front-end Web oppure solo uno può essere estremamente importante.
 
-Uno scenario in cui è possibile sostituire il valore per l'istanza del ruolo cloud potrebbe essere se l'app è in esecuzione in un ambiente basato su contenitori in cui è sufficiente sapere il singolo server potrebbe non essere informazioni sufficienti per individuare un determinato problema.
+Uno scenario in cui potrebbe essere necessario eseguire l'override del valore per l'istanza del ruolo cloud potrebbe essere se l'app è in esecuzione in un ambiente contenitore in cui semplicemente la conoscenza del singolo server potrebbe non essere sufficiente per individuare un determinato problema.
 
-Per altre informazioni su come eseguire l'override di proprietà del nome di ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori [di telemetria, vedere Aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
@@ -228,23 +246,23 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 3. Se si usa Funzioni di Azure con C#, eseguire l'aggiornamento a [Funzioni V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confermare [nome del ruolo cloud](#set-cloud-role-name) sia configurato correttamente.
+4. Verificare che il [nome del ruolo Cloud](#set-cloud-role-name) sia configurato correttamente.
 
 5. Se non si presenta una dipendenza, assicurarsi che sia nell'elenco delle [dipendenze raccolte automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se non lo è, si può comunque tenere traccia di essa manualmente con una [chiamata per tenere traccia delle dipendenze](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Troppi nodi sulla mappa
 
-Mappa delle applicazioni crea un nodo dell'applicazione per ogni nome di ruolo cloud esclusive presente nei dati di telemetria di richiesta e un nodo di dipendenza per ogni combinazione univoca del tipo di destinazione e nome del ruolo cloud nei dati di telemetria delle dipendenze. Se sono presenti più di 10.000 nodi nei dati di telemetria, mappa delle applicazioni non sarà in grado di recuperare tutti i nodi e collegamenti, in modo che la mappa sia incompleta. In questo caso, verrà visualizzato un messaggio di avviso durante la visualizzazione della mappa.
+La mappa delle applicazioni costruisce un nodo applicazione per ogni nome di ruolo Cloud univoco presente nei dati di telemetria delle richieste e un nodo di dipendenza per ogni combinazione univoca di tipo, destinazione e nome del ruolo Cloud nei dati di telemetria delle dipendenze. Se nei dati di telemetria sono presenti più di 10.000 nodi, la mappa delle applicazioni non sarà in grado di recuperare tutti i nodi e i collegamenti, quindi la mappa sarà incompleta. In tal caso, durante la visualizzazione della mappa verrà visualizzato un messaggio di avviso.
 
-Mappa delle applicazioni, inoltre, supporta solo fino a 1000 nodi non raggruppati separati viene eseguito il rendering in una sola volta. Mappa delle applicazioni riduce complessità visiva mediante il raggruppamento delle dipendenze che hanno lo stesso tipo e ai chiamanti, ma se i dati di telemetria contiene troppi nomi di ruolo cloud esclusive o troppi tipi di dipendenza, tale raggruppamento, sarà sufficiente e la mappa sarà in grado di rendere.
+Inoltre, la mappa delle applicazioni supporta solo fino a 1000 nodi separati non raggruppati sottoposti a rendering in una sola volta. La mappa delle applicazioni riduce la complessità visiva raggruppando le dipendenze che hanno lo stesso tipo e chiamanti, ma se i dati di telemetria hanno troppi nomi di ruolo Cloud univoci o troppi tipi di dipendenza, il raggruppamento non sarà sufficiente e la mappa non sarà in grado di rendering.
 
-Per risolvere questo problema, è necessario modificare la strumentazione per impostare correttamente il nome del ruolo cloud, tipo di dipendenza e i campi di destinazione di dipendenza.
+Per risolvere questo problema, è necessario modificare la strumentazione per impostare correttamente il nome del ruolo Cloud, il tipo di dipendenza e i campi della destinazione di dipendenza.
 
-* Destinazione della dipendenza deve rappresentare il nome logico di una dipendenza. In molti casi, è equivalente al server o al nome di risorsa della dipendenza. Ad esempio, nel caso di dipendenze HTTP è impostato sul nome host. Non deve contenere ID univoci o i parametri che variano da un'unica richiesta a un altro.
+* La destinazione di dipendenza deve rappresentare il nome logico di una dipendenza. In molti casi è equivalente al nome del server o della risorsa della dipendenza. Ad esempio, nel caso di dipendenze HTTP viene impostato sul nome host. Non deve contenere ID o parametri univoci che cambiano da una richiesta a un'altra.
 
-* Tipo di dipendenza deve rappresentare il tipo di logico di una dipendenza. Ad esempio, HTTP, SQL o Blob di Azure sono tipi di dipendenza tipico. Non deve contenere ID univoci.
+* Il tipo di dipendenza deve rappresentare il tipo logico di una dipendenza. Ad esempio, HTTP, SQL o BLOB di Azure sono tipi di dipendenza tipici. Non deve contenere ID univoci.
 
-* Viene descritto lo scopo del nome del ruolo cloud nel [sopra la sezione](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* Lo scopo del nome del ruolo Cloud è descritto nella [sezione precedente](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commenti e suggerimenti del portale
 
@@ -254,4 +272,6 @@ Per inviare commenti e suggerimenti, usare l'apposita opzione del feedback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Correlazione di comprensione](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* Per altre informazioni sul funzionamento della correlazione in Application Insights, vedere l' [articolo correlazione dei dati di telemetria](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* L' [esperienza di diagnostica delle transazioni end-to-end](transaction-diagnostics.md) mette in correlazione i dati di telemetria sul lato server da tutti i Application Insights componenti monitorati in una singola visualizzazione.
+* Per gli scenari di correlazione avanzati in ASP.NET Core e ASP.NET, vedere l'articolo [tenere traccia delle operazioni personalizzate](custom-operations-tracking.md) .

@@ -11,11 +11,11 @@ ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61304157"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -62,27 +62,27 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata        |
+|Enabled     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
 |Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>File Windows
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata        |
+|Enabled     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"
 
 ### <a name="linux-files"></a>File di Linux
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata        |
+|Enabled     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |

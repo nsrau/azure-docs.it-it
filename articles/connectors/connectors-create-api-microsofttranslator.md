@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: f6b8d96b7be3c87692b9a3db47e7e8e7d8e2649c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 29212cf1c1f06ecae9892e0fc8aaaa4a01b2612b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105786"
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Introduzione al connettore Microsoft Translator
 Connettersi a Microsoft Translator per tradurre il testo, individuare una lingua e così via. Con Microsoft Translator è possibile: 

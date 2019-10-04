@@ -1,34 +1,34 @@
 ---
-title: Guida dell'amministratore di Data Box nel portale di Azure | Microsoft Docs
-description: Descrive come usare il portale di Azure per amministrare Azure Data Box.
+title: Gestire Azure Data Box, Azure Data Box Heavy tramite portale di Azure | Microsoft Docs
+description: Viene descritto come utilizzare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 04/15/2019
+ms.topic: article
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607110"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987479"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Usare il portale di Azure per amministrare Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
 
-Questo articolo illustra alcuni flussi di lavoro e attività di gestione complessi che è possibile eseguire in Data Box. È possibile gestire Data Box tramite il portale di Azure o l'interfaccia utente Web locale. 
+Questo articolo si applica sia a Azure Data Box sia a Azure Data Box Heavy. Questo articolo descrive alcuni dei flussi di lavoro complessi e le attività di gestione che possono essere eseguite sul dispositivo Azure Data Box. È possibile gestire il dispositivo Data Box tramite la portale di Azure o tramite l'interfaccia utente Web locale.
 
-Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire Data Box e monitorare lo stato dell'ordine man mano che procede verso il completamento.
+Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire Data Box dispositivo e tenere traccia dello stato dell'ordine mentre procede fino al completamento.
 
 
 ## <a name="cancel-an-order"></a>Annullare un ordine
 
-Per vari motivi potrebbe essere necessario annullare un ordine effettuato. È possibile annullare l'ordine solo prima dell'elaborazione. Una volta che l'ordine è stato elaborato e che Data Box è stato preparato non è possibile annullare l'ordine. 
+Per vari motivi potrebbe essere necessario annullare un ordine effettuato. È possibile annullare l'ordine solo prima dell'elaborazione. Dopo che l'ordine è stato elaborato e Data Box dispositivo è stato preparato, non è possibile annullare l'ordine.
 
 Seguire questa procedura per annullare un ordine.
 
-1.  Passare a **Panoramica > Annulla**. 
+1.  Passare a **Panoramica > Annulla**.
 
     ![Annullamento ordine 1](media/data-box-portal-admin/cancel-order1.png)
 
@@ -36,11 +36,11 @@ Seguire questa procedura per annullare un ordine.
 
     ![Annullamento ordine 2](media/data-box-portal-admin/cancel-order2.png)
 
-3.  Dopo l'annullamento dell'ordine il portale ne aggiorna lo stato e lo visualizza come **Annullato**. 
+3.  Dopo l'annullamento dell'ordine il portale ne aggiorna lo stato e lo visualizza come **Annullato**.
 
 ## <a name="clone-an-order"></a>Clonare un ordine
 
-La clonazione è utile in determinate situazioni. Ad esempio, un utente ha usato Data Box per trasferire alcuni dati. Man mano che vengono generati altri dati, è necessario un altro Data Box per trasferire i dati in Azure. In questo caso è possibile semplicemente clonare lo stesso ordine.
+La clonazione è utile in determinate situazioni. Ad esempio, un utente ha usato Data Box per trasferire alcuni dati. Quando vengono generati più dati, è necessario un altro dispositivo Data Box per trasferire i dati in Azure. In questo caso è possibile semplicemente clonare lo stesso ordine.
 
 Eseguire la procedura seguente per clonare un ordine.
 
@@ -53,7 +53,7 @@ Eseguire la procedura seguente per clonare un ordine.
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
 
-## <a name="delete-order"></a>Eliminare un ordine
+## <a name="delete-order"></a>Elimina ordine
 
 È possibile eliminare un ordine quando l'ordine è stato completato. L'ordine contiene informazioni personali, ad esempio nome e cognome, indirizzo e informazioni di contatto. Queste informazioni personali vengono eliminate quando l'ordine viene eliminato.
 
@@ -67,15 +67,15 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 3. Immettere il nome dell'ordine quando viene richiesto di confermare l'eliminazione dell'ordine. Fare clic su **Elimina**.
 
-## <a name="download-shipping-label"></a>Scaricare l'etichetta di spedizione
+## <a name="download-shipping-label"></a>Scarica etichetta di spedizione
 
-Potrebbe essere necessario scaricare l'etichetta indirizzo se la visualizzazione elettronica dell'etichetta del Data Box non funziona e non viene visualizzata l'etichetta indirizzo di restituzione. 
+Potrebbe essere necessario scaricare l'etichetta indirizzo se la visualizzazione elettronica dell'etichetta del Data Box non funziona e non viene visualizzata l'etichetta indirizzo di restituzione. Non è presente alcuna visualizzazione E-Ink sul Data Box Heavy e pertanto il flusso di lavoro non si applica ai Data Box Heavy.
 
 Eseguire la procedura seguente per scaricare un'etichetta di spedizione.
 
 1.  Passare a **Panoramica > Scarica etichetta di spedizione**. Questa opzione è disponibile solo dopo la spedizione del dispositivo. 
 
-    ![Scaricare l'etichetta di spedizione](media/data-box-portal-admin/download-shipping-label.png)
+    ![Scarica etichetta di spedizione](media/data-box-portal-admin/download-shipping-label.png)
 
 2.  Questa azione scarica la seguente etichetta per la spedizione di ritorno. Salvare l'etichetta e stamparla. Piegare e inserire l'etichetta nella custodia trasparente sul dispositivo. Assicurarsi che l'etichetta sia visibile. Rimuovere tutti gli adesivi sul dispositivo relativi alla spedizione precedente.
 
@@ -95,9 +95,9 @@ Eseguire la procedura seguente per modificare l'ordine.
 
     ![Modifica indirizzo di spedizione 2](media/data-box-portal-admin/edit-shipping-address2.png)
 
-## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
+## <a name="edit-notification-details"></a>Modifica dettagli notifica
 
-Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il dispositivo viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completa, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
+Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il dispositivo viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completata, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
 
 Eseguire la procedura seguente per modificare i dettagli di notifica.
 
@@ -110,7 +110,7 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
     ![Modifica dettagli notifica 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Scaricare la cronologia ordini
+## <a name="download-order-history"></a>Scarica cronologia ordini
 
 Dopo il completamento dell'ordine per Data Box, i dati nei dischi del dispositivo vengono cancellati. Quando la pulizia del dispositivo è stata completata, è possibile scaricare la cronologia ordini nel portale di Azure.
 
@@ -120,10 +120,10 @@ Eseguire i passaggi seguenti per scaricare la cronologia ordini.
 
     ![Scaricare la cronologia ordini](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Fare clic su **Scarica cronologia ordini**. Nella cronologia scaricata sono registrati i documenti di accompagnamento del corriere. Se si scorre fino alla fine di questo log, sono visualizzati i collegamenti a:
+2. Fare clic su **Scarica cronologia ordini**. Nella cronologia scaricata sono registrati i documenti di accompagnamento del corriere. Sono presenti due set di log corrispondenti ai due nodi in una Data Box Heavy. Se si scorre fino alla fine di questo log, sono visualizzati i collegamenti a:
     
    - **Log di copia**: viene visualizzato l'elenco dei file per cui si sono verificati errori durante la copia dei dati da Data Box all'account di archiviazione di Azure.
-   - **Log di controllo**: contengono informazioni su accensione e accesso alla condivisione nel Data Box quando è esterno al data center di Azure.
+   - **Log di controllo** : contengono informazioni su come accendere e accedere alle condivisioni nel data box quando si trova all'esterno del Data Center di Azure.
    - **File della distinta base**: viene visualizzato l'elenco dei file, noto anche come manifesto file, che è possibile scaricare durante **Prepara per la spedizione** e che include nomi, dimensioni e checksum dei file.
 
        ```
@@ -202,17 +202,18 @@ Quando viene modificato lo stato del dispositivo nel portale, si riceve una noti
 |Ordinato     | L'ordine è stato effettuato. <br>Se il dispositivo è disponibile, Microsoft identifica un dispositivo per la spedizione e ne prepara l'imballaggio. <br> Se il dispositivo non è immediatamente disponibile, l'ordine verrà elaborato quando il dispositivo risulterà nuovamente disponibile. L'ordine potrebbe richiedere da diversi giorni a due mesi per l'elaborazione. Se l'ordine non può essere soddisfatto entro 90 giorni, viene annullato e l'utente riceve una notifica.         |
 |Elaborato     | L'elaborazione dell'ordine è stata completata. In base all'ordine, il dispositivo viene preparato per la spedizione nel data center.         |
 |Spedito     | L'ordine è stato spedito. Usare l'ID di traccia visualizzato nell'ordine nel portale per tenere traccia della spedizione.        |
-|Recapitato     | La spedizione è stata recapitata all'indirizzo specificato.        |
+|Recapitati     | La spedizione è stata recapitata all'indirizzo specificato.        |
 |Ritirato     |La spedizione di restituzione è stata prelevata e scansionata dal trasportatore.         |
-|Ricevuto     | Il dispositivo viene ricevuto e scansionato nel data center di Azure. <br> Dopo il controllo della spedizione viene avviato il caricamento del dispositivo.      |
-|Copia dati     | La copia dei dati è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
+|Ricevuta     | Il dispositivo viene ricevuto e scansionato nel data center di Azure. <br> Dopo il controllo della spedizione viene avviato il caricamento del dispositivo.      |
+|Copia dei dati     | La copia dei dati è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
 |Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
-|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure.   |
-|Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |
+|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Vedere [esempi di log di copia quando il caricamento è stato completato con errori](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Completato con avvisi| La copia dei dati è stata completata, ma i dati sono stati modificati. I dati contengono errori di BLOB o di file non critici corretti cambiando il nome del file o del BLOB. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota delle modifiche apportate ai dati. Vedere [esempi di log di copia quando il caricamento è stato completato con avvisi](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Annullato            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |
 |Eseguire la pulizia | I dati nei dischi del dispositivo vengono cancellati. La pulizia del dispositivo viene considerata completa quando la cronologia ordini è disponibile per il download nel portale di Azure.|
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [risolvere i problemi relativi a Data Box](data-box-faq.md).
+- Informazioni su come [risolvere data box e data box Heavy problemi](data-box-troubleshoot.md).

@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815893"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476830"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Individuare il software installato nei computer Azure e non Azure
 
@@ -74,8 +74,8 @@ Selezionare **+ Aggiungi macchina virtuale di Azure** per visualizzare la pagina
 
 Per aggiungere computer non Azure, installare l'agente per [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. Dopo l'installazione dell'agente, passare all'account di Automazione e quindi a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**. Quando si fa clic su **Gestisci computer**, viene visualizzato un elenco di computer che inviano report all'area di lavoro Log Analytics in cui non è abilitata la soluzione. Selezionare l'opzione appropriata per l'ambiente.
 
-* **Abilita in tutti i computer disponibili**: questa opzione abilita la soluzione su tutti i computer che attualmente inviano report all'area di lavoro di Log Analytics.
-* **Abilita in tutti i computer disponibili e futuri**: questa opzione abilita la soluzione su tutti i computer che inviano report all'area di lavoro di Log Analytics e successivamente su tutti i computer futuri aggiunti all'area di lavoro.
+* **Abilita in tutti i computer disponibili**: questa opzione abilita la soluzione su tutti i computer che attualmente inviano report all'area di lavoro Log Analytics.
+* **Abilita in tutti i computer disponibili e futuri**: questa opzione abilita la soluzione su tutti i computer che inviano report all'area di lavoro Log Analytics e successivamente su tutti i computer futuri aggiunti all'area di lavoro.
 * **Abilita nei computer selezionati**: questa opzione abilita la soluzione solo nei computer selezionati.
 
 ![Gestisci computer](./media/automation-tutorial-installed-software/manage-machines.png)

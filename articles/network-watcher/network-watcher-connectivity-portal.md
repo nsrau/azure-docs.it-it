@@ -3,8 +3,8 @@ title: Risolvere i problemi relativi alle connessioni con Azure Network Watcher 
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con il portale di Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: jdial
-ms.openlocfilehash: 21e004e12a5111eb0e5fc7764c1e07fcb68c447d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 783bcd0cdc97328f16c4a0defa18daa46a065842
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702010"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando il portale di Azure
 
 > [!div class="op_single_selector"]
-> - [di Microsoft Azure](network-watcher-connectivity-portal.md)
+> - [Portale](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfaccia della riga di comando di Azure](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)

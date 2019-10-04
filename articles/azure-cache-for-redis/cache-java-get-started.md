@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Come usare Cache Redis di Azure con Java | Microsoft Docs'
+title: 'Guida introduttiva: Usare Azure Cache for Redis con Java'
 description: In questa guida introduttiva si creerà una nuova app Java che usa Cache Redis di Azure
 services: cache
 documentationcenter: ''
@@ -14,33 +14,22 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237767"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273912"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Guida introduttiva: Come usare Cache Redis di Azure con Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Guida introduttiva: Usare Azure Cache for Redis con Java
 
-
-Cache Redis di Azure consente di accedere a un'istanza di Cache Redis di Azure dedicata, gestita da Microsoft. È possibile accedere alla cache da qualsiasi applicazione in Microsoft Azure.
-
-Questo articolo illustra come iniziare a usare Cache Redis di Azure con il client Redis [Jedis](https://github.com/xetorthio/jedis) per Java.
-
-![App cache completata](./media/cache-java-get-started/cache-app-complete.png)
-
-Per completare i passaggi descritti in questa guida di avvio rapido è possibile usare qualsiasi editor di codice. Tuttavia, [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app Java usando il client [Jedis](https://github.com/xetorthio/jedis) di Redis per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Apache Maven](https://maven.apache.org/)
-
-
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Creare un'istanza di Cache Redis di Azure
 
@@ -50,7 +39,7 @@ Per completare i passaggi descritti in questa guida di avvio rapido è possibile
 
 Aggiungere le variabili di ambiente per il **nome host** e la chiave di accesso **primaria**. Queste variabili verranno usate dal codice invece di includere le informazioni riservate direttamente nel codice.
 
-```
+```CMD 
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -59,7 +48,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Usare Maven e generare una nuova app per la guida introduttiva:
 
-```
+```CMD
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
@@ -139,15 +128,14 @@ Salvare *App.java*.
 
 Eseguire il comando Maven seguente per compilare ed eseguire l'app:
 
-```
+```CMD
 mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
 Nell'esempio seguente è possibile notare che la chiave `Message` in precedenza aveva un valore nella cache che era stato impostato usando la Console Redis nel portale di Azure. L'app ha aggiornato questo valore memorizzato nella cache. L'app ha anche eseguito i comandi `PING` e `CLIENT LIST`.
 
-![App cache completata](./media/cache-java-get-started/cache-app-complete.png)
-
+![App Azure Cache for Redis completata](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -159,17 +147,15 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 >
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+1. Nella casella di testo **Filtra per nome** digitare il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati selezionare **...** e quindi **Elimina gruppo di risorse**.
 
-![Delete](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Gruppo di risorse di Azure eliminato](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+1. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e selezionare **Elimina**.
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -177,6 +163,3 @@ In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'a
 
 > [!div class="nextstepaction"]
 > [Creare un'app Web ASP.NET che usa Cache Redis di Azure.](./cache-web-app-howto.md)
-
-
-

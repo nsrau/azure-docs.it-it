@@ -2,19 +2,19 @@
 title: Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 description: Informazioni su come eseguire l'onboarding in una macchina virtuale di Azure delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario, che fanno parte di Automazione di Azure.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6b8693768e08f7ed80765015efa5af1a73b850c7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619723"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476611"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
@@ -51,7 +51,7 @@ Se l'area di lavoro selezionata non include già le soluzioni Gestione aggiornam
 
 Se l'area di lavoro selezionata contiene già la soluzione, la soluzione non viene ridistribuita e la configurazione dell'ambito non viene aggiunta.
 
-Selezionare i puntini di sospensione (**...**) in una delle configurazioni e quindi selezionare **Modifica**. Nel riquadro **Modifica configurazione dell'ambito** selezionare **Selezionare i gruppi di computer**. Il riquadro **Gruppi di computer** mostra le ricerche salvate usate per creare la configurazione dell'ambito.
+Selezionare i puntini di sospensione ( **...** ) in una delle configurazioni e quindi selezionare **Modifica**. Nel riquadro **Modifica configurazione dell'ambito** selezionare **Selezionare i gruppi di computer**. Il riquadro **Gruppi di computer** mostra le ricerche salvate usate per creare la configurazione dell'ambito.
 
 ## <a name="saved-searches"></a>Ricerche salvate
 
@@ -85,7 +85,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** .
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
@@ -104,6 +104,8 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
 * Variabili
+
+È inoltre in alternativa possibile scollegare l'area di lavoro dall'Account di automazione dall'area di lavoro di Log Analitica. Sull'area di lavoro, selezionare **Account di automazione** sotto **le risorse correlate**. Nella pagina Account di automazione, selezionare **scollegare l'account**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

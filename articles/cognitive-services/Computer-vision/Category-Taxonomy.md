@@ -1,6 +1,6 @@
 ---
 title: Tassonomia di categorie di immagini - Visione artificiale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulle 86 categorie di tassonomia per l'API Visione artificiale in Servizi cognitivi di Azure.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498849"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565754"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Tassonomia di computer Vision 86-categoria
+# <a name="computer-vision-86-category-taxonomy"></a>Visione artificiale 86-tassonomia delle categorie
 
 abstract_
 

@@ -2,19 +2,20 @@
 title: Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure.
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: rogarana
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816850"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259395"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -23,6 +24,8 @@ L'interfaccia della riga di comando di Azure, open-source e multipiattaforma, of
 Questa guida illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando.
 
 Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
@@ -172,7 +175,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>Gestire gli account di archiviazione
 
-### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
+### <a name="create-a-new-storage-account"></a>Crea un nuovo account di archiviazione
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer affinché si connetta alla sottoscrizione, è possibile creare un nuovo account di Archiviazione di Azure.
 
 ```azurecli
@@ -192,6 +195,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+  * `Standard_GZRS`anteprima
+  * `Standard_RAGZRS`anteprima
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Impostare le variabili di ambiente predefinite dell'account di archiviazione di Azure
 
@@ -324,6 +329,17 @@ Per eliminare un BLOB, usare il comando `blob delete`:
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### <a name="set-the-content-type"></a>Impostare il tipo di contenuto
+
+Il tipo di contenuto, chiamato anche tipo MIME, identifica il formato dei dati nel BLOB. I browser e altri software usano il tipo di contenuto per determinare come devono essere elaborati i dati. Ad esempio, il tipo di contenuto per le immagini `image/png`png è. Per impostare il tipo di contenuto, usare `blob update` il comando:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## <a name="create-and-manage-file-shares"></a>Creare e gestire condivisioni di file
 File di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo Server Message Block. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](../files/storage-files-introduction.md).
 
@@ -388,7 +404,7 @@ az storage file copy start \
 az storage share snapshot -n <share name>
 ```
 
-Output di esempio
+Esempio di output
 ```json
 {
   "metadata": {},
@@ -511,7 +527,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
 ```
 
-Output di esempio
+Esempio di output
 ```json
 {
   "deleted": true

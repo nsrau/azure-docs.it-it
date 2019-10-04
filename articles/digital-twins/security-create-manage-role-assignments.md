@@ -1,27 +1,24 @@
 ---
-title: Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure | Microsoft Docs
-description: Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure.
+title: Creare e gestire le assegnazioni di ruolo-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come creare e gestire le assegnazioni di ruolo in dispositivi gemelli digitali di Azure.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
-ms.author: lyrana
+ms.date: 10/02/2019
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905308"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827712"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
 Gemelli digitali di Azure usa il [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) per gestire l'accesso alle risorse.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Panoramica delle assegnazioni di ruolo
 
@@ -39,13 +36,13 @@ Ogni assegnazione di ruolo è conforme alla definizione seguente:
 
 La tabella seguente descrive i singoli attributi:
 
-| Attributo | NOME | Obbligatorio | Type | DESCRIZIONE |
+| Attributo | Attività | Richiesto | Type | Descrizione |
 | --- | --- | --- | --- | --- |
-| RoleId | Identificatore della definizione di ruolo | Sì | string | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
-| objectId | Identificatore di oggetto | Sì | string | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
-| objectIdType | Tipo di identificatore di oggetto | Sì | string | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
-| path | Percorso di spazio | Sì | string | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
-| TenantId | Identificatore del tenant | Variabile | string | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
+| RoleId | Identificatore della definizione di ruolo | Yes | Stringa | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
+| objectId | Identificatore di oggetto | Yes | Stringa | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
+| objectIdType | Tipo di identificatore di oggetto | Yes | Stringa | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
+| path | Percorso di spazio | Yes | Stringa | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
+| tenantId | Identificatore del tenant | Variabile | Stringa | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificatori delle definizioni del ruolo supportati
 
@@ -63,7 +60,7 @@ L'attributo **objectIdType** è stato presentato in precedenza.
 
 Gemelli digitali di Azure supporta operazioni *CREATE*, *READ* e *DELETE* complete per le assegnazioni di ruolo. Le operazioni *UPDATE* vengono gestite aggiungendo o rimuovendo assegnazioni di ruolo o modificando i nodi di [Grafico di intelligenza spaziale](./concepts-objectmodel-spatialgraph.md) a cui le assegnazioni di ruolo concedono l'accesso.
 
-![Endpoint delle assegnazioni di ruolo][1]
+[endpoint di assegnazione ![Role](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 La documentazione di riferimento di Swagger fornita contiene ulteriori informazioni su tutti gli endpoint API, le operazioni di richiesta e le definizioni disponibili.
 
@@ -71,23 +68,28 @@ La documentazione di riferimento di Swagger fornita contiene ulteriori informazi
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### <a name="grant-permissions-to-your-service-principal"></a>Concedere autorizzazioni all'entità servizio
 
 La concessione di autorizzazioni all'entità servizio è spesso una delle prime operazioni da eseguire quando si usa Gemelli digitali di Azure. Comporta le attività seguenti:
 
-1. Accesso all'istanza di Azure tramite PowerShell.
+1. Accedere all'istanza di Azure tramite l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure o [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Acquisizione delle informazioni sull'entità servizio.
 1. Assegnazione del ruolo desiderato all'entità servizio.
 
 L'ID applicazione viene fornito in Azure Active Directory. Per altre informazioni sulla configurazione e il provisioning di un'istanza di Gemelli digitali di Azure in Active Directory, vedere la [guida di avvio rapido](./quickstart-view-occupancy-dotnet.md).
 
-Una volta ottenuto l'ID applicazione, eseguire i comandi di PowerShell seguenti:
+Una volta ottenuto l'ID applicazione, eseguire uno dei comandi seguenti. Nell'interfaccia della riga di comando di Azure:
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+In PowerShell:
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 Un utente con il ruolo **Amministratore** può quindi assegnare il ruolo Amministratore dello spazio a un altro utente inviando una richiesta HTTP POST autenticata all'URL:
@@ -108,11 +110,9 @@ Con il corpo JSON seguente:
 }
 ```
 
-<div id="all"></div>
-
 ### <a name="retrieve-all-roles"></a>Recuperare tutti i ruoli
 
-![Ruoli di sistema][2]
+[ruoli ![System](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 Per ottenere un elenco di tutti i ruoli disponibili (definizioni del ruolo), inviare una richiesta HTTP GET autenticata a:
 
@@ -153,8 +153,6 @@ Una richiesta riuscita restituirà una matrice JSON con voci per ogni ruolo che 
 ]
 ```
 
-<div id="check"></div>
-
 ### <a name="check-a-specific-role-assignment"></a>Controllare un'assegnazione di ruolo specifica
 
 Per controllare un'assegnazione di ruolo specifica, inviare una richiesta HTTP GET autenticata a:
@@ -165,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valore del parametro** | **Obbligatorio** |  **Tipo** |  **Descrizione** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True  | string |   objectId dell'objectIdType UserId. |
-| YOUR_PATH | True  | string |   Percorso per cui verificare l'accesso. |
-| YOUR_ACCESS_TYPE |  True  | string |   Tipo di accesso da verificare. |
-| YOUR_RESOURCE_TYPE | True  | string |  Risorsa da controllare. |
+| YOUR_USER_ID |  True | Stringa |   objectId dell'objectIdType UserId. |
+| YOUR_PATH | True | Stringa |   Percorso per cui verificare l'accesso. |
+| YOUR_ACCESS_TYPE |  True | Stringa |   *Lettura*, *creazione*, *aggiornamento*o *eliminazione* |
+| YOUR_RESOURCE_TYPE | True | Stringa |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *endpoint*, *keystore*, *Matcher*, *ontologia*, *report*,  *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System* , *UerDefinedFunction*, *User*, *UserBlobMetadata*o *UserExtendedProperty* |
 
 Una richiesta riuscita restituirà un valore booleano `true` o `false` per indicare se il tipo di accesso è stato assegnato all'utente per il percorso e la risorsa specificati.
 
@@ -180,7 +178,7 @@ Per ottenere tutte le assegnazioni di ruolo per un percorso, inviare una richies
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_PATH | Percorso completo dello spazio |
 
@@ -200,7 +198,7 @@ Una richiesta riuscita restituirà una matrice JSON con ogni assegnazione di ruo
 
 ### <a name="revoke-a-permission"></a>Revocare un'autorizzazione
 
-Per revocare un'autorizzazione a un destinatario, eliminare l'assegnazione di ruolo inviando una richiesta HTTP DELETE autenticata:
+Per revocare un'autorizzazione da un destinatario, eliminare l'assegnazione di ruolo effettuando una richiesta di eliminazione HTTP autenticata:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
@@ -210,7 +208,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | **ID** dell'assegnazione di ruolo da rimuovere |
 
-Una richiesta DELETE riuscita restituirà uno stato di risposta 204. Verificare la rimozione dell'assegnazione di ruolo [controllando](#check) se è ancora presente.
+Una richiesta DELETE riuscita restituirà uno stato di risposta 204. Verificare la rimozione dell'assegnazione di ruolo [controllando](#check-a-specific-role-assignment) se è ancora presente.
 
 ### <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
@@ -282,7 +280,3 @@ Gli esempi seguenti illustrano come configurare il corpo JSON in diversi scenari
 - Per informazioni sul controllo degli accessi in base al ruolo di Gemelli digitali di Azure, vedere [Controllo degli accessi in base al ruolo](./security-authenticating-apis.md).
 
 - Per altre informazioni sull'autenticazione delle API di Gemelli digitali di Azure, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

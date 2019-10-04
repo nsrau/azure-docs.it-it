@@ -12,17 +12,17 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61429519"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
 Questo articolo descrive le opzioni per lo spostamento dei dati da file flat con estensione csv o tsv o da SQL Server locale a SQL Server in una macchina virtuale di Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
 
-Per un argomento che descrive le opzioni per lo spostamento dei dati a un database SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](move-sql-azure.md).
+Per un argomento che descrive le opzioni per lo spostamento dei dati a un database SQL di Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](move-sql-azure.md).
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.
 

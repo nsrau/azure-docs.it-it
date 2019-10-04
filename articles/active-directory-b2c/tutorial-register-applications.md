@@ -1,25 +1,25 @@
 ---
-title: "Esercitazione: Registrare un'applicazione - Azure Active Directory B2C | Microsoft Docs"
+title: "Esercitazione: registrare un'applicazione-Azure Active Directory B2C"
 description: Informazioni su come registrare un'applicazione Web in Azure Active Directory B2C usando il portale di Azure.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: davidmu
+ms.date: 08/23/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b2c273f41bfa74ee968b6fd6676e83767ce8b2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359739"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063265"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione in Azure Active Directory B2C
 
-Prima che le [applicazioni](active-directory-b2c-apps.md) possano interagire con Azure Active Directory (Azure AD) B2C, devono essere registrate in un tenant gestito. Questa esercitazione mostra come registrare un'applicazione Web usando il portale di Azure.
+Prima che le [applicazioni](active-directory-b2c-apps.md) possano interagire con Azure Active Directory B2C (Azure ad B2C), devono essere registrate in un tenant gestito dall'utente. Questa esercitazione mostra come registrare un'applicazione Web usando il portale di Azure.
 
 In questo articolo viene spiegato come:
 
@@ -35,23 +35,29 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
 ## <a name="register-a-web-application"></a>Registrare un'applicazione Web
 
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-2. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-3. Selezionare **Applicazioni** e quindi **Aggiungi**.
-4. Immettere un nome per l'applicazione. Ad esempio, *webapp1*.
-5. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
-6. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. È ad esempio possibile impostarlo per l'ascolto in locale su `https://localhost:44316`. Se non si conosce ancora il numero di porta, è possibile immettere un valore segnaposto e modificarlo in un secondo momento. A scopo di test, è possibile impostare l'URL su `https://jwt.ms`, in modo da visualizzare il contenuto di un token per l'ispezione. Per questa esercitazione, impostarlo su `https://jwt.ms`. 
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Applicazioni** e quindi **Aggiungi**.
+1. Immettere un nome per l'applicazione. Ad esempio, *webapp1*.
+1. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
+1. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. Ad esempio, è possibile impostarlo in modo che sia `https://localhost:44316`in ascolto localmente in. Se non si conosce ancora il numero di porta, è possibile immettere un valore segnaposto e modificarlo in un secondo momento.
 
-    L'URL di risposta deve iniziare con lo schema `https` e tutti i valori degli URL di risposta devono condividere un singolo dominio DNS. Se ad esempio l'applicazione ha un URL di risposta `https://login.contoso.com`, è possibile aggiungerne altri, come questo URL: `https://login.contoso.com/new`. In alternativa, è possibile fare riferimento a un sottodominio DNS di `login.contoso.com`, ad esempio `https://new.login.contoso.com`. Se si vuole avere un'applicazione con `login-east.contoso.com` e `login-west.contoso.com` come URL di risposta, è necessario aggiungere tali URL nell'ordine seguente: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. Gli ultimi due URL possono essere aggiunti perché sono sottodomini del primo, ovvero `contoso.com`.
+    A scopo di test come questa esercitazione, è possibile impostarlo in modo da `https://jwt.ms` visualizzare il contenuto di un token per l'ispezione. Per questa esercitazione, impostare l' **URL** di risposta `https://jwt.ms`su.
 
-7. Fare clic su **Create**(Crea).
+    Agli URL di risposta si applicano le restrizioni seguenti:
+
+    * L'URL di risposta deve iniziare con lo `https`schema.
+    * L'URL di risposta fa distinzione tra maiuscole e minuscole. Il caso deve corrispondere al caso del percorso URL dell'applicazione in esecuzione. Se, ad esempio, l'applicazione include come parte del percorso `.../abc/response-oidc`, non specificare `.../ABC/response-oidc` nell'URL di risposta. Poiché il Web browser considera i percorsi come distinzione tra maiuscole e minuscole, i cookie associati a possono essere esclusi se reindirizzati all' `.../abc/response-oidc` `.../ABC/response-oidc` URL senza corrispondenza tra maiuscole e minuscole.
+
+1. Fare clic su **Crea** per completare la registrazione dell'applicazione.
 
 ## <a name="create-a-client-secret"></a>Creare un segreto client
 
 Se l'applicazione scambia un codice per un token, è necessario creare un segreto dell'applicazione.
 
-1. Selezionare **Chiavi** e quindi fare clic su **Genera chiave**.
-2. Selezionare **Salva** per visualizzare la chiave. Annotare il valore di **Chiave dell'app**. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.
+1. Nella pagina **Azure ad B2C-applicazioni** selezionare l'applicazione creata, ad esempio *app Web 1*.
+1. Selezionare **chiavi** e quindi selezionare **Genera chiave**.
+1. Selezionare **Salva** per visualizzare la chiave. Annotare il valore di **Chiave dell'app**. Usare questo valore come segreto dell'applicazione nel codice dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -61,5 +67,7 @@ In questo articolo si è appreso come:
 > * Registrare un'applicazione Web
 > * Creare un segreto client
 
+Successivamente, si apprenderà come creare flussi utente per consentire agli utenti di iscriversi, accedere e gestire i propri profili.
+
 > [!div class="nextstepaction"]
-> [Creare flussi utente in Azure Active Directory B2C](tutorial-create-user-flows.md)
+> [Creare flussi utente in Azure Active Directory B2C >](tutorial-create-user-flows.md)

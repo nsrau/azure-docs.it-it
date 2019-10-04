@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a5ca41f1d9b1fb5b2dd8b9066af85543f1fddd23
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786776"
 ---
 # <a name="service-bus-messaging-samples"></a>Esempi di messaggistica del bus di servizio
 Gli esempi di messaggistica del bus di servizio illustrano le funzionalità chiave nella [messaggistica del bus di servizio](https://azure.microsoft.com/services/service-bus/). Attualmente, è possibile trovare gli esempi nelle posizioni seguenti:
@@ -28,7 +28,7 @@ Gli esempi di messaggistica del bus di servizio illustrano le funzionalità chia
 | -------------------- | ----------------------- |
 | .NET, Java e gestione | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 

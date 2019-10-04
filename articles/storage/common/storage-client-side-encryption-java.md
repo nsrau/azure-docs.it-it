@@ -2,19 +2,20 @@
 title: Crittografia lato client con Java per Archiviazione di Microsoft Azure | Microsoft Docs
 description: La libreria client di archiviazione di Azure per Java offre supporto per la crittografia lato client e l'integrazione con l'insieme di credenziali delle chiavi di Azure per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4fa5657a7ee2043e09c80593651d88a527770d7a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992461"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998974"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -45,7 +46,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 ## <a name="encryption-mechanism"></a>Meccanismo di crittografia
 La libreria client di archiviazione usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>BLOB
 La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti usano i metodi **upload*** o il metodo **openOutputStream**. Per i download, sono supportati sia i download completi che di intervallo.  
 
 Durante la crittografia, la libreria client genererà un vettore di inizializzazione (IV) casuale di 16 byte con una chiave di crittografia del contenuto (CEK) casuale di 32 byte ed eseguirà la crittografia envelope dei dati BLOB utilizzando queste informazioni. La CEK con wrapping e alcuni metadati di crittografia aggiuntivi vengono quindi archiviati come metadati BLOB insieme al BLOB crittografato nel servizio.
@@ -55,13 +56,13 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Download di un blob crittografato comporta il recupero del contenuto dell'intero blob usando il **scaricare**/**/openinputstream** metodi pratici. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero blob usando i metodi pratici per il **download**/di**openInputStream** . La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
-Download di un intervallo arbitrario (**downloadRange** metodi) nel blob crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere utilizzati per decrittografare correttamente la richiesta intervallo.  
+Il download di un intervallo arbitrario (metodi**Metodi downloadrange** ) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere usati per decrittografare correttamente l'intervallo richiesto.  
 
 Tutti i tipi di BLOB (BLOB in blocchi, BLOB di pagine e BLOB di accodamento) possono essere crittografati/decrittografati con questo schema.
 
-### <a name="queues"></a>Queues
+### <a name="queues"></a>Code
 Poiché i messaggi in coda possono essere in qualsiasi formato, la libreria client definisce un formato personalizzato che include il vettore di inizializzazione (IV) e la chiave di crittografia del contenuto crittografato (CEK) nel testo del messaggio.  
 
 Durante la crittografia, la libreria client genera un vettore di inizializzazione casuale di 16 byte con una CEK casuale di 32 byte ed esegue la crittografia envelope del testo del messaggio in coda utilizzando queste informazioni. Al messaggio in coda crittografato vengono quindi aggiunti la CEK con wrapping e alcuni metadati di crittografia aggiuntivi. Questo messaggio modificato (illustrato di seguito) viene archiviato nel servizio.
@@ -102,7 +103,7 @@ Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell�
 > Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../../key-vault/key-vault-whatis.md)
+L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../../key-vault/key-vault-overview.md)
 
 La libreria client di archiviazione utilizza la libreria principale insieme di credenziali chiave per fornire un framework comune in Azure per la gestione delle chiavi. Gli utenti ottengono anche l'ulteriore vantaggio dell'utilizzo della libreria di estensioni dell’insieme di credenziali chiave. La libreria di estensioni fornisce funzionalità utili per provider di chiavi locali e cloud Symmetric/RSA semplici, nonché l'aggregazione e la memorizzazione nella cache.
 
@@ -118,7 +119,7 @@ Esistono tre pacchetti insieme di credenziali chiave:
 1. Creare un segreto non in linea e caricarlo nell’insieme di credenziali chiave.  
 2. Utilizzare l’identificatore di base del segreto come parametro per risolvere la versione corrente del segreto per la crittografia e memorizzare nella cache queste informazioni in locale. Utilizzare CachingKeyResolver per la memorizzazione nella cache; non è previsto che gli utenti implementino la propria logica di memorizzazione nella cache.  
 3. Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia.
-   Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>  
+   Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia.
 
 ## <a name="best-practices"></a>Procedure consigliate
 Il supporto della crittografia è disponibile solo nella libreria client di archiviazione per Java.
@@ -142,7 +143,7 @@ Durante la creazione di un oggetto EncryptionPolicy, gli utenti possono specific
   * Se specificato per ottenere la chiave, viene richiamato il resolver di chiave. Se il resolver è specificato, ma non dispone di un mapping per l'identificatore di chiave, viene generato un errore.  
   * Se il resolver non è specificato, ma viene specificata una chiave, la chiave viene utilizzata se l’identificatore corrisponde all’identificatore della chiave richiesta. Se l'identificatore non corrisponde, viene generato un errore.  
     
-    Gli [esempi di crittografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>rappresentano uno scenario end-to-end più dettagliato per BLOB, code e tabelle, assieme all'integrazione dell'insieme di credenziali delle chiavi.
+    Gli [esempi di crittografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) rappresentano uno scenario end-to-end più dettagliato per BLOB, code e tabelle, assieme all'integrazione dell’insieme di credenziali chiave.
 
 ### <a name="requireencryption-mode"></a>Modalità RequireEncryption
 Gli utenti possono facoltativamente abilitare una modalità operativa quando tutte le operazioni di caricamento e download devono essere crittografate. In questa modalità, i tentativi di caricare dati senza un criterio di crittografia o di scaricare dati non crittografati nel servizio avranno esito negativo nel client. Il flag **requireEncryption** dell'oggetto opzioni di richiesta controlla questo comportamento. Se l'applicazione esegue la crittografia di tutti gli oggetti archiviati in Archiviazione di Azure, è possibile impostare la proprietà **requireEncryption** sulle opzioni di richiesta predefinite per l'oggetto client del servizio.   
@@ -251,6 +252,6 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 * Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)   
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
-  * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
-  * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
-* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md)
+  * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+  * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md)

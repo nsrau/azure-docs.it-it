@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789591"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60775390"
 ---
 # <a name="rendering-applications"></a>Applicazioni per il rendering
 
@@ -33,7 +33,7 @@ Oltre ai renderer integrati in 3ds Max, nelle immagini delle macchine virtuali p
 
 Richiamare l'applicazione `3dsmaxcmdio.exe` per eseguire il rendering da riga di comando su un nodo del pool.  Questa applicazione si trova nel percorso quando viene eseguita l'attività. L'applicazione `3dsmaxcmdio.exe` ha gli stessi parametri disponibili dell'applicazione `3dsmaxcmd.exe`, come illustrato nella [documentazione di 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering | Sezione relativa al rendering da riga di comando).
 
-Ad esempio: 
+Ad esempio:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

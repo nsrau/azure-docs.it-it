@@ -1,25 +1,18 @@
 ---
-title: Test drive di app per la logica | Microsoft Docs
+title: Versione di Test di App per la logica | Azure Marketplace
 description: Viene illustrato come creare un test drive che si connette a un'istanza di Dynamics AX/CRM o a qualsiasi altra risorsa non di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64940015"
 ---
 <a name="logic-app-test-drive"></a>Test drive di app per la logica
 ====================
@@ -68,11 +61,11 @@ Nella sezione successiva da compilare, si configura l'app per la logica del test
 
 ![Configurazione tecnica del test drive](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Area** - *[Campo obbligatorio]* L'area selezionata dove si sceglie dove distribuire le risorse dell'app per la logica del test drive.
+- **Area** -  *[Campo obbligatorio]* L'area selezionata dove si sceglie dove distribuire le risorse dell'app per la logica del test drive.
 
     *Nota:* se ci sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
 
-- **Numero massimo di test drive simultanei** - *[Campo obbligatorio]* Numero di istanze di test drive che sono già distribuite e che sono in attesa dell'accesso all'area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
+- **Numero massimo di test drive simultanei** -  *[Campo obbligatorio]* Numero di istanze di test drive che sono già distribuite e che sono in attesa dell'accesso all'area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
 
     *Nota:* se si svolge un webinar/lezione dove si vuole che tutti gli studenti eseguano un test drive, pubblicare con un numero N di istanze a livello di accesso frequente. Quindi, una volta finita la lezione, ripubblicare con il numero N normale di istanze a livello di accesso frequente.
 
@@ -84,7 +77,7 @@ Nella sezione successiva da compilare, si configura l'app per la logica del test
 
 - **Effettuare il deprovisioning del nome dell'app per la logica** *[Campo obbligatorio]* Aggiungere l nome dell'app per la logica per effettuare il deprovisioning di tutte le risorse create nel test drive. Assicurarsi che questo file venga salvato nel gruppo di risorse precedente.
 
-- **Accedere alle informazioni** *[Campo obbligatorio]* Dopo che un cliente ha ottenuto il test drive, vengono visualizzate le informazioni di accesso. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}**) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
+- **Accedere alle informazioni** *[Campo obbligatorio]* Dopo che un cliente ha ottenuto il test drive, vengono visualizzate le informazioni di accesso. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}** ) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Dettagli di sottoscrizione della distribuzione del test drive
 
@@ -126,7 +119,7 @@ Fare clic su Save. L'ultimo passaggio consiste nell'individuare l'ID applicazion
 Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessario aggiungere l'applicazione come collaboratore nella sottoscrizione. Le istruzioni per questi sono le seguenti:
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 1. Fare clic sulla scheda **Assegnazioni di ruolo**.  ![Azure Active Directory, aggiungere una nuova entità di sicurezza Controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Fare clic su **Aggiungi assegnazione ruolo**.
 1. Impostare il ruolo di **collaboratore**.

@@ -2,25 +2,18 @@
 title: SKU legacy del gateway di rete virtuale di Azure | Microsoft Docs
 description: Come usare gli SKU legacy del gateway di rete virtuale, Basic, Standard e HighPerformance.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417313"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533917"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
 
@@ -29,6 +22,8 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 ## <a name="gwsku"></a>SKU del gateway
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
+
+È possibile visualizzare i prezzi del gateway legacy nella sezione **gateway di rete virtuale** , disponibile nella [pagina dei prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="agg"></a>Velocità effettiva aggregata stimata per SKU
 
@@ -40,15 +35,9 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 
 ## <a name="resize"></a>Ridimensionare un gateway
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 È possibile ridimensionare il gateway in uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è tuttavia possibile ridimensionare il gateway VPN tra gli SKU precedenti e le nuove famiglie di SKU. Non è ad esempio possibile passare da uno SKU Standard a uno SKU VpnGw2 o da uno SKU Basic a VpnGw1.
 
-Per ridimensionare un gateway per il modello di distribuzione classica, usare il comando seguente:
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Gestione risorse
 
 Per ridimensionare un gateway per il modello di distribuzione Resource Manager con PowerShell, usare il comando seguente:
 
@@ -56,7 +45,16 @@ Per ridimensionare un gateway per il modello di distribuzione Resource Manager c
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 È anche possibile ridimensionare un gateway nel portale di Azure.
+
+### <a name="classicresize"></a>Classico
+
+Per ridimensionare un gateway per il modello di distribuzione classica, è necessario usare i cmdlet di PowerShell per la gestione dei servizi. Usare il comando seguente:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>Passare ai nuovi SKU del gateway
 

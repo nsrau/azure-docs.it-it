@@ -9,12 +9,12 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
-ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 27651d19e276571cf49a0aa1a199ef35c87c3ba4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999007"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537697"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in Maven per Service Fabric Mesh
 
@@ -38,6 +38,9 @@ ms.locfileid: "52999007"
 
 ### `azure-sfmesh:addgateway`
 - Genera un file YAML `gateway` con il nome di gateway specificato nella cartella `appresources` 
+
+#### `azure-sfmesh:addvolume`
+- Genera una `volume` YAML con il nome del volume fornito nel `appresources` cartella.
 
 ### `azure-sfmesh:addsecret`
 - Genera un file YAML `secret` con il nome del segreto specificato nella cartella `appresources` 
@@ -96,7 +99,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 Eseguire il comando seguente per creare un file YAML di risorse di rete. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - Crea nella cartella `servicefabric->appresources` un file YAML di rete denominato `network_helloworldservicenetwork`

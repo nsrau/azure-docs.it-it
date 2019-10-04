@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002099"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usare gli avvisi per i costi per monitorare l'uso e le spese
 
@@ -49,7 +49,7 @@ Supporto per i tipi di avviso dipende dal tipo di account di Azure che hai (Micr
 
 ## <a name="view-cost-alerts"></a>Visualizzare gli avvisi per i costi
 
-Per visualizzare gli avvisi di costo, aprire l'ambito desiderato nel portale di Azure e seleziona **budget** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso. Selezionare **costo avvisi** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
+Per visualizzare gli avvisi di costo, aprire l'ambito desiderato nel portale di Azure e seleziona **budget** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso. Selezionare **costo avvisi** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Immagine di esempio degli avvisi visualizzati in Gestione costi](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando si visualizzano i dettagli di un avviso ignorato, è possibile riattivarl
 
 ![Immagine di esempio che mostra le opzioni per ignorare e riattivare l'avviso](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - Se non è ancora stato creato un budget o impostate le condizioni di avviso per un budget, completare l'esercitazione [Creare e gestire i budget](tutorial-acm-create-budgets.md).

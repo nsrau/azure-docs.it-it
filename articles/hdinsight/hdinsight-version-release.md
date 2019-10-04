@@ -1,24 +1,24 @@
 ---
-title: Panoramica di HDInsight 4.0
+title: Panoramica di HDInsight 4.0 - Azure
 description: Confrontare le funzionalità di HDInsight 3.6 con quelle di HDInsight 4.0, con informazioni sulle limitazioni e consigli per l'aggiornamento.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609201"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879320"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
-Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure. HDInsight 4.0 è una distribuzione cloud dei componenti Apache Hadoop di [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
+Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure. HDInsight 4,0 è una distribuzione cloud di componenti Apache Hadoop. Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
 
-## <a name="whats-new-in-hdi-40"></a>Novità di HDInsight 4.0
+## <a name="whats-new-in-hdinsight-40"></a>Novità di HDInsight 4.0
 
 ### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 e LLAP
 
@@ -82,22 +82,19 @@ Apache Oozie 4.3.1 è incluso in HDInsight 4.0 con le modifiche seguenti:
 
 Per altre informazioni, vedere [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
-## <a name="how-to-upgrade-to-hdi-40"></a>Come eseguire l'aggiornamento ad HDInsight 4.0
+## <a name="how-to-upgrade-to-hdinsight-40"></a>Come eseguire l'aggiornamento a HDInsight 4.0
 
 Come con qualsiasi versione principale, è importante testare accuratamente i componenti prima di implementare la versione più recente in un ambiente di produzione. HDInsight 4.0 è disponibile per avviare il processo di aggiornamento, ma HDInsight 3.6 è l'opzione predefinita per impedire problemi accidentali.
 
-Non è disponibile alcun percorso di aggiornamento supportato dalle versioni di HDInsight ad HDInsight 4.0. Poiché i formati di dati BLOB e metastore sono stati modificati, HDInsight 4.0 non è compatibile con le versioni precedenti. È importante tenere il nuovo ambiente HDInsight 4.0 separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4.0 nell'ambiente corrente, il metastore verrà aggiornato e questa operazione non potrà essere annullata.  
+Non è disponibile alcun percorso di aggiornamento supportato dalle versioni precedenti di HDInsight a HDInsight 4.0. Poiché i formati di dati BLOB e metastore sono cambiati, HDInsight 4.0 non è compatibile con le versioni precedenti. È importante tenere il nuovo ambiente HDInsight 4.0 separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4.0 nell'ambiente corrente, il metastore verrà aggiornato e questa operazione non potrà essere annullata.  
 
 ## <a name="limitations"></a>Limitazioni
 
-* HDInsight 4.0 non supporta MapReduce. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
-
+* HDInsight 4.0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 non supporta Apache Storm. 
 * La vista Hive non è più disponibile in HDInsight 4.0. 
-
 * L'interprete shell di Apache Zeppelin non è supportato nei cluster Spark e Interactive Query.
-
 * Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile solo disattivare LLAP.
-
 * Azure Data Lake Storage Gen2 non può salvare i notebook Jupyter in un cluster Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi

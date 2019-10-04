@@ -14,24 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64867109"
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitorare lo stato dei processi mediante .NET 
-> [!div class="op_single_selector"]
-> * [Portale](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento definendo un gestore eventi StateChanged (come descritto in questo argomento) o usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali (come descritto in [questo](media-services-dotnet-check-job-progress-with-queues.md) argomento).
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definire un gestore eventi StateChanged per monitorare lo stato di un processo
+
 Nell'esempio di codice seguente viene definito il gestore dell'evento StateChanged, che monitora l'avanzamento del processo e ne indica lo stato aggiornato. Il codice consente inoltre di definire il metodo helper LogJobStop, che registra i dettagli degli errori.
 
 ```csharp

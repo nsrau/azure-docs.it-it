@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595420"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -25,7 +25,7 @@ Avere vFXT per Azure è un file system a prestazioni elevate che memorizza nella
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT è una soluzione di archiviazione?
 
- No. Avere vFXT è una *cache* di file system collegata agli ambienti di archiviazione, come EMC, NAS NetApp o un contenitore BLOB di Azure. Avere vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. Avere vFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
+No. Avere vFXT è una *cache* di file system collegata agli ambienti di archiviazione, come EMC, NAS NetApp o un contenitore BLOB di Azure. Avere vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. Avere vFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT è una soluzione di suddivisione in livelli?
 
@@ -106,7 +106,7 @@ Il cluster Avere vFXT può avere dimensioni che vanno da tre nodi fino a 24 nodi
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>L'ambiente Avere vFXT può essere ridimensionato automaticamente?
 
- No. È possibile aumentare o ridurre le dimensioni del cluster, ma l'aggiunta o la rimozione dei nodi del cluster è un'operazione manuale.
+No. È possibile aumentare o ridurre le dimensioni del cluster, ma l'aggiunta o la rimozione dei nodi del cluster è un'operazione manuale.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>È possibile eseguire il cluster Avere vFXT come set di scalabilità di macchine virtuali?
 
@@ -126,7 +126,7 @@ Sì. Assicurarsi di disporre di una quota sufficiente nell'area per supportare i
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>È possibile eseguire le macchine del cluster Avere vFXT in zone di disponibilità diverse?
 
- No. Il modello a disponibilità elevata in Avere vFXT attualmente non supporta singoli membri del cluster Avere vFXT situati in zone di disponibilità diverse.
+No. Il modello a disponibilità elevata in Avere vFXT attualmente non supporta singoli membri del cluster Avere vFXT situati in zone di disponibilità diverse.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>È possibile clonare macchine virtuali di Avere vFXT?
 
@@ -204,7 +204,7 @@ No, Avere vFXT è progettato per l'uso in un ambiente di rete protetto tramite p
 
 In generale, è possibile configurare sicurezza aggiuntiva sulla rete virtuale in base alle necessità, ma alcune restrizioni possono interferire con l'operazione del cluster.
 
-Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere regole che consentono in modo esplicito l'accesso per AzureConnectors e AzureCloud. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere una regola che consenta in modo esplicito l'accesso al cloud Azure. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Per informazioni sulla protezione personalizzate, contattare il supporto come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 
@@ -254,7 +254,7 @@ L'account di archiviazione deve essere un account per utilizzo generico v2 (GPv2
 
 ### <a name="can-i-use-archive-blob-storage"></a>È possibile usare lo spazio di archiviazione BLOB?
 
- No. Il contratto di servizio per lo spazio di archiviazione non è compatibile con la directory in tempo reale e i requisiti di accesso ai file del sistema Avere vFXT. 
+No. Il contratto di servizio per lo spazio di archiviazione non è compatibile con la directory in tempo reale e i requisiti di accesso ai file del sistema Avere vFXT. 
 
 ### <a name="can-i-use-cool-blob-storage"></a>È possibile usare l'archivio BLOB ad accesso sporadico?
 

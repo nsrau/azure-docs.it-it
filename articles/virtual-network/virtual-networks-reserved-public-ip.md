@@ -4,7 +4,7 @@ description: Comprendere gli indirizzi IP riservati (distribuzione classica) e c
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996987"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058483"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Indirizzi IP riservati (distribuzione classica)
 
@@ -39,7 +39,7 @@ Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [in
 
 ## <a name="faqs"></a>Domande frequenti
 - È possibile usare un indirizzo IP riservato per tutti i servizi di Azure?
-     No. Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
+    No. Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
 - Di quanti indirizzi IP riservati è possibile disporre?
     Per informazioni dettagliate, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits).
 - È previsto un addebito per gli indirizzi IP riservati?
@@ -47,7 +47,7 @@ Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [in
 - Come è possibile riservare un indirizzo IP?
     È possibile usare PowerShell, l'[API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) o il [portale di Azure](https://portal.azure.com) per riservare un indirizzo IP di una determinata area di Azure. Un indirizzo IP riservato è associato alla sottoscrizione.
 - È possibile usare gli indirizzi IP riservati con reti virtuali basate su gruppi di affinità?
-     No. Gli indirizzi IP riservati sono supportati solo nelle reti virtuali di area. Gli indirizzi IP riservati non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a una regione o a un gruppo di affinità, vedere l'articolo sulle [reti virtuali dell'area e sui gruppi di affinità](virtual-networks-migrate-to-regional-vnet.md).
+    No. Gli indirizzi IP riservati sono supportati solo nelle reti virtuali di area. Gli indirizzi IP riservati non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a una regione o a un gruppo di affinità, vedere l'articolo sulle [reti virtuali dell'area e sui gruppi di affinità](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Gestire gli indirizzi VIP riservati
 

@@ -6,21 +6,44 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.localizationpriority: high
+ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834721"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772741"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box usando il portale di Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box"></a>Introduzione ad Azure Data Box 
+
+::: zone-end
+
+::: zone target="docs"
 
 Questa guida introduttiva descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
 
 Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+Questa guida descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono la verifica dei prerequisiti, oltre al cablaggio, alla connessione e alla copia dei dati del dispositivo in modo che vengano caricati in Azure.
+
+::: zone-end
+
+::: zone target="docs"
+ 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
@@ -41,6 +64,27 @@ Prima di iniziare:
     - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
     - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
+
+1. Sono stati completati i passaggi dell'[Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
+2. È stato ricevuto il dispositivo Data Box e lo stato dell'ordine nel portale è **Recapitato**. 
+3. Sono state esaminate le [linee guida per la sicurezza del Data Box](data-box-safety.md).
+4. È stato ricevuto un cavo di alimentazione a terra da usare con il dispositivo di archiviazione da 100 TB.
+5. Si ha accesso a un computer host che include i dati da copiare in Data Box. Il computer host deve:
+    - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
+    - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
+6. Si ha accesso a una superficie piana su cui collocare il dispositivo il Data Box. Per collocare il dispositivo in orizzontale o in verticale su uno scaffale di rack standard, è necessario uno slot 7U nel rack.
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -55,6 +99,8 @@ Questo passaggio richiede circa 5 minuti.
 4. Immettere i dettagli dell'ordine e le informazioni per la spedizione. Se il servizio è disponibile nella propria area, specificare gli indirizzi di posta elettronica per le notifiche, controllare il riepilogo e quindi creare l'ordine.
 
 Dopo aver creato l'ordine, il dispositivo verrà preparato per la spedizione.
+
+
 
 ## <a name="cable"></a>Cablare 
 
@@ -132,5 +178,7 @@ In questa guida introduttiva è stato illustrato come distribuire Azure Data Box
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md) (Usare il portale di Azure per gestire Data Box)
+
+::: zone-end
 
 

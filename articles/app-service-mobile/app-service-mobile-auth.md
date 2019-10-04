@@ -9,22 +9,21 @@ editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715786"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098597"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticazione e autorizzazione nel servizio app di Azure per app per dispositivi mobili
 
 Questo articolo descrive le procedure di autenticazione e autorizzazione durante lo sviluppo di app per dispositivi mobili native con un back-end del servizio app. Il servizio app offre funzionalità integrate di autenticazione e autorizzazione, in modo che le app per dispositivi mobili possano consentire l'accesso agli utenti senza modificare il codice del servizio app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente. 
 
-Questo articolo è incentrato sullo sviluppo di app per dispositivi mobili. Per iniziare rapidamente con le procedure di autenticazione e autorizzazione del servizio app per app per dispositivi mobili, vedere una delle esercitazioni seguenti: [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova]). 
+Questo articolo è incentrato sullo sviluppo di app per dispositivi mobili. Per iniziare rapidamente a usare l'autenticazione e l'autorizzazione del servizio app per l'app per dispositivi mobili, vedere una delle esercitazioni seguenti [aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms]o [Cordova]). 
 
 Per informazioni sul funzionamento delle procedure di autenticazione e autorizzazione nel servizio app, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/overview-authentication-authorization.md).
 
@@ -62,14 +61,14 @@ Le esercitazioni seguenti illustrano come aggiungere l'autenticazione ai client 
 * [Aggiungere l'autenticazione all'app Windows][Windows]
 * [Aggiungere l'autenticazione all'app Xamarin.iOS][Xamarin.iOS]
 * [Aggiungere l'autenticazione all'app Xamarin.Android][Xamarin.Android]
-* [Aggiungere l'autenticazione all'app Xamarin.Forms][Xamarin.Forms]
+* [Aggiungere l'autenticazione all'App xamarin. Forms][Xamarin.Forms]
 * [Aggiungere l'autenticazione all'app Cordova][Cordova]
 
 Se si vuole usare il [flusso verso il client](../app-service/overview-authentication-authorization.md#authentication-flow) per Azure Active Directory, vedere le risorse seguenti:
 
-* [Usare Active Directory Authentication Library per iOS][ADAL-iOS]
-* [Usare Active Directory Authentication Library per Android][ADAL-Android]
-* [Usare Active Directory Authentication Library per Windows e Xamarin][ADAL-dotnet]
+* [Usare il Active Directory Authentication Library per iOS][ADAL-iOS]
+* [Usare il Active Directory Authentication Library per Android][ADAL-Android]
+* [Usare il Active Directory Authentication Library per Windows e Novell][ADAL-dotnet]
 
 Se si vuole usare il [flusso verso il client](../app-service/overview-authentication-authorization.md#authentication-flow) per Facebook, vedere le risorse seguenti:
 

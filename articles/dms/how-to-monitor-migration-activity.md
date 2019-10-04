@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532749"
 ---
 # <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
@@ -108,7 +108,7 @@ Nella parte inferiore del pannello sono elencate le tabelle ed è presente un br
 
 La tabella seguente descrive i campi visualizzati nei dettagli a livello di tabella.
 
-| Nome campo        | DESCRIZIONE       |
+| Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Caricamento completo completato**      | Numero di tabelle per cui il caricamento completo dei dati è stato completato. |
 | **Caricamento completo accodato**      | Numero di tabelle in coda per il caricamento completo.      |
@@ -129,7 +129,7 @@ Sono presenti due schede che mostrano lo stato di avanzamento della migrazione p
 
 La tabella seguente descrive i campi visualizzati nello stato di avanzamento della migrazione a livello di tabella.
 
-| Nome campo        | DESCRIZIONE       |
+| Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |

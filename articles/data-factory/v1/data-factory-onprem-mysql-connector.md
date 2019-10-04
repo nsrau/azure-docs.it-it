@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021640"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839015"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-mysql-connector.md)
 > * [Versione 2 (corrente)](../connector-mysql.md)
 
@@ -51,7 +51,7 @@ Perché il gateway di gestione dati si connetta al database MySQL, è necessario
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -66,23 +66,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato MySQL.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Yes |
-| server |Nome del server MySQL. |Yes |
-| database |Nome del database MySQL. |Yes |
-| schema |Nome dello schema nel database. |No  |
+| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Sì |
+| server |Nome del server MySQL. |Sì |
+| database |Nome del database MySQL. |Sì |
+| schema |Nome dello schema nel database. |No |
 | authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Yes |
-| username |Specificare nome utente per la connessione al database MySQL. |Yes |
-| password |Specificare la password per l'account utente specificato. |Yes |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Yes |
+| userName |Specificare nome utente per la connessione al database MySQL. |Sì |
+| password |Specificare la password per l'account utente specificato. |Sì |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati MySQL) presenta le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -93,13 +93,13 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che comprende MySQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Esempio di JSON: Copiare dati da MySQL a BLOB di Azure
-Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un database MySQL locale a una istanza di Archiviazione BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+In questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un database MySQL locale a una istanza di Archiviazione BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
@@ -305,10 +305,10 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | bigint |Int64 |
 | bit |Decimal |
 | BLOB |Byte[] |
-| bool |boolean |
+| bool |Boolean |
 | char |string |
-| date |DateTime |
-| Datetime |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
 | decimal |Decimal |
 | double precision |Double |
 | Double |Double |
@@ -332,14 +332,14 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |string |
-| time |Intervallo di tempo |
-|  timestamp |DateTime |
+| time |TimeSpan |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |string |
 | varchar |string |
-| year |int |
+| year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

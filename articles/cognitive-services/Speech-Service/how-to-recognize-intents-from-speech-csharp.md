@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280537"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603245"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 I servizi cognitivi [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) si integrano con il servizio [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) per fornire il **riconoscimento finalità.** Una finalità è qualcosa che l'utente desidera fare: prenotare un volo, controllare il meteo o effettuare una chiamata. L'utente può usare qualunque termine suoni naturale. Con l'uso di machine learning, LUIS esegue il mapping delle richieste degli utenti per le finalità che sono state definite.
 

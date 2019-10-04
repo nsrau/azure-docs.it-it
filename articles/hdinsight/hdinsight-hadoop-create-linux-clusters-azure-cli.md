@@ -1,124 +1,173 @@
 ---
-title: Creare cluster Apache Hadoop con l'interfaccia della riga di comando classica di Azure - Azure HDInsight
-description: Informazioni su come creare cluster HDInsight tramite l'interfaccia multipiattaforma della riga di comando classica di Azure.
-services: hdinsight
+title: Creare cluster di Apache Hadoop usando l'interfaccia della riga di comando di Azure-Azure HDInsight
+description: Informazioni su come creare cluster Azure HDInsight usando l'interfaccia della riga di comando di Azure multipiattaforma.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: c26c0b16331ae01f7505e44cef3fe91b3282750b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792051"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809854"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
+# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-La procedura presentata in questo documento illustra come creare un cluster HDInsight 3.5 usando l'interfaccia della riga di comando classica di Azure.
-
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
+La procedura illustrata in questo documento illustra come creare un cluster HDInsight 3,6 usando l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* **Interfaccia della riga di comando classica di Azure**. I passaggi descritti nel presente documento sono stati testati con la versione 0.10.14 dell'interfaccia della riga di comando classica di Azure.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
+Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
 
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli) e connettersi alla sottoscrizione usando il metodo **login**.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
-I passaggi seguenti devono essere eseguiti dalla riga di comando, ad esempio PowerShell o Bash.
+1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
-1. Per eseguire l'autenticazione della sottoscrizione di Azure, usare il comando seguente:
+    ```azurecli-interactive
+    az login
 
-        azure login
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription "SUBSCRIPTIONID"
+    ```
 
-    Occorre specificare il nome e la password. Se si dispone di più sottoscrizioni di Azure, usare `azure account set <subscriptionname>` per impostare la sottoscrizione utilizzata dai comandi dell'interfaccia della riga di comando classica di Azure.
+2. Impostare le variabili di ambiente. L'uso delle variabili in questo articolo si basa su bash. Per altri ambienti saranno necessarie piccole modifiche. Vedere [AZ-HDInsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo dei parametri possibili per la creazione del cluster.
 
-2. Passare alla modalità Gestione risorse di Azure usando il comando seguente:
+    |Parametro | Descrizione |
+    |---|---|
+    |`--size`| Numero di nodi del ruolo di lavoro nel cluster. Questo articolo usa la variabile `clusterSizeInNodes` come valore passato a. `--size` |
+    |`--version`| versione del cluster HDInsight. Questo articolo usa la variabile `clusterVersion` come valore passato a. `--version` Vedere anche la pagina relativa alla [Versioni di HDInsight supportate](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
+    |`--type`| Tipo di cluster HDInsight, ad esempio: Hadoop, interactivehive, HBase, Kafka, Storm, Spark, RServer, mlservices.  Questo articolo usa la variabile `clusterType` come valore passato a. `--type` Vedere anche la pagina relativa alla [Tipi di cluster e configurazione](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
+    |`--component-version`|Versioni di vari componenti di Hadoop, in versioni separate da spazi nel formato ' Component = version '. Questo articolo usa la variabile `componentVersion` come valore passato a. `--component-version` Vedere anche la pagina relativa alla [Componenti di Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
-        azure config mode arm
+    Sostituire `RESOURCEGROUPNAME` ,`LOCATION` ,,`PASSWORD` e con i valori desiderati. `CLUSTERNAME` `STORAGEACCOUNTNAME` Modificare i valori per le altre variabili nel modo desiderato. Quindi, immettere i comandi dell'interfaccia della riga di comando.
 
-3. Creare un gruppo di risorse. Questo gruppo di risorse contiene il cluster HDInsight e l'account di archiviazione associato.
+    ```azurecli-interactive
+    export resourceGroupName=RESOURCEGROUPNAME
+    export location=LOCATION
+    export clusterName=CLUSTERNAME
+    export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
+    export httpCredential='PASSWORD'
+    export sshCredentials='PASSWORD'
+    
+    export AZURE_STORAGE_CONTAINER=$clusterName
+    export clusterSizeInNodes=1
+    export clusterVersion=3.6
+    export clusterType=hadoop
+    export componentVersion=Hadoop=2.7
+    ```
 
-        azure group create groupname location
+3. [Creare il gruppo di risorse](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) immettendo il comando seguente:
 
-    * Sostituire `groupname` con un nome univoco per il gruppo.
+    ```azurecli-interactive
+    az group create \
+        --location $location \
+        --name $resourceGroupName
+    ```
 
-    * Sostituire `location` con l'area geografica in cui si vuole creare il gruppo.
+    Per un elenco di percorsi validi, utilizzare il `az account list-locations` comando, quindi utilizzare uno dei percorsi `name` del valore.
 
-       Per un elenco di località valide, usare il comando `azure location list` e quindi una delle località della colonna `Name`.
+4. Per [creare un account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) , immettere il comando seguente:
 
-4. Creare un account di archiviazione. Questo account di archiviazione verrà usato come risorsa di archiviazione predefinita per il cluster HDInsight.
+    ```azurecli-interactive
+    # Note: kind BlobStorage is not available as the default storage account.
+    az storage account create \
+        --name $AZURE_STORAGE_ACCOUNT \
+        --resource-group $resourceGroupName \
+        --https-only true \
+        --kind StorageV2 \
+        --location $location \
+        --sku Standard_LRS
+    ```
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
+5. [Estrarre la chiave primaria dall'account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e archiviarla in una variabile immettendo il comando seguente:
 
-    * Sostituire `groupname` con il nome del gruppo creato nel passaggio precedente.
+    ```azurecli-interactive
+    export AZURE_STORAGE_KEY=$(az storage account keys list \
+        --account-name $AZURE_STORAGE_ACCOUNT \
+        --resource-group $resourceGroupName \
+        --query [0].value -o tsv)
+    ```
 
-    * Sostituire `location` con la stessa località usata nel passaggio precedente.
+6. Per [creare un contenitore di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) , immettere il comando seguente:
 
-    * Sostituire `storagename` con un nome univoco per l'account di archiviazione.
+    ```azurecli-interactive
+    az storage container create \
+        --name $AZURE_STORAGE_CONTAINER \
+        --account-key $AZURE_STORAGE_KEY \
+        --account-name $AZURE_STORAGE_ACCOUNT
+    ```
 
-        > [!NOTE]  
-        > Per altre informazioni sui parametri usati in questo comando, usare `azure storage account create -h` per visualizzare la Guida relativa a questo comando.
+7. [Creare il cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) immettendo il comando seguente:
 
-5. Recuperare la chiave usata per accedere all'account di archiviazione.
+    ```azurecli-interactive
+    az hdinsight create \
+        --name $clusterName \
+        --resource-group $resourceGroupName \
+        --type $clusterType \
+        --component-version $componentVersion \
+        --http-password $httpCredential \
+        --http-user admin \
+        --location $location \
+        --size $clusterSizeInNodes \
+        --ssh-password $sshCredentials \
+        --ssh-user sshuser \
+        --storage-account $AZURE_STORAGE_ACCOUNT \
+        --storage-account-key $AZURE_STORAGE_KEY \
+        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --version $clusterVersion
+    ```
 
-        azure storage account keys list -g groupname storagename
+    > [!IMPORTANT]  
+    > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster.
 
-    * Sostituire `groupname` con il nome del gruppo di risorse.
-    * Sostituire `storagename` con il nome per l'account di archiviazione.
+    Il processo di creazione del cluster può richiedere alcuni minuti, in genere circa 15.
 
-      Nei dati restituiti salvare il valore `key` per `key1`.
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-6. Creare un cluster HDInsight
+Al termine dell'articolo, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+Immettere tutti o alcuni dei comandi seguenti per rimuovere le risorse:
 
-    * Sostituire `groupname` con il nome del gruppo di risorse.
+```azurecli-interactive
+# Remove cluster
+az hdinsight delete \
+    --name $clusterName \
+    --resource-group $resourceGroupName
 
-    * Sostituire `Hadoop` con il tipo di cluster da creare, ad esempio, `Hadoop`, `HBase`, `Kafka`, `Spark` o `Storm`.
+# Remove storage container
+az storage container delete \
+    --account-name $AZURE_STORAGE_ACCOUNT \
+    --name $AZURE_STORAGE_CONTAINER
 
-      > [!IMPORTANT]  
-      > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster.
+# Remove storage account
+az storage account delete \
+    --name $AZURE_STORAGE_ACCOUNT \
+    --resource-group $resourceGroupName
 
-    * Sostituire `location` con la stessa località usata nel passaggio precedente.
-
-    * Sostituire `storagename` con il nome per l'account di archiviazione.
-
-    * Sostituire `storagekey` con la chiave ottenuta nel passaggio precedente.
-
-    * Per il parametro `--defaultStorageContainer` usare lo stesso nome usato per il cluster.
-
-    * Sostituire `admin` e `httppassword` con il nome e la password da usare per l'accesso al cluster tramite HTTPS.
-
-    * Sostituire `sshuser` e `sshuserpassword` con il nome utente e la password da usare per l'accesso al cluster tramite SSH
-
-      > [!IMPORTANT]  
-      > L'esempio precedente crea un cluster con due nodi di ruolo di lavoro. È inoltre possibile modificare il numero di nodi del ruolo di lavoro dopo la creazione del cluster eseguendo le operazioni di ridimensionamento. Se si prevede di usare più di 32 nodi del ruolo di lavoro, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM. È possibile impostare le dimensioni del nodo head usando il parametro `--headNodeSize` durante la creazione del cluster.
-      >
-      > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-      
-      Il processo di creazione del cluster può richiedere alcuni minuti, in genere circa 15.
+# Remove resource group
+az group delete \
+    --name $resourceGroupName
+```
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver correttamente creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
+Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
 
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 

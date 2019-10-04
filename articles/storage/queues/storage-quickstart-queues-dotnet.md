@@ -1,19 +1,19 @@
 ---
 title: 'Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure'
 description: Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda.
-services: storage
-author: tamram
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
+ms.reviewer: cbrooks
+ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009309"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721263"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure
 
@@ -25,7 +25,7 @@ Questa guida introduttiva illustra come usare la libreria client di Archiviazion
 
 Successivamente, scaricare e installare .NET Core 2.0 per il sistema operativo in uso. Se si esegue Windows, è possibile installare Visual Studio e usare .NET Framework, se si preferisce. Si può anche scegliere di installare un editor da usare con il sistema operativo.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Installare [.NET Core per Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows), incluso in Visual Studio per Windows
 - Installare [Visual Studio per Windows](https://www.visualstudio.com/). Se si usa .NET Core, l'installazione di Visual Studio è facoltativa.  
@@ -62,7 +62,7 @@ Per eseguire l'applicazione, è necessario specificare la stringa di connessione
 
 Dopo aver copiato la stringa di connessione, scriverla in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console e seguire le istruzioni per il sistema operativo specifico. Sostituire `<yourconnectionstring>` con la stringa di connessione effettiva:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -92,7 +92,7 @@ Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` da
 
 L'applicazione di esempio crea una coda e vi aggiunge un messaggio. L'applicazione per prima cosa visualizza in anteprima il messaggio senza rimuoverlo dalla coda, quindi lo recupera e lo elimina dalla coda.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Se si usa Visual Studio come editor, è possibile premere **F5** per l'esecuzione. 
 
@@ -144,7 +144,7 @@ Esplorare quindi il codice di esempio per poterne comprendere il funzionamento.
 
 ### <a name="try-parsing-the-connection-string"></a>Provare ad analizzare la stringa di connessione
 
-Per prima cosa, l'esempio controlla che la variabile di ambiente contenga una stringa di connessione analizzabile per creare un oggetto [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) che punti all'account di archiviazione. Per verificare la validità della stringa di connessione, l'esempio usa il metodo [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Se **TryParse** ha esito positivo, inizializza la variabile *storageAccount* e restituisce **true**.
+Per prima cosa, l'esempio controlla che la variabile di ambiente contenga una stringa di connessione analizzabile per creare un oggetto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) che punti all'account di archiviazione. Per verificare la validità della stringa di connessione, l'esempio usa il metodo [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Se **TryParse** ha esito positivo, inizializza la variabile *storageAccount* e restituisce **true**.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -188,7 +188,7 @@ Successivamente, l'esempio aggiunge un messaggio nella parte posteriore della co
 
 Il messaggio deve essere in un formato che possa essere incluso in una richiesta XML con codifica UTF-8 e può avere una dimensione massima di 64 KB. Se un messaggio contiene dati binari, è consigliabile usare la codifica Base64.
 
-Per impostazione predefinita, la durata massima (TTL) di un messaggio è impostata su 7 giorni. Come durata del messaggio è possibile specificare qualsiasi numero positivo, nonché -1 per indicare che il messaggio non ha scadenza.
+Per impostazione predefinita, la durata massima (TTL) di un messaggio è impostata su 7 giorni. È possibile specificare qualsiasi numero positivo per la durata massima del messaggio.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -198,6 +198,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Per aggiungere un messaggio che non scada, usare `Timespan.FromSeconds(-1)` nella chiamata a [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Visualizzare in anteprima un messaggio dalla coda
@@ -256,7 +262,9 @@ Per lo sviluppo .NET con code di Azure, vedere le risorse aggiuntive seguenti:
 
 ### <a name="binaries-and-source-code"></a>File binari e codice sorgente
 
-- Scaricare il pacchetto NuGet per la versione più recente della [libreria client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) per Archiviazione di Azure. 
+- Scaricare i pacchetti NuGet per la versione più recente della [libreria client di Archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client)
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Code](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Visualizzare il [codice sorgente della libreria client .NET](https://github.com/Azure/azure-storage-net) in GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client

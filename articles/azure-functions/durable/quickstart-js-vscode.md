@@ -7,16 +7,16 @@ author: ColbyTresness
 manager: jeconnoc
 keywords: Funzioni di Azure, funzioni, elaborazione eventi, calcolo, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: glenga
+ms.reviewer: azfuncdf, cotresne
+ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281234"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933480"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
@@ -32,7 +32,7 @@ Per completare questa esercitazione:
 
 * Installare [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Assicurarsi di avere gli [strumenti di Funzioni di Azure più recenti](../functions-develop-vs.md#check-your-tools-version).
+* Assicurarsi di avere la versione più recente di [Azure Functions Core Tools](../functions-run-local.md).
 
 * In un computer Windows verificare che [Emulatore di archiviazione di Azure](../../storage/common/storage-use-emulator.md) sia installato e in esecuzione. In un computer Mac o Linux è necessario usare un account di archiviazione Azure effettivo.
 
@@ -48,82 +48,74 @@ Per completare questa esercitazione:
 
 1. Installare il `durable-functions`pacchetto npm eseguendo`npm install durable-functions` nella directory radice dell'app per le funzioni.
 
-## <a name="create-a-starter-function"></a>Creare una funzione di avvio
+## <a name="creating-your-functions"></a>Creazione delle funzioni
+
+Si creeranno ora le tre funzioni necessarie per iniziare a usare Durable Functions: un HTTP Starter, un agente di orchestrazione e una funzione di attività. HTTP Starter avvierà l'intera soluzione, mentre l'agente di orchestrazione distribuirà il lavoro tra le varie funzioni di attività.
+
+### <a name="http-starter"></a>HTTP Starter
 
 Prima di tutto, creare una funzione attivata da HTTP che avvia l'orchestrazione di una funzione durevole.
 
-1. Da **Azure: Funzioni** scegliere l'icona Crea funzione.
+1. Da *Azure: Funzioni* scegliere l'icona **Crea funzione**.
 
     ![Creare una funzione](./media/quickstart-js-vscode/create-function.png)
 
-2. Selezionare la cartella contenente il progetto di app per le funzioni e quindi selezionare il modello di funzione **Trigger HTTP**.
+2. Selezionare la cartella contenente il progetto di app per le funzioni e quindi selezionare il modello di funzione **Durable Functions HTTP Starter**.
 
-    ![Scegliere il modello Trigger HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Scegliere il modello HTTP Starter](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Digitare `HttpStart` come nome della funzione, premere INVIO e quindi selezionare **Anonima** come tipo di autenticazione.
+3. Lasciare il nome predefinito `DurableFunctionsHttpStart`, premere ** **INVIO** e quindi selezionare **Anonima** come tipo di autenticazione.
 
     ![Scegliere l'autenticazione anonima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    Viene creata una funzione nel linguaggio prescelto usando il modello per una funzione attivata tramite HTTP.
-
-4. Sostituire index.js con il codice JavaScript seguente:
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. Sostituire function.json con il codice JSON seguente:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 A questo punto è stato creato un punto di ingresso nella funzione durevole. Verrà ora aggiunto un agente di orchestrazione.
 
-## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
+### <a name="orchestrator"></a>Orchestrator
 
-Successivamente, si crea un'altra funzione che fungerà da agente di orchestrazione. Per motivi di praticità, viene usato il modello di funzione di trigger HTTP. Il codice della funzione viene sostituito dal codice dell'agente di orchestrazione.
+Si creerà ora un agente di orchestrazione per coordinare le funzioni dell'attività.
 
-1. Ripetere i passaggi della sezione precedente per creare una seconda funzione usando il modello di trigger HTTP. Questa volta assegnare alla funzione il nome `OrchestratorFunction`.
+1. Da *Azure: Funzioni* scegliere l'icona **Crea funzione**.
 
-2. Aprire il file index.js per la nuova funzione e sostituire il contenuto con il codice seguente:
+    ![Creare una funzione](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. Selezionare la cartella contenente il progetto di app per le funzioni e quindi selezionare il modello di funzione **Durable Functions Orchestrator**. Lasciare il nome predefinito "DurableFunctionsOrchestrator"
 
-3. Aprire il file function.json e sostituirlo con il codice JSON seguente:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![Scegliere il modello dell'agente di orchestrazione](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 È stato aggiunto un agente di orchestrazione per coordinare le funzioni dell'attività. Verrà ora aggiunta la funzione dell'attività di riferimento.
 
-## <a name="create-an-activity-function"></a>Creare una funzione di attività
+### <a name="activity"></a>Attività
 
-1. Ripetere i passaggi delle sezioni precedenti per creare una terza funzione usando il modello di trigger HTTP, ma questa volta assegnare alla funzione il nome `E1_SayHello`.
+Si creerà ora una funzione di attività per eseguire effettivamente il lavoro della soluzione.
 
-2. Aprire il file index.js per la nuova funzione e sostituire il contenuto con il codice seguente:
+1. Da *Azure: Funzioni* scegliere l'icona **Crea funzione**.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![Creare una funzione](./media/quickstart-js-vscode/create-function.png)
 
-3. Sostituire function.json con il codice JSON seguente:
+2. Selezionare la cartella contenente il progetto di app per le funzioni e quindi selezionare il modello di funzione **Durable Functions Activity**. Lasciare il nome predefinito "Hello".
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![Scegliere il modello di attività](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 A questo punto, sono stati aggiunti tutti i componenti necessari per avviare un'orchestrazione e concatenare le funzioni dell'attività.
 
 ## <a name="test-the-function-locally"></a>Testare la funzione in locale
 
-Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure nel computer di sviluppo locale. Viene richiesto di installare questi strumenti al primo avvio di una funzione da Visual Studio Code.  
+Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure nel computer di sviluppo locale. Viene richiesto di installare questi strumenti al primo avvio di una funzione da Visual Studio Code.
 
-1. In un computer Windows avviare l'emulatore di archiviazione di Azure e verificare che la proprietà **AzureWebJobsStorage** di local.settings.json sia impostata su `UseDevelopmentStorage=true`. 
+1. In un computer Windows avviare l'emulatore di Archiviazione di Azure e verificare che la proprietà **AzureWebJobsStorage** di *local.settings.json* sia impostata su `UseDevelopmentStorage=true`.
 
     Per l'emulatore di archiviazione 5.8 verificare che la proprietà **AzureWebJobsStorage** di local.settings.json sia impostata su `files`. In un computer Mac o Linux è necessario impostare la proprietà **AzureWebJobsStorage** sulla stringa di connessione di un account di archiviazione di Azure esistente. Sarà possibile creare un account di archiviazione più avanti in questo articolo.
 
 2. Per testare la funzione, impostare un punto di interruzione nel codice della funzione e premere F5 per avviare il progetto di app per le funzioni. L'output dagli strumenti di base viene visualizzato nel pannello **Terminale**. Se è la prima volta che si usa Durable Functions, l'estensione Durable Functions viene installata e la compilazione potrebbe richiedere alcuni secondi.
 
     > [!NOTE]
-    > Durable Functions di JavaScript richiedono una versione **1.7.0** o superiore delle estensioni **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Verificare che la versione dell'estensione Durable Functions nel file `extensions.csproj` soddisfi questo requisito. In caso contrario, arrestare l'app per le funzioni, modificare la versione e premere F5 per riavviare l'app per le funzioni.
+    > Durable Functions di JavaScript richiedono una versione **1.7.0** o superiore delle estensioni **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Eseguire il comando seguente dalla cartella radice dell'app Funzioni di Azure per installare l'estensione Durable Functions `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. Nel pannello **Terminale** copiare l'endpoint dell'URL della funzione attivata da HTTP.
 
     ![Output locale di Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Sostituire `{functionName}` con `OrchestratorFunction`.
+4. Sostituire `{functionName}` con `DurableFunctionsOrchestrator`.
 
 5. Con uno strumento come [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), inviare una richiesta HTTP POST all'endpoint URL.
 
@@ -131,7 +123,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
 6. Copiare il valore dell'URL per `statusQueryGetUri`, incollarlo nella barra degli indirizzi del browser ed eseguire la richiesta. In alternativa è possibile continuare a usare Postman per inviare la richiesta GET.
 
-   La richiesta eseguirà una query per determinare lo stato dell'istanza di orchestrazione. Si otterrà eventualmente una risposta che mostra che l'istanza è stata completata e include l'output o i risultati della funzione durevole. L'aspetto sarà simile al seguente: 
+   La richiesta eseguirà una query per determinare lo stato dell'istanza di orchestrazione. Si otterrà una risposta conclusiva in cui si specifica che l'istanza è stata completata e contenente l'output o i risultati della funzione durevole. L'aspetto sarà simile al seguente: 
 
     ```json
     {
@@ -170,4 +162,4 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 Si è usato Visual Studio Code per creare e pubblicare un'app per le funzioni durevoli in JavaScript.
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri di funzione permanente comuni](durable-functions-concepts.md)
+> [Informazioni sui criteri di funzione permanente comuni](durable-functions-overview.md#application-patterns)

@@ -4,10 +4,10 @@ description: Informazioni di riferimento sulla sintassi di query semplice usata 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437493"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650019"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintassi di query semplice in Ricerca di Azure
-Ricerca di Azure implementa due linguaggi di query basate su Lucene: il [parser di query semplice](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Ricerca di Azure la sintassi di query semplice esclude le opzioni fuzzy/inclinazione.  
+Ricerca di Azure implementa due linguaggi di query basate su Lucene: il [parser di query semplice](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Ricerca di Azure la sintassi di query semplice esclude le opzioni fuzzy/inclinazione.  
 
 > [!NOTE]  
 >  Ricerca di Azure offre come alternativa per le query più complesse la [sintassi di query Lucene](query-lucene-syntax.md). Per altre informazioni sull'architettura di analisi delle query e i vantaggi di ogni sintassi, vedere [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md).
@@ -46,7 +46,7 @@ In genere, è più probabile osservare questi comportamenti nei modelli di inter
 
 ## <a name="boolean-operators-and-or-not"></a>Operatori booleani (AND, OR, NOT) 
 
-È possibile incorporare gli operatori in una stringa di query per compilare un set completo di criteri con cui vengono trovati documenti corrispondenti. 
+È possibile incorporare gli operatori in una stringa di query per creare un set completo di criteri in base al quale vengono trovati i documenti corrispondenti. 
 
 ### <a name="and-operator-"></a>Operatore AND `+`
 
@@ -65,17 +65,17 @@ L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i docum
 > [!NOTE]  
 >  L'opzione `searchMode` controlla se un termine con l'operatore NOT è associato tramite l'operatore AND o OR agli altri termini nella query in assenza di un operatore `+` o `|`. Si ricordi che `searchMode` può essere impostato su `any` (impostazione predefinita) o su `all`. Se si usa `any`, il livello di richiamo delle query aumenta includendo più risultati e per impostazione predefinita il segno `-` verrà interpretato come "OR NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` o quelli non contenenti il termine `luxury`. Se si usa `all`, il livello di precisione delle query aumenta includendo meno risultati e per impostazione predefinita il segno - verrà interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Valutare quindi l'opportunità di usare `searchMode=all` invece di `searchMode=any` se si vuole ottimizzare il livello di precisione delle ricerche invece che quello di richiamo *e* gli utenti usano spesso l'operatore `-` nelle ricerche.
 
-## <a name="suffix-operator"></a>Operatore di suffisso
+## <a name="suffix-operator"></a>Operatore suffisso
 
-L'operatore di suffisso è un asterisco `*`. `lux*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `lux`, ignorando le lettere maiuscole/minuscole.  
+L'operatore suffisso è un `*`asterisco. `lux*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `lux`, ignorando le lettere maiuscole/minuscole.  
 
-## <a name="phrase-search-operator"></a>Operatore di ricerca di una frase
+## <a name="phrase-search-operator"></a>Operatore di ricerca frasi
 
-L'operatore di frase racchiude una frase tra virgolette `" "`. Ad esempio, mentre `Roach Motel` (senza virgolette) cerca i documenti contenenti `Roach` e/o `Motel` ovunque e in qualsiasi ordine, `"Roach Motel"` (con le virgolette) troverà solo i documenti contenenti l'intera frase in quell'ordine specifico (l'analisi del testo è comunque applicabile).
+L'operatore phrase racchiude una frase tra virgolette `" "`. Ad esempio, mentre `Roach Motel` (senza virgolette) cerca i documenti contenenti `Roach` e/o `Motel` ovunque e in qualsiasi ordine, `"Roach Motel"` (con le virgolette) troverà solo i documenti contenenti l'intera frase in quell'ordine specifico (l'analisi del testo è comunque applicabile).
 
 ## <a name="precedence-operator"></a>Operatore di precedenza
 
-L'operatore di precedenza racchiude la stringa racchiuso tra parentesi `( )`. Ad esempio, `motel+(wifi | luxury)` cercherà documenti che contengono il termine motel e uno `wifi` o `luxury` (o entrambi).  
+L'operatore di precedenza racchiude la stringa tra parentesi `( )`. Ad esempio, `motel+(wifi | luxury)` cercherà i documenti che contengono il termine del Motel `wifi` e `luxury` o (o entrambi).  
 
 ## <a name="escaping-search-operators"></a>Escape degli operatori di ricerca  
 
@@ -87,7 +87,7 @@ L'operatore di precedenza racchiude la stringa racchiuso tra parentesi `( )`. Ad
 > [!NOTE]  
 >  Anche se i caratteri di escape mantengono uniti i token, l'analisi del testo potrebbe dividerli, a seconda della modalità di analisi. Per informazioni dettagliate, vedere [Supporto per la lingua &#40;API REST per il servizio Ricerca di Azure&#41;](index-add-language-analyzers.md).  
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Cercare documenti - API REST per il servizio Ricerca di Azure) 
 + [Sintassi di query Lucene](query-lucene-syntax.md)

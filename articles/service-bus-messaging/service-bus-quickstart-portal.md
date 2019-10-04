@@ -3,21 +3,20 @@ title: Guida introduttiva - Usare il portale di Azure per creare una coda del bu
 description: Questa guida introduttiva illustra come creare una coda del bus di servizio tramite il portale di Azure. Quindi si userà un'applicazione client di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607756"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242387"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare il portale di Azure per creare una coda del bus di servizio
-Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando il [portale di Azure][Azure portal] per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+L'avvio rapido illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando il [portale di Azure][Azure portal] per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e per ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -35,7 +34,19 @@ Per completare questa esercitazione, accertarsi di avere installato:
 
 ## <a name="send-and-receive-messages"></a>Inviare e ricevere messaggi
 
-Dopo che è stato effettuato il provisioning dello spazio dei nomi e della coda e sono disponibili le credenziali necessarie, è possibile inviare e ricevere messaggi. È possibile esaminare il codice in [questa cartella dell'esempio di GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+> [!NOTE]
+> In questa sezione per inviare e ricevere messaggi viene usato un esempio in .NET. Per esempi di invio e ricezione di messaggi tramite altri linguaggi di programmazione, vedere [Esempi del bus di servizio](service-bus-samples.md). 
+> 
+> Per istruzioni dettagliate sull'invio e la ricezione di messaggi tramite vari linguaggi di programmazione, vedere gli argomenti di avvio rapido seguenti:
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node.js tramite pacchetto azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js tramite pacchetto azure-sb](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
+
+Dopo che è stato effettuato il provisioning dello spazio dei nomi e della coda e sono disponibili le credenziali necessarie, è possibile inviare e ricevere messaggi. È possibile esaminare il codice in [questa cartella dell'esempio di GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Per eseguire il codice, seguire questa procedura:
 
@@ -197,6 +208,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

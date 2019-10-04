@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65793684"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -166,5 +166,5 @@ Per altre informazioni, vedere [Failover di test in Azure in Site Recovery](site
 Per altre informazioni, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni SAP NetWeaver con Site Recovery, vedere il white paper scaricabile [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](https://aka.ms/asr-sap) (SAP NetWeaver: Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
+* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni SAP NetWeaver con Site Recovery, vedere il white paper scaricabile [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](https://aka.ms/asr_sap) (SAP NetWeaver: Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
 * Sono disponibili altre informazioni sulla [replica di altri carichi di lavoro](site-recovery-workload.md) con Site Recovery.

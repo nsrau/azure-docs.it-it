@@ -1,19 +1,18 @@
 ---
 title: Aggiungere altri account di Archiviazione di Azure a HDInsight
 description: Informazioni su come aggiungere altri account di Archiviazione di Azure a un cluster HDInsight esistente.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792271"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433524"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -24,7 +23,7 @@ Informazioni su come usare azioni script per aggiungere archiviazione di Azure a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight. Visualizzare [Introduzione a HDInsight su Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome account di archiviazione e la chiave. Visualizzare [gestire le impostazioni di account di archiviazione nel portale di Azure](../storage/common/storage-account-manage.md).
 * [Nome del cluster in modo corretto maiuscole e minuscole](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Se si usa PowerShell, è necessario il modulo di AZ.  Visualizzare [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -197,6 +196,9 @@ Se si modifica la chiave per un account di archiviazione, HDInsight non potrà p
 La ripetizione dell'esecuzione dell'azione script __non__ aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se esiste già una voce, non viene apportata alcuna modifica.
 
 Per risolvere il problema, è necessario rimuovere la voce esistente per l'account di archiviazione, Eseguire i seguenti passaggi per rimuovere la voce esistente:
+
+> [!IMPORTANT]  
+> Ruotare la chiave di archiviazione per l'account di archiviazione primaria associata a un cluster non è supportato.
 
 1. In un Web browser aprire l'interfaccia utente Web di Ambari per il cluster HDInsight. L'URI è `https://CLUSTERNAME.azurehdinsight.net`. Sostituire `CLUSTERNAME` con il nome del cluster.
 

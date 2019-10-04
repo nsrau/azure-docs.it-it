@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cf43e29e967ee6f920eb38feb9c73d70f9621ea4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609337"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735187"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -54,7 +53,7 @@ La funzione **E4_SmsPhoneVerification** usa il codice *function.json* standard p
 
 Di seguito è riportato il codice che implementa la funzione:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
@@ -85,11 +84,11 @@ La funzione **E4_SendSmsChallenge** usa l'associazione a Twilio per inviare il m
 
 Di seguito viene riportato il codice che genera il codice di autenticazione a 4 cifre e invia il messaggio SMS:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 

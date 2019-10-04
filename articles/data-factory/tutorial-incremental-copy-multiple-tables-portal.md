@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566006"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140761"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -440,7 +439,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 1. Passare alla scheda **Impostazioni** nella finestra **Proprietà** e immettere `@pipeline().parameters.tableList` per **Elementi**. L'attività ForEach esegue l'iterazione di un elenco di tabelle ed esegue l'operazione di copia incrementale. 
 
     ![Impostazioni dell'attività ForEach](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-1. Selezionare l'attività **ForEach** nella pipeline se non è già selezionata. Fare clic sul pulsante **Modifica (icona a forma di matita)**.
+1. Selezionare l'attività **ForEach** nella pipeline se non è già selezionata. Fare clic sul pulsante **Modifica (icona a forma di matita)** .
 
     ![Modifica dell'attività ForEach](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
 1. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare l'attività **Cerca** nell'area di progettazione della pipeline e immettere **LookupOldWaterMarkActivity** in **Nome**.
@@ -516,7 +515,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 
         | NOME | Type | Valore | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

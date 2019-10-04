@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331886"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568292"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 
@@ -99,7 +98,7 @@ Le transazioni di database elastico per il database SQL supportano anche il coor
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installazione di .NET per i servizi cloud di Azure
 
-Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](../app-service/overview-compare.md). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1. 
+Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](/azure/architecture/guide/technology-choices/compute-decision-tree). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1. 
 
 Per i servizi app di Azure, gli aggiornamenti del sistema operativo guest non sono attualmente supportati. Per le macchine virtuali di Azure, è sufficiente accedere alla macchina virtuale ed eseguire il programma di installazione del framework .NET più recente. Per i servizi cloud di Azure, è necessario includere l'installazione di una versione più recente di .NET nelle attività di avvio della distribuzione. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -128,7 +127,7 @@ Si noti che il programma di installazione per .NET 4.6.1 può richiedere più sp
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Le transazioni di database elastici sono supportate in diversi server di database SQL nel database SQL di Azure. Quando le transazioni oltrepassano i limiti dei server di database SQL, i server partecipanti devono essere innanzitutto inseriti in una relazione di comunicazione reciproca. Dopo aver stabilito la relazione di comunicazione, qualsiasi database in uno dei due server può partecipare alle transazioni elastiche con i database dell'altro server. Con le transazioni che si estendono su più di due server di database SQL, è necessaria una relazione di comunicazione per ogni coppia di server di database SQL.
 

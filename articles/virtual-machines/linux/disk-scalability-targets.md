@@ -1,20 +1,18 @@
 ---
 title: Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux - Microsoft Azure | Microsoft Docs
 description: Informazioni sugli obiettivi di scalabilità e prestazioni per dischi di macchine virtuali collegati a VM che eseguono Linux.
-services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 39e0a36b50a9e222e6016140967336ccda167514
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5c1bdecdfc755db530be71a09b18542ade4519c5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330053"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695890"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux
 
@@ -33,6 +31,6 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762481"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276615"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 
 La differenza tra questo connettore REST, il [connettore HTTP](connector-http.md) e il [connettore Tabella Web](connector-web-table.md) è la seguente:
 
-- Il **connettore REST** supporta in modo specifico la copia dei dati dalle API RESTful. 
+- Il **connettore Rest** supporta specificamente la copia di dati da API RESTful; 
 - Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. Prima che il connettore REST diventi disponibile, può capitare di usare il connettore HTTP per copiare dati dall'API RESTful, operazione supportata ma meno funzionale rispetto all'uso del connettore REST.
 - Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
 
@@ -43,6 +43,10 @@ In particolare, questo connettore REST generico supporta:
 > [!TIP]
 > Per testare una richiesta di recupero dei dati prima di configurare il connettore REST in Data Factory, fare riferimento alla specifica dell'API per i requisiti relativi a intestazione e corpo. È possibile usare strumenti come Postman o un Web browser per la convalida.
 
+## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Attività iniziali
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -55,11 +59,11 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | Il **tipo** proprietà deve essere impostata su **RestService**. | Sì |
-| URL | URL di base del servizio REST. | Sì |
-| enableServerCertificateValidation | Specifica se convalidare il certificato SSL sul lato server durante la connessione all'endpoint. | No <br /> (il valore predefinito è **true**) |
+| type | La proprietà **Type** deve essere impostata su **RestService**. | Sì |
+| url | URL di base del servizio REST. | Yes |
+| enableServerCertificateValidation | Indica se convalidare il certificato SSL lato server quando ci si connette all'endpoint. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No  |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
 
@@ -135,7 +139,7 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 
 Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
 
@@ -170,51 +174,24 @@ Per copiare dati da REST, sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Sì |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No  |
-| requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No  |
-| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
-| requestBody | Corpo della richiesta HTTP. | No  |
-| paginationRules | Regole di paginazione per comporre le richieste di pagina successive. Per informazioni dettagliate, vedere la sezione [Supporto della paginazione](#pagination-support). | No  |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No |
 
-**Esempio 1: Uso del metodo Get con la paginazione**
+Se `requestMethod`si imposta `additionalHeaders` ,e`paginationRules`nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello nell'origine attività in futuro. `requestBody`
+
+**Esempio:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Esempio 2: Uso del metodo Post**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -233,10 +210,14 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RestSource**. | Sì |
-| httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No  |
-| requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No  |
+| requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | N. |
+| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | N. |
+| requestBody | Corpo della richiesta HTTP. | No |
+| paginationRules | Regole di paginazione per comporre le richieste di pagina successive. Per informazioni dettagliate, vedere la sezione [Supporto della paginazione](#pagination-support). | No |
+| httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No |
+| requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No |
 
-**Esempio**
+**Esempio 1: Uso del metodo Get con la paginazione**
 
 ```json
 "activities":[
@@ -258,6 +239,46 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Esempio 2: Uso del metodo Post**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -270,30 +291,30 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
 
 ## <a name="pagination-support"></a>Supporto della paginazione
 
-Normalmente l'API REST limita le dimensioni del payload della risposta di una singola richiesta in base a un numero ragionevole, mentre per restituire grandi quantità di dati suddivide il risultato in più pagine e richiede ai chiamanti di inviare richieste consecutive per ottenere la pagina successiva del risultato. In genere la richiesta di una sola pagina è dinamica ed è composta dalle informazioni restituite dalla risposta della pagina precedente.
+In genere, l'API REST limita le dimensioni del payload di risposta di una singola richiesta con un numero ragionevole. mentre per restituire una grande quantità di dati, suddivide il risultato in più pagine e richiede ai chiamanti di inviare richieste consecutive per ottenere la pagina successiva del risultato. In genere la richiesta di una sola pagina è dinamica ed è composta dalle informazioni restituite dalla risposta della pagina precedente.
 
 Questo connettore REST generico supporta i modelli di paginazione seguenti: 
 
 * URL assoluto o relativo della richiesta successiva = valore della proprietà nel corpo della risposta corrente
-* URL assoluto o relativo della richiesta successiva = valore di intestazione nelle intestazioni di risposta corrente
+* URL assoluto o relativo della richiesta successiva = valore di intestazione nelle intestazioni di risposta correnti
 * Parametro di query della richiesta successiva = valore della proprietà nel corpo della risposta corrente
 * Parametro di query della richiesta successiva = valore dell'intestazione nelle intestazioni della risposta corrente
 * Intestazione della richiesta successiva = valore della proprietà nel corpo della risposta corrente
 * Intestazione della richiesta successiva = valore dell'intestazione nelle intestazioni della risposta corrente
 
-Le **regole di paginazione** sono definite come un dizionario nel set di dati che contiene una o più coppie chiave-valore con distinzione tra maiuscole e minuscole. La configurazione verrà usata per generare la richiesta a partire dalla seconda pagina. Il connettore interrompe l'iterazione quando ottiene il codice di stato HTTP 204 (Nessun contenuto) o quando un'espressione JSONPath in "paginationRules" restituisce Null.
+**Le regole di impaginazione** sono definite come un dizionario nel set di dati che contiene una o più coppie chiave-valore con distinzione tra maiuscole e minuscole. La configurazione verrà usata per generare la richiesta a partire dalla seconda pagina. Il connettore interrompe l'iterazione quando ottiene il codice di stato HTTP 204 (nessun contenuto) o qualsiasi espressione JSONPath in "paginationRules" restituisce null.
 
 **Chiavi supportate** nelle regole di paginazione:
 
 | Chiave | DESCRIZIONE |
 |:--- |:--- |
-| AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere **URL assoluto o relativo URL**. |
+| AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere un URL **assoluto o relativo**. |
 | QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
-| Headers.*intestazione_richiesta* o Headers['intestazione_richiesta'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
+| Headers.*request_header* OR Headers['request_header'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
 
 **Valori supportati** nelle regole di paginazione:
 
-| Valore | DESCRIZIONE |
+| Value | Descrizione |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | Il valore di "intestazione_risposta" è definito dall'utente e fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per inviare la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
@@ -332,23 +353,19 @@ L'API Viso di Facebook restituisce la risposta nella struttura seguente, nel qua
 }
 ```
 
-La configurazione del set di dati REST corrispondente specifica di `paginationRules` è la seguente:
+La configurazione dell'origine dell'attività di copia Rest `paginationRules` corrispondente, in particolare, è la seguente:
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

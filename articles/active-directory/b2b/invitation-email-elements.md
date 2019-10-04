@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65768358"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -53,7 +53,7 @@ Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine
 
   ![Screenshot che mostra l'invito con il mittente dell'invito iniziali visualizzate](media/invitation-email-elements/inviters-initials.png)
 
-### <a name="body"></a>Corpo
+### <a name="body"></a>Body
 Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
   ![Screenshot che illustra il corpo del messaggio di posta elettronica di invito](media/invitation-email-elements/invitation-email-body.png)

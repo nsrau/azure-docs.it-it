@@ -1,5 +1,5 @@
 ---
-title: Corrispondenza di testo esatta
+title: 'Esercitazione: Corrispondenza di testo esatta - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Ottenere i dati che corrisponde a un elenco predefinito di elementi. Ogni elemento nell'elenco può avere anche sinonimi che corrispondono esattamente
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521272"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307606"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Esercitazione: Ottenere dati esattamente corrispondenti al testo da un'espressione
 
@@ -108,11 +108,7 @@ Il nome _canonico_ per ogni elemento è il nome del reparto. Ecco alcuni sinonim
 
 1. Nella pagina relativa all'entità reparto immettere `Accounting` come nuovo valore.
 
-    [![Schermata di immissione valore](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermata di immissione valore")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Per i sinonimi, aggiungere i sinonimi dalla tabella precedente.
-
-    [![Schermata di immissione sinonimi](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermata di immissione sinonimi")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continuare ad aggiungere tutti i nomi canonici e i relativi sinonimi. 
 

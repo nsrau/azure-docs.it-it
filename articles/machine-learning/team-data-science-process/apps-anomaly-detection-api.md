@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326581"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "64926180"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 
 > [!NOTE]
-> Questo elemento è in fase di manutenzione. Si consiglia di usare la [servizio API rilevatore di anomalie](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) basate su algoritmi una raccolta di Machine Learning in servizi cognitivi per rilevare le anomalie di business, operational e le metriche di IoT di Azure.
+> Questo elemento è in manutenzione. Si consiglia di usare il [servizio API](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) del rilevatore di anomalie basato su una raccolta di algoritmi di Machine Learning in Servizi cognitivi di Azure per rilevare le anomalie dalle metriche aziendali, operative e Internet.
 
 ## <a name="overview"></a>Panoramica
 [API di rilevamento delle anomalie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
@@ -121,23 +121,23 @@ L'API di rilevamento anomalie supporta funzionalità di rilevamento in 3 categor
 ### <a name="parameters"></a>Parametri
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | DESCRIZIONE | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
+| Parametri di input | Descrizione | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
-| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
+| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
+| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Both |enumerato |Entrambi, picchi e flessioni |Both |
 | bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
 | trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
-| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |numero intero |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
-| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |numero intero |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
-| postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |numero intero |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
+| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
+| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
+| postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
 ### <a name="output"></a>Output
 L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
 | Output | DESCRIZIONE |
 | --- | --- |
-| Tempo |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
-| Dati |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Time |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Data |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | rpscore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello bidirezionale. |
@@ -159,29 +159,29 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 
 | Parametri di input | DESCRIZIONE | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |numero intero |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
+| preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |integer |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
 | preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerato |zero, lkv, mean |N/D |
-| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
-| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
+| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
+| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Both |enumerato |Entrambi, picchi e flessioni |Both |
 | bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
 | postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
 | negtrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza negativa. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
-| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |numero intero |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
-| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |numero intero |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
+| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
+| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | seasonality.enable |Se è necessario eseguire analisi di stagionalità. |true |boolean |true, false |In base alle serie temporali. |
-| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |numero intero |1, 2 |Da 1 a 2 |
+| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da 1 a 2 |
 | seasonality.transform |Se i componenti stagionali (e) di tendenza devono essere rimossi prima di applicare il rilevamento delle anomalie. |deseason |enumerato |none, deseason, deseasontrend |N/D |
-| postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |numero intero |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
+| postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
 ### <a name="output"></a>Output
 L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
-| Output | DESCRIZIONE |
+| Output | Descrizione |
 | --- | --- |
-| Tempo |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Time |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | OriginalData |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
-| ProcessedData |Uno dei seguenti:  <ul><li>Serie temporali regolate in base alla stagionalità in caso di rilevamento di una stagionalità significativa e di selezione dell'opzione deseason</li><li>Serie temporali regolate in base alla stagionalità e senza tendenza, se è stata rilevata una stagionalità significativa ed è selezionata l'opzione deseasontrend</li><li>In caso contrario, è uguale a OriginalData</li> |
+| ProcessedData |Uno dei seguenti: <ul><li>Serie temporali regolate in base alla stagionalità in caso di rilevamento di una stagionalità significativa e di selezione dell'opzione deseason</li><li>Serie temporali regolate in base alla stagionalità e senza tendenza, se è stata rilevata una stagionalità significativa ed è selezionata l'opzione deseasontrend</li><li>In caso contrario, è uguale a OriginalData</li> |
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | BiLevelChangeScore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello |

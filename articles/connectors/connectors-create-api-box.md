@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Box - App per la logica di Azure | Microsoft Docs
+title: Connetti a Box-app per la logica di Azure
 description: Creare e gestire i file con le API REST di Box e App per la logica di Azure
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.topic: conceptual
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fbc64194182c41a70eb27a4049234973c39fffe
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60312577"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050938"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Creare e gestire file in Box con le App per la logica di Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra come creare e gestire i file in Box all'interno di un'a
 
 * Attivare attività e flussi di lavoro automatizzati quando viene creato o aggiornato un file.
 
-* Eseguire le azioni per copiare un file, eliminarlo e così via.
+* Eseguire un'azione che copia un file o Elimina un file.
 
   Quando queste azioni ottengono una risposta, rendono l'output disponibile per altre azioni. 
   Ad esempio, quando un file viene modificato in Box, è possibile usare il file nella posta elettronica tramite Office 365.
@@ -34,7 +34,7 @@ Questo articolo illustra come creare e gestire i file in Box all'interno di un'a
 
 * Un [Account Box](https://www.box.com/home)
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'app per la logica in cui si intende accedere all'account Box. Per avviare l'app per la logica con un trigger Box, è necessaria un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -43,12 +43,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/box/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/box/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

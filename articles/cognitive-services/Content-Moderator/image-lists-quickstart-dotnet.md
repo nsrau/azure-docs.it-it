@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Controllare le immagini in base a elenchi personalizzati in C# - Content Moderator'
-titlesuffix: Azure Cognitive Services
+title: Controllare le immagini in base a elenchi personalizzati in C# - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Come moderare immagini con elenchi personalizzati di immagini usando Content Moderator SDK per C#.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881792"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564473"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Guida introduttiva: Eseguire la moderazione con elenchi personalizzati di immagini in C#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l'[SDK di Content Moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
 - Creare un elenco personalizzato di immagini
@@ -32,7 +32,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l
 > [!NOTE]
 > È previsto un limite massimo di **5 elenchi di immagini** e ogni elenco **non può includere più di 10.000 immagini**.
 
-L'applicazione console per questa guida introduttiva simula alcune delle attività che è possibile eseguire con l'API per gli elenchi di immagini.
+L'applicazione console per questa guida simula alcune delle attività che è possibile eseguire con l'API dell'elenco di immagini.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Creare un metodo per aggiungere una raccolta di immagini all'elenco
 
-Aggiungere il metodo seguente alla classe **Program**. In questa guida introduttiva non viene illustrato come applicare i tag alle immagini nell'elenco. 
+Aggiungere il metodo seguente alla classe **Program**. Questa guida non illustra come applicare tag alle immagini nell'elenco. 
 
 ```csharp
 /// <summary>

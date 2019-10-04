@@ -1,5 +1,5 @@
 ---
-title: Eseguire il debug del codice C# definito dall'utente per i processi U-SQL di Azure Data Lake non riusciti
+title: Codice C# di Debug per Azure Data Lake processi U-SQL
 description: L'articolo illustra come eseguire il debug di un vertice con errore di U-SQL usando Strumenti Azure Data Lake per Visual Studio.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526453"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315806"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
@@ -28,7 +28,7 @@ Nel video seguente viene illustrata la funzione Debug del vertice con errore in 
 >
 
 > [!IMPORTANT]
-> Visual Studio richiede i due aggiornamenti seguenti per l'uso di questa funzionalità: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) e il [Universal C Runtime per Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Per usare questa funzionalità, Visual Studio richiede i due aggiornamenti seguenti: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) e [Universal C Runtime per Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Scaricare il vertice con errori nel computer locale
@@ -80,7 +80,7 @@ Se il codice utente non è incluso nel file code-behind o non si è registrato l
 
 2. Ottenere il percorso della cartella del progetto **FailedVertexDebugHost**. 
 
-3. Fare clic con il pulsante destro del mouse sul **progetto con codice sorgente assembly aggiunto > Proprietà**, selezionare la scheda **Compilazione** a sinistra e incollare il percorso copiato che termina con \bin\debug in **Output > Percorso output**. Il percorso di output finale è simile a `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
+3. Fare clic con il pulsante destro del mouse sul **progetto con codice sorgente assembly aggiunto > Proprietà**, selezionare la scheda **Compilazione** a sinistra e incollare il percorso copiato che termina con \bin\debug in **Output > Percorso output**. Il percorso di output finale è `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`simile a.
 
     ![Percorso pdb impostato per il debug U-SQL in Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

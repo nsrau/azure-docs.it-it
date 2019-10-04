@@ -2,9 +2,9 @@
 title: Inviare notifiche a utenti specifici con Hub di notifica di Azure | Microsoft Docs
 description: Informazioni sull'invio di notifiche a utenti specifici con le applicazioni della piattaforma UWP (Universal Windows Platform).
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402509"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212067"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -31,7 +33,7 @@ ms.locfileid: "58402509"
 In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Un back-end WebAPI ASP.NET viene usato per autenticare i client. Quando il back-end autentica un utente dell'applicazione client, aggiunge automaticamente un tag per la registrazione della notifica. Il back-end usa questo tag per inviare notifiche all'utente specifico.
 
 > [!NOTE]
-> Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+> Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -116,7 +118,7 @@ In questa sezione viene aggiornato il codice nel progetto completato per l'[Eser
         </StackPanel>
     </Grid>
     ```
-9. In Esplora soluzioni aprire il file `MainPage.xaml.cs` per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)**. Aggiungere le istruzioni `using` seguenti all'inizio del file:
+9. In Esplora soluzioni aprire il file `MainPage.xaml.cs` per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)** . Aggiungere le istruzioni `using` seguenti all'inizio del file:
 
     ```csharp
     using System.Net.Http;
@@ -131,7 +133,7 @@ In questa sezione viene aggiornato il codice nel progetto completato per l'[Eser
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-11. Aggiungere il codice seguente alla classe MainPage in `MainPage.xaml.cs` per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)**.
+11. Aggiungere il codice seguente alla classe MainPage in `MainPage.xaml.cs` per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)** .
 
     Il metodo `PushClick` è il gestore di clic per il pulsante **Send Push** . Chiama il back-end per attivare una notifica a tutti i dispositivi con un tag di nome utente corrispondente al parametro `to_tag` . Il messaggio di notifica viene inviato come contenuto JSON nel corpo della richiesta.
 

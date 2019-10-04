@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d2de98fe6cb0fffcc77bb851e3a853475d0f704c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e522c7ea306667f675af4bbe7486e25fb7f4ec9f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367426"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122794"
 ---
 # <a name="expressroute-global-reach"></a>Copertura globale di ExpressRoute
-ExpressRoute è uno strumento privato e resiliente per connettere le reti locali a Microsoft Cloud. È possibile accedere a molti servizi cloud Microsoft, come Azure, Office 365 e Dynamics 365, dal data center privato o dalla rete aziendale. Ad esempio, una delle succursali potrebbe essere a San Francisco con un circuito ExpressRoute nella Silicon Valley e un'altra succursale potrebbe trovarsi a Londra con un circuito ExpressRoute nella stessa città. Entrambi le succursali possono disporre di connettività ad alta velocità alle risorse di Azure negli Stati Uniti occidentali e nel Regno Unito meridionale. Tuttavia, le succursali non possono scambiare dati direttamente tra loro. In altre parole, 10.0.1.0/24 può inviare dati a 10.0.3.0/24 e a 10.0.4.0/24 ma NON a 10.0.2.0/24.
+ExpressRoute è uno strumento privato e resiliente per connettere le reti locali a Microsoft Cloud. È possibile accedere a molti servizi cloud Microsoft, ad esempio Azure e Office 365, dal data center privato o dalla rete aziendale. Ad esempio, una delle succursali potrebbe essere a San Francisco con un circuito ExpressRoute nella Silicon Valley e un'altra succursale potrebbe trovarsi a Londra con un circuito ExpressRoute nella stessa città. Entrambi le succursali possono disporre di connettività ad alta velocità alle risorse di Azure negli Stati Uniti occidentali e nel Regno Unito meridionale. Tuttavia, le succursali non possono scambiare dati direttamente tra loro. In altre parole, 10.0.1.0/24 può inviare dati a 10.0.3.0/24 e a 10.0.4.0/24 ma NON a 10.0.2.0/24.
 
 ![Senza][1]
 
@@ -35,11 +35,14 @@ Il servizio Copertura globale di ExpressRoute è attualmente supportato nei paes
 * Australia
 * Canada
 * Francia
+* Germania
 * RAS di Hong Kong
 * Irlanda
 * Giappone
 * Corea del Sud
 * Paesi Bassi
+* Singapore
+* Svizzera
 * Regno Unito
 * Stati Uniti
 

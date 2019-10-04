@@ -1,32 +1,32 @@
 ---
-title: Registrazione vocale SDK - servizi di riconoscimento vocale
+title: Registrazione dell'SDK vocale-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Abilitare la registrazione nel SDK di riconoscimento vocale.
+description: Abilitare la registrazione nell'SDK di riconoscimento vocale.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012449"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559488"
 ---
-# <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione in Speech SDK
+# <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione nell'SDK di riconoscimento vocale
 
-La registrazione al file è una funzionalità facoltativa per il SDK di riconoscimento vocale. Durante lo sviluppo la registrazione fornisce informazioni aggiuntive e la diagnostica di componenti di base di Speeck SDK. Può essere abilitato impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione di riconoscimento vocale per il percorso e nome del file di log. La registrazione verrà attivata a livello globale dopo aver creato un sistema di riconoscimento da tale configurazione e non può essere disabilitata in un secondo momento. È possibile modificare il nome di un file di log durante un'esecuzione della sessione di registrazione.
+La registrazione nel file è una funzionalità facoltativa per l'SDK di riconoscimento vocale. Durante la registrazione dello sviluppo fornisce informazioni e diagnostica aggiuntive dai componenti di base di Speech SDK. Può essere abilitata impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione vocale sul percorso e il nome del file di log. La registrazione verrà attivata globalmente una volta che un riconoscimento viene creato da tale configurazione e non può essere disabilitato in seguito. Non è possibile modificare il nome di un file di log durante una sessione di registrazione in esecuzione.
 
 > [!NOTE]
-> La registrazione è disponibile nel SDK di riconoscimento vocale supportati tutti i linguaggi di programmazione, fatta eccezione per JavaScript.
+> La registrazione è disponibile dalla versione dell'SDK vocale 1.4.0 in tutti i linguaggi di programmazione dell'SDK vocale supportati, ad eccezione di JavaScript.
 
 ## <a name="sample"></a>Esempio
 
-Il nome del file di registro è specificato in un oggetto di configurazione. Richiede la `SpeechConfig` come esempio e presupponendo di avere creato un'istanza denominata `config`:
+Il nome del file di log viene specificato in un oggetto di configurazione. Prendendo come esempio e supponendo che sia stata creata un'istanza denominata `config`: `SpeechConfig`
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -48,18 +48,18 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-È possibile creare un riconoscimento dall'oggetto di configurazione. Abilita la registrazione per tutti i tipi di riconoscimento.
+È possibile creare un riconoscimento dall'oggetto config. In questo modo verrà abilitata la registrazione per tutti i riconoscitori.
 
 > [!NOTE]
-> Se si crea un `SpeechSynthesizer` dell'oggetto di configurazione, non sarà possibile abilitare la registrazione. Se tuttavia viene abilitata la registrazione, si riceverà anche la diagnostica del `SpeechSynthesizer`.
+> Se si crea un `SpeechSynthesizer` oggetto dall'oggetto config, non verrà abilitata la registrazione. Se la registrazione è abilitata, verrà inoltre ricevuta la `SpeechSynthesizer`diagnostica da.
 
-## <a name="create-a-log-file-on-different-platforms"></a>Creare un file di registro su piattaforme diverse
+## <a name="create-a-log-file-on-different-platforms"></a>Creare un file di log su piattaforme diverse
 
-Per Windows o Linux, il file di log può essere in qualsiasi percorso in cui per che l'utente dispone dell'autorizzazione di scrittura. Autorizzazioni di scrittura per i percorsi del file system in altri sistemi operativi potrebbero essere limitate o limitate per impostazione predefinita.
+Per Windows o Linux, il file di log può trovarsi in qualsiasi percorso per cui l'utente disponga dell'autorizzazione di scrittura. Le autorizzazioni di scrittura per file system percorsi in altri sistemi operativi possono essere limitate o limitate per impostazione predefinita.
 
 ### <a name="universal-windows-platform-uwp"></a>Piattaforma UWP (Universal Windows Platform)
 
-Applicazioni della piattaforma UWP devono essere percorsi file di log in uno dei percorsi dei dati dell'applicazione (locali, mobili o temporanei). Un file di log può essere creato nella cartella dell'applicazione locale:
+Le applicazioni UWP devono essere posizionate nei file di log in uno dei percorsi dati applicazione (locale, roaming o temporaneo). È possibile creare un file di log nella cartella dell'applicazione locale:
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -67,11 +67,11 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Più informazioni sull'accesso ai file per le applicazioni UWP è disponibile l'autorizzazione [qui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Altre informazioni sulle autorizzazioni di accesso ai file per le applicazioni UWP sono disponibili [qui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 
-È possibile salvare un file di log per l'archiviazione interna, risorsa di archiviazione esterna o la directory della cache. I file creati nell'archiviazione interna o la directory della cache sono privati per l'applicazione. È preferibile per creare un file di log in un archivio esterno.
+È possibile salvare un file di log in una risorsa di archiviazione interna, in uno spazio di archiviazione esterno o nella directory della cache. I file creati nella risorsa di archiviazione interna o nella directory della cache sono privati dell'applicazione. È preferibile creare un file di log in un archivio esterno.
 
 ```java
 File dir = context.getExternalFilesDir(null);
@@ -79,9 +79,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-Il codice sopra riportato salverà un file di log nell'archiviazione esterna nella radice di una directory specifiche dell'applicazione. Un utente può accedere al file con il gestore di file (in genere in `Android/data/ApplicationName/logfile.txt`). Il file verrà eliminato quando viene disinstallata l'applicazione.
+Il codice precedente consente di salvare un file di log nella risorsa di archiviazione esterna nella radice di una directory specifica dell'applicazione. Un utente può accedere al file con gestione file (in genere in `Android/data/ApplicationName/logfile.txt`). Il file verrà eliminato quando l'applicazione viene disinstallata.
 
-È anche necessario richiedere `WRITE_EXTERNAL_STORAGE` autorizzazione nel file manifesto:
+È anche necessario richiedere `WRITE_EXTERNAL_STORAGE` l'autorizzazione nel file manifesto:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -91,11 +91,11 @@ Il codice sopra riportato salverà un file di log nell'archiviazione esterna nel
 </manifest>
 ```
 
-Più informazioni su dati e file di archiviazione per le applicazioni Android è disponibile [qui](https://developer.android.com/guide/topics/data/data-storage.html).
+Altre informazioni sull'archiviazione di file e dati per le applicazioni Android sono disponibili [qui](https://developer.android.com/guide/topics/data/data-storage.html).
 
 #### <a name="ios"></a>iOS
 
-Solo le directory all'interno di sandbox dell'applicazione sono accessibili. File possono essere creati i documenti, libreria e delle directory temp. I file nella directory dei documenti possono essere resi disponibili a un utente. Il frammento di codice seguente illustra la creazione di un file di log nella directory del documento dell'applicazione:
+Sono accessibili solo le directory all'interno dell'applicazione sandbox. I file possono essere creati in documenti, raccolte e directory temporanee. I file nella directory Documents possono essere resi disponibili per un utente. Il frammento di codice seguente mostra la creazione di un file di log nella directory del documento dell'applicazione:
 
 ```objc
 NSString *filePath = [
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Per accedere a un file creato, aggiungere il sotto le proprietà per il `Info.plist` elenco di proprietà dell'applicazione:
+Per accedere a un file creato, aggiungere le proprietà seguenti all' `Info.plist` elenco di proprietà dell'applicazione:
 
 ```xml
 <key>UIFileSharingEnabled</key>
@@ -113,10 +113,9 @@ Per accedere a un file creato, aggiungere il sotto le proprietà per il `Info.pl
 <true/>
 ```
 
-Più su iOS File System è disponibile [qui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+Altre informazioni sul file System iOS sono disponibili [qui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Esplorare gli esempi su GitHub](https://aka.ms/csspeech/samples)
-

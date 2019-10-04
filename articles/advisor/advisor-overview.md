@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069694"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -61,7 +61,9 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server e Cache Redis di Azure.
+Advisor fornisce consigli per il Gateway applicazione, servizi App, i set di disponibilità, Cache di Azure Data Factory di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL, Database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, pubblico di Azure Gli indirizzi IP, SQL Data Warehouse, istanze di SQL Server, gli account di archiviazione, i profili di Traffic Manager e le macchine virtuali.
+
+Azure Advisor include anche le raccomandazioni da [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) che possono includere consigli per i tipi di risorse aggiuntive.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 

@@ -5,135 +5,106 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 9/19/2019
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009142"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128731"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
 
-Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborare con partner esterni, è possibile invitare nell'organizzazione più utenti guest contemporaneamente. In questa esercitazione si apprenderà come usare PowerShell per inviare inviti in blocco a utenti esterni. In particolare, si eseguiranno le operazioni seguenti:
+|     |
+| --- |
+| Questo articolo descrive una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
+
+
+Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborare con partner esterni, è possibile invitare nell'organizzazione più utenti guest contemporaneamente. Questa esercitazione descrive come usare il portale di Azure per inviare inviti in blocco a utenti esterni. In particolare, si eseguiranno le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Preparare un file con valori delimitati da virgole (CSV) con le informazioni utente
-> * Eseguire uno script PowerShell per inviare gli inviti
+> * Usare **Invita utenti in blocco (anteprima)**  per preparare un file con valori delimitati da virgole (CSV) contenente le informazioni utente e le preferenze di invito
+> * Caricare il file con estensione csv in Azure AD
 > * Verificare che gli utenti siano stati aggiunti alla directory
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="install-the-latest-azureadpreview-module"></a>Installare il modulo AzureADPreview più recente
-Verificare che sia installata la versione più recente del modulo di Azure AD PowerShell per Graph (AzureADPreview). 
-
-Controllare innanzitutto quali moduli sono installati. Aprire Windows PowerShell come utente con privilegi elevati (Esegui come amministratore) ed eseguire il comando seguente:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-Eseguire una delle operazioni seguenti in base all'output:
-
-- Se non viene restituito alcun risultato, eseguire il comando seguente per installare il modulo AzureADPreview:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- Se nei risultati viene visualizzato solo il modulo AzureAD, eseguire i comandi seguenti per installare il modulo AzureADPreview: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- Se nei risultati viene visualizzato solo il modulo AzureADPreview, ma si riceve un messaggio che indica che è disponibile una versione più recente, eseguire i comandi seguenti per aggiornare il modulo: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-Potrebbe essere visualizzato un prompt che indica che si sta installando il modulo da un repository non attendibile. Ciò si verifica se il repository PSGallery non è stato precedentemente impostato come repository attendibile. Premere **Y** per installare il modulo.
-
-### <a name="get-test-email-accounts"></a>Ottenere account di posta elettronica di test
-
 Sono necessari almeno due account di posta elettronica di test a cui inviare gli inviti. Gli account devono essere esterni all'organizzazione. È possibile usare qualsiasi tipo di account, inclusi gli account di social networking, come gli indirizzi gmail.com o outlook.com.
 
-## <a name="prepare-the-csv-file"></a>Preparare il file CSV
+## <a name="invite-guest-users-in-bulk"></a>Invitare utenti guest in blocco
 
-In Microsoft Excel creare un file CSV con l'elenco dei nomi utente e degli indirizzi di posta elettronica degli invitati. Assicurarsi di includere le intestazioni di colonna **Name** e **InvitedUserEmailAddress**. 
+1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
+2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+3. In **Gestisci** selezionare **Utenti** > **Invita in blocco**.
+4. Nella pagina **Invita utenti in blocco (anteprima)** selezionare **Scarica** per scaricare un file CSV valido con le proprietà di invito.
 
-Ad esempio, creare un foglio di lavoro nel formato seguente:
+    ![Pulsante di download in Invita in blocco](media/tutorial-bulk-invite/bulk-invite-button.png)
 
+5. Aprire il file CSV e aggiungere una riga per ogni utente guest. I valori obbligatori sono:
 
-![Output di PowerShell che indica l'accettazione utente in sospeso](media/tutorial-bulk-invite/AddUsersExcel.png)
+   * **Indirizzo di posta elettronica da invitare**: utente che riceverà un invito
 
-Salvare il file come **C:\BulkInvite\Invitations.csv**. 
+   * **URL di reindirizzamento**: URL al quale viene reindirizzato l'utente invitato dopo aver accettato l'invito
 
-Se non è disponibile Excel, è possibile creare un file CSV con qualsiasi editor di testo, come ad esempio il Blocco note. Separare ogni valore con una virgola e ogni riga con una nuova riga. 
+    ![Esempio di un file CSV con utenti guest immessi](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-## <a name="sign-in-to-your-tenant"></a>Accedere al tenant
+   > [!NOTE]
+   > Non usare virgole in **Messaggio di invito personalizzato** perché impediranno l'analisi corretta del messaggio.
 
-Eseguire il comando seguente per connettersi al dominio del tenant:
+6. Salvare il file.
+7. Nella pagina **Invita utenti in blocco (anteprima)** individuare il file in **Caricare il file CSV**. Quando si seleziona il file, viene avviata la convalida del file CSV. 
+8. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
+9. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure per l'aggiunta degli inviti. 
+10. Per visualizzare lo stato del processo, selezionare **Fare clic qui per visualizzare lo stato di ogni operazione**. In alternativa, è possibile selezionare **Risultati dell'operazione in blocco (anteprima)** nella sezione **Attività**. Per informazioni dettagliate su ogni voce all'interno dell'operazione in blocco, selezionare i valori nelle colonne **N. operazioni riuscite**, **N. errori** o **Richieste totali**. Se si verificano errori, verranno elencati i motivi dell'errore.
 
-```powershell
-Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
-```
-Ad esempio: `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+    ![Esempio di risultati dell'operazione in blocco](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-Immettere le credenziali quando richiesto.
+11. Al termine del processo, verrà visualizzata una notifica per indicare la corretta esecuzione dell'operazione in blocco.
 
-## <a name="send-bulk-invitations"></a>Inviare inviti in blocco
+## <a name="verify-guest-users-in-the-directory"></a>Verificare gli utenti guest nella directory
 
-Per inviare gli inviti, eseguire lo script PowerShell seguente (in cui **c:\bulkinvite\invitations.csv** è il percorso del file CSV): 
+Per verificare che gli utenti guest aggiunti siano presenti nella directory, usare il portale di Azure o PowerShell.
 
-```powershell
-$invitations = import-csv c:\bulkinvite\invitations.csv
-   
-$messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-   
-$messageInfo.customizedMessageBody = "Hello. You are invited to the Contoso organization."
-   
-foreach ($email in $invitations) 
-   {New-AzureADMSInvitation `
-      -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
-      -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
-      -InvitedUserMessageInfo $messageInfo `
-      -SendInvitationMessage $true
-   }
-```
-Lo script invia un invito agli indirizzi di posta elettronica presenti nel file Invitations.csv. L'output dovrebbe essere simile all'esempio seguente per ogni utente:
+### <a name="view-guest-users-in-the-azure-portal"></a>Visualizzare gli utenti guest nel portale di Azure
 
-![Output di PowerShell che indica l'accettazione utente in sospeso](media/tutorial-bulk-invite/B2BBulkImport.png)
+1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
+2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+3. In **Gestisci** selezionare **Utenti**.
+4. In **Mostra** selezionare **Solo utenti guest** e verificare che gli utenti aggiunti siano elencati.
 
-## <a name="verify-users-exist-in-the-directory"></a>Verificare che gli utenti esistano nella directory
+### <a name="view-guest-users-with-powershell"></a>Visualizzare utenti guest con PowerShell
 
-Per verificare che gli utenti invitati siano stati aggiunti ad Azure AD, eseguire il comando seguente:
+Eseguire il comando seguente:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
+
 Dovrebbero essere elencati gli utenti invitati, con il nome dell'entità utente nel formato *indirizzopostaelettronica*#EXT#\@*dominio*. Ad esempio *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, è possibile eliminare gli account utente di test dalla directory. Eseguire il comando seguente per eliminare un account utente:
+Quando non è più necessario, è possibile eliminare gli account utente di test presenti nella directory nella pagina Utenti del portale di Azure selezionando la casella di controllo accanto all'utente guest e quindi scegliendo **Elimina**. 
+
+In alternativa, per eliminare un account utente è possibile eseguire il comando PowerShell seguente:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 Ad esempio: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
-
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione sono stati inviati inviti in blocco ad utenti guest all'esterno dell'organizzazione. Successivamente si apprenderà come funziona il processo di riscatto dell'invito.
 
 > [!div class="nextstepaction"]
 > [Informazioni sul processo di riscatto dell'invito di Collaborazione B2B di Azure AD](redemption-experience.md)
-

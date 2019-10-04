@@ -9,24 +9,23 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357435"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958497"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
 
 Il controllo dell'[istanza gestita](sql-database-managed-instance.md) tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
-- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni su Azure programmi che supporto la conformità agli standard, vedere la [Centro protezione Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
+- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure
 
@@ -74,7 +73,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         - Configurare SAS come segue:
 
-          - **Servizi consentiti**: BLOB
+          - **Servizi consentiti**: Blob
 
           - **Data di inizio**: per evitare problemi correlati al fuso orario, è consigliabile usare la data del giorno precedente
 
@@ -135,7 +134,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
-        ![Selezionare una sottoscrizione di Azure, account di archiviazione e contenitore blob](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Fare clic su **OK** nella finestra di dialogo "Crea controllo".
 
@@ -158,9 +157,9 @@ Per altre informazioni:
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurare il controllo per il server per i log a Hub eventi o un monitoraggio di Azure
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurare il controllo per il server per l'hub eventi o i log di monitoraggio di Azure
 
-I log di controllo da un'istanza gestita possono essere inviati a log di monitoraggio di Azure o del bus. Questa sezione illustra come configurarli:
+I log di controllo da un'istanza gestita possono essere inviati anche a hub o log di monitoraggio di Azure. Questa sezione illustra come configurarli:
 
 1. All'interno del [portale di Azure](https://portal.azure.com/) passare all'istanza gestita.
 
@@ -170,7 +169,7 @@ I log di controllo da un'istanza gestita possono essere inviati a log di monitor
 
 4. Selezionare **SQLSecurityAuditEvents** nell'elenco dei log.
 
-5. Selezionare una destinazione per gli eventi di controllo - Hub eventi, i log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
+5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
 
 6. Fare clic su **Save**.
 
@@ -213,11 +212,11 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configurare un flusso per utilizzare gli eventi e scriverli in una destinazione. Per altre informazioni, vedere la documentazione di Hub eventi di Azure.
 
-### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Usare e analizzare i log archiviati nei registri di monitoraggio di Azure
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Utilizzare e analizzare i log archiviati nei log di monitoraggio di Azure
 
-Se i log di controllo vengono scritti nei log di monitoraggio di Azure, sono disponibili nell'area di lavoro di Log Analitica, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro di Log Analitica e in *generali* sezione fare clic su *registri* e immettere una query semplice, ad esempio: `search "SQLSecurityAuditEvents"` per il controllo di visualizzare i log.  
+Se i log di controllo vengono scritti nei log di monitoraggio di Azure, sono disponibili nell'area di lavoro Log Analytics, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro log Analytics e nella sezione *generale* fare clic su *log* e immettere una semplice query, `search "SQLSecurityAuditEvents"` ad esempio: per visualizzare i log di controllo.  
 
-Log di monitoraggio di Azure ti offre informazioni operative in tempo reale usando ricerca integrata e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca log di monitoraggio di Azure e i comandi, vedere [riferimento alla ricerca nei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Log di monitoraggio di Azure offre informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca dei log di Azure e sui comandi, vedere i [riferimenti alla ricerca nei log di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -234,7 +233,7 @@ Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BL
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui vengono inseriti i file con estensione `.xel`.
-- Una nuova sintassi `TO EXTERNAL MONITOR` viene fornito per consentire alle destinazioni di log anche Hub e monitoraggio di Azure.
+- Viene fornita una `TO EXTERNAL MONITOR` nuova sintassi per abilitare anche le destinazioni dei log degli hub e di monitoraggio di Azure.
 - La sintassi `TO FILE` **non è supportata** perché il database SQL non può accedere alle condivisioni file di Windows.
 - L'opzione Shutdown **non è supportata**.
 - Un valore di `queue_delay` uguale a 0 **non è supportato**.
@@ -242,7 +241,7 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
-- Per altre informazioni su Azure programmi che supporto la conformità agli standard, vedere la [Centro protezione Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
+- Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 <!--Image references-->
 

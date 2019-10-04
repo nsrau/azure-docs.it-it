@@ -1,9 +1,9 @@
 ---
-title: 'Esercitazione: Archiviare i log di Azure Active Directory in un account di archiviazione (anteprima) | Microsoft Docs'
-description: Informazioni su come configurare Diagnostica di Azure per eseguire il push dei log di Azure Active Directory a un account di archiviazione (anteprima)
+title: 'Esercitazione: Archiviare i log di Azure Active Directory in un account di archiviazione | Microsoft Docs'
+description: Informazioni su come configurare Diagnostica di Azure per eseguire il push dei log di Azure Active Directory a un account di archiviazione
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 04/18/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d98fb0677b864fccfb5abd2b08381db1bd1c9c8f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434722"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989728"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure
 
 In questa esercitazione viene descritto come configurare le impostazioni di diagnostica di Monitoraggio di Azure per instradare i log di Azure Active Directory (Azure AD) a un account di archiviazione di Azure.
 

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60384187"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
@@ -31,7 +31,7 @@ ms.locfileid: "57431173"
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Azione | Comment |
+| Azione | Commento |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
 | Properties |Si usa per i filtri di unità organizzativa e dominio. |
@@ -67,7 +67,7 @@ L’azione Cerca spazio connettore è utile per trovare oggetti e risolvere prob
 
 Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni).  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
- Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
+Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Da questa griglia è possibile selezionare un oggetto, selezionare le **proprietà** e [seguirlo](tshoot-connect-object-not-syncing.md) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
 

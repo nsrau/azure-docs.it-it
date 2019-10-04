@@ -3,24 +3,25 @@ title: Funzionamento del consenso per applicazioni | Microsoft Docs
 description: Altre informazioni sul framework di consenso di Azure AD per sapere come usarlo durante lo sviluppo di applicazioni in Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 517ae30eab178a508fb2ee23ef99b02a8254088f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c5ccdce6ac9e3107e0cf4dd4b68b49918fffeae
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299805"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324614"
 ---
 # <a name="how-application-consent-works"></a>Funzionamento del consenso per applicazioni
 

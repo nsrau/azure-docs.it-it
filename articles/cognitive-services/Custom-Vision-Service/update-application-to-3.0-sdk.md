@@ -1,7 +1,7 @@
 ---
-title: Come eseguire la migrazione del progetto per la 3.0 API
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la migrazione di progetti di visione artificiale personalizzato dalla versione precedente dell'API per la 3.0 API.
+title: Come eseguire la migrazione del progetto all'API 3,0
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come eseguire la migrazione di progetti Visione personalizzata dalla versione precedente dell'API all'API 3,0.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,57 +10,57 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044007"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560899"
 ---
-# <a name="migrate-to-the-30-api"></a>Eseguire la migrazione alla 3.0 API
+# <a name="migrate-to-the-30-api"></a>Eseguire la migrazione all'API 3,0
 
-Servizio visione artificiale personalizzato è ora a livello generale e ha subito un aggiornamento di API.
-Questo aggiornamento include alcune nuove funzionalità e, inoltre, alcune modifiche di rilievo:
+Visione personalizzata ha ora raggiunto la disponibilità generale ed è stato sottoposto a un aggiornamento dell'API.
+Questo aggiornamento include alcune nuove funzionalità e, in particolare, alcune modifiche di rilievo:
 
-* L'API Prediction ora è suddiviso in due parti in base al tipo di progetto.
-* L'opzione di esportazione di visione artificiale per intelligenza artificiale Developer Kit (VAIDK) richiede la creazione di un progetto in modo specifico.
-* Iterazioni predefinite sono state rimosse a favore di pubblicare / annullare la pubblicazione di un'iterazione denominata.
+* L'API di stima ora è suddivisa in due in base al tipo di progetto.
+* L'opzione di esportazione Vision AI Developer Kit (VAIDK) richiede la creazione di un progetto in un modo specifico.
+* Le iterazioni predefinite sono state rimosse a favore di un'iterazione denominata Publish/UNPUBLISH.
 
-Questa Guida illustrerà la procedura per aggiornare i progetti per lavorare con la nuova versione dell'API. Vedere le [note sulla versione](release-notes.md) per un elenco completo delle modifiche.
+Questa guida illustra come aggiornare i progetti per usare la nuova versione dell'API. Per un elenco completo delle modifiche, vedere le [Note sulla versione](release-notes.md) .
 
-## <a name="use-the-updated-prediction-api"></a>Usare l'API Prediction aggiornata
+## <a name="use-the-updated-prediction-api"></a>Usare l'API di stima aggiornata
 
-2.x API usata la stessa chiamata di stima per classificatori di immagini e i progetti di rilevatore di oggetto. Entrambi i tipi di progetto sono stati accettabili per la **PredictImage** e **PredictImageUrl** chiamate. A partire da 3.0, è stato suddiviso questa API in modo che è necessario associare il tipo di progetto per la chiamata:
+Le API 2. x usavano la stessa chiamata di stima per i classificatori di immagini e i progetti di rilevatori di oggetti. Entrambi i tipi di progetto sono accettabili per le chiamate **PredictImage** e **PredictImageUrl** . A partire da 3,0, è stata suddivisa questa API in modo che sia necessario associare il tipo di progetto alla chiamata:
 
-* Uso **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** per ottenere stime per i progetti di classificazione di immagini.
-* Uso **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** per ottenere stime per i progetti di rilevamento di oggetti.
+* Usare **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** per ottenere stime per i progetti di classificazione delle immagini.
+* Usare **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** per ottenere stime per i progetti di rilevamento oggetti.
 
-## <a name="use-the-new-iteration-publishing-workflow"></a>Usare il nuovo flusso di lavoro iterazione
+## <a name="use-the-new-iteration-publishing-workflow"></a>Usa il nuovo flusso di lavoro di pubblicazione iterazione
 
-2.x API utilizzata iterazione predefinita o un ID di iterazione specificato per scegliere l'iterazione da usare per la stima. A partire da 3.0, abbiamo adottato un flusso di pubblicazione in base al quale è prima di tutto pubblicare un'iterazione in un nome specificato dall'API di training. Quindi possibile passare il nome per i metodi di stima per specificare quali iterazione da usare.
+Le API 2. x usavano l'iterazione predefinita o un ID iterazione specificato per scegliere l'iterazione da usare per la stima. A partire da 3,0, è stato adottato un flusso di pubblicazione per la prima volta che si pubblica un'iterazione con un nome specificato dall'API di training. Passare quindi il nome ai metodi di stima per specificare l'iterazione da usare.
 
 > [!IMPORTANT]
-> In 3.0 API non utilizzano la funzionalità di iterazione predefinito. Fino a quando non viene resa obsoleta le API precedenti, è possibile continuare a usare l'API versione 2.x per attivare o disattivare un'iterazione come impostazione predefinita. Queste API verranno mantenute per un periodo di tempo ed è possibile chiamare il **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** metodo per contrassegnare un'iterazione come predefinito.
+> Le API 3,0 non usano la funzionalità di iterazione predefinita. Fino a quando non vengono deprecate le API precedenti, è possibile continuare a usare le API 2. x per impostare come predefinita un'iterazione. Queste API verranno mantenute per un periodo di tempo ed è possibile chiamare il metodo **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** per contrassegnare un'iterazione come predefinita.
 
 ### <a name="publish-an-iteration"></a>Pubblicare un'iterazione
 
-Una volta che viene eseguito il training di un'iterazione, è possibile renderla disponibile per la stima utilizzando la **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** (metodo). Per pubblicare un'iterazione, è necessario l'ID di risorsa di stima, disponibile nella pagina Impostazioni del sito Web CustomVision.
+Una volta eseguito il training di un'iterazione, è possibile renderla disponibile per la stima usando il metodo **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** . Per pubblicare un'iterazione, è necessario l'ID della risorsa di stima, disponibile nella pagina delle impostazioni del sito Web CustomVision.
 
-![La pagina Impostazioni sito Web visione artificiale personalizzato con l'ID di risorsa di stima descritto.](./media/update-application-to-3.0-sdk/prediction-id.png)
+![La pagina delle impostazioni del sito Web Visione personalizzata con l'ID della risorsa di stima descritto.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
-> È anche possibile ottenere queste informazioni dal [portale di Azure](https://portal.azure.com) accedendo alla risorsa di stima di visione artificiale personalizzato e selezionando **proprietà**.
+> È anche possibile ottenere queste informazioni dal [portale di Azure](https://portal.azure.com) passando alla risorsa di stima visione personalizzata e selezionando **Proprietà**.
 
-Dopo la pubblicazione dell'iterazione, le app possono usarlo per la stima, specificando il nome nella loro chiamata API per le stime. Per rendere disponibile per le chiamate di stima un'iterazione, usare il **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API.
+Una volta pubblicata l'iterazione, le app possono usarla per la stima specificando il nome nella chiamata dell'API di stima. Per rendere un'iterazione non disponibile per le chiamate di stima, usare l'API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
 
-## <a name="additional-export-options"></a>Altre opzioni di esportazione
+## <a name="additional-export-options"></a>Opzioni di esportazione aggiuntive
 
-Con 3.0 API si sta esponendo altre due destinazioni di esportazione: L'architettura ARM e Kit per sviluppatori di intelligenza artificiale per visione artificiale.
+Con le API 3,0 verranno esposte due destinazioni di esportazione aggiuntive: ARM Architecture e Vision AI Developer Kit.
 
-* Per usare ARM, è sufficiente selezionare un dominio Compact e quindi scegliere file DockerFile e quindi ARM come le opzioni di esportazione.
-* Per visione artificiale per intelligenza artificiale Dev Kit, è necessario creare il progetto con il __generali (Compact)__ dominio, nonché specificando VAIDK nella destinazione di esportazione argomento piattaforme.
+* Per usare ARM, è sufficiente selezionare un dominio compatto, quindi scegliere DockerFile e quindi ARM come opzioni di esportazione.
+* Per Vision AI Dev Kit, il progetto deve essere creato con il dominio __generale (Compact)__ , oltre a specificare VAIDK nell'argomento piattaforme di esportazione di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Documentazione di riferimento API Training (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
-* [Documentazione di riferimento API per le stime (REST)](https://go.microsoft.com/fwlink/?linkid=865445)
+* [Documentazione di riferimento sulle API di training (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
+* [Documentazione di riferimento dell'API di stima (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

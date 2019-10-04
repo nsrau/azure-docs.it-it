@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011368"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036393"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -54,7 +53,7 @@ Nelle macchine virtuali di Azure è possibile concedere in licenza SQL Server us
 
 Con le licenze PAYG, un'istanza del cluster di failover (FCI) di SQL Server nelle macchine virtuali di Microsoft Azure comporta costi per tutti i nodi di FCI, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Per confrontare le licenze PAYG e BYOL per SQL Server nelle macchine virtuali di Azure, consultare [Introduzione alle VM di SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -74,7 +73,7 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 - [Tecnologie cluster di Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-Una differenza importante è che in un cluster di failover guest VM IaaS di Azure, è consigliabile una singola scheda di rete per ogni server (nodo del cluster) e una sola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure. 
+Una differenza importante è che in un cluster di failover di macchine virtuali IaaS di Azure è consigliabile usare una singola scheda di interfaccia di rete per ogni server (nodo del cluster) e una singola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure. 
 
 Inoltre, è necessario avere una conoscenza generale delle tecnologie seguenti:
 
@@ -158,7 +157,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. Dopo aver creato le macchine virtuali di Azure, connettersi a ognuna con RDP.
 
-   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Fare clic su **Sì**.
+   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Scegliere **Sì**.
 
 1. Se si usa un'immagine di macchina virtuale basata su SQL Server, rimuovere l'istanza di SQL Server.
 
@@ -268,11 +267,22 @@ Per creare il cluster di failover è necessario:
 - un nome per il cluster di failover
 - un indirizzo IP per il cluster di failover. È possibile usare un indirizzo IP non usato nella stessa rete virtuale di Azure e nella stessa subnet dei nodi del cluster.
 
-Lo script di PowerShell seguente crea un cluster di failover. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
+#### <a name="windows-server-2008-2016"></a>Windows Server 2008-2016
+
+Il seguente PowerShell crea un cluster di failover per **Windows Server 2008-2016**. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### <a name="windows-server-2019"></a>Windows Server 2019
+
+Il seguente PowerShell crea un cluster di failover per Windows Server 2019.  Per ulteriori informazioni, esaminare il cluster [di failover di Blog: Oggetto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)rete cluster.  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure:
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### <a name="create-a-cloud-witness"></a>Creare un cloud di controllo
 
@@ -399,7 +409,7 @@ Per creare il servizio di bilanciamento del carico:
 
    - **Nome**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
-   - **Porta**: Impostare la porta è stato creato nel firewall per il probe di integrità nel [questo passaggio](#ports). In questo articolo, l'esempio Usa la porta TCP `59999`.
+   - **Porta**: Impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo viene usata la porta `59999`TCP.
    - **Intervallo**: 5 secondi.
    - **Soglia non integra**: 2 errori consecutivi.
 
@@ -416,12 +426,12 @@ Per creare il servizio di bilanciamento del carico:
    - **Nome**: un nome per le regole di bilanciamento del carico.
    - **Indirizzo IP front-end**: usare l'indirizzo IP per la risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    - **Porta**: impostare la porta TCP dell'istanza del cluster di failover di SQL Server. La porta predefinita dell'istanza è 1433.
-   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)**.
+   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)** .
    - **Pool back-end**: usare il nome del pool back-end configurato in precedenza.
    - **Probe di integrità**: usare il probe di integrità configurato in precedenza.
    - **Salvataggio permanente sessione**: No.
-   - **Timeout di inattività (minuti)**: 4.
-   - **IP mobile (Direct Server Return)**: Enabled
+   - **Timeout di inattività (minuti)** : 4.
+   - **IP mobile (Direct Server Return)** : Enabled
 
 1. Fare clic su **OK**.
 
@@ -475,7 +485,7 @@ Testare il failover dell'istanza del cluster di failover per convalidare le funz
 
 In **Gestione cluster di failover** viene visualizzato il ruolo e le relative risorse passano alla modalità offline. Le risorse vengono quindi spostate e portate online nell'altro nodo.
 
-### <a name="test-connectivity"></a>Testare la connettività
+### <a name="test-connectivity"></a>Test della connettività
 
 Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi al nome dell'istanza del cluster di failover di SQL Server.
 

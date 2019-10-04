@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure'
-description: In questo avvio rapido si apprenderà a eseguire una query sui dati e a condividere i dati in Esplora dati di Azure.
+title: "Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web di Esplora dati di Azure"
+description: Questa guida di avvio rapido descrive come eseguire query sui dati e condividere i dati nell'interfaccia utente Web di Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797185"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web di Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Offre un'applicazione Web che consente di eseguire e condividere le query. L'applicazione è disponibile nel portale di Azure e come applicazione Web autonoma. In questo articolo viene usata la versione autonoma, che consente di connettersi a più cluster e di condividere collegamenti diretti alle query.
 
@@ -191,5 +191,4 @@ In questo avvio rapido non sono state create risorse, ma se si vuole rimuovere u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Scrivere query per Esplora dati di Azure](write-queries.md)
+[Scrivere query per Esplora dati di Azure](write-queries.md)

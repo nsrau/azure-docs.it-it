@@ -4,8 +4,8 @@ description: Questo articolo illustra come Centro sicurezza di Azure usa il cont
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: memildin
+ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117987"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201652"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -41,15 +41,15 @@ Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
 La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza. Un simbolo X indica che l'azione è consentita per il ruolo.
 
-| Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
+| Role | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
 |:--- |:---:|:---:|:---:|:---:|
-| Proprietario della sottoscrizione | X | X | X | X |
-| Collaboratore alla sottoscrizione | -- | X | X | X |
-| Proprietario del gruppo di risorse | -- | X | -- | X |
-| Collaboratore del gruppo di risorse | -- | X | -- | X |
-| Reader | -- | -- | -- | X |
-| Amministratore della sicurezza | X | -- | X | X |
-| Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | X |
+| Proprietario della sottoscrizione | x | X | X | x |
+| Collaboratore alla sottoscrizione | -- | x | X | x |
+| Proprietario del gruppo di risorse | -- | x | -- | x |
+| Collaboratore del gruppo di risorse | -- | x | -- | x |
+| Lettore | -- | -- | -- | x |
+| Amministratore della protezione | x | -- | X | x |
+| Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | x |
 
 > [!NOTE]
 > È consigliabile assegnare il ruolo con il minor numero di autorizzazioni che permetta agli utenti di completare le attività. Assegnare ad esempio il ruolo di lettore agli utenti che devono visualizzare solo le informazioni sull'integrità della sicurezza di una risorsa, ma non eseguono alcuna azione, come l'applicazione di consigli e la modifica di criteri.

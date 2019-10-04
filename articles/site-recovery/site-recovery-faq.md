@@ -6,18 +6,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/08/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361352"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491761"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
-Questo articolo riepiloga le domande frequenti su Azure Site Recovery. 
+Questo articolo riepiloga le domande frequenti su Azure Site Recovery.</br>
+Per query specifiche in Azure Site Recovery diversi scenari, vedere uno scenario specifiche domande frequenti.<br>
 
+- [Ripristino di emergenza di macchine Virtuali di Azure in Azure](azure-to-azure-common-questions.md)
+- [Ripristino di emergenza di macchine Virtuali VMware in Azure](vmware-azure-common-questions.md)
+- [Ripristino di emergenza di macchine Virtuali Hyper-V in Azure](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>Generale
 
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
@@ -33,7 +38,7 @@ No, questo scenario non è supportato.
 Sì, Site Recovery supporta i modelli di infrastruttura dedicati e condivisi.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>Per i provider di servizi l'identità del tenant è condivisa con il servizio Site Recovery?
- No. L'identità del tenant rimane anonima. Per i tenant non è necessario l'accesso al portale di Site Recovery. Solo l'amministratore del provider di servizi interagisce con il portale.
+No. L'identità del tenant rimane anonima. Per i tenant non è necessario l'accesso al portale di Site Recovery. Solo l'amministratore del provider di servizi interagisce con il portale.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>I dati delle applicazioni tenant potranno mai essere ricevuti da Azure?
 Quando si esegue la replica tra i siti di proprietà del provider di servizi, i dati delle applicazioni non vengono mai inviati ad Azure. I dati vengono crittografati in transito e replicati direttamente tra i siti del provider di servizi.
@@ -41,7 +46,7 @@ Quando si esegue la replica tra i siti di proprietà del provider di servizi, i 
 Se si esegue la replica in Azure, i dati dell'applicazione vengono inviati all'archiviazione di Azure, ma non al servizio Site Recovery. I dati vengono crittografati in transito e rimangono crittografati in Azure.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>I tenant riceveranno una fattura per ogni servizio Azure?
- No. La fatturazione di Azure avviene direttamente con il provider di servizi. I provider di servizi sono responsabili della generazione di fatture specifiche per i tenant.
+No. La fatturazione di Azure avviene direttamente con il provider di servizi. I provider di servizi sono responsabili della generazione di fatture specifiche per i tenant.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Se si esegue la replica in Azure, è sempre necessario eseguire le macchine virtuali in Azure?
 No, i dati vengono replicati in archiviazione di Azure nella sottoscrizione. Quando si esegue un failover di test (un'analisi del ripristino di emergenza) o un failover effettivo, Site Recovery crea automaticamente macchine virtuali nella sottoscrizione.
@@ -145,7 +150,7 @@ Azure Site Recovery replica i dati a un account di archiviazione di Azure o i di
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Perché non è possibile eseguire la replica su VPN?
 
-Quando esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di una risorsa di archiviazione di Azure. In questo modo è possibile solo eseguire la replica sulla rete internet pubblica con ExpressRoute (peering pubblico) e VPN non è supportata.
+Quando esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di una risorsa di archiviazione di Azure. In questo modo è possibile solo eseguire la replica sulla rete internet pubblica con ExpressRoute (peering Microsoft o un peering pubblico esistente) e VPN non è supportata.
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>È possibile usare Riverbed SteelHeads per la replica?
 
@@ -154,12 +159,11 @@ Il nostro partner, Riverbed, include indicazioni dettagliate sull'uso di Azure S
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>È possibile usare ExpressRoute per replicare macchine virtuali in Azure?
 Sì, [è possibile](concepts-expressroute-with-site-recovery.md).
 
-- Azure Site Recovery replica i dati a una risorsa di archiviazione di Azure su un endpoint pubblico. Per usare ExpressRoute per la replica con Site Recovery, è necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering) o il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering).
+- Azure Site Recovery replica i dati a una risorsa di archiviazione di Azure su un endpoint pubblico. È necessario configurare [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) oppure usare un oggetto esistente [peering pubblico di](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecato per i circuiti nuovo) per usare ExpressRoute per la replica di Site Recovery.
 - Il peering Microsoft è il dominio di routing consigliato per la replica.
-- Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering) con la rete virtuale di Azure.
 - La replica non è supportata su peering privato.
-- Se si proteggono macchine VMware o computer fisici, assicurarsi che il server di configurazione conforme [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per la replica. 
-
+- Se si proteggono macchine VMware o computer fisici, assicurarsi che il [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per Server di configurazione vengono soddisfatte. Dal Server di configurazione è necessaria una connessione a URL specifici per l'orchestrazione della replica di Site Recovery. Non è possibile usare ExpressRoute per la connettività.
+- Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering) con la rete virtuale di Azure.
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se si esegue la replica in Azure, il tipo di account di archiviazione o un disco gestito è necessario?

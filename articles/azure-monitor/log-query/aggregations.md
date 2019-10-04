@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602723"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregazioni nelle query dei log di Monitoraggio di Azure
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Valutazione di sottogruppi
-Per eseguire un conteggio o altre aggregazioni in sottogruppi dei dati, usare la parola chiave `by`. Ad esempio, per contare il numero di computer Linux distinti che hanno inviato heartbeat in ogni paese:
+Per eseguire un conteggio o altre aggregazioni in sottogruppi dei dati, usare la parola chiave `by`. Ad esempio, per contare il numero di computer Linux distinti che hanno inviato heartbeat in ogni paese/area geografica:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |Paesi Bassi      | 2                   |
 
 
-Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Può ad esempio essere necessario contare i computer distinti di ogni paese in base al tipo di sistema operativo:
+Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, si potrebbe voler contare i computer da ogni paese/area geografica per OSType distinti:
 
 ```Kusto
 Heartbeat 

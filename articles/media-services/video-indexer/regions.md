@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8c1d51c2bb6062f1360c831549e523a5821ff14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 404aaf91c0cb30df0a83353ef7397987ec3f8e80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799421"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 

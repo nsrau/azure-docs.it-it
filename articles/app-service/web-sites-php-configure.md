@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65408902"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurare PHP in Servizio app di Azure
 
@@ -35,15 +35,11 @@ Sono anche disponibili le versioni PHP 7.0 e PHP 7.2, che però non sono abilita
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Passare all'app nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Impostazioni**.
+1. Passare all'app nel [portale di Azure](https://portal.azure.com) e scorrere fino alle **configurazione** pagina.
 
-    ![Impostazioni app][settings-button]
-2. Dal pannello **Impostazioni** selezionare **Impostazioni applicazione** e scegliere la nuova versione di PHP.
+2. Dal **Configuration**, selezionare **impostazioni generali** e scegliere la nuova versione PHP.
 
-    ![Impostazioni dell'applicazione][application-settings]
-3. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni applicazione**.
-
-    ![Salvare le impostazioni di configurazione][save-button]
+3. Fare clic sui **salvare** nella parte superiore del **impostazioni generali** pannello.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (solo Windows).
 
@@ -130,18 +126,12 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 ### <a name="configure-via-app-setting"></a>Configurare tramite impostazione dell'applicazione
 
 1. Aggiungere una `bin` directory alla directory radice.
-1. Inserire i file con estensione `.dll` nella directory `bin` (ad esempio `php_xdebug.dll`). Verificare che le estensioni siano compatibili con la versione predefinita di PHP e con VC9 e non thread-safe (nts).
-2. Distribuire l'app.
-3. Passare all'app nel portale di Azure e fare clic sul pulsante **Impostazioni**.
-
-    ![Impostazioni app][settings-button]
-4. Dal pannello **Impostazioni** selezionare **Impostazioni applicazione** e scorrere fino alla sezione **Impostazioni app**.
-5. Nella sezione **Impostazioni app** creare una chiave **PHP_EXTENSIONS**. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
-
-    ![Abilitare le estensioni nelle impostazioni app][php-extensions]
-6. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni applicazione**.
-
-    ![Salvare le impostazioni di configurazione][save-button]
+2. Inserire i file con estensione `.dll` nella directory `bin` (ad esempio `php_xdebug.dll`). Verificare che le estensioni siano compatibili con la versione predefinita di PHP e con VC9 e non thread-safe (nts).
+3. Distribuire l'app.
+4. Passare all'app nel portale di Azure e fare clic sui **Configuration** che si trova sotto **impostazioni** sezione.
+5. Dal **Configuration** blade, selezionare **le impostazioni dell'applicazione**.
+6. Nel **le impostazioni dell'applicazione** sezione, fare clic su **+ nuova impostazione dell'applicazione** e creare un **PHP_EXTENSIONS** chiave. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
+7. Fare clic sui **Update** pulsante nella parte inferiore, quindi fare clic su **salvare** sopra il **le impostazioni dell'applicazione** scheda.
 
 Con l'uso di una chiave **PHP_ZENDEXTENSIONS** sono supportate anche le estensioni Zend. Per abilitare più estensioni, includere un elenco separato da virgole di `.dll` file per il valore dell'impostazione dell'app.
 
@@ -154,15 +144,11 @@ Invece del runtime PHP predefinito, Servizio app può usare un runtime PHP forni
 3. Facoltativamente, aggiungere le estensioni al proprio runtime PHP e abilitarle nel file `php.ini` .
 4. Aggiungere una directory `bin` alla propria directory radice e inserirvi la directory contenente il proprio runtime PHP (ad esempio, `bin\php`).
 5. Distribuire l'app.
-6. Passare all'app nel portale di Azure e fare clic sul pulsante **Impostazioni**.
-
-    ![Impostazioni app][settings-button]
-7. Dal pannello **Impostazioni** selezionare **Impostazioni applicazione** e scorrere fino alla sezione **Mapping del gestore**. Aggiungere `*.php` al campo Estensione e aggiungere il percorso dell'eseguibile `php-cgi.exe`. Se si inserisce il proprio runtime PHP nella directory `bin` nella radice dell'applicazione, il percorso è `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Specificare il gestore nei mapping del gestore][handler-mappings]
-8. Fare clic sul pulsante **Salva** all'inizio del pannello **Impostazioni applicazione**.
-
-    ![Salvare le impostazioni di configurazione][save-button]
+6. Passare all'app nel portale di Azure e fare clic sui **configurazione** pannello.
+8. Dal **Configuration** blade, selezionare **mapping tra i percorsi**. 
+9. Fare clic su **+ nuovo gestore** e aggiungere `*.php` al campo estensione e aggiungere il percorso per il `php-cgi.exe` eseguibile nel **processore Script**. Se si inserisce il proprio runtime PHP nella directory `bin` nella radice dell'applicazione, il percorso è `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Nella parte inferiore, fare clic su **Update** per completare l'aggiunta di mapping del gestore.
+11. Fare clic su **Salva** per salvare le modifiche.
 
 <a name="composer" />
 
@@ -195,9 +181,9 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://a
 [valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo ()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Lista delle direttive php.ini]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[Lista delle direttive php.ini]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

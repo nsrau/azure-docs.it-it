@@ -3,17 +3,17 @@ title: Configurare gli endpoint del nodo nel pool di Azure Batch | Microsoft Doc
 description: Come configurare o disabilitare l'accesso alle porte SSH o RDP nei nodi di calcolo in un pool di Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457616"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322464"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch
 
@@ -27,7 +27,7 @@ La configurazione dell'endpoint è costituita da uno o più [pool Network Addres
 Ogni configurazione del pool NAT include una o più [regole del gruppo di sicurezza di rete](/rest/api/batchservice/pool/add#networksecuritygrouprule). Ogni regola del gruppo di sicurezza di rete consente o rifiuta un determinato traffico di rete all'endpoint. È possibile scegliere di consentire o rifiutare tutto il traffico, il traffico identificato da un [tag del servizio](../virtual-network/security-overview.md#service-tags), ad esempio "Internet", o il traffico proveniente da specifici indirizzi IP o subnet.
 
 ### <a name="considerations"></a>Considerazioni
-* La configurazione dell'endpoint del pool fa parte della [configurazione di rete](/rest/api/batchservice/pool/add#NetworkConfiguration) del pool. La configurazione di rete può includere facoltativamente impostazioni per aggiungere il pool a una [rete virtuale di Azure](batch-virtual-network.md). Se si configura il pool in una rete virtuale, è possibile creare le regole del gruppo di sicurezza di rete che usano le impostazioni dell'indirizzo nella rete virtuale.
+* La configurazione dell'endpoint del pool fa parte della [configurazione di rete](/rest/api/batchservice/pool/add#networkconfiguration) del pool. La configurazione di rete può includere facoltativamente impostazioni per aggiungere il pool a una [rete virtuale di Azure](batch-virtual-network.md). Se si configura il pool in una rete virtuale, è possibile creare le regole del gruppo di sicurezza di rete che usano le impostazioni dell'indirizzo nella rete virtuale.
 * Quando si configura un pool NAT, è possibile configurare più regole del gruppo di sicurezza di rete. Le regole vengono controllate in ordine di priorità. Dopo che è stata applicata una regola, non viene verificata la corrispondenza di altre regole.
 
 
@@ -53,7 +53,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 Il frammento di codice Python seguente mostra come configurare l'endpoint SSH sui nodi di calcolo in un pool di Linux per rifiutare tutto il traffico di rete. L'endpoint usa un pool front-end di porte compreso nell'intervallo *4000 - 4100*. 
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -63,14 +63,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                source_address_prefix='Internet'
+                    priority=170,
+                    access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                    source_address_prefix='Internet'
                 )
             ]
         )
         ]
-    ) 
+    )
 )
 ```
 
@@ -97,7 +97,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 Il frammento di codice Python seguente mostra come configurare l'endpoint SSH sui nodi di calcolo in un pool di Linux per consentire l'accesso solo dalla subnet *192.168.1.0/24*. La seconda regola del gruppo di sicurezza di rete rifiuta il traffico che non corrisponde alla subnet.
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -107,14 +107,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access='allow',
-                source_address_prefix='192.168.1.0/24'
+                    priority=170,
+                    access='allow',
+                    source_address_prefix='192.168.1.0/24'
                 ),
                 batchmodels.NetworkSecurityGroupRule(
-                priority=175,
-                access='deny',
-                source_address_prefix='*'
+                    priority=175,
+                    access='deny',
+                    source_address_prefix='*'
                 )
             ]
         )

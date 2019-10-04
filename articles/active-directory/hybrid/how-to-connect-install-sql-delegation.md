@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243525"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL
@@ -31,7 +31,7 @@ Con la versione più recente di Azure AD Connect, l'amministratore SQL può ora 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per usare questa funzionalità, è necessario comprendere che interessa molti elementi e potrebbe coinvolgere un amministratore diverso dell'organizzazione.  La tabella seguente riepiloga i singoli ruoli e le rispettive responsabilità nella distribuzione di Azure AD Connect con questa funzionalità.
 
-|Ruolo|DESCRIZIONE|
+|Ruolo|Descrizione|
 |-----|-----|
 |Amministratore del dominio o della foresta di Active Directory|Crea l'account del servizio a livello di dominio usato da Azure AD Connect per eseguire il servizio di sincronizzazione.  Per altre informazioni sugli account del servizio, vedere [Account e autorizzazioni](reference-connect-accounts-permissions.md).
 |Amministratore SQL|Crea il database di ADSync e concede l'accesso di tipo accesso e proprietario del database all'account dell'amministratore e all'account del servizio creati dall'amministratore del dominio o della foresta.|
@@ -44,7 +44,7 @@ Per effettuare il provisioning del database fuori banda e installare Azure AD Co
 >Benché non sia necessario, è **decisamente consigliabile** selezionare le regole di confronto Latin1_General_CI_AS durante la creazione del database.
 
 
-1. Richiedere all'amministratore SQL di creare il database di ADSync con una sequenza di regole di confronto che non rispettano la distinzione tra maiuscole e minuscole **(Latin1_General_CI_AS)**.  Il database deve essere denominato **ADSync**.  Il modello di ripristino, il livello di compatibilità e il tipo di contenimento vengono aggiornati ai valori corretti durante l'installazione di Azure AD Connect.  La sequenza di regole di confronto deve essere configurata correttamente dall'amministratore SQL. In caso contrario, Azure AD Connect bloccherà l'installazione.  Per riprendere l'installazione, l'amministratore del server deve eliminare e creare di nuovo il database.
+1. Richiedere all'amministratore SQL di creare il database di ADSync con una sequenza di regole di confronto che non rispettano la distinzione tra maiuscole e minuscole **(Latin1_General_CI_AS)** .  Il database deve essere denominato **ADSync**.  Il modello di ripristino, il livello di compatibilità e il tipo di contenimento vengono aggiornati ai valori corretti durante l'installazione di Azure AD Connect.  La sequenza di regole di confronto deve essere configurata correttamente dall'amministratore SQL. In caso contrario, Azure AD Connect bloccherà l'installazione.  Per riprendere l'installazione, l'amministratore del server deve eliminare e creare di nuovo il database.
  
    ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
 2. Concedere all'amministratore di Azure AD Connect e all'account del servizio di dominio le autorizzazioni seguenti:

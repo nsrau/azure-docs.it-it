@@ -4,23 +4,22 @@ description: Informazioni su come installare MySQL in una macchina virtuale Open
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: za-rhoads
-ms.openlocfilehash: 19f53449e21b39eb212f94b100eaf5d26ca4cf13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: cynthn
+ms.openlocfilehash: 891eade6aaaf8db9813566d10cdceed113560dc7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006659"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091885"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -137,7 +136,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 Il punto e virgola (;) alla fine della riga è essenziale per la conclusione del comando.
 
 
-## <a name="create-a-database"></a>Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 
 Creare un database e concedere le autorizzazioni all'utente `mysqluser`.

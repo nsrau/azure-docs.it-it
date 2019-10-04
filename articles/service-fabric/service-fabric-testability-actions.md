@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544798"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
 Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.
@@ -37,7 +37,7 @@ Le azioni di Testabilità sono classificate in due bucket principali:
 Per una convalida migliore in termini di qualità, eseguire il carico di lavoro del servizio e del business, includendo diversi errori normali e anomali. Gli errori anomali danno luogo a scenari in cui il processo di servizio si chiude improvvisamente nel corso di un flusso di lavoro. Ciò consente di verificare il percorso di ripristino una volta che Service Fabric ripristina la replica del servizio. Ciò consentirà di verificare la coerenza dei dati e se lo stato del servizio viene conservato correttamente dopo gli errori. L'altro set di errori, ovvero gli errori normali, verifica che il servizio risponda correttamente alle repliche spostate da Service Fabric. Ciò consente di verificare la gestione dell'annullamento nel metodo RunAsync. Il servizio deve controllare che il token di annullamento sia impostato, salvarne correttamente lo stato e chiudere il metodo RunAsync.
 
 ## <a name="testability-actions-list"></a>Elenco delle azioni di Testabilità
-| Azione | DESCRIZIONE | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
+| Azione | Descrizione | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Rimuove lo stato di tutti i test dal cluster in caso di arresto anomalo del driver di test. |CleanTestStateAsync |Remove-ServiceFabricTestState |Non applicabile |
 | InvokeDataLoss |Provoca la perdita di dati in una partizione del servizio. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normale |

@@ -1,31 +1,31 @@
 ---
-title: Effettuare il push di un'immagine Docker in un registro contenitori di Azure privato
+title: Effettuare il push di un'immagine Docker in un Registro Azure Container privato
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282696"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309437"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
-Un registro di contenitori di Azure archivia e gestisce le immagini dei contenitori [Docker](https://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
+Un registro Azure Container archivia e gestisce le immagini dei contenitori [Docker](https://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. È possibile usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro contenitori.
 
-La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il registro contenitori di Azure privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
+La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il Registro Azure Container privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Registro Azure Container**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
+* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][docker-linux] .
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
 
@@ -62,7 +62,7 @@ Eseguire quindi il comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Passare a `http://localhost:8080` per visualizzare la pagina web predefinita servita da Nginx nel contenitore in esecuzione. Verrà visualizzata una pagina simile alla seguente:
+Passare a `http://localhost:8080` per visualizzare la pagina Web predefinita servita da nginx nel contenitore in esecuzione. Verrà visualizzata una pagina simile alla seguente:
 
 ![Nginx sul computer locale](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -116,7 +116,7 @@ Se l'immagine di Nginx non è più necessaria, è possibile eliminarla in locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Per rimuovere le immagini dal registro contenitori di Azure, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Il comando seguente, ad esempio, elimina il manifesto a cui fa riferimento il tag `samples/nginx:latest`, tutti i dati di livello univoci e tutti gli altri tag che fanno riferimento al manifesto.
+Per rimuovere le immagini dal Registro Azure Container, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Il comando seguente, ad esempio, elimina il manifesto a cui fa riferimento il tag `samples/nginx:latest`, tutti i dati di livello univoci e tutti gli altri tag che fanno riferimento al manifesto.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest

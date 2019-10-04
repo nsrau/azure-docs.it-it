@@ -1,32 +1,29 @@
 ---
-title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Vault tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: 'Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault'
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
-ms.openlocfilehash: 8065f670da6614db8c3524fd351a31ad095f8257
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.custom: mvc, seo-javascript-september2019
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 70c450304c13a5c4b453226140ae699e0cabda19
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113040"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744762"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure con comandi o script. In questa guida introduttiva viene creata un'istanza di Key Vault. Successivamente verrà archiviato un segreto.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
@@ -36,7 +33,7 @@ Per accedere ad Azure usando l'interfaccia della riga di comando è possibile di
 az login
 ```
 
-Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Per altre informazioni sulle opzioni di accesso con l'interfaccia della riga di comando, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -96,7 +93,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di Key Vault nella quale è stato archiviato un segreto. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
+In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
-> [!div class="nextstepaction"]
-> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità gestite per le risorse di Azure, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](quick-create-net.md)
+- Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
+- Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault?view=azure-cli-latest)
+- Vedere le informazioni su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

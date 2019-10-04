@@ -3,8 +3,8 @@ title: Un'applicazione assegnata non viene visualizzata nel pannello di accesso 
 description: Risolvere il problema relativo alla mancata visualizzazione di un'applicazione nel pannello di accesso
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294022"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272755"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Un'applicazione assegnata non viene visualizzata nel pannello di accesso
 
@@ -399,7 +399,7 @@ Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa proced
 
 Dopo un breve periodo di tempo, sarà possibile visualizzare il riquadro di configurazione dell'applicazione.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurare l'applicazione per un accesso Single Sign-On basato su password
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> Configurare l'applicazione per single sign-on basato su password
 
 Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 

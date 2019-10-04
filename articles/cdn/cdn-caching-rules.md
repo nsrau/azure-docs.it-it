@@ -6,19 +6,19 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d4ab3ca32f229e92ae6bae5906c6c70593e9f9d3
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259738"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594046"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 
@@ -113,7 +113,7 @@ Quando queste regole sono impostate, una richiesta per  _&lt;nome host dell'endp
 > - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Verizon** viene in genere completata entro 10 minuti.  
 >
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Funzionamento della memorizzazione nella cache](cdn-how-caching-works.md)
 - [Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure](cdn-caching-rules-tutorial.md)

@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356830"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744414"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Guida introduttiva: Ripristinare un database in un'istanza gestita
 
@@ -38,6 +37,7 @@ La guida introduttiva:
 - Richiede l'uso di SSMS per connettersi all'istanza gestita. Per informazioni su come effettuare la connessione, vedere queste guide introduttive:
   - [Connessione a un'Istanza gestita di database SQL di Azure da una macchina virtuale di Azure](sql-database-managed-instance-configure-vm.md)
   - [Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
+- Richiede un account di Archiviazione BLOB di Azure, ad esempio Standard_LRS V2, su un **indirizzo IP pubblico** protetto con **credenziali SAS** con autorizzazione `rw`. Gli [indirizzi IP privati per l'archiviazione BLOB protetti da firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e gli endpoint del servizio Archiviazione BLOB di Azure non sono attualmente supportati.
 
 > [!NOTE]
 > Per altre informazioni sul backup e sul ripristino di un database di SQL Server con l'archivio BLOB di Azure e una [chiave di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), vedere l'articolo relativo al [backup di SQL Server in un URL](sql-database-managed-instance-get-started-restore.md).

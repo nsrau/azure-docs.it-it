@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119810"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -247,7 +247,7 @@ In una sottoscrizione di Azure viene eseguita la fatturazione. Ogni risorsa di A
 ## <a name="system-properties"></a>Proprietà di sistema
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà di sistema sono di sola lettura e includono informazioni riguardanti l'uso dei dispositivi, ad esempio lo stato della connessione e l'ora dell'ultima attività.
 
-## <a name="tags"></a>Tag
+## <a name="tags"></a>`Tags`
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), i tag sono metadati del dispositivo archiviati e recuperati dal back-end della soluzione in forma di documento JSON. I tag non sono visibili alle app in un dispositivo.
 
 ## <a name="telemetry"></a>Telemetria

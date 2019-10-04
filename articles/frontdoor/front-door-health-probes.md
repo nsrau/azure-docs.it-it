@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988564"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742398"
 ---
-# <a name="health-probes"></a>Probe di integrità
+# <a name="health-probes"></a>Probe integrità
 
-Per determinare l'integrità di ogni back-end, ogni ambiente Frontdoor invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali.
+Per determinare l'integrità di ogni back-end, ogni ambiente Frontdoor invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali. Si noti che poiché la porta anteriore presenta molti ambienti perimetrali a livello globale, il volume delle richieste di probe di integrità per i backend può essere più alto di una richiesta al secondo dipende dalla frequenza del probe di integrità configurata. 
+
 
 
 ## <a name="supported-protocols"></a>Protocolli supportati
@@ -29,7 +30,7 @@ Frontdoor supporta l'invio di probe tramite i protocolli HTTP o HTTPS. Questi pr
 
 ## <a name="health-probe-responses"></a>Risposte del probe di integrità
 
-| Risposte  | DESCRIZIONE | 
+| Responses  | Descrizione | 
 | ------------- | ------------- |
 | Determinazione dell'integrità  |  Il codice di stato 200 OK indica che il back-end è integro. Tutti gli altri codici vengono considerati errori. Se per qualsiasi motivo, compreso un errore di rete, non viene ricevuta una risposta HTTP valida per un probe, il probe viene conteggiato come errore.|
 | Misurazione della latenza  | La latenza è il tempo misurato dal momento immediatamente prima dell'invio della richiesta del probe al momento in cui viene ricevuto l'ultimo byte della risposta. Viene usata una nuova connessione TCP per ogni richiesta, in modo tale che questa misurazione non venga influenzata dai back-end con connessioni esistenti a caldo.  |
@@ -58,5 +59,5 @@ Una volta che tutti i back-end tornano a uno stato integro, Frontdoor riprender�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [come creare un Frontdoor](quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

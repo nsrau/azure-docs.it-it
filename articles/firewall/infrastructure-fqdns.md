@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 1369a82829b2c80768d746ba92daf2482c1fd7f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5b134058e1924bae030338411226a9a6aff46557
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994140"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130211"
 ---
 # <a name="infrastructure-fqdns"></a>FQDN dell'infrastruttura
 
@@ -23,7 +23,6 @@ La raccolta di regole predefinite include i servizi seguenti:
 - Accesso di calcolo al repository di immagini della piattaforma di archiviazione
 - Accesso alle risorse di archiviazione per lo stato dei dischi gestiti
 - Diagnostica di Azure e registrazione (MDS)
-- Azure Active Directory
 
 ## <a name="overriding"></a>Override 
 

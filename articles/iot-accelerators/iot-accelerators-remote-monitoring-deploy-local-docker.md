@@ -3,17 +3,17 @@ title: Distribuire localmente la soluzione di monitoraggio remoto - Docker - Azu
 description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite Docker a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967533"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - Docker
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un 
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 

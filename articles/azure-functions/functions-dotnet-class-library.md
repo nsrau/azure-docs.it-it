@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896160"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254646"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -29,16 +29,16 @@ Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per mat
 Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 
 * [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md)
-* [Strumenti di Visual Studio 2017 per Funzioni di Azure](functions-develop-vs.md)
+* [Strumenti di Visual Studio 2019 per funzioni di Azure](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
 In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto di libreria di classi C# contenente i file seguenti:
 
 * [host.json](functions-host-json.md): archivia le impostazioni di configurazione che interessano tutte le funzioni del progetto quando vengono eseguite nell'ambiente locale o in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. È invece necessario [aggiungere le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Aggiungere invece [le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
 
-Quando si compila il progetto viene generata una struttura di cartelle simile alla seguente nella directory di output di compilazione:
+Quando si compila il progetto, nella directory di output di compilazione viene generata una struttura di cartelle simile all'esempio seguente:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ Quando si compila il progetto viene generata una struttura di cartelle simile al
  | - host.json
 ```
 
-Questa directory viene distribuita all'app per le funzioni in Azure. Le estensioni di associazione necessarie nella [versione 2.x](functions-versions.md) del runtime di Funzioni vengono [aggiunte al progetto come pacchetti NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Questa directory viene distribuita all'app per le funzioni in Azure. Le estensioni di associazione necessarie nella [versione 2.x](functions-versions.md) del runtime di Funzioni vengono [aggiunte al progetto come pacchetti NuGet](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
 > Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per informazioni su come disabilitare una funzione, vedere [Come disabilitare le funzioni](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri e caratteri `_` e `-`, fino a 127 caratteri. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, `_`numeri, `-`e, fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
@@ -133,7 +133,7 @@ Il processo di compilazione crea un file *function.json* in una cartella della f
 
 Lo scopo di questo file è fornire informazioni che il controller di scalabilità userà per [decisioni di scalabilità nel piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
 
-Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ad esempio:
+Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Di seguito è riportato un esempio:
 
 ```json
 {
@@ -181,7 +181,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 </ItemGroup>
 ```
 
-Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1.x fa riferimento a trigger e associazioni 1.x perché questi hanno come destinazione .NET Framework, mentre i trigger e le associazioni 2.x hanno come destinazione .NET Core.
+Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1. x fa riferimento a trigger e binding 1. x perché i trigger e le associazioni sono destinati alla .NET Framework, mentre i trigger e le associazioni 2. x hanno come destinazione .NET Core.
 
 Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
 
@@ -344,7 +344,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili supporta ad esempio [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con l'associazione imperativa.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [\<ICollector t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio: 
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

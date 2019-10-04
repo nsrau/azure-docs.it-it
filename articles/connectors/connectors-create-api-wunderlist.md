@@ -11,12 +11,12 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230168"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050655"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitorare e gestire Wunderlist con App per la logica di Azure
 
@@ -31,7 +31,7 @@ Con App per la logica di Azure e il connettore Wunderlist, è possibile creare a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Account Wunderlist e credenziali utente
 
@@ -61,7 +61,7 @@ Con App per la logica di Azure e il connettore Wunderlist, è possibile creare a
        -oppure-
 
      * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
-     Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+     Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca, digitare "wunderlist" come filtro. 
        Nell'elenco delle azioni selezionare l'azione desiderata.

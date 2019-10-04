@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo stampato - REST, JavaScript'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fc755c888d2f5affd755ea8de8febcdf0a49663f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 443dedd23b6b4c2dd2514a3f7080bdeb30522a14
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892694"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137795"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST e JavaScript in Visione artificiale
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST Visione artificiale e JavaScript
 
 In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -26,17 +26,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da analizzare.
+1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da analizzare.
 1. Salvare il codice in un file con estensione `.html`. Ad esempio: `get-printed-text.html`.
 1. Aprire una finestra del browser.
 1. Trascinare e rilasciare il file nella finestra del browser.
@@ -57,19 +54,11 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr";
+        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        
+        var uriBase = endpoint + "vision/v2.0/ocr";
 
         // Request parameters.
         var params = {

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763164"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965737"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -62,7 +64,7 @@ La tabella seguente illustra alcune differenze chiave tra l'appliance cloud Stor
 
 |  | Dispositivo fisico | Appliance cloud |
 | --- | --- | --- |
-| **Posizione** |Si trova nel data center. |Viene eseguito in Azure. |
+| **Location** |Si trova nel data center. |Viene eseguito in Azure. |
 | **Interfacce di rete** |Ha sei interfacce di rete: da DATA 0 a DATA 5. |Ha una sola interfaccia di rete: DATA 0. |
 | **Registrazione** |La registrazione viene eseguita durante il passaggio della configurazione iniziale. |La registrazione è un'attività separata. |
 | **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |

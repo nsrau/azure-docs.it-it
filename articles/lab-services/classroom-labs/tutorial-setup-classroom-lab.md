@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 66293d6d6d0e15af7d879e6784d85f9e85457aad
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 964ecca015e440439885bbbd85cb720a3abd10a9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544331"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883506"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -43,12 +43,12 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
 3. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
     1. Specificare un **nome** per il lab. 
-    2. Specificare il **numero massimo di macchine virtuali** nel lab. È possibile aumentare o diminuire il numero di VM dopo aver creato il lab oppure in un lab esistente. Per altre informazioni, vedere [Aggiornare il numero di VM in un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
+    2. Specificare il **numero massimo di macchine virtuali** nel lab. È possibile aumentare o ridurre il numero di macchine virtuali dopo aver creato il lab o in un lab esistente. Per altre informazioni, vedere [Aggiornare il numero di VM in un lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selezionare **Salva**.
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Nella pagina **Select virtual machine specifications** (Seleziona le specifiche delle macchine virtuali) eseguire le operazioni seguenti:
-    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente, sono consentite dimensioni **piccole**, **medie**, **grandi** e **GPU**.
+    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente, sono consentite dimensioni **piccole**, **medie**, **medie (virtualizzazione)** , **grandi** e **GPU**.
     3. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione per abilitare la connessione Desktop remoto. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
     4. Selezionare **Avanti**.
 
@@ -59,7 +59,7 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
         > [!IMPORTANT]
         > Prendere nota del nome utente e della password perché non verranno più visualizzati.
-    3. Selezionare **Create**. 
+    3. Selezionare **Create** (Crea). 
 
         ![Impostare le credenziali](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. Nella pagina **Configure template** (Configura modello) viene visualizzato lo stato del processo di creazione del lab. La creazione del modello nel lab richiede fino a 20 minuti. 
@@ -69,9 +69,11 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Nella pagina **Configure template** (Configura modello) procedere come segue: Questi passaggi sono **facoltativi** per l'esercitazione.
-    1. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se si tratta di una macchina virtuale modello di Linux, scegliere se si vuole effettuare la connessione con SSH o RDP (se RDP è abilitato).
-    2. Installare e configurare il software nella macchina virtuale modello.     
-    3. Immettere una **descrizione** per il modello.
+    2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se si tratta di una macchina virtuale modello di Linux, scegliere se si vuole effettuare la connessione con SSH o RDP (se RDP è abilitato).
+    1. Selezionare **Reset password** (Reimposta password) per reimpostare la password per la macchina virtuale. 
+    1. Installare e configurare il software nella macchina virtuale modello. 
+    1. **Arrestare** la VM.  
+    1. Immettere una **descrizione** per il modello.
 9. Selezionare **Next** (Avanti) nella pagina del modello. 
 10. Nella pagina **Publish the template** (Pubblica il modello) eseguire le azioni seguenti. 
     1. Per pubblicare il modello immediatamente, selezionare **Publish** (Pubblica).  
@@ -107,6 +109,40 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Impostare quote per gli utenti
+È possibile impostare quote per utente usando la procedura seguente: 
+
+1. Selezionare **Users** (Utenti) nel menu a sinistra se la pagina non è già attiva. 
+2. Selezionare **Quota per user (Quota per utente): 10 hours** (10 ore) sulla barra degli strumenti. 
+3. Nella pagina **Quote per user** (Quota per utente) specificare il numero di ore da assegnare a ogni utente (studente): 
+    1. **Total number of lab hours per user** (Numero totale di ore lab per utente). Gli utenti possono usare le proprie macchine virtuali per il numero di ore specificato (indicato in questo campo), **in aggiunta all'orario pianificato**. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
+
+        ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 hours (schedule only)** (0 ore - solo pianificazione). Gli utenti possono usare le proprie macchine virtuali durante l'orario pianificato oppure quando il proprietario del lab attiva le macchine virtuali per loro.
+
+        ![Zero ore - solo orario pianificato](../media/how-to-configure-student-usage/zero-hours.png)
+    4. Selezionare **Salva**. 
+5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;** . 
+
+    ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
+Se è stata configurata per l'impostazione della quota l'opzione **0 hours (schedule only)** (0 ore, solo pianificazione), è necessario impostare una pianificazione per il lab. In questa esercitazione viene impostata una pianificazione settimanale ricorrente.
+
+1. Passare alla pagina **Pianificazioni** e selezionare **Aggiungi pianificazione** sulla barra degli strumenti. 
+
+    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](../media/how-to-create-schedules/add-schedule-button.png)
+2. Nella pagina **Aggiungi pianificazione** passare a **Settimanale** nella parte superiore. 
+3. In **Schedule days (required)** (Giorni pianificazione - obbligatori) selezionare i giorni in cui la pianificazione deve essere effettiva. Nell'esempio seguente sono selezionati i giorni compresi tra lunedì e venerdì. 
+4. Nel campo **Da** immettere la **data di inizio della pianificazione** o selezionare una data facendo clic sul pulsante del **calendario**. Questo campo è obbligatorio. 
+5. In **Schedule end date** (Data fine pianificazione) immettere o selezionare una data di fine in cui arrestare le macchine virtuali. 
+6. In **Ora di inizio** selezionare l'ora in cui le macchine virtuali devono essere avviate. L'ora di inizio è obbligatoria se non è impostata l'ora di arresto. Selezionare **Remove start event** (Rimuovi evento di avvio) per specificare solo l'ora di arresto. Se l'**ora di inizio** è disabilitata, selezionare **Add start event** (Aggiungi evento di avvio) accanto all'elenco a discesa per abilitarla. 
+7. In **Ora di arresto** selezionare l'ora in cui le macchine virtuali devono arrestate. L'ora di arresto è obbligatoria se non è impostata l'ora di inizio. Selezionare **Remove stop event** (Rimuovi evento di arresto) per specificare solo l'ora di arresto. Se l'**ora di arresto** è disabilitata, selezionare **Add stop event** (Aggiungi evento di arresto) accanto all'elenco a discesa per abilitarla.
+8. In **Time zone (required)** (Fuso orario - obbligatorio) selezionare il fuso orario per le ore di inizio e di arresto specificate.  
+9. In **Note** immettere la descrizione o le note per la pianificazione. 
+10. Selezionare **Salva**. 
+
+    ![Pianificazione settimanale](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Inviare un messaggio di posta elettronica con il collegamento per la registrazione
 

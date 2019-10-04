@@ -5,15 +5,15 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762600"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617002"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Usare l'account Azure Cosmos
 
@@ -21,11 +21,11 @@ Azure Cosmos DB è una piattaforma completamente gestita distribuita come serviz
 
 L'account Azure Cosmos è l'unità fondamentale della distribuzione globale e della disponibilità elevata. Per la distribuzione a livello globale dei dati e della velocità effettiva tra più aree di Azure, è possibile aggiungere e rimuovere aree di Azure all'account Azure Cosmos in qualsiasi momento. È possibile configurare l'account Azure Cosmos per una o più aree di scrittura. Per altre informazioni, vedere [Come aggiungere e rimuovere aree di Azure per l'account Azure Cosmos](how-to-manage-database-account.md). È possibile configurare il [livello di coerenza predefinito](consistency-levels.md) nell'account Azure Cosmos. Azure Cosmos DB offre contratti di servizio completi che includono velocità effettiva, latenza al 99° percentile, coerenza e disponibilità elevata. Per altre informazioni, vedere [Contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Per gestire in modo sicuro l'accesso a tutti i dati all'interno dell'account Azure Cosmos, è possibile usare la [chiavi master](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio rete virtuale](vnet-service-endpoint.md) e [firewall IP](firewall-support.md) nell'account Azure Cosmos. 
+Per gestire in modo sicuro l'accesso a tutti i dati nell'account Azure Cosmos, è possibile usare le [chiavi master](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio VNET](vnet-service-endpoint.md) e [IP-Firewall](firewall-support.md) nell'account Azure Cosmos. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementi nell'account Azure Cosmos
 
-Il contenitore di Azure Cosmos DB è l'unità fondamentale di scalabilità. È possibile ottenere archiviazione e unità elaborate supportate per il provisioning (UR/s) praticamente illimitate in un contenitore. Azure Cosmos DB partiziona in modo trasparente il contenitore usando la chiave di partizione logica specificata per ridimensionare in modo elastico l'archiviazione e le unità elaborate supportate per il provisioning. Per altre informazioni, vedere [Working with Azure Cosmos containers and items](databases-containers-items.md) (Uso di contenitori ed elementi di Azure Cosmos).
+Azure Cosmos container è l'unità di base della scalabilità. È possibile ottenere archiviazione e unità elaborate supportate per il provisioning (UR/s) praticamente illimitate in un contenitore. Azure Cosmos DB partiziona in modo trasparente il contenitore usando la chiave di partizione logica specificata per ridimensionare in modo elastico l'archiviazione e le unità elaborate supportate per il provisioning. Per altre informazioni, vedere [Working with Azure Cosmos containers and items](databases-containers-items.md) (Uso di contenitori ed elementi di Azure Cosmos).
 
 Attualmente è possibile creare un massimo di 100 account Azure Cosmos in una sottoscrizione di Azure. Un solo account Azure Cosmos può gestire praticamente una quantità illimitata di dati e di unità elaborate supportate per il provisioning. Per gestire i dati e le unità elaborate supportate per il provisioning, è possibile creare uno o più database Cosmos Azure nel proprio account e all'interno del database è possibile creare uno o più contenitori. L'immagine seguente mostra la gerarchia degli elementi in un account Azure Cosmos:
 
@@ -33,7 +33,7 @@ Attualmente è possibile creare un massimo di 100 account Azure Cosmos in una so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come gestire il proprio account Azure Cosmos e altri concetti:
+Informazioni su come gestire l'account Azure Cosmos e altri concetti:
 
 * [Come gestire l'account Azure Cosmos](how-to-manage-database-account.md)
 * [Distribuzione globale](distribute-data-globally.md)

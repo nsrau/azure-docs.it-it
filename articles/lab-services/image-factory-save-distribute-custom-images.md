@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622639"
 ---
-# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Salvare le immagini personalizzate e la distribuzione a più lab
+# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Salvare immagini personalizzate e distribuirle in più lab
 Questo articolo illustra ti offre la procedura per salvare le immagini personalizzate dalle macchine virtuali (VM) già create. Viene anche illustrato come distribuire queste immagini personalizzate per altri DevTest Labs nell'organizzazione.
 
 ## <a name="prerequisites"></a>Prerequisiti

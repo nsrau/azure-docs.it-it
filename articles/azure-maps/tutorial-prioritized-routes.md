@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546267"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916315"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di procedere eseguire i passaggi della prima esercitazione per [creare l'account Mappe di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey).
+Prima di procedere, seguire le istruzioni fornite nella sezione relativa alla [gestione dell'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta nella sezione relativa a come [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa
 
@@ -50,7 +50,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -216,7 +216,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
+   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
 
 2. Dopo aver configurato le credenziali e l'URL, aggiungere il codice JavaScript seguente per creare un percorso dalla partenza al punto di arrivo per un autocarro che trasporta carico classificato come USHazmatClass2 e visualizzare i risultati.
 
@@ -245,7 +245,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     });
     ```
 
-    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Aggiunge inoltre un indice pari a 0 per assicurarsi che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
+    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Aggiunge inoltre un indice pari a 0 per assicurarsi che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
 
 3. Aggiungere il codice JavaScript seguente per creare l'itinerario per un'auto e visualizzare i risultati.
 
@@ -265,7 +265,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     });
     ```
 
-    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Alla linea dell'itinerario per le auto vengono aggiunte due proprietà, un colore di tratto con sfumatura viola e uno spessore tratto di 5 pixel.  
+    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Alla linea dell'itinerario per le auto vengono aggiunte due proprietà, un colore di tratto con sfumatura viola e uno spessore tratto di 5 pixel.  
 
 4. Salvare il file **MapTruckRoute.html** e aggiornare il browser per osservare il risultato. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente.
 

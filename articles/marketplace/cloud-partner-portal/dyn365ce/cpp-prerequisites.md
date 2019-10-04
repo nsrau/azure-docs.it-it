@@ -1,25 +1,18 @@
 ---
-title: Prerequisiti dell'offerta Dynamics 365 for Customer Engagement - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement offrono prerequisiti | Azure Marketplace
 description: Prerequisiti per la pubblicazione di un'offerta di applicazione Azure in Azure Marketplace.
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308672"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338903"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prerequisiti di Dynamics 365 for Customer Engagement
 
@@ -31,7 +24,7 @@ Questo articolo descrive i prerequisiti tecnici e aziendali per la pubblicazione
 L'applicazione Dynamics 365 for Customer Engagement deve rispettare le [linee guida per la revisione delle app di Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/AppsourceGuidelines/Microsoft%20AppSource%20app%20review%20guidelines_v5.pdf), che include i requisiti seguenti:
 
 
-|              Requisito             |        DESCRIZIONE           |
+|              Requisito             |        Descrizione           |
 |            ---------------           |      ---------------         |
 | Integrazione di Azure Active Directory   | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di AAD) con il consenso abilitato. Per altre informazioni, vedere [Come ottenere la certificazione AppSource per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-get-appsource-certified). |
 | Integrazione con servizi Microsoft Cloud (facoltativa) | Se è necessaria questa funzionalità, l'app deve integrarsi con altri servizi Microsoft Cloud come Microsoft Power BI o Microsoft Flow oppure con servizi di Microsoft Azure come apprendimento automatico o Servizi cognitivi. |
@@ -47,7 +40,7 @@ L'applicazione Dynamics 365 for Customer Engagement deve rispettare le [linee gu
 
 I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali riportati di seguito:
 
-* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](../../become-publisher.md).  (Per il terzo passaggio, usare invece il [modulo di candidatura a partner di AppSource](https://appsource.microsoft.com/partners/signup)). 
+* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Può anche connettersi con il [Dynamics 365 per il team di onboarding di coinvolgimento dei clienti](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Per l'accesso al portale Cloud Partner è consigliabile usare lo stesso account usato per la registrazione a Microsoft Developer Center. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico di servizi o offerte singole.

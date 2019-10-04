@@ -4,28 +4,28 @@ description: Usare modelli di Resource Manager con Azure Deployment Manager per 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880050"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205711"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima privata)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
-Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Per usare Deployment Manager è necessario creare due modelli.
+Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Se si preferisce un approccio più veloce, l'[avvio rapido di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) crea le configurazioni necessarie nella sottoscrizione e consente di personalizzare gli elementi per distribuire un'applicazione in più aree. L'avvio rapido esegue le stesse attività, come accade in questa esercitazione.
+
+Per usare Deployment Manager è necessario creare due modelli.
 
 * **Modello di topologia**: descrive le risorse di Azure che costituiscono l'applicazione e la posizione in cui devono essere distribuite.
 * **Modello di implementazione**: descrive i passaggi da eseguire durante la distribuzione delle applicazioni.
+
+> [!IMPORTANT]
+> Se la sottoscrizione è contrassegnata in modo che Canary testi nuove funzionalità di Azure, è possibile usare Azure Deployment Manager solo per distribuire le aree di Canary. 
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -41,7 +41,10 @@ Questa esercitazione illustra le attività seguenti:
 > * Distribuire la versione più recente
 > * Pulire le risorse
 
-Le informazioni di riferimento sull'API REST di Azure Deployment Manager sono disponibili [qui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Risorse aggiuntive:
+
+* Il [riferimento all'API REST di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -52,7 +55,6 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](./resource-group-overview.md).
-* Azure Deployment Manager è nella versione di anteprima privata. Per iscriversi e poter usare Azure Deployment Manager, compilare il [modulo di iscrizione](https://aka.ms/admsignup). 
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 * Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
 
@@ -103,18 +105,18 @@ La cartella ArtifactStore inclusa nel download contiene due cartelle:
 
 Le due versioni (1.0.0.0 e 1.0.0.1) vengono usate per la [distribuzione della revisione](#deploy-the-revision). Nonostante esistano due versioni sia degli artefatti modello che degli artefatti binari, solo gli artefatti binari presentano differenze tra le due versioni. Nella pratica, gli artefatti binari vengono aggiornati con maggiore frequenza rispetto agli artefatti modello.
 
-1. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in un editor di testo. È un modello di base per la creazione di un account di archiviazione.  
-2. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in un editor di testo. È un modello di base per la creazione di un account di archiviazione.
+2. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Esercitazione su Azure Deployment Manager - Modello per la creazione dell'applicazione Web](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     Il modello chiama un pacchetto di distribuzione contenente i file dell'applicazione Web. In questa esercitazione il pacchetto compresso contiene solo un file index.html.
-3. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Esercitazione su Azure Deployment Manager - Parametri del modello per la creazione dell'applicazione Web: containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     Il valore di deployPackageUri è il percorso del pacchetto di distribuzione. Il parametro contiene una variabile **$containerRoot**. Il valore di $containerRoot viene specificato nel [modello di implementazione](#create-the-rollout-template) concatenando il percorso di firma di accesso condiviso dell'origine degli artefatti, la radice degli artefatti e deployPackageUri.
-4. Aprire **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Aprire **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -141,7 +143,7 @@ Gli artefatti modello vengono usati dal modello di topologia del servizio, mentr
     1. In Azure Storage Explorer passare al contenitore BLOB.
     2. Fare clic con il pulsante destro del mouse sul contenitore BLOB nel riquadro sinistro e quindi scegliere **Get Shared Access Signature**(Ottieni firma di accesso condiviso).
     3. Configurare **Start time** (Ora di inizio) ed **Expiry time** (Ora di scadenza).
-    4. Selezionare **Create**.
+    4. Selezionare **Create** (Crea).
     5. Copiare l'URL. Questo URL è necessario per completare un campo nei due file dei parametri, il [file dei parametri della topologia](#topology-parameters-file) e il [file dei parametri dell'implementazione](#rollout-parameters-file).
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Creare l'identità gestita assegnata dall'utente
@@ -254,7 +256,7 @@ Lo screenshot seguente mostra la definizione del passaggio di attesa:
 
 ![Esercitazione su Azure Deployment Manager - Risorse del modello di implementazione: passaggio di attesa](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-Per la durata viene usato lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto. 
+Per la durata viene usato lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto.
 
 Lo screenshot seguente mostra solo alcune parti della definizione dell'implementazione:
 
@@ -289,13 +291,13 @@ Creare un file dei parametri da usare con il modello di implementazione.
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
-Per distribuire i modelli è possibile usare Azure PowerShell. 
+Per distribuire i modelli è possibile usare Azure PowerShell.
 
 1. Eseguire lo script per distribuire la topologia del servizio.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -426,10 +428,10 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
     * **&lt;namePrefix>ServiceWUSrg**, che contiene le risorse definite da ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**, che contiene le risorse definite da ServiceEUS.
     * Gruppo di risorse per l'identità gestita definita dall'utente.
-3. Selezionare il nome del gruppo di risorse.  
+3. Selezionare il nome del gruppo di risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 5. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come usare Azure Deployment Manager. Per altre informazioni, vedere la [documentazione di Azure Resource Manager](/azure/azure-resource-manager/).
+In questa esercitazione è stato illustrato come usare Azure Deployment Manager. Per integrare il monitoraggio dell'integrità in Azure Deployment Manager, vedere [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

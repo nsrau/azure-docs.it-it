@@ -1,9 +1,9 @@
 ---
-title: Configurare le impostazioni di ruolo di risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
+title: Configurare le impostazioni del ruolo delle risorse di Azure in PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare le impostazioni dei ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88645d07ff213b0b7a56f2b081f0aaed01fd2929
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288376"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804195"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli delle risorse di Azure in PIM
 
-Quando si configurano le impostazioni di ruolo delle risorse di Azure, si definiscono le impostazioni predefinite applicate alle assegnazioni di ruolo di risorse di Azure in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste, usare le procedure seguenti.
+Quando si configurano le impostazioni del ruolo delle risorse di Azure, si definiscono le impostazioni predefinite applicate alle assegnazioni di ruolo delle risorse di Azure in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste, usare le procedure seguenti.
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 
@@ -38,19 +38,19 @@ Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa pr
 
 1. Fare clic sulla risorsa da gestire, ad esempio una sottoscrizione o un gruppo di gestione.
 
-    ![Elenco delle risorse di Azure da gestire](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Pagina delle risorse di Azure che elenca le risorse che possono essere gestite](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Fare clic su **Impostazioni dei ruoli**.
 
-    ![Impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Pagina impostazioni ruolo che elenca i ruoli delle risorse di Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Fare clic sul ruolo di cui si intende configurare le impostazioni.
 
-    ![Dettagli dell'impostazione del ruolo](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Pagina dei dettagli dell'impostazione del ruolo che elenca diverse impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Fare clic su **Modifica** per aprire il riquadro Impostazioni dei ruoli.
 
-    ![Modifica delle impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Pagina Modifica impostazioni ruolo con le opzioni per aggiornare le impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Nella pagina delle impostazioni di ogni ruolo sono presenti numerose impostazioni che è possibile configurare.
 
@@ -101,7 +101,7 @@ Usare il dispositivo di scorrimento **Durata massima dell'attivazione** per impo
 
 È possibile richiedere che i membri immettano una giustificazione in caso di assegnazione attiva o all'attivazione. Per richiedere l'immissione di una giustificazione, selezionare l'opzione **Richiedi la giustificazione in caso di assegnazione attiva** o l'opzione **Richiedi la giustificazione all'attivazione**.
 
-## <a name="require-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
+## <a name="require-approval-to-activate"></a>Richiedi l'approvazione per l'attivazione
 
 Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa procedura.
 
@@ -109,7 +109,7 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 1. Fare clic su **Seleziona responsabili approvazione** per aprire il riquadro Selezionare un membro o un gruppo.
 
-    ![Selezionare un membro o un gruppo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selezionare un riquadro membro o gruppo per selezionare i responsabili approvazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selezionare almeno un membro o un gruppo e quindi fare clic su **Seleziona**. È possibile aggiungere qualsiasi combinazione di membri e i gruppi. È necessario selezionare almeno un responsabile approvazione. Non esistono responsabili approvazione predefiniti.
 

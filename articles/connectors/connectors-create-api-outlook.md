@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fd6836451a73551487b8f97903594154a2efc894
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228756"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050873"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gestire posta elettronica, calendari e contatti in Outlook.com per le App per la logica di Azure
 
@@ -32,7 +32,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 * Un [account Outlook.com](https://outlook.live.com/owa/)
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'app per la logica in cui si vuole accedere all'account Outlook.com. Per avviare l'app per la logica con un trigger Outlook, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 

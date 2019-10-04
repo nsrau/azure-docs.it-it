@@ -1,27 +1,18 @@
 ---
 title: Collegare un disco dati a una macchina virtuale Windows in Azure usando PowerShell | Microsoft Docs
 description: Come collegare un disco dati nuovo o esistente a una macchina virtuale Windows con PowerShell con il modello di distribuzione Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a42fec94a23db82192cf05a47080d982a0857056
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729043"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968368"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Collegare un disco dati a una macchina virtuale Windows con PowerShell
 
@@ -32,9 +23,9 @@ Esaminare prima di tutto i suggerimenti seguenti:
 * La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per usare unità SSD Premium, è necessario un [tipo di macchina virtuale abilitato per Archiviazione Premium](sizes-memory.md), ad esempio una macchina virtuale serie DS o GS.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Aggiungere un disco dati vuoto a una macchina virtuale
 
@@ -128,4 +119,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare uno [snapshot](snapshot-copy-managed-disk.md).
+È anche possibile distribuire dischi gestiti usando i modelli. Per altre informazioni, vedere [uso di Managed disks nei modelli di Azure Resource Manager](using-managed-disks-template-deployments.md) o nel [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) per la distribuzione di più dischi dati.

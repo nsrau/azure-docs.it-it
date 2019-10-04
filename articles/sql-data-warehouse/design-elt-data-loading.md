@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
-ms.date: 04/12/2019
+ms.subservice: load-data
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548664"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597462"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Progettazione di un strategia di caricamento dei dati di PolyBase per Azure SQL Data Warehouse
 
@@ -49,8 +49,32 @@ La modalità di recupero dei dati dal sistema di origine dipende dalla posizione
 
 ### <a name="polybase-external-file-formats"></a>Formati di file esterni PolyBase
 
-PolyBase carica i dati da file di testo delimitati con codifica UTF-8 e UTF-16. Oltre ai file di testo delimitati, supporta il caricamento da formati di file Hadoop, ovvero RC, ORC e Parquet. PolyBase può anche caricare dati da file compressi Gzip e Snappy. PolyBase non supporta attualmente i formati ASCII esteso, a larghezza fissa e annidati, come WinZip, JSON e XML. Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da riga di comando bcp](/sql/tools/bcp-utility) per esportare i dati in file di testo delimitati.
+PolyBase carica i dati da file di testo delimitati con codifica UTF-8 e UTF-16. Oltre ai file di testo delimitati, supporta il caricamento da formati di file Hadoop, ovvero RC, ORC e Parquet. PolyBase può anche caricare dati da file compressi Gzip e Snappy. PolyBase non supporta attualmente i formati ASCII esteso, a larghezza fissa e annidati, come WinZip, JSON e XML. Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da riga di comando bcp](/sql/tools/bcp-utility) per esportare i dati in file di testo delimitati. Il mapping del tipo di dati parquet a SQL DW è il seguente:
 
+| **Tipo di dati parquet** |                      **Tipo di dati SQL**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        boolean        |                             bit                              |
+|        Double         |                            float                             |
+|         float         |                             real                             |
+|        Double         |                            money                             |
+|        Double         |                          smallmoney                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           Datetime                           |
+|       timestamp       |                             time                             |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Trasferire i dati in Archiviazione BLOB di Azure o in Azure Data Lake Store
 
@@ -99,7 +123,7 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 - [PolyBase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md): ideale quando i dati sono nell'archivio BLOB di Azure o in Azure Data Lake Store. Questa opzione offre il massimo controllo sul processo di caricamento, ma richiede anche di definire oggetti dati esterni. Gli altri metodi definiscono questi oggetti dietro le quinte, man mano che si esegue il mapping di tabelle di origine e tabelle di destinazione.  Per orchestrare i caricamenti con T-SQL, è possibile usare Azure Data Factory, SSIS o funzioni di Azure. 
 - [PolyBase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse): ideale quando i dati di origine sono in SQL Server, in locale o nel cloud. SSIS definisce i mapping delle tabelle di origine e di destinazione, oltre a orchestrare il caricamento. Se sono già disponibili pacchetti SSIS, è possibile modificarli per utilizzare la nuova destinazione di data warehouse. 
 - [PolyBase con Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) è un altro strumento di orchestrazione,  che definisce una pipeline e pianifica i processi. 
-- [PolyBase con Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da una tabella di SQL Data Warehouse a un dataframe di Databricks e/o scrive dati da un dataframe di Databricks in una tabella di SQL Data Warehouse usando PolyBase.
+- La [polibase con Azure](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) databricks trasferisce i dati da una tabella SQL data warehouse a un frame di dati databricks e/o scrive i dati da un dataframe di databricks in una tabella SQL data warehouse usando la polibase.
 
 ### <a name="non-polybase-loading-options"></a>Opzioni di caricamento non PolyBase
 

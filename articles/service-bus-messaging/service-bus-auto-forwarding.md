@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593387"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390142"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
 
@@ -27,7 +27,7 @@ La funzionalità di *inoltro automatico* del bus di servizio consente di concate
 
 ## <a name="using-autoforwarding"></a>Uso dell'inoltro automatico
 
-Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nell'oggetto [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come illustrato nell'esempio seguente:
+È possibile abilitare l'autoinoltring impostando le proprietà [QueueDescription. ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription. ForwardTo][SubscriptionDescription.ForwardTo] sugli oggetti [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come nel esempio seguente:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +35,7 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-L'entità di destinazione deve essere presente al momento della creazione dell'entità di origine. In caso contrario, il bus di servizio restituisce un'eccezione quando gli viene chiesto di creare l'entità di origine. 
+L'entità di destinazione deve essere presente al momento della creazione dell'entità di origine. In caso contrario, il bus di servizio restituisce un'eccezione quando gli viene chiesto di creare l'entità di origine.
 
 È possibile usare l'inoltro automatico per aumentare il numero di istanze di un singolo argomento. Il bus di servizio limita il [numero delle sottoscrizioni per un determinato argomento](service-bus-quotas.md) a 2000. Creando argomenti di secondo livello, è possibile aggiungere altre sottoscrizioni. Pur non essendo vincolati dalla limitazione del bus di servizio relativa al numero delle sottoscrizioni, l'aggiunta di un secondo livello di argomenti consente complessivamente di migliorare la velocità effettiva dell'argomento.
 
@@ -46,6 +46,12 @@ L'entità di destinazione deve essere presente al momento della creazione dell'e
 ![Scenario di inoltro automatico][1]
 
 Se uno dei rappresentanti si assenta, viene riempita la coda personale, ma non l'argomento ERP. In questo scenario, poiché un rappresentante di vendita non ha ricevuto alcun messaggio, nessuno degli argomenti ERP raggiunge la quota.
+
+> [!NOTE]
+> Quando si configura l'autoinoltring, il valore di AutoDeleteOnIdle **sia per l'origine che per la destinazione** viene impostato automaticamente sul valore massimo del tipo di dati.
+> 
+>   - Sul lato di origine, l'autoinoltring funge da operazione di ricezione. Pertanto, l'origine che ha l'installazione dell'autoinoltring non è mai effettivamente "inattiva".
+>   - Sul lato destinazione, questa operazione viene eseguita per garantire che sia sempre disponibile una destinazione a cui inviare il messaggio.
 
 ## <a name="autoforwarding-considerations"></a>Considerazioni sull'inoltro automatico
 

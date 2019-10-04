@@ -8,23 +8,21 @@ manager: craigg
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b96492c44d7a8cd8c0f1bb8fbcea8e78fc11c30
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6291540363b2fbafa8f4747dc9f58a39164f3cbe
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484305"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140298"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -125,7 +123,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
 1. Creare un'applicazione console .NET in C# con Visual Studio 2012, 2013 o 2015.
    1. Avviare **Visual Studio** 2012, 2013 o 2015.
    2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**.
-   3. Espandere **Modelli** e quindi selezionare **Visual C#**. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
+   3. Espandere **Modelli** e quindi selezionare **Visual C#** . In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
    4. Selezionare **Applicazione console** dall'elenco dei tipi di progetto a destra.
    5. Immettere **DataFactoryAPITestApp** per Nome.
    6. Selezionare **C:\ADFGetStarted** come percorso.
@@ -136,7 +134,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
    2. Eseguire questo comando per installare il pacchetto di Azure Active Directory. Nel codice viene usata l'API di Active Directory: `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Aggiungere la sezione **appSettings** seguente al file **App.config**. Queste impostazioni sono usate dal metodo helper **GetAuthorizationHeader**.
 
-    Sostituire i valori di **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** e **&lt;tenant ID&gt;** con i propri valori.
+    Sostituire i valori di **&lt;Application ID&gt;** , **&lt;Password&gt;** , **&lt;Subscription ID&gt;** e **&lt;tenant ID&gt;** con i propri valori.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>

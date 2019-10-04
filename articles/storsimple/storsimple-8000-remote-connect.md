@@ -16,11 +16,11 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631780"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
 
@@ -151,7 +151,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Per abilitare la gestione remota tramite la console seriale del dispositivo:
 1. Nel menu della console seriale, selezionare l'opzione 1. Per altre informazioni sull'uso della console seriale del dispositivo, vedere [Connessione a Windows PowerShell per StorSimple tramite la console seriale del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Al prompt dei comandi, digitare: 
+2. Al prompt dei comandi, digitare:
    
      `Enable-HcsRemoteManagement`
    
@@ -197,7 +197,7 @@ Ognuna di queste procedure è descritta di seguito.
 3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
+4. Fare clic su **Finish**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
    
     ![Impostazione guidata del certificato 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 

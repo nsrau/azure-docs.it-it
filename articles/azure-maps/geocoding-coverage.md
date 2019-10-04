@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65785948"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
 Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta i termini di ricerca e restituisce le coordinate di latitudine e longitudine, un processo denominato geocodifica. Tuttavia Mappe non ha lo stesso livello di informazioni e accuratezza per tutti i paesi e le aree. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area. 
 
-La capacità di geocodifica in un paese dipende dalla copertura dei dati stradali e dalla precisione di geocodifica del servizio di geocodifica. Vengono utilizzate le seguenti categorizzazioni per specificare il livello di supporto per la geocodifica in ogni paese.
+La possibilità per la geocodifica in un paese/area geografica è dipendente dal code coverage dei dati di viaggio e la precisione di geocodifica del servizio di geocodifica. Vengono utilizzate le categorizzazioni seguente specificare il livello di supporto per la geocodifica in ogni paese/area geografica.
 * **Punti di indirizzo**: i dati degli indirizzi possono essere risolti in una coordinata di latitudine/longitudine all'interno del lotto di indirizzo (limite di proprietà). Talvolta definito come accurato in modo "Rooftop". Questo è il massimo livello di accuratezza disponibile per gli indirizzi. 
 * **Numeri civici**: Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
 * **Livello stradale**: Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
@@ -44,7 +44,6 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Cayman                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Cile                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| Isola Clipperton                                   |                 |                |              |      ✓     |                    |
 | Colombia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -84,8 +83,8 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Stati Uniti d'America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Isole Vergini britanniche                            |                 |                |              |      ✓     |          ✓         |
-| Isole Vergini americane                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Isole Vergini Britanniche                              |                 |                |              |      ✓     |          ✓         |
+| Dati Isole Vergini americane                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asia/Pacifico
 
@@ -98,12 +97,12 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Territorio britannico dell'oceano Indiano                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambogia                                            |                 |                |              |      ✓     |          ✓         |
-| Cina                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Cina                                               |                 |                |              |      ✓     |          ✓         |
 | Isola Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Isole Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Comore                                             |                 |                |              |      ✓     |          ✓         |
 | Isole Cook                                        |                 |                |              |      ✓     |          ✓         |
-| Figi                                                |                  |                |              |      ✓     |          ✓         |
+| Figi                                                |                  |                |              |      ✓     |          ✓        |
 | Polinesia francese                                    |                 |                |              |      ✓     |          ✓         |
 | Isole Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
 | RAS di Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -131,7 +130,7 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Isole Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filippine                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Isole Samoa                                                |                 |                |              |      ✓     |          ✓         |
+| Isole Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Isole Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Salomone                                     |                 |                |              |      ✓     |          ✓         |
@@ -288,13 +287,12 @@ La capacità di geocodifica in un paese dipende dalla copertura dei dati stradal
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Siria                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Tomé SAN e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisia                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Emirati Arabi Uniti                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Cisgiordania                                           |                 |                |              |      ✓     |          ✓         |
 | Yemen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |

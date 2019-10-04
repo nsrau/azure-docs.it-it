@@ -4,22 +4,21 @@ description: Sincronizzazione dell'ora per macchine virtuali Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 04b2eb70a9e304fb50f4f6cb94daf0a0dda86d63
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546914"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100249"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizzazione dell'ora per macchine virtuali Windows in Azure
 
@@ -39,7 +38,7 @@ La precisione di un orologio del computer viene misurata in base a quanto l'orol
 
 Gli host di Azure vengono sincronizzati con i server di riferimento ora interni di Microsoft che ricavano l'ora da dispositivi di strato 1 di proprietà di Microsoft, con antenne GPS. Le macchine virtuali di Azure possono dipendere dal proprio host per passare l'ora esatta (*ora host*) alla macchina virtuale oppure la macchina virtuale può ottenere direttamente l'ora da un server di riferimento ora o una combinazione di entrambi. 
 
-Le interazioni delle macchine virtuali con l'host possono influire sull'orologio. Durante la [manutenzione con mantenimento della memoria](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) le macchine virtuali vengono messe in pausa fino a 30 secondi. Ad esempio, prima che inizi la manutenzione l'orologio della macchina virtuale indica 10:00:00 AM e dura 28 secondi. Quando l'esecuzione della macchina virtuale riprende, l'orologio della macchina virtuale indicherebbe ancora 10:00:00 AM, con un ritardo di 28 secondi. Per correggere questo inconveniente, il servizio VMICTimeSync monitora ciò che accade nell'host e chiede di apportare modifiche alle macchine virtuali per compensare.
+Le interazioni delle macchine virtuali con l'host possono influire sull'orologio. Durante la [manutenzione con mantenimento della memoria](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) le macchine virtuali vengono messe in pausa fino a 30 secondi. Ad esempio, prima che inizi la manutenzione l'orologio della macchina virtuale indica 10:00:00 AM e dura 28 secondi. Quando l'esecuzione della macchina virtuale riprende, l'orologio della macchina virtuale indicherebbe ancora 10:00:00 AM, con un ritardo di 28 secondi. Per correggere questo inconveniente, il servizio VMICTimeSync monitora ciò che accade nell'host e chiede di apportare modifiche alle macchine virtuali per compensare.
 
 Il servizio VMICTimeSync opera sia in modalità di campionamento che in modalità di sincronizzazione e influenza solo l'orologio in avanti. In modalità di campionamento, che richiede che W32time sia in esecuzione, il servizio VMICTimeSync esegue il polling dell'host ogni 5 secondi e fornisce campioni temporali a W32time. Ogni 30 secondi circa il servizio W32time acquisisce il campione temporale più recente e lo usa per influenzare l'orologio del guest. La modalità di sincronizzazione viene attivata se l'esecuzione di un guest è stata ripresa o se l'orologio di un guest rimane indietro più di 5 secondi rispetto all'orologio dell'host. Se il servizio W32time funziona correttamente, quest'ultimo caso non dovrebbe mai verificarsi.
 

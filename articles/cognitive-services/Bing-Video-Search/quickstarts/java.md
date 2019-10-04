@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Java"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando Java.
 services: cognitive-services
 author: aahill
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 3b0060b189dd941a8705d7e9815f69db8ea035e8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0823c115f47bb6bff0396cd154164183cf46d8e4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863313"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500689"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione Java invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) con altre annotazioni di codice, funzionalità e informazioni sulla gestione degli errori.
 
@@ -248,6 +248,6 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Creare un'app Web a pagina singola](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Informazioni sull'API Ricerca video Bing](../overview.md)

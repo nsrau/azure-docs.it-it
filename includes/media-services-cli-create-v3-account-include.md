@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56741326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180237"
 ---
 ## <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
 
@@ -22,6 +22,8 @@ ms.locfileid: "56741326"
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse usando il comando seguente. Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come gli account di Servizi multimediali di Azure e gli account di archiviazione associati.
+
+È possibile sostituire `amsResourceGroup` con il valore.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -35,7 +37,7 @@ Quando si crea un account di Servizi multimediali, è necessario specificare il 
 
 In questo esempio viene creato un account di archiviazione con ridondanza locale Standard per utilizzo generico v2. Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie SKU per la produzione, è consigliabile usare `--sku Standard_RAGRS` che offre la replica geografica per la continuità aziendale. Per altre informazioni, vedere [account di archiviazione](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-Il comando seguente consente di creare un account di archiviazione che verrà associato all'account di Servizi multimediali. Nello script seguente è possibile sostituire `storageaccountforams` con il valore personale. La lunghezza del nome dell'account non deve superare i 24 caratteri.
+Il comando seguente consente di creare un account di archiviazione che verrà associato all'account di Servizi multimediali. Nello script seguente è possibile sostituire `storageaccountforams` con il valore personale. `amsResourceGroup` deve corrispondere al valore che scelto per il gruppo di risorse nel passaggio precedente. Il nome di account di archiviazione deve avere lunghezza minore di 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

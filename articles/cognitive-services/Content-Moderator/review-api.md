@@ -1,7 +1,7 @@
 ---
-title: Flussi di lavoro, revisioni e i concetti di processi - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Informazioni sulle revisioni dei flussi di lavoro e processi
+title: Concetti relativi a revisioni, flussi di lavoro e processi-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Scopri di più su revisioni, flussi di lavoro e processi
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565545"
 ---
-# <a name="content-moderation-reviews-workflows-and-jobs"></a>Le verifiche di moderazione dei contenuti, i flussi di lavoro e processi
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
-Content Moderator combina moderazione assistita da computer con funzionalità human-in-the-loop per creare un processo di moderazione ottimale per scenari reali. Ciò avviene tramite basato su cloud [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). In questa guida si apprenderà i concetti di base dello strumento di revisione: processi, i flussi di lavoro e le revisioni.
+Content Moderator combina la moderazione assistita da computer con funzionalità di ciclo umano per creare un processo di moderazione ottimale per scenari reali. Questa operazione viene eseguita tramite lo strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com)basato sul cloud. In questa guida vengono illustrati i concetti di base dello strumento di Revisione: revisioni, flussi di lavoro e processi.
 
-## <a name="reviews"></a>Revisioni
+## <a name="reviews"></a>Recensioni
 
-In una revisione, il contenuto viene caricato per lo strumento di revisione e viene visualizzato sotto il **esaminare** scheda. A questo punto, gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati come appropriato. Quando un utente invia una recensione, i risultati vengono inviati a un endpoint di callback specificati e il contenuto viene rimosso dal sito.
+In una revisione, il contenuto viene caricato nello strumento di revisione e viene visualizzato nella scheda **Verifica** . Da qui gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati in base alle esigenze. Quando un utente invia una revisione, i risultati vengono inviati a un endpoint di callback specificato e il contenuto viene rimosso dal sito.
 
-![Sito Web dello strumento di revisione aprire in un browser, nella scheda verifica](./Review-Tool-user-Guide/images/image-workflow-review.png)
+![Sito Web dello strumento di verifica aperto in un browser, nella scheda Verifica](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Vedere le [manuale dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) Introduzione alla creazione di recensioni, o vedere la [Guida all'API REST](./try-review-api-review.md) per imparare a eseguire questa operazione a livello di codice.
+Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida dell'API REST](./try-review-api-review.md) .
 
-## <a name="workflows"></a>Flussi di lavoro
+## <a name="workflows"></a>Workflows
 
-Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenuto. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Con il connettore di Content Moderator, un flusso di lavoro può automaticamente applicare i tag di moderazione e creare verifiche con contenuto inviato.
+Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenuto. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Con il connettore Content Moderator, un flusso di lavoro può applicare automaticamente tag di moderazione e creare recensioni con contenuto inviato.
 
-### <a name="view-workflows"></a>Flussi di lavoro di visualizzazione
+### <a name="view-workflows"></a>Visualizza flussi di lavoro
 
-Per i flussi di lavoro esistente, vedere la [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **impostazioni** > **i flussi di lavoro**.
+Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **Impostazioni** > **flussi di lavoro**.
 
 ![Flusso di lavoro predefinito](images/default-workflow-listed.PNG)
 
-I flussi di lavoro possono essere descritti completamente sotto forma di stringhe JSON, che li rende accessibili a livello di codice. Se si seleziona il **Edit** l'opzione del flusso di lavoro e quindi selezionare la **JSON** scheda, si noterà un'espressione JSON simile al seguente:
+I flussi di lavoro possono essere descritti completamente come stringhe JSON, rendendoli accessibili a livello di codice. Se si seleziona l'opzione **modifica** per il flusso di lavoro e quindi si seleziona la scheda **JSON** , verrà visualizzata un'espressione JSON simile alla seguente:
 
 ```json
 {
@@ -64,13 +64,13 @@ I flussi di lavoro possono essere descritti completamente sotto forma di stringh
 }
 ```
 
-Vedere il [manuale dello strumento di revisione](./review-tool-user-guide/workflows.md) per iniziare a creare e usare i flussi di lavoro o visualizzare i [Guida all'API REST](./try-review-api-workflow.md) per imparare a eseguire questa operazione a livello di codice.
+Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/workflows.md) per iniziare a creare e usare i flussi di lavoro o vedere la [Guida dell'API REST](./try-review-api-workflow.md) .
 
 ## <a name="jobs"></a>Processi
 
-Un processo di moderazione funziona come una specie di wrapper per la funzionalità di moderazione dei contenuti, i flussi di lavoro e le revisioni. Il processo analizza i contenuti mediante la moderazione di immagini Content Moderator, API o l'API di moderazione di testo e quindi viene confrontato con il flusso di lavoro designato. Basate sui risultati del flusso di lavoro, può o non è stato possibile creare una revisione per il contenuto di [strumento di revisione](./review-tool-user-guide/human-in-the-loop.md). Anche se entrambe le revisioni e i flussi di lavoro possono essere creati e configurati con le rispettive API, il processo di API consente di ottenere un report dettagliato dell'intero processo (che può essere inviato a un endpoint di callback specificato).
+Un processo di moderazione funge da wrapper per la funzionalità di moderazione del contenuto, flussi di lavoro e revisioni. Il processo esegue l'analisi dei contenuti usando l'API di moderazione delle immagini Content Moderator o l'API di moderazione del testo e quindi la verifica rispetto al flusso di lavoro designato. In base ai risultati del flusso di lavoro, è possibile o meno creare una verifica per il contenuto nello [strumento di revisione](./review-tool-user-guide/human-in-the-loop.md). Sebbene sia possibile creare e configurare le revisioni e i flussi di lavoro con le rispettive API, l'API del processo consente di ottenere un report dettagliato dell'intero processo, che può essere inviato a un endpoint di callback specificato.
 
-Vedere le [Guida all'API REST](./try-review-api-job.md) per iniziare a usare i processi.
+Vedere la [Guida dell'API REST](./try-review-api-job.md) per iniziare a usare i processi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

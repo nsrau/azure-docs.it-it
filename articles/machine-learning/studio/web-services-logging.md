@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345636"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio
 Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning Studio. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning Studio, non soltanto un semplice codice di errore e un messaggio.  
@@ -84,7 +84,7 @@ Il nome di ogni BLOB riporta un prefisso nel formato seguente:
 
 Dove _Tipo di log_ corrisponde a uno dei valori seguenti:  
 
-*  o batch  
+* o batch  
 * punteggio/richieste  
 * punteggio/init  
 

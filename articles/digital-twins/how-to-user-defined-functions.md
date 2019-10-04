@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336898"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -67,7 +67,7 @@ Con corpo JSON:
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Area del server in cui è ospitata l'istanza |
 
@@ -107,7 +107,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
@@ -197,7 +197,7 @@ Per un esempio di codice di funzione più complesso definito dall'utente, vedere
 
 Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per altre informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md).
 
-1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#all) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
+1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
@@ -212,7 +212,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_SPACE_NAME | Nome dello spazio da usare |
 
@@ -232,7 +232,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     }
     ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificatore del ruolo desiderato |
     | YOUR_USER_DEFINED_FUNCTION_ID | L'ID per la funzione definita dall'utente da usare |

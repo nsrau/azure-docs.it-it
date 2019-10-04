@@ -5,22 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 7/16/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 0467359cd9d6a067e519a62532f00459bc5f68cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a42284765a46f4a000dc5b7fcf2867ef17d69570
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804330"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "68229222"
 ---
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Velocità effettiva dei dati |30 Gbps<sup>1</sup> |
-|Regole|10.000, tutte le regole di combinare tipi.|
+|Regole|10.000, tutti i tipi di regola combinati.|
 |Dimensioni minime di AzureFirewallSubnet |/26|
 |Intervallo di porte nelle regole di rete e delle applicazioni|0-64.000 Sono in corso interventi per ovviare a questa limitazione.|
-|Tabella di route|Per impostazione predefinita, AzureFirewallSubnet dispone di una route 0.0.0.0/0 con il valore NextHopType impostata **Internet**.<br><br>Se si abilita il tunneling forzato in locale tramite Gateway VPN o ExpressRoute, si potrebbe essere necessario configurare una route definita dall'utente di 0.0.0.0/0 (UDR) con il valore impostato NextHopType come Internet e associarla con i AzureFirewallSubnet in modo esplicito. Sostituisce un gateway predefinito potenziali annuncio BGP alla rete locale. Se l'organizzazione richiede che il tunneling forzato per il Firewall di Azure indirizzare il traffico del gateway predefinito tramite la rete locale, contattare il supporto tecnico. È possibile elenco elementi consentiti viene mantenuta la sottoscrizione per assicurarsi che il firewall necessario la connettività Internet.|
+|Indirizzi IP pubblici|Massimo 100|
+|Tabella di route|Per impostazione predefinita, AzureFirewallSubnet dispone di una route 0.0.0.0/0 con il valore NextHopType impostato su **Internet**.<br><br>Connettività diretta al Firewall di Azure. Se il AzureFirewallSubnet apprende una route predefinita per la rete locale tramite BGP, è necessario eseguire l'override di con un UDR 0.0.0.0/0 con il valore **NextHopType** impostato su **Internet** per mantenere la connettività Internet diretta. Per impostazione predefinita, Firewall di Azure non supporta il tunneling forzato a una rete locale.<br><br>Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se il caso viene accettato, la sottoscrizione verrà inserita nell'elenco elementi consentiti e la connettività Internet del firewall verrà mantenuta.|
 
-<sup>1</sup>se è necessario aumentare questi limiti, contattare il supporto tecnico di Azure.
+<sup>1</sup> Se è necessario aumentare questi limiti, contattare il supporto tecnico di Azure.

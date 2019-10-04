@@ -2,28 +2,28 @@
 title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/22/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af8f1e9150efca4441356a80c263a58fafefcfaf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298258"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834846"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Informazioni di riferimento sui token SAML di Azure AD
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza du
 > [!div class="mx-codeBreakAll"]
 > | Name | Attestazione JWT equivalente | DESCRIZIONE | Esempio |
 > | --- | --- | --- | ------------|
-> |Audience | `aud` |Destinatario previsto per il token. L'applicazione che riceve il token deve verificare che il valore del gruppo di destinatari sia corretto e rifiuta tutti i token destinati a un gruppo di destinatari diverso. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
+> |Destinatari | `aud` |Destinatario previsto per il token. L'applicazione che riceve il token deve verificare che il valore del gruppo di destinatari sia corretto e rifiuta tutti i token destinati a un gruppo di destinatari diverso. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Istante di autenticazione | |Registra la data e l'ora in cui è avvenuta l'autenticazione. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
 > |Metodo di autenticazione | `amr` |Identifica la modalità di autenticazione dell'oggetto del token. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nome | `given_name` |Fornisce il nome o il nome "specificato" dell'utente, come impostato nell'oggetto utente di Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
@@ -42,9 +42,9 @@ Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza du
 > | Indicatore di eccedenza dei gruppi | `groups:src1` | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per SAML, viene aggiunto come nuova attestazione al posto dell'attestazione `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Provider di identità | `idp` |Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia in un tenant diverso rispetto all'autorità di certificazione. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Archivia l'ora in cui è stato rilasciato il token. Viene spesso usata per misurare la validità del token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
-> |Issuer | `iss` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
+> |Rilasciato da | `iss` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Cognome | `family_name` |Fornisce il cognome dell'utente, come definito nell'oggetto utente di Azure AD. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Name | `unique_name` |Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco all'interno di un tenant e può essere usato solo per scopi di visualizzazione. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |NOME | `unique_name` |Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco all'interno di un tenant e può essere usato solo per scopi di visualizzazione. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |ID oggetto | `oid` |Contiene un identificatore univoco di un oggetto in Azure AD. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Usare l'ID oggetto per identificare un oggetto nelle query ad Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Ruoli | `roles` |Rappresenta tutti i ruoli applicazione concessi al soggetto sia direttamente che indirettamente tramite l'appartenenza a gruppi e può essere usata per imporre il controllo degli accessi in base al ruolo. I ruoli applicazione sono definiti in base all'applicazione, tramite la proprietà `appRoles` del manifesto dell'applicazione. La proprietà `value` di ogni ruolo applicazione è il valore visualizzato nell'attestazione Ruoli. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Subject | `sub` |Identifica l'entità su cui il token asserisce informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, è quindi possibile usarlo per eseguire controlli di autorizzazione in modo sicuro. Dato che il soggetto è sempre presente nei token rilasciati da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione per utilizzo generico. <br> `SubjectConfirmation` non è un'attestazione. Descrive la modalità di verifica del soggetto del token. `Bearer` indica che il soggetto viene confermato dal possesso del token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|

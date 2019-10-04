@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61387159"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ Le cartelle di lavoro sono utili per scenari, ad esempio:
 
 Monitoraggio di Azure per le macchine virtuali include diverse cartelle di lavoro per iniziare a usare e la tabella seguente contiene un riepilogo.
 
-| Cartella di lavoro | DESCRIZIONE | Scope |
+| Cartella di lavoro | Descrizione | `Scope` |
 |----------|-------------|-------|
 | Prestazioni | Fornisce una versione personalizzabile dei nostri Top N elenco e visualizzazione di grafici in una singola cartella di lavoro che si basa su tutti i contatori delle prestazioni di Analitica di Log abilitati.| Su larga scala |
 | Contatori delle prestazioni | Visualizzazione grafico Top N tra un ampio set di contatori delle prestazioni. | Su larga scala |
@@ -57,7 +57,7 @@ Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, te
 
 3. Selezionare una macchina virtuale dall'elenco.
 
-4. Nella sezione **Monitoraggio** della pagina della macchina virtuale selezionare **Insights (anteprima)**.
+4. Nella sezione **Monitoraggio** della pagina della macchina virtuale selezionare **Insights (anteprima)** .
 
 5. Nella pagina informazioni dettagliate della macchina virtuale, selezionare **prestazioni** oppure **Maps** scheda e quindi selezionare **cartelle di lavoro di visualizzazione** dal collegamento nella pagina. 
 
@@ -173,7 +173,7 @@ Esistono quattro diversi tipi di parametri, che sono attualmente supportati:
 
 ### <a name="using-a-text-parameter"></a>Uso di un parametro di testo
 
-Il valore di un utente digita nella casella di testo viene sostituito direttamente nella query, senza eseguire l'escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'**).
+Il valore di un utente digita nella casella di testo viene sostituito direttamente nella query, senza eseguire l'escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'** ).
 
 Il parametro di testo consente un valore in una casella di testo per essere utilizzati ovunque. in un nome di tabella, di colonna o di funzione, in un operatore e così via.  Il tipo di parametro di testo ha un'impostazione **ottenere il valore predefinito dalla query analitica**, che consente all'autore della cartella di lavoro di usare una query per popolare il valore predefinito per tale casella di testo.
 

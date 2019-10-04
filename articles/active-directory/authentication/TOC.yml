@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Abilitare l'integrazione locale della reimpostazione della password self-service
       href: tutorial-enable-writeback.md
-    - name: Abilitare la reimpostazione della password di Windows 10
-      href: tutorial-sspr-windows.md
     - name: Integrazione di Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concetti
@@ -25,7 +23,9 @@
   items:
     - name: Metodi di autenticazione
       href: concept-authentication-methods.md
-    - name: Registrazione combinata
+    - name: Autenticazione senza password
+      href: concept-authentication-passwordless.md
+    - name: Registrazione delle informazioni di sicurezza
       href: concept-registration-mfa-sspr-combined.md
     - name: Reimpostazione delle password
       items:
@@ -43,8 +43,6 @@
       items:
         - name: Funzionamento di Multi-Factor Authentication
           href: concept-mfa-howitworks.md
-        - name: Informazioni sulla scelta della versione corretta
-          href: concept-mfa-whichversion.md
         - name: Concedere licenze agli utenti
           href: concept-mfa-licensing.md
         - name: Gestire un provider di autenticazione
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Abilitare il writeback delle password
           href: howto-sspr-writeback.md
-        - name: 'Reimpostazione password self-service per Windows 7, 8 e 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: Reimpostazione della password self-service per client Windows
+          href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basata sul cloud
       items:
         - name: Distribuire Multi-Factor Authentication basata sul cloud
@@ -105,7 +103,7 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Registrazione combinata
+    - name: Registrazione dell'informazione di sicurezza
       items:
         - name: Abilitare la registrazione combinata
           href: howto-registration-mfa-sspr-combined.md
@@ -131,10 +129,14 @@
               href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Blocco intelligente di Azure AD
       href: howto-password-smart-lockout.md
-    - name: Windows Hello for Business
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Accesso tramite telefono senza password
-      href: howto-authentication-phone-sign-in.md
+    - name: Accesso senza password
+      items:
+        - name: Chiavi di sicurezza senza password
+          href: howto-authentication-passwordless-security-key.md
+        - name: Accesso tramite telefono senza password
+          href: howto-authentication-passwordless-phone.md
+        - name: Windows Hello for Business
+          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Autenticazione basata su certificati
       items:
         - name: Introduzione all'autenticazione dei certificati
@@ -144,12 +146,10 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: Autenticazione basata sui certificati nei dispositivi iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Sviluppo
-      items:
-        - name: Includere Multi-Factor Authentication nelle app personalizzate
-          href: howto-mfa-sdk.md
     - name: Creazione di report
       items:
+        - name: Utilizzo e informazioni dettagliate
+          href: howto-authentication-methods-usage-insights.md
         - name: Report della reimpostazione della password self-service
           href: howto-sspr-reporting.md
         - name: Report MFA

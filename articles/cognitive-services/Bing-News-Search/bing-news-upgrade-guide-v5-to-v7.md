@@ -1,6 +1,6 @@
 ---
 title: Aggiornare l'API Ricerca notizie Bing da v5 a v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,18 +10,18 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1263e93b1e316cab4afb51cd828737a5bd087fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519022"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423854"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca notizie
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca notizie Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
@@ -37,7 +37,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|DESCRIZIONE
+|Codice|Sottocodice|Descrizione
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.
@@ -70,24 +70,24 @@ Bloccato|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `contractualRules` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Il campo `contractualRules` contiene un elenco di regole che è necessario seguire (ad esempio sull'attribuzione di articoli). È necessario applicare l'attribuzione specificata in `contractualRules` invece di usare `provider`. L'articolo include `contractualRules` solo quando la risposta dell'[API Ricerca Web](../bing-web-search/search-the-web.md) contiene un riscontro relativo a notizie.
+- Il campo `contractualRules` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `contractualRules` contiene un elenco di regole che è necessario seguire (ad esempio sull'attribuzione di articoli). È necessario applicare l'attribuzione specificata in `contractualRules` invece di usare `provider`. L'articolo include `contractualRules` solo quando la risposta dell'[API Ricerca Web](../bing-web-search/search-the-web.md) contiene un riscontro relativo a notizie.
 
 ## <a name="non-breaking-changes"></a>Modifiche che non causano un'interruzione
 
 ### <a name="query-parameters"></a>Parametri di query
 
-- Il valore Products è stato aggiunto come possibile valore su cui può essere impostato il parametro di query [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category). Vedere [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) (Categorie per mercato).
+- Il valore Products è stato aggiunto come possibile valore su cui può essere impostato il parametro di query [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Vedere [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Categorie per mercato).
 
-- È stato aggiunto il parametro di query [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby), che restituisce gli argomenti di tendenza ordinati per data con il più recente all'inizio.
+- È stato aggiunto il parametro di query [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), che restituisce gli argomenti di tendenza ordinati per data con il più recente all'inizio.
 
-- È stato aggiunto il parametro di query [Since](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since), che restituisce gli argomenti di tendenza individuati da Bing in corrispondenza o dopo il timestamp del periodo Unix specificato.
+- È stato aggiunto il parametro di query [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), che restituisce gli argomenti di tendenza individuati da Bing in corrispondenza o dopo il timestamp del periodo Unix specificato.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `mentions` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Il campo `mentions` contiene un elenco di entità (persone o luoghi) trovate nell'articolo.
+- Il campo `mentions` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `mentions` contiene un elenco di entità (persone o luoghi) trovate nell'articolo.
 
-- Il campo `video` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Il campo `video` contiene un video correlato all'articolo di notizie. Il video è un \<iframe\> che è possibile incorporare oppure un'anteprima del video.
+- Il campo `video` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `video` contiene un video correlato all'articolo di notizie. Il video è un \<iframe\> che è possibile incorporare oppure un'anteprima del video.
 
-- Il campo `sort` è stato aggiunto all'oggetto [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news). Il campo `sort` mostra l'ordinamento degli articoli. Ad esempio, gli articoli sono ordinati per pertinenza (impostazione predefinita) o per data.
+- Il campo `sort` è stato aggiunto all'oggetto [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Il campo `sort` mostra l'ordinamento degli articoli. Ad esempio, gli articoli sono ordinati per pertinenza (impostazione predefinita) o per data.
 
-- È stato aggiunto l'oggetto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue), che definisce un ordinamento. Il campo `isSelected` indica se la risposta ha usato l'ordinamento. Se **true**, la risposta ha usato l'ordinamento. Se `isSelected` è **false**, è possibile usare l'URL nel campo `url` per richiedere un ordinamento diverso.
+- È stato aggiunto l'oggetto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), che definisce un ordinamento. Il campo `isSelected` indica se la risposta ha usato l'ordinamento. Se **true**, la risposta ha usato l'ordinamento. Se `isSelected` è **false**, è possibile usare l'URL nel campo `url` per richiedere un ordinamento diverso.

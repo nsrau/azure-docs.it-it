@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8769979fe3e5107e4ca788f65ff1e721b266776b
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048003"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013069"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager.
 
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare una [regola di autorizzazione](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) per uno spazio dei nomi e una coda del bus di servizio. L'articolo spiega come specificare le risorse da distribuire e come definire i parametri che devono essere specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare una [regola di autorizzazione](service-bus-authentication-and-authorization.md#shared-access-signature) per uno spazio dei nomi e una coda del bus di servizio. L'articolo spiega come specificare le risorse da distribuire e come definire i parametri che devono essere specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per il modello completo, vedere il [modello della regola di autorizzazione del bus di servizio][Service Bus auth rule template] su GitHub.
+Per il modello completo, vedere il [modello di regola di autorizzazione del bus di servizio][Service Bus auth rule template] su GitHub.
 
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
@@ -37,7 +37,7 @@ Per il modello completo, vedere il [modello della regola di autorizzazione del b
 > * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **bus di servizio**.
+> Per verificare la presenza dei modelli più recenti, visitare la raccolta [modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare il **bus di servizio**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

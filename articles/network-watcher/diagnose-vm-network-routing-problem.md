@@ -3,8 +3,8 @@ title: Diagnosticare un problema di routing di rete di una macchina virtuale - e
 description: In questa esercitazione si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312196"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684509"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
 
@@ -78,7 +78,7 @@ Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al
 
 ### <a name="use-next-hop"></a>Usare la funzionalità Hop successivo
 
-Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare le proprie route per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono impedire la comunicazione. Usare la funzionalità Hop successivo di Network Watcher per determinare quali route vengono usate da Azure per indirizzare il traffico.
+Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono impedire la comunicazione. Usare la funzionalità Hop successivo di Network Watcher per determinare quali route vengono usate da Azure per indirizzare il traffico.
 
 1. Nel portale di Azure, selezionare **Hop successivo** in **Network Watcher**.
 2. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Hop successivo**, come illustrato nell'immagine seguente:
@@ -89,13 +89,13 @@ Azure crea automaticamente le route per le destinazioni predefinite. È possibil
     | Macchina virtuale         | Selezionare myVm                                            |
     | interfaccia di rete       | myvm - Il nome dell'interfaccia di rete potrebbe essere diverso.   |
     | Indirizzo IP di origine       | 10.0.0.4                                               |
-    | Indirizzo IP di destinazione  | 13.107.21.200: uno degli indirizzi per www.bing.com. |
+    | Indirizzo IP di destinazione  | 13.107.21.200: uno degli indirizzi per <www.bing.com>. |
 
     ![Hop successivo](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
     Dopo alcuni secondi, il risultato indica che il tipo di Hop successivo è **Internet** e che l'**ID tabella di route** è **System Route**. Questo risultato informa l'utente che è presente una route di sistema valida per la destinazione.
 
-3. Modificare l'**Indirizzo IP di destinazione** in *172.31.0.100* e selezionare nuovamente **Hop successivo**. Il risultato informa l'utente che **Nessuno** è il **Tipo di hop successivo**e che l'**ID tabella di route** è **System Route**. Questo risultato informa che, benché sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
+3. Modificare l'**Indirizzo IP di destinazione** in *172.31.0.100* e selezionare nuovamente **Hop successivo**. Il risultato informa l'utente che **Nessuno** è il **Tipo di hop successivo**e che l'**ID tabella di route** è **System Route**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 

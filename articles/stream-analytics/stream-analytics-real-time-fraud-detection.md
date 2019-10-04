@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19c9448b6a743302eb81bb208444336d6435f114
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883718"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947050"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -30,7 +30,7 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, l'azienda deve esaminare i record delle chiamate in ingresso e cercare specifici modelli, in questo caso, chiamate più o meno alla stessa ora in paesi diversi. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di illecito, è necessario che l'azienda esamini i record del telefono in arrivo e cerchi modelli specifici, in questo caso, per le chiamate eseguite nello stesso momento in paesi o aree geografiche diverse. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -131,26 +131,27 @@ Prima di avviare l'app TelcoGenerator è necessario configurarla per l'invio di 
 
 ### <a name="start-the-app"></a>Avviare l'app
 1.  Aprire una finestra di comando e passare alla cartella in cui è stata decompressa l'app TelcoGenerator.
+
 2.  Immettere il comando seguente:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
-    I parametri sono i seguenti: 
+   I parametri sono i seguenti: 
 
-    * Numero di CDR all'ora. 
-    * Probabilità di frode della scheda SIM: frequenza, in percentuale di tutte le chiamate, con cui l'app dovrebbe simulare una chiamata fraudolenta. Il valore 0,2 significa che circa il 20% dei record delle chiamate apparirà come fraudolento.
-    * Durata in ore. Numero di ore di esecuzione dell'app. È anche possibile arrestare l'app in qualsiasi momento premendo CTRL+C nella riga di comando.
+   * Numero di CDR all'ora. 
+   * Probabilità di frode della scheda SIM: frequenza, in percentuale di tutte le chiamate, con cui l'app dovrebbe simulare una chiamata fraudolenta. Il valore 0,2 significa che circa il 20% dei record delle chiamate apparirà come fraudolento.
+   * Durata in ore. Numero di ore di esecuzione dell'app. È anche possibile arrestare l'app in qualsiasi momento premendo CTRL+C nella riga di comando.
 
-    Dopo alcuni secondi, l'app inizierà a visualizzare i record delle chiamate mentre ne esegue l'invio all'hub eventi.
+   Dopo alcuni secondi, l'app inizierà a visualizzare i record delle chiamate mentre ne esegue l'invio all'hub eventi.
 
 Di seguito sono riportati alcuni campi chiave che verranno usati in questa applicazione di rilevamento di frodi in tempo reale:
 
 |**Record**|**Definizione**|
 |----------|--------------|
 |`CallrecTime`|Timestamp dell'ora di inizio della chiamata. |
-|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
+|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese/area di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
 |`CallingNum`|Numero di telefono del chiamante. |
 |`CallingIMSI`|Codice IMSI (International Mobile Subscriber Identity). Si tratta dell'identificatore univoco del chiamante. |
 |`CalledNum`|Numero di telefono del destinatario della chiamata. |
@@ -206,7 +207,7 @@ Una query semplice potrebbe solamente leggere tutti i dati in ingresso. Tuttavia
 
 Le query qui create visualizzeranno semplicemente i dati trasformati. In una sezione successiva si configureranno un sink di output e una query che scrive in tale sink i dati trasformati.
 
-Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://msdn.microsoft.com/library/dn834998.aspx).
+Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Ottenere dati di esempio per testare le query
 
@@ -276,7 +277,7 @@ In molti casi, l'analisi non necessita di tutte le colonne dal flusso di input. 
 
 Si supponga di voler contare il numero di chiamate in ingresso per ogni area. Nei dati di streaming, se si vuole eseguire funzioni di aggregazione come il conteggio, è necessario segmentare il flusso in unità temporali (poiché il flusso di dati stesso è in effetti infinito). A tale scopo, usare una [funzione finestra](stream-analytics-window-functions.md) di Analisi di flusso. Sarà quindi possibile usare i dati all'interno di tale finestra come unità.
 
-Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata è possibile ottenere un conteggio delle chiamate in ingresso raggruppate per `SwitchNum`, che rappresenta il paese in cui la chiamata ha avuto origine. 
+Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata è possibile ottenere un conteggio delle chiamate in ingresso raggruppate per `SwitchNum`, che rappresenta il paese/area geografica in cui ha avuto origine la chiamata. 
 
 1. Modificare la query nell'editor di codice nel modo seguente:
 
@@ -288,11 +289,11 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Questa query usa la parola chiave `Timestamp By` nella clausola `FROM` per specificare il campo del timestamp nel flusso di input da usare per definire la finestra a cascata. In questo caso la finestra divide i dati in segmenti per il campo `CallRecTime` in ogni record. Se non è specificato alcun campo, l'operazione di windowing usa l'ora in cui ogni evento arriva all'hub. Vedere la sezione relativa a tempo di arrivo e tempo di applicazione in [Informazioni di riferimento sul linguaggio di query per l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Questa query usa la parola chiave `Timestamp By` nella clausola `FROM` per specificare il campo del timestamp nel flusso di input da usare per definire la finestra a cascata. In questo caso la finestra divide i dati in segmenti per il campo `CallRecTime` in ogni record. Se non è specificato alcun campo, l'operazione di windowing usa l'ora in cui ogni evento arriva all'hub. Vedere la sezione relativa a tempo di arrivo e tempo di applicazione in [Informazioni di riferimento sul linguaggio di query per l'analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     La proiezione include `System.Timestamp`, che restituisce un timestamp per la fine di ogni finestra. 
 
-    Per specificare che si desidera utilizzare una finestra a cascata, usare il [finestra a CASCATA](https://msdn.microsoft.com/library/dn835055.aspx) funzionare nel `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio la finestra a cascata è costituita da intervalli di 5 secondi, per ottenere un conteggio in base al paese per chiamate ogni 5 secondi.
+    Per specificare che si desidera utilizzare una finestra a cascata, utilizzare la funzione [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) nella `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata è costituita da intervalli di 5 secondi, quindi si otterrà un conteggio per paese/area geografica ogni 5 secondi per le chiamate.
 
 2. Fare di nuovo clic su **Test**. Si noti nei risultati che i timestamp in **WindowEnd** sono in incrementi di 5 secondi.
 
@@ -302,7 +303,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
 Per questo esempio, considerare come uso fraudolento le chiamate che provengono dallo stesso utente ma in posizioni diverse, a 5 secondi l'una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. 
 
-Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. Sarà quindi possibile cercare i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese di origine) non coincide.
+Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i record delle chiamate in `CallingIMSI` cui il valore (numero di origine) è lo stesso, ma `SwitchNum` il valore (paese/regione di origine) non è lo stesso.
 
 Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno della clausola `ON` del join usando la funzione `DATEDIFF`. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
 
@@ -417,5 +418,5 @@ Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

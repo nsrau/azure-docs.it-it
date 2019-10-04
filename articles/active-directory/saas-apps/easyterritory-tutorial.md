@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee12e9cdf98d1e3a7ab0a49caf8639e9e585455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fecfc00cfae3a4407f815d27a3f48d6c3bfc92a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Esercitazione: Integrazione di Azure Active Directory con EasyTerritory
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con EasyTerritory, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per EasyTerritory](#configure-easyterritory-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di EasyTerritory](#create-easyterritory-test-user)**: per avere una controparte di Britta Simon in EasyTerritory collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per EasyTerritory](#configure-easyterritory-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di EasyTerritory](#create-easyterritory-test-user)** : per avere una controparte di Britta Simon in EasyTerritory collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con EasyTerritory, seguire 
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://apps.easyterritory.com/<tenant id>/dev/`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://apps.easyterritory.com/<tenant id>/dev/authservices/acs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://apps.easyterritory.com/<tenant id>/dev/authservices/acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 

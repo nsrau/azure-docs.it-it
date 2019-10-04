@@ -1,64 +1,109 @@
-items:
 - name: Documentazione di Configurazione app di Azure (anteprima)
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Configurazione app di Azure
-    href: overview.md
+    - name: Informazioni su Configurazione app di Azure
+      href: overview.md
+    - name: Domande frequenti
+      href: faq.md
 - name: Guide introduttive
-  items:
-  - name: Creare un'app ASP.NET Core
-    href: quickstart-aspnet-core-app.md
-  - name: Creare un'app .NET Core
-    href: quickstart-dotnet-core-app.md
-  - name: Creare un'app .NET Framework
-    href: quickstart-dotnet-app.md
-  - name: Creare una funzione di Azure
-    href: quickstart-azure-function-csharp.md
-  - name: Creare un'app Java Spring
-    href: quickstart-java-spring-app.md
   expanded: true
+  items:
+    - name: Configurazione
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: Funzione di Azure in .NET Core
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Gestione delle funzionalità
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
+        - name: Java Spring
+          href: quickstart-feature-flag-spring-boot.md
 - name: Esercitazioni
   items:
-  - name: Abilitare la configurazione dinamica in ASP.NET Core
-    href: enable-dynamic-configuration-aspnet-core.md
-  - name: Integrare una pipeline CI/CD
-    href: integrate-ci-cd-pipeline.md
+    - name: Abilitare la configurazione dinamica in ASP.NET Core
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: Abilitare la configurazione dinamica in un'app .NET Core
+      href: enable-dynamic-configuration-dotnet-core.md
+    - name: Usare i flag di funzionalità in un'app .NET Core
+      href: use-feature-flags-dotnet-core.md
+    - name: Usare i flag di funzionalità in un'app Spring Boot
+      href: use-feature-flags-spring-boot.md
+    - name: Gestire i flag di funzionalità
+      href: manage-feature-flags.md
+    - name: Integrare una pipeline CI/CD
+      href: integrate-ci-cd-pipeline.md
 - name: Esempi
   items:
-  - name: Interfaccia della riga di comando di Azure
-    href: cli-samples.md
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
 - name: Concetti
   items:
-  - name: Archivio chiave-valore
-    href: concept-key-value.md
-  - name: Snapshot temporizzato
-    href: concept-point-time-snapshot.md
+    - name: Archivio chiave-valore
+      href: concept-key-value.md
+    - name: Snapshot temporizzato
+      href: concept-point-time-snapshot.md
+    - name: Gestione delle funzionalità
+      href: concept-feature-management.md
+    - name: Gestione degli eventi
+      href: concept-app-configuration-event.md
+    - name: Disponibilità elevata
+      items:
+        - name: Resilienza e ripristino di emergenza
+          href: concept-disaster-recovery.md
 - name: Guide alle procedure
   items:
-  - name: Integrare l'identità del servizio gestita di Azure
-    href: howto-integrate-azure-managed-service-identity.md
-  - name: Importare o esportare dati di configurazione
-    href: howto-import-export-data.md
+    - name: Integrare l'identità del servizio gestita di Azure
+      href: howto-integrate-azure-managed-service-identity.md
+    - name: Importare o esportare dati di configurazione
+      href: howto-import-export-data.md
+    - name: Indirizzare gli eventi a un endpoint personalizzato
+      href: howto-app-configuration-event.md
+    - name: Procedure consigliate
+      href: howto-best-practices.md
 - name: riferimento
   items:
-  - name: Provider di configurazione di .NET Core
-    href: https://go.microsoft.com/fwlink/?linkid=2074664
-  - name: Generatore di configurazione di .NET Framework
-    href: https://go.microsoft.com/fwlink/?linkid=2074663
-  - name: Provider di configurazione di Java Spring
-    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
-  - name: .NET Azure SDK
-    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
-  - name: REST
-    href: https://go.microsoft.com/fwlink/?linkid=2078296
+    - name: Configurazione
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+        - name: Provider .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: Generatore di .NET Framework
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: .NET Azure SDK
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: Provider Java Spring
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+        - name: Azure SDK per Java
+          href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
+        - name: Azure SDK per Python
+          href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
+        - name: Azure SDK per JavaScript
+          href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Gestione delle funzionalità
+      items:
+        - name: Libreria .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Libreria di filtri di .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Risorse
   items:
-  - name: Inviare commenti e suggerimenti per il prodotto
-    href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699611"
+    - name: Video
+      items:
+        - name: Introduzione
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+        - name: Gestione delle funzionalità
+          href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
+    - name: Inviare commenti e suggerimenti per il prodotto
+      href: 'https://github.com/Azure/AppConfiguration/issues'

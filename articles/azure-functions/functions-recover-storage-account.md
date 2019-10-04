@@ -8,16 +8,15 @@ manager: cfowler
 editor: ''
 ms.service: azure-functions
 ms.workload: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521721"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085336"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -27,10 +26,10 @@ Questo documento è destinato a risolvere l'errore seguente quando visualizzato 
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 Questo problema si verifica quando non è possibile avviare il runtime di Funzioni di Azure. Il motivo più comune per cui si verifica questo errore è che l'app per le funzioni perde l'accesso al relativo account di archiviazione. [Altre informazioni sui requisiti dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 Verranno esaminati i quattro casi di errore più comuni, come identificare e come risolvere ogni caso.
 
 1. Account di archiviazione eliminato
@@ -55,7 +54,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 ### <a name="required-application-settings"></a>Impostazioni dell'applicazione necessarie
 
-* Obbligatorio
+* Obbligatoria
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Obbligatoria per funzioni di Piano a consumo
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -66,7 +65,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 ### <a name="guidance"></a>Materiale sussidiario
 
 * Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
-* Non modificare queste impostazioni come parte di distribuzioni automatizzate.
+* Non modificare queste impostazioni come parte delle distribuzioni automatiche.
 * Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatizzata che non contiene queste impostazioni comporterà un'app non funzionante, anche se le impostazioni vengono aggiunte al termine dell'attività.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenziali dell'account di archiviazione non valide
@@ -93,11 +92,11 @@ Se si dispone di una Quota di esecuzione giornaliera configurata, verrà disabil
 Ora che l'app per le funzioni è nuovamente operativa, esaminare i riferimenti per sviluppatori e i modelli di avvio rapido per iniziare a usare nuovamente l'app.
 
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
-   Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
+  Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
 * [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-   Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
+  Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.
+  Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 * [Informazioni sul servizio app di Azure](../app-service/overview.md)  

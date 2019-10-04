@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: c56aef180f5e16d2ec1931caabe04295ef288ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a8e4e91e768e3ad28ea9ff88c18515db4a40323
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60509770"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704559"
 ---
-# <a name="register-your-application"></a>Registrare l'applicazione
+# <a name="register-your-application"></a>Registra l'applicazione
 
 Per usare il Servizio decisionale personalizzato per l'applicazione, registrarsi nel portale. Questo articolo spiega come.
 

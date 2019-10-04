@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 156699b8d8c1a645961f4e919bdd843d995a3d18
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570097"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142639"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "57570097"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincrone con il supporto della libreria [Netty](https://netty.io/). La versione pre-esistente [SQL API Java SDK](sql-api-sdk-java.md) non supporta operazioni asincrone. 
 
@@ -44,16 +44,26 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* Modalità TCP ora attiva per impostazione predefinita
+* Le metriche delle query in Cross-Partition restituiscono ora tutte le partizioni
+* Global Strong ora funziona correttamente
+* Failover per le query che non eseguono correttamente tentativi per il multimaster
+* Urti di dipendenza per gli hotfix di sicurezza
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Supporto di bugfix per hash V2
+
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* BugFix per perdita di risorse in client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+* Bugfix per la perdita di risorse nel client # Close () ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* Aggiunto continuation token supporto per query della partizione.
+* Aggiunto il supporto del token di continuazione per le query tra partizioni.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* Corretti alcuni bug in modalità diretta.
-* Funzionalità migliorate di registrazione in modalità diretta.
-* Gestione connessione migliorata.
+* Correzione di alcuni bug in modalità diretta.
+* Registrazione migliorata in modalità diretta.
+* Gestione delle connessioni migliorata.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * La connettività in modalità diretta è ora disponibile a livello generale. Per un esempio di uso della connettività in modalità diretta, vedere il repository GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
@@ -142,13 +152,17 @@ Nuove caratteristiche, funzionalità e ottimizzazioni vengono aggiunte solo all'
 
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
+> [!WARNING]
+> Tutte le versioni **1. x** di Async Java SDK per SQL API verranno ritirate il **30 agosto 2020**.
+> 
+>
 <br/>
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.4.3](#2.4.3) |5 marzo 2019|--- |
-| [2.4.2](#2.4.2) |1 marzo 2019|--- |
-| [2.4.1](#2.4.1) |20 febbraio 2019|--- |
+| [2.4.3](#2.4.3) |5 mar 2019|--- |
+| [2.4.2](#2.4.2) |1 mar 2019|--- |
+| [2.4.1](#2.4.1) |20 feb, 2019|--- |
 | [2.4.0](#2.4.0) |8 febbraio 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 febbraio 2019|--- |
 | [2.3.1](#2.3.1) |15 gen 2019|--- |
@@ -159,13 +173,13 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | [2.1.0](#2.1.0) |5 settembre 2018|--- |
 | [2.0.1](#2.0.1) |16 agosto 2018|--- |
 | [2.0.0](#2.0.0) |20 giugno 2018|--- |
-| [1.0.2](#1.0.2) |18 maggio 2018|--- |
-| [1.0.1](#1.0.1) |20 aprile 2018|--- |
-| [1.0.0](#1.0.0) |27 febbraio 2018|--- |
+| [1.0.2](#1.0.2) |18 maggio 2018|30 agosto 2020 |
+| [1.0.1](#1.0.1) |20 aprile 2018|30 agosto 2020 |
+| [1.0.0](#1.0.0) |27 febbraio 2018|30 agosto 2020 |
 
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

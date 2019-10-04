@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 7cc52493ec0e2b9c81d52da4bb22102c2c7e5e5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: rosh
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ef5ebd4ec88deac8c49430f36956d3711c8c535
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861988"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706949"
 ---
 # <a name="project-url-preview-endpoint"></a>Endpoint dell'Anteprima URL progetto
 
@@ -31,10 +32,10 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ```
 
 ### <a name="query-parameters"></a>Parametri di query
-|NOME|Valore|Type|Obbligatoria|  
+|Name|Value|Type|Obbligatoria|  
 |----------|-----------|----------|--------------|  
-|q|URL per l'anteprima|string |Sì|
-|safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e non viene restituito il flag *isFamilyFriendly*. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |string|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.| 
+|q|URL per l'anteprima|String |Sì|
+|safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e non viene restituito il flag *isFamilyFriendly*. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |String|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.| 
 
 ## <a name="response-object"></a>Oggetto della risposta
 

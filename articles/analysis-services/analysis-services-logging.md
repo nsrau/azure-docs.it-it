@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010923"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259422"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -27,9 +27,9 @@ Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito 
 
 È possibile selezionare le categorie **Engine** (Motore), **Service** (Servizio) e **Metrics** (Metriche).
 
-### <a name="engine"></a>Engine (Motore)
+### <a name="engine"></a>Motore
 
-Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
+Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
 
 |Categorie di eventi estesi |Nome evento  |
 |---------|---------|
@@ -43,10 +43,10 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 |Query     |   Fine query      |
 |Comandi:     |  Inizio comando       |
 |Comandi:     |  Fine comando       |
-|Errori e avvisi     |   Tipi di errore      |
-|Scoprire     |   Fine individuazione      |
-|Notifica     |    Notifica     |
-|sessione     |  Inizializzazione sessione       |
+|Errori e avvisi     |   Errore      |
+|Rileva     |   Fine individuazione      |
+|Notification     |    Notification     |
+|Sessione     |  Inizializzazione sessione       |
 |Blocchi    |  Deadlock       |
 |Elaborazione di query     |   Inizio query SE VertiPaq      |
 |Elaborazione di query     |   Fine query SE VertiPaq      |
@@ -67,7 +67,7 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 
 ### <a name="all-metrics"></a>Tutte le metriche
 
-Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [metriche del server](analysis-services-monitor.md#server-metrics) visualizzate in Metrics (Metriche).
+La categoria metrica registra le stesse [metriche del server](analysis-services-monitor.md#server-metrics) nella tabella AzureMetrics. Se si usa la [scalabilità orizzontale](analysis-services-scale-out.md) delle query ed è necessario separare le metriche per ogni replica di lettura, usare invece la tabella AzureDiagnostics, dove **OperationName** è uguale a **LogMetric**.
 
 ## <a name="setup-diagnostics-logging"></a>Configurare la registrazione diagnostica
 
@@ -83,13 +83,13 @@ Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [met
 
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
-    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
+    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - area di lavoro Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
 
     * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrics** (Metriche). Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
-3. Fare clic su **Save**.
+3. Fare clic su **Salva**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
@@ -141,7 +141,7 @@ Informazioni su come [modificare le impostazioni di diagnostica usando l'API RES
 
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 
-Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## <a name="manage-your-logs"></a>Gestire i log
 
@@ -161,34 +161,60 @@ Per visualizzare i dati di diagnostica, nell'area di lavoro Log Analytics aprire
 
 Nel generatore di query espandere **LogManagement** > **AzureDiagnostics**. AzureDiagnostics include eventi del motore e del servizio. Viene immediatamente creata una query. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale. Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire all'area di lavoro Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
 
-### <a name="example-query"></a>Query di esempio
-Questa query calcola e restituisce la CPU per ogni evento di fine query/fine aggiornamento per un database modello e un server:
+### <a name="example-queries"></a>Query di esempio
+
+#### <a name="example-1"></a>Esempio 1
+
+La query seguente restituisce le durate per ogni evento di fine/aggiornamento di query per un database modello e un server. Se la scalabilità orizzontale è aumentata, i risultati vengono suddivisi in base alla replica perché il numero di replica è incluso in ServerName_s. Il raggruppamento per RootActivityId_g riduce il conteggio delle righe recuperato dall'API REST di Diagnostica di Azure e aiuta a rimanere entro i limiti descritti in [log Analytics limiti di velocità](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>Esempio 2
+
+La query seguente restituisce la memoria e il consumo di QPU per un server. Se la scalabilità orizzontale è aumentata, i risultati vengono suddivisi in base alla replica perché il numero di replica è incluso in ServerName_s.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>Esempio 3
+
+La query seguente restituisce i contatori delle prestazioni del motore Analysis Services di righe lette al secondo per un server.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere [Introduzione alle query di log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Abilitare la registrazione tramite PowerShell
 
-In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. È quindi possibile usare Set-AzDiagnosticSetting per attivare la registrazione diagnostica e l'invio di output per il nuovo account di archiviazione.
+In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Si usa quindi set-AzDiagnosticSetting per attivare la registrazione diagnostica, inviando l'output al nuovo account di archiviazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
@@ -242,9 +268,9 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Abilitazione della registrazione
+### <a name="enable-logging"></a>Abilita registrazione
 
-Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
+Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, l'account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -301,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md).
 
-Visualizzare [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.
+Vedere [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

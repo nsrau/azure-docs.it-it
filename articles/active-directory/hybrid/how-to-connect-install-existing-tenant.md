@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349558"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336813"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: con un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -34,7 +34,7 @@ Un oggetto in Azure AD viene gestito nel cloud (Azure AD) o in locale. Per un si
 Se si iniziano a gestire in Azure AD utenti che si trovano anche nell'istanza di AD locale e successivamente si vuole usare Connect, è necessario prendere in considerazione altri aspetti.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Eseguire la sincronizzazione con gli utenti esistenti in Azure AD
-Quando si installa Azure AD Connect e si avvia la sincronizzazione, il servizio di sincronizzazione di Azure AD (in Azure AD) esegue un controllo per ogni nuovo oggetto e prova a trovare un oggetto esistente da associare. Vengono usati tre attributi per questo processo: **userPrincipalName**, **proxyAddresses** e **sourceAnchor**/**immutableID**. Una corrispondenza per **userPrincipalName** e **proxyAddresses** è nota come **corrispondenza flessibile**. Una corrispondenza per **sourceAnchor** è nota come **corrispondenza rigida**. Per l'attributo **proxyAddresses** solo il valore con attributo **SMTP:**, ovvero l'indirizzo di posta elettronica principale, viene usato per la valutazione.
+Quando si installa Azure AD Connect e si avvia la sincronizzazione, il servizio di sincronizzazione di Azure AD (in Azure AD) esegue un controllo per ogni nuovo oggetto e prova a trovare un oggetto esistente da associare. Vengono usati tre attributi per questo processo: **userPrincipalName**, **proxyAddresses** e **sourceAnchor**/**immutableID**. Una corrispondenza per **userPrincipalName** e **proxyAddresses** è nota come **corrispondenza flessibile**. Una corrispondenza per **sourceAnchor** è nota come **corrispondenza rigida**. Per l'attributo **proxyAddresses** solo il valore con attributo **SMTP:** , ovvero l'indirizzo di posta elettronica principale, viene usato per la valutazione.
 
 La corrispondenza viene valutata solo per i nuovi oggetti provenienti da Connect. Se si modifica un oggetto esistente in modo che corrisponda a uno di questi attributi, verrà visualizzato un errore.
 
@@ -58,6 +58,16 @@ Per una nuova installazione di Connect, non esiste alcuna differenza pratica tra
 
 ### <a name="other-objects-than-users"></a>Oggetti diversi dagli utenti
 Per i gruppi abilitati alla posta e ai contatti è possibile eseguire la corrispondenza flessibile in base a proxyAddresses. La corrispondenza rigida non è applicabile poiché è possibile aggiornare solo sourceAnchor o immutableID (tramite PowerShell) solo per Utenti. Per i gruppi che non sono abilitati per la posta non c'è attualmente alcun supporto per la corrispondenza rigida o per la corrispondenza flessibile.
+
+### <a name="admin-role-considerations"></a>Considerazioni sui ruoli di amministratore
+Per impedire che gli utenti locali non attendibili corrispondano a un utente cloud con un ruolo di amministratore, Azure AD Connect non corrisponderà a oggetti utente locali con oggetti che dispongono di un ruolo di amministratore. Per impostazione predefinita. Per aggirare questo comportamento, è possibile eseguire le operazioni seguenti:
+
+1.  Rimuovere i ruoli della directory dall'oggetto utente solo cloud.
+2.  Se si è verificato un tentativo di sincronizzazione utente non riuscito, eliminare definitivamente l'oggetto in quarantena nel cloud.
+3.  Attivare una sincronizzazione.
+4.  Facoltativamente, aggiungere di nuovo i ruoli della directory all'oggetto utente nel cloud dopo che è stata eseguita la corrispondenza.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creare una nuova istanza di Active Directory locale dai dati di Azure AD
 Alcuni clienti iniziano con una soluzione solo cloud con Azure AD e non hanno un'istanza di AD locale. In un secondo momento intendono usare risorse locali e creare un'istanza di AD locale basata sui dati di Azure AD. Azure AD Connect non potrà essere utile per questo scenario. Non crea gli utenti locali e non può impostare in locale la stessa password di Azure AD.

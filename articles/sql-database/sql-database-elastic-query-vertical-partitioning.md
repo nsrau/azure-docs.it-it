@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459435"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568541"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Eseguire query in database cloud con schemi diversi (anteprima)
 
@@ -51,7 +50,7 @@ Le credenziali vengono usate dalla query elastica per connettersi ai database re
     [;]
 
 > [!NOTE]
-> Assicurarsi che `<username>` non includa alcun suffisso **"\@servername"**. 
+> Assicurarsi che `<username>` non includa alcun suffisso **"\@servername"** . 
 >
 
 ## <a name="create-external-data-sources"></a>Creare origini dati esterne
@@ -123,7 +122,7 @@ Nell'esempio seguente viene illustrato come recuperare l'elenco di tabelle ester
 
     select * from sys.external_tables; 
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La query elastica estende la sintassi esistente della tabella esterna per definire le tabelle esterne che usano origini dati esterne di tipo RDBMS. Una definizione di tabella esterna per il partizionamento verticale comprende gli aspetti seguenti: 
 

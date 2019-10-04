@@ -4,22 +4,22 @@ description: Panoramica sulla modalità di archiviazione dei dati di configurazi
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224470"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706462"
 ---
-# <a name="key-value-store"></a>Archivio chiave-valore
+# <a name="keys-and-values"></a>Chiavi e valori
 
 Configurazione app di Azure archivia i dati di configurazione sotto forma di coppie chiave-valore. Le coppie chiave-valore costituiscono un modo semplice e flessibile per rappresentare vari tipi di impostazioni delle applicazioni già noti agli sviluppatori.
 
@@ -27,7 +27,7 @@ Configurazione app di Azure archivia i dati di configurazione sotto forma di cop
 
 La chiavi fungono da nome per le coppie chiave-valore e vengono usate per archiviare e recuperare i valori corrispondenti. In genere le chiavi vengono organizzate in uno spazio dei nomi gerarchico usando un delimitatore di caratteri, ad esempio `/` o `:`. Usare la convenzione più indicata per l'applicazione. Configurazione app tratta le chiavi come un insieme. Non analizza le chiavi per individuare come sono strutturati i relativi nomi, né applica alcuna regola.
 
-L'utilizzo dell'archivio di configurazione all'interno dei framework applicazione potrebbe imporre schemi di denominazione specifici per le coppie chiave-valore. Ad esempio, il framework Spring Cloud di Java definisce che le risorse `Environment` che forniscono le impostazioni per un'applicazione Spring vengano parametrizzate da variabili che includono il *nome dell'applicazione* e il *profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
+L'utilizzo dei dati configurazione all'interno dei framework applicazione potrebbe imporre schemi di denominazione specifici per le coppie chiave-valore. Ad esempio, il framework Spring Cloud di Java definisce che le risorse `Environment` che forniscono le impostazioni per un'applicazione Spring vengano parametrizzate da variabili che includono il *nome dell'applicazione* e il *profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
 
 Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Ad esempio, il sistema di configurazione ASP.NET Core tratta le chiavi come stringhe senza distinzione tra maiuscole e minuscole. Per evitare comportamenti imprevedibili quando si eseguono query su Configurazione app all'interno di un'applicazione ASP.NET Core, non usare chiavi che differiscono solo per quanto riguarda l'uso di maiuscole e minuscole.
 
@@ -45,29 +45,27 @@ Per assegnare i nomi alle chiavi usate per i dati di configurazione sono disponi
 
 Ecco diversi esempi di come strutturare i nomi delle chiavi in una gerarchia:
 
-* In base agli ambienti
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * In base ai servizi dei componenti
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * In base alle aree di distribuzione
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Chiavi di etichetta
+
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
+
+L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Creare versioni di coppie chiave-valore
-
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *v1* e *v2* corrisponde a due coppie chiave-valore distinte in un archivio di configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
 
 Configurazione app non crea automaticamente nuove versioni delle coppie chiave-valore quando vengono modificate. Usare quindi le etichette per creare più versioni di una coppia chiave-valore. È ad esempio possibile immettere un numero di versione dell'applicazione o un ID commit di Git nelle etichette per identificare le coppie chiave-valore associate a una particolare build software.
 
@@ -96,7 +94,7 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 | `label=1.0.*` | Corrisponde alle etichette che iniziano con **1.0.** |
 | `label=*.0.0` | Corrisponde alle etichette che terminano con **.0.0** |
 | `label=*.0.*` | Corrisponde alle etichette che contengono **.0.** |
-| `label=%00,1.0.0` | Corrisponde alle etichette `null` o **1.0.1**, con il limite di cinque CSV |
+| `label=%00,1.0.0` | Corrisponde alle etichette `null` o **1.0.0**, con il limite di cinque CSV |
 
 ## <a name="values"></a>Valori
 
@@ -106,4 +104,5 @@ I dati di configurazione archiviati in un archivio di configurazione app, che in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Concetto: Snapshot temporizzato](concept-point-time-snapshot.md)  
+* [Snapshot temporizzato](./concept-point-time-snapshot.md)  
+* [Gestione delle funzionalità](./concept-feature-management.md)  

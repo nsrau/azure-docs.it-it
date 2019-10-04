@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516719"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
@@ -144,7 +144,7 @@ Promemoria: se si vogliono usare solo le metriche predefinite, non è necessario
 Di seguito ognuna di queste impostazioni viene esaminata in modo più dettagliato; viene inoltre descritto il comportamento sul quale essa agisce.
 
 ## <a name="load"></a>Caricamento
-La definizione di metriche consiste essenzialmente nella rappresentazione di un carico. Il *carico* è la quantità di una determinata metrica che viene consumata da una replica o un'istanza del servizio in un nodo specifico. Il carico può essere configurato in qualsiasi momento, Ad esempio: 
+La definizione di metriche consiste essenzialmente nella rappresentazione di un carico. Il *carico* è la quantità di una determinata metrica che viene consumata da una replica o un'istanza del servizio in un nodo specifico. Il carico può essere configurato in qualsiasi momento, Ad esempio:
 
   - Può essere definito quando viene creato un servizio. Si tratta in questo caso del _carico predefinito_.
   - Le informazioni sulla metrica, inclusi i carichi predefiniti per un servizio possono essere aggiornati dopo aver creato il servizio. Si tratta in questo caso di _aggiornamento di un servizio_. 

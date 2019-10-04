@@ -4,19 +4,18 @@ description: Informazioni su come usare i trigger e le associazioni HTTP in Funz
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, HTTP, API, REST
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490411"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838907"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -308,6 +307,7 @@ Ecco il codice Python:
 import logging
 import azure.functions as func
 
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
@@ -436,7 +436,7 @@ Questo esempio legge il corpo di una richiesta POST, come ```String```, e lo usa
 
 #### <a name="read-parameter-from-a-route-java"></a>Leggere un parametro da una route (Java)  
 
-Questo esempio legge un parametro obbligatorio, denominato ```id```, e un parametro facoltativo ```name``` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. T
+Questo esempio legge un parametro obbligatorio, denominato ```id```, e un parametro facoltativo ```name``` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. M
 
 ```java
     @FunctionName("TriggerStringRoute")
@@ -557,11 +557,11 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 | **type** | n/d| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | n/d| Obbligatoria. Deve essere impostata su `in`. |
-| **nome** | n/d| Obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. |
+| **name** | n/d| Obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina le eventuali chiavi che devono essere presenti nella richiesta per richiamare la funzione. Il livello di autorizzazione può corrispondere a uno dei valori seguenti: <ul><li><code>anonymous</code>&mdash;Non è richiesta nessuna chiave API.</li><li><code>function</code>&mdash;È richiesta una chiave API specifica della funzione. Questo è il valore predefinito se non ne viene specificato nessuno.</li><li><code>admin</code>&mdash;È richiesta la chiave master.</li></ul> Per altre informazioni, consultare la sezione sulle [chiavi di autorizzazione](#authorization-keys). |
 | **methods** |**Metodi** | Matrice di metodi HTTP a cui la funzione risponde. Se non viene specificata, la funzione risponde a tutti i metodi HTTP. Vedere [Personalizzare l'endpoint HTTP](#customize-the-http-endpoint). |
 | **route** | **Route** | Definisce il modello di route, controllando a quali URL di richiesta risponde la funzione. Il valore predefinito, se non ne viene specificato nessuno, è `<functionname>`. Per altre informazioni, vedere [Personalizza l'endpoint HTTP](#customize-the-http-endpoint). |
@@ -666,7 +666,7 @@ Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](
 
 È anche possibile leggere queste informazioni dai dati di binding. Questa funzionalità è disponibile solo per il runtime di Funzioni 2.x. È anche al momento disponibile solo per i linguaggi .NET.
 
-Nei linguaggi .NET queste informazioni sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
+Nei linguaggi .NET queste informazioni sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
 
 ```csharp
 using System.Net;
@@ -727,7 +727,7 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 ![Gestire le chiavi di funzione nel portale.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Non è disponibile alcuna API supportata per l'acquisizione a livello di codice di tasti funzione.
+È possibile ottenere le chiavi della funzione a livello di codice usando le [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorizzazione della chiave API
 
@@ -740,8 +740,7 @@ La chiave può essere inclusa in una variabile della stringa di query denominata
 È possibile consentire le richieste anonime, che non richiedono chiavi. È anche possibile richiedere l'uso della chiave master. Per modificare il livello di autorizzazione predefinito, usare la proprietà `authLevel` nel file JSON di binding. Per altre informazioni, vedere [Trigger - configurazione](#trigger---configuration)
 
 > [!NOTE]
-> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger.
-
+> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger. Le chiavi sono comunque necessarie quando si esegue [localmente in un contenitore](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteggere un endpoint HTTP nell'ambiente di produzione
@@ -756,7 +755,7 @@ Per proteggere completamente gli endpoint di funzione nell'ambiente di produzion
 
 Quando si usa uno di questi metodi di sicurezza a livello di app per le funzioni, è necessario impostare il livello di autenticazione delle funzioni attivate da HTTP su `anonymous`.
 
-### <a name="webhooks"></a>Webhook
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > La modalità webhook è disponibile solo per il runtime di funzioni versione 1.x. Questa modifica è stata apportata per migliorare le prestazioni dei trigger HTTP nella versione 2.x.
@@ -784,7 +783,7 @@ L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, ch
 
 La lunghezza della richiesta HTTP è limitata a 100 MB (104.857.600 byte) e la lunghezza dell'URL è limitata a 4 KB (4096 byte). Questi limiti vengono specificati dall'elemento `httpRuntime` del [file web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) del runtime.
 
-Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti circa, il gateway raggiungerà il timeout e restituirà un errore HTTP 502. La funzione rimarrà in esecuzione, ma non riuscirà a restituire una risposta HTTP. Per le funzioni con esecuzione prolungata, è consigliabile seguire modelli asincroni e restituire una posizione in cui è possibile effettuare il ping dello stato della richiesta. Per informazioni su quanto tempo può durare l'esecuzione di una funzione, vedere [Scalabilità e hosting - Piano a consumo](functions-scale.md#consumption-plan).
+Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti circa, il gateway raggiungerà il timeout e restituirà un errore HTTP 502. La funzione rimarrà in esecuzione, ma non riuscirà a restituire una risposta HTTP. Per le funzioni con esecuzione prolungata, è consigliabile seguire modelli asincroni e restituire una posizione in cui è possibile effettuare il ping dello stato della richiesta. Per informazioni su quanto tempo può durare l'esecuzione di una funzione, vedere [Scalabilità e hosting - Piano a consumo](functions-scale.md#timeout).
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
 
@@ -800,11 +799,11 @@ Usare l'associazione di output HTTP per rispondere al mittente della richiesta H
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Per le librerie di classe C# non vi sono proprietà di attributo che corrispondano a queste proprietà *function.json*.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
-|**nome** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
+|**name** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
 
 ## <a name="output---usage"></a>Output - uso
 

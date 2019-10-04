@@ -3,20 +3,20 @@ title: Informazioni sul servizio Traduzione vocale
 titleSuffix: Azure Cognitive Services
 description: Usare l'API Traduzione vocale per aggiungere la traduzione vocale e la traduzione con riconoscimento vocale alle applicazioni in uso.
 services: cognitive-services
-author: Jann-Skotdal
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eaa6e9a7e8e7edd4241594ad7c2188c3fb50295e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674855"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966445"
 ---
 # <a name="what-is-translator-speech-api"></a>Informazioni sull'API Traduzione vocale
 
@@ -67,7 +67,7 @@ Altre informazioni sul [funzionamento della traduzione automatica neurale](https
 > [!div class="nextstepaction"]
 > [Iniziare a scrivere codice](quickstarts/csharp.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/)
 - [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)
 - [Informazioni sui prezzi e sulla soluzione](https://www.microsoft.com/en-us/translator/home.aspx)

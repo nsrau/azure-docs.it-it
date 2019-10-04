@@ -1,24 +1,24 @@
 ---
-title: 'Avvio rapido: API Traduzione vocale Node.js'
+title: 'Guida introduttiva: API Traduzione vocale Node.js'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b79ca4ed259b561fadc4b7fa644b5c136192bb7f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fc5c6fe4040a8f4140cd18ff41373d50f74a6a55
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671727"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965402"
 ---
-# <a name="quickstart-translator-speech-api-with-nodejs"></a>Avvio rapido: API Traduzione vocale con Node.js
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Guida introduttiva: API Traduzione vocale con Node.js
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -170,7 +170,7 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 > [!div class="nextstepaction"]
 > [Esercitazione su Traduzione vocale](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Traduzione vocale](../overview.md)
 [Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

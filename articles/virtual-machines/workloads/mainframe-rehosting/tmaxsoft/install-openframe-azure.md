@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: b69ded2591478a477cd142decb39218841c9ac62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578476"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65410117"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
 
@@ -64,7 +64,7 @@ Nella tabella seguente elenca i requisiti per l'installazione in Azure.
 
 <table>
 <thead>
-    <tr><th>Requisito</th><th>DESCRIZIONE</th></tr>
+    <tr><th>Requisito</th><th>Descrizione</th></tr>
 </thead>
 <tbody>
 <tr><td>Distribuzioni di Linux supportate in Azure
@@ -102,7 +102,7 @@ Pianificare la spesa lievi assemblare tutti i software richiesti e completare tu
 
 Prima di iniziare, eseguire le operazioni seguenti:
 
-- Ottenere il supporto di installazione OpenFrame da TmaxSoft. Se sei un cliente esistente di TmaxSoft, contattare il rappresentante TmaxSoft per una copia con licenza. In caso contrario, richiedere una versione di valutazione [TmaxSoft](http://www.tmaxsoft.com/contact/).
+- Ottenere il supporto di installazione OpenFrame da TmaxSoft. Se sei un cliente esistente di TmaxSoft, contattare il rappresentante TmaxSoft per una copia con licenza. In caso contrario, richiedere una versione di valutazione [TmaxSoft](https://www.tmaxsoft.com/contact/).
 
 - Richiedere la documentazione OpenFrame mediante l'invio di posta elettronica a <support@tmaxsoft.com>.
 
@@ -116,7 +116,7 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 **Per creare una macchina virtuale**
 
-1. Passare al portale di Azure all'indirizzo <http://portal.azure.com> ed eseguire l'accesso al proprio account.
+1. Passare al portale di Azure all'indirizzo <https://portal.azure.com> ed eseguire l'accesso al proprio account.
 
 2. Fare clic su **Virtual machines**.
 
@@ -308,7 +308,7 @@ Tibero fornisce le funzioni chiave diversi nell'ambiente OpenFrame in Azure:
 **Per installare Tibero**
 
 1. Verificare che sia presente il file di programma di installazione binari Tibero ed esaminare il numero di versione.
-2. Copiare il software Tibero all'account utente Tibero (oframe). Ad esempio: 
+2. Copiare il software Tibero all'account utente Tibero (oframe). Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
@@ -331,7 +331,7 @@ Tibero fornisce le funzioni chiave diversi nell'ambiente OpenFrame in Azure:
     source .bash_profile
     ```
 
-5. Generare il file di suggerimento (un file di configurazione per Tibero), quindi aprirlo vi. Ad esempio: 
+5. Generare il file di suggerimento (un file di configurazione per Tibero), quindi aprirlo vi. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
@@ -386,14 +386,14 @@ Tibero fornisce le funzioni chiave diversi nell'ambiente OpenFrame in Azure:
      ******************************************************************************
     ```
 
-8. Per riciclare Tibero, prima di tutto arrestarlo utilizzando il `tbdown` comando. Ad esempio: 
+8. Per riciclare Tibero, prima di tutto arrestarlo utilizzando il `tbdown` comando. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. Ora di avvio usando Tibero `tbboot`. Ad esempio: 
+9. Ora di avvio usando Tibero `tbboot`. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -440,19 +440,19 @@ Le applicazioni in OpenFrame comunicano con il database Tibero usando l'API ODBC
 
 Per installare ODBC:
 
-1. Verificare che sia presente il file di programma di installazione unixODBC-2.3.4.tar.gz oppure usare il `wget unixODBC-2.3.4.tar.gz` comando. Ad esempio: 
+1. Verificare che sia presente il file di programma di installazione unixODBC-2.3.4.tar.gz oppure usare il `wget unixODBC-2.3.4.tar.gz` comando. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
      ```
 
-2. Decomprimere il file binario. Ad esempio: 
+2. Decomprimere il file binario. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. Passare alla directory unixODBC-2.3.4 e generare il file di progetto usando le informazioni di controllo della macchina. Ad esempio: 
+3. Passare alla directory unixODBC-2.3.4 e generare il file di progetto usando le informazioni di controllo della macchina. Ad esempio:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
@@ -462,7 +462,7 @@ Per installare ODBC:
 
 4. Eseguire Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. Copiare il file eseguibile nella cartella del programma dopo la compilazione. Ad esempio: 
+5. Copiare il file eseguibile nella cartella del programma dopo la compilazione. Ad esempio:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
@@ -479,7 +479,7 @@ Per installare ODBC:
      export ODBCSYSINI=$HOME
      ```
 
-7. Applicare ODBC. Modificare di conseguenza i file seguenti. Ad esempio: 
+7. Applicare ODBC. Modificare di conseguenza i file seguenti. Ad esempio:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -559,7 +559,7 @@ Il server applicazioni di Base viene installato prima i singoli servizi OpenFram
      ```
 
 3. Eseguire il profilo bash:`[oframe7@ofdemo ~]$ . .bash_profile`
-4. Assicurarsi che i processi Tibero siano in esecuzione. Ad esempio: 
+4. Assicurarsi che i processi Tibero siano in esecuzione. Ad esempio:
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -602,7 +602,7 @@ Il server applicazioni di Base viene installato prima i singoli servizi OpenFram
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. Eseguire il programma di installazione utilizzando il file base.properties. Ad esempio: 
+7. Eseguire il programma di installazione utilizzando il file base.properties. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
@@ -611,7 +611,7 @@ Il server applicazioni di Base viene installato prima i singoli servizi OpenFram
 
     Al termine dell'esercitazione, il messaggio completo di installazione viene visualizzata.
 
-8. Verificare la struttura di directory OpenFrame Base utilizzando il `ls -ltr` comando. Ad esempio: 
+8. Verificare la struttura di directory OpenFrame Base utilizzando il `ls -ltr` comando. Ad esempio:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -849,7 +849,7 @@ TACF Manager è un modulo di servizio OpenFrame che controlla l'accesso utente a
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. Verificare che lo stato del processo sia pronto usando `tmadmin` nella `si` comando. Ad esempio: 
+7. Verificare che lo stato del processo sia pronto usando `tmadmin` nella `si` comando. Ad esempio:
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
@@ -923,7 +923,7 @@ ProSort è un'utilità utilizzata nelle transazioni di batch per l'ordinamento d
      mv prosort /opt/tmaxapp/prosort
      ```
 
-4. Creare una sottodirectory di licenza e copiare il file di licenza non esiste. Ad esempio: 
+4. Creare una sottodirectory di licenza e copiare il file di licenza non esiste. Ad esempio:
 
      ```
      cd /opt/tmaxapp/prosort 
@@ -947,7 +947,7 @@ ProSort è un'utilità utilizzata nelle transazioni di batch per l'ordinamento d
 
 6. Per eseguire il profilo di bash, al prompt dei comandi, digitare: `. .bash_profile`
 
-7. Creare il file di configurazione. Ad esempio: 
+7. Creare il file di configurazione. Ad esempio:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -956,14 +956,14 @@ ProSort è un'utilità utilizzata nelle transazioni di batch per l'ordinamento d
       /home/oframe7/prosort/config/gbg.tip generated
      ```
 
-8. Creare il collegamento simbolico. Ad esempio: 
+8. Creare il collegamento simbolico. Ad esempio:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. Verificare l'installazione ProSort eseguendo il `prosort -h` comando. Ad esempio: 
+9. Verificare l'installazione ProSort eseguendo il `prosort -h` comando. Ad esempio:
 
      ```
      oframe@oframe7: prosort -h
@@ -1024,11 +1024,11 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
       source ~/.bash_profile
      ```
 
-7. Copiare la licenza OFCOBOL installati nella cartella. Ad esempio: 
+7. Copiare la licenza OFCOBOL installati nella cartella. Ad esempio:
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. Passare al file di configurazione tjclrun.conf OpenFrame e aprirlo in vi. Ad esempio: 
+8. Passare al file di configurazione tjclrun.conf OpenFrame e aprirlo in vi. Ad esempio:
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
@@ -1043,7 +1043,7 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. Esaminare il OpenFrame\_COBOL\_InstallLog.log file vi e verificare che non siano presenti errori. Ad esempio: 
+9. Esaminare il OpenFrame\_COBOL\_InstallLog.log file vi e verificare che non siano presenti errori. Ad esempio:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Usare il `ofcob --version` comando ed esaminare il numero di versione per verificare l'installazione. Ad esempio: 
+10. Usare il `ofcob --version` comando ed esaminare il numero di versione per verificare l'installazione. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1073,7 +1073,7 @@ OFASM è il compilatore OpenFrame che interpreta i programmi di assembler del ma
 
 1. Assicurarsi che l'installazione Online/Batch ha avuto esito positivo, quindi verificare che il OpenFrame\_ASM3\_0\_Linux\_x86\_file di programma di installazione a 64 bit bin è presente.
 
-2. Eseguire il programma di installazione. Ad esempio: 
+2. Eseguire il programma di installazione. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
@@ -1081,7 +1081,7 @@ OFASM è il compilatore OpenFrame che interpreta i programmi di assembler del ma
 
 3. Leggere il contratto di licenza e premere INVIO per continuare.
 4. Accettare il contratto di licenza.
-5. Verificare che con le variabili OFASM viene aggiornato il profilo di bash. Ad esempio: 
+5. Verificare che con le variabili OFASM viene aggiornato il profilo di bash. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1117,7 +1117,7 @@ OFASM è il compilatore OpenFrame che interpreta i programmi di assembler del ma
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. Aprire il OpenFrame\_ASM\_InstallLog.log file vi e verificare che non siano presenti errori. Ad esempio: 
+7. Aprire il OpenFrame\_ASM\_InstallLog.log file vi e verificare che non siano presenti errori. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1140,7 +1140,7 @@ OFASM è il compilatore OpenFrame che interpreta i programmi di assembler del ma
      tmdown / tmboot
      ```
 
-     - o:
+     \- o:
 
      ```
      oscdown / oscboot
@@ -1180,7 +1180,7 @@ Oschooser è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni 
      0 FatalError
      ```
 
-6. Consente di aprire il file di configurazione ofsys.seq vi. Ad esempio: 
+6. Consente di aprire il file di configurazione ofsys.seq vi. Ad esempio:
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
@@ -1224,7 +1224,7 @@ Oschooser è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni 
      TPFMAGENT      tmsvr
     ```
 
-8. Copiare il file di licenza. Ad esempio: 
+8. Copiare il file di licenza. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
@@ -1268,13 +1268,13 @@ Prima di installare JEUS, installare il pacchetto Apache Ant, che offre le libre
 
 **Per installare Apache Ant**
 
-1. Download Ant binario utilizzando il `wget` comando. Ad esempio: 
+1. Download Ant binario utilizzando il `wget` comando. Ad esempio:
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. Usare il `tar` utilità per estrarre il file binario e spostarlo in una posizione appropriata. Ad esempio: 
+2. Usare il `tar` utilità per estrarre il file binario e spostarlo in una posizione appropriata. Ad esempio:
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1294,7 +1294,7 @@ Prima di installare JEUS, installare il pacchetto Apache Ant, che offre le libre
      export PATH=$HOME/ant/bin:$PATH
      ```
 
-5.  Applicare la variabile di ambiente modificato. Ad esempio: 
+5.  Applicare la variabile di ambiente modificato. Ad esempio:
 
      ```
      [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
@@ -1302,14 +1302,14 @@ Prima di installare JEUS, installare il pacchetto Apache Ant, che offre le libre
 
 **Per installare JEUS**
 
-1. Espandere il programma di installazione utilizzando il `tar` utilità. Ad esempio: 
+1. Espandere il programma di installazione utilizzando il `tar` utilità. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
 2. Creare un **jeus** cartella (`mkdir jeus7`) e decomprimere il file binario.
-3. Modificare il **programma di installazione** directory (o usare il parametro JEUS per il proprio ambiente). Ad esempio: 
+3. Modificare il **programma di installazione** directory (o usare il parametro JEUS per il proprio ambiente). Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
@@ -1330,7 +1330,7 @@ Prima di installare JEUS, installare il pacchetto Apache Ant, che offre le libre
      Total time: 0 seconds
      ```
 
-5.  Eseguire il backup del file di dominio-config-template.properties. Ad esempio: 
+5.  Eseguire il backup del file di dominio-config-template.properties. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
@@ -1353,7 +1353,7 @@ Prima di installare JEUS, installare il pacchetto Apache Ant, che offre le libre
      export PATH
      ```
 
-10. Eseguire il profilo bash. Ad esempio: 
+10. Eseguire il profilo bash. Ad esempio:
 
      ```
      [oframe7@ofdemo setup]$ . .bash_profile
@@ -1414,7 +1414,7 @@ OFGW è il gateway OpenFrame che supporta la comunicazione tra l'emulatore termi
 **Per installare OFGW**
 
 1. Assicurarsi di aver JEUS è stato installato correttamente, quindi verificare che il OFGW7\_0\_1\_Generic.bin file di programma di installazione è presente.
-2. Eseguire il programma di installazione. Ad esempio: 
+2. Eseguire il programma di installazione. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
@@ -1448,7 +1448,7 @@ OFManager fornisce operazione e le funzioni di gestione per OpenFrame nell'ambie
 **Per installare OFManager**
 
 1. Verificare che il OFManager7\_Generic.bin file di programma di installazione è presente.
-2. Eseguire il programma di installazione. Ad esempio: 
+2. Eseguire il programma di installazione. Ad esempio:
 
      ```
      OFManager7_Generic.bin

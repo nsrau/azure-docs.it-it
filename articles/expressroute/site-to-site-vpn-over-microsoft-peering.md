@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405870"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66115732"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 
@@ -266,7 +266,7 @@ I dispositivi VPN locali vengono detti **gateway di rete locali**. Il seguente f
 
 Questa sezione del modello consente di configurare il gateway VPN con le impostazioni necessarie per una configurazione attiva-attiva. Tenere presente quanto segue:
 
-* Creare il gateway VPN con variabile VpnType **"RouteBased"**. Questa impostazione è obbligatoria per abilitare il routing BGP tra il gateway VPN e la VPN locale.
+* Creare il gateway VPN con variabile VpnType **"RouteBased"** . Questa impostazione è obbligatoria per abilitare il routing BGP tra il gateway VPN e la VPN locale.
 * Per stabilire tunnel VPN tra le due istanze del gateway VPN e un dispositivo locale specifico in modalità attivo-attivo, il parametro **"activeActive"** nel modello di Resource Manager sarà impostato su **true**. Per altre informazioni sui gateway VPN a disponibilità elevata, vedere [Connettività a disponibilità elevata di gateway VPN](../vpn-gateway/vpn-gateway-highlyavailable.md).
 * Per configurare una sessione eBGP tra i tunnel VPN è necessario specificare due ASN diversi su entrambi i lati. È preferibile specificare numeri ASN privati. Per altre informazioni, vedere [Panoramica dei gateway VPN di BGP e Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 

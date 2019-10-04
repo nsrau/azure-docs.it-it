@@ -3,23 +3,23 @@ title: Monitorare i runbook di automazione di Azure con avvisi di metrica
 description: Questo articolo illustra il monitoraggio dei runbook di automazione di Azure basato sulle metriche
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 142fb84624c2b0d3d92868aae5794792ed90b577
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170191"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478017"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
 
 In questo articolo sono fornite informazioni su come creare gli avvisi sullo stato di completamento dei runbook.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 

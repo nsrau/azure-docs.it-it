@@ -1,5 +1,5 @@
 ---
-title: Supporto per le lingue
+title: Supporto delle lingue - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS ha un'ampia gamma di funzionalità all'interno del servizio. Non tutte le funzionalità hanno la stessa parità di linguaggio. Assicurarsi che le funzionalità a cui si è interessati siano supportate nella lingua di destinazione. Un'applicazione LUIS è specifica per la cultura e non può essere modificata una volta impostata.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/19/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196219"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316360"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,21 +30,22 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni di elenco di frase | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Olandese |`nl-NL` |-|  -   |-|✔|
-| Francese (Francia) |`fr-FR` |-| ✔ |✔ |✔|
+| Olandese |`nl-NL` |✔|  -   |-|✔|
+| Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Francese (Canada) |`fr-CA` |-|   -   |-|✔|
-| Tedesco |`de-DE` |-| ✔ |✔ |✔|
-| Italiano |`it-IT` |-| ✔ |✔|✔|
-| *[Giapponese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase chiave|
-| Coreano |`ko-KR` |-|   -   |-|Solo la frase chiave|
-| Portoghese (Brasile) |`pt-BR` |-| ✔ |✔ |non tutte le impostazioni cultura secondarie|
-| Spagnolo (Spagna) |`es-ES` |-| ✔ |✔|✔|
+| Tedesco |`de-DE` |✔| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
+| Italiano |`it-IT` |✔| ✔ |✔|✔|
+| *[Giapponese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase chiave|
+| Coreano |`ko-KR` |✔|   -   |-|Solo la frase chiave|
+| Portoghese (Brasile) |`pt-BR` |✔| ✔ |✔ |non tutte le impostazioni cultura secondarie|
+| Spagnolo (Spagna) |`es-ES` |✔| ✔ |✔|✔|
 | Spagnolo (Messico)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |-|-|-|Solo sentiment|
+| Turco | `tr-TR` |✔|-|-|Solo sentiment|
 
 
 Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-entities.md) e [domini predefiniti](luis-reference-prebuilt-domains.md).
@@ -53,7 +54,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
 
  - Nella cultura `zh-cn`, LUIS prevede il set di caratteri semplificato cinese al posto del set di caratteri tradizionale.
  - I nomi di finalità, entità, funzioni ed espressioni regolari possono essere in caratteri cinesi o romani.
- - Vedere la [riferimento i domini predefiniti](luis-reference-prebuilt-domains.md) per informazioni su cui sono supportati i domini predefiniti in di `zh-cn` delle impostazioni cultura.
+ - Per informazioni sui domini predefiniti supportati nelle `zh-cn` impostazioni cultura, vedere il riferimento ai [domini predefiniti](luis-reference-prebuilt-domains.md) .
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Note sul supporto giapponese
@@ -88,6 +89,7 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 |Francese (fr-FR)|✔||||
 |Francese (fr-CA)|✔||||
 |Tedesco|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italiano|✔||||
 |Giapponese||||✔|
 |Coreano||✔||✔|
@@ -95,16 +97,16 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 |Spagnolo (es-ES)|✔||||
 |Spagnolo (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versioni di tokenizer personalizzato
+### <a name="custom-tokenizer-versions"></a>Versioni personalizzate di Tokenizer
 
-Le seguenti impostazioni di cultura hanno versioni tokenizer personalizzato:
+Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 
-|Impostazioni cultura|Version|Scopo|
+|Impostazioni cultura|Versione|Scopo|
 |--|--|--|
-|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendoli usando un tokenizer macchina basati sull'apprendimento automatico che tenta di suddividere parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come un utterance, che è abilitato `Ich fahre einen kranken wagen`. Consentendo il contrassegno delle `kranken` e `wagen` in modo indipendente come entità diversa.|
-|Tedesco<br>`de-de`|1.0.1|Suddivide in token le parole suddividendoli in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come un utterance, rimane un token singolo. In questo modo `krankenwagen` è contrassegnato come una singola entità. |
+|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in. `Ich fahre einen kranken wagen` Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
+|Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Eseguire la migrazione tra versioni diverse di tokenizer
+### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di Tokenizer
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +209,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokenizzazione avviene a livello di app. Non vi è alcun supporto per la suddivisione in token a livello di versione. 
+La suddivisione in token viene eseguita a livello di app. Non è disponibile alcun supporto per la suddivisione in token a livello di versione. 
 
-[Importare il file come una nuova app](luis-how-to-start-new-app.md#import-an-app-from-file), anziché una versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione di tokenizer specificata nel file. 
+[Importare il file come una nuova app](luis-how-to-start-new-app.md#import-an-app-from-file), anziché una versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione di Tokenizer specificata nel file. 

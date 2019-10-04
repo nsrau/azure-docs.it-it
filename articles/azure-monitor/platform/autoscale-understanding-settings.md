@@ -9,11 +9,11 @@ ms.date: 12/18/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787496"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
 Le impostazioni di scalabilità automatica permettono di eseguire la giusta quantità di risorse per gestire il carico variabile dell'applicazione. È possibile configurare le impostazioni di scalabilità automatica in modo che vengano attivate in base alle metriche che indicano le prestazioni o il carico oppure in base a una data e un'ora pianificate. Questo articolo analizza in dettaglio l'anatomia di un'impostazione di scalabilità automatica. L'articolo inizia dallo schema e dalle proprietà di un'impostazione e quindi descrive i diversi tipi di profilo che è possibile configurare. L'articolo descrive infine in che modo la funzionalità di scalabilità automatica determina quale profilo eseguire in ogni momento specifico.
@@ -89,29 +89,29 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 }
 ```
 
-| Sezione | Nome dell'elemento | DESCRIZIONE |
+| `Section` | Nome dell'elemento | Descrizione |
 | --- | --- | --- |
-| Impostazione | ID | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
+| Impostazione | id | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
 | Impostazione | location | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
 | properties | targetResourceUri | ID della risorsa da ridimensionare. È consentita una sola impostazione di scalabilità automatica per risorsa. |
-| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
-| Profilo | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
-| Profilo | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
-| Profilo | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
-| Profilo | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
-| Profilo | regole | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
-| Regola | metricTrigger | Definisce la condizione metrica della regola. |
+| properties | profiles | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
+| profile | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
+| profile | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
+| profile | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
+| profile | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
+| profile | rules | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
+| rules | metricTrigger | Definisce la condizione metrica della regola. |
 | metricTrigger | metricName | Nome della metrica. |
 | metricTrigger |  metricResourceUri | ID della risorsa che emette la metrica. Nella maggior parte dei casi, è lo stesso della risorsa da ridimensionare. In alcuni casi, può essere diversa. Ad esempio, è possibile ridimensionare un set di scalabilità di macchine virtuali in base al numero di messaggi in una coda di archiviazione. |
 | metricTrigger | timeGrain | La durata del campionamento delle metriche. Ad esempio, **TimeGrain = "PT1M"** indica che le metriche devono essere aggregate ogni minuto usando il metodo di aggregazione specificato nell'elemento statistic. |
 | metricTrigger | statistic | Metodo di aggregazione nel periodo specificato per timeGrain. Ad esempio, **statistic = "Average"** e **timeGrain = "PT1M"** significano che le metriche devono essere aggregate ogni minuto, in base alla media. Questa proprietà determina come viene campionata la metrica. |
 | metricTrigger | timeWindow | Quantità di tempo da considerare per le metriche. Ad esempio, **timeWindow = "PT10M"** significa che ogni volta che viene eseguita la funzionalità di scalabilità automatica, viene eseguita una query sulle metriche per i 10 minuti precedenti. L'intervallo di tempo permette la normalizzazione delle metriche per evitare di reagire a picchi temporanei. |
 | metricTrigger | timeAggregation | Metodo di aggregazione usato per aggregare le metriche campionate. Ad esempio, **TimeAggregation = "Average"** deve aggregare le metriche campionate in base alla media. Nel caso precedente considerare i dieci esempi da 1 minuto e calcolarne la media. |
-| Regola | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
+| rules | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
 | scaleAction | direction | "Increase" per aumentare, "Decrease" per ridurre.|
 | scaleAction | value | Indica di quanto aumentare o ridurre la capacità della risorsa. |
-| scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"**, la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
+| scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"** , la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
 
 ## <a name="autoscale-profiles"></a>Profili di scalabilità automatica
 
@@ -290,13 +290,13 @@ La funzionalità di scalabilità automatica usa la sequenza seguente per selezio
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Valutazione di più regole con la scalabilità automatica
 
-Dopo che la funzionalità di scalabilità automatica ha determinato il profilo da eseguire, avvia la valutazione di tutte le regole di aumento della capacità nel profilo. Si tratta delle regole con **direction = "Increase"**.
+Dopo che la funzionalità di scalabilità automatica ha determinato il profilo da eseguire, avvia la valutazione di tutte le regole di aumento della capacità nel profilo. Si tratta delle regole con **direction = "Increase"** .
 
 Se vengono attivate una o più regole di aumento, la funzionalità di scalabilità automatica calcola la nuova capacità in base all'elemento **scaleAction** di ogni regola. La funzionalità aumenta quindi la capacità al valore massimo, per garantire la disponibilità del servizio.
 
 Ad esempio, si supponga che vi sia un set di scalabilità di macchine virtuali con capacità corrente pari a 10. Esistono due regole di aumento: una che aumenta la capacità del 10% e una che la aumenta di 3 conteggi. la prima regola restituirà una nuova capacità pari a 11 e la seconda regola restituirà una capacità pari a 13. Per garantire la disponibilità del servizio, la funzionalità di scalabilità automatica sceglie l'azione che restituisce la capacità massima, ovvero la seconda regola.
 
-Se non viene attivata alcuna regola di aumento, la funzionalità di scalabilità automatica valuta tutte le regole di riduzione, ovvero le regole con **direction = "Decrease"**. La funzionalità di scalabilità automatica esegue un'azione di scale-in se tutte le regole di scale-in vengono attivate.
+Se non viene attivata alcuna regola di aumento, la funzionalità di scalabilità automatica valuta tutte le regole di riduzione, ovvero le regole con **direction = "Decrease"** . La funzionalità di scalabilità automatica esegue un'azione di scale-in se tutte le regole di scale-in vengono attivate.
 
 La funzionalità di scalabilità automatica calcola la nuova capacità in base all'elemento **scaleAction** di ogni regola, quindi sceglie l'azione di ridimensionamento che restituisce il massimo di tali capacità per garantire la disponibilità del servizio.
 

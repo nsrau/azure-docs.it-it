@@ -4,20 +4,19 @@ description: Informazioni su come usare il trigger di archiviazione code di Azur
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c708bfd0f8e49e9a857b9f77fab6224354ff06a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306850"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097190"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -54,6 +53,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -188,6 +188,54 @@ L'esempio Java seguente illustra una funzione trigger di coda di archiviazione c
  }
  ```
 
+### <a name="trigger---python-example"></a>Trigger - Esempio di Python
+
+Nell'esempio seguente viene illustrato come leggere un messaggio della coda passato a una funzione tramite un trigger.
+
+Un trigger della coda di archiviazione è definito in *Function. JSON,* dove *Type* è impostato su `queueTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+Il `func.ServiceBusMessage` codice   *_\_init_.pydichiaraunparametrocheconsentedileggereilmessaggiodellacodanellafunzione.\_*
+
+```python
+import logging
+import json
+
+import azure.functions as func
+
+def main(msg: func.QueueMessage):
+    logging.info('Python queue trigger function processed a queue item.')
+
+    result = json.dumps({
+        'id': msg.id,
+        'body': msg.get_body().decode('utf-8'),
+        'expiration_time': (msg.expiration_time.isoformat()
+                            if msg.expiration_time else None),
+        'insertion_time': (msg.insertion_time.isoformat()
+                           if msg.insertion_time else None),
+        'time_next_visible': (msg.time_next_visible.isoformat()
+                              if msg.time_next_visible else None),
+        'pop_receipt': msg.pop_receipt,
+        'dequeue_count': msg.dequeue_count
+    })
+
+    logging.info(result)
+```
+
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare i seguenti attributi per configurare un trigger di coda:
@@ -252,7 +300,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d| Il valore deve essere impostato su `queueTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction**| n/d | Solo nel file *function.json*. Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d |Nome della variabile che contiene il payload dell'elemento della coda nel codice della funzione.  |
+|**name** | n/d |Nome della variabile che contiene il payload dell'elemento della coda nel codice della funzione.  |
 |**queueName** | **QueueName**| Nome della coda sulla quale eseguire il polling. |
 |**connessione** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
@@ -273,9 +321,9 @@ In JavaScript, usare `context.bindings.<name>` per accedere al payload dell'elem
 
 ## <a name="trigger---message-metadata"></a>Trigger - metadati del messaggio
 
-Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage).
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Payload della coda, se si tratta di una stringa valida. Se il payload della coda di messaggi è una stringa, `QueueTrigger` ha lo stesso valore della variabile denominata dalla proprietà `name` in *function.json*.|
 |`DequeueCount`|`int`|Il numero di volte in cui questo messaggio è stato rimosso dalla coda.|
@@ -305,7 +353,7 @@ Il trigger della coda impedisce automaticamente a una funzione di elaborare un m
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
 
-Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Vedere le [host. JSON impostazioni](#hostjson-settings) sezione per informazioni dettagliate relative alle impostazioni disponibili.
+Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Per informazioni dettagliate sulle impostazioni disponibili, vedere la sezione [impostazioni di host. JSON](#hostjson-settings) .
 
 ## <a name="output"></a>Output
 
@@ -319,6 +367,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
@@ -363,7 +412,7 @@ Ecco il file *function.json*:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting",
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -424,7 +473,7 @@ Ecco il file *function.json*:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting",
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -467,6 +516,68 @@ module.exports = function(context) {
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve essere `OutputBinding<T>`, dove T corrisponde a un qualsiasi tipo Java nativo di un oggetto POJO.
 
+### <a name="output---python-example"></a>Output - Esempio di Python
+
+Nell'esempio seguente viene illustrato come restituire valori singoli e multipli nelle code di archiviazione. La configurazione necessaria per *Function. JSON* è identica in entrambi i casi.
+
+Un binding della coda di archiviazione è definito in *Function. JSON,* dove *Type* è impostato su `queue`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+Per impostare un singolo messaggio nella coda, passare un singolo valore al `set` metodo.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
+Per creare più messaggi nella coda, dichiarare un parametro come tipo di elenco appropriato e passare una matrice di valori (che corrispondono al tipo di elenco) al `set` metodo.
+
+```python
+import azure.functions as func
+import typing
+
+def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
+
+    msg.set(['one', 'two'])
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Output - attributi
 
@@ -506,7 +617,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `queue`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
+|**name** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
 |**queueName** |**QueueName** | Nome della coda. |
 |**connessione** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
@@ -525,8 +636,8 @@ Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messa
 
 In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguenti tipi: 
 
-* `ICollector<T>` oppure `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* `ICollector<T>` o `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 Nelle funzioni JavaScript usare `context.bindings.<name>` per accedere al messaggio nella coda di output. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
 
@@ -564,9 +675,9 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 ```
 
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
-|maxPollingInterval|00:00:02|L'intervallo massimo tra i polling di coda. Il valore minimo è 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|L'intervallo massimo tra i polling di coda. Il valore minimo è 00:00:00.100 (100 ms) e incrementa fino a 00:01:00 (1 min). |
 |visibilityTimeout|00:00:00|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo. |
 |batchSize|16|Il numero di messaggi in coda che il runtime di Funzioni recupera simultaneamente e di processi in parallelo. Quando il numero elaborato viene ridotto a `newBatchThreshold`, il runtime ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è `batchSize` più `newBatchThreshold`. Questo limite si applica separatamente a ogni funzione attivata dalla coda. <br><br>Se si vuole evitare l'esecuzione in parallelo per i messaggi ricevuti su una coda, è possibile impostare `batchSize` su 1. Tuttavia, questa impostazione elimina solo la concorrenza se l'app per le funzioni viene eseguita su una singola macchina virtuale (VM). Se l'app per le funzioni scala orizzontalmente più macchine virtuali, ogni macchina virtuale potrebbe eseguire un'istanza di ogni funzione attivata dalla coda.<br><br>Il valore massimo per `batchSize` è 32. |
 |maxDequeueCount|5|Il numero di volte per provare l'elaborazione di un messaggio prima di essere spostato nella coda non elaborabile.|
@@ -586,4 +697,4 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

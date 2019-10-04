@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571098"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838501"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Azure IoT Tools per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
 
@@ -56,17 +56,17 @@ Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare
 5. Verrà visualizzato in pochi secondi l'elenco dei dispositivi nella scheda **Dispositivi di Azure IoT hub di Azure**.
 
    > [!Note]
-   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione per l'hub IoT a cui si connette il dispositivo IoT nella finestra popup.
+   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere il **iothubowner** stringa di connessione dei criteri per l'hub IoT che si connette il dispositivo IoT nella finestra popup.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorare i messaggi da dispositivo a cloud
 
 Per monitorare i messaggi inviati dal dispositivo all'hub IoT, seguire questi passaggi:
 
-1. Fare clic con il pulsante destro sul dispositivo e selezionare **Inizia monitoraggio messaggi da dispositivo a cloud**.
+1. Il dispositivo e scegliere **avvia il monitoraggio Endpoint di eventi predefiniti**.
 
 2. I messaggi monitorati verranno visualizzati nella visualizzazione **OUTPUT** > **Toolkit dell'hub IoT di Azure**.
 
-3. Per arrestare il monitoraggio, fare clic con il pulsante destro sulla visualizzazione **OUTPUT** e selezionare **Arrestare monitoraggio dei messaggi dal dispositivo al cloud**.
+3. Per arrestare il monitoraggio, fare doppio clic il **OUTPUT** consente di visualizzare e selezionare **Interrompi monitoraggio Endpoint di eventi predefiniti**.
 
 ## <a name="send-cloud-to-device-messages"></a>Inviare messaggi da cloud a dispositivo
 

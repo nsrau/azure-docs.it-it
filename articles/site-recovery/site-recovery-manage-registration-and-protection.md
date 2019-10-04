@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/18/2019
+ms.author: rajanaki
+ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122791"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875807"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Rimuovere server e disabilitare la protezione
 
@@ -145,11 +145,19 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 
 1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
 2. Nella pagina **Disabilita replica** selezionare una di queste opzioni:
-    - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nel server di configurazione viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta. Questa opzione può essere usata solo quando il server di configurazione è connesso.
+    - **Disabilita la replica e rimuovi (scelta consigliata)** . Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nel server di configurazione viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta. Questa opzione può essere usata solo quando il server di configurazione è connesso.
     - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nel server di configurazione **non** verrà rimossa. 
 
 > [!NOTE]
 > Con entrambe le opzioni, il servizio Mobility non verrà disinstallato dai server protetti e dovrà essere disinstallato manualmente. Se si prevede di proteggere di nuovo il server usando lo stesso server di configurazione, si può omettere la disinstallazione del servizio Mobility.
+
+> [!NOTE]
+> Se è già stato eseguito il failover di una macchina virtuale ed è in esecuzione in Azure, tenere presente che la disabilitazione della protezione non rimuove o influisce sulla macchina virtuale sottoposta a failover.
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Disabilitare la protezione per una VM di Azure (da Azure ad Azure)
+
+-  In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
+> [!NOTE]
+> il servizio Mobility non verrà disinstallato dai server protetti, quindi è necessario disinstallarlo manualmente. Se si prevede di proteggere di nuovo il server, è possibile ignorare la disinstallazione del servizio Mobility.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Disabilitare la protezione per una macchina virtuale Hyper-V (da Hyper-V ad Azure)
 
@@ -158,11 +166,15 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 
 1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
 2. In **Disabilita replica** è possibile selezionare le opzioni seguenti:
-   - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale verrà rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+   - **Disabilita la replica e rimuovi (scelta consigliata)** . Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale verrà rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi il set di script seguente per la pulizia del server Hyper-V locale delle impostazioni di replica.
+
+> [!NOTE]
+> Se è già stato eseguito il failover di una macchina virtuale ed è in esecuzione in Azure, tenere presente che la disabilitazione della protezione non rimuove o influisce sulla macchina virtuale sottoposta a failover.
+
 1. Nel server host Hyper-V di origine, rimuovere la replica per la macchina virtuale. Sostituire SQLVM1 con il nome della macchina virtuale ed eseguire lo script da un'istanza amministrativa di PowerShell.
 
 ```powershell
@@ -177,7 +189,7 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
 2. In **Disabilita replica** selezionare una di queste opzioni:
 
-   - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+   - **Disabilita la replica e rimuovi (scelta consigliata)** . Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
      > [!NOTE]
@@ -201,7 +213,7 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 1. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
 2. In **Disabilita replica** selezionare una di queste opzioni:
 
-   - **Disabilita la replica e rimuovi (scelta consigliata)**. Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
+   - **Disabilita la replica e rimuovi (scelta consigliata)** . Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale viene rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. Eseguire il set di script seguente per la pulizia delle macchine virtuali locali delle impostazioni di replica.
      > [!NOTE]
      > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi gli script seguenti per la pulizia del server VMM locale delle impostazioni di replica.

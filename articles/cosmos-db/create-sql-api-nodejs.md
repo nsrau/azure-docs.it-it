@@ -6,20 +6,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: dech
-ms.openlocfilehash: 5a5286695508e46fa24eb5c49cdaf0fe1318fc9d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e6a04c840e0982947e1223abf82737e1cd9d4445
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585493"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854195"
 ---
-# <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app Node.js usando un account API SQL di Azure Cosmos DB
+# <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app Node.js usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -43,7 +42,7 @@ Questa guida introduttiva illustra come creare un account dell'[API SQL](sql-api
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Aggiungere una raccolta
+## <a name="add-a-container"></a>Aggiungere un contenitore
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -88,7 +87,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file **app.js**.
 * Viene inizializzato `CosmosClient`.
 
     ```javascript
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
     ```
 
 * Viene creato un nuovo database.
@@ -112,28 +111,32 @@ Tutti i frammenti di codice seguenti sono tratti dal file **app.js**.
 * Viene eseguita una query SQL su JSON.
 
     ```javascript
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+      const querySpec = {
+        query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
         parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
+          {
+            name: '@lastName',
+            value: 'Andersen'
+          }
         ]
-    };
+      }
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
+      const { resources: results } = await client
+        .database(databaseId)
+        .container(containerId)
+        .items.query(querySpec)
+        .fetchAll()
+      for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult)
+        console.log(`\tQuery returned ${resultString}\n`)
+      }
     ```    
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file `config.js` nel passaggio seguente.
+1. Nell'account Azure Cosmos nel [portale di Azure](https://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento sinistro e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file `config.js` nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 
@@ -143,9 +146,9 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 
-4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `config.primaryKey` in `config.js`. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
+4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `config.key` in `config.js`. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
-    `config.primaryKey = "FILLME"`
+    `config.key = "FILLME"`
     
 ## <a name="run-the-app"></a>Esecuzione dell'app
 1. Eseguire `npm install` in un terminale per installare i moduli npm necessari
@@ -164,7 +167,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una raccolta con Esplora dati e come eseguire un'app. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
+In questa guida introduttiva si è appreso come creare un account Azure Cosmos, come creare un contenitore con Esplora dati e come eseguire un'app. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

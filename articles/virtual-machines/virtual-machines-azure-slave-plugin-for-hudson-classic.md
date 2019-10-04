@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60444221"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson
 Il plug-in slave di Azure per Hudson consente di eseguire il provisioning di nodi slave in Azure quando si eseguono build distribuite.

@@ -3,7 +3,7 @@ title: Creare un’app .NET su Service Fabric in Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare un'applicazione con un front-end ASP.NET Core e un back-end con stato Reliable Services e come distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665798"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598921"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
 Questa è la prima di una serie di esercitazioni.  Illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completata e passare direttamente alla [Descrizione dettagliata dell'applicazione di voto di esempio](#walkthrough_anchor).  Se si preferisce, è anche possibile guardare una [procedura dettagliata video](https://channel9.msdn.com/Events/Connect/2017/E100) di questa esercitazione.
 
-![Diagramma dell'applicazione](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![Front-end API AngularJS+ASP.NET: connessione a un servizio back-end con stato in Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Nella prima parte della serie si apprenderà come:
 
@@ -47,7 +47,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 Prima di iniziare questa esercitazione:
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installare Visual Studio 2017](https://www.visualstudio.com/) versione 15.5 o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+* [Installare Visual Studio 2019](https://www.visualstudio.com/) versione 15.5 o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 * [Installare Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Creare un servizio API Web ASP.NET come servizio Reliable
@@ -625,9 +625,9 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 
       ![Aggiungere il servizio front-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Per prima cosa, costruire l'URL del proxy inverso per il servizio back-end **(1)**.
-   3. Inviare quindi la richiesta HTTP PUT al proxy inverso **(2)**.
-   4. Restituire infine la risposta dal servizio back-end al client **(3)**.
+   2. Per prima cosa, costruire l'URL del proxy inverso per il servizio back-end **(1)** .
+   3. Inviare quindi la richiesta HTTP PUT al proxy inverso **(2)** .
+   4. Restituire infine la risposta dal servizio back-end al client **(3)** .
 
 5. Premere **F5** per continuare.
    1. Ora ci troviamo al punto di interruzione nel servizio back-end.
@@ -635,8 +635,8 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
       ![Aggiungere il servizio back-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
    2. Nella prima riga del metodo **(1)** usare `StateManager` per ottenere o aggiungere un oggetto Reliable Dictionary denominato `counts`.
-   3. Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
-   4. Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
+   3. Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)** .
+   4. Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)** . Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
 6. Premere **F5** per continuare.
 
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.

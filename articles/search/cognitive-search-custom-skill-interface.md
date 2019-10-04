@@ -1,39 +1,37 @@
 ---
 title: Definizione dell'interfaccia per le competenze personalizzate nella ricerca cognitiva - Ricerca di Azure
 description: Interfaccia di estrazione dati personalizzata per una competenza personalizzata di tipo API Web nella pipeline di ricerca cognitiva di Ricerca di Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 2c43a6b64f7b7f4f1adae78dca77fe71cf538e5e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870858"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265835"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva
 
 Una [pipeline di indicizzazione di ricerca cognitiva](cognitive-search-concept-intro.md) in Ricerca di Azure può essere assemblata da [competenze predefinite](cognitive-search-predefined-skills.md), nonché da [competenze personalizzate](cognitive-search-custom-skill-web-api.md) create e aggiunte personalmente alla pipeline. Questo articolo offre informazioni su come creare una competenza personalizzata che esponga un'interfaccia che possa essere inclusa in una pipeline di ricerca cognitiva. 
 
-Compilare un'esperienza personalizzata permette di inserire trasformazioni esclusive nel proprio contenuto. Una competenza personalizzata viene eseguita in modo indipendente, applicando qualsiasi passaggio di arricchimento desiderato. Ad esempio, è possibile definire entità personalizzate specifiche per campo, compilare modelli di classificazione personalizzati per distinguere i contratti e documenti commerciali da quelli finanziari oppure aggiungere una competenza di riconoscimento vocale per analizzare in modo più approfondito i file audio allo scopo di individuare il contenuto pertinente. Per un esempio dettagliato, vedere [Esempio: creare una competenza personalizzata](cognitive-search-create-custom-skill-example.md).
+Compilare un'esperienza personalizzata permette di inserire trasformazioni esclusive nel proprio contenuto. Una competenza personalizzata viene eseguita in modo indipendente, applicando qualsiasi passaggio di arricchimento desiderato. Ad esempio, è possibile definire entità personalizzate specifiche per campo, compilare modelli di classificazione personalizzati per distinguere i contratti e documenti commerciali da quelli finanziari oppure aggiungere una competenza di riconoscimento vocale per analizzare in modo più approfondito i file audio allo scopo di individuare il contenuto pertinente. Per un esempio dettagliato, vedere [esempio: Creazione di un'abilità personalizzata per la](cognitive-search-create-custom-skill-example.md)ricerca cognitiva.
 
  Qualunque sia la capacità personalizzata necessaria, è disponibile un'interfaccia semplice e chiara per la connessione di una competenza personalizzata al resto della pipeline di arricchimento. L'unico requisito per l'inclusione in un [set di competenze](cognitive-search-defining-skillset.md) è la capacità di accettare input e generare output in modi che possano essere usati all'interno del set di competenze nel suo complesso. Questo articolo è incentrato sui formati di input e output richiesti dalla pipeline di arricchimento.
 
 ## <a name="web-api-custom-skill-interface"></a>Interfaccia della competenza personalizzata API Web
 
-Sugli endpoint di competenza WebAPI personalizzati viene eseguito il timeout per impostazione predefinita se non restituiscono una risposta all'interno di una finestra di 30 secondi. La pipeline di indicizzazione è sincrona e l'indicizzazione genera un errore di timeout se in tale periodo non viene ricevuta alcuna risposta.  È possibile configurare il timeout fino a 90 secondi, impostando il parametro di timeout:
+Sugli endpoint di competenza WebAPI personalizzati viene eseguito il timeout per impostazione predefinita se non restituiscono una risposta all'interno di una finestra di 30 secondi. La pipeline di indicizzazione è sincrona e l'indicizzazione genera un errore di timeout se in tale periodo non viene ricevuta alcuna risposta.  È possibile configurare il timeout per un massimo di 230 secondi, impostando il parametro timeout:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 Attualmente, l'unico meccanismo per interagire con una competenza è tramite un'interfaccia API Web. L'API Web deve soddisfare i requisiti descritti in questa sezione.
@@ -156,7 +154,7 @@ Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ [Esempio: Creazione di una competenza personalizzata per l'API Traduzione testuale](cognitive-search-create-custom-skill-example.md)
++ [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

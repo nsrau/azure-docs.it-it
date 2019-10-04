@@ -1,6 +1,6 @@
 ---
-title: Connettersi all'API v3 di servizi multimediali di Azure - Python
-description: Informazioni su come connettersi all'API di servizi multimediali v3 con Python.
+title: Connettersi all'API di servizi multimediali di Azure V3-Python
+description: Informazioni su come connettersi all'API di servizi multimediali V3 con Python.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700201"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307866"
 ---
-# <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API servizi multimediali di v3 - Python
+# <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API di servizi multimediali V3-Python
 
-Questo articolo illustra come connettersi a servizi multimediali di Azure v3 Python SDK usando l'accesso dell'entità servizio nel metodo.
+Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Python SDK usando il metodo di accesso dell'entità servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Scaricare Python [python.org](https://www.python.org/downloads/)
-- Assicurarsi di impostare il `PATH` variabile di ambiente
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account servizi multimediali.
-- Seguire i passaggi nel [accesso API](access-api-cli-how-to.md) argomento. Registrare l'ID sottoscrizione, ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant è necessario nel passaggio successivo.
+- Scaricare Python da [Python.org](https://www.python.org/downloads/)
+- Assicurarsi di impostare la `PATH` variabile di ambiente
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
+- Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
+
+> [!IMPORTANT]
+> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Installare i moduli
 
@@ -47,11 +50,11 @@ pip3 install azure-mgmt-media==1.1.1
 
 ## <a name="connect-to-the-python-client"></a>Connettersi al client Python
 
-1. Creare un file con un `.py` estensione
+1. Creazione di un file con `.py` estensione
 1. Aprire il file nell'editor preferito
-1. Aggiungere il codice seguente al file. Il codice Importa i moduli necessari e crea l'oggetto credenziali di Active Directory che è necessario connettersi a servizi multimediali.
+1. Aggiungere il codice seguente al file. Il codice importa i moduli richiesti e crea l'oggetto credenziali Active Directory necessario per connettersi a servizi multimediali.
 
-      Impostare i valori per i valori ottenuti da [accesso ad API](access-api-cli-how-to.md)
+      Impostare i valori delle variabili sui valori ottenuti dalle [API di accesso](access-api-cli-how-to.md)
 
       ```
       import adal
@@ -96,7 +99,7 @@ pip3 install azure-mgmt-media==1.1.1
       print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
       ```
 
-1. Eseguire il file
+1. Esegui il file
 
 ## <a name="next-steps"></a>Passaggi successivi
 

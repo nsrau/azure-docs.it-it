@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484696"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296298"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
 
@@ -108,72 +105,7 @@ Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impre
 
 ## <a name="export-resource-groups-to-templates"></a>Esportare i gruppi di risorse in modelli
 
-Dopo aver impostato correttamente il gruppo di risorse, è possibile visualizzare il modello di Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
-
-- Automatizzare le distribuzioni future della soluzione perché il modello contiene l'infrastruttura completa.
-- Informazioni su sintassi del modello esaminando in oggetto notazione JSON (JavaScript) che rappresenta la soluzione.
-
-Per esportare un modello sono disponibili due modi:
-
-- È possibile esportare il modello effettivo usato per la distribuzione. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si sono distribuite risorse tramite il portale e si vuole visualizzare il modello con cui sono state create. Il modello è immediatamente utilizzabile. 
-- È possibile esportare un modello generato che rappresenta lo stato corrente del gruppo di risorse. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno "snapshot" o un "backup" del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Usare questa opzione per ridistribuire le risorse nello stesso gruppo di risorse. Per usare questo modello per un altro gruppo di risorse, è necessario apportare alcune importanti modifiche.
-
-### <a name="export-templates-from-deployment-history"></a>Esportare i modelli dalla cronologia di distribuzione
-
-Questo metodo consente di esportare i modelli per alcune distribuzioni. Se è stata modificata le risorse dal portale o risorse aggiunte/rimosse in distribuzioni multiple, vedere [esportare modelli da gruppi di risorse](#export-templates-from-resource-groups).
-
-1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **distribuzioni**, o selezionare il collegamento sotto **distribuzioni**.  Nella schermata seguente viene illustrato **Succeeded 4** perché si sono verificati quattro distribuzioni separate con quattro i nomi di distribuzione diversi. Si noterà **1 riuscito**.
-
-    ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Selezionare una delle distribuzioni dall'elenco.
-4. Nel riquadro sinistro, selezionare **modello**. Resource Manager recupera i sei file seguenti:
-
-   - **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
-   - **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione. Quando si ridistribuisce il modello è possibile modificare qualsiasi valore.
-   - **Interfaccia della riga di comando**: file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
-   - **PowerShell** : file di script di Azure PowerShell che può essere usato per distribuire il modello.
-   - **.NET** : classe .NET che può essere usata per distribuire il modello.
-   - **Ruby** : classe Ruby che può essere usata per distribuire il modello.
-
-     Per impostazione predefinita, il portale visualizza il modello.
-
-5. Selezionare **scaricare** per esportare un modello nel computer locale.
-
-    ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Esportare modelli da gruppi di risorse
-
-Se si aver modificato le risorse dal portale o aggiungere o rimuovere le risorse in più distribuzioni, il modello recuperato dalla cronologia delle distribuzioni non riflette lo stato corrente del gruppo di risorse. Questa sezione illustra come esportare un modello che rispecchia tale stato. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
-
-1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **Esporta modello**. Resource Manager recupera i sei file seguenti:
-
-   - **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
-   - **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione. Quando si ridistribuisce il modello è possibile modificare qualsiasi valore.
-   - **Interfaccia della riga di comando**: file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
-   - **PowerShell** : file di script di Azure PowerShell che può essere usato per distribuire il modello.
-   - **.NET** : classe .NET che può essere usata per distribuire il modello.
-   - **Ruby** : classe Ruby che può essere usata per distribuire il modello.
-
-     Per impostazione predefinita, il portale visualizza il modello.
-3. Selezionare **scaricare** per esportare un modello nel computer locale.
-
-Alcuni modelli esportati necessarie alcune modifiche prima di poter essere usati. Per informazioni su come sviluppare modelli, vedere la [esercitazioni dettagliate](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Esporta modello prima della distribuzione
-
-È possibile usare il portale per definire una risorsa.  Prima di distribuire la risorsa, è possibile visualizzare ed esportare un modello. Per le istruzioni, vedere [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
-
-### <a name="fix-export-issues"></a>Risolvere i problemi di esportazione
-
-Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Si verificano problemi di esportazione solo quando si esporta da un gruppo di risorse invece che dalla cronologia della distribuzione. Se la distribuzione più recente rappresenta con precisione lo stato corrente del gruppo di risorse, è consigliabile esportare il modello dalla cronologia della distribuzione invece che dal gruppo di risorse. Eseguire l'esportazione da un gruppo di risorse solo quando sono state apportate al gruppo di risorse modifiche non definite in un singolo modello.
-
-Per risolvere i problemi di esportazione, aggiungere manualmente le risorse mancanti al modello. Il messaggio di errore include i tipi di risorsa che non possono essere esportati. Trovare il tipo di risorsa nelle [informazioni di riferimento sui modelli](/azure/templates/). Per aggiungere manualmente un gateway di rete virtuale, ad esempio, vedere le [informazioni di riferimento sul modello Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). Il riferimento al modello fornisce il formato JSON per aggiungere la risorsa al modello.
-
-Dopo avere ottenuto il formato JSON per la risorsa, è necessario ottenere i valori della risorsa. È possibile ottenere i valori per la risorsa usando l'operazione GET nell'API REST per il tipo di risorsa. Ad esempio, per ottenere i valori per il gateway di rete virtuale, vedere [Gateway di rete virtuale - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
+Per informazioni sull'esportazione di modelli, vedere [esportazione singola e a più risorse al modello - portale](export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorse
 

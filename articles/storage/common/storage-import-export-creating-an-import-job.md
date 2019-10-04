@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61483078"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 

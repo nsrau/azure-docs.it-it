@@ -1,20 +1,19 @@
 ---
 title: Gestire i log per un cluster HDInsight - Azure HDInsight
 description: Determinare i tipi, le dimensioni e i criteri di conservazione per i file di log attività di HDInsight.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: hrasheed
-ms.openlocfilehash: 7ff89e12a1011c0a16644324584eb1610302b1b3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544279"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105439"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -43,7 +42,7 @@ I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'amb
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
 
-È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per ottenere informazioni sui cluster di HDInsight:
+È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per ottenere informazioni sui cluster HDInsight:
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
@@ -76,15 +75,15 @@ Un tipico cluster HDInsight usa diversi servizi e pacchetti software open source
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visualizzare le impostazioni di configurazione cluster con l'interfaccia utente di Ambari
 
-Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il **Dashboard Cluster** riquadro nella pagina HDInsight del portale Azure per aprire il **dashboard Cluster** pagina di collegamento.  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
+Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il riquadro **Dashboard cluster** nella pagina portale di Azure HDInsight per aprire la pagina di collegamento **Dashboard cluster** .  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
 
 Per aprire un elenco di visualizzazioni di servizi, selezionare il riquadro **Visualizzazioni di Ambari** nella pagina del portale di Azure per HDInsight.  Questo elenco varia a seconda delle librerie installate.  È ad esempio possibile visualizzare YARN Queue Manager, Hive View e Tez View.  Selezionare un collegamento al servizio per visualizzare le informazioni sulla configurazione e sul servizio.  La pagina **Stack and Version** (Stack e versione) dell'interfaccia utente di Ambari contiene informazioni sulla configurazione dei servizi cluster e la cronologia delle versioni dei servizi. Per passare a questa sezione dell'interfaccia utente di Ambari, scegliere **Stacks and Versions** (Stack e versioni) dal menu **Admin** (Amministratore).  Selezionare la scheda **Versions** (Versioni) per visualizzare le informazioni sulle versioni dei servizi.
 
-![Stack e versioni](./media/hdinsight-log-management/stack-versions.png)
+![Stack e versioni di amministrazione di Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Usando l'interfaccia utente di Ambari, è possibile scaricare la configurazione per qualsiasi servizio (o per tutti) in esecuzione in un determinato host (o nodo) del cluster.  Scegliere il collegamento dell'host a cui si è interessati dal menu **Hosts** (Host). Nella pagina di tale host selezionare il pulsante **Host Actions** (Azioni host) e quindi **Download Client Configs** (Scarica configurazioni client). 
+Usando l'interfaccia utente di Ambari, è possibile scaricare la configurazione per qualsiasi servizio (o per tutti) in esecuzione in un determinato host (o nodo) del cluster.  Scegliere il collegamento dell'host a cui si è interessati dal menu **Hosts** (Host). Nella pagina di tale host selezionare il pulsante **Host Actions** (Azioni host) e quindi **Download Client Configs** (Scarica configurazioni client).
 
-![Configurazioni client host](./media/hdinsight-log-management/client-configs.png)
+![Apache Ambari scaricare le configurazioni del client host](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>Visualizzare i log delle azioni script
 
@@ -94,11 +93,11 @@ Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight ese
 
 Il passaggio successivo prevede la revisione dei file di log di esecuzione dei processi per i diversi servizi.  I servizi possono includere Apache HBase, Apache Spark e molti altri. Poiché un cluster Hadoop genera numerosi log dettagliati, determinare quali log sono utili (e quali no) può essere dispendioso in termini di tempo.  Conoscere il sistema di registrazione è importante per la gestione mirata dei file di log.  Di seguito è riportato un esempio di file di log.
 
-![Esempio di file di log di HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![Esempio di output di esempio del file di log di HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
-HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log del cluster aprendo un' [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connessione al cluster e l'esplorazione del file system o usando il portale di Hadoop YARN Status sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Sono esempi [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
+HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) al cluster ed esplorando il file System oppure usando il portale di stato di Hadoop Yarn sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Esempi sono [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Esplora server. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
 
 Hadoop esegue i processi come *tentativi di attività* in diversi nodi del cluster. HDInsight può avviare tentativi di attività speculativi, terminando qualsiasi altro tentativo di attività non ancora completato. Viene così generata una significativa attività che viene immediatamente registrata nei file di log del controller, di stderr e di syslog. Vengono inoltre eseguiti simultaneamente più tentativi di attività, ma un file di log può visualizzare i risultati solo in modo lineare.
 
@@ -147,9 +146,9 @@ Ora si hanno informazioni sufficienti per creare una strategia di gestione per i
 
 Dopo avere determinato quali file di log possono essere eliminati, è possibile modificare i parametri di registrazione in molti servizi Hadoop per eliminare automaticamente i file di log dopo un periodo di tempo specificato.
 
-Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per i log attività di Azure Resource Manager, è possibile esplorare questo approccio con il portale di Azure.  Configurare l'archiviazione dei log di Azure Resource Manager selezionando il collegamento **Log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività**.  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi. 
+Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per i log attività di Azure Resource Manager, è possibile esplorare questo approccio con il portale di Azure.  Configurare l'archiviazione dei log di Azure Resource Manager selezionando il collegamento **Log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività**.  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi.
 
-![Esportare i file di log](./media/hdinsight-log-management/archive.png)
+![Anteprima del log attività esportazione portale di Azure](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 In alternativa, è possibile generare uno script per archiviare i log con PowerShell.  Per uno script di PowerShell di esempio, vedere [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8) (Archiviare i log di Automazione di Azure in Archiviazione BLOB di Azure).
 
@@ -167,7 +166,7 @@ Per controllare le dimensioni e il numero di file di log conservati, impostare l
 
 ### <a name="other-log-management-techniques"></a>Altre tecniche di gestione dei log
 
-Per evitare l'esaurimento dello spazio su disco, è possibile usare alcuni strumenti del sistema operativo, ad esempio [logrotate](https://linux.die.net/man/8/logrotate) per gestire la gestione dei file di log. È possibile configurare `logrotate` per l'esecuzione giornaliera, in cui vengono compressi i file di log e vengono rimossi quelli obsoleti. L'approccio dipende dai requisiti, ad esempio per quanto tempo conservare i file di log nei nodi locali.  
+Per evitare di esaurire lo spazio su disco, è possibile usare alcuni strumenti del sistema operativo, ad esempio [logrotate](https://linux.die.net/man/8/logrotate) , per gestire la gestione dei file di log. È possibile configurare `logrotate` per l'esecuzione giornaliera, in cui vengono compressi i file di log e vengono rimossi quelli obsoleti. L'approccio dipende dai requisiti, ad esempio per quanto tempo conservare i file di log nei nodi locali.  
 
 È anche possibile controllare se per uno o più servizi è abilitata la registrazione di DEBUG, che aumenta considerevolmente le dimensioni del log di output.  
 
@@ -176,5 +175,5 @@ Per raccogliere i log da tutti i nodi in una posizione centrale, è possibile cr
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitoring and Logging Practice for HDInsight (Procedura di monitoraggio e registrazione per HDInsight)](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Accedere ai Apache Hadoop YARN log applicazioni in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Accedere ai log applicazioni di Apache Hadoop YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Come controllare le dimensioni dei file di log per diversi componenti Apache Hadoop)

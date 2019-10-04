@@ -1,5 +1,5 @@
 ---
-title: Analizzare i video con Servizi multimediali di Azure usando .NET | Microsoft Docs
+title: Analizzare i video con Servizi multimediali di Azure | Microsoft Docs
 description: Seguire i passaggi di questa esercitazione per analizzare i video usando Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: d31d102300cf23e068aee6bec9ea6d253e874dca
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351780"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653968"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
+
+> [!NOTE]
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard. In questo modo, possono acquisire informazioni dettagliate sull'andamento dell'attività, generando ad esempio un elenco dei reclami frequenti, delle origini di tali reclami, nonché altre informazioni utili.
 
 Questa esercitazione illustra come:    
-
+ 
 > [!div class="checklist"]
 > * Scaricare l'app di esempio descritta nell'argomento
 > * Esaminare il codice che analizza il video specificato
@@ -83,7 +86,7 @@ In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricar
 La funzione esegue queste azioni:
 
 * Crea un asset. 
-* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) dell'asset.
+* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset.
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
@@ -100,7 +103,7 @@ Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi
 
 #### <a name="transform"></a>Trasformare
 
-Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è costituito da un oggetto **TransformOutput**, come illustrato nel codice precedente. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. In questo esempio viene usato il set di impostazioni **VideoAnalyzerPreset** e viene passata la lingua ("en-US") al relativo costruttore. Questo set di impostazioni consente di estrarre da un video più informazioni dettagliate sui contenuti audio e video. Se è necessario estrarre da un video solo le informazioni dettagliate relative all'audio, è possibile usare il set di impostazioni **AudioAnalyzerPreset**. 
+Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. **TransformOutput** è un parametro obbligatorio. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. In questo esempio viene usato il set di impostazioni **VideoAnalyzerPreset** e viene passata la lingua ("en-US") al relativo costruttore (`new VideoAnalyzerPreset("en-US")`). Questo set di impostazioni consente di estrarre da un video più informazioni dettagliate sui contenuti audio e video. Se è necessario estrarre da un video solo le informazioni dettagliate relative all'audio, è possibile usare il set di impostazioni **AudioAnalyzerPreset**. 
 
 Quando si crea un oggetto **Transform**, è necessario verificare se ne esiste già uno tramite il metodo **Get**, come illustrato nel codice seguente.  In Servizi multimediali v3 i metodi **Get** eseguiti su entità restituiscono **null** se determinano che l'entità non esiste, effettuando un controllo del nome senza distinzione tra maiuscole e minuscole.
 
@@ -166,6 +169,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Multithreading
 
 Gli SDK di Servizi multimediali di Azure v3 non sono thread-safe. Quando si usa un'applicazione multithreading, è necessario generare un nuovo oggetto AzureMediaServicesClient per ogni thread.
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64711811"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58434773"
 * In ogni rete virtuale di Azure è possibile delegare una sola subnet ad Azure NetApp Files.
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
 * Accesso a un volume da una rete virtuale con peering globale non è attualmente supportato.
-* La creazione [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) nelle subnet della macchina virtuale con indirizzo prefisso (destinazione) a una subnet delegata NetApp in file di Azure non è supportata e influisce sulla connettività delle macchine Virtuali.
+* La creazione [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) nelle subnet della macchina virtuale con indirizzo prefisso (destinazione) a una subnet delegata NetApp in file di Azure non è supportata. Questa operazione influirà sulla connettività delle macchine Virtuali.
 
 ## <a name="steps"></a>Passaggi 
 1.  Andare al pannello **Reti virtuali** nel portale di Azure e selezionare la rete virtuale che si desidera usare per Azure NetApp Files.    

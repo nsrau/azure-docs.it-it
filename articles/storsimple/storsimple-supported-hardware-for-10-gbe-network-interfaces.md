@@ -14,27 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110569"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965022"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Panoramica
 In questo articolo vengono fornite informazioni sull'hardware supplementare che funziona con il dispositivo StorSimple di Microsoft Azure.
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>Elenco dei dispositivi testati da Microsoft
 Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form factor, cavi e switch per assicurarsi che funzionino in modo ottimale con i dispositivi. (Le seguenti tabelle saranno aggiornate non appena verificato il nuovo hardware).
 
-### <a name="sfp-transceivers"></a>Ricetrasmettitori SFP+ 
+### <a name="sfp-transceivers"></a>Ricetrasmettitori SFP+
 | Casa automobilistica | Modello |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cavi
-| Numero di serie | Assicurarsi | Modello |
+| Numero No. | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +45,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switch
-| Numero di serie | Assicurarsi | Modello |
+| Numero No. | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -51,16 +54,16 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 ## <a name="list-of-devices-tested-in-the-field"></a>Elenco dei dispositivi testati nel campo
 Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti correttamente nel campo dai clienti di StorSimple. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Parametro | Valore |
+| Parametro | Value |
 | --- | --- |
 | Marca switch |Juniper |
 | Modello switch |ex4550-32F |
 | Versione sistema operativo switch |JunOS 12.3R9.4 |
 | Modello pannello |Porte caricate (PIC 0) |
 | Marca ricetrasmettitore |Juniper |
-| Modello ricetrasmettitore |Codice 740-021308  <br></br> Codice 740-030658 |
+| Modello ricetrasmettitore |Codice 740-021308 <br></br> Codice 740-030658 |
 | Versione firmware ricetrasmettitore |Rev 01 Versione 0.0 (segnalato) |
-| Modello cavo |Ponticello duplex LC/LC 50/125µ, OM3, LSZH |
+| Modello cavo |Ponticello duplex LC/LC 50/125μ, OM3, LSZH |
 | Modello StorSimple |8600 |
 | Versione software StorSimple |6.3.9600.17491 |
 
@@ -70,7 +73,7 @@ Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cavi e moduli supportati da Mellanox
 Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
+| Numero No. | Velocità | Modello | Descrizione | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Cavo in rame passivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |Cavo in rame passivo SFP+ 10 Gb/s 2 m |Arista |
@@ -91,13 +94,13 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 | 17. |10 GbE |AP785A HP |Cavo SFP+ in rame passivo serie C 5 m |HP |
 | 18. |10 GbE |AP818A HP |Cavo SFP+ in rame attivo serie B 1 m |HP |
 | 19. |10 GbE |AP819A HP |Cavo SFP+ in rame attivo serie B 3 m |HP |
-| 20. |10 GbE |J9150A HP |Ricetrasmettitore LC SR SFP+ X132 10 G  |HP |
+| 20. |10 GbE |J9150A HP |Ricetrasmettitore LC SR SFP+ X132 10 G |HP |
 | 21. |10 GbE |J9151A HP |Ricetrasmettitore LC SR SFP+ X132 10 G |HP |
 | 22. |10 GbE |J9283B HP |Cavo DAC X242 10G SFP+ SFP+ 3 m |HP |
 | 23. |10 GbE |J9285B HP |Cavo DAC X242 10G SFP+ SFP+ 7 m |HP |
 | 24. |10 GbE |JD095B HP |Cavo DAC X240 10G SFP+ SFP+ 0,65 m |HP |
-| 25. |10 GbE |JD096B HP |Cavo DAC X240 10G SFP+ SFP+ 1,2 m  |HP |
-| 26. |10 GbE |JD097B HP |Cavo DAD X240 10G SFP+ SFP+ 3 m  |HP |
+| 25. |10 GbE |JD096B HP |Cavo DAC X240 10G SFP+ SFP+ 1,2 m |HP |
+| 26. |10 GbE |JD097B HP |Cavo DAD X240 10G SFP+ SFP+ 3 m |HP |
 | 27. |10 GbE |MAM1Q00A-QSA Mellanox |Da QSFP a SFP + adattatore |Mellanox Technologies |
 | 28. |10 GbE |MC2309124-006 Mt |1 cavo in rame passivo da SFP+ a QSFP da 10 Gb/s 24 awg 7 m |Mellanox Technologies |
 | 29. |10 GbE |MC2309124-007 Mt |1 cavo in rame passivo da SFP+ a QSFP da 10 Gb/s 24 awg 7 m |Mellanox Technologies |
@@ -111,7 +114,7 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 ### <a name="switches-supported-by-mellanox"></a>Switch supportati da Mellanox
 Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
+| Numero No. | Velocità | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Switch blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10GbE |538113-B21 |Modulo pass-through (PTM) HP 10GbE |HP |

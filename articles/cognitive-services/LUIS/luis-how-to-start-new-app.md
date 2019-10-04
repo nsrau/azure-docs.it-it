@@ -1,6 +1,6 @@
 ---
-title: Creare una nuova app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Crea una nuova app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Creare e gestire le applicazioni nella pagina Web di Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,20 +8,21 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: conceptual
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197505"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258517"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.
 
 ## <a name="using-the-luis-portal"></a>Usare il portale LUIS
+
 È possibile creare una nuova app nel portale di LUIS in diversi modi:
 
 * Iniziare con un'applicazione vuota e creare finalità, espressioni ed entità.
@@ -40,6 +41,8 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 <a name="delete-app"></a>
  
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## <a name="create-new-app-in-luis"></a>Creare la nuova appa in LUIS
 
 1. Nella pagina **App personali**, seleziona **Crea una nuova applicazione**.
@@ -56,32 +59,32 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
     > [!NOTE]
     > Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione. 
 
-## <a name="import-an-app-from-file"></a>Importare un'app da file
+## <a name="import-an-app-from-file"></a>Importa un'app da un file
 
 1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
 1. Nella finestra di dialogo popup, selezionare un file JSON dell'app valido, quindi **.**
 
 ### <a name="import-errors"></a>Errori di importazione
 
-Gli errori possibili sono: 
+Possibili errori: 
 
-* Un'app con lo stesso nome esiste già. Reimportare le app e impostare il **nome facoltativo** a un nuovo nome. 
+* Esiste già un'app con lo stesso nome. Per risolvere il problema, reimportare l'app e impostare il **nome facoltativo** su un nuovo nome. 
 
-## <a name="export-app-for-backup"></a>Esportare l'app per il backup
+## <a name="export-app-for-backup"></a>Esporta app per il backup
 
-1. Sul **My Apps** pagina, selezionare **esportare**.
-1. Selezionare **esportare in formato JSON**. Il browser scarica la versione dell'app attiva.
-1. Aggiungere questo file per il sistema di backup per archiviare il modello.
+1. Nella pagina **app personali** selezionare **Esporta**.
+1. Selezionare **Esporta come JSON**. Il browser Scarica la versione attiva dell'app.
+1. Aggiungere questo file al sistema di backup per archiviare il modello.
 
-## <a name="export-app-for-containers"></a>Esportare l'app per contenitori
+## <a name="export-app-for-containers"></a>Esporta app per contenitori
 
-1. Sul **My Apps** pagina, selezionare **esportare**.
-1. Selezionare **esportare come contenitore** quindi selezionare quale slot pubblicato (produzione o fase) che si desidera esportare.
-1. Usare questo file con il [contenitore LUIS](luis-container-howto.md). 
+1. Nella pagina **app personali** selezionare **Esporta**.
+1. Selezionare **Esporta come contenitore** e quindi selezionare lo slot pubblicato (produzione o fase) che si vuole esportare.
+1. Usare questo file con il [contenitore Luis](luis-container-howto.md). 
 
-    Se è interessati a esportando un sottoposto a training ma non ancora un modello pubblicato da utilizzare con il contenitore di LUIS, passare al **versioni** pagina ed esportare da tale posizione. 
+    Se si è interessati all'esportazione di un modello sottoposto a training ma non ancora pubblicato da usare con il contenitore LUIS, passare alla pagina **versioni** ed esportare da questa posizione. 
 
-## <a name="delete-app"></a>Eliminare l'applicazione
+## <a name="delete-app"></a>Elimina app
 
 1. Nella pagina **App personali** seleziona i tre punti di sospensione (...) alla fine della riga dell'applicazione.
 1. Seleziona **Elimina** dal menu.

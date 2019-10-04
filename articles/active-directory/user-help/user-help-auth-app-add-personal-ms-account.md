@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474093"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616075"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Aggiungere l'account Microsoft personale
+
 Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LIVE all'app Microsoft Authenticator per il processo di verifica a due fattori standard e il metodo di accesso telefono senza password.
 
 - **Metodo standard di verifica a due fattori.** Digitare il nome utente e la password nel dispositivo al quale si esegue l'accesso e quindi scegliere se l'app Microsoft Authenticator invii una notifica o se copiare il codice di verifica associato dalla schermata **Account**  dell'App Microsoft Authenticator.
@@ -30,6 +31,7 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 >Prima di poter aggiungere l'account, è necessario scaricare e installare l'app Microsoft Authenticator. Se non è ancora stato fatto, seguire i passaggi descritti nell'articolo [Scaricare e installare l'app](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-personal-microsoft-account"></a>Aggiungere l'account Microsoft personale
+
 È possibile aggiungere l'account Microsoft personale attivando la prima verifica a due fattori e quindi aggiungendo l'account all'app.
 
 >[!Note]
@@ -37,7 +39,7 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 ### <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
 
-1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio: alain@outlook.com.
+1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio alain@outlook.com.
 
 2. In fondo alla pagina **nozioni fondamentali sulla sicurezza**, scegliere il collegamento **Altre opzioni di sicurezza**.
 
@@ -68,6 +70,6 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- Se si verificano problemi durante il recupero del codice di verifica per l'account Microsoft personale, vedere la **risoluzione dei problemi di codice di verifica** sezione il [info di sicurezza di account Microsoft e verifica i codici](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) articolo.
+- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

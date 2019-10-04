@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c9c860bf994dfeef57e8fd86329ed3a2b3f85e4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087341"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Esercitazione: Integrazione di Azure Active Directory con Vodelic
+# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Esercitazione: Integrazione di Azure Active Directory con Vodeclic
 
 Questa esercitazione descrive come integrare Vodeclic con Azure Active Directory (Azure AD).
 L'integrazione di Vodeclic con Azure AD offre i vantaggi seguenti:
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-vodeclic-from-the-gallery"></a>Aggiunta di Vodeclic dalla raccolta
 
-Per configurare l'integrazione di Vodeclic in Azure AD, è necessario aggiungere Vodeclic dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Vodeclic in Azure AD, è necessario aggiungere Vodeclic dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Vodeclic dalla raccolta, seguire questa procedura:**
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Vodeclic, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Vodeclic](#configure-vodeclic-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Vodeclic](#create-vodeclic-test-user)**: per avere una controparte di Britta Simon in Vodeclic collegata alla relativa rappresentazione in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Vodeclic](#configure-vodeclic-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Vodeclic](#create-vodeclic-test-user)** : per avere una controparte di Britta Simon in Vodeclic collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -162,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Vodeclic.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Vodeclic.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Vodeclic**.
 
@@ -186,12 +186,12 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-vodeclic-test-user"></a>Creare un utente di test di Vodeclic
+### <a name="create-vodeclic-test-user"></a>Creare l'utente di test di Vodeclic
 
 In questa sezione viene creato un utente chiamato Britta Simon in Vodeclic. Collaborare con il  [team di supporto di Vodeclic](mailto:hotline@vodeclic.com) per aggiungere gli utenti alla piattaforma Vodeclic. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 > [!NOTE]
-> In base ai requisiti dell'applicazione, potrebbe essere necessario ottenere l'inserimento del computer nell'elenco elementi consentiti. Per raggiungere tale obiettivo, è necessario condividere l'indirizzo IP pubblico con il [team di supporto Vodeclic](mailto:hotline@vodeclic.com).
+> In base ai requisiti dell'applicazione, potrebbe essere necessario ottenere l'inserimento del computer in un elenco elementi consentiti. Per raggiungere tale obiettivo, è necessario condividere l'indirizzo IP pubblico con il [team di supporto Vodeclic](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

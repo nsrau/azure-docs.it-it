@@ -9,11 +9,11 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381540"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180307"
 ---
 ## <a name="prepare-your-web-app"></a>Preparare l'app Web
 
@@ -33,7 +33,7 @@ Viene visualizzata la pagina di gestione dell'app Web.
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
+Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)** .
 
 ![Menu di scalabilità verticale](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 

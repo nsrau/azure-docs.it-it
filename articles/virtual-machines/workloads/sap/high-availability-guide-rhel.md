@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 95cf66b8960b03c8bc055443945d5569450855a2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003412"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101068"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -28,14 +27,14 @@ ms.locfileid: "60003412"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -46,7 +45,7 @@ ms.locfileid: "60003412"
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un sistema SAP NetWeaver 7.50 a disponibilità elevata.
-Nelle configurazioni di esempio, nei comandi di installazione e così via vengono usati il numero di istanza ASCS 00, il numero di istanza ERS 02 e l'ID del sistema SAP NW1. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello ASCS/SCS][template-multisid-xscs] con il prefisso di risorsa NW1 per creare le risorse.
+Nelle configurazioni di esempio, nei comandi di installazione e così via vengono usati il numero di istanza ASCS 00, il numero di istanza ERS 02 e l'ID del sistema SAP NW1. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello ASC/SCS][template-multisid-xscs] con il prefisso di risorsa NW1 per creare le risorse.
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
@@ -64,9 +63,9 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP in Linux][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [Documentazione del prodotto per Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP NetWeaver nel cluster Pacemaker](https://access.redhat.com/articles/3150081)
 * Documentazione generale di RHEL
@@ -74,7 +73,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index) (Amministrazione dei componenti aggiuntivi a disponibilità elevata)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index) (Riferimento dei componenti aggiuntivi a disponibilità elevata)
   * [Configurazione di ASCS/ERS per SAP Netweaver con risorse autonome in RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configurare S/4 Hana SAP ASCS/ERS con il Server di Accodamento autonomo 2 (ENSA2) in Pacemaker in RHEL ](https://access.redhat.com/articles/3974941)
+  * [Configurare SAP S/4HANA ASC/ERS con il server di Accodamento autonomo 2 (ENSA2) in pacemaker in RHEL](https://access.redhat.com/articles/3974941)
 * Documentazione di RHEL specifica per Azure:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341) (Criteri di supporto per cluster RHEL a disponibilità elevata - Macchine virtuali di Microsoft Azure come membri del cluster)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
@@ -86,6 +85,9 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede l'archiviazione c
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
+
+> [!IMPORTANT]
+> Il clustering a più SID di SAP ASC/ERS con Red Hat Linux come sistema operativo guest nelle macchine virtuali di Azure **non è supportato**. Il clustering a più SID descrive l'installazione di più istanze di SAP ASC/ERS con SID diversi in un cluster pacemaker.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -113,6 +115,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 * Porta probe
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -120,7 +123,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 
 ## <a name="setting-up-glusterfs"></a>Configurazione di GlusterFS
 
-SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo. Leggere [GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver][glusterfs-ha] per informazioni sulla configurazione di GlusterFS per SAP NetWeaver.
+SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo. Per informazioni su come configurare GlusterFS per SAP NetWeaver, vedere [GlusterFS in macchine virtuali di Azure in Red Hat Enterprise Linux per SAP NetWeaver][glusterfs-ha] .
 
 ## <a name="setting-up-ascs"></a>Configurazione di (A)SCS
 
@@ -130,7 +133,7 @@ SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto 
 
 Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possibile usare per distribuire nuove macchine virtuali. È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello ASCS/SCS][template-multisid-xscs] nel portale di Azure  
+1. Aprire il [modello ASC/SCS][template-multisid-xscs] nella portale di Azure  
 1. Immettere i parametri seguenti
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
@@ -145,16 +148,16 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    1. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
    1. Nome utente, password amministratore o chiave SSH  
-      Verrà creato un nuovo utente con cui è possibile accedere alla macchina
+      Viene creato un nuovo utente che può essere usato per accedere al computer.
    1. Subnet ID  
-   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
+   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
 Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
 1. Creare un gruppo di risorse
-1. Creare una rete virtuale
+1. Crea rete virtuale
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1  
@@ -194,7 +197,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
       1. TCP 32**00** per ASCS
-         1. Aprire il servizio di bilanciamento del carico, selezionare Regole di bilanciamento del carico e fare clic su Aggiungi
+         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-3200**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-ascs-frontend**
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
@@ -207,7 +210,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          * Ripetere i passaggi precedenti per le porte 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP per ASCS ERS
 
 > [!IMPORTANT]
-> Non abilitare TCP timestamp sulle macchine virtuali di Azure posizionato dietro bilanciamento del carico di Azure. Abilitazione di TCP timestamp causerà i probe di integrità errore. Impostare il parametro **net.ipv4.tcp_timestamps** al **0**. Per informazioni dettagliate, vedere [probe di integrità di Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -457,7 +460,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[A]**  Configurare keep-alive
 
-   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
+   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per ulteriori informazioni, leggere la [Nota SAP 1410736][1410736] .
 
    Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
@@ -481,7 +484,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Creare le risorse del cluster SAP
 
-  Se si usa l'architettura del server 1 enqueue (ENSA1), definire le risorse come segue:
+  Se si usa l'architettura di Accodamento server 1 (ENSA1), definire le risorse nel modo seguente:
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -504,8 +507,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   SAP introdotto il supporto per il server di Accodamento 2, che include replica, a partire da SAP NW 7.52. A partire da ABAP piattaforma 1809, 2 server di accodamento è installato per impostazione predefinita. Vedere SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto di server 2 enqueue.
-   Se si usa l'architettura del server 2 enqueue ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente di risorsa, risorsa-agenti-sap-4.1.1-12.el7.x86_64 o versione successiva e definire le risorse come segue:
+   SAP ha introdotto il supporto per l'accodamento del server 2, inclusa la replica, a partire da SAP NW 7,52. A partire dalla piattaforma ABAP 1809, il server di Accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di Accodamento 2.
+   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. EL7. x86_64 o versione successiva e definire le risorse come segue:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -527,7 +530,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Se si esegue l'aggiornamento da una versione precedente e passare a server di Accodamento 2, vedere la nota sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Se si esegue l'aggiornamento da una versione precedente e si passa al server di Accodamento 2, vedere la nota SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 
@@ -661,7 +664,7 @@ I passaggi seguenti presuppongono che il server applicazioni venga installato in
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux][sap-hana-ha]. Per un elenco dei database supportati, vedere la [nota SAP 1928533][1928533].
+In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure in Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Eseguire l'installazione dell'istanza del database SAP
 
@@ -996,8 +999,8 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure (VM)][sap-hana-ha]

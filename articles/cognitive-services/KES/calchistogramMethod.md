@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860457"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814164"
 ---
 # <a name="calchistogram-method"></a>Metodo calchistogram
 Il metodo *calchistogram* elabora gli oggetti che corrispondono a un'espressione di query strutturata e calcola la distribuzione dei relativi valori di attributo.
@@ -23,7 +23,7 @@ Il metodo *calchistogram* elabora gli oggetti che corrispondono a un'espressione
 ## <a name="request"></a>Richiesta
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-NOME|Valore|DESCRIZIONE
+Name|Value|Descrizione
 ----|-----|-----------
 expr | Stringa di testo | Espressione di query strutturata che specifica le entità di indice su cui calcolare gli istogrammi.
 attributes | Stringa di testo (valore predefinito="") | Elenco delimitato da virgole di attributi da includere nella risposta.
@@ -31,7 +31,7 @@ count   | Numero (valore predefinito=10) | Numero di risultati da restituire.
 offset  | Numero (valore predefinito=0) | Indice del primo risultato da restituire.
 
 ## <a name="response-json"></a>Risposta (JSON)
-JSONPath | DESCRIZIONE
+JSONPath | Descrizione
 ----|----
 $.expr | Parametro *expr* della richiesta.
 $.num_entities | Numero totale di entità corrispondenti.

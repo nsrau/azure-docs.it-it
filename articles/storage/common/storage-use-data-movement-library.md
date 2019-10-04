@@ -2,19 +2,20 @@
 title: Trasferire i dati con la libreria per lo spostamento dei dati di Archiviazione di Microsoft Azure | Microsoft Docs
 description: Usare la libreria per lo spostamento dei dati per spostare o copiare dati da o verso il contenuto di BLOB e file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
-ms.author: seguler
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8e09e2c33359c94275d9819b335544d15d4c7d78
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65790083"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Trasferire i dati con la libreria per lo spostamento dei dati di Archiviazione di Microsoft Azure
 
@@ -80,9 +81,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace DMLibSample
 {

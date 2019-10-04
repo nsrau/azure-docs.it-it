@@ -1,23 +1,22 @@
 ---
-title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery | Microsoft Docs
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V in cloud VMM in un sito secondario con Azure Site Recovery
 description: Offre un riepilogo del supporto per la replica delle macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362340"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813614"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
-Questo articolo riepiloga ciò che è supportato quando si usa la [Azure Site Recovery](site-recovery-overview.md) gestita dal servizio per la replica di VM Hyper-V nei cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
+Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per replicare le VM Hyper-V gestite in Cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > È possibile eseguire la replica in un sito secondario solo quando gli host Hyper-V sono gestiti nei cloud VMM.
@@ -58,12 +57,12 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 Host - Gruppo NIC | Sì 
 Host - VLAN | Sì 
 Host - IPv4 | Sì 
-Host - IPv6 | No  
-VM guest - Gruppo NIC | No 
+Host - IPv6 | No 
+VM guest - Gruppo NIC | No
 VM guest - IPv4 | Sì
-VM guest - IPv6 | No 
+VM guest - IPv6 | No
 VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Sì
+VM guest - Più NIC | Yes
 
 
 ## <a name="storage"></a>Archiviazione
@@ -83,26 +82,26 @@ Percorsi multipli (MPIO) | Sì
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
-VM di seconda generazione | Sì
-Disco cluster condiviso | No 
-Disco crittografato | No 
+VM di seconda generazione | Yes
+Disco cluster condiviso | No
+Disco crittografato | No
 UEFI| N/D
-NFS | No 
-SMB 3.0 | No 
+NFS | No
+SMB 3.0 | No
 RDM | N/D
 Disco superiore a 1 TB | Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
-Spazi di archiviazione | Sì
-Aggiunta/rimozione a caldo disco | No 
+Spazi di archiviazione | Yes
+Aggiunta/rimozione a caldo disco | No
 Esclusione disco | Sì
-Percorsi multipli (MPIO) | Sì
+Percorsi multipli (MPIO) | Yes
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
 **Azione** | **Supportato**
 --- | --- 
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No 
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No
 
 ## <a name="azure-site-recovery-provider"></a>Provider di Azure Site Recovery
 

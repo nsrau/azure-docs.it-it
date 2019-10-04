@@ -3,20 +3,20 @@ title: Uso della classificazione per visualizzare i risultati di ricerca
 titleSuffix: Azure Cognitive Services
 description: Viene illustrato come usare la RankingResponse di Bing per visualizzare i risultati della ricerca in ordine di classificazione.
 services: cognitive-services
-author: bradumbaugh
+author: aahill
 manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.topic: tutorial
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872522"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203244"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -38,7 +38,7 @@ Per proseguire con l'esercitazione è necessario:
 
 In Visual Studio creare un progetto con `Ctrl`+`Shift`+`N`.
 
-Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Desktop classico di Windows > App console (.NET Framework)**.
+Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Desktop classico di Windows > App console (.NET Framework)** .
 
 Assegnare all'applicazione il nome **MyConsoleSearchApp** e fare clic su **OK**.
 
@@ -221,7 +221,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 }
 ```
 
-L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
+L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
 - `mainline`: I risultati della ricerca da visualizzare nella riga principale.

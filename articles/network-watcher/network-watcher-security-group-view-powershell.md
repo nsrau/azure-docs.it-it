@@ -3,8 +3,8 @@ title: Analizzare la protezione di rete con la visualizzazione del gruppo di sic
 description: Questo articolo descrive come usare PowerShell per analizzare la protezione di macchine virtuali con la visualizzazione di un gruppo di sicurezza.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: b22dd2dcf575362b96d150ef98148076f4ec631f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 4c7b79460169612a046b19a4d66f222936710a8e
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047586"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163890"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con PowerShell
 
@@ -48,8 +48,7 @@ Lo scenario illustrato in questo articolo recupera le regole di sicurezza config
 Il primo passaggio consente di recuperare l'istanza di Network Watcher. Questa variabile viene passata al cmdlet `Get-AzNetworkWatcherSecurityGroupView`.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ## <a name="get-a-vm"></a>Ottenere una macchina virtuale

@@ -1,19 +1,19 @@
 ---
 title: 'Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks | Microsoft Docs'
 description: Informazioni su come eseguire un processo Spark in Azure Databricks usando il portale di Azure e un account di archiviazione di Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: c5c69ded05e5ec6d1df6bd2befb4fe89417bae06
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.reviewer: jeking
+ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226794"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992308"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
   > [!IMPORTANT]
   > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
-  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
+  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e password in un file di testo. Saranno necessari a breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
@@ -62,11 +62,9 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     |**Posizione**     | Selezionare **Stati Uniti occidentali 2**. Se si preferisce, è possibile selezionare un'altra area pubblica.        |
     |**Piano tariffario**     |  Scegliere tra **Standard** e **Premium**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**.
+3. La creazione dell'account richiede alcuni minuti, Per monitorare lo stato dell'operazione, visualizzare l'indicatore di stato nella parte superiore.
 
-3. La creazione dell'area di lavoro richiede del tempo. Mentre viene creata, sul lato destro viene visualizzato il riquadro **Invio della distribuzione per Azure Databricks**. Per vedere il titolo, può essere necessario scorrere a destra nel dashboard. È presente anche un indicatore di stato nella parte superiore dello schermo. È possibile esaminare lo stato di avanzamento nelle due aree.
-
-    ![Riquadro di distribuzione Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-deployment-tile.png "Riquadro di distribuzione Databricks")
+4. Selezionare **Aggiungi al dashboard** e quindi **Crea**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 
@@ -90,13 +88,13 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creare un cluster Spark in Azure Databricks).
 
-## <a name="create-storage-account-file-system"></a>Creare il file system per l'account di archiviazione
+## <a name="create-storage-account-container"></a>Creare un contenitore dell'account di archiviazione
 
 In questa sezione viene creato un notebook nell'area di lavoro di Azure Databricks e quindi vengono eseguiti frammenti di codice per configurare l'account di archiviazione.
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'area di lavoro di Azure Databricks creata e quindi selezionare **Launch Workspace** (Avvia l'area di lavoro).
 
-2. Nel riquadro a sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)** > **Notebook**.
+2. Nel riquadro a sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)**  > **Notebook**.
 
     ![Creare un blocco appunti in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
 
@@ -104,26 +102,26 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
     ![Creare un blocco appunti in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
 
-    Selezionare **Create**.
+    Selezionare **Create** (Crea).
 
 4. Copiare e incollare il blocco di codice seguente nella prima cella, ma non eseguirlo ancora.
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
 
     > [!NOTE]
-    > Questo blocco di codice accede direttamente all'endpoint Data Lake Gen2 usando OAuth, ma è possibile connettere in altri modi l'area di lavoro di Databricks all'account di Data Lake Storage Gen2. È ad esempio possibile montare il file system usando OAuth oppure usare un accesso diretto con Chiave condivisa. <br>Per alcuni esempi di questi approcci, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sul sito Web di Azure Databricks.
+    > Questo blocco di codice accede direttamente all'endpoint Data Lake Gen2 usando OAuth, ma è possibile connettere in altri modi l'area di lavoro di Databricks all'account di Data Lake Storage Gen2. È ad esempio possibile montare il contenitore usando OAuth oppure usare un accesso diretto con chiave condivisa. <br>Per alcuni esempi di questi approcci, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sul sito Web di Azure Databricks.
 
-5. In questo blocco di codice sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori raccolti durante la creazione dell'entità servizio. Impostare il valore segnaposto `file-system-name` sul nome che si vuole assegnare al file system.
+5. In questo blocco di codice sostituire i valori segnaposto `storage-account-name`, `appID`, `password` e `tenant-id` con i valori raccolti durante la creazione dell'entità servizio. Impostare il valore segnaposto `container-name` sul nome che si vuole assegnare al contenitore.
 
     > [!NOTE]
     > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.
@@ -150,7 +148,7 @@ Nella cella, premere **MAIUSC+INVIO** per eseguire il codice.
 
 Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
 
-1. Eseguire un'istruzione SQL per creare una tabella temporanea con i dati dal file di dati JSON di esempio **small_radio_json.json**. Nel frammento di codice seguente sostituire i valori segnaposto con il nome del file system e il nome dell'account di archiviazione. Usando il notebook creato in precedenza, incollare il frammento di codice in una nuova cella di codice del notebook e quindi premere MAIUSC+INVIO.
+1. Eseguire un'istruzione SQL per creare una tabella temporanea con i dati dal file di dati JSON di esempio **small_radio_json.json**. Nel frammento di codice seguente sostituire i valori dei segnaposto con il nome del contenitore e il nome dell'account di archiviazione. Usando il notebook creato in precedenza, incollare il frammento di codice in una nuova cella di codice del notebook e quindi premere MAIUSC+INVIO.
 
     ```sql
     %sql
@@ -158,7 +156,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

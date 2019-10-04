@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Eseguire la distribuzione nel servizio Azure Kubernetes con un modello di tipo blu-verde
               href: jenkins-aks-blue-green-deployment.md
+            - name: CI/CD con Azure Dev Spaces
+              href: tutorial-jenkins-dev-spaces.md
         - name: Servizio app
           items:
             - name: Creare risorse di Azure in un processo della pipeline

@@ -3,8 +3,8 @@ title: Registrare il flusso del traffico di rete da e verso una macchina virtual
 description: Imparare a registrare il flusso del traffico di rete da e verso una macchina virtuale usando la funzionalità di log del flusso di NSG di Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124084"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636211"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -48,9 +48,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     |NOME|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni**  accettare tutte le impostazioni predefinite e scegliere **OK**.
@@ -89,10 +89,14 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
     | Impostazione        | Valore                                                        |
     | ---            | ---   |
     | NOME           | Può essere di lunghezza compresa tra 3 e 24 caratteri, può contenere solo lettere minuscole e numeri e deve essere univoco in tutti gli account di archiviazione di Azure.                                                               |
-    | Località       | Selezionare **Stati Uniti orientali**.                                           |
-    | Gruppo di risorse | Selezionare **Usa esistente** e quindi **myResourceGroup** |
+    | Location       | Selezionare **Stati Uniti orientali**.                                           |
+    | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup** |
 
-    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione.
+    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete. 
+    
+    > [!NOTE]
+    > Mentre i provider Microsoft.Insight e Microsoft.Network sono attualmente supportati come [servizi Microsoft considerati attendibili per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione dei flussi del gruppo di sicurezza di rete, è necessario selezionare **Tutte le reti** come indicato sopra.
+    
 4. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 5. In **LOGS** (LOG) selezionare **Log del flusso del NSG**, come illustrato nell'immagine seguente:
 
@@ -105,7 +109,14 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
    ![Selezionare la versione dei log dei flussi](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selezionare l'account di archiviazione creato al passaggio 3.
+   > [!NOTE]
+   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione se:
+   > * Negli account di archiviazione è abilitato un firewall.
+   > * Negli account di archiviazione è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
+    > [!IMPORTANT]
+    > Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Scaricare il log del flusso
 
@@ -206,10 +217,10 @@ Il valore per **mac** negli output precedenti è l'indirizzo MAC dell'interfacci
 | 443         | Porta di destinazione       | La porta di destinazione del flusso. Poiché il traffico è destinato alla porta 443, il flusso è stato elaborato dalla regola denominata **UserRule_default-allow-rdp** nel file di log.                                                |
 | T            | Protocollo               | Indica se il protocollo del flusso era TCP (T) o UDP (U).                                  |
 | O            | Direzione              | Indica se il traffico era in ingresso (I) o in uscita (O).                                     |
-| Una             | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
+| Una            | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
 | C            | Stato del flusso **solo versione 2** | Acquisisce lo stato del flusso. Gli stati possibili sono **B**: indica la creazione di un flusso. Non vengono fornite statistiche. **C**: indica un flusso in corso. Vengono fornite statistiche a intervalli di 5 minuti. **E**: indica un flusso terminato. Vengono fornite statistiche. |
 | 30 | Pacchetti inviati - Da origine a destinazione **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. |
-| 16978 | Byte inviati - Da origine a destinazione **solo versione 2** | Numero totale di byte di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. I byte dei pacchetti includono l'intestazione del pacchetto e il payload. | 
+| 16978 | Byte inviati - Da origine a destinazione **solo versione 2** | Numero totale di byte di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. I byte dei pacchetti includono l'intestazione del pacchetto e il payload. |
 | 24 | Pacchetti inviati - Da destinazione a origine **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dalla destinazione all'origine dall'ultimo aggiornamento. |
 | 14008| Byte inviati - Da destinazione a origine **solo versione 2** | Numero totale di byte di pacchetti TCP e UDP inviati dalla destinazione all'origine dall'ultimo aggiornamento. I byte dei pacchetti includono payload e intestazione del pacchetto.|
 

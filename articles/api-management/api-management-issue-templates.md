@@ -10,16 +10,15 @@ ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540840"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072278"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelli di pagina dei problemi in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -97,13 +96,13 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Issues`|Raccolta di entità [Problema](api-management-template-data-model-reference.md#Issue).|I problemi visibili all'utente corrente.|  
 |`Paging`|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
 |`IsAuthenticated`|boolean|Se l'utente corrente ha effettuato l'accesso nel portale per sviluppatori.|  
 |`CanReportIssues`|boolean|Se l'utente corrente dispone delle autorizzazioni per presentare un problema.|  
-|`Search`|stringa|Questa proprietà è deprecata e non deve essere usata.|  
+|`Search`|string|Questa proprietà è deprecata e non deve essere usata.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
-ms.author: alkohli;
-ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: alkohli
+ms.openlocfilehash: 5394feff80c1df8b7a6cf7f6e6ea56678f575823
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362629"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612514"
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
@@ -64,7 +64,7 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
 4. Nel pannello **Nuova richiesta di assistenza** fare clic su **Passaggio 3 - Informazioni di contatto**. Nel pannello **Informazioni di contatto**, attenersi alla procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future** .
+   2. Le informazioni di contatto, specificare il nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future** .
    3. Fare clic su **Create**(Crea).
    
        ![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

@@ -1,43 +1,45 @@
 ---
-title: Esportare e importare in blocco le registrazioni di hub di notifica di Azure | Microsoft Docs
-description: Informazioni su come usare il supporto tecnico di blocco di hub di notifica per eseguire un numero elevato di operazioni in un hub di notifica, oppure per esportare tutte le registrazioni.
+title: Esportare e importare le registrazioni di hub di notifica di Azure in blocco | Microsoft Docs
+description: Informazioni su come usare il supporto bulk di hub di notifica per eseguire un numero elevato di operazioni in un hub di notifica o per esportare tutte le registrazioni.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490844"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212388"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
-Esistono scenari in cui è necessario creare o modificare quantità elevate di registrazioni in un hub di notifica. Alcuni di questi scenari sono aggiornamenti di tag seguenti calcoli in batch o la migrazione di un'implementazione push esistente per usare hub di notifica.
+Esistono scenari in cui è necessario creare o modificare un numero elevato di registrazioni in un hub di notifica. Alcuni di questi scenari sono gli aggiornamenti dei tag che seguono i calcoli batch o la migrazione di un'implementazione push esistente per l'uso di hub di notifica.
 
-Questo articolo illustra come eseguire un numero elevato di operazioni in un hub di notifica, oppure per esportare tutte le registrazioni in blocco.
+Questo articolo illustra come eseguire un numero elevato di operazioni in un hub di notifica o di esportare tutte le registrazioni in blocco.
 
 ## <a name="high-level-flow"></a>Flusso di alto livello
-Supporto di batch è progettato per supportare processi con esecuzione prolungata che coinvolgono milioni di registrazioni. Per ottenere questa scalabilità, supporto di batch Usa archiviazione di Azure per archiviare i dettagli del processo e output. Per le operazioni di aggiornamento bulk, l'utente viene richiesto di creare un file in un contenitore blob, il cui contenuto è l'elenco di operazioni di aggiornamento della registrazione. Quando si avvia il processo, l'utente fornisce un URL per il blob di input, oltre a un URL a una directory di output (anche in un contenitore blob). Dopo aver avviato il processo, l'utente può controllare lo stato eseguendo una query di un percorso URL fornito all'avvio del processo. Un processo specifico può eseguire solo operazioni di un tipo specifico (Crea, aggiorna o Elimina). Operazioni di esportazione vengono eseguite in modo analogo.
+Il supporto per batch è progettato per supportare processi con esecuzione prolungata che coinvolgono milioni di registrazioni. Per ottenere questo livello di scalabilità, il supporto batch Usa archiviazione di Azure per archiviare i dettagli e l'output del processo. Per le operazioni di aggiornamento in blocco, è necessario che l'utente crei un file in un contenitore BLOB, il cui contenuto è l'elenco delle operazioni di aggiornamento della registrazione. Quando si avvia il processo, l'utente fornisce un URL al BLOB di input, insieme a un URL di una directory di output (anche in un contenitore BLOB). Dopo l'avvio del processo, l'utente può controllare lo stato eseguendo una query su un percorso URL fornito all'avvio del processo. Un processo specifico può eseguire solo operazioni di un tipo specifico (creazione, aggiornamento o eliminazione). Le operazioni di esportazione vengono eseguite in analogie.
 
 ## <a name="import"></a>Importa
 
-### <a name="set-up"></a>Configurare
-In questa sezione si presuppone le entità seguenti:
+### <a name="set-up"></a>Configura
+In questa sezione si presuppone che siano presenti le entità seguenti:
 
-- Un hub di notifica sottoposto a provisioning.
-- Un contenitore blob di archiviazione di Azure.
-- Fa riferimento per la [pacchetto NuGet di archiviazione di Azure](https://www.nuget.org/packages/windowsazure.storage/) e [pacchetto NuGet degli hub di notifica](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- Un hub di notifica con provisioning.
+- Un contenitore BLOB di archiviazione di Azure.
+- Riferimenti al pacchetto NuGet di [archiviazione di Azure](https://www.nuget.org/packages/windowsazure.storage/) e al pacchetto NuGet di [Hub di notifica](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-### <a name="create-input-file-and-store-it-in-a-blob"></a>Creare il file di input e archiviarlo in un blob
-Un file di input contiene un elenco di registrazioni serializzate in XML, uno per ogni riga. Usa Azure SDK, il codice seguente viene illustrato come serializzare le registrazioni e caricarle nel contenitore blob.
+### <a name="create-input-file-and-store-it-in-a-blob"></a>Creare un file di input e archiviarlo in un BLOB
+Un file di input contiene un elenco di registrazioni serializzate in XML, una per riga. Con Azure SDK, l'esempio di codice seguente mostra come serializzare le registrazioni e caricarle nel contenitore BLOB.
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -57,10 +59,10 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> Il codice precedente serializza le registrazioni in memoria e quindi carica l'intero flusso in un blob. Se è stato caricato un file di più di pochi megabyte, vedere le indicazioni di blob di Azure su come eseguire questi passaggi. ad esempio, [BLOB in blocchi](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+> Il codice precedente serializza le registrazioni in memoria e quindi carica l'intero flusso in un BLOB. Se è stato caricato un file di oltre pochi megabyte, vedere le linee guida per i BLOB di Azure su come eseguire questi passaggi. ad esempio, [BLOB in blocchi](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>Creare token URL
-Una volta caricato il file di input, generare gli URL da fornire all'hub di notifica per il file di input e la directory di output. È possibile usare due contenitori blob diversi per input e output.
+Una volta caricato il file di input, generare gli URL da fornire all'hub di notifica sia per il file di input che per la directory di output. È possibile usare due contenitori BLOB diversi per l'input e l'output.
 
 ```csharp
 static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
@@ -88,7 +90,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Inviare il processo
-Con i due URL di input e output, è ora possibile avviare il processo di batch.
+Con i due URL di input e output, è ora possibile avviare il processo batch.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
@@ -113,23 +115,23 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-Oltre agli URL di input e outpui, questo esempio viene creato un `NotificationHubJob` oggetto che contiene un `JobType` oggetto, che può essere uno dei tipi seguenti:
+Oltre agli URL di input e di output, in questo esempio viene `NotificationHubJob` creato un oggetto che `JobType` contiene un oggetto, che può essere uno dei tipi seguenti:
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Dopo il completamento della chiamata, il processo è continuato dall'hub di notifica ed è possibile controllarne lo stato con la chiamata a [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Una volta completata la chiamata, il processo viene continuato dall'hub di notifica ed è possibile controllarne lo stato con la chiamata a [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
 
 Al termine del processo, è possibile esaminare i risultati esaminando i seguenti file nella directory di output:
 
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Questi file contengono l'elenco delle operazioni riuscite e non riuscite del batch. Il formato di file è `.cvs`, in cui ogni riga ha il numero di riga del file di input originale e l'output dell'operazione (in genere la descrizione di registrazione creata o aggiornata).
+Questi file contengono l'elenco delle operazioni riuscite e non riuscite dal batch. Il formato del file `.cvs`è, in cui ogni riga ha il numero di riga del file di input originale e l'output dell'operazione, in genere la descrizione della registrazione creata o aggiornata.
 
 ### <a name="full-sample-code"></a>Codice di esempio completo
-Esempio di codice seguente importa le registrazioni in un hub di notifica.
+Il codice di esempio seguente importa le registrazioni in un hub di notifica.
 
 ```csharp
 using Microsoft.Azure.NotificationHubs;
@@ -259,14 +261,14 @@ namespace ConsoleApplication1
 }
 ```
 
-## <a name="export"></a>Esportazione
+## <a name="export"></a>Esporta
 L'esportazione della registrazione è simile all'importazione, con le differenze seguenti:
 
 - È necessario solo l'URL di output.
-- Si crea un NotificationHubJob typu ExportRegistrations.
+- Si crea un NotificationHubJob di tipo ExportRegistrations.
 
 ### <a name="sample-code-snippet"></a>Frammento di codice di esempio
-Ecco un frammento di codice di esempio per l'esportazione di registrazioni in Java:
+Ecco un frammento di codice di esempio per esportare le registrazioni in Java:
 
 ```java
 // submit an export job
@@ -286,8 +288,8 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle registrazioni, vedere gli articoli seguenti:
+Per ulteriori informazioni sulle registrazioni, vedere gli articoli seguenti:
 
 - [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md)
 - [Tag per le registrazioni](notification-hubs-tags-segment-push-message.md)
-- [Registrazioni dei modelli](notification-hubs-templates-cross-platform-push-messages.md)
+- [Registrazioni modello](notification-hubs-templates-cross-platform-push-messages.md)

@@ -13,11 +13,11 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60732366"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
@@ -54,7 +54,7 @@ Se vengono create o eliminate entità durante la restituzione delle pagine della
 
 La tabella seguente illustra come le opzioni di filtro e ordinamento possono essere applicate alle proprietà dell'[asset](https://docs.microsoft.com/rest/api/media/assets): 
 
-|NOME|Filtro|Ordine|
+|Name|Filtro|Ordine|
 |---|---|---|
 |id|||
 |name|eq, gt, lt| crescente e decrescente|

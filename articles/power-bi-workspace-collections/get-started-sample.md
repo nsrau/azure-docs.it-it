@@ -2,18 +2,18 @@
 title: Esempio introduttivo
 description: In questo articolo verrà presentato l'esempio introduttivo delle raccolte di aree di lavoro di Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6c80dc2ca4d0062fcb98aeb6431566ce6ca39411
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9b45dd6bcc9aa3abf2d5078b54e51531cae4ec5f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519494"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669127"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
 
@@ -140,7 +140,7 @@ L'uso di attributi comuni di server e database ha esito negativo. Ad esempio:  S
 
 | Parte: | DESCRIZIONE |
 | --- | --- |
-| Title |Nome del report. |
+| Titolo |Nome del report. |
 | QueryString |Collegamento al l'ID report. |
 ```cshtml
 <div id="reports-nav" class="panel-collapse collapse">
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-Task<ActionResult> Report(string reportId)
+Attività\<ActionResult > Report (stringa ID report)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)
@@ -259,7 +259,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} non può includere spazi o caratteri speciali. {fieldValue} accetta un singolo valore categorico.  
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

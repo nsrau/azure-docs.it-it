@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454103"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Raccogliere dati in Log Analytics con un runbook di Automazione di Azure
@@ -68,7 +68,7 @@ Le [variabili di Automazione](../../automation/automation-variables.md) contengo
 | NOME | WorkspaceId | WorkspaceKey |
 | Type | string | string |
 | Valore | Incollare l'ID dell'area di lavoro Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro Log Analytics. |
-| Crittografato | No  | Sì |
+| Crittografato | No | Sì |
 
 ## <a name="3-create-runbook"></a>3. Creare un runbook
 
@@ -185,7 +185,7 @@ Il modo più comune per avviare un runbook che raccoglie dati di monitoraggio è
 | Inizia | Selezionare un orario successivo di almeno 5 minuti all'ora corrente. |
 | Ricorrenza | Ricorrente |
 | Ricorre ogni | 1 ora |
-| Imposta scadenza | No  |
+| Imposta scadenza | No |
 
 Dopo aver creato la pianificazione è necessario impostare i valori dei parametri che verranno usati ogni volta che la pianificazione avvia il runbook.
 

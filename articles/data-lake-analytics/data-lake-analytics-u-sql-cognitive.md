@@ -1,6 +1,6 @@
 ---
-title: Uso delle funzionalità cognitive U-SQL in Azure Data Lake Analytics
-description: Informazioni su come usare l'intelligence delle funzionalità cognitive in U-SQL
+title: Funzionalità cognitive U-SQL in Azure Data Lake Analytics
+description: Informazioni su come usare l'intelligence delle funzionalità cognitive in U-SQL. Questo esempio di codice consente di iniziare.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492941"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672715"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introduzione alle funzionalità cognitive di U-SQL
 
@@ -22,14 +22,14 @@ ms.locfileid: "59492941"
 Le funzionalità cognitive per U-SQL consentono agli sviluppatori di usare l'intelligence nei programmi di Big Data che creano. 
 
 Sono disponibili gli esempi con funzionalità cognitive seguenti:
-* Immagini: [Rileva i visi](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Immagini: [Rilevamento emozioni](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Immagini: [Rilevare gli oggetti (tag)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Immagini: [OCR (riconoscimento ottico dei caratteri)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Testo: [Estrazione di frasi chiave e l'analisi del Sentiment](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+* Imaging [Rileva visi](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Imaging [Rileva emozioni](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Imaging [Rilevare oggetti (assegnazione di tag)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Imaging [OCR (riconoscimento ottico dei caratteri)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* testo [Estrazione frasi chiave & Analisi del sentiment](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrazione di estensioni cognitivi in U-SQL
-Prima di iniziare, seguire i passaggi descritti in questo articolo per registrare estensioni Cognitive in U-SQL: [Registrazione di estensioni Cognitive in U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
+Prima di iniziare, seguire la procedura descritta in questo articolo per registrare le estensioni cognitive in U-SQL: [Registrazione di estensioni cognitive in U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esempi di funzionalità cognitive U-SQL](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

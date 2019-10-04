@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366549"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846593"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 
@@ -21,6 +22,7 @@ ms.locfileid: "60366549"
 > * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
@@ -56,7 +58,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    * **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** in **Illimitato**.
 
      > [!IMPORTANT]
-     > Non è possibile modificare il tipo da **Unlimited** al **a consumo**.
+     > Non è possibile modificare il tipo da **illimitato** a a **consumo**.
 
    * **Località peer** è la posizione fisica di peering con Microsoft.
 
@@ -121,7 +123,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 
 ## <a name="modify"></a>Modifica di un circuito ExpressRoute
 
-È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività. È possibile modificare la larghezza di banda, lo SKU e il modello di fatturazione e consentire operazioni classiche nella pagina **Configurazione**. Per informazioni sui limiti e le limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md). 
+È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività. È possibile modificare la larghezza di banda, lo SKU e il modello di fatturazione e consentire operazioni classiche nella pagina **Configurazione**. Per informazioni sui limiti e le limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
 È possibile eseguire le attività seguenti evitando tempi di inattività:
 
@@ -139,9 +141,9 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
   > [!IMPORTANT]
   > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
-  > 
+  >
   > Anche se è possibile aggiornare facilmente la banda larga, non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
-  > 
+  >
   > L'operazione di disabilitazione del componente aggiuntivo Premium può avere esito negativo se si usano risorse superiori a quelle consentite per il circuito standard.
 
 Per modificare un circuito ExpressRoute, fare clic su **Configurazione**.

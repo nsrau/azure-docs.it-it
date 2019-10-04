@@ -3,8 +3,8 @@ title: Introduzione all'acquisizione di pacchetti in Azure Network Watcher | Doc
 description: Questa pagina fornisce una panoramica delle funzionalità di acquisizione di pacchetti di Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061584"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduzione all'acquisizione di pacchetti di variabili in Azure Network Watcher
 
@@ -34,7 +34,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Acquisisci configurazione**
 
-|Proprietà|DESCRIZIONE|
+|Proprietà|Descrizione|
 |---|---|
 |**Numero massimo di byte per pacchetto (byte)** | Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Se è necessaria solo l'intestazione IPv4, indicare qui 34 |
 |**Numero massimo di byte per sessione (byte)** | Numero totale di byte acquisiti, quando viene raggiunto il valore di termine della sessione.|
@@ -42,7 +42,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Filtro (facoltativo)**
 
-|Proprietà|DESCRIZIONE|
+|Proprietà|Descrizione|
 |---|---|
 |**Protocollo** | Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Tutti.|
 |**Indirizzo IP locale** | Questo valore filtra l'acquisizione di pacchetti per ottenere i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore del filtro.|

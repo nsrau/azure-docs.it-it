@@ -3,29 +3,28 @@ title: Personalizzazione dei criteri di protezione delle informazioni SQL in Cen
 description: Informazioni su come personalizzare i criteri di protezione delle informazioni in Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.author: memildin
+ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105723"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202086"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
 Un criterio di protezione delle informazioni SQL può essere definito e personalizzato per l'intero tenant di Azure in Centro sicurezza di Azure.
 
-Information Protection è una funzionalità di sicurezza avanzata per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nelle risorse dati di Azure. L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+Information Protection è una funzionalità di sicurezza avanzata per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nelle risorse dati di Azure. L'individuazione e la classificazione dei dati più sensibili (aziendale, finanziaria, sanitaria, dati personali e così via) possono svolgere un ruolo fondamentale nella protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza
@@ -41,12 +40,11 @@ Information Protection include un set predefinito di etichette e i tipi di infor
 ## <a name="customize-the-information-protection-policy"></a>Personalizzare i criteri di protezione delle informazioni
 Per personalizzare i criteri di protezione delle informazioni del tenant di Azure, è necessario disporre di [privilegi amministrativi nel gruppo di gestione radice del tenant](security-center-management-groups.md). 
  
-1. Nel menu principale del Centro sicurezza selezionare **Criteri di sicurezza**.
-2. Scegliere **Visualizzazione gerarchica (anteprima)**, quindi, in **Tenant Root Group** (Gruppo radice del tenant), fare clic su **Modifica impostazioni**.
- 
+1. Nel menu principale del Centro sicurezza, in **igiene sicurezza risorse** passare a **Data & archiviazione** e fare clic sul pulsante **SQL Information Protection** .
+
    ![Configurare i criteri di protezione delle informazioni](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. In **Componenti dei criteri** fare clic su **Information Protection**. Nella pagina **Impostazioni di Azure Information Protection** è possibile visualizzare il set corrente di etichette. Questi sono gli attributi di classificazione principali che consentono di classificare il livello di riservatezza dei dati. A questo punto, è possibile configurare le **etichette di Information Protection** e i **tipi di informazioni** per il tenant. 
+2. Nella pagina **SQL Information Protection** è possibile visualizzare il set di etichette corrente. Questi sono gli attributi di classificazione principali che consentono di classificare il livello di riservatezza dei dati. A questo punto, è possibile configurare le **etichette di Information Protection** e i **tipi di informazioni** per il tenant. 
  
 ### <a name="customizing-labels"></a>Personalizzazione delle etichette
  
@@ -54,7 +52,7 @@ Per personalizzare i criteri di protezione delle informazioni del tenant di Azur
 2. Nella schermata **Configura l'etichetta di riservatezza**  è possibile creare o modificare il nome dell'etichetta e la descrizione. È anche possibile specificare se l'etichetta è abilitata o disabilitata attivando o disattivando il comando **Abilitata**. Infine, è possibile aggiungere o rimuovere i tipi di informazioni associati all'etichetta. Tutti i dati rilevati che corrispondono al tipo di informazioni includerà automaticamente l'etichetta di riservatezza associata tra i consigli per la classificazione.
 3. Fare clic su **OK**.
  
-   ![Configurare l'etichetta di riservatezza](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configura l'etichetta di riservatezza](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Le etichette sono elencate in ordine crescente di riservatezza. Per modificare la classificazione di due etichette, trascinare le etichette in una posizione diversa della tabella oppure usare i pulsanti **Sposta su** e **Sposta giù** per modificare l'ordine. 
  

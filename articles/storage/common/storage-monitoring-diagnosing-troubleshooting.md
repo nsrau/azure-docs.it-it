@@ -1,19 +1,19 @@
 ---
 title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Microsoft Azure | Documentazione Microsoft
 description: Usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure.
-services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.topic: conceptual
+ms.date: 09/23/2019
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351916"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212828"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -102,6 +102,8 @@ Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le met
 
 È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
+È consigliabile esaminare [monitoraggio di Azure per l'archiviazione](../../azure-monitor/insights/storage-insights-overview.md) (anteprima). Si tratta di una funzionalità di monitoraggio di Azure che offre un monitoraggio completo degli account di archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. Non è necessario abilitare o configurare elementi ed è possibile visualizzare immediatamente queste metriche dai grafici interattivi predefiniti e da altre visualizzazioni incluse.
+
 Il servizio di archiviazione raccoglie le metriche usando la procedura migliore, ma potrebbe non registrare tutte le operazioni di archiviazione.
 
 Nel portale di Azure sono visualizzate metriche come la disponibilità, le richieste totali e i numeri di latenza media per un account di archiviazione. È stata configurata anche una regola di notifica per avvisare un amministratore se la disponibilità scende al di sotto di un determinato livello. Dalla visualizzazione di questi dati, un'area di analisi possibile è la percentuale di successo dei servizi della tabella che risulta inferiore al 100% (per ulteriori informazioni, vedere la sezione "[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]").
@@ -123,7 +125,7 @@ La parte rimanente di questa sezione descrive le metriche che è necessario moni
 Usare il [portale di Azure](https://portal.azure.com) per visualizzare lo stato del servizio di archiviazione (e altri servizi di Azure) in tutte le aree Azure del mondo. Il monitoraggio consente di vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in uso per l'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) può anche fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure.
-Note: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](https://status.azure.com).
+Nota: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](https://status.azure.com).
 
 Benché il [portale di Azure](https://portal.azure.com) raccolga le informazioni sullo stato dall'interno dei data center di Azure (monitoraggio da interno a esterno), si può anche considerare l'adozione di un approccio da esterno a interno per generare transazioni sintetiche che accedano periodicamente all'applicazione Web in hosting su Azure da più posizioni. I servizi offerti da [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) e Application Insights per Azure DevOps sono esempi di questo approccio. Per altre informazioni su Application Insights per Azure DevOps, vedere la sezione "[Appendice 5: Monitoraggio con Application Insights per Azure DevOps](#appendix-5)".
 
@@ -425,7 +427,7 @@ Se la metrica **PercentThrottlingError** indica un aumento della percentuale di 
 Un aumento di **PercentThrottlingError** spesso si verifica contemporaneamente a un aumento del numero di richieste di archiviazione o quando si esegue un test di carico iniziale dell'applicazione. L'aumento si può manifestare anche nel client come messaggio di stato HTTP "503 Server Busy" o "500 Operation Timeout" delle operazioni di archiviazione.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento temporaneo di PercentThrottlingError
-Se si notano picchi del valore di **PercentThrottlingError** che coincidono con periodi di intensa attività dell'applicazione, implementare una strategia di backoff esponenziale (non lineare) per le ripetizioni dei tentativi nel client. Questa operazione riduce il carico immediato sulla partizione e consente all'applicazione di contenere i picchi di traffico. Per altre informazioni sulle modalità di implementazione dei criteri di ripetizione con la libreria del client di archiviazione, vedere la sezione relativa allo [spazio dei nomi Microsoft.WindowsAzure.Storage.RetryPolicies](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Se si notano picchi del valore di **PercentThrottlingError** che coincidono con periodi di intensa attività dell'applicazione, implementare una strategia di backoff esponenziale (non lineare) per le ripetizioni dei tentativi nel client. Questa operazione riduce il carico immediato sulla partizione e consente all'applicazione di contenere i picchi di traffico. Per altre informazioni su come implementare i criteri di ripetizione dei tentativi usando la libreria client di archiviazione, vedere lo [spazio dei nomi Microsoft. Azure. storage. RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Si possono verificare anche picchi del valore di **PercentThrottlingError** che non coincidono con periodi di attività intensa dell'applicazione: la causa più probabile è che il servizio di archiviazione sposti le partizioni in modo da migliorare il bilanciamento del carico.
@@ -466,17 +468,17 @@ La causa più comune dell'errore è la disconnessione del client prima della sca
 ### <a name="the-client-is-receiving-403-messages"></a>Il client sta ricevendo messaggi HTTP 403 (Accesso negato)
 Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente il client sta utilizzando una firma di accesso condiviso (SAS, Shared Access Signature) scaduta per inviare una richiesta di archiviazione (benché esistano altre cause possibili, come sfasamento di orario, chiavi non valide e intestazioni vuote). Se la causa è una chiave SAS scaduta, non si vedrà alcuna voce nei dati di log della registrazione dell'archiviazione lato server. La tabella che segue mostra un esempio del file di log lato client generato da Storage Client Library in cui è illustrato il problema in corso:
 
-| Source (Sorgente) | Livello di dettaglio | Livello di dettaglio | ID richiesta client | testo dell'operazione |
+| Source | Livello di dettaglio | Verbosity | ID richiesta client | testo dell'operazione |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio richiesta sincrona a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |In attesa di risposta. |
-| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'attesa di una risposta: Il server remoto ha restituito un errore: 403 - Accesso negato. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'operazione: Il server remoto ha restituito un errore: 403 - Accesso negato. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: 403 - Accesso negato. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento. |
-| Microsoft.WindowsAzure.Storage |Tipi di errore |1 |85d077ab-… |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con il server remoto che ha restituito un errore: 403 - Accesso negato. |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly. |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |Avvio della richiesta sincrona a<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |In attesa di risposta. |
+| Microsoft.Azure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'attesa di una risposta: Il server remoto ha restituito un errore: 403 - Accesso negato. |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'operazione: Il server remoto ha restituito un errore: 403 - Accesso negato. |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: 403 - Accesso negato. |
+| Microsoft.Azure.Storage |Informazioni |3 |85d077ab-… |La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento. |
+| Microsoft.Azure.Storage |Errore |1 |85d077ab-… |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con il server remoto che ha restituito un errore: 403 - Accesso negato. |
 
 In questo scenario, è necessario verificare perché il token SAS scade prima che il client invii il token al server:
 
@@ -560,7 +562,7 @@ Se l'applicazione client tenta di usare una chiave SAS che non include le autori
 
 La tabella che segue mostra un esempio di messaggio del log lato server generato dal file di log della registrazione dell'archiviazione:
 
-| NOME | Valore |
+| Attività | Value |
 | --- | --- |
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |
@@ -809,14 +811,14 @@ Per altre informazioni, vedere [Informazioni su Azure Application Insights](../.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su analitica in archiviazione di Azure, vedere queste risorse:
+Per altre informazioni sull'analisi in archiviazione di Azure, vedere le risorse seguenti:
 
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
-* [Analitica di archiviazione](storage-analytics.md)
-* [Metriche di archiviazione analitica](storage-analytics-metrics.md)
-* [Schema della tabella di metriche di archiviazione analitica](/rest/api/storageservices/storage-analytics-metrics-table-schema)
-* [Log di archiviazione analitica](storage-analytics-logging.md)
-* [Formato di log di archiviazione analitica](/rest/api/storageservices/storage-analytics-log-format)
+* [Analisi archiviazione](storage-analytics.md)
+* [Metriche di analisi archiviazione](storage-analytics-metrics.md)
+* [Schema di tabella della metrica di analisi archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [Log di analisi archiviazione](storage-analytics-logging.md)
+* [Formato del log di analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduzione]: #introduction

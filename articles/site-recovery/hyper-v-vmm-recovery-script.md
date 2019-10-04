@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362272"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700457"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 
@@ -29,7 +29,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
     - Se si verifica un errore, la parte rimanente dello script non viene eseguita.
     - Se si verifica un errore quando si esegue un failover non pianificato, il piano di ripristino continua.
     - Se si verifica un errore quando si esegue un failover pianificato, il piano di ripristino si interrompe. Correggere lo script, verificare che venga eseguito come previsto e quindi eseguire nuovamente il piano di ripristino.
-        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output venga reindirizzato usare il comando **\>\>**.
+        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output venga reindirizzato usare il comando **\>\>** .
         - Lo script si interrompe se non viene restituito in 600 secondi.
         - Se viene scritto qualcosa in STDERR, lo script viene classificato come non completato. Queste informazioni vengono visualizzate nei dettagli dell'esecuzione di script.
 
@@ -45,7 +45,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
   
   1. Aprire l'editor del Registro di sistema e passare a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\**. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
+  1. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\** . Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
 
   1. Testare lo script usando un account utente con lo stesso livello di diritti utente dell'account del servizio VMM. Usando questi diritti utente, è possibile verificare che gli script autonomi testati vengano eseguiti nello stesso modo in cui vengono eseguiti nei piani di ripristino. Nel server VMM impostare i criteri di esecuzione come segue in modo che vengano ignorati:
 

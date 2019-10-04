@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416698"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204950"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
 

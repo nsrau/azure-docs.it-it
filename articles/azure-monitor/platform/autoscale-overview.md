@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787577"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -43,7 +43,7 @@ I set di scalabilità di macchine virtuali usano i dati di telemetria degli agen
 ## <a name="custom-metrics"></a>Metriche personalizzate
 È anche possibile fare uso di eventuali metriche personalizzate generate dalle applicazioni usate. Se le applicazioni sono state configurate per l'invio di metriche ad Application Insights, è possibile usare tali metriche per prendere decisioni sulla scalabilità.
 
-## <a name="time"></a>Tempo
+## <a name="time"></a>Time
 Le regole basate sulla pianificazione sono basate su UTC. Quando si configurano le regole, è necessario impostare correttamente il fuso orario.  
 
 ## <a name="rules"></a>Regole

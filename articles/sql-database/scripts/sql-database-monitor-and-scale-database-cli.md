@@ -10,18 +10,17 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: 9468f5d631dd713c9e131c63de824c5e552178e3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361600"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569918"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL
 
-Questo esempio di script dell'interfaccia della riga di comando di Azure ridimensiona un singolo database SQL di Azure per ottenere una dimensione di calcolo diversa dopo aver recuperato informazioni sulle dimensioni del database tramite query.
+Questo esempio di script dell'interfaccia della riga di comando di Azure ridimensiona un singolo database SQL di Azure per ottenere dimensioni di calcolo diverse dopo aver recuperato informazioni sulle dimensioni del database tramite query.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,7 +40,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -53,7 +52,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita database singoli e pool elastici. |
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Mostra le informazioni sull'utilizzo delle dimensioni per un database singolo o in pool. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Aggiorna le proprietà del database, come il livello di servizio o la dimensione di calcolo, oppure sposta un database all'interno o all'esterno di un pool elastico o tra pool elastici diversi. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Aggiorna le proprietà del database, come il livello di servizio o le dimensioni di calcolo, oppure sposta un database all'interno o all'esterno di un pool elastico o tra pool elastici diversi. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 

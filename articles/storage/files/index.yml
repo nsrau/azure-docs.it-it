@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentazione di File di Azure
+summary: File di Azure offre condivisioni file multipiattaforma completamente gestite nel cloud, accessibili tramite il protocollo SMB (Server Message Block).
+metadata:
+  title: File di Azure
+  description: È possibile montare condivisioni file sul cloud o in locale in Windows, Linux e macOS, nonché memorizzare nella cache le condivisioni file di Azure in Windows Server con Sincronizzazione file di Azure per l'accesso locale.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 21be0cb23dc5673d0a060636da148ee97463ec4b
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70241712"
+landingContent:
+- title: Informazioni su File di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Guida alla pianificazione di File di Azure
+      url: storage-files-planning.md
+    - text: Guida alla pianificazione di Sincronizzazione file di Azure
+      url: storage-sync-files-planning.md
+    - text: Informazioni su File di Azure
+      url: storage-files-introduction.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Creare/usare condivisioni file - Windows
+      url: storage-files-quick-create-use-windows.md
+    - text: Creare condivisioni file Premium
+      url: storage-how-to-create-premium-fileshare.md
+    - text: Gestire il server con Sincronizzazione file di Azure
+      url: storage-sync-files-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Estendere i file server Windows con Sincronizzazione file di Azure
+      url: storage-sync-files-extend-servers.md
+- title: Risolvere problemi
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Risoluzione dei problemi di File di Azure - Windows
+      url: storage-troubleshoot-windows-file-connection-problems.md
+    - text: Risoluzione dei problemi di File di Azure - Linux
+      url: storage-troubleshoot-linux-file-connection-problems.md
+    - text: Risoluzione dei problemi relativi alle prestazioni di File di Azure
+      url: storage-troubleshooting-files-performance.md
+    - text: Risoluzione dei problemi di Sincronizzazione file di Azure
+      url: storage-sync-files-troubleshoot.md

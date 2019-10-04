@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cf285c18d2204da625c970a367177f86474149ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/08/2019
+ms.openlocfilehash: c768b7548b9759e85ebfb050f0ead2dfd3c1a6a6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880985"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415119"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di SQL Server a un'istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure
 
@@ -40,7 +40,7 @@ Questo articolo descrive una migrazione offline da SQL Server a un'istanza gesti
 
 Per completare questa esercitazione, è necessario:
 
-- Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Acquisire familiarità con le topologie di rete per le migrazioni a istanze gestite di database SQL di Azure con Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
+- Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Acquisire familiarità con le topologie di rete per le migrazioni a istanze gestite di database SQL di Azure con Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi). Per altre informazioni sulla creazione di una rete virtuale, vedere [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/), in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 
     > [!NOTE]
     > Durante la configurazione della rete virtuale, se si usa ExpressRoute con peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
@@ -74,7 +74,7 @@ Per completare questa esercitazione, è necessario:
 
 3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
-    ![Registrare il provider di risorse](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
+    ![Registrare il provider di risorse](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Creare un'istanza del Servizio Migrazione del database di Azure
 
@@ -90,11 +90,11 @@ Per completare questa esercitazione, è necessario:
 
 4. Selezionare la posizione in cui creare l'istanza del Servizio Migrazione del database di Azure.
 
-5. Selezionare una rete virtuale (VNET) esistente o crearne una.
+5. Selezionare una rete virtuale esistente o crearne una.
 
     La rete virtuale consente a Servizio Migrazione del database di Azure di accedere all'istanza di SQL Server di origine e all'istanza gestita di database SQL di Azure di destinazione.
 
-    Per altre informazioni su come creare una VNET nel portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una VNet nel portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
     Per altri dettagli, vedere l'articolo relativo alle [topologie di rete per le migrazioni a istanze gestite di database SQL di Azure con Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
 
@@ -215,7 +215,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
 1. Nella schermata dell'attività di migrazione selezionare **Aggiorna** per aggiornare la visualizzazione.
- 
+
    ![Attività di migrazione in corso](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     È possibile espandere ulteriormente le categorie di database e account di accesso per monitorare lo stato di migrazione dei rispettivi oggetti server.

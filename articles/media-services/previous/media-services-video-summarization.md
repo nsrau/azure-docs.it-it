@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313261"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015989"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video  
 ## <a name="overview"></a>Panoramica
@@ -53,7 +54,7 @@ Quando si crea un'attività di anteprima video con **anteprime video multimedial
 
 Al momento, è possibile modificare i parametri seguenti:
 
-| Param | DESCRIZIONE |
+| Param | Descrizione |
 | --- | --- |
 | outputAudio |Specifica se il video finale contiene audio. <br/>I valori consentiti sono i seguenti: True o False. Il valore predefinito è true. |
 | fadeInFadeOut |Specifica se vengono usate transizioni a dissolvenza tra le anteprime di movimento separate.  <br/>I valori consentiti sono i seguenti: True o False.  Il valore predefinito è true. |

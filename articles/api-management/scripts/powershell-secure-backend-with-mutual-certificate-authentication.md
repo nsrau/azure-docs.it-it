@@ -8,17 +8,16 @@ manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 813b896c9a20e262752638ac26b57212929d8f27
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9501cc88e5d83b5c5724b0fbb2f988a8ca1509e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737009"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067555"
 ---
 # <a name="secure-back-end"></a>Proteggere il back-end
 
@@ -26,7 +25,7 @@ Questo script di esempio protegge il back-end con l'autenticazione reciproca dei
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
@@ -36,7 +35,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate usando il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup

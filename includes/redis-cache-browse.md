@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111584"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180717"
 ---
 Se la cache non è stata aggiunta al dashboard, è possibile trovarla nel [portale di Azure](https://portal.azure.com) usando **Tutti i servizi**.
 

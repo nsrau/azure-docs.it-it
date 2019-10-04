@@ -7,15 +7,14 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: f07a760153c4ec15cec5c5bc1348e23152c59cb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c18e48d76381bf40e6177feb389a0197aace081d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258335"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000859"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse. In questo avvio rapido si creerà un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti. Al termine, si identificheranno le macchine virtuali *non conformi*.
 
@@ -24,12 +23,10 @@ Questa guida illustra come usare il modulo Az per creare un'assegnazione di crit
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Prima di iniziare verificare che sia installata la versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps).
-- Registrare il provider di risorse Policy Insights usando Azure PowerShell. La registrazione del provider di risorse consente di assicurare che la sottoscrizione lo usi. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione del provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
+- Registrare il provider di risorse Azure Policy Insights usando Azure PowerShell. La registrazione del provider di risorse consente di assicurare che la sottoscrizione lo usi. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione del provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered
@@ -62,7 +59,7 @@ I comandi precedenti utilizzano le informazioni seguenti:
 - **Definition**: definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri *Controllare le macchine virtuali che non usano i dischi gestiti*.
 - **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
 
-A questo punto si è pronti per identificare le risorse non conformi per comprendere lo stato di conformità dell'ambiente.
+A questo punto si è pronti per identificare le risorse non conformi e comprendere così lo stato di conformità dell'ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 

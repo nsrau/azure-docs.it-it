@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003543"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091971"
 ---
 # <a name="templates"></a>Modelli
 
@@ -30,7 +30,7 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
     ![Aprire la raccolta modelli dalla pagina di panoramica](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Nella scheda Autore in Esplora risorse, selezionare **+**, quindi **Pipeline dl modello** per aprire la raccolta modelli.
+1.  Nella scheda Autore in Esplora risorse, selezionare **+** , quindi **Pipeline dl modello** per aprire la raccolta modelli.
 
     ![Aprire la raccolta modelli dalla scheda Autore](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -40,21 +40,23 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelli predefiniti di Data Factory
 
-Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Resource Manager, insieme al file manifesto utilizzati per i modelli di Data Factory di finestra, nelle [repository GitHub di Azure Data Factory ufficiale](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
+Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Gestione risorse, insieme al file manifesto usato per i modelli Data Factory predefiniti, nel [repository ufficiale Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
 
 -   Copiare modelli:
 
     -   [Copia bulk dal database](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Copia i nuovi file da LastModifiedDate & lt](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Copiare i nuovi file in base a LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copia più contenitori di file tra archivi basati su file](solution-template-copy-files-multiple-containers.md)
+
+    -   [Sposta file](solution-template-move-files.md)
 
     -   [Copia delta dal database](solution-template-delta-copy-with-control-table.md)
 
     -   Copia da \<origine\> a \<destinazione\>
 
-        -   Da Amazon S3 ad Azure Data Lake Storage di seconda generazione
+        -   [Da Amazon S3 a Azure Data Lake Store generazione 2](solution-template-migration-s3-azure.md)
 
         -   Da Google Big Query ad Azure Data Lake Storage di seconda generazione
 

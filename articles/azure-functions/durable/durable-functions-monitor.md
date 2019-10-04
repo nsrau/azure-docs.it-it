@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607280"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734342"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -42,7 +41,7 @@ Questo esempio monitora le condizioni meteo correnti di una località e avvisa u
 
 Questo esempio prevede l'uso dell'API Weather Underground per controllare le condizioni meteo correnti di una località.
 
-Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Dopo avere creato l'account, sarà necessario acquisire una chiave API. A questo scopo, visitare [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), quindi selezionare Key Settings (Impostazioni chiave). Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
+Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Dopo avere creato l'account, sarà necessario acquisire una chiave API. A questo scopo, visitare [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), quindi selezionare Key Settings (Impostazioni chiave). Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
 
 Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente all'app per le funzioni.
 
@@ -68,7 +67,7 @@ La funzione **E3_Monitor** usa il codice *function.json* standard per le funzion
 
 Di seguito è riportato il codice che implementa la funzione:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -89,7 +88,8 @@ Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione i
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-Poiché l'agente di orchestrazione richiede più gruppi di dati, per il trasferimento dei dati fortemente tipizzati vengono usati gli [oggetti POCO condivisi](../functions-reference-csharp.md#reusing-csx-code): in C# e nello script C#: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+L'agente di orchestrazione richiede più dati, quindi [gli oggetti poco condivisi](../functions-reference-csharp.md#reusing-csx-code) vengono usati per il trasferimento di dati C# fortemente C# tipizzati in e nello script:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 
@@ -103,7 +103,7 @@ In modo analogo agli altri esempi, le funzioni di attività helper sono normali 
 
 Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per il trasferimento dei dati, la logica per gestire la chiamata API e analizzare il codice JSON della risposta viene astratta in una classe condivisa in C#. È possibile trovarla nel [codice di esempio Visual Studio](#run-the-sample).
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare
 
 Di seguito è disponibile il codice che invia l'SMS:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>Script C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 

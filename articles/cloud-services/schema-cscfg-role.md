@@ -3,22 +3,17 @@ title: Schema del ruolo di Servizi cloud di Azure | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005782"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360663"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Schema del ruolo di configurazione di Servizi cloud di Azure
 
@@ -56,7 +51,7 @@ La tabella seguente descrive gli elementi figlio dell'elemento `Role`.
 | ------- | ----------- |
 | Istanze | Richiesto. Specifica il numero di istanze da distribuire per il ruolo. Il numero di istanze è definito da un numero intero per l'attributo `count`.|
 | Impostazione   | facoltativo. Specifica un nome e un valore per l'impostazione in una raccolta di impostazioni per un ruolo. Il nome dell'impostazione è definito da una stringa per l'attributo `name` e il valore dell'impostazione è definito da una stringa per l'attributo `value`.|
-| Certificate | facoltativo. Specifica il nome, l'identificazione personale e l'algoritmo del certificato di servizio che deve essere associato al ruolo. Il nome del certificato è definito da una stringa per l'attributo `name`. L'identificazione personale del certificato è definita da una stringa di numeri esadecimali senza spazi per l'attributo `thumbprint`. I numeri esadecimali devono essere rappresentati usando cifre e caratteri alfabetici maiuscoli. L'algoritmo del certificato è definito da una stringa per l'attributo `thumbprintAlgorithm`.|
+| Certificato | facoltativo. Specifica il nome, l'identificazione personale e l'algoritmo del certificato di servizio che deve essere associato al ruolo. Il nome del certificato è definito da una stringa per l'attributo `name`. L'identificazione personale del certificato è definita da una stringa di numeri esadecimali senza spazi per l'attributo `thumbprint`. I numeri esadecimali devono essere rappresentati usando cifre e caratteri alfabetici maiuscoli. L'algoritmo del certificato è definito da una stringa per l'attributo `thumbprintAlgorithm`.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Schema di configurazione di Servizi cloud - Versione classica)

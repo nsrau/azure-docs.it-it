@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500193"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908681"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
 
@@ -34,7 +34,7 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 
@@ -115,7 +115,7 @@ In questa sezione verrà compilato ed eseguito un esempio che leggerà la chiave
 
 3. Nella finestra *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**. 
 
-4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. L'app legge e visualizza un **_ID registrazione_** e una **_Chiave di approvazione_**. Copiare questi valori. Questi valori verranno usati nella sezione successiva per la registrazione del dispositivo. 
+4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. L'app legge e visualizza un **_ID registrazione_** e una **_Chiave di approvazione_** . Copiare questi valori. Questi valori verranno usati nella sezione successiva per la registrazione del dispositivo. 
 
 
 <a id="portalenrollment"></a>
@@ -145,7 +145,7 @@ In questa sezione verrà compilato ed eseguito un esempio che leggerà la chiave
 
 In questa sezione si configurerà il codice di esempio per l'uso di [AMQP (Advanced Message Queuing Protocol)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) per inviare la sequenza di avvio del dispositivo all'istanza del servizio Device Provisioning. Con questa sequenza di avvio il dispositivo verrà riconosciuto e assegnato a un hub IoT collegato all'istanza del servizio Device Provisioning.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal portale](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -219,5 +219,5 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client del disposi
 In questa guida introduttiva è stato creato un dispositivo simulato TPM nel computer e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT. Per informazioni su come registrare il dispositivo TPM a livello di codice, passare alla guida introduttiva per la registrazione a livello di codice di un dispositivo TPM. 
 
 > [!div class="nextstepaction"]
-> [Avvio rapido di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-tpm-java.md)
+> [Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-tpm-java.md)
 

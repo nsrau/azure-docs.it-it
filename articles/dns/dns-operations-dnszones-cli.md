@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61293830"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](dns-operations-dnszones-portal.md)
+> * [Portale](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Risorse della Guida
 
-Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio: 
+Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio:
 
 ```azurecli
 az network dns --help

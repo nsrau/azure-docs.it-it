@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66153822"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 

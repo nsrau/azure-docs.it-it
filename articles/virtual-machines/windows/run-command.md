@@ -3,17 +3,17 @@ title: Eseguire gli script di PowerShell in una macchina virtuale di Windows in 
 description: In questo argomento viene descritto come eseguire gli script di PowerShell all'interno di una macchina virtuale di Linux di Azure tramite Esegui comando
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 10/25/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251227"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476779"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
@@ -56,7 +56,7 @@ Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di in
 
 Una volta scelto il comando, fare clic su **Esegui** per eseguire lo script. Lo script viene eseguito e,m al termine, restituisce l'output e gli eventuali errori nella finestra di output. Lo screenshot seguente illustra un esempio di output dall'esecuzione del comando **RDPSettings**.
 
-![Eseguire l'output dello script di comando ](./media/run-command/run-command-script-output.png)
+![Eseguire l'output dello script di comando](./media/run-command/run-command-script-output.png)
 
 ## <a name="commands"></a>Comandi:
 
@@ -83,9 +83,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
 
-Elencare i comandi di esecuzione o mostrare i dettagli di un comando richiede l'`Microsoft.Compute/locations/runCommands/read` autorizzazione che il ruolo dell'elemento predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e versioni successive hanno.
+Per elencare i comandi di esecuzione o che visualizza i dettagli di un comando richiedono il `Microsoft.Compute/locations/runCommands/read` l'autorizzazione a livello di sottoscrizione, quale predefiniti [lettore](../../role-based-access-control/built-in-roles.md#reader) ruolo e versioni successive.
 
-Richiede l'esecuzione di un comando il `Microsoft.Compute/virtualMachines/runCommand/action` l'autorizzazione, che il [collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ruolo e versioni successive.
+Richiede l'esecuzione di un comando il `Microsoft.Compute/virtualMachines/runCommand/action` l'autorizzazione a livello di sottoscrizione, che il [collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ruolo e versioni successive.
 
 È possibile usare uno dei ruoli [incorporati](../../role-based-access-control/built-in-roles.md) o creare un ruolo [personalizzato](../../role-based-access-control/custom-roles.md) per usare Esegui del comando.
 

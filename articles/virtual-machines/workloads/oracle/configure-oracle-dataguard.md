@@ -4,23 +4,22 @@ description: Attivare e mettere in funzione rapidamente Oracle Data Guard nell'a
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731122"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100099"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
 
@@ -38,7 +37,7 @@ Per installare Oracle Data Guard, è necessario creare due macchine virtuali di 
 
 L'immagine di Marketplace usata per creare le VM è Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure 
+### <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index) e seguire le istruzioni visualizzate.
 
@@ -56,7 +55,7 @@ Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGr
 az group create --name myResourceGroup --location westus
 ```
 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea set di disponibilità
 
 Creare un set di disponibilità è un'operazione facoltativa, ma consigliata. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 

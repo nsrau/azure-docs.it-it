@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427047"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164639"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
 
-Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/resource-group-overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
+Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/resource-group-overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
 
 Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -45,11 +45,14 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 1. Aprire la soluzione di Visual Studio o il progetto del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) contenente l'app per la logica.
 
-2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
+2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/template-deployment-overview.md), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
 
 3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica).
 
    ![Aprire un'app per la logica in una soluzione di Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
 
 4. Nella parte inferiore della finestra di progettazione scegliere **Visualizzazione Codice**. 
 
@@ -59,108 +62,21 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 ## <a name="parameters"></a>Parametri
 
-I parametri consentono di riutilizzare i valori in tutta l'app per la logica e sono ideali per la sostituzione dei valori che si potrebbero modificare spesso. Se ad esempio si ha un indirizzo di posta elettronica che si vuole usare in più posizioni, è consigliabile definirlo come parametro.
+Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare anche l'app per la logica distribuzione. 
 
-I parametri sono utili anche quando è necessario eseguire l'override dei parametri in ambienti diversi. Per altre informazioni, vedere i [parametri per la distribuzione](#deployment-parameters) e la [documentazione sull'API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic).
+Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare i valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni complete, vedere [Panoramica: Automatizzare la distribuzione per le app per la](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)logica con i modelli Azure Resource Manager.
 
-> [!NOTE]
-> I parametri sono disponibili solo nella visualizzazione Codice.
+1. Nel modello definire i parametri del modello e i parametri di definizione del flusso di lavoro per accettare i valori da usare rispettivamente in fase di distribuzione e di Runtime.
 
-Nella [prima app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) è stato creato un flusso di lavoro che invia messaggi di posta elettronica quando vengono visualizzati nuovi post nel feed RSS di un sito Web. L'URL del feed è hardcoded, quindi questo esempio illustra come sostituire il valore della query con un parametro per poter modificare più facilmente l'URL del feed.
+   I parametri del modello sono definiti in una sezione dei parametri all'esterno della definizione del flusso di lavoro, mentre i parametri di definizione del flusso di lavoro sono definiti in una sezione dei parametri all'interno della definizione del flusso di lavoro.
 
-1. Nella visualizzazione codice trovare l'oggetto `parameters : {}` e aggiungere un oggetto `currentFeedUrl`:
+1. Sostituire i valori hardcoded con espressioni che fanno riferimento a questi parametri. Nelle espressioni di modello viene utilizzata una sintassi diversa dalle espressioni di definizione del flusso di lavoro.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Evitare di complicare il codice non usando le espressioni modello, che vengono valutate in fase di distribuzione, all'interno delle espressioni di definizione del flusso di lavoro, che vengono valutate in fase di esecuzione Usare solo espressioni di modello all'esterno della definizione del flusso di lavoro. Usare solo le espressioni di definizione del flusso di lavoro nella definizione del flusso di lavoro.
 
-2. Nell'azione `When_a_feed-item_is_published` trovare la sezione `queries` e sostituire il valore della query con `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+   Quando si specificano i valori per i parametri di definizione del flusso di lavoro, è possibile fare riferimento ai parametri del modello usando la sezione Parameters che non rientra nella definizione del flusso di lavoro ma ancora all'interno della definizione di risorsa per l'app per la logica. In questo modo, è possibile passare i valori dei parametri di modello nei parametri della definizione del flusso di lavoro.
 
-   **Prima**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **Dopo**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   Per unire due o più stringhe, è inoltre possibile usare la funzione `concat`. 
-   Ad esempio, `"@concat('#',parameters('currentFeedUrl'))"` funziona come l'esempio precedente.
-
-3.  Al termine dell'operazione, scegliere **Salva**.
-
-Ora è possibile modificare il feed RSS del sito Web passando un URL diverso attraverso l'oggetto `currentFeedURL`.
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>Parametri di distribuzione per diversi ambienti
-
-I cicli di vita delle distribuzioni hanno in genere ambienti per lo sviluppo, lo staging e la produzione. È possibile, ad esempio, usare la stessa definizione di app per la logica in tutti questi ambienti, ma usare database diversi. In modo analogo, è possibile usare la stessa definizione in aree diverse ai fini della disponibilità elevata, ma fare in modo che ogni istanza dell'app per la logica usi il database di quell'area.
-
-> [!NOTE]
-> Questo scenario è diverso da quello in cui si accettano i parametri in *fase di esecuzione*, dove è consigliabile usare invece la funzione `trigger()`.
-
-Di seguito è riportata una definizione di base:
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-Nella richiesta `PUT` effettiva per le app per la logica è possibile fornire il parametro `uri`. In ogni ambiente è possibile fornire un valore diverso per il parametro `connection`. Poiché non esiste più un valore predefinito, il payload delle app per la logica richiede questo parametro:
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-Per altre informazioni, vedere la [documentazione sull'API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
+1. Archiviare i valori per i parametri in un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) separato e includere il file con la distribuzione.
 
 ## <a name="process-strings-with-functions"></a>Elaborare le stringhe con le funzioni
 

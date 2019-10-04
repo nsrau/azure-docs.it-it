@@ -3,27 +3,27 @@ title: Autenticazione in Microsoft Identity Platform | Azure
 description: Informazioni sull'autenticazione in Microsoft Identity Platform, sul modello di app, sulle API, sul provisioning e sugli scenari di autenticazione più comuni supportati in Microsoft Identity Platform.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
-ms.author: celested
+ms.date: 09/23/2019
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785572"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272534"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -53,12 +53,31 @@ Di seguito vengono indicate le informazioni sui diversi componenti presenti nel 
   * Per compilare in modo rapido un'app e aggiungere funzionalità, ad esempio il recupero e l'aggiornamento dei token, l'accesso di un utente, la visualizzazione di alcune informazioni utente e altro ancora, vedere la sezione **Guide introduttive** della documentazione.
   * Per ottenere procedure dettagliate basate su scenari specifici per attività di sviluppo relative all'autenticazione primarie, ad esempio il recupero di token di accesso e il relativo uso in chiamate all'API Microsoft Graph e ad altre API, l'implementazione dell'accesso con Microsoft tramite un'app basata su Web browser tradizionale tramite OpenID Connect e altro ancora, vedere la sezione **Esercitazioni** della documentazione.
   * Per scaricare esempi di codice, vedere [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione usato, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Per altre informazioni sui protocolli, vedere la sezione **Concetti > Protocolli** della documentazione.
+* Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione usato, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Per ulteriori informazioni sui protocolli, vedere la sezione **concetti > protocollo di autenticazione** della documentazione.
 
 Nello scenario di esempio precedente è possibile classificare le app in base ai due ruoli seguenti:
 
 * App che devono accedere in modo sicuro alle risorse
 * App che rivestono il ruolo della risorsa stessa
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
+
+A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (token ID, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico prosegue con una panoramica:
+
+|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Flusso OIDC ibrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Riscatto token di aggiornamento](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token di aggiornamento | x | x | x| |
+|[Flusso on-behalf-of](v2-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
+|[Flusso del codice del dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
+|[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
+
+**Note**:
+
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL, `response_mode` dove `query` è `fragment`o.  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono `groups` di attestazioni o. `wids` 
+
 
 Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Microsoft Identity Platform e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Microsoft Identity Platform.
 
@@ -85,14 +104,11 @@ Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity P
 
 In questo flusso di provisioning:
 
-|   |   |
-|---|---|
-| 1 | Un utente del tenant B prova a eseguire l'accesso con l'app |
-| 2 | Le credenziali dell'utente vengono acquisite e verificate |
-| 3 | All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B |
-| 4 | Microsoft Identity Platform usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B |
-| 5 | L'utente riceve il token richiesto |
-|   |   |
+1. Un utente del tenant B prova ad accedere con l'app, l'endpoint di autorizzazione richiede un token per l'applicazione.
+1. Le credenziali dell'utente vengono acquisite e verificate per l'autenticazione
+1. All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B
+1. Microsoft Identity Platform usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B
+1. L'utente riceve il token richiesto
 
 È possibile ripetere questo processo ogni volta che si desidera per altri tenant (C, D e così via). Il tenant A mantiene il progetto per l'app (oggetto applicazione). Gli utenti e amministratori di tutti gli altri tenant in cui all'app viene dato il consenso mantengono il controllo su ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Microsoft Identity Platform](app-objects-and-service-principals.md).
 
@@ -109,10 +125,10 @@ Le attestazioni presenti in un determinato token di sicurezza dipendono dal tipo
 
 La tabella seguente fornisce una breve descrizione dei tipi di attestazione generati da Microsoft Identity Platform. Per informazioni più dettagliate, vedere i [token di accesso](access-tokens.md) e i [token ID](id-tokens.md) emessi da Microsoft Identity Platform.
 
-| Attestazione | DESCRIZIONE |
+| Attestazione | Descrizione |
 | --- | --- |
 | ID applicazione | Identifica l'applicazione che usa il token. |
-| Audience | Identifica la risorsa di destinazione del token. |
+| Destinatari | Identifica la risorsa di destinazione del token. |
 | Riferimento alla classe contesto di autenticazione applicazione | Indica la modalità di autenticazione del client (client pubblico e client riservato). |
 | Istante di autenticazione | Registra la data e l'ora in cui è avvenuta l'autenticazione. |
 | Metodo di autenticazione | Indica la modalità di autenticazione dell'oggetto del token (password, certificato e così via). |
@@ -120,13 +136,13 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Gruppi | Contiene gli ID oggetto dei gruppi di Azure AD di cui l'utente è membro. |
 | Provider di identità | Registra il provider di identità che ha autenticato l'oggetto del token. |
 | Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
-| Issuer | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
+| Rilasciato da | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| NOME | Fornisce un valore leggibile che identifica l'oggetto del token. |
+| Attività | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID oggetto | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| Scope | Indica le autorizzazioni concesse all'applicazione client. |
-| Oggetto | Indica l'entità su cui il token rilascia informazioni. |
+| `Scope` | Indica le autorizzazioni concesse all'applicazione client. |
+| Subject | Indica l'entità su cui il token rilascia informazioni. |
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome dell'entità utente | Contiene il nome dell'entità utente dell'oggetto. |

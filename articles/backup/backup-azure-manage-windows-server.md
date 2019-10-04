@@ -1,19 +1,18 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.date: 07/08/2019
+ms.author: dacurwin
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268873"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954770"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -156,7 +155,7 @@ Scegliere la gravità degli avvisi (critici o avvertenze) usata per generare il 
 
 ## <a name="manage-backup-items"></a>Gestire gli elementi di backup
 
-Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. Per un elenco completo dei tipi di backup, vedere [Applicazioni e carichi di lavoro di cui è possibile eseguire un backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
+Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. [Altre](backup-overview.md#what-can-i-back-up) informazioni sugli elementi di cui è possibile eseguire il backup. Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
 
 ![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -176,7 +175,7 @@ L'elenco di macchine virtuali include dati utili: il gruppo di risorse associato
 
 Il riquadro **Processi di backup** nel dashboard dell'insieme di credenziali mostra il numero di processi in corso o non riusciti nelle ultime 24 ore. Il riquadro offre una rapida panoramica del menu Processi di backup.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Per visualizzare altri dettagli sui processi, fare clic su **In corso** o su **Non riusciti** per aprire il menu Processi di backup filtrato per tale stato.
 
@@ -186,11 +185,11 @@ Il menu **Processi di backup** visualizza informazioni sul tipo di elemento, sul
 
 Per aprire il menu Processi di backup, nel menu principale dell'insieme di credenziali fare clic su **Processi di backup**.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 Viene aperto l'elenco dei processi di backup.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 Il menu Processi di backup mostra lo stato di tutte le operazioni, in tutti i tipi di backup, per le ultime 24 ore. Usare **Filtra** per modificare i filtri. I filtri vengono illustrati nelle sezioni seguenti.
 
@@ -198,11 +197,11 @@ Per modificare i filtri:
 
 1. Dal menu Processi di backup dell'insieme di credenziali scegliere **Filtra**.
 
-   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     Viene aperto il menu Filtra.
 
-   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Eseguire il backup degli elementi dalle impostazioni](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Scegliere le impostazioni del filtro e fare clic su **Fine**. L'elenco filtrato viene aggiornato in base alle nuove impostazioni.
 
@@ -260,21 +259,6 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali
 
-
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?
-Il portale di Azure può impiegare fino a 15 minuti per visualizzare lo stato del processo dell'agente di Backup di Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?
-Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?
-Sì. Le notifiche non vengono inviate nei casi seguenti.
-
-* Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
-* Quando un processo viene annullato
-* Se un secondo processo di backup non riesce perché è in corso il processo di backup originale
 
 ## <a name="troubleshooting-monitoring-issues"></a>Risoluzione dei problemi di monitoraggio
 

@@ -1,22 +1,21 @@
 ---
 title: Monitorare le prestazioni di un cluster - Azure HDInsight
-description: Come monitorare un cluster HDInsight in termini di capacità e prestazioni.
-services: hdinsight
-author: maxluk
+description: Come monitorare l'integrità e le prestazioni dei cluster Apache Hadoop in Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.date: 05/29/2019
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742474"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104406"
 ---
-# <a name="monitor-cluster-performance"></a>Monitorare le prestazioni di un cluster
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
 
 Monitorare l'integrità e le prestazioni di un cluster HDInsight è fondamentale per mantenere livelli ottimali di prestazioni e di utilizzo delle risorse. Il monitoraggio agevola l'individuazione e la risoluzione degli errori di configurazione del cluster e dei problemi del codice utente.
 
@@ -28,20 +27,20 @@ I cluster Hadoop offrono prestazioni ottimali quando il carico nel cluster viene
 
 Per una panoramica sui nodi del cluster e sul rispettivo caricamento, accedere all'[interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md) e selezionare la scheda **Host**. Gli host sono elencati in base ai relativi nomi di dominio completi. Lo stato operativo di ogni host viene visualizzato tramite un indicatore di integrità colorato:
 
-| Colore | DESCRIZIONE |
+| Colore | Descrizione |
 | --- | --- |
 | Rosso | Almeno un componente master dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
-| Arancione | Almeno un componente slave dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
+| Arancione | Almeno un componente secondario nell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
 | Giallo | Il server Ambari non riceve un heartbeat dall'host da più di 3 minuti. |
 | Verde | Stato di esecuzione normale. |
 
 Verrà visualizzata anche una serie di colonne in cui sono riportati il numero di core e la quantità di RAM per ogni host, nonché l'utilizzo del disco e il carico medio.
 
-![Scheda Host](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Panoramica sulla scheda host Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Selezionare uno dei nomi host per visualizzare informazioni dettagliate sui componenti in esecuzione sull'host e le relative metriche. Le metriche vengono visualizzate come sequenze temporali selezionabili e riguardano l'utilizzo della CPU, il carico, l'utilizzo del disco, l'utilizzo della memoria, l'utilizzo della rete e il numero di processi.
 
-![Dettagli dell'host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Panoramica dei dettagli dell'host Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Per informazioni dettagliate sull'impostazione degli avvisi e la visualizzazione delle metriche, vedere [Gestire i cluster HDInsight tramite l'utilizzo dell'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -57,7 +56,7 @@ Quando più tenant condividono un cluster di grandi dimensioni, si verifica una 
 
 YARN consente di allocare le risorse a queste code e indica se tutte le risorse disponibili sono assegnate. Per visualizzare informazioni sulle code, accedere all'interfaccia utente Web Ambari e quindi selezionare **YARN Queue Manager** (Gestore code YARN) dal menu principale.
 
-![YARN Queue Manager (Gestore code YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![Gestione code YARN Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 Sul lato sinistro della pagina YARN Queue Manager (Gestore code YARN) viene visualizzato un elenco di code, con la relativa percentuale di capacità assegnata.
 
@@ -65,11 +64,11 @@ Sul lato sinistro della pagina YARN Queue Manager (Gestore code YARN) viene visu
 
 Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboard Ambari selezionare il servizio **YARN**. Nel menu a discesa **Quick Links** (Collegamenti rapidi) selezionare **ResourceManager UI** (Interfaccia utente di ResourceManager) sotto il nodo attivo.
 
-![Collegamento al menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Collegamenti menu dell'interfaccia utente Gestione risorse](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 Nell'interfaccia utente di ResourceManager selezionare **Scheduler** (Utilità di pianificazione) dal menu a sinistra. Viene visualizzato un elenco delle code disponibili in *Application Queues* (Code dell'applicazione). In quest'area è possibile visualizzare la capacità usata per ognuna delle code, come vengono distribuiti i processi tra di esse e se i processi hanno risorse limitate.
 
-![Collegamento al menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menu dell'interfaccia utente Gestione risorse di Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 

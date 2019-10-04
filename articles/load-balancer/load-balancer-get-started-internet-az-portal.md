@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un Load Balancer Standard con un front-end di indirizzo IP pubblico con ridondanza della zona con il portale di Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
-ms.author: kumud
-ms.openlocfilehash: 448ae5f8a615a526460ac92eaaf6c7d16761aec2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: a875fc3446944b8a39f43b29440ab1d7179b847d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845497"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275071"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Creare un Load Balancer Standard con un front-end con ridondanza della zona usando il portale di Azure
 

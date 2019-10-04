@@ -4,11 +4,11 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cfowler
-ms.openlocfilehash: 2844f34dae6edb5fb4fa6d695f574e06afcfc4fa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1f0be70eb6616b841a0eb89f521441407b5bb70b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805758"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "67433063"
 ---
-Se non si ha una [sottoscrizione di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+Se non si ha una [sottoscrizione di Azure](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.

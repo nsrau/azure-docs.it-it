@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629289"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Note sulla versione dell'Aggiornamento 0.2 e 0.1 per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -44,17 +44,17 @@ L'Aggiornamento 0.2 include tutte le modifiche introdotte dall'Aggiornamento 0.1
 ## <a name="whats-new-in-the-update-01"></a>Novità dell'aggiornamento 0.1
 L'aggiornamento 0.1 contiene le correzioni di bug e i miglioramenti seguenti. 
 
-* **Miglioramento della resilienza per le interruzioni del cloud**: questa versione include diverse correzioni di bug per il ripristino di emergenza, il backup e la suddivisione in livelli in caso di interruzione della connettività al cloud. 
-* **Miglioramento delle prestazioni di ripristino**: questa versione include correzioni di bug che riducono significativamente il tempo necessario per il completamento dei processi di ripristino.
-* **Ottimizzazione del recupero automatizzato dello spazio**: quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
-* **Nuove immagini di dischi virtuali**: sono ora disponibili nuovi file VHD, VHDX e VMDK tramite il portale di Azure classico. È possibile scaricare queste immagini per eseguire il provisioning dei nuovi dispositivi con aggiornamento 0.1.
-* **Miglioramento della precisione dello stato dei processi nel portale**: nella versione precedente del software, la segnalazione dello stato del processo nel portale non era granulare. Questo problema è stato risolto in questa versione.
-* **Esperienza di aggiunta al dominio**: correzione di bug relativi all'aggiunta al dominio e alla ridenominazione del dispositivo.
+* **Miglioramento della resilienza per le interruzioni del cloud**: Questa versione include diverse correzioni di bug nel ripristino di emergenza, backup, ripristino e la suddivisione in livelli in caso di un'interruzione della connettività cloud. 
+* **Miglioramento delle prestazioni di ripristino**: Questa versione include correzioni di bug che hanno riducono significativamente il tempo di completamento dei processi di ripristino.
+* **Spazio ottimizzazione del recupero automatizzato**: Quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
+* **Nuove immagini di dischi virtuali**: Nuovo disco rigido virtuale, VHDX e VMDK sono ora disponibili tramite il portale di Azure classico. È possibile scaricare queste immagini per eseguire il provisioning dei nuovi dispositivi con aggiornamento 0.1.
+* **Miglioramento della correttezza dello stato dei processi nel portale di**: Nella versione precedente del software, lo stato del processo reporting nel portale non era granulare. Questo problema è stato risolto in questa versione.
+* **Esperienza di aggiunta al dominio**: Correzioni di bug relativi a aggiunta a un dominio e la ridenominazione del dispositivo.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problemi risolti nell'aggiornamento 0.1
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| di serie | Funzionalità | Problema |
+| No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |VMDK |In alcune versioni di VMware, il disco del sistema operativo era considerato come sparse che generava avvisi e interrompeva le normali operazioni. Questo bug è stato risolto in questa versione. |
 | 2 |Server iSCSI |Nell'ultima versione, all'utente veniva richiesto di specificare un gateway per ogni interfaccia di rete abilitata del dispositivo virtuale StorSimple. Questo comportamento è stato modificato in questa versione in modo che l'utente debba configurare almeno un gateway per tutte le interfacce di rete abilitate. |
@@ -65,14 +65,14 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 ## <a name="known-issues-in-the-update-01"></a>Problemi noti nell'aggiornamento 0.1
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. **I problemi della versione corrente sono contrassegnati con un asterisco. Quasi tutti i problemi descritti in questo elenco sono riportati dalla versione di disponibilità generale dell'array virtuale StorSimple.**
 
-| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |
 | **3.** |Criteri di gruppo |Nei dispositivi aggiunti a un dominio, l'applicazione di criteri di gruppo può influire negativamente sul funzionamento dei dispositivi. |Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO). |
 | **4.** |Interfaccia utente Web locale |Se sono abilitate le funzionalità di sicurezza avanzate di Internet Explorer, alcune pagine dell'interfaccia utente Web locale come Risoluzione dei problemi o Manutenzione potrebbero non funzionare correttamente. Anche i pulsanti di queste pagine potrebbero non funzionare. |Disattivare le funzionalità di protezione avanzata di Internet Explorer. |
 | **5.** |Interfaccia utente Web locale |In una macchina virtuale Hyper-V, le interfacce di rete nell'interfaccia utente Web vengono visualizzate come interfacce da 10 Gbps. |Questo comportamento è una reflection di Hyper-V. Hyper-V visualizza sempre 10 Gbps per le schede di rete virtuale. |
-| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate:  <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: se si usano volumi aggiunti in locale e il blocco dell'intervallo di byte è abilitato, il volume aggiunto in locale può risultare online ancora prima del completamento del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
+| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate: <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: Se il blocco di intervalli di byte è abilitato in locale usano volumi aggiunti, tenere presente che il volume aggiunto in locale può risultare online ancora prima del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
 | **7.** |Condivisioni a livelli |Lavorare con file di grandi dimensioni può comportare una suddivisione in livelli lenta. |Durante l'uso di file di grandi dimensioni, è consigliabile che il file più grande sia più piccolo del 3% rispetto alle dimensioni della condivisione. |
 | **8.** |Capacità usata per le condivisioni |È possibile riscontrare il consumo di condivisioni in assenza di dati nella condivisione. Questo accade perché la capacità usata per le condivisioni include i metadati. | |
 | **9.** |Ripristino di emergenza |È possibile eseguire solo il ripristino di emergenza di un file server nello stesso dominio del dispositivo di origine. Il ripristino di emergenza su un dispositivo di destinazione in un dominio diverso non è supportato in questa versione. |Questo aspetto sarà implementato in una versione successiva. |

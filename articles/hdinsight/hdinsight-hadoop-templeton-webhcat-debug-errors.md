@@ -1,7 +1,6 @@
 ---
 title: Comprendere e risolvere gli errori di WebHCat in HDInsight - Azure
 description: Informazioni sugli errori comuni restituiti da WebHCat in HDInsight e su come risolverli.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cfbd42a67f9c9d6c66df3787b53575dc9e918e35
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067978"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat in HDInsight
 
@@ -33,14 +32,12 @@ Informazioni sugli errori che si ricevono durante l'utilizzo di WebHCat con HDIn
 
 * Per i cluster **Linux**: usare Ambari (API Web o REST) per modificare il valore. Per altre informazioni, vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]  
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Configurazione predefinita
 
 Il superamento dei valori predefiniti seguenti può determinare una riduzione delle prestazioni di WebHCat o la generazione di errori:
 
-| Impostazione | Risultato | Valore predefinito |
+| Impostazione | Descrizione | Valore predefinito |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Il numero massimo di processi che possono essere attivi contemporaneamente (in sospeso o in esecuzione) |10,000 |
 | [templeton.exec.max-procs][max-procs] |Il numero massimo di richieste che possono essere gestite contemporaneamente |20 |

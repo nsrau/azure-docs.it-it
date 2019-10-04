@@ -4,7 +4,7 @@ description: Informazioni sugli elenchi di controllo di accesso in Azure
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
-ms.translationtype: HT
+ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293119"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056686"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
 > [!IMPORTANT]
-> Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di distribuzione Resource Manager per le distribuzioni più recenti. 
+> Azure offre due diversi [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Gestione risorse e classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di distribuzione Resource Manager per le distribuzioni più recenti. 
 
 Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Quando si usano gruppi di sicurezza di rete, l'elenco di controllo di accesso degli endpoint viene sostituito e non più applicato. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md).
 
@@ -90,6 +90,6 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 ![Elenchi di controllo di accesso di rete e set con carico bilanciato](./media/virtual-networks-acl/IC674733.png)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 [Gestire elenchi di controllo di accesso di endpoint con PowerShell](virtual-networks-acl-powershell.md)
 

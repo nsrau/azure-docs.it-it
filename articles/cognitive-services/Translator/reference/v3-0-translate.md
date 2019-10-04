@@ -3,21 +3,21 @@ title: Metodo Translate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: Usare il metodo Translate dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: swmachan
+ms.openlocfilehash: 67d323d5a3574100760c78427db6983f6aff5ac8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336797"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934005"
 ---
-# <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
+# <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Trasla
 
 Traduce il testo.
 
@@ -34,19 +34,19 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Parametro di query</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le [lingue supportate](./v3-0-languages.md) con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la <code>from</code> funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
   </tr>
   <tr>
-    <td>to</td>
-    <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
+    <td>in</td>
+    <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con [Custom Translator](../customization.md). Aggiungere l'ID categoria dal progetto di traduttore personalizzato a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dei <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Dettagli del progetto</a> di conversione personalizzati a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere trattato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>NoAction</code> (impostazione predefinita), <code>Marked</code> o <code>Deleted</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere [Gestione del contenuto volgare](#handle-profanity).</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere trattato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>NoAction</code> (impostazione predefinita), <code>Marked</code> o <code>Deleted</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere <a href="#handle-profanity">Gestione del contenuto volgare</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere contrassegnato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>Asterisk</code> (impostazione predefinita) o <code>Tag</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere [Gestione del contenuto volgare](#handle-profanity).</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica come deve essere contrassegnato il contenuto volgare nelle traduzioni. I valori possibili sono: <code>Asterisk</code> (impostazione predefinita) o <code>Tag</code>. Per informazioni sui metodi di gestione del contenuto volgare, vedere <a href="#handle-profanity">Gestione del contenuto volgare</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
@@ -94,10 +94,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Intestazioni</th>
+  <th>Descrizione</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -172,8 +172,8 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Intestazioni</th>
+  <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,10 +190,10 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Riuscite.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -201,7 +201,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>401</td>
-    <td>Impossibile autenticare la richiesta. Verificare che le credenziali siano state specificate e che siano valide.</td>
+    <td>La richiesta non è stata autenticata. Verificare che le credenziali siano state specificate e che siano valide.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -213,7 +213,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>429</td>
-    <td>Il chiamante sta inviando un numero eccessivo di richieste.</td>
+    <td>Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -233,13 +233,9 @@ Se si verifica un errore, la richiesta restituirà anche una risposta di errore 
 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 Il corpo della risposta è:
 
@@ -259,13 +255,9 @@ La matrice `translations` include un elemento, che fornisce la traduzione della 
 
 Questo esempio mostra come tradurre una singola frase dall'inglese al cinese semplificato. La richiesta non specifica la lingua di input. Viene usato invece il rilevamento automatico della lingua di origine.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 Il corpo della risposta è:
 
@@ -285,13 +277,9 @@ La risposta è simile a quella dell'esempio precedente. Poiché è stato richies
 
 È possibile estendere l'esempio precedente aggiungendo la traslitterazione. La richiesta seguente richiede una traduzione in cinese scritta in caratteri dell'alfabeto latino.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 Il corpo della risposta è:
 
@@ -316,13 +304,9 @@ Il risultato della traduzione include ora una proprietà `transliteration`, che 
 
 La traduzione di più stringhe contemporaneamente equivale semplicemente a specificare una matrice di stringhe nel corpo della richiesta.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
-
----
 
 Il corpo della risposta è:
 
@@ -345,13 +329,9 @@ Il corpo della risposta è:
 
 Questo esempio mostra come tradurre lo stesso input in diverse lingue in una sola richiesta.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 Il corpo della risposta è:
 
@@ -401,16 +381,11 @@ Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag
   </tr>
 </table> 
 
-Ad esempio: 
+Ad esempio:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-
----
-
 Viene restituito:
 
 ```
@@ -425,13 +400,9 @@ Viene restituito:
 
 Eseguire il confronto con:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-
----
 
 L'ultima richiesta restituisce:
 
@@ -456,13 +427,9 @@ L'ultima richiesta restituisce:
 
 Di seguito è riportata una richiesta di esempio.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
-
----
 
 La risposta è:
 
@@ -480,13 +447,9 @@ La risposta è:
 
 Per ricevere informazioni sull'allineamento, specificare `includeAlignment=true` nella stringa di query.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
-
----
 
 La risposta è:
 
@@ -518,13 +481,9 @@ Prendere nota delle restrizioni seguenti:
 
 Per ricevere informazioni sulla lunghezza della frase nel testo di origine e nel testo tradotto, specificare `includeSentenceLength=true` nella stringa di query.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
-
----
 
 La risposta è:
 
@@ -571,9 +530,3 @@ Il risultato è:
 ```
 
 Questa funzionalità funziona allo stesso modo con `textType=text` o con `textType=html`. È consigliabile usarla solo in casi limitati. Il modo più appropriato e di gran lunga migliore per personalizzare una traduzione è quello di usare Custom Translator. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si ha la possibilità di creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. [Altre informazioni su Custom Translator](../customization.md).
- 
-
-
-
-
-

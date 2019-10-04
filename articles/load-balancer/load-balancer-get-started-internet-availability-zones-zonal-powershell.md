@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio Load Balancer Standard pubblico con un front-end di zona usando Microsoft Azure PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
-ms.openlocfilehash: faffe5acb6ec33dcddee5c47679f29f64d2e61fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: allensu
+ms.openlocfilehash: a2c637ddbf5b7f5883016afe4a6d58ad9752cfc5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674311"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275123"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Creare un Load Balancer Standard con un front-end di zona usando Azure PowerShell
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540721"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231458"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -31,7 +31,7 @@ La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza
 **Macchine virtuali nell'area di origine** | Una o più macchine virtuali di Azure in un'[area di origine supportata](azure-to-azure-support-matrix.md#region-support).<br/><br/> Le macchine virtuali possono eseguire qualsiasi [sistema operativo supportato](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Archiviazione macchine virtuali di origine** | Le macchine virtuali di Azure possono essere gestite o avere dischi non gestiti distribuiti fra gli account di archiviazione.<br/><br/>[Informazioni](azure-to-azure-support-matrix.md#replicated-machines---storage) sull'archiviazione di Azure supportata.
 **Reti macchine virtuali di origine** | Le macchine virtuali possono essere collocate in una o più subnet di una rete virtuale nell'area di origine. [Altre informazioni](azure-to-azure-support-matrix.md#replicated-machines---networking) sui requisiti di rete.
-**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
+**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Gli account di archiviazione della cache devono essere standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
 **Risorse di destinazione** | Le risorse di destinazione vengono usate durante la replica e in caso di failover. Site Recovery può configurare le risorse di destinazione per impostazione predefinita oppure è possibile crearle o personalizzarle.<br/><br/> Nell'area di destinazione verificare che sia possibile creare macchine virtuali e che la sottoscrizione disponga di risorse sufficienti per supportare le dimensioni di macchina virtuale che saranno necessarie nell'area di destinazione. 
 
 ![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -66,7 +66,7 @@ Quando si abilita la replica delle macchine virtuali di Azure, per impostazione 
 **Impostazione criteri** | **Dettagli** | **Default**
 --- | --- | ---
 **Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
-**Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni 60 minuti.
+**Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore
 
 ### <a name="managing-replication-policies"></a>Gestione dei criteri di replica
 
@@ -91,7 +91,7 @@ Site Recovery acquisisce snapshot nel modo seguente:
 1. Site Recovery acquisisce snapshot dei dati coerenti con l'arresto anomalo del sistema per impostazione predefinita, oltre a snapshot coerenti con l'app se si specifica una frequenza.
 2. Dagli snapshot vengono creati punti di ripristino che vengono archiviati in base alle impostazioni di conservazione dei criteri di replica.
 
-### <a name="consistency"></a>Consistency
+### <a name="consistency"></a>Coerenza
 
 La tabella seguente illustra i vari tipi di coerenza.
 
@@ -139,12 +139,13 @@ Se l'accesso in uscita per le macchine virtuali è controllato tramite URL, cons
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
 Per controllare la connettività in uscita per le macchine virtuali tramite indirizzi IP, consentire questi indirizzi.
+Si noti che i dettagli relativi ai requisiti di connettività di rete sono disponibili in [rete white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### <a name="source-region-rules"></a>Regole dell'area di origine
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Spazio di archiviazione. \<area-name >.
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. \<Region-Name >.
 Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono ad Azure Active Directory (Azure AD).<br/><br/> Se in futuro vengono aggiunti indirizzi di Azure AD, è necessario creare nuove regole di gruppo di sicurezza di rete (NSG).  | AzureActiveDirectory
 Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site Recovery](https://aka.ms/site-recovery-public-ips) che corrispondono alla posizione di destinazione. 
 
@@ -152,7 +153,7 @@ Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site 
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di destinazione. | Spazio di archiviazione. \<area-name >.
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di destinazione. | Archiviazione. \<Region-Name >.
 Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono ad Azure AD.<br/><br/> Se in futuro vengono aggiunti indirizzi di Azure AD, è necessario creare nuove regole NSG.  | AzureActiveDirectory
 Consenti HTTPS in uscita: porta 443 | Consente l'accesso agli [endpoint di Site Recovery](https://aka.ms/site-recovery-public-ips) che corrispondono alla posizione di origine. 
 

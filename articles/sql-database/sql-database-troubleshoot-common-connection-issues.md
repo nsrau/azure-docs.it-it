@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd0ab6d89d88c594d283dc0718c0f58ebb98bf43
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331435"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090807"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Risoluzione dei problemi di connessione al database SQL di Azure
 

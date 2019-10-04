@@ -1,5 +1,5 @@
 ---
-title: Gestire i servizi web con gestione API
+title: Gestire i servizi Web tramite gestione API
 titleSuffix: Azure Machine Learning Studio
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API. Gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347255"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279257"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio con Gestione API
 ## <a name="overview"></a>Panoramica
@@ -150,7 +150,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 4. Per i **parametri della richiesta** immettere l'**area di lavoro** e il **servizio**, digitare 2.0 per la **versione API** e "true" per i **dettagli**. È possibile trovare l'**area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
-   Per **Intestazioni della richiesta** fare clic su **Aggiungi intestazione** e digitare "Tipo contenuto" e "application/json". Fare di nuovo clic su **Aggiungi intestazione** e digitare "Autorizzazione" e "Token di connessione *\<chiave API del servizio\>*". È possibile trovare la chiave API nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
+   Per **Intestazioni della richiesta** fare clic su **Aggiungi intestazione** e digitare "Tipo contenuto" e "application/json". Fare di nuovo clic su **Aggiungi intestazione** e digitare "Autorizzazione" e "Token di connessione *\<chiave API del servizio\>* ". È possibile trovare la chiave API nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
    Nel riquadro **Corpo della richiesta** digitare `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
@@ -158,7 +158,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 5. Fare clic su **Send**.
 
-   ![Send](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![invia](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
@@ -166,7 +166,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Appendice A - Creazione e test di un semplice servizio Web di AzureML
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio: 
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
 
 | Text | Testo con hash |
 | --- | --- |
@@ -182,11 +182,11 @@ Rinominarlo **SimpleFeatureHashingExperiment**. Espandere **Saved Datasets** (Se
 
 Espandere **Data Transformation** (Trasformazioni di dati) e **Manipulation** (Manipolazione), quindi trascinare **Select Columns in Dataset** (Seleziona colonne in set di dati) sull'esperimento. Connettere **Book Reviews from Amazon** (Recensioni sul libro da Amazon) a **Select Columns in Dataset** (Seleziona colonne in set di dati).
 
-![Connettere il modulo di set di dati di revisioni del libro a un modulo di Project Columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connettere il modulo DataSet reviews a un modulo Project Columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Fare clic su **Select Columns in Dataset** (Seleziona colonne in set di dati), quindi fare clic su **Launch column selector** (Avvia selettore di colonna) e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
-![Selezionare le colonne con nomi di colonna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selezionare le colonne utilizzando i nomi di colonna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Espandere **Text Analytics** (Analisi testo) e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** (Seleziona colonne in set di dati) a **Feature Hashing**.
 
@@ -214,7 +214,7 @@ Fare clic su **Yes** per pubblicare l'esperimento.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testare il servizio Web
-Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](../../python-how-to-install.md)).
+Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](/azure/python/python-sdk-azure-install)).
 
 Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Richiesta/risposta** o su **Esecuzione batch** per l'esperimento nel dashboard del servizio Web.
 
@@ -301,7 +301,7 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
     except urllib2.HTTPError, error:
         printHttpError(error)
         return
-    with open(output_file, "w+") as f:
+    with open(output_file, "wb+") as f:
         f.write(response.read())
     print(resultsLabel + " have been written to the file " + output_file)
     return

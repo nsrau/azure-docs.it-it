@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550354"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180813"
 ---
 Configurare il software di terze parti per stabilire la connessione al client. Per connettersi al software di terze parti, sono in genere necessarie le informazioni seguenti (possono variare) raccolte dalla pagina **Connetti e copia** dell'interfaccia utente Web locale nel passaggio precedente:
 

@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentazione dello strumento di lettura immersiva
+summary: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+metadata:
+  title: Documentazione dello strumento di lettura immersiva
+  description: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+  services: service
+  ms.service: cognitive-services
+  ms.subservice: immersive-reader
+  ms.topic: landing-page
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164500"
+landingContent:
+- title: Informazioni sullo strumento di lettura immersiva
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è lo strumento di lettura immersiva?
+      url: overview.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Esplorare Immersive Reader
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Eseguire l'autenticazione con Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: JavaScript SDK
+      url: reference.md
+    - text: iOS SDK
+      url: ios-reference.md

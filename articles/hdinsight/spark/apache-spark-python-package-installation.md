@@ -1,27 +1,26 @@
 ---
 title: 'Azione script: installare pacchetti Python con Jupyter in Azure HDInsight'
 description: Istruzioni dettagliate su come usare l’azione script e configurare notebook di Jupyter disponibili con cluster HDInsight Spark per l'uso di pacchetti Python esterni.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/22/2019
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518678"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900711"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare Azioni script per installare pacchetti Python esterni per notebook di Jupyter in cluster Apache Spark in HDInsight
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Azione script per installare pacchetti Python esterni per notebook di Jupyter in Apache Spark in HDInsight
+
 > [!div class="op_single_selector"]
 > * [Uso di comandi Magic nelle celle](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Uso di azioni script](apache-spark-python-package-installation.md)
 
-Informazioni su come usare azioni Script per configurare un [Apache Spark](https://spark.apache.org/) cluster in HDInsight per l'utilizzo esterno, creati dalla community **python** pacchetti che non sono inclusi out-of-the-box nel cluster.
+Informazioni su come usare le azioni script per configurare un cluster [Apache Spark](https://spark.apache.org/) in HDInsight per l'uso di pacchetti **Python** esterni creati dalla community che non sono inclusi nel cluster.
 
 > [!NOTE]  
 > È anche possibile configurare un notebook di Jupyter con il comando Magic `%%configure` per usare pacchetti esterni. Per istruzioni, vedere [Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -56,34 +55,34 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Usare pacchetti esterni con i notebook Jupyter
 
-1. Dal [portale di Azure](https://portal.azure.com/), passare al cluster.  
+1. Dal [portale di Azure](https://portal.azure.com/)passare al cluster.  
 
-2. Con il cluster selezionato, nel riquadro sinistro, in **le impostazioni**, selezionare **azioni Script**.
+2. Con il cluster selezionato, nel riquadro sinistro in **Impostazioni**selezionare **azioni script**.
 
-3. Selezionare **+ Invia nuova**.
+3. Selezionare **+ Invia nuovo**.
 
-4. Immettere i valori seguenti per il **invia azione script** finestra:  
+4. Immettere i valori seguenti per la finestra **Invia azione script** :  
 
 
-    |Parametro | Valore |
+    |Parametro | Value |
     |---|---|
     |Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
     |NOME |Immettere `tensorflow` nella casella di testo.|
     |URI script Bash |Immettere `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` nella casella di testo. |
-    |Tipi di nodo | Selezionare il **Head**, e **lavoro** caselle di controllo. |
+    |Tipo/i di nodo | Selezionare le caselle di controllo **Head**e **Worker** . |
 
-    `tensorflowinstall.sh` contiene i comandi seguenti:
+    `tensorflowinstall.sh`contiene i comandi seguenti:
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. Selezionare **Create**.  Vedere la documentazione su [come usare azioni script personalizzate](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+5. Selezionare **Create**.  Vedere la documentazione su [come usare azioni script personalizzate](../hdinsight-hadoop-customize-cluster-linux.md).
 
-6. Attendere il completamento dello script.  Il **azioni Script** riquadro verrà segnalato **nuove azioni script possono essere inviate al termine dell'operazione del cluster corrente** durante l'esecuzione di script.  È possibile visualizzare un indicatore di stato dalla UI Ambari **operazioni in Background** finestra.
+6. Attendere il completamento dello script.  Il riquadro **azioni script** determinerà l' **invio di nuove azioni script al termine dell'operazione del cluster corrente** durante l'esecuzione dello script.  È possibile visualizzare un indicatore di stato dalla finestra **delle operazioni in background** dell'interfaccia utente di Ambari.
 
-7. Aprire un notebook di PySpark Jupyter.  Visualizzare [creare un notebook di Jupyter in Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) per questa procedura.
+7. Aprire un notebook di Jupyter PySpark.  Per la procedura, vedere [creare un notebook di Jupyter in Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) .
 
     ![Creare un nuovo notebook Jupyter](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Creare un nuovo notebook Jupyter")
 
@@ -98,7 +97,7 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
     Il risultato sarà analogo a questo:
     
-    ![Esecuzione del codice TensorFlow](./media/apache-spark-python-package-installation/execution.png "Esecuzione del codice TensorFlow")
+    ![Esecuzione del codice TensorFlow](./media/apache-spark-python-package-installation/tensorflow-execution.png "Esecuzione del codice TensorFlow")
 
 > [!NOTE]  
 > Nel cluster sono presenti due installazioni di Python. Spark userà l'installazione di Anaconda python che si trova in `/usr/bin/anaconda/bin` e l'impostazione predefinita per l'ambiente Python 2.7. Per usare Python 3.x e installare i pacchetti nel kernel di PySpark3, usare il percorso all'`conda`eseguibile per tale ambiente e usare il parametro `-n` per specificare l'ambiente. Ad esempio, il comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, consente di installare il pacchetto `ggplot` nell'ambiente Python 3.5 usando il canale `conda-forge`.

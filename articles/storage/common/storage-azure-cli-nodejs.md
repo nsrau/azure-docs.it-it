@@ -2,18 +2,19 @@
 title: Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare l'interfaccia della riga di comando classica di Azure con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare BLOB e file di Azure.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
-ms.author: seguler
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65147049"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure
 
@@ -78,11 +79,11 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 5. Nel computer locale, aprire l'editor di testo preferito (vim ad esempio). Digitare lo script precedente nell'editor di testo.
 6. A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione.
 
-   * **&lt;storage_account_name&gt;**: usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
-   * **<storage_account_key>**: la chiave di accesso dell'account di archiviazione.
-   * **<container_name>**: usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
-   * **<image_to_upload>**: immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
-   * **<destination_folder>**: immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "~/downloadImages".
+   * **&lt;storage_account_name&gt;** : usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
+   * **<storage_account_key>** : la chiave di accesso dell'account di archiviazione.
+   * **<container_name>** : usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
+   * **<image_to_upload>** : immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
+   * **<destination_folder>** : immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "~/downloadImages".
 7. Dopo avere aggiornato le variabili necessarie in vim, premere le combinazioni di tasti `ESC`, `:`, `wq!` per salvare lo script.
 8. Per eseguire questo script, è sufficiente digitare il nome del file script nella console di bash. Dopo l'esecuzione dello script è necessario disporre di una cartella di destinazione locale che includa il file di immagine scaricato. La schermata seguente mostra un output di esempio:
 
@@ -228,7 +229,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
     --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 I comandi dell'interfaccia della riga di comando classica di Azure da usare con le risorse di archiviazione sono disponibili qui:
 

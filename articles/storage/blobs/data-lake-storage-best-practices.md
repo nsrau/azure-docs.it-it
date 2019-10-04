@@ -1,19 +1,19 @@
 ---
 title: Procedure consigliate per l'uso di Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Informazioni sulle procedure consigliate per l'inserimento dati, la sicurezza dei dati e le prestazioni in relazione all'uso di Azure Data Lake Storage Gen2, noto in precedenza come Azure Data Lake Store
-services: storage
-author: sachinsbigdata
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: sachins
-ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: normesta
+ms.reviewer: sachins
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000607"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991880"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
@@ -25,23 +25,23 @@ Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi
 
 ### <a name="use-security-groups-versus-individual-users"></a>Confronto tra l'uso di gruppi di sicurezza e di singoli utenti
 
-Quando si usano Big Data in Data Lake Storage Gen2, probabilmente si usa un'entità servizio per consentire ai servizi, ad esempio Azure HDInsight, di usare i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è assolutamente consigliabile usare i [gruppi di sicurezza](../common/storage-auth-aad.md) di Azure Active Directory invece di assegnare singoli utenti a file e directory.
+Quando si lavora con Big Data Data Lake Storage Gen2, è probabile che venga usata un'entità servizio per consentire ai servizi, ad esempio Azure HDInsight, di funzionare con i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è assolutamente consigliabile usare i [gruppi di sicurezza](../common/storage-auth-aad.md) di Azure Active Directory invece di assegnare singoli utenti a file e directory.
 
 Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o eliminare utenti dal gruppo non sono necessari aggiornamenti a Data Lake Storage Gen2. Ciò consente inoltre di non superare il numero massimo di voci di controllo di accesso per ogni elenco di controllo di accesso. Questo numero è attualmente 32, compresi i quattro elenchi di controllo di accesso in stile POSIX che sono sempre associati a ogni file e directory: l'utente proprietario, il gruppo proprietario, la maschera e altro. Ogni directory può avere due tipi di elenco di controllo di accesso (ACL), l'ACL di accesso e l'ACL predefinito, per un totale di 64 voci di controllo di accesso. Per altre informazioni sugli elenchi di controllo di accesso, vedere [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md) (Controllo di accesso in Azure Data Lake Storage Gen2).
 
 ### <a name="security-for-groups"></a>Sicurezza per i gruppi
 
-Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni consigliabile iniziare con i gruppi potrebbero essere **ReadOnlyUsers**, **WriteAccessUsers**, e **FullAccessUsers** per la radice del file system e persino separati per chiave nelle sottodirectory. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
+Quando gli utenti devono accedere ai dati in un account di archiviazione con spazio dei nomi gerarchico abilitato, è consigliabile usare i gruppi di sicurezza di Azure Active Directory. Alcuni gruppi consigliati per iniziare possono essere **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** per la radice del contenitore e persino separare quelli per le sottodirectory principali. Se si prevede di aggiungere, in seguito, altri gruppi di utenti che ancora non sono stati identificati, prendere in considerazione la creazione di gruppi di sicurezza fittizi che hanno accesso a determinate cartelle. L'uso di gruppi di sicurezza consente di evitare tempi di elaborazione lunghi per l'assegnazione di nuove autorizzazioni a migliaia di file.
 
 ### <a name="security-for-service-principals"></a>Sicurezza per le entità servizio
 
-Le entità servizio di Azure Active Directory vengono in genere usate dai servizi come Azure Databricks per accedere ai dati in Data Lake Storage Gen2. Per molti clienti, un'entità servizio Azure Active Directory singola potrebbe essere adeguata e può avere le autorizzazioni complete nella radice del file system di Data Lake Storage Gen2. Per altri clienti potrebbero essere necessari più cluster con entità servizio diverse, con un cluster con accesso completo ai dati e un altro cluster con accesso di sola lettura. 
+Le entità servizio di Azure Active Directory vengono in genere usate dai servizi come Azure Databricks per accedere ai dati in Data Lake Storage Gen2. Per molti clienti, una singola entità servizio Azure Active Directory può essere adeguata e può disporre di autorizzazioni complete alla radice del contenitore di Data Lake Storage Gen2. Per altri clienti potrebbero essere necessari più cluster con entità servizio diverse, con un cluster con accesso completo ai dati e un altro cluster con accesso di sola lettura. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Abilitare il firewall di Data Lake Storage Gen2 con l'accesso ai servizi di Azure
 
-Data Lake Storage Gen2 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per limitare il vettore di attacchi esterni. Il firewall può essere abilitato per l'account di archiviazione nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)** > **Consenti l'accesso a Servizi di Azure**.
+Data Lake Storage Gen2 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per limitare il vettore di attacchi esterni. Il firewall può essere abilitato per l'account di archiviazione nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)**  > **Consenti l'accesso a Servizi di Azure**.
 
-L'aggiunta di cluster Azure Databricks a una rete virtuale a cui potrebbe essere consentito l'accesso tramite il firewall dell'account di archiviazione richiede l'uso di una funzionalità di anteprima di Databricks. Per abilitare questa funzione, inserire una richiesta di supporto.
+Per accedere all'account di archiviazione da Azure Databricks, distribuire Azure Databricks alla rete virtuale e quindi aggiungere la rete virtuale al firewall. Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## <a name="resiliency-considerations"></a>Considerazioni sulla resilienza
 
@@ -49,7 +49,7 @@ Quando si progetta un sistema con Data Lake Storage Gen2 o con qualsiasi servizi
 
 ### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 
-La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Altre opzioni di replica, ad esempio l'archiviazione con ridondanza della zona, migliorano la disponibilità elevata, mentre l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura migliorano il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
+La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Inoltre, altre opzioni di replica, ad esempio ZRS o GZRS (anteprima), migliorano la disponibilità elevata, mentre GRS & RA-GRS migliora il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
 
 In una strategia di ripristino di emergenza, per prepararsi all'improbabile eventualità di un errore irreversibile di un'area è anche importante replicare i dati in un'area diversa con l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. È anche necessario considerare i requisiti per i casi limite, ad esempio il danneggiamento dei dati, per cui potrebbe essere utile creare snapshot periodici a cui eseguire il fallback. A seconda dell'importanza e delle dimensioni dei dati, prendere in considerazione snapshot delta in sequenza in periodi di 1, 6 e 24 ore, in base alla tolleranza di rischio.
 

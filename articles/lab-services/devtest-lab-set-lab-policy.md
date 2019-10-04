@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60636521"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
 
@@ -91,7 +91,7 @@ I proprietari del lab possono configurare una pianificazione di arresto per tutt
 
 1. Nella home page del lab selezionare **Configurazione e criteri**.
 2. Selezionare **Criteri di arresto automatico** nella sezione **Pianificazioni** del menu a sinistra.
-3. Selezionare una delle opzioni disponibili. Le sezioni seguenti forniscono altri dettagli su queste opzioni: il criterio impostato si applica solo alle nuove macchine virtuali create nel lab e non alle macchine virtuali già esistenti. 
+3. Selezionare una delle opzioni disponibili. Le sezioni seguenti offrono altri dettagli su queste opzioni: I criteri di gruppo si applica solo alle nuove macchine virtuali create nel lab e non per le macchine virtuali già esistenti. 
 
     ![Opzioni dei criteri di arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

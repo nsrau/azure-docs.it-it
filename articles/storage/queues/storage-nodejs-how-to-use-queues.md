@@ -1,23 +1,22 @@
 ---
-title: Come usare l'archiviazione code da Node.js | Microsoft Docs
+title: Usare l'archiviazione code di Azure da node. js-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Node.js.
-services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: nodejs
-ms.topic: article
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 9eee7f6b321a5ba660e1a0a5a48771c599746bcb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006458"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673088"
 ---
-# <a name="how-to-use-queue-storage-from-nodejs"></a>Come usare l'archiviazione di accodamento da Node.js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usare il servizio di Accodamento di Azure per creare ed eliminare code da node. js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
@@ -325,11 +324,11 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* Vedere il [Blog del team di Archiviazione di Azure][Azure Storage Team Blog].
-* Vedere il repository [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub.
+* [Blog del team di Archiviazione di Azure][Azure Storage Team Blog].
+* Archivio [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub.
 
 
 

@@ -2,23 +2,20 @@
 title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Vault tramite il portale di Azure | Microsoft Docs
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: barclayn
-ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000606"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259228"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -87,7 +84,9 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di Key Vault ed è stato archiviato un segreto. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
+In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
-> [!div class="nextstepaction"]
-> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità gestite per le risorse di Azure, proseguire con l'esercitazione [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](quick-create-net.md).
+- Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
+- Vedere la [Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)
+- Vedere le informazioni su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

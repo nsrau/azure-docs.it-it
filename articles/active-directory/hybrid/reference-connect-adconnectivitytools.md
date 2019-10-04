@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454643"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66473795"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento per PowerShell ADConnectivityTools
 
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIZIONE
 
 Esegue test di connettività DNS locali.
-Per configurare Active Directory Connector, l'utente deve avere la risoluzione dei nomi sia per la foresta a cui tenta di connettersi che nei controller di dominio associati a questa foresta.
+Per configurare il connettore di Active Directory, utente deve avere entrambe resolutionthe nome per la foresta che sta provando a connettersi a anche come controller di dominio associato a questa foresta.
 
 ### <a name="examples"></a>ESEMPI
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se l'utente non usa i servizi DNS forniti dal sito AD / controller di dominio di accesso, può essere preferibile evitare il controllo della porta 53.
-L'utente deve comunque essere in grado di risolvere _.ldap._tcp.\<forestfqdn\> affinché la configurazione di Active Directory Connector abbia esito positivo.
+Se l'utente non usa i servizi DNS forniti dal sito di Active Directory / controller di dominio di accesso e quindi si desideri ignorare controllo della porta 53.
+L'utente deve comunque essere in grado di risolvere _.ldap._tcp. \<forestfqdn\> affinché la configurazione di Active Directory Connector abbia esito positivo.
 
 ```yml
 Type: SwitchParameter

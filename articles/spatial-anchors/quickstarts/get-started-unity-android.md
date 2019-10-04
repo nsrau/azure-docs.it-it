@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Creare un'app Unity per Android con Ancoraggi nello spazio di Azure | Microsoft Docs
+title: "Avvio rapido: Creare un'app Android in Unity con gli ancoraggi nello spazio di Azure | Microsoft Docs"
 description: In questa guida introduttiva si apprenderà a compilare un'app per Android con Unity usando il servizio Ancoraggi nello spazio.
 author: craigktreasure
 manager: aliemami
@@ -8,23 +8,22 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5647aa20f444d5efd36f03d813ee87ef199cc41
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 3ba50b8317e85d09aeaf32c1acc62342ee2683bc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621873"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847719"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Unity per Android con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Unity con gli ancoraggi nello spazio di Azure
 
-Questa Guida introduttiva illustra come creare un'app Unity per Android usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARCore per Android compilata con Unity in grado di salvare e richiamare un ancoraggio spaziale.
+Questo argomento di avvio rapido illustra come creare un'app Android in Unity usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARCore per Android compilata con Unity in grado di salvare e richiamare un ancoraggio spaziale.
 
 Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un account di Ancoraggi nello spazio
 > * Preparare le impostazioni di compilazione di Unity
-> * Scaricare e importare ARCore SDK per Unity
 > * Configurare l'identificatore e la chiave dell'account di Ancoraggi nello spazio
 > * Esportare il progetto Android Studio
 > * Distribuire ed eseguire l'app in un dispositivo Android
@@ -35,23 +34,25 @@ Si apprenderà come:
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 
-- Un computer Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> e <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+- Un computer Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, inclusi i moduli Android Build Support e Android SDK & NDK Tools.
   - Se in esecuzione su Windows, sarà necessario anche <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
   - Se in esecuzione su macOS, installare Git tramite HomeBrew. Immettere il comando seguente in una singola riga del terminale: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Quindi eseguire `brew install git`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">abilitato per lo sviluppo</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">idoneo per ARCore</a>.
-- L'app deve usare la versione **1.5** di ARCore SDK per Unity (il supporto per le versioni successive di ARCore 1.6 sarà disponibile in seguito).
+  - Potrebbero essere necessari driver di dispositivo aggiuntivi per la comunicazione del computer con il dispositivo Android. Vedere [qui](https://developer.android.com/studio/run/device.html) per altre informazioni e istruzioni.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Aprire il progetto di esempio in Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Scaricare e aprire il progetto di esempio di Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
 ## <a name="configure-account-identifier-and-key"></a>Configurare l'identificatore e la chiave dell'account
 
-Nel riquadro **Progetto** passare a `Assets/AzureSpatialAnchorsPlugin/Examples` e aprire il file della scena `AzureSpatialAnchorsBasicDemo.unity`.
+Nel riquadro **Progetto** passare a `Assets/AzureSpatialAnchors.Examples/Scenes` e aprire il file della scena `AzureSpatialAnchorsBasicDemo.unity`.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -61,12 +62,13 @@ Salvare la scena selezionando **File** -> **Salva**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Verificare che non sia presente un segno di spunta accanto alla casella **Export Project** (Esporta progetto). Fare clic su **Build And Run** (Compila ed esegui). Verrà chiesto di salvare il file `.apk`, per il quale è possibile scegliere qualsiasi nome.
+Selezionare il dispositivo in **Esegui dispositivo** e fare clic su **Compila ed esegui**. Verrà chiesto di salvare un file `.apk` per cui è possibile scegliere qualsiasi nome.
 
 Seguire le istruzioni nell'app per posizionare e richiamare un ancoraggio.
 
-> [!NOTE]
-> Se durante l'esecuzione dell'app non si vede la videocamera sullo sfondo, ma si vede invece, ad esempio, uno sfondo vuoto, blu o un'altra trama, è probabilmente necessario reimportare gli asset in Unity. Arrestare l'app. Nel menu in alto in Unity scegliere **Assets -> Reimport all** (Asset -> Reimporta tutto). Quindi eseguire di nuovo l'app.
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se durante l'esecuzione dell'app non si vede la videocamera sullo sfondo, ma si vede invece, ad esempio, uno sfondo vuoto, blu o un'altra trama, è probabilmente necessario reimportare gli asset in Unity. Arrestare l'app. Nel menu in alto in Unity scegliere **Assets -> Reimport all** (Asset -> Reimporta tutto). Quindi eseguire di nuovo l'app.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

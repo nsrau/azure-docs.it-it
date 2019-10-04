@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918785"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso una soluzione d'identità avanzata
 La prima azione da compiere per garantire la protezione dei dati è identificare gli utenti che possono accedere ad essi. Nell'ambito di questo processo, è necessario anche disporre di una soluzione di gestione delle identità in grado di integrarsi con l'infrastruttura aziendale per fornire funzionalità di autenticazione e autorizzazione. L'autenticazione e l'autorizzazione vengono spesso confuse e i rispettivi ruoli fraintesi. Come illustrato nella figura seguente, sono in realtà due concetti diversi:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![ciclo di vita dei dispositivi mobili](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fasi del ciclo di vita di gestione dei dispositivi mobili**
 
@@ -44,7 +44,7 @@ Nell'era della mobilità, la maggior parte delle aziende ha un obiettivo comune:
 Esistono tuttavia alcuni aspetti di sicurezza di cui è importante tenere sempre conto, indipendentemente dal settore operativo.
 
 ## <a name="data-protection-paths"></a>Percorsi di protezione dei dati
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Percorsi di protezione dati](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Percorsi di protezione dei dati**
 

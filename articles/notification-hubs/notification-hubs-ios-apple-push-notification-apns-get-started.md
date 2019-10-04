@@ -4,9 +4,9 @@ description: In questa esercitazione si apprende come usare Hub di notifica di A
 services: notification-hubs
 documentationcenter: ios
 keywords: notifica push,notifiche push,notifiche push ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,18 +14,23 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/21/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0335f5c71f99e6c7a90ce920c25e6bb7e9b4a08f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885034"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211939"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure
 
-[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+> [!div class="op_single_selector"]
+> * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+> * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+
 
 In questa esercitazione verranno usati Hub di notifica di Azure per effettuare il push di notifiche a un'applicazione iOS. Si crea un'app iOS vuota che riceve notifiche push tramite [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
@@ -40,7 +45,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Inviare notifiche push di prova
 > * Verificare che l'app riceve le notifiche
 
-Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
+Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,25 +61,6 @@ Il codice completo per questa esercitazione è disponibile in [GitHub](https://g
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub di notifica relative ad app per iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configurare l'hub di notifica per l'invio di notifiche push di iOS
-
-Questa sezione viene creato un hub di notifica e configurare l'autenticazione con il servizio APNS usando il certificato push **.p12** creato in precedenza. Se si vuole usare un hub di notifica che è già stato creato, è possibile ignorare il passaggio 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-your-notification-hub-with-apns-information"></a>Configurare l'hub di notifica con le informazioni APNS
-
-1. In **Servizi di notifica** selezionare **Apple (APNS)**.
-2. Selezionare **Certificate**.
-3. Selezionare l'**icona del file**.
-4. Selezionare il file **p12** esportato in precedenza.
-5. Specificare la **password** corretta.
-6. Selezionare la modalità **Sandbox**. Usare la modalità **Produzione** solo se si vuole inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.
-
-    ![Configurare il certificato APN nel portale di Azure][7]
-
-L'hub di notifica è ora configurato per l'uso con il servizio APN e sono disponibili le stringhe di connessione per la registrazione dell'app e l'invio di notifiche push.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Connettere l'app iOS all'hub di notifica
 
@@ -121,7 +107,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
      github "Azure/azure-notificationhubs-ios"
      ```
 
-     Quindi, aggiornare e compilare le dipendenze:
+     Quindi aggiornare e compilare le dipendenze:
 
      ```shell
      $ carthage update

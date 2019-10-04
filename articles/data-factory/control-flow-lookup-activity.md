@@ -3,21 +3,20 @@ title: Attività Lookup in Azure Data Factory | Microsoft Docs
 description: Informazioni su come usare l'attività Lookup per cercare un valore da un'origine esterna. Questo output può essere usato ulteriormente come riferimento dalle attività successive.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019315"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141654"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -53,14 +52,15 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 ```
 
 ## <a name="type-properties"></a>Proprietà del tipo
-NOME | DESCRIZIONE | type | Obbligatorio?
+
+NOME | Descrizione | Type | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean |  No. Il valore predefinito è `true`.
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean | No. Il valore predefinito è `true`.
 
 > [!NOTE]
-
+> 
 > * Le colonne Source con tipo **ByteArray** non sono supportate.
 > * **Structure** non è supportato nella definizione del set di dati. Per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
 > * Se l'origine della ricerca è un file JSON, l'impostazione `jsonPathDefinition` per la modifica della forma dell'oggetto JSON non è supportata. Vengono recuperati gli interi oggetti.
@@ -69,7 +69,7 @@ firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boole
 
 Il risultato della ricerca viene restituito nella sezione `output` del risultato dell'esecuzione attività.
 
-* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)**, il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)** , il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -248,7 +248,7 @@ Questo account di archiviazione contiene il file JSON con i nomi delle tabelle S
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
+### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL di Azure
 L'istanza del database SQL di Azure contiene i dati da copiare in Archiviazione BLOB. 
 
 ```json

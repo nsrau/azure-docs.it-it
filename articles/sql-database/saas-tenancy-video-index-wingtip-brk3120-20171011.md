@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 7c1f93bb7cfe1e088aa88d9ff194c8fbce9ea3c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567554"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570225"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Annotazioni e indicizzazione dei video per l'app SaaS multi-tenant con il database SQL di Azure
 
 Questo articolo è un indice con annotazioni nelle posizioni temporali di un video di 81 minuti sui criteri o sui modelli di tenancy SaaS. L'articolo consente di spostarsi avanti o indietro nel video fino alla parte di interesse. Il video illustra le principali opzioni di progettazione per un'applicazione di database multi-tenant nel database SQL di Azure. Il video include demo, procedure dettagliate di codice di gestione e, talvolta, dettagli ricavati dalle esperienze più approfonditi rispetto a quanto disponibile nella documentazione.
 
 Il video analizza maggiormente in dettaglio le informazioni disponibili nella nostra documentazione disponibile in: 
-- *Informazioni generali:* Modelli di tenancy di database delle applicazioni SaaS multi-tenant[saas-concept-design-patterns-563e]
-- *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Informazioni generali:* [Modelli di tenant per database SaaS multi-tenant][saas-concept-design-patterns-563e]
+- *Esercitazioni:* [Applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 Il video e gli articoli descrivono le varie fasi di creazione di un'applicazione multi-tenant nel database SQL di Azure nel cloud. Speciali funzionalità del database SQL di Azure agevolano lo sviluppo e l'implementazione di app multi-tenant più semplici da gestire e affidabili in termini di prestazioni.
 
@@ -292,16 +291,16 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 #### <a name="38-resources-for-more-information-12035"></a>38. Risorse per altre informazioni, 1:20:35
 [![Risorse per altre informazioni][image-wtip-min12042-resources-more-info]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4835)
 
-- [Post del blog, 22 maggio 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
+- [Post di Blog, 22 maggio 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Informazioni generali:* Modelli di tenancy di database delle applicazioni SaaS multi-tenant[saas-concept-design-patterns-563e]
+- *Informazioni generali:* [Modelli di tenant per database SaaS multi-tenant][saas-concept-design-patterns-563e]
 
-- *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
+- *Esercitazioni:* [Applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 - Repository GitHub per esplorare l'applicazione tenancy SaaS Wingtip Ticket:
-    - [Repository GitHub per - Modello di applicazione autonomo][github-wingtip-standaloneapp].
-    - [Repository GitHub per - Modello di database per tenant][github-wingtip-dbpertenant].
-    - [Repository GitHub per - Modello di database multi-tenant][github-wingtip-multitenantdb].
+    - [Repository GitHub per-modello di applicazione autonoma][github-wingtip-standaloneapp].
+    - [Repository GitHub per il modello di database per tenant][github-wingtip-dbpertenant].
+    - [Repository GitHub per-modello di database multi-tenant][github-wingtip-multitenantdb].
 
 
 
@@ -309,7 +308,7 @@ Fare clic su uno screenshot per passare alla posizione temporale esatta nel vide
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Articolo della prima esercitazione][saas-how-welcome-wingtip-app-679t]
+- [Primo articolo dell'esercitazione][saas-how-welcome-wingtip-app-679t]
 
 
 

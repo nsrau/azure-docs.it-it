@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python'
-description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando Python.
+title: Inserire dati usando la libreria di Esplora dati di Azure per Python
+description: Questo articolo illustra come inserire (caricare) i dati in Azure Esplora dati usando Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046462"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355928"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Inserire dati usando la libreria di Esplora dati di Azure per Python
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Python: una [libreria di inserimento](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Python: una [libreria di inserimento](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo viene innanzitutto creata una tabella e il mapping dei dati in un cluster. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 
-Questa guida introduttiva è disponibile anche come [Notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Questo articolo è disponibile anche come [notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -73,9 +73,11 @@ Costruire ora la stringa di connessione. Questo esempio usa l'autenticazione del
 Creare la tabella di destinazione e il mapping in un passaggio successivo.
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -95,7 +97,8 @@ SAS_TOKEN = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=20
 FILE_PATH = "StormEvents.csv"
 FILE_SIZE = 64158321    # in bytes
 
-BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
+BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
+    CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
 ## <a name="create-a-table-on-your-cluster"></a>Creare una tabella nel cluster
@@ -131,12 +134,14 @@ Accodare un messaggio per eseguire il pull dei dati dall'archiviazione BLOB e in
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference = DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # FILE_SIZE is the raw size of the data in bytes
-INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+                                           mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
+# FILE_SIZE is the raw size of the data in bytes
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+INGESTION_CLIENT.ingest_from_blob(
+    BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queuing up ingestion with Azure Data Explorer')
-
 ```
 
 ## <a name="query-data-that-was-ingested-into-the-table"></a>Eseguire query sui dati che sono stati inseriti nella tabella
@@ -170,7 +175,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella StormEvents.
+Se si prevede di seguire gli altri articoli, è necessario salvare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella StormEvents.
 
 ```Kusto
 .drop table StormEvents
@@ -178,5 +183,4 @@ Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Eseguire query sui dati con Python](python-query-data.md)
+* [Eseguire query sui dati con Python](python-query-data.md)

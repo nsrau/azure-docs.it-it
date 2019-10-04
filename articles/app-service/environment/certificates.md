@@ -9,17 +9,16 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271896"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069717"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
@@ -33,8 +32,8 @@ Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appn
 
 Sono disponibili due opzioni di configurazione dei certificati con l'Ambiente del servizio app con bilanciamento del carico interno.  È possibile impostare un certificato predefinito con caratteri jolly per l'Ambiente del servizio app con bilanciamento del carico interno o impostare i certificati per le singole app Web nell'Ambiente del servizio app.  Indipendentemente dalla scelta, è necessario configurare correttamente gli attributi del certificato seguenti:
 
-- **Soggetto:** questo attributo deve essere impostato su *.[nome-dominio-radice] per un certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [nomeapp].[nome-dominio-radice]
-- **Nome alternativo del soggetto:** questo attributo deve includere *.[nome-dominio-radice] e *.scm.[nome-dominio-radice] per il certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [nomeapp].[nome-dominio-radice] e [nomeapp].scm.[nome-dominio-radice].
+- **Soggetto:** questo attributo deve essere impostato su *.[nome-dominio-radice] per un certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here]
+- **Nome alternativo del soggetto:** questo attributo deve includere *.[nome-dominio-radice] e *.scm.[nome-dominio-radice] per il certificato con caratteri jolly dell'ambiente del servizio app con bilanciamento del carico interno. Se si crea il certificato per l'app, dovrà quindi essere [appname].[your-root-domain-here] e [appname].scm.[your-root-domain-here].
 
 Come terza variante, è possibile creare un certificato Ambiente del servizio app con bilanciamento del carico interno che include tutti i nomi delle singole app nella rete SAN del certificato anziché un riferimento con caratteri jolly. Il problema con questo metodo è che è necessario conoscere in anticipo i nomi delle app che vengono inserite nell'Ambiente del servizio app o è necessario mantenere l'aggiornamento del certificato di Ambiente del servizio app con bilanciamento del carico interno.
 
@@ -55,7 +54,7 @@ Se si desidera creare rapidamente un certificato autofirmato per il test, è pos
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+Quando si crea un certificato autofirmato, è necessario assicurarsi che il nome del soggetto abbia il formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificati delle applicazioni 
 
@@ -85,7 +84,9 @@ Per caricare il certificato nell'app dell'Ambiente di servizio app:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console Kudu ed eseguire questo comando dir cert: \localmachine\root nella console di debug di PowerShell. 
+Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console Kudu ed eseguire il comando seguente nella console di debug di PowerShell:
+
+    dir cert:\localmachine\root
 
 Per eseguire il test, è possibile creare un certificato autofirmato e generare un file *CER* con il comando PowerShell seguente: 
 

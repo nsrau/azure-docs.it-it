@@ -1,24 +1,23 @@
 ---
-title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Microsoft Docs
+title: Backup di SAP HANA in Azure basato su snapshot di archiviazione | Documentazione Microsoft
 description: Esistono due possibilità principali per il backup di SAP HANA su macchine virtuali di Azure e questo articolo descrive il backup di SAP HANA basato su snapshot di archiviazione
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159928"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078590"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup di SAP HANA basato su snapshot di archiviazione
 
@@ -32,7 +31,7 @@ Quando si usa una funzionalità di backup di VM per un sistema dimostrativo all-
 
 SAP HANA dispone di una funzionalità che supporta la creazione di uno snapshot di archiviazione. Esiste una limitazione per i sistemi a contenitore singolo. Scenari di accesso a SAP HANA MCS con più di un tenant non supportano questo tipo di snapshot del database SAP HANA (vedere [Creare uno Snapshot di archiviazione (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
-Il funzionamento è il seguente:
+Funziona come indicato di seguito:
 
 - Preparare la creazione dello snapshot di archiviazione avviando lo snapshot di SAP HANA
 - Eseguire lo snapshot di archiviazione (ad esempio uno snapshot BLOB di Azure)

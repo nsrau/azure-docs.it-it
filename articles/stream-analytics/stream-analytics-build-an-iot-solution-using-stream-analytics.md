@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201511"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620512"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -138,7 +138,8 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 10. Dopo alcuni istanti, viene visualizzata la notifica **La distribuzione è riuscita**, che conferma l'operazione.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Esaminare le risorse di Analisi di flusso di Azure per TollApp
-1. Accedere al Portale di Azure
+
+1. Accedere al portale di Azure
 
 2. Individuare il gruppo di risorse denominato nella sezione precedente.
 
@@ -163,7 +164,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
    Parafrasando la finalità della query, è necessario conteggiare il numero di veicoli che entrano in un casello. Poiché un casello in autostrada ha un flusso continuo di veicoli in entrata, questi eventi di entrata sono analoghi a un flusso senza fine. Per quantificare il flusso, è necessario definire un "periodo di tempo" in base al quale eseguire la misurazione. Affinare ulteriormente la domanda, chiedendo: "Quanti veicoli entrano in un casello ogni tre minuti?" Questo tipo di conteggio viene detto a cascata.
 
-   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e al [windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) usati nella query.
+   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e al [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usati nella query.
 
 3. Esaminare gli input del processo di esempio TollApp. Nella query corrente viene usato solo l'input EntryStream.
    - L'input **EntryStream** è una connessione a Hub eventi che accoda i dati che rappresentano ogni momento in cui un'auto entra in un casello in autostrada. Un'app Web che fa parte dell'esempio sta creando gli eventi e i dati vengono accodati in Hub eventi. Notare che le query su questo input vengono eseguite nella clausola FROM della query di streaming.
@@ -171,7 +172,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
    - L'input **Registration** è una connessione all'archiviazione BLOB di Azure che punta a un file JSON di registrazione statico, usato per le ricerche in base alle necessità. Questo input di dati di riferimento viene usato in variazioni successive della sintassi di query.
 
 4. Esaminare gli output del processo di esempio TollApp.
-   - L'output **Cosmos DB** è una raccolta di database Cosmos che riceve gli eventi sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
+   - **COSMOS DB** output è un contenitore di database Cosmos che riceve gli eventi di sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Avviare il processo di streaming TollApp
 Per avviare il processo di streaming, completare questi passaggi:
@@ -321,7 +322,7 @@ L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzio
 
 3. Selezionare **Elimina gruppo di risorse**. Digitare il nome del gruppo di attività per confermare l'eliminazione.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Questa soluzione ha presentato il servizio Analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di Analisi di flusso. Usando lo scenario dei dati del casello, la soluzione ha descritto tipi comuni di problemi che si verificano nello spazio dei dati in movimento e come risolverli con semplici query di tipo SQL in Analisi di flusso di Azure. La soluzione ha descritto i costrutti di estensioni SQL per l'uso di dati temporali. È stato illustrato come creare un join tra flussi di dati, come arricchire il flusso di dati con dati di riferimento statici e come aumentare il numero di istanze di una query per ottenere una maggiore produttività.
 
 Anche se questa soluzione offre una buona introduzione, non può ritenersi completa. Per altri modelli di query che usano il linguaggio SAQL, vedere [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md).

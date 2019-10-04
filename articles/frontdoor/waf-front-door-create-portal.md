@@ -1,5 +1,5 @@
 ---
-title: Creare un criterio di firewall applicazione web per l'ingresso principale di Azure usando il portale di Azure
+title: Creare un criterio di web application firewall per lo sportello anteriore di Azure usando il portale di Azure
 titlesuffix: Azure web application firewall
 description: Informazioni su come creare un criterio di web application firewall (WAF) usando il portale di Azure.
 services: frontdoor
@@ -11,69 +11,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.date: 05/31/2019
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: abaef0fb521d848134885a06591b0656c60c67e6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564140"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846379"
 ---
-# <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creare un criterio di Web Application firewall per l'ingresso principale di Azure usando il portale di Azure
+# <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creare un criterio WAF per lo sportello anteriore di Azure usando il portale di Azure
 
-Questo articolo descrive come creare un criterio di firewall (WAF) dell'applicazione web di Azure di base e applicarlo a un host front-end alla porta di ingresso di Azure.
+Questo articolo descrive come creare un criterio di base di Azure web application firewall (WAF) e applicarlo a un host front-end in Azure front door.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo Frontdoor](quickstart-create-front-door.md). 
 
-## <a name="create-a-waf-policy"></a>Creare un criterio di Web Application firewall
+## <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
-In primo luogo, creare un criterio di Web Application firewall basic con gestito predefinito regola impostato (DRS) tramite il portale. 
+Per prima cosa, creare un criterio di base di WAF con il set di regole gestito predefinito (DRS) usando il portale. 
 
-1. Nella parte superiore sinistra della schermata, selezionare **crea una risorsa**> cercare **WAF**> selezionare **Web application firewall (anteprima)** > selezionare  **Creare**.
-2. Nel **nozioni di base** scheda della finestra di **creare un criterio di WAF** pagina immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le altre impostazioni e quindi selezionare **revisione + Crea**:
+1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa**> cercare **WAF**> selezionare **Web application firewall (anteprima)** > selezionare **Crea**.
+2. Nella scheda **nozioni di base** della pagina **creare un criterio WAF** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le altre impostazioni e quindi selezionare **Verifica + crea**:
+
+    | Impostazione                 | Value                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione            |Selezionare il nome della sottoscrizione della porta anteriore.|
+    | Gruppo di risorse          |Selezionare il nome del gruppo di risorse della porta anteriore.|
+    | Nome criterio             |Immettere un nome univoco per i criteri di WAF.|
+
+   ![Creare un criterio WAF](./media/waf-front-door-create-portal/basic.png)
+
+3. Nella scheda **associazione** della pagina **creare un criterio WAF** Selezionare **Aggiungi host**front-end, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Sottoscrizione            |Selezionare il nome della sottoscrizione porta principale.|
-    | Gruppo di risorse          |Selezionare il nome di gruppo di risorse di ingresso principale.|
-    | Nome criterio             |Immettere un nome univoco per il criterio di Web Application firewall.|
-
-   ![Creare un criterio di Web Application firewall](./media/waf-front-door-create-portal/basic.png)
-
-3. Nel **Association** scheda della finestra di **creare un criterio di Web Application firewall** pagina, selezionare **Aggiungi host front-end**, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
-
-    | Impostazione                 | Valore                                              |
-    | ---                     | ---                                                |
-    | Porta principale              | Selezionare il nome del profilo di porta principale.|
-    | Host front-end           | Selezionare il nome dell'host di ingresso principale, quindi selezionare **Add**.|
+    | Sportello anteriore              | Selezionare il nome del profilo della porta anteriore.|
+    | Host front-end           | Selezionare il nome dell'host della porta anteriore, quindi selezionare **Aggiungi**.|
     
     > [!NOTE]
-    > Se l'host di front-end è associato a un criterio di WAF, viene visualizzato come in grigio. È necessario innanzitutto rimuovere l'host di front-end dal criterio associato e quindi associare di nuovo l'host di front-end in un nuovo criterio di Web Application firewall.
-1. Selezionare **revisione + Crea**, quindi selezionare **crea**.
+    > Se l'host front-end è associato a un criterio WAF, viene visualizzato come grigio. È necessario innanzitutto rimuovere l'host front-end dal criterio associato e quindi riassociare l'host front-end a un nuovo criterio WAF.
+1. Selezionare **Verifica + crea**, quindi selezionare **Crea**.
 
-## <a name="configure-waf-rules-optional"></a>Configurare le regole del Web Application firewall (facoltative)
+## <a name="configure-waf-rules-optional"></a>Configurare le regole di WAF (facoltativo)
 
 ### <a name="change-mode"></a>Cambia modalità
 
-Quando si crea un criterio di Web Application firewall, per il firewall WAF predefinita dei criteri si trova in **rilevamento** modalità. Nelle **rilevamento** modalità, Web Application firewall non blocchi le richieste, invece, vengono registrate le richieste corrispondenti le regole WAF log WAF.
-Per visualizzare Web Application firewall in azione, è possibile modificare le impostazioni della modalità dal **rilevamento** al **prevenzione**. Nelle **prevenzione** modalità richiede che le regole di corrispondenza definiti nella predefinito regola impostato (DRS) sono bloccate e connesso in cui i log WAF.
+Quando si crea un criterio WAF, i criteri predefiniti di WAF sono in modalità di **rilevamento** . In modalità di **rilevamento** , WAF non blocca le richieste, ma le richieste corrispondenti alle regole WAF vengono registrate nei log di WAF.
+Per visualizzare WAF in azione, è possibile modificare le impostazioni della modalità dal **rilevamento** alla **prevenzione**. In modalità di **prevenzione** , le richieste che corrispondono alle regole definite nel set di regole predefinito (DRS) vengono bloccate e registrate nei registri WAF.
 
- ![Modalità dei criteri di modifica Web Application firewall](./media/waf-front-door-create-portal/policy.png)
+ ![Modificare la modalità dei criteri di WAF](./media/waf-front-door-create-portal/policy.png)
 
-### <a name="default-rule-set-drs"></a>Set di regole predefinite (DRS)
+### <a name="custom-rules"></a>Regole personalizzate
 
-Gestito da Azure Set di regole predefinito è abilitato per impostazione predefinita. Per disabilitare una regola singola all'interno di un gruppo di regole, espandere le regole all'interno di tale gruppo di regole, seleziona la **casella di controllo** davanti il numero di regole e selezionare **disabilitare** nella scheda precedente. Per modificare i tipi di azioni per singole regole all'interno della regola impostata, selezionare la casella di controllo davanti il numero di regole e quindi selezionare il **Modifica azione** scheda riportato sopra.
+È possibile creare una regola personalizzata selezionando **Aggiungi regola personalizzata** nella sezione **regole personalizzate** . Verrà avviata la pagina Configurazione regola personalizzata. Di seguito è riportato un esempio di configurazione di una regola personalizzata per bloccare una richiesta se la stringa di query contiene **blockme**.
 
- ![Modificare Set di regole WAF](./media/waf-front-door-create-portal/managed.png)
+![Modificare la modalità dei criteri di WAF](./media/waf-front-door-create-portal/customquerystring2.png)
+
+### <a name="default-rule-set-drs"></a>Set di regole predefinito (DRS)
+
+Il set di regole predefinite gestito da Azure è abilitato per impostazione predefinita. Per disabilitare una singola regola in un gruppo di regole, espandere le regole all'interno di tale gruppo, selezionare la **casella di controllo** davanti al numero della regola e selezionare **Disabilita** nella scheda sopra. Per modificare i tipi di azioni per le singole regole all'interno del set di regole, selezionare la casella di controllo davanti al numero della regola, quindi selezionare la scheda **Modifica azione** sopra.
+
+ ![Modificare il set di regole WAF](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri [firewall applicazione web di Azure](waf-overview.md).
-- Altre informazioni sulle [porta d'ingresso Azure](front-door-overview.md).
-
-
-
-
+- Informazioni sul [web application firewall di Azure](waf-overview.md).
+- Altre informazioni su [Azure front door](front-door-overview.md).

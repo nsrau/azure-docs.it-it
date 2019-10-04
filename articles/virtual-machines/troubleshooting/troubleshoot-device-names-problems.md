@@ -4,7 +4,7 @@ description: Spiega perché i nomi di dispositivo delle macchine virtuali Linux 
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362238"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058211"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Risolvere il problema dei nomi di dispositivo nelle macchine virtuali Linux
 
@@ -46,7 +46,7 @@ La maggior parte delle distribuzioni dispone dei parametri `fstab` **nofail** o 
 
 Quando l'agente Linux di Azure viene installato in una macchina virtuale, usa le regole Udev per creare un set di collegamenti simbolici nel percorso /dev/disk/azure. Le applicazioni e gli script usano regole Udev per identificare i dischi collegati alla macchina virtuale, oltre al tipo di disco e ai LUN del disco stesso.
 
-Se è già stato modificato il fstab in modo che non sia possibile avviare la macchina virtuale e non è possibile connettersi tramite SSH alla macchina virtuale, è possibile usare la [Console seriale della macchina virtuale](./serial-console-linux.md) immissione [modalità utente singolo](./serial-console-grub-single-user-mode.md) e modificare i fstab.
+Se il fstab è già stato modificato in modo che la macchina virtuale non venga avviata e non si riesce a connettersi alla VM, è possibile usare la [console seriale della macchina virtuale](./serial-console-linux.md) per attivare la [modalità utente singolo](./serial-console-grub-single-user-mode.md) e modificare il fstab.
 
 ### <a name="identify-disk-luns"></a>Identificare i LUN del disco
 
@@ -148,12 +148,12 @@ Per ottenere le regole di Archiviazione di Azure più recenti, eseguire i comand
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere i seguenti articoli:
 
-- [Ubuntu: Uso di UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Ubuntu Uso di UUID](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: Denominazione permanente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: Che cosa UUID possono offrire a te](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: Introduzione alla gestione dei dispositivi in un sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Linux Cosa possono fare gli UUID](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev Introduzione alla gestione dei dispositivi in un sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

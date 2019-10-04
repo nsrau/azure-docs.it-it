@@ -4,23 +4,22 @@ description: Informazioni di base sulle reti per la creazione di macchine virtua
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: be472eb78646140baa1b6cc09d11f77fa5874513
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 60ae9796a5e9ac8a15296b5d11099e4a5fe39e6a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531524"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089142"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Reti virtuali e macchine virtuali in Azure 
 

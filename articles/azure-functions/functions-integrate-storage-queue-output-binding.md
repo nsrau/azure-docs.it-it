@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106458"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096323"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 

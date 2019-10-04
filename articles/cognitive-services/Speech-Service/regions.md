@@ -1,6 +1,6 @@
 ---
-title: Aree - Servizi di riconoscimento vocale
-titlesuffix: Azure Cognitive Services
+title: Aree-servizio riconoscimento vocale
+titleSuffix: Azure Cognitive Services
 description: Informazioni di riferimento sulle aree del servizio Voce.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480663"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553186"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate dal servizio Voce
 
@@ -28,22 +28,22 @@ Verificare di usare l'endpoint corrispondente all'area relativa alla propria sot
 
 In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#).
 
-### <a name="speech-recognition-and-translation"></a>Riconoscimento vocale e traduzione vocale
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Sintesi vocale, sintesi vocale, traduzione vocale
 
-Speech SDK è disponibile per il **riconoscimento vocale** e la **traduzione vocale** nelle aree seguenti:
+Speech SDK è disponibile in queste aree per il **riconoscimento vocale**, **la**sintesi vocale e la **traduzione**:
 
   Region | Parametro Speech SDK | Portale di personalizzazione del servizio Voce
  ------|-------|--------
  Stati Uniti occidentali | `westus` | https://westus.cris.ai
  Stati Uniti occidentali 2 | `westus2` | https://westus2.cris.ai
- Stati Uniti orientali | `eastus` | https://eastus.cris.ai
- Stati Uniti Orientali 2 | `eastus2` | https://eastus2.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
+ Stati Uniti orientali 2 | `eastus2` | https://eastus2.cris.ai
  Stati Uniti centrali | `centralus` | https://centralus.cris.ai
  Stati Uniti centro-settentrionali | `northcentralus` | https://northcentralus.cris.ai
  Stati Uniti centro-meridionali | `southcentralus` | https://southcentralus.cris.ai
  India centrale | `centralindia` | https://centralindia.cris.ai
  Asia orientale | `eastasia` | https://eastasia.cris.ai
- Asia sudorientale | `southeastasia` | https://southeastasia.cris.ai
+ Asia sud-orientale | `southeastasia` | https://southeastasia.cris.ai
  Giappone orientale | `japaneast` | https://japaneast.cris.ai
  Corea del Sud centrale | `koreacentral` | https://koreacentral.cris.ai
  Australia orientale | `australiaeast` | https://australiaeast.cris.ai
@@ -64,7 +64,7 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
  Australia | Australia orientale | `australiaeast`
  Europa | Europa settentrionale | `northeurope`
  Europa | Europa occidentale | `westeurope`
- America del Nord | Stati Uniti orientali | `eastus`
+ America del Nord | East US | `eastus`
  America del Nord | Stati Uniti orientali 2 | `eastus2`
  America del Nord | Stati Uniti centro-meridionali | `southcentralus`
  America del Nord | Stati Uniti centro-occidentali | `westcentralus`
@@ -74,18 +74,32 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
 
 Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizio Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
+### <a name="voice-first-virtual-assistants"></a>Assistenti virtuali voice-first
+
+[Speech SDK](speech-sdk.md) supporta le funzionalità di **assistente virtuale per la prima voce** in queste aree:
+
+Region | Parametro Speech SDK
+-------|---------------------
+Stati Uniti occidentali | `westus`
+Stati Uniti occidentali 2 | `westus2`
+East US | `eastus`
+Stati Uniti orientali 2 | `eastus2`
+Europa occidentale | `westeurope`
+Europa settentrionale | `northeurope`
+Asia sud-orientale | `southeastasia`
+
 ## <a name="rest-apis"></a>API REST
 
 Il servizio Voce espone anche endpoint REST per le richieste di riconoscimento vocale e sintesi vocale.
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 
-Per la documentazione di riferimento sul riconoscimento vocale, vedere [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Per la documentazione di riferimento per la sintesi vocale, vedere [API REST di riconoscimento](rest-speech-to-text.md)vocale.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
-Per la documentazione di riferimento sulla sintesi vocale, vedere [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Per la documentazione di riferimento da sintesi vocale, vedere [API REST di sintesi vocale](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

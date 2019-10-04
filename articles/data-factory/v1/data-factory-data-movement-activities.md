@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486946"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839325"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-data-movement-activities.md)
 > * [Versione 2 (corrente)](../copy-activity-overview.md)
 
@@ -85,7 +85,7 @@ L'attività di copia legge e scrive anche all'interno di file in formati specifi
 * Copiare i dati nell'istanza locale di SQL Server e scrivere in Azure Data Lake Store nel formato ORC.
 * Copiare i file in formato testo (CSV) dal file system locale e scrivere nel BLOB di Azure nel formato Avro.
 * Copiare i file compressi dal file system locale e decomprimerli in Azure Data Lake Store.
-* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL Azure.
+* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL di Azure.
 
 ## <a name="global"></a>Spostamento dei dati disponibile a livello globale
 Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Tuttavia, il servizio alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services) .
@@ -138,7 +138,7 @@ Quando i dati vengono copiati da archivi locali (o macchina virtuale Azure/IaaS)
 La copia guidata di Data Factory aiuta a creare una pipeline con l'attività di copia. Questa pipeline consente di copiare dati dalle origini supportate nelle destinazioni *senza scrivere definizioni JSON* per i servizi collegati, i set di dati e le pipeline. Per informazioni dettagliate sulla procedura guidata, vedere [Copia guidata di Data Factory](data-factory-copy-wizard.md) .  
 
 ### <a name="by-using-json-scripts"></a>Con gli script JSON
-È possibile usare l'Editor di Data Factory nel portale di Azure, in Visual Studio o in Azure PowerShell per creare una definizione JSON per una pipeline con l'attività di copia. A questo punto, è possibile eseguire la distribuzione in modo da creare la pipeline in Data Factory. Per istruzioni dettagliate, vedere [Esercitazione: Usare l'attività di copia in una pipeline di Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).    
+È possibile utilizzare l'Editor di Data Factory in Visual Studio o Azure PowerShell per creare una definizione JSON per una pipeline (con attività di copia). A questo punto, è possibile eseguire la distribuzione in modo da creare la pipeline in Data Factory. Per istruzioni dettagliate, vedere [Esercitazione: Usare l'attività di copia in una pipeline di Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).    
 
 Per tutti i tipi di attività sono disponibili proprietà JSON come nome, descrizione, tabelle di input e output e criteri. Le proprietà disponibili nella sezione `typeProperties` dell'attività variano per ogni tipo di attività.
 

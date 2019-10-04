@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168018"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932305"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
-Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
+Le operazioni di aggiornamento dei dati possono richiedere tempo a causa di fattori diversi tra cui volume dei dati, livello di ottimizzazione nell'uso delle partizioni e così via. Queste operazioni erano chiamate in genere con metodi esistenti come l'uso di [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
 L'API REST per Azure Analysis Services consente di eseguire le operazioni di aggiornamento dei dati in modo asincrono. Se si usa l'API REST non sono necessarie connessioni HTTP con esecuzione prolungata dalle applicazioni client. Ci sono anche altre funzionalità integrate che garantiscono l'affidabilità, ad esempio i tentativi automatici e il commit in batch.
 
@@ -98,11 +98,11 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| NOME             | Type  | DESCRIZIONE  |Predefinito  |
+| Name             | Type  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
+| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
+| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
 | `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
 
@@ -201,42 +201,9 @@ Ecco un esempio di codice C# adatto per iniziare, [RestApiSample su GitHub](http
 1.  Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
 2.  Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
 
-L'esempio di codice può usare l'accesso interattivo, nome utente/password o l'[entità servizio](#service-principal).
+Nell'esempio di codice viene usata l'autenticazione basata su [entità servizio](#service-principal) .
 
-#### <a name="interactive-login-or-usernamepassword"></a>Accesso interattivo o nome utente/password
-
-Questo tipo di autenticazione richiede di creare un'applicazione Azure con assegnate le autorizzazioni API. 
-
-1.  Nel portale di Azure fare clic su **Crea una risorsa** > **Azure Active Directory** > **Registrazioni per l'app** > **Registrazione nuova applicazione**.
-
-    ![Registrazione nuova applicazione](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  In **Crea** digitare un nome e selezionare il tipo di applicazione **Nativo** . Per **URI di reindirizzamento** immettere **urn:ietf:wg:oauth:2.0:oob** e poi fare clic su **Crea**.
-
-    ![Impostazioni](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Selezionare l'app e poi copiare e salvare l'**ID applicazione**.
-
-    ![Copiare l'ID applicazione](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  In **Impostazioni** fare clic su **Autorizzazioni necessarie** > **Aggiungi**.
-
-    ![Aggiungere l'accesso all'API](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  In **Selezionare un'API** digitare **Azure Analysis Services** nella casella di ricerca e quindi selezionarlo.
-
-    ![Selezionare l'API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Selezionare **Read and Write all models** (Leggi e scrivi tutti i modelli), quindi fare clic su **Seleziona**. Quando sono selezionati entrambi, fare clic su **Fine** per aggiungere le autorizzazioni. La propagazione può richiedere alcuni minuti.
-
-    ![Selezionare Read and Write all models (Leggi e scrivi tutti i modelli)](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  Nell'esempio di codice trovare il metodo **UpdateToken()**. Osservare il contenuto di questo metodo.
-8.  Trovare **string clientID = …** e poi immettere l'**ID applicazione** copiato al passaggio 3.
-9.  Eseguire l'esempio.
-
-#### <a name="service-principal"></a>Entità servizio
+### <a name="service-principal"></a>Entità servizio
 
 Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure Analysis Services. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
 
@@ -245,7 +212,7 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.  Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempi](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

@@ -1,58 +1,70 @@
 ---
-title: Configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux - Azure
+title: Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux-Azure
 description: Informazioni su come configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster di HDInsight basati su Linux.
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 07/01/2019
+ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333690"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076849"
 ---
-# <a name="os-patching-for-hdinsight"></a>Applicazione di patch del sistema operativo per HDInsight 
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux 
 
 > [!IMPORTANT]
-> Le immagini di Ubuntu diventano disponibili per la nuova creazione del cluster HDInsight entro 3 mesi dalla pubblicazione. A partire da gennaio 2019, le patch **non** sono applicate automaticamente ai cluster in esecuzione. I clienti devono usare azioni script o altri meccanismi per applicare patch a un cluster in esecuzione. I cluster appena creati avranno sempre gli ultimi aggiornamenti disponibili, incluse le patch di sicurezza più recenti.
+> Le immagini Ubuntu diventano disponibili per la creazione di nuovi cluster HDInsight di Azure entro tre mesi dalla pubblicazione. A partire dal 2019 gennaio, i cluster in esecuzione non vengono sottoposti a patch automatici. I clienti devono usare azioni script o altri meccanismi per applicare patch a un cluster in esecuzione. I cluster appena creati avranno sempre gli ultimi aggiornamenti disponibili, incluse le patch di sicurezza più recenti.
 
-## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Procedura per configurare una pianificazione dell'applicazione di patch al sistema operativo per i cluster HDInsight basati su Linux
-Le macchine virtuali in un cluster HDInsight devono essere riavviate di tanto in tanto in modo che sia possibile installare le patch di sicurezza importanti. 
+Occasionalmente, è necessario riavviare le macchine virtuali (VM) in un cluster HDInsight per installare importanti patch di sicurezza.
 
-Tramite l'azione di script descritta in questo articolo, è possibile modificare la pianificazione dell'applicazione delle patch al sistema operativo come segue:
-1. Abilitare o disabilitare il riavvio automatico
-2. Impostare la frequenza di riavvio (giorni tra i riavvii)
-3. Impostare il giorno della settimana in cui eseguire un riavvio
+Utilizzando le azioni script descritte in questo articolo, è possibile modificare la pianificazione dell'applicazione di patch del sistema operativo come indicato di seguito:
+
+1. Installare tutti gli aggiornamenti oppure installare solo gli aggiornamenti kernel + Security o kernel.
+2. Eseguire un riavvio immediato o pianificare un riavvio della macchina virtuale.
 
 > [!NOTE]  
-> Questa azione di script funziona solo con i cluster HDInsight basati su Linux creati dopo il 1° agosto 2016. I patch verranno applicati solo al riavvio delle macchine virtuali. 
+> Le azioni script descritte in questo articolo funzioneranno solo con i cluster HDInsight basati su Linux creati dopo il 1 ° agosto 2016. Le patch hanno effetto solo dopo il riavvio delle macchine virtuali.
+> Le azioni script non applicano automaticamente gli aggiornamenti per tutti i cicli di aggiornamento futuri. Eseguire gli script ogni volta che è necessario applicare nuovi aggiornamenti per installare gli aggiornamenti, quindi riavviare la macchina virtuale.
 
-## <a name="how-to-use-the-script"></a>Come usare lo script 
+## <a name="add-information-to-the-script"></a>Aggiungere informazioni allo script
 
-L'uso di questo script richiede le informazioni seguenti:
-1. Il percorso dello script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa l'URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster.
+Per usare uno script sono necessarie le informazioni seguenti:
+
+- Il percorso dello script Install-Updates-Schedule-reboots: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh.
+    
+   HDInsight usa questo URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster. Questo script fornisce le opzioni per installare gli aggiornamenti e riavviare la macchina virtuale.
   
-2. I tipi di nodo di cluster che vengono applicati allo script: nodo head, nodo del ruolo di lavoro, zookeeper. Questo script deve essere applicato a tutti i tipi di nodo del cluster. Se non viene applicato a un tipo di nodo, le macchine virtuali per quel tipo di nodo continueranno a usare la pianificazione per l'applicazione di patch precedente.
+- Il percorso dello script Schedule-reboots https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh:.
+    
+   HDInsight usa questo URI per trovare ed eseguire lo script in tutte le macchine virtuali del cluster. Questo script riavvia la macchina virtuale.
+  
+- I tipi di nodo del cluster a cui viene applicato lo script sono nodo Head, workernode e Zookeeper. Applicare lo script a tutti i tipi di nodo nel cluster. Se lo script non viene applicato a un tipo di nodo, le macchine virtuali per quel tipo di nodo non verranno aggiornate o riavviate.
 
-
-3.  Parametro: Questo script accetta tre parametri numerici:
+- Lo script Install-Updates-Schedule-reboots accetta due parametri numerici:
 
     | Parametro | Definizione |
     | --- | --- |
-    | Abilitare/disabilitare il riavvio automatico |0 o 1. Il valore 0 disabilita il riavvio automatico, mentre 1 consente il riavvio automatico. |
-    | Frequenza |da 7 a 90 (incluso). Il numero di giorni di attesa prima di riavviare le macchine virtuali per le patch che richiedono un riavvio. |
-    | Giorno della settimana |da 1 a 7 (incluso). Il valore 1 indica che il riavvio deve essere eseguito il lunedì e 7 indica la domenica. Ad esempio usando i parametri di 1 60 2 si produce un riavvio automatico ogni 60 giorni (al massimo) il martedì. |
-    | Persistenza |Quando si applica un'azione di script a un cluster esistente, è possibile contrassegnare lo script come persistente. Gli script persistenti vengono applicati quando vengono aggiunti nuovi nodi del ruolo di lavoro al cluster tramite operazioni di ridimensionamento. |
+    | Installa solo gli aggiornamenti del kernel/installa tutti gli aggiornamenti/installa solo kernel + Security Updates|0, 1 o 2. Il valore 0 installa solo gli aggiornamenti del kernel. Il valore 1 installa tutti gli aggiornamenti e 2 installa solo gli aggiornamenti kernel + Security. Se non viene specificato alcun parametro, il valore predefinito è 0. |
+    | Nessun riavvio/Abilita pianificazione riavvio/Abilita riavvio immediato |0, 1 o 2. Il valore 0 Disabilita il riavvio. Il valore 1 consente il riavvio della pianificazione e 2 Abilita il riavvio immediato. Se non viene specificato alcun parametro, il valore predefinito è 0. L'utente deve modificare il parametro di input 1 nel parametro di input 2. |
+   
+ - Lo script Schedule-reboots accetta un parametro numerico:
 
-> [!NOTE]  
-> Quando si applica a un cluster esistente, è necessario contrassegnare questo script come persistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno la pianificazione dell'applicazione di patch predefinita.  Se si applica lo script come parte del processo di creazione del cluster, viene mantenuto automaticamente.
+    | Parametro | Definizione |
+    | --- | --- |
+    | Abilita riavvio pianificazione/Abilita riavvio immediato |1 o 2. Il valore 1 consente il riavvio della pianificazione (pianificato in 12-24 ore). Il valore 2 Abilita il riavvio immediato (in 5 minuti). Se non viene specificato alcun parametro, il valore predefinito è 1. |  
+
+> [!NOTE]
+> È necessario contrassegnare uno script come reso permanente dopo che è stato applicato a un cluster esistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno la pianificazione dell'applicazione di patch predefinita. Se si applica lo script come parte del processo di creazione del cluster, questo viene reso automaticamente permanente.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per la procedura dettagliata sull'uso dell'azione di script, vedere le sezioni seguenti di [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md):
+Per i passaggi specifici sull'uso di azioni script, vedere le sezioni seguenti in [personalizzare cluster HDInsight basati su Linux tramite azione script](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Usare un'azione script durante la creazione di un cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Applicare un'azione script a un cluster in esecuzione](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

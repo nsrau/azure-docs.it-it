@@ -4,17 +4,17 @@ description: File di inclusione
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137637"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608242"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable-functions-overview.md).
 
@@ -38,14 +38,14 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
     "eventGridKeySettingName":  "EventGridKey",
     "eventGridPublishRetryCount": 3,
     "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Pending", "Failed", "Terminated"]
+    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
   }
 }
 ```
 
 I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](../articles/azure-functions/durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Durable Functions, anche se usano lo stesso back-end di archiviazione.|
 |controlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|

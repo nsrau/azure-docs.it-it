@@ -4,28 +4,27 @@ description: Registrare e analizzare gli eventi di registrazione diagnostica per
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850315"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261666"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
  
-Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e [log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../azure-monitor/platform/alerts-overview.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
+Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e [log di diagnostica](../azure-monitor/platform/resource-logs-overview.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../azure-monitor/platform/alerts-overview.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
@@ -39,7 +38,7 @@ Le metriche:
 * Vengono generate ogni minuto
 * Non sono automaticamente persistenti, ma hanno una cronologia in sequenza di 30 giorni. È possibile mantenere persistenti le metriche di attività come parte della registrazione diagnostica.
 
-### <a name="view-metrics"></a>Visualizzare le metriche
+### <a name="view-metrics"></a>Visualizza metriche
 
 È possibile visualizzare le metriche per l'account Batch nel portale di Azure. La pagina **Panoramica** per l'account mostra per impostazione predefinita le metriche relative a nodi, core e attività principali. 
 
@@ -48,6 +47,7 @@ Per visualizzare tutte le metriche dell'account Batch:
 1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** selezionare **Metrica**.
 3. Selezionare una o più metriche. Se lo si desidera, è possibile selezionare metriche di risorse aggiuntive tramite gli elenchi a discesa **Sottoscrizioni**, **Gruppo di risorse**, **Tipo di risorsa** e **Risorsa**.
+    * Per le metriche basate su conteggi (ad esempio "conteggio principale dedicato" o "numero di nodi con priorità bassa"), usare l'aggregazione "media". Per le metriche basate su eventi, ad esempio "eventi di completamento ridimensionamento pool", usare l'aggregazione "count".
 
     ![Metriche di Batch](media/batch-diagnostics/metrics-portal.png)
 
@@ -91,7 +91,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 * Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
 
-* Inviare i log di diagnostica per [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
+* Inviare i log di diagnostica ai [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power bi o Excel.
 
 > [!NOTE]
 > Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
@@ -101,15 +101,15 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** fare clic su **Log di diagnostica** > **Abilita diagnostica**.
-3. Nelle **le impostazioni di diagnostica**, immettere un nome per l'impostazione e scegliere una destinazione di log (account di archiviazione, Hub eventi o log di monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
+3. In **impostazioni di diagnostica**immettere un nome per l'impostazione e scegliere una destinazione del log (account di archiviazione esistente, Hub eventi o log di monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
 
     Quando si seleziona un account di archiviazione, è facoltativamente possibile impostare criteri di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
     ![Diagnostica di Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Altre opzioni per abilitare la raccolta di log includono l'uso di Monitoraggio di Azure nel portale per configurare le impostazioni di diagnostica, di un [modello di Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) oppure di Azure PowerShell o dell'interfaccia della riga di comando di Azure. Vedere [Raccogliere e utilizzare dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)
+Altre opzioni per abilitare la raccolta di log includono l'uso di Monitoraggio di Azure nel portale per configurare le impostazioni di diagnostica, di un [modello di Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) oppure di Azure PowerShell o dell'interfaccia della riga di comando di Azure. Vedere [Raccogliere e utilizzare dati dei log dalle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accedere ai log di diagnostica nell'archiviazione
@@ -119,7 +119,7 @@ Se si archiviano i log di diagnostica di Batch in un account di archiviazione, v
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -130,12 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Ogni file di BLOB PT1H.json contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL del BLOB, ad esempio, h=12. Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m=00) è sempre 00, perché gli eventi del log di diagnostica vengono sempre suddivisi in singoli BLOB per ogni ora. Tutte le ore sono in formato UTC.
+Ogni `PT1H.json` file BLOB contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio `h=12`,). Durante l'ora odierna, gli eventi vengono aggiunti al `PT1H.json` file non appena si verificano. Il valore dei minuti`m=00`() è `00`sempre, perché gli eventi del log di diagnostica sono suddivisi in singoli BLOB all'ora. Tutte le ore sono in formato UTC.
 
+Di seguito è riportato un esempio `PoolResizeCompleteEvent` di una voce `PT1H.json` in un file di log. Sono incluse informazioni sul numero corrente e di destinazione dei nodi dedicati e con priorità bassa, oltre all'ora di inizio e di fine dell'operazione:
 
-Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
+Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
 
 ### <a name="service-log-events"></a>Eventi del log del servizio
 I log del servizio Azure Batch, se raccolti, contengono gli eventi generati dal servizio Azure Batch durante il ciclo di vita di una singola risorsa di Batch, come un pool o un'attività. Ogni evento generato da Batch viene registrato in formato JSON. Ad esempio, questo è il corpo di un **evento di creazione pool** di esempio:

@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 21204e85adf1c68264ea448360c9e1120567ef3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f418a78f80d65cbb784685804a4cc6790c28b99
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530923"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300894"
 ---
 # <a name="what-is-azure-scheduler"></a>Che cos'è l'Utilità di pianificazione di Azure?
 
 > [!IMPORTANT]
-> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
 L'[Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) consente di creare [processi](../scheduler/scheduler-concepts-terms.md) eseguiti nel cloud descrivendo le azioni in modo dichiarativo. Quindi, il servizio pianifica ed esegue tali azioni automaticamente. È possibile, ad esempio, chiamare servizi quali endpoint HTTP o HTTPS all'interno e all'esterno di Azure, e inserire messaggi nelle code di Archiviazione di Azure e nelle code o negli argomenti del bus di servizio di Azure. È possibile eseguire i processi immediatamente o in un secondo momento. L’Utilità di pianificazione supporta con facilità [pianificazioni complesse e operazioni ricorrenti avanzate](../scheduler/scheduler-advanced-complexity.md). L'Utilità di pianificazione specifica quando eseguire i processi, mantiene una cronologia dei risultati dei processi che è possibile esaminare e pianifica quindi l'esecuzione dei carichi di lavoro in modo prevedibile e affidabile.
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 05d48c67876b02c1909243eaa86a57fd4ab8d5c1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 304c4b7802ed444b9a3ed6cdf4514222aa4f2420
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312838"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138057"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e C# in Visione artificiale
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-c"></a>Guida introduttiva: Generare un'anteprima usando l'API REST Visione artificiale e C#
 
 In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale ricorre al ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario avere [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versione successiva.
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
@@ -38,9 +38,6 @@ Per creare l'esempio in Visual Studio, seguire questa procedura:
     1. Nel menu fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
     1. Fare clic sulla scheda **Sfoglia** e nella casella di **ricerca** digitare "Newtonsoft.Json".
     1. Selezionare la voce **Newtonsoft.Json** quando viene visualizzata, quindi fare clic sulla casella di controllo accanto al nome del progetto e infine su **Installa**.
-1. Sostituire il codice in `Program.cs` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
 1. Eseguire il programma.
 1. Al prompt immettere il percorso di un'immagine locale.
 
@@ -56,19 +53,13 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail";
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        
+        // the GenerateThumbnail method endpoint
+        const string uriBase = endpoint + "vision/v2.0/generateThumbnail";
 
         static void Main()
         {
@@ -212,10 +203,6 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
   Expires: -1
 }
 ```
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non è più necessaria, eliminare la soluzione di Visual Studio. A tale scopo, aprire Esplora file, passare alla cartella in cui è stata creata la soluzione di Visual Studio ed eliminare la cartella.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

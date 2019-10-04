@@ -1,29 +1,28 @@
 ---
-title: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio Code)
+title: Eseguire il debug e l'iterazione con Visual Studio Code e .NET Core in Kubernetes usando Azure Dev Spaces (Visual Studio Code)
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 07/08/2019
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: 1c07ebae02232e8c86a58c11b23f6e1fbdb3a4bd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+manager: gwallace
+ms.openlocfilehash: 162a020351efb27fe25b566918ddda555fac35eb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357315"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772609"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Guida introduttiva: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio Code)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Guida introduttiva: Eseguire il debug e l'iterazione con Visual Studio Code e .NET Core in Kubernetes usando Azure Dev Spaces (Visual Studio Code)
 
 In questa guida si apprenderà come:
 
 - Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
-- Sviluppare codice in modo iterativo nei contenitori con Visual Studio Code e la riga di comando.
+- Sviluppare codice in modo iterativo nei contenitori con Visual Studio Code.
 - Eseguire il debug del codice nello spazio di Dev Spaces da Visual Studio Code.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,11 +34,11 @@ In questa guida si apprenderà come:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
-È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
+È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata][supported-regions]. I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes
@@ -68,95 +67,27 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 In questo articolo verrà usata l'[applicazione di esempio Azure Dev Spaces](https://github.com/Azure/dev-spaces) per dimostrare l'uso di Azure Dev Spaces.
 
-Clonare l'applicazione da GitHub e passare alla directory *dev-spaces/samples/dotnetcore/getting-started/webfrontend*:
+Clonare l'applicazione da GitHub.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/dotnetcore/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>Preparare l'applicazione
-
-Generare le risorse grafico Docker e Helm per l'esecuzione dell'applicazione in Kubernetes usando il comando `azds prep`:
-
-```cmd
-azds prep --public
-```
-
-Per la corretta generazione delle risorse grafico Docker e Helm, è necessario eseguire il comando `prep` dalla directory *dev-spaces/samples/dotnetcore/getting-started/webfrontend*.
-
-## <a name="build-and-run-code-in-kubernetes"></a>Compilare ed eseguire codice in Kubernetes
-
-Compilare ed eseguire il codice nel servizio Azure Kubernetes usando il comando `azds up`:
-
-```cmd
-$ azds up
-Synchronizing files...4s
-Using dev space 'default' with target 'MyAKS'
-Installing Helm chart...2s
-Waiting for container image build...1m 43s
-Building container image...
-Step 1/12 : FROM microsoft/dotnet:2.2-sdk
-Step 2/12 : ARG BUILD_CONFIGURATION=Debug
-Step 3/12 : ENV ASPNETCORE_ENVIRONMENT=Development
-Step 4/12 : ENV DOTNET_USE_POLLING_FILE_WATCHER=true
-Step 5/12 : EXPOSE 80
-Step 6/12 : WORKDIR /src
-Step 7/12 : COPY ["webfrontend.csproj", "./"]
-Step 8/12 : RUN dotnet restore "webfrontend.csproj"
-Step 9/12 : COPY . .
-Step 10/12 : RUN dotnet build --no-restore -c $BUILD_CONFIGURATION
-Step 11/12 : RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION -- \"\$@\"" > /entrypoint.sh
-Step 12/12 : ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
-Built container image in 3m 44s
-Waiting for container...13s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
-Service 'webfrontend' port 80 (http) is available at http://localhost:54256
-...
-```
-
-Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
-
-Se si arresta il comando `azds up` premendo *CTRL+C*, il servizio continuerà a essere eseguito nel servizio Azure Kubernetes e l'URL pubblico rimarrà disponibile.
-
-## <a name="update-code"></a>Aggiornare il codice
-
-Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo il comando `azds up`. Ad esempio: 
-
-1. Se `azds up` è ancora in esecuzione, premere *CTRL+C*.
-1. Aggiornare la [riga 20 di `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) in:
-    
-    ```csharp
-    ViewData["Message"] = "Your application description page in Azure.";
-    ```
-
-1. Salvare le modifiche.
-1. Eseguire di nuovo il comando `azds up`:
-
-    ```cmd
-    $ azds up
-    Using dev space 'default' with target 'MyAKS'
-    Synchronizing files...1s
-    Installing Helm chart...3s
-    Waiting for container image build...
-    ...    
-    ```
-
-1. Passare al servizio in esecuzione e fare clic su *Informazioni*.
-1. Osservare le modifiche.
-1. Premere *CTRL+C* per arrestare il comando `azds up`.
-
-## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Abilitare Visual Studio Code per il debug in Kubernetes
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Preparare l'applicazione di esempio in Visual Studio Code
 
 Aprire Visual Studio Code, fare clic su *File*, quindi su *Apri*, passare alla directory *dev-spaces/samples/dotnetcore/getting-started/webfrontend* e fare clic su *Apri*.
 
-In Visual Studio Code è ora aperto il progetto *webfrontend*, ossia lo stesso servizio eseguito usando il comando `azds up`. Per eseguire il debug di questo servizio nel servizio Azure Kubernetes con Visual Studio Code, invece che direttamente con `azds up`, è necessario preparare questo progetto in modo tale da usare Visual Studio Code per comunicare con il proprio spazio di Dev Spaces.
+In Visual Studio Code è ora aperto il progetto *webfrontend*. Per eseguire l'applicazione nello spazio di sviluppo, generare gli asset per grafici Helm e Docker usando l'estensione Azure Dev Spaces nel riquadro comandi.
 
 Per aprire il riquadro comandi in Visual Studio Code, fare clic su *Visualizza* e quindi su *Riquadro comandi*. Iniziare a digitare `Azure Dev Spaces` e fare clic su `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-![](./media/common/command-palette.png)
+![Preparare i file di configurazione per Azure Dev Spaces](./media/common/command-palette.png)
 
-Questo comando prepara il progetto per l'esecuzione in Azure Dev Spaces direttamente da Visual Studio Code. Genera inoltre una directory *.vscode* con la configurazione di debug alla radice del progetto.
+Quando Visual Studio Code richiede anche di configurare l'endpoint pubblico, scegliere `Yes` per abilitare un endpoint pubblico.
+
+![Selezione dell'endpoint pubblico](media/common/select-public-endpoint.png)
+
+Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev Spaces generando un Dockerfile e un grafico Helm. Genera inoltre una directory *.vscode* con la configurazione di debug alla radice del progetto.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio
 
@@ -169,21 +100,42 @@ Questo comando compila ed esegue il servizio in Azure Dev Spaces in modalità de
 > [!Note]
 > Se nel *riquadro comandi* non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'[estensione Visual Studio Code per Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verificare inoltre di aver aperto la directory *dev-spaces/samples/dotnetcore/getting-started/webfrontend* in Visual Studio Code.
 
+Per vedere il servizio in esecuzione, aprire l'URL pubblico.
+
+Fare clic su *Debug* e quindi su *Arresta debug* per arrestare il debugger.
+
+## <a name="update-code"></a>Aggiornare il codice
+
+Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo *.NET Core Launch (AZDS)* . Ad esempio:
+
+1. Se l'applicazione è ancora in esecuzione, fare clic su *Debug* e quindi su *Arresta debug* per arrestarla.
+1. Aggiornare la [riga 22 di `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) in:
+    
+    ```csharp
+    ViewData["Message"] = "Your application description page in Azure.";
+    ```
+
+1. Salvare le modifiche.
+1. Eseguire di nuovo *.NET Core Launch (AZDS)* .
+1. Passare al servizio in esecuzione e fare clic su *Informazioni*.
+1. Osservare le modifiche.
+1. Fare clic su *Debug* e quindi su *Arresta debug* per arrestare l'applicazione.
+
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Impostazione e uso di punti di interruzione per il debug
 
 Avviare il servizio in modalità debug usando *.NET Core Launch (AZDS)* (Avvia .NET Core AZDS).
 
-Tornare nella visualizzazione *Explorer* facendo clic su *Visualizza* e quindi su *Explorer*. Aprire `Controllers/HomeController.cs` e fare clic in un punto della riga 20 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*.
+Tornare nella visualizzazione *Explorer* facendo clic su *Visualizza* e quindi su *Explorer*. Aprire `Controllers/HomeController.cs` e fare clic in un punto della riga 22 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*.
 
 Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio Code e notare che la riga 20 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 20. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
 
 Durante l'esecuzione del servizio in Kubernetes con un debugger collegato, si ha accesso completo alle informazioni di debug, ad esempio su stack di chiamate, variabili locali ed eccezioni.
 
-Rimuovere il punto di interruzione posizionando il cursore sulla riga 20 di `Controllers/HomeController.cs` e premendo *F9*.
+Rimuovere il punto di interruzione posizionando il cursore sulla riga 22 di `Controllers/HomeController.cs` e premendo *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Aggiornare il codice da Visual Studio Code
 
-Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 20 in `Controllers/HomeController.cs`. Ad esempio: 
+Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 22 di `Controllers/HomeController.cs`. Ad esempio:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -191,7 +143,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Salvare il file. Fare clic su *Debug*, quindi su *Riavvia debug* oppure premere il pulsante *Riavvia debug* sulla barra degli strumenti *Debug*.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Aprire il servizio in un browser e notare che è visualizzato il messaggio aggiornato.
 
@@ -209,3 +161,6 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

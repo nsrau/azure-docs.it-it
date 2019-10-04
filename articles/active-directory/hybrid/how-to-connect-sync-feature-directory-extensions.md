@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167202"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607646"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: Estensioni della directory
 È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni della directory API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). È possibile visualizzare gli attributi disponibili usando rispettivamente lo strumento [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net/) e lo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
@@ -35,7 +35,7 @@ Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
 ![Procedura guidata per l'estensione dello schema](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
- L'installazione mostra gli attributi seguenti, che sono candidati validi:
+L'installazione mostra gli attributi seguenti, che sono candidati validi:
 
 * Tipi di oggetto utente e gruppo
 * Attributi a valore singolo: String, Boolean, Integer, Binary
@@ -62,7 +62,7 @@ Questi attributi ora sono disponibili tramite l'API Graph di Azure AD. È possib
 In alternativa è possibile eseguire una query sugli attributi tramite l'API Microsoft Graph, usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> È necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi così: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> È necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti:\:HTTPS//graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $Select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Per altre informazioni, vedere [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter) (Microsoft Graph: Usare parametri di query).
 

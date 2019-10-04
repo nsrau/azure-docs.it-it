@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579462"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852994"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -73,18 +73,22 @@ Questa guida introduttiva illustra come un'app Web ASP.NET Core può consentire 
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Passaggio 2: Scaricare il progetto ASP.NET Core
 
-- [Scaricare la soluzione di Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip).
+- [Scaricare la soluzione di Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
 1. Estrarre il file ZIP in una cartella locale all'interno della cartella radice, ad esempio **C:\Azure-Samples**.
-1. Se si usa Visual Studio 2017, aprire la soluzione in Visual Studio (facoltativo).
-1. Modificare il file **appsettings.json**. Trovare `ClientId` e aggiornare il valore di `ClientId` con il valore dell'**ID applicazione (client)** dell'applicazione appena registrata. 
+1. Se si usa Visual Studio 2019, aprire la soluzione in Visual Studio (facoltativo).
+1. Modificare il file **appsettings.json**. Trovare `ClientId` e aggiornare il valore di `ClientId` con il valore dell'**ID applicazione (client)** dell'applicazione registrata. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Dove:
@@ -95,11 +99,11 @@ Questa guida introduttiva illustra come un'app Web ASP.NET Core può consentire 
 >   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`
 >
 > > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)**, **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
+> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 
 ## <a name="more-information"></a>Altre informazioni
 
-Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. La panoramica aiuta a capire il funzionamento del codice, gli argomenti principali e anche se si vuole aggiungere un sistema di accesso a un'applicazione ASP.NET esistente.
+Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. Questa panoramica è utile per comprendere il funzionamento del codice, conoscere gli argomenti principali e anche se si intende aggiungere l'accesso a un'applicazione ASP.NET Core esistente.
 
 ### <a name="startup-class"></a>Classe di avvio
 
@@ -163,3 +167,8 @@ Estrarre il repository di GitHub per questa esercitazione di ASP.NET Core per al
 
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+
+Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
+
+> [!div class="nextstepaction"]
+> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

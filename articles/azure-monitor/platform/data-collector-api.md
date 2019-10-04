@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 10/01/2019
 ms.author: bwren
-ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 50f973de8d1ca983725bc9e9e64eefc9de5237fa
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264093"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802119"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -38,30 +38,30 @@ Tutti i dati nell'area di lavoro Log Analytics vengono archiviati come record co
 
 
 
-## <a name="create-a-request"></a>Creare una richiesta
+## <a name="create-a-request"></a>Crea una richiesta
 Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che include i dati da inviare in formato JSON (JavaScript Object Notation).  Le tre tabelle successive indicano gli attributi necessari per ogni richiesta. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
 
 ### <a name="request-uri"></a>URI della richiesta
 | Attributo | Proprietà |
 |:--- |:--- |
-| Metodo |POST |
+| Metodo |INSERISCI |
 | URI |https://\<IdCliente\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Tipo di contenuto |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
-| Risorsa |Nome della risorsa API: /api/logs. |
+| Resource |Nome della risorsa API: /api/logs. |
 | Versione dell'API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
-| Intestazione | DESCRIZIONE |
+| Intestazione | Descrizione |
 |:--- |:--- |
 | Authorization |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
-| Log-Type |Specificare il tipo di record dei dati inviati. Il limite di dimensione per questo parametro è di 100 caratteri. |
+| Log-Type |Specificare il tipo di record dei dati inviati. Può contenere solo lettere, numeri e caratteri di sottolineatura (_) e non può superare i 100 caratteri. |
 | x-ms-date |Data di elaborazione della richiesta, in formato RFC 1123. |
-| x-ms-AzureResourceId | ID risorsa della risorsa di Azure i dati deve essere associato. Questo compilerà la [_ResourceId](log-standard-properties.md#_resourceid) proprietà, nonché i dati da includere nel [incentrato su risorse](manage-access.md#access-modes) le query. Se questo campo non è specificato, i dati non essere inclusi nelle query sugli elementi risorsa. |
+| x-ms-AzureResourceId | ID risorsa della risorsa di Azure a cui devono essere associati i dati. Questa operazione consente di popolare la proprietà [_ResourceId](log-standard-properties.md#_resourceid) e di includere i dati nelle query del [contesto delle risorse](design-logs-deployment.md#access-mode) . Se questo campo non è specificato, i dati non verranno inclusi nelle query del contesto delle risorse. |
 | time-generated-field | Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Authorization
@@ -73,7 +73,7 @@ Il formato dell'intestazione dell'autorizzazione è il seguente:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* è l'identificatore univoco per l'area di lavoro di Log Analytics. *Signature* è un codice [HMAC](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) (Hash-based Message Authentication Code) che viene creato dalla richiesta e quindi calcolato con l'[algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Viene quindi codificato con la codifica Base64.
+*WorkspaceID* è l'identificatore univoco per l'area di lavoro Log Analytics. *Signature* è un codice [HMAC](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) (Hash-based Message Authentication Code) che viene creato dalla richiesta e quindi calcolato con l'[algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Viene quindi codificato con la codifica Base64.
 
 Usare questo formato per codificare la stringa di firma **SharedKey**:
 
@@ -100,7 +100,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 Gli esempi nelle sezioni successive indicano il codice di esempio per creare l'intestazione dell'autorizzazione.
 
 ## <a name="request-body"></a>Corpo della richiesta
-Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con coppie di nome e valore di proprietà nel formato seguente:
+Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con le coppie nome e valore della proprietà nel formato seguente. Il nome della proprietà può contenere solo lettere, numeri e caratteri di sottolineatura (_).
 
 ```json
 [
@@ -141,11 +141,11 @@ Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiun
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
-| string |_s |
+| Stringa |_s |
 | Boolean |_b |
 | Double |_d |
 | Data/ora |_t |
-| GUID |_g |
+| GUID (archiviato come stringa) |_g |
 
 Il tipo di dati usato da Monitoraggio di Azure per ogni proprietà dipende dall'eventuale esistenza di un tipo di record per il nuovo record.
 
@@ -169,7 +169,7 @@ Inviando la voce seguente, prima della creazione del tipo di record Monitoraggio
 ![Esempio di record 4](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>Proprietà riservate
-Le proprietà seguenti sono riservate e non devono essere utilizzate in un tipo di record personalizzato. Si riceverà un errore se il payload include uno dei seguenti nomi di proprietà.
+Le proprietà seguenti sono riservate e non devono essere utilizzate in un tipo di record personalizzato. Se il payload include uno di questi nomi di proprietà, verrà visualizzato un errore.
 
 - tenant
 
@@ -187,7 +187,7 @@ Il codice di stato HTTP 200 indica che è stata ricevuta la richiesta per l'elab
 
 Questa tabella elenca il set completo di codici di stato che il servizio può restituire:
 
-| Codice | Stato | Codice di errore | DESCRIZIONE |
+| Codice | Stato | Codice errore | Descrizione |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La richiesta è stata accettata. |
 | 400 |Richiesta non valida |InactiveCustomer |L'area di lavoro è stata chiusa. |
@@ -199,10 +199,10 @@ Questa tabella elenca il set completo di codici di stato che il servizio può re
 | 400 |Richiesta non valida |MissingContentType |Il tipo di contenuto non è stato specificato. |
 | 400 |Richiesta non valida |MissingLogType |Il tipo di log dei valori non è stato specificato. |
 | 400 |Richiesta non valida |UnsupportedContentType |Il tipo di contenuto non è stato impostato su **application/json**. |
-| 403 |Accesso negato |InvalidAuthorization |Il servizio non è riuscito ad autenticare la richiesta. Verificare che l'ID dell'area di lavoro e la chiave di connessione siano validi. |
+| 403 |Non consentito |InvalidAuthorization |Il servizio non è riuscito ad autenticare la richiesta. Verificare che l'ID dell'area di lavoro e la chiave di connessione siano validi. |
 | 404 |Non trovato | | L'URL specificato non è corretto o la richiesta è di dimensioni eccessive. |
 | 429 |Troppe richieste | | Il servizio sta ricevendo un elevato volume di dati dall'account. Si prega di ripetere la richiesta più tardi. |
-| 500 |Internal Server Error |UnspecifiedError |Errore interno del servizio. Si prega di ripetere la richiesta. |
+| 500 |Errore interno del server |UnspecifiedError |Errore interno del servizio. Si prega di ripetere la richiesta. |
 | 503 |Servizio non disponibile |ServiceUnavailable |Il servizio non è attualmente disponibile per la ricezione delle richieste. Si prega di ripetere la richiesta. |
 
 ## <a name="query-data"></a>Eseguire query sui dati
@@ -232,7 +232,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = ""
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
@@ -240,13 +240,13 @@ $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
     "BooleanValue": true,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
 },
 {   "StringValue": "MyString2",
     "NumberValue": 43,
     "BooleanValue": false,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
 }]
 "@
@@ -471,14 +471,14 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
-## <a name="alternatives-and-considerations"></a>Considerazioni e alternative
-Mentre l'API di raccolta dei dati dovrebbe coprire la maggior parte delle esigenze di raccogliere dati in formato libero in log di Azure, esistono casi in cui un'alternativa potrebbe essere necessario superare alcune delle limitazioni dell'API. Tutte le opzioni come indicato di seguito, sono le considerazioni principali inclusione:
+## <a name="alternatives-and-considerations"></a>Alternative e considerazioni
+Sebbene l'API dell'agente di raccolta dati debba coprire la maggior parte delle proprie esigenze per raccogliere dati in formato libero nei log di Azure, esistono istanze in cui potrebbe essere necessaria un'alternativa per superare alcune delle limitazioni dell'API. Tutte le opzioni sono le seguenti: considerazioni principali:
 
-| In alternativa | DESCRIZIONE | Adatto principalmente per |
+| Alternativa | Descrizione | Ideale per |
 |---|---|---|
-| [Eventi personalizzati](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Inserimento di basati su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare i dati personalizzati tramite gli eventi personalizzati. | <ul><li> I dati generati all'interno dell'applicazione, ma non prelevati dal SDK tramite uno dei tipi di dati predefiniti (ad esempio: le richieste, dipendenze, eccezioni e così via).</li><li> Dati che sono spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
-| [API di raccolta dati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) nei log di monitoraggio di Azure | L'API di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per l'inserimento di dati. Dati formattati in un oggetto JSON possono essere inviati qui. Dopo l'invio, verrà elaborata e disponibili nei log di essere in correlazione con altri dati nei log o su altri Application Insights i dati. <br/><br/> È abbastanza facile caricare i dati come file in un blob, Blob di Azure da in cui verranno elaborati e caricati in Log Analitica questi file. Vedi [ciò](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) articolo per un esempio di implementazione di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno di Application Insights.</li><li> Sono esempi di tabelle dei fatti e ricerca, i dati di riferimento, le statistiche già aggregate, e così via. </li><li> Destinato ai dati che saranno riferimenti incrociati con gli altri dati di monitoraggio di Azure (ad esempio, Application Insights, altri tipi di dati di log, il Centro sicurezza, monitoraggio di Azure per VM/contenitori e così via). </li></ul> |
-| [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) è la piattaforma di dati su cui si basa Analitica di Application Insights e log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), Usa la piattaforma di dati in formato non elaborato consente completa flessibilità, ma che richiedono il sovraccarico di gestione, failover cluster (RBAC, tasso di assorbimento, schema, e così via). ADX fornisce numerosi [opzioni di inserimento](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) inclusi [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) file. | <ul><li> Dati che non saranno essere correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono avanzate di inserimento o l'elaborazione di funzionalità attualmente non disponibili nei log di monitoraggio di Azure. </li></ul> |
+| [Eventi personalizzati](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
+| API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinato ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati dei log, Centro sicurezza, monitoraggio di Azure per contenitori/VM e così via). </li></ul> |
+| [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Esplora dati (ADX) è la piattaforma dati che permette di Application Insights l'analisi e i log di monitoraggio di Azure. Ora disponibile a livello generale ("GA"), l'uso della piattaforma dati nella sua forma non elaborata ti offre la flessibilità completa, ma che richiede il sovraccarico di gestione, sul cluster (RBAC, tasso di conservazione, schema e così via). ADX offre molte [Opzioni](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) di inserimento, tra cui file [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dati che non verranno correlati a tutti gli altri dati in Application Insights o log. </li><li> I dati che richiedono funzionalità avanzate di inserimento o elaborazione non sono oggi disponibili nei log di monitoraggio di Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

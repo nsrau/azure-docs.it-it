@@ -1,57 +1,55 @@
 ---
 title: Usare l'endpoint di stima per testare le immagini a livello di codice con un classificatore - Visione personalizzata
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'API per testare a livello di codice le immagini con il classificatore del Servizio visione artificiale personalizzato.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046071"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966928"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API Prediction
+# <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API di stima
 
-Dopo che è stato il training del modello, è possibile testare le immagini a livello di codice per inviarle all'endpoint dell'API di stima.
+Dopo aver eseguito il training del modello, è possibile testare le immagini a livello di programmazione inviando le immagini all'endpoint dell'API di stima.
 
 > [!NOTE]
-> Questo documento illustra l'uso di C# per inviare un'immagine all'API Prediction. Per altre informazioni ed esempi, vedere la [riferimento all'API di stima](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> Questo documento illustra l'uso di C# per inviare un'immagine all'API Prediction. Per ulteriori informazioni ed esempi, vedere le informazioni di [riferimento sull'API di stima](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
-## <a name="publish-your-trained-iteration"></a>Pubblicare l'iterazione sottoposto a training
+## <a name="publish-your-trained-iteration"></a>Pubblicare l'iterazione con training
 
 Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionare il progetto e quindi selezionare la scheda __Performance__ (Prestazioni).
 
-Per inviare le immagini per le API di stima, è necessario pubblicare l'iterazione per la stima, che può essere eseguita selezionando __pubblica__ e specificando un nome per l'iterazione pubblicato. Il modello in questo modo accessibile per l'API di stima delle tue risorse di Azure di visione artificiale personalizzato.
+Per inviare immagini all'API di stima, sarà prima di tutto necessario pubblicare l'iterazione per la stima, operazione che può essere eseguita selezionando __pubblica__ e specificando un nome per l'iterazione pubblicata. In questo modo il modello verrà reso accessibile all'API di stima della risorsa Visione personalizzata Azure.
 
-![Viene visualizzata nella scheda prestazioni, con un rettangolo rosso che racchiudono il pulsante pubblica.](./media/use-prediction-api/unpublished-iteration.png)
+![Viene visualizzata la scheda prestazioni con un rettangolo rosso che circonda il pulsante pubblica.](./media/use-prediction-api/unpublished-iteration.png)
 
-Una volta il modello è stato pubblicato correttamente, si noterà un'etichetta "Pubblicato" vengono visualizzate accanto all'iterazione nella barra laterale a sinistra e il relativo nome verrà visualizzato nella descrizione dell'iterazione.
+Una volta che il modello è stato pubblicato correttamente, verrà visualizzata un'etichetta "pubblicata" accanto all'iterazione nella barra laterale a sinistra e il relativo nome verrà visualizzato nella descrizione dell'iterazione.
 
-![Viene visualizzata nella scheda prestazioni, con un rettangolo rosso che circonda l'etichetta pubblicato e il nome dell'iterazione pubblicato.](./media/use-prediction-api/published-iteration.png)
+![Viene visualizzata la scheda prestazioni con un rettangolo rosso che circonda l'etichetta pubblicata e il nome dell'iterazione pubblicata.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Ottenere l'URL e la chiave di stima
 
-Dopo aver pubblicato il modello, è possibile recuperare le informazioni necessarie, selezionare __stima URL__. Verrà aperta una finestra di dialogo con le informazioni per l'uso dell'API di stima, tra cui il __URL di stima__ e __stima-Key__.
+Una volta pubblicato il modello, è possibile recuperare le informazioni richieste selezionando __URL stima__. Verrà visualizzata una finestra di dialogo con le informazioni per l'utilizzo dell'API di stima, inclusi l' __URL__ di stima e la __chiave di stima__.
 
-![La scheda prestazioni viene visualizzata con un rettangolo rosso che racchiudono il pulsante di URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il pulsante URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![La scheda prestazioni viene visualizzata con un rettangolo rosso che racchiudono il valore dell'URL di stima per l'uso di un file di immagine e il valore della chiave di stima.](./media/use-prediction-api/prediction-api-info.png)
+![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il valore dell'URL di stima per l'utilizzo di un file di immagine e il valore della chiave di stima.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> il __stima-Key__ sono disponibili anche nel [portale di Azure](https://portal.azure.com) pagina per la risorsa di Azure di visione artificiale personalizzato associati al progetto, sotto il __chiavi__ pannello.
 
-In questa Guida, verranno usare un'immagine locale, quindi copiare l'URL sotto **se si dispone di un file di immagine** in un percorso temporaneo. Copiare la corrispondente __chiave di stima__ anche valore.
+In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si dispone** di un file di immagine in un percorso temporaneo. Copiare anche il valore della __chiave di stima__ corrispondente.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
 
-1. In Visual Studio, creare un nuovo oggetto C# applicazione console.
+1. In Visual Studio creare una nuova C# applicazione console.
 
 1. Usare il codice seguente come corpo del file __Program.cs__.
 
@@ -111,13 +109,13 @@ In questa Guida, verranno usare un'immagine locale, quindi copiare l'URL sotto *
     ```
 
 1. Modificare le informazioni seguenti:
-   * Impostare il `namespace` campo per il nome del progetto.
-   * Sostituire il segnaposto `<Your prediction key>` con il valore della chiave è stato recuperato in precedenza.
+   * Impostare il `namespace` campo sul nome del progetto.
+   * Sostituire il segnaposto `<Your prediction key>` con il valore della chiave recuperato in precedenza.
    * Sostituire il segnaposto `<Your prediction URL>` con l'URL recuperato in precedenza.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
-Quando si esegue l'applicazione, viene chiesto di immettere un percorso a un file di immagine nella console di. L'immagine viene quindi inviato all'API di stima, e i risultati della stima vengono restituiti come una stringa in formato JSON. Di seguito è riportato un esempio di risposta.
+Quando si esegue l'applicazione, viene richiesto di immettere un percorso di un file di immagine nella console di. L'immagine viene quindi inviata all'API di stima e i risultati della stima vengono restituiti come stringa in formato JSON. Di seguito è riportato un esempio di risposta.
 
 ```json
 {
@@ -134,10 +132,10 @@ Quando si esegue l'applicazione, viene chiesto di immettere un percorso a un fil
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida, si è appreso come inviare immagini personalizzati/rilevatore di classificazione di immagini e ricevano una risposta a livello di codice con il C# SDK. Successivamente, per informazioni su come completare scenari end-to-end con C#, oppure iniziare a usare un'altra lingua SDK.
+In questa guida si è appreso come inviare immagini al classificatore/rilevatore di immagini personalizzate e ricevere una risposta a livello C# di codice con l'SDK. Si apprenderà quindi come completare gli scenari end-to- C#end con oppure iniziare a usare un SDK di linguaggio diverso.
 
 * [Guida introduttiva: .NET SDK](csharp-tutorial.md)
-* [Guida introduttiva: Python SDK](python-tutorial.md)
-* [Guida introduttiva: Java SDK](java-tutorial.md)
-* [Guida introduttiva: Node SDK](node-tutorial.md)
-* [Guida introduttiva: Go SDK](go-tutorial.md)
+* [Avvio rapido: SDK Python](python-tutorial.md)
+* [Avvio rapido: Java SDK](java-tutorial.md)
+* [Avvio rapido: Node SDK](node-tutorial.md)
+* [Avvio rapido: SDK go](go-tutorial.md)

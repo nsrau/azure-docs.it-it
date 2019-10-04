@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Questa Guida introduttiva C# basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services
 author: diberry
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e06ded1b684d442c9f6257ebd92b3a3b8fdb87a3
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886344"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803014"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Ottenere risposte a una domanda da una knowledge base con C#
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Guida introduttiva: Ottenere risposte a una domanda da una knowledge base con C#
 
 Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md), ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata più attendibile. 
 
@@ -36,7 +36,7 @@ Il codice per questo avvio rapido si trova nel repository [https://github.com/Az
 
 ## <a name="create-a-knowledge-base-project"></a>Creare un progetto per la knowledge base
 
-1. Aprire Visual Studio 2017 Community Edition.
+1. Aprire Visual Studio 2019 Community Edition.
 1. Creare un nuovo progetto App console (.NET Core) e assegnare al progetto il nome QnaMakerQuickstart. Accettare le impostazioni predefinite per le altre impostazioni.
 
 ## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
@@ -49,13 +49,13 @@ All'inizio del file Program.cs sostituire la singola istruzione using con le rig
 
 Nella parte superiore della classe `Program`, all'interno di `Main`, aggiungere le costanti seguenti per accedere a QnA Maker. Questi dati sono contenuti nella pagina **Pubblica** dopo la pubblicazione della knowledge base. 
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=9-41 "Add the required constants")]
 
 ## <a name="add-a-post-request-to-send-question-and-get-answer"></a>Aggiungere una richiesta POST per inviare domande e ottenere una risposta
 
 Nel codice seguente viene effettuata una richiesta HTTPS all'API di QnA Maker per inviare la domanda alla knowledge base e ricevere la risposta:
 
-[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
+[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=43-76 "Add a POST request to send question to knowledge base")]
 
 Il valore dell'intestazione di `Authorization` include la stringa `EndpointKey`. 
 
@@ -72,4 +72,4 @@ Compilare ed eseguire il programma da Visual Studio. Verrà inviata automaticame
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

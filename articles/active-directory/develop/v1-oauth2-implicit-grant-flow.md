@@ -3,27 +3,27 @@ title: Informazioni sul flusso di concessione implicita OAuth2 in Azure Active D
 description: Altre informazioni su come implementare in Azure Active Directory il flusso di concessione implicita OAuth2 e stabilire se è adatto all'applicazione.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 08/15/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b223e428c8f0b1f0c26e7c73e79a503a7c0121
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251458"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532401"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ ms.locfileid: "60251458"
 
 La tipica [concessione del codice di autorizzazione OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) è la concessione di autorizzazione che usa due endpoint separati. L'endpoint di autorizzazione viene usato per la fase di interazione dell'utente, che restituisce un codice di autorizzazione. L'endpoint di token viene quindi usato dal client per cambiare il codice in un token di accesso e spesso anche in un token di aggiornamento. Le applicazioni Web devono presentare le proprie credenziali all'endpoint di token, in modo che il server di autorizzazione possa autenticare il client.
 
-La [concessione implicita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) è una variante di altre concessioni di autorizzazione e consente a un client di ottenere un token di accesso (e un elemento id_token, quando si usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direttamente dall'endpoint di autorizzazione, senza contattare l'endpoint di token né autenticare il client. Questa variante è stata progettata per le applicazioni basate su JavaScript in esecuzione in un Web browser: nella specifica OAuth2 originale i token vengono restituiti in un frammento di URI. In questo modo i bit dei token diventano disponibili per il codice JavaScript nel client, ma non verranno inclusi nei reindirizzamenti al server. La restituzione dei token tramite i reindirizzamenti del browser direttamente dagli endpoint di autorizzazione ha anche il vantaggio di eliminare eventuali requisiti per le chiamate tra origini, necessarie se l'applicazione JavaScript deve contattare l'endpoint di token.
+La [concessione implicita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) è una variante di altre concessioni di autorizzazione e consente a un client di ottenere un token di accesso (e un elemento id_token, quando si usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direttamente dall'endpoint di autorizzazione, senza contattare l'endpoint di token né autenticare il client. Questa variante è stata progettata per le applicazioni basate su JavaScript in esecuzione in un Web browser: nella specifica OAuth2 originale i token vengono restituiti in un frammento di URI. In questo modo i bit dei token diventano disponibili per il codice JavaScript nel client, ma non verranno inclusi nei reindirizzamenti al server. Nella concessione implicita di OAuth2, l'endpoint di autorizzazione rilascia i token di accesso direttamente al client usando un URI di reindirizzamento precedentemente specificato. ha anche il vantaggio di eliminare eventuali requisiti per le chiamate tra origini, necessarie se l'applicazione JavaScript deve contattare l'endpoint di token.
 
 Un caratteristica importante della concessione implicita OAuth2 è che tali flussi non restituiscono mai token di aggiornamento al client. La sezione successiva spiega che questo non è davvero necessario e costituirebbe anzi un problema di sicurezza.
 
@@ -62,7 +62,7 @@ Questo modello concede all'applicazione JavaScript la possibilità di rinnovare 
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>La concessione implicita è adatta all'app?
 
-La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree è necessario prestare attenzione sono ben documentate, ad esempio, nel paragrafo relativo all'[uso improprio dei token di accesso per rappresentare il proprietario della risorsa nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e nel documento relativo al [modello di minaccia OAuth 2.0 e alle considerazioni sulla sicurezza][OAuth2-Threat-Model-And-Security-Implications]. Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
+La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree a cui è necessario prestare attenzione sono ben documentate (ad esempio, [uso improprio del token di accesso per rappresentare il proprietario delle risorse nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e il [modello di minaccia OAuth 2,0 e la sicurezza Considerazioni][OAuth2-Threat-Model-And-Security-Implications]). Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
 
 Se l'applicazione è un client nativo, il flusso implicito non è la soluzione ideale. L'assenza del cookie della sessione di Azure AD nel contesto di un client nativo non consente all'applicazione di mantenere una sessione di lunga durata. Di conseguenza, 'applicazione chiederà ripetutamente l'interazione dell'utente per ottenere i token di accesso per le nuove risorse.
 
@@ -70,8 +70,8 @@ Se si sta sviluppando un'applicazione Web che include un back-end e utilizza un'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un elenco completo di risorse per sviluppatori, incluse le informazioni di riferimento per i protocolli e il supporto dei flussi di concessione delle autorizzazioni OAuth2 in Azure AD, vedere la [Guida per gli sviluppatori di Azure Active Directory][AAD-Developers-Guide].
-* Per altre informazioni sul processo di integrazione di un'applicazione, vedere [Come integrare un'applicazione con Azure AD][ACOM-How-To-Integrate].
+* Per un elenco completo delle risorse per gli sviluppatori, incluse le informazioni di riferimento per i protocolli e il supporto dei flussi di concessione di autorizzazione OAuth2 da Azure AD, vedere la guida per gli [sviluppatori di Azure ad][AAD-Developers-Guide]
+* Per ulteriori informazioni dettagliate sul processo di integrazione dell'applicazione, vedere [come integrare un'applicazione con Azure ad][ACOM-How-To-Integrate] .
 
 <!--Image references-->
 

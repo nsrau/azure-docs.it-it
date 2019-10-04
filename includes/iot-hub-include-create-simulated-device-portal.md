@@ -9,11 +9,11 @@ ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 8d8f8021925ac9c9e427dd6571ecaa1a30c85497
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670983"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180769"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 

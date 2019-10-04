@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60846376"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
 
@@ -118,7 +118,7 @@ Per aggiungere schemi più grandi, è possibile caricare lo schema in un conteni
 
 1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi schema**. 
    Immettere un nome per lo schema. 
-   Scegliere **File grande (dimensioni maggiori di 2 MB)**. 
+   Scegliere **File grande (dimensioni maggiori di 2 MB)** . 
 
    Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Schema**.
 

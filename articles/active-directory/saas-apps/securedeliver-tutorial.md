@@ -4,229 +4,198 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: fccd5668-fe6f-4e6d-a9ce-ba4f321c33d1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
+ms.topic: tutorial
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e08c8c4c576f9dd0ee6896b7adf53279afc9f53c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7dbf96c3480f47e5f6b292759a949c9bbf36dc07
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60340347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Esercitazione: Integrazione di Azure Active Directory con SECURE DELIVER
 
 Questa esercitazione descrive come integrare SECURE DELIVER con Azure Active Directory (Azure AD).
-
 L'integrazione di SECURE DELIVER con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a SECURE DELIVER
-- È possibile abilitare gli utenti per l'accesso automatico a SECURE DELIVER (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a SECURE DELIVER.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a SECURE DELIVER con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con SECURE DELIVER, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di SECURE DELIVER abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Una sottoscrizione di SECURE DELIVER abilitata per l'accesso Single Sign-On.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di SECURE DELIVER dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* SECURE DELIVER supporta l'accesso Single Sign-On avviato da **provider di servizi**
 
 ## <a name="adding-secure-deliver-from-the-gallery"></a>Aggiunta di SECURE DELIVER dalla raccolta
+
 Per configurare l'integrazione di SECURE DELIVER in Azure AD, è necessario aggiungere SECURE DELIVER dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere SECURE DELIVER dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **SECURE DELIVER**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/tutorial_securedeliver_search.png)
+4. Nella casella di ricerca digitare **SECURE DELIVER**, selezionare **SECURE DELIVER** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **SECURE DELIVER** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+    ![SECURE DELIVER nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/tutorial_securedeliver_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SECURE DELIVER con un utente di test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di SECURE DELIVER che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SECURE DELIVER.
-
-Per stabilire la relazione di collegamento, in SECURE DELIVER assegnare il valore del **nome utente** in Azure AD come valore di **Username**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SECURE DELIVER usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SECURE DELIVER.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SECURE DELIVER, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente di test di SECURE DELIVER](#creating-a-secure-deliver-test-user)**: per avere una controparte di Britta Simon in SECURE DELIVER collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di SECURE DELIVER](#configure-secure-deliver-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di SECURE DELIVER](#create-secure-deliver-test-user)** : per avere una controparte di Britta Simon in SECURE DELIVER collegata alla rappresentazione di Azure AD dell'utente.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione SECURE DELIVER.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con SECURE DELIVER, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con SECURE DELIVER, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **SECURE DELIVER** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **SECURE DELIVER** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_securedeliver_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-1. Nella sezione **URL e dominio SECURE DELIVER** seguire questa procedura:
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_securedeliver_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com). 
- 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SECURE DELIVER](common/sp-identifier.png)
 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_securedeliver_certificate.png) 
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
 
-1. Fare clic sul pulsante **Salva** .
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Configurazione di SECURE DELIVER** fare clic su **Configura SECURE DELIVER** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_securedeliver_configure.png) 
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **SECURE DELIVER**, è necessario inviare il file di **Certificato (Base64)** scaricato, **l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Nella sezione **Configura SECURE DELIVER** copiare gli URL appropriati in base alle esigenze.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+    a. URL di accesso
+
+    b. Identificatore di Azure AD
+
+    c. URL di chiusura sessione
+
+### <a name="configure-secure-deliver-single-sign-on"></a>Configurare l'accesso Single Sign-On di SECURE DELIVER
+
+Per configurare l'accesso Single Sign-On sul lato **SECURE DELIVER** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/create_aaduser_01.png) 
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/create_aaduser_03.png) 
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/securedeliver-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
-
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-secure-deliver-test-user"></a>Creazione di un utente test di SECURE DELIVER
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in SECURE DELIVER. Collaborare con il [team di supporto di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com) per aggiungere gli utenti nell'account SECURE DELIVER.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a SECURE DELIVER.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SECURE DELIVER**.
 
-**Per assegnare Britta Simon a SECURE DELIVER, seguire questa procedura:**
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco di applicazioni selezionare **SECURE DELIVER**.
 
-    ![Assegna utente][201] 
+    ![Collegamento a SECURE DELIVER nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nell'elenco di applicazioni selezionare **SECURE DELIVER**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Configure Single Sign-On](./media/securedeliver-tutorial/tutorial_securedeliver_app.png) 
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Assegna utente][202] 
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![Assegna utente][203]
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+### <a name="create-secure-deliver-test-user"></a>Creare l'utente di test di SECURE DELIVER
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+In questa sezione viene creato un utente di nome Britta Simon in SECURE DELIVER. Collaborare con il  [team di supporto di SECURE DELIVER](mailto:iw-sd-support@fujifilm.com) per aggiungere gli utenti nella piattaforma SECURE DELIVER. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
-Quando si fa clic sul riquadro SECURE DELIVER nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SECURE DELIVER.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro di SECURE DELIVER nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SECURE DELIVER per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/securedeliver-tutorial/tutorial_general_01.png
-[2]: ./media/securedeliver-tutorial/tutorial_general_02.png
-[3]: ./media/securedeliver-tutorial/tutorial_general_03.png
-[4]: ./media/securedeliver-tutorial/tutorial_general_04.png
-
-[100]: ./media/securedeliver-tutorial/tutorial_general_100.png
-
-[200]: ./media/securedeliver-tutorial/tutorial_general_200.png
-[201]: ./media/securedeliver-tutorial/tutorial_general_201.png
-[202]: ./media/securedeliver-tutorial/tutorial_general_202.png
-[203]: ./media/securedeliver-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

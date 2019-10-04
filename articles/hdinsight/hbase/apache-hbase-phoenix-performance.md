@@ -1,7 +1,6 @@
 ---
 title: Prestazioni di Phoenix in Azure HDInsight
-description: Procedure consigliate per ottimizzare le prestazioni di Phoenix.
-services: hdinsight
+description: Procedure consigliate per ottimizzare le prestazioni Apache Phoenix per i cluster HDInsight di Azure
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653306"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810438"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Apache Phoenix
 
@@ -32,21 +31,21 @@ La chiave primaria definita in una tabella Phoenix determina come sono archiviat
 
 Una tabella di contatti, ad esempio, ha nome, cognome, numero di telefono e indirizzo nella stessa famiglia di colonne. È possibile definire una chiave primaria in base a un numero di sequenza crescente:
 
-|rowkey|       Address|   phone| firstName| lastName|
+|rowkey|       Address|   telefono| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Tuttavia, se si eseguono spesso query in base al valore di lastName, questa chiave primaria potrebbe non essere ottimale, perché ogni query richiede un'analisi completa della tabella per leggere il valore di ogni oggetto lastName. In alternativa, è possibile definire una chiave primaria in base alle colonne lastName, firstName e socialSecurityNum. L'ultima colonna permette di evitare ambiguità tra due persone che risiedono allo stesso indirizzo e hanno lo stesso nome, ad esempio padre e figlio.
 
-|rowkey|       Address|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Con questa nuova chiave primaria, i valori rowkey generati da Phoenix sono:
 
-|rowkey|       Address|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -56,7 +55,7 @@ Nella prima riga sopra, i dati per rowkey sono rappresentati come illustrato:
 |rowkey|       key|   value| 
 |------|--------------------|---|
 |  Dole-John-111|Address |1111 San Gabriel Dr.|  
-|  Dole-John-111|phone |1-425-000-0002|  
+|  Dole-John-111|telefono |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
 |  Dole-John-111|socialSecurityNum |111| 
@@ -114,7 +113,7 @@ Gli indici di copertura sono indici che includono i dati della riga oltre ai val
 
 Nella tabella di contatti di esempio, è possibile creare ad esempio un indice secondario solo per la colonna socialSecurityNum. Questo indice secondario consente di eseguire più velocemente le query che richiedono un filtro in base ai valori di socialSecurityNum, ma per recuperare altri valori dei campi sarà necessaria un'altra operazione di lettura nella tabella principale.
 
-|rowkey|       Address|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |

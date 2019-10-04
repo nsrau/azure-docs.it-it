@@ -1,23 +1,22 @@
 ---
 title: Panoramica degli insiemi di credenziali di Servizi di ripristino
 description: Una panoramica e un confronto tra gli insiemi di credenziali di Servizi di ripristino e gli insiemi di credenziali di Backup di Azure.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/10/2018
-ms.author: raynew
-ms.openlocfilehash: 924b36701ecf21f6bd84938aeefbf25e47fcbaa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 08/10/2018
+ms.author: dacurwin
+ms.openlocfilehash: 3c451d1bd77fa1cec85a9d42b5d4d3d819b2d19a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878660"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210354"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
-In questo articolo vengono descritte le funzionalità di un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino è un'entità di archiviazione di Azure che ospita i dati. I dati sono in genere copie di dati o informazioni di configurazione per macchine virtuali, carichi di lavoro, server o workstation. È possibile usare gli insiemi di credenziali di Servizi di ripristino per contenere dati di backup per vari servizi di Azure, ad esempio database SQL Azure e macchine virtuali IaaS, Linux o Windows. Gli insiemi di credenziali di Servizi di ripristino supportano System Center DPM, Windows Server, server di Backup di Azure e altro ancora. Gli insiemi di credenziali di Servizi di ripristino semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione.
+In questo articolo vengono descritte le funzionalità di un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino è un'entità di archiviazione di Azure che ospita i dati. I dati sono in genere copie di dati o informazioni di configurazione per macchine virtuali, carichi di lavoro, server o workstation. È possibile usare gli insiemi di credenziali di Servizi di ripristino per contenere dati di backup per vari servizi di Azure, ad esempio database SQL di Azure e macchine virtuali IaaS, Linux o Windows. Gli insiemi di credenziali di Servizi di ripristino supportano System Center DPM, Windows Server, server di Backup di Azure e altro ancora. Gli insiemi di credenziali di Servizi di ripristino semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione.
 
 Nell'ambito di una sottoscrizione di Azure è possibile creare un massimo di 500 insiemi di credenziali di Servizi di ripristino per ogni sottoscrizione in una determinata area.
 
@@ -74,7 +73,7 @@ Le sezioni seguenti contengono collegamenti ad articoli che spiegano come usare 
 
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Vedere gli articoli seguenti:</br>
 [Eseguire il backup di una macchina virtuale IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Eseguire il backup del server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</br>

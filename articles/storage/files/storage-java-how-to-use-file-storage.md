@@ -1,20 +1,18 @@
 ---
 title: Sviluppare per File di Azure con Java | Microsoft Docs
 description: Informazioni su come sviluppare applicazioni e servizi Java che usano File di Azure per archiviare i dati dei file.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.devlang: Java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 62a771b831c88f73df91c50f34ba6de0d95b832e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453094"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699402"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Sviluppare per File di Azure con Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -167,7 +165,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Caricare un file
+## <a name="upload-a-file"></a>Carica un file
 In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
 Il primo passaggio del caricamento di un file consiste nell'ottenere un riferimento alla directory in cui risiederà. È possibile eseguire questa operazione chiamando il metodo **getRootDirectoryReference** dell'oggetto condivisione.
@@ -187,7 +185,7 @@ Ora che si dispone di un riferimento alla directory radice della condivisione, �
         cloudFile.uploadFromFile(filePath);
 ```
 
-## <a name="download-a-file"></a>Scaricare un file
+## <a name="download-a-file"></a>Scarica file
 Una delle operazioni più frequenti che verranno eseguite in File di Azure consiste nello scaricare i file. Nell'esempio seguente, il codice scarica SampleFile.txt e ne visualizza il contenuto.
 
 ```java

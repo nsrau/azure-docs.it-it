@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004007"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773215"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
-I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU assicurano la flessibilità necessaria per modificare le dimensioni di calcolo senza tempi di inattività. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alla dimensione di calcolo.
+I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU offrono flessibilità per modificare le dimensioni di calcolo con [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alle dimensioni di calcolo.
 
 > [!IMPORTANT]
 > L'istanza gestita del database SQL non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
@@ -38,18 +37,18 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
 |Conservazione backup|7 giorni|35 giorni|35 giorni|
 |CPU|Basso|Basso, medio, elevato|Medio, elevato|
-|Velocità effettiva di I/O (approssimativa) |2,5 IOPS per DTU| 2,5 IOPS per DTU | 48 IOPS per DTU|
+|Velocità effettiva di I/O (approssimativa) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
 |Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
 |OLTP in memoria|N/D|N/D|Supportato|
 |||||
 
 > [!NOTE]
-> È possibile ottenere un database SQL di Azure disponibile a livello di servizio di base in combinazione con un account Azure gratuito a esplorare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
+> È possibile ottenere un database SQL di Azure gratuito a livello di servizio Basic insieme a un account Azure gratuito per esplorare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU database singolo e limiti di archiviazione
 
-Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modelli di acquisto basati su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modello di acquisto basato su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
@@ -90,7 +89,7 @@ Il benchmark e la relativa metodologia sono descritti con maggiori dettagli più
 
 Il benchmark misura le prestazioni di una combinazione di operazioni di database di base che si verificano con maggiore frequenza in carichi di lavoro di elaborazione di transazioni online (OLTP). Benché il benchmark sia stato progettato tenendo conto del cloud computing, lo schema del database, il popolamento di dati e le transazioni sono stati progettati in modo da rappresentare a grandi linee gli elementi di base usati con maggiore frequenza con carichi di lavoro OLTP.
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
 Lo schema è progettato in modo da prevedere una varietà e una complessità sufficienti per supportare una vasta gamma di operazioni. Il benchmark viene eseguito a fronte di un database costituito da sei tabelle. Le tabelle rientrano in tre categorie, ovvero a dimensione fissa, ridimensionabili ed espandibili. Sono presenti due tabelle a dimensione fissa, tre tabelle ridimensionabili e una tabella espandibile. Le tabelle a dimensione fissa includono un numero costante di righe. Le tabelle ridimensionabili prevedono una cardinalità proporzionale alle prestazioni del database che però non cambia durante l'esecuzione del benchmark. La tabella espandibile ha le dimensioni di una tabella ridimensionabile con carico iniziale, ma successivamente la cardinalità cambia nel corso dell'esecuzione del benchmark con l'inserimento e l'eliminazione di righe.
 
@@ -104,7 +103,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | DESCRIZIONE |
+| Tipo di transazione | Descrizione |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |
@@ -113,14 +112,14 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Eliminare |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
 
 Le transazioni vengono selezionate casualmente da una distribuzione ponderata con la seguente combinazione globale. La combinazione globale presenta un rapporto di lettura/scrittura di circa 2:1.
 
-| Tipo di transazione | % di combinazione |
+| Tipo transazione | % di combinazione |
 | --- | --- |
 | Operazioni lettura leggere |35 |
 | Operazioni lettura medie |20 |
@@ -129,7 +128,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Delete |2 |
+| Eliminare |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità
@@ -156,7 +155,7 @@ Ad esempio, un database con fattore di scala pari a 500 (SF=500) avrà 100 utent
 
 Per l'esecuzione di un benchmark valido è necessaria una durata della misurazione in condizioni stabili di almeno un'ora.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 La metrica di base del benchmark è rappresentata dalla velocità effettiva e dal tempo di risposta.
 

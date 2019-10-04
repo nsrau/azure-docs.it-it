@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64868115"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione Ricerca per il flusso di dati di mapping di Azure Data Factory
 
@@ -25,6 +25,10 @@ Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra o
 Selezionare i campi chiave per individuare la corrispondenza tra i campi del flusso in ingresso e i campi dall'origine di riferimento. È necessario avere già creato una nuova origine nell'area di progettazione del flusso di dati da usare come lato destro per la ricerca.
 
 Quando vengono trovate corrispondenze, le righe e le colonne risultanti dall'origine di riferimento verranno aggiunte al flusso di dati. È possibile scegliere i campi di interesse da includere nel sink alla fine del flusso di dati.
+
+## <a name="match--no-match"></a>Corrispondenza / Nessuna corrispondenza
+
+Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga della corrispondenza tramite la funzione di espressione `isMatch()` effettuare altre scelte nella logica di base o meno la ricerca ha restituito una corrispondenza di riga o non.
 
 ## <a name="optimizations"></a>Ottimizzazioni
 

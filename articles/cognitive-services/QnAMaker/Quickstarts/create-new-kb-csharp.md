@@ -1,6 +1,6 @@
 ---
-title: 'Creare la knowledge base: REST, C#'
-titlesuffix: QnA Maker- Azure Cognitive Services
+title: 'Guida introduttiva: Creare una knowledge base in REST, C# - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva basata su C# REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
@@ -9,23 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 86acf4586fc7d6ae630a5a84a8c9d0e8e00c7e99
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16e1c96da8fa35a4e8aaa8ce91da1c7976291079
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861823"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261918"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Avvio rapido: Creare una knowledge base in QnA Maker con C#
 
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
-* [Create Knowledgebase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
-* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
-* [Pubblica](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Create Knowledgebase](https://go.microsoft.com/fwlink/?linkid=2092179) (Creare la knowledge base)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)
+* [Pubblica](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,24 +49,26 @@ All'inizio di Program.cs sostituire la singola istruzione using con le righe seg
 
 Nella parte superiore della classe Program, aggiungere le costanti seguenti per accedere a QnA Maker:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-24 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 
 ## <a name="add-the-kb-definition"></a>Aggiungere la definizione di knowledge base
 
 Dopo le costanti, aggiungere la definizione di knowledge base seguente:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=32-57 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=28-58 "Add the knowledge base definition")]
 
 ## <a name="add-supporting-functions-and-structures"></a>Aggiungere strutture e funzioni di supporto
 Aggiungere il blocco di codice seguente all'interno della classe Program:
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=62-82 "Add supporting functions and structures")]
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=60-99 "Add supporting functions and structures")]
 
 ## <a name="add-a-post-request-to-create-kb"></a>Aggiungere una richiesta POST per creare la knowledge base
 
 Nel codice seguente viene effettuata una richiesta HTTPS all'API QnA Maker per creare una knowledge base e viene ricevuta la risposta:
 
-[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
+[!code-csharp[Add PostCreateKB to request via POST](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=145-165 "Add PostCreateKB to request via POST")]
+
+[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=101-122 "Add a POST request to create KB")]
 
 Questa chiamata API restituisce una risposta JSON che include l'ID operazione. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
 
@@ -84,7 +86,9 @@ Questa chiamata API restituisce una risposta JSON che include l'ID operazione. U
 
 Verificare lo stato dell'operazione.
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=159-170 "Add GET request to determine creation status")]
+[!code-csharp[Add GetStatus to request via GET](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=167-187 "Add GetStatus to request via GET")]
+
+[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=124-143 "Add GET request to determine creation status")]
 
 Questa chiamata API restituisce una risposta JSON che include lo stato dell'operazione: 
 
@@ -115,13 +119,13 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 
 Il metodo seguente consente di creare la knowledge base e ripetere i controlli sullo stato.  Viene restituito l'_ID operazione_ **create** nel campo di intestazione della risposta POST **Location**, quindi usato come parte della route nella richiesta GET. Dal momento che la creazione della knowledge base può richiedere tempo, è necessario ripetere le chiamate per controllare lo stato fino a quando questo indica un esito positivo o negativo dell'operazione. Quando l'operazione riesce, viene restituito l'ID della knowledge base in **resourceLocation**. 
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=189-254 "Add CreateKB method")]
 
 ## <a name="add-the-createkb-method-to-main"></a>Aggiungere il metodo CreateKB a Main
 
 Modificare il metodo Main in modo che chiami il metodo CreateKB:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=239-248 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=256-265 "Add CreateKB method")]
 
 ## <a name="build-and-run-the-program"></a>Compilare ed eseguire il programma
 
@@ -135,4 +139,4 @@ Dopo aver creato la knowledge base, è possibile visualizzarla nella pagina [My 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

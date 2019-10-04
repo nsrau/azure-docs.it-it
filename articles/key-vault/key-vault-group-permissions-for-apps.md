@@ -2,23 +2,19 @@
 title: Concedere a molte applicazioni l'autorizzazione ad accedere a un insieme di credenziali delle chiavi di Azure - Azure Key Vault | Microsoft Docs
 description: Informazioni su come concedere a molte applicazioni l'autorizzazione per accedere a Key Vault
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e0008f6eb54dd690fda6833b96cda69fe8e1e954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 07ee544057ffeb0a5859cc771b124523ec79c9c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304966"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976408"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Concedere a più applicazioni l'accesso a un insieme di credenziali delle chiavi
 

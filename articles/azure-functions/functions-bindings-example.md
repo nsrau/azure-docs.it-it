@@ -1,25 +1,24 @@
 ---
-title: Esempio di trigger e associazione di funzioni Azure
+title: Esempio di trigger e binding di funzioni di Azure
 description: Informazioni su come configurare le associazioni di funzioni di Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740251"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097480"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e associazione di funzioni Azure
+# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e binding di funzioni di Azure
 
-Questo articolo viene illustrato come configurare un [trigger e associazioni](./functions-triggers-bindings.md) in una funzione di Azure.
+Questo articolo illustra come configurare un [trigger e le associazioni](./functions-triggers-bindings.md) in una funzione di Azure.
 
 Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger di archiviazione code di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
@@ -87,7 +86,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Esempio JavaScript
 
-Lo stesso *Function. JSON* file può essere usato con una funzione JavaScript:
+Lo stesso file *Function. JSON* può essere usato con una funzione JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -107,7 +106,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Esempio di libreria di classi
 
-In una libreria di classi le stesse informazioni sui trigger e sulle associazioni, ovvero i nomi di coda e tabella, gli account di archiviazione, i parametri di funzione per l'input e l'output, vengono fornite dagli attributi anziché da un file function.json. Ad esempio:
+In una libreria di classi le stesse informazioni sui trigger e sulle associazioni, ovvero i nomi di coda e tabella, gli account di archiviazione, i parametri di funzione per l'input e l'output, vengono fornite dagli attributi anziché da un file function.json. Di seguito è riportato un esempio:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -135,9 +134,9 @@ public class Person
 }
 ```
 
-È ora disponibile una funzione lavoro che viene attivata dall'archiviazione tabelle di Azure che invia dati a una coda.
+È ora disponibile una funzione funzionante che viene attivata da una coda di Azure e restituisce i dati nell'archiviazione tabelle di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [I modelli di espressione di associazione di funzioni di Azure](./functions-bindings-expressions-patterns.md)
+> [Modelli di espressione di binding di funzioni di Azure](./functions-bindings-expressions-patterns.md)

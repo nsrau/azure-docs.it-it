@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784057"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899727"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
@@ -29,7 +28,7 @@ Il Database SQL di Azure si basa sull'architettura del motore di database di SQL
 - Business critical/Premium
 - Hyperscale
 
-Il modello di servizio Premium/Business critical è basato su un cluster di processi del motore di database. Questo modello di architettura si basa sul fatto che c’è sempre un quorum di nodi di motore di database disponibili e ha un impatto minimo sulle prestazioni sul carico di lavoro anche durante le attività di manutenzione.
+Il modello di livello di servizio Premium/Business critical è basato su un cluster di processi del motore di database. Questo modello di architettura si basa sul fatto che c’è sempre un quorum di nodi di motore di database disponibili e ha un impatto minimo sulle prestazioni sul carico di lavoro anche durante le attività di manutenzione.
 
 Azure aggiorna e applica le patch al sistema operativo, ai driver e al motore di database di SQL Server in modo trasparente con tempi di inattività minimi per gli utenti finali. 
 
@@ -47,8 +46,20 @@ Inoltre, nel cluster business critical è integrata una funzionalità di [scalab
 
 Il livello di servizio Business critical è progettato per le applicazioni che richiedono risposte a bassa latenza dalla risorsa di archiviazione SSD sottostante (in media 1-2 ms) e ripristino rapido in caso di errore dell'infrastruttura sottostante o che devono delegare report, analisi e query di sola lettura alla replica secondaria leggibile gratuita del database primario.
 
+I motivi principali per cui è consigliabile scegliere business critical livello di servizio anziché per utilizzo generico livello sono:
+-   Requisiti di latenza IO Bassi: il carico di lavoro che richiede la risposta rapida dal livello di archiviazione (1-2 millisecondi in media) deve usare business critical livello. 
+-   Comunicazione frequente tra l'applicazione e il database. Un'applicazione che non può sfruttare la memorizzazione nella cache a livello di applicazione o la richiesta di invio in [batch](sql-database-use-batching-to-improve-performance.md) e la necessità di inviare molte query SQL che devono essere elaborate rapidamente sono candidati ottimali per business critical livello.
+-   Un numero elevato di aggiornamenti: le operazioni di inserimento, aggiornamento ed eliminazione consentono di modificare le pagine di dati in memoria (pagina dirty) che devono essere `CHECKPOINT` salvate nei file di dati con l'operazione. Un potenziale arresto anomalo del processo del motore di database o un failover del database con un numero elevato di pagine dirty potrebbe aumentare il tempo di recupero nel livello per utilizzo generico. Usare business critical livello se si ha un carico di lavoro che causa molte modifiche in memoria. 
+-   Transazioni con esecuzione prolungata che modificano i dati. Le transazioni aperte per un periodo di tempo più lungo impediscono il troncamento del file di log che potrebbe aumentare le dimensioni del log e il numero di [file di log virtuali (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un numero elevato di VLF può rallentare il recupero del database dopo il failover.
+-   Carico di lavoro con query di Reporting e analisi che possono essere reindirizzate alla replica secondaria di sola lettura gratuita.
+- Maggiore resilienza e ripristino più rapido dagli errori. In caso di errore di sistema, il database nell'istanza primaria verrà disabilitato e una delle repliche secondarie diventerà immediatamente un nuovo database primario di lettura/scrittura pronto per l'elaborazione delle query. Il motore di database non deve analizzare e ripristinare le transazioni dal file di log e caricare tutti i dati nel buffer di memoria.
+- Protezione avanzata per il danneggiamento dei dati: il livello business critical sfrutta le repliche di database in background per la continuità aziendale, quindi il servizio utilizza anche la correzione automatica della pagina, che è la stessa tecnologia utilizzata per SQL Server database [mirroring e gruppi di disponibilità](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). Se una replica non è in grado di leggere una pagina a causa di un problema di integrità dei dati, una copia aggiornata della pagina verrà recuperata da un'altra replica, sostituendo la pagina illeggibile senza perdita di dati o tempi di inattività del cliente. Questa funzionalità è applicabile nel livello per utilizzo generico se il database ha una replica geografica secondaria.
+- Maggiore disponibilità: il livello business critical nella configurazione multiaz garantisce una disponibilità del 99,995% rispetto al 99,99% del livello per utilizzo generico.
+- Ripristino geografico rapido: il livello di business critical configurato con la replica geografica ha un obiettivo del punto di ripristino (RPO) garantito di 5 secondi e obiettivo del tempo di ripristino (RTO) di 30 secondi per il 100% delle ore distribuite.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Trovare le caratteristiche delle risorse (numero di core, i/o, memoria) del livello business critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), database singolo nel modello [Vcore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) o [modello DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)o pool elastico nel modello [vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modello DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Informazioni sui livelli [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

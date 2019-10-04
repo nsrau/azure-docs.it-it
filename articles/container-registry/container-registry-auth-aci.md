@@ -3,16 +3,17 @@ title: Eseguire l'autenticazione con Registro Azure Container da Istanze di Azur
 description: Informazioni su come fornire l'accesso alle immagini nel registro del contenitore privato da Istanze di Azure Container usando un'entità del servizio Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390672"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311633"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 

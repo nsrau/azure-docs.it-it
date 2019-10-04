@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.topic: conceptual
+ms.openlocfilehash: f4af52907ab2e950636dea0874b49500f3a6b587
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733717"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613447"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizzare le regole del web application firewall con il portale di Azure
 
@@ -33,11 +34,14 @@ Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la 
 
 ## <a name="search-for-rules-to-disable"></a>Ricerca di regole da disabilitare
 
-Il pannello delle **Impostazioni del Web application firewall** offre la possibilità di filtrare le regole tramite una ricerca di testo. Il risultato visualizza solo le regole e i gruppi di regole contenenti il testo ricercato.
+Il **impostazioni firewall applicazione Web** pagina offre la possibilità di filtrare le regole tramite una ricerca di testo. Il risultato visualizza solo le regole e i gruppi di regole contenenti il testo ricercato.
 
 ![Cercare le regole][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Disabilitare le regole e i gruppi di regole
+
+> [!IMPORTANT]
+> Prestare attenzione quando si disabilita tutti i gruppi di regole o regole. Ciò potrebbe esporre è un aumento dei rischi di sicurezza.
 
 Quando si sta disattivando le regole, è possibile disabilitare un intero gruppo di regole o regole specifiche in uno o più gruppi di regole. 
 
@@ -51,7 +55,9 @@ Quando si sta disattivando le regole, è possibile disabilitare un intero gruppo
 
 ## <a name="mandatory-rules"></a>Regole obbligatorie
 
-Nell'elenco seguente contiene le condizioni che causano il firewall WAF bloccare la richiesta in modalità di prevenzione (in modalità di rilevamento vengono registrati come eccezioni). Questi non può essere configurati o disabilitati:
+Nell'elenco seguente contiene le condizioni che causano il firewall WAF bloccare la richiesta in modalità di prevenzione. In modalità di rilevamento, si è connessi come eccezioni.
+
+Questi non può essere configurati o disabilitati:
 
 * Impossibile analizzare il corpo della richiesta comporta la richiesta viene bloccata, a meno che non ispezione del corpo è disattivata (XML, JSON, i dati del modulo)
 * Lunghezza dei dati del corpo (con nessun file) della richiesta è supera al limite configurato

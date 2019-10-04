@@ -1,15 +1,15 @@
 ---
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: danlep
-ms.openlocfilehash: a8ea55a40f1ee4681b6aec147e02b7bce6f1d7cf
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.author: lahugh
+ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279699"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180497"
 ---
 ### <a name="retrieve-output-files"></a>Recuperare i file di output
 

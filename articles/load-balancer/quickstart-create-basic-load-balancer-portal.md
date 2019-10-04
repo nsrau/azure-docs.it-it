@@ -1,10 +1,10 @@
 ---
-title: 'Guida introduttiva: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure'
+title: 'Avvio rapido: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure'
 titlesuffix: Azure Load Balancer
 description: In questo avvio rapido si apprende come creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507924"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274091"
 ---
-# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Load Balancer Basic usando il portale di Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Avvio rapido: Creare un servizio Load Balancer Basic usando il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra le macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico e bilanciare il traffico tra le macchine virtuali. Questo argomento di avvio rapido illustra come creare e configurare un servizio di bilanciamento del carico, i server back-end e le risorse di rete con il piano tariffario Basic.
 
@@ -41,7 +41,7 @@ Creare prima di tutto un servizio Load Balancer Basic pubblico usando il portale
     | ---                     | ---                                                |
     | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
     | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
-    | Name                   | *myLoadBalancer*                                   |
+    | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Selezionare **Basic**.                          |
@@ -235,21 +235,27 @@ Installare Internet Information Services (IIS) nelle macchine virtuali per testa
    
    Il desktop della macchina virtuale viene aperto in una nuova finestra. 
    
-**Per installare IIS nella macchina virtuale:**
+**Per installare IIS**
 
-1. Se **Server Manager** non è già aperto nel desktop del server, passare a **Strumenti di amministrazione Windows** > **Server Manager**.
-   
-1. In **Server Manager** selezionare **Aggiungi ruoli e funzionalità**.
-   
-   ![Aggiunta del ruolo di Server Manager](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. Nell'**Aggiunta guidata ruoli e funzionalità**:
-   1. Nella pagina **Selezione tipo di installazione** fare clic su **Installazione basata su ruoli o basata su funzionalità**.
-   1. Nella pagina **Selezione server di destinazione** fare clic su **MyVM1**.
-   1. Nella pagina **Selezionare un ruolo del server** selezionare **Server Web (IIS)**. 
-   1. Alla richiesta di installazione degli strumenti necessari, selezionare **Aggiungi funzionalità**. 
-   1. Accettare le impostazioni predefinite e selezionare **Installa**. 
-   1. Al termine dell'installazione delle funzionalità, selezionare **Chiudi**. 
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse *myResourceGroupSLB*.
+2. Nella pagina **Panoramica** selezionare **Connetti** per connettersi a RDP nella macchina virtuale.
+5. Accedere alla VM con le credenziali fornite durante la creazione di questa VM. Verrà avviata una sessione Desktop remoto con la macchina virtuale *myVM1*.
+6. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Windows PowerShell**.
+7. Nella finestra di PowerShell eseguire i comandi seguenti per installare il server IIS, rimuovere il file predefinito iisstart.htm e aggiungere un nuovo file iisstart.htm che visualizza il nome della macchina virtuale:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Chiudere la sessione RDP con *myVM1*.
+7. Ripetere i passaggi da 1 a 6 per installare IIS e il file iisstart.htm aggiornato in *myVM2*.
    
 1. Ripetere i passaggi per la macchina virtuale **MyVM2**, impostando però il server di destinazione su **MyVM2**.
 
@@ -257,9 +263,9 @@ Installare Internet Information Services (IIS) nelle macchine virtuali per testa
 
 Aprire un Web browser e incollare l'indirizzo IP pubblico del servizio di bilanciamento del carico nella barra degli indirizzi del browser. Nel browser verrà visualizzata la pagina predefinita del server Web IIS.
 
-![Server Web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![Server Web IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Per verificare la distribuzione del traffico tra tutte e tre le VM che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser.
+Per verificare la distribuzione del traffico tra entrambe le VM che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser.
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per eliminare il servizio di bilanciamento del carico e tutte le risorse correlate quando non sono più necessari, aprire il gruppo di risorse **MyResourceGroupLB** e selezionare **Elimina gruppo di risorse**.

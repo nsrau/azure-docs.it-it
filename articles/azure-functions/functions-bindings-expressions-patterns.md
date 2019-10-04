@@ -1,25 +1,24 @@
 ---
-title: Modelli ed espressioni di associazioni di funzioni azure
+title: Espressioni e modelli di associazioni di funzioni di Azure
 description: Informazioni su come creare diverse espressioni di associazione di funzioni di Azure basate su modelli comuni.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: db6f4f938b1555091dc51e310d4d31f96f93200c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887183"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097346"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>I modelli di espressione di associazione di funzioni di Azure
+# <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
-Una delle funzionalità più potenti della [trigger e associazioni](./functions-triggers-bindings.md) viene *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
+Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
 
 Quasi tutte le espressioni sono identificate tramite la disposizione del testo tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
 
@@ -312,4 +311,4 @@ In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperat
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Usando il valore restituito di funzione di Azure](./functions-bindings-return-value.md)
+> [Uso del valore restituito della funzione di Azure](./functions-bindings-return-value.md)

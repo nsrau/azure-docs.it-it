@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473872"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880804"
 ---
 # <a name="add-your-work-or-school-account"></a>Aggiungere l'account aziendale o dell'istituto di istruzione
+
 Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'account aziendale o dell'istituto di istruzione in modo da usare l'app Microsoft Authenticator come uno dei metodi di verifica.
 
 >[!Important]
@@ -30,15 +31,18 @@ Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'acco
 1. Nel computer in uso andare alla pagina [Verifica aggiuntiva di sicurezza](https://aka.ms/mfasetup).
 
     >[!Note]
-    >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altre informazioni sulle tue info di sicurezza, vedere [Panoramica della sicurezza info (anteprima)](user-help-security-info-overview.md).
+    >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altre informazioni sulle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).
 
 2. Selezionare la casella accanto ad **App Authenticator** e quindi selezionare **Configura**.
 
     Viene visualizzata la pagina **Configurare l'app per dispositivi mobili**.
-    
+
     ![Schermata contenente il codice a matrice](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Account aziendale o dell'istituto di istruzione**.
+
+    >[!Note]
+    >Se è la prima volta che si configura l'app Microsoft Authenticator, è possibile che venga visualizzato un messaggio che chiede se consentire all'app di accedere alla fotocamera (iOS) o per consentire all'app di scattare foto e registrare video (Android). È necessario selezionare **Consenti** , in modo che l'app Authenticator possa accedere alla fotocamera per scattare un'immagine del codice a matrice nel passaggio successivo. Se non si consente la fotocamera, è comunque possibile configurare l'app Authenticator, ma è necessario aggiungere manualmente le informazioni sul codice. Per informazioni su come aggiungere manualmente il codice, vedere vedere [aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 4. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla schermata **Configura l'app per dispositivi mobili** del computer e quindi scegliere **Fine**.
 

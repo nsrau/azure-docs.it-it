@@ -4,7 +4,6 @@ description: Autenticare le app sul bus di servizio usando l'autenticazione con 
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7c5a45504b7c44d97ff2250663ef9c47ef6e3595
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851556"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013238"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
 
@@ -30,8 +29,19 @@ I token della firma di accesso condiviso possono essere generati direttamente da
 > [!IMPORTANT]
 > Se si usa il controllo di accesso di Azure Active Directory, anche noto come Servizio di controllo di accesso o ACS, con il bus di servizio, si noti che il supporto per questo metodo è ora limitato ed è necessario eseguire la migrazione dell'applicazione per l'uso di SAS. Per altre informazioni, vedere [questo post di blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e [questo articolo](service-bus-migrate-acs-sas.md).
 
-## <a name="shared-access-signature-authentication"></a>Autenticazione della firma di accesso condiviso
+## <a name="azure-active-directory"></a>Azure Active Directory
+L'integrazione di Azure Active Directory (Azure AD) per le risorse del bus di servizio fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa del bus di servizio (coda, argomento e così via).
 
+Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:
+
+- [Eseguire l'autenticazione con identità gestite](service-bus-managed-service-identity.md)
+- [Eseguire l'autenticazione da un'applicazione](authenticate-application.md)
+
+> [!IMPORTANT]
+> L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza. Quando possibile, è consigliabile usare Azure AD con le applicazioni del bus di servizio di Azure. 
+
+
+## <a name="shared-access-signature"></a>Firma di accesso condiviso
 L'[autenticazione della firma di accesso condiviso](service-bus-sas.md) garantisce l'accesso dell'utente alle risorse del bus di servizio con diritti specifici. Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa del bus di servizio. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
 
 È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi del bus di servizio. La chiave si applica a tutte le entità di messaggistica nello spazio dei nomi. È anche possibile configurare le chiavi nelle code e negli argomenti del bus di servizio. SAS è anche supportato in [Inoltro di Azure](../service-bus-relay/relay-authentication-and-authorization.md).

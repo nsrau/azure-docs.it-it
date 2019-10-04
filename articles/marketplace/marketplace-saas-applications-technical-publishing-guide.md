@@ -2,24 +2,17 @@
 title: Guida tecnica alla pubblicazione di applicazioni SaaS in Azure Marketplace
 description: Guida dettagliata ed elenchi di controllo per la pubblicazione di applicazioni SaaS in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.author: kevidal
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213620"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742265"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -32,15 +25,15 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | Vetrina | Elenco | Versione di valutazione/Transazione |  
 | --- | --- | --- |  
 | AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
-| Azure Marketplace | No  | Sì (app SaaS) |   
+| Azure Marketplace | No | Sì (app SaaS) |   
 
 **Elenco**:  L'opzione di pubblicazione Elenco consiste in un'offerta di tipo Contattami e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
 **Versione di valutazione/Transazione**:  il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Sì | No  |  
-| **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
+| **Contatta** | Yes | No |  
+| **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
 | **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
@@ -101,7 +94,7 @@ Azure Active Directory fornisce inoltre un sito in cui verificare la disponibili
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
-Microsoft usa Azure AD per autenticare tutti gli utenti di Marketplace. Pertanto, quando un utente autenticato fa clic su un'inserzione relativa a una versione di valutazione in Marketplace e viene reindirizzato all'ambiente di valutazione, l'editore può consentire all'utente di accedere direttamente a tale ambiente senza richiedere un altro passaggio di accesso. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft autentica tutti gli utenti del Marketplace con Azure AD. Pertanto, quando un utente autenticato fa clic sull'inserzione della versione di valutazione nel Marketplace e viene reindirizzato all'ambiente di valutazione, è possibile effettuare il provisioning dell'utente direttamente in una versione di valutazione senza richiedere una passaggio di accesso aggiuntivo. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla versione di valutazione offre i vantaggi seguenti:  
 * Consente di ottimizzare l'esperienza di accesso dei clienti da Marketplace alla versione di valutazione.  
@@ -111,7 +104,7 @@ L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificazione dell'integrazione di Azure AD per Marketplace  
 
-È possibile certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia single-tenant o multi-tenant e che sia già previsto o meno il supporto per l'accesso Single Sign-On (SSO) federato di Azure AD.  
+Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia a tenant singolo o multi-tenant e che non si abbia familiarità con Azure AD Single Sign-on (SSO) federato oppure che sia già supportata.  
 
 **Per le applicazioni multi-tenant:**  
 
@@ -133,19 +126,19 @@ Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire quest
 ## <a name="saas-subscriptions"></a>Sottoscrizioni SaaS
 
 Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. Per l'app SaaS è necessario soddisfare i requisiti seguenti:
-- Prezzo e costi del servizio con tariffe fisse mensili.
+- Prezzo e fatturazione per il servizio a un piano (mensile o annuale) o a una tariffa per utente.
 - Fornire un metodo per aggiornare o annullare il servizio in qualsiasi momento.
-Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al cliente per conto dell'utente. Per usare un'app SaaS sotto forma di sottoscrizione, è necessario abilitare la propria API del servizio di gestione della sottoscrizione. L'API del servizio di gestione della sottoscrizione deve comunicare direttamente con le API di Azure Resource Manager. L'API del servizio di gestione della sottoscrizione deve supportare il provisioning, l'aggiornamento e l'annullamento del servizio.
+Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al cliente per conto dell'utente. Per offrire un'app SaaS come sottoscrizione, è necessario eseguire l'integrazione con le API di evasione SaaS.  Il servizio deve supportare il provisioning, l'aggiornamento e l'annullamento.
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
-|Fatturazione e misurazione | Per l'offerta è prevista una tariffa fissa mensile. Non sono attualmente supportati prezzi basati sull'utilizzo e funzionalità per il calcolo dell'utilizzo effettivo. |  
+|Fatturazione e misurazione | Il prezzo dell'offerta è basato sul modello di determinazione dei prezzi selezionato prima della pubblicazione (tariffa fissa o per utente).  Se si usa il modello di frequenza fissa, è possibile includere facoltativamente dimensioni aggiuntive usate per addebitare ai clienti l'utilizzo non incluso nella tariffa fissa. |  
 |Annullamento | L'offerta può essere annullata dal cliente in qualsiasi momento. |  
 |Pagina di destinazione delle transazioni | L'editore ospita una pagina di destinazione delle transazioni di Azure con co-branding in cui gli utenti possono creare e gestire il proprio account per il servizio SaaS. |   
 | API della sottoscrizione | L'editore espone un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. |  
 
 >[!Note]
->Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
+>Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](./cloud-solution-providers.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto,
@@ -155,4 +148,4 @@ Se non è già stato fatto,
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
 - [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
-- Vedere [Offerta di applicazioni SaaS di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) per altre informazioni.
+- Vedere [Offerta di applicazioni SaaS di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) per altre informazioni.

@@ -6,39 +6,40 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.topic: conceptual
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523920"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240347"
 ---
-# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Le regole e gruppi di regole CRS di web application firewall
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regole e gruppi di regole CRS del Web Application Firewall
 
-Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. Questa operazione viene eseguita attraverso regole definite in base a OWASP core rule set 2.2.9 o 3.0. Queste regole possono essere disabilitate singolarmente. Questo articolo contiene le regole e i set di regole attualmente offerti.
+Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. Questa operazione viene eseguita tramite regole definite in base ai set di regole OWASP Core 3,0 o 2.2.9. Queste regole possono essere disabilitate singolarmente. Questo articolo contiene le regole e i set di regole attualmente offerti.
 
-I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gateway applicazione con web application firewall.
+Le regole e i gruppi di regole seguenti sono disponibili quando si usa il gateway applicazione con web application firewall.
 
 # <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
 
-## <a name="owasp30"></a> Set di regole
+## <a name="owasp30"></a>Set di regole
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Generale</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |200004|Possibile limite multiparte senza corrispondenza.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |911100|Metodo non consentito da criteri|
 
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |913100|Trovato agente utente associato ad analisi della sicurezza|
 |913110|Trovata intestazione della richiesta associata ad analisi della sicurezza|
@@ -48,11 +49,11 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |920100|Riga della richiesta HTTP non valida|
 |920130|Impossibile analizzare corpo della richiesta|
-|920140|Il corpo della richiesta multipart non è stato possibile convalida ristretta|
+|920140|Convalida del corpo della richiesta multipart non riuscita|
 |920160|Intestazione HTTP Content-Length non numerica|
 |920170|Richiesta GET o HEAD con contenuto del corpo|
 |920180|Richiesta POST senza intestazione Content-Length|
@@ -90,11 +91,11 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 |920202|Intervallo: troppi campi per richiesta PDF (6 o più)|
 |920273|Carattere non valido nella richiesta (non compreso in set molto restrittivo)|
 |920274|Carattere non valido nelle intestazioni della richiesta (non compreso in set con restrizioni elevate)|
-|920460|Caratteri di escape anomala|
+|920460|Caratteri di escape anomali|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |921100|Attacco di tipo HTTP Request Smuggling|
 |921110|Attacco di tipo HTTP Request Smuggling|
@@ -104,12 +105,12 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 |921150|Attacco di tipo HTTP Header Injection tramite payload (rilevato CR/LF)|
 |921160|Attacco di tipo HTTP Header Injection tramite payload (rilevati CR/LF e nome intestazione)|
 |921151|Attacco di tipo HTTP Header Injection tramite payload (rilevato CR/LF)|
-|921170|Parametri HTTP|
+|921170|Inquinamento parametri HTTP|
 |921180|Accesso non autorizzato a parametri HTTP (%@{TX.1})|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |930100|Attacco di tipo Path Traversal (/../)|
 |930110|Attacco di tipo Path Traversal (/../)|
@@ -118,7 +119,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |931100|Possibile attacco di tipo Remote File Inclusion (RFI): parametro URL con indirizzo IP|
 |931110|Possibile attacco di tipo Remote File Inclusion (RFI): nome parametro vulnerabile a RFI comune usato con payload URL|
@@ -127,7 +128,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |932120|Esecuzione comandi in remoto: trovato comando di Windows PowerShell|
 |932130|Esecuzione comandi in remoto: trovata espressione shell Unix|
@@ -138,7 +139,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |933100|Attacco PHP injection: trovato tag di apertura/chiusura|
 |933110|Attacco PHP injection: trovato caricamento file script PHP|
@@ -154,7 +155,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |941100|Rilevato attacco XSS tramite libinjection|
 |941110|Filtro XSS, categoria 1: vettore tag script|
@@ -163,16 +164,16 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 |941150|Filtro XSS, categoria 5: attributi HTML non consentiti|
 |941180|Parole chiave in blacklist convalida nodi|
 |941190|XSS con fogli di stile|
-|941200|Usando i fotogrammi VML XSS|
-|941210|XSS tramite Javascript offuscati|
-|941220|XSS tramite offuscato Script VB|
-|941230|XSS usando 'incorporare' tag|
-|941240|XSS usando l'attributo 'import' o 'implementation'|
-|941260|XSS tramite tag 'meta'|
-|941270|XSS usando "link" href|
-|941280|XSS usando tag 'base'|
-|941290|XSS usando tag 'applet'|
-|941300|XSS usando tag 'object'|
+|941200|XSS con frame la|
+|941210|XSS con JavaScript offuscato|
+|941220|XSS con script VB offuscato|
+|941230|XSS con tag ' embed '|
+|941240|XSS con attributo ' Import ' o ' implementation '|
+|941260|XSS con tag ' meta '|
+|941270|XSS con ' link ' href|
+|941280|XSS con tag ' base '|
+|941290|XSS con tag ' applet '|
+|941300|XSS con tag ' Object '|
 |941310|Filtro XSS per codifica US-ASCII in formato non valido: rilevato attacco|
 |941330|Filtri XSS IE: rilevato attacco|
 |941340|Filtri XSS IE: rilevato attacco|
@@ -181,7 +182,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |942100|Rilevato attacco SQL injection tramite libinjection|
 |942110|Attacco SQL injection: rilevato test injection comune|
@@ -196,6 +197,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 |942270|Ricerca di SQL injection di base. Stringa di attacco comune per MySQL, Oracle e altri|
 |942290|Ricerca tentativi di SQL injection di base in MongoDB|
 |942300|Rileva ch(a)r injection, condizioni e commenti MySQL|
+|942310|Rileva i tentativi di inserimento SQL injection concatenati 2/2|
 |942320|Rilevamento inserimenti di stored procedure/funzioni MySQL e PostgreSQL|
 |942330|Rileva sondaggi di SQL injection classici (1/2)|
 |942340|Rileva tentativi di ignorare l'autenticazione SQL di base (3/3)|
@@ -212,7 +214,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |943100|Possibile attacco di tipo Session Fixation: impostazione valori cookie in HTML|
 |943110|Possibile attacco di tipo Session Fixation: nome parametro SessionID con referrer fuori dominio|
@@ -220,16 +222,16 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 # <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="owasp229"></a> Set di regole
+## <a name="owasp229"></a>Set di regole
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960911|Riga della richiesta HTTP non valida|
 |981227|Errore Apache: URI non valido nella richiesta|
 |960912|Impossibile analizzare corpo della richiesta|
-|960914|Il corpo della richiesta multipart non è stato possibile convalida ristretta|
+|960914|Convalida del corpo della richiesta multipart non riuscita|
 |960915|Il parser multiparte ha rilevato un possibile limite senza corrispondenza|
 |960016|Intestazione HTTP Content-Length non numerica|
 |960011|Richiesta GET o HEAD con contenuto del corpo|
@@ -250,7 +252,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960008|Richiesta senza intestazione host|
 |960007|Intestazione host vuota|
@@ -263,7 +265,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960209|Nome argomento troppo lungo|
 |960208|Valore argomento troppo lungo|
@@ -274,7 +276,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960032|Metodo non consentito da criteri|
 |960010|Tipo di contenuto della richiesta non consentito da criteri|
@@ -284,7 +286,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |990002|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
 |990901|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
@@ -293,7 +295,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960024|Avviso di rilevamento anomalie metacaratteri: caratteri non alfanumerici ripetitivi|
 |950008|Inserimento di tag ColdFusion non documentati|
@@ -322,7 +324,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |981231|Rilevata sequenza commenti SQL|
 |981260|Identificata codifica esadecimale SQL|
@@ -359,7 +361,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |973336|Filtro XSS, categoria 1: vettore tag script|
 |973338|Filtro XSS, categoria 3: vettore URI Javascript|
@@ -464,13 +466,13 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |950103|Attacco di tipo Path Traversal|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |950110|Accesso backdoor|
 |950921|Accesso backdoor|
@@ -480,4 +482,4 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come disabilitare le regole del WAF: [Personalizzare le regole del web application firewall](application-gateway-customize-waf-rules-portal.md)
+Informazioni su come disabilitare le regole WAF: [Personalizzare le regole del web application firewall](application-gateway-customize-waf-rules-portal.md)

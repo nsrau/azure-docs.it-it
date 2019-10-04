@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472858"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305418"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -22,8 +22,6 @@ Questo articolo descrive come usare i domini eventi per gestire il flusso di eve
 * Gestire l'autenticazione e l'autorizzazione.
 * Partizionare gli argomenti senza doverli gestire singolarmente.
 * Evitare di dover pubblicare singolarmente in ogni endpoint degli argomenti.
-
-Questa funzionalità è in anteprima. Per usarla, è necessario installare un modulo o un'estensione di anteprima. Per istruzioni, vedere [Gestire argomenti e pubblicare eventi con Domini eventi](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Panoramica del dominio eventi
 
@@ -49,7 +47,7 @@ Il controllo degli accessi in base al ruolo nei domini eventi funziona allo stes
 
 ### <a name="built-in-roles"></a>Ruoli predefiniti
 
-Griglia di eventi include due definizioni del ruolo predefinite per semplificare l'uso del controllo degli accessi in base al ruolo con i domini eventi. Questi ruoli sono **EventSubscription EventGrid Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)** e vengono assegnati a utenti che necessitano di sottoscrivere argomenti del dominio eventi del proprietario. L'assegnazione del ruolo va limitata solo all'argomento che gli utenti devono sottoscrivere.
+Griglia di eventi include due definizioni del ruolo predefinite per semplificare l'uso del controllo degli accessi in base al ruolo con i domini eventi. Questi ruoli sono **EventSubscription EventGrid Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)** e vengono assegnati a utenti che necessitano di sottoscrivere argomenti del dominio eventi del proprietario. È possibile definire l'ambito dell'assegnazione di ruolo solo per l'argomento a cui gli utenti devono sottoscrivere.
 
 Per informazioni su questi ruoli, vedere [Ruoli predefiniti per Griglia di eventi](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Ad esempio, pubblicando la matrice di eventi seguente, l'evento con `"id": "1111
 I domini eventi gestiscono automaticamente la pubblicazione negli argomenti. Invece di pubblicare gli eventi in ogni argomento gestito individualmente, è possibile pubblicare tutti gli eventi nell'endpoint del dominio. Griglia di eventi assicurerà che ogni evento venga inviato all'argomento corretto.
 
 ## <a name="limits-and-quotas"></a>Limiti e quote
+Di seguito sono riportati i limiti e le quote correlati ai domini eventi:
 
-### <a name="control-plane"></a>Piano di controllo
+- argomenti 100.000 per dominio evento 
+- 100 domini eventi per ogni sottoscrizione di Azure 
+- 500 sottoscrizioni di eventi per argomento in un dominio eventi
+- 50 sottoscrizioni ambito dominio 
+- frequenza di inserimento degli eventi 5.000 al secondo (in un dominio)
 
-Durante l'anteprima, i domini eventi sono limitati a 1.000 argomenti all'interno di un dominio e a 50 sottoscrizioni di eventi per ogni argomento all'interno di un dominio. Anche per le sottoscrizioni di ambiti di dominio eventi è previsto un limite di 50.
-
-### <a name="data-plane"></a>Piano dati
-
-Durante l'anteprima, la velocità effettiva degli eventi per un dominio eventi sarà limitata alla stessa velocità di inserimento di 5.000 eventi al secondo prevista per gli argomenti personalizzati.
+Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un [askgrid@microsoft.com](mailto:askgrid@microsoft.com)messaggio di posta elettronica a. 
 
 ## <a name="pricing"></a>Prezzi
-
-Durante l'anteprima, per i domini eventi vengono applicati gli stessi [prezzi per le operazioni](https://azure.microsoft.com/pricing/details/event-grid/) di tutte le altre funzionalità di Griglia di eventi.
+I domini degli eventi utilizzano gli stessi [prezzi delle operazioni](https://azure.microsoft.com/pricing/details/event-grid/) utilizzate da tutte le altre funzionalità di griglia di eventi.
 
 Nei domini eventi le operazioni funzionano come negli argomenti personalizzati. Ogni ingresso di un evento in un dominio eventi è un'operazione e ogni tentativo di recapito di un evento è un'operazione.
 

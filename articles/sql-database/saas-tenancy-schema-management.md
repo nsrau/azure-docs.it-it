@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081220"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570126"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
  
 Quando l'applicazione di database evolve, è necessario apportare modifiche allo schema di database o ai dati di riferimento  nonché eseguire periodicamente attività di manutenzione del database. La gestione di un'applicazione che usa il modello con un database per ogni tenant richiede di applicare le modifiche o le attività di manutenzione in una serie di database del tenant.
 
-Questa esercitazione illustra due scenari: distribuzione degli aggiornamenti dei dati di riferimento per tutti i tenant e ricompilazione di un indice per la tabella contenente i dati di riferimento. La funzionalità [processi elastici](sql-database-elastic-jobs-overview.md) consente di eseguire tali azioni su tutti i database del tenant e sul database modello usato per creare nuovi database tenant.
+Questa esercitazione illustra due scenari: distribuzione degli aggiornamenti dei dati di riferimento per tutti i tenant e ricompilazione di un indice per la tabella contenente i dati di riferimento. La funzionalità [processi elastici](elastic-jobs-overview.md) consente di eseguire tali azioni su tutti i database del tenant e sul database modello usato per creare nuovi database tenant.
 
 In questa esercitazione si apprenderà come:
 
@@ -46,7 +45,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
-Il modello con un database per ogni tenant consente di isolare i dati del tenant in modo efficace, ma aumenta il numero di database per cui eseguire gestione e manutenzione. Il servizio [Processi elastici](sql-database-elastic-jobs-overview.md) facilita l'amministrazione e la gestione dei database SQL. I processi consentono di eseguire in modo sicuro e affidabile attività (script T-SQL) in un gruppo di database. I processi possono anche distribuire modifiche ai dati di riferimento comuni e degli schemi in tutti i database tenant in un'applicazione. Il servizio Processi elastici può essere usato infine per gestire un database *modello* del database usato per creare nuovi tenant, assicurandosi che disponga sempre dello schema e dei dati di riferimento più recenti.
+Il modello con un database per ogni tenant consente di isolare i dati del tenant in modo efficace, ma aumenta il numero di database per cui eseguire gestione e manutenzione. Il servizio [Processi elastici](elastic-jobs-overview.md) facilita l'amministrazione e la gestione dei database SQL. I processi consentono di eseguire in modo sicuro e affidabile attività (script T-SQL) in un gruppo di database. I processi possono anche distribuire modifiche ai dati di riferimento comuni e degli schemi in tutti i database tenant in un'applicazione. Il servizio Processi elastici può essere usato infine per gestire un database *modello* del database usato per creare nuovi tenant, assicurandosi che disponga sempre dello schema e dei dati di riferimento più recenti.
 
 ![schermata](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -73,7 +72,7 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creare un processo per distribuire nuovi dati di riferimento a tutti i tenant
 
-Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  In questo esercizio, si distribuisce un aggiornamento per tutti i database tenant per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
+Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  In questo esercizio verrà distribuito un aggiornamento a tutti i database tenant per aggiungere altri due tipi di sede: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
@@ -86,12 +85,12 @@ Per creare un nuovo processo, usare un set di stored procedure di sistema per i 
 
 1. In SSMS connettersi al server di catalogo *catalog-dpt-&lt;user&gt;.database.windows.net* nel server 
 1. In SSMS, aprire il file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modificare l'istruzione: IMPOSTARE @wtpUser = &lt;utente&gt; e sostituire il valore utente usato durante la distribuzione dell'app Wingtip Tickets SaaS Database Per Tenant
-1. Assicurarsi di essere connessi per il _jobagent_ database e premere **F5** per eseguire lo script
+1. Modificare l'istruzione: SET @wtpUser = &lt;User&gt; e sostituisce il valore utente usato durante la distribuzione dell'app SaaS di database per tenant Wingtip Tickets
+1. Assicurarsi di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup.
-* **sp\_add\_target\_group\_member** viene usato per definire il set di database di destinazione.  Inizialmente viene aggiunto il server _tenants1-dpt-&lt;user&gt;_.  Se si aggiunge il server come destinazione, al momento dell'esecuzione del processo i database in tale server vengono inclusi nel processo stesso. A questo punto i database _basetenantdb_ e *adhocreporting* (usato in un'esercitazione successiva) vengono aggiunti come destinazione.
+* **sp\_add\_target\_group\_member** viene usato per definire il set di database di destinazione.  Inizialmente viene aggiunto il server _tenants1-dpt-&lt;user&gt;_ .  Se si aggiunge il server come destinazione, al momento dell'esecuzione del processo i database in tale server vengono inclusi nel processo stesso. A questo punto i database _basetenantdb_ e *adhocreporting* (usato in un'esercitazione successiva) vengono aggiunti come destinazione.
 * **sp\_add\_job** crea un processo denominato _Reference Data Deployment_.
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare la tabella di riferimento VenueTypes.
 * Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare il momento in cui l'esecuzione del processo termina in tutti i database di destinazione.
@@ -127,11 +126,10 @@ In questa esercitazione si è appreso come:
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Successivamente, provare il [reporting Ad hoc esercitazione](saas-tenancy-cross-tenant-reporting.md) per esaminare l'esecuzione di query distribuite tra tenant di database.
+Successivamente, provare l' [esercitazione per la creazione di report ad hoc](saas-tenancy-cross-tenant-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Altre esercitazioni basate sulla distribuzione dell'applicazione del database per tenant SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md)
-* [Creare e gestire database SQL di Azure con scalabilità orizzontale](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestione dei database cloud con scalabilità orizzontale](elastic-jobs-overview.md)

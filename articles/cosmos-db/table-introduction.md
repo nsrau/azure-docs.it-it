@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/20/2017
+ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 68190ad15ed70ac831c21582d60bc54da5d3c14b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043924"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967555"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -22,23 +22,26 @@ ms.locfileid: "54043924"
 * [Velocità effettiva dedicata](partition-data.md) in tutto il mondo.
 * Latenze pari a singole unità di millisecondi al 99° percentile.
 * Disponibilità elevata garantita.
-* [Indicizzazione secondaria automatica](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* Indicizzazione secondaria automatica.
 
 Le applicazioni scritte per l'archivio tabelle di Azure possono essere trasferite in Azure Cosmos DB usando l'API di tabella senza modifiche al codice e sfruttare quindi i vantaggi offerti dalle funzionalità Premium. L'API Tabelle include SDK client per .NET, Java, Python e Node.js.
+
+> [!IMPORTANT]
+> [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) di .NET Framework SDK è in modalità di manutenzione e sarà presto deprecata. Eseguire l'aggiornamento alla nuova libreria .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) per continuare a ottenere le funzionalità più recenti supportate dall'API Tabella.
 
 ## <a name="table-offerings"></a>Offerte per tabelle
 Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di Azure Cosmos DB è possibile ottenere i vantaggi seguenti:
 
 | | Archiviazione tabelle di Azure | API Tabelle di Azure Cosmos DB |
 | --- | --- | --- |
-| Latenza | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e di 15 ms per le scritture al 99° percentile, in base a qualsiasi livello di scalabilità e ovunque nel mondo. |
+| Latenza | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e scritture al 99° percentile, su qualsiasi scala e ovunque nel mondo. |
 | Velocità effettiva | Modello a velocità effettiva variabile. Le tabelle hanno un limite di scalabilità di 20.000 operazioni al secondo. | Altamente scalabile con [velocità effettiva riservata dedicata per tabella](request-units.md), supportata da contratti di servizio. Non esiste un limite superiore di velocità effettiva per gli account, che supportano oltre 10 milioni di operazioni al secondo per tabella. |
-| Distribuzione globale | Singola area con un'area di lettura secondaria leggibile facoltativa per la disponibilità elevata. Non è possibile avviare il failover. | [Distribuzione globale chiavi in mano](distribute-data-globally.md) da una a 30+ aree. Supporto per [failover automatici e manuali](high-availability.md) in qualsiasi momento, ovunque nel mondo. |
-| Indicizzazione | Solo indice primario in PartitionKey e RowKey. Nessun indice secondario. | Indicizzazione automatica e completa su tutte le proprietà, nessuna gestione degli indici. |
+| Distribuzione globale | Singola area con un'area di lettura secondaria leggibile facoltativa per la disponibilità elevata. Non è possibile avviare il failover. | [Distribuzione globale chiavi in mano](distribute-data-globally.md) da una a qualsiasi numero di aree. Supporto per [failover automatici e manuali](high-availability.md) in qualsiasi momento, ovunque nel mondo. Funzionalità multimaster che consente a qualsiasi area di accettare operazioni di scrittura. |
+| Indicizzazione | Solo indice primario in PartitionKey e RowKey. Nessun indice secondario. | Indicizzazione automatica e completa su tutte le proprietà per impostazione predefinita, senza gestione degli indici. |
 | Query | L'esecuzione di query usa l'indice per la chiave primaria ed esegue l'analisi negli altri casi. | Le query possono trarre vantaggio dall'indicizzazione automatica sulle proprietà, per query con durata ridotta. |
 | Consistency | Assoluta entro l'area primaria. Eventuale entro l'area secondaria. | [Cinque livelli di coerenza ben definiti](consistency-levels.md) per bilanciare disponibilità, latenza, velocità effettiva e coerenza in base alle esigenze dell'applicazione. |
 | Prezzi | Ottimizzati per l'archiviazione. | Ottimizzati per la velocità effettiva. |
-| Contratti di servizio | Disponibilità del 99.99%. | Contratto di servizio con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e [contratti di servizio completi leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/) che regolano la disponibilità generale, con disponibilità in lettura del 99,999% per tutti gli account di database in più aree. |
+| Contratti di servizio | Disponibilità dal 99,9% al 99,99%, a seconda della strategia di replica. | Disponibilità del 99,999% in lettura, disponibilità del 99,99% in scrittura per gli account di una singola area e disponibilità del 99,999% in scrittura per gli account di più aree. [Contratti di servizio completi](https://azure.microsoft.com/support/legal/sla/cosmos-db/) relativi a disponibilità, latenza, velocità effettiva e coerenza. |
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -55,8 +58,8 @@ Ecco alcuni riferimenti per iniziare:
 * [Sviluppare con l'API di tabella in .NET](tutorial-develop-table-dotnet.md)
 * [Eseguire query sui dati della tabella tramite l'API di tabella](tutorial-query-table.md)
 * [Informazioni su come configurare la distribuzione globale di Azure Cosmos DB tramite l'API di tabella](tutorial-global-distribution-table.md)
-* [API .NET di tabella per Azure Cosmos DB](table-sdk-dotnet.md)
-* [API Java Tabelle di Azure Cosmos DB](table-sdk-java.md)
-* [API Node.js Tabelle di Azure Cosmos DB](table-sdk-nodejs.md)
+* [API Tabella di Azure Cosmos DB - .NET Standard SDK](table-sdk-dotnet-standard.md)
+* [API Tabella di Azure Cosmos DB - .NET SDK](table-sdk-dotnet.md)
+* [API Tabella di Azure Cosmos DB - Java SDK](table-sdk-java.md)
+* [API Tabella di Azure Cosmos DB - Node.js SDK](table-sdk-nodejs.md)
 * [Azure Cosmos DB Table SDK per Python](table-sdk-python.md)
-

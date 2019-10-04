@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617133"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637701"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "59617133"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asincrone, usare [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -44,22 +44,22 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Correzione del bug in PartitionKey per la versione 2 Hash.
+* Correzione di un bug in PartitionKey per hash V2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Aggiunta del supporto per gli indici composti.
-* Correzione del bug nella console di gestione endpoint globale per forzare l'aggiornamento.
-* Correzione del bug per gli Upsert con pre-condizioni in modalità diretta.
+* Aggiunta del supporto per gli indici compositi.
+* Correzione del bug in Gestione endpoint globale per forzare l'aggiornamento.
+* Correzione del bug per Upsert con le condizioni preliminari in modalità diretta.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Correzione del bug nella cache di indirizzo di gateway.
+* Correzione del bug nella cache degli indirizzi del gateway.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Aggiunto il supporto per la scrittura in più aree per la modalità diretta.
 * Aggiunto il supporto per la gestione di IOExceptions generate come eccezioni ServiceUnavailable, da un proxy.
 * Risolto un bug nei criteri di ripetizione dei tentativi di individuazione degli endpoint.
 * Risolto un bug per assicurare che non vengano generate eccezioni del puntatore Null in BaseDatabaseAccountConfigurationProvider.
-* Risolto un bug per garantire che queryiterator non restituisce valori null.
+* Correzione di un bug per assicurarsi che QueryIterator non restituisca valori null.
 * Risolto un bug per garantire che sia consentito PartitionKey ampio
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -123,11 +123,11 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 * Correzione di alcuni bug nel contenitore della sessione che possono generare un'eccezione "Risorsa proprietario non trovata" per le richieste immediatamente dopo la creazione della raccolta.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](how-to-sql-query.md#Aggregates).
+* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](sql-query-aggregates.md).
 * Aggiunta del supporto per la modifica del feed.
 * Aggiunta del supporto per informazioni sulla quota della raccolta tramite RequestOptions.setPopulateQuotaInfo.
 * Aggiunta del supporto per la registrazione dello script della procedura archiviata tramite RequestOptions.setScriptLoggingEnabled.
-* Risolto un bug in cui query in modalità DirectHttps smetta di rispondere quando si verificano errori di limitazione.
+* Correzione di un bug in cui la query in modalità DirectHttps potrebbe smettere di rispondere quando si verificano errori di limitazione.
 * Risoluzione di un bug in modalità di coerenza di sessione.
 * Risoluzione di un bug che potrebbe causare l'eccezione NullReferenceException in HttpContext quando la frequenza delle richieste è elevata.
 * Miglioramento delle prestazioni della modalità DirectHttps.
@@ -198,7 +198,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Supporta l'indice geospaziale
-* Convalida la proprietà id per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri ?, /, #, \, o terminare con uno spazio.
+* Convalida la proprietà ID per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri ?, /, #, \, o terminare con uno spazio.
 * Aggiunge la nuova intestazione "stato di trasformazione dell'indice" a ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -215,50 +215,55 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
+> Tutte le versioni **1. x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**.
+> 
+>
+
+> [!WARNING]
 > Tutte le versioni dell'SDK per Java di SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**.
 > 
 > 
 
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro |
+| Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |13 marzo 2018 |--- |
-| [2.1.2](#2.1.2) |09 marzo 2018 |--- |
+| [2.1.3](#2.1.3) |13 marzo, 2018 |--- |
+| [2.1.2](#2.1.2) |9 mar 2018 |--- |
 | [2.1.1](#2.1.1) |13 dicembre 2018 |--- |
-| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
+| [2.1.0](#2.1.0) |20 nov, 2018 |--- |
 | [2.0.0](#2.0.0) |21 settembre 2018 |--- |
-| [1.16.4](#1.16.4) |10 settembre 2018 |--- |
-| [1.16.3](#1.16.3) |9 settembre 2018 |--- |
-| [1.16.2](#1.16.2) |29 giugno 2018 |--- |
-| [1.16.1](#1.16.1) |16 maggio 2018 |--- |
-| [1.16.0](#1.16.0) |15 marzo 2018 |--- |
-| [1.15.0](#1.15.0) |14 novembre 2017 |--- |
-| [1.14.0](#1.14.0) |28 ottobre 2017 |--- |
-| [1.13.0](#1.13.0) |25 agosto 2017 |--- |
-| [1.12.0](#1.12.0) |11 luglio 2017 |--- |
-| [1.11.0](#1.11.0) |10 maggio 2017 |--- |
-| [1.10.0](#1.10.0) |11 marzo 2017 |--- |
-| [1.9.6](#1.9.6) |21 febbraio 2017 |--- |
-| [1.9.5](#1.9.5) |31 gennaio 2017 |--- |
-| [1.9.4](#1.9.4) |24 novembre 2016 |--- |
-| [1.9.3](#1.9.3) |30 ottobre 2016 |--- |
-| [1.9.2](#1.9.2) |28 ottobre 2016 |--- |
-| [1.9.1](#1.9.1) |26 ottobre 2016 |--- |
-| [1.9.0](#1.9.0) |03 ottobre 2016 |--- |
-| [1.8.1](#1.8.1) |30 giugno 2016 |--- |
-| [1.8.0](#1.8.0) |14 giugno 2016 |--- |
-| [1.7.1](#1.7.1) |30 aprile 2016 |--- |
-| [1.7.0](#1.7.0) |27 aprile 2016 |--- |
-| [1.6.0](#1.6.0) |29 marzo 2016 |--- |
-| [1.5.1](#1.5.1) |31 dicembre 2015 |--- |
-| [1.5.0](#1.5.0) |04 dicembre 2015 |--- |
-| [1.4.0](#1.4.0) |05 ottobre 2015 |--- |
-| [1.3.0](#1.3.0) |05 ottobre 2015 |--- |
-| [1.2.0](#1.2.0) |05 agosto 2015 |--- |
-| [1.1.0](#1.1.0) |09 luglio 2015 |--- |
-| 1.0.1 |12 maggio 2015 |--- |
-| [1.0.0](#1.0.0) |07 aprile 2015 |--- |
+| [1.16.4](#1.16.4) |10 settembre 2018 |30 maggio 2020 |
+| [1.16.3](#1.16.3) |9 settembre 2018 |30 maggio 2020 |
+| [1.16.2](#1.16.2) |29 giugno 2018 |30 maggio 2020 |
+| [1.16.1](#1.16.1) |16 maggio 2018 |30 maggio 2020 |
+| [1.16.0](#1.16.0) |15 marzo 2018 |30 maggio 2020 |
+| [1.15.0](#1.15.0) |14 novembre 2017 |30 maggio 2020 |
+| [1.14.0](#1.14.0) |28 ottobre 2017 |30 maggio 2020 |
+| [1.13.0](#1.13.0) |25 agosto 2017 |30 maggio 2020 |
+| [1.12.0](#1.12.0) |11 luglio 2017 |30 maggio 2020 |
+| [1.11.0](#1.11.0) |10 maggio 2017 |30 maggio 2020 |
+| [1.10.0](#1.10.0) |11 marzo 2017 |30 maggio 2020 |
+| [1.9.6](#1.9.6) |21 febbraio 2017 |30 maggio 2020 |
+| [1.9.5](#1.9.5) |31 gennaio 2017 |30 maggio 2020 |
+| [1.9.4](#1.9.4) |24 novembre 2016 |30 maggio 2020 |
+| [1.9.3](#1.9.3) |30 ottobre 2016 |30 maggio 2020 |
+| [1.9.2](#1.9.2) |28 ottobre 2016 |30 maggio 2020 |
+| [1.9.1](#1.9.1) |26 ottobre 2016 |30 maggio 2020 |
+| [1.9.0](#1.9.0) |03 ottobre 2016 |30 maggio 2020 |
+| [1.8.1](#1.8.1) |30 giugno 2016 |30 maggio 2020 |
+| [1.8.0](#1.8.0) |14 giugno 2016 |30 maggio 2020 |
+| [1.7.1](#1.7.1) |30 aprile 2016 |30 maggio 2020 |
+| [1.7.0](#1.7.0) |27 aprile 2016 |30 maggio 2020 |
+| [1.6.0](#1.6.0) |29 marzo 2016 |30 maggio 2020 |
+| [1.5.1](#1.5.1) |31 dicembre 2015 |30 maggio 2020 |
+| [1.5.0](#1.5.0) |04 dicembre 2015 |30 maggio 2020 |
+| [1.4.0](#1.4.0) |05 ottobre 2015 |30 maggio 2020 |
+| [1.3.0](#1.3.0) |05 ottobre 2015 |30 maggio 2020 |
+| [1.2.0](#1.2.0) |05 agosto 2015 |30 maggio 2020 |
+| [1.1.0](#1.1.0) |09 luglio 2015 |30 maggio 2020 |
+| 1.0.1 |12 maggio 2015 |30 maggio 2020 |
+| [1.0.0](#1.0.0) |07 aprile 2015 |30 maggio 2020 |
 | 0.9.5-prelease |09 marzo 2015 |29 febbraio 2016 |
 | 0.9.4-prelease |17 febbraio 2015 |29 febbraio 2016 |
 | 0.9.3-prelease |13 gennaio 2015 |29 febbraio 2016 |
@@ -269,6 +274,6 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

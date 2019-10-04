@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Esercitazione: Integrazione di Azure Active Directory con G Suite
 
@@ -118,11 +118,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con G Suite, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di G Suite](#configure-g-suite-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di G Suite](#create-g-suite-test-user)**: per avere una controparte di Britta Simon in G Suite collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di G Suite](#configure-g-suite-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di G Suite](#create-g-suite-test-user)** : per avere una controparte di Britta Simon in G Suite collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -239,11 +239,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con G Suite, seguire questa
 
     a. Selezionare **Setup SSO with third party identity provider** (Configurare l'accesso SSO con un provider di terze parti).
 
-    b. Nel campo **Sign-in page URL** (URL pagina di accesso) di G Suite incollare il valore dell' **URL di accesso** copiato dal portale di Azure.
+    b. Nel campo **Sign-in page URL** (URL pagina di accesso) di G Suite incollare il valore dell'**URL di accesso** copiato dal portale di Azure.
 
-    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di G Suite incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
+    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di G Suite incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
-    d. Nel campo **Change password URL** (URL di modifica della password) di G Suite incollare il valore dell' **URL di modifica della password** copiato dal portale di Azure.
+    d. Nel campo **Change password URL** (URL di modifica della password) di G Suite incollare il valore dell'**URL di modifica della password** copiato dal portale di Azure.
 
     e. In G Suite, per il **certificato di verifica**, caricare il certificato che è stato scaricato dal portale di Azure.
 

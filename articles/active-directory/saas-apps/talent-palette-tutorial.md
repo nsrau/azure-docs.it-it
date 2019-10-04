@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6752a2474f3629ad79f6a652bba475691b6a53e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 45e8f0d2e84a8c8879fb5d48c575906cfe31b53b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Esercitazione: Integrazione di Azure Active Directory con Talent Palette
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Talent Palette, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Talent Palette](#configure-talent-palette-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Talent Palette](#create-talent-palette-test-user)**: per avere una controparte di Britta Simon in Talent Palette collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Talent Palette](#configure-talent-palette-single-sign-on)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Talent Palette](#create-talent-palette-test-user)** : per avere una controparte di Britta Simon in Talent Palette collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Talent Palette, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Talent Palette](common/both_replyurl.png)
 
-    Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://talent-p.net/saml/acs/<tenantID>`
+    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 

@@ -1,25 +1,19 @@
 ---
-title: Preparazione di pacchetti AppSource | Microsoft Docs
+title: Preparazione del pacchetto di AppSource | Azure Marketplace
 description: Questo articolo descrive come preparare e compilare pacchetti AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935636"
 ---
 # <a name="appsource-package-preparation"></a>Preparazione di pacchetti AppSource
 
@@ -117,7 +111,7 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
 |SolutionAnchorName |Nome del file della soluzione con estensione zip in Package Deployer, che viene usato per il nome visualizzato e la descrizione degli asset della soluzione.|
 | StartDate| Data a partire dalla quale il pacchetto della soluzione è disponibile. Il formato è MM/GG/AAAA.|
 |EndDate|Data a partire dalla quale il pacchetto della soluzione non è più disponibile. Il formato è MM/GG/AAAA. |
-|SupportedCountries |Un elenco delimitato da virgole dei Paesi che possono visualizzare il pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento, di stesura di questo articolo l'elenco è stato: ALWAYS ENCRYPTED, AL, AM, AO, AR, AT, AUSTRALIA, AZ, BA, BB, BD, ESSERE, BG, ORARIO DI UFFICIO, BM, BN, BO, BR, DA, CA, CH, INTEGRAZIONE CONTINUA, CL, CM, COAMMINISTRATORE, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE, EE, AD ESEMPIO, ES, FI, FR, GB, GE, GH, LG, GT, HK , HN, RISORSE UMANE, HU, ID, INTERNET EXPLORER, LIVELLO DI INTEGRITÀ, IN, IQ, È, LO, JM, JO, JP, KE, KG, KN, COREA, KW, KY, KZ, BILANCIAMENTO DEL CARICO, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MESE, SERVER DI DESTINAZIONE MASTER, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH , CHIAVE PRIMARIA, PL, DELLA RICHIESTA PULL, PS, PT, PY, CONTROLLO QUALITÀ, RO, RS, UR, RW, SA, SA, SG, SISTEMA INTERNAZIONALE DI MISURA, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, STATI UNITI, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Si tratta di un elenco delimitato da virgole di paesi/aree geografiche che dovrebbe essere visualizzato questo pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento, di stesura di questo articolo l'elenco è stato: ALWAYS ENCRYPTED, AL, AM, AO, AR, AT, AUSTRALIA, AZ, BA, BB, BD, ESSERE, BG, ORARIO DI UFFICIO, BM, BN, BO, BR, DA, CA, CH, INTEGRAZIONE CONTINUA, CL, CM, COAMMINISTRATORE, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE, EE, AD ESEMPIO, ES, FI, FR, GB, GE, GH, LG, GT, HK , HN, RISORSE UMANE, HU, ID, INTERNET EXPLORER, LIVELLO DI INTEGRITÀ, IN, IQ, È, LO, JM, JO, JP, KE, KG, KN, COREA, KW, KY, KZ, BILANCIAMENTO DEL CARICO, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MESE, SERVER DI DESTINAZIONE MASTER, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH , CHIAVE PRIMARIA, PL, DELLA RICHIESTA PULL, PS, PT, PY, CONTROLLO QUALITÀ, RO, RS, UR, RW, SA, SA, SG, SISTEMA INTERNAZIONALE DI MISURA, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, STATI UNITI, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL della pagina che contiene altre informazioni sul pacchetto. |
 |Locales|Un'istanza di questo nodo per ogni lingua dell'esperienza utente che si vuole supportare nell'esperienza utente della soluzione preferita. Questo nodo contiene elementi figlio che descrivono le impostazioni locali, il logo e i termini di ogni lingua.|
 |Impostazioni locali: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: L'inglese degli Stati Uniti è 1033|

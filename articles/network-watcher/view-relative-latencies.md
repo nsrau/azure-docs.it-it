@@ -3,8 +3,8 @@ title: Visualizzare le latenze relative da località specifiche alle aree di Azu
 description: Informazioni su come visualizzare le latenze relative attraverso i provider Internet da località specifiche alle aree di Azure.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792419"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939870"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visualizzare le latenze relative da località specifiche alle aree di Azure
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> L'area specificata nel comando precedente non deve necessariamente coincidere con quella specificata al momento del recupero dell'istanza di Network Watcher. Per il comando precedente è sufficiente specificare un'istanza di Network Watcher esistente. L'istanza di Network Watcher può trovarsi in qualsiasi area. Se si specificano valori per `-Country` e `-State`, questi devono essere validi, con l'esatta distinzione tra maiuscole e minuscole. Sono disponibili dati per un numero limitato di paesi, stati e città. Eseguire i comandi descritti in [Visualizzare i paesi, gli stati, le città e i provider disponibili](#view-available) per visualizzare un elenco di paesi, città e stati disponibili da usare con il comando precedente. 
+> L'area specificata nel comando precedente non deve necessariamente coincidere con quella specificata al momento del recupero dell'istanza di Network Watcher. Per il comando precedente è sufficiente specificare un'istanza di Network Watcher esistente. L'istanza di Network Watcher può trovarsi in qualsiasi area. Se si specificano valori per `-Country` e `-State`, questi devono essere validi, con l'esatta distinzione tra maiuscole e minuscole. Sono disponibili dati per un numero limitato di paesi/aree geografiche, stati e città. Eseguire i comandi in [visualizzare i paesi/aree disponibili, gli stati, città e provider](#view-available) per visualizzare un elenco di paesi/aree disponibili, città e stati da usare con il comando precedente. 
 
 > [!WARNING]
 > È necessario specificare una data negli ultimi 30 giorni per `-StartTime` e `-EndTime`. Se si specifica una data precedente non verranno restituiti dati.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Diversamente dal caso in cui si specifica un'unica località, se non si definisce una località o se ne definiscono più di una, ad esempio "West US2", "West US", quando si esegue il comando è necessario specificare un provider di servizi Internet. 
 
-## <a name="view-available"></a>Visualizzare i paesi, gli stati, le città e i provider disponibili
+## <a name="view-available"></a>Visualizzare i paesi/aree disponibili, gli stati, città e provider
 
-Sono disponibili dati per paesi, stati, città e provider di servizi Internet specifici. Per visualizzare un elenco di tutti i provider di servizi Internet, i paesi, gli stati e le città disponibili per cui è possibile visualizzare i dati, immettere il comando seguente:
+Sono disponibili dati per provider di servizi Internet specifici, paesi, stati e città. Per visualizzare un elenco di Internet disponibili tutti i provider di servizi, paesi/aree geografiche, stati e città, che è possibile visualizzare i dati, immettere il comando seguente:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-I dati sono disponibili solo per i paesi, gli stati e le città restituiti dal comando precedente. Per il comando precedente è necessario specificare un'istanza di Network Watcher esistente. Nell'esempio è specificata l'istanza di Network Watcher *NetworkWatcher_eastus* in un gruppo di risorse denominato *NetworkWatcherRG*, ma è possibile specificare qualsiasi istanza di Network Watcher esistente. Se non è disponibile un'istanza di Network Watcher esistente, crearne una eseguendo le attività descritte in [Creare un'istanza di Network Watcher](#create-a-network-watcher). 
+I dati sono disponibili solo per i paesi/aree geografiche degli Stati e le città restituiti dal comando precedente. Per il comando precedente è necessario specificare un'istanza di Network Watcher esistente. Nell'esempio è specificata l'istanza di Network Watcher *NetworkWatcher_eastus* in un gruppo di risorse denominato *NetworkWatcherRG*, ma è possibile specificare qualsiasi istanza di Network Watcher esistente. Se non è disponibile un'istanza di Network Watcher esistente, crearne una eseguendo le attività descritte in [Creare un'istanza di Network Watcher](#create-a-network-watcher). 
 
 Dopo aver eseguito il comando precedente, è possibile filtrare l'output restituito specificando valori validi per **Country**, **State** e **City**, se necessario.  Ad esempio, per visualizzare l'elenco dei provider di servizi Internet disponibili a Seattle nello stato di Washington negli Stati Uniti, immettere il comando seguente:
 

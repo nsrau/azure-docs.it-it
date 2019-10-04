@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 0466265ad5a24e8ea6dc5079e2b4006d74e7dde0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452533"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101901"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
@@ -32,7 +31,7 @@ ms.locfileid: "38452533"
 ## <a name="overview"></a>Panoramica
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../../../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
 
 Per configurare un listener per un gruppo di disponibilità AlwaysOn nel modello di Resource Manager, vedere [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità AlwaysOn in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -105,7 +104,7 @@ Creare un endpoint con carico bilanciato per ogni VM che ospita una replica di A
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
+13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Se necessario, verificare che KB2854082 sia installato.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +150,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
+3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 4. Ripetere i passaggi precedenti per ciascuna VM.  
     Questo script consente di configurare la risorsa Indirizzo IP con l'indirizzo IP del servizio cloud e di impostare altri parametri come la porta probe. Quando la risorsa Indirizzo IP viene portata online, può rispondere al polling sulla porta probe dall'endpoint con carico bilanciato, creato in precedenza.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699432"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analizzare la varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
@@ -176,7 +176,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:  
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi* 
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
@@ -188,7 +188,7 @@ I modelli ospitati in Machine Learning Studio hanno superato il livello SAS del 
 Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per l'analisi della varianza, tra cui:  
 
 * Derivare metriche per quattro categorie fondamentali:
-  * **Entità (ad esempio, una sottoscrizione)**. Fornire informazioni di base sulle sottoscrizioni e/o sui clienti soggetti a varianza.
+  * **Entità (ad esempio, una sottoscrizione)** . Fornire informazioni di base sulle sottoscrizioni e/o sui clienti soggetti a varianza.
   * **Attività**. Ottenere tutte le informazioni di utilizzo possibili correlate all'entità, ad esempio, il numero di account di accesso.
   * **Supporto tecnico**. Raccogliere informazioni dai log del supporto tecnico per indicare se l'abbonato ha avuto problemi o interazioni con il supporto tecnico.
   * **Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).
@@ -217,7 +217,7 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
 
 [3] [CRISP-DM 1.0: Guida dettagliata sul data mining](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Modello di varianza delle telecomunicazioni](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) nella [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/) 
  

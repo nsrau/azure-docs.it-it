@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ccf60a333dcc83e27702d572f922ef6aec741c14
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110325"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730300"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Avvio rapido: Creare una zona e un record DNS di Azure con Azure PowerShell
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,7 +24,7 @@ Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. P
 
 DNS di Azure supporta anche la creazione di domini privati. Per istruzioni dettagliate sulla creazione della prima zona e del primo record DNS privati, vedere [Introduzione alle zone private di DNS di Azure con PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -80,7 +80,7 @@ Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile t
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Ad esempio: 
+   Ad esempio:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

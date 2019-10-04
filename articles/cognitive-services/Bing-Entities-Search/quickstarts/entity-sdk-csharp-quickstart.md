@@ -1,21 +1,21 @@
 ---
-title: "Avvio rapido: Cercare entità con l'SDK di Ricerca entità Bing per C#"
+title: "Guida introduttiva: Cercare entità con l'SDK di Ricerca entità Bing per C#"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per cercare entità con l'SDK di Ricerca entità Bing per C#.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/15/2019
+ms.author: aahi
+ms.openlocfilehash: 20f76c0adfcbd756c71769979214ea975cb5d6d9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080642"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360593"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per C#
 
@@ -24,7 +24,7 @@ Usare questa guida introduttiva per iniziare a cercare entità con l'SDK di Rice
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 * Pacchetto [NuGet SDK di Ricerca notizie Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Installando questo pacchetto vengono anche installati gli elementi seguenti:
@@ -32,7 +32,7 @@ Usare questa guida introduttiva per iniziare a cercare entità con l'SDK di Rice
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Per aggiungere l'SDK di Ricerca entità Bing a un progetto di Visual Studio, usare l'opzione `Manage NuGet Packages` in Esplora soluzioni e aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
+Per aggiungere l'SDK di Ricerca entità Bing a un progetto di Visual Studio, usare l'opzione **Gestisci pacchetti NuGet** in **Esplora soluzioni** e aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

@@ -3,18 +3,18 @@ title: Ricompilare un indice di Ricerca di Azure o aggiornare il contenuto ricer
 description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o in un'indicizzazione incrementale parziale per aggiornare un indice di Ricerca di Azure.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341641"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719838"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Come ricompilare un indice di Ricerca di Azure
 
@@ -26,14 +26,14 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-| Condizione | DESCRIZIONE |
+| Condizione | Descrizione |
 |-----------|-------------|
 | Modificare la definizione di un campo | La modifica di un nome di campo, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |
 | Aggiornare o eliminare una definizione di analizzatore in un indice | Non è possibile eliminare o modificare una configurazione di analizzatore esistente (analizzatore, tokenizer, filtro di token o filtro di caratteri) nell'indice a meno che non si ricompili l'intero indice. |
 | Aggiungere un campo a uno strumento suggerimenti | Se esiste già un campo e lo si vuole aggiungere a un costrutto [Suggesters](index-add-suggesters.md), è necessario ricompilare l'indice. |
 | Eliminare un campo | Per rimuovere fisicamente tutte le tracce di un campo è necessario ricompilare l'indice. Se la ricompilazione immediata non è una soluzione pratica, è possibile modificare il codice dell'applicazione per disabilitare l'accesso al campo "eliminato". Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione, quando si applica uno schema che omette il campo in questione. |
-| Cambiare i livelli | Se è necessaria ulteriore capacità, non è disponibile un aggiornamento sul posto. Nel nuovo punto di capacità viene creato un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. |
+| Cambiare i livelli | Se è necessaria una maggiore capacità, non è disponibile alcun aggiornamento sul posto nel portale di Azure. È necessario creare un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. Per semplificare l'automazione di questo processo, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Questa app eseguirà il backup dell'indice in una serie di file JSON e quindi ricreerà l'indice in un servizio di ricerca specificato.|
 
 Qualsiasi altra modifica può essere eseguita senza alcun impatto sulle strutture fisiche esistenti. Nello specifico, le modifiche seguenti *non* richiedono una ricompilazione dell'indice:
 
@@ -94,7 +94,7 @@ Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con t
 
 È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)

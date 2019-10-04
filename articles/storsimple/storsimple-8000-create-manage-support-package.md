@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61481872"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
@@ -31,7 +31,7 @@ Questa esercitazione include istruzioni dettagliate per creare e gestire il pacc
 
 ## <a name="create-a-support-package"></a>Creare un pacchetto di supporto
 
-In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tramite Windows PowerShell per StorSimple. Ad esempio: 
+In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tramite Windows PowerShell per StorSimple. Ad esempio:
 
 * Se è necessario rimuovere informazioni riservate dai file di log prima di condividerli con il supporto tecnico Microsoft.
 * In caso di difficoltà nel caricare il pacchetto a causa di problemi di connettività.
@@ -72,10 +72,10 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | DESCRIZIONE |
+| Parametro | Obbligatorio/Facoltativo | Descrizione |
 | --- | --- | --- |
-| `-Path` |Obbligatoria |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
-| `-EncryptionPassphrase` |Obbligatoria |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
+| `-Path` |Obbligatorio |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
+| `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
 | `-Credential` |Facoltativo |Consente di specificare le credenziali di accesso per la cartella di rete condivisa. |
 | `-Force` |Facoltativo |Consente di ignorare il passaggio di conferma della passphrase di crittografia. |
 | `-PackageTag` |Facoltativo |Consente di specificare una directory in cui inserire il pacchetto per il supporto in *Percorso* . Il valore predefinito è [nome dispositivo]-[data e ora correnti:aaaa-MM-gg-HH-mm-ss]. |
@@ -121,7 +121,7 @@ Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supp
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Annotare la nuova passphrase in modo che sia possibile condividerla con il supporto tecnico Microsoft quando richiesto.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Esempio: modifica dei file in un pacchetto per il supporto in una condivisione protetta da password
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Esempio: Modifica dei file in un pacchetto di supporto in una condivisione protetta da password
 
 L'esempio seguente mostra come decrittografare, modificare e crittografare di nuovo un pacchetto per il supporto.
 

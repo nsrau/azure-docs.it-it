@@ -3,7 +3,7 @@ title: Trovare i report attività utente di Azure Active Directory nel portale d
 description: Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438327"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127400"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -41,14 +41,14 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 * Attività di reimpostazione password
 * Attività di registrazione reimpostazione password
 * Attività dei gruppi self-service
-* Modifiche del nome del gruppo di Office 365
+* Modifiche ai nomi dei gruppi di Office 365
 * Attività di provisioning dell'account
-* Stato rollover della password
+* Stato rollover password
 * Errori di provisioning dell'account
 
 ### <a name="filtering-on-audit-logs"></a>Filtro dei log di controllo
 
-È possibile usare filtri avanzati nel report di controllo per accedere a una categoria di dati di controllo, impostandolo nel **categoria** filtro. Ad esempio, per visualizzare tutte le attività relative agli utenti, selezionare la **Gestione utente** categoria. 
+È possibile utilizzare il filtro avanzato nel report di controllo per accedere a una categoria specifica di dati di controllo, specificandone il filtro di **categoria** . Ad esempio, per visualizzare tutte le attività correlate agli utenti, selezionare la categoria **UserManagement** . 
 
 Le categorie includono:
 
@@ -63,20 +63,20 @@ Le categorie includono:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altri
-- Policy
-- Gestione
+- Altro
+- Criteri
+- ResourceManagement
 - RoleManagement
-- Gestione utente
+- UserManagement
 
-È anche possibile filtrare in un servizio specifico tramite il **servizio** filtro elenco a discesa. Ad esempio, per ottenere tutti gli eventi di controllo correlati alla gestione delle password self-service, selezionare la **Self-Service Password Management** filtro.
+È anche possibile filtrare in base a un servizio specifico usando il filtro dell'elenco a discesa del **servizio** . Ad esempio, per ottenere tutti gli eventi di controllo relativi alla gestione delle password self-service, selezionare il filtro **self-service** per la gestione delle password.
 
 I servizi includono:
 
 - Tutti
 - Verifiche di accesso
-- Provisioning degli account 
-- Applicazione SSO
+- Provisioning account 
+- SSO applicazione
 - Metodi di autenticazione
 - B2C
 - Accesso condizionale
@@ -112,12 +112,12 @@ Per accedere al report degli accessi:
 
 ### <a name="anomalous-activity-reports"></a>Report Anomalie dell'attività
 
-I report Anomalie dell'attività forniscono informazioni sugli eventi di rischio correlati alla sicurezza che Azure AD può rilevare e segnalare.
+I report di attività anomale forniscono informazioni sui rilevamenti dei rischi correlati alla sicurezza che Azure AD possibile rilevare e segnalare.
 
-La tabella seguente elenca i report di sicurezza sulle attività anomale di Azure AD e le corrispondenti tipologie degli eventi di rischio nel portale di Azure. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md).  
+Nella tabella seguente sono elencati i report di sicurezza delle attività anomale Azure AD e i tipi di rilevamento dei rischi corrispondenti nell'portale di Azure. Per ulteriori informazioni, vedere [Azure Active Directory rilevamento dei rischi](concept-risk-events.md).  
 
 
-| Report di Anomalie dell'attività di Azure AD |  Tipo di evento di rischio di Identity Protection|
+| Report di Anomalie dell'attività di Azure AD |  Tipo di rilevamento del rischio di Identity Protection|
 | :--- | :--- |
 | Utenti con credenziali perse | Credenziali perse |
 | Attività di accesso irregolare | Trasferimento impossibile a posizioni atipiche |
@@ -126,15 +126,15 @@ La tabella seguente elenca i report di sicurezza sulle attività anomale di Azur
 | Accessi da indirizzi IP con attività sospette | Accessi da indirizzi IP con attività sospette |
 | - | Accessi da posizioni non note |
 
-I report di sicurezza sulle attività anomale di Azure AD seguenti non sono inclusi come eventi di rischio nel portale di Azure:
+I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi come rilevamenti dei rischi nel portale di Azure:
 
 * Accessi dopo più errori
 * Accessi da più aree geografiche
 
 
-### <a name="detected-risk-events"></a>Eventi di rischio rilevati
+### <a name="detected-risk-detections"></a>Rilevamento del rischio rilevato
 
-È possibile accedere ai report sugli eventi di rischio rilevati nella sezione **Sicurezza** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Gli eventi di rischio rilevati vengono registrati nei report seguenti:   
+È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione **sicurezza** del pannello **Azure Active Directory** della [portale di Azure](https://portal.azure.com). I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:   
 
 - [Utenti a rischio](concept-user-at-risk.md)
 - [Accessi a rischio](concept-risky-sign-ins.md)
@@ -149,11 +149,11 @@ I report di sicurezza sulle attività anomale di Azure AD seguenti non sono incl
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-data-download/01.png)
+ ![Report](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, è necessario limitare la scalabilità necessaria per i 250000 record, ordinate dalla più recente. 
+Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -186,7 +186,7 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Report](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,13 +207,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Report](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Gratuito | Azure AD P1 Premium | Azure AD P2 Premium |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

@@ -1,42 +1,44 @@
 ---
-title: Funzionalità Mantieni l'accesso in Azure Active Directory B2C | Microsoft Docs
+title: Mantieni l'accesso in Azure Active Directory B2C
 description: Informazioni su come configurare Mantieni l'accesso (KMSI) in Active Directory B2C di Azure.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.author: davidmu
+ms.date: 08/29/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317301"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147046"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La funzionalità "Mantieni l'accesso (KMSI)" può essere abilitata per il Web e le applicazioni native in Active Directory B2C di Azure (Azure AD). Questa funzionalità permette l'accesso agli utenti che tornano alle applicazioni senza dover immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato. 
+È possibile abilitare la funzionalità Mantieni l'accesso (KMSI) per gli utenti delle applicazioni Web e native che dispongono di account locali nella directory Azure Active Directory B2C (Azure AD B2C). Questa funzionalità concede l'accesso agli utenti che tornano all'applicazione senza chiedere di immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato.
 
-Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubblico. 
+Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubblico.
 
-![Abilitare Mantieni l'accesso](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![Pagina di accesso di esempio che mostra una casella di controllo Mantieni l'accesso](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un tenant di Azure AD B2C configurato per consentire l'iscrizione/accesso a un account locale. Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
+Un tenant di Azure AD B2C configurato per consentire l'accesso all'account locale. KMSI non è supportato per gli account del provider di identità esterno.
 
-## <a name="add-a-content-definition-element"></a>Aggiungere un elemento di definizione del contenuto 
+Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
 
-Sotto l'elemento **BuildingBlocks** del file di estensione, aggiungere un elemento **ContentDefinitions**. 
+## <a name="add-a-content-definition-element"></a>Aggiungere un elemento di definizione del contenuto
+
+Sotto l'elemento **BuildingBlocks** del file di estensione, aggiungere un elemento **ContentDefinitions**.
 
 1. Sotto l'elemento **ContentDefinitions**, aggiungere un elemento **ContentDefinition** con un identificatore di `api.signuporsigninwithkmsi`.
-2. Sotto l'elemento **ContentDefinition**, aggiungere gli elementi **LoadUri**, **RecoveryUri** e **DataUri**. Il valore `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` dell'elemento **Datauri** è un identificatore comprensibile di macchina che visualizza una casella di controllo KMSI nelle pagine di accesso. Questo valore non deve essere modificato. 
+2. Sotto l'elemento **ContentDefinition**, aggiungere gli elementi **LoadUri**, **RecoveryUri** e **DataUri**. Il valore `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` dell'elemento **Datauri** è un identificatore comprensibile di macchina che visualizza una casella di controllo KMSI nelle pagine di accesso. Questo valore non deve essere modificato.
 
     ```XML
     <BuildingBlocks>
@@ -50,15 +52,15 @@ Sotto l'elemento **BuildingBlocks** del file di estensione, aggiungere un elemen
           </Metadata>
         </ContentDefinition>
       </ContentDefinitions>
-    </BuildingBlocks>                       
+    </BuildingBlocks>
     ```
 
-## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Aggiungere un provider di attestazioni di accesso per l'account locale  
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Aggiungere un provider di attestazioni di accesso per l'account locale
 
 È possibile definire un accesso all'account locale (Local Account SignIn) come provider di attestazioni usando l'elemento **ClaimsProvider** nel file di estensione dei criteri:
 
-1. Aprire il file *TrustFrameworkExtensions.xml* dalla directory di lavoro. 
-2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice. Lo [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) include un provider di attestazioni di accesso all'account locale. 
+1. Aprire il file *TrustFrameworkExtensions.xml* dalla directory di lavoro.
+2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice. Lo [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) include un provider di attestazioni di accesso all'account locale.
 3. Aggiungere un elemento **ClaimsProvider** con **DisplayName** e **TechnicalProfile** come illustrato nell'esempio seguente:
 
     ```XML
@@ -87,7 +89,7 @@ Aggiungere gli identificatori dell'applicazione per il file *trustframeworkexten
 
 1. Nel file *trustframeworkextensions. XML*, trovare l'elemento **TechnicalProfile** con l'identificatore di `login-NonInteractive` e l'elemento **TechnicalProfile** con un identificatore di `login-NonInteractive-PasswordChange` e sostituire tutti i valori di `IdentityExperienceFrameworkAppId` con l'identificatore di applicazione dell'applicazione Framework dell'esperienza di gestione delle identità come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -96,14 +98,14 @@ Aggiungere gli identificatori dell'applicazione per il file *trustframeworkexten
 
 ## <a name="create-a-kmsi-enabled-user-journey"></a>Creare un percorso utente abilitato KMSI
 
-Aggiungere il provider di attestazioni di accesso per un account locale al percorso utente. 
+Aggiungere il provider di attestazioni di accesso per un account locale al percorso utente.
 
 1. Aprire il file di base dei criteri. Per esempio, *TrustFrameworkBase.xml*.
 2. Trovare l'elemento **UserJourneys** e copiare l'intero contenuto dell'elemento **UserJourney** che usa l'identificatore di `SignUpOrSignIn`.
 3. Aprire il file di estensione. Ad esempio, aprire il file di estensione *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 4. Incollare l'intero elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Modificare il valore dell'identificatore per il nuovo percorso utente. Ad esempio: `SignUpOrSignInWithKmsi`.
-6. Infine, nel primo passaggio di orchestrazione modificare il valore di **ContentDefinitionReferenceId** a `api.signuporsigninwithkmsi`. L'impostazione di questo valore abilita la casella di controllo nel percorso utente. 
+5. Modificare il valore dell'identificatore per il nuovo percorso utente. Ad esempio `SignUpOrSignInWithKmsi`.
+6. Infine, nel primo passaggio di orchestrazione modificare il valore di **ContentDefinitionReferenceId** a `api.signuporsigninwithkmsi`. L'impostazione di questo valore abilita la casella di controllo nel percorso utente.
 7. Salvare e caricare il file di estensione e verificare che tutte le convalide abbiano esito positivo.
 
     ```XML
@@ -147,13 +149,13 @@ Aggiungere il provider di attestazioni di accesso per un account locale al perco
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia del file *SignUpOrSignIn.xml* nella directory di lavoro, quindi rinominarla. Ad esempio, *SignUpOrSignInWithKmsi.xml*.
-2. Aprire il nuovo file e aggiornare l'attributo **PolicyId** per il **TrustFrameworkPolicy** con un valore univoco. Questo è il nome dei criteri. Ad esempio: `SignUpOrSignInWithKmsi`.
-3. Modificare l'attributo **ReferenceId** per l'elemento **DefaultUserJourney** per corrispondere all'identificatore del nuovo percorso utente creato. Ad esempio: `SignUpOrSignInWithKmsi`.
+2. Aprire il nuovo file e aggiornare l'attributo **PolicyId** per il **TrustFrameworkPolicy** con un valore univoco. Questo è il nome dei criteri. Ad esempio `SignUpOrSignInWithKmsi`.
+3. Modificare l'attributo **ReferenceId** per l'elemento **DefaultUserJourney** per corrispondere all'identificatore del nuovo percorso utente creato. Ad esempio `SignUpOrSignInWithKmsi`.
 
-    Il server di gestione delle chiavi è configurato usando l'elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** e **SessionExpiryInSeconds** come suoi primi elementi figlio. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo. 
+    Il server di gestione delle chiavi è configurato usando l'elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** e **SessionExpiryInSeconds** come suoi primi elementi figlio. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo.
 
-    Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**). 
-    
+    Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**).
+
     Se l'utente non abilita **Mantieni l'accesso** nella pagina di iscrizione e di accesso, la sessione scade dopo che è trascorso il tempo indicato da **SessionExpiryInSeconds** o dopo la chiusura del browser. Se l'utente abilita **Mantieni l'accesso**, il valore di **KeepAliveInDays** sostituisce il valore di **SessionExpiryInSeconds** e determina la scadenza della sessione. Se chiude il browser e lo riapre, l'utente può ancora eseguire l'accesso entro l'intervallo di tempo indicato da **KeepAliveInDays**. È consigliabile impostare il valore di **SessionExpiryInSeconds** su un periodo breve (1200 secondi), mentre il valore di **KeepAliveInDays** può essere impostato su un periodo relativamente lungo (7 giorni), come illustrato nell'esempio seguente:
 
     ```XML
@@ -183,11 +185,3 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 5. Per testare i criteri personalizzati caricati, nel portale di Azure passare alla pagina dei criteri e quindi selezionare **Esegui ora**.
 
 È possibile trovare i criteri di esempio [qui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

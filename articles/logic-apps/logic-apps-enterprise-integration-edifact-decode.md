@@ -1,21 +1,21 @@
 ---
-title: Decodificare messaggi EDIFACT - App per la logica di Azure | Microsoft Docs
+title: Decodificare messaggi EDIFACT - App per la logica di Azure | Documentazione Microsoft
 description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi EDIFACT per App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696199"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
@@ -59,7 +59,7 @@ Sono necessari gli elementi seguenti:
 
     ![connessione all'account di integrazione creata](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Ad esempio: 
+    Ad esempio:
 
     ![Selezionare il messaggio con il file flat EDIFACT da decodificare](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -81,13 +81,13 @@ Il connettore Decode EDIFACT esegue queste attività:
   * Controlla il numero di controllo del gruppo con gli altri numeri di controllo del gruppo dell'interscambio. 
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
 * Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
-  * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  * Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  * Suddividi interscambio in set di transazioni - Sospendi interscambio in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
-  * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  * Mantieni interscambio - Sospendi set transazioni in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  * Mantieni interscambio - Sospendi interscambio in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
 * Genera un riconoscimento tecnico (controllo) e/o funzionale (se configurata).
   * Un riconoscimento tecnico o CONTRL ACK segnala i risultati di un controllo sintattico dell'interscambio completo ricevuto.

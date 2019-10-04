@@ -3,8 +3,8 @@ title: Leggere il log dei flussi del gruppo di sicurezza di rete | Microsoft Doc
 description: In questo articolo viene illustrato come analizzare i log dei flussi del gruppo di sicurezza di rete
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: jdial
-ms.openlocfilehash: cddf6526a798195e3e3091af766fee28791ac522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: becae0f085fcaf4b0d0c7b29e102aaa3186fb85e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795481"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653751"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -39,7 +39,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ## <a name="retrieve-the-block-list"></a>Recuperare l'elenco di blocco
 
-Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
+Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Leggere il BLOB in blocchi
 
-Successivamente è necessario leggere la variabile `$blocklist` per recuperare i dati. In questo esempio viene eseguita l'iterazione dell'elenco di blocchi, inoltre vengono letti i byte di ogni blocco e raggruppati poi in una matrice. Per recuperare i dati usare il metodo [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+Successivamente è necessario leggere la variabile `$blocklist` per recuperare i dati. In questo esempio viene eseguita l'iterazione dell'elenco di blocchi, inoltre vengono letti i byte di ogni blocco e raggruppati poi in una matrice. Per recuperare i dati usare il metodo [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray).
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

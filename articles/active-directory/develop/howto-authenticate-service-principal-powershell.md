@@ -3,25 +3,26 @@ title: Creare un'identità per un'app Azure con PowerShell | Documentazione Micr
 description: Descrive come usare Azure PowerShell per creare un'applicazione Azure Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con un certificato.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/24/2018
-ms.author: celested
+ms.date: 08/19/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12bfcea70c80929ade656bc5e23f8b95fce44a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410400"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638630"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedura: Usare Azure PowerShell per creare un'entità servizio con un certificato
 
@@ -48,6 +49,9 @@ Il modo più semplice per verificare se l'account dispone delle autorizzazioni a
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Creare un'entità servizio con certificato autofirmato
 
 L'esempio seguente illustra uno scenario semplice. Viene usato [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) per creare un'entità servizio con un certificato autofirmato viene usato [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) per assegnare il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) all'entità servizio. L'ambito di assegnazione del ruolo corrisponde alla sottoscrizione di Azure selezionata. Per selezionare un'altra sottoscrizione, usare [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+
+> [!NOTE]
+> Il cmdlet New-SelfSignedCertificate e il modulo PKI non sono attualmente supportati in PowerShell core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

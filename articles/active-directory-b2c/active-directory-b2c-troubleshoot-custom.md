@@ -2,20 +2,20 @@
 title: Usare Application Insights per risolvere i problemi relativi ai criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come configurare Application Insights per tenere traccia dell'esecuzione di criteri personalizzati.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df5d710792d8c47e491f5b06d88f4050e8eb4a01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66508062"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Raccolta di log
 
@@ -91,7 +91,7 @@ Azure Active Directory B2C supporta una funzionalità per l'invio di dati ad App
 1. Aprire una nuova scheda in Application Insights.
 1. Di seguito viene indicato un elenco di query che è possibile usare per visualizzare i log
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |---------------------|--------------------|
 traces | Consente di visualizzare tutti i log generati da Azure AD B2C |
 traces \| where timestamp > ago(1d) | Consente di visualizzare tutti i log generati da Azure AD B2C nell'ultimo giorno

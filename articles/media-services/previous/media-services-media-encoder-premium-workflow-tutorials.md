@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: christoc
+ms.reviewer: xpouyat; juliako
+ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523835"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69016722"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
 ## <a name="overview"></a>Panoramica
@@ -600,7 +601,7 @@ Ora effettuare un'esecuzione di test locale. Dopo questa esecuzione, esaminare (
 
 L'oggetto nodo su cui viene chiamato il metodo log, fa riferimento al "nodo" corrente, ovvero al componente in cui si sta creando lo script. Ogni componente ha di per sé la possibilità di creare l'output dei dati di registrazione, disponibili nella scheda System. In questo caso, viene creato l'output del valore letterale stringa "hello world". È importante comprendere che questo si rivela un prezioso strumento di debug perché offre informazioni dettagliate sulle operazioni effettivamente eseguite dallo script.
 
-Dall'ambiente di scripting è anche possibile accedere alle proprietà degli altri componenti. Provare a eseguire quanto segue:
+Dall'ambiente di scripting è anche possibile accedere alle proprietà degli altri componenti. Provare questo codice:
 
 ```java
     //inspect current node:
@@ -760,7 +761,7 @@ Queste modifiche sono state apportate con normali operazioni di manipolazione de
 
 *Registrazione dell'elenco di clip risultante*
 
-Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che si impostano i punti in e out, causerà il file xml viene trasformato, tutte le altre volte la clausola guard (se (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento trim se ne è già presente uno.
+Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che sono stati impostati i punti in e out, il codice XML verrà trasformato, in tutte le altre volte la clausola Guard (if (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento Trim quando ne è già presente uno.
 
 Per semplificare il test locale del flusso di lavoro, è consigliabile aggiungere un codice di manutenzione che controlla se è già presente un elemento trim. In questo caso, è possibile rimuoverlo prima di continuare a modificare il file XML con i nuovi valori. Invece di usare le normali manipolazioni di stringa, è probabilmente più sicuro eseguire questa operazione con l'analisi del modello a oggetti XML effettivo.
 

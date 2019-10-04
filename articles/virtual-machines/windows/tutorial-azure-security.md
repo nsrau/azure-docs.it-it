@@ -4,24 +4,23 @@ description: In questa esercitazione vengono descritte le funzionalità del Cent
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e65e9670facdfcbf9d1aac04fa25ee53996a9c4b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594713"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100300"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Esercitazione: Usare il Centro sicurezza di Azure per monitorare le macchine virtuali Windows
 
@@ -51,7 +50,7 @@ Per ottenere la visibilità sulle configurazioni di sicurezza delle macchine vir
 
 1. Nel dashboard del Centro sicurezza fare clic su **Criteri di sicurezza** e selezionare la sottoscrizione in uso. 
 2. In **Provisioning automatico** in **Raccolta dati** selezionare **On**.
-3. Per **Configurazione dell'area di lavoro predefinita** lasciare impostata l'opzione **Usa le aree di lavoro create dal Centro sicurezza (impostazione predefinita)**.
+3. Per **Configurazione dell'area di lavoro predefinita** lasciare impostata l'opzione **Usa le aree di lavoro create dal Centro sicurezza (impostazione predefinita)** .
 4. In **Livelli per gli eventi di sicurezza** mantenere l'opzione predefinita **Comune**.
 4. Fare clic su **Salva** nella parte superiore della pagina. 
 
@@ -73,7 +72,7 @@ Per configurare criteri di sicurezza per un'intera sottoscrizione:
 
 ## <a name="view-vm-configuration-health"></a>Visualizzare lo stato della configurazione delle VM
 
-Dopo aver attivato la raccolta dei dati e impostato un criterio di sicurezza, il Centro sicurezza inizia a generare avvisi e raccomandazioni. Man mano che le macchine virtuali vengono distribuite, viene installato l'agente di raccolta dati. Il Centro sicurezza viene quindi popolato con i dati per le nuove macchine virtuali. Per informazioni dettagliate sullo stato di configurazione delle macchine virtuali, vedere [Protezione delle macchine virtuali nel Centro sicurezza di Azure](../../security-center/security-center-virtual-machine-recommendations.md). 
+Dopo aver attivato la raccolta dei dati e impostato un criterio di sicurezza, il Centro sicurezza inizia a generare avvisi e raccomandazioni. Man mano che le macchine virtuali vengono distribuite, viene installato l'agente di raccolta dati. Il Centro sicurezza viene quindi popolato con i dati per le nuove macchine virtuali. Per informazioni dettagliate sullo stato di configurazione delle macchine virtuali, vedere [Protezione delle macchine virtuali nel Centro sicurezza di Azure](../../security-center/security-center-virtual-machine-protection.md). 
 
 Man mano che i dati vengono raccolti, i dati relativi all'integrità delle risorse di ogni macchina virtuale e delle risorse di Azure correlate vengono aggregati. Le informazioni vengono mostrate in un grafico di facile lettura. 
 
@@ -105,7 +104,7 @@ Le raccomandazioni risolte vengono contrassegnate come tali.
 
 ## <a name="view-detected-threats"></a>Visualizzare le minacce rilevate
 
-Oltre alle raccomandazioni per la configurazione delle risorse, il Centro sicurezza mostra avvisi di rilevamento di minacce. La funzionalità di avviso di sicurezza aggrega i dati raccolti da ogni macchina virtuale, dai log di rete di Azure e dalle soluzioni partner collegate per rilevare le minacce alla sicurezza per le risorse di Azure. Per informazioni dettagliate sulle funzionalità di rilevamento delle minacce nel Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](../../security-center/security-center-detection-capabilities.md).
+Oltre alle raccomandazioni per la configurazione delle risorse, il Centro sicurezza mostra avvisi di rilevamento di minacce. La funzionalità di avviso di sicurezza aggrega i dati raccolti da ogni macchina virtuale, dai log di rete di Azure e dalle soluzioni partner collegate per rilevare le minacce alla sicurezza per le risorse di Azure. Per informazioni dettagliate sulle funzionalità di rilevamento delle minacce nel Centro sicurezza, vedere [in che modo il Centro sicurezza rileva le minacce](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 Per accedere alla funzionalità degli avvisi di sicurezza, è necessario aumentare il piano tariffario del Centro sicurezza da *Gratuito* a *Standard*. Quando si passa a questo piano tariffario superiore, è disponibile una **versione di valutazione gratuita**. 
 

@@ -3,7 +3,7 @@ title: Che cosa sono i report di Azure Active Directory? | Microsoft Docs
 description: Offre una panoramica generale sui report di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127266"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Che cosa sono i report di Azure Active Directory?
 
@@ -54,9 +54,9 @@ Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrass
 
 - Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco degli utenti contrassegnati per il rischio e degli accessi a rischio. 
 
-- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni rilevamenti dei rischi sottostanti che sono stati riscontrati per ogni report. 
 
-- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate sugli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
+- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate sui rilevamenti dei rischi sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
 
 
 ## <a name="activity-reports"></a>Report sull’attività

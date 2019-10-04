@@ -3,17 +3,17 @@ title: Eseguire gli script della shell in una VM Linux in Azure
 description: In questo argomento viene descritto come eseguire gli script all'interno di una macchina virtuale Linux di Azure tramite Esegui comando
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 10/25/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158806"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477054"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -65,7 +65,7 @@ Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di in
 
 Una volta scelto il comando, fare clic su **Esegui** per eseguire lo script. Lo script viene eseguito e,m al termine, restituisce l'output e gli eventuali errori nella finestra di output. Lo screenshot seguente illustra un esempio di output dall'esecuzione del comando **ifconfig**.
 
-![Eseguire l'output dello script di comando ](./media/run-command/run-command-script-output.png)
+![Eseguire l'output dello script di comando](./media/run-command/run-command-script-output.png)
 
 ## <a name="available-commands"></a>Comandi disponibili
 
@@ -78,9 +78,9 @@ Questa tabella mostra l'elenco di comandi disponibili per le macchine virtuali L
 
 ## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
 
-Elencare i comandi di esecuzione o mostrare i dettagli di un comando richiede l'`Microsoft.Compute/locations/runCommands/read` autorizzazione che il ruolo dell'elemento predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e versioni successive hanno.
+Per elencare i comandi di esecuzione o che visualizza i dettagli di un comando richiedono il `Microsoft.Compute/locations/runCommands/read` l'autorizzazione a livello di sottoscrizione, quale predefiniti [lettore](../../role-based-access-control/built-in-roles.md#reader) ruolo e versioni successive.
 
-L'esecuzione di un comando richiede l'`Microsoft.Compute/virtualMachines/runCommand/action` autorizzazione, che il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ha e versioni successive.
+Richiede l'esecuzione di un comando il `Microsoft.Compute/virtualMachines/runCommand/action` l'autorizzazione a livello di sottoscrizione, che il [collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ruolo e versioni successive.
 
 È possibile usare uno dei ruoli [incorporati](../../role-based-access-control/built-in-roles.md) o creare un ruolo [personalizzato](../../role-based-access-control/custom-roles.md) per usare Esegui del comando.
 

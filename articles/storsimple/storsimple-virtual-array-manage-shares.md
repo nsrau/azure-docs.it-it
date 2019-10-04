@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62116867"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare le condivisioni sull'array virtuale StorSimple
 
@@ -88,7 +88,7 @@ Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
 
    4. Nel campo **Capacità** specificare le dimensioni della condivisione. Una condivisione a livelli deve essere compresa tra 500 GB e 20 TB e una condivisione aggiunta in locale deve essere compresa tra 50 GB e 2 TB.
 
-   5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_ . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
 3. Al termine della configurazione della condivisione fare clic su **Crea**. Verrà creata una condivisione con le impostazioni specificate e verrà visualizzata una notifica. Per impostazione predefinita, il backup verrà abilitato per la condivisione.
 4. Per verificare che la condivisione sia stata creata, passare al pannello **Condivisioni**. La condivisione viene visualizzata nell'elenco.
    

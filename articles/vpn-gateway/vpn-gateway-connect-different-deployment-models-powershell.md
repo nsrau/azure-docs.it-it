@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: cf7726d017afd579b1eb227ec0fd3b9710395de6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095595"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
 
@@ -44,17 +44,17 @@ I passaggi seguenti illustrano le impostazioni necessarie per configurare un gat
 
 **Impostazioni della rete virtuale classica**
 
-Nome rete virtuale = ClassicVNet  <br>
+Nome rete virtuale = ClassicVNet <br>
 Località = Stati Uniti occidentali <br>
 Spazi degli indirizzi della rete virtuale = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Nome della rete locale = RMVNetLocal <br>
- GatewayType = DynamicRouting
+GatewayType = DynamicRouting
 
 **Impostazioni della rete virtuale di Resource Manager**
 
-Nome della rete virtuale = RMVNet  <br>
+Nome della rete virtuale = RMVNet <br>
 Gruppo di risorse= RG1 <br>
 Spazi degli indirizzi della rete virtuale = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
@@ -63,7 +63,7 @@ Località = Stati Uniti orientali <br>
 Nome IP pubblico del gateway = gwpip <br>
 Gateway di rete locale = ClassicVNetLocal <br>
 Nome gateway di rete virtuale = RMGateway <br>
- Configurazione di indirizzamento IP del gateway = gwipconfig
+Configurazione di indirizzamento IP del gateway = gwipconfig
 
 ## <a name="createsmgw"></a>Sezione 1: Configurare una rete virtuale classica
 ### <a name="1-download-your-network-configuration-file"></a>1. Eseguire il download del file di configurazione di rete

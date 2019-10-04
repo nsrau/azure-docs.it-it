@@ -2,49 +2,50 @@
 title: Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Impostare AD FS 2016 usando il protocollo SAML e i criteri personalizzati in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80accdc4a14a2246ed91a92f6472490479327e2a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387100"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827198"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come abilitare l'accesso per gli account utente AD FS usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. È possibile abilitare l'accesso aggiungendo [un profilo tecnico SAML](saml-technical-profile.md) a un criterio personalizzato.
+Questo articolo illustra come abilitare l'accesso per un account utente ADFS usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure ad B2C). È possibile abilitare l'accesso aggiungendo [un profilo tecnico SAML](saml-technical-profile.md) a un criterio personalizzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Verificare di avere accesso al file con estensione pfx del certificato con la chiave privata. È possibile generare il proprio certificato autofirmato e caricarlo in Azure AD B2C. Azure AD B2C usa questo certificato per firmare la richiesta SAML inviata al provider di identità SAML.
+- Per consentire ad Azure di accettare la password del file con estensione pfx, la password deve essere crittografata con l'opzione TripleDES-SHA1 nell'utilità di esportazione dell'archivio certificati di Windows invece che in AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
 È necessario archiviare il certificato nel tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
+4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 6. Per **Opzioni** scegliere `Upload`.
-7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `SamlCert`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio `SamlCert`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. Individuare e selezionare il file di certificato con estensione pfx con la chiave privata.
 9. Fare clic su **Create**(Crea).
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
-Per consentire agli utenti di accedere con un account AD FS, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato. 
+Per consentire agli utenti di accedere con un account AD FS, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato.
 
 È possibile definire un account AD FS come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
@@ -102,6 +103,10 @@ A questo punto, i criteri sono stati configurati in modo che Azure AD B2C possa 
 2. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
 3. Fare clic su **Carica**.
 
+> [!NOTE]
+> L'estensione B2C di Visual Studio Code USA "socialIdpUserId". Per ADFS è necessario anche un criterio di social networking.
+>
+
 ## <a name="register-the-claims-provider"></a>Registrare il provider di attestazioni
 
 A questo punto, il provider di identità è stato configurato, ma non è disponibile nelle schermate di iscrizione o accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità AD FS.
@@ -110,7 +115,7 @@ A questo punto, il provider di identità è stato configurato, ma non è disponi
 2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
 3. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 4. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInADFS`.
+5. Rinominare l'ID del percorso utente. Ad esempio `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
@@ -133,8 +138,8 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
-    
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio: `Contoso-SAML2`.
+
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio `Contoso-SAML2`.
 
 3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -144,15 +149,15 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 Per usare AD FS come provider di identità in Azure AD B2C, è necessario creare un trust della relying party di AD FS con i metadati SAML di Azure AD B2C. L'esempio seguente mostra un indirizzo URL che punta ai metadati SAML di un profilo tecnico di Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Sostituire i valori seguenti:
 
 - **your-tenant** con il nome del tenant, ad esempio your-tenant.onmicrosoft.com.
 - **your-policy** con il nome dei criteri. Ad esempio, B2C_1A_signup_signin_adfs.
-- **profilo personale tecnico** con il nome del profilo tecnico SAML identity provider. Ad esempio, Contoso-SAML2.
- 
+- **profilo tecnico** con il nome del profilo tecnico del provider di identità SAML. Ad esempio, Contoso-SAML2.
+
 Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di avere accesso al file dei metadati XML. Per aggiungere un nuovo un trust della relying party usando lo snap-in di gestione di AD FS e configurare manualmente le impostazioni, eseguire la procedura seguente in un server federativo. L'appartenenza al gruppo **Amministratori** o a un gruppo equivalente nel computer locale è il requisito minimo necessario per completare questa procedura.
 
 1. In Server Manager selezionare **Strumenti** e quindi **Gestione AD FS**.
@@ -163,40 +168,36 @@ Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di
 6. Nella pagina **Scegli criteri di controllo di accesso** selezionare i criteri desiderati e fare clic su **Avanti**.
 7. Nella pagina **Aggiunta attendibilità** rivedere le impostazioni e quindi fare clic su **Avanti** per salvare le informazioni sul trust della relying party.
 8. Nella pagina **Fine** fare clic su **Chiudi**. Viene automaticamente visualizzata la finestra di dialogo **Modifica regole attestazione**.
-9. Selezionare **Aggiungi regola**.  
+9. Selezionare **Aggiungi regola**.
 10. In **Modello di regola attestazione** selezionare **Inviare attributi LDAP come attestazioni**.
 11. Specificare un nome in **Nome regola attestazione**. Per **Archivio attributi** selezionare **Select Active Directory** (Seleziona Active Directory), aggiungere le attestazioni seguenti e quindi fare clic su **Fine** e su **OK**.
 
     | Attributo LDAP | Tipo di attestazione in uscita |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Surname | family_name |
+    | Cognome | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | name |
-    
-12.  In base al tipo di certificato è possibile che sia necessario impostare l'algoritmo HASH. Nella finestra delle proprietà del trust della relying party (B2C Demo) selezionare la scheda **Avanzate** e impostare **Secure hash algorithm** su `SHA-256`, quindi fare clic su **OK**.  
+
+    Si noti che questi nomi non verranno visualizzati nell'elenco a discesa tipo di attestazione in uscita. È necessario digitarli manualmente in. (L'elenco a discesa è effettivamente modificabile).
+
+12.  In base al tipo di certificato è possibile che sia necessario impostare l'algoritmo HASH. Nella finestra delle proprietà del trust della relying party (B2C Demo) selezionare la scheda **Avanzate** e impostare **Secure hash algorithm** su `SHA-256`, quindi fare clic su **OK**.
 13. In Server Manager selezionare **Strumenti** e quindi **Gestione AD FS**.
-14. Selezionare il trust della relying party creato, selezionare **Update from Federation Metadata** (Aggiorna da metadati federazione) e quindi fare clic su **Aggiorna**. 
+14. Selezionare il trust della relying party creato, selezionare **Update from Federation Metadata** (Aggiorna da metadati federazione) e quindi fare clic su **Aggiorna**.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
-La comunicazione con Azure AD B2c avviene tramite un'applicazione creata nel tenant. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
+La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi **Aggiungi**.
-5. Immettere un nome per l'applicazione, ad esempio *apptest1*.
-6. Per **App Web/API Web** selezionare `Yes` e quindi immettere `https://jwt.ms` in **URL di risposta**.
-7. Fare clic su **Create**(Crea).
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ### <a name="update-and-test-the-relying-party-file"></a>Aggiornare e testare il file di relying party
 
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInADFS.xml*.
-2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInADFS`.
+2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio `SignUpSignInADFS`.
 3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_adfs`
 4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignInADFS).
 5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.

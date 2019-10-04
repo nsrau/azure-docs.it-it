@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Database di Azure per MySQL
       href: overview.md
+    - name: Quale opzione di MySQL scegliere?
+      href: select-right-deployment-type.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -79,20 +81,30 @@
           href: concepts-ssl-connection-security.md
         - name: Advanced Threat Protection
           href: concepts-data-access-and-security-threat-protection.md
-        - name: VNet
+        - name: Rete virtuale
           href: concepts-data-access-and-security-vnet.md
+        - name: Architettura della connettività
+          href: concepts-connectivity-architecture.md
     - name: Continuità aziendale
       items:
         - name: Panoramica
           href: concepts-business-continuity.md
         - name: Backup e ripristino
           href: concepts-backup.md
-    - name: Monitorare
+    - name: Monitorare e ottimizzare
       items:
-        - name: Monitorare
+        - name: Monitorare e ottimizzare
           href: concepts-monitoring.md
-        - name: Log del server
+        - name: Log query lente
           href: concepts-server-logs.md
+        - name: Log di controllo
+          href: concepts-audit-logs.md
+        - name: Archivio query
+          href: concepts-query-store.md
+        - name: Informazioni dettagliate prestazioni query
+          href: concepts-query-performance-insight.md
+        - name: Raccomandazioni per le prestazioni
+          href: concepts-performance-recommendations.md
     - name: Sviluppo.
       items:
         - name: Compatibilità di driver e strumenti
@@ -157,12 +169,24 @@
           href: howto-server-parameters.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-using-cli.md
-    - name: Accesso ai log server
+    - name: Aumento automatico delle dimensioni di archiviazione
       items:
         - name: Portale di Azure
-          href: howto-configure-server-logs-in-portal.md
+          href: howto-auto-grow-storage-portal.md
         - name: Interfaccia della riga di comando di Azure
-          href: howto-configure-server-logs-in-cli.md
+          href: howto-auto-grow-storage-cli.md
+    - name: Accesso ai log server
+      items:
+        - name: Log query lente
+          items:
+            - name: Portale di Azure
+              href: howto-configure-server-logs-in-portal.md
+            - name: Interfaccia della riga di comando di Azure
+              href: howto-configure-server-logs-in-cli.md
+        - name: Log di controllo
+          items:
+            - name: Portale di Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Monitorare
       items:
         - name: Creare avvisi relativi alle metriche
@@ -173,7 +197,7 @@
           href: howto-data-in-replication.md
         - name: Creare repliche in lettura nel portale di Azure
           href: howto-read-replicas-portal.md
-        - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure
+        - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST
           href: howto-read-replicas-cli.md
     - name: Risolvere problemi
       items:
@@ -207,8 +231,8 @@
       href: /rest/api/mysql
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: Stored procedure per la replica di dati in ingresso
-      href: reference-data-in-stored-procedures.md
+    - name: Stored procedure di Azure
+      href: reference-stored-procedures.md
 - name: Risorse
   items:
     - name: Modelli di distribuzione
@@ -218,7 +242,7 @@
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Video

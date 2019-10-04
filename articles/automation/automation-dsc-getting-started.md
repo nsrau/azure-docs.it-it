@@ -10,11 +10,11 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61074447"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introduzione a Configurazione stato di Automazione di Azure
 
@@ -123,7 +123,7 @@ Dopo avere avviato una compilazione, è possibile visualizzarla nel riquadro **P
 
 ## <a name="viewing-node-configurations"></a>Visualizzazione delle configurazioni di nodo
 
-Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi dell'account di Automazione nella pagina **Configurazione stato (DSC)**. Il nome di una configurazione del nodo presenta il formato *ConfigurationName*.*NodeName*.
+Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi dell'account di Automazione nella pagina **Configurazione stato (DSC)** . Il nome di una configurazione del nodo presenta il formato *ConfigurationName*.*NodeName*.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
@@ -162,7 +162,7 @@ Azure avvierà il processo di caricamento della macchina virtuale. Al termine, l
 
 ## <a name="viewing-the-list-of-managed-nodes"></a>Visualizzazione dell'elenco dei nodi gestiti
 
-È possibile visualizzare l'elenco di tutti i computer caricati per la gestione nell'account di Automazione nella scheda **Nodi** della pagina **Configurazione stato (DSC)**.
+È possibile visualizzare l'elenco di tutti i computer caricati per la gestione nell'account di Automazione nella scheda **Nodi** della pagina **Configurazione stato (DSC)** .
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.

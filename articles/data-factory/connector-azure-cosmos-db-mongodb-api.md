@@ -10,14 +10,14 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: dfacecbaaf627b05d7706f60b4eb86cca9d856ba
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816170"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720860"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiare dati da o verso l'API di Azure Cosmos DB per MongoDB usando Azure Data Factory
 
@@ -91,12 +91,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
     "name": "CosmosDbMongoDBAPIDataset",
     "properties": {
         "type": "CosmosDbMongoDbApiCollection",
+        "typeProperties": {
+            "collectionName": "<collection name>"
+        },
+        "schema": [],
         "linkedServiceName":{
             "referenceName": "<Azure Cosmos DB's API for MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<collection name>"
         }
     }
 }

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61276736"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -65,7 +65,7 @@ Dopo aver ottenuto l'elenco di macchine virtuali da profilare, è possibile eseg
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Nome di dominio completo o indirizzo IP del server vCenter o dell'host vSphere ESXi con le VM da profilare.|
@@ -145,7 +145,7 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nome parametro | DESCRIZIONE |
+|Nome parametro | Descrizione |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Nome dominio completo o indirizzo IP (usare lo stesso nome o indirizzo IP usato al momento della profilatura) del server vCenter/vSphere in cui si trovano le VM profilate per le quali generare il report. Si noti che, se è stato usato un server vCenter al momento della profilatura, non è possibile usare un server vSphere per la generazione di report e viceversa.|
@@ -241,7 +241,7 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 * [Riepilogo ambiente locale](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Raccomandazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [Indicazioni](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
 * [Selezione host di archiviazione delle VM](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [VM compatibili](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
@@ -257,7 +257,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nome parametro | DESCRIZIONE |
+|Nome parametro | Descrizione |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Specificare il tipo di virtualizzazione (VMware o Hyper-V).|

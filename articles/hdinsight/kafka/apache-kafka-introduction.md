@@ -1,22 +1,21 @@
 ---
 title: Introduzione ad Apache Kafka in HDInsight - Azure
 description: Informazioni su Apache Kafka in HDInsight. Che cos'è, che cosa fa e dove trovare esempi e informazioni introduttive.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 06/13/2019
+ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889189"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960099"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>Che cosa è Apache Kafka in HDInsight?
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Informazioni su Apache Kafka in Azure HDInsight
 
 [Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Kafka offre anche una funzionalità di broker di messaggi simile a una coda di messaggi, dove è possibile pubblicare e sottoscrivere flussi dei dati denominati. 
 
@@ -46,7 +45,7 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
 Il diagramma seguente mostra una configurazione tipica di Kafka che usa gruppi di consumer, partizionamento e replica per offrire la lettura parallela degli eventi con tolleranza di errore:
 
-![Diagramma di configurazione del cluster Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
+![Diagramma di configurazione del cluster Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper gestisce lo stato del cluster Kafka. Zookeeper è stato compilato per le transazioni simultanee, resilienti e a bassa latenza. 
 
@@ -68,7 +67,7 @@ Quelli che seguono sono attività e criteri comuni che possono essere eseguiti u
 
     Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
 
-* **Elaborazione dei flussi**: Kafka viene spesso usato con Apache Storm o Spark per l'elaborazione dei flussi in tempo reale. In Kafka 0.10.0.0 (HDInsight versione 3.5 e 3.6) è stata introdotta un'API di streaming che consente di compilare soluzioni di streaming senza ricorrere a Storm o Spark.
+* **Elaborazione del flusso**. Kafka viene spesso usato con Apache Storm o Spark per l'elaborazione dei flussi in tempo reale. In Kafka 0.10.0.0 (HDInsight versione 3.5 e 3.6) è stata introdotta un'API di streaming che consente di compilare soluzioni di streaming senza ricorrere a Storm o Spark.
 
     Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
 

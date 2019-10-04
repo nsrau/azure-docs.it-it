@@ -2,7 +2,8 @@
 title: Avvio rapido - Creare un profilo di Gestione traffico per la disponibilità elevata delle applicazioni usando Azure PowerShell
 description: Questo articolo di avvio rapido descrive come creare un profilo di Gestione traffico per creare un'applicazione Web a disponibilità elevata.
 services: traffic-manager
-author: KumudD
+author: asudbring
+mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
-ms.author: kumud
-ms.openlocfilehash: 6ffecf973632911113608b7478d2af2aef036257
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: allensu
+ms.openlocfilehash: ce05d594555095c061e43df2464b906138811448
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051128"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando Azure PowerShell
 
@@ -26,7 +27,7 @@ In questo argomento di avvio rapido verranno create due istanze di un'applicazio
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: e2772cc2c59b93c7e523eaa0127dcf4ea0bc589e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60628297"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurare connessioni protette a un cluster Service Fabric da Visual Studio
 Scoprire come usare Visual Studio per accedere in modo sicuro a un cluster di Service Fabric di Azure con i criteri di controllo di accesso configurati.
@@ -42,11 +42,11 @@ La finestra di dialogo **Pubblica applicazione di Service Fabric** convalida aut
 1. Assicurarsi che sia possibile accedere a uno dei certificati client attendibili per il cluster di destinazione. Il certificato viene condiviso in genere come un file di scambio di informazioni personali (.pfx). Vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure](service-fabric-cluster-creation-via-portal.md) per informazioni su come configurare il server e garantire l'accesso a un client.
 2. Installare il certificato attendibile. A tale scopo, fare doppio clic sul file .pfx, o usare lo script di PowerShell Import-PfxCertificate per importare i certificati. Installare il certificato in **Cert:\LocalMachine\My**. È anche possibile accettare tutte le impostazioni predefinite durante l'importazione del certificato.
 3. Scegliere il comando **Pubblica...** nel menu di scelta rapida del progetto per aprire la finestra di dialogo **Pubblica applicazione Azure** e quindi selezionare il cluster di destinazione. Lo strumento automaticamente risolve la connessione e salva i parametri di connessione protetta nel profilo di pubblicazione.
-4. Facoltativo: è possibile modificare il profilo di pubblicazione in modo da specificare una connessione sicura al cluster.
+4. Facoltativo: È possibile modificare il profilo di pubblicazione per specificare una connessione sicura al cluster.
    
-   Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
+   Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Vedere [Procedura: Recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) per altre informazioni.
    
-   È possibile usare i parametri *ClusterConnectionParameters* per specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Service Fabric. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Per un elenco dei parametri disponibili, vedere [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) .
+   È possibile usare i parametri *ClusterConnectionParameters* per specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Service Fabric. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Per un elenco dei parametri disponibili, vedere [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
    
    Se si pubblica in un cluster remoto, è necessario specificare i parametri appropriati per tale cluster specifico. Di seguito è riportato un esempio per la connessione a un cluster non sicuro:
    

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869986"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
@@ -45,7 +45,6 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica centrafricana         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Comore                          | ✓ | Ø |
-| Congo                            | ✓ | ✓ |
 | Congo, Repubblica democratica | ✓ | ✓ |
 | Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
 | Gibuti                         | ✓ | Ø |
@@ -76,7 +75,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Réunion                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Sant'Elena, Ascensione e Tristan da Cunha | ✓ | Ø |
-| São Tomé e Príncipe            | ✓ | Ø |
+| Tomé SAN e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
@@ -109,7 +108,6 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Canada                    | ✓ | ✓ |
 | Isole Cayman            | ✓ | ✓ |
 | Cile                     | ✓ | ✓ |
-| Isola Clipperton         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
@@ -230,7 +228,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Palau                     |   | Ø |
 | Papua Nuova Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
-| Isole Samoa                      |   | Ø |
+| Isole Samoa                     |   | Ø |
 | Isole Salomone           |   | Ø|
 | Tokelau                   |   | Ø |
 | Tonga                     |   | Ø |

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542948"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177062"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -23,9 +23,7 @@ I modelli a oggetti di Gemelli digitali descrivono concetti, categorie e proprie
 
 Predisponendo modelli a oggetti di Gemelli digitali e un’ontologia, è possibile popolare un _grafico spaziale_. I grafici spaziali sono rappresentazioni virtuali delle molte relazioni tra spazi, dispositivi e persone rilevanti per una soluzione IoT. Questo diagramma mostra un esempio di grafico spaziale che usa l'ontologia di un edificio intelligente.
 
-![Creazione di un grafico spaziale di Gemelli digitali][1]
-
-<a id="model"></a>
+[![Creazione di grafici spaziali gemelli digitali](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 Il grafico spaziale riunisce spazi, dispositivi, sensori e utenti. Ogni elemento è collegato agli altri in modo da modellare il mondo reale. In questo esempio, la sede 43 presenta quattro piani, ciascuno con molte aree differenti. Gli utenti sono associati alla propria workstation e hanno accesso a parti del grafico. Un amministratore dispone dei diritti per apportare modifiche al grafico spaziale, mentre un visitatore ha solo i diritti per visualizzare determinati dati dell'edificio.
 
@@ -56,8 +54,6 @@ Altre categorie di oggetti:
 - I **matcher** sono oggetti che determinano quali funzioni definite dall'utente vengono eseguite per un messaggio di telemetria specificato.
 - Gli **endpoint** sono le posizioni in cui possono essere instradati i messaggi di telemetria e gli eventi di Gemelli digitali, ad esempio `Event Hub`, `Service Bus` e `Event Grid`.
 
-<a id="graph"></a>
-
 ## <a name="spatial-intelligence-graph"></a>Grafico di intelligenza spaziale
 
 Il grafico spaziale è il grafico gerarchico di spazi, dispositivi e utenti definiti nel modello a oggetti di Gemelli digitali. Il grafico spaziale supporta ereditarietà, filtri, attraversamento, scalabilità ed estendibilità. È possibile interagire con il grafico spaziale e gestirlo con una raccolta di API REST.
@@ -82,14 +78,14 @@ Dopo aver distribuito Gemelli digitali dal [portale di Azure](https://portal.azu
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOME | Sostituire con |
+| Attività | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
 
  Il formato dell'URL completo viene visualizzato in questa immagine.
 
-![API di gestione del portale di Gemelli digitali][2]
+(![API di gestione del portale di Gemelli digitali](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (media/Concepts/Digital-Twins-Spatial-Graph-Management-API-URL. png # Lightbox)
 
 Per altre informazioni sull'uso dei grafici di intelligenza spaziale, visitare l'anteprima di prova delle API di gestione di Gemelli digitali di Azure.
 
@@ -106,7 +102,3 @@ Tutte le chiamate API devono essere autenticate tramite [OAuth](https://docs.mic
 - Per informazioni sulla connettività dei dispositivi e su come inviare messaggi di telemetria a Gemelli digitali, vedere [Connettività dei dispositivi e ingresso della telemetria in Gemelli digitali di Azure](concepts-device-ingress.md).
 
 - Per informazioni sulle limitazioni per le API di gestione, vedere [Gestione e limiti delle API di Gemelli digitali di Azure](concepts-service-limits.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

@@ -1,115 +1,118 @@
 ---
-title: Effettuare il provisioning del pool di Azure Batch da un'immagine personalizzata | Microsoft Docs
-description: Creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
+title: Usare la raccolta di immagini condivise per creare un pool-Azure Batch | Microsoft Docs
+description: Creare un pool di batch con la raccolta di immagini condivise per eseguire il provisioning di immagini personalizzate nei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752127"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141802"
 ---
-# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali 
+# <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Usare la raccolta di immagini condivise per creare un pool
 
-Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o con un'immagine personalizzata, vale a dire un'immagine di macchina virtuale creata e configurata manualmente. L'immagine personalizzata deve essere una risorsa di tipo *immagine gestita* nella stessa sottoscrizione di Azure e nella stessa area dell'account Batch.
+Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con la [raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md).
 
-## <a name="why-use-a-custom-image"></a>Vantaggi dell'uso di un'immagine personalizzata
+## <a name="benefits-of-the-shared-image-gallery"></a>Vantaggi della raccolta immagini condivise
 
-Quando si specifica un'immagine personalizzata, si ha la possibilità di controllare la configurazione e il tipo del sistema operativo, nonché i dischi dati da usare. L'immagine personalizzata può includere applicazioni e dati di riferimento che diventano disponibili in tutti i nodi del pool di Azure Batch non appena viene effettuato il provisioning.
+Quando si usa la raccolta di immagini condivise per l'immagine personalizzata, è possibile controllare il tipo di sistema operativo e la configurazione, nonché il tipo di dischi dati. L'immagine condivisa può includere le applicazioni e i dati di riferimento che diventano disponibili in tutti i nodi del pool di batch non appena ne viene effettuato il provisioning.
 
-L'uso di un'immagine personalizzata permette di risparmiare tempo nel preparare i nodi di calcolo del pool per l'esecuzione del carico di lavoro di Batch. Benché sia possibile usare un'immagine di Azure Marketplace e installare il software in ogni nodo di calcolo dopo averne effettuato il provisioning, l'uso di un'immagine personalizzata può rivelarsi più efficiente.
+È inoltre possibile disporre di più versioni di un'immagine in base alle esigenze dell'ambiente in uso. Quando si usa una versione di immagine per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale.
 
-L'uso di un'immagine personalizzata configurata per uno scenario specifico può essere caratterizzato da numerosi vantaggi:
+L'uso di un'immagine condivisa consente di risparmiare tempo nella preparazione dei nodi di calcolo del pool per l'esecuzione del carico di lavoro batch. È possibile usare un'immagine di Azure Marketplace e installare il software in ogni nodo di calcolo dopo il provisioning, ma l'uso di un'immagine condivisa è in genere più efficiente. Inoltre, è possibile specificare più repliche per l'immagine condivisa, in modo che quando si creano pool con molte VM (più di 600 VM), si risparmia tempo durante la creazione del pool.
 
-- **Configurare il sistema operativo**. È possibile personalizzare la configurazione del disco del sistema operativo dell'immagine. 
-- **Pre-installare applicazioni**. La pre-installazione delle applicazioni sul disco del sistema operativo risulta essere più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo tramite un'attività di avvio.
-- **Risparmiare tempo di riavvio nelle macchine virtuali.** L'installazione delle applicazioni in genere prevede il riavvio della macchina virtuale e pertanto questa operazione richiede molto tempo. È possibile risparmiare tempo di riavvio mediante la pre-installazione delle applicazioni. 
-- **Copiare grandi quantità di dati solo una volta.** Incorporare i dati statici nell'immagine personalizzata gestita copiandoli nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
-- **Scelta di tipi di disco.** È possibile scegliere di usare l'archiviazione Premium per il disco del sistema operativo e per il disco dati.
-- **Aumentare le dimensioni dei pool.** Quando si usa un'immagine personalizzata gestita per creare un pool, il pool può aumentare senza che sia necessario creare copie dei dischi rigidi virtuali del BLOB immagine. 
+L'uso di un'immagine condivisa configurata per lo scenario può offrire diversi vantaggi:
 
+* **Usare le stesse immagini tra le aree.** È possibile creare repliche di immagini condivise in aree diverse in modo che tutti i pool utilizzino la stessa immagine.
+* **Configurare il sistema operativo.** È possibile personalizzare la configurazione del disco del sistema operativo dell'immagine.
+* **Pre-installare applicazioni**. La pre-installazione delle applicazioni nel disco del sistema operativo è più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo con un'attività di avvio.
+* **Copiare grandi quantità di dati una volta.** Fare in modo che una parte dei dati statici dell'immagine condivisa gestita venga copiata nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
+* **Espandere i pool in dimensioni maggiori.** Con la raccolta di immagini condivise è possibile creare pool di dimensioni maggiori con le immagini personalizzate insieme a più repliche di immagini condivise.
+* **Prestazioni migliori rispetto all'immagine personalizzata.** Utilizzando immagini condivise, il tempo necessario affinché il pool raggiunga lo stato stabile è più veloce del 25% e la latenza di inattività della macchina virtuale è fino al 30% più breve.
+* **Controllo delle versioni delle immagini e raggruppamento per semplificare la gestione.** La definizione di raggruppamento di immagini contiene informazioni sui motivi per cui è stata creata l'immagine, il sistema operativo per cui è stata creata e le informazioni sull'utilizzo dell'immagine. Il raggruppamento di immagini consente una gestione più semplice delle immagini. Per altre informazioni, vedere [definizioni di immagine](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Una risorsa immagine gestita**. Per creare un pool di macchine virtuali usando un'immagine personalizzata, è necessario possedere o creare una risorsa immagine gestita nella stessa sottoscrizione di Azure e nella stessa area dell'account Batch. È consigliabile creare l'immagine dagli snapshot del disco del sistema operativo della macchina virtuale e, facoltativamente, i relativi dischi dati collegati. Per altre informazioni e i passaggi per preparare un'immagine gestita, vedere la sezione seguente. 
-  - Usare un'immagine personalizzata univoca per ogni pool che si crea.
-  - Per creare un pool con l'immagine usando le API Batch, specificare l'**ID risorsa** dell'immagine, che si presenta nel formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Per usare il portale, usare il **nome** dell'immagine.  
-  - La risorsa immagine gestita deve esistere per tutta la durata del pool per consentire il ridimensionamento orizzontale e può essere rimossa dopo che il pool è stato eliminato.
+* Un **account Azure Batch**. Per creare un account batch, vedere le guide introduttive di batch usando il [portale di Azure](quick-create-portal.md) o l'interfaccia della riga di comando di [Azure](quick-create-cli.md).
 
-- **Autenticazione di Azure Active Directory (AAD)**. L'API client di Batch deve usare l'autenticazione AAD. Il supporto di Azure Batch per l'autenticazione AAD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
-
-## <a name="prepare-a-custom-image"></a>Preparare un'immagine personalizzata
-
-In Azure è possibile preparare un'immagine gestita dagli snapshot del sistema operativo e dei dischi dati di una macchina virtuale di Azure, da una VM di Azure generalizzata con dischi gestiti o da un disco rigido virtuale locale generalizzato da caricare. Per ridimensionare i pool di Batch in modo affidabile con un'immagine personalizzata, si consiglia di creare un'immagine gestita usando *solo* il primo modo, ovvero usando gli snapshot dei dischi della macchina virtuale. Vedere i passaggi seguenti per preparare una macchina virtuale, acquisire uno snapshot e creare un'immagine dallo snapshot. 
-
-### <a name="prepare-a-vm"></a>Preparare una VM 
-
-Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine di Azure Marketplace supportata da Batch come immagine di base per l'immagine gestita e quindi personalizzarla.  Per ottenere un elenco di riferimenti a immagini di Azure Marketplace supportate da Azure Batch, vedere l'operazione [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus). 
+* **Immagine della raccolta di immagini condivise**. Per altre informazioni e procedure per preparare un'immagine condivisa, vedere [creare una raccolta di immagini condivise con l'interfaccia](../virtual-machines/linux/shared-images.md) della riga di comando di Azure o [creare una raccolta di immagini condivise usando il portale di Azure](../virtual-machines/linux/shared-images-portal.md).
 
 > [!NOTE]
-> È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-).
+> L'immagine condivisa deve trovarsi nella stessa sottoscrizione dell'account batch. L'immagine condivisa può trovarsi in aree diverse, purché includa repliche nella stessa area dell'account batch.
 
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creare un pool da un'immagine condivisa usando l'interfaccia della riga di comando di Azure
 
-* Assicurarsi che la macchina virtuale sia creata con un disco gestito. Questa è l'impostazione di archiviazione predefinita quando si crea una macchina virtuale.
-* Non installare le estensioni di Azure, ad esempio l'estensione Script personalizzato, nella macchina virtuale. Se l'immagine contiene un'estensione preinstallata, Azure può incontrare alcuni problemi durante la distribuzione del pool di Batch.
-* Verificare che l'immagine del sistema operativo di base usi l'unità temporanea predefinita. L'agente del nodo Batch attualmente prevede l'uso dell'unità temporanea predefinita.
-* Quando la VM è in esecuzione, connetterla tramite RDP (per Windows) o SSH (per Linux). Installare il software necessario o copiare i dati desiderati.  
+Per creare un pool dall'immagine condivisa usando l'interfaccia della riga di comando di `az batch pool create` Azure, usare il comando. Specificare l'ID immagine condivisa nel `--image` campo. Verificare che il tipo di sistema operativo e lo SKU corrispondano alle versioni specificate da`--node-agent-sku-id`
 
-### <a name="create-a-vm-snapshot"></a>Creare uno snapshot della macchina virtuale
+```azurecli
+az batch pool create \
+    --id mypool --vm-size Standard_A1_v2 \
+    --target-dedicated-nodes 2 \
+    --image "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}" \
+    --node-agent-sku-id "batch.node.ubuntu 16.04"
+```
 
-Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. Per creare uno snapshot del sistema operativo o dei dischi dati di una macchina virtuale, è possibile usare il portale di Azure o gli strumenti da riga di comando. Per i passaggi e le opzioni per creare uno snapshot, vedere il materiale sussidiario per le VM [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) o [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+## <a name="create-a-pool-from-a-shared-image-using-c"></a>Creare un pool da un'immagine condivisa usandoC#
 
-### <a name="create-an-image-from-one-or-more-snapshots"></a>Creare un'immagine da uno o più snapshot
+In alternativa, è possibile creare un pool da un'immagine condivisa usando l' C# SDK.
 
-Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di comando di Azure, ad esempio il comando [az image create](/cli/azure/image). È possibile creare un'immagine specificando uno snapshot del disco del sistema operativo e, facoltativamente, uno o più snapshot dei dischi dati.
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Per creare un pool da un'immagine personalizzata nel portale
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}");
+}
 
-Dopo avere salvato l'immagine personalizzata e conoscendone l'ID risorsa o il nome, è possibile creare un pool di Batch da tale immagine. La procedura seguente illustra come creare un pool dal portale di Azure.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
 
-> [!NOTE]
-> Se si sta creando il pool usando una delle API di Batch, assicurarsi che l'identità usata per l'autenticazione AAD disponga delle autorizzazioni per la risorsa immagine. Vedere [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
->
+        pool.Commit();
+    }
+    ...
+}
+```
 
-1. Passare all'account Batch nel portale di Azure. Questo account deve trovarsi nella stessa area e nella stessa sottoscrizione del gruppo di risorse contenente l'immagine personalizzata. 
-2. Nella finestra **Impostazioni** a sinistra scegliere la voce di menu **Pool**.
-3. Nella finestra **Pool** selezionare il comando **Aggiungi**.
-4. Nella finestra **Aggiungi pool** selezionare **Immagine personalizzata (Linux/Windows)** nell'elenco a discesa **Tipo di immagine**. Nell'elenco a discesa **Immagine di macchina virtuale personalizzata** selezionare il nome dell'immagine (forma breve dell'ID risorsa).
-5. Selezionare il valore corretto nei campi **Server di pubblicazione/Offerta/SKU** per l'immagine personalizzata.
-6. Specificare le rimanenti impostazioni obbligatorie, incluse **Dimensioni nodo**, **Nodi dedicati target** e **Nodi per priorità bassa**, oltre alle impostazioni facoltative desiderate.
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Creare un pool da un'immagine condivisa usando il portale di Azure
 
-    Per un'immagine personalizzata di Microsoft Windows Server Datacenter 2016, ad esempio, la finestra **Aggiungi pool** viene visualizzata come illustrato di seguito:
+Usare la procedura seguente per creare un pool da un'immagine condivisa nel portale di Azure.
 
-    ![Aggiungere un pool da un'immagine di Windows personalizzata](media/batch-custom-images/add-pool-custom-image.png)
-  
-Per verificare se un pool esistente è basato su un'immagine personalizzata, vedere la proprietà **Sistema operativo** nella sezione di riepilogo delle risorse della finestra **Pool**. Se il pool è stato creato da un'immagine personalizzata, viene impostato su **Immagine di macchina virtuale personalizzata**.
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Passare a **account batch** e selezionare l'account.
+1. Selezionare **pool** e quindi **Aggiungi** per creare un nuovo pool.
+1. Nella sezione **tipo di immagine** selezionare **raccolta immagini condivise**.
+1. Completare le sezioni rimanenti con le informazioni sull'immagine gestita.
+1. Selezionare **OK**.
 
-Tutte le immagini personalizzate associate a un pool vengono visualizzate nella finestra **Proprietà** del pool.
+![Creare un pool con da un'immagine condivisa con il portale.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>Considerazioni per i pool di grandi dimensioni
 
-Se si prevede di creare un pool con centinaia di macchine virtuali e oltre usando un'immagine personalizzata, è importante seguire le indicazioni precedenti per usare un'immagine creata dallo snapshot di una macchina virtuale.
+Se si prevede di creare un pool con centinaia o migliaia di VM o più usando un'immagine condivisa, usare le linee guida seguenti.
 
-Si noti inoltre quanto segue:
+* **Numeri di replica della raccolta immagini condivisa.**  Per ogni pool con fino a 600 istanze, si consiglia di contenere almeno una replica. Se, ad esempio, si sta creando un pool con 3000 di macchine virtuali, è necessario tenere almeno 5 repliche dell'immagine. Per ottenere prestazioni migliori, è sempre consigliabile mantenere più repliche rispetto ai requisiti minimi.
 
-- **Limiti dimensioni**: Batch limita le dimensioni del pool a 2500 nodi di calcolo dedicati o a 1000 nodi con priorità bassa, quando si usa un'immagine personalizzata.
-
-  Se si usa la stessa immagine (o più immagini basate sullo stesso snapshot) per creare più pool, il numero totale di nodi di calcolo nel pool non può superare i limiti sopra indicati. Non è consigliabile usare un'immagine o il relativo snapshot sottostante per più di un pool.
-
-  I limiti possono essere anche inferiori se si configura il pool con i [pool NAT in ingresso](pool-endpoint-configuration.md).
-
-- **Timeout ridimensionamento**: se il pool contiene un numero fisso di nodi (senza scalabilità automatica), aumentare il valore della proprietà resizeTimeout del pool a un valore come 20-30 minuti. Se il pool non raggiunge la dimensione di destinazione entro il periodo di timeout, eseguire un'altra [operazione di ridimensionamento](/rest/api/batchservice/pool/resize).
-
-  Se si prevede di creare un pool con oltre 300 nodi di calcolo, può essere necessario ridimensionare il pool più volte per raggiungere le dimensioni di destinazione.
+* **Timeout ridimensionamento** Se il pool contiene un numero fisso di nodi (se non viene ridimensionato automaticamente), aumentare `resizeTimeout` la proprietà del pool in base alle dimensioni del pool. Per ogni VM 1000, il timeout di ridimensionamento consigliato è di almeno 15 minuti. Ad esempio, il timeout di ridimensionamento consigliato per un pool con 2000 di macchine virtuali è di almeno 30 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+* Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).

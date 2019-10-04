@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 9f7f71f47fadd7cfe2364acf1a8505e1967a78e5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66475994"
 ---
 Per altre informazioni sulle attività iniziali con l'hub IoT di Azure e per esplorare tutti gli scenari IoT estesi, vedere:
 
@@ -25,7 +25,7 @@ Per altre informazioni sulle attività iniziali con l'hub IoT di Azure e per esp
 
 - [Usare Power BI per visualizzare i dati dei sensori in tempo reale dall'hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Usare la funzionalità App Web del servizio app di Azure per visualizzare i dati dei sensori in tempo reale dall'hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Usare un'app web per visualizzare i dati del sensore in tempo reale dall'hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Previsioni meteo usando i dati dei sensori dell'hub IoT in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

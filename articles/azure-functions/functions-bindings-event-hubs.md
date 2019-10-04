@@ -4,20 +4,19 @@ description: Informazioni su come usare le associazioni di Hub eventi di Azure i
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: 7ca3ab8e3becf884fdba460f1981430e0c66ef99
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc75ad08716a001ae0cfd934dbc8d5da668dc1c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433502"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086663"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 

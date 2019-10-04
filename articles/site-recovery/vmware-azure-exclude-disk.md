@@ -9,11 +9,11 @@ ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60921987"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Escludere dischi dalla replica di macchine virtuali VMware in Azure
 

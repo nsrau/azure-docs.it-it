@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856214"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618580"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -36,7 +36,10 @@ Per un processo di business in cui vengono inviati più messaggi durante la gest
 
 Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al processo di business garantisce una ripetibilità prevedibile, necessaria per sfruttare la funzionalità di rilevamento dei duplicati in modo efficace.
 
-## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
+> [!NOTE]
+> Se il rilevamento dei duplicati è abilitato e l'ID di sessione o la chiave di partizione non sono impostati, l'ID del messaggio viene usato come chiave di partizione. Se anche l'ID del messaggio non è impostato, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+
+## <a name="enable-duplicate-detection"></a>Abilita rilevamento duplicati
 
 Nel portale la funzionalità si attiva durante la creazione di entità tramite la casella di controllo **Abilita rilevamento duplicati**, che per impostazione predefinita è deselezionata. L'impostazione per la creazione di nuovi argomenti è equivalente.
 

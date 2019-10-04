@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816940"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476867"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -197,7 +197,7 @@ In **Logica avvisi**, per **Soglia** immettere **0**. Al termine, fare clic su *
 
 Da **Gruppi di azioni**, selezionare **Crea nuovo**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
-In **Dettagli avviso**, assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informazioni (gravità 2)**, **Avviso (gravità 1)** o **Critico (gravità 0)**.
+In **Dettagli avviso**, assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informazioni (gravità 2)** , **Avviso (gravità 1)** o **Critico (gravità 0)** .
 
 Nella casella **Nome gruppo di azioni** immettere un nome per l'avviso e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
 

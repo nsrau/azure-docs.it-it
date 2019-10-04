@@ -2,22 +2,30 @@
 title: Eseguire l'aggiornamento ad Azure Search .NET SDK versione 3 - Ricerca di Azure
 description: Eseguire la migrazione di codice ad Azure Search .NET SDK versione 3 da versioni precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4acf609ca1f81e69babfa1a319b43e20e84a8395
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: cab0da93bbea117c216969faf2f1e194e16d675f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317254"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183225"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Aggiornamento ad Azure Search .NET SDK versione 3
+
+<!--- DETAILS in the word doc
+cosmosdb
+NER v1 skill 
+Indexer execution result errors no longer have status
+the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
+--->
+
 Se si usa la versione 2.0 di anteprima o precedente di [Azure Search .NET SDK](https://aka.ms/search-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 3.
 
 Per una procedura dettagliata più generale relativa all'SDK, inclusi gli esempi, vedere [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
@@ -137,9 +145,9 @@ Se esegue l'aggiornamento dalla versione 2.0-preview alla versione 3, tenere pre
 
 Se l'applicazione dipende in modo sostanziale da queste funzionalità, non sarà possibile completare l'aggiornamento alla versione 3 di Azure Search .NET SDK. È possibile continuare a usare la versione 2.0-preview. Tenere presente, tuttavia, che **non è consigliabile usare SDK in anteprima nelle applicazioni di produzione**. Le funzionalità di anteprima sono destinate esclusivamente alla valutazione e sono soggette a modifiche.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Per altri dettagli sull'uso di .NET SDK Ricerca di Azure, vedere le [Procedure .NET](search-howto-dotnet-sdk.md).
 
-I commenti degli utenti sull'SDK saranno molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".
+I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, è possibile richiedere assistenza per [stack overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".
 
 Grazie per avere usato Ricerca di Azure.

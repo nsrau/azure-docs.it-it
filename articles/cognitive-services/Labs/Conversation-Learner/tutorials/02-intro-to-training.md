@@ -3,19 +3,20 @@ title: Introduzione al training di un modello di Conversation Learner - Servizi 
 titleSuffix: Azure
 description: Informazioni su come eseguire il training di un modello, incluse la creazione come ramo di un nuovo training da un training precedente o la modifica di un training precedente con Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 1e6dea521207ec00efe948a879c705bd28a75d57
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: c657025ce588363cf76ce10868d809a9aff69222
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213192"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705621"
 ---
 # <a name="introduction-to-training"></a>Introduzione al training
 

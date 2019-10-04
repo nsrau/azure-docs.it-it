@@ -1,27 +1,18 @@
 ---
 title: Trovare ed eliminare dischi gestiti e non gestiti di Azure scollegati | Microsoft Docs
 description: Come trovare ed eliminare dischi gestiti e non gestiti di Azure (dischi rigidi virtuali/BLOB di pagine) scollegati tramite l'interfaccia della riga di comando di Azure.
-services: virtual-machines-linux
-documentationcenter: ''
-author: ramankumarlive
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: roygara
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 034d2433b2251351d54c2c5f41f78b5d45ab80e1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e17292b3cf6edf851415efb83430331c54fbf610
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470757"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695525"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure scollegati
 Quando si elimina una macchina virtuale (VM) in Azure, per impostazione predefinita, nessun disco collegato alla macchina virtuale viene eliminato. Questa funzionalità consente di prevenire la perdita di dati a causa dell'eliminazione accidentale di macchine virtuali. Dopo l'eliminazione di una macchina virtuale, si continuerà a pagare per i dischi scollegati. Questo articolo illustra come trovare ed eliminare tutti i dischi scollegati e ridurre i costi non necessari. 
@@ -73,7 +64,7 @@ I dischi non gestiti sono file disco rigido virtuale che sono archiviati come [B
    
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
-deleteUnattachedVHDs=1
+deleteUnattachedVHDs=0
 
 storageAccountIds=$(az storage account list --query [].[id] -o tsv)
 

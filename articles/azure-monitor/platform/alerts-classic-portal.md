@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66129780"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -21,7 +21,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 1. Nel [portale](https://portal.azure.com/) individuare la risorsa da monitorare e quindi selezionarla.
 
-2. Nella sezione **MONITORAGGIO** selezionare **Avvisi (versione classica)**. Il testo e l'icona possono variare leggermente per le diverse risorse. Se l'opzione **Avvisi (versione classica)** non è disponibile, cercarla in **Avvisi** o **Regole di avviso**.
+2. Nella sezione **MONITORAGGIO** selezionare **Avvisi (versione classica)** . Il testo e l'icona possono variare leggermente per le diverse risorse. Se l'opzione **Avvisi (versione classica)** non è disponibile, cercarla in **Avvisi** o **Regole di avviso**.
 
     ![Monitoraggio](media/alerts-classic-portal/AlertRulesButton.png)
 

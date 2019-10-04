@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
 ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166012"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installare Elastic Stack in una macchina virtuale di Azure
 

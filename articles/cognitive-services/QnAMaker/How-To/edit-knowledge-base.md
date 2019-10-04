@@ -3,20 +3,20 @@ title: Modificare una knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/26/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577205"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307028"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modificare una knowledge base in QnA Maker
 
@@ -38,11 +38,11 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
   
     |Obiettivo|Azione|
     |--|--|
-    |Aggiungi un URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
+    |Aggiungi un URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"** .|
     |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
     |Aggiornare il contenuto degli URL|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La knowledge base verrà aggiornata con il contenuto più recente degli URL.|
     |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
-    |Importa|È anche possibile importare le knowledge base esistenti selezionando il pulsante **Importa Knowledge base**. |
+    |Import|È anche possibile importare le knowledge base esistenti selezionando il pulsante **Importa Knowledge base**. |
     |Aggiorna|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
 
 1. Dopo aver apportato le modifiche alla knowledge base, selezionare **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
@@ -54,7 +54,7 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
 
 ## <a name="add-a-qna-pair"></a>Aggiungere una coppia domanda/risposta
 
-Nel **le impostazioni** pagina, selezionare **QnA Aggiungi coppia** per aggiungere una nuova riga alla tabella della knowledge base.
+Nella pagina **modifica** selezionare **Aggiungi coppia QnA** per aggiungere una nuova riga alla tabella della Knowledge base.
 
 ![Add QnA pair (Aggiungi coppia domanda/risposta)](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,8 +72,7 @@ Aggiungere domande alternative a una coppia domanda/risposta esistente per aumen
 
 ## <a name="add-metadata"></a>Aggiungere metadati
 
-
-Selezionando l'icona di metadati, aggiungere coppie di metadati. Una coppia di metadati è costituito da una chiave e un valore.
+Aggiungere le coppie di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando **Mostra metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il **+** segno per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Aggiungere metadati](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

@@ -2,19 +2,19 @@
 title: Impostare i ruoli RBAC per l'accesso amministrativo di Azure nel portale - Ricerca di Azure
 description: Controllo amministrativo basato sui ruoli nel portale di Azure per il controllo e la delega di attività amministrative per la gestione di Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 924d2529e3477c299d4a90c076fe9e6c8faf11f3
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277784"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647400"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Impostare i ruoli RBAC per l'accesso amministrativo
 
@@ -27,7 +27,7 @@ Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-base
 
 Per la Ricerca di Azure, i ruoli sono associati ai livelli di autorizzazione che supportano le attività di gestione seguenti:
 
-| Ruolo | Attività |
+| Role | Attività |
 | --- | --- |
 | Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
 | Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli. |
@@ -36,7 +36,7 @@ Per la Ricerca di Azure, i ruoli sono associati ai livelli di autorizzazione che
 
 I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere [Gestire le chiavi API](search-security-api-keys.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Gestire usando PowerShell](search-manage-powershell.md) 
 + [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md)

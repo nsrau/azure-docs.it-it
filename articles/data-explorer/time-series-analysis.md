@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604059"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
 
@@ -34,7 +34,7 @@ La tabella risultante contiene una colonna di timestamp e tre colonne di dimensi
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Paese |
+|   | TimeStamp | BrowserVer | OsVer | Paese/Area geografica |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Regno Unito |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Regno Unito |
@@ -260,3 +260,8 @@ demo_many_series1
 In meno di due minuti, Esplora dati di Azure ha analizzato quasi 20.000 serie temporali e ha rilevato due serie temporali anomale in cui il conteggio delle letture è calato improvvisamente.
 
 Queste funzionalità avanzate, unite alle prestazioni elevate di Esplora dati di Azure, offrono una soluzione potente ed esclusiva per l'analisi di serie temporali.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Scopri [ora rilevamento anomalie delle serie e le previsioni](/azure/data-explorer/anomaly-detection) in Esplora dati di Azure.
+* Scopri [di Machine learning funzionalità](/azure/data-explorer/machine-learning-clustering) in Esplora dati di Azure.

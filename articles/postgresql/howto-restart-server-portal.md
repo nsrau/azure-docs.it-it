@@ -1,19 +1,19 @@
 ---
-title: Riavviare un server di Database di Azure per PostgreSQL usando il portale di Azure
-description: Questo articolo descrive come è possibile riavviare un Database di Azure per il server PostgreSQL tramite il portale di Azure.
+title: Riavviare il Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
+description: Questo articolo descrive come è possibile riavviare un Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65066829"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Riavviare il Database di Azure per il server PostgreSQL tramite il portale di Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Riavviare il Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per PostgreSQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
 
 Il riavvio del server verrà bloccato se il servizio è occupato. È ad esempio possibile che il servizio stia elaborando un'operazione richiesta in precedenza, come il ridimensionamento di vCore.

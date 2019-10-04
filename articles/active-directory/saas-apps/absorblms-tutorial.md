@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Absorb LMS
 
@@ -38,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per configurare l'integrazione di Azure AD con Absorb LMS, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Absorb LMS abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -76,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Absorb LMS, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Absorb LMS](#configure-absorb-lms-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Absorb LMS](#create-absorb-lms-test-user)**: per avere una controparte di Britta Simon in Absorb LMS collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Absorb LMS](#configure-absorb-lms-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Absorb LMS](#create-absorb-lms-test-user)** : per avere una controparte di Britta Simon in Absorb LMS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -109,28 +110,32 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://company.myabsorb.com/account/saml`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://company.myabsorb.com/account/saml`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://company.myabsorb.com/account/saml`
 
     Se si usa **Absorb 5 - New Learner Experience**, usare la configurazione seguente:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Absorb LMS](https://support.absorblms.com/hc/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**.
+
+    ![image](common/edit-attribute.png)
+
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura Absorb LMS** copiare gli URL appropriati in base alle proprie esigenze.
+7. Nella sezione **Configura Absorb LMS** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -158,11 +163,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
     b. In **Method** (Metodo) selezionare **SAML**.
 
-    c. Nel blocco note, aprire il certificato scaricato dal portale di Azure. Rimuovere i tag **-----BEGIN CERTIFICATE-----** ed **-----END CERTIFICATE-----**. Quindi, nella casella **Key** (Chiave) incollare il contenuto rimanente.
+    c. Nel blocco note, aprire il certificato scaricato dal portale di Azure. Rimuovere i tag **-----BEGIN CERTIFICATE-----** ed **-----END CERTIFICATE-----** . Quindi, nella casella **Key** (Chiave) incollare il contenuto rimanente.
 
     d. Nella casella **Mode** (Modalità) selezionare **Identity Provider Initiated** (Avviato dal provider di identità).
 
-    e. Nella casella **Id Property** (ID proprietà) selezionare l'attributo configurato come identificatore dell'utente in Azure AD. Ad esempio, se in Azure AD è stato selezionato *userPrincipalName*, selezionare **Username**.
+    e. Nella casella **Id Property** (ID proprietà) selezionare l'attributo configurato come identificatore dell'utente in Azure AD. Ad esempio, se in Azure AD è stato selezionato *nameidentifier*, selezionare **Username**.
 
     f. In **Signature Type** (Tipo di firma) selezionare **Sha256**.
 
@@ -194,7 +199,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
+    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`.  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

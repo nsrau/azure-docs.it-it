@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440237"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180045"
 ---
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB di Azure, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 

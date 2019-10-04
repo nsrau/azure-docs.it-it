@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Python SDK.
 services: cognitive-services
 author: areddish
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e5de456cb4f5779cbef58ffaf0ccb89e9e9134e0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485969"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946108"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python
 
@@ -46,7 +46,7 @@ Creare un nuovo file denominato *sample.py* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato per la chiamata a **create_project**.
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un rilevatore](get-started-build-detector.md) nella guida al portale Web, vedere il metodo [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
 
-Per aggiungere le immagini, i tag e le aree al progetto, inserire il codice seguente dopo la creazione dei tag. Si noti che per questa esercitazione le aree sono hardcoded in linea con il codice. Le aree specificano il rettangolo delimitatore in coordinate normalizzate e le coordinate sono specificate in questo ordine: sinistra, alto, larghezza, altezza.
+Per aggiungere le immagini, i tag e le aree al progetto, inserire il codice seguente dopo la creazione dei tag. Per questa esercitazione le aree sono hardcoded in linea con il codice. Le aree specificano il rettangolo delimitatore in coordinate normalizzate e le coordinate sono specificate in questo ordine: sinistra, alto, larghezza, altezza.
 
 ```Python
 fork_image_regions = {
@@ -135,7 +135,7 @@ scissors_image_regions = {
 }
 ```
 
-Usare quindi questa mappa di associazioni per caricare ogni immagine di esempio con le relative coordinate di area. Aggiungere il codice seguente.
+Usare quindi questa mappa di associazioni per caricare ogni immagine di esempio con le relative coordinate di area. È possibile caricare fino a 64 immagini in un singolo batch. Aggiungere il codice seguente.
 
 ```Python
 # Update this with the path to where you downloaded the images.

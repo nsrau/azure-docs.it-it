@@ -10,22 +10,21 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5e4887c3b736c13977d50cb395a9ac7661815d0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4d096600e57d3ca94a7c32547bd546bfdbeb9487
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356604"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569937"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico nel database SQL di Azure
 
-Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un pool elastico, aumentare la dimensione di calcolo del pool stesso e creare una regola di avviso per una delle metriche delle prestazioni.
+Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un pool elastico, aumentare le dimensioni di calcolo del pool stesso e creare una regola di avviso per una delle metriche delle prestazioni.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

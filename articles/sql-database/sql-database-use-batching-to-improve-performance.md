@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331129"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566243"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 
@@ -94,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
 
-La tabella seguente illustra alcuni risultati dei test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
+Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
 **Da ambiente locale ad Azure**
 
@@ -105,7 +104,7 @@ La tabella seguente illustra alcuni risultati dei test ad hoc. I test eseguono l
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Da Azure ad Azure (stesso data center)**:
+**Da Azure ad Azure (stesso data center)** :
 
 | Operazioni | Senza transazione (ms) | Con transazione (ms) |
 | --- | --- | --- |
@@ -168,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Nell'esempio precedente, il **SqlCommand** oggetto inserisce righe da un parametro con valori di tabella,  **\@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
+Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella,  **\@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
@@ -192,7 +191,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Nella maggior parte dei casi i parametri con valori di tabella hanno prestazioni equivalenti o superiori rispetto ad altre tecniche di invio in batch. I parametri con valori di tabella sono spesso preferibili perché più flessibili di altre opzioni. Ad esempio, altre tecniche come la copia bulk di SQL consentono solo l'inserimento di nuove righe. Con i parametri con valori di tabella è invece possibile usare la logica della stored procedure per determinare le righe da aggiornare e quelle da inserire. È anche possibile modificare il tipo di tabella perché contenga la colonna "Operation" che indica se la riga specificata deve essere inserita, aggiornata o eliminata.
 
-Nella tabella seguente mostra i risultati dei test ad hoc per l'utilizzo di parametri con valori di tabella in millisecondi.
+Nella tabella seguente vengono illustrati i risultati dei test ad hoc per l'utilizzo di parametri con valori di tabella in millisecondi.
 
 | Operazioni | Da ambiente locale ad Azure (ms) | Azure stesso data center (ms) |
 | --- | --- | --- |
@@ -232,7 +231,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'articolo [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
-I risultati dei test ad hoc seguenti mostrano le prestazioni di invio in batch con **SqlBulkCopy** in millisecondi.
+I risultati dei test ad hoc seguenti mostrano le prestazioni dell'invio in batch con **SqlBulkCopy** in millisecondi.
 
 | Operazioni | Da ambiente locale ad Azure (ms) | Azure stesso data center (ms) |
 | --- | --- | --- |
@@ -277,7 +276,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Questo esempio è ideato per illustrare il concetto di base. Uno scenario più realistico prevedrebbe l'esecuzione di un ciclo sulle entità richieste per costruire contemporaneamente la stringa di query e i parametri del comando. Esiste un limite massimo di 2100 parametri di query, il che limita il numero totale di righe elaborabili in questo modo.
 
-I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di istruzione insert in millisecondi.
+I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di istruzione INSERT in millisecondi.
 
 | Operazioni | Parametri con valori di tabella (ms) | Singola istruzione INSERT (ms) |
 | --- | --- | --- |
@@ -326,7 +325,7 @@ Considerando questo compromesso, valutare con attenzione i tipi di operazioni da
 
 I test non hanno in genere evidenziato vantaggi correlati alla suddivisione di batch di grandi dimensioni in blocchi più piccoli. In effetti, questa suddivisione ha causato spesso prestazioni inferiori rispetto all'invio di un singolo batch di grandi dimensioni. Si consideri ad esempio uno scenario che prevede l'inserimento di 1000 righe. La tabella seguente mostra il tempo necessario per usare parametri con valori di tabella per l'inserimento di 1000 righe divise in batch più piccoli.
 
-| Dimensioni dei batch | Iterazioni | Parametri con valori di tabella (ms) |
+| Dimensioni batch | Iterazioni | Parametri con valori di tabella (ms) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |

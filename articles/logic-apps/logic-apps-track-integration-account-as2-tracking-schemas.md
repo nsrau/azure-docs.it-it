@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60845784"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Creare schemi per il rilevamento di messaggi AS2 e notifiche sulla ricezione del messaggio negli account di integrazione per App per la logica di Azure
 
@@ -56,22 +56,22 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | --- | --- | --- |
-| senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
-| receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
-| as2To | string | Nome del destinatario del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
-| as2From | string | Nome del mittente del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
-| agreementName | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
-| direction | string | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
-| messageId | string | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
-| dispositionType |string | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
-| fileName | string | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
+| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | String | Nome del destinatario del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| as2From | String | Nome del mittente del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction | String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | String | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
+| dispositionType |String | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
+| fileName | String | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
 | isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
 | isMessageSigned | Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
 | isMessageEncrypted | Boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
 | isMessageCompressed |Boolean | Se il messaggio AS2 era compresso. Obbligatoria |
-| correlationMessageId | string | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
+| correlationMessageId | String | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
 | incomingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in uscita. Facoltativa |
 | isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
@@ -109,23 +109,23 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | --- | --- | --- |
-| senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
-| receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
-| as2To | string | Nome partner che riceve il messaggio AS2. Obbligatoria |
-| as2From | string | Nome partner che invia il messaggio AS2. Obbligatoria |
-| agreementName | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
-| direction |string | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
-| messageId | string | ID del messaggio AS2. Facoltativa |
-| originalMessageId |string | ID del messaggio originale AS2. Facoltativa |
-| dispositionType | string | Valore del tipo di gestione MDN. Facoltativa |
+| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | String | Nome partner che riceve il messaggio AS2. Obbligatoria |
+| as2From | String | Nome partner che invia il messaggio AS2. Obbligatoria |
+| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction |String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | String | ID del messaggio AS2. Facoltativa |
+| originalMessageId |String | ID del messaggio originale AS2. Facoltativa |
+| dispositionType | String | Valore del tipo di gestione MDN. Facoltativa |
 | isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
 | isMessageSigned |Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
 | isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | statusCode | Enum | I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | micVerificationStatus | Enum | I valori consentiti sono **NotApplicable**, **Succeeded** e **Failed**. Obbligatoria |
-| correlationMessageId | string | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
+| correlationMessageId | String | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
 | incomingHeaders | Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in uscita. Facoltativa |
 ||||

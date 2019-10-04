@@ -3,28 +3,24 @@ title: 'Esercitazione su Data Factory: prima pipeline di dati | Microsoft Docs'
 description: Questa esercitazione di Azure Data Factory illustra come creare e pianificare una data factory che elabora i dati usando uno script Hive in un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2dd2edfabff51c749890fe20d47a29c1ec39947c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544955"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140390"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per la trasformazione di dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +32,7 @@ ms.locfileid: "57544955"
 
 In questa esercitazione si compila la prima data factory di Azure con una pipeline di dati. La pipeline trasforma i dati di input tramite l'esecuzione di script Hive su un cluster Azure HDInsight (Hadoop) per generare i dati di output.  
 
-Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione con uno degli strumenti o SDK seguenti: portale di Azure, Visual Studio, PowerShell, modello di Resource Manager e API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
+Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione con uno degli strumenti o SDK seguenti: Visual Studio, PowerShell, Gestione risorse modello, API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
 
 ## <a name="tutorial-overview"></a>Panoramica dell'esercitazione
 In questa esercitazione si segue questa procedura:
@@ -93,13 +89,12 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione: 
 
-- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Il portale di Azure e Visual Studio forniscono l'interfaccia utente grafica per la creazione di data factory. Le opzioni PowerShell, il modello di Resource Manager e l'API REST forniscono una modalità di programmazione/script per la creazione di data factory.
+Visual Studio offre un'interfaccia utente grafica per la creazione di data factory. Le opzioni PowerShell, il modello di Resource Manager e l'API REST forniscono una modalità di programmazione/script per la creazione di data factory.
 
 > [!NOTE]
 > La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Esercitazione: Copiare dati da archiviazione BLOB a database SQL).

@@ -1,6 +1,6 @@
 ---
-title: Pubblicare la knowledge base, REST, Go
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Guida introduttiva: Pubblicare una knowledge base in REST, Go - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva basata su Go REST illustra la procedura di pubblicazione della knowledge base per eseguire il push della versione più recente della knowledge base testata in un indice di Ricerca di Azure dedicato che rappresenta la knowledge base pubblicata. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
 services: cognitive-services
 author: diberry
@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 058365f4dcc6e4be7c14c162afb1c0d4a9f3d9a6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a1e53b21a3168e9745d36e191cc86ba9d20192b5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213501"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308152"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Go
 
 Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
-* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Pubblicazione): con questa API non sono richieste informazioni nel corpo della richiesta.
+* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Pubblicazione): con questa API non sono richieste informazioni nel corpo della richiesta.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -101,4 +101,4 @@ Per eseguire il programma, immettere il comando seguente a una riga di comando. 
 Dopo la pubblicazione della knowledge base, è necessario l'[URL dell'endpoint per generare una risposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

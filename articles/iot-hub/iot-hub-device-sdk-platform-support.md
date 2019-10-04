@@ -1,18 +1,18 @@
 ---
 title: Supporto per la piattaforma di Azure IoT SDK per dispositivi | Microsoft Docs
 description: 'Concetti: elenco di piattaforme supportate da Azure IoT SDK per dispositivi'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
-ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: robinsh
+ms.openlocfilehash: 9a64c6e476910ab4fe983fa949680f05fdded3ae
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398706"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161854"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Supporto della piattaforma Azure IoT SDK
 
@@ -71,10 +71,10 @@ Sono presenti diverse piattaforme supportate.
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-| OS                                           | Arch | Versione del nodo |
-|----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS (con immagine docker del nodo 6) | X64  | Nodo 6       |
-| Windows Server 2016                          | X64  | Nodo 6       |
+| OS                                           | Arch | Versione del nodo    |
+|----------------------------------------------|------|-----------------|
+| Ubuntu 16.04 LTS (con immagine docker del nodo 6) | X64  | LTS e Current |
+| Windows Server 2016                          | X64  | LTS e Current |
 
 ### <a name="java-sdk"></a>SDK per Java
 
@@ -83,7 +83,7 @@ Sono presenti diverse piattaforme supportate.
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | API Android 28 | X64  | Java 8       |
-| Operazioni di Android | X64  | Java 8      |
+| Android Things | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>Piattaforme supportate del partner
 
@@ -94,7 +94,7 @@ I clienti possono estendere il supporto della piattaforma eseguendo il porting d
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem Iot Qualcomm MDM9206 LTE     | [Qualcomm LTE per IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
 | ST Microelectronics | Serie STM32L4 <br/> Serie STM32F4 <br/>  Serie STM32F7 <br/>  STM32L4 Kit Discovery per nodo IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Supporto](https://www.st.com/content/st_com/en/support/support-home.html)
-| Texas Instruments   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [Plug-in Azure IoT per SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Forum di TI E2E](https://e2e.ti.com) <br/> [Forum di E2E TI per CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Forum di E2E TI per MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
+| Texas Instruments   | LaunchPad CC3220SF </br> LaunchPad CC3220S </br> LaunchPad CC3235SF </br> LaunchPad CC3235S </br> LaunchPad MSP432E4 | [Plug-in Azure IoT per SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Forum di TI E2E](https://e2e.ti.com) <br/> [Forum di E2E TI per CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Forum di E2E TI per MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

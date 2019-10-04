@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: be6441b1fea81f5b947e8deacd8de7b17814aab5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729210"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073494"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
@@ -30,7 +29,7 @@ Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire la procedura descritta in questo articolo, è necessario che il servizio back-end sia configurato per l'autenticazione del certificato client ([per configurare l'autenticazione del certificato in siti Web di Azure fare riferimento a questo articolo][to configure certificate authentication in Azure WebSites refer to this article]). È necessario accedere al certificato e alla password per caricarlo nel servizio Gestione API.
+In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire la procedura descritta in questo articolo, è necessario che il servizio back-end sia configurato per l'autenticazione del certificato client ([per configurare l'autenticazione del certificato in siti Web di Azure, fare riferimento a questo articolo][to configure certificate authentication in Azure WebSites refer to this article]). È necessario accedere al certificato e alla password per caricarlo nel servizio Gestione API.
 
 ## <a name="step1"></a>Caricare un certificato client
 
@@ -48,7 +47,7 @@ Seguire questa procedura per caricare un nuovo certificato client. Se non è anc
 > [!NOTE]
 > Il certificato deve essere nel formato **.pfx** . Sono consentiti i certificati autofirmati.
 
-Dopo il caricamento, il certificato viene visualizzato nella scheda **Certificati client**.  Se sono disponibili molti certificati, prendere nota dell'identificazione digitale del certificato desiderato per [configurare un'API per l'uso di un certificato client per l'autenticazione del gateway][Configure an API to use a client certificate for gateway authentication].
+Dopo il caricamento, il certificato viene visualizzato nella scheda **Certificati client**.  Se si dispone di molti certificati, prendere nota dell'identificazione personale del certificato desiderato per [configurare un'API per l'uso di un certificato client per l'autenticazione del gateway][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > Per disattivare la convalida della catena di certificati quando si usa, ad esempio, un certificato autofirmato, seguire i passaggi descritti in questa [voce](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) delle Domande frequenti.

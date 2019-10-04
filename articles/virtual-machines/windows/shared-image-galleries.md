@@ -1,27 +1,27 @@
 ---
-title: Condividere le immagini di VM con la raccolta di immagini condivise n Azure | Microsoft Docs
+title: Raccolta di immagini condivise di Azure | Microsoft Docs
 description: Informazioni su come usare raccolte di immagini condivise per condividere le immagini di VM all'interno dell'organizzazione.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2018
-ms.author: akjosh; cynthn
+ms.date: 05/06/2019
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 4bba8a14096e420a539974ebf520cebda3b13c91
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 35789e7f85e99d7985e8e19b82a7aea585483daf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188284"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088707"
 ---
 # <a name="shared-image-gallery-overview"></a>Panoramica sulla raccolta di immagini condivise
 

@@ -8,47 +8,109 @@
   items:
     - name: 1. Creare un tenant in Desktop virtuale Windows
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Creare un pool di host con Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Gestire i gruppi di app
-      href: manage-app-groups.md
-    - name: 4. Creare entità servizio e assegnazioni di ruolo con PowerShell
+    - name: 2. Creare entità servizio e assegnazioni di ruolo con PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Creare un pool di host con Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Gestire i gruppi di app
+      href: manage-app-groups.md
+    - name: 5. Creare un pool di host per convalidare gli aggiornamenti dei servizi
+      href: create-validation-host-pool.md
+    - name: 6. Distribuire uno strumento di gestione
+      href: manage-resources-using-ui.md
+    - name: 7. Configurare gli avvisi dei servizi
+      href: set-up-service-alerts.md
 - name: Procedura
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
-        - name: Connettersi con Windows 7 e Windows 10
+        - name: Connettersi con il client desktop di Windows
           href: connect-windows-7-and-10.md
         - name: Connettersi con il client Web
           href: connect-web.md
+        - name: Connettersi con il client Android
+          href: connect-android.md
+        - name: Connettersi con il client macOS
+          href: connect-macos.md
+        - name: Connettersi con il client iOS
+          href: connect-ios.md
     - name: Creare un pool di host con un modello di Azure Resource Manager
       href: create-host-pools-arm-template.md
     - name: Creare un pool di host con PowerShell
       href: create-host-pools-powershell.md
-    - name: Configurare una condivisione di profilo utente per un pool di host
+    - name: Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
+      href: deploy-windows-7-virtual-machine.md
+    - name: Applicare la licenza Windows a host sessione Desktop virtuale Windows
+      href: apply-windows-license.md
+    - name: Creare un contenitore di profili per un pool di host con una condivisione file
       href: create-host-pools-user-profile.md
+    - name: Creare un contenitore di profili per un pool di host con Azure NetApp Files
+      href: create-fslogix-profile-container.md
     - name: Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
       href: configure-host-pool-load-balancing.md
-    - name: Identificare i problemi con la funzionalità di diagnostica
-      href: diagnostics-role-service.md
     - name: Preparare e personalizzare un'immagine master di disco rigido virtuale
       href: set-up-customize-master-image.md
+    - name: Installare Office in un'immagine master di disco rigido virtuale
+      href: install-office-on-wvd-master-image.md
+    - name: Configurare la GPU per Desktop virtuale Windows
+      href: configure-vm-gpu.md
     - name: Ridimensionare automaticamente gli host della sessione
       href: set-up-scaling-script.md
+    - name: Personalizzare il feed per gli utenti di Desktop virtuale Windows
+      href: customize-feed-for-virtual-desktop-users.md
+    - name: Personalizzare le proprietà di RDP
+      href: customize-rdp-properties.md
+    - name: Distribuire lo strumento di diagnostica
+      href: deploy-diagnostics.md
 - name: Concetti
   items:
     - name: Ambiente di Desktop virtuale Windows
       href: environment-setup.md
+    - name: Raccomandazioni relative alla larghezza di banda per le sessioni remote
+      href: bandwidth-recommendations.md
     - name: Accesso delegato in Desktop virtuale Windows
       href: delegated-access-virtual-desktop.md
     - name: Metodo di bilanciamento del carico per i pool di host
       href: host-pool-load-balancing.md
+    - name: Contenitori di profili FSLogix e file di Azure
+      href: fslogix-containers-azure-files.md
+    - name: Integrazioni di partner
+      href: partners.md
+    - name: Domande frequenti su Windows 10 Enterprise multisessione
+      href: windows-10-multisession-faq.md
+    - name: Posizioni dei dati
+      href: data-locations.md
+- name: Risolvere problemi
+  items:
+    - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'
+      href: troubleshoot-set-up-overview.md
+    - name: Identificare i problemi con la funzionalità di diagnostica
+      href: diagnostics-role-service.md
+    - name: Creazione di pool di host e tenant
+      href: troubleshoot-set-up-issues.md
+    - name: Configurazione di macchine virtuali nell'host sessione
+      href: troubleshoot-vm-configuration.md
+    - name: Risolvere i problemi relativi alle macchine virtuali Windows 7 in Desktop virtuale Windows
+      href: troubleshoot-windows-7-vm.md
+    - name: Connessioni client di Desktop remoto
+      href: troubleshoot-client-connection.md
+    - name: PowerShell con Desktop virtuale Windows
+      href: troubleshoot-powershell.md
+    - name: Diagnosticare i problemi di prestazioni della grafica
+      href: remotefx-graphics-performance-counters.md
 - name: riferimento
   items:
     - name: PowerShell
       href: /powershell/windows-virtual-desktop/overview
+    - name: API REST
+      href: /rest/api/virtual-desktop/
 - name: Risorse
   items:
+    - name: Strumento di valutazione dell'esperienza
+      href: 'https://azure.microsoft.com/services/virtual-desktop/assessment/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Gruppo di supporto della community tecnica
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: Forum UserVoice
+      href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'

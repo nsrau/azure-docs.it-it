@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005690"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620050"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -41,10 +41,9 @@ Lo strumento indica i dettagli seguenti:
 
 **Requisiti dell'infrastruttura di Azure**
 
-* Requisito relativo al tipo di archiviazione (account di archiviazione Standard o Premium) per ogni VM
-* Numero totale di account di archiviazione Standard e Premium da configurare per la replica
+* Requisito relativo al tipo di archiviazione (archiviazione standard o Premium) per ogni VM
+* Numero totale di account di archiviazione standard e Premium da configurare per la replica (include gli account di archiviazione della cache)
 * Suggerimenti di denominazione degli account di archiviazione in base alle linee guida di archiviazione
-* Selezione host degli account di archiviazione per tutte le VM
 * Numero di core di Azure da configurare prima del failover di test o del failover nella sottoscrizione
 * Dimensioni consigliate per ogni VM di Azure locale
 
@@ -65,8 +64,8 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Sì|Sì|No |Sì*|No 
-Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Scenari supportati |Yes|Sì|No|Sì*|No
+Versione supportata | vCenter 6,7, 6,5, 6,0 o 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
 
@@ -75,7 +74,7 @@ Numero di server che è possibile profilare per ogni istanza in esecuzione di Si
 ## <a name="prerequisites"></a>Prerequisiti
 Lo strumento prevede due fasi principali: profilatura e generazione di report. È anche disponibile una terza opzione per calcolare solo la velocità effettiva. I requisiti per il server da cui vengono avviate la profilatura e la misurazione della velocità effettiva sono elencati nella tabella seguente.
 
-| Requisito server | DESCRIZIONE|
+| Requisito server | Descrizione|
 |---|---|
 |Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Windows Server 2016 o Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, HDD da 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1.000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter possono essere 1 o un valore superiore</li><li>Consentire la porta vCenter (443 come valore predefinito): Site Recovery Deployment Planner usa questa porta per la connessione al server vCenter/all'host ESXi</ul></ul>|
 | Generazione di report | Un PC o server Windows con Excel 2013 o versione successiva.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) è obbligatorio solo quando si passa l'opzione -User nel comando di generazione del report per recuperare le informazioni di configurazione macchina virtuale più recenti delle VM. Deployment Planner si connette al server vCenter. Consentire la porta vCenter, che è la 443 per impostazione predefinita, per la connessione al server vCenter.</li>|
@@ -104,6 +103,9 @@ La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploym
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Eseguire l'aggiornamento alla versione più recente di Deployment Planner
+
+Gli ultimi aggiornamenti sono riepilogati nella cronologia delle [versioni](site-recovery-deployment-planner-history.md)Deployment Planner.
+
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
  * Se la versione più recente non contiene una correzione della profilatura e la profilatura è già in corso nella versione corrente dell'utilità di pianificazione, continuare la profilatura.
  * Se la versione più recente contiene una correzione della profilatura, è consigliabile arrestare la profilatura nella versione corrente e riavviarla con la nuova versione.
@@ -117,8 +119,8 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
-La versione più recente di Site Recovery Deployment Planner è 2.4.
-Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
+La versione più recente di Site Recovery Deployment Planner Tool è 2,5.
+Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

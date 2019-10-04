@@ -4,35 +4,34 @@ description: Informazioni su come aprire una porta o creare un endpoint alla VM 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884386"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102643"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
 
-2. Selezionare **Crea**.
+2. Selezionare **Create**.
 
     Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
 
@@ -52,7 +51,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Aggiungere una regola in ingresso](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. Selezionare **Avanzate**. 
+3. Selezionare **Advanced** (Avanzate). 
 
 4. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
 

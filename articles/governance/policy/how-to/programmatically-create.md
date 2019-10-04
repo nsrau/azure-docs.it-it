@@ -1,5 +1,5 @@
 ---
-title: Creare criteri a livello di codice e visualizzare i dati di conformità
+title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione a livello di codice e la gestione dei criteri per Criteri di Azure.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,21 +7,18 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276491"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155568"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
+# <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
-Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Le definizioni dei criteri applicano regole ed effetti diversi in relazione alle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
+Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Le definizioni di criteri di Azure applicano regole e effetti differenti sulle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 
 Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](getting-compliance-data.md).
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,13 +28,13 @@ Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
 
 1. Aggiornare il modulo Azure di PowerShell all'ultima versione. Per informazioni dettagliate, vedere [Installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps). Per altre informazioni sulla versione più recente, vedere [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Per garantire che la sottoscrizione funzioni con il provider di risorse, registrare il provider di risorse Policy Insights usando Azure PowerShell. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione /register/action per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
+1. Registrare il provider di risorse di Azure Policy Insights usando Azure PowerShell per verificare che la sottoscrizione funzioni con il provider di risorse. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione /register/action per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Per altre informazioni sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Per maggiori dettagli sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../../azure-resource-manager/resource-manager-supported-services.md).
 
 1. Installare l'interfaccia della riga di comando di Azure, se non è già installata. È possibile ottenere la versione più recente in [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows).
 
@@ -94,7 +91,7 @@ Il primo passo per una migliore visibilità delle risorse consiste nel creare e 
 
    Sostituire _ContosoRG_ con il nome del gruppo di risorse previsto.
 
-   Il **ambito** parametro `New-AzPolicyAssignment` funziona con gruppo di gestione, sottoscrizione, gruppo di risorse o una singola risorsa. Il parametro usa un percorso di risorsa completo, restituito dalla proprietà **ResourceId** in `Get-AzResourceGroup`. Il modello per **Scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione.
+   Il parametro **scope** in `New-AzPolicyAssignment` funziona con un gruppo di gestione, una sottoscrizione, un gruppo di risorse o una singola risorsa. Il parametro usa un percorso di risorsa completo, restituito dalla proprietà **ResourceId** in `Get-AzResourceGroup`. Il modello per **Scope** per ogni contenitore è il seguente. Sostituire `{rName}`, `{rgName}`, `{subId}` e `{mgName}` rispettivamente con il nome della risorsa, il nome del gruppo di risorse, l'ID della sottoscrizione e il nome del gruppo di gestione.
    `{rType}` può essere sostituito con il **tipo di risorsa** della risorsa, ad esempio `Microsoft.Compute/virtualMachines` per una macchina virtuale.
 
    - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -148,7 +145,7 @@ Usare la procedura seguente per creare una definizione dei criteri.
 
    Sostituire il precedente {subscriptionId} con l'ID della sottoscrizione o il {managementGroupId} con l'ID del [gruppo di gestione](../../management-groups/overview.md).
 
-   Per altre informazioni sulla struttura della query, vedere [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) (Definizioni dei criteri: creazione o aggiornamento) e [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Definizioni dei criteri: creazione o aggiornamento a livello di gruppo di gestione).
+   Per altre informazioni sulla struttura della query, vedere definizioni di [criteri di Azure-creare o aggiornare](/rest/api/resources/policydefinitions/createorupdate) e [definizioni di criteri-crea o aggiorna in un gruppo di gestione](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Usare la procedura seguente per creare un'assegnazione dei criteri e assegnare la definizione dei criteri a livello di gruppo di risorse.
 
@@ -230,7 +227,7 @@ Per creare una definizione dei criteri, usare la procedura seguente:
    - Sottoscrizione - `/subscriptions/{subID}`
    - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-È possibile ottenere l'ID definizione dei criteri usando PowerShell con il comando seguente:
+È possibile ottenere l'ID di definizione dei criteri di Azure usando PowerShell con il comando seguente:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +248,5 @@ Esaminare gli articoli seguenti per altre informazioni sui comandi e sulle query
 - [Risorse di API REST di Azure](/rest/api/resources/)
 - [Moduli di Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Comandi dei criteri dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Policy Insights resource provider REST API reference (Informazioni di riferimento sull'API REST del provider di risorse Policy Insights)](/rest/api/policy-insights)
-- [Organizzare le risorse con i gruppi di gestione di Azure ](../../management-groups/overview.md)
+- [Informazioni di riferimento sull'API REST del provider di risorse di Azure Policy Insights](/rest/api/policy-insights)
+- [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

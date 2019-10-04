@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 0f8e00d6d07224f56625482f339e612e68914be2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60724744"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i contenitori dei volumi StorSimple
 

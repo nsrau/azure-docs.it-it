@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419374"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034732"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
 
@@ -29,6 +28,17 @@ Questo articolo spiega come montare un volume basato su File di Azure in un serv
 Per montare un volume in un servizio, creare una risorsa di volume nell'applicazione di Service Fabric Mesh e quindi fare riferimento a quel volume nel servizio.  La dichiarazione della risorsa di volume e il riferimento alla stessa nella risorsa di servizio si possono effettuare nei [file di risorsa basati su YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o nel [modello di distribuzione basato su JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Prima di montare il volume, creare un account di archiviazione di Azure e una [condivisione file in File di Azure](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Prerequisiti
+> [!NOTE]
+> **Problemi noti relativi alla distribuzione nel computer di sviluppo RS5 di Windows:** È presente un bug aperto con il cmdlet di PowerShell New-SmbGlobalMapping nei computer Windows RS5 che impedisce il montaggio di volumi Azurefile. Di seguito è riportato un errore di esempio che si verifica quando viene montato il volume basato su AzureFile nel computer di sviluppo locale.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+La soluzione alternativa per il problema è 1) eseguire il comando seguente come PowerShell amministratore e 2) riavviare il computer.
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
 
 Per completare questo articolo è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. 
 

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444787"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100405"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
@@ -96,7 +95,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurare le risorse del cluster in PowerShell
 1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard** .
-2. Annotare l'indirizzo visualizzato sotto **Indirizzo IP virtuale pubblico (VIP)**. Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
+2. Annotare l'indirizzo visualizzato sotto **Indirizzo IP virtuale pubblico (VIP)** . Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
 3. Su una delle macchine virtuali copiare lo script di PowerShell seguente in un editor di testo e impostare le variabili sui valori annotati prima.
    
         # Define variables
@@ -123,11 +122,11 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testare il listener del gruppo di disponibilità (su Internet)
-Per poter accedere al listener dall'esterno della rete virtuale, è necessario usare il bilanciamento del carico esterno/pubblico (descritte in questo argomento) invece di bilanciamento del carico interno, che è accessibile solo all'interno della stessa rete virtuale. Nella stringa di connessione specificare il nome del servizio cloud. Ad esempio, se è disponibile un servizio cloud con nome *mycloudservice*, l'istruzione sqlcmd sarà analoga alla seguente:
+Per accedere al listener dall'esterno della rete virtuale, è necessario usare il bilanciamento del carico esterno/pubblico (descritto in questo argomento) invece di ILB, che è accessibile solo all'interno della stessa VNet. Nella stringa di connessione specificare il nome del servizio cloud. Ad esempio, se è disponibile un servizio cloud con nome *mycloudservice*, l'istruzione sqlcmd sarà analoga alla seguente:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-A differenza dell'esempio precedente, è necessario usare l'autenticazione SQL, perché il chiamante non può usare l'autenticazione di Windows su Internet. Per altre informazioni, vedere [gruppo di disponibilità AlwaysOn in macchine Virtuali di Azure: Scenari di connettività client](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Quando si usa l'autenticazione SQL, assicurarsi di creare lo stesso account di accesso in entrambe le repliche. Per altre informazioni sulla risoluzione dei problemi degli account di accesso con gruppi di disponibilità, vedere il post di blog relativo a [come mappare gli account di accesso o usare un utente di database SQL contenuto per connettersi ad altre repliche ed eseguire il mapping ai database di disponibilità](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+A differenza dell'esempio precedente, è necessario usare l'autenticazione SQL, perché il chiamante non può usare l'autenticazione di Windows su Internet. Per altre informazioni, vedere [always on gruppo di disponibilità nella macchina virtuale di Azure: Scenari](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)di connettività client. Quando si usa l'autenticazione SQL, assicurarsi di creare lo stesso account di accesso in entrambe le repliche. Per altre informazioni sulla risoluzione dei problemi degli account di accesso con gruppi di disponibilità, vedere il post di blog relativo a [come mappare gli account di accesso o usare un utente di database SQL contenuto per connettersi ad altre repliche ed eseguire il mapping ai database di disponibilità](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificare **MultisubnetFailover=True** nella stringa di connessione. Di conseguenza, vengono eseguiti tentativi di connessione paralleli alle repliche nelle diverse subnet. Si noti che questo scenario include la distribuzione di un gruppo di disponibilità AlwaysOn tra più aree.
 

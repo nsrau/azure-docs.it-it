@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5563dc2d1b2caaa85645b037d6bf93426cc0b23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666818"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035273"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.

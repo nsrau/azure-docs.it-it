@@ -11,11 +11,11 @@ ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
 ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439531"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180585"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -58,7 +58,7 @@ Prima di tutto è necessario distribuire una baseline dei servizi. Questa distri
 
 1. Clonare l'[applicazione di esempio Dev Spaces](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Estrarre il ramo remoto *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Selezionare lo spazio _dev_: `azds space select --name dev`. Quando viene chiesto di selezionare uno spazio dev padre, selezionare _\<none\>_.
+1. Selezionare lo spazio _dev_: `azds space select --name dev`. Quando viene chiesto di selezionare uno spazio dev padre, selezionare _\<none\>_ .
 1. Passare alla directory _mywebapi_ ed eseguire: `azds up -d`
 1. Passare alla directory _webfrontend_ ed eseguire: `azds up -d`
 1. Eseguire `azds list-uris` per visualizzare l'endpoint pubblico per _webfrontend_

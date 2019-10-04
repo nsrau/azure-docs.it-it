@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 984284fa185d4d8454b1689a62ca9e08c342e33b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106322"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195112"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -39,7 +39,7 @@ In alcune occasioni, un amministratore globale potrebbe avere bisogno di eseguir
 
 ## <a name="how-does-elevate-access-work"></a>Come funziona l'elevazione dei privilegi di accesso
 
-Le risorse di Azure AD e Azure sono protette in modo indipendente le une dalle altre. Questo significa che le assegnazioni di ruolo di Azure AD non concedono l'accesso alle risorse di Azure e le assegnazioni di ruolo di Azure non concedono l'accesso ad Azure AD. Un [amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) di Azure AD può tuttavia assegnare a se stesso l'accesso a tutte le sottoscrizioni e ai gruppi di gestione di Azure nella directory. Usare questa funzionalità se non si ha accesso alle risorse della sottoscrizione di Azure, come le macchine virtuali o gli account di archiviazione, e si vuole usare il privilegio di amministratore globale per ottenere l'accesso a queste risorse.
+Le risorse di Azure AD e Azure sono protette in modo indipendente le une dalle altre. Questo significa che le assegnazioni di ruolo di Azure AD non concedono l'accesso alle risorse di Azure e le assegnazioni di ruolo di Azure non concedono l'accesso ad Azure AD. Un [amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) di Azure AD può tuttavia assegnare a se stesso l'accesso a tutte le sottoscrizioni e ai gruppi di gestione di Azure nella directory. Usare questa funzionalità se non si ha accesso alle risorse della sottoscrizione di Azure, come le macchine virtuali o gli account di archiviazione, e si vuole usare il privilegio di amministratore globale per ottenere l'accesso a queste risorse.
 
 Quando si elevano i privilegi di accesso, si viene assegnati al ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) nell'ambito radice (`/`). Questo consente di visualizzare tutte le risorse e assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory. Le assegnazioni del ruolo Amministratore Accesso utenti possono essere rimosse tramite PowerShell.
 

@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#"
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25797c15a821579cd15333cdd833e491acbd0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bf5322b64b46854d2652c6edf264e25ce0be3d0f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546110"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564714"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e C#
 
 Usare questo argomento di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione C# invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -40,7 +40,7 @@ Usare questo argomento di avvio rapido per iniziare a eseguire chiamate all'API 
     using System.Text;
     ```
 
-2. In una nuova classe creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale.
+2. In una nuova classe creare variabili per l'host e il percorso dell'API, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e una query di ricerca parziale.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -163,7 +163,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione per Suggerimenti automatici Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
-- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

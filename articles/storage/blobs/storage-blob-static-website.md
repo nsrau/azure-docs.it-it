@@ -1,167 +1,113 @@
 ---
 title: Hosting di siti Web statici in Archiviazione di Azure
 description: Hosting di siti Web statici in Archiviazione di Azure che fornisce una soluzione economica e scalabile per l'hosting di applicazioni Web moderne.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 02/25/2019
-ms.author: tamram
+ms.topic: conceptual
+ms.author: normesta
+ms.reviewer: dineshm
+ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472770"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710163"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
-Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
 
-A differenza dell'hosting di siti Web statici, i siti dinamici che dipendono dal codice sul lato server sono meglio ospitati con il [Servizio app di Azure](/azure/app-service/overview).
-
-## <a name="how-does-it-work"></a>Come funziona?
-Quando si abilita l'hosting di siti Web statici nell'account di archiviazione, è possibile selezionare il nome del file predefinito e, facoltativamente, fornire un percorso a una pagina 404 personalizzata. Poiché la funzionalità è abilitata, viene creato un contenitore denominato *$web* se non esiste già.
-
-I file nel contenitore *$web* sono:
-
-- gestiti tramite richieste di accesso anonimo
-- disponibili solo tramite operazioni di lettura oggetti
-- fa distinzione tra maiuscole e minuscole
-- disponibili sul Web pubblico seguendo questo modello:
-    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- disponibili tramite un endpoint di archiviazione Blob seguendo questo modello:
-    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
-
-È possibile usare l'endpoint di archiviazione Blob per caricare i file. Ad esempio, il file caricato in questo percorso:
-
-```bash
-https://contoso.blob.core.windows.net/$web/image.png
-```
-
-è disponibile nel browser in un percorso simile al seguente:
-
-```bash
-https://contoso.z4.web.core.windows.net/image.png
-```
-
-Quando non viene fornito un nome file, viene usato il nome file predefinito selezionato a livello di radice con tutte le sottodirectory. Se il server restituisce un errore 404 e non si specifica un percorso del documento di errore, all'utente verrà restituita una pagina 404 predefinita.
+È possibile gestire il contenuto statico (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$Web*. L'hosting del contenuto in archiviazione di Azure consente di usare architetture senza server che includono [funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS).
 
 > [!NOTE]
-> Il livello di accesso pubblico predefinito per i file è privato. Poiché i file vengono serviti tramite le richieste di accesso anonimo, questa impostazione viene ignorata. È l'accesso pubblico a tutti i file e le autorizzazioni RBAC vengono ignorate.
+> Se il sito dipende dal codice sul lato server, usare invece [app Azure servizio](/azure/app-service/overview) .
 
-## <a name="cdn-and-ssl-support"></a>Supporto della rete CDN e di SSL
+## <a name="setting-up-a-static-website"></a>Configurazione di un sito Web statico
 
-Per rendere disponibili i file di un sito Web statico tramite HTTPS, vedere [Uso della rete CDN di Azure per accedere a BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario che *la rete CDN punti all'endpoint Web* invece che all'endpoint BLOB. Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non viene eseguita immediatamente.
+L'hosting di siti web statici è una funzionalità che è necessario abilitare nell'account di archiviazione.
 
-Quando si aggiorna il sito Web statico, assicurarsi di cancellare il contenuto memorizzato nella cache nei server perimetrali della rete CDN eliminando l'endpoint della rete CDN. Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../../cdn/cdn-purge-endpoint.md).
+Per abilitare l'hosting di siti web statici, selezionare il nome del file predefinito e, facoltativamente, specificare un percorso per una pagina personalizzata di 404. Se un contenitore di archiviazione BLOB denominato **$Web** non esiste già nell'account, ne viene creato uno. Aggiungere i file del sito a questo contenitore.
+
+Per istruzioni dettagliate, vedere [ospitare un sito Web statico in archiviazione di Azure](storage-blob-static-website-how-to.md).
+
+![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+
+I file nel contenitore di **$Web** fanno distinzione tra maiuscole e minuscole, vengono serviti tramite richieste di accesso anonime e sono disponibili solo tramite le operazioni di lettura.
+
+## <a name="uploading-content"></a>Caricamento del contenuto
+
+È possibile usare uno di questi strumenti per caricare il contenuto nel contenitore **$Web** :
+
+> [!div class="checklist"]
+> * [Interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli)
+> * [Modulo di Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
+> * [AzCopy](../common/storage-use-azcopy-v10.md)
+> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> * [Estensione di Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+
+## <a name="viewing-content"></a>Visualizzazione del contenuto
+
+Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL pubblico del sito Web. È possibile trovare l'URL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Usare questa tabella come riferimento.
+
+|Tool| Materiale sussidiario |
+|----|----|
+|**Portale di Azure** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Interfaccia della riga di comando di Azure** | [Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Modulo di Azure PowerShell** | [Trovare l'URL del sito Web usando PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+
+L'URL del sito contiene un codice regionale. Ad esempio, l'URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene il codice regionale `z22`.
+
+Sebbene tale codice debba rimanere l'URL, è solo per uso interno e non sarà necessario usare tale codice in altro modo.
+
+Il documento di indice specificato quando si Abilita l'hosting di siti web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).  
+
+Se il server restituisce un errore 404 e non è stato specificato un documento di errore quando è stato abilitato il sito Web, all'utente viene restituita una pagina predefinita di 404.
+
+## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effetti dell'impostazione del livello di accesso pubblico del contenitore Web
+
+È possibile modificare il livello di accesso pubblico del contenitore **$Web** , ma ciò non ha alcun effetto sull'endpoint del sito Web statico primario perché questi file vengono serviti tramite richieste di accesso anonimo. Questo significa che l'accesso pubblico (di sola lettura) a tutti i file.
+
+Lo screenshot seguente mostra l'impostazione del livello di accesso pubblico nel portale di Azure:
+
+![Screenshot che illustra come impostare il livello di accesso pubblico nel portale](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+
+Sebbene l'endpoint del sito Web statico primario non sia interessato, una modifica al livello di accesso pubblico influisce sull'endpoint del servizio BLOB primario.
+
+Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$Web** da **privato (nessun accesso anonimo)** a **BLOB (accesso in lettura anonimo solo per BLOB)** , il livello di accesso pubblico all'endpoint del sito Web statico primario `https://contosoblobaccount.z22.web.core.windows.net/index.html` non cambia.
+
+Tuttavia, l'accesso pubblico all'endpoint di servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passa da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
+
+## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Rete per la distribuzione di contenuti (CDN) e supporto Secure Socket Layer (SSL)
+
+Per rendere disponibili i file di siti web statici tramite il dominio personalizzato e HTTPS, vedere [uso della rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario puntare la rete CDN all'endpoint del *sito Web statico* primario anziché all'endpoint primario del *servizio BLOB* . Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non è immediatamente eseguita.
+
+Quando si aggiorna il sito Web statico, assicurarsi di cancellare il contenuto memorizzato nella cache nei server perimetrali della rete CDN ripulendo l'endpoint della rete CDN. Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS è supportato in modo nativo tramite l'endpoint Web dell'account, quindi l'endpoint Web è accessibile tramite HTTP e HTTPS. Tuttavia, se l'account di archiviazione è configurato per richiedere il trasferimento sicuro tramite HTTPS, gli utenti devono usare l'endpoint HTTPS. Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../common/storage-require-secure-transfer.md).
+>
+> L'uso di domini personalizzati su HTTPS richiede l'uso della rete CDN di Azure in questo momento.
 
 ## <a name="custom-domain-names"></a>Nomi di dominio personalizzati
 
-È possibile [configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure](storage-custom-domain-name.md) per rendere disponibile il sito Web statico tramite un dominio personalizzato. Per informazioni dettagliate su come ospitare un dominio in Azure, vedere [Ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
+È possibile rendere disponibile il sito Web statico tramite un dominio personalizzato. Per altre informazioni, vedere [configurare un nome di dominio personalizzato per l'account di archiviazione di Azure](storage-custom-domain-name.md).
+
+Per informazioni dettagliate sull'hosting del dominio in Azure, vedere [ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prezzi
-L'hosting di siti Web statici viene fornito senza alcun costo aggiuntivo. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="quickstart"></a>Guida introduttiva
+È possibile abilitare l'hosting di siti web statici gratuitamente. Viene addebitato solo l'archiviazione BLOB utilizzata dal sito e i costi operativi. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="azure-portal"></a>Portale di Azure
-Iniziare aprendo il portale di Azure all'indirizzo https://portal.azure.com ed eseguire i passaggi seguenti nell'account di archiviazione per utilizzo generico v2:
+## <a name="metrics"></a>metrics
 
-1. Fare clic su **Impostazioni**.
-2. Fare clic su **Sito Web statico**.
-3. Immettere un *nome del documento di indice*. Un valore comune è *index.html*.
-4. Immettere facoltativamente un *percorso del documento di errore* di una pagina 404 personalizzata. Un valore comune è *404.html*.
+È possibile abilitare le metriche nelle pagine statiche del sito Web. Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel contenitore **$Web** vengono segnalate nel dashboard delle metriche.
 
-![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
-
-Caricare quindi gli asset nel contenitore *$web* tramite il portale di Azure o con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare tutte le directory. Assicurarsi di includere un file che corrisponda al *nome del documento di indice* selezionato durante l'abilitazione della funzionalità.
-
-Infine, passare all'endpoint Web per testare il sito Web.
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-Installare l'estensione di anteprima di archiviazione:
-
-```azurecli-interactive
-az extension add --name storage-preview
-```
-Nel caso di più sottoscrizioni impostare l'interfaccia della riga di comando nella sottoscrizione dell'account di archiviazione per utilizzo generico v2 da abilitare:
-
-```azurecli-interactive
-az account set --subscription <SUBSCRIPTION_ID>
-```
-Abilitare la funzionalità. Assicurarsi di sostituire tutti i valori segnaposto, incluse le parentesi, con i propri valori:
-
-```azurecli-interactive
-az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
-```
-Query per l'URL dell'endpoint Web:
-
-```azurecli-interactive
-az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
-```
-
-Caricare gli oggetti nel contenitore *$web* da una directory di origine. Assicurarsi di far precedere da un carattere di escape il riferimento al contenitore *$web* nel comando. Se ad esempio si usa l'interfaccia della riga di comando di Azure da CloudShell nel portale di Azure, far precedere il contenitore *$web* da un carattere di escape, come mostrato di seguito:
-
-```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
-```
-
-## <a name="deployment"></a>Distribuzione
-
-Di seguito sono riportati i metodi disponibili per la distribuzione del contenuto in un contenitore di archiviazione:
-
-- [AzCopy](../common/storage-use-azcopy.md)
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-- [Estensione di Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
-
-In tutti i casi assicurarsi di copiare i file nel contenitore *$web*.
-
-## <a name="metrics"></a>Metriche
-
-Per abilitare le metriche nelle pagine dei siti Web statici, fare clic su **Impostazioni** > **Monitoraggio** > **Metriche**.
-
-I dati delle metriche vengono generati mediante l'associazione a diverse API di metrica. Il portale visualizza solo i membri delle API usati in un determinato intervallo di tempo per concentrarsi solo sui membri che restituiscono dati. Per assicurasi di poter selezionare il membro dell'API necessario, il primo passaggio è quello di espandere l'intervallo di tempo.
-
-Fare clic sul pulsante dell'intervallo di tempo e selezionare **Ultime 24 ore** e quindi fare clic su **Applica**.
-
-![Intervallo di tempo delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
-
-Selezionare quindi **BLOB** dall'elenco a discesa *Spazio dei nomi*.
-
-![Spazio dei nomi delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
-
-Selezionare quindi la metrica **Dati in uscita**.
-
-![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
-
-Selezionare **Somma** dal selettore *Aggregazione*.
-
-![Aggregazione delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
-
-Fare quindi clic sul pulsante **Aggiungi filtro** scegliere **Nome API** dal selettore *Proprietà*.
-
-![Nome API delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
-
-Selezionare infine la casella accanto a **GetWebContent** nel selettore *Valori* per popolare il report sulle metriche.
-
-![GetWebContent delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
-
-Una volta abilitate, le statistiche sul traffico per i file del contenitore *$web* vengono riportate nel dashboard delle metriche.
-
-## <a name="faq"></a>Domande frequenti
-
-**La funzionalità dei siti Web statici è disponibile per tutti i tipi di account di archiviazione?**  
-No, l'hosting dei siti Web statici è disponibile solo negli account di archiviazione standard GPv2.
-
-**Storage VNET e le regole del firewall sono supportati sul nuovo endpoint Web?**  
-Sì, il nuovo endpoint Web rispetta le regole VNET e del firewall configurate per l'account di archiviazione.
-
-**L'endpoint web fa distinzione tra maiuscole e minuscole?**  
-Sì, l'endpoint Web fa distinzione tra maiuscole e minuscole esattamente come l'endpoint BLOB. 
+Per abilitare le metriche nelle pagine del sito Web statico, vedere [abilitare le metriche nelle pagine del sito Web statico](storage-blob-static-website-how-to.md#metrics).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+* [Ospitare un sito Web statico in archiviazione di Azure](storage-blob-static-website-how-to.md)
 * [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurare un nome di dominio personalizzato per l'endpoint BLOB o Web](storage-custom-domain-name.md)
 * [Funzioni di Azure](/azure/azure-functions/functions-overview)

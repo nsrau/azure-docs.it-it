@@ -1,22 +1,22 @@
 ---
-title: Sviluppare app con Speech SDK - Servizi di riconoscimento vocale
+title: Sviluppare app con il servizio riconoscimento vocale (Speech SDK)
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come creare app con Speech SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962027"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559152"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -28,10 +28,10 @@ A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicaz
 
 Speech SDK do Servizi cognitivi è stato testato su Windows 10 e su Windows Server 2016.
 
-Speech SDK di Servizi cognitivi richiede il [Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) sul sistema. È possibile scaricare i programmi di installazione per l'ultima versione di `Microsoft Visual C++ Redistributable for Visual Studio 2017` qui:
+L'SDK per la sintesi vocale di servizi cognitivi richiede [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) nel sistema. È possibile scaricare i programmi di installazione per l'ultima versione di `Microsoft Visual C++ Redistributable for Visual Studio 2019` qui:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 Se l'applicazione utilizza codice gestito, è necessario `.NET Framework 4.6.1` o successivo sul computer di destinazione.
 
@@ -39,29 +39,39 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (Win32/x64) corrispondente all'applicazione.
 
-| NOME | Funzione
+| Name | Funzione
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK di base, necessario per la distribuzione nativa e gestita
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite
 
 >[!NOTE]
-> Iniziando con la versione 1.3.0 file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (forniti nelle versioni precedenti) non è più necessaria. La funzionalità è ora integrata nel nucleo SDK.
+> A partire dalla versione 1.3.0, il `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` file (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata in Core SDK.
+
+>[!NOTE]
+> Per il progetto app Windows Forms (.NET Framework C# ), verificare che le librerie siano incluse nelle impostazioni di distribuzione del progetto. È possibile selezionare questa opzione `Properties -> Publish Section`in. Fai clic `Application Files` sul pulsante e trova le librerie corrispondenti dall'elenco di scorrimento verso il basso. Verificare che il valore sia impostato su `Included`. In Visual Studio il file verrà incluso quando il progetto viene pubblicato/distribuito.
 
 ## <a name="linux"></a>Linux
 
-Speech SDK attualmente supporta le distribuzioni di Ubuntu 16.04 e 18.04.
+Speech SDK supporta attualmente le distribuzioni Ubuntu 16,04, Ubuntu 18,04 e Debian 9.
 Per un'applicazione nativa è necessario fornire la raccolta Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Assicurarsi di selezionare la versione (x86/x64) corrispondente all'applicazione. A seconda della versione di Linux, potrebbe essere necessario anche includere le seguenti dipendenze:
 
 * Le raccolte condivise della Libreria GNU C (inclusa la libreria di programmazione thread POSIX, `libpthreads`)
-* La raccolta OpenSSL (`libssl.so.1.0.0`)
+* Libreria OpenSSL (`libssl.so.1.0.0` o `libssl.so.1.0.2`)
 * La libreria condivisa per le applicazioni ALSA (`libasound.so.2`)
 
 In Ubuntu le librerie GNU C dovrebbero essere già installate per impostazione predefinita. È possibile installare gli ultimi tre utilizzando i comandi seguenti:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+In Debian 9 installare questi pacchetti:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

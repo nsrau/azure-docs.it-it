@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65204227"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Risolvere i problemi correlati all'archiviazione Blob di Azure Data finestra
 
@@ -55,7 +55,7 @@ Questa sezione illustra alcuni dei principali problemi riscontrati durante la di
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
 |Il valore di una delle intestazioni HTTP non è nel formato corretto. |La versione installata della libreria di archiviazione di Microsoft Azure per Python non è supportata da Data Box. Vedere i requisiti di archiviazione Blob di Azure Data finestra per le versioni supportate.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Prima di eseguire Python, impostare la variabile di ambiente REQUESTS_CA_BUNDLE al percorso del file del certificato SSL con codifica base 64 (vedere come [scaricare il certificato]()). <br>Ad esempio: <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>In alternativa, aggiungere il certificato all'archivio certificati del sistema e quindi impostare questa variabile di ambiente per il percorso dell'archivio. <br> Ad esempio, in Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Prima di eseguire Python, impostare la variabile di ambiente REQUESTS_CA_BUNDLE al percorso del file del certificato SSL con codifica base 64 (vedere come [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Ad esempio:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>In alternativa, aggiungere il certificato all'archivio certificati del sistema e quindi impostare questa variabile di ambiente per il percorso dell'archivio. <br> Ad esempio, in Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Errori comuni

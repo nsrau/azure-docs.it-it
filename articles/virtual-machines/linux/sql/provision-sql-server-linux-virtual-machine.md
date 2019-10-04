@@ -7,17 +7,16 @@ manager: craigg
 ms.date: 12/5/2018
 ms.topic: conceptual
 tags: azure-service-management
-ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd87477da15d5c18f94b66cac855672b4a2a3523
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478569"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091341"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure
 
@@ -27,7 +26,7 @@ ms.locfileid: "60478569"
 
 In questa esercitazione di avvio rapido si usa il portale di Azure per creare una macchina virtuale Linux con SQL Server 2017 installato.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si imparerà a:
 
 * [Creare una VM Linux di SQL dalla raccolta](#create)
 * [Connettersi alla nuova VM con ssh](#connect)

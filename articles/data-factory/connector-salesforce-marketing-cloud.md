@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddac58129d964f39770e4f8fb37b39625c690603
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405444"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089639"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiare dati da Salesforce Marketing Cloud tramite Azure Data Factory (anteprima)
 
@@ -28,9 +28,14 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
+Questo connettore di Salesforce Marketing Cloud è supportato per le attività seguenti:
+
+- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
+
 È possibile copiare dati da Salesforce Marketing Cloud in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
+Salesforce Marketing Cloud Connector supporta l'autenticazione OAuth 2. Si basa sull' [API REST di Salesforce Marketing Cloud](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Questo connettore non supporta il recupero di oggetti personalizzati o le estensioni per dati personalizzati.
@@ -49,10 +54,10 @@ Per il servizio collegato di Salesforce Marketing Cloud sono supportate le propr
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SalesforceMarketingCloud** | Sì |
 | clientId | L'ID client associato all'applicazione Salesforce Marketing Cloud.  | Sì |
-| clientSecret | Il segreto client associato all'applicazione Salesforce Marketing Cloud. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
+| clientSecret | Il segreto client associato all'applicazione Salesforce Marketing Cloud. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -84,7 +89,7 @@ Per copiare dati da Salesforce Marketing Cloud, impostare la proprietà type del
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SalesforceMarketingCloudObject** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **SalesforceMarketingCloudObject** | Yes |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -94,11 +99,12 @@ Per copiare dati da Salesforce Marketing Cloud, impostare la proprietà type del
     "name": "SalesforceMarketingCloudDataset",
     "properties": {
         "type": "SalesforceMarketingCloudObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SalesforceMarketingCloud linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -147,6 +153,10 @@ Per copiare dati da Salesforce Marketing Cloud, impostare il tipo di origine nel
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52996279"
 ---
-# <a name="deprecated-create-an-azure-container-service-kubernetes-linux-cluster"></a>(DEPRECATO) Creare un cluster Kubernetes Linux del servizio contenitore di Azure
+# <a name="deprecated-create-an-azure-container-service-kubernetes-linux-cluster"></a>(DEPRECATO) Creare un cluster Kubernetes Linux del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 

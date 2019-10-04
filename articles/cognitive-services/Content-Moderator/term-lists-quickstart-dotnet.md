@@ -1,23 +1,23 @@
 ---
 title: Controllare testo in base a un elenco personalizzato di termini in C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come moderare testo con elenchi di termini personalizzati usando Content Moderator SDK per C#.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564419"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Guida introduttiva: Controllare testo in base a un elenco personalizzato di termini in C#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 
 L'elenco globale di termini predefinito in Azure Content Moderator è sufficiente per quasi tutte le esigenze di moderazione del contenuto. Può tuttavia essere necessario filtrare termini specifici per la propria organizzazione. Può ad esempio essere opportuno contrassegnare con tag i nomi delle società concorrenti per una successiva analisi. 
 
@@ -55,7 +55,7 @@ Installare i pacchetti NuGet seguenti per il progetto TermLists:
 
 ### <a name="update-the-programs-using-statements"></a>Aggiornare le istruzioni using del programma
 
-Aggiungere le istruzioni `using` seguenti.
+Aggiungere le istruzioni `using` riportate di seguito.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>Riassumendo
+## <a name="compose-the-main-method"></a>Comporre il metodo Main
 
 Aggiungere la definizione del metodo **Main** allo spazio dei nomi **TermLists**, classe **Program**. Chiudere infine la classe **Program** e lo spazio dei nomi **TermLists**.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Eseguire l'applicazione per visualizzare l'output
 
-L'output sarà nelle righe seguenti, ma i dati potrebbero variare.
+L'output della console sarà simile al seguente:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546688"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308405"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Aggiungere una connessione ad Azure Cosmos DB
-Per aggiungere una connessione ad Azure Cosmos DB, creare un oggetto **TableService** e specificare il nome dell'account, la chiave primaria e l'endpoint. È possibile copiare questi valori da **Impostazioni** > **Stringa di connessione** nel portale di Azure per l'account DB Cosmos. Ad esempio: 
+Per aggiungere una connessione ad Azure Cosmos DB, creare un oggetto **TableService** e specificare il nome dell'account, la chiave primaria e l'endpoint. È possibile copiare questi valori da **Impostazioni** > **Stringa di connessione** nel portale di Azure per l'account DB Cosmos. Ad esempio:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Per impostazione predefinita, l'aggiornamento di un'entità non comporta la verifica dei dati per controllare se siano stati modificati da altri processi. Per supportare gli aggiornamenti simultanei:
 >
 > 1. Recuperare il valore ETag dell'oggetto da aggiornare. Questo valore viene restituito insieme a `response` per qualsiasi operazione associata all'entità e può essere recuperato tramite `response['.metadata'].etag`.
-> 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio: 
+> 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` per segnalare che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Si noti che è necessario specificare anche le informazioni sull'host poiché vengono richieste quando il titolare della firma di accesso condiviso prova ad accedere alla tabella.
 
-L'applicazione client usa quindi la firma di accesso condiviso con il metodo **TableServiceWithSAS** per eseguire operazioni sulla tabella. Nell'esempio seguente viene eseguita la connessione alla tabella e viene eseguita una query. Per il formato della tabella SAS vedere l'articolo [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris). 
+L'applicazione client usa quindi la firma di accesso condiviso con il metodo **TableServiceWithSAS** per eseguire operazioni sulla tabella. Nell'esempio seguente viene eseguita la connessione alla tabella e viene eseguita una query. Per il formato di tableSAS, vedere l'articolo [Concedere accesso limitato alle risorse di Archiviazione di Azure usando firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md). 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -459,6 +459,6 @@ Per altre informazioni, vedere le risorse seguenti:
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Node.js](https://github.com/Azure/azure-storage-node) su GitHub
-* [Azure per sviluppatori Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Azure per sviluppatori Node.js](https://docs.microsoft.com/azure/javascript/)
 * [Creare un'app Web Node.js in Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)

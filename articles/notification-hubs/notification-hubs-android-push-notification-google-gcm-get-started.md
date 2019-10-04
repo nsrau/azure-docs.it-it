@@ -4,9 +4,9 @@ description: In questa esercitazione si apprenderà come usare Hub di notifica d
 services: notification-hubs
 documentationcenter: android
 keywords: notifiche push, notifica push, notifiche push per android
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,17 +15,22 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 36af79b90722041ddb16bb90a73175a8635531fd
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887579"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212368"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Esercitazione: Effettuare il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Effettuare il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!WARNING]
+> A partire dal 10 aprile 2018, Google ha deprecato Google Cloud Messaging (GCM). Il server GCM e le API client sono deprecati e verranno rimossi entro il 29 maggio 2019. Per altre informazioni, vedere le [domande frequenti su GCM ed FCM](https://developers.google.com/cloud-messaging/faq).
 
 ## <a name="overview"></a>Panoramica
 
@@ -107,7 +112,7 @@ A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono dispon
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>Aggiornamento del file AndroidManifest.xml del progetto
 
-1. Per supportare GCM implementare un servizio listener Instance ID nel codice, che consente di [ottenere token di registrazione](https://developers.google.com/cloud-messaging/android/client#sample-register) usando l'[API Instance ID di Google](https://developers.google.com/instance-id/). In questa esercitazione, il nome della classe è `MyInstanceIDService`.
+1. Per supportare GCM implementare un servizio listener Instance ID nel codice, che consente di [ottenere token di registrazione](https://developers.google.com/cloud-messaging/) usando l'[API Instance ID di Google](https://developers.google.com/instance-id/). In questa esercitazione, il nome della classe è `MyInstanceIDService`.
 
     Aggiungere la definizione del servizio seguente al file AndroidManifest.xml, all'interno del tag `<application>` . Sostituire il segnaposto `<your package>` con il nome effettivo del pacchetto visualizzato all'inizio del file `AndroidManifest.xml`.
   
@@ -141,7 +146,7 @@ A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono dispon
     ```
 4. Aggiungere le necessarie autorizzazioni GCM riportate di seguito sotto il tag `</application>`. Sostituire `<your package>` con il nome del pacchetto visualizzato all'inizio del file `AndroidManifest.xml`.
 
-    Per altre informazioni su queste autorizzazioni, vedere [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest)(Configurare un'app client di GCM per Android).
+    Per altre informazioni su queste autorizzazioni, vedere [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/)(Configurare un'app client di GCM per Android).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

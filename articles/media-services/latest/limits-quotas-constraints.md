@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322567"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293433"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
 Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Azure v3.
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
-| Asset per ogni account di Servizi multimediali di Azure | 1.000.000|
+| Asset per ogni account di Servizi multimediali di Azure | 1\.000.000|
 | Filtri manifesto dinamico|100|
 | JobInput per ogni processo | 50 (fisso)|
 | JobOutput per ogni processo | 20 (fisso) |
@@ -36,26 +36,37 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | Elenco di processi|Impaginare la risposta, con 500 processi per ogni pagina|
 | Eventi live per ogni account di Servizi multimediali |5|
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
-| Output in tempo reale in esecuzione per ogni evento Live |3|
+| Output in tempo reale per ogni evento in tempo reale |3 <sup>(3)</sup> |
 | Durata max Live Output | 25 ore |
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
 | Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
-| Criteri di streaming | 100 <sup>(3)</sup> |
+| Criteri di streaming | 100 <sup>(5)</sup> |
 | Transform per ogni account di Servizi multimediali | 100 (fisso)|
-| Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(5)</sup> (fisso) |
-| Criteri di chiave simmetrica |30 | 
+| Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(6)</sup> (fixed) |
+| Opzioni per criteri di chiave simmetrica |30 | 
+| Le licenze al mese per ogni tipo DRM in servizi multimediali di chiave del servizio di recapito per ogni account|1\.000.000|
 
-<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Vengono tuttavia applicati altri limiti in Servizi multimediali di Azure in base alle dimensioni delle macchine virtuali usate dal servizio. Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. Se le dimensioni dei contenuti 4K superano il limite di 260 GB, scrivere all'indirizzo amshelp@microsoft.com per possibili soluzioni di attenuazione per consentire il supporto di questo scenario.
+<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Applicati altri limiti in servizi multimediali di base alle dimensioni della macchina virtuale utilizzati dal servizio. Il limite delle dimensioni si applica ai file da caricare e anche i file che vengono generati come risultato di servizi multimediali di elaborazione (codifica o l'analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
+
+La tabella seguente illustra i limiti sui supporti sono riservati unità S1, S2 e S3. Se il file di origine è maggiore di limiti definiti nella tabella, il processo di codifica avrà esito negativo. Se si codifica origini risoluzione 4K di lunga durata, ti viene richiesto di usare media reserved unit S3 per ottenere le prestazioni necessarie. Se si presentano contenuti 4K superano il limite di 260 GB sulle media reserved unit S3, contattare Microsoft all'indirizzo amshelp@microsoft.com per delle possibili soluzioni supportare lo scenario.
+
+|Tipo di unità riservata multimediale   |Dimensioni massime input (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|
 
 <sup>2</sup> Questo numero include i processi in coda, terminati, attivi e annullati. Non include invece i processi eliminati. 
 
 Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 giorni verranno eliminati automaticamente, anche se il numero totale di record è inferiore alla quota massima. 
 
-<sup>3</sup> Se si usano [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzati, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusare questi criteri per StreamingLocators ogni volta che si devono usare gli stessi protocolli e le stesse opzioni di crittografia. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
+<sup>3</sup> live output iniziano durante la creazione e terminano eliminato.
 
 <sup>4</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<sup>5</sup> I localizzatori di streaming non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
+<sup>5</sup> quando si usa un oggetto personalizzato [Streaming criteri](https://docs.microsoft.com/rest/api/media/streamingpolicies), è necessario progettare un set limitato di tali criteri per l'account di servizi multimediali e riutilizzarli per i StreamingLocators ogni volta che la crittografia stessa opzioni e i protocolli sono necessari. Evitare quindi di creare nuovi criteri di streaming per ogni localizzatore di streaming.
+
+<sup>6</sup> i localizzatori di streaming non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
 ## <a name="support-ticket"></a>Ticket di supporto
 
@@ -63,4 +74,4 @@ Per le risorse non fisse, è possibile richiedere l'aumento delle quote aprendo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](media-services-overview.md)
+[Panoramica](media-services-overview.md)

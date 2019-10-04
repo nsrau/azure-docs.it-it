@@ -12,11 +12,11 @@ ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61270065"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in ingresso
 

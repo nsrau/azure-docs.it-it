@@ -4,24 +4,23 @@ description: Creare una nuova macchina virtuale collegando un disco non gestito 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251069"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088615"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -126,7 +125,7 @@ Deallocare la VM, operazione che consente di liberare il disco rigido virtuale d
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)**.
+Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
 
 ### <a name="get-the-storage-account-urls"></a>Ottenere gli URL dell'account di archiviazione
 Sono necessari gli URL degli account di archiviazione di origine e destinazione. Gli URL hanno l'aspetto seguente: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se si conosce già il nome degli account di archiviazione e dei contenitori, per creare l'URL è sufficiente sostituire le informazioni tra parentesi. 
@@ -186,7 +185,7 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 * Quando si usa AZCopy, se viene visualizzato l'errore "Il server non è stato in grado di autenticare la richiesta", assicurarsi che il valore dell'intestazione di autorizzazione sia formato correttamente, inclusa la firma. Se si sta usando la chiave 2 o la chiave di archiviazione secondaria, provare a usare la chiave 1 o la chiave di archiviazione primaria.
 
 ## <a name="create-the-new-vm"></a>Creare la nuova VM 

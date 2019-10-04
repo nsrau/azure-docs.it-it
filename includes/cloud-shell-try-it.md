@@ -1,24 +1,34 @@
 ---
-author: cynthn
+author: sptramer
 ms.service: azure
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: cynthn
-ms.openlocfilehash: b9ecccfef48af8cf3fe7e679277b870256443fab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.author: sttramer
+ms.openlocfilehash: fdb4ddc43c1fcde55da8186bd2c09b709eb41374
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188033"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055195"
 ---
-## <a name="open-azure-cloud-shell"></a>Aprire Azure Cloud Shell
+## <a name="use-azure-cloud-shell"></a>Usare Azure Cloud Shell
 
-Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Gli strumenti comuni di Azure sono preinstallati e configurati in Cloud Shell per l'uso con l'account. Selezionare il pulsante **Copia** per copiare il codice, incollarlo in Cloud Shell e quindi premere INVIO per eseguirlo. Esistono alcuni modi per aprire Cloud Shell:
+Azure Cloud Shell è un ambiente di shell interattivo ospitato in Azure e usato tramite il browser. Cloud Shell consente di usare `bash` o `PowerShell` per interagire con i servizi di Azure. È possibile usare i comandi preinstallati di Cloud Shell per eseguire il codice contenuto in questo articolo senza dover installare strumenti nell'ambiente locale.
 
-|  |   |
+Per avviare Azure Cloud Shell:
+
+| Opzione | Esempio/Collegamento |
 |-----------------------------------------------|---|
-| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Aprire Cloud Shell nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). |    ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/cloud-shell-menu.png) |
-|  |  |
+| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. La selezione di **Prova** non comporta la copia automatica del codice in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Passare a [https://shell.azure.com](https://shell.azure.com) o selezionare il pulsante **Avvia Cloud Shell** per aprire Cloud Shell nel browser. | [![Avviare Cloud Shell in una nuova finestra](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Selezionare il pulsante **Cloud Shell** nella barra dei menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
+Per eseguire il codice di questo articolo in Azure Cloud Shell:
+
+1. Avviare Cloud Shell.
+
+1. Selezionare il pulsante **Copia** in un blocco di codice per copiare il codice.
+
+1. Incollare il codice nella sessione di Cloud Shell premendo **CTRL**+**MAIUSC**+**V** in Windows e Linux o **CMD**+**MAIUSC**+**V** in macOS.
+
+1. Premere **INVIO** per eseguire il codice.

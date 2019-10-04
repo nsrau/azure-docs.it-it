@@ -2,19 +2,19 @@
 title: Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti di Azure
 description: Informazioni su come risolvere i problemi con l'agente Gestione aggiornamenti.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: c37d8be8862e75a6520ccefe4b9df93dd993b2a8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150116"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477107"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
 

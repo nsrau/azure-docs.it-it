@@ -1,20 +1,20 @@
 ---
 title: 'Backup di Azure: backup coerenti con le applicazioni di macchine virtuali Linux'
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
-services: backup
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: backup coerente delle app; backup coerente delle applicazioni di VM di Azure; backup di VM Linux; Backup di Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/12/2018
-ms.author: anuragm
-ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.date: 01/12/2018
+ms.author: dacurwin
+ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581857"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210401"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -24,7 +24,7 @@ Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza
 
 Il framework offre un'opzione per eseguire script di pre e post-backup durante la creazione di snapshot delle macchine virtuali. Gli script pre-backup vengono eseguiti immediatamente prima della creazione dello snapshot della macchina virtuale e gli script post-backup vengono eseguiti immediatamente dopo la creazione dello snapshot della macchina virtuale. Gli script di pre e post-backup offrono la flessibilità necessaria per controllare l'applicazione e l'ambiente quando si creano snapshot delle macchine virtuali.
 
-Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. Gli script di post-backup usano API native delle applicazioni native per sbloccare gli I/O e ciò consente all'applicazione di riprendere le normali operazioni dopo la creazione dello snapshot della macchina virtuale.
+Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. I post-script usano le API native dell'applicazione per scongelare IOs, che consentono all'applicazione di riprendere le normali operazioni dopo lo snapshot della macchina virtuale.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Passaggi per configurare gli script di pre e post-backup
 
@@ -70,11 +70,11 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
 6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e post-backup e controllare i log di script per risolvere eventuali problemi degli script. Se continuano a verificarsi problemi durante l'esecuzione degli script, vedere la tabella seguente per altre informazioni.
 
-| Tipi di errore | Messaggio di errore | Azione consigliata |
+| Errore | Messaggio di errore | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup potrebbe non essere coerente con le applicazioni.   | Controllare i log di errore dello script per risolvere il problema.|  
 |   Post-ScriptExecutionFailed |    Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |    Controllare i log di errore dello script per risolvere il problema e verificare lo stato dell'applicazione. |

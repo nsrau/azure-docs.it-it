@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347692"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente
@@ -33,7 +33,7 @@ Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relat
 
 Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | --- | --- |
 | [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
 | [Aggiornamento sul posto](#in-place-upgrade) |Se si ha un singolo server, è possibile eseguire un aggiornamento sul posto dell'installazione nello stesso server. |

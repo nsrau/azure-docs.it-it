@@ -1,7 +1,6 @@
 ---
 title: Topologie Apache Storm con Visual Studio e Visual C# - Azure HDInsight
 description: Informazioni su come creare topologie Storm in C#. Creare una semplice topologia di conteggio parole in Visual Studio usando gli strumenti Hadoop per Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437395"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003801"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -31,7 +30,7 @@ Per usare una topologia C# con un cluster basato su Linux, è necessario aggiorn
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(solo in HDInsight per Windows) | ND |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
-| 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
+| 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]  
@@ -101,7 +100,7 @@ namespace ConsoleApplication2
 
 Gli strumenti Data Lake per Visual Studio includono i modelli seguenti:
 
-| Tipo di progetto | Dimostra |
+| Tipo di progetto | Dimostrazione |
 | --- | --- |
 | Applicazione Storm |Un progetto di topologia Storm vuoto |
 | Esempio di writer SQL di Azure per Storm |Come scrivere nel database SQL di Azure |
@@ -136,7 +135,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
 2. Nella finestra **Nuovo progetto** espandere **Modelli** > **installati** e selezionare **Azure Data Lake**. Dall'elenco dei modelli selezionare **Applicazione Storm**. Nella parte inferiore della schermata immettere **WordCount** come nome dell'applicazione.
 
-    ![Screenshot della finestra Nuovo progetto](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Screenshot della finestra Nuovo progetto](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. Dopo avere creato il progetto, si dovrebbe disporre dei file seguenti:
 
@@ -156,7 +155,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
    * **NextTuple**: chiamato da Storm quando allo spout è consentita la generazione di nuove tuple.
 
-   * **Ack** (solo topologia transazionale): gestisce i messaggi di riconoscimento avviati da altri componenti della topologia per tuple inviate dallo spout. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
+   * **Ack** (solo topologia transazionale): Gestisce i riconoscimenti avviati da altri componenti della topologia per le tuple inviate dal beccuccio. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
 
    * **Fail** (solo topologia transazionale): gestisce tuple la cui elaborazione da parte di altri componenti della topologia ha avuto esito negativo. L'implementazione di un metodo Fail consente di generare nuovamente la tupla in modo che sia possibile elaborarla di nuovo.
 
@@ -339,7 +338,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
 Gli spout e i bolt vengono disposti in un grafico che definisce i flussi di dati tra i componenti. Di seguito è riportato il grafico relativo alla topologia in oggetto:
 
-![Diagramma della disposizione degli elementi](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagramma della disposizione degli elementi](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Lo spout genera frasi, che vengono quindi distribuite a istanze del bolt Splitter. Il bolt Splitter suddivide le frasi in parole, che vengono quindi distribuite al bolt Counter.
 
@@ -433,7 +432,7 @@ Le topologie transazionali implementano le operazioni seguenti per supportare la
 
 * **Memorizzazione dei metadati nella cache**: lo spout deve memorizzare i metadati relativi ai dati generati, in modo che, in caso di errore, questi ultimi possano essere recuperati e generati nuovamente. Poiché l'esempio genera una quantità limitata di dati, i dati non elaborati di ogni tupla vengono archiviati in un dizionario per la ripetizione.
 
-* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i BOLT hanno riconosciuto la tupla, la `Ack` viene richiamato metodo dello spout. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
+* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i Bolt hanno riconosciuto la tupla, viene `Ack` richiamato il metodo del beccuccio. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
 
 * **Errore**: ciascun bolt può chiamare `this.ctx.Fail(tuple)` per indicare che l'elaborazione di una tupla non è riuscita. L'errore viene propagato al metodo `Fail` dello spout, dove la tupla può essere ripetuta usando i metadati memorizzati nella cache.
 
@@ -461,7 +460,6 @@ Per un esempio di topologia ibrida, creare un progetto e selezionare **Storm Hyb
 
   > [!NOTE]  
   > Questa versione illustra anche come usare codice Clojure da un file di testo come componente Java.
-
 
 Quando si invia il progetto, per passare da una topologia all'altra spostare l'istruzione `[Active(true)]` nella topologia che si desidera usare prima di effettuare l'invio al cluster.
 
@@ -560,27 +558,27 @@ Per i cluster HDInsight basati su Linux, è necessario verificare che il progett
 
 ### <a name="test-a-topology-locally"></a>Testare la topologia in locale
 
-Anche se la distribuzione di una topologia a un cluster è un'operazione semplice, in alcuni casi può essere necessario eseguire un test in locale. Per eseguire e testare la topologia di esempio descritta in questa esercitazione nell'ambiente di sviluppo locale, seguire questa procedura.
+Anche se la distribuzione di una topologia a un cluster è un'operazione semplice, in alcuni casi può essere necessario eseguire un test in locale. Usare la procedura seguente per eseguire e testare la topologia di esempio in questo articolo in locale nell'ambiente di sviluppo.
 
 > [!WARNING]  
 > I test locali funzionano solo per topologie di base di tipo C#. Non è possibile usare il test locale per topologie ibride o topologie che impiegano più flussi.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**. Nelle proprietà del progetto impostare **Tipo di output** su **Applicazione console**.
 
-    ![Screenshot delle proprietà di progetto, con il tipo di Output evidenziato](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Screenshot delle proprietà di progetto, con il tipo di Output evidenziato](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
 
-2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Infine fare clic su **Aggiungi**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **Classe** e immettere **LocalTest.cs** come nome della classe. Infine fare clic su **Aggiungi**.
 
-3. Aprire **LocalTest.cs** e aggiungere all'inizio l'istruzione **using** seguente:
+1. Aprire **LocalTest.cs** e aggiungere all'inizio l'istruzione **using** seguente:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Usare il codice seguente come contenuto della classe **LocalTest**:
+1. Usare il codice seguente come contenuto della classe **LocalTest**:
 
     ```csharp
     // Drives the topology components
@@ -682,9 +680,9 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
     Console.ReadKey();
     ```
 
-2. Salvare le modifiche, quindi premere **F5** o selezionare **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata** , premere un tasto qualsiasi per chiudere la finestra.
+1. Salvare le modifiche, quindi premere **F5** o selezionare **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata** , premere un tasto qualsiasi per chiudere la finestra.
 
-3. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio:  **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
+1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Esempio: **C:\Users\<nome_utente>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
 
    > [!NOTE]  
    > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio \[[97,103,111]] nel file **splitter.txt** corrisponde alla parola *and*.
@@ -713,7 +711,7 @@ Per visualizzare gli errori che si sono verificati in una topologia in esecuzion
 
 2. Per quanto riguarda **Spout** e **Bolt**, nella colonna **Ultimo errore** vengono visualizzate informazioni sull'ultimo errore verificatosi.
 
-3. Selezionare **Spout Id** (ID spout) o **Bolt Id** (ID bolt) per il componente in cui si è verificato un errore. Viene visualizzata una pagina dei dettagli. Nella parte inferiore di tale pagina, nella sezione **Errori**, vengono visualizzate informazioni aggiuntive sugli errori.
+3. Selezionare l'ID del **beccuccio** o l' **ID del Bolt** per il componente in cui è elencato un errore. Viene visualizzata una pagina dei dettagli. Nella parte inferiore di tale pagina, nella sezione **Errori**, vengono visualizzate informazioni aggiuntive sugli errori.
 
 4. Per ottenere altre informazioni, selezionare una **porta** nella sezione **Executors** (Esecutori) della pagina. Verrà visualizzato il log di lavoro di Storm relativo agli ultimi minuti.
 

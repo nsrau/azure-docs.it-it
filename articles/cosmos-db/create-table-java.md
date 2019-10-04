@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Tabella con Java - Azure Cosmos DB'
+title: Usare l'API Tabella e Java per creare un'app - Azure Cosmos DB
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: b0fda94f3120f1f228836713456d584d33c08a48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 14742984fb993679abc87e279f3ad9882ec77ce3
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033129"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266032"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con Java e Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Guida introduttiva: Creare un'app Java per gestire i dati dell'API Tabella di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -24,7 +25,7 @@ ms.locfileid: "54033129"
 > * [Python](create-table-python.md)
 > 
 
-Questa guida introduttiva mostra come usare Java e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. La guida introduttiva illustra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
+Questa guida introduttiva mostra come usare Java e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. Illustra come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle ed entità nel portale di Azure basato sul Web.
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
@@ -35,8 +36,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Eseguire anche queste operazioni: 
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.
+* [Java Development Kit (JDK) 8](https://aka.ms/azure-jdks)
     * Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario [Maven](https://maven.apache.org/)
     * In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.
@@ -85,9 +85,9 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione**. 
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
-   ![Visualizzare e copiare le informazioni necessarie sulla stringa di connessione nel riquadro Stringa di connessione](./media/create-table-java/connection-string.png)
+   ![Visualizzare informazioni sulla stringa di connessione nel riquadro Stringa di connessione](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Copiare la STRINGA DI CONNESSIONE PRIMARIA usando il pulsante Copia a destra.
 
@@ -95,7 +95,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 5. Trasformare in commento la riga 1 e rimuovere il commento dalla riga 2. L'aspetto delle prime due righe dovrebbe essere simile al seguente.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

@@ -2,19 +2,19 @@
 title: Domande frequenti - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Contiene le risposte alle domande frequenti relative a Custom Translator.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512927"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595812"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 

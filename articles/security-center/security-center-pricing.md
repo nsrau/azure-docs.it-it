@@ -3,9 +3,8 @@ title: Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la si
 description: Questo articolo fornisce informazioni sui prezzi del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
-ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: memildin
+ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905291"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201235"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -28,7 +27,7 @@ Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la pr
 Il Centro sicurezza è disponibile in due livelli:
 
 - Il livello **Gratuito** viene abilitato automaticamente in tutte le sottoscrizioni di Azure e offre criteri di sicurezza, valutazione continua della sicurezza e raccomandazioni sulla sicurezza utili per proteggere le risorse di Azure.
-- Il livello **Standard** estende le funzionalità del livello Gratuito ai carichi di lavoro in esecuzione in cloud privati e pubblici, offrendo la gestione unificata della sicurezza e la protezione dalle minacce nei carichi di lavoro cloud ibridi. Il livello Standard aggiunge anche la funzionalità di rilevamento avanzato delle minacce, che usa analisi comportamentali e apprendimento automatico per identificare attacchi ed exploit zero-day, i controlli di accesso e dell'applicazione per ridurre l'esposizione agli attacchi di rete e malware e molto altro. È possibile provare gratuitamente il livello Standard. Standard del Centro sicurezza supporta Azure le risorse incluse le macchine virtuali, VM set di scalabilità, servizio App, SQL Server e gli account di archiviazione. Se si dispone di Centro sicurezza di Azure Standard, è possibile rifiutare esplicitamente il supporto in base al tipo di risorsa. 
+- Il livello **Standard** estende le funzionalità del livello Gratuito ai carichi di lavoro in esecuzione in cloud privati e pubblici, offrendo la gestione unificata della sicurezza e la protezione dalle minacce nei carichi di lavoro cloud ibridi. Il livello Standard aggiunge anche la funzionalità di rilevamento avanzato delle minacce, che usa analisi comportamentali e apprendimento automatico per identificare attacchi ed exploit zero-day, i controlli di accesso e dell'applicazione per ridurre l'esposizione agli attacchi di rete e malware e molto altro. È possibile provare gratuitamente il livello standard. Il Centro sicurezza standard supporta le risorse di Azure, tra cui macchine virtuali, set di scalabilità di macchine virtuali, servizio app, server SQL e account di archiviazione. Se si dispone di Centro sicurezza di Azure Standard, è possibile rifiutare esplicitamente il supporto in base al tipo di risorsa. 
 
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -40,16 +39,16 @@ Il livello Standard è gratuito per i primi 30 giorni. Al termine dei 30 giorni,
 
 Per ottenere il livello Standard:
 
-1. Selezionare **Criteri di sicurezza** nel menu principale **Centro sicurezza**.
+1. Selezionare **prezzi & impostazioni** nel menu principale del **Centro sicurezza** .
 2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
-3. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario).
+3. Selezionareil piano tariffario.
 4. Selezionare **Standard** per eseguire l'aggiornamento.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
-(I prezzi indicati nell'immagine sono ad esempio è solo a scopo). ![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
+I prezzi nell'immagine sono solo a scopo esemplificativo. ![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario per la sottoscrizione che contiene le macchine virtuali applicabili Standard. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
+> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario Standard alla sottoscrizione contenente le macchine virtuali applicabili. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
 >
 >
 

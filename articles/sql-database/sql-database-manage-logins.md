@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497925"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014496"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -46,31 +45,31 @@ Sono disponibili due account amministrativi, **Amministratore del server** e **A
 
   È possibile configurare come amministratore anche un account singolo o di gruppo di sicurezza di Azure Active Directory. La configurazione di un amministratore di Azure AD è facoltativa, ma **è necessaria** se si vuole usare gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso con Azure Active Directory, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) e [Supporto di SSMS per l'autenticazione MFA di Azure AD con database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
-Gli account **Amministratore del server** e **Amministratore di Azure Active Directory** hanno le caratteristiche seguenti:
+Gli account amministratore del **Server** e **amministratore Azure ad** hanno le seguenti caratteristiche:
 
 - Questi sono gli unici account che possono connettersi automaticamente a qualsiasi database SQL nel server. Per connettersi a un database utente, gli altri account devono essere il proprietario del database o avere un account utente nel database utente.
 - Questi account accedono ai database utente come utente `dbo` e hanno a disposizione tutte le autorizzazioni nei database utente. Anche il proprietario di un database utente accede al database come utente `dbo`. 
 - Essi non accedono al database `master` come utente `dbo` e hanno autorizzazioni limitate nel database master. 
 - Questi account **non** sono membri del ruolo predefinito di SQL Server `sysadmin`, che non è disponibile nel database SQL.  
-- Essi possono creare, modificare ed eliminare database, account di accesso, utenti nel database master e regole firewall per indirizzi IP a livello di server.
+- Essi possono creare, modificare ed eliminare database, account di accesso, utenti nel database master e regole del firewall IP a livello di server.
 - Questi account possono aggiungere e rimuovere membri per i ruoli `dbmanager` e `loginmanager`.
 - Essi possono visualizzare la tabella di sistema `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configurazione del firewall
 
-Quando è configurato un firewall a livello di server per un singolo indirizzo IP o per un intervallo di indirizzi IP, l'**amministratore del server SQL** e l'**amministratore di Azure Active Directory** possono connettersi al database master e a tutti i database utente. Il firewall iniziale a livello di server può essere configurato tramite il [portale di Azure](sql-database-single-database-get-started.md), usando [PowerShell](sql-database-powershell-samples.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Dopo che è stata stabilita una connessione, è anche possibile configurare regole firewall aggiuntive per indirizzi IP a livello di server usando [Transact-SQL](sql-database-configure-firewall-settings.md).
+Quando è configurato un firewall a livello di server per un singolo indirizzo IP o per un intervallo di indirizzi IP, l'**amministratore del server SQL** e l'**amministratore di Azure Active Directory** possono connettersi al database master e a tutti i database utente. Il firewall iniziale a livello di server può essere configurato tramite il [portale di Azure](sql-database-single-database-get-started.md), usando [PowerShell](sql-database-powershell-samples.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Dopo che è stata stabilita una connessione, è anche possibile configurare altre regole del firewall IP a livello di server usando [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Percorso di accesso degli amministratori
 
 Quando il firewall a livello di server è configurato correttamente, l'**amministratore del server SQL** e l'**amministratore di Azure Active Directory** possono connettersi usando strumenti client come SQL Server Management Studio o SQL Server Data Tools. Solo gli strumenti più recenti offrono tutte le caratteristiche e le funzionalità. Il diagramma seguente illustra una configurazione tipica per i due account amministratore.
 
-![Percorso di accesso degli amministratori](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configurazione dei due account di amministrazione](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 Quando viene usata una porta aperta nel firewall a livello di server, gli amministratori possono connettersi a qualsiasi database SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Connettersi a un database con SQL Server Management Studio
 
-Per una procedura dettagliata sulla creazione di un server, un database, regole del firewall per indirizzi IP a livello di server e sull'uso di SQL Server Management Studio per eseguire query in un database, consultare [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-single-database-get-started.md) (Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure e SQL Server Management Studio).
+Per una procedura dettagliata sulla creazione di un server, un database, regole del firewall IP a livello di server e sull'uso di SQL Server Management Studio per eseguire query in un database, consultare [Introduzione ai server di database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure e SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -205,7 +204,7 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
   GO
   ```
   
-  In alternativa, usare l'istruzione Transact-SQL seguente:
+  Usare invece l'istruzione Transact-SQL seguente:
   
   ```sql
   DROP DATABASE IF EXISTS [database_name]
@@ -214,7 +213,7 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 - Quando si esegue l’istruzione `CREATE USER` con l’opzione `FOR/FROM LOGIN`, l’istruzione deve essere l'unica in un batch Transact-SQL.
 - Quando si esegue l’istruzione `ALTER USER` con l’opzione `WITH LOGIN`, l’istruzione deve essere l'unica in un batch Transact-SQL.
 - Per `CREATE/ALTER/DROP` un utente richiede l’autorizzazione `ALTER ANY USER` per il database.
-- Quando il proprietario di un ruolo del database tenta di aggiungere o rimuovere un altro utente del database in o da tale ruolo del database, potrebbe verificarsi il seguente errore: **L’utente o il ruolo 'Name' non esiste nel database.**  Questo errore si verifica perché l'utente non è visibile al proprietario. Per risolvere questo problema, concedere al proprietario del ruolo l’autorizzazione `VIEW DEFINITION` per l'utente. 
+- Quando il proprietario di un ruolo del database tenta di aggiungere o rimuovere un altro utente del database in o da tale ruolo del database, potrebbe verificarsi il seguente errore: **L’utente o il ruolo 'Name' non esiste nel database.** Questo errore si verifica perché l'utente non è visibile al proprietario. Per risolvere questo problema, concedere al proprietario del ruolo l’autorizzazione `VIEW DEFINITION` per l'utente. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

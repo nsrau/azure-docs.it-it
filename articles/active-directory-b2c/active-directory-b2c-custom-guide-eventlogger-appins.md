@@ -2,26 +2,26 @@
 title: Tenere traccia del comportamento degli utenti usando gli eventi di Application Insights da Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come abilitare i log eventi di Application Insights dai percorsi utente di Azure AD B2C usando criteri personalizzati (anteprima).
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384817"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066192"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Quando si usa Azure Active Directory (Azure AD) B2C con Azure Application Insights, è possibile ottenere log eventi dettagliati e personalizzati per i percorsi utente. In questo articolo viene spiegato come:
+Quando si usa Azure Active Directory B2C (Azure AD B2C) insieme a applicazione Azure Insights, è possibile ottenere registri eventi dettagliati e personalizzati per i percorsi utente. In questo articolo viene spiegato come:
 
 * Ottenere informazioni dettagliate sul comportamento degli utenti.
 * Risolvere i problemi relativi ai criteri in ambiente di sviluppo o di produzione.
@@ -45,7 +45,7 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](ac
 Quando si usa Application Insights con Azure AD B2C, è sufficiente creare una risorsa e ottenere la chiave di strumentazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene la sottoscrizione. Questo non è il tenant di Azure AD B2C.
+2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene la sottoscrizione. Questo non è il tenant di Azure AD B2C.
 3. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Application Insights**.
 4. Fare clic su **Create**(Crea).
 5. Immettere un **nome** per la risorsa.
@@ -111,10 +111,10 @@ I profili tecnici possono essere considerati funzioni in Framework dell'esperien
 
 | Profilo tecnico | Attività |
 | ----------------- | -----|
-| AzureInsights-Common | Crea un set di parametri comune da includere in tutti i profili tecnici AzureInsights. | 
-| AzureInsights-SignInRequest | Crea un evento SignIn con un set di attestazioni quando viene ricevuta una richiesta di accesso. | 
-| AzureInsights-UserSignup | Crea un evento UserSignup quando l'utente attiva l'opzione di registrazione in un percorso di registrazione/accesso. | 
-| AzureInsights-SignInComplete | Registra il completamento di un'autenticazione quando un token è stato inviato all'applicazione relying party. | 
+| AzureInsights-Common | Crea un set di parametri comune da includere in tutti i profili tecnici AzureInsights. |
+| AzureInsights-SignInRequest | Crea un evento SignIn con un set di attestazioni quando viene ricevuta una richiesta di accesso. |
+| AzureInsights-UserSignup | Crea un evento UserSignup quando l'utente attiva l'opzione di registrazione in un percorso di registrazione/accesso. |
+| AzureInsights-SignInComplete | Registra il completamento di un'autenticazione quando un token è stato inviato all'applicazione relying party. |
 
 Aggiungere i profili al file *TrustFrameworkExtensions.xml* dallo starter pack. Aggiungere questi elementi all'elemento **ClaimsProviders**:
 
@@ -166,7 +166,7 @@ Aggiungere i profili al file *TrustFrameworkExtensions.xml* dallo starter pack. 
 ```
 
 > [!IMPORTANT]
-> Modificare la chiave di strumentazione nel profilo tecnico `ApplicationInsights-Common` con il GUID fornito dalla risorsa di Application Insights.
+> Modificare la chiave di strumentazione nel profilo tecnico `AzureInsights-Common` con il GUID fornito dalla risorsa di Application Insights.
 
 ## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Aggiungere i profili tecnici come passaggi di orchestrazione
 
@@ -230,11 +230,11 @@ Salvare e caricare il file *TrustFrameworkExtensions.xml*. Chiamare quindi i cri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Aggiungere tipi di attestazioni ed eventi al proprio percorso utente in base alle esigenze. È possibile usare [resolver di attestazioni](claim-resolver-overview.md) o qualsiasi tipo di attestazione stringa, aggiungere attestazioni aggiungendo un elemento **Input Claim** (Attestazione input) all'evento di Application Insights o al profilo tecnico AzureInsights-Common. 
+Aggiungere tipi di attestazioni ed eventi al proprio percorso utente in base alle esigenze. È possibile usare [resolver di attestazioni](claim-resolver-overview.md) o qualsiasi tipo di attestazione stringa, aggiungere attestazioni aggiungendo un elemento **Input Claim** (Attestazione input) all'evento di Application Insights o al profilo tecnico AzureInsights-Common.
 
 - **ClaimTypeReferenceId** è il riferimento a un tipo di attestazione.
-- **PartnerClaimType** è il nome della proprietà visualizzato in Azure Insights. Usare la sintassi `{property:NAME}`, dove `NAME` è la proprietà da aggiungere all'evento. 
-- Per **DefaultValue** usare qualsiasi valore stringa o il resolver di attestazioni. 
+- **PartnerClaimType** è il nome della proprietà visualizzato in Azure Insights. Usare la sintassi `{property:NAME}`, dove `NAME` è la proprietà da aggiungere all'evento.
+- Per **DefaultValue** usare qualsiasi valore stringa o il resolver di attestazioni.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

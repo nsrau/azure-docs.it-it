@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772483"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rete accelerata con il ripristino di emergenza di macchine virtuali di Azure
 

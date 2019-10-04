@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: In questo articolo viene illustrato come configurare e associare i criteri degli endpoint di servizio usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: anithaa
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: kumud
+ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710925"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
@@ -33,7 +33,7 @@ I criteri degli endpoint di servizio consentono di filtrare il traffico della re
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure 
+## <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 

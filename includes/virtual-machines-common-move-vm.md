@@ -9,11 +9,11 @@ ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 61990e785741799fcbcd4e6df965953bd9944f4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476403"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180119"
 ---
 ## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Usare il portale di Azure per spostare una macchina virtuale in una sottoscrizione diversa
 È possibile spostare una macchina virtuale e le relative risorse associate in una sottoscrizione diversa usando il portale di Azure.

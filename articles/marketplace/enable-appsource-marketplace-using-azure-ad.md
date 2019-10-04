@@ -2,24 +2,18 @@
 title: Consentire la presentazione in Microsoft AppSource e Azure Marketplace con Azure Active Directory | Azure
 description: Abilitare un tipo di inserzione usando Azure Active Directory nel Marketplace di Azure e in AppSource per gli editori di app e servizi.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
-ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732329"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876008"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
 
@@ -41,12 +35,12 @@ Le [opzioni di presentazione e i tipi di offerta](https://docs.microsoft.com/azu
 | **Tipo di offerta**    | **SSO di AAD necessario?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Contattami | Versione di valutazione | Test drive | Transazione |
-| Macchina virtuale | N/D | No  | No  | No  |
+| Macchina virtuale | N/D | No | No | No |
 | App di Azure (modello di soluzione)  | N/D | N/D | N/D | N/D |
-| App gestite  | N/D | N/D | N/D | No  |
-| SaaS  | No  | Sì | Sì | Sì |
-| Contenitori  | N/D | N/D | N/D | No  |
-| Servizi di consulenza  | No  | N/D | N/D | N/D |
+| App gestite  | N/D | N/D | N/D | No |
+| SaaS  | No | Yes | Sì | Yes |
+| Contenitori  | N/D | N/D | N/D | No |
+| Servizi di consulenza  | No | N/D | N/D | N/D |
 
 Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
@@ -95,4 +89,4 @@ Usare Azure AD per supportare una delle azioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Accertarsi di aver effettuato la [registrazione in Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) per creare o completare l'offerta.
+- Per ulteriori informazioni su come creare o completare l'offerta, vedere [come creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.

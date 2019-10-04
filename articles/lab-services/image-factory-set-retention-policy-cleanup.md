@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622552"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzate in Azure DevTest Labs
 Questo articolo illustra l'impostazione di criteri di conservazione, pulizia della factory e ritiro immagini precedenti da tutte le altre DevTest Labs nell'organizzazione. 
@@ -66,7 +66,7 @@ Ora che è stata completata la definizione di compilazione, accodare una nuova c
 
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Ora si dispone di una factory di immagini in esecuzione che potrebbe generare e distribuire immagini personalizzate per i laboratori su richiesta. A questo punto, è sufficiente ottenere le immagini impostato in modo corretto e che identifica i laboratori di destinazione. Come accennato nell'articolo precedente, il **Labs.json** file che si trova nelle **configurazione** cartella specifica le immagini che devono essere rese disponibili in ognuno dei laboratori di destinazione. Quando si aggiungono altri DevTest Labs per l'organizzazione, è sufficiente aggiungere una voce nella finestra di Labs.json per il nuovo lab.
 
 È anche semplice aggiunta di una nuova immagine alla factory. Quando si desidera includere una nuova immagine nell'ambiente di produzione si apre la [portale di Azure](https://portal.azure.com), passare alla factory DevTest Labs, selezionare il pulsante per aggiungere una macchina virtuale e scegliere l'immagine del marketplace desiderato e gli elementi. Invece di selezionare il **Create** pulsante per rendere la nuova macchina virtuale, selezionare **modello View Azure Resource Manager**"e salvare il modello come file con estensione JSON in un punto qualsiasi all'interno di **GoldenImages** cartella nel repository. Alla successiva esecuzione di factory di immagini, verrà creato l'immagine personalizzata.

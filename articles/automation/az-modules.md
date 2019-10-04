@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni sull'uso dei moduli Az in Aut
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 2f81c0affb78d5944b8ba910cccfa0be655f1a6f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796277"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097943"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Supporto per i moduli Az in Automazione di Azure
 
@@ -22,7 +22,7 @@ Automazione di Azure supporta la possibilità di usare il [modulo Az di Azure Po
 
 ## <a name="considerations"></a>Considerazioni
 
-Esistono molti aspetti da prendere in considerazione quando si usa il modulo Az in Automazione di Azure. I runbook e i moduli possono essere usati da soluzioni di livello superiore nell'account di automazione. La modifica dei runbook o l'aggiornamento dei moduli può causare potenzialmente problemi con i runbook. È consigliabile testare attentamente tutti i runbook e le soluzioni in un account di automazione distinto prima di importare i nuovi moduli `Az`. Qualsiasi modifica ai moduli può influire negativamente sulle soluzioni di livello superiore, ad esempio Gestione aggiornamenti e Avvio/Arresto di macchine virtuali durante gli orari di minore attività. È consigliabile non modificare moduli e runbook in account di automazione che contengono soluzioni. Questo comportamento non è specifico per i moduli Az. Questo comportamento deve essere preso in considerazione quando si introducono modifiche all'account di automazione.
+Esistono molti aspetti da prendere in considerazione quando si usa il modulo Az in Automazione di Azure. I runbook e i moduli possono essere usati da soluzioni di livello superiore nell'account di automazione. La modifica dei runbook o l'aggiornamento dei moduli può causare potenzialmente problemi con i runbook. È consigliabile testare attentamente tutti i runbook e le soluzioni in un account di automazione distinto prima di importare i nuovi moduli `Az`. Eventuali modifiche ai moduli possono compromettere la soluzione di [avvio/arresto](automation-solution-vm-management.md) . È consigliabile non modificare moduli e runbook in account di automazione che contengono soluzioni. Questo comportamento non è specifico per i moduli Az. Questo comportamento deve essere preso in considerazione quando si introducono modifiche all'account di automazione.
 
 L'importazione di un modulo `Az` nell'account di automazione non comporta automaticamente l'importazione del modulo nella sessione di PowerShell usata dai runbook. I moduli vengono importati nella sessione di PowerShell nelle situazioni seguenti:
 
@@ -63,13 +63,13 @@ Questo processo di importazione può essere eseguito da [PowerShell Gallery](htt
 
 ## <a name="test-your-runbooks"></a>Testare i runbook
 
-Dopo che i moduli `Az` sono stati importati nell'account di automazione, è possibile iniziare a modificare i runbook per usare il modulo Az. La maggior parte dei cmdlet ha lo stesso nome, ad eccezione di `AzureRM` che è stato modificato in `Az`. Per un elenco di moduli che non seguono questo processo, vedere l'[elenco delle eccezioni](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+Dopo che i moduli `Az` sono stati importati nell'account di automazione, è possibile iniziare a modificare i runbook per usare il modulo Az. La maggior parte dei cmdlet ha lo stesso nome, ad eccezione di `AzureRM` che è stato modificato in `Az`. Per un elenco di moduli che non seguono questo processo, vedere l'[elenco delle eccezioni](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 Un modo per testare i runbook prima di modificarli per l'uso dei nuovi cmdlet consiste nell'usare `Enable-AzureRMAlias -Scope Process` all'inizio di un runbook. In questo modo il runbook può essere eseguito senza modifiche.
 
 ## <a name="after-migration-details"></a>Dettagli post-migrazione
 
-Al termine della migrazione, non avviare più i runbook usando i moduli `AzureRM` nell'account. È inoltre consigliabile non importare o aggiornare i moduli `AzureRM` in questo account. A partire da questo momento, considerare l'account migrato a `Az`e usarlo solo con i moduli `Az`. Quando viene creato un nuovo account di automazione, i moduli `AzureRM` esistenti continueranno a essere installati e i runbook di esercitazione verranno comunque creati con i cmdlet `AzureRM`. Questi runbook non devono essere eseguiti.
+Al termine della migrazione, non avviare più i runbook usando i moduli `AzureRM` nell'account. È inoltre consigliabile non importare o aggiornare i moduli `AzureRM` in questo account. A partire da questo momento, considerare l'account migrato a `Az`e usarlo solo con i moduli `Az`. Quando viene creato un nuovo account di automazione, i moduli `AzureRM` esistenti continueranno a essere installati e i runbook di esercitazione verranno comunque creati con i cmdlet `AzureRM`. Questi manuali operativi non devono essere eseguiti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,11 +15,11 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60862262"
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o dell’istituto di istruzione
 

@@ -3,8 +3,8 @@ title: App in grado di riconoscere attestazioni - Proxy di applicazione di Azure
 description: Come pubblicare applicazioni ASP.NET locali che accettano le attestazioni di AD FS per l'accesso remoto sicuro da parte degli utenti.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5be2f5bbeb901888edc1e69953fdeb8de566c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbc5c356ea5a542fdc12b11aff236c56b146b3d5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293474"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477250"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
 Le [app in grado di riconoscere attestazioni](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) eseguono un reindirizzamento al servizio token di sicurezza. Il servizio token di sicurezza richiede le credenziali all'utente in cambio di un token e quindi reindirizza l'utente all'applicazione. È possibile consentire al proxy di applicazione di usare questi reindirizzamenti in diversi modi. Usare questo articolo per configurare la distribuzione per app in grado di riconoscere attestazioni. 
@@ -55,7 +55,7 @@ Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN
    ![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Abilitare Single Sign-On](configure-single-sign-on-portal.md) per le applicazioni che non sono in grado di riconoscere attestazioni
+* [Abilitare Single Sign-On](configure-single-sign-on-non-gallery-applications.md) per le applicazioni che non sono in grado di riconoscere attestazioni
 * [Abilitare le app client native per l'interazione con applicazioni proxy](application-proxy-configure-native-client-application.md)
 
 

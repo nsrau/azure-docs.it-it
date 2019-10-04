@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222226"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179819"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
@@ -33,10 +33,10 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
    |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
-   |Replica     |Archiviazione con ridondanza locale (LRS)         |
+   |Replica     |Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).         |
    |Livello di accesso     |Accesso frequente         |
 
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 Per altre informazioni sui tipi di account di archiviazione e su altre impostazioni dell'account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 

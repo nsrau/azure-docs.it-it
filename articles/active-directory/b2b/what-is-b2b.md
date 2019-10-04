@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 09/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 62bc550a809d596b5378c03aa95877db5e15febb
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293635"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019503"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 

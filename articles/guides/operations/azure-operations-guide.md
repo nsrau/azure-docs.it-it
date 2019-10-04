@@ -1,26 +1,19 @@
 ---
 title: Guida introduttiva per gli operatori IT di Azure | Microsoft Docs
 description: Guida introduttiva per gli operatori IT di Azure
-services: ''
-documentationcenter: ''
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
-ms.devlang: ''
 ms.topic: overview
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051171"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543416"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -73,7 +66,7 @@ Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del serv
 
 #### <a name="saas-software-as-a-service"></a>SaaS: Software come un servizio
 
-Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
+Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
 
 Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
 
@@ -101,7 +94,7 @@ Servizi per l'archiviazione e la gestione dei dati:
 
 - Archiviazione di Azure (comprende i servizi BLOB, Code, Tabella e File di Azure)
 
-- Database SQL di Azure
+- database SQL di Azure
 
 - Azure Cosmos DB
 
@@ -145,7 +138,7 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 
 Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un data center specifico in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
-Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi.
+Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche.
 
 ### <a name="azure-portal"></a>Portale di Azure
 

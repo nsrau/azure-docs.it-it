@@ -3,7 +3,7 @@ title: Aggiornare un cluster di Azure Service Fabric | Documentazione Microsoft
 description: Informazioni sull'aggiornamento della versione o della configurazione di un cluster di Service Fabric.  Questo articolo descrive l'impostazione della modalità di aggiornamento di un cluster, l'aggiornamento dei certificati, l'aggiunta di porte dell'applicazione e l'applicazione di patch del sistema operativo. Descrive anche cosa aspettarsi quando vengono eseguiti gli aggiornamenti
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663537"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599774"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 
@@ -99,7 +99,7 @@ Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi crit
 In un cluster è possibile personalizzare molte impostazioni di configurazione diverse, ad esempio il livello di affidabilità del cluster e le proprietà dei nodi. Per altre informazioni, vedere [Impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch del sistema operativo nei nodi del cluster
-Patch Orchestration Application (POA) è un'applicazione Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività. È possibile eseguire la distribuzione di [Patch Orchestration Application per Windows](service-fabric-patch-orchestration-application.md) o di [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) nel cluster per installare patch in modo orchestrato, mantenendo i servizi sempre disponibili. 
+Patch Orchestration Application (POA) è un'applicazione Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività. È possibile eseguire la distribuzione di [Patch Orchestration Application per Windows](service-fabric-patch-orchestration-application.md) nel cluster per installare patch in modo orchestrato, mantenendo i servizi sempre disponibili.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000913"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164483"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
@@ -29,27 +29,37 @@ In questa esercitazione si apprenderà come:
 > * Verificare l'azione per assicurarsi che la macchina virtuale sia stata ridimensionata correttamente
 
 ## <a name="prerequisites"></a>Prerequisiti
-Sono disponibili per un'ampia gamma di ambiti e tipi di account di Azure, tra cui raccomandazioni [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) ai clienti. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
+Sono disponibili per un'ampia gamma di ambiti e tipi di account di Azure, tra cui raccomandazioni [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) ai clienti. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Sottoscrizione
 - Gruppo di risorse
 
 È necessario disporre di macchine virtuali attive con almeno 14 giorni di attività.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualizzare gli elementi consigliati per l'ottimizzazione dei costi
 
 Per visualizzare le raccomandazioni di ottimizzazione dei costi per una sottoscrizione, aprire l'ambito desiderato nel portale di Azure e seleziona **consigli di Advisor**.
 
-Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e seleziona **analisi dei costi** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **consigli di Advisor** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
+Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e seleziona **analisi dei costi** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **consigli di Advisor** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Consigli di Advisor di Gestione costi visualizzati nel portale di Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 L'elenco degli elementi consigliati identifica inefficienze di utilizzo o mostra raccomandazioni d'acquisti che consentono di risparmiare denaro aggiuntivo. Il totale **Risparmi annuali potenziali** indica l'importo totale che è possibile risparmiare se si arrestano o deallocano tutte le macchine virtuali che soddisfano le regole di raccomandazione. Se non si desidera arrestarle, considerare il ridimensionamento a un SKU di macchina virtuale meno costoso.
 
-La categoria **Impatto**, insieme a **Risparmi annuali potenziali**, è progettata per consentire di identificare gli elementi consigliati con la possibilità di risparmiare quanto possibile. Gli elementi consigliati a impatto elevato sono [Acquistare istanze di macchine virtuali riservate per risparmiare sui costi con pagamento in base al consumo](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) e [Ottimizzare la spesa correlata alla macchina virtuale ridimensionando o arrestando le istanze sottoutilizzate](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Gli elementi consigliati a impatto medio sono[Ridurre i costi eliminando i circuiti ExpressRoute senza provisioning](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) e [Ridurre i costi eliminando o riconfigurando i gateway di rete virtuale inattivi](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+La categoria **Impatto**, insieme a **Risparmi annuali potenziali**, è progettata per consentire di identificare gli elementi consigliati con la possibilità di risparmiare quanto possibile.
+
+Le raccomandazioni a impatto elevato includono:
+- [Acquistare istanze di macchina virtuale riservate per risparmiare sui costi con pagamento a consumo](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Ottimizzare la spesa correlata alle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Usare l'archiviazione Standard per archiviare gli snapshot di Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Le raccomandazioni a impatto medio includono:
+- [Eliminare le pipeline di Data Factory di Azure che hanno esito negativo](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Ridurre i costi eliminando i circuiti ExpressRoute senza provisioning](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Ridurre i costi eliminando o riconfigurare i gateway di rete virtuale inattivi](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Implementare un elemento consigliato
 
@@ -88,7 +98,7 @@ Quando il ridimensionamento della macchina virtuale viene completato correttamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Visualizzare gli elementi consigliati per l'ottimizzazione dei costi per identificare potenziali inefficienze di utilizzo

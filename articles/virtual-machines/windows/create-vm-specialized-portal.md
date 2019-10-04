@@ -4,22 +4,21 @@ description: Creare una nuova macchina virtuale Windows da un disco rigido virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079650"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
 
@@ -46,14 +45,14 @@ Creare uno snapshot e quindi creare un disco dallo snapshot. Questa strategia co
 4. Dal menu nella parte superiore selezionare **Crea snapshot**. 
 5. Immettere un **Nome** per lo snapshot.
 6. Scegliere un **gruppo di risorse** per lo snapshot. È possibile usare un gruppo di risorse esistente o crearne uno nuovo.
-7. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)**.
+7. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)** .
 8. Al termine selezionare **Crea** per creare lo snapshot.
 9. Dopo aver creato lo snapshot, selezionare **Crea una risorsa** nel menu a sinistra.
 10. Nella casella di ricerca immettere **disco gestito** e quindi selezionare **Dischi gestiti** nell'elenco.
 11. Nella pagina **Dischi gestiti** selezionare **Crea**.
 12. Immettere un **nome** per il disco.
 13. Scegliere un **gruppo di risorse** per il disco. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Questa selezione verrà anche usata come gruppo di risorse in cui creare la macchina virtuale dal disco.
-14. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)**.
+14. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)** .
 15. In **Tipo di origine** assicurarsi che l'opzione **Snapshot** sia selezionata.
 16. Nell'elenco a discesa **Snapshot di origine** selezionare lo snapshot da usare.
 17. Apportare eventuali altre modifiche necessarie e quindi selezionare **Crea** per creare il disco.

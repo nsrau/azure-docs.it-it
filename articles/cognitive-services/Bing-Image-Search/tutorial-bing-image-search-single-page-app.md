@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 353641c514c9171e211221b84b13c5f09a413a48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341223"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868251"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
@@ -116,7 +116,7 @@ Per impostazione predefinita, il gestore `onsubmit` restituisce `false`, che imp
 
 ![[Modulo di Ricerca immagini Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-L'API Ricerca immagini Bing offre diversi [parametri di filtro delle query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) per restringere e filtrare i risultati della ricerca. Il modulo HTML in questa applicazione usa e visualizza le opzioni di parametri seguenti:
+L'API Ricerca immagini Bing offre diversi [parametri di filtro delle query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) per restringere e filtrare i risultati della ricerca. Il modulo HTML in questa applicazione usa e visualizza le opzioni di parametri seguenti:
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -369,7 +369,7 @@ I parametri `index` e `count` vengono usati per numerare i risultati, generare c
     }, // relatedSearches renderer omitted
 ```
 
-I valori `height` e `width` dell'immagine di anteprima vengono usati sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Questo consente a Bing di restituire [un'anteprima](resize-and-crop-thumbnails.md) esattamente di quelle dimensioni.
+I valori `height` e `width` dell'immagine di anteprima vengono usati sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Questo consente a Bing di restituire [un'anteprima](../bing-web-search/resize-and-crop-thumbnails.md) esattamente di quelle dimensioni.
 
 ## <a name="persisting-client-id"></a>ID client persistente
 
@@ -386,7 +386,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 > [!NOTE]
 > In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
-A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che accetta le intestazioni di risposta e le rende disponibili a JavaScript.
 
 È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
 
@@ -407,6 +407,6 @@ Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. L
 > [!div class="nextstepaction"]
 > [Estrarre i dettagli dell'immagine usando l'API Ricerca immagini Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento per l'API Ricerca immagini Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -3,17 +3,18 @@ title: Usare un'identità gestita con Istanze di Azure Container
 description: Informazioni su come usare un'identità gestita per l'autenticazione con altri servizi di Azure da Istanze di Azure Container.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336525"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325932"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -154,7 +155,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 Eseguire i comandi seguenti nella shell bash nel contenitore. Per ottenere un token di accesso per usare Azure Active Directory per l'autenticazione all'insieme di credenziali delle chiavi, eseguire il comando seguente:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
 Output:
@@ -170,7 +171,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https://mykeyvault.vault.azure.net/...*):
+A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL ( *https://mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -252,7 +253,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https:\//mykeyvault.vault.azure.net/...* ):
+A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https:\//mykeyvault.Vault.Azure.NET/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

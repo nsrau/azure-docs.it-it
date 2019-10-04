@@ -1,27 +1,25 @@
 ---
 title: Creare un indice di Ricerca di Azure nel portale di Azure - Ricerca di Azure
-description: Informazioni su come creare un indice di Ricerca di Azure tramite le finestre di progettazione degli indici del portale predefinite.
-manager: cgronlun
+description: Informazioni su come creare un indice per ricerca di Azure usando una finestra di progettazione dell'indice del portale incorporata.
+manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 10/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338836"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937272"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Creare un indice di Ricerca di Azure nel portale
 
-Ricerca di Azure include una finestra di progettazione degli indici nel portale utile per i prototipi o per creare un [indice di ricerca](search-what-is-an-index.md) ospitato nel servizio Ricerca di Azure. Lo strumento viene usato per la costruzione degli schemi. Quando si salva la definizione, viene reso disponibile un indice vuoto in Ricerca di Azure. La modalità di caricamento dell'indice e dei dati ricercabili viene scelta dall'utente.
+Ricerca di Azure include una finestra di progettazione degli indici nel portale utile per i prototipi o per creare un [indice di ricerca](search-what-is-an-index.md) ospitato nel servizio Ricerca di Azure. Lo strumento viene usato per la costruzione degli schemi. Quando si salva la definizione, viene reso disponibile un indice vuoto in Ricerca di Azure. Il modo in cui viene caricato con contenuto ricercabile dipende dall'utente.
 
-La finestra di progettazione degli indici rappresenta solo uno degli approcci per la creazione di un indice. A livello di codice, è possibile creare un indice usando le API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
+La finestra di progettazione degli indici rappresenta solo uno degli approcci per la creazione di un indice. In alternativa, è possibile creare e caricare un indice usando la [procedura guidata Importa dati](search-get-started-portal.md). La procedura guidata funziona solo con gli indici creati automaticamente. A livello di codice, è possibile creare un indice usando le API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
 
 ## <a name="start-index-designer"></a>Avviare la finestra di progettazione degli indici
 
@@ -43,15 +41,17 @@ La composizione dell'indice include un *insieme di campi* che definisce i dati s
 
 1. Aggiungere i campi per specificare tutti i documenti che verranno caricati, impostando un [tipo di dati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) per ognuno. Se ad esempio i documenti includono *ID hotel*, *nome hotel*, *indirizzo*, *città* e *area*, creare un campo corrispondente per ognuno di essi nell'indice. Rivedere le [istruzioni di progettazione nella sezione seguente](#design) per informazioni sull'impostazione degli attributi.
 
-2. Specificare un campo *chiave* di tipo Edm.String. I valori per questo campo devono identificare in modo univoco ogni documento. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Se ad esempio la raccolta di campi include *ID hotel*, sceglierlo come chiave. Per ogni indice di Ricerca di Azure è obbligatorio un campo chiave che deve essere una stringa.
+1. Se i dati in ingresso sono di natura gerarchica, nello schema devono essere inclusi [tipi complessi](search-howto-complex-data-types.md) per rappresentare le strutture nidificate. Il set di dati di esempio predefinito, Hotels, illustra i tipi complessi usando un indirizzo (contiene più sottocampi) che presenta una relazione uno-a-uno con ogni hotel e una raccolta complessa di chat, in cui più stanze sono associate a ogni hotel. 
 
-3. Impostare gli attributi in ogni campo. La finestra di progettazione degli indici esclude tutti gli attributi non validi per il tipo di dati, ma non suggerisce che cosa includere. Esaminare le indicazioni fornite nella sezione successiva per comprendere la funzione degli attributi.
+1. Specificare un campo *chiave* di tipo Edm.String. Per ogni indice di Ricerca di Azure è obbligatorio un campo chiave che deve essere una stringa. I valori per questo campo devono identificare in modo univoco ogni documento. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Se ad esempio la raccolta di campi include *ID hotel*, sceglierlo come chiave. 
+
+1. Impostare gli attributi in ogni campo. La finestra di progettazione degli indici esclude tutti gli attributi non validi per il tipo di dati, ma non suggerisce che cosa includere. Esaminare le indicazioni fornite nella sezione successiva per comprendere la funzione degli attributi.
 
     La documentazione API di Ricerca di Azure include esempi di codice che presentano un semplice indice *hotel*. Nello screenshot seguente è possibile vedere la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
 
     ![Indice demo degli hotel](media/search-create-index-portal/field-definitions.png "Indice demo degli hotel")
 
-4. Al termine, fare clic su **Crea** per salvare e creare l'indice.
+1. Al termine, fare clic su **Crea** per salvare e creare l'indice.
 
 <a name="design"></a>
 
@@ -65,7 +65,7 @@ I campi della stringa spesso sono contrassegnati come **Ricercabile** e **Recupe
 
 Gli attributi del campo determinano le modalità in cui un campo viene usato, ad esempio se viene usato nella ricerca full-text, nella navigazione con facet, nelle operazioni di ordinamento e così via. Nella tabella seguente sono descritti i singoli attributi.
 
-|Attributo|DESCRIZIONE|  
+|Attributo|Descrizione|  
 |---------------|-----------------|  
 |**searchable**|Ricercabile full-text, soggetto ad analisi lessicali, ad esempio alla scomposizione delle parole durante l'indicizzazione. Se si imposta un campo ricercabile su un valore come "sunny day", questo viene suddiviso internamente nei singoli token "sunny" e "day". Per informazioni vedere [Funzionamento della ricerca full-text](search-lucene-query-architecture.md).|  
 |**filterable**|A cui si fa riferimento nelle query **$filter**. I campi filtrabili di tipo `Edm.String` o `Collection(Edm.String)` non sono sottoposti a suddivisione delle parole e quindi i confronti riguardano solo le corrispondenze esatte. Se ad esempio si imposta un campo su "sunny day", `$filter=f eq 'sunny'` non troverà corrispondenze, mentre `$filter=f eq 'sunny day'` ne troverà. |  
@@ -80,7 +80,7 @@ Dopo aver creato un indice di Ricerca di Azure, è possibile passare al passaggi
 
 In alternativa, è anche possibile [analizzare in modo approfondito gli indici](search-what-is-an-index.md). Oltre alla raccolta di campi, un indice specifica anche gli analizzatori, gli strumenti suggerimenti, i profili di punteggio e le impostazioni CORS. Il portale offre pagine a schede per definire gli elementi più comuni: i campi, gli analizzatori e gli strumenti di suggerimento. Per creare o modificare altri elementi, è possibile usare l'API REST o .NET SDK.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Funzionamento della ricerca full-text](search-lucene-query-architecture.md)  
  [API REST del servizio Ricerca](https://docs.microsoft.com/rest/api/searchservice/)[ .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

@@ -6,14 +6,12 @@ metadata:
   title: 'Documentazione del Servizio app di Azure: esercitazioni e informazioni di riferimento sulle API'
   meta.description: 'Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.'
   services: app-service
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: app-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Il Servizio app di Azure consente di creare e ospitare app Web, back-end per dispositivi mobili e API RESTful nel linguaggio di programmazione preferito senza gestire l''infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da GitHub, Azure DevOps o qualsiasi repository Git. Informazioni su come usare Servizio app di Azure con le guide introduttive, le esercitazioni e gli esempi.'
   aside:

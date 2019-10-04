@@ -9,11 +9,11 @@ ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: c8453a2ec00a2fca107f85a23a8af1e6313a70b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318189"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180308"
 ---
 ### <a name="sql-servers"></a>Server SQL
 

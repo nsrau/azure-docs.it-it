@@ -1,32 +1,32 @@
 ---
-title: Creare entità servizio e assegnazioni di ruolo con PowerShell nell'anteprima di Desktop virtuale Windows - Azure
-description: Come creare entità servizio e assegnare ruoli con PowerShell nell'anteprima di Desktop virtuale Windows.
+title: Creare entità servizio e assegnazioni di ruolo usando PowerShell nell'anteprima di Desktop virtuale Windows - Azure
+description: Come creare entità servizio e assegnare ruoli usando PowerShell nell'anteprima di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400018"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984997"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
 Le entità servizio sono identità che è possibile creare in Azure Active Directory per assegnare ruoli e autorizzazioni per uno scopo specifico. Nell'anteprima di Desktop virtuale Windows è possibile creare un'entità servizio per:
 
-- Automatizzare specifiche attività di gestione di Desktop virtuale Windows
-- Usarle come credenziali al posto degli utenti con autenticazione MFA obbligatoria quando si esegue qualsiasi modello di Azure Resource Manager in Desktop virtuale Windows
+- Automatizzare specifiche attività di gestione di Desktop virtuale Windows.
+- Usarle come credenziali al posto degli utenti con autenticazione MFA obbligatoria quando si esegue qualsiasi modello di Azure Resource Manager in Desktop virtuale Windows.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'entità servizio in Azure Active Directory
-> * Creare un'assegnazione di ruolo in Desktop virtuale Windows
-> * Accedere a Desktop virtuale Windows con l'entità servizio
+> * Creare un'entità servizio in Azure Active Directory.
+> * Creare un'assegnazione di ruolo in Desktop virtuale Windows.
+> * Accedere a Desktop virtuale Windows usando l'entità servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,14 +38,9 @@ Prima di creare entità servizio e assegnazioni di ruolo, è necessario eseguire
     Install-Module AzureAD
     ```
 
-2. Eseguire i cmdlet seguenti con i valori tra virgolette sostituiti dai valori appropriati per la sessione.
+2. [Scaricare e importare il modulo PowerShell di Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-    ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
-    $myTenantName = "<my-tenant-name>"
-    ```
-
-3. Seguire tutte le istruzioni di questo articolo nella stessa sessione di PowerShell. Se si chiude la finestra e si torna in seguito, la procedura potrebbe non funzionare.
+3. Seguire tutte le istruzioni di questo articolo nella stessa sessione di PowerShell. Il processo potrebbe non funzionare se si interrompe la sessione di PowerShell chiudendo la finestra e riaprendola in un secondo momento.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Creare un'entità servizio in Azure Active Directory
 
@@ -57,35 +52,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Creare un'assegnazione di ruolo nell'anteprima di Desktop virtuale Windows
-
-Dopo aver creato un'entità servizio, è possibile usarla per accedere a Desktop virtuale Windows. Assicurarsi di accedere con un account che abbia le autorizzazioni per creare l'assegnazione di ruolo.
-
-Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
-
-Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Windows e creare un'assegnazione di ruolo per l'entità servizio.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
-```
-
-## <a name="sign-in-with-the-service-principal"></a>Accedere con l'entità servizio
-
-Dopo aver creato un'assegnazione di ruolo per l'entità servizio, è necessario verificare che l'entità servizio sia in grado di accedere a Desktop virtuale Windows eseguendo il cmdlet seguente:
-
-```powershell
-$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
-```
-
-Dopo aver eseguito l'accesso, testare alcuni cmdlet di PowerShell per Desktop virtuale Windows con l'entità servizio per assicurarsi che tutto funzioni correttamente.
-
 ## <a name="view-your-credentials-in-powershell"></a>Visualizzare le credenziali in PowerShell
 
-Prima di terminare la sessione di PowerShell, è necessario visualizzare le credenziali e prenderne nota per riferimento futuro. La password è particolarmente importante perché non sarà possibile recuperarla dopo aver chiuso questa sessione di PowerShell.
+Prima di creare l'assegnazione di ruolo per l'entità servizio, visualizzare le credenziali e annotarle per riferimento futuro. La password è particolarmente importante perché non sarà possibile recuperarla dopo aver chiuso questa sessione di PowerShell.
 
 Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per recuperarle:
 
@@ -107,9 +76,40 @@ Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per re
     $svcPrincipal.AppId
     ```
 
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Creare un'assegnazione di ruolo nell'anteprima di Desktop virtuale Windows
+
+Successivamente, è necessario creare un'assegnazione di ruolo in modo che l'entità servizio possa accedere a Desktop virtuale Windows. Assicurarsi di accedere con un account che abbia le autorizzazioni per creare assegnazioni di ruolo.
+
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+
+Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Windows e visualizzare i tenant.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Get-RdsTenant
+```
+
+Quando si individua il nome del tenant per cui si vuole creare un'assegnazione di ruolo, usare tale nome nel cmdlet seguente:
+
+```powershell
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
+```
+
+## <a name="sign-in-with-the-service-principal"></a>Accedere con l'entità servizio
+
+Dopo aver creato un'assegnazione di ruolo per l'entità servizio, verificare che l'entità servizio sia in grado di accedere a Desktop virtuale Windows eseguendo il cmdlet seguente:
+
+```powershell
+$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+```
+
+Dopo aver eseguito l'accesso, testare alcuni cmdlet di PowerShell per Desktop virtuale Windows con l'entità servizio per assicurarsi che tutto funzioni correttamente.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come creare un'entità servizio da usare per accedere a Desktop virtuale Windows. Per altre informazioni su come accedere a Desktop virtuale Windows, continuare con le procedure per connettersi a Desktop virtuale Windows.
+Dopo aver creato l'entità servizio e aver assegnato un ruolo nel tenant di Desktop virtuale Windows, è possibile usarla per creare un pool di host. Per altre informazioni sui pool di host, continuare con l'esercitazione per la creazione di pool di host in Desktop virtuale Windows.
 
-- [Connettersi al client di Desktop remoto in Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Connettersi al client Web dell'anteprima di Desktop virtuale Windows](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Esercitazione sui pool di host di Desktop virtuale Windows](./create-host-pools-azure-marketplace.md)

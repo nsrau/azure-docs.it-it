@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837964"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
 Il proxy inverso integrato in Azure Service Fabric consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP.
@@ -77,7 +77,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s):** il proxy inverso può essere configurato per accettare il traffico HTTP o HTTPS. Per l'inoltro di HTTPS, fare riferimento a [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md) (Connettersi a un servizio protetto con il proxy inverso) dopo aver configurato il proxy inverso per l'ascolto su HTTPS.
 * **Nome di dominio completo del cluster | IP interno:** per i client esterni è possibile configurare il proxy inverso in modo che sia raggiungibile tramite il dominio del cluster, ad esempio mycluster.eastus.cloudapp.azure.com. Per impostazione predefinita, il proxy inverso è in esecuzione in ogni nodo. Per il traffico interno, il proxy inverso può essere raggiunto sugli host locali o all'indirizzo IP di qualsiasi nodo interno, ad esempio, 10.0.0.1.
 * **Porta:** la porta che è stata specificata per il proxy inverso, ad esempio 19081.
-* **ServiceInstanceName:** nome completo dell'istanza del servizio distribuito che si sta provando a raggiungere senza lo schema "fabric:/". Ad esempio, per raggiungere il servizio *fabric:/myapp/myservice/*, si usa *myapp/myservice*.
+* **ServiceInstanceName:** nome completo dell'istanza del servizio distribuito che si sta provando a raggiungere senza lo schema "fabric:/". Ad esempio, per raggiungere il servizio *fabric:/myapp/myservice/* , si usa *myapp/myservice*.
 
     Il nome dell'istanza del servizio fa distinzione tra maiuscole e minuscole. L'uso di maiuscole/minuscole per il nome dell'istanza del servizio nell'URL fa sì che le richieste abbiano esito negativo con errore 404 (Non trovato).
 * **Suffix path (Percorso di suffisso):** percorso effettivo dell'URL, ad esempio *myapi/values/add/3*, per il servizio a cui ci si vuole connettere.

@@ -1,44 +1,42 @@
 ---
-title: Configurare la soluzione Centro sicurezza di Azure per IoT - Anteprima | Microsoft Docs
+title: Configurare la soluzione Centro sicurezza di Azure per IoT | Microsoft Docs
 description: Informazioni su come configurare la soluzione IoT end-to-end con il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 64a04861b14e48eaa14a369546dd9d54bf59f019
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a546d153c6fe4f14ccc8c21308bd4a33385870c3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861922"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299696"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Guida introduttiva: Configurare la soluzione IoT
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Questo articolo spiega come eseguire la configurazione iniziale della soluzione di sicurezza IoT con il Centro sicurezza di Azure per IoT. 
 
-## <a name="azure-security-center-asc-for-iot"></a>Centro sicurezza di Azure per IoT
+## <a name="azure-security-center-for-iot"></a>Centro sicurezza di Azure per IoT
 
-Il Centro sicurezza di AZURE per IoT offre la sicurezza end-to-end completa per soluzioni IoT basate su Azure.
+Il Centro sicurezza di Azure per IoT offre sicurezza end-to-end completa per soluzioni IoT basate su Azure.
 
 Con il Centro sicurezza di Azure per IoT è possibile monitorare l'intera soluzione IoT in un unico dashboard, visualizzando tutti i dispositivi IoT, le piattaforme IoT e le risorse di back-end in Azure.
 
-Dopo l'abilitazione sull'hub IoT, il Centro sicurezza di Azure per IoT identifica automaticamente gli altri servizi di Azure, anch'essi connessi all'hub IoT e correlati alla soluzione IoT.
+Dopo l'abilitazione nell'hub IoT, il Centro sicurezza di Azure per IoT identifica automaticamente gli altri servizi di Azure, anch'essi connessi all'hub IoT e correlati alla soluzione IoT.
 
-Oltre al rilevamento automatico delle relazioni, è anche possibile scegliere quali altre risorse di Azure contrassegnare come parte della soluzione IoT.
-Le opzioni selezionate consentono di aggiungere intere sottoscrizioni, gruppi di risorse o singole risorse.
+Oltre al rilevamento automatico delle relazioni, è anche possibile scegliere quali altri gruppi di risorse di Azure contrassegnare come parte della soluzione IoT. 
+
+Le opzioni selezionate consentono di aggiungere intere sottoscrizioni, gruppi di risorse o singole risorse. 
 
 Dopo aver definito tutte le relazioni delle risorse, il Centro sicurezza di Azure per IoT sfrutta il Centro sicurezza di Azure per fornire raccomandazioni e avvisi di sicurezza per tali risorse.
 
@@ -47,14 +45,13 @@ Dopo aver definito tutte le relazioni delle risorse, il Centro sicurezza di Azur
 Per aggiungere una nuova risorsa alla soluzione IoT, eseguire le operazioni seguenti: 
 
 1. Aprire l'**hub IoT** nel portale di Azure. 
-2. Selezionare e aprire **Risorse** in **Sicurezza** nel menu a sinistra. 
-3. Selezionare **Aggiungi risorse**.
-4. Scegliere le risorse che appartengono alla soluzione IoT.
-5. Fare clic su **Aggiungi**. 
+1. Selezionare e aprire **Risorse** in **Sicurezza** nel menu a sinistra. 
+1. Selezionare **Modifica** e scegliere i gruppi di risorse che appartengono alla soluzione IoT.
+1. Fare clic su **Aggiungi**. 
 
-Congratulazioni! È stata aggiunta una nuova risorsa alla soluzione IoT.
+Congratulazioni! È stato aggiunto un nuovo gruppo di risorse alla soluzione IoT.
 
-Il Centro sicurezza di Azure per IoT ora monitora le risorse appena aggiunte e visualizza le raccomandazioni e gli avvisi di sicurezza rilevanti come parte della soluzione IoT.
+Il Centro sicurezza di Azure per IoT ora monitora i gruppi di risorse appena aggiunti e visualizza le raccomandazioni e gli avvisi di sicurezza pertinenti come parte della soluzione IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

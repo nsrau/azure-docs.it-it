@@ -5,293 +5,190 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094702"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844351"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
-Potrebbe essere visualizzato un messaggio di errore specifico durante la protezione delle macchine virtuali VMware o dei server fisici con Azure Site Recovery. Questo articolo descrive alcuni problemi comuni che possono verificarsi durante l'esecuzione della replica di macchine virtuali VMware e server fisici locali in Azure usando [Site Recovery](site-recovery-overview.md).
+Questo articolo descrive alcuni problemi comuni ed errori specifici che possono verificarsi quando si esegue la replica di VM VMware e server fisici locali in Azure usando [Site Recovery](site-recovery-overview.md).
 
-## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Monitorare l'integrità del server di elaborazione per evitare problemi di replica
+## <a name="step-1-monitor-process-server-health"></a>Passaggio 1: Monitorare l'integrità del server di elaborazione
 
-È consigliabile monitorare l'integrità del server di elaborazione (PS) nel portale per assicurarsi che la replica proceda normalmente per i computer di origine associati. Nell'insieme di credenziali passare a Gestisci > Infrastruttura di Site Recovery > Server di configurazione. Nel pannello Server di configurazione fare clic sul server di elaborazione in Server associati. Il pannello del server di elaborazione si apre con le statistiche di integrità. È possibile monitorare utilizzo della CPU, utilizzo della memoria, stato dei servizi del server di elaborazione richiesti per la replica, data di scadenza del certificato e spazio libero disponibile. Lo stato di tutte le statistiche dovrebbe essere verde. 
+Site Recovery usa il [server di elaborazione](vmware-physical-azure-config-process-server-overview.md#process-server) per ricevere e ottimizzare i dati replicati e per inviarli ad Azure.
 
-**È consigliabile avere un utilizzo di memoria e CPU inferiore al 70% e spazio libero superiore al 25%**. Per spazio libero si intende lo spazio nel disco della cache nel server di elaborazione, che viene usato per archiviare i dati di replica dai computer di origine prima di caricarli in Azure. Se riduce a meno del 20%, la replica verrà limitata per tutti i computer di origine associati. Seguire le [indicazioni sulla capacità](./site-recovery-plan-capacity-vmware.md#capacity-considerations) per informazioni sulla configurazione necessaria per la replica dei computer di origine.
+Si consiglia di monitorare l'integrità dei server di elaborazione nel portale per assicurarsi che siano connessi e funzionino correttamente e che la replica sia in corso per le macchine di origine associate al server di elaborazione.
 
-Assicurarsi che i servizi seguenti siano in esecuzione nel computer del server di elaborazione. Avviare o riavviare qualsiasi servizio che non sia in esecuzione.
+- Informazioni [sul monitoraggio dei server di](vmware-physical-azure-monitor-process-server.md) elaborazione.
+- [Esaminare le procedure consigliate](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
+- [Risolvere i problemi relativi](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) all'integrità del server di elaborazione.
 
-**Server di elaborazione predefinito**
+## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Passaggio 2: Risolvere i problemi di connettività e di replica
 
-* ProcessServer
-* ProcessServerMonitor
-* cxprocessserver
-* InMage PushInstall
-* Servizio di caricamento log (LogUpload)
-* Servizio dell'applicazione InMage Scout
-* Agente di Servizi di ripristino di Microsoft Azure (obengine)
-* InMage Scout VX Agent - Sentinel/Outpost (svagents)
-* tmansvc
-* Servizio Pubblicazione sul Web (W3SVC)
-* MySQL
-* Servizio Microsoft Azure Site Recovery (dra)
+Gli errori di replica iniziali e in corso spesso sono causati da problemi di connettività tra il server di origine e il server di elaborazione oppure tra il server di elaborazione e Azure. 
 
-**Server di elaborazione con scalabilità orizzontale**
+Per risolvere questi problemi, [risolvere i problemi relativi alla connettività e alla replica](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
-* ProcessServer
-* ProcessServerMonitor
-* cxprocessserver
-* InMage PushInstall
-* Servizio di caricamento log (LogUpload)
-* Servizio dell'applicazione InMage Scout
-* Agente di Servizi di ripristino di Microsoft Azure (obengine)
-* InMage Scout VX Agent - Sentinel/Outpost (svagents)
-* tmansvc
 
-**Server di elaborazione in Azure per il failback**
 
-* ProcessServer
-* ProcessServerMonitor
-* cxprocessserver
-* InMage PushInstall
-* Servizio di caricamento log (LogUpload)
 
-Verificare che il tipo di avvio di tutti i servizi sia impostato su **Automatico o Automatico (avvio ritardato)**. Il servizio Servizi di ripristino di Microsoft Azure (obengine) non deve avere il tipo di avvio impostato come indicato in precedenza.
-
-## <a name="replication-issues"></a>Problemi di replica
-
-Gli errori di replica iniziale e continuativa sono spesso causati da problemi di connettività tra il server di origine e il server di elaborazione oppure tra il server di elaborazione e Azure. Nella maggior parte dei casi è possibile risolvere questi problemi completando i passaggi elencati nelle sezioni seguenti.
-
->[!Note]
->Assicurarsi che:
->1. Il sistema data ora per l'elemento protetto è sincronizzato.
->2. Nessun software antivirus sta bloccando Azure Site Recovery. Scopri [altre](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) su esclusioni di cartelle necessarie per Azure Site Recovery.
-
-### <a name="check-the-source-machine-for-connectivity-issues"></a>Controllare il computer di origine per i problemi di connettività
-
-Elenco Mostra le seguenti è possibile controllare il computer di origine.
-
-*  Nella riga di comando del server di origine usare Telnet per effettuare il ping del server di elaborazione tramite la porta HTTPS eseguendo il comando seguente. La porta HTTPS 9443 è quella predefinita usata dal server di elaborazione per inviare e ricevere il traffico di replica. È possibile modificare questa porta al momento della registrazione. Il comando seguente verifica la presenza di problemi di connettività di rete così come di problemi che blocchino la porta del firewall.
-
-
-   `telnet <process server IP address> <port>`
-
-
-   > [!NOTE]
-   > Usare Telnet per testare la connettività. Non usare `ping`. Se Telnet non è installato, completare i passaggi elencati in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) (Installare il client Telnet).
-
-   Se Telnet è in grado di connettersi correttamente alla porta del server di elaborazione, viene visualizzata una schermata vuota.
-
-   Se non è possibile connettersi al server di elaborazione, consentire la porta in ingresso 9443 nel server di elaborazione. Ad esempio potrebbe essere necessario consentire la porta in ingresso 9443 nel server di elaborazione se la rete dispone di una rete perimetrale (o screened subnet). Quindi verificare se il problema persiste.
-
-*  Se Telnet ha esito positivo e il computer di origine continua a segnalare che il server di elaborazione non è raggiungibile, aprire il Web browser nel computer di origine e verificare se l'indirizzo https://<IP_PS>:<Porta_Dati_PS>/ è raggiungibile.
-
-    Inserendo questo indirizzo è previsto un errore del certificato HTTPS. Ignorando l'errore del certificato e continuando si dovrebbe ricevere un errore 400 - Richiesta non valida, che indica il server non può gestire la richiesta del browser e che la connessione HTTPS standard al server funziona correttamente.
-
-    Se il tentativo non riesce, i dettagli sul messaggio di errore nel browser forniranno indicazioni. Per ad esempio, se l'autenticazione proxy non è corretto, il server proxy restituisce l'errore 407 - Autenticazione proxy obbligatoria e le azioni necessarie nel messaggio di errore. 
-
-*  Controllare i log seguenti nella macchina virtuale di origine per verificare la presenza di errori correlati al caricamento di rete:
-
-       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
-
-### <a name="check-the-process-server-for-connectivity-issues"></a>Controllare il server di elaborazione per i problemi di connettività
-
-L'elenco seguente mostra i modi in cui è possibile controllare il server di elaborazione:
-
-> [!NOTE]
-> Server di elaborazione deve avere un indirizzo IPv4 statico e su di esso non deve essere configurato l'IP NAT.
-
-* **Controllare la connettività tra i computer di origine e il server di elaborazione**
-* Se è possibile connettersi tramite Telnet dal computer di origine e il server di elaborazione continua a non essere raggiungibile dall'origine, controllare la connessione end-to-end con cxprocessserver dalla macchina virtuale di origine eseguendo lo strumento cxpsclient nella macchina virtuale di origine:
-
-      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
-
-   Controllare i log generati sul server di elaborazione nelle directory seguenti per informazioni dettagliate sugli errori corrispondenti:
-
-      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-      and
-      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-* Controllare i log seguenti su PS nel caso in cui non vi è alcun heartbeat dal PS. Ciò è identificato da **il codice di errore da 806** nel portale.
-
-      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-      and
-      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
-
-* **Controllare se il server di elaborazione esegue attivamente il push dei dati in Azure**.
-
-  1. Nel server di elaborazione aprire Gestione attività (premere CTRL+MAIUSC+ESC).
-  2. Selezionare la scheda **Prestazioni** e fare clic sul collegamento **Apri Monitoraggio risorse**. 
-  3. Nella pagina di **Monitoraggio risorse** selezionare la scheda **Rete**. In **Processi con attività di rete** controllare se **cbengine.exe** sta inviando attivamente volumi di dati di grandi dimensioni.
-
-       ![Screenshot che mostra i volumi in Processi con attività di rete](./media/vmware-azure-troubleshoot-replication/cbengine.png)
-
-  Se cbengine.exe non invia una quantità notevole di dati, completare i passaggi illustrati nelle sezioni seguenti.
-
-* **Verificare se il server di elaborazione riesce a connettersi ad Archiviazione BLOB di Azure**.
-
-  Selezionare **cbengine.exe**. In **Connessioni TCP** verificare se vi è connettività tra il server di elaborazione e l'URL di Archiviazione BLOB di Azure.
-
-  ![Screenshot che mostra la connettività tra cbengine.exe e l'URL di Archiviazione BLOB di Azure](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
-
-  Se non vi è connettività tra il server di elaborazione e l'URL di Archiviazione BLOB di Azure, selezionare **Servizi** in Pannello di controllo. Verificare se sono in esecuzione i servizi seguenti:
-
-  *  cxprocessserver
-  *  InMage Scout VX Agent – Sentinel/Outpost
-  *  Agente di Servizi di ripristino di Microsoft Azure
-  *  Servizio Microsoft Azure Site Recovery
-  *  tmansvc
-
-  Avviare o riavviare qualsiasi servizio che non sia in esecuzione. Quindi verificare se il problema persiste.
-
-* **Verificare se il server di elaborazione riesce a connettersi all'indirizzo IP pubblico di Azure usando la porta 443**.
-
-  In %programfiles%\Microsoft Azure Recovery Services Agent\Temp aprire il file CBEngineCurr.errlog più recente. Nel file cercare **443** o la stringa **connection attempt failed**.
-
-  ![Screenshot che mostra il log degli errori nella cartella Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
-
-  Se si visualizzano dei problemi, nella riga di comando del server di elaborazione usare Telnet per effettuare il ping dell'indirizzo IP pubblico di Azure (nell'immagine precedente l'indirizzo IP è mascherato). È possibile trovare l'indirizzo IP pubblico di Azure nel file CBEngineCurr.currLog usando la porta 443:
-
-  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
-
-  In caso non sia possibile connettersi, verificare se il problema di accesso è causato dalle impostazioni del firewall o del proxy come descritto nel passaggio successivo.
-
-* **Controllare che il firewall basato su indirizzo IP nel server di elaborazione non blocchi l'accesso**.
-
-  Se si utilizzano le regole del firewall basato su indirizzo IP nel server, scaricare l'elenco completo degli [intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Aggiungere gli intervalli di indirizzi IP alla configurazione del firewall per assicurarsi che il firewall consenta le comunicazioni con Azure (e con la porta HTTPS predefinita 443). Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (area usata per il controllo di accesso e la gestione delle identità).
-
-* **Controllare se il firewall basato su URL nel server di elaborazione blocca l'accesso**.
-
-  Se si usa una regola del firewall basato su URL nel server, aggiungere gli URL elencati nella tabella seguente per la configurazione del firewall:
-
-[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
-
-*  **Controllare se le impostazioni del proxy nel server di elaborazione bloccano l'accesso**.
-
-   Se si usa un server proxy, assicurarsi che il nome del server proxy venga risolto dal server DNS. Per controllare il valore fornito quando si configura il server di configurazione, passare alla chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
-
-   Quindi verificare che le stesse impostazioni siano usate dall'agente di Azure Site Recovery per l'invio dei dati: 
-      
-   1. Cercare **Backup di Microsoft Azure**. 
-   2. Aprire **Backup di Microsoft Azure**, quindi selezionare **Azione** > **Modifica proprietà**. 
-   3. Nella scheda **Configurazione proxy** si dovrebbe visualizzare l'indirizzo del proxy. L'indirizzo del proxy dovrebbe essere uguale all'indirizzo del proxy che viene visualizzato nelle impostazioni del Registro di sistema. In caso contrario, modificarlo per impostare lo stesso indirizzo.
-
-*  **Controllare se la limitazione della larghezza di banda è vincolata nel server di elaborazione**.
-
-   Aumentare la larghezza di banda e controllare se il problema persiste.
-
-
-## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>La macchina di origine non è elencata nel portale di Azure
+## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>Passaggio 3: Risolvere i problemi dei computer di origine che non sono disponibili per la replica
 
 Quando si tenta di scegliere la macchina di origine per cui abilitare la replica tramite Site Recovery, è possibile che la macchina non sia disponibile per uno dei motivi seguenti:
 
-* **Due macchine virtuali con lo stesso UUID di istanza**: Se In vCenter due macchine virtuali hanno lo stesso UUID di istanza, nel portale di Azure viene visualizzata solo la prima macchina virtuale individuata dal server di configurazione. Per risolvere questo problema, verificare che uno stesso UUID di istanza non sia assegnato a due macchine virtuali. Questo scenario è comune nelle istanze in cui una macchina virtuale di backup diventa attiva e viene registrata nei record di individuazione. Per la risoluzione, vedere [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) (Da VMware ad Azure con Azure Site Recovery: come eseguire la pulizia delle voci duplicate o non aggiornate).
+* **Due macchine virtuali con lo stesso UUID di istanza**: Se In vCenter due macchine virtuali hanno lo stesso UUID di istanza, nel portale di Azure viene visualizzata solo la prima macchina virtuale individuata dal server di configurazione. Per risolvere questo problema, verificare che uno stesso UUID di istanza non sia assegnato a due macchine virtuali. Questo scenario viene comunemente visualizzato in istanze in cui una macchina virtuale di backup diventa attiva e viene registrata nei record di individuazione. Per la risoluzione, vedere [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) (Da VMware ad Azure con Azure Site Recovery: come eseguire la pulizia delle voci duplicate o non aggiornate).
 * **Credenziali utente di vCenter non corrette**: Assicurarsi di aver aggiunto le credenziali di vCenter corrette durante la configurazione del server di configurazione usando il modello OVF o l'installazione unificata. Per verificare le credenziali aggiunte durante la configurazione, consultare [Modificare le credenziali per l'individuazione automatica](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
 * **Privilegi insufficienti per vCenter**: Se le autorizzazioni fornite per accedere a vCenter non dispongono dei privilegi necessari, potrebbero verificarsi errori nell'individuazione delle macchine virtuali. Assicurarsi che le autorizzazioni descritte in [Preparare un account per l'individuazione automatica](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) vengano aggiunte all'account utente di vCenter.
 * **Server di gestione di Azure Site Recovery**: se la macchina virtuale viene usata come server di gestione in uno o più dei ruoli server di configurazione, server di elaborazione scale-out o server di destinazione master, non sarà possibile scegliere la macchina virtuale dal portale. I server di gestione non possono essere replicati.
 * **Già protetta o sottoposta a failover tramite i servizi di Azure Site Recovery**: se la macchina virtuale è già protetta oppure ne è già stato eseguito il failover tramite Site Recovery, non risulterà disponibile per la protezione nel portale. Assicurarsi che la macchina virtuale che si sta cercando nel portale non sia già protetta da un altro utente o con altre sottoscrizioni.
-* **vCenter non connesso**: controllare se vCenter è in stato connesso. Per verificare, passare all'insieme di credenziali di Servizi di ripristino > infrastruttura di Site Recovery > Server di configurazione > fare clic sul server di configurazione corrispondente > viene visualizzato un pannello a destra con i dettagli dei server associati. Controllare se vCenter è connesso. Se è in stato "Non connesso", risolvere il problema e quindi [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server) nel portale. Al termine, la macchina virtuale verrà elencata nel portale.
+* **vCenter non connesso**: controllare se vCenter è in stato connesso. Per verificare, passare all'insieme di credenziali di Servizi di ripristino > infrastruttura di Site Recovery > Server di configurazione > fare clic sul server di configurazione corrispondente > viene visualizzato un pannello a destra con i dettagli dei server associati. Controllare se vCenter è connesso. Se lo stato è "non connesso", risolvere il problema e quindi [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server) nel portale. Al termine, la macchina virtuale verrà elencata nel portale.
 * **ESXi spento**: Se l'host ESXi in cui risiede la macchina virtuale è spento, la macchina virtuale non verrà elencata o non sarà selezionabile nel portale di Azure. Accendere l'host ESXi e [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server) nel portale. Al termine, la macchina virtuale verrà elencata nel portale.
 * **In attesa di riavvio**: se è presente un riavvio in sospeso nella macchina virtuale, non sarà possibile selezionare la macchina nel portale di Azure. Assicurarsi di completare le attività di riavvio in sospeso e [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Al termine, la macchina virtuale verrà elencata nel portale.
 * **IP non trovato**: se alla macchina virtuale non è associato un indirizzo IP valido, non sarà possibile selezionare la macchina nel portale di Azure. Assicurarsi di assegnare un indirizzo IP valido alla macchina virtuale e [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Al termine, la macchina virtuale verrà elencata nel portale.
 
-## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Le macchine virtuali protette risultano disattivate nel portale
+### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Risolvere i problemi relativi alle macchine virtuali protette in grigio nel portale
 
 Le macchine virtuali replicate in Site Recovery non sono disponibili nel portale di Azure se nel sistema sono presenti voci duplicate. Per informazioni su come eliminare le voci non aggiornate e risolvere il problema, vedere [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) (Da VMware ad Azure con Azure Site Recovery: come eseguire la pulizia delle voci duplicate o non aggiornate).
 
-## <a name="common-errors-and-recommended-steps-for-resolution"></a>I passaggi da errori comuni e consigliate per la risoluzione
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Nessun punto di ripristino coerente con l'arresto anomalo del sistema disponibile per la macchina virtuale negli ultimi minuti ' XXX '
 
-### <a name="initial-replication-issues-error-78169"></a>[Errore 78169] problemi di replica iniziale
+Di seguito sono elencati alcuni dei problemi più comuni.
 
-Su una precedente verifica che esistono alcuna connettività, larghezza di banda o l'ora di sincronizzazione sui problemi correlati, assicurarsi che:
+### <a name="initial-replication-issues-error-78169"></a>Problemi di replica iniziale [errore 78169]
 
-- Nessun software antivirus sta bloccando Azure Site Recovery. Scopri [altre](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) su esclusioni di cartelle necessarie per Azure Site Recovery.
+In precedenza, assicurandosi che non siano presenti problemi di connettività, larghezza di banda o sincronizzazione dell'ora, assicurarsi che:
 
-### <a name="application-consistency-recovery-point-missing-error-78144"></a>Punto di ripristino di coerenza dell'applicazione mancante [errore 78144]
+- Nessun software antivirus sta bloccando Azure Site Recovery. Per [altre](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) informazioni, vedere esclusioni di cartelle necessarie per Azure Site Recovery.
 
- Ciò si verifica a causa di problemi con la copia Shadow del Volume (VSS) del servizio. Per risolvere il problema: 
- 
-- Verificare che la versione installata dell'agente di Azure Site Recovery sia almeno 9.22.2. 
-- Verificare che il Provider VSS sia installato come servizio in servizi di Windows e verificare anche la console MMC Servizi componenti per verificare che sia elencato il Provider VSS di Azure Site Recovery.
-- Se non è installato il Provider VSS, vedere la [errore di installazione di risoluzione dei problemi di articolo](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- Se è disabilitato VSS,
-    - Verificare che il tipo di avvio del servizio Provider servizio Copia shadow è impostato su **automatica**.
-    - Riavviare i servizi seguenti:
-        - Servizio VSS
-        - Provider VSS di Azure Site Recovery
-        - Servizio VDS
-
-### <a name="high-churn-on-source-machine-error-78188"></a>Ad alta varianza nella macchina di origine [errore 78188]
+### <a name="source-machines-with-high-churn-error-78188"></a>Computer di origine con varianza elevata [errore 78188]
 
 Possibili cause:
-- La frequenza di modifica (byte scrittura/sec) di dati nei dischi elencati della macchina virtuale è superiore al [limiti supportati di Azure Site Recovery](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) per il tipo di account archiviazione di destinazione di replica.
-- Si verifica un picco improvviso della frequenza di varianza a causa di cui una quantità elevata di dati è in sospeso per il caricamento.
+- La frequenza di modifica dei dati (byte scritti/sec) sui dischi elencati della macchina virtuale è superiore ai [limiti Azure Site Recovery supportati](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) per il tipo di account di archiviazione di destinazione della replica.
+- Si è verificato un picco improvviso nella varianza a causa di una quantità elevata di dati in sospeso per il caricamento.
 
 Per risolvere il problema:
-- Assicurarsi che il tipo di account archiviazione di destinazione (Standard o Premium) è stato effettuato il provisioning in base al requisito di frequenza di varianza nell'origine.
-- Se la varianza osservata è temporanea, attendere alcune ore per il caricamento dei dati in sospeso possono essere aggiornati e per creare i punti di ripristino.
-- Se il problema persiste, usare ASR [deployment Planner distribuzioni](site-recovery-deployment-planner.md#overview) per facilitare la pianificazione della replica.
+- Verificare che sia stato effettuato il provisioning del tipo di account di archiviazione di destinazione (standard o Premium) in base al requisito della velocità di varianza all'origine.
+- Se è già in corso la replica in un disco gestito Premium (tipo asrseeddisk), assicurarsi che le dimensioni del disco supportino la varianza osservata in base ai limiti di Site Recovery. Se necessario, è possibile aumentare la dimensione di asrseeddisk. Seguire questa procedura:
+    - Passare al pannello dischi del computer replicato interessato e copiare il nome del disco di replica
+    - Passa a questo disco gestito di replica
+    - Nel pannello panoramica potrebbe essere visualizzato un banner che informa che è stato generato un URL di firma di accesso condiviso. Fare clic su questo banner e annullare l'esportazione. Ignorare questo passaggio se il banner non viene visualizzato.
+    - Non appena viene revocato l'URL di firma di accesso condiviso, passare al pannello configurazione del disco gestito e aumentare le dimensioni in modo che ASR supporti la varianza osservata sul disco di origine
+- Se la varianza osservata è temporanea, attendere alcune ore prima che il caricamento dei dati in sospeso si aggiorni e crei punti di ripristino.
+- Se il disco contiene dati non critici come log temporanei, dati di test e così via, provare a trasferire questi dati altrove o a escludere completamente il disco dalla replica
+- Se il problema persiste, utilizzare Site Recovery [Deployment Planner](site-recovery-deployment-planner.md#overview) per pianificare la replica.
 
-### <a name="no-heartbeat-from-source-machine-error-78174"></a>Nessun Heartbeat dal computer di origine [errore 78174]
+### <a name="source-machines-with-no-heartbeat-error-78174"></a>Computer di origine senza heartbeat [errore 78174]
 
-Ciò si verifica quando l'agente di Azure Site Recovery Mobility nella macchina di origine non comunica con il Server di configurazione (CS).
+Questo problema si verifica quando Azure Site Recovery agente di mobilità nel computer di origine non comunica con il server di configurazione (CS).
 
-Per risolvere il problema, usare la procedura seguente per verificare la connettività di rete dalla macchina virtuale di origine al Server di configurazione:
+Per risolvere il problema, attenersi alla procedura seguente per verificare la connettività di rete dalla macchina virtuale di origine al server di configurazione:
 
-1. Verificare che la macchina di origine sia in esecuzione.
+1. Verificare che il computer di origine sia in esecuzione.
 2. Accedere al computer di origine usando un account con privilegi di amministratore.
-3. Verificare che i servizi seguenti siano in esecuzione e, se non riavviare i servizi:
-   - Svagents (InMage Scout VX Agent)
+3. Verificare che i servizi seguenti siano in esecuzione e, in caso contrario, riavviare i servizi:
+   - Svagents (Inmage Scout VX Agent)
    - Servizio dell'applicazione InMage Scout
-4. Nella macchina di origine, esaminare i log in corrispondenza della posizione per i dettagli dell'errore:
+4. Nel computer di origine esaminare i log nel percorso per i dettagli dell'errore:
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
     
-### <a name="no-heartbeat-from-process-server-error-806"></a>Nessun heartbeat dal Server di elaborazione [errore 806]
-Nel caso in cui non si verifica nessun heartbeat dal Server di elaborazione, verificare quanto segue:
-1. PS VM sia in esecuzione
-2. Controllare i log di seguito nel PS per i dettagli dell'errore:
+### <a name="process-server-with-no-heartbeat-error-806"></a>Server di elaborazione senza heartbeat [errore 806]
+Se non è presente alcun heartbeat dal server di elaborazione (PS), verificare che:
+1. La macchina virtuale PS è attiva e in esecuzione
+2. Controllare i log seguenti in PS per informazioni sull'errore:
 
        C:\ProgramData\ASR\home\svsystems\eventmanager*.log
        and
        C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-### <a name="no-heartbeat-from-master-target-error-78022"></a>Nessun Heartbeat dal server di destinazione Master [errore 78022]
+### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Server di destinazione master senza heartbeat [errore 78022]
 
-Ciò si verifica quando l'agente di Azure Site Recovery Mobility nel server di destinazione Master non comunica con il Server di configurazione.
+Questo problema si verifica quando Azure Site Recovery agente di mobilità nella destinazione master non comunica con il server di configurazione.
 
-Per risolvere il problema, usare la procedura seguente per verificare lo stato del servizio:
+Per risolvere il problema, attenersi alla procedura seguente per verificare lo stato del servizio:
 
-1. Verificare che la VM di destinazione Master sia in esecuzione.
-2. Accedere alla VM di destinazione Master usando un account con privilegi di amministratore.
+1. Verificare che la macchina virtuale di destinazione master sia in esecuzione.
+2. Accedere alla macchina virtuale di destinazione master usando un account con privilegi di amministratore.
     - Verificare che il servizio svagents sia in esecuzione. Se è in esecuzione, riavviare il servizio
-    - Controllare i log in corrispondenza della posizione per i dettagli dell'errore:
+    - Controllare i log nel percorso per i dettagli dell'errore:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. Per registrare la destinazione master con il server di configurazione, passare alla cartella **%ProgramData%\ASR\Agent**ed eseguire il comando seguente nel prompt dei comandi:
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-### <a name="process-server-is-not-reachable-from-the-source-machine-error-78186"></a>Server di elaborazione non è raggiungibile dalla macchina di origine [errore 78186]
+   net stop obengine
 
-Questo errore comporta punti coerenti con l'app e di arresto anomalo del sistema non vengono generati se non si viene risolto. Per risolvere il problema, seguire i collegamenti la risoluzione dei problemi:
-1. Assicurarsi che [PS servizi siano in esecuzione](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
-2. [Controllare i problemi di connettività macchina di origine](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
-3. [Controllare i problemi di connettività del server processo](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) e seguire le indicazioni fornite per:
-    - Verifica della connettività con origine
-    - Problemi di proxy e firewall
+   net start obengine
 
-### <a name="data-upload-blocked-from-source-machine-to-process-server-error-78028"></a>Caricamento dati bloccato dalla macchina di origine al Server di elaborazione [errore 78028]
+   exit
+   ```
 
-Questo errore comporta punti coerenti con l'app e di arresto anomalo del sistema non vengono generati se non si viene risolto. Per risolvere il problema, seguire i collegamenti la risoluzione dei problemi:
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID errore 78144-nessun punto di ripristino coerente con l'app disponibile per la macchina virtuale negli ultimi minuti ' XXX '
 
-1. Assicurarsi che [PS servizi siano in esecuzione](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
-2. [Controllare i problemi di connettività macchina di origine](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
-3. [Controllare i problemi di connettività del server processo](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) e seguire le indicazioni fornite per:
-    - Verifica della connettività con origine
-    - Problemi di proxy e firewall
+Sono stati apportati miglioramenti nell'agente di mobilità [9,23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9,27](site-recovery-whats-new.md#update-rollup-39) versioni per gestire i comportamenti degli errori di installazione VSS. Assicurarsi di avere le versioni più recenti per informazioni aggiuntive sulla risoluzione dei problemi relativi agli errori del servizio Copia Shadow del volume.
+
+Di seguito sono elencati alcuni dei problemi più comuni.
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Causa 1: Problema noto in SQL Server 2008/2008 R2 
+**Come risolvere il** problema: Si è verificato un problema noto con SQL Server 2008/2008 R2. [Per un server che ospita SQL Server 2008 R2, fare riferimento a questo articolo della knowledge Azure Site Recovery dell'agente o di un altro backup VSS non componente.](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Causa 2: Azure Site Recovery i processi hanno esito negativo nei server che ospitano qualsiasi versione di SQL Server istanze con database AUTO_CLOSE 
+**Come risolvere il** problema: Vedere l' [articolo](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) della Knowledge Knowledge 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema noto in SQL Server 2016 e 2017
+**Come risolvere il** problema: Vedere l' [articolo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) della Knowledge Knowledge 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Altre cause a causa di problemi correlati a VSS:
+
+Per risolvere il problema, controllare i file nella macchina di origine per ottenere il codice di errore esatto per l'errore:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Come individuare gli errori nel file
+Per cercare la stringa "vacpError", aprire il file vacp. log in un editor
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+Nell'esempio precedente **2147754994** è il codice di errore che indica l'errore, come illustrato di seguito.
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS writer non è installato-errore 2147221164 
+
+*Come risolvere il*problema: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery utilizza il servizio Copia Shadow del volume di Microsoft (VSS). Viene installato un provider VSS per la relativa operazione per eseguire snapshot di coerenza delle app. Questo provider VSS viene installato come servizio. Se il servizio provider VSS non è installato, la creazione dello snapshot di coerenza dell'applicazione ha esito negativo con ID errore 0x80040154 "classe non registrata". </br>
+Vedere l' [articolo per la risoluzione dei problemi di installazione VSS Writer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS writer è disabilitato-errore 2147943458
+
+**Come risolvere il**problema: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery utilizza il servizio Copia Shadow del volume di Microsoft (VSS). Viene installato un provider VSS per la relativa operazione per eseguire snapshot di coerenza delle app. Questo provider VSS viene installato come servizio. Se il servizio del provider VSS è disabilitato, la creazione dello snapshot di coerenza dell'applicazione ha esito negativo con ID errore "il servizio specificato è disabilitato e non può essere avviato (0x80070422)". </br>
+
+- Se il servizio Copia Shadow del volume è disabilitato,
+    - Verificare che il tipo di avvio del servizio provider VSS sia impostato su **automatico**.
+    - Riavviare i servizi seguenti:
+        - Servizio VSS
+        - Provider VSS di Azure Site Recovery
+        - Servizio VDS
+
+####  <a name="vss-provider-not_registered---error-2147754756"></a>PROVIDER VSS NOT_REGISTERED-errore 2147754756
+
+**Come risolvere il**problema: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery utilizza il servizio Copia Shadow del volume di Microsoft (VSS). Controllare se il servizio provider di Azure Site Recovery VSS è installato o meno. </br>
+
+- Riprovare l'installazione del provider utilizzando i comandi seguenti:
+- Disinstalla provider esistente: C:\Programmi (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Reinstallare C:\Programmi (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Verificare che il tipo di avvio del servizio provider VSS sia impostato su **automatico**.
+    - Riavviare i servizi seguenti:
+        - Servizio VSS
+        - Provider VSS di Azure Site Recovery
+        - Servizio VDS
 
 ## <a name="next-steps"></a>Passaggi successivi
 

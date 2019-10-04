@@ -1,5 +1,5 @@
 ---
-title: Rilevamento dei tipi di immagine - Visione artificiale
+title: Rilevamento del tipo di immagine-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi alla funzione di rilevamento del tipo di immagine dell'API Visione artificiale.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e89fd977129113fa88af1acccd6b05f0bbe90243
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368324"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945218"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Rilevamento dei tipi di immagine con Visione artificiale
 
-Con il [analizzare immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, visione artificiale può analizzare il tipo di contenuto di immagini, che indica se un'immagine è ClipArt o un disegno di linee.
+Con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) , visione artificiale possibile analizzare il tipo di contenuto delle immagini, indicando se un'immagine è ClipArt o un disegno a linee.
 
 ## <a name="detecting-clip-art"></a>Rilevamento di ClipArt
 
@@ -115,4 +115,4 @@ Le risposte JSON seguenti illustrano le informazioni restituite da Visione artif
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [analizzare immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) fare riferimento alla documentazione per informazioni su come rilevare i tipi di immagine.
+Vedere la documentazione di riferimento per [analizzare le immagini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) per informazioni su come rilevare i tipi di immagine.

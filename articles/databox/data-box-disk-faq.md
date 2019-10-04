@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258777"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098832"
 ---
-# <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
 La soluzione cloud Microsoft Azure Data Box Disk consente di inviare terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Queste domande frequenti includono domande che possono sorgere durante l'uso dei dischi di Data Box nel portale di Azure e relative risposte. 
 
@@ -56,6 +56,9 @@ R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, ved
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>D: In quali aree è possibile archiviare dati con i dischi di Data Box?
 R. Azure Data Box Disk è supportato per tutte le aree degli Stati Uniti, del Canada, dell'Australia, dell'Europa occidentale e settentrionale, della Corea e del Giappone. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>D: Data Box Disk può essere spedito oltre i confini nazionali?
+R. Data Box Disk viene spedito all'interno dello stesso paese e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europea (UE), in cui i dischi possono essere spediti da e verso i paesi dell'Unione Europea.
+
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>D: A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
 R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
@@ -86,6 +89,24 @@ R.  È possibile monitorare lo stato dell'ordine dei dischi di Data Box nel port
 ### <a name="q-how-do-i-return-the-disks"></a>D: Qual è la procedura per restituire i dischi? 
 R.  Microsoft fornisce un'etichetta di spedizione con i dischi di Data Box nel pacchetto di spedizione. Apporre l'etichetta sulla scatola per la spedizione e consegnare il pacchetto sigillato presso il punto di ritiro del vettore di spedizione. In caso di danneggiamento o smarrimento dell'etichetta, passare a **Panoramica > Scarica etichetta di spedizione** e scaricare una nuova etichetta per la spedizione di ritorno.
 
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>È possibile ritirare personalmente l'ordine di Data Box Disk? È possibile restituire i dischi tramite un vettore di propria scelta?
+R. Sì. Nella sola area US Gov, Microsoft offre anche la spedizione autogestita. Quando si effettua l'ordine di Data Box Disk, è possibile scegliere tale opzione. Per ritirare l'ordine di Data Box Disk, seguire questa procedura:
+    
+1. Al completamento dell'ordine, l'ordine viene elaborato e i dischi vengono preparati. Si riceverà una notifica tramite posta elettronica che informa che l'ordine è pronto per il ritiro. 
+2. Quando l'ordine è pronto per il ritiro, andare all'ordine nel portale di Azure e passare al pannello **Panoramica**. 
+3. Nel portale di Azure verrà visualizzata una notifica con un codice. Inviare un messaggio di posta elettronica al [team Azure Data Box Operations](mailto:adbops@microsoft.com) specificando il codice. Il team indicherà l'ubicazione e pianificherà una data e un'ora di ritiro. È necessario chiamare il team entro 5 giorni lavorativi dalla ricezione della notifica tramite posta elettronica.
+
+Al termine della copia e della convalida dei dati, per restituire il disco seguire questa procedura:
+
+1. Dopo aver completato la convalida dei dati, scollegare i dischi. Rimuovere i cavi di collegamento.
+2. Avvolgere i dischi e i cavi di collegamento nel pluriball e inserirli nella scatola per la spedizione. In caso di accessori mancanti, potrebbero essere addebitate spese aggiuntive.
+
+    - Riutilizzare l'imballaggio della spedizione iniziale. È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
+    - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
+3. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Verrà visualizzata una notifica con un codice.
+4. Usare tale codice e inviare un messaggio di posta elettronica al [team Azure Data Box Operations](mailto:adbops@microsoft.com) specificandolo. Il team fornirà le informazioni su dove e quando consegnare i dischi.
+
+
 ## <a name="migrate-data"></a>Eseguire la migrazione dei dati
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box-disks"></a>D: Quali sono le dimensioni massime dei dati che possono essere usate con i dischi di Data Box?  
@@ -110,7 +131,7 @@ R.  Per velocizzare il processo di copia:
 - Usare più sessioni.
 - Invece di eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete) assicurarsi di avere a disposizione i dati in locale nel computer a cui sono collegati i dischi.
 - Assicurarsi di usare USB 3.0 o versione successiva nel corso del processo di copia. Scaricare e usare lo [strumento USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) per identificare i controller USB e i dispositivi USB connessi al computer.
-- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://bluestop.org/fio/) per ottenere un benchmark delle prestazioni dell'hardware del server.
+- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) per ottenere un benchmark delle prestazioni dell'hardware del server. Selezionare la build x86 o x64 più recente, selezionare la scheda **Artefatti** e scaricare il file MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>D: In quale modo si può velocizzare la copia dei dati se i dati di origine sono in file di piccole dimensioni (KB o pochi MB)?
 R.  Per velocizzare il processo di copia:
@@ -164,9 +185,9 @@ R. È possibile clonare l'ordine precedente. La clonazione consente di creare un
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>D: Sono stati copiati i dati nella cartella ManagedDisk. Non è presente nessun disco gestito con il gruppo di risorse specificato per i dischi gestiti. I dati sono stati caricati in Azure e come è possibile individuarli?
 R. Sì. I dati sono stati caricati in Azure, ma se non viene visualizzato nessun disco gestito con i gruppi di risorse specificati è probabile che i dati non siano validi. Se i BLOB di pagine, i BLOB in blocchi, i file di Azure e i dischi gestiti non fossero validi, verrebbero inviati nelle cartelle seguenti:
- - I BLOB di pagine verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-pb-*.
- - I file di Azure verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-af-*.
- - I dischi gestiti verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-md-*.
+ - I BLOB di pagine verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-pb-* .
+ - I file di Azure verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-af-* .
+ - I dischi gestiti verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-md-* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,8 +3,8 @@ title: Monitorare la comunicazione di rete - Esercitazione - Portale di Azure | 
 description: Informazioni su come monitorare la comunicazione di rete tra due macchine virtuali con la funzionalità di monitoraggio della connessione di Network Watcher di Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429248"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233896"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -77,7 +77,7 @@ Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-f
 | 3 | NOME                                  | myVM2                                                                   |
 | 3 | Tipo di autenticazione                   | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
 | 3 | Gruppo di risorse                        | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
-| 6 | Estensioni                            | **Agente di rete per Linux**                                             |
+| 6 | Estensioni                            | **Network Watcher Agent for Linux**                                             |
 
 La distribuzione della VM richiede alcuni minuti. Attendere che la macchina virtuale completi la distribuzione prima di continuare con i passaggi rimanenti.
 
@@ -109,7 +109,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     ![Monitoraggi della connessione](./media/connection-monitor/connection-monitors.png)
 
-2. Selezionare il monitoraggio con il nome **myVm1-myVm2(22)**, come illustrato nell'immagine precedente, per visualizzare i dettagli per il monitoraggio, come illustrato nell'immagine seguente:
+2. Selezionare il monitoraggio con il nome **myVm1-myVm2(22)** , come illustrato nell'immagine precedente, per visualizzare i dettagli per il monitoraggio, come illustrato nell'immagine seguente:
 
     ![Dettagli del monitoraggio](./media/connection-monitor/vm-monitor.png)
 
@@ -154,7 +154,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
     | Priorità                | 100            |
     | NOME                    | DenySshInbound |
 
-5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)**. I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
+5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)** . I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 
     ![Dettagli del monitoraggio con errore](./media/connection-monitor/vm-monitor-fault.png)
 

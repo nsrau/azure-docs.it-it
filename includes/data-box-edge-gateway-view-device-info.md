@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404087"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180607"
 ---
 1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
 2. Usare il `Get-HcsApplianceInfo` per ottenere le informazioni per il dispositivo.
@@ -45,7 +45,7 @@ ms.locfileid: "58404087"
 
     Ecco una tabella che riepiloga alcune delle informazioni sul dispositivo importanti:
     
-    | Parametro                             | DESCRIZIONE                                                                                                                                                  |   |
+    | Parametro                             | Descrizione                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Il nome descrittivo del dispositivo configurato tramite l'interfaccia utente web locale durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo.  |   |
     | SerialNumber                   | Il numero di serie è un numero univoco assegnato in fase di produzione.                                                                             |   |

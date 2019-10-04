@@ -1,33 +1,29 @@
 ---
 title: Creare un'app per le funzioni dal portale di Azure | Microsoft Docs
-description: Creare una nuova app per le funzioni in Servizio app di Azure dal portale.
-services: functions
-documentationcenter: na
+description: Creare una nuova app per le funzioni in Azure dal portale.
 author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: quickstart
-ms.date: 04/11/2017
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 93bce0404c9b3bf630416557726dca0c856528c3
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900767"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170793"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creare un'app per le funzioni dal portale di Azure
 
-App per le funzioni di Azure usa l'infrastruttura di Servizio app di Azure. In questo argomento viene illustrato come creare un'app per le funzioni nel portale di Azure. Un'app per le funzioni è un contenitore che ospita l'esecuzione delle singole funzioni. Quando si crea un'app per le funzioni nel servizio app che ospita il piano, l'app per le funzioni può usare tutte le funzionalità del servizio app.
+Questo argomento illustra come usare funzioni di Azure per creare un'app per le funzioni nella portale di Azure. Un'app per le funzioni è un contenitore che ospita l'esecuzione delle singole funzioni. 
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-Quando si crea un'app per le funzioni, inserire un **nome dell'app** valido, che contenga solo lettere, numeri e trattini. Il carattere di sottolineatura (**_**) non è consentito.
+Quando si crea un'app per le funzioni, inserire un **nome dell'app** valido, che contenga solo lettere, numeri e trattini. Il carattere di sottolineatura ( **_** ) non è consentito.
 
 I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. Nome dell'account di archiviazione deve essere univoco all'interno di Azure. 
 
@@ -35,15 +31,15 @@ Dopo aver creato l'app per le funzioni, è possibile creare singole funzioni in 
 
 ## <a name="service-plans"></a>Piani di servizio
 
-Funzioni di Azure offre due piani di servizio diversi: piano a consumo e piano di servizio app. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce il numero di istanze quando il codice non è in esecuzione. Il piano di servizio app consente all'app per le funzioni di accedere a tutte le funzionalità del servizio app. È necessario scegliere il piano di servizio quando viene creata l'app per le funzioni, che al momento non può essere modificato. Per altre informazioni, vedere [Scegliere un piano di hosting di Funzioni di Azure](functions-scale.md).
+Funzioni di Azure prevede tre diversi piani di servizio: Piano a consumo, piano Premium e piano dedicato (servizio app). Quando si crea l'app per le funzioni, è necessario scegliere il piano di servizio e non è possibile modificarlo successivamente. Per altre informazioni, vedere [Scegliere un piano di hosting di Funzioni di Azure](functions-scale.md).
 
-Se si prevede di eseguire funzioni JavaScript in un piano di servizio App, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+Se si prevede di eseguire funzioni JavaScript in un piano dedicato (servizio app), è consigliabile scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Quando si crea un'app per le funzioni in servizio app, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
 
 >[!NOTE]
 >Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
@@ -52,4 +48,7 @@ Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Mentre il portale di Azure rende più semplice creare e provare le funzioni, noi raccomandiamo lo [sviluppo locale](functions-develop-local.md). Dopo aver creato un'app per le funzioni nel portale, è comunque necessario aggiungere una funzione. 
+
+> [!div class="nextstepaction"]
+> [Aggiungere una funzione attivata tramite HTTP](functions-create-first-azure-function.md#create-function)

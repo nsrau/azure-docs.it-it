@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447013"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -23,7 +23,7 @@ Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni d
 
 Per distribuire l'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Per eseguire l'interfaccia della riga di comando, è necessario che [Node.js](https://nodejs.org/) sia installato nel computer locale.
 
@@ -49,7 +49,7 @@ Seguire le istruzioni visualizzate sullo schermo per completare il processo di a
 
 Quando si distribuisce l'acceleratore di soluzioni, sono disponibili diverse opzioni per la configurazione del processo di distribuzione:
 
-| Opzione | Valori | DESCRIZIONE |
+| Opzione | Valori | Descrizione |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi a più macchine virtuali. Una distribuzione _locale_ configura un contenitore Docker per l'esecuzione dei microservizi nel computer locale e usa servizi cloud di Azure, ad esempio l'archiviazione e Cosmos DB. |
 | Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
@@ -68,7 +68,7 @@ La distribuzione di base è orientata verso la presentazione della soluzione. Pe
 
 Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                       | Type         | Utilizzo |
+| Conteggio | Resource                       | Type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
@@ -89,7 +89,7 @@ Una distribuzione standard è una distribuzione pronta per l'ambiente di produzi
 
 Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                                     | SKU / Dimensioni      | Utilizzo |
+| Conteggio | Resource                                     | SKU / Dimensioni      | Utilizzo |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service)| Usa un servizio di orchestrazione di contenitori Kubernetes completamente gestito, con un'impostazione predefinita di tre agenti|
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |

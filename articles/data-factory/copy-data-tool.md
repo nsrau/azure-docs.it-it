@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101755"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996393"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
 Lo strumento Copia dati di Azure Data Factory semplifica e ottimizza l'inserimento di dati in un data lake, che è in genere il primo passaggio in uno scenario di integrazione dei dati end-to-end.  In questo modo è possibile risparmiare tempo, soprattutto quando si usa Azure Data Factory per inserire per la prima volta i dati da un'origine. Questi sono alcuni dei vantaggi offerti dallo strumento:
@@ -78,7 +78,7 @@ Lo screenshot seguente mostra una query SQL usata per filtrare i dati.
 ![Filtrare i dati in un database](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrare i dati in una cartella BLOB di Azure
-Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}**, **{month}**, **{day}**, **{hour}** e **{minute}**. Ad esempio: inputfolder/{year}/{month}/{day}. 
+Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}** , **{month}** , **{day}** , **{hour}** e **{minute}** . Ad esempio: inputfolder/{year}/{month}/{day}. 
 
 Si supponga di avere cartelle di input nel formato seguente: 
 
@@ -91,11 +91,11 @@ Si supponga di avere cartelle di input nel formato seguente:
 
 Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato 2016/03/01/02. 
 
-Sostituire quindi **2016** con **{year}**, **03** con **{month}**, **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Sostituire quindi **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 
 ![Filtrare un file o una cartella](./media/copy-data-tool/filter-file-or-folder.png)
 
-Lo strumento Copia dati genera parametri con espressioni, funzioni e variabili di sistema che possono essere usate per rappresentare {year}, {month}, {day}, {hour} e {minute} durante la creazione della pipeline. Per altre informazioni, vedere l'articolo [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
+Lo strumento Copia dati genera parametri con espressioni, funzioni e variabili di sistema che possono essere usate per rappresentare {year}, {month}, {day}, {hour} e {minute} durante la creazione della pipeline.
 
 ## <a name="scheduling-options"></a>Opzioni di pianificazione
 È possibile eseguire l'operazione di copia una sola volta oppure in base a una pianificazione, con cadenza oraria, giornaliera e così via. Queste opzioni possono essere usate per i connettori tra diversi ambienti, inclusi l'ambiente locale, il cloud e il computer desktop. 

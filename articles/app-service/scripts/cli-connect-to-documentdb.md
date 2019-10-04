@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 68c69413322d87fc557686701c474730d2ed8405
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136882"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Connettere un'app del servizio app a Cosmos DB usando l'interfaccia della riga di comando
 

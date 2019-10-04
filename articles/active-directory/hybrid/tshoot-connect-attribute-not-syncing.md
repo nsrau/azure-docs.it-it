@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60455968"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Risolvere i problemi relativi a un attributo che non si sincronizza in Azure AD Connect
 
@@ -88,7 +88,7 @@ Prima di esaminare i problemi di sincronizzazione di un attributo, è importante
 * [Servizio di sincronizzazione Azure AD Connect: informazioni su utenti, gruppi e contatti](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
 * [Servizio di sincronizzazione Azure AD Connect: attributi shadow](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md).
 - [Informazioni sull'identità ibrida](whatis-hybrid-identity.md).

@@ -4,23 +4,22 @@ description: È possibile ottenere risposte alle domande frequenti sui problemi 
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118446"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121321"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -30,7 +29,7 @@ Questo articolo offre risposte alle domande frequenti sui problemi di configuraz
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Esistono limitazioni che occorre tenere in considerazione se si desidera spostare le risorse del servizio app?
 
-Se si intende spostare le risorse del servizio app in un nuovo gruppo di risorse o in una sottoscrizione, occorre considerare alcune limitazioni. Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Se si intende spostare le risorse del servizio app in un nuovo gruppo di risorse o in una sottoscrizione, occorre considerare alcune limitazioni. Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Come si utilizza un nome di dominio personalizzato per un'app Web?
 
@@ -56,11 +55,11 @@ Per informazioni su come acquistare e configurare un certificato SSL per l'app W
 
 Attualmente, Azure Application Insights non supporta l'operazione di spostamento. Se il gruppo di risorse originale include una risorsa di Application Insights, non è possibile spostare tale risorsa. Se si include la risorsa di Application Insights quando si tenta di spostare un'app del servizio app, l'intera operazione di spostamento ha esito negativo. Tuttavia, per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
 
-Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Dove è possibile trovare un elenco di controllo del materiale sussidiario e altre informazioni sulle operazioni di spostamento delle risorse?
 
-[Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra come spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse nella stessa sottoscrizione. È possibile ottenere informazioni sull'elenco di controllo dello spostamento delle risorse, apprendere quali servizi supportano l'operazione di spostamento e acquisire altri dettagli sulle limitazioni del servizio app e su altri argomenti.
+[Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostra come spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse nella stessa sottoscrizione. È possibile ottenere informazioni sull'elenco di controllo dello spostamento delle risorse, apprendere quali servizi supportano l'operazione di spostamento e acquisire altri dettagli sulle limitazioni del servizio app e su altri argomenti.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Come si imposta il fuso orario del server per l'app Web?
 
@@ -72,7 +71,7 @@ Per impostare il fuso orario del server per l'app Web:
     * Value = *fuso orario desiderato*
 3. Selezionare **Salva**.
 
-Per conoscere i valori accettati, vedere la colonna **Timezone** (Fuso orario) nell'articolo [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) (Fusi orari predefiniti).
+Per i servizi app eseguiti in Windows, vedere la colonna **TimeZone** nell'articolo [fusi orari predefiniti](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) per i valori accettati. Per i servizi app eseguiti in Linux, impostare il [nome del database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) come valore del fuso orario. Di seguito è riportato un esempio di nome del database TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Perché i processi Web continui talvolta hanno esito negativo?
 
@@ -97,7 +96,7 @@ Si noti che per utilizzare un indirizzo IP dedicato o riservato per le chiamate 
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>È possibile esportare il certificato del servizio app per utilizzarlo all'esterno di Azure, ad esempio per un sito Web ospitato in un'altra posizione? 
 
-I certificati del servizio app sono considerati risorse di Azure. Non sono progettati per l'utilizzo all'esterno dei servizi di Azure. Non è possibile esportarli per utilizzarli all'esterno di Azure. Per altre informazioni, vedere [Domande frequenti per i certificati del servizio app e i domini personalizzati](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Sì, è possibile esportarli in modo da usare all'esterno di Azure. Per altre informazioni, vedere [Domande frequenti per i certificati del servizio app e i domini personalizzati](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>È possibile esportare il certificato del servizio app per utilizzarli con altri servizi cloud di Azure?
 
@@ -152,12 +151,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 L'eccezione è stata causata da un problema con Gestione connessione ibrida che poi è stato risolto. Assicurarsi di [aggiornare Gestione connessione ibrida](https://go.microsoft.com/fwlink/?LinkID=841308) per risolvere il problema.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Come si aggiunge o si modifica una regola di riscrittura di URL?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>Ricerca per categorie aggiungere una regola di riscrittura URL?
 
-Per aggiungere o modificare una regola di riscrittura di URL:
-
-1. Configurare Gestione Internet Information Services (IIS) in modo che si connetta all'app Web del servizio app. Per informazioni su come connettere Gestione IIS al servizio app, vedere [Amministrazione remota di siti Web di Azure tramite Gestione IIS](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. In Gestione IIS, aggiungere o modificare una regola di riscrittura di URL. Per informazioni su come aggiungere o modificare una regola di riscrittura di URL, vedere [Creare regole di riscrittura per il modulo di riscrittura URL](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+Per aggiungere una regola di riscrittura URL, creare un file Web. config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Informazioni sulla riscrittura](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)dell'URL.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Come si controlla il traffico in ingresso nel servizio app?
 
@@ -170,7 +166,7 @@ Se si utilizza l'ambiente del servizio app, è possibile utilizzare il [firewall
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Come è possibile bloccare le porte in un'app Web del servizio Web?
 
-Nell'ambiente del tenant condiviso del servizio app, non è possibile bloccare porte specifiche data la natura dell'infrastruttura. Inoltre, le porte TCP 4016, 4018 e 4020 potrebbero essere aperte per il debug remoto di Visual Studio.
+Nell'ambiente del tenant condiviso del servizio app, non è possibile bloccare porte specifiche data la natura dell'infrastruttura. Potrebbero essere aperte anche le porte TCP 4020, 4022 e 4024 per il debug remoto di Visual Studio.
 
 Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingresso e in uscita. È possibile utilizzare i Gruppi di sicurezza di rete per limitare o bloccare porte specifiche. Per altre informazioni sull'ambiente del servizio app, vedere [Introduzione all'ambiente del servizio app](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
@@ -254,7 +250,7 @@ Per altre informazioni sui processi Web pianificati, vedere [Creare un processo 
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Come si esegue il test di penetrazione per l'app del servizio app?
 
-Per eseguire il test di penetrazione, [inviare una richiesta](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+Per eseguire il test di penetrazione, [inviare una richiesta](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Come si configura un nome di dominio personalizzato per un app We del servizio app che utilizza Gestione traffico?
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2e751d45e4b76852426d454f8d29196c01396504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539106"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932467"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -24,7 +24,7 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 > 
 
-I backup vengono salvati con estensione ABF. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
+I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
 
 ## <a name="configure-storage-settings"></a>Configurare le impostazioni di archiviazione
@@ -38,7 +38,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 2.  Fare clic su **Abilitata** e quindi su **Impostazioni di archiviazione**.
 
-    ![Abilita](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Attiva](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Selezionare l'account di archiviazione o crearne uno nuovo.
 
@@ -72,9 +72,9 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 
 ### <a name="powershell"></a>PowerShell
-Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
+Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 
@@ -99,7 +99,7 @@ Durante il ripristino, il file di backup deve essere nell'account di archiviazio
 
 ### <a name="powershell"></a>PowerShell
 
-Usare il cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet).
+Usare il cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Informazioni correlate

@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295175"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037532"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -48,7 +48,7 @@ Amministratore account, Amministratore del servizio e Coamministratore sono i tr
 | Amministratore del servizio | 1 per ogni sottoscrizione di Azure | <ul><li>Gestire i servizi nel [portale di Azure](https://portal.azure.com)</li><li>Assegnare utenti al ruolo di coamministratore</li></ul> | Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.<br>L'amministratore del servizio ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione.<br>L'amministratore del servizio ha accesso completo al portale di Azure. |
 | Coamministratore | 200 per ogni sottoscrizione | <ul><li>Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure</li><li>Può assegnare utenti al ruolo di coamministratore, ma non può modificare l'amministratore del servizio</li></ul> | Il coamministratore ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. |
 
-Nel portale di Azure è possibile gestire i coamministratori o visualizzare l'amministratore del servizio usando la scheda **Amministratori (versione classica)**.
+Nel portale di Azure è possibile gestire i coamministratori o visualizzare l'amministratore del servizio usando la scheda **Amministratori (versione classica)** .
 
 ![Amministratori della sottoscrizione classica di Azure nel portale di Azure](./media/rbac-and-directory-admin-roles/classic-administrators.png)
 
@@ -81,7 +81,7 @@ Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifich
 
 Solo il portale di Azure e le API di Azure Resource Manager supportano il Controllo degli accessi in base al ruolo. Gli utenti, i gruppi e le applicazioni a cui vengono assegnati ruoli Controllo degli accessi in base al ruolo non possono usare le [API del modello di distribuzione classica di Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi in base al ruolo sono visualizzate nel pannello **Controllo di accesso (IAM)**. Il pannello è disponibile in tutto il portale, ad esempio nei gruppi di gestione, nelle sottoscrizioni, nei gruppi di risorse e in varie risorse.
+Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi in base al ruolo sono visualizzate nel pannello **Controllo di accesso (IAM)** . Il pannello è disponibile in tutto il portale, ad esempio nei gruppi di gestione, nelle sottoscrizioni, nei gruppi di risorse e in varie risorse.
 
 ![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -97,7 +97,7 @@ I ruoli di amministratore di Azure AD consentono di gestire le risorse di Azure 
 
 | Ruolo di amministratore di Azure AD | Autorizzazioni | Note |
 | --- | --- | --- |
-| [Amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Gestire l'accesso a tutte le funzionalità di amministrazione in Azure Active Directory, nonché ai servizi che attuano la federazione in Azure Active Directory</li><li>Assegnare i ruoli di amministratore ad altri utenti</li><li>Reimpostare la password per qualsiasi utente e per tutti gli altri amministratori</li></ul> | La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. |
+| [Amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gestire l'accesso a tutte le funzionalità di amministrazione in Azure Active Directory, nonché ai servizi che attuano la federazione in Azure Active Directory</li><li>Assegnare i ruoli di amministratore ad altri utenti</li><li>Reimpostare la password per qualsiasi utente e per tutti gli altri amministratori</li></ul> | La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. |
 | [Amministratore utenti](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
 | [Amministratore fatturazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
 
@@ -112,7 +112,7 @@ A livello generale, i ruoli di controllo dell'accesso in base al ruolo di Azure 
 | Ruoli di controllo degli accessi in base al ruolo di Azure | Ruoli di amministratore di Azure AD |
 | --- | --- |
 | Gestire l'accesso alle risorse di Azure | Gestire l'accesso alle risorse di Azure Active Directory |
-| Supportano i ruoli personalizzati | Non consentono di creare ruoli personalizzati |
+| Supportano i ruoli personalizzati | Supportano i ruoli personalizzati |
 | È possibile specificare l'ambito a più livelli (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) | L'ambito è a livello di tenant |
 | Le informazioni sui ruoli sono accessibili nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, nei modelli di Azure Resource Manager, nell'API REST | Le informazioni sui ruoli sono accessibili nel portale di amministrazione di Azure, nell'interfaccia di amministrazione di Microsoft 365, in Microsoft Graph e in AzureAD PowerShell |
 

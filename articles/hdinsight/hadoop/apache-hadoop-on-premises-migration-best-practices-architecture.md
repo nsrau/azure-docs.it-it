@@ -1,20 +1,19 @@
 ---
-title: Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
+title: Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight-architettura
 description: Informazioni sulle procedure consigliate per l'architettura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886809"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735891"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -39,8 +38,8 @@ La tabella seguente illustra i diversi metodi che possono essere usati per crear
 
 |**Strumento**|**Basato su browser**|**Riga di comando**|**API REST**|**SDK**|
 |---|---|---|---|---|
-|[Portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Data factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|x||||
+|[Data factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|x|X|X|X|
 |[Interfaccia della riga di comando di Azure versione 1.0](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
@@ -105,8 +104,8 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Non condividere il metastore creato per una versione del cluster HDInsight con i cluster di una versione diversa. Versioni diverse di Hive usano schemi diversi. Ad esempio, un metastore non può essere condiviso con cluster Hive 1.2 e Hive 2.1.
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
-- Monitorare il metastore per prestazioni e disponibilità usando strumenti di monitoraggio di Azure SQL Database, come i log di monitoraggio di Azure o portale di Azure.
-- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
+- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 

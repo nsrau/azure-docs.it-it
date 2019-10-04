@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65952853"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -64,7 +64,7 @@ Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente
 > Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si vuole aggiornare il metodo di autenticazione di tale utente, è possibile eliminare l'account utente guest e invitarlo nuovamente.
 
 ### <a name="example"></a>Esempio
-Utente guest alexdoe@gmail.com viene invitato a Fabrikam, che non dispone di federazione Google configurata. Alex non ha un account Microsoft. Riceverà un passcode monouso per l'autenticazione.
+Utente guest alexdoe@gmail.com viene invitato a Fabrikam, che non dispone di federazione Google configurata. Alex non ha un account Microsoft. Si riceverà un passcode monouso per l'autenticazione.
 
 ## <a name="opting-in-to-the-preview"></a>Acconsentire esplicitamente all'anteprima 
 Potrebbero volerci alcuni minuti affinché l'azione di consenso esplicito abbia effetto. In seguito, solo gli utenti appena invitati che soddisfano le condizioni riportate sopra useranno l'autenticazione con passcode monouso. Gli utenti guest che hanno precedentemente riscattato un invito continueranno a usare lo stesso metodo di autenticazione.

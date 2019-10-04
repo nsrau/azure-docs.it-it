@@ -6,19 +6,19 @@ documentationcenter: ''
 author: lichard
 manager: erikre
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: rli
-ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.author: ril
+ms.openlocfilehash: 703623e3f7f314d87417458f3f9a218dfdf45427
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764843"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849981"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Supporto HTTP/2 nella rete CDN di Azure
 
@@ -57,7 +57,7 @@ Tutti i browser principali hanno implementato il supporto HTTP/2 le versioni cor
 
 Il supporto HTTP/2 è attualmente attivo per tutti i profili di rete CDN di Azure. Non è necessaria alcuna azione da parte dei clienti.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per visualizzare i vantaggi di HTTP/2 in azione, vedere [questa demo di Akamai](https://http2.akamai.com/demo).
 

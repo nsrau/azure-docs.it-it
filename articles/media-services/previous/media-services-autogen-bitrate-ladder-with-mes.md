@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Media Encoder Standard per generare automaticamente un bitrate ladder | Microsoft Docs
+title: Usare Media Encoder Standard per generare automaticamente una scala a bitrate-Azure | Microsoft Docs
 description: In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit. La risoluzione di input e la velocità in bit non vengono mai superate. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991856"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543545"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Azure Media Encoder Standard per generare automaticamente un bitrate ladder  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate  
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,7 +36,7 @@ Se si intende codificare un video di origine per lo streaming e per produrre fil
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
@@ -174,7 +174,7 @@ Questa sezione mostra tre esempi dei livelli di output prodotti da MES in seguit
 ### <a name="example-1"></a>Esempio 1
 L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +186,7 @@ L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli vi
 ### <a name="example-2"></a>Esempio 2
 L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +197,7 @@ L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli vid
 ### <a name="example-3"></a>Esempio 3
 L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

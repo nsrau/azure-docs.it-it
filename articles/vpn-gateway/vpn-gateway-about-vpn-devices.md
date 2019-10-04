@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 09/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 188412130b059cd25952ce9bf570c4e95ebbc43a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d80c30e3573d76aabcf854b2d97ea849197577c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993385"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173045"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -31,29 +31,26 @@ Per configurare una connessione VPN cross-premise da sito a sito usando un Gatew
 
 ## <a name="devicetable"></a>Dispositivi VPN convalidati e guide di configurazione per dispositivi
 
-> [!NOTE]
-> Quando si configura una connessione da sito a sito, è necessario un indirizzo IP IPv4 pubblico per il dispositivo VPN.
->
-
 In collaborazione con i fornitori di dispositivi, è stato approvato un set di dispositivi VPN standard. Tutti i dispositivi nelle famiglie di dispositivi dell'elenco seguente funzioneranno con i gateway VPN. Per informazioni sull'uso del tipo di VPN (PolicyBased o RouteBased) per la soluzione del gateway VPN che si vuole configurare, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
 Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corrispondenti alla famiglia di dispositivi appropriata. I collegamenti alle istruzioni di configurazione vengono forniti nel modo più efficiente possibile. Per il supporto ai dispositivi VPN, contattare il produttore del dispositivo.
 
 |**Fornitore**          |**Famiglia di dispositivi**     |**Versione minima del sistema operativo** |**Istruzioni di configurazione di tipo PolicyBased** |**Istruzioni di configurazione di tipo RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
-| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Non compatibile  |[Guida alla configurazione](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |Router VPN serie AR |AR-Series 5.4.7+               |Presto disponibile     |[Guida alla configurazione](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Guida alla configurazione](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Guida alla configurazione](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[Guida alla configurazione](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Non compatibile |
-| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[Guida alla configurazione](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Non compatibile |
-| Punto di controllo |Gateway di protezione |R80.10 |[Guida alla configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guida alla configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Non compatibile  |[Guida alla configurazione](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
+| Allied Telesis     |Router VPN serie AR |AR-Series 5.4.7+               | [Guida alla configurazione](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[Guida alla configurazione](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Barracuda Networks, Inc. |Barracuda CloudGen firewall |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Guida alla configurazione](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[Guida alla configurazione](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
+| Check Point |Gateway di protezione |R80.10 |[Guida alla configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guida alla configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Supportato |[Guida alla configurazione*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Supportato |Supportato |
+| Cisco | CSR | RouteBased: IOS-XE 16.10 | (non testato) | [Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Supportato |Supportato |
 | Cisco |Meraki |N/D |Non compatibile |Non compatibile |
+| Cisco | vEdge (sistema operativo Viptela) | 18.4.0 (modalità attivo/passivo)<br><br>19,2 (modalità attiva/attiva) | Non compatibile |  [Configurazione manuale (attiva/passiva)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Configurazione del cloud OnRamp (attiva/attiva)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e versioni successive |[Guida alla configurazione](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatibile |
 | F5 |Serie BIG-IP |12.0 |[Guida alla configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guida alla configurazione](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[Guida alla configurazione](https://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
+| Fortinet |FortiGate |FortiOS 5.6 | (non testato) |[Guida alla configurazione](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
+| Reti Hillstone | Firewall di nuova generazione (nuova generazione) | 5.5 R7  | (non testato) | [Guida alla configurazione](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | Internet Initiative Japan (IIJ) |Serie SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guida alla configurazione](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Non compatibile |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>RouteBased: JunOS 11.4 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |Serie J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
@@ -62,12 +59,15 @@ Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corri
 | Juniper |MX |JunOS 12.x|Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routing and Remote Access Service |Windows Server 2012 |Non compatibile |Supportato |
 | Open Systems AG |Mission Control Security Gateway |N/D |[Guida alla configurazione](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Non compatibile |
-| Palo Alto Networks |Tutti i dispositivi che eseguono PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o versione successiva<br>RouteBased: 7.1.4 |[Guida alla configurazione](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guida alla configurazione](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Palo Alto Networks |Tutti i dispositivi che eseguono PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o versione successiva<br>RouteBased: 7.1.4 |Supportato |[Guida alla configurazione](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Sentrium (Developer) | VyOS | VyOS 1.2.2 | (non testato) | [Guida alla configurazione](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Next Generation UTM (serie NU) | 9.0.1.3 | Non compatibile | [Guida alla configurazione](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWALL |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Non compatibile |[Guida alla configurazione](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
-| Sophos | Firewall XG di nuova generazione | XG v17 | | [Guida alla configurazione](https://community.sophos.com/kb/127546)<br><br>[Guida alla configurazione - Più firme di accesso condiviso](https://community.sophos.com/kb/en-us/133154) |
-| Ubiquiti | EdgeRouter | EdgeOS versione 1.10 |  | [BGP su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
+| Sophos | Firewall XG di nuova generazione | XG v17 | (non testato) | [Guida alla configurazione](https://community.sophos.com/kb/127546)<br><br>[Guida alla configurazione - Più firme di accesso condiviso](https://community.sophos.com/kb/en-us/133154) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (non testato) | [Guida alla configurazione](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Ubiquiti | EdgeRouter | EdgeOS versione 1.10 | (non testato) | [BGP su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tutti |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guida alla configurazione](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guida alla configurazione](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| ZyXEL |ZyWALL serie USG<br>Serie ATP ZyWALL<br>Serie VPN ZyWALL | ZLD v 4.32 + | (non testato) | [VTI su IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP su IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
@@ -140,9 +140,9 @@ Nelle tabelle seguenti:
 | ---                           | ---           | ---                                         |
 | Versione IKE                   |IKEv1          |IKEv2                                        |
 | Algoritmi di crittografia e di hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
-| Durata dell'associazione di sicurezza (tempo)            |3.600 secondi  |27.000 secondi                                |
+| Durata dell'associazione di sicurezza (tempo)            |3\.600 secondi  |27.000 secondi                                |
 | Durata dell'associazione di sicurezza (byte)           |102.400.000 KB | -                                           |
-| Perfect Forward Secrecy (PFS) |No              |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
+| Perfect Forward Secrecy (PFS) |No             |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
 | Rilevamento peer inattivo     |Non supportate  |Supportato                                    |
 
 
@@ -152,7 +152,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-initiator"></a>Gateway Azure come iniziatore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
 | 2 |AES256        |SHA1              |Nessuna         |
@@ -163,7 +163,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-responder"></a>Gateway Azure come risponditore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
 | 2 |AES256        |SHA1              |Nessuna         |

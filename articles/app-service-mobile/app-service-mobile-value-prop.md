@@ -3,7 +3,7 @@ title: Informazioni su App per dispositivi mobili nel servizio app di Azure
 description: Informazioni sui vantaggi che il servizio app può apportare alle app per dispositivi mobili aziendali.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: a3817b3e9f62a863f3fea9305ef169db2eb84491
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771802"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637954"
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
+
+> [!NOTE]
+> Visual Studio App Center sta investendo nei servizi nuovi e integrati centrali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare i servizi di **compilazione**, **test** e **distribuzione** per configurare la pipeline di integrazione e recapito continua. Una volta distribuita l'app, gli sviluppatori possono monitorare lo stato e l'utilizzo dell'app usando i servizi di **analisi** e **diagnostica** e coinvolgere gli utenti che usano il servizio di **push** . Gli sviluppatori possono inoltre sfruttare l' **autenticazione** per autenticare gli utenti e il servizio **dati** per salvare in modo permanente e sincronizzare i dati delle app nel cloud. Estrai [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-value-prop) oggi stesso.
+>
+
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
 
 La funzionalità App per dispositivi mobili del servizio app di Azure offre a integratori di sistemi e sviluppatori aziendali una piattaforma di sviluppo di applicazioni per dispositivi mobili con scalabilità elevata e disponibilità globale.
@@ -83,7 +88,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 Per iniziare a usare App per dispositivi mobili nel servizio app di Azure, completare l'[esercitazione introduttiva]. L'esercitazione illustra le nozioni di base della creazione di un back-end e un client per dispositivi mobili di propria scelta, nonché l'integrazione dell'autenticazione, della sincronizzazione offline e delle notifiche push. È possibile completare l'esercitazione più volte, una per ogni applicazione client.
 
 Per altre informazioni su App per dispositivi mobili, vedere la [mappa di apprendimento].
-Per altre informazioni sulla piattaforma Servizio app di Azure, vedere [Servizio app di Azure].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -99,10 +104,11 @@ Per altre informazioni sulla piattaforma Servizio app di Azure, vedere [Servizio
 [Xamarin.iOS, Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[scalabilità automatica]: ../app-service/web-sites-scale.md
+[scalabilità automatica]: ../app-service/manage-scale-up.md
 [ambienti di staging]: ../app-service/deploy-staging-slots.md
 [connessioni ibride]: ../biztalk-services/integration-hybrid-connection-overview.md
 [reti virtuali]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [ambienti del servizio app]: ../app-service/environment/intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[Servizio app di Azure]: ../app-service/overview.md

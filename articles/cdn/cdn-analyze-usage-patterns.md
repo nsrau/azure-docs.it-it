@@ -1,25 +1,25 @@
 ---
 title: Report principali da Verizon | Microsoft Docs
-description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, Dati trasferiti, Riscontri, Stati della cache, Percentuale riscontri cache, Dati trasferiti IPv4/IPv6.'
+description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, dati trasferiti, riscontri, stati della Cache, Cache Hit Ratio, IPV4 e IPV6 dati trasferiti.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162071"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594149"
 ---
 # <a name="core-reports-from-verizon"></a>Report principali da Verizon
 
@@ -86,10 +86,10 @@ Per ridurre i riscontri nella cache scaduti, impostare il valore `max-age` dell'
 ![Report stati della cache](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Gli stati della cache principali includono:
-* TCP_HIT: gestito dal server perimetrale. L'oggetto è stato nella cache e non ha superato la durata max.
-* TCP_MISS: gestito dal server di origine. L'oggetto non era presente nella cache e la risposta è stata inviata nuovamente all'origine.
-* TCP_EXPIRED _MISS: gestito dal server di origine dopo la riconvalida con l'origine. L'oggetto era nella cache, ma ha superato la durata max. Una riconvalida con l’origine ha causato la sostituzione dell'oggetto nella cache con una nuova risposta dall'origine.
-* TCP_EXPIRED _HIT: servito dall’Edge dopo la riconvalida con l’origine. L'oggetto era nella cache, ma ha superato la durata max. Una riconvalida con il server di origine ha causato la non modifica dell'oggetto nella cache.
+* TCP_HIT: Gestito dal server perimetrale. L'oggetto è stato nella cache e non ha superato la durata max.
+* TCP_MISS: Gestito dal server di origine. L'oggetto non era presente nella cache e la risposta è stata inviata nuovamente all'origine.
+* TCP_EXPIRED _ MISS: Servito dal server di origine dopo la riconvalida con l'origine. L'oggetto era nella cache, ma ha superato la durata max. Una riconvalida con l’origine ha causato la sostituzione dell'oggetto nella cache con una nuova risposta dall'origine.
+* TCP_EXPIRED _ HIT: Servito dall'Edge dopo la riconvalida con l'origine. L'oggetto era nella cache, ma ha superato la durata max. Una riconvalida con il server di origine ha causato la non modifica dell'oggetto nella cache.
 
 ### <a name="full-list-of-cache-statuses"></a>Elenco completo degli stati della cache
 * TCP_HIT: questo stato viene segnalato quando una richiesta viene gestita direttamente dal POP al client. Un asset viene servito immediatamente da un POP quando viene memorizzato nella cache nel POP più vicino al client e ha un valore TTL (time-to-live) valido. Il TTL viene determinato tramite le seguenti intestazioni di risposta:
@@ -97,16 +97,16 @@ Per ridurre i riscontri nella cache scaduti, impostare il valore `max-age` dell'
   * Cache-Control: s-maxage
   * Cache-Control: max-age
   * Expires
-* TCP_MISS: questo stato indica che una versione memorizzata nella cache dell’asset richiesto non è stata trovata nel POP vicino al client. La risorsa viene richiesta da un server di origine o da un server shield di origine. Se il server di origine o il server shield di origine restituiscono un asset, esso viene fornito al client e memorizzato nella cache sul client e sul server perimetrale. In caso contrario, viene restituito un codice di stato diverso da 200 (ad esempio, 403 - Accesso negato o 404 - Non trovato).
-* TCP_EXPIRED_HIT: questo stato viene segnalato quando una richiesta avente per destinazione un asset con un tempo TTL scaduto è stata servita direttamente dal POP al client. Ad esempio, quando la durata max. della risorsa è scaduta. 
+* TCP_MISS: Questo stato indica che una versione memorizzata nella cache dell'asset richiesto non è stata trovata nel POP vicino al client. La risorsa viene richiesta da un server di origine o da un server shield di origine. Se il server di origine o il server shield di origine restituiscono un asset, esso viene fornito al client e memorizzato nella cache sul client e sul server perimetrale. In caso contrario, viene restituito un codice di stato diverso da 200 (ad esempio, 403 - Accesso negato o 404 - Non trovato).
+* TCP_EXPIRED_HIT: Questo stato viene segnalato quando una richiesta avente per destinazione un asset con un tempo TTL scaduto è stata servita direttamente dal POP al client. Ad esempio, quando la durata max. della risorsa è scaduta. 
   
    Una richiesta scaduta in genere comporta una richiesta di riconvalida al server di origine. Affinché si verifichi un TCP_EXPIRED _HIT, il server di origine deve indicare che non esiste una versione più recente dell'asset. Questa situazione comporta in genere un aggiornamento delle intestazioni Cache-Control e Expires della risorsa.
-* TCP_EXPIRED_MISS: questo stato viene segnalato quando una versione più recente di un asset memorizzato nella cache scaduto viene servita dal POP al client. Ciò si verifica quando il valore TTL per un asset memorizzato nella cache è scaduto (ad esempio, durata max. scaduta) e il server di origine restituisce una versione più recente dell'asset. Questa nuova versione dell'asset viene servita al client al posto della versione memorizzata nella cache. Inoltre, viene memorizzata nel server perimetrale e nel client.
-* CONFIG_NOCACHE: questo stato indica che una configurazione specifici del cliente sul POP edge ha impedito la memorizzazione nella cache dell'asset.
+* TCP_EXPIRED_MISS: Questo stato viene segnalato quando una versione più recente di un asset memorizzato nella cache scaduto viene servita dal POP al client. Ciò si verifica quando il valore TTL per un asset memorizzato nella cache è scaduto (ad esempio, durata max. scaduta) e il server di origine restituisce una versione più recente dell'asset. Questa nuova versione dell'asset viene servita al client al posto della versione memorizzata nella cache. Inoltre, viene memorizzata nel server perimetrale e nel client.
+* CONFIG_NOCACHE: Questo stato indica che una configurazione specifica del cliente sul POP edge ha impedito l'asset viene memorizzato nella cache.
 * NONE: questo stato indica che un controllo dell’aggiornamento del contenuto della cache non è stato eseguito.
-* TCP_ CLIENT_REFRESH _MISS: questo stato viene segnalato quando un client HTTP (ad esempio un browser) forza un POP edge a recuperare una nuova versione di un asset non aggiornato dal server di origine. Per impostazione predefinita, i server impediscono a un client HTTP di forzare i server perimetrali per recuperare una nuova versione dell'asset dal server di origine.
-* TCP_PARTIAL_HIT: questo stato viene segnalato quando un richiesta di un intervallo di byte genera un riscontro per un asset parzialmente memorizzata nella cache. L'intervallo di byte richiesto viene immediatamente servito dal POP al client.
-* UNCACHEABLE: questo stato viene segnalato quando le intestazioni `Cache-Control` ed `Expires` di un asset indicano che non deve essere memorizzato nella cache in un POP o dal client HTTP. Questi tipi di richieste vengono gestiti dal server di origine.
+* TCP_CLIENT_REFRESH_MISS: Questo stato viene segnalato quando un client HTTP, ad esempio un browser, forza un POP edge a recuperare una nuova versione di un asset non aggiornato dal server di origine. Per impostazione predefinita, i server impediscono a un client HTTP di forzare i server perimetrali per recuperare una nuova versione dell'asset dal server di origine.
+* TCP_PARTIAL_HIT: Questo stato viene segnalato quando una richiesta di intervallo di byte genera un riscontro per un asset parzialmente memorizzata nella cache. L'intervallo di byte richiesto viene immediatamente servito dal POP al client.
+* UNCACHEABLE: Questo stato viene segnalato quando un asset `Cache-Control` e `Expires` intestazioni indicano che non deve essere memorizzato in un POP o da un client HTTP. Questi tipi di richieste vengono gestiti dal server di origine.
 
 ## <a name="cache-hit-ratio"></a>Percentuale riscontri cache
 Questo report indica la percentuale di richieste memorizzate nella cache che sono state servite direttamente dalla cache.
@@ -119,7 +119,7 @@ Il report fornisce i dettagli seguenti:
 
 Il report non include:
 
-* Richieste rifiutate a causa di opzioni di filtro di paese.
+* Richieste rifiutate a causa di opzioni di filtro di paese/regione.
 * Richieste di asset le cui intestazioni indicano che non devono essere memorizzate nella cache. Ad esempio, le intestazioni `Cache-Control: private`, `Cache-Control: no-cache` o `Pragma: no-cache` impediscono la memorizzazione nella cache di un asset.
 * Richieste di intervallo di byte di contenuti parzialmente memorizzati nella cache.
 

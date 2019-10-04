@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, .NET Core - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, .NET Core - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale con l'API REST di sintesi vocale. Il testo di esempio incluso in questa guida è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
@@ -7,21 +7,21 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 03/13/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a4c514cab274c395fbe3cbf0b2ff1cd9eb3d5134
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518848"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554020"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Avvio rapido: Eseguire la sintesi vocale con .NET Core
 
 In questa guida introduttiva, si apprenderà come eseguire la conversione di sintesi vocale usando l'API REST di sintesi vocale .NET Core. Il testo di esempio incluso in questa guida è strutturato come [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
-Questa Guida introduttiva richiede un [account di servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa dei servizi Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,7 +48,7 @@ Questa guida introduttiva richiede C# 7.1 o versione successiva. Esistono alcuni
 
 Aprire il progetto, quindi aprire `tts-sample.csproj`. Assicurarsi che `LangVersion` sia impostato su 7.1 o versione successiva. Se non esiste un gruppo di proprietà per la versione del linguaggio, aggiungere le righe seguenti:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Creare una classe per lo scambio di token
 
-L'API REST di sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio la chiave di sottoscrizione di servizi di riconoscimento vocale per un token di accesso tramite lo scambio di `issueToken` endpoint.
+L'API REST di sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione dei servizi Voce con un token di accesso usando l'endpoint `issueToken`.
 
-In questo esempio si presuppone che la sottoscrizione di servizi di riconoscimento vocale è nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `FetchTokenUri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione dei servizi Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `FetchTokenUri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -234,7 +234,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi .NET su GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)

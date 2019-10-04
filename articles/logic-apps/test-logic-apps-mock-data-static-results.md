@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65597204"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testare le App per la logica con dati fittizi configurando risultati statici
 
@@ -38,7 +38,7 @@ Ad esempio, se si configura posta elettronica azione di invio statici risultati 
 
 1. L'azione in cui si desidera configurare risultati statici, seguire questa procedura: 
 
-   1. Nell'angolo superiore destro dell'azione, scegliere i puntini di sospensione (*...* ) e selezionare **risultato statico**, ad esempio:
+   1. Nell'angolo superiore destro dell'azione, scegliere i puntini di sospensione ( *...* ) e selezionare **risultato statico**, ad esempio:
 
       ![Selezionare "Risultato statico" > "Abilita risultato statico"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -46,7 +46,7 @@ Ad esempio, se si configura posta elettronica azione di invio statici risultati 
 
       Ad esempio, ecco le proprietà necessarie per l'azione HTTP:
 
-      | Proprietà | DESCRIZIONE |
+      | Proprietà | Descrizione |
       |----------|-------------|
       | **Status** | Lo stato dell'azione da restituire |
       | **Codice di stato** | Il codice di stato specifici da restituire |
@@ -61,7 +61,7 @@ Ad esempio, se si configura posta elettronica azione di invio statici risultati 
 
       ![Selezionare le proprietà facoltative](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quando sei pronto a salvare, scegliere ****.
+1. Quando sei pronto a salvare, scegliere **Done**.
 
    Nell'angolo superiore destro dell'azione, la barra del titolo Mostra ora un'icona becher test (![icona per ottenere risultati statici](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), che indica che è stato abilitato risultati statici.
 
@@ -137,11 +137,9 @@ La disattivazione di risultati statici non genera eccezioni da subito i valori d
 
    ![Disabilitare i risultati statici](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Supporto
+## <a name="reference"></a>Riferimenti
 
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per altre informazioni su questa impostazione nelle definizioni di flusso di lavoro sottostante, vedere [risultati statici - riferimento allo Schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [runtimeConfiguration.staticResult - Runtime impostazioni di configurazione](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ef62ec78bc7fc01bd2e6dd7c5561b15be85540d2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65779930"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
 
@@ -29,7 +29,7 @@ Consultare le informazioni sulla copertura per il [**routing**](render-coverage.
 |--------------------|----------------------------------------|
 | ✓                  | Paese fornito con dati dettagliati.   |
 | Ø                  | Paese fornito con dati semplificati. |
-| Paese mancante | Dati del paese non specificati.          |
+| Paese mancante | I dati di paese/area geografica non sono disponibile.          |
 
 <br>  
 
@@ -76,7 +76,6 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Togo                           |        ✓       |                       |             |
 | Tunisia                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Sahara occidentale                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
@@ -113,15 +112,15 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Paraguay                       |        ✓       |                      |             |
 | Perù                           |        ✓       |         ✓            |             |
 | Saint Kitts e Nevis            |        ✓       |                      |             |
-| Saint Lucia                      |        ✓       |                      |             |
+| St. Lucia                      |        ✓       |                      |             |
 | Saint Vincent & Grenadine       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
 | Trinidad e Tobago              |        ✓       |                      |             |
 | Stati Uniti                  |        ✓       |         ✓            |     ✓      | 
-| + Isole Samoa americane                |        ✓       |                      |             |
-| + Isole Marianne Settentrionali      |        ✓       |                      |             |
+| \+ Isole Samoa americane                |        ✓       |                      |             |
+| \+ Isole Marianne Settentrionali      |        ✓       |                      |             |
 | +Portorico                   |        ✓       |                      |             |
-| + STATI UNITI Isole Vergini americane           |        ✓       |                      |             |
+| \+ STATI UNITI Isole Vergini americane           |        ✓       |                      |             |
 | Uruguay                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
@@ -131,7 +130,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Paese/Area geografica                 | Routing.         | Routing del traffico | Routing del veicolo |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australia                      |        ✓       |         ✓            |     ✓       |
-| + Isola Christmas              |        ✓       |                      |             |
+| \+ Isola Christmas              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Cambogia                       |        ✓       |                      |             |
 | Figi                           |        ✓       |                      |             |
@@ -168,15 +167,15 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Cipro                         |        ✓       |                      |             |
 | Repubblica ceca                 |        ✓       |         ✓            |     ✓      |
 | Danimarca                        |        ✓       |         ✓            |     ✓      |
-| + Isole Faroe                 |        ✓       |                      |             |
+| \+ Isole Faroe                 |        ✓       |                      |             |
 | Estonia                        |        ✓       |         ✓            |     ✓      |
 | Finlandia                        |        ✓       |         ✓            |     ✓      |
 | Francia                         |        ✓       |         ✓            |     ✓      | 
-| + Guadalupa                    |        ✓       |                      |             |
+| \+ Guadalupa                    |        ✓       |                      |             |
 | +Martinique                    |        ✓       |                      |             |
-| + Saint Barthélemy                |        ✓       |                      |             |
+| \+ Saint Barthélemy                |        ✓       |                      |             |
 | +St. Martin                    |        ✓       |                      |             |
-| + Saint Pierre e Miquelon         |        ✓       |                      |             |
+| \+ Saint Pierre e Miquelon         |        ✓       |                      |             |
 | Georgia                        |        ✓       |                      |             |
 | Germania                        |        ✓       |         ✓            |     ✓      | 
 | Grecia                         |        ✓       |         ✓            |     ✓      |  
@@ -197,16 +196,16 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Paesi Bassi                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
-| + Paesi Bassi Caraibi         |        ✓       |                      |             |
+| \+ Paesi Bassi Caraibi         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Maarten Saint                  |        ✓       |                      |             |
+| \+ Sint Maarten                  |        ✓       |                      |             |
 | Norvegia                         |        ✓       |         ✓            |     ✓      | 
 | Polonia                         |        ✓       |         ✓            |     ✓      | 
 | Portogallo                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Federazione russa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + Maarten Saint                  |        ✓       |                      |             |
+| \+ Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovacchia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
@@ -218,11 +217,11 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Regno Unito                 |        ✓       |         ✓            |     ✓      | 
 | +Anguilla                      |        ✓       |                      |             |
 | +Bermuda                       |        ✓       |                      |             |
-| + Le Isole Vergini britanniche        |        ✓       |                      |             |
-| + Isole Cayman                |        ✓       |                      |             |
-| +Gibilterra                      |        ✓       |         ✓            |             | 
+| \+ Le Isole Vergini britanniche        |        ✓       |                      |             |
+| \+ Isole Cayman                |        ✓       |                      |             |
+| +Gibilterra                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Isole Turks e Caicos isole        |        ✓       |                      |             |
+| \+ Isole Turks e Caicos      |        ✓       |                      |             |
 | Città del Vaticano                   |        ✓       |         ✓            |             |
 | Isola di Man                    |        ✓       |                      |             |
 

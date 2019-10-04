@@ -3,8 +3,8 @@ title: Come vengono visualizzate le applicazioni nel pannello di accesso | Micro
 description: Risolvere i problemi relativi alla visualizzazione di un'applicazione nel panello di accesso
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784421"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Come vengono visualizzate le applicazioni nel pannello di accesso
 

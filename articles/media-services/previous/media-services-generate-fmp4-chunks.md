@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463849"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Creare un'attività di codifica che genera blocchi fMP4
 
@@ -34,7 +34,7 @@ Questo articolo illustra come creare un'attività di codifica che genera blocchi
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore **Media Encoder Standard**.

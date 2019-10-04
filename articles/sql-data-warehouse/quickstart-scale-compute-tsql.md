@@ -2,20 +2,20 @@
 title: 'Guida introduttiva: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - T-SQL | Microsoft Docs'
 description: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL e SQL Server Management Studio (SSMS), aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9a2a11c2263500970e2f4294dd5d3711a57be349
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460346"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574570"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Guida introduttiva: Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL
 
@@ -92,7 +92,7 @@ Per modificare le unità Data Warehouse:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

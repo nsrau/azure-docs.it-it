@@ -1,23 +1,23 @@
 ---
 title: Creare un account di archiviazione di Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Informazioni su come creare rapidamente un nuovo account di archiviazione con accesso a Data Lake Storage Gen2 usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure
-services: storage
-author: jamesbak
+description: Informazioni su come creare rapidamente un nuovo account di archiviazione con accesso a Data Lake Storage Gen2 usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 08/19/2019
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 2063dd22e3253b0707f6920f3a5c0c7a6bb01126
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456007"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992311"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 [supporta un servizio spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un contenitore nativo basato su directory personalizzato per l'uso con HDFS (Hadoop Distributed File System). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
 
 Questa guida introduttiva illustra come creare un account tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 |           | Prerequisito |
 |-----------|--------------|
 |Portale     | Nessuno         |
-|PowerShell | Per questa guida introduttiva è richiesto il modulo PowerShell Az.Storage versione **0.7** o successiva. Eseguire il comando `Get-Module -ListAvailable Az.Storage` per trovare la versione corrente. Se dopo aver eseguito questo comando non vengono visualizzati risultati o se viene indicata una versione diversa dalla **0.7**, è necessario aggiornare il modulo di PowerShell. Vedere la sezione [Aggiornare il modulo di PowerShell](#upgrade-your-powershell-module) della guida.
+|PowerShell | Per questa guida introduttiva è richiesto il modulo PowerShell Az.Storage versione **0.7** o successiva. Eseguire il comando `Get-Module -ListAvailable Az.Storage` per trovare la versione corrente. Se dopo aver eseguito questo comando non vengono visualizzati risultati o se viene indicata una versione inferiore alla **0.7**, è necessario aggiornare il modulo di PowerShell. Vedere la sezione [Aggiornare il modulo di PowerShell](#upgrade-your-powershell-module) della guida.
 |CLI        | È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti: <ul><li>È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell </li><li>È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale</li></ul>|
 
 Quando si usa la riga di comando, è possibile scegliere se eseguire Azure Cloud Shell o installare l'interfaccia della riga di comando in locale.
@@ -63,7 +63,7 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Creare un account usando il portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -105,7 +105,7 @@ L'account di archiviazione viene ora creato tramite il portale.
 Per rimuovere un gruppo di risorse usando il portale di Azure:
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Gruppi di risorse** per visualizzare l'elenco dei gruppi di risorse.
-2. Individuare il gruppo di risorse da eliminare e fare clic con il pulsante destro del mouse su **Altro** (**...**) a destra dell'elenco.
+2. Individuare il gruppo di risorse da eliminare e fare clic con il pulsante destro del mouse su **Altro** ( **...** ) a destra dell'elenco.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 
 ## <a name="create-an-account-using-powershell"></a>Creare un account con PowerShell
@@ -125,10 +125,10 @@ Iniziare aprendo una sessione di PowerShell con autorizzazioni elevate.
 Installare il modulo Az.Storage
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
 Usare il comando `Login-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
 

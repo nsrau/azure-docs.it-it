@@ -2,24 +2,18 @@
 title: Requisiti in base al tipo di inserzione| Azure
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per i partner che vogliono comprendere come pubblicare le app in Microsoft Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937884"
 ---
 # <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione  
 I requisiti tecnici e quelli relativi al contenuto di marketing variano in base alla vetrina, al tipo di offerta e al tipo di inserzione. Rivedere le specifiche seguenti per verificare la conformità.  

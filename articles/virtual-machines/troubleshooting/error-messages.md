@@ -4,7 +4,7 @@ description: Informazioni su alcuni codici di errore comuni che si possono risco
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437599"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695319"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
 

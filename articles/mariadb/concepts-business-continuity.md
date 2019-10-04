@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61043017"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Panoramica della continuità aziendale con Database di Azure per MariaDB
 

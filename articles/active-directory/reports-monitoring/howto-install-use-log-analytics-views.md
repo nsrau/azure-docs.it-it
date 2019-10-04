@@ -1,9 +1,9 @@
 ---
-title: Come installare e usare le viste di log analitica per Azure Active Directory | Microsoft Docs
-description: Informazioni su come installare e usare le viste di log analitica per Azure Active Directory
+title: Come installare e usare le visualizzazioni di log Analytics per Azure Active Directory | Microsoft Docs
+description: Informazioni su come installare e usare le visualizzazioni di log Analytics per Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a5d9539d254eb7d52e3277691c9d8ff5a41821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286779"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989780"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di analisi dei log per Azure Active Directory
 
@@ -51,7 +51,7 @@ Per usare le viste di analisi dei log, è necessario:
 
 2. Nell'area di lavoro selezionare **Riepilogo dell'area di lavoro**. Dovrebbero essere visualizzate le tre viste seguenti:
 
-    * **Azure AD Account Provisioning Events (Eventi di provisioning degli account di Azure AD)**: questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
+    * **Azure AD Account Provisioning Events (Eventi di provisioning degli account di Azure AD)** : questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
     * **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
 
 3. Selezionare una di queste viste per passare ai singoli report. È anche possibile impostare avvisi per qualsiasi parametro dei report. Ad esempio, di seguito viene descritto come impostare un avviso per ogni errore di accesso. Selezionare prima di tutto la vista **Sign-ins Events** (Eventi di accesso), selezionare il report **Sign-in errors over time** (Errori di accesso nel tempo) e quindi selezionare **Analytics** (Analisi) per aprire la pagina dei dettagli con la query effettiva associata al report. 

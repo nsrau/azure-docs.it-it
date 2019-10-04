@@ -9,21 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793952"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073426"
 ---
-# <a name="what-is-api-management"></a>Informazioni su Gestione API
+# <a name="about-api-management"></a>Informazioni su Gestione API
 
-Gestione API consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Le aziende di tutto il mondo avvertono l'esigenza di estendere le proprie attività come piattaforma digitale, creando nuovi canali, trovando nuovi clienti e stimolando un coinvolgimento maggiore con quelli esistenti. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. È possibile usare Gestione API di Azure per avviare un programma API completo basato su qualsiasi back-end.
+Gestione API consente di creare rapidamente gateway API coerenti e moderni per servizi back-end esistenti.
+
+Gestione API consente alle organizzazioni di pubblicare API per consentire a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei rispettivi dati e servizi. Le aziende di tutto il mondo avvertono l'esigenza di estendere le proprie attività come piattaforma digitale, creando nuovi canali, trovando nuovi clienti e stimolando un coinvolgimento maggiore con quelli esistenti. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. È possibile usare Gestione API di Azure per avviare un programma API completo basato su qualsiasi back-end.
 
 Questo articolo offre una panoramica degli scenari comuni correlati a Gestione API.  Viene fornita anche una breve panoramica dei componenti principali del sistema di Gestione API. Infine, ogni componente viene analizzato più in dettaglio.
 
@@ -92,7 +93,7 @@ Oltre a questi gruppi di sistema, gli amministratori possono creare gruppi perso
 Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].
 
 ## <a name="developers"></a> Sviluppatori
-Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [portale per sviluppatori][Developer portal]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
+Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [Portale per sviluppatori][Developer portal]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
 
 Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene concessa loro la chiave primaria e secondaria per il prodotto. Questa chiave viene usata per effettuare le chiamate alle API del prodotto.
 

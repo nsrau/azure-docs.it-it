@@ -3,23 +3,22 @@ title: Usare PowerShell per caricare il Centro sicurezza di Azure e proteggere l
 description: Questo documento fornisce indicazioni dettagliate sul processo di onboarding del Centro sicurezza di Azure tramite i cmdlet di PowerShell.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 73043680ea7b8b63a329d0a457449b635b7b80f2
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 10/02/2018
+ms.author: memildin
+ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223751"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201215"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -98,10 +97,10 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su come usare PowerShell per automatizzare l'onboarding nel Centro sicurezza, vedere l'articolo seguente:
 
-* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md).
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
 
 Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 

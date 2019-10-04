@@ -2,21 +2,19 @@
 title: Competenza Unione del testo della ricerca cognitiva - Ricerca di Azure
 description: Unire testo da una raccolta di campi in un unico campo consolidato. Usare questa competenza cognitiva in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568891"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265265"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
@@ -32,7 +30,7 @@ Microsoft.Skills.Text.MergeSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | insertPreTag  | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
 | insertPostTag | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
@@ -78,7 +76,7 @@ Questo esempio mostra l'output dell'input precedente assumendo che *insertPreTag
 
 Uno scenario comune per l'uso di unione testi è quello di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento. 
 
-Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {
@@ -143,7 +141,7 @@ Nell'esempio precedente si suppone l'esistenza di un campo di immagini normalizz
 }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

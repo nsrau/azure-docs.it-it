@@ -1,19 +1,18 @@
 ---
 title: Come creare una condivisione file di Azure | Microsoft Docs
 description: Come creare una condivisione file di Azure in File di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
-services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772331"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013570"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 Per creare condivisioni file di Azure, è possibile usare il  [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
@@ -42,24 +41,25 @@ Per creare una condivisione file di Azure, è possibile usare un account di arch
 
 
 ## <a name="create-file-share-through-powershell"></a>Creare la condivisione file tramite PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) per le istruzioni relative al punto di installazione e all'installazione.
+Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) per le istruzioni relative al punto di installazione e all'installazione.
 
 > [!Note]  
 > Si consiglia di scaricare e installare oppure aggiornare il modulo alla versione di Azure PowerShell più recente.
 
-1. **Creare un contesto per l'account di archiviazione e la chiave** Il contesto incapsula il nome dell'account di archiviazione e la chiave dell'account. Per istruzioni sulla copia della chiave dell'account dal  [portale di Azure](https://portal.azure.com/), vedere  [Chiavi di accesso all'account di archiviazione](../common/storage-account-manage.md#access-keys).
+1. **Creare un nuovo account di archiviazione:** Un account di archiviazione è un pool condiviso di spazio di archiviazione in cui è possibile distribuire condivisioni file di Azure e altre risorse di archiviazione, ad esempio BLOB o code.
 
-    ```powershell
-    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
+    ```PowerShell
+    $resourceGroup = "myresourcegroup"
+    $storAcctName = "myuniquestorageaccount"
+    $region = "westus2"
+    $storAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storAcctName -SkuName Standard_LRS -Location $region -Kind StorageV2
     ```
-    
+
 2. **Creare una nuova condivisione file**:    
     
     ```powershell
-    $share = New-AzStorageShare logs -Context $storageContext
+    $shareName = "myshare"
+    $share = New-AzStorageShare -Context $storAcct.Context -Name $shareName
     ```
 
 > [!Note]  
@@ -73,7 +73,7 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
     Sostituire  ```<storage-account>``` e ```<resource_group>``` con il nome e il gruppo di risorse dell'account di archiviazione nell'esempio seguente:
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."
@@ -82,7 +82,7 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 
 3. **Creare la condivisione file**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

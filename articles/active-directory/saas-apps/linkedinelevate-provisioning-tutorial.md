@@ -3,9 +3,8 @@ title: 'Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti a
 description: Informazioni su come configurare Azure Active Directory per eseguire automaticamente il provisioning e il deprovisioning degli account utente in LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95fae67d3e7fd97cf4be1642f41b64a07fd0145
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: adefb0c88e88a8bfb4b896c0788654e478ff4555
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65963697"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti automatico
 

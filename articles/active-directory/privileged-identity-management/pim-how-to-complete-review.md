@@ -1,9 +1,9 @@
 ---
-title: Completare una verifica di accesso per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
-description: Informazioni su come completare una verifica di accesso per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
+title: Completare una verifica di accesso dei ruoli Azure AD in PIM-Azure Active Directory | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso dei ruoli Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/06/2017
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e50ccc208219896e89bcc80f40c846f69c759f9b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288298"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804411"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Completare una verifica di accesso per i ruoli di Azure AD in PIM
-Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Completare una verifica di accesso dei ruoli Azure AD in PIM
+Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) invierà automaticamente un messaggio di posta elettronica che richiede agli utenti di verificarne l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
 
 Trascorso il periodo della verifica di accesso o al termine della verifica automatica di tutti gli utenti, seguire la procedura descritta in questo articolo per gestire la verifica e visualizzare i risultati.
 
@@ -33,7 +33,7 @@ Trascorso il periodo della verifica di accesso o al termine della verifica autom
 
 Nel pannello dei dettagli della verifica di accesso sono disponibili alcune opzioni per la gestione della verifica.
 
-![Schermata dei pulsanti di verifica dell'accesso PIM](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![Schermata dei pulsanti di verifica dell'accesso PIM](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Promemoria
 Se una verifica di accesso è stata impostata in modo che gli utenti verifichino se stessi, il pulsante **Promemoria** invia una notifica. 
@@ -55,5 +55,5 @@ Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avviare una verifica di accesso per i ruoli di Azure AD in PIM](pim-how-to-start-security-review.md)
-- [Eseguire una verifica di accesso dei ruoli personali AD Azure in PIM](pim-how-to-perform-security-review.md)
+- [Avviare una verifica di accesso per i ruoli Azure AD in PIM](pim-how-to-start-security-review.md)
+- [Eseguire una verifica di accesso dei ruoli di Azure AD in PIM](pim-how-to-perform-security-review.md)

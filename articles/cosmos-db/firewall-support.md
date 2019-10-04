@@ -4,14 +4,14 @@ description: Informazioni su come proteggere i dati di Azure Cosmos DB usando i 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
-ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241088"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall IP in Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Per riepilogare, è sempre necessario un token di autorizzazione per accedere a 
 
 * [Come configurare il firewall IP per l'account Azure Cosmos](how-to-configure-firewall.md)
 * [Accedere alle risorse di Azure Cosmos DB dalle reti virtuali](vnet-service-endpoint.md)
-* [Per configurare l'endpoint del servizio della rete virtuale per l'account Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
+* [Per configurare l'endpoint servizio di rete virtuale per l'account Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
 
 
 

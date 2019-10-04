@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Python"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con Python.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1ac4a2ce5027606706367b43eea759fb953994c6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 36d4035913b8e9b7c3e4a12fa208608ffa55151e
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876863"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500679"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Python
 
@@ -193,6 +193,6 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Creare un'app Web a pagina singola](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Informazioni sull'API Ricerca video Bing](../overview.md)

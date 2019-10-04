@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797568"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782600"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Eseguire il failover e riproteggere le VM di Azure tra aree
 
-Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
-
-Questa esercitazione illustra come eseguire il failover di una VM di Azure in un'area di Azure secondaria. Dopo aver eseguito il failover, si riproteggerà la VM. In questa esercitazione si apprenderà come:
+Questa esercitazione descrive come effettuare il failover di una macchina virtuale di Azure (VM) in un'area di Azure secondaria con il servizio [Azure Site Recovery](site-recovery-overview.md). Dopo aver eseguito il failover, si riproteggerà la VM. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Eseguire il failover della macchina virtuale di Azure
@@ -29,8 +27,10 @@ Questa esercitazione illustra come eseguire il failover di una VM di Azure in un
 > [!NOTE]
 > Questa esercitazione contiene il percorso più semplice, con impostazioni predefinite e personalizzazione minima. Per scenari più complessi, usare gli articoli sulle procedure per le VM di Azure.
 
+
 ## <a name="prerequisites"></a>Prerequisiti
 
+- Prima di iniziare vedere [le domande frequenti](site-recovery-faq.md#failover) sul failover.
 - Assicurarsi di avere completato un'[analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per verificare che tutto funzioni come previsto.
 - Verificare le proprietà della macchina virtuale prima di eseguire il failover di test. La macchina virtuale deve essere conforme ai [requisiti di Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
@@ -46,7 +46,7 @@ Questa esercitazione illustra come eseguire il failover di una VM di Azure in un
    * **Elaborato più recente**: ripristina la macchina virtuale all'ultimo punto di ripristino che è stato elaborato dal servizio Site Recovery.
    * **Personalizzato**: consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
 
-3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Site Recovery non esegue la pulizia dell'origine dopo il failover.
+3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. L'arresto del sistema consente di evitare perdite di dati. Il failover continua anche se l'arresto ha esito negativo. Site Recovery non esegue la pulizia dell'origine dopo il failover.
 
 4. Nella pagina **Processi** è possibile seguire lo stato di avanzamento del failover.
 
@@ -54,6 +54,11 @@ Questa esercitazione illustra come eseguire il failover di una VM di Azure in un
 
 6. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover.
    Questa operazione elimina tutti i punti di ripristino disponibili con il servizio. Non sarà possibile modificare il punto di ripristino.
+
+> [!NOTE]
+> Quando si effettua il failover di una macchina virtuale a cui si aggiunge un disco, i punti di replica visualizzeranno i dischi disponibili per il ripristino dopo aver abilitato la replica per la macchina virtuale. Ad esempio, se una macchina virtuale ha un singolo disco e ne viene aggiunto uno nuovo, i punti di replica creati prima di aggiungerlo mostreranno che il punto di replica è costituito da "1 di 2 dischi".
+
+![Effettuare il failover con un disco aggiunto](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Riproteggere la macchina virtuale secondaria
 
@@ -69,5 +74,5 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 4. Fare clic su **OK** per avviare un processo di riprotezione. Con questo processo il sito di destinazione viene aggiornato con i dati più recenti e i valori delta vengono replicati nell'area primaria. La macchina virtuale si trova ora in uno stato protetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Dopo la riprotezione, vedere come [eseguire il failback](azure-to-azure-tutorial-failback.md) nell'area primaria quando torna disponibile.
+- Dopo la riprotezione, [vedere come](azure-to-azure-tutorial-failback.md) eseguire il failback nell'area primaria quando torna disponibile.
 - [Altre informazioni](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) sul flusso di riprotezione.

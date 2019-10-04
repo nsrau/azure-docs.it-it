@@ -3,7 +3,7 @@ title: Aggiungere l'autenticazione in Apache Cordova con App per dispositivi mob
 description: Informazioni su come usare App per dispositivi mobili nel servizio app di Azure per autenticare gli utenti dell'app Apache Cordova tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b0634038dbf5771ac1aa0bc00d007e758171b238
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27591947"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443498"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Aggiungere l'autenticazione all'app Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="summary"></a>Summary
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-users) oggi stesso.
+>
+
+## <a name="summary"></a>Riepilogo
 Questa esercitazione consente di aggiungere l'autenticazione al progetto introduttivo TodoList in Apache Cordova tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [Introduzione alle app per dispositivi mobili] , che deve essere completata per prima.
 
 ## <a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
@@ -60,7 +64,7 @@ A questo punto, aggiornare l'app per autenticare gli utenti prima di richiedere 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Sostituire `https://login.microsoftonline.com` con l'host di OAuth indicato nella tabella precedente.  Per altre informazioni sul metatag content-security-policy, vedere la [documentazione su Content-Security-Policy].
+    Sostituire `https://login.microsoftonline.com` con l'host di OAuth indicato nella tabella precedente.  Per altre informazioni sul metatag content-security-policy, vedere la [documentazione relativa a Content-Security-Policy].
 
     Alcuni provider di autenticazione non richiedono modifiche a Content-Security-Policy quando viene usato in dispositivi mobili appropriati.  Ad esempio, non sono richieste modifiche a Content-Security-Policy quando si usa l'autenticazione di Google in un dispositivo Android.
 
@@ -105,7 +109,7 @@ Informazioni su come usare gli SDK.
 
 <!-- URLs. -->
 [Introduzione alle app per dispositivi mobili]: app-service-mobile-cordova-get-started.md
-[documentazione su Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
+[documentazione relativa a Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notifiche Push]: app-service-mobile-cordova-get-started-push.md
 [Autenticazione e autorizzazione]: app-service-mobile-auth.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md

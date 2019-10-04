@@ -3,9 +3,8 @@ title: Migliorare il comportamento di sicurezza con il Centro sicurezza di Azure
 description: Questo articolo illustra come migliorare il comportamento di sicurezza tramite il monitoraggio delle risorse nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: memildin
+ms.openlocfilehash: b7bb67ec052244689b2775c280ff39a2121da3fa
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112258"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201689"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Migliorare il comportamento di sicurezza con il Centro sicurezza di Azure
 Questo articolo fornisce informazioni utili per migliorare il comportamento di sicurezza. Descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare che la sicurezza delle risorse sia elevata e monitorare la conformità ai criteri.
@@ -46,7 +45,7 @@ Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo 
 
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): Informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.

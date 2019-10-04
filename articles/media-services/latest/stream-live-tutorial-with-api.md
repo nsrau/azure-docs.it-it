@@ -1,6 +1,6 @@
 ---
-title: Streaming live con Servizi multimediali di Azure v3 usando .NET | Microsoft Docs
-description: Questa esercitazione illustra i passaggi per lo streaming live con Servizi multimediali v3 usando .NET Core.
+title: Streaming live con Servizi multimediali di Azure v3 | Microsoft Docs
+description: Questa esercitazione illustra i passaggi per lo streaming live con Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69bd62cb9bbe44fb37b3f3660c2f20f3965384e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863764"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051586"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando .NET
-
-In Servizi multimediali di Azure le entità [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità evento live fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità evento live riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming con uno o più [Endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Gli eventi live forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
+# <a name="tutorial-stream-live-with-media-services"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali
 
 > [!NOTE]
-> Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
+
+In Servizi multimediali di Azure le entità [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità evento live fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità evento live riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming con uno o più [Endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Gli eventi live forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
 
 L'esercitazione illustra come:    
 
@@ -47,6 +47,9 @@ Per completare l'esercitazione è necessario quanto segue.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 - Una fotocamera o un dispositivo (ad esempio un laptop) usato per trasmettere un evento.
 - Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live Servizi multimediali. Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
+
+> [!TIP]
+> Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
 
 ## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
@@ -88,7 +91,8 @@ Alcune caratteristiche che è possibile specificare durante la creazione dell'ev
 * Account di Servizi multimediali 
 * Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
-* Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere la sezione [Stati e fatturazione dell'evento live](live-event-states-billing.md).
+* Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
+* Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito". Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
@@ -160,10 +164,6 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
-Il codice seguente mostra come pulire l'account da tutti gli eventi live:
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
-
 ## <a name="watch-the-event"></a>Guardare l'evento
 
 Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming e usare un lettore a scelta. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo https://ampdemo.azureedge.net. 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > Lasciare l'evento live in esecuzione comporta costi di fatturazione. Tenere presente, in caso di arresto anomalo o chiusura del programma/progetto, che l'evento live potrebbe rimanere in esecuzione in stato di fatturazione.
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

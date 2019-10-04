@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
 ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788733"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61082813"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna
 La sicurezza a livello di colonna (CLS) consente ai clienti di controllare l'accesso alle colonne della tabella del database in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente.
@@ -76,7 +76,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="use-cases"></a>Casi di utilizzo
+## <a name="use-cases"></a>Casi d'uso
 Alcuni esempi di come viene usato CLS:
 - Una società di servizi finanziari consente solo agli account manager di accedere ai numeri di previdenza sociale (SSN), ai numeri di telefono e ad altre informazioni personali (PII).
 - Un fornitore di assistenza sanitaria consente solo a medici e infermieri di avere accesso a cartelle cliniche sensibili mentre non consente ai membri del reparto contabilità di visualizzare questi dati.

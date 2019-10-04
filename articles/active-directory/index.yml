@@ -1,0 +1,264 @@
+### YamlMime:Hub
+title: Documentazione di Azure Active Directory
+summary: Azure Active Directory (Azure AD) è un servizio di gestione di identità e accesso multitenant e basato sul cloud.
+brand: azure
+metadata:
+  title: Documentazione di Azure Active Directory
+  description: Azure Active Directory (Azure AD) è il servizio directory e di gestione delle identità basato sul cloud multi-tenant di Microsoft, che combina i principali servizi directory, la gestione dell'accesso alle applicazioni e la protezione delle identità in un'unica soluzione.
+  ms.service: active-directory
+  ms.topic: hub-page
+  ms.collection: M365-identity-device-management
+  author: mtillman
+  ms.author: mtillman
+  manager: daveba
+  ms.date: 07/27/2019
+  ms.openlocfilehash: f3e8495671b56eda804e33b78667cf75cc2f8e70
+  ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 07/29/2019
+  ms.locfileid: "68607636"
+highlightedContent:
+  items:
+  - title: Informazioni su Azure AD
+    itemType: overview
+    url: ./fundamentals/active-directory-whatis.md
+  - title: Novità di Azure AD
+    itemType: whats-new
+    url: ./fundamentals/whats-new.md
+  - title: Assegnare ruoli agli utenti
+    itemType: how-to-guide
+    url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
+  - title: Creare un gruppo e aggiungere membri
+    itemType: how-to-guide
+    url: ./fundamentals/add-users-azure-active-directory.md
+  - title: Elenco di controllo per la distribuzione di Azure AD
+    itemType: concept
+    url: ./fundamentals/active-directory-deployment-checklist-p2.md
+  - title: Aggiungere una sottoscrizione al tenant
+    itemType: how-to-guide
+    url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+conceptualContent:
+  items:
+  - title: Gestione delle applicazioni
+    links:
+    - url: ./manage-apps/what-is-single-sign-on.md
+      itemType: concept
+      text: Informazioni sull'accesso Single Sign-On (SSO)
+    - url: ./manage-apps/user-provisioning.md
+      itemType: tutorial
+      text: Provisioning utenti automatico
+    - url: ./manage-apps/application-proxy.md
+      itemType: concept
+      text: Proxy dell'applicazione per app locali
+    footerLink:
+      url: ./manage-apps/index.yml
+      text: Altro
+  - title: Authentication
+    links:
+    - url: ./authentication/concept-mfa-howitworks.md
+      itemType: concept
+      text: 'Come funziona: Azure MFA'
+    - url: ./authentication/concept-sspr-howitworks.md
+      itemType: concept
+      text: reimpostazione self-service della password di Azure AD
+    - url: ./authentication/concept-password-ban-bad.md
+      itemType: concept
+      text: Protezione delle password di Azure AD
+    footerLink:
+      url: ./authentication/index.yml
+      text: Altro
+  - title: Business-to-Business (B2B)
+    links:
+    - url: ./b2b/what-is-b2b.md
+      itemType: overview
+      text: Informazioni su Azure AD B2B
+    - url: ./b2b/add-users-administrator.md
+      itemType: how-to-guide
+      text: Aggiungere utenti guest nel portale
+    - url: ./b2b/o365-external-user.md
+      itemType: concept
+      text: Condivisione di Office 365 e B2B
+    footerLink:
+      url: ./b2b/index.yml
+      text: Altro
+  - title: Business-to-Customer (B2C)
+    links:
+    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+      itemType: overview
+      text: Informazioni su Azure AD B2C
+    - url: ../active-directory-b2c/tutorial-create-tenant.md
+      itemType: tutorial
+      text: Creare un tenant di Azure AD B2C
+    - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
+      itemType: how-to-guide
+      text: Criteri personalizzati in AAD B2C
+    footerLink:
+      url: ../active-directory-b2c/index.yml
+      text: Altro
+  - title: Accesso condizionale
+    links:
+    - url: ./conditional-access/overview.md
+      itemType: overview
+      text: Informazioni sull'accesso condizionale
+    - url: ./conditional-access/app-based-mfa.md
+      itemType: quickstart
+      text: Richiedere MFA per app specifiche
+    - url: ./conditional-access/location-condition.md
+      itemType: concept
+      text: Condizioni basate sulla posizione
+    footerLink:
+      url: ./conditional-access/index.yml
+      text: Altro
+  - title: Sviluppatori
+    links:
+    - url: ./develop/about-microsoft-identity-platform.md
+      itemType: overview
+      text: Microsoft Identity Platform
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: Concessione del flusso del codice OAuth 2.0
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Registrare un'app con Microsoft Identity Platform
+    footerLink:
+      url: ./develop/index.yml
+      text: Altro
+  - title: Gestione dei dispositivi
+    links:
+    - url: ./devices/overview.md
+      itemType: overview
+      text: Informazioni sulla gestione dei dispositivi
+    - url: ./devices/hybrid-azuread-join-plan.md
+      itemType: how-to-guide
+      text: Pianificare un'aggiunta ad Azure AD ibrido
+    - url: ./devices/azureadjoin-plan.md
+      itemType: how-to-guide
+      text: Pianificare un'aggiunta ad Azure AD
+    footerLink:
+      url: ./devices/index.yml
+      text: Altro
+  - title: Servizi di dominio
+    links:
+    - url: ../active-directory-domain-services/active-directory-ds-overview.md
+      itemType: overview
+      text: Informazioni su Azure AD Domain Services
+    - url: ../active-directory-domain-services/active-directory-ds-getting-started.md
+      itemType: quickstart
+      text: Abilitare Azure Active Directory Domain Services
+    - url: ../active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md
+      itemType: how-to-guide
+      text: Amministrare criteri di gruppo
+    footerLink:
+      url: ../active-directory-domain-services/index.yml
+      text: Altro
+  - title: Utenti Enterprise
+    links:
+    - url: ./users-groups-roles/groups-create-rule.md
+      itemType: how-to-guide
+      text: Creare un gruppo dinamico
+    - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+      itemType: how-to-guide
+      text: PowerShell per gruppi di Azure AD
+    - url: ./users-groups-roles/directory-service-limits-restrictions.md
+      itemType: reference
+      text: Restrizioni e limiti del servizio Azure AD
+    footerLink:
+      url: ./users-groups-roles/index.yml
+      text: Altro
+  - title: Identità ibrida
+    links:
+    - url: ./hybrid/whatis-hybrid-identity.md
+      itemType: overview
+      text: Informazioni sull'identità ibrida
+    - url: ./hybrid/how-to-connect-sso.md
+      itemType: how-to-guide
+      text: Single Sign-On con Azure AD Connect
+    - url: ./hybrid/how-to-connect-install-custom.md
+      itemType: how-to-guide
+      text: Installazione personalizzata di Azure AD Connect
+    footerLink:
+      url: ./hybrid/index.yml
+      text: Altro
+  - title: Identity Governance
+    links:
+    - url: ./governance/create-access-review.md
+      itemType: how-to-guide
+      text: Creare una verifica di accesso
+    - url: ./governance/perform-access-review.md
+      itemType: how-to-guide
+      text: Avviare una verifica dell'accesso
+    - url: ./conditional-access/terms-of-use.md
+      itemType: how-to-guide
+      text: Richiedere le condizioni per l'utilizzo
+    footerLink:
+      url: ./governance/index.yml
+      text: Altro
+  - title: Identity Protection
+    links:
+    - url: ./identity-protection/overview.md
+      itemType: overview
+      text: Informazioni su Identity Protection
+    - url: ./identity-protection/quickstart-sign-in-risk-policy.md
+      itemType: quickstart
+      text: Bloccare l'accesso quando viene rilevato un rischio nella sessione
+    - url: ./identity-protection/howto-unblock-user.md
+      itemType: how-to-guide
+      text: Come sbloccare gli utenti
+    footerLink:
+      url: ./identity-protection/index.yml
+      text: Altro
+  - title: Identità gestite per le risorse di Azure
+    links:
+    - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
+      itemType: tutorial
+      text: Usare una macchina virtuale Windows per accedere ad Azure SQL
+    - url: ./managed-identities-azure-resources/how-to-use-vm-token.md
+      itemType: how-to-guide
+      text: Usare una VM di Azure per l'acquisizione di token
+    - url: ./managed-identities-azure-resources/services-support-managed-identities.md
+      itemType: concept
+      text: Servizi che supportano l'identità gestita
+    footerLink:
+      url: ./managed-identities-azure-resources/index.yml
+      text: Altro
+  - title: Privileged identity management (PIM)
+    links:
+    - url: ./privileged-identity-management/pim-getting-started.md
+      itemType: how-to-guide
+      text: Iniziare a usare PIM
+    - url: ./privileged-identity-management/pim-how-to-activate-role.md
+      itemType: how-to-guide
+      text: Attivare i ruoli della directory
+    - url: ./privileged-identity-management/pim-how-to-add-role-to-user.md
+      itemType: how-to-guide
+      text: Assegnare ruoli della directory
+    footerLink:
+      url: ./privileged-identity-management/index.yml
+      text: Altro
+  - title: Report e monitoraggio
+    links:
+    - url: ./reports-monitoring/concept-audit-logs.md
+      itemType: concept
+      text: Log di controllo
+    - url: ./reports-monitoring/concept-sign-ins.md
+      itemType: concept
+      text: Log di accesso
+    - url: ./reports-monitoring/reference-sign-ins-error-codes.md
+      itemType: reference
+      text: Informazioni di riferimento per i codici errore di accesso
+    footerLink:
+      url: ./reports-monitoring/index.yml
+      text: Altro
+additionalContent:
+  sections:
+  - items:
+    - title: Microsoft 365
+      summary: Esplorare Microsoft 365, una soluzione completa che include Azure AD.
+      url: https://docs.microsoft.com/microsoft-365/
+    - title: Azure AD PowerShell
+      summary: Informazioni su come installare e usare il modulo Azure AD PowerShell.
+      url: https://docs.microsoft.com/powershell/module/azuread/
+    - title: Comandi dell'interfaccia della riga di comando di Azure per Azure AD
+      summary: Trovare i comandi di Azure AD nelle informazioni di riferimento sull'interfaccia della riga di comando.
+      url: https://docs.microsoft.com/cli/azure/ad

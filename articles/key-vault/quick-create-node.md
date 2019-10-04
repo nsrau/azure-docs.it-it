@@ -2,21 +2,19 @@
 title: Avvio rapido - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs
 description: In questa guida di avvio rapido si imposta e recupera un segreto da Azure Key Vault usando un'app Web Node
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
-manager: sumedhb
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522305"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003495"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
 
@@ -26,10 +24,10 @@ Questa guida di avvio rapido illustra come archiviare un segreto in Azure Key Va
 * Archiviare un segreto nell'insieme di credenziali delle chiavi.
 * Recuperare un segreto dall'insieme di credenziali delle chiavi.
 * Creare un'applicazione Web di Azure.
-* Abilitare un'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) per l'app Web.
+* Abilitare un'[identità gestita](../active-directory/managed-service-identity/overview.md) per l'app Web.
 * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati dall'insieme di credenziali delle chiavi.
 
-Prima di procedere, assicurarsi di avere familiarità con i [concetti di base relativi ad Azure Key Vault](key-vault-whatis.md#basic-concepts).
+Prima di procedere, assicurarsi di avere familiarità con i [concetti di base relativi ad Azure Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni e gli utenti devono prima autenticarsi in Key Vault, ovvero devono presentare un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. 
@@ -198,5 +196,9 @@ Sarà quindi possibile vedere il valore del segreto passando a `https://<app_nam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
+
+- Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
+- Vedere la [Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)
+- Vedere le informazioni su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 15047b9782ea86b91ba78e0d745c67892fdc8b76
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741103"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180464"
 ---
 La matrice `response` per l'aggiunta di espressioni di esempio indica un esito positivo o negativo per ogni espressione di esempio con la proprietà `hasError`. La risposta JSON seguente illustra che entrambe le espressioni sono state aggiunte correttamente. 
 

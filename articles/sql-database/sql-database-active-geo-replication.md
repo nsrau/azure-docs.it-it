@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/09/2019
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092819"
 ---
-# <a name="creating-and-using-active-geo-replication"></a>Creazione e uso di replica geografica attiva
+# <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
 La replica geografica attiva è una funzionalità del database SQL di Azure che consente di creare database secondari leggibili di singoli database in un server di database SQL nello stesso data center o in uno diverso (area).
 
@@ -43,7 +42,6 @@ Se per qualsiasi motivo il database primario restituisce un errore o deve essere
 - [Transact-SQL: database singolo o pool elastico](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [API REST: database singolo](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
 La replica geografica attiva sfrutta la tecnologia [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) di SQL Server per replicare in modo asincrono in un database secondario le transazioni di cui è stato eseguito il commit nel database primario usando l'isolamento dello snapshot. I gruppi di failover automatico forniscono la semantica del gruppo sulla replica geografica attiva, ma viene usato lo stesso meccanismo di replica asincrona. Anche se a un certo punto i dati del database secondario possono essere leggermente indietro rispetto al database primario, per tali dati sono sempre garantite transazioni complete. La ridondanza tra aree consente il ripristino rapido delle applicazioni dalla perdita definitiva di un intero data center o di parti di esso causata da calamità naturali, errori umani irreversibili o atti dolosi. È possibile consultare i dati RPO specifici in [Panoramica della continuità aziendale](sql-database-business-continuity.md).
 
@@ -78,17 +76,17 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 > [!NOTE]
 > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
 > [!IMPORTANT]
-> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questo database secondario per i carichi di lavoro di bilanciamento del carico in sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce resilienza agli errori aggiuntivi e pertanto non è una destinazione del failover adatto per il ripristino di emergenza. Inoltre non garantisce isolamento zona avaialability. Usare Business critical o livello di servizio Premium con [configurazione con ridondanza della zona](sql-database-high-availability.md#zone-redundant-configuration) per ottenere l'isolamento di zona avaialability.   
+> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questa replica secondaria per bilanciare il carico di un carico di lavoro di sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce una resilienza degli errori aggiuntiva e pertanto non è una destinazione di failover adatta per il ripristino di emergenza. Non garantisce inoltre l'isolamento della zona di disponibilità. Usare il livello di servizio business critical o Premium con la configurazione con ridondanza della [zona](sql-database-high-availability.md#zone-redundant-configuration) per ottenere l'isolamento della zona di disponibilità.   
 >
 
 - **Failover pianificato**
 
-  Il failover pianificato esegue la sincronizzazione completa tra il database primario e il database secondario prima che il database secondario passi al ruolo primario. In questo modo si esclude la perdita di dati. Il failover pianificato viene usato negli scenari seguenti: (a) per eseguire analisi di ripristino di emergenza in fase di produzione quando la perdita di dati non è accettabile. (b) per spostare il database in un'area diversa; e (c) per restituire il database nell'area primaria dopo che l'interruzione del servizio è stata risolta (failback).
+  Il failover pianificato passa i ruoli dei database primari e secondari dopo il completamento della sincronizzazione completa. Si tratta di un'operazione online che non comporta la perdita di dati. L'ora dell'operazione dipende dalle dimensioni del log delle transazioni nel database primario che deve essere sincronizzato. Il failover pianificato è progettato per gli scenari seguenti: (a) per eseguire esercitazioni sul ripristino di emergenza in produzione quando la perdita di dati non è accettabile. (b) per rilocare il database in un'area diversa; e (c) per restituire il database all'area primaria dopo che l'interruzione è stata attenuata (failback).
 
 - **Failover non pianificato**
 
-  Con il failover non pianificato o forzato il database secondario passa immediatamente al ruolo primario senza alcuna sincronizzazione. Questa operazione comporta la perdita di dati. Un failover non pianificato viene usato come metodo di ripristino durante le interruzioni quando non è accessibile il database primario. Quando il database primario originale torna disponibile, si riconnette automaticamente senza sincronizzazione e diventa un nuovo database secondario.
-
+  Con il failover non pianificato o forzato il database secondario passa immediatamente al ruolo primario senza alcuna sincronizzazione. Tutte le transazioni di cui è stato eseguito il commit nel database primario, ma non replicate nel database secondario, andranno perse. Questa operazione è stata progettata come metodo di recupero durante le interruzioni quando la replica primaria non è accessibile, ma è necessario ripristinare rapidamente la disponibilità del database. Quando il database primario originale è di nuovo online, si riconnette automaticamente e diventa un nuovo database secondario. Tutte le transazioni non sincronizzate prima del failover verranno mantenute nel file di backup, ma non verranno sincronizzate con il nuovo database primario per evitare conflitti. Queste transazioni dovranno essere unite manualmente con la versione più recente del database primario.
+ 
 - **Più database secondari**
 
   È possibile creare fino a 4 database secondari per ogni database primario. Se è presente un solo database secondario e questo smette di funzionare, l'applicazione rimane esposta a maggiori rischi finché non viene creato un nuovo database secondario. Se sono presenti più database secondari, l'applicazione resta protetta anche se uno dei database secondari non funziona. I database secondari aggiuntivi possono anche essere usati per applicare la scalabilità orizzontale a carichi di lavoro di sola lettura
@@ -100,27 +98,45 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   Ogni database secondario può partecipare separatamente in un pool elastico o non essere presente in alcun pool elastico. La scelta del pool per ogni database secondario è separata e non dipende dalla configurazione di alcuna altro database secondario (sia primario che secondario). Ogni pool elastico è contenuto all'interno di una singola area, pertanto più database secondari nella stessa topologia non possono mai condividere un pool elastico.
 
-- **Dimensioni di calcolo configurabili del database secondario**
-
-  I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni dell'ambiente di calcolo (DTU o vCore) del database primario. Per un database secondario con una dimensione dell'ambiente di calcolo inferiore sussiste il rischio di un intervallo di replica maggiore e di una potenziale indisponibilità e, di conseguenza, il rischio di una perdita di dati consistente dopo un failover. Di conseguenza, il valore RPO = 5 secondi pubblicato non può essere garantito. Un altro rischio è che dopo il failover le prestazioni dell'applicazione risentano di una mancanza capacità di calcolo del nuovo database primario finché quest'ultimo non viene aggiornato a una dimensione dell'ambiente di calcolo superiore. Il momento dell'aggiornamento dipende dalle dimensioni del database. Inoltre, attualmente tale aggiornamento richiede che i database primari e secondari siano online e, di conseguenza, non possono essere completati fino a quando non viene risolta l'interruzione del servizio. Se si decide di creare il database secondario con una dimensione dell'ambiente di calcolo inferiore, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare la dimensione dell'ambiente di calcolo minima del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Per altre informazioni sulla dimensione dell'ambiente di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
 
 - **Failover e failback controllati dall'utente**
 
   Un database secondario può essere impostato esplicitamente sul ruolo di database primario in qualsiasi momento dall'applicazione o dall'utente. Durante un'interruzione reale, deve essere usata l'opzione "non pianificato", che alza immediatamente il livello di un database secondario a primario. Quando il database primario viene ripristinato ed è nuovamente disponibile, il sistema lo contrassegna automaticamente come database secondario e lo aggiorna con il nuovo database primario. A causa della natura asincrona della replica, una piccola quantità di dati può andare perduta durante i failover non pianificati se il database primario si interrompe prima di replicare le modifiche più recenti al database secondario. Quando un database primario con più database secondari esegue il failover, il sistema riconfigura automaticamente le relazioni di replica e collega i database secondari rimanenti al nuovo database primario appena alzato di livello senza alcun intervento da parte dell'utente. Dopo aver risolto l'interruzione del servizio che ha causato il failover, è opportuno ripristinare l'applicazione nell'area primaria. A tale scopo, richiamare il comando di failover con l'opzione "pianificato".
 
-- **Mantenere sincronizzate le credenziali e le regole del firewall**
+## <a name="preparing-secondary-database-for-failover"></a>Preparazione del database secondario per il failover
 
-È consigliabile usare [a livello di database le regole del firewall IP](sql-database-firewall-configure.md) per i database con replica geografica in modo che queste regole possono essere replicate con il database per assicurarsi che tutti i database secondari abbiano le stesse regole di firewall IP del database primario. In questo modo non è più necessario configurare e gestire le regole del firewall manualmente nei server che ospitano sia il database primario che i secondari. Analogamente, l'accesso ai dati come [utenti di database indipendente](sql-database-manage-logins.md) fa sì che i database primari e secondari abbiano sempre le stesse credenziali utente. Durante un failover, quindi, non si verificano interruzioni dovute a una mancata corrispondenza tra account di accesso e password. Con l'aggiunta di [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i clienti possono gestire l'accesso utente ai database primari e secondari, eliminando completamente la necessità di gestire le credenziali nei database.
+Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo database primario dopo il failover, verificare che i requisiti di autenticazione per il server secondario e il database siano configurati correttamente. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md). Per garantire la conformità dopo il failover, assicurarsi che i criteri di conservazione dei backup nel database secondario corrispondano a quelli della replica primaria. Queste impostazioni non fanno parte del database e non vengono replicate. Per impostazione predefinita, il database secondario verrà configurato con un periodo di conservazione predefinito di ripristino temporizzato di sette giorni. Per conoscere i dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Aggiornamento o downgrade di un database primario
+> [!IMPORTANT]
+> Se il database è membro di un gruppo di failover, non è possibile avviare il failover usando il comando faiover per la replica geografica. Provare a usare il comando di failover per il gruppo. Se è necessario eseguire il failover di un singolo database, è necessario rimuoverlo prima dal gruppo di failover. Per informazioni dettagliate, vedere [gruppi di failover](sql-database-auto-failover-group.md) . 
 
-È possibile eseguire l'aggiornamento o il downgrade di un database primario a una dimensione dell'ambiente di calcolo diversa (entro lo stesso livello di servizio e non tra il livello per utilizzo generico e business critical) senza disconnettere eventuali database secondari. Quando si esegue l'aggiornamento, è consigliabile aggiornare prima di tutto il database secondario e quindi il database primario. Quando si esegue il downgrade, seguire l'ordine inverso, ovvero eseguire prima di tutto il downgrade del database primario e quindi del database secondario. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione.
+
+## <a name="configuring-secondary-database"></a>Configurazione del database secondario
+
+I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario sta riscontrando un carico di lavoro di scrittura elevato, è possibile che una replica secondaria con una dimensione di calcolo inferiore non sia in grado di tenersi al passo con essa. Questa operazione provocherà il ritardo di rollforward sulla replica secondaria e la potenziale indisponibilità. Un database secondario che rimane indietro rispetto a quello primario può comportare perdite di dati importanti qualora fosse necessario un failover forzato. Per attenuare questi rischi, la replica geografica attiva efficace limiterà la velocità di log del primario per consentire l'aggiornamento dei relativi database secondari. L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover le prestazioni dell'applicazione risentiranno a causa di una capacità di calcolo insufficiente del nuovo database primario. Verrà richiesto di eseguire l'aggiornamento a un livello di calcolo superiore a quello necessario, che non sarà possibile fino a quando l'interruzione non verrà mitigata. 
+
+
+> [!IMPORTANT]
+> Non è possibile garantire la RPO pubblicata = 5 sec, a meno che il database secondario non sia configurato con le stesse dimensioni di calcolo del database primario. 
+
+
+Se si decide di creare il database secondario con dimensioni di calcolo inferiori, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare le dimensioni di calcolo minime del database secondario necessarie per sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  La limitazione viene segnalata come stato di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO nelle viste di database [sys. dm _exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys. dm _os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) . 
+
+Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantenere sincronizzate le regole del firewall e le credenziali
+
+È consigliabile usare le [regole del firewall IP a livello di database](sql-database-firewall-configure.md) per i database con replica geografica, in modo che queste regole possano essere replicate con il database per garantire che tutti i database secondari abbiano le stesse regole del firewall IP del database primario. In questo modo non è più necessario configurare e gestire le regole del firewall manualmente nei server che ospitano sia il database primario che i secondari. Analogamente, l'accesso ai dati come [utenti di database indipendente](sql-database-manage-logins.md) fa sì che i database primari e secondari abbiano sempre le stesse credenziali utente. Durante un failover, quindi, non si verificano interruzioni dovute a una mancata corrispondenza tra account di accesso e password. Con l'aggiunta di [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i clienti possono gestire l'accesso utente ai database primari e secondari, eliminando completamente la necessità di gestire le credenziali nei database.
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Aggiornamento o downgrade del database primario
+
+È possibile eseguire l'aggiornamento o il downgrade di un database primario a dimensioni di calcolo diverse (entro lo stesso livello di servizio e non tra il livello per utilizzo generico e business critical) senza disconnettere eventuali database secondari. Quando si esegue l'aggiornamento, è consigliabile aggiornare prima di tutto il database secondario e quindi il database primario. Quando si esegue il downgrade, seguire l'ordine inverso, ovvero eseguire prima di tutto il downgrade del database primario e quindi del database secondario. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione.
 
 > [!NOTE]
 > Se è stato creato il database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.
 
 > [!IMPORTANT]
-> Il database primario in un gruppo di failover non è possibile passare a un livello superiore, a meno che il database secondario prima di tutto viene ridimensionato al livello superiore. Se si prova a scalare il database primario prima che il database secondario viene ridimensionato, si potrebbe ricevere l'errore seguente:
+> Il database primario in un gruppo di failover non può essere ridimensionato a un livello superiore, a meno che il database secondario non venga prima ridimensionato al livello superiore. Se si tenta di ridimensionare il database primario prima che il database secondario venga ridimensionato, è possibile che venga visualizzato l'errore seguente:
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -132,14 +148,14 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** impedisce la perdita di dati dopo il failover, ma non garantisce la sincronizzazione completa per l'accesso in lettura. Il ritardo causato da una chiamata di routine **sp_wait_for_database_copy_sync** può essere significativo e dipende dalle dimensioni del log delle transazioni al momento della chiamata.
 
-## <a name="monitoring-geo-replication-lag"></a>Monitoraggio intervallo di replica geografica
+## <a name="monitoring-geo-replication-lag"></a>Monitoraggio del ritardo della replica geografica
 
-Per monitorare ritardo rispetto al valore RPO, utilizzare *replication_lag_sec* della colonna della [DM geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra intervallo in secondi tra le transazioni sottoposte a commit nel database primario e resi persistenti nel database secondario. ad esempio Se il valore del ritardo è 1 secondo, significa che se il database primario è stato interessato da un'interruzione del servizio per il momento e il failover viene avviata, non verranno salvate 1 secondo di transtions il più recente. 
+Per monitorare il ritardo rispetto a RPO, utilizzare la colonna *replication_lag_sec* di [sys. dm _geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
 
-Per misurare il ritardo rispetto alle modifiche nel database primario che sono stati applicati per la replica secondaria, vale a dire disponibile per la lettura dall'area secondaria, confrontare *last_commit* tempo nel database secondario con lo stesso valore nel database primario database.
+Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare l'ora di *last_commit* nel database secondario con lo stesso valore nel database primario.
 
 > [!NOTE]
-> In alcuni casi *replication_lag_sec* nel database primario ha un valore NULL, il che significa che il database primario non attualmente a conoscenza di quanto il database secondario è.   Ciò accade solitamente dopo il processo viene riavviato e deve essere una condizione temporanea. Prendere in considerazione l'applicazione di avviso se il *replication_lag_sec* restituisce NULL per un lungo periodo di tempo. Ciò potrebbe indicare che il database secondario non può comunicare con il database primario a causa di un errore di connettività permanente. Sono inoltre presenti le condizioni che potrebbero causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare grandi. ad esempio Se un commit viene effettuato nella replica primaria dopo un lungo periodo di alcuna modifica, la differenza passerà fino a un valore di grandi dimensioni prima di tornare rapidamente su 0. Considerarlo come una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
+> A volte *replication_lag_sec* sul database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra il tempo *last_commit* nel database secondario e il database primario per diventare grande. ad esempio Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva
@@ -166,7 +182,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 | Cmdlet | DESCRIZIONE |
 | --- | --- |
@@ -174,7 +190,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
 | [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Consente di passare un database secondario al ruolo di database primario per avviare il failover. |
 | [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Termina la replica dei dati tra un database SQL e il database secondario specificato. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Ottiene i collegamenti di replica geografica tra un database di SQL Azure e un gruppo di risorse o SQL Server. |
+| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Ottiene i collegamenti di replica geografica tra un database SQL di Azure e un gruppo di risorse o SQL Server. |
 |  | |
 
 > [!IMPORTANT]

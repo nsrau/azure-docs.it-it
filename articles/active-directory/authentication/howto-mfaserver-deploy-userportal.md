@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056043"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -27,6 +27,9 @@ Gli utenti accedono al portale utenti con il nome utente e la password normali, 
 È possibile configurare gli amministratori del portale utenti e concedere loro l'autorizzazione ad aggiungere nuovi utenti e aggiornare quelli esistenti.
 
 A seconda dell'ambiente, è possibile distribuire il portale utenti nello stesso server in cui è in esecuzione il server Azure Multi-Factor Authentication o in un altro server con connessione Internet.
+
+> [!IMPORTANT]
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ![Nella pagina di accesso portale utenti del Server MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
@@ -99,9 +102,9 @@ Per installare il portale utenti su un server diverso dal server Azure Multi-Fac
 4. Passare a **C:\inetpub\wwwroot\MultiFactorAuth**.
 5. Modificare il file Web.Config nel Blocco note.
 
-    * Trovare la chiave **"USE_WEB_SERVICE_SDK"** e sostituire **value="false"** con **value="true"**.
-    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e sostituire **value=""** con **value="DOMAIN\User"**, dove DOMAIN\User è un account del servizio che fa parte del gruppo "PhoneFactor Admins".
-    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e sostituire **value=""** con **value="Password"**, dove Password è la password dell'account del servizio specificato alla riga precedente.
+    * Trovare la chiave **"USE_WEB_SERVICE_SDK"** e sostituire **value="false"** con **value="true"** .
+    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** e sostituire **value=""** con **value="DOMAIN\User"** , dove DOMAIN\User è un account del servizio che fa parte del gruppo "PhoneFactor Admins".
+    * Trovare la chiave **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** e sostituire **value=""** con **value="Password"** , dove Password è la password dell'account del servizio specificato alla riga precedente.
     * Trovare il valore **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** e sostituire l'URL segnaposto con l'URL di Web Service SDK installato al passaggio 2.
     * Salvare il file Web.Config e chiudere il Blocco note.
 
@@ -127,7 +130,7 @@ Configurazione facoltativa:
 
 Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale utenti. La tabella seguente include un elenco di queste opzioni e una spiegazione dell'uso a cui sono destinate.
 
-| Impostazioni del portale utenti | DESCRIZIONE |
+| Impostazioni del portale utenti | Descrizione |
 |:--- |:--- |
 | URL portale utenti | Immettere l'URL in cui viene ospitato il portale. |
 | Autenticazione primaria | Specificare il tipo di autenticazione da usare quando si accede al portale. Autenticazione di Windows, Radius o LDAP. |

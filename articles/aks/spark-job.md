@@ -10,11 +10,11 @@ ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414030"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205345"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ ms.locfileid: "50414030"
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
 * Conoscenza di base di Kubernetes e [Apache Spark][spark-quickstart].
-* Un account [Docker Hub][docker-hub] o un [Registro contenitori di Azure][acr-create].
+* Un account [Docker Hub][docker-hub] o un [Registro Azure Container][acr-create].
 * Interfaccia della riga di comando di Azure [installata][azure-cli] nel sistema di sviluppo.
 * [JDK 8][java-install] installato nel sistema.
 * SBT ([strumento di compilazione Scala][sbt-install]) installato nel sistema.
@@ -313,7 +313,7 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
 ```
 
 > [!WARNING]
-> La [documentazione][spark-docs] di Spark riporta che l'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
+> Da Spark [documentazione][spark-docs]: "L'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918842"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013129"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -97,7 +97,7 @@ Se si verifica un errore a causa del quale il client è in dubbio sul risultato 
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Firma di accesso condiviso, controllo degli accessi in base al ruolo e identità gestite per risorse di Azure
 
-Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](service-bus-role-based-access-control.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
+Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](authenticate-application.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 
@@ -129,3 +129,4 @@ Per iniziare a usare la messaggistica del bus di servizio, vedere gli articoli s
 * Altre informazioni sui livelli [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) del bus di servizio di Azure e sui relativi prezzi
 * [Performance and Latency of Azure Service Bus Premium tier (Prestazioni e latenza del livello Premium del bus di servizio di Azure)](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Provare le guide introduttive per [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) o [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
 ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773940"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.
@@ -22,7 +22,7 @@ Questo articolo descrive come escludere dischi dalla replica, in modo da ottimiz
 
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
-Esclusione disco | Sì | Sì | No  | No 
+Esclusione disco | Yes | Sì | No | No
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere dischi dalla replica
 Spesso è necessario escludere dischi dalla replica per i motivi riportati di seguito:

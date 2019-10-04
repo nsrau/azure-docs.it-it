@@ -1,25 +1,18 @@
 ---
-title: Configurare il supporto per un'applicazione Azure | Microsoft Docs
+title: Configurare il supporto di applicazione di Azure | Azure Marketplace
 description: Configurare il supporto per un'applicazione Azure per un'offerta in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a42253baa1ed6dcfb8ad20d416c492cc7a677e43
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 37c6a36afaad1e10d5075a207b35920531d6ace2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943251"
 ---
 # <a name="azure-application-support-tab"></a>Scheda Supporto per un'applicazione Azure
 
@@ -33,15 +26,15 @@ Usare la schermata successiva come guida per fornire le informazioni necessarie.
 
 1. In **Engineering Contact** (Contatto tecnico) specificare le informazioni per i campi seguenti:
 
-   - **Nome**: immettere il nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.
-   - **E-mail**: immettere l'indirizzo e-mail del contatto tecnico.
-   - **Telefono**: immettere il numero di telefono del contatto tecnico.
+   - **Nome\***  -immettere il nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.
+   - **Messaggio di posta elettronica\***  -immettere l'indirizzo di posta elettronica del contatto tecnico.
+   - **Telefono\***  -immettere il numero di telefono di contatto tecnico.
   
 2. In **Contatto per il supporto** specificare le informazioni per i campi seguenti:
 
-   - **Nome**: immettere il nome del contatto del supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.
-   - **E-mail**: immettere l'indirizzo e-mail del contatto del supporto per l'app.
-   - **Telefono**: immettere il numero di telefono del contatto del supporto.
+   - **Nome\***  -immettere il nome del contatto di supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.
+   - **Messaggio di posta elettronica\***  -immettere l'indirizzo di posta elettronica del contatto di supporto per l'app.
+   - **Telefono\***  -immettere il numero di telefono di contatto di supporto.
  
 3. In **Support Urls** (URL del supporto) specificare gli URL del supporto appropriati che verranno usati da Microsoft quando i clienti aprono un ticket di supporto. Questi URL potranno essere per Azure pubblico o per il cloud di Azure per enti pubblici.
 4. Al termine, selezionare **Salva**.
@@ -49,4 +42,3 @@ Usare la schermata successiva come guida per fornire le informazioni necessarie.
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Pubblicare un'offerta per un'applicazione di Azure](./cpp-publish-offer.md)
-

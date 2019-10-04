@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572744"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurare Copertura globale di ExpressRoute
 
@@ -39,7 +39,7 @@ Prima di iniziare la configurazione, verificare quanto segue:
 1. Per avviare la configurazione, accedere al proprio account Azure e selezionare la sottoscrizione che si desidera utilizzare.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identificare i circuiti ExpressRoute che si vuole usare. È possibile abilitare Copertura globale di ExpressRoute tra due circuiti ExpressRoute qualsiasi, purché si trovino nelle aree supportate e siano stati creati in località di peering diverse. 
+2. Identificare i circuiti ExpressRoute che si vuole usare. È possibile abilitare ExpressRoute globale raggiungere tra qualsiasi due circuiti ExpressRoute, purché che si trovano in paesi/aree geografiche supportati e sono stati creati in diverse località di peering. 
 
    * Se la sottoscrizione è proprietaria di entrambi i circuiti, è possibile scegliere uno dei due circuiti per l'esecuzione della configurazione nelle sezioni seguenti.
    * Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessaria l'autorizzazione di una delle due sottoscrizioni. Occorre quindi passare la chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.

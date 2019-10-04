@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7f900b95b30f6ab5298e98661e6922e4e4d360c7
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877270"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706957"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Guida introduttiva: Query di URL Preview in C#
 
@@ -23,9 +24,9 @@ L'esempio in C# seguente crea un'anteprima URL per il sito Web SwiftKey: https:/
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
+Per eseguire questo codice in Windows, è necessario [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Scenario di codice
 

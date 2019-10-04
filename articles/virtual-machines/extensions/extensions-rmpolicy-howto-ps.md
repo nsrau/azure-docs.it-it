@@ -3,22 +3,22 @@ title: Usare Criteri di Azure per limitare l'installazione di estensioni per mac
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: roiyz;cynthn
-ms.openlocfilehash: dfaeff5e8f90e72645293d15c454f78f17b08fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: akjosh
+ms.reviewer: cynthn
+ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387333"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169078"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 

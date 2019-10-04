@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181963"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933365"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Messaggi non recapitabili e criteri di ripetizione dei tentativi
 
@@ -25,7 +25,9 @@ Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impo
 Per impostare una posizione per gli eventi non recapitabili, è necessario un account di archiviazione per contenere gli eventi che non possono essere recapitati a un endpoint. Gli esempi ricevono l'ID di risorsa da un account di archiviazione esistente. Creano una sottoscrizione evento che usa un contenitore in tale account di archiviazione per l'endpoint di messaggi non recapitabili.
 
 > [!NOTE]
-> Creare un account di archiviazione e un contenitore blob nella risorsa di archiviazione prima di eseguire comandi in questo articolo.
+> - Prima di eseguire i comandi in questo articolo, creare un account di archiviazione e un contenitore BLOB nella risorsa di archiviazione.
+> - Il servizio griglia di eventi crea BLOB in questo contenitore. I nomi dei BLOB avranno il nome della sottoscrizione di griglia di eventi con tutte le lettere maiuscole. Ad esempio, se il nome della sottoscrizione è My-BLOB-Subscription, i nomi dei BLOB di messaggi non recapitabili avranno MY-BLOB-SUBSCRIPTION (contenitoreblob/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. Json). Questo comportamento prevede la protezione da differenze nella gestione dei casi tra i servizi di Azure.
+
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

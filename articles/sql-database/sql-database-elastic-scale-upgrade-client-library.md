@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993977"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981362"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Aggiornare un'app in modo da usare la libreria client dei database elastici più recente
 
-Le nuove versioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md) sono disponibili tramite NuGet e l'interfaccia NuGetPackage Manager in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
+Le nuove versioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md) sono disponibili tramite NuGet e l'interfaccia di gestione pacchetti NuGet in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
 
 **Per la versione più recente:** passare a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -31,7 +30,7 @@ Seguendo l'ordine di questi passaggi è possibile essere sicuri che le versioni 
 
 ## <a name="upgrade-steps"></a>Passaggi dell'aggiornamento
 
-**1. Aggiornare le applicazioni.**  In Visual Studio, scaricare e fare riferimento alla versione più recente della libreria client in tutti i progetti di sviluppo che usano tale libreria; quindi ricompilare e distribuire.
+**1. Aggiornare le applicazioni.** In Visual Studio, scaricare e fare riferimento alla versione più recente della libreria client in tutti i progetti di sviluppo che usano tale libreria; quindi ricompilare e distribuire.
 
 * Nella soluzione Visual Studio in uso selezionare **Strumenti** --> **Gestione pacchetti NuGet** -->  **Gestisci pacchetti NuGet per la soluzione**.
 * (Visual Studio 2013) Nel riquadro sinistro selezionare **Aggiornamenti**, quindi il pulsante **Aggiorna** del pacchetto **Libreria client di scalabilità elastica del database SQL di Azure** che viene visualizzato nella finestra.

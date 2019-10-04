@@ -3,24 +3,23 @@ title: Esempio di script dell'interfaccia della riga di comando di Service Fabri
 description: Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: 8fd83190f3cf92ef0f88ff0fb2a807e03199a5c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cc101a5cc93d7087bc1dd68cafafaa10a0e270b2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670286"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035943"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Elenco di applicazioni eseguite in un cluster di Service Fabric
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dba50c984984363682efce1f09ef462b3c0c5def
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267430"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Esercitazione: Integrazione di Azure Active Directory con IQNavigator VMS
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con IQNavigator VMS, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di IQNavigator VMS](#configure-iqnavigator-vms-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di IQNavigator VMS](#create-iqnavigator-vms-test-user)**: per avere una controparte di Britta Simon in IQNavigator VMS collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di IQNavigator VMS](#configure-iqnavigator-vms-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di IQNavigator VMS](#create-iqnavigator-vms-test-user)** : per avere una controparte di Britta Simon in IQNavigator VMS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IQNavigator VMS, seguir
     d. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e lo stato dell'inoltro effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IQNavigator VMS](https://www.beeline.com/iqn-product-support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e lo stato dell'inoltro effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IQNavigator VMS](https://www.beeline.com/support-iqn/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione IQNavigator prevede il valore di ID utente univoco nell'attestazione dell'identificatore del nome. Il cliente può eseguire il mapping del valore corretto per l'attestazione dell'identificatore del nome. In questo caso è stato eseguito il mapping di user.UserPrincipalName a scopo dimostrativo. Tuttavia, in base alle impostazioni dell'organizzazione è necessario eseguire il mapping del valore corretto.
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IQNavigator VMS, seguir
 
 ### <a name="configure-iqnavigator-vms-single-sign-on"></a>Configurare l'accesso Single Sign-On di IQNavigator VMS
 
-Per configurare l'accesso Single Sign-On sul lato **IQNavigator VMS**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di IQNavigator VMS](https://www.beeline.com/iqn-product-support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **IQNavigator VMS**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di IQNavigator VMS](https://www.beeline.com/support-iqn/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -181,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-iqnavigator-vms-test-user"></a>Creare l'utente di test di IQNavigator VMS
 
-In questa sezione viene creato un utente di nome Britta Simon in IQNavigator VMS. Collaborare con il [team di supporto di IQNavigator VMS](https://www.beeline.com/iqn-product-support/) per aggiungere gli utenti alla piattaforma IQNavigator VMS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in IQNavigator VMS. Collaborare con il [team di supporto di IQNavigator VMS](https://www.beeline.com/support-iqn/) per aggiungere gli utenti alla piattaforma IQNavigator VMS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

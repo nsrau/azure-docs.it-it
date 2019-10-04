@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172819"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309511"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni Azure IoT
 
@@ -42,7 +42,7 @@ Usare l'[acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-
 
 ### <a name="connected-factory"></a>Connected Factory
 
-Usare l'[acceleratore di soluzione Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) per raccogliere i dati di telemetria da asset industriali con un'interfaccia [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) e per controllarli. Gli asset industriali possono includere stazioni di assemblaggio e prova su una linea di produzione factory.
+Usare l'[acceleratore di soluzione Connected Factory](iot-accelerators-connected-factory-features.md) per raccogliere i dati di telemetria da asset industriali con un'interfaccia [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) e per controllarli. Gli asset industriali possono includere stazioni di assemblaggio e prova su una linea di produzione factory.
 
 È possibile usare il dashboard di fabbrica connessa per monitorare e gestire i dispositivi industriali:
 
@@ -85,7 +85,7 @@ Gli acceleratori di soluzioni originali sono stati scritti tramite .NET e un'arc
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulazione dei dispositivi      | Microservizi | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Per altre informazioni sull'architettura di microservizi, vedere [Introduction to the Azure IoT reference architecture](iot-accelerators-architecture-overview.md) (Introduzione all'architettura di riferimento di Azure IoT).
+Per altre informazioni sull'architettura di microservizi, vedere [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/) (Introduzione all'architettura di riferimento di Azure IoT).
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 

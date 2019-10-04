@@ -10,11 +10,11 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
 ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751971"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
 

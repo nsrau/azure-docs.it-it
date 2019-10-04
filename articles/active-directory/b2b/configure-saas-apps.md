@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65811952"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -81,7 +81,7 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
    ![Screenshot che mostra le impostazioni di configurazione dell'accesso single sign-on](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com*.  
+   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com* .  
    Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.
 
    b. Nella casella **Identificatore utente** immettere **user.mail** (per l'accesso SSO per account guest).

@@ -4,17 +4,17 @@ description: Questo articolo illustra come usare Automazione di Azure per automa
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 31eda5a293f7154d32c508b7b9c1bf0f9f604f2e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425221"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476903"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scenario di Automazione di Azure - Provisioning di una macchina virtuale di AWS
 In questo articolo si apprenderà come sfruttare Automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e come assegnare alla VM un nome specifico. Questa operazione è definita in AWS "assegnazione di tag" alla VM.

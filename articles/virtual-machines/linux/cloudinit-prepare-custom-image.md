@@ -4,7 +4,7 @@ description: Come preparare un'immagine di macchina virtuale di Azure preesisten
 services: virtual-machines-linux
 documentationcenter: ''
 author: danis
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1f9f6042b52c722280a8227754960ffb270e94b8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337312"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668255"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparare un'immagine di macchina virtuale Linux di Azure esistente da usare con cloud-init
 Questo articolo descrive come preparare una macchina virtuale di Azure esistente per ridistribuirla e renderla pronta per l'uso di cloud-init. L'immagine risultante può essere usata per distribuire una nuova macchina virtuale o un nuovo set di scalabilità di macchine virtuali, ciascuno dei quali può quindi essere ulteriormente personalizzato tramite cloud-init in fase di distribuzione.  Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -65,19 +65,14 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
-sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
-systemctl daemon-reload
 cloud-init clean
 ```
-Consentire solo Azure come origine dati per l'agente Linux di Azure creando un nuovo file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` tramite l'editor desiderato con le righe seguenti:
+
+Consentire solo Azure come un'origine dati per l'agente Linux di Azure creando un nuovo file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` usando un editor di propria scelta con la riga seguente:
 
 ```bash
 # Azure Data Source config
 datasource_list: [ Azure ]
-datasource:
-   Azure:
-     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
 Se per l'immagine di Azure esistente è configurato un file di scambio e si vuole modificare la configurazione del file di scambio per nuove immagini con cloud-init, è necessario rimuovere il file di scambio esistente.

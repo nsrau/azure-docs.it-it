@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP"
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con PHP e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: f311216182f85da3dd6cf01269062cc9c555f868
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538528"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478966"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
 
@@ -153,4 +153,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../overview.md )
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

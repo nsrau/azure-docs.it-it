@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497421"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744492"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Per ottenere l'osservabilità nell'intero ambiente, è necessario abilitare il m
 - [Azure DevOps Projects](../devops-project/overview.md) fornisce un'esperienza semplificata con il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
 - [Monitoraggio continuo nelle pipeline di rilascio DevOps](../azure-monitor/app/continuous-monitoring.md) consente il controllo o il rollback della distribuzione in base ai dati di monitoraggio.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) consente di instrumentare un'app .NET attiva in Windows con Azure Application Insights senza dover modificare o ridistribuire il codice.
-- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../azure-monitor/app/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
+- Se si ha accesso al codice per l'applicazione, abilitare il monitoraggio completo con [Application Insights](../azure-monitor/app/app-insights-overview.md) installando Application Insights SDK del Monitoraggio di Azure per [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), o per [eventuali altri linguaggi di programmazione](../azure-monitor/app/platforms.md). In questo modo è possibile specificare gli eventi personalizzati, le metriche o le visualizzazioni di pagina che sono rilevanti per l'applicazione e l'attività dell'utente.
 
 
 
@@ -56,7 +56,7 @@ Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combinare le risorse nei gruppi di risorse di Azure
 Una tipica applicazione in Azure oggi include più risorse, ad esempio le macchine virtuali e servizi App o i microservizi ospitati in servizi Cloud, i cluster del servizio Azure Kubernetes o Service Fabric. Queste applicazioni usano spesso le dipendenze, ad esempio hub eventi, archiviazione, SQL e bus di servizio.
 
-- Combinare le risorse nei gruppi di risorse di Azure per ottenere visibilità completa in tutte le risorse che costituiscono le diverse applicazioni. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
+- Combina le risorse nei gruppi di risorse di Azure per ottenere visibilità completa su tutte le tue risorse che compongono le tue applicazioni diverse. [Monitoraggio di Azure per i gruppi di risorse](../azure-monitor/insights/resource-group-insights.md) fornisce un modo semplice per tenere traccia dell'integrità e delle prestazioni dell'intera applicazione dello stack completo e abilita il drill-down nei rispettivi componenti per eventuali analisi o debug.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garantire la qualità tramite la distribuzione continua
 Integrazione continua/distribuzione continua consente di integrare automaticamente e distribuire le modifiche del codice nell'applicazione in base ai risultati dei test automatizzati. Semplifica il processo di distribuzione e assicura la qualità di tutte le modifiche prima di passare alla produzione.

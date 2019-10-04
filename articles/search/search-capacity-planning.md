@@ -1,33 +1,33 @@
 ---
-title: Scalabilità partizioni e repliche di query e indicizzazione - ricerca di Azure
+title: Ridimensionare le partizioni e le repliche per le query e l'indicizzazione-ricerca di Azure
 description: Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308729"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650072"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare le partizioni e repliche di query e indicizzazione dei carichi di lavoro in ricerca di Azure
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare le partizioni e le repliche per i carichi di lavoro di query e indicizzazione in ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
 
-Configurazione delle risorse è disponibile quando si configura un servizio presso il [il livello Basic](https://aka.ms/azuresearchbasic) o uno del [livelli Standard o con ottimizzazione per la memorizzazione](search-limits-quotas-capacity.md). Per tutti i servizi di questi livelli è possibile acquistare capacità a incrementi di *unità di ricerca* (SU). Le singole partizioni e repliche vengono considerate come una unità di ricerca. 
+La configurazione delle risorse è disponibile quando si configura un servizio al [livello Basic](https://aka.ms/azuresearchbasic) o a uno dei [livelli standard o ottimizzati](search-limits-quotas-capacity.md)per l'archiviazione. Per tutti i servizi di questi livelli è possibile acquistare capacità a incrementi di *unità di ricerca* (SU). Le singole partizioni e repliche vengono considerate come una unità di ricerca. 
 
 Usando un numero minore di risultati SU in una fattura proporzionalmente inferiore. La fatturazione è attiva per l'intera durata impostata per il servizio. Se temporaneamente non si usa un servizio, l'unico modo per evitare la fatturazione è eliminare il servizio e quindi ricrearlo quando sarà necessario.
 
 > [!Note]
 > Eliminando un servizio si elimina tutto il suo contenuto. Non sono disponibili funzionalità all'interno di Ricerca di Azure per eseguire il backup e il ripristino dei dati di ricerca permanenti. Per ridistribuire un indice esistente in un nuovo servizio è necessario eseguire il programma utilizzato in origine per crearlo e caricarlo. 
 
-## <a name="terminology-replicas-and-partitions"></a>Terminologia: partizioni e repliche
-Partizioni e repliche sono le risorse principali che supportano un servizio di ricerca.
+## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliche e partizioni
+Le repliche e le partizioni sono le risorse primarie che eseguono il backup di un servizio di ricerca.
 
 | Risorsa | Definizione |
 |----------|------------|
@@ -39,35 +39,36 @@ Partizioni e repliche sono le risorse principali che supportano un servizio di r
 >
 
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare partizioni e repliche
+## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
 In Ricerca di Azure viene allocato inizialmente a un servizio un livello minimo di risorse costituito da una partizione e una replica. Per i livelli che lo supportano, è possibile regolare in modo incrementale le risorse di elaborazione aumentando le partizioni se si ha bisogno di maggiore spazio di archiviazione e I/O o aggiungendo più repliche per volumi di query maggiori o migliori prestazioni. Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Non è possibile suddividere i carichi di lavoro tra più servizi.
 
-Per aumentare o modificare l'allocazione delle repliche e delle partizioni, è consigliabile usare il portale di Azure. Il portale applica limiti alle combinazioni consentite inferiori ai limiti massimi. Se si richiede un approccio di provisioning basato script o basata su codice, il [Azure PowerShell](search-manage-powershell.md) o nella [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/services) disponibili soluzioni alternative.
+Per aumentare o modificare l'allocazione delle repliche e delle partizioni, è consigliabile usare il portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi. Se è necessario un approccio di provisioning basato su script o basato sul codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/services) sono soluzioni alternative.
 
 In generale le applicazioni di ricerca richiedono più repliche che partizioni, in particolare quando fra le operazioni del servizio prevalgono i carichi di lavoro di query. La sezione relativa alla [disponibilità elevata](#HA) spiega perché.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il servizio di ricerca.
-2. Nella **le impostazioni**, aprire il **scalabilità** pagina per modificare le repliche e partizioni. 
 
-   Lo screenshot seguente illustra un servizio standard con provisioning di una replica e partizione. La formula nella parte inferiore indica il numero di unità di ricerca vengono usate (1). Se il prezzo unitario era 100 dollari (non un prezzo reale), il costo mensile dell'esecuzione di questo servizio sarebbe medio 100 dollari.
+2. In **Impostazioni**aprire la pagina **scala** per modificare le repliche e le partizioni. 
 
-   ![Pagina di scalabilità che mostra i valori correnti](media/search-capacity-planning/1-initial-values.png "pagina di scalabilità che mostra i valori correnti")
+   Lo screenshot seguente mostra un servizio standard di cui è stato effettuato il provisioning con una replica e una partizione. La formula nella parte inferiore indica il numero di unità di ricerca utilizzate (1). Se il prezzo unitario è $100 (non un prezzo reale), il costo mensile per l'esecuzione di questo servizio sarà in media pari a $100.
 
-3. Usare il dispositivo di scorrimento per aumentare o diminuire il numero di partizioni. La formula nella parte inferiore indica il numero di unità di ricerca è in uso.
+   ![Pagina scala che mostra i valori correnti](media/search-capacity-planning/1-initial-values.png "Pagina scala che mostra i valori correnti")
 
-   In questo esempio viene raddoppiato capacità, con due repliche e partizioni ogni. Si noti che il numero di unità di ricerca; è ora quattro perché la formula di fatturazione è repliche moltiplicate per le partizioni (2 x 2). Raddoppiare la capacità raddoppia il costo dell'esecuzione del servizio. Se il costo di unità di ricerca era 100 dollari, la nuova fattura mensile sarà ora $400.
+3. Utilizzare il dispositivo di scorrimento per aumentare o diminuire il numero di partizioni. La formula nella parte inferiore indica il numero di unità di ricerca utilizzate.
 
-   Per l'oggetto corrente per ogni unità dei costi di ogni livello, visitare il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
+   Questo esempio raddoppia la capacità, con due repliche e partizioni ciascuna. Si noti il numero di unità di ricerca; Ora è quattro perché la formula di fatturazione è rappresentata dalle repliche moltiplicate per le partizioni (2 x 2). Raddoppiare la capacità più di raddoppiare il costo di esecuzione del servizio. Se il costo unitario di ricerca è $100, la nuova fattura mensile sarà $400.
 
-   ![Aggiungere partizioni e repliche](media/search-capacity-planning/2-add-2-each.png "aggiungere partizioni e repliche")
+   Per i costi correnti per unità di ogni livello, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
 
-3. Fare clic su **salvare** per confermare le modifiche.
+   ![Aggiungere repliche e partizioni](media/search-capacity-planning/2-add-2-each.png "Aggiungere repliche e partizioni")
 
-   ![Confermare le modifiche alla scalabilità e fatturazione](media/search-capacity-planning/3-save-confirm.png "confermare le modifiche alla scalabilità e fatturazione")
+3. Fare clic su **Salva** per confermare le modifiche.
 
-   Le modifiche nella capacità richiedere diverse ore. È possibile annullare dopo l'avvio del processo e non vi è alcun monitoraggio in tempo reale per rettifiche di replica e partizione. Tuttavia, il seguente messaggio rimane visibile mentre le modifiche sono in corso.
+   ![Confermare le modifiche per la scalabilità e la fatturazione](media/search-capacity-planning/3-save-confirm.png "Confermare le modifiche per la scalabilità e la fatturazione")
 
-   ![Messaggio di stato nel portale](media/search-capacity-planning/4-updating.png "messaggio di stato nel portale")
+   Per il completamento delle modifiche nella capacità sono necessarie diverse ore. Non è possibile annullare una volta che il processo è stato avviato e non è disponibile alcun monitoraggio in tempo reale per le modifiche della replica e della partizione. Tuttavia, il messaggio seguente rimane visibile mentre sono in corso le modifiche.
+
+   ![Messaggio di stato nel portale](media/search-capacity-planning/4-updating.png "Messaggio di stato nel portale")
 
 
 > [!NOTE]
@@ -81,7 +82,7 @@ In generale le applicazioni di ricerca richiedono più repliche che partizioni, 
 
 Il servizio Basic prevede esattamente una partizione e fino a tre repliche, per un massimo di tre unità di ricerca. Le repliche sono l'unica risorsa regolabile. Per la disponibilità elevata relativa alle query è necessario un minimo di due repliche.
 
-Standard e con ottimizzazione per la memoria tutti i servizi di ricerca possono presupporre che le seguenti combinazioni di repliche e partizioni entro il limite di 36 unità di ricerca. 
+Tutti i servizi di ricerca standard e ottimizzati per l'archiviazione possono presupporre le combinazioni di repliche e partizioni seguenti, soggette al limite di 36-SU. 
 
 |   | **1 partizione** | **2 partizioni** | **3 partizioni** | **4 partizioni** | **6 partizioni** | **12 partizioni** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -108,11 +109,12 @@ Poiché è facile e relativamente veloce eseguire la scalabilità verticale, è 
 Le indicazioni generali per la disponibilità elevata sono:
 
 * Due repliche per la disponibilità elevata di carichi di lavoro di sola lettura, vale a dire query.
+
 * Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura, vale a dire query e indicizzazione man mano che singoli documenti vengono aggiunti, aggiornati o eliminati.
 
 I contratti di servizio per Ricerca di Azure sono associati a operazioni di query e aggiornamenti di indici che consistono nell'aggiunta, l'aggiornamento o l'eliminazione di documenti.
 
-Il livello Basic prevede una partizione e fino a tre repliche. Se si vuole avere la flessibilità necessaria per rispondere immediatamente alle fluttuazioni della richiesta di indicizzazione e velocità effettiva di query, prendere in considerazione uno dei piani Standard.  Se che i requisiti di archiviazione stanno crescendo più rapidamente rispetto alla velocità effettiva di query, prendere in considerazione uno dei livelli di ottimizzazione dell'archiviazione.
+Il livello Basic prevede una partizione e fino a tre repliche. Se si vuole avere la flessibilità necessaria per rispondere immediatamente alle fluttuazioni della richiesta di indicizzazione e velocità effettiva di query, prendere in considerazione uno dei piani Standard.  Se i requisiti di archiviazione aumentano molto più rapidamente rispetto alla velocità effettiva delle query, prendere in considerazione uno dei livelli ottimizzati per l'archiviazione.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilità degli indici durante la ricompilazione
 

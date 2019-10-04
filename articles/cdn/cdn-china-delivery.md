@@ -3,24 +3,24 @@ title: Distribuzione dei contenuti con rete CDN di Azure per la Cina | Microsoft
 description: Informazioni sull'uso della rete CDN di Azure per distribuire contenuti agli utenti cinesi.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 59788f301bb501103babd55a2ac37102932f4dcf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: a63914116f5ef9922ac05745764e0ad505dc3c91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259690"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593958"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Distribuzione dei contenuti con rete CDN di Azure per la Cina
 
@@ -38,9 +38,9 @@ La rete CDN di Azure globale e la rete CDN di Azure per la Cina hanno le caratte
 
      - Esegue la distribuzione dei contenuti fuori dalla Cina
 
-     - Quattro piani tariffari: Microsoft standard, Verizon standard, Verizon premium e Akamai standard
+     - Piani tariffari quattro: Standard di Microsoft, Verizon standard, premium di Verizon e Akamai standard
 
-     - [Documentazione](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [Documentazione](https://docs.microsoft.com/azure/cdn/)
 
 - Rete CDN di Azure per la Cina:
 
@@ -48,7 +48,7 @@ La rete CDN di Azure globale e la rete CDN di Azure per la Cina hanno le caratte
 
      - Esegue la distribuzione dei contenuti in Cina
 
-     - Due piani tariffari: Standard e Premium
+     - Due piani tariffari disponibili: Standard e premium
 
      - [Documentazione](https://docs.azure.cn/en-us/cdn/)
  
@@ -63,7 +63,7 @@ Per altre informazioni sulla rete CDN di Azure per la Cina, vedere:
 
 - [Use the Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use) (Usare la rete CDN di Azure)
 
-- [Azure service availability in China](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability) (Disponibilità dei servizi Azure in Cina)
+- [Azure service availability in China](https://docs.microsoft.com/azure/china/concepts-service-availability) (Disponibilità dei servizi Azure in Cina)
 
 
 

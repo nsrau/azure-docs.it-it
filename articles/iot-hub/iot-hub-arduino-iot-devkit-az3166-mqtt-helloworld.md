@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61369351"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Inviare messaggi a un server MQTT
 
@@ -80,7 +80,7 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

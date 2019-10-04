@@ -2,23 +2,18 @@
 title: Gestire Azure Key Vault tramite l'interfaccia della riga di comando - Azure Key Vault | Microsoft Docs
 description: Usare questo articolo per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: barbkess
-tags: azure-resource-manager
-ms.assetid: ''
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: barclayn
-ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115624"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000632"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
@@ -40,7 +35,7 @@ L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior part
 > Questo articolo non include istruzioni su come scrivere l'applicazione Azure usata nel passaggio che spiega come autorizzare un'applicazione all'uso di una chiave o un segreto nell'insieme di credenziali delle chiavi.
 >
 
-Per una panoramica di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-whatis.md)
+Per una panoramica di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md)
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -151,7 +146,7 @@ Se si ha una chiave esistente in un file con estensione pem, è possibile carica
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente. Usare https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/keys/[nomechiave]/[id-univoco-chiave] per ottenere questa versione specifica. Ad esempio, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente. Usare https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/keys/[nomechiave]/[id-univoco-chiave] per ottenere questa versione specifica. Ad esempio, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
 
 Aggiungere un segreto all'insieme di credenziali, ovvero una password denominata SQLPassword con il valore "hVFkk965BuUv" per Azure Key Vault. 
 
@@ -159,7 +154,7 @@ Aggiungere un segreto all'insieme di credenziali, ovvero una password denominata
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Fare riferimento a questa password usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/secret/[nome-segreto]/[id-univoco-segreto] per ottenere questa versione specifica. Ad esempio, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Fare riferimento a questa password usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/secret/[nome-segreto]/[id-univoco-segreto] per ottenere questa versione specifica. Ad esempio, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** .
 
 Importare un certificato nell'insieme di credenziali usando un file PEM o PFX.
 

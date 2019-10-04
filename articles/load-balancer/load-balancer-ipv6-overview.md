@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni sul supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: kumud
-ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.author: allensu
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161934"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147352"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "53161934"
 >[!NOTE] 
 >Azure Load Balancer supporta due tipi diversi: Di base e standard. Questo articolo illustra Load Balancer Basic. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](load-balancer-standard-overview.md).
 
-I servizi di bilanciamento del carico con connessione Internet possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
+I bilanciamenti del carico con connessione Internet dello SKU Basic possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
 
 * Connettività IPv6 nativa end-to-end tra client Internet pubblici e macchine virtuali di Azure tramite il servizio di bilanciamento del carico.
 * Connettività IPv6 nativa end-to-end in uscita tra macchine virtuali e client Internet pubblici abilitati per IPv6.
@@ -79,6 +79,7 @@ Limitazioni
 * La modifica del parametro loadDistributionMethod per IPv6 **è attualmente non supportata**.
 * Gli indirizzi IP IPv6 riservati (dove IPAllocationMethod = statico) sono **attualmente non supportati**.
 * NAT64 (conversione di IPv6 in IPv4) non supportato.
+* I bilanciamenti del carico con SKU standard non supportano attualmente indirizzi IPv6.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

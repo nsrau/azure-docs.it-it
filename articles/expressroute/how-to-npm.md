@@ -9,11 +9,11 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60840173"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 

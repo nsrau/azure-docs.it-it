@@ -1,9 +1,9 @@
 ---
-title: Approvare o rifiutare le richieste per ruoli delle risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
+title: Approva o rifiuta le richieste per i ruoli delle risorse di Azure in PIM-Azure Active Directory | Microsoft Docs
 description: Informazioni su come approvare o rifiutare le richieste per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b39434f8763e44a126f74ac9a19596e4413ae9c
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288480"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804265"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione con delega. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 per l'approvazione non è configurabile.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli in modo da richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione delegati. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 per l'approvazione non è configurabile.
 
 Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per i ruoli delle risorse di Azure.
 
@@ -38,15 +38,15 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
 1. Fare clic su **Approva richieste**.
 
-    ![Risorse di Azure - Approvare le richieste](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Richieste di approvazione-pagina delle risorse di Azure che mostra la richiesta di Revisione](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     Nella sezione **Requests for role activations** (Richieste di attivazioni di ruoli) verrà visualizzato un elenco di richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approvare le richieste
+## <a name="approve-requests"></a>Approva richieste
 
-1. Trovare e fare clic sulla richiesta che si intende approvare. Viene visualizzato un riquadro di approvazione.
+1. Trovare e fare clic sulla richiesta che si intende approvare. Viene visualizzato un riquadro approva o nega.
 
-    ![Riquadro Approva richieste](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approva le richieste-approva o nega riquadro con i dettagli e la casella di giustificazione](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Nel riquadro **Giustificazione** digitare un motivo.
 
@@ -54,13 +54,13 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
     Viene visualizzata una notifica con l'approvazione.
 
-    ![Approvare la notifica](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Approva notifica che indica che la richiesta è stata approvata](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
-## <a name="deny-requests"></a>Negare le richieste
+## <a name="deny-requests"></a>Rifiutare le richieste
 
-1. Trovare e fare clic sulla richiesta che si intende negare. Viene visualizzato un riquadro di approvazione.
+1. Trovare e fare clic sulla richiesta che si intende negare. Viene visualizzato un riquadro approva o nega.
 
-    ![Riquadro Approva richieste](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approva le richieste-approva o nega riquadro con i dettagli e la casella di giustificazione](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Nel riquadro **Giustificazione** digitare un motivo.
 
@@ -84,4 +84,4 @@ Ecco alcune informazioni sulle notifiche del flusso di lavoro:
 
 - [Estendere o rinnovare i ruoli delle risorse di Azure in PIM](pim-resource-roles-renew-extend.md)
 - [Notifiche tramite posta elettronica in PIM](pim-email-notifications.md)
-- [Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM](azure-ad-pim-approval-workflow.md)
+- [Approva o rifiuta le richieste per i ruoli Azure AD in PIM](azure-ad-pim-approval-workflow.md)

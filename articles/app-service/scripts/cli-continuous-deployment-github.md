@@ -13,21 +13,21 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43c070513f23564bd4679531e20b411f178920ac
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 02853186a1f28d8c6db6b5421c6ebba0640461cb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629102"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "71057883"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Creare un'app del servizio app con distribuzione continua da GitHub usando l'interfaccia della riga di comando
 
 Questo script di esempio crea un'app nel servizio app con le risorse correlate e quindi configura la distribuzione continua da un repository GitHub. Per la distribuzione da GitHub senza distribuzione continua, vedere [Creare un'app e distribuire il codice da GitHub](cli-deploy-github.md). Per questo esempio è necessario:
 
-* Repository GitHub contenente il codice dell'applicazione, con le relative autorizzazioni di amministratore.
+* Repository GitHub contenente il codice dell'applicazione, con le relative autorizzazioni di amministratore. Per accedere alle compilazioni automatiche, strutturare il repository in base alla tabella [Preparare il repository](../deploy-continuous-deployment.md#prepare-your-repository).
 * [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

@@ -2,19 +2,19 @@
 title: Creare una definizione di indice e concetti - Ricerca di Azure
 description: Introduzione all'indicizzazione di termini e concetti in Ricerca di Azure, incluse le parti dei componenti e la struttura fisica.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337868"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647361"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creare un indice di base in Ricerca di Azure
 
@@ -36,7 +36,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
   
    Facendo clic su **Crea**, si creano nel servizio di ricerca tutte le strutture fisiche che supportano l'indice.
 
-3. Scaricare lo schema dell'indice mediante [Get Index REST API (Ottenere un indice API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come [Postman](search-fiddler.md). Si ottiene così una rappresentazione JSON dell'indice creato nel portale. 
+3. Scaricare lo schema dell'indice mediante [Get Index REST API (Ottenere un indice API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come [Postman](search-get-started-postman.md). Si ottiene così una rappresentazione JSON dell'indice creato nel portale. 
 
    A questo punto si passa a un approccio basato sul codice. Poiché non è possibile modificare un indice creato in precedenza, il portale non è particolarmente adatto per l'iterazione. È tuttavia possibile usare Postman e REST per le attività rimanenti.
 
@@ -46,15 +46,15 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
 
 6. Continuare a usare il codice per eseguire l'iterazione sul progetto.  
 
-Poiché nel servizio, vengono create strutture fisiche [eliminando e ricreando gli indici](search-howto-reindex.md) è necessaria ogni volta che si apportano modifiche sostanziali modifiche a una definizione di campo esistente. Ciò significa che durante lo sviluppo, è necessario pianificare ricompilazioni frequenti. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
+Poiché le strutture fisiche vengono create nel servizio, è necessario [eliminare e ricreare](search-howto-reindex.md) gli indici quando si apportano modifiche sostanziali a una definizione di campo esistente. Ciò significa che durante lo sviluppo, è necessario pianificare ricompilazioni frequenti. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
 
-Per la progettazione iterativa è consigliabile un codice anziché un approccio basato sul portale. Se ci si affida al portale per la definizione dell'indice, è necessario compilare la definizione dell'indice a ogni ricompilazione. In alternativa, strumenti come [Postman e API REST](search-fiddler.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
+Per la progettazione iterativa è consigliabile un codice anziché un approccio basato sul portale. Se ci si affida al portale per la definizione dell'indice, è necessario compilare la definizione dell'indice a ogni ricompilazione. In alternativa, strumenti come [Postman e API REST](search-get-started-postman.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
 
 ## <a name="components-of-an-index"></a>Componenti di un indice
 
 In modo schematico, un indice Ricerca di Azure è costituito dagli elementi seguenti. 
 
-La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte di un indice, in cui ogni campo è denominato, tipizzato e attribuito con comportamenti consentiti che determinano la modalità di utilizzo. Altri elementi sono [Componenti per il suggerimento](#suggesters), [profili di punteggio](#scoring-profiles), [analizzatori](#analyzers) con parti di componenti per supportare la personalizzazione, e le opzioni [CORS](#cors).
+La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte di un indice, in cui ogni campo è denominato, tipizzato e attribuito con comportamenti consentiti che determinano la modalità di utilizzo. Altri elementi includono [suggerimenti](#suggesters), [profili di Punteggio](#scoring-profiles)e [analizzatori](#analyzers) con parti componente per supportare le opzioni di personalizzazione, [CORS](#cors) e chiave di [crittografia](#encryption-key) .
 
 ```json
 {
@@ -126,6 +126,15 @@ La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -137,7 +146,7 @@ La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="data-types"></a>Tipi di dati
-| Type | DESCRIZIONE |
+| Type | Descrizione |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -151,26 +160,32 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributi dell'indice
+
+Esattamente un campo nell'indice deve essere designato come un campo **chiave** che identifica in modo univoco ogni documento.
+
+Altri attributi determinano la modalità di utilizzo di un campo in un'applicazione. Ad esempio, l' attributo ricercabile viene assegnato a ogni campo che deve essere incluso in una ricerca full-text. 
+
+Le API usate per compilare un indice hanno comportamenti predefiniti variabili. Per le [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi è abilitata per impostazione predefinita (ad esempio, la **ricerca** e il **recupero** sono true per i campi di stringa) ed è spesso necessario impostarli solo se si desidera disattivarli. Per .NET SDK, il valore opposto è true. Per le proprietà non impostate in modo esplicito, per impostazione predefinita viene disabilitato il comportamento di ricerca corrispondente, a meno che non venga abilitato in modo specifico.
+
 | Attributo | DESCRIZIONE |
 | --- | --- |
-| *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
-| *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
-| *Filtrabile* |Consente di usare il campo nelle query di filtro. |
-| *Ordinabile* |Consente a una query ordinare i risultati della ricerca usando questo campo. |
-| *Con facet* |Consente di usare un campo in una struttura di [esplorazione in base a facet](search-faceted-navigation.md) per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
-| *Ricercabile* |Contrassegna il campo come disponibile per la ricerca full-text. |
+| `key` |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
+| `retrievable` |Specifica se il campo può essere restituito nel risultato di una ricerca. |
+| `filterable` |Consente di usare il campo nelle query di filtro. |
+| `Sortable` |Consente a una query ordinare i risultati della ricerca usando questo campo. |
+| `facetable` |Consente di usare un campo in una struttura di [esplorazione in base a facet](search-faceted-navigation.md) per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
+| `searchable` |Contrassegna il campo come disponibile per la ricerca full-text. |
 
-È possibile trovare altre informazioni sugli [attributi di indice di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Implicazioni relative all'archiviazione
 
 Gli attributi selezionati hanno un impatto sull'archiviazione. Lo screenshot seguente illustra i modelli di archiviazione dell'indice derivanti da diverse combinazioni di attributi.
 
-L'indice si basa sull'origine dati dell'[esempio realestate predefinito](search-get-started-portal.md), che è possibile indicizzare ed eseguire query nel portale. Anche se non vengono visualizzati gli schemi dell'indice, è possibile dedurre gli attributi in base al nome dell'indice. Ad esempio, l'indice *realestate-searchable*ha soltanto l'attributo **ricercabile** selezionato, l'indice *realestate-retrievable*ha soltanto l'attributo **recuperabile** selezionato e così via.
+L'indice è basato sull'origine dati [incorporata di esempio Real Immobiliare](search-get-started-portal.md) , che è possibile indicizzare ed eseguire query nel portale. Anche se non vengono visualizzati gli schemi dell'indice, è possibile dedurre gli attributi in base al nome dell'indice. Ad esempio, l'indice *realestate-searchable*ha soltanto l'attributo **ricercabile** selezionato, l'indice *realestate-retrievable*ha soltanto l'attributo **recuperabile** selezionato e così via.
 
 ![Dimensioni dell'indice in base alla selezione dell'attributo](./media/search-what-is-an-index/realestate-index-size.png "Dimensioni dell'indice in base alla selezione dell'attributo")
 
-Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione **recuperabile** aumenta le dimensioni dell'indice?  No. L'aggiunta di campi a uno **Strumento suggerimenti** aumenta le dimensioni dell'indice? Sì.
+Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione **recuperabile** aumenta le dimensioni dell'indice? No. L'aggiunta di campi a uno **Strumento suggerimenti** aumenta le dimensioni dell'indice? Sì.
 
 Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi rispetto agli indici che supportano soltanto la ricerca full-text. Questo avviene perché filtro e ordinamento eseguono query su corrispondenze esatte in modo che i documenti siano archiviati senza alterazioni. Al contrario, i campi ricercabili che supportano la ricerca full-text e fuzzy usano indici invertiti, popolati con termini in formato token che consumano meno spazio rispetto a documenti interi.
 
@@ -203,6 +218,10 @@ Per CORS è possibile impostare le opzioni seguenti:
   Per consentire l'accesso a tutte le origini, includere `*` come unico elemento nella matrice**allowedOrigins**. *Non si consiglia questa pratica per i servizi di ricerca della produzione* ma spesso è utile per lo sviluppo e il debug.
 
 + **maxAgeInSeconds** (facoltativa): I browser usano questo valore per determinare la durata (in secondi) di memorizzazione nella cache delle risposte preliminari CORS. Questo valore deve essere un intero non negativo. A un valore più grande corrispondono prestazioni migliori, ma deve trascorrere più tempo prima che le modifiche dei criteri CORS diventino effettive. Se questo valore non è impostato, viene usata una durata predefinita di 5 minuti.
+
+## <a name="encryption-key"></a>Chiave di crittografia
+
+Sebbene tutti gli indici di ricerca di Azure siano crittografati per impostazione predefinita usando chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in ricerca di Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

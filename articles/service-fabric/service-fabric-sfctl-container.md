@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663707"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036478"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Esegue i comandi relativi al contenitore in un nodo del cluster.

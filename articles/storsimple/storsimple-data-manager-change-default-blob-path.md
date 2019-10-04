@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011624"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723798"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
 
@@ -62,7 +62,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
     ![Fare clic su + Nuova funzione](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Selezionare il linguaggio di programmazione **C#**. Nella matrice di riquadri di modello selezionare **C#** nel riquadro **QueueTrigger-CSharp**.
+6. Selezionare il linguaggio di programmazione **C#** . Nella matrice di riquadri di modello selezionare **C#** nel riquadro **QueueTrigger-CSharp**.
 
 7. In **Queue trigger** (Trigger della coda):
 

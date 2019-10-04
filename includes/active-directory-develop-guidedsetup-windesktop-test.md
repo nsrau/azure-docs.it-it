@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804317"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180325"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -44,7 +44,7 @@ Dopo l'accesso dovrebbero essere visualizzate le informazioni sul profilo utente
 |Proprietà  |Format  |DESCRIZIONE |
 |---------|---------|---------|
 
-|**Nome utente**  | <span> user@domain.com </span> | Il nome utente utilizzato per identificare l'utente. | | **Alla scadenza del token** | Data/ora | Ora in cui il token scade. MSAL estende la data di scadenza Rinnovando il token in base alle esigenze. |
+|**Username** |<span>user@domain.com</span> |Il nome utente usato per identificare l'utente.| |**Token Expires** |DateTime |La data e l'ora di scadenza del token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
 
 
 <!--start-collapse-->

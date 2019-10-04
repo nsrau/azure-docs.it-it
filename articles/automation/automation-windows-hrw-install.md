@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni sull'installazione di un ruol
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 09/17/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787980"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477906"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -60,8 +60,10 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
    * *SubscriptionID* (obbligatorio): ID sottoscrizione di Azure in cui si trova l'account di Automazione.
    * *WorkspaceName* (facoltativo): Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una.
 
-     > [!NOTE]
-     > Non sono attualmente le uniche aree di automazione supportate per l'integrazione con i log di monitoraggio di Azure **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale**e **Europa occidentale**. Se l'account di automazione non si trova in una di queste aree, lo script crea un'area di lavoro Log Analytics ma avvisa l'utente che non sarà possibile eseguire il collegamento.
+   > [!NOTE]
+   > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+   >
+   > Per un elenco di coppie di mapping supportati, vedere [mapping di area per area di lavoro di Account di automazione e Log Analitica](how-to/region-mappings.md).
 
 2. Nel computer in uso aprire **Windows PowerShell** dalla schermata **Start** in modalità amministratore.
 3. Dalla shell della riga di comando di PowerShell, passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*. Quindi, eseguire lo script.
@@ -91,9 +93,13 @@ Se non si ha ancora un'area di lavoro Log Analytics, crearne una seguendo le ist
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Aggiungere la soluzione Automazione all'area di lavoro Log Analytics
 
-Le soluzioni aggiungono funzionalità a log di monitoraggio di Azure. La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
+La soluzione di log di monitoraggio di Azure di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per Hybrid Runbook Workers. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
 
-Per aggiungere la soluzione [Automazione](../log-analytics/log-analytics-add-solutions.md) all'area di lavoro Log Analytics, seguire le istruzioni su **come aggiungere una soluzione tramite la raccolta soluzioni**.
+Per aggiungere il **automazione** monitoraggio di Azure registra soluzione all'area di lavoro, eseguire il comando PowerShell seguente.
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installare Microsoft Monitoring Agent
 

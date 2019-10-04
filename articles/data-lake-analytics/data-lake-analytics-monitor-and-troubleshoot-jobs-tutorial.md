@@ -1,21 +1,19 @@
 ---
-title: Monitorare i processi in Azure Data Lake Analytics con il portale di Azure
+title: Monitorare Azure Data Lake Analytics-portale di Azure
 description: Questo articolo descrive come usare il portale di Azure per risolvere i problemi relativi ai processi di Azure Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8c61b8736dfb13f0c2c2520f22979ac51646e05f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623656"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316596"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire processi in Azure Data Lake Analytics con il portale di Azure
 
@@ -46,7 +44,7 @@ ms.locfileid: "34623656"
     "/Samples/Data/SearchLog.tsv"
 8. Fare clic su **Submit Job**.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)

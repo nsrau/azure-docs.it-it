@@ -1,6 +1,6 @@
 ---
 title: Database SQL di Azure - Utilizzo generico e Business critical | Microsoft Docs
-description: Questo articolo illustra i livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore.
+description: Questo articolo illustra i livelli di servizio per utilizzo generico e business critical nel modello di acquisto basato su vCore.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,44 +10,73 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 067ea8eee297eb8572bd37e240b8d13afe458ca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331860"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995422"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Livelli di servizio del database SQL di Azure
 
-Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli architetturali usati nel database SQL di Azure:
+Il database SQL di Azure è basato su SQL Server architettura del motore di database adattata per l'ambiente cloud per garantire la disponibilità del 99,99%, anche in caso di errore dell'infrastruttura. Tre livelli di servizio vengono usati nel database SQL di Azure, ognuno con un modello architetturale diverso. Questi livelli di servizio sono:
 
-- [Utilizzo generico](sql-database-service-tier-general-purpose.md) progettato per la maggior parte dei carichi di lavoro generici.
-- [Business Critical](sql-database-service-tier-business-critical.md) progettato per carichi di lavoro a bassa latenza con una replica leggibile.
-- [Iperscalabilità](sql-database-service-tier-hyperscale.md) progettato per database di dimensioni molto grandi (fino a 100 TB) con più repliche leggibili.
+- [Utilizzo](sql-database-service-tier-general-purpose.md)generico, progettato per la maggior parte dei carichi di lavoro generici.
+- [Business critical](sql-database-service-tier-business-critical.md), progettato per i carichi di lavoro a bassa latenza con una replica leggibile.
+- [Iperscalabile](sql-database-service-tier-hyperscale.md), progettata per database di dimensioni molto grandi (fino a 100 TB) con più repliche leggibili.
 
-Questo articolo contiene alcune considerazioni sull'archiviazione e il backup per i livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore.
+Questo articolo illustra le differenze: è possibile intervenire sulle considerazioni relative a livelli di servizio, archiviazione e backup per i livelli di servizio per utilizzo generico e business critical nel modello di acquisto basato su vCore.
+
+## <a name="service-tier-comparison"></a>Confronto tra livelli di servizio
+
+Nella tabella seguente vengono descritte le differenze principali tra i livelli di servizio per la generazione più recente (Quinta generazione). Si noti che le caratteristiche del livello di servizio potrebbero essere diverse in Database singolo e Istanza gestita.
+
+| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+|:---:|:---:|:---:|:---:|:---:|
+| **Ideale per** | |  La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | Applicazioni dati con requisiti di capacità di dati di grandi dimensioni, la possibilità di ridimensionare automaticamente lo spazio di archiviazione fino a 100 TB e di ridimensionare le risorse di calcolo in modo fluido. | Applicazioni OLTP con frequenza di transazioni elevata e livelli minimi di latenza di I/O. Offre massima resilienza agli errori tramite diverse repliche isolate.|
+|  **Disponibile in tipo di risorsa:** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
+| **Dimensioni di calcolo**|Database singolo/pool elastico | Da 1 a 80 vCore | da 1 a 80 vcore | Da 1 a 80 vCore |
+| | Istanza gestita | 4, 8, 16, 24, 32, 40, 64, 80 vcore | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
+| | Pool di istanze gestite | 2, 4, 8, 16, 24, 32, 40, 64, 80 vcore | N/D | N/D |
+| **Tipo di archiviazione** | Tutti | Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
+| **Dimensioni database** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
+| | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
+| **Dimensioni archiviazione** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
+| | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
+| **Dimensioni di TempDB** | Database singolo/pool elastico | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| | Istanza gestita  | [24 GB per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | Fino a 4 TB- [limitato dalle dimensioni di archiviazione](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| **Velocità effettiva scrittura log** | Database singolo | [1,875 MB/s per vCore (massimo 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/s | [6 MB/s per vCore (Max 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| | Istanza gestita | [3 MB/s per vCore (massimo 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s per Vcore (max 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+|**Disponibilità**|Tutti| 99,99% |  [99,95% con una replica secondaria, 99,99% con più repliche](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% con database singolo con ridondanza della zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
+|**OLTP in memoria** | | N/D | N/D | Disponibile |
+|**Repliche di sola lettura**| | 0  | 0 - 4 | 1 (incorporato, incluso nel prezzo) |
+|**Prezzi/fatturazione** | Database singolo | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. | vengono addebitati [vCore per ogni replica e l'archiviazione usata](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. |
+|| Istanza gestita | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | N/D | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | 
+|**Modelli di sconto**| | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponibile per sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo|
+
+Per ulteriori informazioni, vedere le differenze dettagliate tra i livelli di servizio nel [database singolo (vCore)](sql-database-vcore-resource-limits-single-databases.md), i pool di database singoli ( [vCore)](sql-database-dtu-resource-limits-single-databases.md), i [database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md), i [pool di database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md)e [istanza gestita](sql-database-managed-instance-resource-limits.md) pagine.
 
 > [!NOTE]
-> Per informazioni dettagliate sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB](sql-database-service-tier-hyperscale.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
+> Per informazioni sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [livello di servizio con scalabilità](sql-database-service-tier-hyperscale.md)automatica. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Archiviazione di dati e log
 
-Valutare gli aspetti seguenti:
+I seguenti fattori influiscono sulla quantità di spazio di archiviazione utilizzato per i file di dati e di log:
 
-- Le risorse di archiviazione allocate vengono usate dai file di dati (MDF) e dai file di log (LDF).
-- Ogni dimensione di calcolo del database singolo supporta una dimensione massima del database. La dimensione massima predefinita è di 32 GB.
-- Quando si configura la dimensione del database singolo desiderata (dimensione dei file MDF), viene aggiunto automaticamente il 30% delle risorse di archiviazione per il supporto dei file LDF
-- Le dimensioni di archiviazione in istanza gestita devono essere specificate in multipli di 32 GB.
-- È possibile selezionare qualsiasi dimensione di database singolo compresa tra 10 GB e il valore massimo supportato
-  - Per l'archiviazione nei livelli di servizio per uso generico o standard, aumentare o ridurre le dimensioni in incrementi di 10 GB
-  - Per l'archiviazione nei livelli di servizio premium o business critical, aumentare o ridurre le dimensioni in incrementi di 250 GB
-- Nel livello di servizio Utilizzo generico `tempdb` usa un'unità SSD collegata e questo costo di archiviazione è incluso nel prezzo del vCore.
-- Nel livello di servizio Business Critical `tempdb` condivide l'unità SSD collegata con i file MDF e LDF e il costo di archiviazione di tempDB è incluso nel prezzo del vCore.
+- L'archiviazione allocata viene utilizzata da file di dati (MDF) e file di log (LDF).
+- Ogni singola dimensione di calcolo del database supporta una dimensione massima del database, con una dimensione massima predefinita di 32 GB.
+- Quando si configurano le dimensioni di database singolo richieste (le dimensioni del file MDF), il 30 percento di spazio di archiviazione aggiuntivo viene aggiunto automaticamente per supportare i file LDF.
+- Le dimensioni di archiviazione per un'istanza gestita di database SQL devono essere specificate in multipli di 32 GB.
+- È possibile selezionare qualsiasi dimensione di database singolo compresa tra 10 GB e il valore massimo supportato.
+  - Per l'archiviazione nei livelli di servizio standard o per utilizzo generico, aumentare o diminuire le dimensioni in incrementi di 10 GB.
+  - Per l'archiviazione nei livelli di servizio Premium o business critical, aumentare o diminuire le dimensioni in incrementi di 250 GB.
+- Nel livello `tempdb` di servizio per utilizzo generico usa un'unità SSD collegata e il costo di archiviazione è incluso nel prezzo vCore.
+- Nel livello `tempdb` di servizio business critical condivide l'unità SSD collegata con i file MDF e ldf e il `tempdb` costo di archiviazione è incluso nel prezzo vCore.
 
 > [!IMPORTANT]
-> Il costo addebitato dipende dalla quantità totale di risorse di archiviazione allocate per i file MDF e LDF.
+> Viene addebitato lo spazio di archiviazione totale allocato per i file MDF e LDF.
 
 Per monitorare la dimensione totale corrente dei file MDF e LDF, usare [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Per monitorare la dimensione corrente dei singoli file MDF e LDF, usare [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
@@ -56,12 +85,12 @@ Per monitorare la dimensione totale corrente dei file MDF e LDF, usare [sp_space
 
 ## <a name="backups-and-storage"></a>Backup e archiviazione
 
-Le risorse di archiviazione per i backup di database vengono allocate per supportare le funzionalità di ripristino temporizzato e di [conservazione a lungo termine](sql-database-long-term-retention.md) del database SQL. Queste risorse vengono allocate separatamente per ogni database e fatturate come due costi distinti.
+Lo spazio di archiviazione per i backup di database è allocato per supportare le funzionalità di ripristino temporizzato (ripristino temporizzato) e di [conservazione a lungo termine (LTR)](sql-database-long-term-retention.md) del database SQL. Queste risorse vengono allocate separatamente per ogni database e fatturate come due costi distinti.
 
-- **PITR**: i singoli backup di database vengono copiati automaticamente in [risorse di archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-designing-ha-apps-with-ragrs.md). Le dimensioni di archiviazione aumentano dinamicamente con la creazione di nuovi backup.  Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. L'utilizzo delle risorse di archiviazione dipende dalla frequenza con cui vengono apportate modifiche al database e dal periodo di conservazione. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Una quantità minima di risorse di archiviazione, equivalente al 100% della dimensione dei dati, viene fornita senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
-- **LTR**: il database SQL offre la possibilità di configurare la conservazione a lungo termine dei backup completi fino a 10 anni. Se i criteri di conservazione a lungo termine sono abilitati, questi backup vengono archiviati automaticamente in risorse di archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. Questa configurazione definirà la quantità di risorse di archiviazione usate per i backup con conservazione a lungo termine. È possibile usare lo strumento di calcolo dei prezzi per la conservazione a lungo termine per stimare il costo di questo tipo di archiviazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+- **PITR**: I singoli backup di database vengono copiati automaticamente nell' [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md) . Le dimensioni di archiviazione aumentano in modo dinamico man mano che vengono creati nuovi backup. L'archiviazione viene utilizzata da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni, copiati ogni 5 minuti. Il consumo di spazio di archiviazione dipende dalla frequenza di modifica del database e dal periodo di memorizzazione per i backup. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Un importo di archiviazione minimo pari al 100% (1x) delle dimensioni del database viene fornito senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
+- **LTR**: Il database SQL offre la possibilità di configurare la conservazione a lungo termine dei backup completi per un massimo di 10 anni. Se si configura un criterio LTR, questi backup vengono archiviati automaticamente nell'archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati i backup. Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup settimanali, mensili e/o annuali. La configurazione scelta determina la quantità di spazio di archiviazione che verrà usata per i backup con LTR. Per stimare il costo dell'archiviazione di LTR, è possibile usare il calcolatore dei prezzi di LTR. Per altre informazioni, vedere [conservazione a lungo termine del database SQL](sql-database-long-term-retention.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per database singoli nei livelli di servizio Utilizzo generico e Business critical, vedere [Limiti delle risorse basate su vCore del database SQL per database singoli](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
-- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per i pool elastici nei livelli di servizio Utilizzo generico e Business critical, vedere [Limiti delle risorse basate su vCore del database SQL per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Per informazioni dettagliate sulle dimensioni di calcolo e sulle dimensioni di archiviazione specifiche disponibili per un database singolo nei livelli di servizio utilizzo generico e business critical, vedere [limiti delle risorse basate su vCore per database SQL per database singoli](sql-database-vcore-resource-limits-single-databases.md).
+- Per informazioni dettagliate sulle dimensioni di calcolo e sulle dimensioni di archiviazione specifiche disponibili per i pool elastici nei livelli di servizio per utilizzo generico e business critical, vedere [limiti delle risorse basate su vCore del database SQL per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).

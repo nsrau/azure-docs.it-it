@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096674"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095490"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Servizio di sincronizzazione Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -81,7 +81,7 @@ Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazi
 
 1. Avviare **Synchronization Service Manager** passando ad AVVIA → Servizio di sincronizzazione.
 
-1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
+1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"* .
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2. Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
 Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata per l'esportazione dell'attributo userCertificate per gli oggetti Utente in Azure AD. Individuare questa regola di sincronizzazione per scoprirne la configurazione **precedente** e il **filtro ambito**:
@@ -90,9 +90,9 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 
 2. Configurare i filtri della ricerca con i valori seguenti:
 
-    | Attributo | Valore |
+    | Attributo | Value |
     | --- | --- |
-    | Direzione |**Outbound** |
+    | Direction |**Outbound** |
     | MV Object Type |**Person** |
     | Connettore |*nome del connettore Azure AD* |
     | Connector Object Type |**user** |
@@ -105,20 +105,20 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 7. Nella schermata di modifica, selezionare la scheda **Scoping filter** (Filtro ambito).
 8. Annotare la configurazione del filtro ambito. Se si usa la regola di sincronizzazione predefinita, devono essere presenti esattamente **un gruppo di filtri ambito contenente due clausole**, tra cui:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passaggio 3. Creare la regola di sincronizzazione in uscita necessaria
 La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la stessa **priorità elevata** della regola di sincronizzazione esistente. Ciò garantisce che la nuova regola di sincronizzazione si applichi allo stesso set di oggetti della regola di sincronizzazione esistente e sostituisca la regola di sincronizzazione esistente per l'attributo userCertificate. Per creare la regola di sincronizzazione:
 1. Nell'editor per le regole di sincronizzazione, fare clic sul pulsante **Aggiungi nuova regola**.
 2. Nella **scheda Descrizione**, inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | NOME | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
-    | DESCRIZIONE | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
+    | Name | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
+    | Descrizione | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
     | Connected System | *Selezionare il connettore di Azure AD* |
     | Connected System Object Type | **user** | |
     | Metaverse Object Type | **person** | |
@@ -129,7 +129,7 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
 4. Ignora la scheda **Join rules** (Regole di unione).
 5. Andare nella scheda **Trasformazioni** per aggiungere una nuova trasformazione tramite la configurazione seguente:
 
-    | Attributo | Valore |
+    | Attributo | Value |
     | --- | --- |
     | Flow Type |**Expression** |
     | Target Attribute |**userCertificate** |

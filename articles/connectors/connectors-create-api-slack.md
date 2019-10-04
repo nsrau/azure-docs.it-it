@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 2606fdc15194264bc3d84496d2de258adfc314be
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230353"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050788"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitorare e gestire Slack con App per la logica di Azure
 
@@ -31,7 +31,7 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * L'account [Slack](https://slack.com/) e le credenziali utente
 
@@ -56,7 +56,7 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
    Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Se viene richiesto di accedere a Slack, accedere all'area di lavoro Slack personale. 
 

@@ -3,22 +3,21 @@ title: Rendere persistente l'output di processi e attività in Archiviazione di 
 description: Informazioni su come usare l'API del servizio Batch per rendere persistente l'output di attività e processi Batch in Archiviazione di Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e4a2af09b432961211a5f38ecd2d9dacd89d3868
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444770"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094449"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -178,9 +177,9 @@ Se si sviluppa in un linguaggio diverso da C#, sarà necessario implementare man
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
+Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice Azure batch][github_samples] su GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
 
-1. Aprire il progetto in **Visual Studio 2017**.
+1. Aprire il progetto in **Visual Studio 2019**.
 2. Aggiungere **le credenziali dell'account** di archiviazione e Batch a **AccountSettings.settings** nel progetto Microsoft.Azure.Batch.Samples.Common.
 3. **Compilare** , ma non eseguire, la soluzione. Se richiesto, ripristinare tutti i pacchetti NuGet.
 4. Usare il portale di Azure per caricare un [pacchetto dell'applicazione](batch-application-packages.md) per **PersistOutputsTask**. Includere `PersistOutputsTask.exe` e relativi assembly dipendenti nel pacchetto ZIP, impostare l'ID applicazione su "PersistOutputsTask" e la versione del pacchetto dell'applicazione su "1.0".

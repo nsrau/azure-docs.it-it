@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496795"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792880"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
 Se è già stata seguita l'esercitazione sull'analisi dei costi, si ha familiarità con il download manuale di dati di Gestione costi. Tuttavia, è possibile creare un'attività periodica che esporta automaticamente i dati di Gestione costi nell'archiviazione di Azure su base giornaliera, settimanale o mensile. I dati esportati sono in formato CSV e contengono tutte le informazioni raccolte da Gestione costi. È quindi possibile usare i dati esportati nell'archiviazione di Azure con sistemi esterni e combinarli con dati personalizzati. È possibile usare i dati esportati anche in un sistema esterno come un dashboard o un altro sistema finanziario.
+
+Guarda il video [Come pianificare esportazioni in archiviazione con Gestione costi di Azure](https://www.youtube.com/watch?v=rWa_xI1aRzo) sulla creazione di un'esportazione pianificata dei dati di costo di Azure in Archiviazione di Azure.
 
 Gli esempi contenuti in questa esercitazione descrivono in modo dettagliato come esportare dati di gestione dei costi e come verificare che i dati siano stati esportati correttamente.
 
@@ -45,7 +47,13 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-daily-export"></a>Creare un'esportazione giornaliera
 
-Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi fare clic su **Esporta** e quindi scegli un'opzione di esportazione. Ad esempio fare clic su **Pianifica l'esportazione**. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi fare clic su **Esporta** e quindi scegli un'opzione di esportazione. Ad esempio fare clic su **Pianifica l'esportazione**.  
+
+> [!NOTE]
+> Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, account, reparti e iscrizioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+>
+>
+
 
 Fare clic su **Aggiungi**, digitare un nome per l'esportazione, quindi selezionare l'opzione **Esportazione giornaliera dei costi da inizio mese**. Fare clic su **Avanti**.
 

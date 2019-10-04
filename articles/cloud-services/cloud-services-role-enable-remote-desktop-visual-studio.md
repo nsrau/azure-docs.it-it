@@ -3,7 +3,7 @@ title: Impostare una connessione Desktop remoto per un ruolo nei servizi cloud d
 description: Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
 services: cloud-services
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406447"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515909"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
 
@@ -86,7 +86,7 @@ Se si condivide il progetto con un team, è quindi consigliabile deselezionare l
 
 Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguenti nella pipeline di compilazione:
 
-1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio: 
+1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -95,7 +95,7 @@ Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguen
 
 1. Dopo le istruzioni di compilazione, aggiungere il passaggio **Distribuzione del servizio cloud di Azure** e impostarne le proprietà.
 
-1. Dopo il passaggio di distribuzione, aggiungere un' **Azure Powershell** passaggio, impostare relativo **nome visualizzato** proprietà su "distribuzione di Azure: Abilitare l'estensione RDP"o un altro nome appropriato e selezionare la sottoscrizione Azure appropriata.
+1. Dopo il passaggio di distribuzione, aggiungere un passaggio di **Azure PowerShell** , impostare la relativa proprietà **nome visualizzato** su "distribuzione di Azure: Abilitare l'estensione RDP "(o un altro nome appropriato) e selezionare la sottoscrizione di Azure appropriata.
 
 1. Impostare **Tipo di script** su "Inline" e incollare il codice seguente nel campo **Script inline**. È anche possibile creare un file `.ps1` nel progetto con questo script, impostare **Tipo di script** su "Percorso del file di script" e impostare **Percorso script** in modo da puntare al file.
 

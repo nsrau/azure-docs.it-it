@@ -8,15 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a8028fdde93d06f7b25bf9bd8b4ed5a560a35f83
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575274"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178612"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 
@@ -51,6 +51,10 @@ Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Dat
 ![Selezionare l'icona View active debug runs (Visualizza esecuzioni di debug attive)](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Elenco di esempi di esecuzioni di debug attive](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+Se si dispone di sessioni di debug del flusso di dati attive, tali sessioni verranno visualizzate nella parte inferiore della finestra di debug attiva. È possibile selezionare una sessione del flusso di dati attiva e arrestare il rispettivo cluster.
+
+![Elenco di esempio delle esecuzioni di debug del flusso di dati attivo](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>Esegue il monitoraggio delle esecuzioni di debug
 

@@ -5,18 +5,49 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140932"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141858"
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.
+
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Selezione percorso sui peering Microsoft e pubblico
+È importante assicurarsi che, quando si usa il peering Microsoft o pubblico, che il traffico scorra sul percorso desiderato se sono presenti uno o più circuiti ExpressRoute, nonché percorsi a Internet tramite un Internet Exchange (IX) o un provider di servizi Internet (ISP). BGP usa un algoritmo di selezione dei percorsi migliore in base a una serie di fattori, tra cui la corrispondenza del prefisso più lungo (LPM). Per assicurarsi che il traffico destinato ad Azure tramite Microsoft o il peering pubblico attraversi il percorso ExpressRoute, i clienti devono implementare l'attributo *preferenza locale* per garantire che il percorso sia sempre preferibile in ExpressRoute. 
+
+> [!NOTE]
+> La preferenza locale predefinita è in genere 100. Sono più preferibili le preferenze locali più elevate. 
+>
+>
+
+Si consideri lo scenario di esempio seguente:
+
+![Problema caso 1 ExpressRoute: routing non ottimale dal cliente a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+Nell'esempio precedente, per preferire i percorsi ExpressRoute configurare la preferenza locale come indicato di seguito. 
+
+**Configurazione Cisco IOS-XE dalla prospettiva R1:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**Configurazione di Junos dalla prospettiva R1:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Routing non ottimale dal cliente a Microsoft
 Per esaminare il problema di routing si userà un esempio. Si supponga di avere due sedi negli Stati Uniti: una a Los Angeles e una a New York. Gli uffici sono connessi tramite una rete WAN (Wide Area Network), che può essere la propria rete backbone o la VPN IP del provider di servizi. Sono disponibili due circuiti ExpressRoute, uno negli Stati Uniti occidentali e uno negli Stati Uniti orientali, anch'essi connessi tramite la rete WAN. Naturalmente, per la connessione alla rete Microsoft esistono due percorsi. Si supponga ora di avere una distribuzione di Azure, ad esempio il servizio app di Azure, negli Stati Uniti occidentali e negli Stati Uniti orientali. Si vogliono connettere gli utenti di Los Angeles alla distribuzione di Azure negli Stati Uniti occidentali e gli utenti di New York alla distribuzione di Azure negli Stati Uniti orientali perché, secondo quanto annunciato dall'amministratore del servizio, per assicurare esperienze ottimali è consigliabile che gli utenti di ogni ufficio accedano ai servizi di Azure nelle vicinanze. Sfortunatamente, il piano funziona correttamente per gli utenti della costa orientale, ma non per quelli della costa occidentale. Di seguito è riportata la causa del problema. In ogni circuito ExpressRoute vengono pubblicati sia il prefisso di Azure negli Stati Uniti orientali (23.100.0.0/16) che il prefisso di Azure negli Stati Uniti occidentali (13.100.0.0/16). Se non si conosce l'area di provenienza di un prefisso, non si potrà differenziarne la gestione. Ritenendo che entrambi i prefissi siano più vicini agli Stati Uniti orientali rispetto agli Stati Uniti occidentali, la rete WAN potrebbe indirizzare gli utenti di entrambi gli uffici al circuito ExpressRoute negli Stati Uniti orientali. Molti utenti nell'ufficio di Los Angeles avranno di conseguenza un'esperienza insoddisfacente.
@@ -44,7 +75,7 @@ Esistono due soluzioni al problema. La prima consiste semplicemente nell'annunci
 La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi in entrambi i circuiti ExpressRoute e, inoltre, indicare qual è il prefisso vicino a un determinato ufficio. Poiché è supportata l'anteposizione di AS PATH in BGP, si può configurare AS PATH nel prefisso per determinare il routing. In questo esempio si può estendere AS PATH per 172.2.0.0/31 negli Stati Uniti orientali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti occidentali per il traffico destinato a questo prefisso. La rete Microsoft considera infatti più breve il percorso per questo prefisso rispetto a quello negli Stati Uniti orientali. Allo stesso modo si può estendere AS PATH per 172.2.0.2/31 negli Stati Uniti occidentali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti orientali. Il routing è ottimizzato per entrambi gli uffici. Con questa progettazione, se un circuito ExpressRoute viene interrotto, Exchange Online può comunque raggiungere il cliente tramite un altro circuito ExpressRoute e la rete WAN. 
 
 > [!IMPORTANT]
-> I numeri AS privati in AS PATH per i prefissi ricevuti su peering Microsoft vengono rimossi. L'aggiunta di numeri AS pubblici in AS PATH è necessaria per determinare il routing per peering Microsoft.
+> I numeri AS privati vengono rimossi nel percorso AS per i prefissi ricevuti sul peering Microsoft quando si esegue il peering utilizzando un numero AS privato. È necessario eseguire il peering con un pubblico come e aggiungere numeri AS pubblici nel percorso AS per influenzare il routing per il peering Microsoft.
 > 
 > 
 

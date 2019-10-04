@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Ricerca notizie Bing
 titleSuffix: Azure Cognitive Services
 description: Un elenco dei linguaggi naturali, paesi e aree geografiche supportate dall'API Ricerca notizie Bing.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66384976"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -162,4 +162,4 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Stati Uniti|Stati Uniti|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).
+Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).

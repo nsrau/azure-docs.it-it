@@ -1,64 +1,68 @@
 ---
-title: Informazioni sul Centro sicurezza di Azure per l'architettura della soluzione IoT Preview | Microsoft Docs
-description: Informazioni sul flusso di informazioni nel Centro sicurezza di Azure per il servizio IoT.
+title: Informazioni sul centro sicurezza di Azure per l'architettura della soluzione Internet delle cose | Microsoft Docs
+description: Informazioni sul flusso di informazioni nel centro sicurezza di Azure per il servizio Internet delle cose.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862366"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596576"
 ---
-# <a name="azure-security-center-for-iot-architecture"></a>Il Centro sicurezza di Azure per l'architettura di IoT
+# <a name="azure-security-center-for-iot-architecture"></a>Centro sicurezza di Azure per l'architettura dell'it
 
-Questo articolo illustra l'architettura del sistema funzionale di Azure Security Center (ASC) per la soluzione IoT. 
+Questo articolo illustra l'architettura del sistema funzionale del Centro sicurezza di Azure per la soluzione Internet delle cose. 
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="azure-security-center-for-iot-components"></a>Centro sicurezza di Azure per i componenti di Internet delle cose
 
-## <a name="asc-for-iot-components"></a>Centro sicurezza di AZURE per i componenti di IoT
-
-Centro sicurezza di AZURE per IoT è costituita dai componenti seguenti:
-- Agenti di dispositivo
+Il Centro sicurezza di Azure per l'it è costituito dai componenti seguenti:
+- Integrazione dell'hub Internet
+- Agenti dispositivo (facoltativo)
 - Inviare il messaggio di sicurezza SDK
-- Integrazione dell'IoT Hub
-- Pipeline di Analitica
+- Pipeline di analisi
  
-### <a name="asc-for-iot-workflow"></a>Centro sicurezza di AZURE per IoT del flusso di lavoro
+### <a name="azure-security-center-for-iot-workflows"></a>Centro sicurezza di Azure per flussi di lavoro Internet
 
-Centro sicurezza di AZURE per gli agenti di dispositivi IoT consente di raccogliere facilmente gli eventi di sicurezza non elaborati dai dispositivi. Gli eventi di sicurezza non elaborati possono includere le connessioni IP, la creazione del processo, gli accessi utente e altre informazioni relative alla sicurezza. Centro sicurezza di AZURE per gli agenti di dispositivi IoT gestire anche l'aggregazione di eventi al fine di evitare di velocità effettiva di rete elevato. Gli agenti sono altamente personalizzabili, consentendo di utilizzarle per attività specifiche, ad esempio inviare solo informazioni importanti con il contratto di servizio più veloce, o per aggregare le informazioni di sicurezza completo e il contesto in segmenti più grandi, evitando i costi di servizio più elevati.
- 
-Dispositivo agenti e altre applicazioni utilizza il **Centro sicurezza di Azure, AZURE Invia messaggio di sicurezza SDK** per inviare informazioni di sicurezza nell'IoT Hub di Azure. L'IoT Hub acquisisce queste informazioni e lo inoltra al Centro sicurezza di AZURE per il servizio IoT.
+Il Centro sicurezza di Azure per l'it funziona in uno dei due flussi di lavoro di funzionalità: Incorporata e migliorata  
 
-Dopo aver abilitato il Centro sicurezza di AZURE per il servizio IoT, oltre ai dati inoltrati, l'IoT Hub invia tutti i relativi dati interni per l'analisi dal Centro sicurezza di AZURE per IoT. Questi dati includono i log delle operazioni da dispositivo a cloud, le identità dei dispositivi e la configurazione dell'Hub. Tutte queste informazioni consente di creare il Centro sicurezza di AZURE per la pipeline di analitica IoT.
+### <a name="built-in"></a>Predefinito
+In modalità **predefinita** , il Centro sicurezza di Azure per l'it è abilitato quando si sceglie di attivare l'opzione di **sicurezza** nell'hub Internet. Il monitoraggio, le raccomandazioni e gli avvisi in tempo reale, la modalità incorporata offre visibilità del dispositivo in fase di individuazione e sicurezza senza corrispondenza. La modalità di compilazione non richiede l'installazione dell'agente su tutti i dispositivi e usa l'analisi avanzata sulle attività registrate per analizzare e proteggere il dispositivo Field. 
+
+### <a name="enhanced"></a>Avanzato 
+In modalità **avanzata** , dopo l'attivazione dell'opzione di **sicurezza** nell'hub Internet e l'installazione del Centro sicurezza di Azure per gli agenti di dispositivi di tutto il dispositivo, gli agenti raccolgono, aggregano e analizzano gli eventi di sicurezza non elaborati dai dispositivi. Gli eventi di sicurezza non elaborati possono includere connessioni IP, creazione di processi, account di accesso utente e altre informazioni rilevanti per la sicurezza. Il Centro sicurezza di Azure per gli agenti del dispositivo Internet gestisce anche l'aggregazione di eventi per evitare una elevata velocità effettiva della rete. Gli agenti sono altamente personalizzabili e possono essere usati per attività specifiche, ad esempio per l'invio di informazioni importanti al contratto di servizio più veloce o per l'aggregazione di informazioni e contesto di sicurezza estese in segmenti più grandi, evitando i costi di servizio più elevati.
+
+![Centro sicurezza di Azure per l'architettura dell'it](./media/architecture/azure-iot-security-architecture.png)
  
-Centro sicurezza di AZURE per la pipeline di analitica IoT riceve anche flussi intelligence delle minacce aggiuntivi da varie origini all'interno di Microsoft e Microsoft partner. Il Centro sicurezza di AZURE per la pipeline di analitica intero IoT funziona con tutte le configurazioni dei clienti eseguite nel servizio (ad esempio avvisi personalizzati e l'utilizzo del messaggio di sicurezza di trasmissione SDK).
+Gli agenti dispositivo e altre applicazioni usano **Azure Send Security Message SDK** per inviare informazioni di sicurezza nell'hub Azure. Hub cose preleva queste informazioni e le invia al centro sicurezza di Azure per il servizio Internet delle cose.
+
+Una volta abilitato il Centro sicurezza di Azure per il servizio Internet, oltre ai dati inoltrati, l'hub Internet invia anche tutti i dati interni per l'analisi da parte del Centro sicurezza di Azure. Questi dati includono i log delle operazioni del cloud, le identità del dispositivo e la configurazione dell'hub. Tutte queste informazioni consentono di creare il Centro sicurezza di Azure per la pipeline di analisi dei dati.
  
-Tramite la pipeline di analitica, Centro sicurezza di AZURE per IoT combina tutti i flussi di informazioni per generare gli avvisi e suggerimenti pratici. La pipeline contiene due regole personalizzate create da ricercatori dediti alla protezione e gli esperti, nonché modelli la ricerca di deviazione dall'analisi del comportamento e i rischi di dispositivo standard di machine learning.
+Il Centro sicurezza di Azure per la pipeline di analisi Internet delle cose riceve anche flussi di intelligence per le minacce aggiuntivi da diverse fonti all'interno dei partner Microsoft e Microsoft Il Centro sicurezza di Azure per l'intera pipeline Analytics funziona con tutte le configurazioni dei clienti effettuate sul servizio, ad esempio gli avvisi personalizzati e l'uso dell'SDK del messaggio di sicurezza di invio.
  
-Centro sicurezza di AZURE per IoT raccomandazioni e avvisi (analitica pipeline output) viene scritto nell'area di lavoro di Log Analitica di ogni cliente. Inclusi gli eventi non elaborati nell'area di lavoro, nonché gli avvisi e raccomandazioni consente l'analisi approfondita e le query che utilizzano i dettagli esatti delle attività sospette rilevate.  
+Usando la pipeline di analisi, il Centro sicurezza di Azure combina tutti i flussi di informazioni per generare raccomandazioni e avvisi di utilità pratica. La pipeline contiene sia le regole personalizzate create dai ricercatori e gli esperti della sicurezza, sia i modelli di apprendimento automatico che cercano la deviazione dal comportamento del dispositivo standard e dall'analisi dei rischi.
+ 
+Il Centro sicurezza di Azure per le raccomandazioni e gli avvisi relativi all'it (output della pipeline di analisi) viene scritto nell'area di lavoro Log Analytics di ogni cliente. L'inclusione degli eventi non elaborati nell'area di lavoro e degli avvisi e delle raccomandazioni consente l'analisi approfondita e le query usando i dettagli esatti delle attività sospette rilevate.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono illustrate l'architettura di base e del flusso di lavoro del Centro sicurezza di AZURE per la soluzione IoT. Per altre informazioni sui prerequisiti, come iniziare a usare e abilitare la soluzione di sicurezza nell'IoT Hub, vedere gli articoli seguenti:
+Questo articolo ha illustrato l'architettura di base e il flusso di lavoro del Centro sicurezza di Azure per la soluzione Internet delle cose. Per altre informazioni sui prerequisiti, su come iniziare e abilitare la soluzione di sicurezza nell'hub Internet, vedere gli articoli seguenti:
 
 - [Prerequisiti del servizio](service-prerequisites.md)
 - [Introduzione](getting-started.md)
 - [Configurare la soluzione](quickstart-configure-your-solution.md)
-- [Abilitare la sicurezza nell'IoT Hub](quickstart-onboard-iot-hub.md)
-- [Centro sicurezza di AZURE per IoT domande frequenti](resources-frequently-asked-questions.md)
-- [Centro sicurezza di AZURE per gli avvisi di sicurezza IoT](concept-security-alerts.md)
-
+- [Abilitare la sicurezza nell'hub Internet](quickstart-onboard-iot-hub.md)
+- [Domande frequenti sul centro sicurezza di Azure](resources-frequently-asked-questions.md)
+- [Centro sicurezza di Azure per gli avvisi di sicurezza](concept-security-alerts.md)

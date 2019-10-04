@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447858"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569248"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Golang per eseguire query su un database SQL di Azure
 
@@ -34,7 +33,7 @@ Per completare questa esercitazione, sono necessari:
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|

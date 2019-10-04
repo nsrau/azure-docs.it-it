@@ -1,6 +1,6 @@
 ---
 title: Gestire l'accesso alla gestione di Azure con accesso condizionale in Azure Active Directory
-description: Informazioni su come usare l'accesso condizionale in Azure AD per gestire l'accesso alla gestione di Azure.
+description: Informazioni sull'uso dell'accesso condizionale in Azure AD per gestire l'accesso alla gestione di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,29 +12,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: e4b7ce0701349cae3ef501213d0f822ee8d150d0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354349"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142822"
 ---
-# <a name="manage-access-to-azure-management-with-conditional-access"></a>Gestire l'accesso alla gestione di Azure con accesso condizionale
+# <a name="manage-access-to-azure-management-with-conditional-access"></a>Gestire l'accesso alla gestione di Azure con l'accesso condizionale
 
-L'accesso condizionale di Azure Active Directory (Azure AD) controlla l'accesso alle app cloud in base alle condizioni specificate dall'utente. Per consentire l'accesso, vengono creati dei criteri di accesso condizionale che consentono o bloccano l'accesso se i requisiti del criterio vengono o non vengono soddisfatti. 
+> [!CAUTION]
+> Assicurarsi di aver compreso il funzionamento dell'accesso condizionale prima di configurare un criterio per gestire l'accesso alla gestione di Azure. Assicurarsi di non creare condizioni che potrebbero bloccare il proprio accesso al portale.
 
-In genere, l'accesso condizionale viene usato per controllare l'accesso alle app cloud. È inoltre possibile configurare i criteri per controllare l'accesso alla gestione di Azure in base a determinate condizioni (ad esempio, il rischio di accesso, il percorso o il dispositivo) e applicare dei requisiti come l'autenticazione a più fattori.
+L'accesso condizionale in Azure Active Directory (Azure AD) controlla l'accesso alle app cloud in base a condizioni specifiche specificate. Per consentire l'accesso, è possibile creare criteri di accesso condizionale che consentono o bloccano l'accesso in base al fatto che i requisiti dei criteri siano soddisfatti o meno. 
+
+In genere, si usa l'accesso condizionale per controllare l'accesso alle app cloud. È inoltre possibile configurare i criteri per controllare l'accesso alla gestione di Azure in base a determinate condizioni (ad esempio, il rischio di accesso, il percorso o il dispositivo) e applicare dei requisiti come l'autenticazione a più fattori.
 
 Per creare un criterio per la gestione di Azure, selezionare **Gestione di Microsoft Azure** in **App cloud** quando si sceglie l'app a cui applicare il criterio.
 
 ![Accesso condizionale per la gestione di Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Il criterio creato si applica a tutti gli endpoint di gestione di Azure, tra cui il portale di Azure, il provider di Azure Resource Manager, le API Gestione dei servizi classiche, Azure PowerShell e il portale di amministrazione delle sottoscrizioni di Visual Studio. Si noti che il criterio si applica ad Azure PowerShell che chiama l'API di Azure Resource Manager. Non si applica ad [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) che chiama Microsoft Graph.
+Il criterio creato si applica a tutti gli endpoint di gestione di Azure, inclusi i seguenti:
 
-> [!CAUTION]
-> È importante comprendere il funzionamento dell'accesso condizionale prima di configurare un criterio per gestire l'accesso alla gestione di Azure. Assicurarsi di non creare condizioni che potrebbero bloccare il proprio accesso al portale.
+- Portale di Azure
+- Provider di Azure Resource Manager
+- API di gestione del servizio classiche
+- Azure PowerShell
+- Portale di amministrazione delle sottoscrizioni di Visual Studio
+- Azure DevOps
+- Portale di Azure Data Factory
 
-Per altre informazioni su come configurare e usare l'accesso condizionale, vedere [Accesso condizionale in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Si noti che il criterio si applica ad Azure PowerShell che chiama l'API di Azure Resource Manager. Non si applica ad [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) che chiama Microsoft Graph.
+
+
+Per altre informazioni su come configurare e usare l'accesso condizionale, vedere [accesso condizionale in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).

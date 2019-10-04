@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55462716"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Guida introduttiva: Creare una tabella di archiviazione di Azure nel portale di Azure 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Avvio rapido: Creare una tabella di archiviazione di Azure nel portale di Azure 
 
 Questa guida introduttiva mostra come creare tabelle ed entità nel portale di Azure basato sul Web. Questa guida introduttiva illustra anche come creare un account di archiviazione di Azure.
 

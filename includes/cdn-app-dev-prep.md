@@ -1,15 +1,15 @@
 ---
 author: zhangmanling
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331118"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594135"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire alcune operazioni preliminari per consentire al codice di interagire con Azure Resource Manager. A tale scopo è necessario:
@@ -32,7 +32,7 @@ Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire
     ![Assegnazione di un nome al gruppo di risorse](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creazione dell'applicazione Azure AD e applicazione delle autorizzazioni
-Per l'autenticazione delle app con Azure Active Directory sono possibili due approcci: singoli utenti o un'entità servizio. Un'entità servizio è simile a un account di servizio di Windows.  Anziché concedere a un determinato utente le autorizzazioni per interagire con i profili di rete CDN, si concedono le autorizzazioni all'entità servizio.  Le entità servizio vengono in genere usate per processi automatizzati non interattivi.  Sebbene in questa esercitazione si scriva un'applicazione console interattiva, ci si concentrerà sull'approccio dell'entità servizio.
+Esistono due approcci per l'autenticazione con Azure Active Directory: Singoli utenti o un'entità servizio. Un'entità servizio è simile a un account di servizio di Windows.  Anziché concedere a un determinato utente le autorizzazioni per interagire con i profili di rete CDN, si concedono le autorizzazioni all'entità servizio.  Le entità servizio vengono in genere usate per processi automatizzati non interattivi.  Sebbene in questa esercitazione si scriva un'applicazione console interattiva, ci si concentrerà sull'approccio dell'entità servizio.
 
 La creazione di un'entità servizio è costituita da diversi passaggi, compresa la creazione di un'applicazione Azure Active Directory.  Per crearla, si eseguirà [questa esercitazione](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

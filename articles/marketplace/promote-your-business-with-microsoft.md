@@ -1,27 +1,22 @@
 ---
-title: Promuovere la propria attività con Microsoft | Azure
+title: Promuovere il Business con Microsoft | Azure Marketplace
 description: Promuovere la propria attività con Azure Marketplace e AppSource per editori di app e servizi
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937640"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promuovere la propria attività con Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Promuovere la propria attività con Microsoft 
+
 Microsoft ha l'obiettivo di supportare i partner (l'utente) e di semplificare la vendita di app o offerte nelle vetrine del Marketplace. La pubblicazione di un'inserzione nel Marketplace consente di accedere ai programmi e alle risorse nel Marketplace. 
 
 Se non si è ancora iscritti a Microsoft Partner Network (MPN), iscriversi per continuare.  

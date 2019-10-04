@@ -4,17 +4,17 @@ description: Descrive i diversi metodi per avviare un runbook in automazione di 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851314"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477957"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 

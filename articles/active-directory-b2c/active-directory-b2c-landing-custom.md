@@ -2,20 +2,20 @@
 title: Criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
 description: Sviluppo di applicazioni rivolte agli utenti con Azure Active Directory B2C tramite criteri personalizzati.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 5/06/2017
-ms.author: davidmu
+ms.date: 05/06/2017
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bca20bdcf682b040a2fe0b14bf06bc6ca59528b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9090bb6fefd727595a3e2c05db5e86ec2df31c8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317446"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654107"
 ---
 # <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Iscrizione e accesso degli utenti alle applicazioni tramite criteri personalizzati in Azure Active Directory B2C
 

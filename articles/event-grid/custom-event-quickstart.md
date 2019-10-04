@@ -1,5 +1,5 @@
 ---
-title: Inviare eventi personalizzati all'endpoint Web - Griglia di eventi, interfaccia della riga di comando di Azure | Microsoft Docs
+title: Inviare eventi personalizzati con Griglia di eventi e l'interfaccia della riga di comando di Azure
 description: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento personalizzato e sottoscrivere gli eventi per tale argomento. Gli eventi sono gestiti da un'applicazione Web.
 services: event-grid
 keywords: ''
@@ -8,13 +8,13 @@ ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: d135b89d2b053e5d8d98a1319ae21759f3ff5594
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.custom: seodec18, seo-javascript-september2019
+ms.openlocfilehash: a6888179d4d465808dc28f7784db8d1d915e3f80
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462250"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861097"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -85,10 +85,10 @@ L'endpoint per l'app Web deve includere il suffisso `/api/updates/`.
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name $topicname \
-  --name demoViewerSub \
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" 
+  --name demoViewerSub 
   --endpoint $endpoint
+  
 ```
 
 Visualizzare nuovamente l'app Web e notare che all'app è stato inviato un evento di convalida della sottoscrizione. Selezionare l'icona a forma di occhio per espandere i dati dell'evento. Griglia di eventi invia l'evento di convalida in modo che l'endpoint possa verificare che voglia ricevere i dati dell'evento. L'app Web include il codice per convalidare la sottoscrizione.

@@ -4,15 +4,15 @@ description: Informazioni su come connettersi ad Azure Cosmos DB e gestire le re
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66242637"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Gestire i dati con Azure Storage Explorer
 
@@ -103,7 +103,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
     ![search from here (esegui ricerca da qui)](./media/storage-explorer/search-from-here.png) 
 
 ### <a name="database-and-collection-management"></a>Gestione di un database e di una raccolta
-#### <a name="create-a-database"></a>Creare un database 
+#### <a name="create-a-database"></a>Creazione di un database 
 -   Fare clic con il tasto destro sull'account di Azure Cosmos DB, scegliere **Crea database**, immettere il nome del database e premere **Invio** per completare la procedura.
        
     ![Creazione del database](./media/storage-explorer/create-database.png) 

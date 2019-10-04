@@ -1,7 +1,6 @@
 ---
 title: Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight - Azure
 description: Abilitare i dump dell'heap per i servizi Apache Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,21 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722042"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091488"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Si rivelano quindi utili per diagnosticare i problemi che si verificano in fase di esecuzione.
-
-> [!IMPORTANT]  
-> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight che usano Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Services
 
@@ -94,15 +90,15 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 2. Usando l'elenco a sinistra, selezionare l'area del servizio da modificare. Ad esempio, **HDFS**. Nell'area centrale selezionare la scheda **Configs** .
 
-    ![Immagine dell'interfaccia Web di Ambari con la scheda HDFS Configs selezionata](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
+    ![Immagine dell'interfaccia Web di Ambari con la scheda HDFS Configs selezionata](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
 
 3. Usando la voce **Filter...** immettere **opts**. Vengono visualizzati solo gli elementi che contengono questo testo.
 
-    ![Elenco filtrato](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    ![Elenco filtrato di configurazione di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
 4. Trovare la voce **\*\_OPTS** per il servizio per cui si vogliono abilitare i dump dell'heap e aggiungere le opzioni da abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
 
-    ![HADOOP_NAMENODE_OPTS con -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![Apache Ambari Hadoop-NameNode-opz](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > Quando si abilitato i dump dell'heap per il processo figlio di mapping o riduzione, si cercano i campi denominati **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
@@ -111,15 +107,15 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 5. Dopo avere applicato le modifiche, viene visualizzata l'icona **Restart required** accanto a uno o più servizi.
 
-    ![icona restart required e pulsante restart](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    ![icona restart required e pulsante restart](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
 
 6. Selezionare ogni servizio che richiede un riavvio e usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. La modalità di manutenzione impedisce che vengano generati avvisi quando si riavvia questo servizio.
 
-    ![Menu Turn on maintenance mode](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
+    ![Attivare il menu modalità di manutenzione HDI](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. Dopo aver abilitato la modalità di manutenzione, usare il pulsante **Restart** per il servizio per **Restart All Effected**
 
-    ![Voce Restart All Affected](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
+    ![Voce di riavvio tutti interessati di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
    > Le voci per il pulsante **Restart** (Riavvia) possono essere diverse per altri servizi.

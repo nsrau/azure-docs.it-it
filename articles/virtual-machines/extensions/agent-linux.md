@@ -3,25 +3,24 @@ title: Panoramica dell'agente di VM Linux di Azure | Documentazione Microsoft
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011601"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169151"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -108,12 +107,12 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 
 ## <a name="command-line-options"></a>Opzioni della riga di comando
 ### <a name="flags"></a>Flag
-* verbose: Aumentare il livello di dettaglio del comando specificato
-* Force: Ignora la conferma interattiva per determinati comandi
+* dettagliato Aumenta il livello di dettaglio del comando specificato
+* forzare Ignora la conferma interattiva per alcuni comandi
 
 ### <a name="commands"></a>Comandi:
-* aiuto: Elenca i comandi supportati e i flag.
-* effettuare il deprovisioning: Provare a pulire il sistema e renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
+* Guida: Elenca i comandi e i flag supportati.
+* deprovisioning Provare a pulire il sistema e a renderlo adatto per il nuovo provisioning. L'operazione seguente elimina:
   
   * Tutte le chiavi host (se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione)
   * Configurazione NameServer in /etc/resolv.conf
@@ -126,11 +125,11 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 > 
 > 
 
-* deprovision+user: Esegue tutte le operazioni in - deprovision (sopra) e inoltre consente di eliminare l'ultimo account utente con provisioning (ottenuto da /var/lib/waagent) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
+* deprovision + utente: Esegue tutto il deprovisioning (sopra) ed elimina anche l'ultimo account utente di cui è stato effettuato il provisioning (ottenuto da/var/lib/waagent) e i dati associati. Questo parametro viene usato per il deprovisioning di un'immagine precedentemente sottoposta a provisioning in Azure in modo che possa essere acquisita e riutilizzata.
 * Versione: Visualizza la versione di waagent
-* serialconsole: Configura GRUB affinché contrassegni ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
-* daemon: Esegue waagent come daemon per gestire l'interazione con la piattaforma. Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
-* Start: Esegue waagent come processo in background
+* serialconsole: Configura GRUB per contrassegnare ttyS0 (la prima porta seriale) come console di avvio. Questo garantisce che i log di avvio del kernel vengano inviati alla porta seriale e resi disponibili per il debug.
+* DAEMON Eseguire waagent come daemon per gestire l'interazione con la piattaforma. Questo argomento è specificato per waagent nello script di inizializzazione di waagent.
+* iniziare Eseguire waagent come processo in background
 
 ## <a name="configuration"></a>Configurazione
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Di seguito viene illustrato un file di configurazione di esempio:
@@ -344,6 +343,6 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
 
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
-  * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki di Ubuntu: Configurare le partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
 

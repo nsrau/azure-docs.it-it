@@ -2,9 +2,9 @@
 title: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure | Microsoft Docs
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethm
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084413"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212227"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -54,7 +56,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
 2. Nel file `Main.storyboard` aggiungere i componenti illustrati nello screenshot dalla libreria di oggetti.
 
-    ![Modifica dello storyboard di interface builder Xcode][1]
+    ![Modifica storyboard in Xcode Interface Builder][1]
 
    * **Nome utente**: oggetto UITextField con testo segnaposto, *Enter Username*, immediatamente sotto l'etichetta per l'invio dei risultati e limitato dai margini sinistro e destro.
    * **Password**: oggetto UITextField con testo segnaposto, *Enter Password*, immediatamente sotto il campo di testo del nome utente e limitato dai margini sinistro e destro. Selezionare l'opzione **Secure Text Entry** in Attribute Inspector sotto *Return Key*.
@@ -86,7 +88,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: `http://your_backend.azurewebsites.net`.
+4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

@@ -6,17 +6,19 @@ manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 312d3abad2ee2c9e668f8b354aaba96f8a652698
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259287"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802408"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end Node.js e i dispositivi Node.js
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (node. js)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo e il dispositivo gemello dell'hub IoT di Azure consentono all'applicazione back-end di configurare un dispositivo e forniscono visibilità sulle condizioni del dispositivo, l'identità del modulo e il modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi con più componenti, ad esempio i dispositivi basati su sistema operativo o i dispositivi firmware, è possibile isolare la configurazione e le condizioni di ogni componente.
@@ -30,23 +32,31 @@ Al termine di questa esercitazione si avranno due app Node.js:
 > [!NOTE]
 > Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisiti
+
+* Node. js versione 10.0. x o successiva. [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descrive come installare Node. js per questa esercitazione in Windows o Linux.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
-* Un hub IoT.
-* Installare la versione di [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) più recente.
 
-L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa di connessione dell'hub necessari per completare il resto di questa esercitazione.
+## <a name="create-an-iot-hub"></a>Creare un hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Creare un'identità del dispositivo e un'identità del modulo nell'hub IoT
 
-In questa sezione si scriverà un'app Node.js che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per altre informazioni, vedere la sezione "Registro di identità" della [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
+In questa sezione si scriverà un'app Node.js che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per ulteriori informazioni, vedere la sezione "Registro di identità" della [Guida](iot-hub-devguide-identity-registry.md)per gli sviluppatori dell'hub Internet. Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
 1. Creare una directory per il codice.
 
 2. All'interno di tale directory, eseguire prima di tutto  **npm init -y** per creare un file package.json vuoto con i valori predefiniti. Questo è il file di progetto per il codice.
 
-3. Eseguire **npm installare azure-iothub - S\@-anteprima dei moduli** per installare il SDK del servizio all'interno di **node_modules** sottodirectory.
+3. Eseguire **NPM install-S Azure-iothub\@Modules-Preview** per installare l'SDK del servizio all'interno della sottodirectory **node_modules** .
 
     > [!NOTE]
     > Nel nome di sottodirectory node_modules, il riferimento a modulo viene usato con il significato di "libreria del nodo". In questo contesto il termine non ha nulla a che fare con i moduli dell'hub IoT.
@@ -119,11 +129,11 @@ Eseguire questa operazione usando node add.js. Si otterrà una stringa di connes
 
 In questa sezione, nel dispositivo simulato viene creata un'app Node.js che aggiorna le proprietà restituite del modulo gemello.
 
-1. **Ottenere la stringa di connessione del modulo** -Accedi per il [portale di Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
+1. **Ottenere la stringa di connessione del modulo** : accedere al [portale di Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. È simile all'utente nel passaggio precedente, creare una directory per il codice del dispositivo e usare NPM per inizializzarla e installare il SDK per dispositivi (**npm installare -S azure-iot-device-amqp\@-anteprima dei moduli**).
+2. Analogamente a quanto è stato fatto nel passaggio precedente, creare una directory per il codice del dispositivo e usare NPM per inizializzarla e installare Device SDK (**NPM install-S Azure-Internet-AMQP\@Modules-Preview**).
 
    > [!NOTE]
    > L'esecuzione del comando npm install potrebbe sembrare lenta. Attendere pazientemente perché è richiesto il pull di molto codice dal repository dei pacchetti.
@@ -184,16 +194,21 @@ In questa sezione, nel dispositivo simulato viene creata un'app Node.js che aggi
 
 4. A questo punto, eseguire il comando  **node twin.js**.
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   Verrà visualizzato quanto segue:
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

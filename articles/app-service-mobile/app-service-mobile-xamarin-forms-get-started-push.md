@@ -3,7 +3,7 @@ title: Aggiungere notifiche push all'app Xamarin.Forms | Microsoft Docs
 description: Informazioni su come usare i servizi di Azure per inviare notifiche push multipiattaforma alle app Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b7e2ff63211ec5891a48a585e4f69e18116cdeb3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000202"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446557"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-push) oggi stesso.
+>
 
 ## <a name="overview"></a>Panoramica
 
@@ -118,9 +122,9 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
     }
     ```
 
-    La classe `FirebaseRegistrationService` è responsabile della generazione di token di sicurezza che autorizzano l'accesso a FCM da parte dell'applicazione. Il metodo `OnTokenRefresh` viene richiamato quando l'applicazione riceve un token di registrazione da FCM. Il metodo recupera il token dalla proprietà `FirebaseInstanceId.Instance.Token`, che viene aggiornata in modo asincrono da FCM. Il metodo `OnTokenRefresh` viene richiamato raramente, perché il token viene aggiornato solo quando l'applicazione viene installata o disinstallata, l'utente elimina i dati dell'applicazione, l'applicazione cancella l'ID istanza o la sicurezza del token risulta compromessa. Inoltre, il servizio Instance ID di FCM richiederà all'applicazione l'aggiornamento periodico del token, in genere ogni 6 mesi.
+    La classe `FirebaseRegistrationService` è responsabile della generazione di token di sicurezza che autorizzano l'accesso a FCM da parte dell'applicazione. Il metodo `OnTokenRefresh` viene richiamato quando l'applicazione riceve un token di registrazione da FCM. Il metodo recupera il token dal `FirebaseInstanceId.Instance.Token` proprietà, che viene aggiornato in modo asincrono da FCM. Il `OnTokenRefresh` viene richiamato raramente (metodo), perché il token viene aggiornato solo quando l'applicazione viene installata o disinstallata, quando l'utente elimina i dati dell'applicazione, l'applicazione Cancella l'ID dell'istanza o quando è stata la sicurezza del token compromessi. Inoltre, il servizio Instance ID di FCM richiederà che l'applicazione aggiornamento periodico del token, in genere ogni 6 mesi.
 
-    Il metodo `OnTokenRefresh` richiama anche il metodo `SendRegistrationTokenToAzureNotificationHub`, che viene usato per associare il token di registrazione dell'utente all'Hub di notifica di Azure.
+    Il `OnTokenRefresh` metodo richiama anche il `SendRegistrationTokenToAzureNotificationHub` (metodo), che consente di associare token di registrazione dell'utente con l'Hub di notifica di Azure.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrazione con l'Hub di notifica di Azure
 
@@ -220,7 +224,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
     }
     ```
 
-    Il metodo `OnMessageReceived`, che viene richiamato quando un'applicazione riceve una notifica da FCM, estrae il contenuto del messaggio e chiama il metodo `SendNotification`. Questo metodo converte il contenuto del messaggio in una notifica locale, che viene avviata durante l'esecuzione dell'applicazione e visualizzata nell'area di notifica.
+    Il metodo `OnMessageReceived`, che viene richiamato quando un'applicazione riceve una notifica da FCM, estrae il contenuto del messaggio e chiama il metodo `SendNotification`. Questo metodo converte il contenuto del messaggio in una notifica locale che viene avviata durante l'applicazione è in esecuzione, visualizzata nell'area di notifica.
 
 È ora possibile testare le notifiche push nell'app in esecuzione su un dispositivo Android o nell'emulatore.
 
@@ -232,7 +236,7 @@ I primi due passaggi sono necessari solo per i test eseguiti in un emulatore.
 2. Aggiungere un account Google al dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiunti account**. Seguire quindi le istruzioni per aggiungere un account Google esistente al dispositivo o per crearne uno nuovo.
 3. In Visual Studio o Xamarin Studio fare clic con il pulsante destro del mouse sul progetto **Droid** e scegliere **Imposta come progetto di avvio**.
 4. Fare clic su **Esegui** per creare il progetto e avviare l'app sul dispositivo Android o sull'emulatore.
-5. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+5. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
 6. Assicurarsi di ricevere una notifica quando viene aggiunto un elemento.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configurare ed eseguire il progetto iOS (facoltativo)
@@ -326,7 +330,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
    > [!NOTE]
    > È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+3. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
 4. Verificare che venga ricevuta una notifica e quindi fare clic su **OK** per ignorarla.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configurare ed eseguire progetti Windows (facoltativo)
@@ -398,7 +402,7 @@ Questa sezione illustra l'esecuzione dei progetti Xamarin.Forms WinApp e WinPhon
 
 1. In Visual Studio fare clic con il pulsante destro del mouse su un progetto Windows e quindi scegliere **Imposta come progetto di avvio**.
 2. Premere il pulsante **Esegui** per compilare il progetto e avviare l'app.
-3. Nell'app digitare un nome per un nuovo elemento todoitem, quindi fare clic sull'icona del segno più (**+**) per aggiungerlo.
+3. Nell'app digitare un nome per un nuovo elemento todoitem, quindi fare clic sull'icona del segno più ( **+** ) per aggiungerlo.
 4. Assicurarsi di ricevere una notifica quando viene aggiunto l'elemento.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -409,12 +413,12 @@ Altre informazioni sulle notifiche push:
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Remote Notifications with Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/) (Notifiche remote con Firebase Cloud Messaging)
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-   (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
+  (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
 
 È possibile anche proseguire con una delle esercitazioni seguenti:
 
 * [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md)  
-   Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+  Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 * [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche se non è disponibile una connessione di rete.
 

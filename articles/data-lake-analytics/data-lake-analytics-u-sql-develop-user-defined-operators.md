@@ -1,5 +1,5 @@
 ---
-title: Sviluppare operatori U-SQL definiti dall'utente per i processi di Azure Data Lake Analytics
+title: Sviluppare operatori U-SQL definiti dall'utente-Azure Data Lake Analytics
 description: Informazioni su come sviluppare operatori definiti dall'utente da usare più volte nei processi di Azure Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b2d1293b06b4d8791138ed666bc3cb4abe3adf40
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496147"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316548"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Sviluppare operatori U-SQL definiti dall'utente (UDO)
 Questo articolo descrive come sviluppare operatori definiti dall'utente per elaborare i dati in un processo U-SQL.
@@ -115,7 +115,7 @@ Questo articolo descrive come sviluppare operatori definiti dall'utente per elab
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere **Build Script** (Compila script).
 9. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere **Submit Script** (Invia script).
 10. Se non ci si è ancora connessi alla sottoscrizione di Azure, verrà richiesto di immettere le credenziali dell'account Azure.
-11. Fare clic su **Submit**. Al termine della procedura di invio, nella finestra dei risultati saranno disponibili i risultati dell'operazione di invio e il collegamento al processo.
+11. Fare clic su **Invia**. Al termine della procedura di invio, nella finestra dei risultati saranno disponibili i risultati dell'operazione di invio e il collegamento al processo.
 12. Per visualizzare lo stato attuale del processo, fare clic sul pulsante **Aggiorna** per aggiornare la schermata.
 
 **Per visualizzare l'output**
@@ -123,6 +123,6 @@ Questo articolo descrive come sviluppare operatori definiti dall'utente per elab
 1. Da **Esplora server** espandere **Azure**, quindi **Data Lake Analytics**, l'account Data Lake Analytics e infine **Account di archiviazione**. Fare clic con il pulsante destro del mouse su Archivio predefinito e quindi scegliere **Esplora**.
 2. Espandere esempi, espandere gli output e quindi fare doppio clic su **Drivers.csv**.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Extending U-SQL Expressions with User-Code](/u-sql/concepts/extending-u-sql-expressions-with-user-code) (Estensione delle espressioni U-SQL con il codice utente)
 * [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

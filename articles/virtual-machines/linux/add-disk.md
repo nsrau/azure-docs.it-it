@@ -3,8 +3,8 @@ title: Aggiungere un disco dati a una macchina virtuale Linux con l'interfaccia 
 description: Informazioni su come aggiungere un disco dati permanente alla macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 06/13/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c8d4d2b26b356c524523d73d53fd641eef5f3cb
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188227"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465828"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
 Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
@@ -35,7 +35,7 @@ Se si vuole aggiungere un nuovo disco dati vuoto nella macchina virtuale, usare 
 az vm disk attach \
    -g myResourceGroup \
    --vm-name myVM \
-   --disk myDataDisk \
+   --name myDataDisk \
    --new \
    --size-gb 50
 ```
@@ -47,7 +47,7 @@ Per collegare un disco esistente, individuare l'ID del disco e trasmetterlo al c
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
@@ -73,6 +73,9 @@ L'output è simile all'esempio seguente:
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> È consigliabile usare le versioni più recenti di fdisk oppure separate che sono disponibili per la distribuzione.
 
 In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
@@ -205,7 +208,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione potrebbero verificarsi comportamenti come quelli descritti in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Impossibile eseguire una connessione SSH a VM Linux a causa di errori FSTAB).
 >
-> La Console seriale della macchina virtuale di Azure è utilizzabile per l'accesso alla console per la macchina virtuale se la modifica di fstab ha restituito un errore di avvio. Altri dettagli sono disponibili nel [documentazione della Console seriale](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
+> La Console seriale della macchina virtuale di Azure è utilizzabile per l'accesso alla console per la macchina virtuale se la modifica di fstab ha restituito un errore di avvio. Altri dettagli sono disponibili nel [documentazione della Console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Supporto delle funzioni TRIM/UNMAP per Linux in Azure
 Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse, permettendo di risparmiare denaro se si creano file di grandi dimensioni per eliminarli successivamente.

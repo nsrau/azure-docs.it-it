@@ -1,7 +1,6 @@
 ---
 title: Gestire i cluster Apache Hadoop in HDInsight con .NET SDK - Azure
 description: Informazioni su come eseguire attività amministrative per i cluster Apache Hadoop in HDInsight tramite HDInsight .NET SDK.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2e57726c3519fbb2660d7dfb4794a885871acc0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793938"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508112"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire i cluster Apache Hadoop in HDInsight con .NET SDK
 
@@ -258,10 +257,6 @@ Vedere [Eseguire gli esempi di MapReduce in HDInsight](hadoop/apache-hadoop-run-
 
 Vedere [Eseguire query Apache Hive con .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Inviare i processi Apache Pig**
-
-Vedere [Eseguire processi Apache Pig con .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Inviare i processi Apache Sqoop**
 
 Vedere [Usare Apache Sqoop con HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -272,13 +267,13 @@ Vedere [Usare Apache Oozie con Hadoop per definire ed eseguire un flusso di lavo
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 
-Vedere[Caricare dati in HDInsight][hdinsight-upload-data].
+Visualizzare [caricare i dati in HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Vedere anche
 
 * [Documentazione di riferimento su HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md)
-* [Amministrare HDInsight con l'interfaccia della riga di comando][hdinsight-admin-cli]
+* [Amministrare HDInsight tramite un'interfaccia della riga di comando][hdinsight-admin-cli]
 * [Creare cluster HDInsight][hdinsight-provision]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]

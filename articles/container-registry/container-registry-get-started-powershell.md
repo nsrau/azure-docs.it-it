@@ -3,21 +3,22 @@ title: Guida introduttiva - Creare un registro contenitori Docker privati in Azu
 description: Imparare rapidamente a creare un registro contenitori Docker privati in Azure con PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3a702668418ddf17aa9091317393264458ff4f8b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408931"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68309486"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 
-Registro Azure Container è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà come creare un registro contenitori di Azure usando PowerShell. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
+Registro Azure Container è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà come creare un Registro Azure Container usando PowerShell. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +60,7 @@ In questa guida introduttiva viene creato un registro *Basic*, ovvero un'opzione
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere al registro. Negli scenari di produzione è necessario usare una singola identità o entità servizio per l'accesso al registro contenitori, ma per brevità in questa guida introduttiva è sufficiente abilitare l'utente amministratore nel registro con il comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere al registro. Negli scenari di produzione è necessario usare una singola identità o entità servizio per l'accesso al registro contenitori, ma per brevità in questa guida di avvio rapido è sufficiente abilitare l'utente amministratore nel registro con il comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -79,7 +80,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Dopo avere usato le risorse create in questa guida introduttiva, usare il comando [Remove-AzResourceGroup][Remove-AzResourceGroup] per rimuovere il gruppo di risorse, il registro contenitori e le immagini del contenitore archiviate in tale registro:
+Dopo avere usato le risorse create in questa guida di avvio rapido, usare il comando [Remove-AzResourceGroup][Remove-AzResourceGroup] per rimuovere il gruppo di risorse, il registro contenitori e le immagini del contenitore archiviate in tale registro:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup

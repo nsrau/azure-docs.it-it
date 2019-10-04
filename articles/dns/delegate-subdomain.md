@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: victorh
 ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790811"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegare un sottodominio DNS di Azure
 

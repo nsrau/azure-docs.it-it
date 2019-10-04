@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120364"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621045"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
 
@@ -58,7 +58,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   2. Le informazioni di contatto, specificare il nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
    3. Fare clic su **Create**(Crea).
    
        ![Informazioni contatto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

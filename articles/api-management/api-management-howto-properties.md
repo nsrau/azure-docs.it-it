@@ -9,38 +9,38 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791627"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072334"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
-I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati. 
 
-Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Questi valori denominati possono essere usati per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni proprietà può avere gli attributi seguenti:
+I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati.
 
-| Attributo | Type | DESCRIZIONE |
-| --- | --- | --- |
-| Nome visualizzato |stringa |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
-| Valore |stringa |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
-|Segreto|boolean|Determina se il valore è un segreto e se deve essere crittografato.|
-| Tag |matrice di valori string |Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
+Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti in tutti i criteri e la configurazione dell'API. Ogni valore denominato può avere gli attributi seguenti:
+
+| Attributo      | Type            | Descrizione                                                                                                                         |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | string          | Utilizzato per fare riferimento alla proprietà nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
+| `Value`        | string          | Valore effettivo. Non devono essere vuoti o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                     |
+| `Secret`       | boolean         | Determina se il valore è un segreto e se deve essere crittografato.                                                            |
+| `Tags`         | matrice di valori string | Utilizzato per filtrare l'elenco delle proprietà. Fino a 32 tag.                                                                                    |
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
-I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
+I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore `Credential` denominato è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
 
-| NOME | Valore | Segreto | Tag |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| Name       | Value                      | Segreto | Tag          |
+| ---------- | -------------------------- | ------ | ------------- |
+| Valore      | 42                         | False  | numeri vitali |
+| Credenziale | ••••••••••••••••••••••     | True   | sicurezza      |
+| Expression | @(DateTime.Now.ToString()) | False  |               |
 
 ## <a name="to-add-and-edit-a-property"></a>Per aggiungere e modificare una proprietà
 
@@ -50,12 +50,13 @@ I valori delle proprietà possono contenere stringhe letterali ed [espressioni d
 2. Selezionare **Valori denominati**.
 3. Premere **+Aggiungi**.
 
-   Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
+    Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
+
 4. Fare clic su **Create**(Crea).
 
 Dopo aver creato la proprietà, è possibile modificarla facendo clic sulla proprietà. Se si modifica il nome della proprietà, tutti i criteri che fanno riferimento a tale proprietà vengono aggiornati automaticamente con il nuovo nome.
 
-Per informazioni sulla modifica di una proprietà tramite l'API REST, vedere la [pagina relativa alla modifica di una proprietà tramite l'API REST](/rest/api/apimanagement/property?Patch).
+Per informazioni sulla modifica di una proprietà tramite l'API REST, vedere la [pagina relativa alla modifica di una proprietà tramite l'API REST](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Per eliminare una proprietà
 
@@ -63,10 +64,8 @@ Per eliminare una proprietà, fare clic su **Delete** accanto alla proprietà da
 
 > [!IMPORTANT]
 > Se all'interno di almeno un criterio si fa riferimento alla proprietà, sarà possibile eliminare quest'ultima solo dopo averla rimossa da tutti i criteri che la usano.
-> 
-> 
 
-Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](/rest/api/apimanagement/property?Delete).
+Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Per cercare e filtrare valori denominati
 
@@ -109,12 +108,12 @@ Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.m
 Sebbene i valori delle proprietà possano contenere espressioni di criteri, non possono contenere altri valori denominati. Se il testo che contiene un riferimento a una proprietà viene usato come valore di una proprietà, ad esempio `Property value text {{MyProperty}}`, tale riferimento alla proprietà non viene sostituito e viene incluso come parte del valore della proprietà.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Ulteriori informazioni sull'uso dei criteri
-  * [Criteri in Gestione API](api-management-howto-policies.md)
-  * [Riferimento ai criteri](/azure/api-management/api-management-policies)
-  * [Espressioni di criteri](/azure/api-management/api-management-policy-expressions)
+
+-   Ulteriori informazioni sull'uso dei criteri
+    -   [Criteri in Gestione API](api-management-howto-policies.md)
+    -   [Riferimento ai criteri](/azure/api-management/api-management-policies)
+    -   [Espressioni di criteri](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-

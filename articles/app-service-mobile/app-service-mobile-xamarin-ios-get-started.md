@@ -3,7 +3,7 @@ title: Introduzione alle app per dispositivi mobili del servizio app di Azure pe
 description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin iOS.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 57867eeca9f29cfc3983cbdca94c830aa7a20500
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892433"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446255"
 ---
 # <a name="create-a-xamarinios-app"></a>Creare un'app per Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started) oggi stesso.
+>
 
 ## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Xamarin.iOS mediante un back-end per app per dispositivi mobili di Azure.  Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Xamarin.iOS *Todo list* che archivia i dati delle app in Azure.
@@ -32,60 +36,41 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* Un account Azure attivo. Se non è disponibile un account, iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio con Xamarin. Per le istruzioni vedere [Configurazione e installazione di Visual Studio e Xamarin](/visualstudio/cross-platform/setup-and-install) .
-* Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](/visualstudio/cross-platform/setup-and-install) e [Configurazione, installazione e verifiche per gli utenti Mac](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (MSDN).
-
+* Un account Azure attivo. Se non è disponibile un account, iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Visual Studio per Mac. Vedere [configurazione e installazione per Visual Studio per Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Un Mac con Xcode 9.0 o versioni successive.
+  
 ## <a name="create-an-azure-mobile-app-backend"></a>Creare un back-end dell'app per dispositivi mobili di Azure
-Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Configurare il progetto server
-È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Scaricare quindi un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
-
-Seguire questa procedura per configurare il progetto server per l'uso del back-end .NET o Node.js.
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creare una connessione al database e configurare il progetto client e server
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinios-app"></a>Scaricare ed eseguire l'app per Xamarin.iOS
-1. Aprire il [portale di Azure] in una finestra del browser.
-2. Nel pannello delle impostazioni dell'app per dispositivi mobili fare clic su **Introduzione** > **Xamarin.iOS**. Al passaggio 3 fare clic su **Crea una nuova app** , se l'opzione non è già selezionata.  Fare quindi clic sul pulsante **Download** .
+## <a name="run-the-xamarinios-app"></a>Eseguire l'app xamarin. IOS
+1. Aprire il progetto xamarin. IOS.
 
-      Verrà scaricata un'applicazione client che si connette al back-end mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
-3. Estrarre il progetto scaricato e aprirlo in Xamarin Studio (o in Visual Studio).
+2. Andare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili che è stato creato. Nel `Overview` pannello, cercare l'URL a cui l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il nome di sito per il nome di app "test123" saranno https://test123.azurewebsites.net.
 
-    ![][9]
+3. Aprire il file `QSTodoService.cs` in questa cartella - xamarin.iOS/ZUMOAPPNAME. Il nome dell'applicazione è `ZUMOAPPNAME`.
 
-    ![][8]
-4. Premere F5 per compilare il progetto e avviare l'app nell'emulatore iPhone.
-5. Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi fare clic sul pulsante **+**.
+4. Nelle `QSTodoService` classe, sostituire `ZUMOAPPURL` variabili con endpoint pubblici precedente.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    diventa
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Premere il tasto F5 per distribuire ed eseguire l'app nell'emulatore iPhone.
+
+6. Nell'app digitare un testo significativo, ad esempio *completare l'esercitazione* e quindi scegliere il pulsante +.
 
     ![][10]
 
-    I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
+    I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app per dispositivi mobili e i dati vengono visualizzati nell'elenco.
 
-> [!NOTE]
-> È possibile esaminare il codice che accede al back-end dell'app per dispositivi mobili per eseguire una query e inserire i dati nel file C# QSTodoService.cs.
->
->
-
-## <a name="next-steps"></a>Passaggi successivi
-* [Aggiungere la sincronizzazione offline all'app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Come usare il client gestito per le app per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
-
-<!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
-
+   > [!NOTE]
+   > È possibile esaminare il codice che accede al back-end per app mobili per eseguire una query e inserire i dati trovati nel file C# ToDoActivity.cs.
+   
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
-[9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-
-<!-- URLs. -->
-[Portale di Azure]: https://portal.azure.com/

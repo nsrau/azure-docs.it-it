@@ -2,22 +2,22 @@
 title: Configurare il consenso utente in un'applicazione Azure Active Directory | Microsoft Docs
 description: Informazioni su come gestire il modo in cui gli utenti forniscono il consenso alle autorizzazioni dell'applicazione. È possibile semplificare l'esperienza utente concedendo il consenso dell'amministratore. Questi metodi si applicano a tutti gli utenti finali nel tenant di Azure Active Directory (Azure AD).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bd746e79bc9d70be23771f97b1757f090f6375f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291586"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709277"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurare il consenso utente in un'applicazione Azure Active Directory
 Informazioni su come configurare il modo in cui gli utenti forniscono il consenso alle autorizzazioni dell'applicazione. È possibile semplificare l'esperienza utente concedendo il consenso dell'amministratore. Questo articolo illustra i diversi modi con cui è possibile configurare il consenso dell'utente. Questi metodi si applicano a tutti gli utenti finali nel tenant di Azure Active Directory (Azure AD). 
@@ -38,9 +38,10 @@ Per concedere il consenso dell'amministratore a un'app aziendale:
 2. Fare clic su **Tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento.
-5. Fare clic su **Concedi consenso amministratore**. Verrà richiesto l'accesso per amministrare l'applicazione.
-6. Accedere con un account che disponga delle autorizzazioni per concedere il consenso dell'amministratore per l'applicazione. 
-7. Fornire il consenso alle autorizzazioni dell'applicazione.
+5. Selezionare l'app per il consenso.
+6. Selezionare **autorizzazioni** e quindi fare clic su **concedi il consenso dell'amministratore**. Verrà richiesto l'accesso per amministrare l'applicazione.
+7. Accedere con un account che disponga delle autorizzazioni per concedere il consenso dell'amministratore per l'applicazione. 
+8. Fornire il consenso alle autorizzazioni dell'applicazione.
 
 Questa opzione funziona solo se l'applicazione è: 
 
@@ -54,21 +55,22 @@ Per concedere il consenso dell'amministratore quando si registra un'app:
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
 2. Passare al pannello **Registrazioni per l'App**.
 3. Selezionare l'applicazione per il consenso.
-4. Selezionare **Autorizzazioni necessarie**.
-5. Fare clic su **Concedi autorizzazioni** nella parte superiore del pannello.
+4. Selezionare **Autorizzazioni API**.
+5. Fare clic su **concedi il consenso dell'amministratore**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Concedere il consenso dell'amministratore tramite una richiesta URL
 
 Per concedere il consenso dell'amministratore tramite una richiesta URL:
 
-1. Creare una richiesta in *login.microsoftonline.com* con le configurazioni dell'app e aggiungerla in `&prompt=admin_consent`. 
+1. Creare una richiesta in *login.microsoftonline.com* con le configurazioni dell'app e aggiungerla in `&prompt=admin_consent`. Questo URL sarà simile al seguente: `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`
 2. Dopo avere eseguito l'accesso con le credenziali di amministratore, all'app viene concesso il consenso per tutti gli utenti.
 
 
 ## <a name="force-user-consent-through-a-url-request"></a>Forzare il consenso utente tramite una richiesta URL
 
 Per richiedere agli utenti finali di fornire il consenso a un'applicazione ogni volta che viene eseguita l'autenticazione, accodare `&prompt=consent` all'URL della richiesta per l'autenticazione.
+Questo URL sarà simile al seguente: `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=consent`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

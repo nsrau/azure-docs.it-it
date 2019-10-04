@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: API Viso, C#'
 titleSuffix: Azure Cognitive Services
-description: Creare una semplice app di Windows che usa l'API Viso di Servizi cognitivi per rilevare le caratteristiche dei volti in un'immagine.
+description: Creare un'app di Windows che usa l'API Viso di Servizi cognitivi per rilevare le caratteristiche dei volti in un'immagine.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435227"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606806"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Connessione all'API Viso di Servizi cognitivi tramite Servizi connessi in Visual Studio
 
@@ -25,8 +25,8 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Una sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versione 15.7** con il carico di lavoro **Sviluppo Web** installato. [Scaricarla qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 15.7 o versioni successive con il carico di lavoro **Sviluppo Web** installato. [Scaricarla qui](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -239,7 +239,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
 
 Quando non è più necessario, eliminare il gruppo di risorse. In questo modo vengono eliminati il servizio cognitivo e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
-1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questa guida introduttiva, selezionarlo.
+1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.
 1. Selezionare **Elimina gruppo di risorse**.
 1. Nella casella **DIGITARE IL NOME DEL GRUPPO DI RISORSE:** digitare il nome del gruppo di risorse e selezionare **Elimina**.
 

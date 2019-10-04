@@ -4,16 +4,16 @@ description: 'Guida alla progettazione di tabelle di Archiviazione di Azure: Pro
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960216"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447289"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 
@@ -162,19 +162,19 @@ Questi elenchi riepilogano alcune linee guida chiave che è necessario tenere pr
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *lettura* :
 
-* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.***  Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
+* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.*** Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
 * ***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
-* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.***  Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
-* ***Considerare la denormalizzazione dei dati.***  L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
+* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.*** Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
+* ***Considerare la denormalizzazione dei dati.*** L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
 * ***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
-* ***Usare la proiezione di query.***  È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
+* ***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *scrittura* :  
 
-* ***Non creare partizioni critiche.***  Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
-* ***Evitare picchi di traffico.***  Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
-* ***Non creare necessariamente una tabella separata per ogni tipo di entità.***  Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
-* ***Considerare la velocità effettiva massima che è necessario raggiungere.***  È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
+* ***Non creare partizioni critiche.*** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
+* ***Evitare picchi di traffico.*** Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
+* ***Non creare necessariamente una tabella separata per ogni tipo di entità.*** Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
+* ***Considerare la velocità effettiva massima che è necessario raggiungere.*** È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
 
 Questa guida contiene esempi in cui vengono messi in pratica tutti questi principi.  
 
@@ -201,9 +201,9 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
 | **PartitionKey** (nome del reparto) |string |
-| **RowKey** (ID dipendente) |string |
-| **FirstName** |string |
-| **LastName** |string |
+| **RowKey** (ID dipendente) |String |
+| **FirstName** |String |
+| **LastName** |String |
 | **Age** |Integer |
 | **EmailAddress** |string |
 
@@ -255,7 +255,7 @@ Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca 
 I risultati della query restituiti dal servizio tabelle sono disposti in ordine crescente per **PartitionKey** e poi per **RowKey**.
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure nel database di Azure non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Le chiavi della tabella di Archiviazione di Azure sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore dell'ID dipendente usato come **RowKey** è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123**. 
 
@@ -653,7 +653,7 @@ In un database relazionale, in genere i dati vengono normalizzati per rimuovere 
 ![Entità reparto ed entità dipendente][16]
 
 #### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:   
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
 
 ![Entità reparto denormalizzata e combinata][17]
 
@@ -723,7 +723,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure nel database di Azure non sono ordinati per chiave di partizione o chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di partizione o chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  

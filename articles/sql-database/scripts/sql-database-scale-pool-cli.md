@@ -7,17 +7,16 @@ ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: fd219e9aaf684600f76ed81eb45ed9a5bf78f62c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: b378bef296f7cf6546887bcf760a4e14ed66a385
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359992"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569836"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Usare l'interfaccia della riga di comando per ridimensionare un pool elastico nel database SQL di Azure
 
@@ -38,7 +37,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script

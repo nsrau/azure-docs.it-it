@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66121419"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Come proteggere le zone e i record DNS
 

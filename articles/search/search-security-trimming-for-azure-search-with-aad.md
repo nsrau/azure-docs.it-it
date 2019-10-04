@@ -2,19 +2,19 @@
 title: Filtri di sicurezza per limitare i risultati con Active Directory - Ricerca di Azure
 description: Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità di Azure Active Directory (AAD).
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8bcc1dcd1d86c0ca18ed03dc60834884a42a39c9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102527"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186527"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
@@ -43,7 +43,7 @@ Anche l'applicazione in uso deve essere registrata con AAD, come descritto nella
 
 Questo passaggio integra l'applicazione in uso con AAD allo scopo di accettare gli accessi di account di gruppi e utenti. Se non si è un amministratore AAD all'interno dell'organizzazione, potrebbe essere necessario [creare un nuovo tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) per eseguire la procedura seguente.
 
-1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com) >  **Converged app (App con convergenza)** > **Aggiungi un'app**.
+1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com) >  **Converged app (App con convergenza)**  > **Aggiungi un'app**.
 2. Immettere un nome per l'applicazione e quindi fare clic su **Crea**. 
 3. Selezionare l'applicazione appena registrata nella pagina Applicazioni personali.
 4. Nella pagina di registrazione dell'applicazione > **Piattaforme** > **Aggiungi piattaforma**, scegliere **API Web**.
@@ -183,11 +183,11 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 La risposta include un elenco filtrato dei documenti, costituito da quelli che l'utente è autorizzato a visualizzare. A seconda di come viene creata la pagina dei risultati della ricerca, potrebbero essere inclusi segnali visivi per riflettere il set di risultati filtrato.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questa procedura dettagliata sono state illustrate le tecniche per l'uso degli accessi ad AAD per filtrare i documenti nei risultati di Ricerca di Azure, limitando i risultati relativi ai documenti che non corrispondono al filtro specificato nella richiesta.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base all'identità tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in Ricerca di Azure](search-filters.md)

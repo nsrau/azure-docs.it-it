@@ -3,28 +3,25 @@ title: Creare la prima data factory (Visual Studio) | Documentazione Microsoft
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando Visual Studio.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.custom: vs-azure
-ms.tgt_pltfrm: na
 ms.topic: tutorial
+ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 39b640a64cf93a7a9cbb0565084b238891e880c1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483066"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140557"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +121,8 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 
     Proprietà | DESCRIZIONE
     -------- | ----------- 
-    ClusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
-    TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
+    clusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
+    timeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
     linkedServiceName | Specifica l'account di archiviazione usato per archiviare i log generati dal cluster Hadoop HDInsight. 
 
     > [!IMPORTANT]
@@ -178,7 +175,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log.
     type | I file di log sono in formato testo, quindi viene usato TextFormat. |
     columnDelimiter | Le colonne nei file di log sono delimitate dalla virgola (`,`).
-    frequenza/intervallo | La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile.
+    frequency/interval | La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile.
     external | Questa proprietà è impostata su true se i dati di input per l'attività non vengono generati dalla pipeline. Viene specificata solo per i set di dati di input. Per il set di dati di input della prima attività, impostare sempre questa proprietà su true.
 4. Salvare il file **InputDataset.json** .
 

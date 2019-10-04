@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine remota - REST, Node.js"
+title: "Guida introduttiva: Analizzare un'immagine remota con l'API REST e Node.js"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con Node.js.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 96a2e9f2f6e114c9a4b74111cd6a6d085022a4c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seodec18, seo-javascript-september2018
+ms.openlocfilehash: c9d2c28a1faa2bceafb2b45f1dac76356e0e8753
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872671"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933956"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST con Node.js in Visione artificiale
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST di Visione artificiale con Node.js
 
 In questa guida introduttiva si analizza un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 - È necessario aver installato [Node.js](https://nodejs.org) 4.x o versione successiva.
 - È necessario aver installato [npm](https://www.npmjs.com/).
-- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
@@ -45,11 +45,8 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
    1. Dopo l'installazione del pacchetto, chiudere la finestra del prompt dei comandi.
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice, dove necessario:
-    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
-    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
-    1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine da analizzare.
-    1. Facoltativamente, sostituire il valore del parametro `language` della richiesta con un'altra lingua.
+1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine da analizzare.
+1. Facoltativamente, sostituire il valore del parametro `language` della richiesta con un'altra lingua.
 1. Salvare il codice in un file con estensione `.js`. Ad esempio: `analyze-image.js`.
 1. Aprire una finestra del prompt dei comandi.
 1. Al prompt usare il comando `node` per eseguire il file. Ad esempio: `node analyze-image.js`.
@@ -59,14 +56,11 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 
 const request = require('request');
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase =
-    'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
+var uriBase = endpoint + 'vision/v2.0/analyze';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';

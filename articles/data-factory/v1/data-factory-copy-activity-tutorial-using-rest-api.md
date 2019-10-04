@@ -9,23 +9,21 @@ editor: ''
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187d8375220c5dbfbaf0b92d41231dedd7e71ee6
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077803"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140234"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -186,8 +184,8 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. In questa esercitazione adftutorial è il contenitore BLOB e la cartella è la cartella radice. | 
 | fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono selezionati tutti i file da folderPath. In questa esercitazione come fileName si specifica **emp.txt** e viene quindi selezionato per l'elaborazione solo tale file. |
 | format -> type |Il file di input è in formato testo, quindi viene usato **TextFormat**. |
-| columnDelimiter | Le colonne nel file di input sono delimitate da **virgola (`,`)**. |
-| frequenza/intervallo | La frequenza è impostata su **Hour** e l'intervallo è impostato su **1**, quindi le sezioni di input sono disponibili con cadenza **oraria**. In altre parole, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB specificato (**adftutorial**). Cerca i dati compresi tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+| columnDelimiter | Le colonne nel file di input sono delimitate da **virgola (`,`)** . |
+| frequency/interval | La frequenza è impostata su **Hour** e l'intervallo è impostato su **1**, quindi le sezioni di input sono disponibili con cadenza **oraria**. In altre parole, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB specificato (**adftutorial**). Cerca i dati compresi tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
 | external | Questa proprietà è impostata su **true** se i dati non vengono generati da questa pipeline. I dati di input in questa esercitazione sono nel file emp.txt, che non viene generato da questa pipeline, quindi questa proprietà viene impostata su true. |
 
 Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
@@ -227,7 +225,7 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
 | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
 | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
-| frequenza/intervallo | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+| frequency/interval | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
 
 La tabella emp del database include tre colonne: **ID**, **FirstName** e **LastName**. ID è una colonna Identity, quindi in questo caso è necessario specificare solo **FirstName** e **LastName**.
 
@@ -489,7 +487,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
     Write-Host $results
     ```
 
-**Congratulazioni**  È stata creata una data factory di Azure con una pipeline che copia dati da un archivio BLOB di Azure al database SQL di Azure.
+**Congratulazioni** È stata creata una data factory di Azure con una pipeline che copia dati da un archivio BLOB di Azure al database SQL di Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare le sezioni prodotte dalla pipeline.
@@ -522,7 +520,7 @@ Eseguire Invoke-Command e il comando successivo fino a quando lo stato di una se
 Per ogni sezione vengono copiate due righe di dati dal file di origine nella tabella emp del database SQL di Azure. Nella tabella emp vengono quindi visualizzati 24 nuovi record quando tutte le sezioni sono state elaborate correttamente e hanno stato Pronta. 
 
 ## <a name="summary"></a>Summary
-In questa esercitazione è stata usata l'API REST per creare una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. Ecco i passaggi generali eseguiti in questa esercitazione:  
+In questa esercitazione è stata usata l'API REST per creare una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL di Azure. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.
 2. Creare **servizi collegati**:

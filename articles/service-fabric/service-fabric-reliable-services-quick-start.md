@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f3b3d5c3dcea7d190724ae946a27c47b34a26c31
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665135"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225079"
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 > [!div class="op_single_selector"]
@@ -41,11 +41,11 @@ Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni c
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
 Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questi tipi di servizio lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
 
-Avviare Visual Studio 2015 o Visual Studio 2017 come amministratore e creare un nuovo progetto di applicazione di Service Fabric denominato *HelloWorld*:
+Avviare Visual Studio 2017 o Visual Studio 2019 come amministratore e creare un nuovo progetto di applicazione Service Fabric denominato *HelloWorld*:
 
 ![Uso della finestra di dialogo New Project per creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Quindi creare un progetto di servizio senza stato tramite **.NET Core 2.0** denominate *HelloWorldStateless*:
+Creare quindi un progetto di servizio senza stato usando **.NET Core 2,0** denominato *HelloWorldStateless*:
 
 ![Nella seconda finestra di dialogo creare un progetto di servizio senza stato](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ Nella stessa applicazione *HelloWorld* aggiungere un nuovo servizio facendo clic
 
 ![Aggiungere un servizio all'applicazione di Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selezionare **.NET Core 2.0 -> servizio con stato** e denominarlo *HelloWorldStateful*. Fare clic su **OK**.
+Selezionare **.NET Core 2,0-> servizio con stato** e denominarlo *HelloWorldStateful*. Fare clic su **OK**.
 
 ![Uso della finestra di dialogo New Project per creare un nuovo servizio di Service Fabric con stato](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -202,7 +202,7 @@ Le raccolte Reliable Collections includono molte delle operazioni corrispondenti
 
 Le operazioni sulle raccolte Reliable Collections sono *transazionali*e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 Tornare all'applicazione *HelloWorld* . È ora possibile compilare e distribuire i servizi. Quando si preme **F5**, l'applicazione viene compilata e distribuita nel cluster locale.
 
 Dopo l'avvio dell'esecuzione dei servizi, è possibile visualizzare gli eventi generati di Event Tracing for Windows (ETW) in una finestra **Eventi di diagnostica** . Si noti che gli eventi visualizzati nell'applicazione provengono sia dal servizio senza stato sia dal servizio con stato. È possibile sospendere il flusso facendo clic sul pulsante **Pausa** . Espandendo un messaggio è possibile esaminarne i dettagli.

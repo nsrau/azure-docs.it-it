@@ -10,17 +10,16 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270026"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070077"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Ridimensionamento automatico e ambiente del servizio app (versione 1)
 
@@ -63,7 +62,7 @@ Per illustrare il ridimensionamento automatico di un ambiente del servizio app, 
 Questo articolo descrive tutte le considerazioni necessarie per configurare il ridimensionamento automatico, nonché tutte le interazioni che entrano in gioco quando si configura il ridimensionamento automatico di ambienti del servizio app ospitati in un ambiente del servizio app.
 
 ### <a name="scenario-introduction"></a>Introduzione dello scenario
-Diego è amministratore di sistema presso una società e ha eseguito la migrazione di una parte dei carichi di lavoro che gestisce a un ambiente del servizio app.
+Frank è un amministratore di sistema per un'azienda che ha eseguito la migrazione di una parte dei carichi di lavoro che gestiscono in un ambiente del servizio app.
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
 
@@ -76,7 +75,7 @@ Il pool di lavoro 1 viene usato per i carichi di lavoro di produzione, mentre il
 
 I piani del servizio app per il controllo di qualità e lo sviluppo vengono configurati per il ridimensionamento manuale. Il piano del servizio app di produzione è impostato per il ridimensionamento automatico, in modo da adeguarsi alle variazioni del carico e del traffico.
 
-Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di carico sono comprese tra le 9:00 e le 18:00, perché si tratta di un'applicazione di line-of-business (LOB) che i dipendenti usano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
+Diego ha una notevole familiarità con l'applicazione. Sanno che le ore di picco per il carico sono comprese tra 9:00 AM e 6:00 PM, perché si tratta di un'applicazione line-of-business (LOB) usata dai dipendenti mentre si trovano in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
 
 ![Impostazioni specifiche per l'app LOB.][asp-scale]
 
@@ -84,7 +83,7 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
 | **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
-| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Profilo:** Giorni feriali |**Profilo:** fine settimana |
 | **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 5 a 20 istanze |**Intervallo di destinazione:** da 3 a 10 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
@@ -96,7 +95,7 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | **Metrica:** % CPU |**Metrica:** % CPU |
 | **Operazione:** Maggiore del 60% |**Operazione:** Maggiore dell'80% |
 | **Durata:** 5 minuti |**Durata:** 10 minuti |
-| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |**Aggregazione temporale:** Average |
 | **Azione:** Aumenta numero di 2 |**Azione:** Aumenta numero di 1 |
 | **Disattiva regole dopo (minuti):** 15 |**Disattiva regole dopo (minuti):** 20 |
 |  | |
@@ -105,7 +104,7 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | **Metrica:** % CPU |**Metrica:** % CPU |
 | **Operazione:** Minore del 30% |**Operazione:** Minore del 20% |
 | **Durata:** 10 minuti |**Durata:** 15 minuti |
-| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |**Aggregazione temporale:** Average |
 | **Azione:** Riduci numero di 1 |**Azione:** Riduci numero di 1 |
 | **Disattiva regole dopo (minuti):** 20 |**Disattiva regole dopo (minuti):** 10 |
 
@@ -155,7 +154,7 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
 | **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
-| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Profilo:** Giorni feriali |**Profilo:** fine settimana |
 | **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 13 a 25 istanze |**Intervallo di destinazione:** da 6 a 15 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
@@ -167,7 +166,7 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 | **Metrica:** WorkersAvailable |**Metrica:** WorkersAvailable |
 | **Operazione:** Minore di 8 |**Operazione:** Minore di 3 |
 | **Durata:** 20 minuti |**Durata:** 30 minuti |
-| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |**Aggregazione temporale:** Average |
 | **Azione:** Aumenta numero di 8 |**Azione:** Aumenta numero di 3 |
 | **Disattiva regole dopo (minuti):** 180 |**Disattiva regole dopo (minuti):** 180 |
 |  | |
@@ -176,7 +175,7 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 | **Metrica:** WorkersAvailable |**Metrica:** WorkersAvailable |
 | **Operazione:** Maggiore di 8 |**Operazione:** Maggiore di 3 |
 | **Durata:** 20 minuti |**Durata:** 15 minuti |
-| **Aggregazione temporale:** Media |**Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |**Aggregazione temporale:** Average |
 | **Azione:** Riduci numero di 2 |**Azione:** Riduci numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |**Disattiva regole dopo (minuti):** 120 |
 
@@ -212,7 +211,7 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 | **Metrica:** % CPU |
 | **Operazione:** Maggiore del 60% |
 | **Durata:** 20 minuti |
-| **Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |
 | **Azione:** Aumenta numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |
 |  |
@@ -221,7 +220,7 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 | **Metrica:** % CPU |
 | **Operazione:** Minore del 30% |
 | **Durata:** 20 minuti |
-| **Aggregazione temporale:** Media |
+| **Aggregazione temporale:** Average |
 | **Azione:** Riduci numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |
 

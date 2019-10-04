@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662143"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977119"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -74,7 +74,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
 
 L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere l'account *LocalSystem* ) prima di qualsiasi altro punto di ingresso.  La presenza di un punto di ingresso di configurazione separato consente di evitare di dover eseguire l'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Se il processo termina o si arresta in modo anomalo, il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**).  
 
-Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio: 
+Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -96,8 +96,12 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 </Settings>
 ```
 
-Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric; una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
+Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric. Una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -147,6 +151,7 @@ Un manifesto dell'applicazione quindi descrive elementi a livello di applicazion
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -163,7 +168,13 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **Certificates** (non impostato nell'esempio precedente) dichiara i certificati usati per [configurare gli endpoint HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [crittografare i segreti nel manifesto dell'applicazione](service-fabric-application-secret-management.md).
 
-**Policies** (non impostato nell'esempio precedente) descrive i criteri di raccolta dei log, [account RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies) e [accesso sicuro](service-fabric-application-runas-security.md) da impostare a livello di applicazione.
+I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**Criteri** di (non impostato nell'esempio precedente) descrive i criteri di raccolta dei log, [RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al runtime di Service Fabric.
+
+> [!NOTE] 
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host che contiene file di infrastruttura e specifici dell'applicazione . Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ad esempio il codice la cui origine è sconosciuta o il proprietario dell'applicazione non è sicuro per l'esecuzione). Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principals** (non impostato nell'esempio precedente) descrive le entità di sicurezza (utenti o gruppi) necessarie per [eseguire i servizi e proteggere le risorse correlate](service-fabric-application-runas-security.md).  Alle entità di sicurezza viene fatto riferimento nelle sezioni **Policies**.
 

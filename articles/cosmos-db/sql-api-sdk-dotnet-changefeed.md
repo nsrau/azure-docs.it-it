@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090339"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637744"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -27,8 +29,8 @@ ms.locfileid: "58090339"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +42,11 @@ ms.locfileid: "58090339"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
+  * In questo scenario, l'algoritmo di bilanciamento del carico usato per considerare erroneamente i lease come scaduti, causando il furto dei lease dai proprietari attivi. Questo potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
+  * Questo problema è stato risolto in questa versione, evitando i tentativi in caso di conflitto durante l'acquisizione del lease scaduto quale proprietario non è stato modificato e posponing acquisisce il lease scaduto alla successiva iterazione del bilanciamento del carico.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -130,7 +137,7 @@ ms.locfileid: "58090339"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
-  * Correzione di gestione delle attività annullate che potrebbe causare agli Observer arrestate in alcune partizioni.
+  * Correzione per la gestione dei problemi relativi alle attività annullate che potrebbero causare l'arresto di osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 
@@ -151,8 +158,8 @@ ms.locfileid: "58090339"
 * SDK con disponibilità generale
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e versioni precedenti.
 
-
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
+
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
@@ -161,8 +168,9 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro |
+| Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 maggio 2019 |--- |
 | [2.2.6](#2.2.6) |29 gennaio 2019 |--- |
 | [2.2.5](#2.2.5) |13 dicembre 2018 |--- |
 | [2.2.4](#2.2.4) |29 novembre 2018 |--- |
@@ -177,10 +185,10 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | [1.1.0](#1.1.0) |13 agosto 2017 |--- |
 | [1.0.0](#1.0.0) |07 luglio 2017 |--- |
 
-
 ## <a name="faq"></a>Domande frequenti
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
-Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+## <a name="see-also"></a>Vedere anche
 
+Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

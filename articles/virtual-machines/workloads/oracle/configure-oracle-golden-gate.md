@@ -4,29 +4,28 @@ description: Implementare rapidamente Oracle Golden Gate nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011545"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309594"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive nei dettagli come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c dall'immagine della raccolta di Azure Marketplace. 
 
-Questo documento descrive dettagliatamente come creare, installare e configurare Oracle Golden Gate in una VM Azure.
+Questo documento descrive dettagliatamente come creare, installare e configurare Oracle Golden Gate in una VM Azure. In questa esercitazione due macchine virtuali sono configurate in un set di disponibilità in una singola area. La stessa esercitazione può essere usata per configurare OracleGolden Gate per le macchine virtuali in zone di disponibilità diversi in una singola area di Azure o per la configurazione delle VM in due aree diverse.
 
 Prima di iniziare, verificare che l'interfaccia della riga di comando di Azure sia stata installata. Per altre informazioni, vedere [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Guida all'installazione dell'interfaccia della riga di comando di Azure).
 
@@ -49,7 +48,7 @@ Di seguito è riportato un riepilogo della configurazione dell'ambiente:
 > | **Processo Golden Gate** |EXTORA |REPORA|
 
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure 
+### <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index). Seguire quindi le istruzioni visualizzate sullo schermo.
 
@@ -67,7 +66,7 @@ Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGr
 az group create --name myResourceGroup --location westus
 ```
 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea set di disponibilità
 
 Il passaggio seguente è facoltativo ma consigliato. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
@@ -261,7 +260,6 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 
 ### <a name="start-oracle-listener"></a>Avviare il listener Oracle
 ```bash
-$ sudo su - oracle
 $ lsnrctl start
 ```
 
@@ -699,7 +697,7 @@ Per installare Oracle Golden Gate seguire questa procedura:
    MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
-5. Impostare un checkpoint di replica:
+5. Configurare un checkpoint di replica:
 
    ```bash
    GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

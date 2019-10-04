@@ -10,16 +10,15 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521925"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193966"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -49,15 +48,15 @@ Per eseguire i passaggi descritti in questo articolo, è necessario quanto segue
 
 ## <a name="scenario"> </a> Scenario
 
-Questo articolo illustra come usare un singolo servizio Gestione API per consumatori interni ed esterni e renderla di agire come un unico front-end per entrambi in locale e cloud le API. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
+Questo articolo illustra come usare un singolo servizio gestione API per i consumer interni ed esterni e come fungere da singolo front-end per le API locali e cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
 
-Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno della rete virtuale. Gli utenti interni (evidenziati in arancione) possono accedere a tutte le API interne ed esterne. Il traffico non esce mai a internet. La connettività ad alte prestazioni viene recapitata circuiti Expressroute.
+Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno della rete virtuale. Gli utenti interni (evidenziati in arancione) possono accedere a tutte le API interne ed esterne. Il traffico non viene mai trasmesso a Internet. La connettività a prestazioni elevate viene fornita tramite circuiti Express route.
 
 ![route dell'URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a> Prima di iniziare
 
-* Assicurarsi di usare la versione più recente di Azure PowerShell. Vedere le istruzioni di installazione alla [installare Azure PowerShell](/powershell/azure/install-az-ps). 
+* Assicurarsi di usare la versione più recente di Azure PowerShell. Vedere le istruzioni di installazione in [Install Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Elementi necessari per creare un'integrazione tra Gestione API e il gateway applicazione
 
@@ -85,6 +84,9 @@ In questa guida verrà esposto il **portale per sviluppatori** anche a destinata
 
 > [!WARNING]
 > Se si usa Azure AD o un'autenticazione di terze parti, attivare la funzionalità [affinità di sessione basata su cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) nel gateway applicazione.
+
+> [!WARNING]
+> Per evitare che WAF del gateway applicazione rompa il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`del firewall.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 
@@ -202,7 +204,7 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>Passaggio 2
 
-Creare e impostare il nome host di oggetti di configurazione per il proxy e per il portale.  
+Creare e impostare gli oggetti di configurazione del nome host per il proxy e per il portale.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
@@ -355,7 +357,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a> Riepilogo
-Gestione API di Azure configurate in una rete virtuale fornisce un'interfaccia a gateway singolo per tutte le API, se sono ospitati in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
+Gestione API di Azure configurata in un VNET offre un'unica interfaccia del gateway per tutte le API configurate, indipendentemente dal fatto che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
 
 ## <a name="next-steps"> </a> Passaggi successivi
 * Altre informazioni sul gateway applicazione di Azure

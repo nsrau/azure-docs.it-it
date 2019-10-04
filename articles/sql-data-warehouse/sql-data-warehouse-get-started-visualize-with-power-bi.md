@@ -2,20 +2,20 @@
 title: Visualizzare i dati di SQL Data Warehouse con Power BI in Microsoft Azure
 description: Visualizzare i dati di SQL Data Warehouse con Power BI
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241280"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizzare i dati con Power BI
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
@@ -93,4 +93,4 @@ Quando si usa la connessione diretta:
 Queste limitazioni e note sono soggette a modifiche con il miglioramento delle esperienze.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo](sql-data-warehouse-overview-develop.md), [caricamento](design-elt-data-loading.md) o [migrazione](sql-data-warehouse-overview-migrate.md). In alternativa, vedere il [sito Web di Power BI](https://www.powerbi.com/).
+Ora che ti forniamo una certa esercitati con i dati di esempio, vedere come [sviluppare](sql-data-warehouse-overview-develop.md) oppure [caricare](design-elt-data-loading.md). In alternativa, vedere il [sito Web di Power BI](https://www.powerbi.com/).

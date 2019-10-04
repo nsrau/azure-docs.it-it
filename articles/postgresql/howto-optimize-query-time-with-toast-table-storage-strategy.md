@@ -1,17 +1,17 @@
 ---
-title: Ottimizzare i tempi di query in un server di Database di Azure per PostgreSQL tramite la strategia di archiviazione delle tabelle TOAST
-description: Questo articolo descrive come ottimizzare i tempi di query con la strategia di archiviazione delle tabelle TOAST in un server di Database di Azure per PostgreSQL.
+title: Ottimizzare il tempo di query usando la strategia di archiviazione di tipo avviso popup nella tabella nel Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive come ottimizzare il tempo di query con la strategia di archiviazione tabella di tipo avviso popup in un Database di Azure per PostgreSQL - singolo Server.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65066985"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Ottimizzare i tempi di query con la strategia di archiviazione delle tabelle TOAST 
 Questo articolo descrive come ottimizzare i tempi di query con la strategia di archiviazione delle tabelle TOAST (The Oversized-Attribute Storage Technique).

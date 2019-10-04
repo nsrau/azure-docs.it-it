@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ddac8a87bb557daadf0a6ea0f1303545ec63d50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8aa86f75d70e7253fa250893ce685b90d6a02f01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Esercitazione: Integrazione di Azure Active Directory con Achieve3000
 
@@ -76,11 +76,11 @@ Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una rela
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Achieve3000, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Achieve3000](#configure-achieve3000-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Achieve3000](#create-achieve3000-test-user)**: per avere una controparte di Britta Simon in Achieve3000 collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Achieve3000](#configure-achieve3000-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Achieve3000](#create-achieve3000-test-user)** : per avere una controparte di Britta Simon in Achieve3000 collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Achieve3000, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Achieve3000](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://saml.achieve3000.com/district/<District Identifier>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://saml.achieve3000.com/district/<District Identifier>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare il valore `achieve3000-saml`
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Achieve3000, seguire qu
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | ---------------| --------- |
     | studentID     | user.mail |
     | | |

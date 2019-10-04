@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 69e701d6727e5410b71e6cf8fbe20a1cd038ddb0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004937"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705015"
 ---
 # <a name="evaluate-method"></a>Metodo Evaluate
 
@@ -28,22 +29,22 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 
-## <a name="request-parameters"></a>Parametri della richiesta  
+## <a name="request-parameters"></a>Parametri richiesta  
 
-NOME     | Valore | Obbligatorio?  | DESCRIZIONE
+Name     | Value | Obbligatorio?  | Descrizione
 -----------|-----------|---------|--------
 **expr**       | Stringa di testo | Sì | Espressione di query che specifica le entità che devono essere restituite.
-**model**      | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
-**attributes** | Stringa di testo | No <br>Impostazione predefinita: ID | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
-**count**        | Number | No <br>Predefinito: 10 | Numero di risultati da restituire.
-**offset**     | Number |   No <br>Predefinito: 0    | Indice del primo risultato da restituire.
-**orderby** |   Stringa di testo | No <br>Valore predefinito: per probabilità decrescente | Nome di un attributo che viene usato per ordinare le entità. Facoltativamente è possibile specificare crescente/decrescente. Il formato è: *name:asc* o *name:desc*.
+**model**      | Stringa di testo | No  | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
+**attributes** | Stringa di testo | No<br>Impostazione predefinita: ID | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
+**count**        | Number | No<br>Valore predefinito: 10 | Numero di risultati da restituire.
+**offset**     | Number |   No<br>Valore predefinito: 0    | Indice del primo risultato da restituire.
+**orderby** |   Stringa di testo | No<br>Valore predefinito: per probabilità decrescente | Nome di un attributo che viene usato per ordinare le entità. Facoltativamente è possibile specificare crescente/decrescente. Il formato è: *name:asc* o *name:desc*.
   
  <br>
 
 ## <a name="response-json"></a>Risposta (JSON)
 
-NOME | DESCRIZIONE
+Name | Descrizione
 -------|-----   
 **expr** |  Parametro *expr* della richiesta.
 **entities** |  Matrice di 0 o più entità che corrispondono all'espressione di query. Ogni entità contiene il valore della probabilità logaritmica naturale e i valori degli altri attributi richiesti.

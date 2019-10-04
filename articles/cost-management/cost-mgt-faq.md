@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002019"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -74,9 +74,9 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. La sua organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, diventa l'*amministratore primario*. Admin1 non crea account utente. ma, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
-> 
-> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o contratto Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Come persona che registra il servizio di Cloudyn e accede al portale di Cloudyn, Admin1 diventa il *amministratore principale*. Admin1 non crea account utente. Tramite il portale di Cloudyn, tuttavia, essi creare gli account di Azure e configurare una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che devono registrarsi a Cloudyn e accedere al portale di Cloudyn.
+>
+> Admin2 esegue la registrazione tramite il portale di Azure, Tuttavia quando si tenta di accedere al portale di Cloudyn, ricevono un errore indicante che l'account viene **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -154,7 +154,7 @@ Dopo aver aggiunto l'accesso di Azure Resource Manager e aver raccolto i dati, v
 
 ## <a name="is-cloudyn-agent-based"></a>Si basa sull'agente di Cloudyn?
 
- No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
+No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>I report di Cloudyn mostrano più di un tenant di Active Directory per ogni report?
 

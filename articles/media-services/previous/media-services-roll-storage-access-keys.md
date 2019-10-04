@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407329"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015798"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione 
 
@@ -44,7 +45,7 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
 ## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
  
  1. Modificare la chiave primaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di [Azure](https://portal.azure.com/).
- 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le chiavi di account di archiviazione
+ 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prelevare le chiavi dell'account di archiviazione
  
     Nell'esempio seguente viene illustrato come sincronizzare le chiavi con gli account di archiviazione.
   
@@ -52,7 +53,7 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
   
  3. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  4. Modificare la chiave secondaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di Azure.
- 5. Chiamare powershell Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le nuove chiavi di account di archiviazione. 
+ 5. Chiamare Sync-AzMediaServiceStorageKeys PowerShell con i parametri appropriati per forzare l'account multimediale a prelevare nuove chiavi dell'account di archiviazione. 
  6. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  
 ### <a name="a-powershell-cmdlet-example"></a>Esempio di cmdlet PowerShell 

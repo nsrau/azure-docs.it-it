@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890050"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016672"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola. 
 > [!div class="op_single_selector"]
@@ -44,8 +45,8 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
+## <a name="create-a-channel"></a>Crea un canale
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -69,7 +70,7 @@ Durante l'avvio del canale è possibile [configurare il codificatore](media-serv
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
+## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 
 **Video**:
@@ -94,7 +95,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 3. Fare clic su **OK**.
 4. Nella pagina delle impostazioni impostare il campo **Destinazione** su **Servizi multimediali di Azure**.
 
-    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)**. Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito**.
+    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)** . Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configura le impostazioni predefinite del codificatore.

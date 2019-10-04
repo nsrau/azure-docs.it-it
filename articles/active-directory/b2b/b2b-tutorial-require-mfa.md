@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790139"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113192"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Esercitazione: Imporre l'autenticazione a più fattori per gli utenti guest B2B
 
-Quando si collabora con utenti guest B2B esterni, è consigliabile proteggere le app con criteri di autenticazione a più fattori (MFA). Per gli utenti esterni non saranno sufficienti un nome utente e una password per accedere alle risorse. In Azure Active Directory (Azure AD) è possibile raggiungere questo obiettivo con i criteri di accesso condizionale che richiedono MFA per l'accesso. I criteri MFA possono essere applicati a livello di tenant, di app o di singolo utente, così come vengono abilitati per i membri dell'organizzazione.
+Quando si collabora con utenti guest B2B esterni, è consigliabile proteggere le app con criteri di autenticazione a più fattori (MFA). Per gli utenti esterni non saranno sufficienti un nome utente e una password per accedere alle risorse. In Azure Active Directory (Azure AD) è possibile raggiungere questo obiettivo con criteri di accesso condizionale che richiedono MFA per l'accesso. I criteri MFA possono essere applicati a livello di tenant, di app o di singolo utente, così come vengono abilitati per i membri dell'organizzazione.
 
 Esempio:
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Testare l'esperienza di accesso prima della configurazione di MFA.
-> * Creare criteri di accesso condizionale che richiedono MFA per l'accesso a un'app cloud nell'ambiente. In questa esercitazione si userà l'app di gestione di Microsoft Azure per illustrare il processo.
+> * Creare criteri di accesso condizionale che richiedano MFA per l'accesso a un'app cloud nell'ambiente. In questa esercitazione si userà l'app di gestione di Microsoft Azure per illustrare il processo.
 > * Usare lo strumento What If per simulare l'accesso MFA.
 > * Testare i criteri di accesso condizionale.
 > * Eliminare l'utente e i criteri di test.
@@ -47,7 +47,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
 
- - **Accesso ad Azure AD Premium**, che include le funzionalità dei criteri di accesso condizionale. Per imporre MFA, è necessario creare un criterio di accesso condizionale di Azure AD. Si noti che i criteri MFA vengono sempre applicati nell'organizzazione, indipendentemente dal fatto che il partner abbia funzionalità MFA. Se si configura l'autenticazione MFA per l'organizzazione, sarà necessario assicurarsi di avere un numero sufficiente di licenze Azure AD Premium per gli utenti guest. 
+ - **Accesso ad Azure AD Premium**, che include le funzionalità dei criteri di accesso condizionale. Per applicare MFA, è necessario creare criteri di accesso condizionale di Azure AD. Si noti che i criteri MFA vengono sempre applicati nell'organizzazione, indipendentemente dal fatto che il partner abbia funzionalità MFA. Se si configura l'autenticazione MFA per l'organizzazione, sarà necessario assicurarsi di avere un numero sufficiente di licenze Azure AD Premium per gli utenti guest. 
  - **Un account di posta elettronica esterno valido** che è possibile aggiungere alla directory del tenant come utente guest e usarlo per accedere. Se non si sa come creare un account guest, vedere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Creare un utente guest di test in Azure AD
@@ -71,14 +71,14 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 2.  Si noti che è possibile accedere al portale di Azure usando solo le credenziali di accesso. Non è necessaria un'autenticazione aggiuntiva.
 3.  Uscire,
 
-## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Creare criteri di accesso condizionale che richiedono MFA
-1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sicurezza o amministratore di accesso condizionale.
+## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Creare criteri di accesso condizionale che richiedano MFA
+1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sicurezza o amministratore dell'accesso condizionale.
 2.  Nel portale di Azure selezionare **Azure Active Directory**. 
 3.  Nella sezione **Sicurezza** della pagina **Azure Active Directory** selezionare **Accesso condizionale**.
 4.  Nella pagina **Accesso condizionale** selezionare **Nuovi criteri** nella barra degli strumenti in alto.
 5.  Nella pagina **Nuovo** digitare **Richiedi MFA per l'accesso al portale B2B** nella casella di testo **Nome**.
 6.  Nella sezione **Assegnazioni** selezionare **Utenti e gruppi**.
-7.  Nella pagina **Utenti e gruppi** scegliere **Seleziona utenti e gruppi** e quindi selezionare **Tutti gli utenti guest (anteprima)**.
+7.  Nella pagina **Utenti e gruppi** scegliere **Seleziona utenti e gruppi** e quindi selezionare **Tutti gli utenti guest (anteprima)** .
 
     ![Screenshot che mostra la selezione di tutti gli utenti guest](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selezionare **Operazione completata**.
@@ -101,7 +101,7 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 
     ![Screenshot che mostra l'opzione Abilita criterio impostata su Sì](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-17. Selezionare **Create**.
+17. Selezionare **Create** (Crea).
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Usare l'opzione What If per simulare l'accesso
 

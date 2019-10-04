@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270694"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180561"
 ---
 Il processo genera un file di output JSON che contiene i metadati sui volti rilevati e monitorati. I metadati includono coordinate che indicano la posizione dei volti e un numero di ID volto che indica il monitoraggio della persona specifica. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
 
@@ -17,7 +17,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="root-json-elements"></a>Elementi JSON radice
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | version |Indica la versione dell'API Video. |
 | timescale |"Scatti" al secondo del video. |
@@ -28,7 +28,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
-|Elemento|DESCRIZIONE|
+|Elemento|Descrizione|
 |---|---|
 | start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |

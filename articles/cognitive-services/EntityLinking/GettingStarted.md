@@ -10,12 +10,13 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b283103920230a0d2aae98c83f75fb03679a675
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594033"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706817"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Esercitazione: Creare un'app Entity Linking con C#
 

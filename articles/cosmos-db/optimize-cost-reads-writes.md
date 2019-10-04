@@ -4,14 +4,14 @@ description: Questo articolo spiega come ridurre i costi di Azure Cosmos DB dura
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967412"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle operazioni di lettura e di scrittura in Azure Cosmos DB
 

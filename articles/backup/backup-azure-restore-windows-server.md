@@ -1,19 +1,19 @@
 ---
 title: Ripristinare dati in Azure in un computer Windows Server o in un client Windows
 description: Informazioni su come ripristinare i dati archiviati in Azure in un computer di Windows Server o in un client Windows.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/7/2018
-ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/07/2018
+ms.author: dacurwin
+ms.openlocfilehash: 4c0686fc72bfcafdfee650822aece15b8f3fb766
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238422"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210329"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Ripristinare i file in Windows usando il modello di distribuzione Azure Resource Manager
 
@@ -44,11 +44,11 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Schermata di Backup di Azure, con ripristino dei dati evidenziato](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Nella pagina **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)** > **Avanti** per ripristinare i dati nello stesso server o computer.
+3. Nella pagina **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)**  > **Avanti** per ripristinare i dati nello stesso server o computer.
 
     ![Schermata della pagina introduttiva del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Nel **Seleziona modalità di ripristino** pagina, scegliere **singoli file e cartelle** > **Avanti**.
+4. Nella pagina **selezione modalità di ripristino** scegliere **singoli file e cartelle** > **Avanti**.
 
     ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -97,7 +97,7 @@ Tali passaggi usano la terminologia seguente:
 * *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il computer di origine e il computer di destinazione sono registrati. <br/>
 
 > [!NOTE]
-> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Un backup eseguito su un computer con Windows 7, ad esempio, può essere ripristinato in un computer con Windows 8 o versioni successive. Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
+> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, è possibile ripristinare un backup effettuato da un computer Windows 7 in un computer Windows 7 (o versione successiva). Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
 >
 >
 

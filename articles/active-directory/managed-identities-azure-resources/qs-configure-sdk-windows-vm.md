@@ -16,11 +16,11 @@ ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29446f6f0a86a00cc92fe46211caddd22aaa4859
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66112567"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurare una macchina virtuale con identità gestite per le risorse di Azure mediante un SDK di Azure
 

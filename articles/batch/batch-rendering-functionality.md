@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350038"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
@@ -30,15 +30,15 @@ Sono disponibili un'immagine Windows 2016 e un'immagine CentOS.  In [Azure Marke
 
 Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
 
-| Editore | Offerta | Sku | Versione |
+| Autore | Offerta | SKU | Versione |
 |---------|---------|---------|--------|
-|  o batch | rendering-centos73 | rendering | più recenti |
-|  o batch | rendering-windows2016 | rendering | più recenti |
+| o batch | rendering-centos73 | rendering | più recente |
+| o batch | rendering-windows2016 | rendering | più recente |
 
 Sono disponibili altre opzioni se sono necessarie applicazioni aggiuntive nelle VM del pool:
 
-* Un'immagine personalizzata basata su un'immagine del Marketplace standard:
-  * Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per altre informazioni, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk e Chaos Group hanno modificato, rispettivamente, Arnold e V-Ray per eseguire la convalida in base al servizio di licenze di Azure Batch. Verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. Le versioni correnti di Maya o 3ds Max non richiedono un server licenze durante l'esecuzione headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
+* Un'immagine personalizzata dalla raccolta immagini condivise:
+  * Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per altre informazioni, vedere [creare un pool con la raccolta di immagini condivise](batch-sig-images.md). Autodesk e Chaos Group hanno modificato, rispettivamente, Arnold e V-Ray per eseguire la convalida in base al servizio di licenze di Azure Batch. Verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. Le versioni correnti di Maya o 3ds Max non richiedono un server licenze durante l'esecuzione headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
 * [Pacchetti dell'applicazione](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Includere in un pacchetto i file dell'applicazione usando uno o più file ZIP, caricarlo tramite il portale di Azure e specificare il pacchetto nella configurazione pool. Quando vengono create le VM del pool, i file ZIP vengono scaricati e i file vengono estratti.
 * File di risorse:

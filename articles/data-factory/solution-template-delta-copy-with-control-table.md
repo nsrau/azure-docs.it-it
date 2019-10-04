@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312434"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia delta da un database con una tabella di controllo
@@ -108,11 +108,11 @@ Il modello definisce cinque parametri:
 
      ![Esaminare la pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selezionare **Stored Procedure**. Per la **nome Stored procedure**, scegliere **[update_watermark]**. Selezionare **parametro di importazione**, quindi selezionare **Aggiungi contenuto dinamico**.  
+9. Selezionare **Stored Procedure**. Per la **nome Stored procedure**, scegliere **[update_watermark]** . Selezionare **parametro di importazione**, quindi selezionare **Aggiungi contenuto dinamico**.  
 
      ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. Scrivere il contenuto  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, quindi selezionare **fine**.  
+10. Scrivere il contenuto  **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** , quindi selezionare **fine**.  
 
      ![Scrivere il contenuto per i parametri della stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      

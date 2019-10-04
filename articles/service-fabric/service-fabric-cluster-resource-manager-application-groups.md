@@ -1,6 +1,6 @@
 ---
 title: Cluster Resource Manager di Service Fabric - Gruppi di applicazioni | Microsoft Docs
-description: 'Informazioni generali sulla funzionalità dei gruppi di applicazioni in Cluster Resource Manager di Service Fabric '
+description: Informazioni generali sulla funzionalità dei gruppi di applicazioni in Cluster Resource Manager di Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62114074"
 ---
 # <a name="introduction-to-application-groups"></a>Introduzione ai gruppi di applicazioni
 Cluster Resource Manager di Service Fabric generalmente gestisce le risorse del cluster distribuendo il carico (rappresentato tramite [Metriche](service-fabric-cluster-resource-manager-metrics.md)) in modo uniforme nell'intero cluster. Service Fabric gestisce la capacità dei nodi del cluster e il cluster nel suo complesso tramite la [capacità](service-fabric-cluster-resource-manager-cluster-description.md). Metriche e capacità rappresentano un'ottima soluzione per molti tipi di carichi di lavoro, ma i modelli che fanno largo uso di diverse istanze di applicazione di Service Fabric comportano a volte requisiti aggiuntivi. Ad esempio, si può desiderare di:
@@ -186,7 +186,7 @@ La query ApplicationLoad restituisce le informazioni di base sulla capacità del
 * Capacità dell'applicazione: Valore massimo consentito pari a carico dell'applicazione.
 
 ## <a name="removing-application-capacity"></a>Rimozione della capacità dell'applicazione
-Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. Ad esempio: 
+Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. Ad esempio:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

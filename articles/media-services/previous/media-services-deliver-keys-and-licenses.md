@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: dbdfac143cb3254e558622fc1eecfdf95876240e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73a76162efaf7317c5e2f1668b76325da6f018ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64868138"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali per distribuire licenze DRM o chiavi AES 
+
+> [!NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+>
 
 Servizi multimediali di Azure consente di inserire, codificare e proteggere contenuti e di eseguirne lo streaming. Per altre informazioni, vedere [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md). Alcuni clienti vogliono usare Servizi multimediali solo per distribuire licenze e/o chiavi ed eseguire le operazioni di codifica, crittografia e streaming tramite server locali. Questo articolo descrive come usare Servizi multimediali per distribuire licenze PlayReady e/o Widevine, usando server locali per tutte le altre operazioni. 
 
@@ -346,6 +350,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md)
 * [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)

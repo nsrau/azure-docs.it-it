@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64865995"
 ---
 # <a name="cross-network-connectivity"></a>Connettività tra reti
 
@@ -119,7 +119,7 @@ Nella tabella seguente mostra la tabella di route del peering privato di Express
 
 Visualizzare [domande frequenti sulla rete virtuale][VNet-FAQ]per eventuali altre domande su rete virtuale e il peering di rete virtuale. Visualizzare [domande frequenti su ExpressRoute] [ ER-FAQ] per qualsiasi domanda su ExpressRoute e virtuali la connettività di rete.
 
-Copertura globale viene implementato in ogni singolo paese. Per verificare se Copertura globale è disponibile nei paesi desiderati, vedere [Copertura globale di ExpressRoute][Global Reach].
+Copertura globale è implementata in base a paese/area geografica da paese/area geografica. Per vedere se è disponibile in paesi/aree geografiche da raggiungere globale, vedere [ExpressRoute globale raggiungere][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "Scenario di applicazione"

@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549153"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648817"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori del linguaggio a un indice di Ricerca di Azure
 
@@ -46,9 +46,6 @@ L'analizzatore predefinito è Lucene standard, che funziona bene per la lingua i
 
 + L'analizzatore per la lingua inglese Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari in modo decisamente migliore, producendo risultati di ricerca più rilevanti 
 
-  > [!Tip]
-  > La [Search Analyzer Demo](https://alice.unearth.ai/) fornisce un confronto side-by-side dei risultati prodotti dall'analizzatore Lucene standard, dall'analizzatore di lingua inglese Lucene e dal processore di lingua inglese di Microsoft. Per ogni input di ricerca fornito, i risultati di ogni analizzatore vengono visualizzati nei riquadri adiacenti.
-
 ## <a name="configuring-analyzers"></a>Configurazione degli analizzatori
 
 Gli analizzatori di lingua vengono usati così come sono. Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà **analyzer** su un nome di analizzatore che specifica la lingua e lo stack linguistico (Microsoft o Lucene). Lo stesso analizzatore verrà applicato per l'indicizzazione e la ricerca di tale campo. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. In alternativa, al posto di **analyzer**, è possibile usare **indexAnalyzer** e **searchAnalyzer** per disporre di regole di analisi diverse in fase di indicizzazione e di query. 
@@ -66,7 +63,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
-|Bengalese|bn.microsoft||  
+|Bengali|bn.microsoft||  
 |Basco||eu.lucene|  
 |Bulgaro|bg.microsoft|bg.lucene|  
 |Catalano|ca.microsoft|ca.lucene|  
@@ -92,7 +89,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |Irlandese||ga.lucene|  
 |Italiano|it.microsoft|it.lucene|  
 |Giapponese|ja.microsoft|ja.lucene|  
-|Kannada|kn.microsoft||  
+|Kannada|kN. Microsoft||  
 |Coreano|ko.Microsoft|ko.lucene|  
 |Lettone|lv.microsoft|lv.lucene|  
 |Lituano|lt.microsoft||  
@@ -121,9 +118,9 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |Urdu|ur.microsoft||  
 |Vietnamita|vi.microsoft||  
 
- Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare indice API REST per il servizio Ricerca di Azure)  
  [Classe AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [Video: module 7 of Azure Search MVA presentation](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07) (Video: modulo 7 di presentazione di Microsoft Virtual Academy su Ricerca di Azure).  

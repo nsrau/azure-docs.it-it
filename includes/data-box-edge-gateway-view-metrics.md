@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618565"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180598"
 ---
 È anche possibile visualizzare le metriche per monitorare le prestazioni del dispositivo e in alcuni casi per la risoluzione dei problemi del dispositivo.
 
@@ -29,12 +29,12 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un grafico per le m
 
 3. Nell'elenco a discesa selezionare una metrica in base a cui monitorare il dispositivo. Le metriche possono essere **metriche della capacità** o **metriche di transazione**. Le metriche della capacità sono relative alla capacità del dispositivo. Le metriche di transazione sono relative alle operazioni di lettura e scrittura in Archiviazione di Azure.
 
-    |Metriche della capacità                     |DESCRIZIONE  |
+    |Metriche della capacità                     |Descrizione  |
     |-------------------------------------|-------------|
     |**Capacità disponibile**               | Si riferisce alle dimensioni dei dati che possono essere scritti nel dispositivo. In altre parole, è la capacità che può essere resa disponibile nel dispositivo. <br></br>È possibile liberare la capacità del dispositivo eliminando la copia locale dei file che hanno una copia nel dispositivo e nel cloud.        |
     |**Capacità totale**                   | Si riferisce ai byte totali nel dispositivo in cui scrivere i dati. È detta anche dimensioni totali della cache locale. <br></br> È possibile aumentare la capacità di un dispositivo virtuale esistente tramite l'aggiunta di un disco dati. Aggiungere un disco dati tramite la gestione dell'hypervisor per la macchina virtuale e quindi riavviare la macchina virtuale. Il pool di archiviazione locale del dispositivo gateway si espanderà per adattarsi al disco dati appena aggiunto. <br></br>Per altre informazioni, vedere [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4) (Aggiungere un disco rigido per la macchina virtuale Hyper-V). |
     
-    |Metriche di transazione              | DESCRIZIONE         |
+    |Metriche di transazione              | Descrizione         |
     |-------------------------------------|---------|
     |**Byte cloud caricati (dispositivo)**    | Somma di tutti i byte caricati in tutte le condivisioni nel dispositivo.        |
     |**Byte cloud caricati (condivisione)**     | Byte caricati per condivisione. Può trattarsi di: <br></br> Medio, ovvero la somma di tutti i byte caricati per condivisione/numero di condivisioni  <br></br>Massimo, ovvero il numero massimo di byte caricati da una condivisione <br></br>Minimo, ovvero il numero massimo di byte caricati da una condivisione      |

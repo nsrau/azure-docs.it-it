@@ -12,17 +12,16 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884223"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066534"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -136,7 +135,7 @@ Per accedere alla diagnostica del servizio app, passare alla app del servizio ap
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio app include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app.
 
-È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/**.
+È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/** .
 
 Elementi forniti dalla console Kudu:
 
@@ -155,7 +154,7 @@ Per altre informazioni sulle funzionalità disponibili in Kudu, vedere gli [stru
 #### <a name="scale-the-app"></a>Ridimensionare l'app
 Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effettiva è possibile modificare la scalabilità in cui è in esecuzione l'applicazione. Aumentare le prestazioni di un'app implica due azioni correlate: passare a un piano tariffario superiore e configurare determinate impostazioni una volta adottato il nuovo piano.
 
-Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel Servizio app di Azure](web-sites-scale.md).
+Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel Servizio app di Azure](manage-scale-up.md).
 
 È anche possibile scegliere di eseguire l'applicazione in più di un'istanza. La scalabilità orizzontale non consente solo di ottenere una maggiore capacità di elaborazione, ma anche di usufruire di un certo livello di tolleranza di errore. Se il processo si arresta in un'istanza, le altre istanze continuano a gestire le richieste.
 

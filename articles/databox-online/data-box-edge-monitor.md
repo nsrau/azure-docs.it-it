@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: d9f225bd25e07a7d3f88a42864c5b5def0520519
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
+ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60756737"
 ---
 # <a name="monitor-your-azure-data-box-edge"></a>Monitorare Azure Data Box Edge
 

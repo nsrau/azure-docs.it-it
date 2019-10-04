@@ -4,19 +4,18 @@ description: Informazioni su come usare l'associazione di Hub di notifica di Azu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490963"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086633"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associazioni di output di Hub di notifica per Funzioni di Azure
 
@@ -27,7 +26,7 @@ Hub di notifica di Azure deve essere configurato per il sistema PNS (Platform No
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google ha [deprecato Google Cloud Messaging (GCM) a favore di Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Questa associazione di output non supporta FCM. Per inviare notifiche usando FCM, usare il [API Firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) direttamente nel proprio funzione o l'utilizzo [notifiche modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google ha [deprecato Google Cloud Messaging (GCM) a favore di Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Questa associazione di output non supporta FCM. Per inviare notifiche tramite FCM, usare l' [API Firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) direttamente nella funzione o usare le [notifiche del modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -257,7 +256,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** |n/d| Deve essere impostato su "notificationHub". |
 |**direction** |n/d| Deve essere impostato su "out". | 
-|**nome** |n/d| Nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica. |
+|**name** |n/d| Nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica. |
 |**tagExpression** |**TagExpression** | Le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag.  Per altre informazioni, vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome della risorsa dell'hub di notifica nel portale di Azure. |
 |**connessione** | **ConnectionStringSetting** | Nome di un'impostazione dell'app che contiene una stringa di connessione di Hub di notifica.  La stringa di connessione deve essere impostata sul valore di *DefaultFullSharedAccessSignature* per l'hub di notifica. Vedere [Configurazione della stringa di connessione](#connection-string-setup) più avanti in questo articolo.|

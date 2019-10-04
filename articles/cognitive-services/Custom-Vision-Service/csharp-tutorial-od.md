@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando .NET SDK con C#.
 services: cognitive-services
 author: areddish
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 34b814e854a1576fcf55d14ddc5ac213d8f87070
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472600"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945152"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per .NET
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni e codice di esempio utili per iniziare a u
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
 
-Per scrivere un'app .NET che usa Visione personalizzata saranno necessari i pacchetti NuGet di Visione personalizzata. Questi sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
+Per scrivere un'app .NET che usa Visione personalizzata saranno necessari i pacchetti NuGet di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -50,7 +50,7 @@ Il parametro Endpoint deve puntare all'area in cui è stato creato il gruppo di 
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Creare un nuovo progetto di Servizio visione artificiale personalizzato
 
-Il frammento di codice successivo crea un progetto di rilevamento di oggetti. Il progetto creato verrà visualizzato nel [sito Web di Visione personalizzata](https://customvision.ai/) visitato in precedenza. 
+Il frammento di codice successivo crea un progetto di rilevamento di oggetti. Il progetto creato verrà visualizzato nel [sito Web di Visione personalizzata](https://customvision.ai/) visitato in precedenza. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un rilevatore](get-started-build-detector.md) nella guida al portale Web, vedere il metodo [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__).  
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=29-35)]
 
@@ -64,7 +64,7 @@ Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=41-84)]
 
-Quindi, questa mappa di associazioni viene usata per caricare ogni immagine di esempio con le relative coordinate di area.
+Quindi, questa mappa di associazioni viene usata per caricare ogni immagine di esempio con le relative coordinate di area. È possibile caricare fino a 64 immagini in un singolo batch.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=86-104)]
 
@@ -109,7 +109,7 @@ Console.WriteLine("Making a prediction:");
 var imageFile = Path.Combine("Images", "test", "test_image.jpg");
 using (var stream = File.OpenRead(imageFile))
 {
-        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+        var result = endpoint.DetectImage(project.Id, publishedModelName, stream);
 
         // Loop over each prediction and write out the results
         foreach (var c in result.Predictions)
@@ -123,7 +123,7 @@ using (var stream = File.OpenRead(imageFile))
 
 Quando l'applicazione viene eseguita, dovrebbe aprire una finestra della console e scrivere l'output seguente:
 
-```
+```console
 Creating new project:
         Training
 Done!
@@ -133,7 +133,7 @@ Making a prediction:
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
 
-È quindi possibile verificare che l'immagine di test (disponibile in **Images/Test/**) sia contrassegnata in modo appropriato e che l'area di rilevamento sia corretta. A questo punto si può premere un tasto qualsiasi per uscire dall'applicazione.
+È quindi possibile verificare che l'immagine di test (disponibile in **Images/Test/** ) sia contrassegnata in modo appropriato e che l'area di rilevamento sia corretta. A questo punto si può premere un tasto qualsiasi per uscire dall'applicazione.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 

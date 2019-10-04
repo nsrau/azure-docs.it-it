@@ -3,8 +3,8 @@ title: Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del ser
 description: Risoluzione dei problemi comuni di compatibilità con il protocollo riscontrati durante l'aggiunta in Azure AD di un'applicazione non inclusa nella raccolta che supporta SCIM 2.0
 services: active-directory
 documentationcenter: ''
-author: asmalser
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65963185"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -37,14 +38,14 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 | **Problema di conformità con SCIM 2.0** |  **Risolto?** | **Data di risoluzione**  |  
 |---|---|---|
-| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Sì  |  18 dicembre 2018 | 
-| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | 
-|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Sì  |  18 dicembre 2018  | 
-|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Sì  |  18 dicembre 2018  |  
+| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Yes  |  18 dicembre 2018 | 
+| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Yes  | 18 dicembre 2018  | 
+|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Yes  |  18 dicembre 2018  | 
+|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Yes  |  18 dicembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Le correzioni dei servizi descritte sono state applicate automaticamente all’app SCIM preesistente?
 
- No. Poiché si sarebbe trattato di una modifica di rilievo delle app SCIM codificate in modo da funzionare con il comportamento precedente, le modifiche non sono state applicate automaticamente alle app esistenti.
+No. Poiché si sarebbe trattato di una modifica di rilievo delle app SCIM codificate in modo da funzionare con il comportamento precedente, le modifiche non sono state applicate automaticamente alle app esistenti.
 
 Le modifiche vengono applicate a tutte le nuove [app SCIM non incluse nella raccolta](configure-single-sign-on-non-gallery-applications.md) configurate nel portale di Azure dopo la data della correzione.
 

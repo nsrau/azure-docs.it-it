@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 0977c4537e409b59be7f9031c488b3317f9f2f0f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652621"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415802"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab come amministratore del lab. 
@@ -48,9 +48,11 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Per **Rete virtuale peer** selezionare una rete virtuale peer per la rete lab. I lab creati in questo account sono connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
-    6. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab. 
-    7. Selezionare **Create**. 
+    5. Selezionare una **raccolta immagini condivisa** esistente o crearne una. È possibile salvare la macchina virtuale modello nella raccolta immagini condivisa per poter essere riutilizzata da altri utenti. Per informazioni dettagliate sulle raccolte di immagini condivisa, vedere [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md) (Usare una raccolta immagini condivisa in Azure Lab Services). 
+    6. Per **Rete virtuale peer** selezionare una rete virtuale peer per la rete lab. I lab creati in questo account sono connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
+    7. Specificare un **intervallo di indirizzi** per le macchine virtuali nel lab. L'intervallo di indirizzi deve essere nella notazione CIDR (Classless Interdomain Routing). Ad esempio: 10.20.0.0/23. Le macchine virtuali nel lab verranno create in questo intervallo di indirizzi. Per altre informazioni, vedere [Specificare un intervallo di indirizzi per le macchine virtuali nel lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
+    8. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab. 
+    9. Selezionare **Create**. 
 
         ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selezionare l'**icona del campanello** sulla barra degli strumenti (**Notifiche**), verificare se la distribuzione è riuscita e quindi selezionare **Vai alla risorsa**. 

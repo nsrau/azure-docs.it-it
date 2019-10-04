@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040371"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568573"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
 
@@ -55,7 +54,7 @@ Le credenziali vengono usate dalla query elastica per connettersi ai database re
     [;]
 
 > [!NOTE]
-> Assicurarsi che il *"\<nome utente\>"* non includa alcun suffisso *"\@servername"*.
+> Assicurarsi che il *"\<nome utente\>"* non includa alcun suffisso *"\@servername"* .
 
 ## <a name="12-create-external-data-sources"></a>1.2 Creare origini dati esterne
 
@@ -135,7 +134,7 @@ Per eliminare le tabelle esterne:
 
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La clausola \_DATA_SOURCE definisce l'origine dati esterna (una mappa partizioni) usata per la tabella esterna.  
 
@@ -143,7 +142,7 @@ Le clausole SCHEMA\_NAME e OBJECT\_NAME eseguono il mapping della definizione de
 
 La clausola DISTRIBUTION specifica la distribuzione dei dati usata per questa tabella. Query Processor utilizza le informazioni fornite nella clausola DISTRIBUTION per generare i piani di query più efficienti.
 
-1. **SHARDED** significa che i dati sono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>**.
+1. **SHARDED** significa che i dati sono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>** .
 2. **REPLICATED** indica che in ogni database sono presenti copie identiche della tabella. Sarà quindi necessario assicurarsi che le repliche siano identiche in tutti i database.
 3. **ROUND\_ROBIN** significa che la tabella è partizionata orizzontalmente con un metodo di distribuzione dipendente dall'applicazione.
 

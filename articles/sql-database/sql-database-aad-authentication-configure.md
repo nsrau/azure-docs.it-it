@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390486"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991169"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -30,7 +29,7 @@ Questo articolo illustra come creare e popolare Azure Active Directory e quindi 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Creare e popolare un'istanza di Azure AD
 
@@ -129,7 +128,7 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 
 5. Al termine dell'operazione, nell'angolo in alto a destra verrà visualizzata la notifica seguente:
 
-    ![esito positivo](./media/sql-database-aad-authentication/success.png)
+    ![success](./media/sql-database-aad-authentication/success.png)
 
 6. È ora possibile scegliere l'amministratore di Azure AD per l'istanza gestita. Nella pagina Amministratore di Active Directory selezionare il comando **Imposta amministratore**.
 
@@ -143,7 +142,7 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 
 8. Nella parte superiore della pagina Amministratore di Active Directory scegliere **Salva**.
 
-    ![Salva](./media/sql-database-aad-authentication/save.png)
+    ![salva](./media/sql-database-aad-authentication/save.png)
 
     Il processo di modifica dell'amministratore può richiedere alcuni minuti. Al termine del processo, nella casella Amministratore di Active Directory verrà visualizzato il nome del nuovo amministratore.
 
@@ -195,7 +194,7 @@ Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia inst
 
 Cmdlet usati per il provisioning e la gestione dell'amministratore di Azure AD:
 
-| Nome del cmdlet | DESCRIZIONE |
+| Nome del cmdlet | Descrizione |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
@@ -239,7 +238,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 È anche possibile effettuare il provisioning di un amministratore di Azure Active Directory usando le API REST. Per altre informazioni, vedere [Service Management REST API Reference and Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) (Informazioni di riferimento e operative sull'API REST di gestione dei servizi per le operazioni del database SQL di Azure)
 
-### <a name="cli"></a>CLI  
+### <a name="cli"></a>Interfaccia della riga di comando  
 
 È anche possibile eseguire il provisioning di un admin Azure AD chiamando i comandi dell'interfaccia della riga di comando seguenti:
 
@@ -345,14 +344,14 @@ Usare questo metodo se si è connessi a Windows con le credenziali di Azure Acti
 
     ![Selezionare il nome del database][13]
 
-## <a name="active-directory-password-authentication"></a>Autenticazione della password di Active Directory
+## <a name="active-directory-password-authentication"></a>Autenticazione della password Active Directory
 
 Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite il dominio gestito di Azure AD. Si può anche usarlo per account federati senza accesso al dominio, ad esempio quando si lavora in modalità remota.
 
 Usare questo metodo per eseguire l'autenticazione al database/data warehouse SQL con Azure AD per utenti di Azure AD nativi o federati. Un utente nativo è un utente creato in modo esplicito in Azure AD e autenticato tramite nome utente e password, mentre un utente federato è un utente Windows il cui dominio è federato con Azure AD. Quest'ultimo metodo (tramite utente e password) può essere usato quando un utente vuole usare le credenziali di Windows, ma il computer locale non è aggiunto al dominio (ad esempio tramite accesso remoto). In questo caso un utente Windows può specificare il proprio account di dominio e la password ed eseguire l'autenticazione al database/data warehouse SQL tramite credenziali federate.
 
 1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) e selezionare **Active Directory - Password** nella casella **Autenticazione**.
-2. Nel **nome utente** , digitare il nome utente di Azure Active Directory nel formato **username\@dominio.com**. I nomi utenti devono essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
+2. Nella casella **nome utente** Digitare il nome utente Azure Active Directory nel formato **\@** nome utente Domain.com. I nomi utenti devono essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
 3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato.
 
     ![Selezionare Autenticazione della password di Active Directory][12]
@@ -368,7 +367,7 @@ Per usare l'autenticazione integrata di Windows, l'Active Directory del dominio 
 
 Per connettersi a un database usando l'autenticazione integrata e un'identità di Azure AD, la parola chiave Authentication nella stringa di connessione al database deve essere impostata su Active Directory Integrated. L'esempio di codice C# seguente usa ADO .NET.
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -381,7 +380,7 @@ La parola chiave ``Integrated Security=True`` della stringa di connessione non �
 
 Per connettersi a un database usando l'autenticazione integrata e un'identità di Azure AD, la parola chiave Authentication deve essere impostata su Active Directory Password. La stringa di connessione deve contenere le parole chiave e i valori User ID/UID e Password/PWD. L'esempio di codice C# seguente usa ADO .NET.
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -401,7 +400,7 @@ Questo tipo di autenticazione consente ai servizi di livello intermedio di conne
 
 Stringa di connessione di esempio:
 
-```c#
+```csharp
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
 conn.AccessToken = "Your JWT token"
@@ -413,6 +412,9 @@ Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.mic
 ### <a name="sqlcmd"></a>sqlcmd
 
 Le istruzioni seguenti eseguono la connessione usando la versione 13.1 di sqlcmd disponibile in [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+
+> [!NOTE]
+> `sqlcmd`con il `-G` comando non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

@@ -1,23 +1,22 @@
 ---
 title: Comprendere l'ordine della sequenza di distribuzione
-description: Scopri le informazioni dettagliate su ogni fase del ciclo di vita che attraversa una definizione di progetto.
+description: Informazioni sul ciclo di vita in cui viene esaminata la definizione di un progetto e informazioni dettagliate su ogni fase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/25/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266189"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231912"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
-Azure Usa linee guida per un **ordine di sequenziazione** per determinare l'ordine di creazione di risorse durante l'elaborazione dell'assegnazione di una definizione di progetto. In questo articolo vengono descritti i concetti seguenti:
+I progettisti di Azure usano un **ordine** di sequenziazione per determinare l'ordine di creazione delle risorse durante l'elaborazione dell'assegnazione della definizione di un progetto. In questo articolo vengono descritti i concetti seguenti:
 
 - L'ordine di sequenziazione predefinito usato
 - Come personalizzare l'ordine
@@ -29,7 +28,7 @@ Sono presenti variabili negli esempi JSON che è necessario sostituire con i pro
 
 ## <a name="default-sequencing-order"></a>Ordine di sequenziazione predefinito
 
-Se la definizione di progetto non contiene alcuna direttiva per l'ordine distribuire gli artefatti o la direttiva è null, viene utilizzato l'ordine seguente:
+Se la definizione del progetto non contiene alcuna direttiva per l'ordine di distribuzione degli artefatti oppure la direttiva è null, viene utilizzato l'ordine seguente:
 
 - Livello di abbonamento **assegnazione di ruolo** degli elementi ordinati per nome dell'artefatto
 - Livello di abbonamento **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
@@ -42,15 +41,22 @@ In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine d
 - Figlio di gruppo di risorse **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
 - Figlio di gruppo di risorse **modello di Azure Resource Manager** degli elementi ordinati per nome dell'artefatto
 
+> [!NOTE]
+> L'uso di [artefatti ()](../reference/blueprint-functions.md#artifacts) crea una dipendenza implicita dall'elemento a cui si fa riferimento.
+
 ## <a name="customizing-the-sequencing-order"></a>Personalizzazione dell'ordine di sequenziazione
 
-Durante la composizione di definizioni di progetto di grandi dimensioni, potrebbe essere necessario per le risorse da creare in un ordine specifico. Il modello di uso più comune di questo scenario è quando una definizione di progetto include vari modelli di Azure Resource Manager. I progetti gestiscono questo criterio consentendo di definire l'ordine di sequenziamento.
+Quando si compongono definizioni di progetti di grandi dimensioni, potrebbe essere necessario che le risorse vengano create in un ordine specifico. Il modello di utilizzo più comune di questo scenario è quello in cui la definizione di un progetto include diversi modelli di Azure Resource Manager. I progetti gestiscono questo criterio consentendo di definire l'ordine di sequenziamento.
 
-Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione di progetto, per i gruppi di risorse e gli oggetti dell'elemento supporta questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
+Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione del progetto, per i gruppi di risorse e gli oggetti artefatto supportano questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
 
-### <a name="example---ordered-resource-group"></a>Esempio - ordinati in gruppo di risorse
+> [!NOTE]
+> Quando si creano oggetti progetto, ogni risorsa artefatto ottiene il nome dal nome file, se si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)o l'endpoint URL, se si usa l' [API REST](/rest/api/blueprints/artifacts/createorupdate).
+> i riferimenti _resourceGroup_ negli artefatti devono corrispondere a quelli definiti nella definizione del progetto.
 
-Questa definizione di progetto di esempio dispone di un gruppo di risorse che è definito un ordine di sequenziazione personalizzati con la dichiarazione di un valore per `dependsOn`, insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**.
+### <a name="example---ordered-resource-group"></a>Esempio: gruppo di risorse ordinato
+
+Questa definizione di progetto di esempio include un gruppo di risorse che ha definito un ordine di sequenziazione personalizzato dichiarando un valore per `dependsOn`, insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**.
 **standard-rg** verranno elaborati secondo l'ordine della sequenziazione predefinita.
 
 ```json
@@ -74,9 +80,7 @@ Questa definizione di progetto di esempio dispone di un gruppo di risorse che è
         },
         "targetScope": "subscription"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint",
-    "type": "Microsoft.Blueprint/blueprints",
-    "name": "mySequencedBlueprint"
+    "type": "Microsoft.Blueprint/blueprints"
 }
 ```
 
@@ -95,15 +99,13 @@ Questo esempio è un artefatto dii criteri che dipende da un modello di Azure Re
         ]
     },
     "kind": "policyAssignment",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
-    "type": "Microsoft.Blueprint/artifacts",
-    "name": "assignPolicyTags"
+    "type": "Microsoft.Blueprint/artifacts"
 }
 ```
 
-### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Esempio - elemento di modello di livello di sottoscrizione in base a un gruppo di risorse
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Esempio: elemento del modello a livello di sottoscrizione a seconda di un gruppo di risorse
 
-Questo esempio è per un modello di Resource Manager distribuito a livello di sottoscrizione per dipendono da un gruppo di risorse. Parola chiave default di ordinamento, gli elementi a livello di sottoscrizione sarebbero creare prima di eventuali gruppi di risorse e gli elementi figlio in tali gruppi di risorse. Il gruppo di risorse viene definito nella definizione di progetto simile al seguente:
+Questo esempio è relativo a un modello di Gestione risorse distribuito a livello di sottoscrizione per dipendere da un gruppo di risorse. Nell'ordinamento predefinito, gli artefatti del livello di sottoscrizione vengono creati prima di tutti i gruppi di risorse e gli artefatti figlio in tali gruppi di risorse. Il gruppo di risorse è definito nella definizione del progetto come segue:
 
 ```json
 "resourceGroups": {
@@ -115,7 +117,7 @@ Questo esempio è per un modello di Resource Manager distribuito a livello di so
 }
 ```
 
-L'elemento di modello di livello di sottoscrizione in base il **wait-per-me** gruppo di risorse viene definito nel modo seguente:
+L'elemento del modello a livello di sottoscrizione a seconda del gruppo **di risorse Wait-for-me** è definito come segue:
 
 ```json
 {
@@ -131,9 +133,7 @@ L'elemento di modello di livello di sottoscrizione in base il **wait-per-me** gr
         "description": ""
     },
     "kind": "template",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
-    "type": "Microsoft.Blueprint/blueprints/artifacts",
-    "name": "subtemplateWaitForRG"
+    "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
 ```
 

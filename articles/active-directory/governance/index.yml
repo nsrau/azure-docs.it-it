@@ -1,48 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Azure AD Identity Governance
+### YamlMime:Landing
+title: Documentazione di Azure Active Directory Identity Governance
+summary: Azure Active Directory (Azure AD) Identity Governance consente di proteggere, monitorare e controllare l'accesso agli asset cruciali, assicurando al tempo stesso la produttività dei dipendenti.
 metadata:
-  document_id: null
-  title: Documentazione di Azure Active Directory Identity Governance | Microsoft Docs
-  description: Informazioni sulla governance del ciclo di vita delle identità e del ciclo di vita degli accessi e l'amministrazione sicura per dipendenti e partner.
-  services: active-directory
-  author: rolyon
-  manager: mtillman
+  author: msaburnley
+  description: Informazioni su come proteggere, monitorare e controllare l'accesso agli asset cruciali assicurando al tempo stesso la produttività dei dipendenti.
+  manager: daveba
+  ms.author: ajburnle
+  ms.collection: na
+  ms.date: 08/15/2019
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
-  ms.author: rolyon
-abstract:
-  description: Azure Active Directory (Azure AD) Identity Governance offre alle organizzazioni la possibilità di implementare la governance del ciclo di vita delle identità e del ciclo di vita degli accessi e di proteggere l'amministrazione per dipendenti e partner.
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200
-    title: 'Gestire l''accesso alle risorse (1: 17:24)'
-    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
-    width: 200
-sections:
-  - title: Identity Governance
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">Informazioni su Identity Governance</a>
-  - title: Verifiche di accesso
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Informazioni sulle verifiche di accesso</a>
-          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gestire l'accesso utente con le verifiche di accesso</a>
-          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gestire l'accesso guest con le verifiche di accesso</a>
-  - title: Condizioni per l'utilizzo
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Operazioni supportate da Condizioni per l'utilizzo</a>
+  services: active-directory
+  ms.openlocfilehash: cb3a19a372e81f7efe816d9f08831045b5f3332b
+  ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/16/2019
+  ms.locfileid: "69542418"
+landingContent:
+- title: Informazioni su Identity Governance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è Azure AD Identity Governance?
+      url: identity-governance-overview.md
+  - linkListType: learn
+    links:
+    - text: Regolamentare l'accesso alle risorse
+      url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+- title: Regolamentare il ciclo di vita di accesso a gruppi, app e siti
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è Gestione entitlement di Azure AD? (Anteprima)
+      url: entitlement-management-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Creare il primo pacchetto di accesso che consente agli utenti di richiedere l'accesso necessario
+      url: entitlement-management-access-package-first.md
+  - linkListType: how-to-guide
+    links:
+    - text: Modificare e gestire un pacchetto di accesso esistente
+      url: entitlement-management-access-package-edit.md
+- title: Ricertificare l'accesso a gruppi, app e ruoli con privilegi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cosa sono le verifiche di accesso di Azure AD?
+      url: access-reviews-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare una verifica di accesso per assicurarsi che gli utenti non mantengano un accesso eccessivo
+      url: create-access-review.md
+    - text: Verificare l'accesso a gruppi o app
+      url: perform-access-review.md
+- title: Rendere gli utenti idonei per i ruoli con privilegi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure AD Privileged Identity Management?
+      url: ../privileged-identity-management/pim-configure.md
+- title: Verificare che gli utenti visualizzino le dichiarazioni di non responsabilità
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Richiedere agli utenti di accettare le condizioni per l'utilizzo quando usano un'app
+      url: ../conditional-access/terms-of-use.md

@@ -3,29 +3,30 @@ title: Montare un volume segreto in Istanze di Azure Container
 description: Informazioni su come montare un volume segreto per archiviare informazioni sensibili per l'accesso da parte delle istanze di contenitore
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372261"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68325417"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
 Usare un volume *segreto* per fornire informazioni sensibili ai contenitori di un gruppo di contenitori. Il volume *segreto* archivia i segreti nei file all'interno del volume a cui i contenitori del gruppo di contenitori possono accedere. Archiviando segreti in un volume *segreto* è possibile evitare di aggiungere dati sensibili, quali chiavi SSH o credenziali del database, al codice dell'applicazione.
 
-Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un file system supportato da RAM; i relativi contenuti non vengono mai scritti in risorse di archiviazione non volatili.
+Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un filesystem con supporto di RAM; il contenuto non viene mai scritto in una risorsa di archiviazione non volatile.
 
 > [!NOTE]
-> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
+> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montare un volume segreto - Interfaccia della riga di comando di Azure
 
-Per distribuire un contenitore con uno o più segreti tramite l'interfaccia della riga di comando di Azure, includere i parametri `--secrets` e `--secrets-mount-path` nel comando [az container create][az-container-create]. Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
+Per distribuire un contenitore con uno o più segreti usando l'interfaccia della riga di comando di `--secrets` Azure `--secrets-mount-path` , includere i parametri e nel comando [AZ container create][az-container-create] . Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +37,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-L'output di [az container exec][az-container-exec] seguente mostra l'apertura di una shell nel contenitore in esecuzione, l'elencazione dei file all'interno del volume segreto e la successiva visualizzazione dei relativi contenuti:
+Il seguente [AZ container Exec][az-container-exec] output Mostra l'apertura di una shell nel contenitore in esecuzione, l'elenco dei file all'interno del volume Secret, quindi la visualizzazione del relativo contenuto:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -60,7 +61,7 @@ Quando si distribuisce un modello YAML, i valori del segreto devono essere **con
 Il modello YAML seguente definisce un gruppo di contenitori con un solo contenitore che monta un volume *segreto* in `/mnt/secrets`. Il volume segreto ha due segreti, "mysecret1" e "mysecret2".
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2018-10-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +89,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Per eseguire la distribuzione con il modello YAML, salvare il codice YAML precedente in un file denominato `deploy-aci.yaml`, quindi eseguire il comando [az container create][az-container-create] con il parametro `--file`:
+Per eseguire la distribuzione con il modello YAML, salvare il YAML precedente in un `deploy-aci.yaml`file denominato, quindi eseguire il comando [AZ container create][az-container-create] con il `--file` parametro:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -108,7 +109,7 @@ Il modello di Resource Manager seguente definisce un gruppo di contenitori con u
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Per eseguire la distribuzione con il modello di Resource Manager, salvare il codice JSON precedente in un file denominato `deploy-aci.json`, quindi eseguire il comando [az group deployment create][az-group-deployment-create] con il parametro `--template-file`:
+Per eseguire la distribuzione con il modello di gestione risorse, salvare il codice JSON precedente `deploy-aci.json`in un file denominato, quindi eseguire il comando [AZ Group Deployment create][az-group-deployment-create] con il `--template-file` parametro:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

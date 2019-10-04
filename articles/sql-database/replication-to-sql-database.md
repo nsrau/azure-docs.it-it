@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860704"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570475"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
@@ -42,7 +41,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 - Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084 (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQL_REPL40532 (Impossibile aprire il server \<nome> richiesto dall'account di accesso. Accesso non riuscito).  
 - Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - La replica può essere configurata usando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o eseguendo istruzioni Transact-SQL sul database di pubblicazione. Non è possibile configurare la replica tramite il portale di Azure.  
 - La replica può usare solo account di accesso per l'autenticazione di SQL Server per connettersi a un database SQL di Azure.
@@ -65,7 +64,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 1. Creare una pubblicazione di replica transazionale in un database di SQL Server locale.  
 2. Nell'istanza di SQL Server locale usare la **Creazione guidata nuova sottoscrizione** o istruzioni Transact-SQL per creare una sottoscrizione al database SQL di Azure.  
-3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con un database in istanza gestita, si può anche usare un backup di database per inizializzare il database sottoscrittore.
+3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con un database dell'istanza gestita, si può anche usare un backup di database per inizializzare il database sottoscrittore.
 
 ### <a name="data-migration-scenario"></a>Scenario di migrazione dei dati  
 
@@ -107,7 +106,7 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
+- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'** ) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 

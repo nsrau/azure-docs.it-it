@@ -3,22 +3,20 @@ title: 'Trasformazione dei dati: elaborare e trasformare i dati | Microsoft Docs
 description: Informazioni su come trasformare o elaborare i dati in Azure Data Factory con Hadoop, Machine Learning o Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 39786731-1e4b-40a4-81b7-d06e127427aa
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e70877a51c23be2d626492f84a69ae49fb27fac
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486601"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139765"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -85,7 +83,7 @@ Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizi
 
 Per informazioni sui servizi di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md) . 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Azure Data Factory supporta le seguenti attività di trasformazione di dati e i seguenti ambienti di calcolo per le attività. Le attività di trasformazione possono essere aggiunte alla pipeline singolarmente o con un'altra attività concatenata.
 
 | Attività di trasformazione dei dati | Ambiente di calcolo |
@@ -94,7 +92,7 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
+| [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |

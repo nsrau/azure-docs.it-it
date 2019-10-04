@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: cf414f9dd0f3a7ab638dc72e50aa8f3997308cc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279738"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Esercitazione: integrazione di Azure Active Directory con Vibe HCM
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Vibe HCM, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Vibe HCM](#configure-vibe-hcm-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Vibe HCM](#create-vibe-hcm-test-user)**: per avere una controparte di Britta Simon in Vibe HCM collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Vibe HCM](#configure-vibe-hcm-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Vibe HCM](#create-vibe-hcm-test-user)** : per avere una controparte di Britta Simon in Vibe HCM collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Vibe HCM, seguire quest
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da  **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
+4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vibe HCM](common/preintegrated.png)
 
@@ -174,7 +174,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-vibe-hcm-test-user"></a>Creare un utente di test di Vibe HCM
 
-In questa sezione viene creato un utente chiamato Britta Simon in Vibe HCM. Collaborare con il  [team di supporto di Vibe HCM](mailto:support@vibehcm.com) per aggiungere gli utenti alla piattaforma Vibe HCM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Vibe HCM. Collaborare con il [team di supporto di Vibe HCM](mailto:support@vibehcm.com) per aggiungere gli utenti alla piattaforma Vibe HCM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

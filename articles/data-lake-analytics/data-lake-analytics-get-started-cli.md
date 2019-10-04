@@ -1,19 +1,18 @@
 ---
-title: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
+title: Creare & query Azure Data Lake Analytics-interfaccia della riga di comando di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433077"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316581"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -66,7 +65,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Nome dell'account Data Lake Analytics**. Ogni account Data Lake Analytics ha un nome.
 * **Località**. Usare uno dei data center di Azure che supporta Data Lake Analytics.
-* **Account predefinito Data Lake Store**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
+* **Account data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
 
 Per elencare l'account Data Lake Store esistente:
 
@@ -108,7 +107,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure.  Per caricare i dati nell'archiviazione BLOB di Azure, vedere [Uso dell’interfaccia della riga di comando di Azure con Archiviazione di Azure](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Inviare processi di Data Lake Analytics
-I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL](data-lake-analytics-u-sql-get-started.md) e [U-SQL Language Reference](https://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
+I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL](data-lake-analytics-u-sql-get-started.md) e [U-SQL Language Reference](https://docs.microsoft.com/u-sql/) (Riferimenti al linguaggio U-SQL).
 
 **Per creare uno script per il processo di Data Lake Analytics**
 
@@ -127,11 +126,11 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**.
+Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()** .
 
 Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa.  Data Lake Analytics creerà la cartella di output, se non esiste già.
 
-Risulta più semplice usare i percorsi relativi dei file archiviati in account Data Lake Store predefiniti, ma ma è possibile usare anche percorsi assoluti.  Ad esempio: 
+Risulta più semplice usare i percorsi relativi dei file archiviati in account Data Lake Store predefiniti, ma ma è possibile usare anche percorsi assoluti.  Esempio:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -156,7 +155,7 @@ Per inviare un processo, usare la sintassi seguente:
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Ad esempio: 
+Esempio:
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -187,7 +186,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Ad esempio: 
+Esempio:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

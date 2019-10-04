@@ -10,14 +10,13 @@ ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/27/2019
-ms.openlocfilehash: 846cf0e0afe2bd1eedaea3c66af674f9b8a447d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8a34e2607a957f9af3756818bce9b2dd77541e85
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569856"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usare PowerShell per ripristinare uno stato precedente di un database singolo SQL di Azure
 
@@ -25,7 +24,7 @@ Questo esempio di script di PowerShell ripristina uno specifico stato precedente
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec44ae7956669ee4e16d2c6ca00794c566272037
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335335"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891999"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Spostare i dati da Amazon Simple Storage Service usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-amazon-simple-storage-service-connector.md)
 > * [Versione 2 (corrente)](../connector-amazon-simple-storage-service.md)
 
@@ -45,7 +45,7 @@ Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata rapida, vedere [Esercitazione: creare una pipeline usando la Copia della procedura guidata](data-factory-copy-data-wizard-tutorial.md).
 
-Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET**e **API REST**. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -65,14 +65,14 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| accessKeyID |ID della chiave di accesso segreta. |stringa |Sì |
-| secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Sì |
+| accessKeyID |ID della chiave di accesso segreta. |string |Sì |
+| secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Yes |
 
 >[!NOTE]
 >Questo connettore richiede le chiavi di accesso per l'account IAM per la copia di dati da Amazon S3. Le [credenziali di sicurezza temporanee](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) non sono supportate.
 >
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```json
 {
@@ -95,11 +95,11 @@ Le sezioni come struttura, disponibilità e criteri sono simili per tutti i tipi
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | bucketName |Il nome del bucket S3. |String |Sì |
-| key |La chiave dell'oggetto S3. |String |No  |
-| prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |String |No  |
-| version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |String |No  |
-| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  | |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  | |
+| key |La chiave dell'oggetto S3. |String |N. |
+| prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |String |N. |
+| version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |String |N. |
+| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. | |No |
+| compression | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |No |
 
 
 > [!NOTE]
@@ -175,12 +175,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Specifica se elencare in modo ricorsivo gli oggetti S3 sotto la directory. |true/false |No  |
+| recursive |Specifica se elencare in modo ricorsivo gli oggetti S3 sotto la directory. |true/false |No |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Esempio di JSON: Copiare dati da un archivio dati Amazon S3 ad Archiviazione BLOB di Azure
 Questo esempio illustra come copiare i dati da Amazon S3 all'archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in [uno qualsiasi dei sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data Factory.
 
-L'esempio fornisce le definizioni JSON per le entità di data factory seguenti. È possibile usare queste definizioni per creare una pipeline per copiare dati da Amazon S3 a un archivio BLOB mediante il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+L'esempio fornisce le definizioni JSON per le entità di data factory seguenti. È possibile usare queste definizioni per creare una pipeline per copiare i dati da Amazon S3 all'archiviazione BLOB usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * Un servizio collegato di tipo [AwsAccessKey](#linked-service-properties).
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

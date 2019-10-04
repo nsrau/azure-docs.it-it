@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399789"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -72,8 +72,8 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 | **URL del server**   | Digitare l'URL dell'app Web Service Manager. Per altre informazioni sull'app Web Service Manager, vedere [qui](#create-and-deploy-service-manager-web-app-service).
 | **ID client**   | Digitare l'ID client generato tramite lo script automatico per l'autenticazione dell'app Web. Per altre informazioni sullo script automatico, vedere [qui](../../azure-monitor/platform/itsmc-service-manager-script.md).|
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
-| **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Service Manager da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics. **Opzioni:**  Eventi imprevisti, Richieste di modifica.|
-| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
+| **Sincronizza dati**   | Selezionare gli elementi di lavoro di Service Manager da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics. **Opzioni:**  Eventi imprevisti, Richieste di modifica.|
+| **Ambito sincronizzazione dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
 | **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
 ![Connessione di Service Manager](media/itsmc-connections/service-manager-connection.png)
@@ -185,11 +185,12 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versioni supportate di ServiceNow: Londra, Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
+- Versioni supportate di ServiceNow: Madrid, Londra, Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
 
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
 - Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
 
+    - [Set up OAuth for Madrid configurare](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Londra configurare](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Kingston)
     - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Giacarta)

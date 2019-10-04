@@ -2,24 +2,17 @@
 title: Come aggiornare un servizio cloud | Documentazione Microsoft
 description: Informazioni su come aggiornare i servizi cloud in Azure. Informazioni su come viene eseguito un aggiornamento in un servizio cloud per assicurare la disponibilità.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: gwallace
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917227"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945344"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
 
@@ -28,7 +21,7 @@ L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo gue
 ## <a name="update-an-azure-service"></a>Aggiornare un servizio di Azure
 Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo.  Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
 
-Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [WebRole Schema](/previous-versions/azure/reference/gg557553(v=azure.100)) (Schema WebRole) o [WorkerRole Schema](/previous-versions/azure/reference/gg557552(v=azure.100)) (Schema WorkerRole).
+Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [schema di definizione dei servizi cloud di Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds) .
 
@@ -54,17 +47,17 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 
 | Modifiche consentite a hosting, servizi e ruoli | Aggiornamento sul posto | Gestione temporanea (scambio indirizzi VIP) | Eliminazione e ridistribuzione |
 | --- | --- | --- | --- |
-| Versione del sistema operativo |Sì |Sì |Sì |
+| Versione del sistema operativo |Yes |Sì |Sì |
 | Livello di attendibilità .NET |Sì |Sì |Sì |
 | Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |Sì |Sì |
 | Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Sì |Sì |
-| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Sì |
+| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Yes |
 | Numero di istanze di un particolare ruolo |Sì |Sì |Sì |
-| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No  |Sì |
-| Nomi e i valori delle impostazioni di configurazione |Sì |Sì |Sì |
-| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Sì |
+| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No |Sì |
+| Nomi e i valori delle impostazioni di configurazione |Yes |Sì |Yes |
+| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Yes |
 | Aggiungere nuovi certificati |Sì |Sì |Sì |
-| Modificare i certificati esistenti |Sì |Sì |Sì |
+| Modificare i certificati esistenti |Yes |Sì |Yes |
 | Distribuire nuovo codice |Sì |Sì |Sì |
 
 <sup>1</sup> Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
@@ -114,7 +107,7 @@ Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio s
 |Aggiornamento sul posto|Mantenuta|Mantenuta|Eliminata|
 |Migrazione di un nodo|Eliminata|Eliminata|Eliminata|
 
-Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%**.
+Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%** .
 
 Per ridurre al minimo il tempo di inattività durante l'aggiornamento di un servizio a istanza singola, distribuire un nuovo servizio a più istanze nel server di staging ed eseguire uno scambio di indirizzi VIP.
 
@@ -141,7 +134,7 @@ Questa funzionalità viene fornita dalle funzioni seguenti:
   1. L'elemento Locked consente di rilevare quando un'operazione di mutazione può essere richiamata in una determinata distribuzione.
   2. L'elemento RollbackAllowed consente di rilevare quando l'operazione [Rollback Update Or Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) può essere chiamata in una determinata distribuzione.
 
-  Per eseguire un ripristino dello stato precedente, non è necessario controllare entrambi gli elementi Locked e RollbackAllowed. È sufficiente verificare che RollbackAllowed sia impostato su true. Questi elementi vengono restituiti solo se questi metodi vengono richiamati usando l'intestazione della richiesta impostato su "x-ms-version: 2011-10-01 "o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](/previous-versions/azure/gg592580(v=azure.100)).
+  Per eseguire un ripristino dello stato precedente, non è necessario controllare entrambi gli elementi Locked e RollbackAllowed. È sufficiente verificare che RollbackAllowed sia impostato su true. Questi elementi vengono restituiti solo se questi metodi vengono richiamati usando l'intestazione della richiesta impostata su "x-ms-version: 2011-10-01 "o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](/previous-versions/azure/gg592580(v=azure.100)).
 
 In alcune situazioni un ripristino dello stato precedente di un aggiornamento non è supportato, come nei casi seguenti:
 
@@ -162,11 +155,11 @@ Dopo che il controller di infrastruttura di Azure ha ricevuto la richiesta inizi
 
 L'avvio di una seconda operazione di aggiornamento mentre il primo aggiornamento è in corso sarà simile all'operazione di ripristino dello stato precedente. Se il secondo aggiornamento è in modalità automatica, il primo dominio di aggiornamento verrà aggiornato immediatamente e le istanze di più domini di aggiornamento potrebbero passare offline nello stesso momento.
 
-Le operazioni di mutazione sono i seguenti: [Modifica configurazione distribuzione](/previous-versions/azure/reference/ee460809(v=azure.100)), [aggiornamento distribuzione](/previous-versions/azure/reference/ee460793(v=azure.100)), [aggiornare lo stato di distribuzione](/previous-versions/azure/reference/ee460808(v=azure.100)), [Elimina distribuzione](/previous-versions/azure/reference/ee460815(v=azure.100)), e [Rollback Aggiornamento](/previous-versions/azure/reference/hh403977(v=azure.100)).
+Le operazioni di mutazione sono le seguenti: [Modificare la configurazione della distribuzione](/previous-versions/azure/reference/ee460809(v=azure.100)), [aggiornare](/previous-versions/azure/reference/ee460793(v=azure.100))la distribuzione, [aggiornare lo stato di distribuzione](/previous-versions/azure/reference/ee460808(v=azure.100)), [eliminare la distribuzione](/previous-versions/azure/reference/ee460815(v=azure.100))e eseguire il rollback dell'aggiornamento [o](/previous-versions/azure/reference/hh403977(v=azure.100))dell'aggiornamento.
 
 Due operazioni, [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)), restituiscono il flag Locked che può essere esaminato per determinare se un'operazione di mutazione può essere richiamata in una determinata distribuzione.
 
-Per chiamare la versione di questi metodi che restituisce il flag Locked, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01 "o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](/previous-versions/azure/gg592580(v=azure.100)).
+Per chiamare la versione di questi metodi che restituisce il flag bloccato, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01 "o una versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

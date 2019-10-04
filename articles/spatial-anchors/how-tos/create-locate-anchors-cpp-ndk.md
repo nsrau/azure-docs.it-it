@@ -1,21 +1,21 @@
 ---
-title: Come creare e individuare gli ancoraggi usando Azure ancoraggi spaziali in C++/NDK | Microsoft Docs
-description: Spiegazione approfondita di come creare e individuare gli ancoraggi usando Azure ancoraggi spaziali in C++/NDK.
+title: Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK | Microsoft Docs
+description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7de83b14617245eb2c046eb7cd2f5f26c509517c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999570"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562538"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Come creare e individuare gli ancoraggi usando Azure ancoraggi spaziali in C++/NDK
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,25 +25,25 @@ ms.locfileid: "59999570"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. In questo articolo verrà esaminato come utilizzare il SDK di Azure spaziali gli ancoraggi, in C++/NDK a:
+Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. Questo articolo esaminerà come usare l'SDK degli Ancoraggi nello spazio di Azure, in C++/NDK, per:
 
-- In modo corretto, configurare e gestire una sessione di Azure gli ancoraggi spaziale.
-- Creare e impostare le proprietà Anchor locale.
+- Configurare e gestire in modo corretto una sessione di Ancoraggi nello spazio di Azure.
+- Creare e impostare le proprietà sugli ancoraggi locali.
 - Caricarli nel cloud.
-- Individuare ed eliminare gli ancoraggi spaziali cloud.
+- Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa Guida, assicurarsi di avere:
+Per completare questa guida, accertarsi di avere:
 
 - Letto la [Panoramica di ancoraggi nello spazio di Azure](../overview.md).
 - Completato uno degli argomenti di [avvio rapido di 5 minuti](../index.yml).
-- Conoscenza di base C++ e il <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>.
-- Conoscenza di base <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
+- Conoscenza di base di C++ e il <a href="https://developer.android.com/ndk/" target="_blank">Native Development Kit di Android</a>.
+- Conoscenze di base di <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Altre informazioni sul [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) struct.
+Altre informazioni sullo struct [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession).
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
@@ -53,7 +53,7 @@ Altre informazioni sul [CloudSpatialAnchorSession](https://docs.microsoft.com/cp
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Altre informazioni sul [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) struct.
+Altre informazioni sullo struct [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration).
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -69,7 +69,7 @@ Altre informazioni sul [SessionConfiguration](https://docs.microsoft.com/cpp/api
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Altre informazioni sul [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) delegare.
+Altre informazioni sul delegato [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate).
 
 ```cpp
     auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
@@ -118,7 +118,7 @@ Altre informazioni sul [TokenRequiredDelegate](https://docs.microsoft.com/cpp/ap
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-Altre informazioni sul [avviare](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) (metodo).
+Altre informazioni sul metodo [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start).
 
 ```cpp
     cloudSession_->Session(ar_session_);
@@ -127,7 +127,7 @@ Altre informazioni sul [avviare](https://docs.microsoft.com/cpp/api/spatial-anch
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-Altre informazioni sul [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) (metodo).
+Altre informazioni sul metodo [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe).
 
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
@@ -135,7 +135,7 @@ Altre informazioni sul [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Altre informazioni sul [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) delegare.
+Altre informazioni sul delegato [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate).
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -151,7 +151,7 @@ Altre informazioni sul [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/a
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Altre informazioni sul [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) struct.
+Altre informazioni sullo struct [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor).
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -168,7 +168,7 @@ Altre informazioni sul [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/s
     }
     ArHitResult* ar_hit = nullptr;
     ArHitResult_create(ar_session_, &ar_hit);
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ArHitResultList_getItem(ar_session_, hit_result_list, 0, ar_hit);
     if (ArHitResult_acquireNewAnchor(ar_session_, ar_hit, &localAnchor) != AR_SUCCESS) return;
@@ -203,7 +203,7 @@ Altre informazioni sul [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/s
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Altre informazioni sul [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) (metodo).
+Altre informazioni sul metodo [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync).
 
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
@@ -220,7 +220,7 @@ Altre informazioni sul [GetSessionStatusAsync](https://docs.microsoft.com/cpp/ap
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-Altre informazioni sul [gli oggetti AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) (metodo).
+Altre informazioni sul metodo [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties).
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
@@ -235,7 +235,7 @@ Altre informazioni sul [gli oggetti AppProperties](https://docs.microsoft.com/cp
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Altre informazioni sul [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) (metodo).
+Altre informazioni sul metodo [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync).
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -252,7 +252,7 @@ Altre informazioni sul [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-Altre informazioni sul [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) (metodo).
+Altre informazioni sul metodo [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync).
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -274,7 +274,7 @@ Altre informazioni sul [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Altre informazioni sul [scadenza](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) (metodo).
+Altre informazioni sul metodo [Expiration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration).
 
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
@@ -285,7 +285,7 @@ Altre informazioni sul [scadenza](https://docs.microsoft.com/cpp/api/spatial-anc
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Altre informazioni sul [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) (metodo).
+Altre informazioni sul metodo [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher).
 
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
@@ -295,7 +295,7 @@ Altre informazioni sul [CreateWatcher](https://docs.microsoft.com/cpp/api/spatia
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Altre informazioni sul [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) delegare.
+Altre informazioni sul metodo [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate).
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -323,7 +323,7 @@ Altre informazioni sul [AnchorLocated](https://docs.microsoft.com/cpp/api/spatia
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-Altre informazioni sul [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) (metodo).
+Altre informazioni sul metodo [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync).
 
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
@@ -333,7 +333,7 @@ Altre informazioni sul [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/sp
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Altre informazioni sul [arrestare](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) (metodo).
+Altre informazioni sul metodo [Stop](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop).
 
 ```cpp
     cloudSession_->Stop();
@@ -341,7 +341,7 @@ Altre informazioni sul [arrestare](https://docs.microsoft.com/cpp/api/spatial-an
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Altre informazioni sul [reimpostare](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) (metodo).
+Altre informazioni sul metodo [Reset](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset).
 
 ```cpp
     cloudSession_->Reset();

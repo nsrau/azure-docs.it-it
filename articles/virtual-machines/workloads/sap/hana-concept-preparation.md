@@ -4,22 +4,21 @@ description: Principi del ripristino di emergenza e preparazione a SAP HANA di A
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822545"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101254"
 ---
 # <a name="disaster-recovery-principles"></a>Principi relativi al ripristino di emergenza
 

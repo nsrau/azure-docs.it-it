@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64916691"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DEPRECATO) Gestione dei contenitori DC/OS tramite l'API REST Marathon
 
@@ -32,7 +32,7 @@ Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurat
 ## <a name="access-the-dcos-apis"></a>Accedere alle API di DC/OS
 Dopo essersi connessi al cluster servizio contenitore di Azure, è possibile accedere di DC/OS e alle API REST correlate tramite http:\//localhost:local-porta. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, gli endpoint Marathon possono contattarlo all'URI che iniziano con http: \/ /localhost/marathon/v2 /. 
 
-Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Raccogliere informazioni da DC/OS e Marathon
 Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà restituito un elenco di agenti di DC/OS e diverse proprietà per ognuno.

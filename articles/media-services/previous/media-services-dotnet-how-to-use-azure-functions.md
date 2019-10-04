@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61217511"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
@@ -64,11 +64,11 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 2. Scegliere il linguaggio **C#** e lo scenario **Elaborazione dati**.
 3. Scegliere il modello **BlobTrigger**. Questa funzione è attivata ogni volta che viene caricato un BLOB nel contenitore di **input**. Il nome **input** è specificato nel **percorso**, nel passaggio successivo.
 
-    ![input](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Dopo aver selezionato **BlobTrigger**, altri controlli verranno visualizzati nella pagina.
 
-    ![input](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Fare clic su **Create**(Crea). 
 
@@ -76,7 +76,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Quando si usa il portale di Azure per creare una funzione, **function.json** e **run.csx** vengono creati automaticamente. Sarà necessario aggiungere o caricare un file **project.json**. Il resto di questa sezione fornisce una breve spiegazione di ogni file e mostra le relative definizioni.
 
-![input](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

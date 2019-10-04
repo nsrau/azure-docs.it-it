@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con C# e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e41d99b4ddee41778e97aac9b5b947c0aa0eac5a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488338"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404949"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 
@@ -26,14 +26,15 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
-    * Per installare il pacchetto NuGet in Visual Studio:
-        1. Fare clic con il pulsante destro in Esplora soluzioni
-        2. Scegliere **Gestisci pacchetti NuGet...**
-        3. Cercare **newtonsoft.json** e installare il pacchetto
+- Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 
-* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
+- Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet. Per installare il pacchetto NuGet in Visual Studio:
+
+   1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
+   2. Scegliere **Gestisci pacchetti NuGet**.
+   3. Cercare *Newtonsoft.Json* e installare il pacchetto.
+
+- Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -177,4 +178,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../overview.md )
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

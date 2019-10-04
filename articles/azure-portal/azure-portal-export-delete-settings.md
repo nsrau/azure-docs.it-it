@@ -11,11 +11,11 @@ ms.custom: ''
 manager: mtillman
 ms.author: kfollis
 ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551668"
 ---
 # <a name="export-or-delete-user-settings"></a>Esportare o eliminare le impostazioni utente
 
@@ -42,7 +42,7 @@ ms.locfileid: "59361963"
 
       Nella tabella seguente vengono descritte tali azioni.
 
-      | Azione | DESCRIZIONE |
+      | Azione | Descrizione |
       | --- | --- |
       | **Esporta tutte le impostazioni** | Crea un file con estensione JSON che contiene le impostazioni dell'utente, ad esempio il tema colori, report Preferiti e i dashboard privati.|
       | **Elimina tutte le impostazioni e i dashboard privati** | Elimina tutti i collegamenti ai dashboard privato e altre impostazioni personalizzate che sono state apportate al portale. |

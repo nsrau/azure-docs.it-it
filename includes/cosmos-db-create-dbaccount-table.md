@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 4fec9be34e390498b85ecfcb3f3b61055a08fdd2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305087"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67179838"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel riquadro di spostamento sinistro selezionare **Crea una risorsa**. Selezionare **Database** e quindi **Azure Cosmos DB**.

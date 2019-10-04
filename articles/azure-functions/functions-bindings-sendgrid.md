@@ -4,18 +4,17 @@ description: Riferimento per le associazioni di SendGrid di Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823808"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155081"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -32,6 +31,9 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 ## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
 
 Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
+
+> [!NOTE]
+> La versione 2. x non crea l'argomento o la sottoscrizione configurata nell' `ServiceBusTrigger` istanza di. La versione 2. x si basa su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e non gestisce la gestione delle code.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -164,7 +166,7 @@ public class Message
 
 ### <a name="java-example"></a>Esempio per Java
 
-L'esempio seguente usa il `@SendGridOutput` annotazione il [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un'email tramite SendGrid l'associazione di output.
+Nell'esempio seguente viene usata `@SendGridOutput` l'annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica tramite l'associazione di output SendGrid.
 
 ```java
 @FunctionName("SendEmail")
@@ -253,16 +255,16 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SendGrid`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**|| Obbligatoria. Deve essere impostata su `sendGrid`.|
 |**direction**|| Obbligatoria. Deve essere impostata su `out`.|
-|**nome**|| Obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è ```$return``` quando viene restituito un solo valore. |
+|**name**|| Obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è ```$return``` quando viene restituito un solo valore. |
 |**apiKey**|**ApiKey**| Il nome di un'impostazione dell'app che contiene la chiave API. Se non viene impostato, il nome dell'impostazione dell'app predefinita è "AzureWebJobsSendGridApiKey".|
 |**to**|**To**| Indirizzo e-mail del destinatario. |
 |**from**|**From**| Indirizzo e-mail del mittente. |
-|**subject**|**Oggetto**| Oggetto del messaggio di posta elettronica. |
-|**text**|**Text**| Contenuto del messaggio di posta elettronica. |
+|**subject**|**Subject**| Oggetto del messaggio di posta elettronica. |
+|**text**|**per**| Contenuto del messaggio di posta elettronica. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -286,7 +288,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```  
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |from|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 

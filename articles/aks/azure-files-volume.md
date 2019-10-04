@@ -2,29 +2,29 @@
 title: Creare un volume statico per pod multipli nel servizio Azure Kubernetes
 description: Informazioni su come creare manualmente un volume con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mlearned
+ms.openlocfilehash: 009da6c16d446f2b0d4d3f402c1c1ec63dde34d8
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467171"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018723"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Azure Kubernetes
 
-Le applicazioni basate su contenitore hanno spesso necessità di accedere e salvare in modo permanente i dati in un volume di dati esterno. Se più pod necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo Server Message Block (SMB)][smb-overview]. Questo articolo illustra come creare manualmente una condivisione di File di Azure e collegarla a un pod nel servizio Azure Kubernetes.
+Le applicazioni basate su contenitore hanno spesso necessità di accedere e salvare in modo permanente i dati in un volume di dati esterno. Se più POD necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo SMB (Server Message Block)][smb-overview]. Questo articolo illustra come creare manualmente una condivisione di File di Azure e collegarla a un pod nel servizio Azure Kubernetes.
 
-Per altre informazioni sui volumi Kubernetes, vedere [opzioni di archiviazione per le applicazioni nel servizio contenitore di AZURE][concepts-storage].
+Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni in AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
-Anche necessario la CLI di Azure versione 2.0.59 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
@@ -61,7 +61,7 @@ Prendere nota del nome dell'account di archiviazione e della chiave mostrato all
 
 ## <a name="create-a-kubernetes-secret"></a>Creare un segreto Kubernetes
 
-Kubernetes necessita di credenziali per accedere alla condivisione file creata nel passaggio precedente. Queste credenziali sono archiviate in un [segreto Kubernetes][kubernetes-secret], cui viene fatto riferimento durante la creazione di un pod Kubernetes.
+Kubernetes necessita di credenziali per accedere alla condivisione file creata nel passaggio precedente. Queste credenziali vengono archiviate in un [segreto Kubernetes][kubernetes-secret], a cui viene fatto riferimento quando si crea un pod Kubernetes.
 
 Usare il comando `kubectl create secret` per creare il segreto. L'esempio seguente crea un oggetto condiviso denominato *azure-secret* e popola *azurestorageaccountname* e *azurestorageaccountkey* del passaggio precedente. Per usare l'account di archiviazione di Azure indicare il nome e la chiave dell'account.
 
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montare la condivisione file come un volume
 
-Per montare la condivisione File di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName*. Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod.
+Per montare la condivisione File di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName*. Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod. Per i contenitori di Windows Server (attualmente in anteprima in AKS), specificare un *mountPath* usando la convenzione di percorso di Windows, ad esempio *' d:'* .
 
 ```yaml
 apiVersion: v1
@@ -135,17 +135,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opzioni di montaggio
 
-I valori predefiniti *fileMode* e *dirMode* sono diversi a seconda della versione di Kubernetes, come descritto nella tabella seguente.
-
-| version | value |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 o successiva | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 o successiva | 0755 |
-
-Se si usa un cluster della versione 1.8.5 o superiore e si crea l'oggetto volume permanente in modo statico, le opzioni di montaggio devono essere specificate nell'oggetto *PersistentVolume*.
+Il valore predefinito per *FileMode* e *dirMode* è *0755* per Kubernetes versione 1.9.1 e successive. Se si usa un cluster con Kuberetes versione 1.8.5 o successiva e si crea in modo statico l'oggetto volume permanente, è necessario specificare le opzioni di montaggio nell'oggetto *PersistentVolume* . L'esempio seguente imposta *0777*:
 
 ```yaml
 apiVersion: v1
@@ -157,24 +147,95 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
-    shareName: azurefile
+    shareName: aksshare
     readOnly: false
   mountOptions:
   - dir_mode=0777
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
 ```
 
-Se si usa un cluster di una versione da 1.8.0 a 1.8.4, è possibile specificare un contesto di protezione con il valore *runAsUser* impostato su *0*. Per altre informazioni sul contesto di sicurezza Pod, vedere [Configure a Security Context][kubernetes-security-context] (Configurazione di un contesto di protezione).
+Se si usa un cluster di una versione da 1.8.0 a 1.8.4, è possibile specificare un contesto di protezione con il valore *runAsUser* impostato su *0*. Per altre informazioni sul contesto di sicurezza di Pod, vedere [configurare un contesto di sicurezza][kubernetes-security-context].
+
+Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume*. Ad esempio:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile
+  azureFile:
+    secretName: azure-secret
+    shareName: aksshare
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+```
+
+Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume*. Esempio:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: azurefile
+  resources:
+    requests:
+      storage: 5Gi
+```
+
+Usare i `kubectl` comandi per creare *PersistentVolume* e *PersistentVolumeClaim*.
+
+```console
+kubectl apply -f azurefile-mount-options-pv.yaml
+kubectl apply -f azurefile-mount-options-pvc.yaml
+```
+
+Verificare che *PersistentVolumeClaim* sia stato creato e associato a *PersistentVolume*.
+
+```console
+$ kubectl get pvc azurefile
+
+NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
+```
+
+Aggiornare le specifiche del contenitore in modo che facciano riferimento al *PersistentVolumeClaim* e aggiornino il pod. Ad esempio:
+
+```yaml
+...
+  volumes:
+  - name: azure
+    persistentVolumeClaim:
+      claimName: azurefile
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per procedure consigliate associati, vedere [procedure consigliate per i backup nel servizio contenitore di AZURE e archiviazione][operator-best-practices-storage].
+Per le procedure consigliate associate, vedere procedure consigliate [per l'archiviazione e i backup in AKS][operator-best-practices-storage].
 
-Per altre informazioni su come i cluster servizio Azure Kubernetes interagiscono con i File di Azure, vedere l'argomento relativo ai [plug-in Kubernetes per i File di Azure][kubernetes-files].
+Per ulteriori informazioni sui cluster AKS interagire con File di Azure, vedere il plug-in [Kubernetes per file di Azure][kubernetes-files].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

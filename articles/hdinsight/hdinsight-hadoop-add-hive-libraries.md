@@ -1,7 +1,6 @@
 ---
 title: Aggiungere librerie Apache Hive durante la creazione del cluster HDInsight - Azure
 description: Informazioni su come aggiungere librerie Apache Hive (file con estensione jar) a un cluster HDInsight durante la creazione del cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059438"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
 
@@ -40,9 +39,6 @@ Per i **cluster basati su Linux**: [https://hdiconfigactions.blob.core.windows.n
 
 Per i **cluster basati su Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Requisiti**
 
 * Gli script devono essere applicati ai **nodi head** e ai **nodi di lavoro**.
@@ -51,7 +47,7 @@ Per i **cluster basati su Windows**: [https://hdiconfigactions.blob.core.windows
 
 * L'account di archiviazione contenente la libreria dei file con estensione jar **deve** essere collegato al cluster HDInsight durante la creazione. Deve essere l'account di archiviazione predefinito o un account aggiunto tramite la __configurazione facoltativa__.
 
-* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se il file con estensione jar sono archiviati in un contenitore denominato **libs** su un account di archiviazione denominato **mystorage**, il parametro sarebbe **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
+* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se il file con estensione jar sono archiviati in un contenitore denominato **libs** su un account di archiviazione denominato **mystorage**, il parametro sarebbe **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/** .
 
   > [!NOTE]  
   > In questo documento si presuppone che un account di archiviazione e un contenitore BLOB siano già stati creati e che i file siano stati caricati nel contenitore.
@@ -79,7 +75,7 @@ Per i **cluster basati su Windows**: [https://hdiconfigactions.blob.core.windows
 
    * **ZOOKEEPER**: Lasciare vuoto.
 
-   * **PARAMETRI**: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARAMETRI**: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione.
 

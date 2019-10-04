@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60563840"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installare il client Chef dal portale di Azure
 È possibile aggiungere l'estensione client Chef direttamente su un computer Windows o Linux dal portale di Azure. Questo articolo illustra nel dettaglio il processo usando una macchina virtuale Linux nuova.
@@ -82,7 +82,7 @@ In questa sezione si usa il portale di Azure per creare una macchina virtuale Li
 
 1. Nella scheda **Installa estensione** specificare i valori seguenti e quindi scegliere **OK**.
 
-    - **URL del server Chef**: Immettere l'URL del server Chef che include il nome dell'organizzazione, ad esempio, *https://api.chef.io/organization/mycompany*.
+    - **URL del server Chef**: Immettere l'URL del server Chef che include il nome dell'organizzazione, ad esempio, *https://api.chef.io/organization/mycompany* .
     - **Chef Node Name** (Nome nodo Chef): immettere il nome del nodo Chef. Può essere qualsiasi valore.
     - **Elenco di esecuzione**: immettere l'elenco di esecuzione Chef che viene aggiunto alla macchina. Questo può essere lasciato vuoto.
     - **Validation Client Name** (Nome client di convalida): immettere il nome del client Chef di convalida. ad esempio, *tarcher validator*.

@@ -2,18 +2,18 @@
 title: 'Requisiti per il routing - ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: ganesr
+ms.date: 09/19/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617683"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123268"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -80,11 +80,11 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 
 ## <a name="public-ip-address-requirement"></a>Requisito dell'indirizzo IP pubblico
 
-### <a name="private-peering"></a>Peering privato
+### <a name="private-peering"></a>Peer privato
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
-### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e Dynamics 365. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
+### <a name="microsoft-peering"></a>Peer Microsoft
+Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -154,47 +154,53 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering Microsoft e per il peering pubblico. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono a propria volta determinare esperienze di connettività non ottimali per diversi servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
 
-| **Area di Microsoft Azure** | **Community BGP a livello di area** | **Community BGP archiviazione** | **SQL BGP community** | 
-| --- | --- | --- | --- |
+| **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
+| --- | --- | --- | --- | --- |
 | **America del Nord** | |
-| Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 |
-| Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 |
-| Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 |
-| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 |
-| Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 |
-| Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 |
-| Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 |
-| Stati Uniti centrali | 12076:51009 | 12076:52009 | 12076:53009 |
-| Canada centrale | 12076:51020 | 12076:52020 | 12076:53020 |
-| Canada orientale | 12076:51021 | 12076:52021 | 12076:53021 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
+| Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
+| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
+| Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| Stati Uniti centrali | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Canada centrale | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
+| Canada orientale | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **America del Sud** | |
-| Brasile meridionale | 12076:51014 | 12076:52014 | 12076:53014 |
+| Brasile meridionale | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Europa settentrionale | 12076:51003 | 12076:52003 | 12076:53003 |
-| Europa occidentale | 12076:51002 | 12076:52002 | 12076:53002 |
-| Regno Unito meridionale | 12076:51024 | 12076:52024 | 12076:53024 |
-| Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 |
-| Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 |
-| Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 |
+| Europa settentrionale | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Europa occidentale | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Regno Unito meridionale | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
+| Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
+| Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
+| Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Asia Pacifico** | |
-| Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 |
-| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 |
+| Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Giappone** | |
-| Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 |
-| Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 |
+| Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
+| Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australia** | |
-| Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 |
-| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 |
+| Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Australia Government** | |
-| Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 |
-| Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 |
+| Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
+| Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
 | **India** | |
-| India meridionale | 12076:51019 | 12076:52019 | 12076:53019 |
-| India occidentale | 12076:51018 | 12076:52018 | 12076:53018 |
-| India centrale | 12076:51017 | 12076:52017 | 12076:53017 |
+| India meridionale | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
+| India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
+| India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Corea del Sud** | |
-| Corea del Sud meridionale | 12076:51028 | 12076:52028 | 12076:53028 |
-| Corea del Sud centrale | 12076:51029 | 12076:52029 | 12076:53029 |
+| Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| **Sud Africa**| |
+| Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| **EMIRATI ARABI UNITI**| |
+| Emirati Arabi Uniti settentrionali | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Emirati Arabi Uniti centrali | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
@@ -204,14 +210,14 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 > 
 > 
 
-Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
+### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
+Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. Per un elenco completo dei valori più recenti, è possibile eseguire il cmdlet "Get-AzBgpServiceCommunity".
 
 | **Servizio** | **Valore della community BGP** |
 | --- | --- |
 | Exchange Online | 12076:5010 |
 | SharePoint Online | 12076:5020 |
 | Skype for Business Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Servizi globali di Azure* | 12076:5050 |
 | Altri servizi online di Office 365 | 12076:5100 |
 
@@ -229,11 +235,11 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | --- | --- |
 | **US Government** |  |
 | US Gov Arizona | 12076:51106 |
-| Governo degli Stati Uniti - Iowa | 12076:51109 |
+| US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
-| US DoD (area centrale) | 12076:51209 |
-| US DoD (area orientale) | 12076:51205 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |
@@ -242,7 +248,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype for Business Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Altri servizi online di Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Passaggi successivi

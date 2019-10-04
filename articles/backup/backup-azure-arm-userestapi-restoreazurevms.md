@@ -1,21 +1,21 @@
 ---
 title: "Backup di Azure: ripristinare le macchine virtuali di Azure con l'API REST"
 description: Gestire le operazioni di ripristino delle macchine virtuali di Backup di Azure con l'API REST
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100201"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954899"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -35,7 +35,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un corpo della richiesta aggiuntivo.
 
-### <a name="responses"></a>Risposte
+### <a name="responses"></a>Responses
 
 |NOME  |Type  |DESCRIZIONE  |
 |---------|---------|---------|
@@ -123,7 +123,7 @@ Il punto di ripristino viene identificato con il campo `{name}` nella risposta p
 
 ## <a name="restore-disks"></a>Ripristinare i dischi
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale sottoposta a backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato.
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("VMConfig. JSON") verranno archiviati nell'account di archiviazione specificato.
 
 L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -171,9 +171,9 @@ L'attivazione di un disco di ripristino è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 #### <a name="example-responses"></a>Risposte di esempio
 

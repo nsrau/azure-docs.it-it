@@ -4,23 +4,22 @@ description: Come montare una condivisione di File di Azure dai nodi di calcolo 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103333"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093976"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
 
@@ -52,9 +51,9 @@ In Batch è necessario montare la condivisione a ogni esecuzione di un'attività
 Ad esempio, includere un comando `net use` per montare la condivisione file come parte della riga di comando di ogni attività. Per montare la condivisione file, sono necessarie le credenziali seguenti:
 
 * **User name** (Nome utente): AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, ad esempio *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
 
-Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:*:
+Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -129,7 +128,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Eseguire quindi il comando `mount` per montare la condivisione file, specificando queste credenziali:
 
 * **Nome utente**: \<storageaccountname\>, ad esempio *mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, ad esempio *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* in */mnt/MyAzureFileShare*: 
 
@@ -148,17 +147,18 @@ L'esempio in Python seguente illustra come configurare un pool di Ubuntu per mon
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
-    virtual_machine_configuration = batchmodels.VirtualMachineConfiguration(
-        image_reference = batchmodels.ImageReference(
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
             sku="16.04.0-LTS",
             version="latest"),
-        node_agent_sku_id = "batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(
+            _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
         wait_for_success=True,
         user_identity=batchmodels.UserIdentity(
             auto_user=batchmodels.AutoUserSpecification(

@@ -2,88 +2,71 @@
 title: Come configurare i criteri di registrazione per l'autenticazione a più fattori in Azure Active Directory Identity Protection | Microsoft Docs
 description: Informazioni su come configurare i criteri di registrazione per l'autenticazione a più fattori di Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/17/2019
+ms.topic: conceptual
+ms.date: 05/01/2019
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294914"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126382"
 ---
-# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procedura: Configurare i criteri di registrazione per l'autenticazione a più fattori
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedura: Configurare i criteri di registrazione del Multi-Factor Authentication di Azure
 
-Azure AD Identity Protection consente di gestire il rollout della registrazione per l'autenticazione a più fattori (MFA) configurando un criterio per richiedere la registrazione MFA. Questo articolo illustra ciò che il criterio può essere utilizzato per e come configurarlo.
+Azure AD Identity Protection consente di gestire l'implementazione della registrazione dell'autenticazione a più fattori tramite la configurazione di un criterio di accesso condizionale per richiedere la registrazione a più fattori, indipendentemente dall'app di autenticazione moderna a cui si accede. Questo articolo illustra il modo in cui è possibile usare i criteri e come configurarlo.
 
-## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Cosa sono i criteri di registrazione per l'autenticazione a più fattori?
 
-Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi e alle transazioni degli utenti. Affinché gli utenti siano in grado di rispondere alle richieste di autenticazione a più fattori, è prima necessario registrarsi per l'autenticazione a più fattori. 
 
-È consigliabile richiedere l'autenticazione a più fattori per l'accesso degli utenti perché:
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Informazioni sui criteri di registrazione di Azure Multi-Factor Authentication
+
+Azure Multi-Factor Authentication fornisce un mezzo per verificare chi sta usando più di un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi degli utenti. Affinché gli utenti siano in grado di rispondere alle richieste di autenticazione a più fattori, devono prima registrarsi per Multi-Factor Authentication di Azure.
+
+Per gli accessi utente è consigliabile richiedere Azure Multi-Factor Authentication perché:
 
 - Offre un'autenticazione avanzata con una gamma di opzioni di verifica semplici
+- Gioca un ruolo fondamentale nella preparazione dell'organizzazione per la protezione e il ripristino da rilevamenti dei rischi in Identity Protection
 
-- Svolge un ruolo chiave nella preparazione dell'organizzazione per le operazioni di protezione e ripristino in caso di compromissione degli account
+Per altri dettagli sull'autenticazione a più fattori, vedere informazioni su [Azure multi-factor authentication](../authentication/howto-mfa-getstarted.md)
 
+## <a name="how-do-i-access-the-registration-policy"></a>Ricerca per categorie accedere ai criteri di registrazione?
 
-Per ulteriori dettagli sull'autenticazione a più fattori, vedere [che cos'è Azure multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
-
-
-## <a name="how-do-i-access-the-mfa-registration-policy"></a>Come si accede ai criteri di registrazione MFA?
-   
 I criteri di registrazione MFA si trovano nella sezione di **configurazione** della [pagina di Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
-   
+
 ![Criteri di MFA](./media/howto-mfa-policy/1014.png)
 
+## <a name="policy-settings"></a>Impostazioni di criteri
 
+Quando si configurano i criteri di registrazione dell'autenticazione a più fattori, è necessario apportare le modifiche di configurazione seguenti:
 
-
-## <a name="policy-settings"></a>Impostazioni dei criteri
-
-Quando si configurano i criteri di registrazione MFA, è necessario impostare:
-
-- Gli utenti e i gruppi a cui vengono applicati i criteri:
+- Utenti e gruppi a cui si applicano i criteri. Ricordarsi di escludere gli [account di accesso di emergenza](../users-groups-roles/directory-emergency-access.md)dell'organizzazione.
 
     ![Utenti e gruppi](./media/howto-mfa-policy/11.png)
 
-- Il controllo che si desidera imporre requisiti di registrazione MFA:  
+- Il controllo che si vuole applicare: **richiedere la registrazione** dell'autenticazione a più fattori di Azure
 
     ![Accesso](./media/howto-mfa-policy/12.png)
 
-- Lo stato dei criteri:
+- Imponi criterio deve essere impostato **su on**.
 
     ![Applicare i criteri](./media/howto-mfa-policy/14.png)
 
-
-La finestra di dialogo di configurazione dei criteri include un'opzione che consente di stimare l'impatto della configurazione.
-
-![Impatto stimato](./media/howto-mfa-policy/15.png)
-
-
-
+- **Salvare** i criteri
 
 ## <a name="user-experience"></a>Esperienza utente
 
+Azure Active Directory Identity Protection chiederà agli utenti di effettuare la registrazione al successivo accesso interattivo.
 
 Per una panoramica dell'esperienza utente correlata, vedere:
 
-* [Flusso di registrazione per l'autenticazione a più fattori](flows.md#multi-factor-authentication-registration).  
-* [Esperienze di accesso con Azure AD Identity Protection](flows.md).  
-
-
+- [Flusso di registrazione per l'autenticazione a più fattori](flows.md#multi-factor-authentication-registration).  
+- [Esperienze di accesso con Azure AD Identity Protection](flows.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791508"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155154"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoraggio delle prestazioni con l'estensione Diagnostica di Microsoft Azure
 
@@ -192,9 +192,6 @@ Di seguito è riportato un esempio di configurazione con il contatore *Tempo tot
 ....
 ```
 
- >[!NOTE]
- >Anche se è possibile usare `*` per specificare gruppi di contatori delle prestazioni con nomi simili, per inviare i contatori tramite un sink (ad Application Insights), è necessario dichiararli singolarmente. 
-
 1. Dopo avere aggiunto i contatori delle prestazioni appropriati che devono essere raccolti, è necessario aggiornare la risorsa cluster in modo che queste modifiche vengano riflesse nel cluster in esecuzione. Salvare il file `template.json` modificato e aprire PowerShell. È possibile aggiornare il cluster usando `New-AzResourceGroupDeployment`. La chiamata richiede il nome del gruppo di risorse e il file del modello aggiornato e chiede a Resource Manager di apportare le modifiche appropriate alle risorse aggiornate. Dopo avere eseguito l'accesso all'account e alla sottoscrizione corretta, usare il comando seguente per eseguire l'aggiornamento:
 
     ```sh
@@ -206,4 +203,4 @@ Di seguito è riportato un esempio di configurazione con il contatore *Tempo tot
 ## <a name="next-steps"></a>Passaggi successivi
 * Raccogliere altri contatori delle prestazioni per il cluster. Vedere [Metriche delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) per un elenco di contatori da raccogliere.
 * [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) per apportare altre modifiche a `WadCfg`, inclusa la configurazione di account di archiviazione aggiuntivi a cui inviare i dati di diagnostica.
-* Visitare il [WadCfg generatore](https://azure.github.io/azure-diagnostics-tools/config-builder/) per compilare un modello da zero e assicurarsi che la sintassi sia corretta. ( https://azure.github.io/azure-diagnostics-tools/config-builder/) per compilare un modello da zero e assicurarsi che la sintassi sia corretta.
+* Visitare il [Generatore di WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) per creare un modello da zero e verificare che la sintassi sia corretta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) per compilare un modello da zero e assicurarsi che la sintassi sia corretta.

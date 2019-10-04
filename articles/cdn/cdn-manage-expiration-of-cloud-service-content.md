@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525671"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593707"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]

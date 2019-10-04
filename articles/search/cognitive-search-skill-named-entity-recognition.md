@@ -2,60 +2,59 @@
 title: Competenza Riconoscimento delle entità denominate della ricerca cognitiva - Ricerca di Azure
 description: Estrarre le entità denominate per utente, posizione e organizzazione dal testo in una pipeline di ricerca cognitiva di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 28fae27b52ea150c1fa732715212e2f2c9534bc6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b152d5a48d49e78818602e7f66574937bebce2ac
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750430"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265755"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
 
 La competenza **Riconoscimento di entità denominate** estrae le entità denominate dal testo. Le entità disponibili includono i tipi `person`, `location` e `organization`.
 
 > [!IMPORTANT]
-> La competenza Riconoscimento di entità denominate è deprecata ed è stata sostituita da [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Il supporto terminerà il 15 febbraio 2019. Seguire le raccomandazioni in [Competenze di ricerca cognitiva deprecate](cognitive-search-skill-deprecated.md) per eseguire la migrazione a una competenza supportata.
+> La funzionalità di riconoscimento entità denominata ora non è più disponibile, sostituito da [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Il supporto è stato interrotto il 15 febbraio 2019 e l'API è stata rimossa dal prodotto il 2 maggio 2019. Per eseguire la migrazione a una competenza supportata, seguire le indicazioni riportate nelle [competenze di ricerca cognitive deprecate](cognitive-search-skill-deprecated.md) .
 
 > [!NOTE]
-> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
+> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento a consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. L'estrazione di immagini è un addebito previsto in Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
+> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
-| Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
+| categories    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
 | minimumPrecision  | Un numero compreso tra 0 e 1. Se la precisione è inferiore a questo valore, non viene restituita l'entità. Il valore predefinito è 0.|
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | DESCRIZIONE                   |
+| Nome di input      | Descrizione                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output     | DESCRIZIONE                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
 | locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
@@ -92,7 +91,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
         "recordId": "1",
         "data":
            {
-             "text": "This is the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }
@@ -155,7 +154,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

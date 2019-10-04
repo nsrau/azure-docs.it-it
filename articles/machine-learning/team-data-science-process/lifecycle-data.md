@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303512"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase di acquisizione e comprensione dei dati nel processo di data science per i team
@@ -55,7 +55,7 @@ Il processo TDSP include un'utilità automatica, denominata [IDEAR](https://gith
 Dopo che si è soddisfatti della qualità dei dati ripuliti, il passaggio successivo consiste nel capire meglio i modelli inerenti nei dati. Questo passaggio aiuta a scegliere e a sviluppare un modello predittivo appropriato per il proprio obiettivo. Cercare la prova della precisa connessione dei dati all'obiettivo. Determinare quindi se i dati sono sufficienti per passare alle successive fasi di modellazione. Anche questo processo è iterativo. Potrebbe essere necessario trovare nuove origini dati con dati più accurati o più pertinenti per aumentare il set di dati identificato nella fase precedente. 
 
 ### <a name="set-up-a-data-pipeline"></a>Impostare una pipeline di dati
-Oltre all'inserimento iniziale e alla pulizia dei dati, è necessario in genere impostare un processo per valutare nuovi dati o aggiornare regolarmente i dati, come parte di un processo costante di apprendimento. Per ottenere questo risultato, è possibile configurare una pipeline di dati o un flusso di lavoro. L'articolo [Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md) offre un esempio di come impostare una pipeline con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Oltre all'inserimento iniziale e alla pulizia dei dati, è necessario in genere impostare un processo per valutare nuovi dati o aggiornare regolarmente i dati, come parte di un processo costante di apprendimento. Per ottenere questo risultato, è possibile configurare una pipeline di dati o un flusso di lavoro. L'articolo [Spostare i dati da un'istanza di SQL Server locale al database SQL di Azure con Azure Data Factory](move-sql-azure-adf.md) offre un esempio di come impostare una pipeline con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 In questa fase si sviluppa un'architettura della soluzione della pipeline di dati. Si sviluppa la pipeline in parallelo con la fase successiva del progetto di data science. A seconda delle esigenze aziendali e dei vincoli dei sistemi esistenti in questa soluzione deve essere integrata, la pipeline può essere di uno dei tipi seguenti: 
 

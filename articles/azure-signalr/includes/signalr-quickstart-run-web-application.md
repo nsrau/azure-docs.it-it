@@ -8,11 +8,11 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051570"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180518"
 ---
 ## <a name="run-the-web-application"></a>Eseguire l'applicazione Web
 

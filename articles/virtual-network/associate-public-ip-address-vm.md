@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: Informazioni su come associare un indirizzo IP pubblico a una macchina virtuale.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083216"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64691994"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associare un indirizzo IP pubblico a una macchina virtuale
 
-In questo articolo descrive come associare un indirizzo IP pubblico a una macchina virtuale esistente (VM). Se si desidera connettersi a una macchina virtuale da internet, la macchina virtuale deve avere un indirizzo IP pubblico a cui è associato. Se si desidera creare una nuova macchina virtuale con un indirizzo IP pubblico, è possibile farlo usando il [portale di Azure](virtual-network-deploy-static-pip-arm-portal.md), il [interfaccia della riga di comando di Azure (CLI)](virtual-network-deploy-static-pip-arm-cli.md), o [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Per gli indirizzi IP pubblici è prevista una tariffa nominale. Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricing/details/ip-addresses/). È previsto un limite al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione. Per informazioni dettagliate, vedere [limiti](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1).
+In questo articolo descrive come associare un indirizzo IP pubblico a una macchina virtuale esistente (VM). Se si desidera connettersi a una macchina virtuale da internet, la macchina virtuale deve avere un indirizzo IP pubblico a cui è associato. Se si desidera creare una nuova macchina virtuale con un indirizzo IP pubblico, è possibile farlo usando il [portale di Azure](virtual-network-deploy-static-pip-arm-portal.md), il [interfaccia della riga di comando di Azure (CLI)](virtual-network-deploy-static-pip-arm-cli.md), o [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Per gli indirizzi IP pubblici è prevista una tariffa nominale. Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricing/details/ip-addresses/). È previsto un limite al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione. Per informazioni dettagliate, vedere [limiti](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 È possibile usare la [portale di Azure](#azure-portal), Azure [interfaccia della riga di comando](#azure-cli) (CLI), o [PowerShell](#powershell) per associare un indirizzo IP pubblico a una macchina virtuale.
 
@@ -43,7 +43,7 @@ In questo articolo descrive come associare un indirizzo IP pubblico a una macchi
    > [!NOTE]
    > Gli indirizzi IP pubblici associati alle configurazioni IP per un'interfaccia di rete. Nella figura precedente, l'interfaccia di rete ha una configurazione IP. Se l'interfaccia di rete ha più configurazioni IP, vengono visualizzati tutti nell'elenco e selezionare la configurazione IP che si desidera associare l'indirizzo IP pubblico.
 
-5. Selezionare **Enabled**, quindi selezionare **indirizzo IP (*Configura le impostazioni obbligatorie*)**. Scegliere un indirizzo IP pubblico esistente, che chiude automaticamente il **Scegli indirizzo IP pubblico** casella. Se non hai ancora disponibili indirizzi IP pubblici elencati, è necessario crearne uno. Per altre informazioni, vedere [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address). Selezionare **salvare**, come illustrato nell'immagine che segue e quindi chiudere la finestra per la configurazione IP.
+5. Selezionare **Enabled**, quindi selezionare **indirizzo IP (*Configura le impostazioni obbligatorie*)** . Scegliere un indirizzo IP pubblico esistente, che chiude automaticamente il **Scegli indirizzo IP pubblico** casella. Se non hai ancora disponibili indirizzi IP pubblici elencati, è necessario crearne uno. Per altre informazioni, vedere [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address). Selezionare **salvare**, come illustrato nell'immagine che segue e quindi chiudere la finestra per la configurazione IP.
 
    ![Abilitare l'indirizzo IP pubblico](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

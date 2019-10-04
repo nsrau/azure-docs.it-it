@@ -7,21 +7,23 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: 460f79eb0679dc7d71bc929e4e790b68bd0f6774
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.date: 07/29/2019
+ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447398"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640919"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET Core (C#) per eseguire query su un database SQL di Azure
 
 In questa guida introduttiva si userà [.NET Core](https://www.microsoft.com/net/) e il codice C# per la connessione a un database SQL di Azure. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
+
+> [!TIP]
+> Il seguente modulo Microsoft Learn gratuito contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +36,7 @@ Per eseguire questa esercitazione, è necessario avere:
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|

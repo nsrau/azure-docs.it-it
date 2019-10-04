@@ -4,28 +4,28 @@ description: Riferimento concettuale e panoramica della funzionalità di Autenti
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.date: 08/12/2019
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402746"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087974"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 
 > [!NOTE]
-> A questo punto, AAD V2 (inclusi MSAL) non è supportato per servizi App di Azure e funzioni di Azure. Ricontrollare in seguito per gli aggiornamenti.
+> A questo punto, AAD V2 (incluso MSAL) non è supportato per servizi app Azure e funzioni di Azure. Verificare la disponibilità di aggiornamenti.
 >
 
 Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'autorizzazione ed è quindi possibile consentire l'accesso degli utenti e l'accesso ai dati senza scrivere codice, o con una minima quantità di codice, nell'app Web, nell'API RESTful, nel back-end per dispositivi mobili e anche in [Funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app. 
@@ -55,7 +55,7 @@ Il modulo viene eseguito separatamente dal codice dell'applicazione e viene conf
 
 ### <a name="user-claims"></a>Attestazioni utente
 
-Per tutti i framework di linguaggio, il servizio app rende disponibili le attestazioni utente nel codice inserendole nelle intestazioni delle richieste. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`.
+Per tutti i framework di linguaggio, il servizio app rende disponibili le attestazioni utente nel codice inserendole nelle intestazioni delle richieste. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 Per [Funzioni di Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` non è idratato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni delle richieste.
 
@@ -90,7 +90,7 @@ Il servizio app usa l'[identità federata](https://en.wikipedia.org/wiki/Federat
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provider, il relativo endpoint di accesso è disponibile per l'autenticazione utente e per la convalida dei token di autenticazione del provider. È possibile offrire facilmente agli utenti tutte le opzioni di accesso desiderate. È anche possibile integrare un altro provider di identità o una [soluzione di gestione delle identità personalizzata][custom-auth].
+Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provider, il relativo endpoint di accesso è disponibile per l'autenticazione utente e per la convalida dei token di autenticazione del provider. È possibile offrire facilmente agli utenti tutte le opzioni di accesso desiderate. È anche possibile integrare un altro provider di identità o [una soluzione di identità personalizzata][custom-auth].
 
 ## <a name="authentication-flow"></a>Flusso di autenticazione
 
@@ -118,29 +118,26 @@ Per i browser client, il servizio app può indirizzare automaticamente tutti gli
 
 ## <a name="authorization-behavior"></a>Comportamento di autorizzazione
 
-Nel [portale di Azure](https://portal.azure.com) è possibile configurare diversi comportamenti per l'autorizzazione del servizio app.
+Nel [portale di Azure](https://portal.azure.com)è possibile configurare l'autorizzazione del servizio app con diversi comportamenti quando la richiesta in ingresso non è autenticata.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 I titoli seguenti descrivono le opzioni.
 
-### <a name="allow-all-requests-default"></a>Consentire tutte le richieste (impostazione predefinita)
+### <a name="allow-anonymous-requests-no-action"></a>Consenti richieste anonime (nessuna azione)
 
-L'autenticazione e l'autorizzazione non sono gestite dal servizio app (disattivate). 
+Questa opzione rinvia l'autorizzazione del traffico non autenticato al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP. 
 
-Scegliere questa opzione se non sono necessarie l'autenticazione e l'autorizzazione oppure se si vuole scrivere codice di autenticazione e autorizzazione personalizzato.
+Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice. 
 
 ### <a name="allow-only-authenticated-requests"></a>Consentire solo le richieste autenticate
 
-L'opzione è **Accedi con \<provider>**. Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
+L'opzione è **Accedi con \<provider>** . Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
 
 Con questa opzione non è necessario scrivere codice di autenticazione nell'app. È possibile gestire un livello di autorizzazione più specifico, ad esempio l'autorizzazione specifica dei ruoli, esaminando le attestazioni utente (vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims)).
 
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Consentire tutte le richieste, ma convalidare le richieste autenticate
-
-L'opzione è **Consenti richieste anonime**. Questa opzione attiva l'autenticazione e l'autorizzazione nel servizio app, ma rimanda le decisioni riguardanti l'autorizzazione al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP. 
-
-Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice. 
+> [!CAUTION]
+> La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderate per le app che vogliono un home page disponibile pubblicamente, come in molte applicazioni a singola pagina.
 
 ## <a name="more-resources"></a>Altre risorse
 
@@ -155,7 +152,7 @@ Guide alle procedure specifiche del provider:
 * [Come configurare un'applicazione per usare l'account di accesso di Google][Google]
 * [Come configurare un'applicazione per usare l'account di accesso Microsoft][MSA]
 * [Come configurare un'applicazione per usare l'account di accesso di Twitter][Twitter]
-* [Procedura: Usare l'autenticazione personalizzata per la propria applicazione][custom-auth]
+* [Procedura: usare l'autenticazione personalizzata per la propria applicazione][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

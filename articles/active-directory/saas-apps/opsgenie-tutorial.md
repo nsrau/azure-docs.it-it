@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Esercitazione: Integrazione di Azure Active Directory con OpsGenie
 
@@ -71,16 +71,16 @@ Per configurare l'integrazione di OpsGenie in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con OpsGenie usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con OpsGenie usando un utente di test di nome **B. Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in OpsGenie.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con OpsGenie, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per OpsGenie](#configure-opsgenie-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di OpsGenie](#create-opsgenie-test-user)**: per avere una controparte di Britta Simon in OpsGenie collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per OpsGenie](#configure-opsgenie-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di OpsGenie](#create-opsgenie-test-user)** : per avere una controparte di B. Simon in OpsGenie collegata alla rappresentazione di Azure AD dell'utente.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -149,7 +149,7 @@ Per configurare Single Sign-On di Azure AD con OpsGenie, seguire questa procedur
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+In questa sezione viene creato un utente di test di nome B. Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -163,10 +163,10 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **B. Simon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
-    Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare **bsimon@yourcompanydomain.extension**  
+    Ad esempio: BSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -174,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OpsGenie.
+In questa sezione B. Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OpsGenie.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **OpsGenie**.
 
@@ -192,7 +192,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
@@ -200,7 +200,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-opsgenie-test-user"></a>Creare un utente di test di OpsGenie
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in OpsGenie. 
+In questa sezione viene creato un utente di nome B. Simon in OpsGenie. 
 
 1. In una finestra del Web browser accedere al tenant di OpsGenie come amministratore.
 
@@ -214,14 +214,14 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in OpsGenie.
    
     ![Impostazioni di OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. Nella casella di testo **Email** , digitare l'indirizzo di posta elettronica di Britta in Azure Active Directory.
+    a. Nella casella di testo **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica di B. Simon in Azure Active Directory.
    
-    b. Nella casella di testo **Nome completo** digitare **Britta Simon**.
+    b. Nella casella di testo **Full Name** (Nome completo) digitare **B. Simon**.
    
     c. Fare clic su **Save**. 
 
 >[!NOTE]
->Britta riceve un messaggio di posta elettronica con istruzioni per la configurazione del profilo.
+>B. Simon riceve un messaggio di posta elettronica con istruzioni per la configurazione del profilo.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

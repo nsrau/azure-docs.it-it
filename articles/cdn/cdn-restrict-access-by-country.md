@@ -1,30 +1,30 @@
 ---
-title: Limitare il contenuto della rete CDN di Azure in base al paese | Documentazione Microsoft
-description: Informazioni su come limitare l'accesso al contenuto della rete CDN di Azure in base al paese con la funzionalità di filtro geografico.
+title: Limita il contenuto della rete CDN di Azure da paese/area geografica | Microsoft Docs
+description: Informazioni su come limitare l'accesso da paese/area geografica per il contenuto della rete CDN di Azure usando la funzionalità filtro geografico.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324613"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593424"
 ---
-# <a name="restrict-azure-cdn-content-by-country"></a>Limitare il contenuto della rete CDN di Azure in base al paese
+# <a name="restrict-azure-cdn-content-by-countryregion"></a>Limita il contenuto della rete CDN di Azure da paese/area geografica
 
 ## <a name="overview"></a>Panoramica
-Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, tuttavia, è possibile limitare l'accesso al contenuto in base al paese. Con la funzionalità di *filtro geografico* è possibile creare regole in percorsi specifici nell'endpoint della rete CDN per consentire o bloccare il contenuto in determinati paesi.
+Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. Tuttavia, in alcuni casi, è possibile limitare l'accesso al contenuto da paese/area geografica. Con il *filtro geografico* funzionalità, può creare regole in percorsi specifici all'endpoint della rete CDN per consentire o bloccare il contenuto nei paesi selezionati.
 
 > [!IMPORTANT]
 > I profili di **rete CDN Standard di Azure con tecnologia Microsoft** non supportano il filtro geografico basato sul percorso.
@@ -42,30 +42,30 @@ Per accedere alla funzionalità di filtro geografico, selezionare l'endpoint del
 
 Nella casella **Percorso** specificare il percorso relativo della posizione a cui gli utenti potranno o meno accedere. 
 
-È possibile applicare il filtro geografico a tutti i file con una barra (/) o selezionare cartelle specifiche indicando i percorsi di directory, ad esempio */foto/*. È anche possibile applicare il filtro geografico a un singolo file (ad esempio */foto/città.png*). Sono consentite più regole. Dopo aver immesso una regola, viene visualizzata una riga vuota per immettere la regola successiva.
+È possibile applicare il filtro geografico a tutti i file con una barra (/) o selezionare cartelle specifiche indicando i percorsi di directory, ad esempio */foto/* . È anche possibile applicare il filtro geografico a un singolo file (ad esempio */foto/città.png*). Sono consentite più regole. Dopo aver immesso una regola, viene visualizzata una riga vuota per immettere la regola successiva.
 
 Ad esempio, tutti i filtri di percorso di directory seguenti sono validi:   
 */*                                 
-*/Foto/*     
-*/Foto/Strasburgo/*     
+*/Foto/*      
+*/Foto/Strasburgo/*      
 */Foto/Strasburgo/città.png*
 
 ### <a name="define-the-type-of-action"></a>Definire il tipo di azione
 
 Nell'elenco **Azione** selezionare **Consenti** o **Blocca**: 
 
-- **Consenti**: Solo gli utenti dei paesi specificati possono accedere alle risorse richieste dal percorso ricorsivo.
+- **Consenti**: Solo gli utenti di paesi/aree geografiche specificati possono accedere alle risorse richieste dal percorso ricorsivo.
 
-- **Blocco**: Gli utenti dei paesi specificati negati l'accesso agli asset richiesto dal percorso ricorsivo. Se non sono state definite altre opzioni di filtro di paese per tale percorso, tutti gli altri utenti saranno autorizzati ad accedere.
+- **Blocco**: Accesso vengono negati agli utenti di paesi/aree geografiche specificati per l'asset richiesto dal percorso ricorsivo. Se non sono state configurate altre opzioni di filtro di paese/area geografica per quel percorso, quindi tutti gli altri utenti potranno accedere.
 
 Ad esempio, una regola di filtro geografico per bloccare il percorso */Foto/Strasburgo/* filtra i file seguenti:     
 *http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
-### <a name="define-the-countries"></a>Definire i paesi
-Nell'elenco **Codici paese** selezionare i paesi che si vuole bloccare o consentire per il percorso. 
+### <a name="define-the-countriesregions"></a>Definire i paesi/aree geografiche
+Dal **codici paese** selezionare i paesi/aree geografiche che si desidera bloccare o consentire per il percorso. 
 
-Dopo aver selezionato i paesi, selezionare **Salva** per attivare la nuova regola di filtro geografico. 
+Dopo aver selezionato i paesi/aree geografiche, selezionare **salvare** per attivare la nuova regola di filtro geografico. 
 
 ![Regole di filtro geografico](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
@@ -89,14 +89,14 @@ Per i profili della **rete CDN Premium di Azure fornita da Verizon**, l'interfac
 
     Verrà visualizzata la pagina **Step Two:** (Passaggio 2). 
 
-5. Selezionare uno o più paesi nell'elenco e quindi selezionare **Fine** per attivare la regola. 
+5. Selezionare uno o più paesi/aree geografiche nell'elenco, quindi selezionare **fine** per attivare la regola. 
     
     La nuova regola viene visualizzata nella tabella nella pagina **Country Filtering** (Filtro paese).
 
     ![Regole di filtro geografico](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Nella tabella delle regole di filtro del paese, selezionare l'icona di eliminazione accanto a una regola per eliminarla o sull'icona di modifica per modificarla.
+Nella tabella delle regole del filtro paese/area geografica, selezionare l'icona di eliminazione accanto a una regola per eliminarla o sull'icona di modifica per modificarlo.
 
 ## <a name="considerations"></a>Considerazioni
 * Le modifiche alla configurazione del filtro geografico non diventano immediatamente effettive:
@@ -108,7 +108,7 @@ Nella tabella delle regole di filtro del paese, selezionare l'icona di eliminazi
 
 * La configurazione del filtro geografico associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
 
-* È possibile applicare una sola regola allo stesso percorso relativo. Vale a dire, non è possibile creare più filtri paese che puntano allo stesso percorso relativo. Tuttavia, a causa della natura ricorsiva dei filtri paese, una cartella può avere più filtri paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
+* È possibile applicare una sola regola allo stesso percorso relativo. Vale a dire, è possibile creare più filtri di paese/area geografica che puntano allo stesso percorso relativo. Tuttavia, poiché i filtri di paese/area geografica sono ricorsivi, una cartella può avere più filtri di paese/area geografica. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata un filtro di paese diverso.
 
-* La funzionalità di filtro geografico usa i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta. Anche se i profili Akamai e Verizon supportano la maggior parte degli stessi codici paese, esistono alcune differenze. Per altre informazioni, vedere [Azure CDN country codes](/previous-versions/azure/mt761717(v=azure.100)) (Codici paese per la rete CDN di Azure). 
+* La funzionalità filtro geografico Usa i codici paese per definire i paesi/aree geografiche da cui una richiesta viene consentita o bloccata per una directory protetta. Anche se i profili Akamai e Verizon supportano la maggior parte degli stessi codici paese, esistono alcune differenze. Per altre informazioni, vedere [Azure CDN country codes](/previous-versions/azure/mt761717(v=azure.100)) (Codici paese per la rete CDN di Azure). 
 

@@ -2,71 +2,64 @@
 title: Creare un controller di ingresso HTTP con un indirizzo IP statico nel servizio Azure Kubernetes
 description: Informazioni su come installare e configurare un controller di ingresso NGINX con un indirizzo IP pubblico statico in un cluster del servizio Azure Kubernetes.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: iainfou
-ms.openlocfilehash: 57f71be436ac7632f111a7f88f9dc2d4bea608c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/24/2019
+ms.author: mlearned
+ms.openlocfilehash: 5a4a46b8384da46a95ef148bc9989749535ec811
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466359"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "67615329"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
 Un controller di ingresso è un componente software che fornisce proxy inverso, routing del traffico configurabile e terminazione TLS per i servizi Kubernetes. Le risorse di ingresso Kubernetes vengono usate per configurare le regole di ingresso e le route per i singoli servizi Kubernetes. Usando un controller di ingresso e regole di ingresso è possibile servirsi di un singolo indirizzo IP per instradare il traffico a più servizi in un cluster Kubernetes.
 
-Questo articolo illustra come distribuire il [controller di ingresso NGINX][nginx-ingress] in un cluster del servizio Azure Kubernetes. Il controller di ingresso è configurato con un indirizzo IP pubblico statico. Il progetto [cert-manager][cert-manager] viene usato per generare e configurare automaticamente certificati [Let's Encrypt][lets-encrypt]. Infine, due applicazioni vengono eseguite nel cluster servizio Azure Kubernetes, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
+Questo articolo illustra come distribuire il controller di [ingresso nginx][nginx-ingress] in un cluster di Azure Kubernetes Service (AKS). Il controller di ingresso è configurato con un indirizzo IP pubblico statico. Il progetto [Cert-Manager][cert-manager] viene usato per generare e configurare automaticamente i certificati [di crittografia][lets-encrypt] . Infine, due applicazioni vengono eseguite nel cluster servizio Azure Kubernetes, ognuna delle quali è accessibile tramite un singolo indirizzo IP.
 
 È anche possibile:
 
 - [Creare un controller di ingresso di base con connettività di rete esterna][aks-ingress-basic]
-- [Abilitare il componente aggiuntivo di routing dell'applicazione HTTP][aks-http-app-routing]
+- [Abilita il componente aggiuntivo routing applicazione HTTP][aks-http-app-routing]
 - [Creare un controller di ingresso che usa i propri certificati TLS][aks-ingress-own-tls]
-- [Creare un controller di ingresso che usa Let's Encrypt per generare automaticamente certificati TLS con un indirizzo IP pubblico dinamico][aks-ingress-tls]
+- [Creare un controller di ingresso che usa la crittografia di Let per generare automaticamente i certificati TLS con un indirizzo IP pubblico dinamico][aks-ingress-tls]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
-Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster servizio Azure Kubernetes e usare un account del servizio per Tiller. Assicurarsi di usare l'ultima versione di Helm. Per istruzioni sull'aggiornamento, consultare [Installare i documenti Helm][helm-install]. Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][use-helm].
+Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. È necessario disporre di Helm inizializzato nel cluster servizio Azure Kubernetes e usare un account del servizio per Tiller. Assicurarsi di usare l'ultima versione di Helm. Per istruzioni sull'aggiornamento, vedere la documentazione relativa all' [installazione di Helm][helm-install]. Per altre informazioni sulla configurazione e sull'uso di Helm, vedere [installare applicazioni con Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-Questo articolo richiede anche di eseguire il comando di Azure versione 2.0.61 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
 Per impostazione predefinita, un controller di ingresso NGINX viene creato con l'assegnazione di un nuovo indirizzo IP pubblico. Questo indirizzo IP pubblico è solo statico per la durata del controller di ingresso e viene perso se il controller viene eliminato e ricreato. Un requisito di configurazione comune consiste nel fornire al controller di ingresso NGINX un indirizzo IP pubblico statico esistente. L'indirizzo IP pubblico statico rimane quando il controller di ingresso viene eliminato. Questo approccio consente di usare i record DNS e le configurazioni di rete esistenti in modo coerente per tutto il ciclo di vita delle applicazioni.
 
-Se è necessario creare un indirizzo IP pubblico statico, è necessario ottenere prima il nome del gruppo di risorse del cluster servizio Azure Kubernetes con il comando [az servizio Azure Kubernetes show][az-aks-show]:
+Se è necessario creare un indirizzo IP pubblico statico, ottenere prima il nome del gruppo di risorse del cluster AKS con il comando [AZ AKS Show][az-aks-show] :
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
-Successivamente, creare un indirizzo IP pubblico con il metodo di allocazione *statico* usando il comando [az network public-ip create] [ az-network-public-ip-create]. Nell'esempio seguente viene creato un indirizzo IP pubblico denominato *myservizio Azure KubernetesPublicIP* nel gruppo di risorse cluster servizio Azure Kubernetes ottenuto nel passaggio precedente:
+Successivamente, creare un indirizzo IP pubblico con il metodo di allocazione *statica* usando il comando [AZ Network Public-IP create][az-network-public-ip-create] . Nell'esempio seguente viene creato un indirizzo IP pubblico denominato *myservizio Azure KubernetesPublicIP* nel gruppo di risorse cluster servizio Azure Kubernetes ottenuto nel passaggio precedente:
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
-```
-
-Viene visualizzato l'indirizzo IP, come illustrato nell'output sintetico seguente:
-
-```json
-{
-  "publicIp": {
-    [...]
-    "ipAddress": "40.121.63.72",
-    [...]
-  }
-}
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
 A questo punto distribuire il grafico *ingress nginx* con Helm. Aggiungere il parametro `--set controller.service.loadBalancerIP` e specificare il proprio indirizzo IP pubblico creato nel passaggio precedente. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
+Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server (attualmente in anteprima in AKS) non devono eseguire il controller di ingresso. Un selettore di nodo viene `--set nodeSelector` specificato con il parametro per indicare all'utilità di pianificazione di Kubernetes di eseguire il controller di ingresso nginx in un nodo basato su Linux.
+
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse di ingresso denominato *ingress-basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non RBAC abilitato, aggiungere `--set rbac.create=false` ai comandi di Helm.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate ingress *-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo `--set rbac.create=false` degli accessi in base al ruolo, aggiungere ai comandi Helm.
+
+> [!TIP]
+> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through SSL non funzionerà.
 
 ```console
 # Create a namespace for your ingress resources
@@ -75,8 +68,10 @@ kubectl create namespace ingress-basic
 # Use Helm to deploy an NGINX ingress controller
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
-    --set controller.service.loadBalancerIP="40.121.63.72"  \
-    --set controller.replicaCount=2
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.service.loadBalancerIP="40.121.63.72"
 ```
 
 Quando viene creato il servizio di bilanciamento del carico di Kubernetes per il controller di ingresso NGINX, viene assegnato l'indirizzo IP statico, come illustrato nell'output dell'esempio seguente:
@@ -115,7 +110,7 @@ Il controller di ingresso è ora accessibile tramite il nome di dominio completo
 
 ## <a name="install-cert-manager"></a>Installare cert-manager
 
-Il controller di ingresso NGINX supporta la terminazione TLS. Il recupero e la configurazione di certificati per HTTPS possono essere eseguiti in modi diversi. Questo articolo descrive l'uso di [cert-manager][cert-manager], che consente di generare automaticamente il certificato [Let's Encrypt][lets-encrypt] e che dispone di funzionalità di gestione.
+Il controller di ingresso NGINX supporta la terminazione TLS. Il recupero e la configurazione di certificati per HTTPS possono essere eseguiti in modi diversi. Questo articolo illustra l'uso di [Cert-Manager][cert-manager], che consente di [crittografare][lets-encrypt] automaticamente le funzionalità di gestione e generazione di certificati.
 
 > [!NOTE]
 > Nell'articolo viene usato l'ambiente `staging` per Let's Encrypt. Nelle distribuzioni di produzione usare `letsencrypt-prod` e `https://acme-v02.api.letsencrypt.org/directory` nella definizione delle risorse e durante l'installazione del grafico Helm.
@@ -124,7 +119,7 @@ Per installare il controller cert-manager in un cluster abilitato per il control
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
 
 # Create the namespace for cert-manager
 kubectl create namespace cert-manager
@@ -142,15 +137,15 @@ helm repo update
 helm install \
   --name cert-manager \
   --namespace cert-manager \
-  --version v0.7.0 \
+  --version v0.8.0 \
   jetstack/cert-manager
 ```
 
-Per altre informazioni sulla configurazione di cert-manager, vedere [progetto cert-manager][cert-manager].
+Per ulteriori informazioni sulla configurazione di Cert-Manager, vedere il [progetto Cert-Manager][cert-manager].
 
 ## <a name="create-a-ca-cluster-issuer"></a>Creare un'autorità di certificazione (CA) cluster
 
-Per poter emettere i certificati, cert-manager richiede un [autorità di certificazione][cert-manager-issuer] o una risorsa [ClusterIssuer][cert-manager-cluster-issuer]. Queste risorse Kubernetes hanno funzionalità identiche, ma `Issuer` funziona in uno spazio dei nomi singolo, mentre `ClusterIssuer` funziona in tutti gli spazi dei nomi. Per altre informazioni, vedere la documentazione relativa all'[autorità di certificazione cert-manager][cert-manager-issuer].
+Prima di poter emettere i certificati, Cert-Manager richiede un [emittente][cert-manager-issuer] o una risorsa [ClusterIssuer][cert-manager-cluster-issuer] . Queste risorse Kubernetes hanno funzionalità identiche, ma `Issuer` funziona in uno spazio dei nomi singolo, mentre `ClusterIssuer` funziona in tutti gli spazi dei nomi. Per ulteriori informazioni, vedere la documentazione relativa all' [autorità emittente Cert-Manager][cert-manager-issuer] .
 
 Creare un'autorità di certificazione del cluster, ad esempio `cluster-issuer.yaml`, tramite il manifesto di esempio seguente. Aggiornare l'indirizzo di posta elettronica con un indirizzo valido della propria organizzazione:
 
@@ -219,7 +214,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -229,14 +224,14 @@ spec:
   - host: demo-aks-ingress.eastus.cloudapp.azure.com
     http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Creare la risorsa di ingresso con il comando `kubectl apply -f hello-world-ingress.yaml`.
@@ -249,9 +244,9 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="create-a-certificate-object"></a>Creare un oggetto certificato
 
-Successivamente, è necessario creare una risorsa certificato. La risorsa certificato definisce il certificato X.509 desiderato. Per altre informazioni, vedere [cert-manager certificates][cert-manager-certificates] (Certificati cert-manager).
+Successivamente, è necessario creare una risorsa certificato. La risorsa certificato definisce il certificato X.509 desiderato. Per ulteriori informazioni, vedere [certificati Cert-Manager][cert-manager-certificates].
 
-Cert-manager ha probabilmente creato automaticamente un oggetto certificato per l'uso in ingress-shim, che viene distribuito automaticamente con cert-manager dalla versione 0.2.2. Per altre informazioni, consultare la [documentazione su ingress-shim][ingress-shim].
+Cert-manager ha probabilmente creato automaticamente un oggetto certificato per l'uso in ingress-shim, che viene distribuito automaticamente con cert-manager dalla versione 0.2.2. Per ulteriori informazioni, vedere la [documentazione relativa allo shim in ingresso][ingress-shim].
 
 Per verificare che il certificato sia stato creato correttamente, usare il comando `kubectl describe certificate tls-secret --namespace ingress-basic`.
 
@@ -299,7 +294,7 @@ certificate.certmanager.k8s.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testare la configurazione di ingresso
 
-Aprire un Web browser per il nome FQDN del controller di ingresso Kubernetes, ad esempio *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Aprire un Web browser per il nome FQDN del controller di ingresso Kubernetes, ad esempio *https://demo-aks-ingress.eastus.cloudapp.azure.com* .
 
 Questi esempi usano `letsencrypt-staging` e di conseguenza il certificato SSL emesso non è considerato attendibile dal browser. Accettare l'avviso per continuare l'applicazione. Le informazioni sul certificato indicano che il certificato *Fake LE Intermediate X1* è emesso da Let's Encrypt. Questo certificato fittizio indica che `cert-manager` ha elaborato la richiesta in modo corretto e ha ricevuto un certificato dal provider:
 
@@ -313,31 +308,31 @@ L'applicazione demo viene visualizzata nel Web browser:
 
 ![Esempio di applicazione 1](media/ingress/app-one.png)
 
-A questo punto aggiungere il percorso */hello-world-two* al nome FQDN, ad esempio *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
+A questo punto aggiungere il percorso */hello-world-two* al nome FQDN, ad esempio *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two* . Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
 
 ![Esempio di applicazione 2](media/ingress/app-two.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Questo articolo ha usato Helm per installare i componenti di ingresso, i certificati e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire le risorse, è possibile eliminare lo spazio dei nomi di campione intera o le singole risorse.
+Questo articolo ha usato Helm per installare i componenti di ingresso, i certificati e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminare lo spazio dei nomi di campione e tutte le risorse
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminare lo spazio dei nomi di esempio e tutte le risorse
 
-Per eliminare lo spazio dei nomi di esempio completo, usare il `kubectl delete` comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
+Per eliminare l'intero spazio dei nomi di esempio `kubectl delete` , usare il comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-Rimuovere quindi il repository Helm per l'app hello world di servizio contenitore di AZURE:
+Rimuovere quindi il repository Helm per l'app AKS Hello World:
 
 ```console
 helm repo remove azure-samples
 ```
 
-### <a name="delete-resources-individually"></a>Eliminare le risorse singolarmente
+### <a name="delete-resources-individually"></a>Elimina risorse singolarmente
 
-In alternativa, un approccio più granulare consiste nell'eliminare le singole risorse create. In primo luogo, rimuovere le risorse di certificato:
+In alternativa, un approccio più granulare consiste nell'eliminare le singole risorse create. Rimuovere innanzitutto le risorse del certificato:
 
 ```console
 kubectl delete -f certificates.yaml
@@ -379,7 +374,7 @@ Rimuovere la route in ingresso che ha indirizzato il traffico verso le app di es
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Eliminare l'oggetto stesso spazio dei nomi. Usare il `kubectl delete` comando e specificare il nome dello spazio dei nomi:
+Eliminare lo spazio dei nomi stesso. Usare il `kubectl delete` comando e specificare il nome dello spazio dei nomi:
 
 ```console
 kubectl delete namespace ingress-basic
@@ -395,17 +390,17 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azure Kubernetes. Per altre informazioni su questi componenti, vedere le pagine di progetto seguenti:
 
-- [Interfaccia della riga di comando di Helm][helm-cli]
+- [INTERFACCIA della riga di comando][helm-cli]
 - [Controller di ingresso NGINX][nginx-ingress]
 - [cert-manager][cert-manager]
 
 È anche possibile:
 
 - [Creare un controller di ingresso di base con connettività di rete esterna][aks-ingress-basic]
-- [Abilitare il componente aggiuntivo di routing dell'applicazione HTTP][aks-http-app-routing]
-- [Creare un controller di ingresso che usa una rete privata interna e l'indirizzo IP][aks-ingress-internal]
+- [Abilita il componente aggiuntivo routing applicazione HTTP][aks-http-app-routing]
+- [Creare un controller di ingresso che usi una rete interna, privata e un indirizzo IP][aks-ingress-internal]
 - [Creare un controller di ingresso che usa i propri certificati TLS][aks-ingress-own-tls]
-- [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare Let's Encrypt per generare automaticamente certificati TLS][aks-ingress-tls]
+- [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare la crittografia per la generazione automatica di certificati TLS][aks-ingress-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
@@ -430,4 +425,5 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 [aks-ingress-own-tls]: ingress-own-tls.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli

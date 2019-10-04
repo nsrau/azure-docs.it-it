@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568163"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra il database SQL di Azure e SQL Server in locale
 
@@ -77,7 +76,7 @@ Nella sezione **Database membro** aggiungere facoltativamente un database SQL di
 
   Nella pagina **Configura database SQL di Azure** cambiare le impostazioni seguenti:
 
-  | Impostazione                       | DESCRIZIONE |
+  | Impostazione                       | Descrizione |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome membro di sincronizzazione** | Specificare un nome per il nuovo membro di sincronizzazione. Questo nome è distinto dal nome del database. |
   | **Sottoscrizione** | Selezionare la sottoscrizione di Azure associata ai fini della fatturazione. |
@@ -226,7 +225,7 @@ Per le domande frequenti sull'agente client, vedere [Domande frequenti sull'agen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
+Il visualizzatore è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 

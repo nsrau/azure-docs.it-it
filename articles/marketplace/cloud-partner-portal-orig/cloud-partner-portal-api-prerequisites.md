@@ -1,25 +1,18 @@
 ---
-title: Prerequisiti per API | Microsoft Docs
+title: Prerequisiti dell'API | Azure Marketplace
 description: Prerequisiti per l'utilizzo di API del portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: a973ab0a406168756af61900fd35947c8be6d03b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935393"
 ---
 <a name="api-prerequisites"></a>Prerequisiti per API
 ================

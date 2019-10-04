@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
 ms.openlocfilehash: 699581c7ccd3f36da0cd0c1def623607b7c0a13b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589667"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -47,7 +47,7 @@ In uno spazio dei nomi livello Premium, entità di partizionamento non sono supp
 
 ### <a name="create-a-partitioned-entity"></a>Creare una tabella partizionata
 
-Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento e sono disponibili solo nella versione precedente della libreria [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio: 
+Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento e sono disponibili solo nella versione precedente della libreria [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
 
 ```csharp
 // Create partitioned topic
@@ -87,7 +87,7 @@ Una chiave di partizione "associa" un messaggio a una partizione specifica. Se l
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Argomenti avanzati: usare le transazioni con entità partizionate
 
-I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. La chiave può essere uno dei seguenti valori: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione. Se si prova a inviare un messaggio senza una chiave di partizione in una transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Se si prova a inviare più messaggi con chiavi di partizione diverse nella stessa transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Ad esempio: 
+I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. La chiave può essere uno dei seguenti valori: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione. Se si prova a inviare un messaggio senza una chiave di partizione in una transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Se si prova a inviare più messaggi con chiavi di partizione diverse nella stessa transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Ad esempio:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -107,7 +107,7 @@ Se le proprietà che servono come chiave di partizione sono impostate, il Bus di
 
 Per inviare un messaggio transazionale a un argomento o una coda in grado di riconoscere la sessione, per il messaggio deve essere impostata la proprietà [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid). Se è specificata anche la proprietà [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), quest'ultima deve avere un valore identico a quello della proprietà [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid). In caso contrario, il bus di servizio restituisce un'eccezione di operazione non valida.
 
-A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se è stato effettuato un tentativo, il bus di servizio restituirà un'eccezione di operazione non valida, Ad esempio: 
+A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se è stato effettuato un tentativo, il bus di servizio restituirà un'eccezione di operazione non valida, Ad esempio:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

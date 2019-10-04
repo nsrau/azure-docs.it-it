@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 06/25/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441117"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Aggiunge Google come provider di identità per gli utenti guest B2B (anteprima)
+
+|     |
+| --- |
+| Federazione di Google è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
 
 Configurando una federazione con Google, è possibile consentire agli utenti invitati di accedere alle app e alle risorse condivise con i propri account Google, senza dover creare account Microsoft (MSA) o account Azure AD.  
 > [!NOTE]
@@ -101,7 +106,7 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 1. Accedere al [portale di Azure](https://portal.azure.com). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Relazioni aziendali**.
 3. Selezionare **provider di identità**.
-4. Nel **Google** , selezionare il menu di scelta rapida (**...** ) e quindi selezionare **eliminare**. 
+4. Nel **Google** , selezionare il menu di scelta rapida ( **...** ) e quindi selezionare **eliminare**. 
    
    ![Screenshot che mostra l'opzione di eliminazione per il provider di identità di social networking](media/google-federation/google-social-identity-providers.png)
 

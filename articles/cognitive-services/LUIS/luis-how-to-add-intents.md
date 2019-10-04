@@ -1,22 +1,22 @@
 ---
-title: Aggiungere finalità
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Aggiungi Intent-LUIS
+titleSuffix: Azure Cognitive Services
 description: Aggiungi le finalità all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521743"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932885"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
@@ -42,22 +42,31 @@ Le espressioni di esempio sono campioni di testo con domande o commenti degli ut
 
     LUIS converte tutte le espressioni in lettere minuscole e aggiunge spazi prima e dopo i token come i trattini.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle finalità 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Un'espressione in una finalità potrebbe presentare una discrepanza nella stima delle finalità tra la finalità selezionata e il punteggio della stima. LUIS indica questa discrepanza con una casella rossa intorno alla **finalità etichettata** sulla riga dell'espressione di esempio. 
+## <a name="intent-prediction-errors"></a>Errori di stima per finalità 
 
-![Screenshot della pagina dei dettagli delle finalità, con errori di discrepanza nella stima delle espressioni](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Un enunciato di esempio in uno scopo potrebbe avere un errore di stima preventivo tra la finalità in cui è attualmente presente l'espressione di esempio e l'intento di stima determinato durante il training. 
 
-Selezionare **Eseguire il training** nella barra di spostamento superiore. La discrepanza di stima è adesso assente.
+Per individuare gli errori di stima dell'espressione e correggerli, utilizzare le opzioni di **valutazione** dell'opzione di **filtro** non corrette e non chiare combinate con l'opzione **Visualizza** della **visualizzazione dettagliata**. 
 
-> [!Note]
-> Se una riga rossa sotto una parola o frase in utterance l'esempio, un' [errore di previsione entità](luis-how-to-add-example-utterances.md#entity-status-predictions) si è verificato. È necessario correggere l'errore. 
+![Per individuare gli errori di stima dell'espressione e correggerli, utilizzare l'opzione filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Quando vengono applicati i filtri e la visualizzazione e sono presenti espressioni di esempio con errori, l'elenco di espressioni di esempio mostra le espressioni e i problemi.
+
+![! [Quando vengono applicati i filtri e la visualizzazione e sono presenti espressioni di esempio con errori, l'elenco di espressioni di esempio mostra le espressioni e i problemi.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Ogni riga indica il Punteggio di stima della formazione corrente per l'espressione di esempio, il punteggio della rivalenza più vicino, che rappresenta la differenza in questi due punteggi. 
+
+### <a name="fixing-intents"></a>Correzione di Intent
+
+Per informazioni su come risolvere gli errori di stima degli Intent, usare il [dashboard di riepilogo](luis-how-to-use-dashboard.md). Il dashboard di riepilogo fornisce l'analisi dell'ultimo training della versione attiva e offre i suggerimenti principali per correggere il modello.  
 
 ## <a name="add-a-custom-entity"></a>Aggiungere un'entità personalizzata
 
 Dopo l'aggiunta di un'espressione a una finalità, è possibile selezionare un testo all'interno dell'espressione per creare un'entità personalizzata. Un'entità personalizzata è un modo per assegnare un tag al testo da estrarre, insieme alla finalità corretta. 
 
-Visualizzare [aggiungere entità a utterance](luis-how-to-add-example-utterances.md) per altre informazioni.
+Per altre informazioni, vedere [aggiungere un'entità a un'espressione](luis-how-to-add-example-utterances.md) .
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle entità 
 
@@ -73,7 +82,7 @@ Per altre informazioni, vedere [Entità predefinita](luis-how-to-add-entities.md
 
 ## <a name="using-the-contextual-toolbar"></a>Usare la barra degli strumenti contestuale
 
-Quando uno o più espressioni di esempio sono selezionati nell'elenco, selezionando la casella a sinistra di un utterance, la barra degli strumenti sopra l'elenco utterance consente di eseguire le azioni seguenti:
+Quando nell'elenco vengono selezionati uno o più enunciati di esempio, selezionando la casella a sinistra di un enunciato, la barra degli strumenti sopra l'elenco di espressioni consente di eseguire le azioni seguenti:
 
 * Riassegnare la finalità: spostare le espressioni per assegnare finalità diverse
 * Eliminare espressioni

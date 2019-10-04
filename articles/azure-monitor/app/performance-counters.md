@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349931"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
-Windows offre un'ampia gamma di [contatori delle prestazioni](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori delle prestazioni personalizzati. Questo se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore.
+Windows offre un'ampia gamma di [contatori delle prestazioni](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori delle prestazioni personalizzati. La raccolta dei contatori delle prestazioni è supportata purché l'applicazione sia in esecuzione in IIS in un host locale o in una macchina virtuale a cui si ha accesso amministrativo. Sebbene le applicazioni in esecuzione come app Web di Azure non dispongano di accesso diretto ai contatori delle prestazioni, un subset di contatori disponibili viene raccolto da Application Insights.
 
 ## <a name="view-counters"></a>Visualizzare i contatori
 
@@ -29,48 +29,46 @@ Il riquadro Metrica mostra un set predefinito di contatori delle prestazioni.
 
 ![Contatori delle prestazioni segnalati in Application Insights](./media/performance-counters/performance-counters.png)
 
-I contatori predefiniti attualmente raccolti per le applicazioni Web .NET sono:
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
-
-Per visualizzare tutti i grafici più utili in un'unica posizione, creare un [dashboard](../../azure-monitor/app/app-insights-dashboards.md) e aggiungervi i grafici.
+I contatori predefiniti correnti configurati per la raccolta per le applicazioni Web ASP.NET/ASP.NET Core sono:
+- % Processo @ no__t-ora 0Processor
+- % Processo @ no__t-0Processor tempo normalizzato
+- Memoria @ no__t-0Available byte
+- Richieste ASP.NET/sec
+- Eccezioni CLR .NET generate/sec
+- ASP.NET tempo di esecuzione ApplicationsRequest
+- Processo @ no__t-0Private byte
+- Processo @ no__t-byte dati 0IO/sec
+- ASP.NET Applications @ no__t-0Requests nella coda dell'applicazione
+- Processore (_ Total) \\% tempo processore
 
 ## <a name="add-counters"></a>Aggiungere contatori
 
 Se il contatore delle prestazioni desiderato non è incluso nell'elenco delle metriche, è possibile aggiungerlo.
 
 1. È possibile identificare i contatori disponibili nel server usando questo comando di PowerShell nel server locale:
-   
+
     `Get-Counter -ListSet *`
-   
+
     Vedere [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).
 2. Aprire ApplicationInsights.config.
-   
+
    * Se Application Insights è stato aggiunto all'app durante lo sviluppo, modificare ApplicationInsights.config nel progetto e quindi distribuirlo di nuovo nei server.
-   * Se è stato usato Status Monitor per instrumentare un'app Web al runtime, trovare ApplicationInsights.config nella directory radice dell'app in IIS. Aggiornarlo qui in ogni istanza del server.
 3. Modificare la direttiva dell'agente di raccolta delle prestazioni:
-   
-```XML
-   
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
 
-```
+    ```XML
 
-È possibile acquisire contatori standard e quelli implementati manualmente. `\Objects\Processes` è un esempio di contatore standard, disponibile in tutti i sistemi Windows. `\Sales(photo)\# Items Sold` è un esempio di contatore personalizzato che può essere implementato in un servizio Web. 
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
+
+> [!NOTE]
+> ASP.NET Core le applicazioni non hanno `ApplicationInsights.config` e quindi il metodo precedente non è valido per ASP.NET Core applicazioni.
+
+È possibile acquisire contatori standard e quelli implementati manualmente. `\Objects\Processes` è un esempio di contatore standard, disponibile in tutti i sistemi Windows. `\Sales(photo)\# Items Sold` è un esempio di contatore personalizzato che può essere implementato in un servizio Web.
 
 Il formato è `\Category(instance)\Counter"` oppure, per categorie non associate a istanze, solo `\Category\Counter`.
 
@@ -78,24 +76,45 @@ Il formato è `\Category(instance)\Counter"` oppure, per categorie non associate
 
 Se si specifica un'istanza, questa verrà raccolta come dimensione "CounterInstanceName" della metrica indicata.
 
-### <a name="collecting-performance-counters-in-code"></a>Raccogliere contatori delle prestazioni nel codice
+### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Raccolta dei contatori delle prestazioni nel codice per applicazioni Web ASP.NET o applicazioni console .NET/.NET Core
 Per raccogliere i contatori delle prestazioni di sistema e inviarli ad Application Insights, è possibile adattare il frammento di codice seguente:
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
+
 In alternativa, è possibile eseguire la stessa operazione con le metriche personalizzate create:
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
+
+### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Raccolta dei contatori delle prestazioni nel codice per ASP.NET Core applicazioni Web
+
+Modificare il metodo `ConfigureServices` nella classe `Startup.cs` come indicato di seguito.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+
+        // The following configures PerformanceCollectorModule.
+  services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
+            {
+                // the application process name could be "dotnet" for ASP.NET Core self-hosted applications.
+                module.Counters.Add(new PerformanceCounterCollectionRequest(
+    @"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
+            });
+    }
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contatori delle prestazioni in Analytics
@@ -116,19 +135,31 @@ Come altri dati di telemetria, **performanceCounters** contiene anche una colonn
 ![Prestazioni segmentate per istanze del ruolo in Application Insights - Analisi](./media/performance-counters/analytics-metrics-role-instance.png)
 
 ## <a name="aspnet-and-application-insights-counts"></a>Conteggi di ASP.NET e Application Insights
+
 *Qual è la differenza tra il tasso di eccezione e le metriche delle eccezioni?*
 
 * *Tasso di eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
 
 * *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](../../azure-monitor/app/asp-net-exceptions.md). 
 
+## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Contatori delle prestazioni per le applicazioni in esecuzione in app Web di Azure
+
+Le applicazioni ASP.NET e ASP.NET Core distribuite in app Web di Azure vengono eseguite in un ambiente sandbox speciale. Questo ambiente non consente l'accesso diretto ai contatori delle prestazioni di sistema. Un subset limitato di contatori, tuttavia, viene esposto come variabile di ambiente, come descritto [qui](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK per ASP.NET e ASP.NET Core raccoglie i contatori delle prestazioni dalle app Web di Azure da queste variabili di ambiente speciali. In questo ambiente è disponibile solo un subset di contatori ed è possibile trovare l'elenco completo [qui.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Contatori delle prestazioni nelle applicazioni ASP.NET Core
-I contatori delle prestazioni sono supportati solo se l'applicazione è destinata a .NET Framework. Non è possibile raccogliere i contatori delle prestazioni per applicazioni .NET Core.
+
+Il supporto per i contatori delle prestazioni in ASP.NET Core è limitato:
+
+* Le versioni di [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 e successive raccolgono i contatori delle prestazioni se l'applicazione è in esecuzione in app Web di Azure (Windows).
+* Le versioni di SDK 2.7.1 e successive raccolgono contatori delle prestazioni se l'applicazione è in `NETSTANDARD2.0` esecuzione in Windows e destinazioni o versioni successive.
+* Per le applicazioni destinate all'.NET Framework, tutte le versioni dell'SDK supportano i contatori delle prestazioni.
+* Le versioni dell'SDK 2.8.0 e versioni successive supportano il contatore CPU/memoria in Linux. Nessun altro contatore è supportato in Linux. Il metodo consigliato per ottenere i contatori di sistema in Linux (e in altri ambienti non Windows) consiste nell'usare [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Avvisi
 Come per altre metriche, è possibile [impostare un avviso](../../azure-monitor/app/alerts.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="next"></a>Passaggi successivi
+
 * [Rilevamento delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)
 * [Rilevamento delle eccezioni](../../azure-monitor/app/asp-net-exceptions.md)
 

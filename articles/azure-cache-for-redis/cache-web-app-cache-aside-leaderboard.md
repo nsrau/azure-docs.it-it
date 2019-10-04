@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893742"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873023"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 * Questa esercitazione prosegue da dove era terminata la [guida introduttiva di ASP.NET per Cache Redis di Azure](cache-web-app-howto.md). Se non si è ancora provveduto, seguire prima tale guida introduttiva.
-* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+* Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     * Sviluppo Web e ASP.NET
     * Sviluppo di Azure
     * Sviluppo desktop .NET con SQL Server Express Local DB o [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
 
 1. Aggiungere la sezione `connectionStrings` seguente all'interno della sezione `configuration`. Il nome della stringa di connessione deve corrispondere al nome della classe di contesto del database Entity Framework, ovvero `TeamContext`.
 
-    Questa stringa di connessione presuppone che siano stati soddisfatti i [prerequisiti](#prerequisites) e che si sia installato SQL Server Express Local DB, che fa parte del flusso di lavoro per lo *sviluppo desktop di .NET* installato con Visual Studio 2017.
+    Questa stringa di connessione presuppone che siano stati soddisfatti i [prerequisiti](#prerequisites) e che si sia installato SQL Server Express Local DB, che fa parte del flusso di lavoro per lo *sviluppo desktop di .NET* installato con Visual Studio 2019.
 
     ```xml
     <connectionStrings>

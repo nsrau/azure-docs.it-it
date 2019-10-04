@@ -2,18 +2,18 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494841"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "70130094"
 ---
-| Risorsa | Limite predefinito | Note |
+| Risorsa | Limite predefinito/massimo | Nota |
 | --- | --- | --- |
-| Gateway applicazione di Azure |1.000 per ogni sottoscrizione | |
+| Gateway applicazione di Azure |1\.000 per sottoscrizione | |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
 | Porte front-end |100<sup>1</sup> | |
 | Pool di indirizzi back-end |100<sup>1</sup> | |
@@ -23,18 +23,21 @@ ms.locfileid: "58494841"
 | Back-end impostazioni HTTP |100<sup>1</sup> | |
 | Istanze per gateway |32 | |
 | Certificati SSL |100<sup>1</sup> |1 per listener HTTP |
+| Dimensioni massime del certificato SSL |SKU V1-10 KB<br>SKU V2-16 KB| |
 | Certificati di autenticazione |100 | |
 | Certificati radice trusted |100 | |
-| Timeout della richiesta minima |1 secondo | |
-| Timeout della richiesta massima |24 ore | |
+| Valore minimo timeout richiesta |1 secondo | |
+| Massimo timeout richiesta |24 ore | |
 | Numero di siti |100<sup>1</sup> |1 per listener HTTP |
 | Mappe URL per listener |1 | |
 | Numero massimo di regole basate sul percorso per mappa di URL|100||
 | Configurazioni di reindirizzamento |100<sup>1</sup>| |
-| Connessioni WebSocket simultanee |Gateway di medie dimensioni 20 KB<br> Gateway di grandi dimensioni 50k| |
-| Lunghezza massima dell'URL|8.000||
-| Dimensioni massime caricamento file, Standard |2 GB | |
-| Dimensioni massime caricamento file WAF |Gateway WAF medi, 100 MB<br>Gateway di grandi dimensioni WAF, 500 MB| |
-| Limite di dimensioni del corpo di WAF, senza i file|128 KB||
+| Connessioni WebSocket simultanee |Gateway medio 20.000<br> Gateway di grandi dimensioni 50.000| |
+| Lunghezza massima dell'URL|8\.000||
+| Dimensioni massime di caricamento file, standard |2 GB | |
+| Dimensioni massime caricamento file WAF |Gateway WAF medi, 100 MB<br>Gateway WAF di grandi dimensioni, 500 MB| |
+| Limite dimensioni corpo WAF, senza file|128 KB||
+| Numero massimo di regole personalizzate WAF|100||
+| Numero massimo di esclusioni WAF|100||
 
-<sup>1</sup> in caso di SKU WAF-abilitato, è consigliabile limitare il numero di risorse su 40 per ottenere prestazioni ottimali.
+<sup>1</sup> nel caso di SKU abilitati per WAF, è consigliabile limitare il numero di risorse a 40 per ottenere prestazioni ottimali.

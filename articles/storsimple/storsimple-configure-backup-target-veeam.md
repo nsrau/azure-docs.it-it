@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
-ms.author: hkanna
-ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: matd
+ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012000"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67875312"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 

@@ -1,29 +1,34 @@
 ---
 title: Dizionario dinamico - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Illustra come usare la funzionalità dizionario dinamico dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 0b4362d78ef105c249aafb4c6b203f69754a56c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507981"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595298"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Come usare la funzionalità dizionario dinamico dell'API Traduzione testuale
+# <a name="how-to-use-a-dynamic-dictionary"></a>Come usare un dizionario dinamico
 
 Se si conosce già la traduzione che si vuole applicare a una parola o una frase, è possibile specificarla come markup all'interno della richiesta. Il dizionario dinamico è sicuro solo per nomi composti come nomi propri e nomi di prodotto.
 
 **Sintassi:**
 
 <mstrans:dictionary translation=”translation of phrase”>frase</mstrans:dictionary>
+
+**Requisiti**
+
+* Le `From` lingue `To` e devono essere diverse. 
+* È necessario includere il `From` parametro nella richiesta di traduzione dell'API invece di usare la funzionalità di rilevamento automatico. 
 
 **Esempio: en-de:**
 

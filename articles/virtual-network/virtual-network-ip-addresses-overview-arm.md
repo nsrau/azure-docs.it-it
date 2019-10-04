@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Informazioni sugli indirizzi IP pubblici e privati in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.author: kumud
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65236348"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -79,6 +80,9 @@ Gli indirizzi IP pubblici con SKU Standard sono:
 > [!NOTE]
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
 
+> [!NOTE]
+> Solo gli indirizzi IP pubblici con SKU basic sono disponibili quando si usa [istanza del servizio metadati IMDS](../virtual-machines/windows/instance-metadata-service.md). Lo SKU standard non è supportato.
+
 ### <a name="allocation-method"></a>Metodo di allocazione
 
 Gli indirizzi IP di SKU sia Standard che Basic supportano il metodo di allocazione *statica*.  Alla risorsa viene assegnato un indirizzo IP al momento della creazione e l'indirizzo IP viene rilasciato quando la risorsa viene eliminata.
@@ -101,11 +105,14 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
-È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa. È possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Anziché (oppure oltre a) usare l'etichetta del nome DNS con il suffisso predefinito, è possibile usare il servizio DNS di Azure per configurare un nome DNS con un suffisso personalizzato che viene risolto nell'indirizzo IP pubblico. Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
 
 > [!IMPORTANT]
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
 >
+
+### <a name="dns-best-practices"></a>Procedure consigliate DNS
+Se è necessario eseguire la migrazione a un'area diversa, non è possibile migrare il FQDN del proprio indirizzo IP pubblico. Come procedura consigliata, è possibile utilizzare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Se devi spostare in un indirizzo IP pubblico diverso, sarà necessario un aggiornamento del record CNAME anziché dover aggiornare manualmente il nome FQDN per il nuovo indirizzo. È possibile usare [DNS di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un provider DNS esterno per il Record DNS. 
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
@@ -126,11 +133,11 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
-| gateway VPN |Configurazione IP del gateway |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
+| gateway VPN |Configurazione IP del gateway |Yes |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
@@ -176,9 +183,9 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Bilanciamento del carico |Configurazione front-end |Sì |Sì |
-| gateway applicazione |Configurazione front-end |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Bilanciamento del carico |Configurazione front-end |Yes |Yes |
+| gateway applicazione |Configurazione front-end |Yes |Yes |
 
 ## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.

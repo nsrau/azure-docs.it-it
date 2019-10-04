@@ -3,22 +3,21 @@ title: Creare pipeline di dati usando Azure .NET SDK | Documentazione Microsoft
 description: Informazioni su come creare, monitorare e gestire a livello di codice le istanze di Data factory di Azure usando Data Factory SDK.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11120a84f2796061d76d8d813ba906da073b57c6
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487283"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140206"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
 > [!NOTE]
@@ -113,7 +112,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 1. Creare un'applicazione console .NET in C# con Visual Studio 2012, 2013 o 2015.
    1. Avviare **Visual Studio** 2012, 2013 o 2015.
    2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**.
-   3. Espandere **Modelli** e quindi selezionare **Visual C#**. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
+   3. Espandere **Modelli** e quindi selezionare **Visual C#** . In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
    4. Selezionare **Applicazione console** dall'elenco dei tipi di progetto a destra.
    5. Immettere **DataFactoryAPITestApp** per Nome.
    6. Selezionare **C:\ADFGetStarted** come percorso.
@@ -139,7 +138,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
         </appSettings>
     </configuration>
     ```
-5. Nel file App.Config, aggiornare i valori di **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** e **&lt;tenant ID&gt;** con i propri valori.
+5. Nel file App.Config, aggiornare i valori di **&lt;Application ID&gt;** , **&lt;Password&gt;** , **&lt;Subscription ID&gt;** e **&lt;tenant ID&gt;** con i propri valori.
 6. Aggiungere le seguenti istruzioni **using** al file **Program.cs** nel progetto.
 
     ```csharp
@@ -222,9 +221,9 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     ```
 9. Aggiungere al metodo **Main** il codice seguente che crea **set di dati di input e output**.
 
-    **FolderPath** per il BLOB di input è impostato su **adftutorial/**, dove **adftutorial** è il nome del contenitore nell'archivio BLOB. Se questo contenitore non esiste nell'archivio BLOB di Azure, creare un contenitore con il nome **adftutorial** e caricare un file di testo nel contenitore.
+    **FolderPath** per il BLOB di input è impostato su **adftutorial/** , dove **adftutorial** è il nome del contenitore nell'archivio BLOB. Se questo contenitore non esiste nell'archivio BLOB di Azure, creare un contenitore con il nome **adftutorial** e caricare un file di testo nel contenitore.
 
-    FolderPath per il BLOB di output è impostato su **adftutorial/apifactoryoutput/{Slice}**, dove il valore **Slice** è calcolato in modo dinamico in base al valore **SliceStart** (data-ora di inizio di ogni sezione).
+    FolderPath per il BLOB di output è impostato su **adftutorial/apifactoryoutput/{Slice}** , dove il valore **Slice** è calcolato in modo dinamico in base al valore **SliceStart** (data-ora di inizio di ogni sezione).
 
     ```csharp
     // create input and output datasets
@@ -502,6 +501,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'esempio seguente per la creazione di una pipeline mediante .NET SDK che copia i dati da un archivio BLOB di Azure a un database SQL Azure: 
+Vedere l'esempio seguente per la creazione di una pipeline mediante .NET SDK che copia i dati da un archivio BLOB di Azure a un database SQL di Azure: 
 
 - [Creare una pipeline per copiare i dati dall'archivio BLOB al database SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363554"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68377219"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
 
@@ -84,13 +84,13 @@ Una considerazione importante è l'impatto della replica sui carichi di lavoro d
 
 Questo grafico mostra le operazioni di I/O al secondo eseguite dalle macchine virtuali con carichi di lavoro diversi prima e dopo l'abilitazione della replica. È possibile osservare che non esiste alcuna differenza tra i due.
 
-![Risultati effetto replica ](./media/hyper-v-vmm-performance-results/IC744920.png)
+![Risultati effetto replica](./media/hyper-v-vmm-performance-results/IC744920.png)
 
 Il grafico seguente mostra la velocità effettiva della macchine virtuali con carichi di lavoro diversi prima e dopo l'abilitazione della replica. È possibile osservare che la replica non ha alcun impatto significativo.
 
-![Risultati effetti replica ](./media/hyper-v-vmm-performance-results/IC744921.png)
+![Risultati effetti replica](./media/hyper-v-vmm-performance-results/IC744921.png)
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si adatta bene con un sovraccarico minimo per un cluster di grandi dimensioni. Site Recovery consente di eseguire in modo semplice distribuzione, replica, gestione e monitoraggio. Replica Hyper-V fornisce l'infrastruttura necessaria per la corretta scalabilità della replica. 
 
@@ -108,7 +108,7 @@ I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si
 
 | Server | RAM | Modello | Processore | Numero di processori | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Server Hyper-V nel cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 ha 256 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V  |
+| Server Hyper-V nel cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 ha 256 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V |
 | Server VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sito secondario
@@ -120,9 +120,9 @@ I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si
 
 | Server | RAM | Modello | Processore | Numero di processori | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Server Hyper-V nel cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |CPU Intel(R) Xeon(R) E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V  |
-| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V  |
-| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V  |
+| Server Hyper-V nel cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |CPU Intel(R) Xeon(R) E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |CPU Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V |
 | Server VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Carichi di lavoro server
@@ -133,11 +133,11 @@ I risultati mostrano chiaramente che Site Recovery, grazie a Replica Hyper-V, si
 
 | Carico di lavoro | Dimensioni I/O (KB) | % accesso | % lettura | I/O in sospeso | Modello I/O |
 | --- | --- | --- | --- | --- | --- |
-| File Server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Tutti 100% casuale |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% casuale 100% sequenziale |
+| File server |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Tutti 100% casuale |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% casuale<br />100% sequenziale |
 | Exchange |32 |100% |67% |8 |100% casuale |
-| Workstation/VDI |464 |66%34% |70%95% |11 |Entrambi 100% casuale |
-| File Server Web |4864 |33%34%33% |95%95%95% |888 |Tutti 75% casuale |
+| Workstation/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Entrambi 100% casuale |
+| File Server Web |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Tutti 75% casuale |
 
 ### <a name="vm-configuration"></a>Configurazione della macchina virtuale
 
@@ -174,11 +174,11 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memoria disponibile |\Memoria\MByte disponibili |
-| IOPS |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
-| Operazioni di lettura VM (IOPS) al secondo  |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Read operazioni/Sec |
-| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Write operazioni al secondo |
-| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Read byte/sec |
-| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Write byte/sec |
+| Input/output al secondo |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
+| Operazioni di lettura VM (IOPS) al secondo |\Dispositivo dispositivo di archiviazione virtuale\<(VHD >) \Byte letti/sec |
+| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \dispositivo\<(VHD >) \Byte scritti operazioni/sec |
+| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \dispositivo\<(> VHD) \Byte letti/sec |
+| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \dispositivo\<(> VHD) \Byte scritti/sec |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

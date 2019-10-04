@@ -9,11 +9,11 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312053"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "66129740"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 
@@ -53,24 +53,24 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | Nome della metrica | Unità |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Percentuale |
-| \Processor(_Total)\% Privileged Time |Percentuale |
-| \Processor(_Total)\% User Time |Percentuale |
+| \Processor(_Total)\% Processor Time |Percent |
+| \Processor(_Total)\% Privileged Time |Percent |
+| \Processor(_Total)\% User Time |Percent |
 | \Processor Information(_Total)\Processor Frequency |Conteggio |
 | \System\Processes |Conteggio |
 | \Process(_Total)\Thread Count |Conteggio |
 | \Process(_Total)\Handle Count |Conteggio |
-| \Memory\% Committed Bytes In Use |Percentuale |
+| \Memory\% Committed Bytes In Use |Percent |
 | \Memory\Available Bytes |Byte |
 | \Memory\Committed Bytes |Byte |
 | \Memory\Commit Limit |Byte |
 | \Memory\Pool Paged Bytes |Byte |
 | \Memory\Pool Nonpaged Bytes |Byte |
-| \PhysicalDisk(_Total)\% Disk Time |Percentuale |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percentuale |
-| \PhysicalDisk(_Total)\% Disk Write Time |Percentuale |
-| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |Conteggio al secondo |
-| \PhysicalDisk(_Total)\Disk Reads/sec |Conteggio al secondo |
+| \PhysicalDisk(_Total)\% Disk Time |Percent |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
+| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
+| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |Conteggio al secondo |
 | \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
@@ -78,7 +78,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\Avg. Lunghezza coda disco |Conteggio |
 | \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Conteggio |
 | \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Conteggio |
-| \LogicalDisk(_Total)\% Free Space |Percentuale |
+| \LogicalDisk(_Total)\% Free Space |Percent |
 | \LogicalDisk(_Total)\Free Megabytes |Conteggio |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Metriche del sistema operativo guest per le VM Linux
@@ -95,31 +95,31 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Nome della metrica | Unità |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
-| \Memory\PercentAvailableMemory |Percentuale |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |Byte |
-| \Memory\PercentUsedMemory |Percentuale |
-| \Memory\PercentUsedByCache |Percentuale |
-| \Memory\PagesPerSec |Conteggio al secondo |
-| \Memory\PagesReadPerSec |Conteggio al secondo |
-| \Memory\PagesWrittenPerSec |Conteggio al secondo |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
+| \Memory\PagesPerSec |CountPerSecond |
+| \Memory\PagesReadPerSec |CountPerSecond |
+| \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Byte |
-| \Memory\PercentAvailableSwap |Percentuale |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Byte |
-| \Memory\PercentUsedSwap |Percentuale |
-| \Processor\PercentIdleTime |Percentuale |
-| \Processor\PercentUserTime |Percentuale |
-| \Processor\PercentNiceTime |Percentuale |
-| \Processor\PercentPrivilegedTime |Percentuale |
-| \Processor\PercentInterruptTime |Percentuale |
-| \Processor\PercentDPCTime |Percentuale |
-| \Processor\PercentProcessorTime |Percentuale |
-| \Processor\PercentIOWaitTime |Percentuale |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
 | \PhysicalDisk\BytesPerSecond |Byte al secondo |
 | \PhysicalDisk\ReadBytesPerSecond |Byte al secondo |
 | \PhysicalDisk\WriteBytesPerSecond |Byte al secondo |
-| \PhysicalDisk\TransfersPerSecond |Conteggio al secondo |
-| \PhysicalDisk\ReadsPerSecond |Conteggio al secondo |
-| \PhysicalDisk\WritesPerSecond |Conteggio al secondo |
+| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
+| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
+| \PhysicalDisk\WritesPerSecond |CountPerSecond |
 | \PhysicalDisk\AverageReadTime |Secondi |
 | \PhysicalDisk\AverageWriteTime |Secondi |
 | \PhysicalDisk\AverageTransferTime |Secondi |
@@ -147,8 +147,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | Nome della metrica | Unità |
 | --- | --- |
-| CpuPercentage |Percentuale |
-| MemoryPercentage |Percentuale |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
 | DiskQueueLength |Conteggio |
 | HttpQueueLength |Conteggio |
 | BytesReceived |Byte |
@@ -175,7 +175,7 @@ Per un account di archiviazione non classico, metricTrigger includerà:
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Metriche del bus di servizio usate comunemente 
+## <a name="commonly-used-service-bus-metrics"></a>Metriche del bus di servizio usate comunemente
 È possibile eseguire il ridimensionamento in base alla lunghezza della coda del bus di servizio, ovvero il numero di messaggi nella coda del bus di servizio. La lunghezza della coda del bus di servizio è una metrica speciale e la soglia corrisponde al numero di messaggi per ogni istanza. Ad esempio, se sono presenti due istanze e la soglia è impostata su 100, il ridimensionamento viene eseguito quando il numero totale di messaggi nella coda è 200. Può trattarsi di 100 messaggi per ogni istanza, 120 e 80 o qualsiasi altra combinazione corrispondente a un totale di 200 o più.
 
 Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Resource Manager in modo da usare *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.

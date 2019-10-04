@@ -10,17 +10,16 @@ ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310471"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069890"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
@@ -28,7 +27,7 @@ ms.locfileid: "53310471"
 > Questo articolo riguarda l'ambiente del servizio app v1. È disponibile una versione più recente dell'ambiente del servizio app più facile da usare ed eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
 >
 
-La funzionalità degli ambienti del servizio app è un'opzione di servizio Premium del servizio app di Azure che offre una funzionalità di configurazione avanzata non disponibile negli stamp multi-tenant. In breve, la funzionalità Ambiente del servizio app distribuisce il servizio app di Azure nella rete virtuale di Azure (VNet). Per informazioni approfondite delle funzionalità offerte dagli ambienti del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE]. Se non si conoscono i vantaggi derivanti dall'uso di una rete virtuale, vedere [Domande frequenti sulla rete virtuale di Azure][virtualnetwork]. 
+La funzionalità degli ambienti del servizio app è un'opzione di servizio Premium del servizio app di Azure che offre una funzionalità di configurazione avanzata non disponibile negli stamp multi-tenant. In breve, la funzionalità Ambiente del servizio app distribuisce il servizio app di Azure nella rete virtuale di Azure (VNet). Per comprendere meglio le funzionalità offerte dagli ambienti del servizio app, vedere la documentazione relativa a [ambiente del servizio app][WhatisASE] . Se non si conoscono i vantaggi derivanti dall'uso di una VNet, vedere [domande frequenti sulla rete virtuale di Azure][virtualnetwork]. 
 
 ## <a name="overview"></a>Panoramica
 Un ambiente del servizio app può essere distribuito con un endpoint accessibile da Internet o con un indirizzo IP nella rete virtuale. Per impostare l'indirizzo IP su un indirizzo di rete virtuale, è necessario distribuire l'ambiente del servizio app con un bilanciamento del carico interno (ILB). Quando l'ambiente è configurato con un bilanciamento del carico interno, fornire:
@@ -51,7 +50,7 @@ Non è possibile eseguire alcune operazioni quando si usa un ambiente del serviz
 * acquisto e uso di un certificato con un'app tramite il portale. È ovviamente ancora possibile ottenere i certificati direttamente con un'autorità di certificazione e usarli con le app, ma non tramite il portale di Azure.
 
 ## <a name="creating-an-ilb-ase"></a>Creazione di un ambiente del servizio app con bilanciamento del carico interno
-La creazione di un ambiente del servizio app con bilanciamento del carico interno non è molto diversa dalla creazione di un ambiente del servizio app regolare. Per un esame più approfondito della creazione di un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE]. La procedura di creazione di un ambiente del servizio app con bilanciamento del carico interno è la stessa nella creazione di una rete virtuale durante la creazione dell'ambiente del servizio app o nella selezione di una rete virtuale già esistente. Per creare un ambiente del servizio app con bilanciamento del carico interno: 
+La creazione di un ambiente del servizio app con bilanciamento del carico interno non è molto diversa dalla creazione di un ambiente del servizio app regolare. Per una discussione più approfondita sulla creazione di un ambiente del servizio app, vedere [come creare un ambiente del servizio app][HowtoCreateASE]. La procedura di creazione di un ambiente del servizio app con bilanciamento del carico interno è la stessa nella creazione di una rete virtuale durante la creazione dell'ambiente del servizio app o nella selezione di una rete virtuale già esistente. Per creare un ambiente del servizio app con bilanciamento del carico interno: 
 
 1. Nel portale di Azure selezionare **Crea una risorsa -> Web e dispositivi mobili-> Ambiente del servizio app**.
 2. Selezionare la propria sottoscrizione.
@@ -108,18 +107,18 @@ L'indirizzo IP per il bilanciamento del carico interno è elencato nelle proprie
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Uso di un ambiente del servizio app con bilanciamento del carico interno
+## <a name="using-an-ilb-ase"></a>Utilizzo di un ambiente del servizio app ILB
 #### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 Un ambiente del servizio app con bilanciamento del carico interno consente l'isolamento della rete per le app perché le app non sono accessibili o neanche note in Internet. Questo approccio è ideale per ospitare i siti intranet, ad esempio le applicazioni line of business. Quando è necessario limitare ulteriormente l'accesso, è comunque possibile usare i gruppi di sicurezza di rete (NSG) per controllare l'accesso a livello di rete. 
 
-Per usare i gruppi di sicurezza di rete per limitare ulteriormente l'accesso, è necessario assicurarsi di non interrompere la comunicazione necessaria per il funzionamento dell'ambiente del servizio app. Anche se l'accesso HTTP/HTTPS avviene solo tramite il bilanciamento del carico interno usato dall'ambiente del servizio app, l'ambiente dipende comunque da risorse esterne alla rete virtuale. Per verificare quale accesso di rete è necessario, vedere [Come controllare il traffico in ingresso a un ambiente del servizio app][ControlInbound] e [Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute][ExpressRoute]. 
+Per usare i gruppi di sicurezza di rete per limitare ulteriormente l'accesso, è necessario assicurarsi di non interrompere la comunicazione necessaria per il funzionamento dell'ambiente del servizio app. Anche se l'accesso HTTP/HTTPS avviene solo tramite il bilanciamento del carico interno usato dall'ambiente del servizio app, l'ambiente dipende comunque da risorse esterne alla rete virtuale. Per verificare quale accesso di rete è ancora necessario, vedere [controllo del traffico in ingresso a un ambiente del servizio app][ControlInbound] e [Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute][ExpressRoute]. 
 
 Per configurare i gruppi di sicurezza di rete è necessario conoscere l'indirizzo IP usato da Azure per la gestione dell'ambiente del servizio app. Questo indirizzo IP è l'indirizzo IP in uscita dell'ambiente del servizio app se questo esegue richieste tramite internet. L'indirizzo IP in uscita per l'ambiente del servizio app rimane statico per l'intera durata dell'ambiente. Se si elimina e si ricrea l'ambiente del servizio app, si ottiene un nuovo indirizzo IP. Per trovare l'indirizzo IP, passare a **Impostazioni -> Proprietà** e trovare **Indirizzo IP in uscita**. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>Gestione generale dell'ambiente del servizio app con bilanciamento del carico interno
-La gestione di un ambiente del servizio app con bilanciamento del carico interno è sostanzialmente la stessa che in un ambiente del servizio app regolare. È necessario aumentare le prestazioni dei pool di lavoro per ospitare più istanze del piano di servizio app e aumentare le prestazioni dei server front-end per gestire un maggiore traffico HTTP/HTTPS. Per informazioni generali sulla gestione della configurazione di un ambiente del servizio app, vedere [Configurazione di un ambiente del servizio app][ASEConfig]. 
+La gestione di un ambiente del servizio app con bilanciamento del carico interno è sostanzialmente la stessa che in un ambiente del servizio app regolare. È necessario aumentare le prestazioni dei pool di lavoro per ospitare più istanze del piano di servizio app e aumentare le prestazioni dei server front-end per gestire un maggiore traffico HTTP/HTTPS. Per informazioni generali sulla gestione della configurazione di un ambiente del servizio app, vedere [configurazione di un ambiente del servizio app][ASEConfig]. 
 
 Le attività di gestione aggiuntive sono la gestione dei certificati e la gestione del DNS. È necessario ottenere e caricare il certificato usato per HTTPS dopo la creazione dell'ambiente del servizio app con bilanciamento del carico interno e sostituirlo prima della scadenza. Azure possiede il dominio base, quindi può fornire i certificati per gli ambienti del servizio app con un indirizzo VIP esterno. Poiché il sottodominio usato da un ambiente del servizio app con bilanciamento del carico interno può essere un qualsiasi elemento, è necessario fornire un certificato per HTTPS. 
 
@@ -131,7 +130,7 @@ Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi
 
 
 ## <a name="getting-started"></a>Introduzione
-Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][WhatisASE]
+Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

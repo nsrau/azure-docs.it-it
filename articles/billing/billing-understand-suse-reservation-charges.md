@@ -1,6 +1,6 @@
 ---
 title: Sconto del piano software - Azure | Microsoft Docs
-description: Informazioni su come vengono applicati sconti piano software al software nelle macchine virtuali.
+description: Informazioni su come vengono applicati gli sconti del piano software al software delle macchine virtuali.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -10,46 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e5cad667c2c97514a258578ab09f7c3628738635
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370229"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701979"
 ---
 # <a name="azure-software-plan-discount"></a>Sconto del piano software di Azure
 
-Piani software Azure per SUSE e RedHat sono delle prenotazioni a cui si applicano alle macchine virtuali distribuite. Per l'utilizzo del software delle macchine virtuali distribuite che corrispondono alla prenotazione viene applicato lo sconto relativo piano software.
+I piani software di Azure per SUSE e RedHat sono prenotazioni applicabili alle VM distribuite. Lo sconto del piano software viene applicato all'utilizzo del software delle VM distribuite che corrispondono alla prenotazione.
 
-Quando si arresta una macchina virtuale, lo sconto viene applicato automaticamente a un'altra macchina virtuale corrispondente, se disponibile. Un piano software copre il costo dell'esecuzione del software in una macchina virtuale. Altri costi, ad esempio calcolo, archiviazione e rete vengono addebitati separatamente.
+Quando si arresta una VM, lo sconto viene applicato automaticamente a un'altra VM corrispondente, se disponibile. Un piano software copre il costo di esecuzione del software in una VM. Gli altri costi, ad esempio per il calcolo, l'elaborazione e la rete, vengono addebitati separatamente.
 
-Per acquistare il piano giusto, è necessario comprendere l'utilizzo della macchina virtuale e il numero di Vcpu su tali macchine virtuali. Usare le sezioni seguenti per consentire di identificare ciò che pianificano l'acquisto, in base ai dati di utilizzo.
+Per acquistare il piano appropriato, è necessario avere i dati sull'utilizzo delle VM e sul numero di vCPU al loro interno. Usare le sezioni seguenti per identificare il piano da acquistare in base ai dati di utilizzo.
 
-## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto della prenotazione
+## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
-È uno sconto di prenotazione "*utilizzare-it-o-perdere-it*". Pertanto, se non si dispone di risorse corrispondente per ogni ora, quindi si perde una quantità di prenotazione per quell'ora. Non sarà possibile eseguire inoltrare ore riservate non usate.
+Lo sconto per la prenotazione si basa sul principio "*use-it-or-lose-it*", ossia se non si usa si perde. Quindi, se non si hanno risorse corrispondenti per un'ora, si perderà la quantità di prenotazione per quell'ora. Non è possibile riportare le ore prenotate inutilizzate.
 
-Quando si arresta una risorsa, lo sconto della prenotazione viene applicato automaticamente a un'altra risorsa corrisponda nell'ambito specificato. Se viene trovata alcuna risorsa corrisponda nell'ambito specificato, quindi sono le ore riservate *persi*.
+Quando si arresta una risorsa, lo sconto per la prenotazione si applica automaticamente a un'altra risorsa corrispondente nell'ambito specificato. Se non si trovano risorse corrispondenti nell'ambito specificato, le ore prenotate vanno *perse*.
 
-## <a name="review-redhat-vm-usage-before-you-buy"></a>Controllare l'utilizzo di VM RedHat prima dell'acquisto
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Esaminare l'utilizzo delle VM RedHat prima dell'acquisto
 
-Ottenere il nome del prodotto dai dati di utilizzo e acquistare il piano di RedHat con lo stesso tipo e dimensione.
+Ottenere il nome del prodotto dai dati di utilizzo e acquistare il piano RedHat con lo stesso tipo e le stesse dimensioni.
 
-Ad esempio, se l'utilizzo ha prodotto **Red Hat Enterprise Linux - 1 a 4 vCPU licenza della macchina virtuale**, è possibile acquistare **Red Hat Enterprise Linux** per **1 a 4 vCPU della macchina virtuale**.
+Se ad esempio l'utilizzo è per il prodotto con **licenza Red Hat Enterprise Linux - VM con 1-4 vCPU**, è necessario acquistare **Red Hat Enterprise Linux** per **VM con 1-4 vCPU**.
 
 <!--ADD RHEL SCREENSHOT -->
 
-## <a name="review-suse-vm-usage-before-you-buy"></a>Controllare l'utilizzo di VM SUSE prima dell'acquisto
+## <a name="review-suse-vm-usage-before-you-buy"></a>Esaminare l'utilizzo delle VM SUSE prima dell'acquisto
 
-Ottenere il nome del prodotto dai dati di utilizzo e acquistare il piano di SUSE con lo stesso tipo e dimensione.
+Ottenere il nome del prodotto dai dati di utilizzo e acquistare il piano SUSE con lo stesso tipo e le stesse dimensioni.
 
-Ad esempio, se è l'utilizzo del prodotto **SUSE Linux Enterprise Server priorità - 2 a 4 vCPU supportate dalla macchina virtuale**, è possibile acquistare **SUSE Linux Enterprise Server priorità** per **2 a 4 vCPU**.
+Se ad esempio l'utilizzo è per il prodotto **SUSE Linux Enterprise Server Priority - VM con 2-4 vCPU**, è necessario acquistare **SUSE Linux Enterprise Server Priority** per **VM con 2-4 vCPU**.
 
-![Esempio di selezione del prodotto per l'acquisto](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+![Esempio di selezione del prodotto da acquistare](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
-## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Viene applicato uno sconto per diverse dimensioni delle macchine Virtuali per i piani di SUSE
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Lo sconto si applica alle diverse dimensioni di VM per i piani SUSE
 
 Come le istanze di macchina virtuale riservate, gli acquisti di piani SUSE offrono flessibilità in termini di dimensioni dell'istanza. Ciò significa che lo sconto si applica anche quando si distribuisce una VM con un numero di vCPU diverso. Lo sconto si applica a diverse dimensioni VM all'interno del piano software.
 
@@ -145,7 +145,7 @@ Nomi del marketplace del portale di Azure:
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

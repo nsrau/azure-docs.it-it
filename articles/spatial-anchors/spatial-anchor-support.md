@@ -4,16 +4,16 @@ description: Informazioni su Azure Anchor spaziale su come aprire una richiesta 
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65964523"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opzioni di supporto di Azure gli ancoraggi spaziali
 

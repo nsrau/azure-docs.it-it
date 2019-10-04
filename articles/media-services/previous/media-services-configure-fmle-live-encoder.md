@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: 09d9bdffefe9204e9f58b8f07af5b21228269f6c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895618"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016762"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore FMLE per inviare un flusso live a velocità in bit singola. 
 > [!div class="op_single_selector"]
@@ -46,8 +47,8 @@ Questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impostazione pred
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
+## <a name="create-a-channel"></a>Crea un canale
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 

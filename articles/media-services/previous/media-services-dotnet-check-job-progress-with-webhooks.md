@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059216"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile monitorare le notifiche dei processi di Servizi multimediali tramite webhook di Azure o [archiviazione code di Azure](media-services-dotnet-check-job-progress-with-queues.md). Questo articolo illustra come usare i webhook.
 
@@ -31,7 +34,7 @@ Questo articolo illustra i passaggi da eseguire
     
     In questo caso, il webhook viene attivato da Servizi multimediali quando il processo di codifica cambia stato. La funzione è in attesa del callback del webhook dalle notifiche di Servizi multimediali e pubblica l'asset di output al termine del processo. 
     
-    >[!NOTE]
+    >[!TIP]
     >Prima di continuare, assicurarsi di comprendere come funzionano le [associazioni HTTP e webhook in Funzioni di Azure](../../azure-functions/functions-bindings-http-webhook.md).
     >
     
@@ -58,7 +61,7 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 La sezione relativa alle [impostazioni dell'applicazione](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) indica i parametri usati nel webhook definito in questo articolo. Aggiungere anche i parametri seguenti alle impostazioni dell'app. 
 
-|NOME|Definizione|Esempio| 
+|Name|Definizione|Esempio| 
 |---|---|---|
 |SigningKey |Chiave di firma.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Indirizzo di un endpoint di webhook. Dopo avere creato la funzione del webhook, è anche possibile copiare l'URL dal collegamento **Recupera URL della funzione**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -76,7 +79,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 La funzione di Azure viene associata ai file di codice e agli altri file descritti in questa sezione. Per impostazione predefinita, una funzione è associata ai file **function.json** e **run.csx** (C#). È necessario aggiungere un file **project.json**. La parte successiva di questa sezione illustra le definizioni per questi file.
 
-![input](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
@@ -242,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

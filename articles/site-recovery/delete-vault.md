@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: rajanaki
+ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784761"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876034"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminare un insieme di credenziali di Servizi di ripristino per Site Recovery
 
@@ -22,6 +22,10 @@ Le dipendenze possono impedire l'eliminazione di un insieme di credenziali di Az
 
 ## <a name="delete-a-site-recovery-vault"></a>Eliminare un insieme di credenziali di Site Recovery 
 Per eliminare l'insieme di credenziali, seguire la procedura consigliata per lo scenario.
+### <a name="azure-vms-to-azure"></a>Da macchine virtuali Azure ad Azure
+
+1. Eliminare tutte le macchine virtuali protette seguendo la procedura descritta in [Disabilitare la protezione per una VM VMware o un server fisico](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
+2. Eliminare l'insieme di credenziali.
 
 ### <a name="vmware-vms-to-azure"></a>Da VM VMware ad Azure
 
@@ -73,4 +77,4 @@ Per eliminare l'insieme di credenziali di Site Recovery anche se sono presenti e
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Altre informazioni sulle [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), e [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Altre informazioni su [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)e [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505462"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086523"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -33,7 +33,7 @@ La procedura descritta in questo articolo deve essere usata come soluzione alter
 
 Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile apportare le mitigazioni seguenti usando l'altra macchina virtuale.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Funzionalità di estensione di Script o eseguire un comando personalizzato
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Estensione script personalizzata o funzionalità Esegui comando
 
 Se è in funzione un agente di Azure, è possibile usare l'[estensione dello script personalizzata](../extensions/custom-script-windows.md) o la funzionalità [Comandi di esecuzione](../windows/run-command.md) (solo macchine virtuali di Resource Manager) per eseguire in remoto gli script seguenti.
 
@@ -70,7 +70,7 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
     ```
 
 > [!Note]
-> Se il firewall viene impostato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del Registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
+> Se il firewall viene impostato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigazione 3: Comandi PSTools
 
@@ -104,7 +104,7 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 4.  Aprire un'istanza di  **Services.msc**.
 
-5.  Fare clic su **Servizi (computer locale)**.
+5.  Fare clic su **Servizi (computer locale)** .
 
 6.  Selezionare **Connetti a un altro computer**.
 

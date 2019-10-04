@@ -1,53 +1,53 @@
 ---
-title: Creare le verifiche di moderazione con la console di API REST - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Usare l'API Azure Content Moderator revisione per creare l'immagine o le revisioni del testo per la moderazione umana.
+title: Creare revisioni di moderazione con la console dell'API REST-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Usare le API di Azure Content Moderator Review per creare recensioni di immagini o testo per la moderazione umana.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882016"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882338"
 ---
-# <a name="create-human-reviews-rest"></a>Creazione di revisione umana (REST)
+# <a name="create-human-reviews-rest"></a>Creare recensioni umane (REST)
 
-[Le verifiche](./review-api.md#reviews) archiviare e visualizzare il contenuto da moderatori umani per valutare. Quando un utente ha completato un'analisi, i risultati vengono inviati a un endpoint di callback specificati. In questa guida si apprenderà come configurare le verifiche tramite la revisione API REST tramite la console API. Dopo aver appreso la struttura delle API, è possibile trasferire facilmente queste chiamate a qualsiasi piattaforma compatibile con REST.
+[Esamina](./review-api.md#reviews) l'archivio e visualizza il contenuto per i moderatori umani da valutare. Quando un utente completa una revisione, i risultati vengono inviati a un endpoint di callback specificato. Questa guida illustra come configurare le revisioni usando le API REST di revisione tramite la console API. Dopo aver compreso la struttura delle API, è possibile eseguire facilmente il porting di queste chiamate a qualsiasi piattaforma compatibile con REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
+- Accedere o creare un account nel sito [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) content moderator.
 
-## <a name="create-a-review"></a>Scrivere una recensione
+## <a name="create-a-review"></a>Creare una revisione
 
-Per creare una revisione, passare al **[rivedere - creare](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API pagina di riferimento e selezionare il pulsante per la propria chiave area (è possibile trovarlo nell'URL dell'Endpoint sul **credenziali** pagina del [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Verrà avviata la console API, in cui è possibile facilmente costruire ed eseguire chiamate all'API REST.
+Per creare una verifica, passare alla pagina **[Verifica-crea](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** riferimento all'API e selezionare il pulsante per l'area della chiave (è possibile trovarlo nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
 
-![Esaminare: selezione area Get](images/test-drive-region.png)
+![Verifica-Ottieni selezione area](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Immettere i parametri di chiamata REST
+### <a name="enter-rest-call-parameters"></a>Immettere i parametri delle chiamate REST
 
-Immettere i valori relativi **teamName**, e **Ocp-Apim-Subscription-Key**:
+Immettere i valoriper TeamName e **OCP-gestione API-Subscription-Key**:
 
-- **teamName**: L'ID team creato quando si configura il [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) account (trovato nel **Id** campo nella schermata di credenziali dello strumento di revisione).
-- **Ocp-Apim-Subscription-Key**: La chiave di Content Moderator. È possibile trovarlo nel **le impostazioni** scheda della finestra di [strumento di revisione](https://contentmoderator.cognitive.microsoft.com).
+- **teamName**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
+- **Ocp-Apim-Subscription-Key**: Chiave Content Moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
 
-### <a name="enter-a-review-definition"></a>Immettere una definizione di revisione
+### <a name="enter-a-review-definition"></a>Immettere una definizione di Revisione
 
-Modificare il **corpo della richiesta** casella immettere la richiesta JSON con i campi seguenti:
+Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i campi seguenti:
 
-- **Metadati**: Coppie chiave-valore personalizzate da restituire all'endpoint di callback. Se la chiave è un codice breve è definito nel [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), viene visualizzato come un tag.
-- **Contenuto**: Nel caso di contenuti immagine e Video, questa è una stringa URL che punta al contenuto. Per il contenuto di testo, si tratta della stringa di testo effettivo.
-- **ContentId**: Una stringa identificatore personalizzato. Questa stringa viene trasmessa all'API e restituita tramite il callback. È utile per l'associazione di identificatori interni o metadati con i risultati di un processo di moderazione.
-- **CallbackEndpoint**: (Facoltativo) L'URL per ricevere informazioni relative al callback quando viene completata la revisione.
+- **Metadati**: Coppie chiave-valore personalizzate da restituire all'endpoint di callback. Se la chiave è un breve codice definito nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), viene visualizzato come tag.
+- **Contenuto**: Nel caso di contenuto di immagini e video, si tratta di una stringa URL che punta al contenuto. Per il contenuto di testo, si tratta della stringa di testo effettiva.
+- **ContentId**: Stringa dell'identificatore personalizzato. Questa stringa viene trasmessa all'API e restituita tramite il callback. È utile per associare identificatori o metadati interni ai risultati di un processo di moderazione.
+- **CallbackEndpoint**: Opzionale URL per la ricezione delle informazioni di callback al completamento della verifica.
 
-Il corpo della richiesta di impostazione predefinita vengono illustrati esempi dei diversi tipi di recensioni, che è possibile creare:
+Il corpo della richiesta predefinito Mostra esempi dei diversi tipi di revisione che è possibile creare:
 
 ```json
 [Image]
@@ -129,27 +129,27 @@ Il corpo della richiesta di impostazione predefinita vengono illustrati esempi d
 
 ### <a name="submit-your-request"></a>Inviare la richiesta
   
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, il **stato della risposta** viene `200 OK`e il **contenuto della risposta** casella viene visualizzato un ID per la revisione. Copiare questo ID da usare nei passaggi seguenti.
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** viene visualizzato un ID per la revisione. Copiare questo ID da usare nei passaggi seguenti.
 
 ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-review-2.PNG)
 
-### <a name="examine-the-new-review"></a>Esaminare la nuova verifica
+### <a name="examine-the-new-review"></a>Esaminare la nuova revisione
 
-Nel [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), selezionare **revisione** > **immagine**/**Text** / **Video** (a seconda del contenuto che è usato). Il contenuto caricato deve essere visualizzato, pronto per la revisione umana.
+Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com)selezionare **Verifica** > **video** **immagine**/**testo**/(a seconda del contenuto usato). Il contenuto caricato dovrebbe essere visualizzato, pronto per la revisione umana.
 
 ![Immagine di un pallone da calcio nello strumento di revisione](images/test-drive-review-5.PNG)
 
-## <a name="get-review-details"></a>Ottenere i dettagli di revisione
+## <a name="get-review-details"></a>Ottenere i dettagli della revisione
 
-Per recuperare informazioni dettagliate su una verifica di esistente, passare al [esaminare - Get](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) API pagina di riferimento e selezionare il pulsante per la propria area (l'area in cui la chiave viene amministrata).
+Per recuperare i dettagli relativi a una revisione esistente, passare alla pagina di riferimento per la [Verifica](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) dell'API e selezionare il pulsante per l'area geografica (area in cui viene amministrata la chiave).
 
 ![Selezione dell'area in Workflow - Get (Flusso di lavoro - Acquisizione)](images/test-drive-region.png)
 
-Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio **reviewId** stringa ID univoca ricevuto al momento della creazione della revisione.
+Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio, **reviewId** è la stringa ID univoca ricevuta quando è stata creata la revisione.
 
 ![Ottenere i risultati nella console di creazione della revisione](images/test-drive-review-3.PNG)
   
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, il **stato della risposta** viene `200 OK`e il **contenuto della risposta** casella vengono visualizzati i dettagli di revisione in formato JSON, simile al seguente:
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** vengono visualizzati i dettagli della verifica in formato JSON, come nel seguente esempio:
 
 ```json
 {  
@@ -184,12 +184,12 @@ Selezionare **Send** (Invia). Se l'operazione ha esito positivo, il **stato dell
 }
 ```
 
-Prendere nota dei seguenti campi nella risposta:
+Prendere nota dei campi seguenti nella risposta:
 
-- **Stato**
-- **reviewerResultTags**: Viene visualizzato se eventuali tag sono stati aggiunti manualmente dal team di revisione umana (illustrato il **createdBy** campo).
-- **metadata**: Vengono visualizzati i tag che sono stati aggiunti inizialmente durante la verifica prima che le modifiche apportate team di revisione umana.
+- **status**
+- **reviewerResultTags**: Viene visualizzato se i tag sono stati aggiunti manualmente dal team di revisione umana (visualizzato il campo **CreatedBy** ).
+- **metadata**: Vengono visualizzati i tag aggiunti inizialmente nella revisione, prima che il team di revisione umana apportasse modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida è stato descritto come creare le verifiche di moderazione dei contenuti tramite l'API REST. Successivamente, integrare le verifiche di uno scenario end-to-end moderazione, ad esempio la [moderazione di E-commerce](./ecommerce-retail-catalog-moderation.md) esercitazione.
+In questa guida è stato illustrato come creare recensioni di moderazione dei contenuti usando l'API REST. Integrare quindi le revisioni in uno scenario di moderazione end-to-end, ad esempio l'esercitazione relativa alla [moderazione E-commerce](./ecommerce-retail-catalog-moderation.md) .

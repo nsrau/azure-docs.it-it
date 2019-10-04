@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Distribuire un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes si distribuisce un'applicazione multicontenitore nel cluster usando un'immagine archiviata in Registro Azure Container.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756274"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "69018910"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Eseguire le applicazioni nel servizio Azure Kubernetes
 
@@ -52,7 +52,7 @@ Il file manifesto di esempio del repository Git clonato nella prima esercitazion
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Sostituire *microsoft* con il nome del server di accesso di Registro Azure Container. Il nome dell'immagine è presente nella riga 47 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
+Sostituire *microsoft* con il nome del server di accesso di Registro Azure Container. Il nome dell'immagine è presente nella riga 51 del file manifesto. L'esempio seguente mostra il nome dell'immagine predefinito:
 
 ```yaml
 containers:
@@ -102,13 +102,13 @@ kubectl get service azure-vote-front --watch
 *EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*:
 
 ```
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 Quando *EXTERNAL-IP* passa da *pending* a un effettivo indirizzo IP pubblico, usare `CTRL-C` per arrestare il processo di controllo `kubectl`. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
 
 ```
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 Per vedere l'applicazione in azione, aprire un Web browser all'indirizzo IP esterno del servizio:

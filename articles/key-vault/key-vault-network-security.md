@@ -1,25 +1,23 @@
 ---
-ms.assetid: ''
 title: Configurare firewall Azure Key Vault e reti virtuali - Azure Key Vault
 description: Istruzioni passo per passo per configurare reti virtuali e firewall di Azure Key Vault
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.workload: identity
-ms.date: 01/02/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487239"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976944"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
-Questo articolo contiene istruzioni dettagliate per configurare reti virtuali e firewall di Azure Key Vault in modo da limitare l'accesso all'insieme di credenziali delle chiavi. Gli [endpoint del servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md) consentono di limitare l'accesso alla rete virtuale specificata e a un set di intervalli di indirizzi IPv4 (protocollo IP versione 4).
+Questo articolo contiene istruzioni dettagliate per configurare reti virtuali e firewall di Azure Key Vault in modo da limitare l'accesso all'insieme di credenziali delle chiavi. Gli [endpoint servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md) consentono di limitare l'accesso alla rete virtuale specificata e a un set di intervalli di indirizzi IPv4 (protocollo IP versione 4).
 
 > [!IMPORTANT]
 > Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
@@ -44,7 +42,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 1. [Installare l'interfaccia della riga di comando di Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli) e [accedere](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-2. Indicare le regole disponibili per la rete virtuale. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
+2. Indicare le regole di rete virtuale disponibili. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
    ```azurecli
    az keyvault network-rule list --resource-group myresourcegroup --name mykeyvault
    ```
@@ -83,7 +81,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 1. Installare la versione più aggiornata di [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) ed [effettuare l'accesso](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
-2. Indicare le regole disponibili per la rete virtuale. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
+2. Indicare le regole di rete virtuale disponibili. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
    ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
@@ -121,5 +119,5 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Endpoint del servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md)
+* [Endpoint servizio di rete virtuale per Key Vault](key-vault-overview-vnet-service-endpoints.md)
 * [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md)

@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/17/2018
+ms.date: 07/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098525"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839146"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Guida introduttiva: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure
 
@@ -102,10 +102,10 @@ Per attivare un evento per l'account di archiviazione BLOB, caricare un file. No
 
 1. Passare al file di test e caricarlo.
 
-1. È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Visualizzare l'app Web. Si noterà che è stato ricevuto un evento creato da un BLOB. 
+1. È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Il messaggio è in formato JSON e contiene una matrice con uno o più eventi. Nell'esempio seguente il messaggio JSON contiene una matrice con un solo evento. Visualizzare l'app Web. Si noterà che è stato ricevuto un evento creato da un BLOB. 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -127,7 +127,7 @@ Per attivare un evento per l'account di archiviazione BLOB, caricare un file. No
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

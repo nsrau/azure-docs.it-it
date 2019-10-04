@@ -12,10 +12,10 @@ ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7611f5f16111b5d8b0d2d293750f658125e50837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60535453"
 ---
 # <a name="constituency-parsing"></a>Analisi a costituenti
@@ -65,7 +65,7 @@ Sono presenti vari sintagmi di questo tipo: *I*, *a new hybrid automobile*, *Blu
 
 ## <a name="phrase-types"></a>Tipi di sintagma
 
-| Etichetta | DESCRIZIONE | Esempio |
+| Etichetta | Descrizione | Esempio |
 |-------|-------------|---------|
 |ADJP   | Adjective Phrase (sintagma aggettivale) | "so rude" |
 |ADVP   | Adverb Phrase (sintagma avverbiale) | "clear through" |

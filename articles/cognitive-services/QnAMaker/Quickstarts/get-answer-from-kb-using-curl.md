@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: quickstart
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b698b40546ee1655ebbef3980692ede6b51fc7f1
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677426"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803015"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Avvio rapido: Ottenere una risposta dalla knowledge base usando cURL
 
@@ -52,7 +52,7 @@ Per generare una risposta con CURL, completare i passaggi seguenti:
           "questions": [
             "How do I programmatically update my Knowledge Base?"
           ],
-          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
           "score": 100.0,
           "id": 18,
           "source": "Custom Editorial",
@@ -69,7 +69,7 @@ Per generare una risposta con CURL, completare i passaggi seguenti:
 
 ## <a name="use-staging-endpoint-with-curl"></a>Usare l'endpoint di gestione temporanea con cURL
 
-Se si desidera ottenere una risposta dall'endpoint di gestione temporanea, usare il `isTest` proprietà body.
+Se si vuole ottenere una risposta dall'endpoint del processo di gestione temporanea, usare la proprietà del corpo `isTest`.
 
 ```json
 isTest:true

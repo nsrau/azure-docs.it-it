@@ -4,23 +4,22 @@ description: Elenca le diverse dimensioni disponibili per l'utilizzo generico pe
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 14bc1943a10de1d8a7fe7f8a703f4a6f89994d60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c43b5645bee6680300f686efc5830cd21c1c8cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542110"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100894"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 

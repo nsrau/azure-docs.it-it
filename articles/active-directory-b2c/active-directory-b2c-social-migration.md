@@ -2,23 +2,24 @@
 title: Eseguire la migrazione di utenti con identità di social network in Azure Active Directory B2C | Microsoft Docs
 description: Presentazione dei concetti di base sulla migrazione di utenti con identità di social network in Azure AD B2C usando l'API Graph.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0117a0881422584e3cb949661b1d58cd0257cf67
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316103"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853855"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Eseguire la migrazione di utenti con identità dei social network
-Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
+Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni. Per la parte restante di questo articolo, si prenda in considerazione qualsiasi elemento che si applica agli account di social networking da applicare anche ad altri tipi di account federati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti ed è incentrato sulla migrazione di identità di social networking. Prima di iniziare, leggere [Migrazione degli utenti](active-directory-b2c-user-migration.md).
@@ -29,11 +30,11 @@ Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti
 
 * Le identità degli **account di social networking** sono archiviate nella raccolta `userIdentities`. La voce specifica l'`issuer` (nome del provider di identità), ad esempio facebook.com, e l'`issuerUserId`, ovvero un identificatore utente univoco per l'emittente. L'attributo `userIdentities` contiene uno o più record UserIdentity che specificano il tipo di account di social networking e l'identificatore utente univoco dal provider di identità basato su social network.
 
-* **Combinare account locali con identità di social networking**. Come accennato, i nomi di accesso degli account locali e le identità di account di social networking vengono archiviati in attributi diversi. `signInNames` viene usato per gli account locali, mentre `userIdentities` viene usato per gli account di social networking. Un singolo account Azure AD B2C può essere solo un account locale, solo un account di social networking oppure combinare un account locale con l'identità di social networking in un singolo record utente. Questo comportamento consente di gestire un singolo account, mentre un utente può accedere con le credenziali dell'account locale o con le identità di social networking.
+* **Combinare account locali con identità di social networking**. Come accennato, i nomi di accesso degli account locali e le identità di account di social networking vengono archiviati in attributi diversi. `signInNames`viene usato per l'account locale, `userIdentities` mentre viene usato per gli account di social networking. Un singolo account di Azure AD B2C può essere solo un account locale, un account di social networking o combinare un account locale con una o più identità di social networking in un unico record utente. Questo comportamento consente di gestire un singolo account, mentre un utente può accedere con le credenziali dell'account locale o con le identità di social networking.
 
 * Tipo di `UserIdentity` - Contiene informazioni sull'identità di un utente con account di social networking in un tenant di Azure AD B2C:
   * `issuer` Rappresentazione stringa del provider di identità che ha emesso l'identificatore utente, ad esempio facebook.com.
-  * `issuerUserId` Identificatore utente univoco usato dal provider di identità basato su social network in formato base64.
+  * `issuerUserId`Identificatore utente univoco usato dal provider di identità basato su social network nel formato con codifica Base64.
 
     ```JSON
     "userIdentities": [{
@@ -43,10 +44,10 @@ Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti
     ]
     ```
 
-* A seconda del provider di identità, l'**ID utente di social networking** è un valore univoco per ogni applicazione o account di sviluppo per un utente specificato. Configurare i criteri di Azure AD B2C con lo stesso ID di applicazione assegnato in precedenza dal provider di social networking. In alternativa configurare un'altra applicazione nello stesso account di sviluppo.
+* A seconda del provider di identità, l' **ID utente dell'emittente** è un valore univoco per un determinato utente per ogni applicazione o account di sviluppo. Configurare i criteri di Azure AD B2C con lo stesso ID applicazione assegnato in precedenza dal provider di social networking o da un'altra applicazione all'interno dello stesso account di sviluppo.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Usare l'API Graph per eseguire la migrazione degli utenti
-L'account utente di Azure AD B2C viene creato tramite [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Per comunicare con l'API Graph è innanzitutto necessario avere un account di servizio con privilegi amministrativi. In Azure AD registrare un'applicazione e l'autenticazione ad Azure AD. Le credenziali dell'applicazione sono l'ID applicazione e il segreto dell'applicazione. L'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph. Seguire le istruzioni nel passaggio 1 nell'articolo sulla [migrazione degli utenti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration).
+È possibile creare l'account utente Azure AD B2C tramite il [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Per comunicare con l'API Graph è innanzitutto necessario avere un account di servizio con privilegi amministrativi. In Azure AD registrare un'applicazione e l'autenticazione ad Azure AD. Le credenziali dell'applicazione sono l'ID applicazione e il segreto dell'applicazione. L'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph. Seguire le istruzioni riportate nel passaggio 1 dell'articolo [migrazione utenti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) .
 
 ## <a name="required-properties"></a>Proprietà obbligatorie
 L'elenco seguente include le proprietà obbligatorie per la creazione di un utente.
@@ -55,7 +56,7 @@ L'elenco seguente include le proprietà obbligatorie per la creazione di un uten
 * **passwordProfile** - Profilo di password per l'utente. 
 
 > [!NOTE]
-> Solo per gli account di social networking (senza credenziali per un account locale), è comunque necessario specificare la password. Azure AD B2C ignora la password specificata per gli account di social networking.
+> Solo per gli account di social networking (senza credenziali dell'account locale), è comunque necessario specificare la password. Azure AD B2C ignora la password specificata per gli account di social networking.
 
 * **userPrincipalName** - Nome dell'entità utente (someuser@contoso.com). Il nome dell'entità utente deve contenere uno dei domini verificati per il tenant. Per specificare il nome UPN, generare un nuovo valore GUID e concatenarlo con `@` e il nome del tenant.
 * **mailNickname** - Alias di posta per l'utente. Questo valore può essere lo stesso ID usato per userPrincipalName. 
@@ -66,7 +67,7 @@ L'elenco seguente include le proprietà obbligatorie per la creazione di un uten
 Per altre informazioni, vedere: [Informazioni di riferimento per l'API Graph](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Eseguire la migrazione (solo) di account di social networking
-Per creare solo account di social networking, senza credenziali per account locali. Inviare una richiesta HTTPS POST all'API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare. Come minimo, è necessario specificare le proprietà obbligatorie. 
+Per creare solo un account di social networking, senza credenziali dell'account locale, inviare una richiesta POST HTTPS al API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare. Come minimo, è necessario specificare le proprietà obbligatorie. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
@@ -98,7 +99,7 @@ Inviare i dati di form seguenti:
 }
 ```
 ## <a name="migrate-social-account-with-local-account"></a>Eseguire la migrazione di account di social networking con account locali
-Per creare un account locale combinato con identità di social networking. Inviare una richiesta HTTPS POST all'API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare. Come minimo, è necessario specificare le proprietà obbligatorie. 
+Per creare un account locale combinato con identità social, inviare una richiesta POST HTTPS al API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare, incluso il nome di accesso per l'account locale. Come minimo, è necessario specificare le proprietà obbligatorie. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
@@ -147,8 +148,8 @@ Il nome dell'emittente, o il nome del provider di identità, è configurato nei 
 > [!NOTE]
 > Usare un account di amministratore tenant B2C che sia locale in relazione al tenant B2C. La sintassi del nome dell'account è admin@tenant-name.onmicrosoft.com.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>È possibile aggiungere identità di social networking a un account locale esistente?
-Sì. Dopo aver creato l'account locale, è possibile aggiungere l'identità di social networking. Eseguire una richiesta PATCH HTTPS. Sostituire userObjectId con l'ID utente da aggiornare. 
+### <a name="is-it-possible-to-add-a-social-identity-to-an-existing-user"></a>È possibile aggiungere un'identità sociale a un utente esistente?
+Sì. È possibile aggiungere l'identità di social networking dopo che è stato creato l'account Azure AD B2C, ovvero un account locale o di social networking o una combinazione di esso. Eseguire una richiesta PATCH HTTPS. Sostituire userObjectId con l'ID utente da aggiornare. 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 

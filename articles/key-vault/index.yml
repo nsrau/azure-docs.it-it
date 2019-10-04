@@ -1,93 +1,96 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione sull'insieme di credenziali delle chiavi
+### YamlMime:Landing
+title: Documentazione di Azure Key Vault
+summary: Informazioni su come usare l'insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 metadata:
-  title: Documentazione di Azure Key Vault - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  meta.description: 'Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
-  author: barclayn
-  manager: barbkess
-  layout: LandingPage
+  title: Documentazione di Azure Key Vault
+  description: Informazioni su come usare l'insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+  services: key-vault
   ms.service: key-vault
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/14/2018
-  ms.author: barclayn
-abstract:
-  description: 'Informazioni su come usare l''insieme di credenziali delle chiavi per proteggere e gestire le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come creare e gestire chiavi e segreti per accedere alle risorse e alle soluzioni e crittografarle.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/key-vault/key-vault-whatis
-            html: <p>Concetti di base correlati ad Azure Key Vault.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_article.svg'
-            title: Concetti
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: ''
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/cli.svg
-            text: Interfaccia della riga di comando di Azure
-            href: /azure/key-vault/quick-create-cli
-          - image:
-              src: media/index/logo_powershell.svg
-            text: PowerShell
-            href: /azure/key-vault/quick-create-powershell
-          - image:
-              src: media/index/portal.svg
-            text: Portale di Azure
-            href: /azure/key-vault/quick-create-portal
-          - image:
-              src: media/index/logo_NET.svg
-            text: .NET
-            href: /azure/key-vault/quick-create-net
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: /azure/key-vault/quick-create-node
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come usare Key Vault in diversi scenari
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Iniziare a usare Key Vault da un'applicazione Web</a>
-          - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Linux di Azure</a></li>
-          - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Windows di Azure</a>
-          - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Linux di Azure</a>
-          - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Windows di Azure</a>
-  - title: Sviluppare le proprie competenze con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Gestire i segreti nelle app server con Azure Key Vault
-            href: /learn/modules/manage-secrets-with-azure-key-vault/
-            image:
-              src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
-              href: /learn/modules/manage-secrets-with-azure-key-vault/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-key-vault">Altre risorse di apprendimento interattivo</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: '<p><a href="/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault">PowerShell</a></p><p><a href="/cli/azure/keyvault">Interfaccia della riga di comando di Azure 2</a></p>'
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p><p><a href="/java/api/overview/azure/keyvault">Java</a></p><p><a href="/python/api/overview/azure/key-vault">Python</a></p><p><a href="/javascript/api/overview/azure/key-vault">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/keyvault">API REST</a></p>
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019
+  ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299780"
+landingContent:
+- title: Informazioni su Azure Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è l'insieme di credenziali chiave di Azure?
+      url: key-vault-overview.md
+  - linkListType: concept
+    links:
+    - text: Concetti di base
+      url: basic-concepts.md
+    - text: Eliminazione temporanea
+      url: key-vault-ovw-soft-delete.md
+    - text: Limitazione
+      url: key-vault-ovw-throttling.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Portale
+      url: quick-create-portal.md
+    - text: .NET
+      url: quick-create-net.md
+    - text: Node.js
+      url: quick-create-node.md
+- title: Esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Key Vault da un'applicazione Web
+      url: tutorial-net-create-vault-azure-web-app.md
+    - text: Key Vault con una macchina virtuale Linux di Azure
+      url: tutorial-net-linux-virtual-machine.md
+    - text: Key Vault con una macchina virtuale Windows di Azure
+      url: tutorial-net-windows-virtual-machine.md
+    - text: Key Vault con Python - Linux
+      url: tutorial-python-linux-virtual-machine.md
+    - text: Key Vault con Python - Windows
+      url: tutorial-python-windows-virtual-machine.md
+- title: Key Vault e chiavi di archiviazione
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire le chiavi di archiviazione con l'interfaccia della riga di comando di Azure
+      url: key-vault-ovw-storage-keys.md
+    - text: Gestire le chiavi di archiviazione con PowerShell
+      url: key-vault-overview-storage-keys-powershell.md
+    - text: Recuperare i token di firma di accesso condiviso nel codice
+      url: storage-keys-sas-tokens-code.md
+- title: Integrazione di app Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Guida per sviluppatori
+      url: key-vault-developers-guide.md
+    - text: Usare l'identità gestita per accedere a Key Vault
+      url: managed-identity.md
+  - linkListType: tutorial
+    links:
+    - text: Usare Key Vault con un'app Web di Azure in .NET
+      url: tutorial-net-create-vault-azure-web-app.md
+  - linkListType: reference
+    links:
+    - text: Autenticazione, richieste e risposte
+      url: authentication-requests-and-responses.md
+    - text: Informazioni di riferimento sull'API REST di Key Vault
+      url: /rest/api/keyvault/
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Gestire i segreti nelle app server con Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

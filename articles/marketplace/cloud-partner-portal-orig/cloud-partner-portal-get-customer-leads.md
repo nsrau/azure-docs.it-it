@@ -1,25 +1,18 @@
 ---
-title: Configurare lead relativi ai clienti | Microsoft Docs
+title: Configurare i lead | Azure Marketplace
 description: Configurare i lead relativi ai clienti nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934993"
 ---
 <a name="get-customer-leads"></a>Ottenere lead
 ==================
@@ -92,7 +85,7 @@ I campi nell'esempio seguente mostrano le informazioni sul cliente contenute in 
 - FirstName: John
 - Cognome: Smith
 - E-mail: jsmith\@microsoft.com
-- Telefono: 123-456-7890
+- Numero di telefono: 1234567890
 - Paese: Stati Uniti
 - Aziendale: Microsoft
 - Titolo: CTO

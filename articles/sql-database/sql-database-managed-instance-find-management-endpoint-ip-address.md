@@ -10,29 +10,25 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: a0d47c61bf84cfb22c767fd09b3feed74f55b7fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797959"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567485"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinare l'indirizzo IP dell'endpoint di gestione
 
 Il cluster virtuale di Istanza gestita di database SQL di Azure contiene un endpoint di gestione usato da Microsoft per le operazioni di gestione. L'endpoint di gestione è protetto con un firewall predefinito a livello di rete e con la verifica reciproca dei certificati a livello di applicazione. È possibile determinare l'indirizzo IP dell'endpoint di gestione, ma non è possibile accedere a questo endpoint.
 
-## <a name="determine-ip-address"></a>Determinare l'indirizzo IP
+Per determinare l'indirizzo IP di gestione, eseguire una ricerca DNS sull'FQDN dell'istanza gestita `mi-name.zone_id.database.windows.net`:. Verrà restituita una voce DNS simile `trx.region-a.worker.vnet.database.windows.net`a. È quindi possibile eseguire una ricerca DNS su questo FQDN con ". vnet" rimosso. Verrà restituito l'indirizzo IP di gestione. 
 
-Si supponga che l'host di Istanza gestita sia `mi-demo.xxxxxx.database.windows.net`. Eseguire `nslookup` usando il nome host.
-
-![Risoluzione del nome host interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
-
-Eseguire ora un altro comando `nslookup` per il nome evidenziato rimuovendo il segmento `.vnet.`. Quando si esegue questo comando, si otterrà l'indirizzo IP pubblico.
-
-![Risoluzione dell'indirizzo IP pubblico](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
-## <a name="next-steps"></a>Passaggi successivi
+Questa operazione verrà eseguita da PowerShell se si sostituisce \<mi FQDN\> con la voce DNS dell'istanza gestita: `mi-name.zone_id.database.windows.net`:
+  
+``` powershell
+  $MIFQDN = "<MI FQDN>"
+  resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
+```
 
 Per altre informazioni sulle istanze gestite e sulla connettività, vedere [Architettura della connettività di Istanza gestita di database SQL di Azure](sql-database-managed-instance-connectivity-architecture.md).

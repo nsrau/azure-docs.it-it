@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889776"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180184"
 ---
 #### <a name="to-cable-for-power"></a>Per cablare il dispositivo per l'alimentazione
 1. Assicurarsi che gli interruttori di alimentazione di ciascuno dei moduli PCM siano in posizione OFF.
@@ -25,7 +25,7 @@ ms.locfileid: "55889776"
    
     **Cablaggio di alimentazione su un dispositivo 8100**
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |

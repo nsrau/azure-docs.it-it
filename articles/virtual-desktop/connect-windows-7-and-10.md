@@ -1,50 +1,60 @@
 ---
-title: Connettersi all'anteprima del Desktop virtuale Windows con Windows 7 e Windows 10 - Azure
-description: Come connettersi al servizio di anteprima di Desktop virtuale Windows con Windows 7 o Windows 10.
+title: Connettersi a desktop virtuale Windows da Windows 10 o Windows 7-Azure
+description: Come connettersi al desktop virtuale di Windows tramite il client desktop di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 03/27/2019
+ms.topic: conceptual
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328851"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676738"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Connettersi con Windows 7 e Windows 10
+# <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
-> Si applica a: Windows 7 e Windows 10.
+> Si applica a: Windows 7 e Windows 10
 
-È disponibile un client scaricabile che consente di accedere alle risorse di anteprima di Desktop virtuale Windows da dispositivi che eseguono Windows 7 e Windows 10.
+È possibile accedere alle risorse di desktop virtuali Windows nei dispositivi con Windows 7 o Windows 10 utilizzando il client desktop di Windows.
 
 > [!IMPORTANT]
-> Non usare **RemoteApp e Desktop. le connessioni (RADC)** oppure **connessione Desktop remoto (MSTSC)** per accedere alle risorse di Desktop virtuale Windows, poiché Windows Desktop virtuale non supporta i due client.
+> Desktop virtuale Windows non supporta il client di connessione RemoteApp e desktop (RADC) o il client Connessione Desktop remoto (MSTSC).
 
-## <a name="install-the-client"></a>Installazione del client
+## <a name="install-the-windows-desktop-client"></a>Installare il client desktop di Windows
 
-[Scaricare](https://go.microsoft.com/fwlink/?linkid=2068602) e installare il client al computer locale. Ciò richiede diritti di amministratore.
+Si tratta dei client che è attualmente possibile scaricare:
+
+- [Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+Questo elenco verrà aggiornato perché il client diventa disponibile per altre versioni di Windows.
+
+È possibile installare il client per l'utente corrente, che non richiede diritti di amministratore, oppure l'amministratore può installare e configurare il client in modo che tutti gli utenti del dispositivo possano accedervi.
+
+Una volta installato, il client può essere avviato dal menu Start cercando **Desktop remoto**.
 
 ## <a name="subscribe-to-a-feed"></a>Sottoscrivere un feed
 
-Ottiene l'elenco delle risorse disponibili per l'utente dal proprio computer locale tramite la sottoscrizione al feed specificato dall'amministratore.
+Ottenere l'elenco di risorse gestite disponibili sottoscrivendo il feed fornito dall'amministratore. La sottoscrizione rende disponibili le risorse nel computer locale.
 
 Per sottoscrivere un feed:
 
-1. Avviare il client dall'elenco di tutte le app, cercare per **Desktop remoto**.
-1. Selezionare **"Subscribe"** nella pagina principale per connettersi al servizio e recuperare le risorse.
-1. **Accedi** con l'account utente quando richiesto.
+1. Aprire il client desktop di Windows.
+2. Selezionare **sottoscrizione** nella pagina principale per connettersi al servizio e recuperare le risorse.
+3. Accedere con l'account utente quando richiesto.
 
-Dopo l'autenticazione, viene visualizzato un elenco di risorse disponibili.
+Una volta eseguito correttamente l'accesso, verrà visualizzato un elenco delle risorse a cui è possibile accedere.
 
-È possibile avviare le risorse da uno dei due metodi.
+È possibile avviare le risorse in base a uno dei due metodi.
 
-- Dalla pagina principale del client, fare doppio clic su una risorsa di per avviarla.
-- Avviare una risorsa, come si farebbe normalmente le altre App dal Menu Start.
+- Dalla pagina principale del client fare doppio clic su una risorsa per avviarla.
+- Avviare una risorsa come si farebbe normalmente con altre app dal menu Start.
   - È anche possibile cercare le app nella barra di ricerca.
 
-## <a name="update-the-client"></a>Aggiornare il client
+Una volta effettuata la sottoscrizione a un feed, il contenuto del feed viene aggiornato automaticamente regolarmente. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
 
-Quando è disponibile una nuova versione del client, riceve una notifica dal client e il centro operativo Windows. Selezionare la notifica per avviare il processo di aggiornamento.
+## <a name="next-steps"></a>Passaggi successivi
+
+Per ulteriori informazioni sull'utilizzo del client desktop di Windows, vedere [Introduzione al client desktop di Windows](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

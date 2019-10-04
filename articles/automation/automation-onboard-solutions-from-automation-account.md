@@ -3,18 +3,18 @@ title: Informazioni su come eseguire l'onboarding delle soluzioni Gestione aggio
 description: Informazioni su come eseguire l'onboarding in una macchina virtuale di Azure delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario, che fanno parte di Automazione di Azure
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578442"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667451"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -28,31 +28,14 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Passare all'account di Automazione e selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE**.
 
-Scegliere l'area di lavoro di Log Analitica e account di automazione e fare clic su **abilitare** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+Scegliere l'area di lavoro Log Analytics e l'account di automazione e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Eseguire l'onboarding della soluzione Inventario](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Quando si abilitano soluzioni, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
-
-La tabella seguente mostra i mapping supportati:
-
-|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Europa occidentale|Europa occidentale|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
-
-<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
+> [!NOTE]
+> Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+>
+> Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
 
 La soluzione di rilevamento delle modifiche e di inventario offre la possibilità di [tenere traccia delle modifiche](automation-vm-change-tracking.md) e dei dati di [inventario](automation-vm-inventory.md) nelle macchine virtuali. In questo passaggio si abilita la soluzione su una macchina virtuale.
 
@@ -60,7 +43,7 @@ Quando si riceve la notifica di completamento del caricamento della soluzione di
 
 La soluzione di gestione degli aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure. È possibile valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente alla macchina virtuale. Questa azione ha abilitato la soluzione per la macchina virtuale.
 
-Selezionare **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**. L'area di lavoro di Log Analitica selezionata è la stessa area di lavoro usato nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione di gestione degli aggiornamenti. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+Selezionare **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**. L'area di lavoro Log Analytics selezionata corrisponde alla stessa area di lavoro usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione di gestione degli aggiornamenti. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Eseguire l'onboarding della soluzione per gli aggiornamenti](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -95,7 +78,7 @@ Selezionare una ricerca salvata per visualizzare la query usata per popolare il 
 
 Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** oppure **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
 
-Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più VM dall'elenco. Le macchine virtuali che non possono essere abilitate sono non disponibili e non selezionabili. In qualsiasi area, indipendentemente dal percorso dell'Account di automazione possono esistere macchine virtuali di Azure. Nella pagina **Abilita Gestione aggiornamenti** fare clic su **Abilita**. Le macchine virtuali selezionate vengono aggiunte alla ricerca salvata del gruppo di computer per la soluzione.
+Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più VM dall'elenco. Le macchine virtuali che non possono essere abilitate sono non disponibili e non selezionabili. Le macchine virtuali di Azure possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di automazione. Nella pagina **Abilita Gestione aggiornamenti** fare clic su **Abilita**. Le macchine virtuali selezionate vengono aggiunte alla ricerca salvata del gruppo di computer per la soluzione.
 
 ![Abilitare le macchine virtuali di Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -121,6 +104,8 @@ Per abilitare la soluzione per tutti i computer disponibili, selezionare **Abili
 
 Per abilitare la soluzione per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione consente di eliminare le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro. La soluzione verrà abilitata per tutti i computer di Azure e non di Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente poiché non è più presente alcuna configurazione dell'ambito.
 
+È possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo le ricerche salvate iniziali. Per altre informazioni, vedere [ricerche salvate](#saved-searches).
+
 ### <a name="selected-machines"></a>Computer selezionati
 
 Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer che si vuole aggiungere alla soluzione. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la soluzione.
@@ -133,7 +118,7 @@ Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 * [Rilevamento delle modifiche](automation-change-tracking.md)
 * [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 
-Se si decide di che non si desidera più integrare l'account di automazione con un'area di lavoro di Log Analitica, è possibile scollegare l'account direttamente dal portale di Azure.  Prima di continuare, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
+Se si decide di non voler più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure.  Prima di continuare, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
 Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguenti per scollegare l'account di automazione.
 
@@ -142,7 +127,7 @@ Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguent
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione contrassegnata **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** .
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
@@ -161,6 +146,8 @@ Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di m
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
 * Variabili
+
+In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

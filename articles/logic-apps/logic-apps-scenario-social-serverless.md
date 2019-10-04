@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508026"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164872"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -26,7 +26,7 @@ App per la logica di Azure fornisce un motore del flusso di lavoro senza server 
 
 In questo scenario viene creata un'app per la logica attivabile con i suggerimenti dei clienti. Tra i connettori che consentono di rispondere ai suggerimenti dei clienti sono inclusi Outlook.com, Office 365, Survey Monkey, Twitter e una [richiesta HTTP da un Web Form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Il flusso di lavoro creato monitora un hashtag su Twitter.
 
-È possibile [compilare l'intera soluzione in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [distribuire la soluzione con un modello di Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Per una procedura dettagliata video per la creazione di questa soluzione, [guardare questo video su Channel 9](https://aka.ms/logicappsdemo). 
+È possibile [compilare l'intera soluzione in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [distribuire la soluzione con un modello di Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Per una procedura dettagliata video per la creazione di questa soluzione, [guardare questo video su Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Attivare con i dati dei clienti
 
@@ -99,11 +99,14 @@ Per visualizzare le cronologie di esecuzione precedenti in Visual Studio o nel p
 
 * Aprire Visual Studio Cloud Explorer. Individuare l'app per la logica e aprire il menu di scelta rapida dell'app. Selezionare **Apri cronologia di esecuzione**.
 
+  > [!TIP]
+  > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
+
 * Nel portale di Azure individuare l'app per la logica. Scegliere **Panoramica** dal menu dell'app per la logica. 
 
 ## <a name="create-automated-deployment-templates"></a>Creare modelli di distribuzione automatizzati
 
-Dopo avere creato una soluzione di app per la logica, è possibile acquisire e distribuire l'app come [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) in qualsiasi area di Azure nel mondo. È possibile usare questa funzionalità sia per modificare i parametri per la creazione di diverse versioni dell'app che per integrare la soluzione in Azure Pipelines. È anche possibile includere Funzioni di Azure nel modello di distribuzione in modo da gestire l'intera soluzione con tutte le dipendenze come un singolo modello. Altre informazioni su come [creare modelli di distribuzione di app per la logica](../logic-apps/logic-apps-create-deploy-template.md).
+Dopo avere creato una soluzione di app per la logica, è possibile acquisire e distribuire l'app come [modello di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) in qualsiasi area di Azure nel mondo. È possibile usare questa funzionalità sia per modificare i parametri per la creazione di diverse versioni dell'app che per integrare la soluzione in Azure Pipelines. È anche possibile includere Funzioni di Azure nel modello di distribuzione in modo da gestire l'intera soluzione con tutte le dipendenze come un singolo modello. Informazioni su come [automatizzare la distribuzione delle app](logic-apps-azure-resource-manager-templates-overview.md)per la logica.
 
 Per un esempio di modello di distribuzione con una funzione di Azure, fare riferimento al [repository di modelli di guide introduttive di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

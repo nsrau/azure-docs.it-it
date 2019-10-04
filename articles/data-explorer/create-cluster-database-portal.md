@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/22/2019
+ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046037"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326719"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "59046037"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [Modello ARM](create-cluster-database-resource-manager.md)
 
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questa guida introduttiva vengono creati un cluster e un database.
@@ -47,16 +47,17 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure con 
 
 1. Compilare il modulo dei dettagli del cluster di base con le informazioni seguenti.
 
-   ![Modulo per la creazione del cluster](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Modulo per la creazione del cluster](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il cluster.|
-    | Gruppo di risorse | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
-    | Nome cluster | Nome univoco del cluster | Scegliere un nome univoco che identifica il cluster. Ad esempio *mydataexplorercluster*. Il nome di dominio *[area].kusto.windows.net* viene accodato al nome del cluster specificato. Il nome può contenere solo lettere minuscole e numeri. Deve avere una lunghezza compresa tra 3 e 22 caratteri.
-    | Località | *Stati Uniti occidentali* | Per questa guida introduttiva selezionare *Stati Uniti occidentali*. Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
+    | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il cluster.|
+    | Resource group | Gruppo di risorse in uso | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
+    | Nome cluster | Nome univoco del cluster | Scegliere un nome univoco che identifica il cluster. Il nome di dominio *[area].kusto.windows.net* viene accodato al nome del cluster specificato. Il nome può contenere solo lettere minuscole e numeri. Deve avere una lunghezza compresa tra 4 e 22 caratteri.
+    | Region | *Stati Uniti occidentali* o *Stati Uniti occidentali 2* | Per questa guida introduttiva selezionare *Stati Uniti occidentali* o *Stati Uniti occidentali 2* (se si usano le zone di disponibilità). Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
+    | Zone di disponibilità | *1*, *2* e/o *3* | Inserire le istanze del cluster in diverse zone di disponibilità nella stessa area (facoltativo). Le [zone di disponibilità di Azure](/azure/availability-zones/az-overview) sono località fisiche univoche all'interno della stessa area di Azure. Proteggono un cluster di Esplora dati di Azure e i dati da errori parziali dell'area. Per impostazione predefinita, i nodi del cluster vengono creati nello stesso data center. Selezionando diverse zone di disponibilità è possibile eliminare un singolo punto di guasto e garantire disponibilità elevata. La distribuzione nelle zone di disponibilità è possibile solo durante la creazione del cluster e non può essere modificata in un secondo momento.
     | Specifiche dell'ambiente di calcolo | *D13_v2* | Per questa guida introduttiva, selezionare la specifica con il prezzo più basso. Per un sistema di produzione, selezionare la specifica più appropriata in base alle esigenze.
-    | | |
+    | | | |
 
 1. Selezionare **Rivedi e crea** per rivedere i dettagli del cluster e **Crea** per effettuarne il provisioning. Per il provisioning sono in genere necessari circa 10 minuti.
 

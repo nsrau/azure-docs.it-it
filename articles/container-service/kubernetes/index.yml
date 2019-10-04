@@ -1,67 +1,59 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 93abd74e649577abff9ce27f68c6b8456258d9b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394578"
 documentType: LandingData
 title: Documentazione del servizio Azure Container con Kubernetes
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione del servizio Azure Container con Kubernetes - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
   services: container-service
-  author: carolz
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07-21-2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
-  description: Il servizio Azure Container consente di distribuire rapidamente un cluster Kubernetes pronto per l'ambiente di produzione. Informazioni su come usare il servizio Azure Container insieme a Kubernetes con guide introduttive, esercitazioni ed esempi.
+  description: 'Il servizio Azure Container consente di distribuire rapidamente un cluster Kubernetes pronto per l''ambiente di produzione. Informazioni su come usare il servizio Azure Container insieme a Kubernetes con guide introduttive, esercitazioni ed esempi.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come distribuire i cluster Kubernetes mediante il servizio Azure Container:'
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: Creare un cluster Kubernetes
-      href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster Kubernetes del servizio Azure Container.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Informazioni su come distribuire i cluster Kubernetes mediante il servizio Azure Container:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Creare un cluster Kubernetes
+            href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuire un cluster Kubernetes nel servizio contenitore di Azure</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>
-- title: Esempi
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster Kubernetes del servizio Azure Container.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore in Registro Azure Container</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuire un cluster Kubernetes nel servizio Azure Container</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>
+  - title: Esempi
     items:
-    - html: <a href="/azure/container-service/cli-samples">Interfaccia della riga di comando di Azure</a>
-- title: Riferimenti
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-service/cli-samples">Interfaccia della riga di comando di Azure</a>
+  - title: riferimento
     items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/acs">Interfaccia della riga di comando di Azure</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/container-service">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/acs">Interfaccia della riga di comando di Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-service">API REST</a></p>

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Eseguire query sull'endpoint di previsione con l'SDK per C#"
+title: "Guida introduttiva: Endpoint di previsione con l'SDK per C# - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Usare l'SDK per C# per inviare un'espressione dell'utente a LUIS e ricevere una previsione.
 author: diberry
@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404094"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563159"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione con .NET SDK per C#
 

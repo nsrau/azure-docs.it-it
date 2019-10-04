@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: Elenco di lingue naturali supportate dall'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577592"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909974"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -23,28 +23,28 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Traduzione
+## <a name="translation"></a>Conversione
 
 **API Traduzione V2**
 
 > [!NOTE]
-> La versione 2 è stata deprecata il 30 aprile 2018 e verrà sospesa il 30 aprile 2019.
+> V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare i vantaggi delle nuove funzionalità disponibili esclusivamente in V3.
 
 * Solo sistema statistico: nessun sistema neurale è disponibile per questa lingua.
 * Sistema neurale disponibile: è disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
 * Sistema neurale come predefinito: il sistema neurale è il sistema di traduzione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
 * Solo sistema neurale: è disponibile solo la traduzione neurale.
 
-**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale. 
+**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale.
 
 > [!NOTE]
-> Attualmente, un sottoinsieme di lingue neurale sono disponibili in Microsoft Translator personalizzata e che stiamo aggiungendo gradualmente altre sezioni. [Visualizzare le lingue attualmente disponibili in Microsoft Translator Custom](#customization).
+> Attualmente, un sottoinsieme di linguaggi neurali è disponibile nel convertitore personalizzato e l'aggiunta di altri. [Visualizza le lingue attualmente disponibili nel convertitore personalizzato](#customization).
 
 |Linguaggio|  Codice lingua|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Solo sistema statistico|  Neurale|
 |Arabo|    `ar`    |Sistema neurale disponibile|  Neurale|
-|Bengalese|    `bn`    |Sistema neurale disponibile|  Neurale|
+|Bengali|    `bn`    |Sistema neurale disponibile|  Neurale|
 |Bosniaco (latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
 |Bulgaro| `bg`    |Sistema neurale disponibile|  Neurale|
 |Cantonese (tradizionale)|   `yue`   |Solo sistema statistico|  Statistica|
@@ -82,7 +82,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Malese| `ms`    |Solo sistema statistico   |Statistica|
 |Maltese|   `mt`    |Solo sistema statistico|  Statistica|
 |Norvegese| `nb`    |Sistema neurale disponibile|  Neurale|
-|Persiano|   `fa`    |Solo sistema statistico|  Statistica|
+|Persiano|   `fa`    |Sistema neurale disponibile|  Neurale|
 |Polacco|    `pl`    |Sistema neurale disponibile|  Neurale|
 |Portoghese|    `pt`    |Sistema neurale disponibile|  Neurale|
 |Querétaro Otomi|   `otq`   |Solo sistema statistico|  Statistica|
@@ -114,7 +114,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Linguaggio    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
-|Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+|Bengali  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
@@ -126,7 +126,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latino `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
@@ -142,7 +142,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
-| Bengalese      | `bn`          |
+| Bengali      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
@@ -191,9 +191,9 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>Rileva
 
-API traduzione testuale rileva tutte le lingue disponibili per la conversione e traslitterazione.
+API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accedere all'elenco di lingue dell'API Traduzione testuale a livello di codice
@@ -204,15 +204,16 @@ API traduzione testuale rileva tutte le lingue disponibili per la conversione e 
 
 ## <a name="customization"></a>Personalizzazione
 
-I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramite in lingua inglese [convertitore personalizzato](https://aka.ms/CustomTranslator).
+Le lingue seguenti sono disponibili per la personalizzazione da o verso l'inglese utilizzando il [convertitore personalizzato](https://aka.ms/CustomTranslator).
 
 | Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
-| Bengalese      | `bn`          |
+| Bengali      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |
+|Cinese tradizionale|   `zh-Hant`   |
 | Croato      | `hr`          |
 | Ceco      | `cs`          |
 | Danese      | `da`          |
@@ -228,16 +229,21 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 | Ungherese      | `hu`          |
 | Islandese | `is` |
 | Indonesiano|   `id`    |
+| Irlandese | `ga`  |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
+|Kiswahili| `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
+|Malgascio|  `mg`    |
 | Norvegese      | `nb`          |
+| Persiano      | `fa`          |
 | Polacco      | `pl`          |
 | Portoghese      | `pt`          |
 | Rumeno      | `ro`          |
 | Russo      | `ru`          |
+|Samoano|    `sm`    |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
 | Slovacco     | `sk`          |
 | Sloveno      | `sl`          |

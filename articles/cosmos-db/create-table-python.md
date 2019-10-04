@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: e4664f121601ecec4b8ed52d536e5212b3d0950f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039300"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020144"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con Python e Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Eseguire anche queste operazioni:
 
-* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio selezionare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di Python**.
+* Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio selezionare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di Python**.
 * Selezionare anche l'opzione Python 2 nel carico di lavoro **Sviluppo di Python** o scaricare Python 2.7 da [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
@@ -82,7 +82,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione**. 
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
     ![Visualizzare e copiare la STRINGA DI CONNESSIONE nel riquadro Stringa di connessione](./media/create-table-python/connection-string.png)
 
@@ -100,7 +100,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, selezionare l'ambiente Python corrente e quindi fare clic con il pulsante destro del mouse.
 
-2. Scegliere Installa pacchetto Python, quindi digitare **azure-storage-table**
+2. Scegliere Installa pacchetto Python, quindi immettere **azure-storage-table**
 
 3. Premere F5 per eseguire l'applicazione. L'app viene visualizzata nel browser. 
 

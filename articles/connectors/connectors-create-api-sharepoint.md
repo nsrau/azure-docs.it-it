@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60450744"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050777"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorare e gestire le risorse di SharePoint con App per la logica di Azure
 
@@ -39,7 +39,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Le credenziali utente e l'indirizzo del sito SharePoint
 
@@ -70,9 +70,9 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
    Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi di selezionare **Connetti tramite gateway dati locale**. Al termine dell'operazione, scegliere **Crea**.
+1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi **di selezionare Connetti tramite il gateway dati locale**. Al termine dell'operazione, scegliere **Crea**.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 

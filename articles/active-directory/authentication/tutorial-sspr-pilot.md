@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362133"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561512"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD
 
@@ -43,7 +43,7 @@ In questa esercitazione verrà abilitata un'implementazione pilota di reimpostaz
    * Fare clic su **Save** (Salva).
 1. Nella pagina **Metodi di autenticazione**
    * Impostare **Numero di metodi da reimpostare** su **1**
-   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione selezionare le caselle per abilitare **Posta elettronica**, **Telefono cellulare**, **Telefono ufficio**, **Notifica dell'app per dispositivi mobili (anteprima)** e **Codice dell'app per dispositivi mobili (anteprima)**.
+   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione, selezionare le caselle per abilitare **Posta elettronica**, **Telefono cellulare**, **Telefono ufficio**, **Notifica dell'app per dispositivi mobili** e **Codice dell'app per dispositivi mobili**.
    * Fare clic su **Save** (Salva).
 1. Nella pagina **Registrazione**
    * Selezionare **Sì** per **Richiedere agli utenti di registrarsi all'accesso**.
@@ -54,13 +54,13 @@ In questa esercitazione verrà abilitata un'implementazione pilota di reimpostaz
    * Impostare **Notificare agli amministratori quando altri amministratori reimpostano le proprie password** su **Sì**.
 1. Nella pagina **Personalizzazione**
    * Microsoft consiglia di impostare **Personalizza collegamento al supporto tecnico** su **Sì** e specificare un indirizzo di posta elettronica o l'URL di una pagina Web in cui gli utenti possono ottenere ulteriore assistenza dall'organizzazione nel campo **Indirizzo di posta elettronica o URL del supporto tecnico**.
-   * Per questa esercitazione l'opzione **Personalizza collegamento al supporto tecnico** rimarrà impostata su **No**.
+   * Per questa esercitazione, l'opzione **Personalizza collegamento al supporto tecnico** rimarrà impostata su **No**.
 
 La reimpostazione della password self-service è ora configurata per gli utenti del cloud nel gruppo pilota.
 
 ## <a name="test-sspr-as-a-user"></a>Testare la reimpostazione della password self-service come utente
 
-Eseguire il test usando un utente di prova non amministratore, membro del gruppo pilota. **Tenere presente che se si usa un account a cui sono assegnati ruoli di amministratore, i metodi di autenticazione e il numero potrebbero essere diversi da quanto selezionato perché è Microsoft a gestire i criteri per gli amministratori.**
+Eseguire il test usando un utente di prova non amministratore, membro del gruppo pilota. **Se si usa un account a cui sono assegnati ruoli di amministratore, i metodi di autenticazione e il numero potrebbero essere diversi rispetto a quelli selezionati, perché è Microsoft che gestisce i criteri per gli amministratori.**
 
 1. Aprire una nuova finestra del browser in modalità InPrivate o in incognito.
 1. Eseguire la registrazione per la reimpostazione della password self-service per un utente di prova usando il portale di registrazione all'indirizzo [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).

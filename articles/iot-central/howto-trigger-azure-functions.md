@@ -3,23 +3,25 @@ title: Attivare Funzioni di Azure usando i webhook in Azure IoT Central
 description: Creare un'app per le funzioni che viene eseguita ogni volta che viene attivata una regola in Azure IoT Central.
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0d92e9bdf8ec207e5ef0e3f891c162182b5a4fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7c0f0abdf4a96f4af904f76549bdebd62b803cd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518407"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877331"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Attivare Funzioni di Azure usando i webhook in Azure IoT Central
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
-Usare Funzioni di Azure per eseguire codice serverless sull'output di webhook delle regole di IoT Central. Non è necessario effettuare il provisioning di una macchina virtuale o pubblicare un'app web per usare le funzioni di Azure, ma è invece possibile eseguire questo codice senza server. Usare Funzioni di Azure per trasformare il payload del webhook prima di inviarlo alla destinazione finale, ad esempio un database SQL o Griglia di eventi.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Usare Funzioni di Azure per eseguire codice serverless sull'output di webhook delle regole di IoT Central. Non è necessario effettuare il provisioning di una macchina virtuale o pubblicare un'app Web per l'uso di funzioni di Azure, ma è possibile eseguire questo codice senza server. Usare Funzioni di Azure per trasformare il payload del webhook prima di inviarlo alla destinazione finale, ad esempio un database SQL o Griglia di eventi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,19 +29,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="how-to-connect-azure-functions"></a>Come connettersi a Funzioni di Azure
 
-1. [Creare una nuova app per le funzioni nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
+1. [Creare una nuova app per le funzioni nella portale di Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
 
-    ![Creare una nuova app per le funzioni nel portale di Azure](media/howto-trigger-azure-functions/createfunction.png)
+    ![Creare una nuova app per le funzioni nella portale di Azure](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Espandere l'app per le funzioni e selezionare il **sul pulsante +** accanto a funzioni. Se questa funzione è la prima funzione nell'app, selezionare **nel portale** come ambiente di sviluppo e selezionare **continua**.
+2. Espandere l'app per le funzioni e selezionare il **pulsante +** accanto a funzioni. Se questa funzione è la prima nell'app per le funzioni, selezionare **nel portale** come ambiente di sviluppo e selezionare **continua**.
 
     ![Scegliere una funzione personalizzata nell'app per le funzioni](media/howto-trigger-azure-functions/customfunction.png)
 
-3. Scegli **Webhook + API** modello e selezionare **crea**. Questo argomento Usa funzioni di Azure basati su .NET.
+3. Scegliere webhook e modello **API** e selezionare **Crea**. Questo argomento usa la funzione di Azure basata su .NET.
 
     ![Selezionare il trigger del webhook generico](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. Nella nuova funzione, selezionare **<> / Recupera URL della funzione**, quindi copiare e salvare il valore. Questo valore viene usato per configurare il webhook.
+4. Nella nuova funzione selezionare **</> Get Function URL**, quindi copiare e salvare il valore. Questo valore viene usato per configurare il webhook.
 
     ![Ottenere l'URL della funzione](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +51,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     ![Immettere l'URL della funzione nel campo URL callback](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Salvare la regola. A questo punto quando la regola viene attivata, il webhook richiama l'app per le funzioni per l'esecuzione. Nell'app per le funzioni, è possibile selezionare **Monitor** esaminare la cronologia di chiamata della funzione. Per esaminare la cronologia, è possibile usare Application Insights o la visualizzazione classica.
+6. Salvare la regola. A questo punto, quando la regola viene attivata, il webhook richiama l'app per le funzioni per l'esecuzione. Nell'app per le funzioni è possibile selezionare **monitoraggio** per visualizzare la cronologia della chiamata della funzione. Per esaminare la cronologia, è possibile usare Application Insights o la visualizzazione classica.
 
     ![Monitorare la cronologia delle chiamate della funzione](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

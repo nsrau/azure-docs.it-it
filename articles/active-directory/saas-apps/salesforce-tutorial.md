@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Salesforce | Microsoft Docs'
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Salesforce.
 services: active-directory
 documentationCenter: na
@@ -13,34 +13,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ea87c1e0b6379afac6a9433adb0e301626e27811
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500363"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986175"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
-Questa esercitazione descrive come integrare Salesforce con Azure Active Directory (Azure AD).
-L'integrazione di Salesforce con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Salesforce con Azure Active Directory (Azure AD). Integrando Salesforce con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Salesforce.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Salesforce con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a Salesforce.
+* Abilitare gli utenti per l'accesso automatico a Salesforce con gli account Azure AD personali.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Salesforce, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Salesforce abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Salesforce abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -52,63 +50,47 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Salesforce supporta il [**provisioning utenti automatico**](salesforce-provisioning-tutorial.md)
 
+* È ora possibile configurare l'applicazione per dispositivi mobili Salesforce con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
 ## <a name="adding-salesforce-from-the-gallery"></a>Aggiunta di Salesforce dalla raccolta
 
 Per configurare l'integrazione di Salesforce in Azure AD, è necessario aggiungere Salesforce dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Salesforce dalla raccolta, seguire questa procedura:**
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Salesforce** nella casella di ricerca.
+1. Selezionare **Salesforce** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel pannello di spostamento a sinistra.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Salesforce
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+Per configurare e testare l'accesso SSO di Azure AD con Salesforce, completare le procedure di base seguenti:
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+2. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B. Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-3. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
-
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
-
-4. Nella casella di ricerca digitare **Salesforce**, selezionare **Salesforce** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-    ![Salesforce nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Salesforce usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Salesforce, è necessario completare le procedure di base seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)**: per avere una controparte di Britta Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
 Per configurare l'accesso Single Sign-On di Azure AD con Salesforce, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Salesforce** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
+1. Nella pagina di integrazione dell'applicazione **Salesforce** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
-
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
-
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Salesforce](common/sp-identifier.png)
+1. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
     a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente:
 
@@ -125,21 +107,45 @@ Per configurare l'accesso Single Sign-On di Azure AD con Salesforce, seguire que
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Salesforce](https://help.salesforce.com/support).
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura Salesforce** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura Salesforce** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-    b. Identificatore Azure AD
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-    c. URL di chiusura sessione
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Create**(Crea).
 
-### <a name="configure-salesforce-single-sign-on"></a>Configurare l'accesso Single Sign-On di Salesforce
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Salesforce.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Salesforce**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+
+   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Collegamento Aggiungi utente](common/add-assign-user.png)
+
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+## <a name="configure-salesforce-sso"></a>Configurare l'accesso Single Sign-On di Salesforce
 
 1. Aprire una nuova scheda del browser e accedere all'account di amministratore di Salesforce.
 
@@ -189,65 +195,37 @@ Per configurare l'accesso Single Sign-On di Azure AD con Salesforce, seguire que
     > [!NOTE]
     > Se vengono selezionati più servizi di autenticazione, agli utenti viene richiesta la selezione del servizio di autenticazione da usare per l'accesso quando si tenta di avviare l'accesso Single Sign-On all'ambiente di Salesforce. Se non si vuole visualizzare la richiesta, è consigliabile **lasciare deselezionati tutti gli altri servizi di autenticazione**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
-
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon**.
-  
-    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com.
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Create**(Crea).
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
-
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Salesforce.
-
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Salesforce**.
-
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
-
-2. Nell'elenco delle applicazioni selezionare **Salesforce**.
-
-    ![Collegamento di Salesforce nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
 ### <a name="create-salesforce-test-user"></a>Creare l'utente di test di Salesforce
 
-In questa sezione viene creato un utente di nome Britta Simon in Salesforce. Salesforce supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
+In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesforce supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di Salesforce nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Salesforce per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="test-sso-for-salesforce-mobile"></a>Testare l'accesso SSO per Salesforce (per dispositivi mobili)
+
+1. Aprire l'applicazione per dispositivi mobili Salesforce. Nella pagina di accesso fare clic su **Use Custom Domain** (Usa dominio personalizzato).
+
+    ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app1.png)
+
+1. Nella casella di testo **Custom Domain** (Dominio personalizzato) immettere il nome del dominio personalizzato registrato e fare clic su **Continue** (Continua).
+
+    ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app2.png)
+
+1. Immettere le credenziali di Azure AD per accedere nell'applicazione Salesforce e fare clic su **Next** (Avanti).
+
+    ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app3.png)
+
+1. Nella pagina **Allow Access** (Consenti accesso) come illustrato di seguito, fare clic su **Allow** (Consenti) per concedere l'accesso all'applicazione Salesforce.
+
+    ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app4.png)
+
+1. Al termine dell'accesso verrà infine visualizzata la home page dell'applicazione.
+
+    ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app5.png) ![App per dispositivi mobili Salesforce](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -258,3 +236,5 @@ Quando si fa clic sul riquadro di Salesforce nel pannello di accesso, si dovrebb
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configura provisioning utenti](salesforce-provisioning-tutorial.md)
+
+- [Provare Salesforce con Azure AD](https://aad.portal.azure.com)

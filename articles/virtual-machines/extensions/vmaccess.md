@@ -3,8 +3,8 @@ title: Reimpostare l'accesso a una macchina virtuale Linux di Azure | Microsoft 
 description: Come gestire gli utenti amministrativi e reimpostare l'accesso nelle macchine virtuali Linux usando l'estensione VMAccess e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: roiyz
-ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.author: akjosh
+ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731309"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173962"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gestire gli utenti amministrativi e la configurazione SSH e verificare o riparare dischi in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure
 ## <a name="overview"></a>Panoramica

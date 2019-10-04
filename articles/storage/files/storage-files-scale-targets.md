@@ -1,19 +1,18 @@
 ---
 title: Obiettivi di ridimensionamento e prestazioni di File di Azure | Microsoft Docs
 description: Informazioni sugli obiettivi di scalabilità e prestazioni di File di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
-ms.date: 7/19/2018
-ms.author: wgries
+ms.topic: conceptual
+ms.date: 5/5/2019
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494970"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699633"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -30,28 +29,38 @@ La risorsa padre per una condivisione file di Azure è un account di archiviazio
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Utilizzo di account di archiviazione generico da altri servizi di archiviazione interessa le condivisioni file di Azure nell'account di archiviazione. Ad esempio, se si raggiunge la capacità massima dell'account di archiviazione con Archiviazione BLOB di Azure, non sarà più possibile creare nuovi file nella condivisione file di Azure, anche se questa non ha ancora raggiunto la dimensione massima.
+> L'utilizzo dell'account di archiviazione per utilizzo generico da altri servizi di archiviazione influiscono sulle condivisioni file di Azure nell'account di archiviazione. Ad esempio, se si raggiunge la capacità massima dell'account di archiviazione con Archiviazione BLOB di Azure, non sarà più possibile creare nuovi file nella condivisione file di Azure, anche se questa non ha ancora raggiunto la dimensione massima.
 
 ## <a name="azure-files-scale-targets"></a>Obiettivi di scalabilità di File di Azure
 
-### <a name="premium-files-scale-targets"></a>File Premium obiettivi di scalabilità
+Esistono tre categorie di limitazioni da considerare per File di Azure: account di archiviazione, condivisioni e file.
 
-Esistono tre categorie di limitazioni da considerare per i file premium: gli account di archiviazione, condivisioni e file.
+Ad esempio:  Con le condivisioni file Premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Quindi, se si dispone di tre file in una condivisione, il numero massimo di IOPS che è possibile ottenere da tale condivisione è 15.000.
 
-Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
+### <a name="standard-storage-account-limits"></a>Limiti dell'account di archiviazione standard
+
+Per questi limiti, vedere la sezione obiettivi di scalabilità dell' [account di archiviazione di Azure](#azure-storage-account-scale-targets) .
 
 ### <a name="premium-filestorage-account-limits"></a>Limiti dell'account filestorage Premium
 
-File Premium usano un account di archiviazione univoco **filestorage (anteprima)**, questo account dispone di obiettivi di scalabilità leggermente diverso rispetto all'account di archiviazione usato dai file standard. Per obiettivi di scalabilità di account di archiviazione, fare riferimento alla tabella il [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo di account di archiviazione solo è realizzabile se è presente solo una condivisione per ogni account di archiviazione.
+> I limiti dell'account di archiviazione sono validi per tutte le condivisioni. La scalabilità fino al valore massimo per gli account filestorage è ottenibile solo se è presente una sola condivisione per ogni account di archiviazione filestorage.
+
+### <a name="file-share-and-file-scale-targets"></a>Destinazioni di condivisione file e scala file
+
+> [!NOTE]
+> Le condivisioni file standard più grandi di 5 TiB sono in anteprima e presentano alcune limitazioni.
+> Per un elenco delle limitazioni e per l'onboarding nell'anteprima di queste dimensioni di condivisione file più grandi, vedere la sezione relativa alle [condivisioni file standard](storage-files-planning.md#standard-file-shares) della Guida alla pianificazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Obiettivi di scalabilità di Sincronizzazione file di Azure
 
-Con Sincronizzazione file di Azure si è tentato di progettare nella misura massima senza limiti di utilizzo, ma non sempre è possibile. La tabella seguente indica i limiti dei test e le destinazioni con limiti rigidi:
+Sincronizzazione file di Azure è stato progettato per supportare un utilizzo senza limiti, cosa però non sempre possibile. La tabella seguente indica i limiti dei test Microsoft e anche le destinazioni con limiti rigidi:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -77,12 +86,12 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Provisioning monouso iniziale  |  |
 |-|-|
 | Numero di oggetti | 25 milioni di oggetti |
-| Dimensioni del set di dati| ~4.7 TiB |
-| Dimensioni medie dei file | ~ 200 KiB (File più grande: 100 GiB) |
+| Dimensioni del set di dati| ~ 4,7 TiB |
+| Dimensioni medie dei file | ~ 200 KiB (file più grande: 100 GiB) |
 | Velocità effettiva di caricamento | 20 oggetti al secondo |
 | Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
 
-* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
+\* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
 
 | Sincronizzazione continua  |   |
 |-|--|
@@ -102,7 +111,7 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 - La velocità effettiva degli oggetti cambia all'incirca in misura proporzionale al numero di gruppi di sincronizzazione nel server. La suddivisione dei dati in più gruppi di sincronizzazione in un server produce una maggiore velocità effettiva, che è limitata anche dal server e dalla rete.
 - La velocità effettiva degli oggetti è inversamente proporzionale alla velocità effettiva in MiB al secondo. Per i file più piccoli, si riscontrerà una velocità effettiva maggiore per quanto riguarda il numero di oggetti elaborati al secondo, ma con una minore velocità effettiva in MiB al secondo. Al contrario, per i file di dimensioni maggiori, si otterrà un numero minore di oggetti elaborati al secondo, ma con una maggiore velocità effettiva in MiB al secondo. La velocità effettiva in MiB al secondo è limitata dagli obiettivi di scalabilità di File di Azure.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

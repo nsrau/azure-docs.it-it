@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199494"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626011"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
 
@@ -44,14 +44,20 @@ Quando si eseguono query nel Web, Bing restituisce tutto il contenuto rilevante 
     }
 }    
 ```
-È possibile filtrare i tipi di contenuto ricevuti (ad esempio immagini, video e notizie) usando il parametro di query [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Se Bing trova contenuto rilevante per i riscontri specificati, lo restituisce. Il filtro di risposta è un elenco delimitato da virgole di riscontri. 
 
-Per escludere dalla risposta tipi di contenuto specifici, ad esempio le immagini, è possibile aggiungere un carattere `-` all'inizio del valore `responseFilter`. È possibile separare i tipi esclusi con una virgola (`,`). Ad esempio: 
+## <a name="query-parameters"></a>Parametri di query
+
+Per filtrare le risposte restituite da Bing, usare i parametri di query quando si chiamano le API seguenti.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+È possibile filtrare i tipi di risposte di Bing è include nella risposta (ad esempio immagini, video e notizie) usando il [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) parametro di query, ovvero un elenco delimitato da virgole di risposte. Una risposta verrà inclusi nella risposta se Bing rileva contenuti rilevanti per tale. 
+
+Per escludere le risposte specifiche dalla risposta, ad esempio immagini, anteporre una `-` carattere per il tipo di risposta. Ad esempio:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 L'esempio seguente mostra come usare `responseFilter` per richiedere immagini, video e notizie relative alle derive. Per la codifica di questa stringa di query, le virgole diventano %2C.  
 
@@ -92,20 +98,40 @@ Di seguito è riportata la risposta alla query precedente. Poiché Bing non ha t
 
 Anche se Bing non ha restituito risultati per video e notizie nella risposta precedente, non significa che non esiste contenuto video e di notizie. Indica semplicemente che la pagina non ha incluso questo contenuto. Tuttavia, se si scorrono altre [pagine](./paging-webpages.md) per visualizzare più risultati, è probabile che le pagine successive includano questo tipo di contenuto. Inoltre, se si chiamano direttamente gli endpoint [API Ricerca video](../bing-video-search/search-the-web.md) e [API Ricerca notizie](../bing-news-search/search-the-web.md), la risposta conterrà probabilmente risultati.
 
-È sconsigliato l'uso di `responseFilter` per ottenere risultati da una singola API. Se si vuole ottenere contenuto da una singola API di Bing, chiamare direttamente tale API. Ad esempio, per ricevere solo le immagini, inviare una richiesta all'endpoint API Ricerca immagini `https://api.cognitive.microsoft.com/bing/v7.0/images/search` o uno degli altri endpoint [Immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints). Chiamare l'API specifica è importante non solo per motivi di prestazioni, ma anche perché le API per contenuto specifico offrono risultati migliori. Ad esempio, è possibile usare filtri che non sono disponibili per l'API Ricerca Web per filtrare i risultati.  
+È sconsigliato l'uso di `responseFilter` per ottenere risultati da una singola API. Se si vuole ottenere contenuto da una singola API di Bing, chiamare direttamente tale API. Ad esempio, per ricevere solo le immagini, inviare una richiesta all'endpoint API Ricerca immagini `https://api.cognitive.microsoft.com/bing/v7.0/images/search` o uno degli altri endpoint [Immagini](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints). Chiamare l'API specifica è importante non solo per motivi di prestazioni, ma anche perché le API per contenuto specifico offrono risultati migliori. Ad esempio, è possibile usare filtri che non sono disponibili per l'API Ricerca Web per filtrare i risultati.  
 
-Per ottenere i risultati della ricerca da un dominio specifico, includere l'operatore di query `site:` nella stringa di query.  
+### <a name="site"></a>Sito
+
+Per ottenere i risultati della ricerca da un dominio specifico, includere il `site:` parametro nella stringa di query di query.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
 > [!NOTE]
-> A seconda della query, se si usa l'operatore di query `site:`, la risposta potrebbe includere contenuto per adulti indipendentemente dall'impostazione di [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
+> A seconda della query, se si usa l'operatore di query `site:`, la risposta potrebbe includere contenuto per adulti indipendentemente dall'impostazione di [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
+
+### <a name="freshness"></a>Aggiornamento
+
+Per limitare i risultati di risposta web in pagine Web di Bing individuati durante un periodo specifico, impostare il [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) parametro a uno dei valori tra maiuscole e minuscole seguenti query:
+
+* `Day` : Restituisce le pagine Web Bing individuati all'interno delle ultime 24 ore
+* `Week` Ovvero restituire pagine Web di Bing individuati negli ultimi 7 giorni
+* `Month` : Restituisce le pagine Web che individuati negli ultimi 30 giorni
+
+È anche possibile impostare questo parametro per un intervallo di date personalizzato nel modulo, `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+Per limitare i risultati in una singola data, impostare il parametro di validità su una data specifica:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+I risultati possono includere le pagine Web che non rientrano nel periodo specificato, se il numero di pagine Web di Bing corrisponde ai criteri di filtro è inferiore al numero di pagine Web richiesto (o il numero predefinito di Bing restituisce).
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitazione del numero di riscontri nella risposta
 
-Bing include riscontri nella risposta in base alla classificazione. Ad esempio, se si esegue la ricerca di *sailing+dinghies*, Bing restituisce `webpages`, `images`, `videos` e `relatedSearches`.
+Bing può restituire più tipi di risposta nella risposta JSON. Ad esempio, se si esegue una query *sailing + dinghies*, Bing potrebbe restituire `webpages`, `images`, `videos`, e `relatedSearches`.
 
 ```json
 {
@@ -121,7 +147,7 @@ Bing include riscontri nella risposta in base alla classificazione. Ad esempio, 
 }
 ```
 
-Per limitare il numero di riscontri restituiti da Bing ai primi due (pagine Web e immagini), impostare il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) su 2.
+Per limitare il numero di riscontri restituiti da Bing ai primi due (pagine Web e immagini), impostare il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) su 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -162,7 +188,7 @@ Se si aggiunge il parametro di query `responseFilter` alla query precedente e si
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Alzare di livello i riscontri non classificati
 
-Se i riscontri con classificazione migliore restituiti da Bing per una query sono pagine Web, immagini, video e ricerche correlate, la risposta includerà questi riscontri. Se si imposta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) su due (2), Bing restituisce i primi due riscontri nella classificazione, ovvero pagine Web e immagini. Se si vuole che Bing includa immagini e video nella risposta, specificare il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) e impostarlo su images e videos.
+Se i riscontri con classificazione migliore restituiti da Bing per una query sono pagine Web, immagini, video e ricerche correlate, la risposta includerà questi riscontri. Se si imposta [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) su due (2), Bing restituisce i primi due riscontri nella classificazione, ovvero pagine Web e immagini. Se si vuole che Bing includa immagini e video nella risposta, specificare il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) e impostarlo su images e videos.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

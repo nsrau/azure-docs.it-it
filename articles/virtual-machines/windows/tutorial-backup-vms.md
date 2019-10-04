@@ -4,26 +4,25 @@ description: In questa esercitazione viene illustrato come usare il portale di A
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2017
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101744"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Windows in Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Eseguire il backup e il ripristino di file per macchine virtuali Windows in Azure
 
 È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. Questo articolo spiega come ripristinare un singolo file in una macchina virtuale che esegue Windows Server e IIS. Se non si dispone già di una macchina virtuale da usare, è possibile crearne una usando la [guida introduttiva di Windows](quick-create-portal.md). In questa esercitazione si apprenderà come:
 
@@ -40,20 +39,19 @@ Quando crea uno snapshot delle macchine virtuali di Windows, il servizio Backup 
 
 Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
-
 ## <a name="create-a-backup"></a>Creare un backup
 Creare un semplice backup giornaliero pianificato per un insieme di credenziali di Servizi di ripristino. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra selezionare **Macchine virtuali**. 
-3. Dall'elenco selezionare la macchina virtuale di cui eseguire il backup.
-4. Nel pannello della macchina virtuale, nella sezione **Operazioni**, fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
-5. In **Insieme di credenziali dei servizi di ripristino** fare clic su **Crea nuovo** e inserire un nome per il nuovo insieme di credenziali. Viene creato un nuovo insieme di credenziali nello stesso gruppo di risorse e nello stesso percorso della macchina virtuale.
-6. Fare clic su **Criterio di Backup**. Per questo esempio, mantenere le impostazioni predefinite e fare clic su **OK**.
-7. Nel pannello **Abilita backup** fare clic su **Abilita backup**. Verrà creato un backup giornaliero in base alla pianificazione predefinita.
-10. Per creare un punto di recupero iniziale, nel pannello **Backup** fare clic su **Esegui backup ora**.
-11. Nel pannello **Esegui backup ora** fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di recupero e fare clic su **Backup**.
-12. Nel pannello **Backup** per la macchina virtuale in uso viene visualizzato il numero di punti di recupero completati.
+1. Nel menu a sinistra selezionare **Macchine virtuali**. 
+1. Dall'elenco selezionare la macchina virtuale di cui eseguire il backup.
+1. Nel pannello della macchina virtuale, nella sezione **Operazioni**, fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
+1. In **Insieme di credenziali dei servizi di ripristino** fare clic su **Crea nuovo** e inserire un nome per il nuovo insieme di credenziali. Viene creato un nuovo insieme di credenziali nello stesso gruppo di risorse e nella stessa posizione della macchina virtuale.
+1. In **Scegliere i criteri di backup** mantenere l'opzione predefinita **(Nuovo) DailyPolicy** e quindi fare clic su **Abilita backup**.
+1. Per creare un punto di recupero iniziale, nel pannello **Backup** fare clic su **Esegui backup ora**.
+1. Nel pannello **Esegui backup ora** fare clic sull'icona del calendario, usare il comando del calendario per scegliere la durata della conservazione del punto di ripristino e fare clic su **OK**.
+1. Nel pannello **Backup** per la macchina virtuale viene visualizzato il numero di punti di ripristino completati.
+
 
     ![Punti di ripristino](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -69,25 +67,28 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
 
     ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-working.png)
 
-2. Connettersi alla macchina virtuale.
-3. Nella macchina virtuale aprire **Esplora file**, passare a \inetpub\wwwroot ed eliminare il file **iisstart.png**.
-4. Nel computer locale aggiornare il browser per verificare che l'immagine nella pagina IIS predefinita non sia più presente.
+1. Connettersi alla macchina virtuale.
+1. Nella macchina virtuale aprire **Esplora file**, passare a \inetpub\wwwroot ed eliminare il file **iisstart.png**.
+1. Nel computer locale aggiornare il browser per verificare che l'immagine nella pagina IIS predefinita non sia più presente.
 
     ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-broken.png)
 
-5. Nel computer locale, aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
-6. Nel menu a sinistra selezionare **Macchine virtuali** e scegliere la macchina virtuale dall'elenco.
-8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
-9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
-10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
-11. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Salvare il file nella cartella **Downloads**.
-12. Nel computer locale aprire **Esplora file**, andare alla cartella **Downloads** e copiare il file con estensione exe scaricato. Il nome file verrà preceduto dal nome della macchina virtuale. 
-13. Incollare il file con estensione exe sul desktop della macchina virtuale (tramite la connessione RDP). 
-14. Passare al desktop della macchina virtuale e fare doppio clic sul file con estensione exe. Viene aperto un prompt dei comandi e il punto di recupero è montato come condivisione di file a cui è possibile accedere. Al termine della creazione della condivisione, digitare **q** per chiudere il prompt dei comandi.
-15. Nella macchina virtuale aprire **Esplora file** e passare alla lettera di unità usata per la condivisione file.
-16. Passare a \inetpub\wwwroot e copiare **iisstart.png** dalla condivisione file e incollarlo in \inetpub\wwwroot. Ad esempio, copiare F:\inetpub\wwwroot\iisstart.png e incollarlo in c:\inetpub\wwwroot per ripristinare il file.
-17. Nel computer locale aprire la scheda del browser in cui si è connessi all'indirizzo IP della macchina virtuale che mostra la pagina IIS predefinita. Premere CTRL + F5 per aggiornare la pagina del browser. Si noterà ora che l'immagine è stata ripristinata.
-18. Nel computer locale tornare alla scheda del browser per il portale di Azure e in **Passaggio 3: Smontare i dischi dopo il ripristino** fare clic sul pulsante **Smontare i dischi**. Se si dimentica di eseguire questo passaggio, la connessione per il punto di montaggio viene chiusa automaticamente dopo 12 ore. Trascorse le 12 ore, è necessario scaricare un nuovo script per creare un nuovo punto di montaggio.
+1. Nel computer locale, aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
+1. Nel menu a sinistra selezionare **Macchine virtuali** e scegliere la macchina virtuale dall'elenco.
+1. Nel pannello della macchina virtuale, nella sezione **Operazioni**, fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
+1. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
+1. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
+1. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Copiare la password per il file e salvarla in un luogo sicuro.
+1. Nel computer locale aprire **Esplora file**, andare alla cartella **Downloads** e copiare il file con estensione exe scaricato. Il nome file verrà preceduto dal nome della macchina virtuale. 
+1. Incollare il file con estensione exe sul desktop della macchina virtuale (tramite la connessione RDP). 
+1. Passare al desktop della macchina virtuale e fare doppio clic sul file con estensione exe. Verrà avviato un prompt dei comandi. Il programma monta il punto di ripristino come condivisione file a cui è possibile accedere. Al termine della creazione della condivisione, digitare **q** per chiudere il prompt dei comandi.
+1. Nella macchina virtuale aprire **Esplora file** e passare alla lettera di unità usata per la condivisione file.
+1. Passare a \inetpub\wwwroot e copiare **iisstart.png** dalla condivisione file e incollarlo in \inetpub\wwwroot. Ad esempio, copiare F:\inetpub\wwwroot\iisstart.png e incollarlo in c:\inetpub\wwwroot per ripristinare il file.
+1. Nel computer locale aprire la scheda del browser in cui si è connessi all'indirizzo IP della macchina virtuale che mostra la pagina IIS predefinita. Premere CTRL + F5 per aggiornare la pagina del browser. Si noterà ora che l'immagine è stata ripristinata.
+1. Nel computer locale tornare alla scheda del browser per il portale di Azure e in **Passaggio 3: Smontare i dischi dopo il ripristino** fare clic sul pulsante **Smontare i dischi**. Se si dimentica di eseguire questo passaggio, la connessione al punto di montaggio viene chiusa automaticamente dopo 12 ore. Trascorse le 12 ore, è necessario scaricare un nuovo script per creare un nuovo punto di montaggio.
+
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

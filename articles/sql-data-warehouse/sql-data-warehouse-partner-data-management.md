@@ -2,26 +2,26 @@
 title: Partner di gestione dati di SQL Data Warehouse | Documentazione Microsoft
 description: Elenco di partner di gestione dati di terze parti con soluzioni che supportano SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873687"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partner di gestione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia società partner di Microsoft che offrono strumenti e soluzioni per la gestione dati che supportano Azure SQL Data Warehouse.
 
 ## <a name="data-management-partners"></a>Partner di gestione dei dati
-| Partner | DESCRIZIONE | Collegamento di sito Web o prodotto |
+| Partner | Descrizione | Collegamento di sito Web o prodotto |
 | ------- | ----------- | -------------------- |
 | ![Coffing Data warehouse][1] |**Coffing Data warehouse**<br>Coffing Data Warehousing offre Nexus Chameleon, uno strumento con 10 anni di esperienza dedicata ai sistemi di esecuzione di query. Nexus è disponibile come strumento di query per SQL Data Warehouse. È possibile usare Nexus per eseguire query in computer locali e cloud e unire dati in diverse piattaforme. Per creare un report, è sufficiente selezionare e fare clic. |[Pagina del prodotto][coffing_website]<br> |
 | ![Inbrein][2] |**Inbrein MicroERD**<br>Inbrein MicroERD offre gli strumenti necessari per creare un modello di dati preciso, ridurre la ridondanza dei dati, migliorare la produttività e rispettare gli standard. L'uso dell'interfaccia utente sviluppata in base a numerose esperienze utente permette a un modeler di lavorare in modo semplice ed efficiente con i modelli di database. I tempestivi miglioramenti funzionali e gli aggiornamenti permettono di ottenere sempre funzioni nuove e migliorate di MicroERD. |[Pagina del prodotto][inbrein_website]<br> |
@@ -29,7 +29,7 @@ Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta
 | ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management consente gli addetti al marketing applicare tutti i dati per guidare il coinvolgimento dei clienti tra tutti i canali strutturata e gestione dei dati non strutturati. Grazie ad Azure SQL Data Warehouse e RedPoint è possibile massimizzare il valore di tutti i dati strutturati e non strutturati per offrire le interazioni iper-personalizzate e contestuali necessarie per coinvolgere i clienti moderni, attivi su tutti i canali di comunicazione. L'interfaccia di trascinamento semplifica la progettazione e l'esecuzione dei processi di gestione dati. |[Pagina del prodotto][redpoint_dm_website]<br> [Azure Marketplace][redpoint_dm_marketplace]<br> |
 | ![Sentry One][5] |**SentryOne (DW Sentry)**<br>Grazie al dashboard di spostamento dei dati intelligente e al calendario eventi, è possibile conoscere esattamente i fattori che influiscono sul carico di lavoro. Gli strumenti sono progettati per consentire all'utente di avere visibilità su query e processi in esecuzione per caricare, eseguire il backup o ripristinare i dati, al fine di sfruttare al meglio le risorse di Azure. |[Pagina del prodotto][sql_sentry_website]<br>[Azure Marketplace][sql_sentry_marketplace]<br> |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per altre informazioni su altri partner, vedere [Partner di business intelligence][bi_partners] e [Partner di integrazione di dati][di_partners].
 
 <!--Image references-->

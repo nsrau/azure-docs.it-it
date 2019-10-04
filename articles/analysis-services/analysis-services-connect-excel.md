@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 4e6c73ad465f362a046a339f286cc25b4af508cf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189015"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619195"
 ---
 # <a name="connect-with-excel"></a>Connettersi con Excel
 
@@ -41,7 +41,7 @@ La connessione a un server in Excel è supportata con la funzione Dati in Excel 
     ![Connettersi dal modello di selezione in Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Librerie client](analysis-services-data-providers.md)   
 [Gestire il server](analysis-services-manage.md)     

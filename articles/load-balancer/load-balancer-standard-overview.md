@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Panoramica delle funzionalità di Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578527"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274393"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
-Azure Load Balancer permette di ridimensionare le applicazioni e creare la disponibilità elevata per i servizi. Load Balancer supporta scenari in ingresso e in uscita, offre bassa latenza, elevata produttività e una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP. 
+Azure Load Balancer consente di ridimensionare le applicazioni e di creare disponibilità elevata per i servizi. Load Balancer supporta scenari in ingresso e in uscita, offre bassa latenza, elevata produttività e una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP. 
 
 Questo articolo illustra Load Balancer Standard.  Per una panoramica più generale di Load Balancer di Azure, consultare anche la [Panoramica di Load Balancer](load-balancer-overview.md).
 
@@ -75,7 +75,7 @@ Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load
 ### <a name="az"></a>Zone di disponibilità
 
 >[!IMPORTANT]
->Revisione [zone di disponibilità](../availability-zones/az-overview.md) per argomenti correlati, incluse eventuali informazioni specifiche di area.
+>Esaminare [zone di disponibilità](../availability-zones/az-overview.md) per gli argomenti correlati, incluse le informazioni specifiche dell'area.
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -204,7 +204,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 >
 >Per le risorse di Load Balancer e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e risorse SKU Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.
 
-## <a name="region-availability"></a>Disponibilità a livello di area
+## <a name="region-availability"></a>Aree di disponibilità
 
 Load Balancer Standard è attualmente disponibile in tutte le aree di cloud pubblico.
 
@@ -226,7 +226,6 @@ Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezz
 - Gli SKU non sono modificabili. Non è possibile modificare lo SKU di una risorsa esistente.
 - Una risorsa autonoma per macchine virtuali, una risorsa per un set di disponibilità o una risorsa per un set di scalabilità di macchine virtuali può essere riferita a uno SKU, non a entrambi.
 - Una regola di Load Balancer non può estendersi a due reti virtuali.  I front-end e le relative istanze di back-end devono trovarsi nella stessa rete virtuale.  
-- I front-end di Load Balancer non sono accessibili tramite peering di rete virtuale globale.
 - Le [operazioni di spostamento delle sottoscrizioni](../azure-resource-manager/resource-group-move-resources.md) non sono supportate per le risorse LB e PIP dello SKU Standard.
 - I ruoli di lavoro Web senza una rete virtuale e altri servizi della piattaforma Microsoft possono essere accessibili quando si usa solo Load Balancer Standard interno a causa di un effetto collaterale della modalità di funzionamento dei servizi pre-VNet e altre piattaforme di servizi. Non è necessario basarsi su questo poiché il servizio stesso o la piattaforma sottostante possono essere soggetti a modifiche senza preavviso. Presupporre sempre che è necessario creare una [connettività in uscita](load-balancer-outbound-connections.md) in modo esplicito se desiderato quando si usa solo Load Balancer Standard interno.
 - Load Balancer è un prodotto TCP o UDP per il bilanciamento del carico e il port forwarding per questi protocolli IP specifici.  Le regole di bilanciamento del carico e le regole NAT in ingresso sono supportate per TCP e UDP e non per altri protocolli IP, tra cui ICMP. Load Balancer non termina, non risponde o non interagisce in altro modo con il payload di un flusso UDP o TCP. Non è un proxy. La convalida della connettività a un front-end deve avvenire in banda con lo stesso protocollo usato in un bilanciamento del carico o in una regola NAT in ingresso (TCP o UDP) _e_ almeno una delle macchine virtuali deve generare una risposta affinché un client possa vedere una risposta da un front-end.  La mancata ricezione di una risposta in banda da parte del front-end di Load Balancer indica che nessuna macchina virtuale è stata in grado di rispondere.  Non è possibile interagire con un front-end di Load Balancer senza una macchina virtuale in grado di rispondere.  Questo vale anche per le connessioni in uscita in cui lo [SNAT di mascheramento delle porte](load-balancer-outbound-connections.md#snat) è supportato solo per TCP e UDP. Qualsiasi altro protocollo IP, incluso ICMP, non funziona.  Assegnare un indirizzo IP pubblico a livello di istanza per la mitigazione.

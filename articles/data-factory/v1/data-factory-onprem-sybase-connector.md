@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 43bd21673c6619541f68e282d708bdbf54cd6f48
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023658"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839868"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-sybase-connector.md)
 > * [Versione 2 (corrente)](../connector-sybase.md)
 
@@ -49,7 +49,7 @@ SAP Sybase SQL Anywhere (ASA) versione 16 e successive è supportato. IQ e ASE n
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+- Per creare una pipeline, è anche possibile usare gli strumenti seguenti: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**, e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -64,23 +64,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Sybase.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesSybase** |Yes |
-| server |Nome del server Sybase. |Yes |
-| database |Nome del database Sybase. |Yes |
-| schema |Nome dello schema nel database. |No  |
-| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: Anonymous, Basic e Windows. |Yes |
-| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
-| password |Specificare la password per l'account utente specificato per il nome utente. |No  |
+| type |La proprietà type deve essere impostata su: **OnPremisesSybase** |Sì |
+| server |Nome del server Sybase. |Sì |
+| database |Nome del database Sybase. |Sì |
+| schema |Nome dello schema nel database. |No |
+| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Yes |
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che include il set di dati Sybase) presenta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -91,13 +91,13 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che include Sybase), nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>Esempio di JSON: Copiare dati da Sybase a BLOB di Azure
-L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database Sybase in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
+Nell'esempio seguente fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database Sybase in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
 
 L'esempio include le entità di Data Factory seguenti:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342008"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335654"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Pianificazione della capacità per le applicazioni Service Fabric
 Questo documento illustra come stimare la quantità di risorse (CPU, RAM e spazio di archiviazione su disco) necessaria per eseguire le applicazioni di Azure Service Fabric. I requisiti delle risorse tendono a cambiare nel tempo. In genere sono necessarie poche risorse durante lo sviluppo e il test del servizio e un numero maggiore nella fase di produzione e di aumento della popolarità dell'applicazione. Quando si progetta un'applicazione, occorre prendere in considerazione i requisiti di lungo termine e adottare subito i provvedimenti necessari affinché il servizio possa essere ridimensionato per soddisfare le richieste elevate dei clienti.
@@ -51,7 +51,7 @@ Si consiglia di calcolare il numero dei nodi in base al DB_Size che si prevede d
 Quanto detto sopra presuppone l'esistenza di un singolo servizio con stato. Se si dispone di più di un servizio con stato, è necessario aggiungere all'equazione i DB_Size associati con gli altri servizi. In alternativa è possibile calcolare il numero di nodi separatamente per ogni servizio con stato.  Il servizio può includere repliche o partizioni non bilanciate. Si tenga presente che alcune partizioni potrebbero includere più dati di altre. Per altre informazioni sul partizionamento, vedere l' [articolo sulle procedure consigliate relative al partizionamento](service-fabric-concepts-partitioning.md). L'equazione sopra non tiene conto tuttavia delle partizioni e delle repliche, poiché Service Fabric garantisce che le repliche siano distribuite tra i nodi in modalità ottimizzata.
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>Usare un foglio di calcolo per il calcolo dei costi
-È ora opportuno inserire alcuni dati reali nella formula. Un [foglio di calcolo di esempio](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) illustra come pianificare la capacità di un'applicazione contenente tre tipi di oggetti dati. Per ogni oggetto sono stati definiti in modo approssimativo la dimensione e il numero di oggetti che dovrebbe contenere. Viene anche definito il numero di repliche per ogni tipo di oggetto. Il foglio di calcolo consente di calcolare la quantità totale di memoria da archiviare nel cluster.
+È ora opportuno inserire alcuni dati reali nella formula. Un [foglio di calcolo di esempio](https://github.com/Azure/service-fabric/raw/master/docs_resources/SF_VM_Cost_calculator-NEW.xlsx) illustra come pianificare la capacità di un'applicazione contenente tre tipi di oggetti dati. Per ogni oggetto sono stati definiti in modo approssimativo la dimensione e il numero di oggetti che dovrebbe contenere. Viene anche definito il numero di repliche per ogni tipo di oggetto. Il foglio di calcolo consente di calcolare la quantità totale di memoria da archiviare nel cluster.
 
 Viene quindi immessa una dimensione di VM e il costo mensile. In base alla dimensione della VM, il foglio di calcolo indica il numero minimo di partizioni da usare per suddividere i dati affinché possano fisicamente adattarsi ai nodi. È possibile che si desideri un numero maggiore di partizioni per soddisfare le esigenze di calcolo specifiche dell'applicazione e del traffico di rete. Il foglio di calcolo illustra che il numero di partizioni che gestiscono gli oggetti del profilo utente è aumentato da 1 a 6.
 
@@ -60,7 +60,7 @@ A questo punto, in base a tali informazioni, il foglio di calcolo mostra che è 
 ![Foglio di calcolo per il calcolo dei costi][Image1]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul partizionamento del servizio, consultare [Partizionamento dei servizi di Service Fabric][10].
+Per altre informazioni sul partizionamento del servizio, vedere [partizionamento Service Fabric Servizi][10] .
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere ruoli dell'app in un'applicazione r
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66299156"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -51,7 +51,9 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 1. Modificare il manifesto dell'app individuando l'impostazione `appRoles` e aggiungendo tutti i ruoli applicazione desiderati.
 
      > [!NOTE]
-     > Ogni definizione di ruolo presente nel manifesto deve avere un **GUID** valido diverso per la proprietà "Id". La proprietà `"value"` di ogni ruolo deve corrispondere esattamente alle stringhe usate nel codice dell'applicazione.
+     > Ogni definizione di ruolo app nel manifesto deve avere un GUID valido diverso per il `id` proprietà. 
+     > 
+     > Il `value` proprietà di ogni definizione di ruolo app deve corrispondere esattamente a quelle utilizzate nel codice dell'applicazione. Il `value` proprietà non può contenere spazi. In caso affermativo, si riceverà un errore quando si salva il manifesto.
      
 1. Salvare il manifesto.
 
@@ -60,7 +62,7 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`.
 
 > [!NOTE]
->  L'`id` deve essere un GUID univoco.
+>L'`id` deve essere un GUID univoco.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -79,6 +81,9 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
 "availableToOtherTenants": false,
 ```
 
+> [!NOTE]
+>Il `displayName` non può contenere spazi.
+
 È possibile definire i ruoli dell'app nei confronti di `users`, `applications` o di entrambi. Se disponibili per le `applications`, i ruoli dell'app vengono visualizzati come autorizzazioni dell'applicazione nel pannello **Autorizzazioni necessarie**. L'esempio seguente mostra un ruolo dell'app destinato a un'`Application`.
 
 ```Json
@@ -88,7 +93,7 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -97,6 +102,8 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
   ],
 "availableToOtherTenants": false,
 ```
+
+Il numero di ruoli definiti interessa i limiti che contiene il manifesto dell'applicazione. Sono stati trattati in dettaglio nel [manifesto limiti](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) pagina.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Assegnare i ruoli a utenti e gruppi
 

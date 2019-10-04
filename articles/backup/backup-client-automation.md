@@ -1,19 +1,19 @@
 ---
 title: Usare PowerShell per eseguire il backup di Windows Server in Azure
 description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/24/2018
-ms.author: pvrk
-ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 08/20/2019
+ms.author: dacurwin
+ms.openlocfilehash: d65da05ea2b24e3820d9a6fde31b3d4a5c72dbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698488"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656741"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -40,7 +40,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Usare la **New-AzRecoveryServicesVault** cmdlet per creare il nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
+3. Usare il cmdlet **New-AzRecoveryServicesVault** per creare il nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +60,9 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualizzare gli insiemi di credenziali in un abbonamento
 
-Uso **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
+Usare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
 
-Eseguire il comando **Get-AzRecoveryServicesVault**, e sono elencati tutti gli insiemi di credenziali nella sottoscrizione.
+Eseguire il comando **Get-AzRecoveryServicesVault**e tutti gli insiemi di credenziali nella sottoscrizione sono elencati.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -86,7 +86,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall' [Area download Microsoft](https://aka.ms/azurebackup_agent) o dalla pagina Dashboard dell'insieme di credenziali dei servizi di ripristino. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\Downloads\*.
 
 In alternativa, usare PowerShell per ottenere il downloader:
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -138,8 +138,20 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
+### <a name="registering-using-the-ps-az-module"></a>Registrazione tramite il modulo PS AZ
+
+Nel modulo AZ di PowerShell più recente, a causa delle limitazioni della piattaforma sottostanti, il download delle credenziali dell'insieme di credenziali richiede un certificato autofirmato. Nell'esempio seguente viene illustrato come fornire un certificato autofirmato e scaricare le credenziali dell'insieme di credenziali.
+
+```powershell
+$Vault = Get-AzRecoveryServicesVault -ResourceGroupName $rgName -Name $VaultName
+$cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname xxxxxxxxxxxxx
+$certificate =[System.Convert]::ToBase64String($cert.RawData)
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certificate -Vault $vault -Backup -Path $CredsPath
+```
+
 In Windows Server o in un client Windows, eseguire il cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) per registrare il computer con l'insieme di credenziali.
-Questo cmdlet e altri cmdlet usati per il backup sono inclusi nel modulo MSONLINE, che è stato aggiunto da Mars AgentInstaller durante il processo di installazione. 
+Questo cmdlet e altri cmdlet usati per il backup sono inclusi nel modulo MSONLINE, che è stato aggiunto da Mars AgentInstaller durante il processo di installazione.
 
 Il programma di installazione dell'agente non aggiorna la variabile $Env:PSModulePath. Il caricamento automatico del modulo avrà quindi esito negativo. Per risolvere il problema, è possibile procedere come segue:
 
@@ -196,11 +208,11 @@ Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## <a name="encryption-settings"></a>Impostazioni crittografia
+## <a name="encryption-settings"></a>Impostazioni di crittografia
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino.
 
-È necessario generare un pin di sicurezza selezionando **genera**, in **impostazioni** > **proprietà** > **PINdisicurezza** nella **insieme di credenziali dei servizi di ripristino** sezione del portale di Azure. Quindi, usare questo valore come la `generatedPIN` nel comando:
+È necessario generare un pin di sicurezza selezionando **genera**, in **Impostazioni** > **Proprietà** > **pin di sicurezza** nella sezione dell'insieme di credenziali dei servizi di **ripristino** del portale di Azure. Usare quindi come `generatedPIN` nel comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,6 +403,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Eseguire il backup dello stato del sistema Windows Server nell'agente MAB
+
+Questa sezione descrive il comando di PowerShell per configurare lo stato del sistema nell'agente MAB
+
+### <a name="schedule"></a>Pianificazione
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Fidelizzazione
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Configurazione della pianificazione e della conservazione
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>Verifica del criterio
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>Applicazione del criterio
 

@@ -1,25 +1,19 @@
 ---
-title: Domande frequenti sui problemi comuni durante la creazione di dischi rigidi virtuali per Azure Marketplace | Microsoft Docs
+title: Problemi comuni durante la creazione del disco rigido virtuale (FAQ) per Azure Marketplace
 description: Domande frequenti sulla creazione di dischi rigidi virtuali e sui problemi associati.
 services: Azure Marketplace
-documentationcenter: ''
 author: HannibalSII
-manager: Patrick.Butler
-editor: ''
-ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: Azure
-ms.workload: na
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
+ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327307"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875007"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -80,7 +74,7 @@ L'articolo seguente descrive come usare l'estensione di script personalizzata co
 
 Generalmente, no.  I sistemi operativi supportati e i servizi standard per le macchine virtuali di Azure sono tutti a 64 bit.  Dal punto di vista tecnico, tuttavia, la maggior parte dei sistemi operativi a 64 bit supporta l'esecuzione di versioni a 32 bit delle applicazioni per la compatibilità con le versioni precedenti.  L'uso delle applicazioni a 32 bit come parte della soluzione di macchina virtuale, tuttavia, non è supportato e pertanto è *vivamente sconsigliato*.  Ricompilare quindi l'applicazione come un progetto a 64 bit.
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere i seguenti articoli:
 - [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (Applicazioni a 32 bit in esecuzione)
 - [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines) (Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure)
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Supporto software di server Microsoft per macchine virtuali di Microsoft Azure)

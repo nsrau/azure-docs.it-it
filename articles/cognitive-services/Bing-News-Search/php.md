@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca di notizie con PHP: API REST Ricerca notizie Bing'
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Eseguire una ricerca di notizie usando PHP e l'API REST Ricerca notizie Bing"
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando PHP e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090526"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423714"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Avvio rapido: Eseguire una ricerca di notizie usando PHP e l'API REST Ricerca notizie Bing
 
@@ -34,7 +34,7 @@ Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.m
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-L'[API Ricerca notizie Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) restituisce i risultati delle notizie dal motore di ricerca Bing.
+L'[API Ricerca notizie Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) restituisce i risultati delle notizie dal motore di ricerca Bing.
 
 1. Assicurarsi che il supporto HTTP protetto sia abilitato in `php.ini` come descritto nel commento di codice.
 2. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito.

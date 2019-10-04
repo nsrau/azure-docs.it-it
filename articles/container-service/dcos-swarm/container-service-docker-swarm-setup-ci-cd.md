@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096266"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598548"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio Azure Container con Docker Swarm usando Azure DevOps Services
 
@@ -97,7 +97,7 @@ Gli ultimi passaggi prima di approfondire la pipeline CI/CD consistono nel confi
 
 1. Nelle impostazioni **Servizi** del progetto di Azure DevOps Services, aggiungere un endpoint di servizio di tipo **registro Docker**. 
 
-1. Nel popup che viene visualizzato immettere l'URL e le credenziali del registro contenitori di Azure.
+1. Nel popup che viene visualizzato immettere l'URL e le credenziali del Registro Azure Container.
 
     ![Azure DevOps Services - Registro Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
 
@@ -140,7 +140,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 * RecommendationsApi
 * ShopFront
 
-È necessario aggiungere due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine nel registro contenitori di Azure. 
+È necessario aggiungere due passaggi di Docker per ogni immagine, uno per compilare l'immagine, l'altro per effettuare il push dell'immagine nel Registro Azure Container. 
 
 1. Per aggiungere un passaggio nel flusso di lavoro di compilazione fare clic su **+ Aggiungi istruzione di compilazione** e selezionare **Docker**.
 
@@ -150,15 +150,15 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
     ![Azure DevOps Services - Registro Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
-    Per l'operazione di compilazione, selezionare il registro contenitori di Azure, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
+    Per l'operazione di compilazione, selezionare il Registro Azure Container, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
     
-    Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del registro contenitori di Azure. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
+    Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del Registro Azure Container. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
 
 1. Per ogni immagine, configurare un secondo passaggio che usi il comando `docker push`.
 
     ![Azure DevOps Services - Effettuazione del push di Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
 
-    Per l'operazione di push, selezionare il registro contenitori di Azure, l'azione **Push an image** (Push immagine) e immettere il **nome dell'immagine** compilato nel passaggio precedente.
+    Per l'operazione di push, selezionare il Registro Azure Container, l'azione **Push an image** (Push immagine) e immettere il **nome dell'immagine** compilato nel passaggio precedente.
 
 1. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
 
@@ -180,7 +180,7 @@ Servizi di Azure DevOps consente di [gestire le versioni in vari ambienti](https
 
 ### <a name="initial-release-setup"></a>Configurazione iniziale del rilascio
 
-1. Per creare una pipeline di versione, fare clic su **Rilascio** > **+ Rilascio**
+1. Per creare una pipeline di versione, fare clic su **Rilascio** >  **+ Rilascio**
 
 1. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. In questo modo, il file docker-compose.yml è disponibile nel processo di rilascio.
 
@@ -204,7 +204,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
     Il comando eseguito nel nodo principale usa l'interfaccia della riga di comando di Docker e Docker-Compose per eseguire le attività seguenti:
 
-   - Accedere al registro contenitori di Azure (usa tre variabili di compilazione definite nella scheda **Variabili**)
+   - Accedere al Registro Azure Container (usa tre variabili di compilazione definite nella scheda **Variabili**)
    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
    - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
    - Eseguire i comandi `docker-compose` che effettuano il pull di nuove immagini, interrompono e rimuovono i servizi e creano i contenitori.
@@ -225,4 +225,4 @@ Dopo aver completato la configurazione, è il momento di testare la nuova pipeli
 
 ## <a name="next-steps"></a>Fasi successive
 
-* Per altre informazioni su CI/CD con Azure DevOps Services, consultare la [Panoramica della compilazione di Azure DevOps Services](https://www.visualstudio.com/docs/build/overview).
+* Per ulteriori informazioni su CI/CD con Azure DevOps Services, vedere l'articolo della [documentazione Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) .

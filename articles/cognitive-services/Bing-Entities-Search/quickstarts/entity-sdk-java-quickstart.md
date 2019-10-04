@@ -1,23 +1,23 @@
 ---
 title: "Guida introduttiva: Cercare entità con l'SDK di Ricerca entità Bing per Java"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per cercare entità con l'SDK di Ricerca entità Bing per Java
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/24/2019
+ms.author: aahi
+ms.openlocfilehash: 63312dcbad515f364bd4b66c5541f1db90af85b6
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094110"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479051"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Avvio rapido: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Java
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Guida introduttiva: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Java
 
 Usare questa guida introduttiva per iniziare a cercare entità con l'SDK di Ricerca entità Bing per Java. Mentre Ricerca entità Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526405"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621033"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -29,7 +29,7 @@ Questa pagina descrive i problemi comuni relativi alle connessioni di input e sp
         
     Usare il pulsante [**Dati di esempio**](stream-analytics-sample-data-input.md) per ogni input e scaricare i dati di esempio dell'input.
         
-    Esaminare i dati di esempio per comprendere la forma dei dati, ovvero lo schema e i [tipi di dati](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+    Esaminare i dati di esempio per comprendere la forma dei dati, ovvero lo schema e i [tipi di dati](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventi di input in formato non valido determinano errori di deserializzazione 
 Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Un messaggio in formato non valido può essere causato, ad esempio, da una parentesi mancante in un oggetto JSON o da un formato di timestamp errato nel campo dell'ora. 
@@ -145,5 +145,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

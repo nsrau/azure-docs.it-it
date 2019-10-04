@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629758"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Risolvere i problemi relativi a un processo ricorrente anomalo
 
@@ -27,17 +27,17 @@ I processi ricorrenti condividono generalmente la stessa logica di query e dati 
 
 **Related Job View** (Visualizzazione dei processi correlati) in Strumenti Azure Data Lake per Visual Studio consente di accelerare lo stato di risoluzione dei problemi con entrambi i casi.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passaggio 1: Trovare i processi ricorrenti e aprire Related Job View (Visualizzazione dei processi correlati)
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passaggio 1: Trovare i processi ricorrenti e aprire visualizzazione processi correlati
 
 Per usare Related Job View (Visualizzazione processi correlati) per risolvere il problema relativo al processo ricorrente, è necessario innanzitutto individuare il processo ricorrente in Visual Studio e quindi aprire Related Job View (Visualizzazione processi correlati).
 
-### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Si dispone dell'URL per il processo ricorrente
+### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Si conosce l'URL per il processo ricorrente
 
 Tramite **Strumenti** > **Data Lake** > **Job View** (Visualizzazione processi), è possibile incollare l'URL di processo per aprire la visualizzazione processi in Visual Studio. Selezionare **View Related Jobs** (Visualizza processi correlati) per aprire la visualizzazione processi correlati.
 
 ![Collegamento View Related Jobs (Visualizza processi correlati) in Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Si dispone della pipeline per il processo ricorrente, ma non dell'URL
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Si dispone della pipeline per il processo ricorrente, ma non nell'URL
 
 In Visual Studio è possibile aprire il browser pipeline tramite Esplora server > account di Azure Data Lake Analytics > **Pipeline**. Se non è possibile trovare il nodo in Esplora server, [scaricare la versione più recente del plug-in](https://aka.ms/adltoolsvs). 
 

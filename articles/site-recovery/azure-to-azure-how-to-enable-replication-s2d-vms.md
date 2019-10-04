@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
 ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790343"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Replicare macchine virtuali di Azure con Spazi di archiviazione diretta in un'altra area di Azure
 

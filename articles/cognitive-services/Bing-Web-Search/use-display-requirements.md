@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499886"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
@@ -34,7 +34,7 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 ## <a name="definitions"></a>Definizioni
 
 
-|Termine  |DESCRIZIONE  |
+|Nome  |Descrizione  |
 |---------|---------|
 |Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |

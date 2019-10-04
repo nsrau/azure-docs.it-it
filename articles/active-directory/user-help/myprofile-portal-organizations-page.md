@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475528"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383008"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gestire le organizzazioni dal portale Profilo personale (anteprima)
+
 È possibile gestire le organizzazioni nella pagina **Organizzazioni** del portale **Profilo personale**.
 
 Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
@@ -31,6 +32,7 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
+
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
@@ -41,9 +43,10 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
     ![Pagina Organizzazioni](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. Verificare le altre organizzazioni associate, assicurandosi di riconoscere tutte le organizzazioni connesse al proprio account.
+4. Verificare le altre organizzazioni associate, assicurandosi di riconoscere tutte le organizzazioni connesse al proprio account.
 
 ## <a name="leave-an-organization"></a>Uscire da un'organizzazione
+
 È possibile uscire da qualsiasi organizzazione eccetto l'organizzazione principale.
 
 >[!Important]
@@ -57,4 +60,4 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Dopo la visualizzazione dell'organizzazione, è possibile selezionare per visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md)e connessi [dispositivi](myprofile-portal-devices-page.md), o una vista come organizzazione [Usa i dati](myprofile-portal-privacy-page.md).
+- Dopo aver visualizzato le organizzazioni, è possibile scegliere di visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md), i [dispositivi](myprofile-portal-devices-page.md)connessi o visualizzare il modo in cui l'organizzazione [Usa i dati](myprofile-portal-privacy-page.md).

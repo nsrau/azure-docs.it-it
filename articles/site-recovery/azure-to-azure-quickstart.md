@@ -1,20 +1,19 @@
 ---
 title: Configurare il ripristino di emergenza per una macchina virtuale IaaS di Azure in un'area di Azure secondaria
 description: Questa guida introduttiva fornisce i passaggi necessari per il ripristino di emergenza di una macchina virtuale IaaS di Azure tra le aree di Azure con il servizio Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855283"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146962"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure        
 
@@ -45,7 +44,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Al termine del processo di replica, è possibile controllare lo stato di replica, modificare le impostazioni di replica e testare la distribuzione.
 
-1. Nel menu della macchina virtuale fare clic su **Ripristino di emergenza**.
+1. In **Operazioni** fare clic su **Ripristino di emergenza**.
 2. È possibile verificare l'integrità della replica, i punti di ripristino creati, nonché le aree di origine e di destinazione sulla mappa.
 
    ![Stato della replica](media/azure-to-azure-quickstart/replication-status.png)

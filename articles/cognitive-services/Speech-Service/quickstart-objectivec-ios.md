@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, Objective-C - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Objective-C in iOS con Speech SDK
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009272"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553658"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
@@ -35,7 +35,7 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK di Servizi cognitivi per iOS viene attualmente distribuito come un Framework di Cocoa.
 Può essere scaricato da [questa pagina](https://aka.ms/csspeech/iosbinary). Scaricare il file nella home directory.
@@ -90,9 +90,8 @@ Sostituire il codice XML generato automaticamente con questo codice:
 ## <a name="building-and-running-the-sample"></a>Compilazione ed esecuzione dell'esempio
 
 1. Rendere visibile l'output di debug (**Visualizza** > **Area di debug** > **Attivare Console**).
-1. Scegliere il simulatore iOS o un dispositivo iOS connesso al computer di sviluppo come destinazione per l'app dall'elenco nel menu **Prodotto** -> **Destinazione**.
-1. Compilare ed eseguire l'esempio di codice nel simulatore iOS selezionando **Prodotto** -> **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
-   Speech SDK attualmente supporta solo le piattaforme iOS a 64 bit.
+1. Scegliere il simulatore iOS o un dispositivo iOS connesso al computer di sviluppo come destinazione per l'app dall'elenco nel menu **Prodotto** > **Destinazione**.
+1. Compilare ed eseguire l'esempio di codice nel simulatore iOS selezionando **Prodotto** > **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
 1. Dopo avere fatto clic sul pulsante "Riconosci (file)" nell'app, verrà visualizzato il contenuto del file audio "Che tempo fa?" nella parte inferiore dello schermo.
 
    ![App iOS simulata](media/sdk/qs-objectivec-simulated-app.png)
@@ -103,4 +102,3 @@ Sostituire il codice XML generato automaticamente con questo codice:
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di Objective-C su GitHub](https://aka.ms/csspeech/samples)
-

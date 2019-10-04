@@ -2,21 +2,19 @@
 title: Input e output di riferimento in pipeline di ricerca cognitiva - Ricerca di Azure
 description: Vengono illustrati l’annotazione di sintassi e le modalità di riferimento a un'annotazione in input e output di un insieme di competenze in una pipeline di ricerca cognitiva in Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344207"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265543"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un insieme di competenze di ricerca cognitiva
 
@@ -28,7 +26,7 @@ Gli esempi in questo articolo si basano sul campo *contenuto* generato automatic
 
 Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti per comprendere meglio gli esempi forniti più avanti in questo articolo.
 
-| Termine | DESCRIZIONE |
+| Nome | Descrizione |
 |------|-------------|
 | Documento arricchito | Un documento arricchito è una struttura interna creata e utilizzata dalla pipeline per contenere tutte le annotazioni correlate a un documento. Un documento arricchito può essere paragonato a una struttura di annotazioni. In genere, un'annotazione creata da un'annotazione precedente diventa il corrispettivo elemento figlio.<p/>I documenti arricchiti esistono solo per la durata dell'esecuzione di un insieme di competenze. Dopo che il contenuto è stato mappato all'indice di ricerca, il documento arricchito non è più necessario. Anche se si non interagisce direttamente con i documenti arricchiti, è utile disporre di un modello mentale dei documenti quando si crea un insieme di competenze. |
 | Contesto di arricchimento | Il contesto in cui avviene l'arricchimento, in riferimento ai termini con cui esso è stato arricchito. Per impostazione predefinita, il contesto di arricchimento è impostato al `"/document"` livello e definito per l'ambito dei singoli documenti. Quando viene eseguita una competenza, gli output di tale competenza diventano [proprietà del contesto definito](#example-2).|
@@ -36,13 +34,13 @@ Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Esempio 1: Riferimento di annotazione semplice
 
-Nel servizio di archiviazione BLOB di Azure, si supponga di disporre di una serie di file contenenti i riferimenti ai nomi delle persone che si desidera estrarre tramite riconoscimento delle entità denominate. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
+Nell'archivio BLOB di Azure, si supponga di disporre di un'ampia gamma di file contenenti riferimenti ai nomi di persone che si desidera estrarre utilizzando il riconoscimento delle entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
 
 Poiché il contesto predefinito è `"/document"`, è ora possibile fare riferimento all'elenco delle persone come `"/document/people"`. In questo caso specifico `"/document/people"` è un'annotazione, che potrebbe ora essere mappata a un campo in un indice o utilizzata in un'altra competenza nello stesso insieme di competenze.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +96,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 
-Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore rispetto a quello del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
+Si noti che la cardinalità `"/document/people/*/lastname"` di è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
 
 ```json
   {
@@ -123,7 +121,7 @@ Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore rispe
 
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 + [Come integrare una competenza personalizzata in una pipeline di arricchimento](cognitive-search-custom-skill-interface.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

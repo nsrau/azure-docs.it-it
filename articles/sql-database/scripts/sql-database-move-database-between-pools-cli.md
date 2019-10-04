@@ -1,5 +1,5 @@
 ---
-title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL | Microsoft Docs
+title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL di Azure in un pool elastico SQL | Microsoft Docs
 description: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL
 services: sql-database
 ms.service: sql-database
@@ -7,21 +7,20 @@ ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6fa21c0fea2eeacd17cfe9f0d7ba58d55ed60af1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357579"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569885"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL
 
-Questo script di esempio dell'interfaccia della riga di comando di Azure crea due pool elastici e sposta un database SQL di Azure da un pool elastico SQL all'altro, quindi sposta il database all'esterno di un pool elastico nella dimensione di calcolo di un singolo database.
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea due pool elastici e sposta un database SQL di Azure da un pool elastico SQL all'altro, quindi sposta il database all'esterno di un pool elastico nelle dimensioni di calcolo di un singolo database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +37,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script

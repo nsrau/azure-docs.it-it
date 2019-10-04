@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549270"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102336"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure
 
@@ -42,16 +41,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
 
-1. Nel portale di Azure fare clic su **Crea una risorsa**. 
+1. Selezionare **Azure SQL** dal menu a sinistra nel portale di Azure. Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
+1. Selezionare **+ Aggiungi** per aprire la pagina di **selezione dell'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive selezionando **Mostra dettagli** nel riquadro **Macchine virtuali SQL**.
+1. Selezionare l'immagine denominata **Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016** dall'elenco a discesa.
 
-1. Nel campo di ricerca digitare `SQL Server 2017 Developer on Windows Server 2016` e premere INVIO.
+   ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
-1. Selezionare l'immagine denominata **Licenza gratuita di SQL Server: SQL Server 2017 Developer in Windows Server 2016**. L'edizione per sviluppatori viene usata in questa esercitazione perché è una versione completa di SQL Serve gratuita a scopo di test per lo sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per informazioni complete sui prezzi, vedere [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md).
+1. Selezionare **Create** (Crea).
 
-   ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
-
-1. Selezionare **Create**.
+   ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Specificare i dettagli di base
 
@@ -59,12 +57,12 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
 1. Nella sezione **Dettagli progetto** selezionare la sottoscrizione di Azure e quindi selezionare **Crea nuovo** per creare un nuovo gruppo di risorse. Digitare _SQLVM-RG_ come nome.
 
-   ![Sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. In **Dettagli istanza**:
     1. Digitare _SQLVM_ come **nome della macchina virtuale**. 
     1. Scegliere una posizione per l'**area**. 
-    1. Ai fini di questa guida di avvio rapido lasciare **Opzioni di disponibilità** impostato su _La ridondanza dell'infrastruttura non è richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Aree e disponibilità](../../windows/regions-and-availability.md). 
+    1. Ai fini di questa guida di avvio rapido lasciare **Opzioni di disponibilità** impostato su _La ridondanza dell'infrastruttura non è richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Disponibilità](../../windows/availability.md). 
     1. Nell'elenco **Immagine** selezionare _Free SQL Server License: SQL Server 2017 Developer in Windows Server 2016_. 
     1. Scegliere **Modifica dimensioni** per modificare le **dimensioni** della macchina virtuale e selezionare l'offerta **A2 Basic**. Assicurarsi di cancellare le risorse quando non sono più necessarie per evitare eventuali addebiti imprevisti. 
 

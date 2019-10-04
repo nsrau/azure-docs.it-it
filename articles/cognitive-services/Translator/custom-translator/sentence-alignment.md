@@ -2,19 +2,19 @@
 title: Abbinamento e allineamento di frasi - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Durante l'esecuzione del training, le frasi presenti in documenti paralleli vengono abbinate o allineate. Custom Translator apprende le traduzioni una frase alla volta, leggendo una frase e la relativa traduzione. Allinea quindi ogni parola e ogni espressione l'una all'altra in queste due frasi.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8d2933f6a3bbab792acb708f2a59cad4eb2cabf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510429"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595466"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
@@ -36,9 +36,9 @@ La tabella seguente mostra il numero minimo di frasi estratte e frasi allineate 
 
 | Set di dati   | Numero minimo suggerito di frasi estratte | Numero minimo suggerito di frasi allineate | Numero massimo di frasi allineate |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Formazione   | 10,000                                     | 2.000                                    | Nessun limite massimo                 |
-| Ottimizzazione     | 2.000                                      | 500                                      | 2.500                          |
-| Test    | 2.000                                      | 500                                      | 2.500                          |
+| Formazione   | 10,000                                     | 2\.000                                    | Nessun limite massimo                 |
+| Regolazione     | 2\.000                                      | 500                                      | 2\.500                          |
+| Test    | 2\.000                                      | 500                                      | 2\.500                          |
 | Dizionario | 0                                          | 0                                        | Nessun limite massimo                 |
 
 ## <a name="next-steps"></a>Passaggi successivi

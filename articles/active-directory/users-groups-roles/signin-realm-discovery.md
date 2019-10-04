@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66418163"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Individuazione dell'area di autenticazione per le pagine di accesso Azure Active Directory
 
@@ -32,24 +32,24 @@ Per supportare una gamma più ampia di credenziali e aumentare l'usabilità, il 
 
 Un ulteriore vantaggio di questo miglioramento è funzionalità ottimizzate di errori di messaggistica. Di seguito sono riportati alcuni esempi di errore migliorata di messaggistica durante l'accesso a un'applicazione che supporta solo gli utenti di Azure Active Directory.
 
-1. È stato digitato correttamente il nome utente o il nome utente non è ancora stato sincronizzato con Azure AD:
+- È stato digitato correttamente il nome utente o il nome utente non è ancora stato sincronizzato con Azure AD:
   
     ![il nome utente è stato digitato correttamente o non trovato](./media/signin-realm-discovery/typo-username.png)
   
-2. È stato digitato correttamente il nome di dominio:
+- È stato digitato correttamente il nome di dominio:
   
     ![il nome di dominio è stato digitato correttamente o non trovato](./media/signin-realm-discovery/typo-domain.png)
   
-3. Utente tenta di accedere con un dominio noti:
+- Utente tenta di accedere con un dominio noti:
   
     ![Accedi con un dominio noto](./media/signin-realm-discovery/consumer-domain.png)
   
-4. È stato digitato correttamente la password, ma il nome utente è preciso:  
+- È stato digitato correttamente la password, ma il nome utente è preciso:  
   
     ![è stato digitato correttamente la password con il nome utente valido](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Questa funzionalità potrebbe influire sui domini federati di affidarsi a livello di dominio precedente Home Realm Discovery per forzare la federazione. Per aggiornamenti su quando verrà aggiunto il supporto di dominio federato, vedere [individuazione dell'area di autenticazione durante l'accesso per i servizi Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). Nel frattempo, alcune organizzazioni hanno eseguito il training di ai propri dipendenti di accedere con un nome utente che non esiste in Azure Active Directory ma contiene il nome di dominio corretto, perché i nomi di dominio indirizza gli utenti attualmente agli endpoint del dominio della propria organizzazione. Il nuovo comportamento di accesso non lo consente. L'utente viene informato per correggere il nome utente e che non possono accedere con un nome utente che non esiste in Azure Active Directory.
+> Questa funzionalità potrebbe influire sui domini federati di affidarsi a livello di dominio precedente Home Realm Discovery per forzare la federazione. Per aggiornamenti su quando verrà aggiunto il supporto di dominio federato, vedere [individuazione dell'area di autenticazione durante l'accesso per i servizi Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Nel frattempo, alcune organizzazioni hanno eseguito il training di ai propri dipendenti di accedere con un nome utente che non esiste in Azure Active Directory ma contiene il nome di dominio corretto, perché i nomi di dominio indirizza gli utenti attualmente agli endpoint del dominio della propria organizzazione. Il nuovo comportamento di accesso non lo consente. L'utente viene informato per correggere il nome utente e che non possono accedere con un nome utente che non esiste in Azure Active Directory.
 >
 > Se l'organizzazione dispone di procedure consigliate che dipendono dal comportamento precedente, è importante per gli amministratori dell'organizzazione per aggiornare la documentazione di accesso e l'autenticazione di dipendenti e per il training di ai dipendenti di usare il nome utente di Azure Active Directory per l'accesso.
   

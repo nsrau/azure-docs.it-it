@@ -1,21 +1,21 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure"
-description: Guida di avvio rapido alla creazione e alla gestione di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure.
+title: "Avvio rapido: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure"
+description: Guida di avvio rapido alla creazione e alla gestione di Database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8e5ddf0820c789150f264aa4f7d6bd291adb3af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902019"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443139"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Guida introduttiva: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure
 
 > [!TIP]
 > Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (attualmente in anteprima). Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
-Se si esegue l'interfaccia della riga di comando in locale, è necessario accedere al proprio account con il comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
+Se si esegue l'interfaccia della riga di comando in locale, è necessario accedere al proprio account con il comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Si noti la proprietà **ID** dell'output del comando per il nome della sottoscrizione corrispondente.
 ```azurecli-interactive
 az login
 ```
 
-Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account). Sostituire la proprietà **id** dell'output **az login** per la sottoscrizione nel segnaposto dell'ID sottoscrizione.
+Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account). Sostituire la proprietà **ID** dell'output **az login** per la sottoscrizione nel segnaposto dell'ID sottoscrizione.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
@@ -145,6 +145,13 @@ Se nel computer client è installato PostgreSQL, è possibile usare un'istanza l
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
+   > [!TIP]
+   > Se si preferisce usare un percorso URL per connettersi a Postgres, l'URL codifica il segno @ nel nome utente con `%40`. Ad esempio la stringa di connessione per psql sarà
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
+
+
 2. Dopo aver eseguito la connessione al server, creare un database vuoto nel prompt.
    ```sql
    CREATE DATABASE mypgsqldb;
@@ -173,7 +180,7 @@ pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installa
 
     Parametro di pgAdmin |Valore|DESCRIZIONE
     ---|---|---
-    Host name/address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
+    Host name/address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo ( **\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     Porta | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 
     Maintenance Database (Database manutenzione) | *postgres* | Nome del database predefinito generato dal sistema.
     Username | Nome di accesso amministratore server | Nome utente di accesso amministratore del server specificato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Se non si ricorda il nome utente, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *nome utente\@nome server*.

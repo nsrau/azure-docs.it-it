@@ -2,23 +2,19 @@
 title: Gestire Azure Key Vault tramite Automazione di Azure - Azure Key Vault | Microsoft Docs
 description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire l'insieme di credenziali chiave di Azure.
 services: Key-Vault, automation
-documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: ''
-ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87fdb565f47e7d88342c82bd5940c1ddb9c137e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712100"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gestione dell'insieme di credenziali chiave usando Automazione di Azure
 

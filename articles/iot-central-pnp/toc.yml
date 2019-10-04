@@ -1,0 +1,143 @@
+- name: Documentazione di Azure IoT Central (funzionalità di anteprima)
+  href: ../iot-central/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Panoramica
+  items:
+    - name: Informazioni su Azure IoT Central
+      href: ../iot-central/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Opzioni per le soluzioni IoT
+      href: ../iot-central/overview-iot-options.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Presentazione dell'interfaccia utente
+      href: ../iot-central/overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare una nuova applicazione
+      href: ../iot-central/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Collegare un dispositivo
+      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Esercitazioni
+  items:
+    - name: 1 - Definire un nuovo tipo di dispositivo
+      href: ../iot-central/tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: 2 - Aggiungere un dispositivo
+      href: ../iot-central/tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: 3 - Configurare le regole
+      href: ../iot-central/tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: 4 - Monitorare i dispositivi
+      href: ../iot-central/tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Concetti
+  items:
+    - name: Architettura
+      href: ../iot-central/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Connettività
+      href: ../iot-central/concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Guide alle procedure
+  items:
+    - name: Connettere dispositivi
+      items:
+        - name: Connettere un dispositivo Plug and Play IoT
+          href: ../iot-central/howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Preparare e connettere un MXChip IoT DevKit
+          href: ../iot-central/howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Monitorare la connettività dei dispositivi con la riga di comando
+          href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Gestire i dispositivi
+      items:
+        - name: Configurare un modello di dispositivo
+          href: ../iot-central/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire i dispositivi
+          href: ../iot-central/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Eseguire un processo
+          href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Usare gruppi di dispositivi
+          href: ../iot-central/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare una versione del modello del dispositivo
+          href: ../iot-central/howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Monitoraggio e analisi
+      items:
+        - name: Creare una regola di telemetria
+          href: ../iot-central/howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare una regola eventi
+          href: ../iot-central/howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Analizzare i dati del dispositivo
+          href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Azioni ed estendibilità
+      items:
+        - name: Esportare i dati personali
+          items:
+            - name: Eseguire l'esportazione nell'hub eventi e nel bus di servizio
+              href: ../iot-central/howto-export-data-event-hubs-service-bus-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+            - name: Eseguire l'esportazione nell'archiviazione BLOB
+              href: ../iot-central/howto-export-data-blob-storage-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare regole personalizzate
+          href: ../iot-central/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare analisi personalizzate
+          href: ../iot-central/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Visualizzare dati in Power BI
+          href: ../iot-central/howto-connect-powerbi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Connettere altri cloud IoT
+          href: ../iot-central/howto-build-iotc-device-bridge.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Administration
+      items:
+        - name: Amministrare l'applicazione
+          href: ../iot-central/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire utenti e ruoli
+          href: ../iot-central/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Visualizzare la fattura
+          href: ../iot-central/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Personalizzare l'interfaccia utente dell'applicazione
+          href: ../iot-central/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Preparare e caricare immagini
+          href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Configurare il dashboard dell'applicazione
+          href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire dal portale di Azure
+          href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire dall'interfaccia della riga di comando di Azure
+          href: ../iot-central/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire da Azure PowerShell
+          href: ../iot-central/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Creare e gestire un'applicazione come CSP
+          href: ../iot-central/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Personalizzazione
+      items:
+        - name: Creare dashboard personali
+          href: ../iot-central/howto-personalize-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Gestire le preferenze
+          href: ../iot-central/howto-manage-preferences.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Attivare e disattivare la live chat
+          href: ../iot-central/howto-show-hide-chat.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Risorse correlate
+  items:
+    - name: Soluzioni
+      items:
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /microsoft-iot-central
+    - name: Servizi della piattaforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Plug and Play IoT
+          href: /azure/iot-pnp
+        - name: Servizio Device Provisioning in hub IoT
+          href: /azure/iot-dps
+        - name: Servizi Location Based
+          href: /azure/location-based-services
+        - name: SDK per servizi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: IoT SDK per dispositivi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Risorse
+  items:
+    - name: Richieste di dati del cliente
+      href: ../iot-central/iot-central-customer-data-requests.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - name: Browser supportati
+      href: ../iot-central/iot-central-supported-browsers.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

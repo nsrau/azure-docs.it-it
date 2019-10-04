@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: dd915671c8b7d51595fea520187b917005f5dc53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822037"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 

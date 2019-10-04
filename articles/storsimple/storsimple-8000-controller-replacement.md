@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61482871"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -90,7 +90,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
    
     **Figura 1** retro del dispositivo StorSimple
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -231,7 +231,7 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 **Figura 8** Parte posteriore dell’enclosure principale con porte dati e  LED di monitoraggio
 
-| Etichetta | DESCRIZIONE |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 1-6 |porte di rete DATI da 0 a 5 |
 | 7 |LED blu |

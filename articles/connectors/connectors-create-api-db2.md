@@ -1,5 +1,5 @@
 ---
-title: Connettersi a IBM DB2 - App per la logica di Azure
+title: Connettersi a IBM DB2-app per la logica di Azure
 description: Gestione delle risorse con le API REST di IBM DB2 e App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -7,29 +7,29 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: plarsen, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60314074"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051028"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gestione delle risorse di IBM DB2 con App per la logica di Azure
 
 Con App per la logica di Azure e il connettore IBM DB2 è possibile creare attività e flussi di lavoro automatizzati in base alle risorse archiviate nel database IBM DB2. I flussi di lavoro possono connettersi alle risorse nel database, leggere ed elencare le tabelle di database, aggiungere righe, modificarle, eliminarle e altro ancora. È possibile includere azioni nelle app per la logica che ottengono risposte dal database e rendono l'output disponibile per altre azioni.
 
-Questo articolo illustra come creare un'app per la logica che esegue varie operazioni di database. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Questo articolo illustra come creare un'app per la logica che esegue varie operazioni di database. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="supported-platforms-and-versions"></a>Piattaforme e versioni supportate
 
-Il connettore DB2 include un client Microsoft che comunica con server DB2 remoti su una rete TCP/IP. È possibile usarlo per accedere ai database cloud, ad esempio IBM Bluemix dashDB o IBM DB2 per Windows in esecuzione nella virtualizzazione Azure. È anche possibile accedere ai database DB2 locali dopo aver [installato e configurato il gateway dati locale](../logic-apps/logic-apps-gateway-connection.md).
+Il connettore DB2 include un client Microsoft che comunica con server DB2 remoti su una rete TCP/IP. È possibile usare questo connettore per accedere a database cloud come IBM DB2 per Windows in esecuzione nella virtualizzazione di Azure. È anche possibile accedere ai database DB2 locali dopo aver [installato e configurato il gateway dati locale](../logic-apps/logic-apps-gateway-connection.md).
 
-Il connettore IBM DB2 supporta queste piattaforme e versioni, nonché i prodotti compatibili con IBM DB2, ad esempio, IBM Bluemix dashDB, che supportano DRDA (Distributed Relational Database Architecture) SQLAM (SQL Access Manager) versioni 10 e 11:
+Il connettore IBM DB2 supporta le piattaforme e le versioni di IBM DB2 insieme ai prodotti compatibili con IBM DB2 che supportano le versioni 10 e 11 di DRDA (Distributed Relational Database Architecture) con SQL Access Manager (SQLAM):
 
-| Piattaforma | Version | 
+| Piattaforma | Versione | 
 |----------|---------|
 | IBM DB2 per z/OS | 11.1, 10.1 |
 | IBM DB2 per i | 7.3, 7.2, 7.1 |
@@ -43,7 +43,7 @@ Il connettore IBM DB2 supporta queste operazioni di database, associabili alle a
 | Operazione di database | Azione del connettore |
 |--------------------|------------------|
 | Visualizzazione di un elenco delle tabelle di database | Ottieni tabelle |
-| Lettura di una riga con SELECT | Ottenere la riga |
+| Lettura di una riga con SELECT | Ottieni riga |
 | Lettura di tutte le righe con SELECT | Ottieni righe |
 | Aggiunta di una riga con INSERT | Inserisci riga |
 | Modifica di una riga con UPDATE | Aggiorna riga |
@@ -52,7 +52,7 @@ Il connettore IBM DB2 supporta queste operazioni di database, associabili alle a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Un database IBM DB2, basato sul cloud o locale
 
@@ -69,7 +69,7 @@ Gli esempi di questo articolo usano il trigger **Ricorrenza**.
 
 1. Nel trigger scegliere **Nuovo passaggio**.
 
-1. Nella casella di ricerca immettere "db2" come filtro. Per questo esempio, sotto l'elenco di azioni, selezionare questa azione: **Recupera tabelle (anteprima)**
+1. Nella casella di ricerca immettere "db2" come filtro. Per questo esempio, nell'elenco azioni selezionare questa azione: **Ottieni tabelle (anteprima)**
 
    ![Seleziona azione](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -83,17 +83,17 @@ Gli esempi di questo articolo usano il trigger **Ricorrenza**.
 
 Per configurare la connessione, specificare questi dettagli quando richiesto, scegliere **Crea** e quindi salvare l'app per la logica:
 
-| Proprietà | Obbligatorio | DESCRIZIONE |
+| Proprietà | Obbligatorio | Descrizione |
 |----------|----------|-------------|
-| **Connetti tramite gateway da sito locale** | No  | Si applica solo alle connessioni locali. |
-| **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
-| **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Questo valore è una stringa che rappresenta un indirizzo TCP/IP o alias, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
-| **Database** | Sì | Il nome del database <p><p>**Nota**: Questo valore è una stringa che rappresenta un nome di Database relazionale DRDA (RDBNAM): <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
-| **Nome utente** | Sì | Il nome utente del database <p><p>**Nota**: Questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
+| **Connetti tramite Gateway locale** | No | Si applica solo alle connessioni locali. |
+| **Connection Name** (Nome connessione) | Yes | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
+| **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e da un numero di porta TCP/IP. |
+| **Database** | Yes | Il nome del database <p><p>**Nota**: Questo valore è una stringa che rappresenta un nome di database relazionale DRDA (RDBNAM): <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
+| **Nome utente** | Yes | Il nome utente del database <p><p>**Nota**: Questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
 | **Password** | Sì | La password amministrativa per il database |
 ||||
 
-Ad esempio: 
+Ad esempio:
 
 ![I dettagli di connessione per i database basati sul cloud](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -105,17 +105,17 @@ Prima di creare la connessione, è necessario aver già installato il gateway da
 
 | Proprietà | Obbligatorio | DESCRIZIONE |
 |----------|----------|-------------|
-| **Connetti tramite gateway da sito locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
+| **Connetti tramite Gateway locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
 | **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
-| **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server:50000" <p><p>**Nota**: Questo valore è una stringa che rappresenta un indirizzo TCP/IP o alias, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
-| **Database** | Sì | Il nome del database <p><p>**Nota**: Questo valore è una stringa che rappresenta un nome di Database relazionale DRDA (RDBNAM): <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
-| **autenticazione** | Sì | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: Selezionare questo valore dall'elenco, ovvero Basic o Windows (Kerberos). |
+| **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server:50000" <p><p>**Nota**: Questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e da un numero di porta TCP/IP. |
+| **Database** | Sì | Il nome del database <p><p>**Nota**: Questo valore è una stringa che rappresenta un nome di database relazionale DRDA (RDBNAM): <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
+| **Autenticazione** | Sì | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: Selezionare questo valore nell'elenco, che include Basic o Windows (Kerberos). |
 | **Nome utente** | Sì | Il nome utente del database <p><p>**Nota**: Questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
-| **Password** | Sì | La password amministrativa per il database |
-| **Gateway** | Sì | Il nome del gateway dati locale installato <p><p>**Nota**: Selezionare questo valore dall'elenco, che include tutti i gateway di dati installati all'interno della sottoscrizione di Azure e un gruppo di risorse. |
+| **Password** | Yes | La password amministrativa per il database |
+| **Gateway** | Sì | Il nome del gateway dati locale installato <p><p>**Nota**: Selezionare questo valore nell'elenco, che include tutti i gateway dati installati all'interno della sottoscrizione di Azure e del gruppo di risorse. |
 ||||
 
-Ad esempio: 
+Ad esempio:
 
 ![Dettagli di connessione dei database locali](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -142,7 +142,7 @@ Espandere l'azione **Ottieni tabelle**.
 
    ![Visualizzare le tabelle di output](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
 
-## <a name="get-row"></a>Ottenere la riga
+## <a name="get-row"></a>Ottieni riga
 
 Per recuperare un record in una tabella di database DB2, usare l'azione **Ottieni riga** nell'app per la logica. Questa azione esegue un'istruzione `SELECT WHERE` DB2, ad esempio `SELECT FROM AREA WHERE AREAID = '99999'`.
 
@@ -154,13 +154,13 @@ Per recuperare un record in una tabella di database DB2, usare l'azione **Ottien
 
 1. Specificare valori per tutte le proprietà obbligatorie (*). Dopo aver selezionato una tabella, l'azione mostrerà le proprietà pertinenti specifiche per i record al suo interno.
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella che contiene il record desiderato, ad esempio "AREA" in questo esempio |
    | **ID area** | Sì | L'ID che contiene il record desiderato, ad esempio "99999" in questo esempio |
    ||||
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Selezionare la tabella](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -195,7 +195,7 @@ Per recuperare tutti i record in una tabella di database DB2, usare l'azione **O
 
 1. Aprire l'elenco **Nome tabella** e selezionare la tabella desiderata, ovvero "AREA" in questo esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Selezionare la tabella](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Per specificare un filtro o eseguire una query per i risultati, scegliere **Mostra opzioni avanzate**.
 
@@ -234,7 +234,7 @@ Per aggiungere un singolo record in una tabella di database DB2, usare l'azione 
 
    Ecco le proprietà per l'esempio:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui aggiungere il record, ad esempio "AREA" |
    | **ID area** | Sì | L'ID per l'area da aggiungere, ad esempio "99999" |
@@ -242,9 +242,9 @@ Per aggiungere un singolo record in una tabella di database DB2, usare l'azione 
    | **Region ID** (ID area) | Sì | L'ID dell'area da aggiungere, ad esempio "102" |
    |||| 
 
-   Ad esempio: 
+   Esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Selezionare la tabella](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -281,7 +281,7 @@ Per aggiornare un singolo record in una tabella di database DB2, usare l'azione 
 
    Ecco le proprietà per l'esempio:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui aggiornare il record, ad esempio "AREA" |
    | **ID riga** | Sì | L'ID del record da aggiornare, ad esempio "99999" |
@@ -290,9 +290,9 @@ Per aggiornare un singolo record in una tabella di database DB2, usare l'azione 
    | **Region ID** (ID area) | Sì | Il nuovo ID di area, ad esempio "102" |
    ||||
 
-   Ad esempio: 
+   Esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Selezionare la tabella](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -332,12 +332,12 @@ Per eliminare un singolo record da una tabella di database DB2, usare l'azione *
    | Proprietà | Obbligatorio | DESCRIZIONE |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui eliminare il record, ad esempio "AREA" |
-   | **ID riga** | Sì | L'ID del record da eliminare, ad esempio "99999" |
+   | **ID riga** | Yes | L'ID del record da eliminare, ad esempio "99999" |
    ||||
 
-   Ad esempio: 
+   Ad esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Selezionare la tabella](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -362,12 +362,7 @@ Espandere l'azione **Elimina riga**.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/db2/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/db2/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

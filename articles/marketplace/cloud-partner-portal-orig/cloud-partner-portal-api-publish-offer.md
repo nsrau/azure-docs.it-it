@@ -1,25 +1,18 @@
 ---
-title: Pubblicare un'offerta | Microsoft Docs
+title: Pubblicare un'offerta | Azure Marketplace
 description: API per pubblicare l'offerta specificata.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934986"
 ---
 <a name="publish-an-offer"></a>Pubblicare un'offerta
 ================
@@ -33,9 +26,9 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 |  **Nome**      |    **Descrizione**                               |  **Tipo di dati** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   string       |
-|  offerId       | Identificatore dell'offerta                                 |   string       |
-|  api-version   | Versione pi√π recente dell'API                        |   Data         |
+|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   String       |
+|  offerId       | Identificatore dell'offerta                                 |   String       |
+|  api-version   | Versione pi√π recente dell'API                        |   Date         |
 |  |  |
 
 
@@ -49,7 +42,7 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  |  |
 
 
-<a name="body-example"></a>Esempio del corpo
+<a name="body-example"></a>Esempio di corpo
 ------------
 
 ### <a name="request"></a>Richiesta

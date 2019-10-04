@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7a170eaf74531cf4bd8c28aafaa5873f2459d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324153"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982425"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
 
@@ -39,16 +39,16 @@ Dopo aver generato un token di firma di accesso condiviso, è possibile accedere
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Ad esempio: 
+Ad esempio:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni sui parametri della firma di accesso condiviso](#sas-parameter-considerations) e [Parametri della firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
+Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni sui parametri della firma di accesso condiviso](#sas-parameter-considerations) e [Parametri della firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
 
 ![Impostazioni della firma di accesso condiviso con la rete CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opzione 1: Utilizzo di firma di accesso condiviso con pass-through all'archiviazione blob dalla rete CDN di Azure
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opzione 1: Uso della firma di accesso condiviso con pass-through all'archiviazione BLOB dalla rete CDN di Azure
 
 È l'opzione più semplice e prevede l'uso di un solo token di firma di accesso condiviso, che viene passato dalla rete CDN di Azure al server di origine.
  
@@ -60,14 +60,14 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
    
    L'URL dell'endpoint della rete CDN risultante ha il formato seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Ad esempio:    
+   Ad esempio:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. Specificare la durata della cache tramite le regole di memorizzazione nella cache o aggiungendo intestazioni `Cache-Control` al server di origine. Poiché la rete CDN di Azure considera il token di firma di accesso condiviso come una stringa di query semplice, la procedura consigliata prevede la configurazione della durata della cache con scadenza alla stessa ora di scadenza della firma di acceso condiviso o a un'ora antecedente. In caso contrario, se un file viene memorizzato nella cache per un periodo più lungo di quello in cui la firma di accesso condiviso è attiva, una volta scaduta la firma di accesso condiviso, sarà possibile accedere a tale file dal server di origine della rete CDN di Azure. In questo caso, se si desidera rendere inaccessibile il file memorizzato nella cache, è necessario eseguire un'operazione di ripulitura sul file per cancellarlo dalla cache. Per informazioni sull'impostazione della durata della cache sulla rete CDN di Azure, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opzione 2: Nascosto i token SAS di CDN mediante una regola di riscrittura
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opzione 2: Token SAS della rete CDN nascosta con una regola di riscrittura
  
 Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure fornita da Verizon**. Con questa opzione, è possibile proteggere l'archivio BLOB nel server di origine. È consigliabile usarla se non sono necessarie restrizioni di accesso specifiche per il file, ma si desidera impedire agli utenti di accedere all'origine di archiviazione in maniera diretta per migliorare i tempi di offload della rete CDN di Azure. Il token di firma di accesso condiviso, che non è noto all'utente, è necessario per chiunque acceda ai file nel contenitore specificato del server di origine. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL.
  
@@ -91,13 +91,13 @@ Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure 
 
 2. Dopo l'attivazione della nuova regola, chiunque può accedere ai file nel contenitore specificato nell'endpoint della rete CDN indipendentemente dal fatto che venga usato o meno un token di firma di accesso condiviso nell'URL. Il formato è il seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Ad esempio:    
+   Esempio:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Specificare la durata della cache tramite le regole di memorizzazione nella cache o aggiungendo intestazioni `Cache-Control` al server di origine. Poiché la rete CDN di Azure considera il token di firma di accesso condiviso come una stringa di query semplice, la procedura consigliata prevede la configurazione della durata della cache con scadenza alla stessa ora di scadenza della firma di acceso condiviso o a un'ora antecedente. In caso contrario, se un file viene memorizzato nella cache per un periodo più lungo di quello in cui la firma di accesso condiviso è attiva, una volta scaduta la firma di accesso condiviso, sarà possibile accedere a tale file dal server di origine della rete CDN di Azure. In questo caso, se si desidera rendere inaccessibile il file memorizzato nella cache, è necessario eseguire un'operazione di ripulitura sul file per cancellarlo dalla cache. Per informazioni sull'impostazione della durata della cache sulla rete CDN di Azure, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md).
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opzione 3: Usando l'autenticazione basata su token di sicurezza della rete CDN con una regola di riscrittura
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opzione 3: Uso dell'autenticazione del token di sicurezza della rete CDN con una regola di riscrittura
 
 Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, è necessario disporre di un profilo di **rete CDN Premium di Azure fornita da Verizon**. Questa opzione è la più sicura e personalizzabile. L'accesso del client si basa sui parametri di sicurezza impostati nel token di sicurezza. Dopo che è stato creato e configurato, il token di sicurezza sarà necessario in tutti gli URL di endpoint della rete CDN. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL. Se il token di firma di accesso condiviso diventa in seguito non valido, la rete CDN di Azure non potrà più riconvalidare i contenuti del server di origine.
 
@@ -106,7 +106,7 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
    Un URL di endpoint con token di sicurezza ha il formato seguente:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Ad esempio:    
+   Esempio:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -135,8 +135,8 @@ Poiché i parametri della firma di accesso condiviso non sono visibili alla rete
 
 | Nome del parametro della firma di accesso condiviso | DESCRIZIONE |
 | --- | --- |
-| Inizia | Ora in cui la rete CDN di Azure può iniziare ad accedere al file BLOB. A causa dello sfasamento del clock (quando un segnale di clock perviene in momenti diversi per i diversi componenti), scegliere un'ora con 15 minuti di anticipo se si vuole che l'asset sia immediatamente disponibile. |
-| End | Ora dopo la quale la rete CDN di Azure non può più accedere al file BLOB. I file precedentemente memorizzati nella cache sulla rete CDN di Azure sono ancora accessibili. Per controllare l'ora di scadenza dei file, impostare l'ora di scadenza appropriata nel token di sicurezza della rete CDN di Azure o ripulire l'asset. |
+| Start | Ora in cui la rete CDN di Azure può iniziare ad accedere al file BLOB. A causa dello sfasamento del clock (quando un segnale di clock perviene in momenti diversi per i diversi componenti), scegliere un'ora con 15 minuti di anticipo se si vuole che l'asset sia immediatamente disponibile. |
+| Fine | Ora dopo la quale la rete CDN di Azure non può più accedere al file BLOB. I file precedentemente memorizzati nella cache sulla rete CDN di Azure sono ancora accessibili. Per controllare l'ora di scadenza dei file, impostare l'ora di scadenza appropriata nel token di sicurezza della rete CDN di Azure o ripulire l'asset. |
 | Indirizzi IP consentiti | facoltativo. Se si usa la **rete CDN di Azure fornita da Verizon**, è possibile impostare questo parametro sugli intervalli definiti in [Rete CDN di Azure da intervalli di indirizzi IP per server perimetrali Verizon](/azure/cdn/cdn-pop-list-api). Se si usa la **rete CDN di Azure fornita da Akamai**, non è possibile impostare il parametro degli intervalli IP poiché gli indirizzi IP non sono statici.|
 | Protocolli consentiti | Uno o più protocolli consentiti per una richiesta effettuata con la firma di acceso condiviso dell'account. È consigliabile usare l'impostazione HTTPS.|
 

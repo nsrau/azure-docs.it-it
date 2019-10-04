@@ -1,5 +1,5 @@
 ---
-title: Trasferire i dati con Azure Data Box Edge | Microsoft Docs
+title: Esercitazione sul trasferimento di dati in condivisioni con Azure Data Box Edge | Microsoft Docs
 description: Informazioni su come aggiungere condivisioni e connettersi a esse in un dispositivo Data Box Edge.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924622"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Esercitazione: Trasferire i dati con Azure Data Box Edge
 

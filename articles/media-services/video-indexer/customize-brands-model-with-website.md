@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 2522ede85c290fa238c0d5a5604d2dfbab984cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 721fde63aeae8704761b3c21f489dcad77cb89e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799606"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizzare un modello di Marchi con il sito Web di Video Indexer
 

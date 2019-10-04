@@ -4,23 +4,22 @@ description: Pianificazione della migrazione delle risorse IaaS dal modello di d
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111974"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165334"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 
@@ -32,7 +31,7 @@ Il percorso di migrazione include quattro fasi generali:
 
 ![Fasi di migrazione](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Pianificazione
+## <a name="plan"></a>Piano
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerazioni tecniche e compromessi
 
@@ -193,7 +192,7 @@ Ecco alcuni aspetti da considerare:
 Decidere quali servizi si desidera abilitare ora in Azure Resource Manager.  Molti clienti ritengono efficace quanto segue per i propri ambienti Azure:
 
 - [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
-- [Modelli di Azure Resource Manager per una distribuzione più semplice e controllata](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Modelli di Azure Resource Manager per una distribuzione più semplice e controllata](../../azure-resource-manager/template-deployment-overview.md).
 - [Tag](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controllo di attività](../../azure-resource-manager/resource-group-audit.md)
 - [Criteri di Azure](../../governance/policy/overview.md)

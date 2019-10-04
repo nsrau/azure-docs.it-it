@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669351"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900527"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
@@ -54,7 +54,7 @@ Gestione API di Azure può essere usato con qualsiasi combinazione di servizi se
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Inviare traffico a un servizio senza stato
 
-Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate al servizio vengono inviate a una replica casuale dell'istanza del servizio senza stato.
+Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate al servizio vengono inviate a un'istanza casuale del servizio.
 
 #### <a name="example"></a>Esempio
 Nello scenario seguente un'applicazione Service Fabric contiene un servizio senza stato denominato `fabric:/app/fooservice`, che espone un'API HTTP interna. Il nome dell'istanza del servizio è noto e può essere specificato a livello di codice direttamente nei criteri di elaborazione in ingresso di Gestione API. 
@@ -77,7 +77,7 @@ Il servizio viene partizionato usando lo schema di partizione Int64 con due part
 
 Negli scenari più avanzati è possibile definire un'operazione di Gestione API che esegua il mapping delle richieste a più di un'istanza del servizio. In questo caso, ogni operazione contiene criteri che eseguono il mapping delle richieste a una specifica istanza del servizio in base ai valori della richiesta HTTP in ingresso, ad esempio la stringa di query o il percorso dell'URL, e nel caso di servizi con stato una partizione nell'istanza del servizio. 
 
-A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a un'istanza del servizio senza stato nel back-end Service Fabric in base ai valori recuperati dalla richiesta HTTP in ingresso. Le richieste a un'istanza del servizio vengono inviate a una replica casuale dell'istanza.
+A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a un'istanza del servizio senza stato nel back-end Service Fabric in base ai valori recuperati dalla richiesta HTTP in ingresso. Le richieste a un servizio vengono inviate a un'istanza casuale del servizio.
 
 #### <a name="example"></a>Esempio
 
@@ -85,7 +85,7 @@ Questo esempio illustra come creare una nuova istanza del servizio senza stato p
  
 - `fabric:/app/users/<username>`
 
-  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio:
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`
@@ -104,7 +104,7 @@ Questo esempio illustra come creare una nuova istanza del servizio con stato per
  
 - `fabric:/app/users/<username>`
 
-  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio:
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`

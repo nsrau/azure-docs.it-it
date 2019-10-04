@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione tabelle di Azure e a Servizi connessi di V
 description: Informazioni su come iniziare a usare il servizio di archiviazione tabelle in un progetto ASP.NET in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con Servizi connessi di Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6f0858d3c2e3f79dda58710031c105e83418058e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010142"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511177"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione tabelle di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -169,7 +169,7 @@ I passaggi seguenti illustrano come creare una tabella:
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **crea una tabella** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Crea tabella** per visualizzare risultati simili allo screenshot seguente:
   
     ![Crea tabella](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -271,7 +271,7 @@ La classe di entità *deve* dichiarare un costruttore pubblico senza parametri.
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **aggiungere entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Aggiungi entità** per visualizzare risultati simili allo screenshot seguente:
   
     ![Aggiungi entità](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -391,7 +391,7 @@ Oltre ad [aggiungere entità a una tabella una alla volta](#add-an-entity-to-a-t
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **aggiungere le entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Aggiungi entità** per visualizzare risultati simili allo screenshot seguente:
   
     ![Aggiungi entità](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -493,7 +493,7 @@ Questa sezione illustra come ottenere una singola entità da una tabella usando 
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **recupera singolo** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Get Single** per visualizzare risultati simili allo screenshot seguente:
   
     ![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -537,7 +537,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Usando il **CustomerEntity** classe e i dati presentati nella sezione [aggiungere un batch di entità a una tabella](#add-a-batch-of-entities-to-a-table), il frammento di codice seguente esegue una query sulla tabella per tutte le entità in cui il **PartitionKey**  (cognome del cliente) ha un valore di "Smith":
+1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Usando la classe **CustomerEntity** e i dati presentati nella sezione [aggiungere un batch di entità a una tabella](#add-a-batch-of-entities-to-a-table), il frammento di codice seguente esegue una query sulla tabella per tutte le entità in cui **PartitionKey** (cognome del cliente) ha un valore di "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -603,7 +603,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Get Partition** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Ottieni partizione** per visualizzare risultati simili allo screenshot seguente:
   
     ![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -703,7 +703,7 @@ Questa sezione illustra come eliminare un'entità da una tabella.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **eliminare entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Elimina entità** per visualizzare risultati simili allo screenshot seguente:
   
     ![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

@@ -1,7 +1,6 @@
 ---
 title: Usare Apache Kafka in HDInsight con l'hub IoT
 description: Informazioni su come usare Apache Kafka in HDInsight con l'hub IoT. Il progetto Kafka Connect Azure IoT Hub specifica un connettore di origine e un connettore sink per Kafka. Il connettore di origine può leggere i dati dall'hub IoT mentre il connettore sink scrive nell'hub IoT.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093389"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446448"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -38,7 +37,7 @@ Per altre informazioni sull'API Connect, vedere [https://kafka.apache.org/docume
 
 * Un nodo perimetrale nel cluster Kafka. Per altre informazioni, vedere il documento [Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight](../hdinsight-apps-use-edge-node.md).
 
-* Un hub IoT. Per questa esercitazione, è consigliabile vedere il documento [Connettere un simulatore online Raspberry Pi all'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* Un hub IoT. Per questo articolo, consiglio il [simulatore online connettere Raspberry Pi all'IoT Hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) documento.
 
 * Un client SSH. La procedura in questo documento usa SSH per la connessione al cluster. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -168,7 +167,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 1. Ottenere l'endpoint compatibile con hub eventi e il nome dell'endpoint compatibile con hub eventi per l'hub IoT. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-   * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
+   * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
 
      1. Passare all'hub IoT e selezionare __Endpoint__.
      2. Da __Endpoint predefiniti__, selezionare __Eventi__.
@@ -181,7 +180,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
         > [!IMPORTANT]  
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -197,13 +196,13 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 2. Ottenere i __criteri di accesso condiviso__ e la __chiave__. Per questo esempio, usare la chiave __service__. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-    * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
+    * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
 
         1. Selezionare __Criteri di accesso condiviso__ e quindi __service__.
         2. Copiare il valore di __Chiave primaria__.
         3. Copiare il valore di __Stringa di connessione - chiave primaria__.
 
-    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
 
         1. Per ottenere il valore della chiave primaria, usare il comando seguente:
 

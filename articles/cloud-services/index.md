@@ -2,22 +2,19 @@
 title: Documentazione di Servizi cloud di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità.
 services: cloud-services
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 300762cd98f66af80dd6fd7079005ef17ece2ade
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.author: gwallace
+ms.openlocfilehash: f30032ff2d7189e45075c74152bb6903128217ad
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24101883"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609728"
 ---
 # <a name="cloud-services-documentation"></a>Documentazione di Servizi cloud
 
@@ -107,7 +104,7 @@ Informazioni su come usare Servizi cloud per ospitare ed eseguire API e applicaz
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lingue</h3>
+                        <h3>Languages</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">Schema XML .csdef</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">Schema LoadBalancerProbe</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">Schema WebRole</a></p>

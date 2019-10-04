@@ -10,17 +10,17 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: cephalin;dariac
+ms.date: 09/18/2019
+ms.author: cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858878"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098047"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -45,17 +45,17 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
 
 > [!NOTE]
-> L'autenticazione a un endpoint FTP/FTPS con requirers credenziali a livello di utente un nome utente nel formato seguente: 
+> L'autenticazione a un endpoint FTP/FTPS usando le credenziali a livello di utente richiede un nome utente nel formato seguente: 
 >
 >`<app-name>\<user-name>`
 >
-> Poiché le credenziali a livello di utente sono collegate all'utente e non una risorsa specifica, il nome utente deve essere nel formato per indirizzare l'azione di accesso per l'endpoint dell'app a destra.
+> Poiché le credenziali a livello di utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint dell'app corretto.
 >
 
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
 1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php), usare le specifiche informazioni raccolte per connettersi all'app.
-2. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
+2. Copiare i file e la struttura di directory corrispondente nella directory [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
 3. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
 > [!NOTE] 
@@ -72,9 +72,9 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 
 Per migliorare la sicurezza ottimale, è consigliabile consentire solo FTP su SSL. È anche possibile disabilitare FTP e FTPS se non si usa la distribuzione FTP.
 
-Nella pagina di risorse dell'app nel [portale di Azure](https://portal.azure.com) selezionare **Impostazioni app** nel riquadro di spostamento sinistro.
+Nella pagina delle risorse dell'app, in [portale di Azure](https://portal.azure.com), selezionare **configurazione** > **Impostazioni generali** dal dispositivo di spostamento a sinistra.
 
-Per disabilitare il protocollo FTP non crittografato, selezionare **Solo FTPS**. Per disabilitare completamente FTP e FTPS, selezionare **Disabilita**. Al termine fare clic su **Salva**. Se si usa **Solo FTPS**, è necessario applicare TLS 1.2 o versione successiva passando al pannello **Impostazioni SSL** dell'app Web. TLS 1.0 e 1.1 non sono supportati con **Solo FTPS**.
+Per disabilitare l'FTP non crittografato, selezionare **FTPS solo** nello **stato FTP**. Per disabilitare completamente FTP e FTPS, selezionare **disattivato**. Al termine fare clic su **Salva**. Se si usa **solo FTPS**, è necessario applicare TLS 1,2 o versione successiva passando al pannello delle **Impostazioni TLS/SSL** dell'app Web. TLS 1.0 e 1.1 non sono supportati con **Solo FTPS**.
 
 ![Disabilitare FTP/FTPS](./media/app-service-deploy-ftp/disable-ftp.png)
 

@@ -4,23 +4,22 @@ description: Informazioni su come creare e caricare un disco rigido virtuale (VH
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3241229fcf3ef99f71185c452ae615ec2cfc889
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419391"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091215"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparare una macchina virtuale SLES o openSUSE per Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -99,7 +98,7 @@ In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche i
         # logout
 16. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-- - -
+---
 ## <a name="prepare-opensuse-131"></a>Preparare openSUSE 13.1+
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.

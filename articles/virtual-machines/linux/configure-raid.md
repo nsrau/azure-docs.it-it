@@ -4,24 +4,23 @@ description: Informazioni su come usare mdadm per configurare RAID in Linux in A
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083798"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurare RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
@@ -122,19 +121,19 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 
 1. Creare il file system nel nuovo dispositivo RAID
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE e Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE e Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11**: abilitare boot.md e creare mdadm.conf
+    **SLES 11**: abilitare boot.md e creare mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,7 +143,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
    > [!NOTE]
    > Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio. Questo passaggio *non* è obbligatorio su SLES 12.
    > 
-   > 
+   
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Aggiungere il nuovo file a /etc/fstab
 > [!IMPORTANT]

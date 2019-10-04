@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755912"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123035"
 ---
-# <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
+# <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
 Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora. Servizi multimediali consente agli sviluppatori di applicazioni, ai call center, alle agenzie governative o alle società di intrattenimento di creare applicazioni che offrono esperienze multimediali di qualità eccezionale a numerosi destinatari sui browser e sui dispositivi mobili moderni più diffusi. 
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="what-can-i-do-with-media-services"></a>Cosa è possibile fare con Servizi multimediali?
 
@@ -48,7 +48,8 @@ Servizi multimediali consente di creare vari flussi di lavoro multimediali nel c
 
 Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
-Prima di iniziare lo sviluppo, esaminare i [Concetti fondamentali](concepts-overview.md)<br/>
+> [!TIP]
+> Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (include concetti importanti: creazione di pacchetti, codifica, protezione e così via)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
 
 ### <a name="quickstarts"></a>Guide introduttive  
 
@@ -68,23 +69,26 @@ Queste esercitazioni illustrano le procedure basate su scenari per alcune delle 
 * [Analizzare i video - .NET](analyze-videos-tutorial-with-api.md)
 * [Crittografia dinamica AES-128 - .NET](protect-with-aes128.md)
     
+### <a name="samples"></a>Esempi
+
+Usare [Esplora gli esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-media-services) per esplorare gli esempi di codice di Servizi multimediali di Azure.
+
 ### <a name="how-to-guides"></a>Guide alle procedure
 
 Gli articoli contengono codici di esempio che dimostrano come completare un'attività. In questa sezione sono disponibili numerosi esempi, di seguito sono illustrati solo alcuni di essi:
 
 * [Creare un account - Interfaccia della riga di comando](create-account-cli-how-to.md)
 * [Accedere alle API - Interfaccia della riga di comando](access-api-cli-how-to.md)
-* [Iniziare a sviluppare con gli SDK](developers-guide.md)
 * [Codificare con HTTPS come input del processo - .NET](job-input-from-http-how-to.md)  
 * [Monitorare gli eventi - Portale](monitor-events-portal-how-to.md)
 * [Crittografare in modo dinamico il contenuto con più tecnologie DRM - .NET](protect-with-drm.md) 
 * [Come codificare con una trasformazione personalizzata - CLI](custom-preset-cli-howto.md)
 
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Come si procede per iniziare a usare v3? 
-
-> [!div class="nextstepaction"]
-> [Informazioni sui concetti fondamentali](concepts-overview.md)<br/>
-> [Sviluppare con l'API Servizi multimediali v3 usando gli SDK](developers-guide.md) 
+[Informazioni sui concetti fondamentali](concepts-overview.md)
 

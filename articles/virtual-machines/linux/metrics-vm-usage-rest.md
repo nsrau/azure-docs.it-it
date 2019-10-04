@@ -4,18 +4,18 @@ description: Usare le API REST di Azure per raccogliere le metriche di utilizzo 
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754847"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667445"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Ottenere le metriche di utilizzo di una macchina virtuale usando l'API REST
 
@@ -35,14 +35,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare su un [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| NOME | DESCRIZIONE |
+| Name | DESCRIZIONE |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nome del gruppo di risorse di Azure associato alla risorsa. È possibile ottenere questo valore dall'API di Azure Resource Manager, dall'interfaccia della riga di comando o dal portale. |

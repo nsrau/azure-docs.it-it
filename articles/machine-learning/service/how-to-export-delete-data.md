@@ -1,6 +1,6 @@
 ---
 title: Esportare o eliminare i dati dell'area di lavoro
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Informazioni su come esportare o eliminare l'area di lavoro con il portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251776"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002832"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning 
 
@@ -27,9 +27,9 @@ In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Controllare i dati dell'area di lavoro
-I dati interni al prodotto archiviati da Azure Machine Learning Services sono disponibili per l'esportazione e l'eliminazione tramite il portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
+I dati del prodotto archiviati da Azure Machine Learning sono disponibili per l'esportazione e l'eliminazione tramite l'portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
 
-In Azure Machine Learning Services i dati personali sono costituiti dalle informazioni utente dei documenti della cronologia di esecuzione e dai record dei dati di telemetria di alcune interazioni dell'utente con il servizio.
+In Azure Machine Learning i dati personali sono costituiti dalle informazioni utente dei documenti della cronologia di esecuzione e dai record dei dati di telemetria di alcune interazioni dell'utente con il servizio.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Eliminare i dati dell'area di lavoro con l'API REST 
 
@@ -231,3 +231,29 @@ I modelli possono essere ottenuti con:
 Le origini dati possono essere ottenute con:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Elimina asset dell'interfaccia visiva
+
+Nell'interfaccia visiva in cui è stato creato l'esperimento, eliminare i singoli asset:
+
+1. A sinistra selezionare il tipo di asset che si vuole eliminare.
+
+    ![Eliminare gli asset](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Nell'elenco selezionare le singole risorse da eliminare.
+
+1. Nella parte inferiore selezionare **Elimina**.
+
+## <a name="export-visual-interface-data"></a>Esporta dati dell'interfaccia visiva
+
+Nell'interfaccia visiva in cui è stato creato l'esperimento, esportare i dati aggiunti:
+
+1. A sinistra selezionare **dati**.
+
+1. Nella parte superiore selezionare i **set** di dati personali o gli **esempi** per individuare i dati che si desidera esportare.
+
+    ![Scarica dati](media/how-to-export-delete-data.md/download-data.png)
+
+1. Nell'elenco selezionare i singoli set di impostazioni da esportare.
+
+1. In basso selezionare **Scarica**.

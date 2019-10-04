@@ -1,19 +1,19 @@
 ---
 title: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azure Data Lake Storage Gen2
-services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392586"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855415"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen2
 
@@ -110,7 +110,7 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen2, è p
 
 Per verificare la presenza di limitazioni, abilitare la registrazione di debug sul lato client:
 
-1. In **Ambari** > **Storm** > **Config** (Configurazione)  > **Advanced storm-worker-log4j** (Storm-worker-log4j avanzato), sostituire **&lt;root level="info"&gt;** con **&lt;root level="debug"&gt;**. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
+1. In **Ambari** > **Storm** > **Config** (Configurazione)  > **Advanced storm-worker-log4j** (Storm-worker-log4j avanzato), sostituire **&lt;root level="info"&gt;** con **&lt;root level="debug"&gt;** . Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: anilmur
+ms.reviewer: juliako;johndeu
+ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314025"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613236"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro  
 ## <a name="overview"></a>Panoramica
@@ -86,7 +87,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-Per ottenere assistenza o ricevere informazioni per la creazione di flussi di lavoro personalizzati nello strumento per la progettazione di flussi di lavoro, inviare un messaggio di posta elettronica a mepd@microsoft.com.
+Per ottenere assistenza o ricevere informazioni per la creazione di flussi di lavoro personalizzati nello strumento per la progettazione di flussi di lavoro, inviare un messaggio di posta elettronica a mepd@microsoft.com. Usare la lingua inglese quando si scrive un messaggio di posta elettronica.
 
 ## <a name="see-also"></a>Vedere anche
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58863203"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569595"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -41,8 +40,8 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 
 | Impatto | DESCRIZIONE |
 |:--- |:--- |
-| Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| High |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
+| Medi |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
 | Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 
@@ -54,7 +53,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 
 Di seguito è riportato un esempio della raccomandazione "Crea indice" nel portale di Azure.
 
-![Creare un indice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Crea indice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Applicazione delle raccomandazioni
 Il database SQL di Azure offre il controllo completo sull'attivazione delle raccomandazioni tramite una delle tre opzioni seguenti: 
@@ -111,11 +110,11 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 
 Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare le raccomandazioni tramite T-SQL manualmente
+### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare manualmente le raccomandazioni tramite T-SQL
 
 Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
 
-*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Inoltre, raccomandazioni applicate manualmente rimarrà attiva e mostrate nell'elenco delle raccomandazioni per 24-48 ore. prima che il sistema prelevi automaticamente li. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarlo manualmente.
+*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 
@@ -132,9 +131,9 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
-| Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
-| Success |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
-| Tipi di errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
+| Convalida |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
+| Riuscito |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
+| Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |
 
@@ -155,7 +154,7 @@ Dopo aver implementato correttamente le raccomandazioni, attualmente, solo racco
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,7 +1,6 @@
 ---
 title: Analizzare i dati di Twitter con Apache Hive - Azure HDInsight
 description: Informazioni su come usare Apache Hive e Apache Hadoop in HDInsight per trasformare i dati di Twitter non elaborati in una tabella Hive ricercabile.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 600b18997ced80a63b7e86f66bc447ddd7932687
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310745"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543710"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
 
@@ -22,8 +21,6 @@ Informazioni su come usare [Apache Hive](https://hive.apache.org/) per elaborare
 
 > [!IMPORTANT]  
 > I passaggi descritti in questo documento sono stati testati in HDInsight 3.6.
->
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
@@ -37,10 +34,10 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
 3. Compilare i campi **Name**, **Description**, **Website**. Per il campo **Website** è possibile creare un URL fittizio. Nella tabella seguente vengono mostrati alcuni valori di esempio da usare:
 
-   | Campo | Valore |
+   | Campo | Value |
    |:--- |:--- |
    | NOME |MyHDInsightApp |
-   | DESCRIZIONE |MyHDInsightApp |
+   | Descrizione |MyHDInsightApp |
    | Website |https:\//www.myhdinsightapp.com |
 
 4. Fare clic su **Yes, I agree** e su **Create your Twitter application**.
@@ -325,7 +322,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 Si è appreso come trasformare un set di dati JSON non strutturato in una tabella [Apache Hive](https://hive.apache.org/) strutturata. Per altre informazioni su Hive in HDInsight, vedere i documenti seguenti:
 
 * [Introduzione all'uso di HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analizzare i dati sui ritardi dei voli con HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analizzare i dati sui ritardi dei voli con HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

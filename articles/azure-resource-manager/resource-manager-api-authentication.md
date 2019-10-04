@@ -1,23 +1,17 @@
 ---
 title: Autenticazione di Azure Active Directory e Resource Manager | Microsoft Docs
 description: Guida per gli sviluppatori all'autenticazione con l'API di Azure Resource Manager e Azure Active Directory per l'integrazione di un'app con altre sottoscrizioni di Azure.
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: dushyantgill
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a8f9f1975530c846008b3b3def4f4d4a22716fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791911"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205437"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
 
@@ -312,7 +306,7 @@ Richiesta di esempio per assegnare il ruolo Controllo degli accessi in base al r
 
 Nella richiesta vengono usati i valori seguenti:
 
-| Guid | DESCRIZIONE |
+| Guid | Descrizione |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID della sottoscrizione |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |ID oggetto dell'entità servizio dell'applicazione |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: f75de635f08ae06db349387a436c636c149ec9f2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: df9b199c24301016b9f9da8a8dec52129bbf94bd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146476"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703535"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Come specificare le variabili di ambiente per i servizi in Service Fabric
 
@@ -28,30 +28,39 @@ Questo articolo illustra come specificare le variabili di ambiente per un serviz
 In questo esempio si imposta una variabile di ambiente per un contenitore. Si presuppone che i manifesti dell'applicazione e del servizio siano già disponibili.
 
 1. Aprire il file ServiceManifest.xml.
-1. In `CodePackage` aggiungere un nuovo elemento `EnvironmentVariables` e un elemento `EnvironmentVariable` per ogni variabile di ambiente.
+2. In `CodePackage` aggiungere un nuovo elemento `EnvironmentVariables` e un elemento `EnvironmentVariable` per ogni variabile di ambiente.
 
     ```xml
-      <CodePackage Name="MyCode" Version="CodeVersion1">
-      ...
-        <EnvironmentVariables>
-          <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
-          <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
-        </EnvironmentVariables>
-      </CodePackage>
+    <CodePackage Name="MyCode" Version="CodeVersion1">
+            ...
+            <EnvironmentVariables>
+                  <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
+                  <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+            </EnvironmentVariables>
+    </CodePackage>
     ```
 
-    È possibile eseguire l'override delle variabili di ambiente nel manifesto dell'applicazione.
+   È possibile eseguire l'override delle variabili di ambiente nel manifesto dell'applicazione.
 
-1. A tale scopo, usare l'elemento `EnvironmentOverrides`.
+3. A tale scopo, usare l'elemento `EnvironmentOverrides`.
 
     ```xml
       <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
+        <ServiceManifestVersion="1.0.0" />
         <EnvironmentOverrides CodePackageRef="MyCode">
           <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
         </EnvironmentOverrides>
       </ServiceManifestImport>
     ```
+
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Specifica di variabili di ambiente in modo dinamico tramite Docker Compose
+
+Service Fabric supporta la possibilità di [usare Docker compose per la distribuzione](service-fabric-docker-compose.md#supported-compose-directives). I file compose possono avere origini variabili di ambiente dalla Shell. Questo comportamento può essere usato per sostituire dinamicamente i valori di ambiente desiderati:
+
+```yml
+environment:
+  - "hostname:${hostname}"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su alcuni dei concetti principali trattati in questo articolo, vedere [Gestire le applicazioni per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md).

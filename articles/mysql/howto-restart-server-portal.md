@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61422571"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Riavviare un server di Database di Azure per MySQL usando il portale di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per MySQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
@@ -48,4 +48,4 @@ La procedura seguente consente di riavviare il server MySQL:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare un server Database di Azure per MySQL usando il portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Avvio rapido: Creare un server Database di Azure per MySQL usando il portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

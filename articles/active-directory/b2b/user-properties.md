@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65768158"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -68,7 +68,7 @@ Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori p
   > [!NOTE]
   > La proprietà UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory dell'utente e così via. Questa proprietà indica semplicemente la relazione dell'utente con l'organizzazione host e consente all'organizzazione di applicare i criteri che dipendono da questa proprietà.
 
-### <a name="source"></a>Source (Sorgente)
+### <a name="source"></a>`Source`
 Questa proprietà indica la modalità di accesso dell'utente.
 
 - Utente invitato: l'utente è stato invitato, ma non ha ancora riscattato l'invito.

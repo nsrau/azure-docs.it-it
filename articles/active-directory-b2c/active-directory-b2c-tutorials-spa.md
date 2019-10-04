@@ -1,25 +1,25 @@
 ---
-title: "Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola - Azure Active Directory B2C | Microsoft Docs"
-description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione a pagina singola (JavaScript).
+title: "Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola - Azure Active Directory B2C"
+description: Informazioni su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione a pagina singola (JavaScript).
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
-ms.author: davidmu
-ms.date: 02/04/2019
-ms.custom: mvc
+author: mmacy
+manager: celestedg
+ms.author: marsma
+ms.date: 07/24/2019
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 813c7131ff0a56e843e728cd78fff969b1d90fcc
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 06bb71b27edf97f9b7e3333aef93af7bd0e0529e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756326"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064793"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C
 
-Questa esercitazione illustra come usare Azure Active Directory (Azure AD) B2C per l'iscrizione e l'accesso degli utenti in un'applicazione a pagina singola. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione ad account di social network, aziendali e di Azure Active Directory usando protocolli standard aperti.
+Questa esercitazione illustra come usare Azure Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti in un'applicazione a pagina singola. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social network, aziendali e di Azure Active Directory usando protocolli standard aperti.
 
 In questa esercitazione si apprenderà come:
 
@@ -32,27 +32,33 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Creare flussi utente](tutorial-create-user-flows.md) per abilitare le esperienze utente nell'applicazione. 
-* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
-* Installare [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) o versione successiva.
-* Installare [Node.js](https://nodejs.org/en/download/)
+Prima di continuare con i passaggi in questa esercitazione è necessario implementare le seguenti risorse di Azure AD B2C:
+
+* [Tenant di Azure AD B2C](tutorial-create-tenant.md)
+* [Applicazione registrata](tutorial-register-applications.md) nel tenant
+* [Flussi utente creati](tutorial-create-user-flows.md) nel tenant
+
+In più, nell'ambiente di sviluppo locale devono anche essere installati gli elementi seguenti:
+
+* Editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) o versione successiva
+* [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
-Nell'esercitazione completata come parte dei prerequisiti è stato aggiunta un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio nell'esercitazione, è necessario aggiungere un URI di reindirizzamento all'applicazione in Azure AD B2C.
+Nella seconda esercitazione completata come parte dei prerequisiti è stata registrata un'applicazione Web in Azure AD B2C. Per consentire la comunicazione con l'esempio nell'esercitazione, è necessario aggiungere un URI di reindirizzamento all'applicazione in Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi l'applicazione *webapp1*.
-5. In **URL di risposta** aggiungere `http://localhost:6420`.
-6. Selezionare **Salva**.
-7. Nella pagina delle proprietà prendere nota dell'ID applicazione, che verrà usato durante la configurazione dell'applicazione Web.
-8. Selezionare **Chiavi**, **Genera chiave** e quindi **Salva**. Prendere nota della chiave, che verrà usata durante la configurazione dell'applicazione Web.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Selezionare **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Applicazioni** e quindi l'applicazione *webapp1*.
+1. In **URL di risposta** aggiungere `http://localhost:6420`.
+1. Selezionare **Salva**.
+1. Nella pagina delle proprietà, registrare l' **ID applicazione**. Si userà l'ID dell'app in un passaggio successivo quando si aggiorna il codice nell'applicazione Web a pagina singola.
 
-## <a name="configure-the-sample"></a>Configurare l'esempio
+## <a name="get-the-sample-code"></a>Scaricare il codice di esempio
 
-In questa esercitazione si configura un esempio che è possibile scaricare da GitHub. L'esempio dimostra come un'applicazione a pagina singola può usare Azure AD B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta.
+In questa esercitazione si configura un codice di esempio che si scarica da GitHub. L'esempio dimostra come un'applicazione a pagina singola può usare Azure AD B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta.
 
 [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'esempio da GitHub.
 
@@ -60,60 +66,82 @@ In questa esercitazione si configura un esempio che è possibile scaricare da Gi
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-Per modificare le impostazioni:
+## <a name="update-the-sample"></a>Aggiornare l'esempio
 
-1. Aprire il file `index.html` dell'esempio.
-2. Configurare l'esempio con l'ID applicazione e la chiave annotati in precedenza. Modificare le righe di codice seguenti sostituendo i valori con i nomi della directory e delle API:
+Ora che è stato ottenuto l'esempio, aggiornare il codice con il nome del tenant di Azure AD B2C e l'ID dell'applicazione registrato in un passaggio precedente.
+
+1. Aprire il file `index.html` nella radice della directory di esempio.
+1. Nella definizione di `msalConfig`, modificare il valore **clientId** con l'ID applicazione registrato in un passaggio precedente. Quindi, aggiornare l'URI **authority** con il nome del tenant di Azure AD B2C. Aggiornare l'URI anche con il nome del flusso utente di accesso/iscrizione creato in uno dei prerequisiti (ad esempio, *B2C_1_signupsignin1*).
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C directory.
-    var applicationConfig = {
-        clientID: '<Application ID>',
-        authority: "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://contoso.onmicrosoft.com/demoapi/demo.read"],
-        webApi: 'https://contosohello.azurewebsites.net/hello',
+    var msalConfig = {
+        auth: {
+            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
-    Il nome del flusso utente usato in questa esercitazione è **B2C_1_signupsignin1**. Se si usa un nome di flusso utente diverso, inserire il nome usato nel valore di `authority`.
+    Il nome del flusso utente usato in questa esercitazione è **B2C_1_signupsignin1**. Se si usa un nome di flusso utente diverso, specificarlo nel valore di `authority`.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-1. Avviare un prompt dei comandi di Node.js.
-2. Passare alla directory contenente l'esempio di Node.js. Ad esempio `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
-3. Eseguire i comandi seguenti:
+1. Aprire una finestra della console e passare alla directory contenente il codice di esempio. Ad esempio:
+
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
+1. Eseguire i comandi seguenti:
 
     ```
     npm install && npm update
     node server.js
     ```
 
-    Nella finestra della console viene visualizzato il numero della porta dove è ospitata l'app.
-    
+    La finestra della console visualizza il numero di porta del server Node.js in esecuzione in locale:
+
     ```
     Listening on port 6420...
     ```
 
-4. Usare un browser per passare all'indirizzo `http://localhost:6420` e visualizzare l'applicazione.
+1. Passare a `http://localhost:6420` nel browser per visualizzare l'applicazione.
 
 L'esempio supporta l'iscrizione, l'accesso, la modifica del profilo e la reimpostazione della password. Questa esercitazione illustra l'iscrizione di un utente con un indirizzo di posta elettronica.
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
-1. Fare clic su **Login** per iscriversi come utente dell'applicazione. Verrà usato il flusso utente **B2C_1_signupsignin1** definito in un passaggio precedente.
-2. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, fare clic sul collegamento **Iscriversi adesso**. 
-3. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
+1. Selezionare **Accedi** per avviare il flusso utente *B2C_1_signupsignin1* specificato in un passaggio precedente.
+1. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, selezionare il collegamento **Iscriversi adesso**.
+1. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
-    Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti. 
+    Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti.
 
-    ![Flusso di lavoro di iscrizione](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Pagina di iscrizione visualizzata dal flusso utente di accesso/iscrizione](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
-4. Fare clic su **Crea** per creare un account locale nella directory di Azure AD B2C.
+1. Selezionare **Crea** per creare un account locale nella directory di Azure AD B2C.
 
-Ora l'utente può usare un indirizzo di posta elettronica per accedere e usare l'app a pagina singola.
+Quando si seleziona **Crea**, la pagina di iscrizione si chiude e viene nuovamente visualizzata la pagina di accesso.
 
-> [!NOTE]
-> Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti". L'errore viene visualizzato perché si sta tentando di accedere a una risorsa dalla directory dimostrativa. Poiché il token di accesso è valido solo per la directory di Azure AD, la chiamata API non è autorizzata. Continuare con l'esercitazione successiva per la creazione di un'API Web protetta per la directory.
+È ora possibile usare l'indirizzo di posta elettronica e la password per accedere all'applicazione.
+
+### <a name="error-insufficient-permissions"></a>Errore: autorizzazioni insufficienti
+
+Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti": si tratta di un **comportamento previsto**:
+
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
+
+Questo errore viene visualizzato perché l'applicazione Web sta provando ad accedere a un'API Web protetta dalla directory demo, *fabrikamb2c*. Poiché il token di accesso è valido solo per la directory di Azure AD, la chiamata API non è autorizzata.
+
+Per correggere l'errore, continuare con l'esercitazione successiva della serie (vedere [Passaggi successivi](#next-steps)) per la creazione di un'API Web protetta per la directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -124,5 +152,7 @@ In questo articolo si è appreso come:
 > * Configurare l'esempio per l'uso dell'applicazione
 > * Iscriversi usando il flusso utente
 
+Passare ora all'esercitazione successiva nella serie per concedere l'accesso a un'API Web protetta dall'applicazione a pagina singola:
+
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'app a pagina singola con Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola usando Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)

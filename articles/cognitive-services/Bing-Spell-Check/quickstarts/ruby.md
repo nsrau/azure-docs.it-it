@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: bf038b97335db20349577f754bfa41e1b98ee9b7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888849"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996738"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
 
@@ -49,7 +49,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="send-a-spell-check-request"></a>Inviare una richiesta di controllo ortografico
 
-1. Creare un URI dalla stringa con uri, percorso e parametri dell'host. Impostare la query in modo che contenga il testo di cui si vuole controllare l'ortografia.
+1. Creare un URI dalla stringa con uri, percorso e parametri dell'host. Impostarne la query in modo che contenga il testo di cui si vuole controllare l'ortografia.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -130,4 +130,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
-- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

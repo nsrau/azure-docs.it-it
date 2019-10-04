@@ -5,22 +5,22 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2019
+ms.date: 10/01/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 00b44b62e5ce666a8cd6d4b02270e6d9de6897e8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371292"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719824"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
-I partner possono tener traccia dell'impatto sugli engagement dei clienti. È possibile collegare l'ID partner agli account usati per gestire le risorse di un cliente.
+I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Tramite il collegamento amministratore partner, i partner possono associare il loro ID Partner Network alle credenziali usate per la fornitura dei servizi.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
 
 ### <a name="use-powershell-to-link-to-a-new-partner-id"></a>Usare PowerShell per creare il collegamento a un nuovo ID partner
 
-1. Installare il modulo [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) di PowerShell.
+1. Installare il modulo [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) di PowerShell.
 
 2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) (Accedere con PowerShell).
 
@@ -139,22 +139,22 @@ Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del 
 Il collegamento è associato a livello di account utente. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner.
 
 
-**L'ID MPN usare se l'azienda dispone di più?**
+**Quale ID MPN è necessario usare se l'azienda ne ha più di uno?**
 
-È possibile usare qualsiasi ID MPN validi tranne organization(v-org) virtuale ID MPN. La maggior parte dei partner scegliere di usare l'ID MPN per l'area geografica in cui si basa il cliente o i servizi vengono forniti.
+Per collegare l'ID partner, è necessario usare gli account Partner Location e gli ID MPN associati.  Altre informazioni sugli [account dei partner](https://docs.microsoft.com/partner-center/account-structure)
 
-**Dove trovare influenzato dei ricavi per l'ID partner collegato?**
+**Dove è possibile trovare report sui ricavi influenzati per l'ID partner collegato?**
 
-È possibile trovare i ricavi influenzato reporting indicata in [dashboard degli approfondimenti sulla My](https://partner.microsoft.com/membership/reports/myinsights). È necessario selezionare il collegamento di amministrazione Partner come il tipo di associazione di partner.
+I report sulle prestazioni dei prodotti cloud sono disponibili per i partner nel [dashboard di informazioni dettagliate](https://partner.microsoft.com/membership/reports/myinsights) del Centro per i partner. È necessario selezionare il collegamento amministratore partner come tipo di associazione partner.
 
-**Il motivo per cui non vengono visualizzati il cliente nei report?**
+**Perché non è possibile visualizzare un cliente nei report?**
 
-Non è possibile visualizzare il cliente nei report a causa dei motivi seguenti
+Il cliente non viene visualizzato nei report per i motivi seguenti
 
-1. L'utente collegato l'account non dispone [accesso basato su ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview) in qualsiasi sottoscrizione Azure del cliente o risorsa.
+1. L'account utente collegato non ha [accesso in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) per nessuna sottoscrizione o risorsa di Azure del cliente.
 
-2. La sottoscrizione di Azure in cui l'utente dispone [accesso basato su ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview) access non ha alcun utilizzo.
+2. La sottoscrizione di Azure in cui l'utente ha [accesso in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) non include dati di utilizzo.
 
-**Offre collegamenti partner che ID funziona con Azure Stack?**
+**Il collegamento dell'ID partner funziona con Azure Stack?**
 
 Sì, è possibile collegare l'ID partner per Azure Stack.

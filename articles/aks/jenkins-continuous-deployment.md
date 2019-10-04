@@ -7,12 +7,12 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073790"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con integrazione continua e distribuzione continua di Jenkins
 
@@ -48,6 +48,9 @@ Per completare questa esercitazione, è necessario quanto segue:
 ## <a name="prepare-your-app"></a>Preparare l'app
 
 In questo articolo si usa un'applicazione di voto di Azure di esempio che contiene un'interfaccia Web ospitata in uno o più pod e un secondo pod che ospita Redis per l'archiviazione temporanea dei dati. Prima di integrare Jenkins e il servizio Azure Kubernetes per le distribuzioni automatizzate, preparare e distribuire l'applicazione di voto di Azure nel cluster servizio Azure Kubernetes. Questa distribuzione manuale può essere considerata come la prima versione dell'applicazione e consente di visualizzare l'applicazione in azione.
+
+> [!NOTE]
+> L'applicazione Azure vote di esempio Usa un pod Linux che viene pianificato l'esecuzione in un nodo Linux. Il flusso descritto in questo articolo funziona anche per un pod di Windows Server pianificato su un nodo Windows Server.
 
 Creare il fork del repository GitHub seguente per l'applicazione esempio - [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro.
 
@@ -208,7 +211,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Con l'assegnazione di ruolo creata in Azure, archiviare le credenziali di Registro Azure Container in un oggetto credenziale di Jenkins. Durante il processo di compilazione di Jenkins si farà riferimento a queste credenziali.
 
-Tornare nella parte sinistra del portale di Jenkins, fare clic su **Credentials** > **Jenkins** > **Global credentials (unrestricted)** > **Add Credentials** (Credenziali > Jenkins > Credenziali globali senza restrizioni > Aggiungi credenziali)
+Tornare nella parte sinistra del portale di Jenkins, fare clic su **Credentials** > **Jenkins** > **Global credentials (unrestricted)**  > **Add Credentials** (Credenziali > Jenkins > Credenziali globali senza restrizioni > Aggiungi credenziali)
 
 Verificare che il tipo di credenziali sia **Username with password** (Nome utente con password) e immettere gli elementi seguenti:
 
@@ -237,7 +240,7 @@ Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento)
 
      ![Associazioni di Jenkins](media/aks-jenkins/bindings.png)
 
-1. Aggiungere un'**istruzione di compilazione** di tipo **Execute shell** (Esegui shell) e usare il testo seguente. Questo script compila una nuova immagine del contenitore e la inserisce nel registro di ACR.
+1. Aggiungere un'**istruzione di compilazione** di tipo **Execute shell** (Esegui shell) e usare il testo seguente. Questo script compila una nuova immagine del contenitore e la inserisce nel Registro Azure Container.
 
     ```bash
     # Build new image and push to ACR.
@@ -267,7 +270,7 @@ Nel menu a sinistra del progetto selezionare **Build Now** (Compila).
 
 La prima compilazione richiede un minuto o due perché i livelli dell'immagine Docker vengono scaricati nel server Jenkins. Le compilazioni successive possono usare i livelli di immagine memorizzati nella cache per migliorare i tempi di compilazione.
 
-Durante questo processo, il repository di GitHub viene clonato nel server di compilazione di Jenkins. Viene compilata una nuova immagine del contenitore, che viene inserita nel registro di ACR. Infine l'applicazione di voto di Azure in esecuzione nel cluster di servizio Azure Kubernetes viene aggiornata per usare la nuova immagine. Poiché non sono state apportate modifiche al codice dell'applicazione, quest'ultima non viene modificata se si visualizza l'app di esempio in un Web browser.
+Durante questo processo, il repository di GitHub viene clonato nel server di compilazione di Jenkins. Viene compilata una nuova immagine del contenitore, che viene inserita nel Registro Azure Container. Infine l'applicazione di voto di Azure in esecuzione nel cluster di servizio Azure Kubernetes viene aggiornata per usare la nuova immagine. Poiché non sono state apportate modifiche al codice dell'applicazione, quest'ultima non viene modificata se si visualizza l'app di esempio in un Web browser.
 
 Dopo che il processo di compilazione è stato completato, fare clic su **build #1** (compilazione 1) nella cronologia delle compilazioni. Selezionare **Console output** (Output console) e visualizzare l'output del processo di compilazione. La riga finale deve indicare che la build ha avuto esito positivo.
 

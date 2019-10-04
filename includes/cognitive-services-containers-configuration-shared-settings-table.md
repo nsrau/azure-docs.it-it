@@ -1,25 +1,25 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/22/2019
-ms.openlocfilehash: ed512c0f56d8da5cb8e47b20f2495054fdedf020
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741414"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712471"
 ---
-Questo contenitore ha le impostazioni di configurazione seguenti:
+Le impostazioni di configurazione del contenitore sono le seguenti:
 
-|Obbligatorio|Impostazione|Scopo|
+|Obbligatoria|Impostazione|Scopo|
 |--|--|--|
-|Sì|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
-|No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Sì|[Fatturazione](#billing-configuration-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
-|Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
-|No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
-|No |[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
+|Yes|[ApiKey](#apikey-configuration-setting)|Tiene traccia delle informazioni di fatturazione.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
+|Yes|[Fatturazione](#billing-configuration-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
+|No|[Fluentd](#fluentd-settings)|Scrive il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
+|No|Proxy HTTP|Configura un proxy HTTP per le richieste in uscita.|
+|No|[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No|[Mounts](#mount-settings)|Legge e scrive i dati dal computer host al contenitore e dal contenitore al computer host.|

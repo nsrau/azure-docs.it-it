@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e62f12123ae9af4f5e09d19622ba1558c2f43184
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 095e66c6c5f75a27b1f0231dfe8cabfd4d741d18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65205169"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse
 Molte attività di amministrazione di SQL Data Warehouse possono essere gestite tramite i cmdlet di Azure PowerShell o le API REST.  Di seguito sono riportati alcuni esempi su come usare i comandi di PowerShell per automatizzare le attività comuni in SQL Data Warehouse.  Per altri esempi di REST, vedere [Gestire la scalabilità con REST][Manage scalability with REST].
@@ -70,7 +70,7 @@ Questi cmdlet di PowerShell sono supportati con Azure SQL Data Warehouse.
 
 * [Get-AzSqlDatabase][Get-AzSqlDatabase]
 * [Get-AzSqlDeletedDatabaseBackup][Get-AzSqlDeletedDatabaseBackup]
-* [Get-AzSqlDatabaseRestorePoints][Get-AzSqlDatabaseRestorePoints]
+* [Get-AzSqlDatabaseRestorePoint][Get-AzSqlDatabaseRestorePoint]
 * [New-AzSqlDatabase][New-AzSqlDatabase]
 * [Remove-AzSqlDatabase][Remove-AzSqlDatabase]
 * [Restore-AzSqlDatabase][Restore-AzSqlDatabase]
@@ -100,7 +100,7 @@ Per le altre attività che possono essere automatizzate con PowerShell, vedere [
 [Operations for Azure SQL Database]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase
 [Get-AzSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup
-[Get-AzSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoints
+[Get-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint
 [New-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase
 [Remove-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase

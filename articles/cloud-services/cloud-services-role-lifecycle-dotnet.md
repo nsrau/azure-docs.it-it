@@ -3,23 +3,17 @@ title: Gestire eventi del ciclo di vita dei servizi cloud | Documentazione Micro
 description: Informazioni su come utilizzare i metodi del ciclo di vita di un ruolo del Servizio Cloud in .NET
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406421"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358978"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
 Quando si crea un ruolo di lavoro, si estende la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli Web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.

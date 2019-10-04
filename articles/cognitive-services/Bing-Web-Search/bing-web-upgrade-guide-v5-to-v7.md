@@ -8,21 +8,21 @@ manager: nitinme
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175337"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881312"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
@@ -39,7 +39,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|DESCRIZIONE
+|Codice|Sottocodice|Descrizione
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta includerà questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.
@@ -73,16 +73,16 @@ Bloccato|InvalidRequest.Blocked
 
 ## <a name="non-breaking-changes"></a>Modifiche che non causano un'interruzione  
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 
-- È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
+- È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
 
 ### <a name="query-parameters"></a>Parametri di query
 
-- È stato aggiunto il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
+- È stato aggiunto il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
 
-- È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per promuovere video e immagini nella risposta, impostare promote su *videos,images*. L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` ha valore 2 e `promote` è impostato su *videos,images*, la risposta potrebbe includere pagine Web, notizie, video e immagini.
+- È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per promuovere video e immagini nella risposta, impostare promote su *videos,images*. L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` ha valore 2 e `promote` è impostato su *videos,images*, la risposta potrebbe includere pagine Web, notizie, video e immagini.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `someResultsRemoved` è stato aggiunto all'oggetto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer). Il campo contiene un valore booleano che indica se la risposta ha escluso alcuni risultati dal riscontro Web.  
+- Il campo `someResultsRemoved` è stato aggiunto all'oggetto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). Il campo contiene un valore booleano che indica se la risposta ha escluso alcuni risultati dal riscontro Web.  

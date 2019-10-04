@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097150"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802057"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -89,7 +89,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
 2. Apportare le modifiche seguenti:
 
     * Rimuovere tutti i parametri tranne **location**.
-    * Aggiungere un parametro denominato **storageAccountName**. 
+    * Aggiungere un parametro denominato **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
         },
         ```
         Il nome e la località dell'account di archiviazione vengono passati dal modello principale al modello collegato come parametri.
-        
+
     * Rimuovere l'elemento **variables** e tutte le definizioni delle variabili.
     * Rimuovere tutte le risorse tranne l'account di archiviazione. Si rimuove un totale di quattro risorse.
     * Aggiornare il valore dell'elemento **name** della risorsa dell'account di archiviazione a:
@@ -109,7 +109,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
         ```
 
     * Aggiornare l'elemento **output**, in modo che sia simile a:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Prendere nota dei due valori, ovvero il nome del gruppo di risorse e l'URI del modello collegato, in fondo al riquadro della shell. Sarà necessario usare questi valori più avanti nell'esercitazione.
 5. Selezionare **Esci dalla modalità messa a fuoco** per chiudere il riquadro della shell.
 
-In pratica, si genera un token di firma di accesso condiviso quando si distribuisce il modello principale e si assegnare una finestra di scadenza più ridotta al token per renderlo più sicuro. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+In pratica, si genera un token di firma di accesso condiviso quando si distribuisce il modello principale e si assegnare una finestra di scadenza più ridotta al token per renderlo più sicuro. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Chiamare il modello collegato
 
@@ -272,7 +272,7 @@ Il modello principale è denominato azuredeploy.json.
     Prestare attenzione ai seguenti dettagli:
 
     * Viene usata una risorsa `Microsoft.Resources/deployments` nel modello principale per collegarsi a un altro modello.
-    * La risorsa `deployments` ha un nome denominato `linkedTemplate`. Questo nome viene usato per la [configurazione della dipendenza](#configure-dependency).  
+    * La risorsa `deployments` ha un nome denominato `linkedTemplate`. Questo nome viene usato per la [configurazione della dipendenza](#configure-dependency).
     * È possibile usare solo la modalità di distribuzione [Incrementale](./deployment-modes.md) quando si chiamano i modelli collegati.
     * `templateLink/uri` contiene l'URI del modello collegato. Aggiornare il valore all'URI che si ottiene quando si carica il modello collegato, ovvero quello con un token di firma di accesso condiviso.
     * Per passare i valori dal modello principale al modello collegato, usare `parameters`.
@@ -287,7 +287,7 @@ Fare riferimento a [Esercitazione: Creare modelli di Azure Resource Manager con 
 
 Poiché l'account di archiviazione viene ora definito nel modello collegato, è necessario aggiornare i seguenti due elementi della risorsa `Microsoft.Compute/virtualMachines`.
 
-* Riconfigurare l'elemento `dependOn`. La definizione dell'account di archiviazione viene spostata nel modello collegato.
+* Riconfigurare l'elemento `dependsOn`. La definizione dell'account di archiviazione viene spostata nel modello collegato.
 * Riconfigurare l'elemento `properties/diagnosticsProfile/bootDiagnostics/storageUri`. In [creare il modello collegato](#create-the-linked-template), è stato aggiunto un valore di output:
 
     ```json
@@ -305,7 +305,7 @@ Poiché l'account di archiviazione viene ora definito nel modello collegato, è 
 
     ![I modelli collegati di Azure Resource Manager configurano la dipendenza](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* è il nome della risorsa deployments.  
+    *linkedTemplate* è il nome della risorsa deployments.
 3. Aggiornare **properties/diagnosticsProfile/bootDiagnostics/storageUri** come illustrato nello screenshot precedente.
 4. Salvare il modello modificato.
 
@@ -327,11 +327,11 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 Per migliorare il progetto, effettuare le modifiche aggiuntive seguenti al progetto completato:
 
 1. Modificare il modello principale (azuredeploy.json) in modo che riceva il valore URI del modello collegato tramite un parametro.
-2. Invece di generare un token di firma di accesso condiviso quando si carica il modello collegato, generare il token quando si distribuisce il modello principale. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Invece di generare un token di firma di accesso condiviso quando si carica il modello collegato, generare il token quando si distribuisce il modello principale. Per ulteriori informazioni, vedere [Indicare un token di firma di accesso condiviso durante la distribuzione](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione, si è suddiviso un modello in un modello principale e un modello collegato. Per informazioni su come usare estensioni di macchina virtuale per eseguire le attività post-distribuzione, vedere:
 
 > [!div class="nextstepaction"]
-> [Distribuire estensioni di macchina virtuale](./deployment-manager-tutorial.md)
+> [Distribuire estensioni di macchina virtuale](./resource-manager-tutorial-deploy-vm-extensions.md)

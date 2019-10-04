@@ -2,20 +2,20 @@
 title: Passaggio a un tenant B2C in Azure Active Directory B2C | Microsoft Docs
 description: Come passare al contesto del tenant di Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
-ms.author: davidmu
+ms.date: 04/13/2017
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317607"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654116"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Passaggio al tenant di Azure AD B2C
 
@@ -36,7 +36,7 @@ Il portale di Azure viene aggiornato.  Si è ora connessi al portale di Azure ne
 1. Fare clic su **Sfoglia** nel riquadro di spostamento a sinistra.
 1. Fare clic su **Tutti i servizi** e quindi cercare `Azure AD B2C` nel riquadro di spostamento di sinistra.  Per aggiungerlo alla schermata iniziale di sinistra, fare clic sulla stella a sinistra di Azure AD B2C.
 1. Fare clic su **Azure AD B2C** per accedere al riquadro delle funzionalità B2C.
-   
+
     ![Schermata di passare al riquadro delle funzionalità B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396597"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807044"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di log in Monitoraggio di Azure con il connettore per Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) consente di creare flussi di lavoro automatizzati che includono centinaia di azioni per un'ampia gamma di servizi. L'output di un'azione può essere usato come input per un'altra. È così possibile integrare servizi diversi.  Il connettore di Azure Log Analytics per Microsoft Flow consente di creare flussi di lavoro che includono dati recuperati da query di log da un'area di lavoro Log Analytics in Monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-È ad esempio possibile usare Microsoft Flow per inserire i dati di log di Monitoraggio di Azure in una notifica di posta elettronica da Office 365, creare un bug in Azure DevOps o inviare un messaggio Slack.  È possibile attivare un flusso di lavoro da una semplice pianificazione o con un'azione in un servizio connesso, ad esempio quando viene ricevuto un messaggio di posta elettronica o un tweet.  
+Ad esempio, è possibile usare Microsoft Flow a usare i dati di log di monitoraggio di Azure in una notifica di posta elettronica da Office 365, creare un bug in DevOps di Azure o inviare un messaggio Slack.  È possibile attivare un flusso di lavoro da una semplice pianificazione o con un'azione in un servizio connesso, ad esempio quando viene ricevuto un messaggio di posta elettronica o un tweet.  
 
 L'esercitazione descritta in questo articolo illustra come creare un flusso che invia automaticamente i risultati di una query di log di Monitoraggio di Azure tramite posta elettronica. Si tratta di un esempio del possibile utilizzo del connettore di Log Analytics in Microsoft Flow. 
 

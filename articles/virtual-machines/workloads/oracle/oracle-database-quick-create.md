@@ -4,23 +4,22 @@ description: Ottenere rapidamente un database Oracle 12c operativo nell'ambiente
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 6d43fa2621aa95bdcf18d5c033d1347e13dc3f67
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734386"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101484"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 

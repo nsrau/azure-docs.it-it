@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413560"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65811877"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -115,7 +115,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Verificare di avere la versione più recente del modulo di AzureAD PowerShell o del modulo PowerShell AzureADPreview. 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Eseguire il check-out del riferimento all'API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 

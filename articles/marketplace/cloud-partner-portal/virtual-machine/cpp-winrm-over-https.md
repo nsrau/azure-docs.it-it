@@ -1,25 +1,18 @@
 ---
-title: Gestione remota Windows tramite HTTPS per Azure | Microsoft Docs
-description: .
+title: Gestione remota Windows su HTTPS per Azure | Azure Marketplace
+description: Viene illustrato come configurare una macchina virtuale ospitata in Azure, basate su Windows, in modo che possa essere gestito in modalità remota con PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938218"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestione remota Windows tramite HTTPS
 

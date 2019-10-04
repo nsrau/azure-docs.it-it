@@ -4,7 +4,7 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5aa682af11744389739a539e900924ed93a3bbd6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f1ed8b2d943a377fc868344cffffff931bb6fba1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691151"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709599"
 ---
 # <a name="create-a-vm-with-nginx"></a>Creare una VM con NGINX
 

@@ -3,24 +3,24 @@ title: Dimensioni delle macchine virtuali Windows di Azure - HPC | Documentazion
 description: Elenca le diverse dimensioni disponibili per le macchine virtuali High Performance Computing Windows in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
-manager: jeconnoc
+author: vermagit
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck
-ms.openlocfilehash: 58d4ced041b6f5cf767b45191e28a4b395f584b6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.author: amverma
+ms.reviewer: jonbeck
+ms.openlocfilehash: 0c5398caf85566f78c7ebe9e8ba114a53d2f6271
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480261"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088530"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
 
@@ -31,24 +31,41 @@ ms.locfileid: "58480261"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **Sistema operativo**: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+* **Sistema operativo** : Windows Server 2016 in tutte le VM serie HPC precedenti. Windows Server 2012 R2, Windows Server 2012 sono supportati anche nelle macchine virtuali abilitate per non SR-IOV, pertanto escludendo HB e HC.
 
-* **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versione successiva, Intel MPI Library 5.x
+* **MPI** : le dimensioni delle VM abilitate per SR-IOV in Azure (HB, HC) consentono di usare praticamente qualsiasi versione di MPI con Mellanox OFED.
+Nelle VM abilitate per non SR-IOV, le implementazioni MPI supportate usano l'interfaccia di Microsoft Network Direct (ND) per la comunicazione tra le istanze. Di conseguenza, sono supportate solo le versioni Microsoft MPI (MS-MPI) 2012 R2 o versioni successive e Intel MPI 5. x. Le versioni successive (2017, 2018) della libreria di runtime Intel MPI possono o non essere compatibili con i driver RDMA di Azure.
 
-  Le implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze. 
+* **Estensione della macchina virtuale InfiniBandDriverWindows** : nelle VM con supporto per RDMA aggiungere l'estensione InfiniBandDriverWindows per abilitare InfiniBand. Questa estensione VM Windows installa i driver di rete diretta di Windows (in VM non SR-IOV) o i driver OFED di Mellanox (su VM SR-IOV) per la connettività RDMA.
+In alcune distribuzioni di istanze A8 e A9 l'estensione HpcVmDrivers viene aggiunta automaticamente. Si noti che l'estensione della macchina virtuale HpcVmDrivers è deprecata. non verrà aggiornata. Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azure/overview). 
+
+  Il comando seguente installa la versione più recente dell'estensione InfiniBandDriverWindows 1,0 in una macchina virtuale esistente con supporto per RDMA denominata *myVM* distribuita nel gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti occidentali* :
+
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  ```
+  In alternativa, le estensioni della macchina virtuale possono essere incluse nei modelli di Azure Resource Manager per semplificare la distribuzione, con l'elemento JSON seguente:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverWindows",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+
+  Il comando seguente installa la versione più recente dell'estensione InfiniBandDriverWindows 1,0 in tutte le VM con supporto per RDMA in un set di scalabilità di macchine virtuali esistente denominato *myVMSS* distribuito nel gruppo di risorse denominato *myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
+  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](classic/manage-extensions.md).
 
 * **Spazio degli indirizzi della rete RDMA** : la rete RDMA in Azure riserva lo spazio degli indirizzi 172.16.0.0/16. Per eseguire applicazioni MPI in istanze distribuite in una rete virtuale di Azure, assicurarsi che lo spazio degli indirizzi di rete virtuale non si sovrapponga alla rete RDMA.
 
-* **Estensione macchina virtuale HpcVmDrivers**: nelle VM con supporto per RDMA, aggiungere l'estensione HpcVmDrivers per installare i driver dei dispositivi di rete Windows per la connettività RDMA. In alcune distribuzioni di istanze A8 e A9 l'estensione HpcVmDrivers viene aggiunta automaticamente. Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azure/overview). 
-
-  
-  Il comando seguente installa l'ultima versione 1.1 dell'estensione HpcVMDrivers in una macchina virtuale esistente con supporto per RDMA, denominata *myVM* distribuita nel gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti occidentali*:
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
-  ```
-  
-  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](classic/manage-extensions.md).
 
 ### <a name="cluster-configuration-options"></a>Opzioni di configurazione del cluster
 
@@ -56,7 +73,9 @@ Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC W
 
 * **Macchine virtuali**: distribuire le macchine virtuali HPC con supporto per RDMA nello stesso set di disponibilità (se si usa il modello di distribuzione Azure Resource Manager). Se si usa il modello di distribuzione classico, distribuire le macchine virtuali nello stesso servizio cloud. 
 
-* **Set di scalabilità di macchine virtuali**: in un set di scalabilità di macchine virtuali, assicurarsi di limitare la distribuzione a un singolo gruppo di posizionamento. In un modello di Resource Manager, ad esempio, impostare la proprietà `singlePlacementGroup` su `true`. 
+* **Set di scalabilità di macchine virtuali** : in un set di scalabilità di macchine virtuali, assicurarsi di limitare la distribuzione a un singolo gruppo di posizionamento. In un modello di Resource Manager, ad esempio, impostare la proprietà `singlePlacementGroup` su `true`. 
+
+* **MPI tra le macchine virtuali** : se è necessario comunicare MPI tra macchine virtuali (VM), verificare che le macchine virtuali si trovino nello stesso set di disponibilità o nello stesso set di scalabilità.
 
 * **Azure CycleCloud**: creare un cluster HPC in [Azure CycleCloud](/azure/cyclecloud/) per eseguire i processi MPI nei nodi Windows.
 
@@ -79,7 +98,3 @@ Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC W
 - Per usare istanze a elevato uso di calcolo quando si eseguono applicazioni MPI con Azure Batch, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../../batch/batch-mpi.md).
 
 - Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
-
-
-
-

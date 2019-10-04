@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109798"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129069"
 ---
 # <a name="get-started"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico con Azure PowerShell
 
@@ -28,7 +28,7 @@ In questa guida introduttiva si apprende come creare un'istanza di Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
@@ -268,7 +268,7 @@ Impostare nome utente e password dell'amministratore delle macchine virtuali con
 $cred = Get-Credential
 ```
 
-A questo punto è possibile creare le VM con [New-AzVM](/powershell/module/az.compute/new-azvm). Nell'esempio seguente vengono creare due macchine virtuali e i componenti di rete virtuale necessari, se non esistono già. In questo esempio le schede di interfaccia di rete (*VM1* e *VM2*) create nel passaggio precedente vengono assegnate automaticamente alle macchine virtuali *VM1* e *VM2* poiché hanno nomi identici e anche la stessa rete virtuale (*myVnet*) e la stessa subnet (*mySubnet*) assegnate. Poiché inoltre le schede di interfaccia di rete sono associate al pool back-end di bilanciamento del carico, le macchine virtuali vengono aggiunte automaticamente al pool back-end.
+A questo punto è possibile creare le VM con [New-AzVM](/powershell/module/az.compute/new-azvm). Nell'esempio seguente vengono creare due macchine virtuali e i componenti di rete virtuale necessari, se non esistono già. In questo esempio le schede di interfaccia di rete (*VM1* e *VM2*) create nel passaggio precedente vengono assegnate automaticamente alle macchine virtuali *VM1* e *VM2* poiché hanno nomi identici e anche la stessa rete virtuale (*myVnet*) e la stessa subnet (*mySubnet*) assegnate. Dato che le schede di interfaccia di rete sono associate al pool back-end del servizio di bilanciamento del carico, inoltre, le VM vengono aggiunte automaticamente al pool back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,47 +295,44 @@ Installare IIS con una pagina Web personalizzata in entrambe le macchine virtual
 
 1. Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico. Usando `Get-AzPublicIPAddress` ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico.
 
-   ```azurepowershell-interactive
-    Get-AzPublicIPAddress `
-    -ResourceGroupName "myResourceGroupLB" `
-    -Name "myPublicIP" | select IpAddress
-   ```
-2. Creare una connessione desktop remoto per VM1 usando l'indirizzo IP pubblico ottenuto nel passaggio precedente. 
+    ```azurepowershell-interactive
+    Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
+    ```
 
-   ```azurepowershell-interactive
+2. **Nel computer locale aprire un prompt dei comandi o una finestra di PowerShell per questo passaggio**.  Creare una connessione desktop remoto per VM1 usando l'indirizzo IP pubblico ottenuto nel passaggio precedente. 
 
-      mstsc /v:PublicIpAddress:4221  
-  
-   ```
+    ```azurepowershell-interactive
+    mstsc /v:PublicIpAddress:4221  
+    ```
+
 3. Immettere le credenziali di *VM1* per avviare la sessione RDP.
 4. Avviare Windows PowerShell su VM1 e usare i comandi seguenti per installare il server IIS e aggiornare il file con estensione htm predefinito.
+
     ```azurepowershell-interactive
-    # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+        # Install IIS
+          Install-WindowsFeature -name Web-Server -IncludeManagementTools
+        
+        # Remove default htm file
+          remove-item  C:\inetpub\wwwroot\iisstart.htm
+        
+        # Add custom htm file
+          Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. Chiudere la connessione RDP con *myVM1*.
-6. Creare una connessione RDP con *myVM2* con il comando `mstsc /v:PublicIpAddress:4222` e ripetere il passaggio 4 per *VM2*.
+6. **Creare una connessione RDP nel computer locale** con *myVM2* eseguendo il comando `mstsc /v:PublicIpAddress:4222` e ripetere il passaggio 4 per *VM2*.
 
 ## <a name="test-load-balancer"></a>Testare il bilanciamento del carico
 Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). Nell'esempio seguente si ottiene l'indirizzo IP per *myPublicIP* creato in precedenza:
 
 ```azurepowershell-interactive
-Get-AzPublicIPAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myPublicIP" | select IpAddress
+Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
 ```
 
 Sarà quindi possibile immettere l'indirizzo IP pubblico in un Web browser. Verrà visualizzato il sito Web, con il nome host della macchina virtuale a cui il servizio di bilanciamento del carico ha distribuito il traffico, come nell'esempio seguente:
 
 ![Testare il bilanciamento del carico](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-Per verificare la distribuzione del traffico tra le due macchine virtuali che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser.
+Per verificare la distribuzione del traffico tra entrambe le VM che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

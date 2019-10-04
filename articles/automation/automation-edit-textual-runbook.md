@@ -4,17 +4,17 @@ description: In questo articolo vengono fornite procedure diverse per l'uso di P
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c684e9d1bf6cec12024cedfb5360d10e400e139
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bd220b6ff1102c2ef2f436e0af013f253b5820a3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416005"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478293"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Modifica di runbook testuali in Automazione di Azure
 

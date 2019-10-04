@@ -2,17 +2,17 @@
 title: Procedure consigliate per il servizio Azure Kubernetes
 description: Raccolta delle procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mlearned
+ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467154"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615970"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Si consiglia agli operatori di cluster di collaborare con i proprietari di appli
 * [Procedure consigliate per la sicurezza e gli aggiornamenti del cluster](operator-best-practices-cluster-security.md)
     * Protezione dell'accesso al server API, limitazione dell'accesso ai contenitori e gestione degli aggiornamenti e dei riavvii dei nodi.
 * [Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore](operator-best-practices-container-image-management.md)
-    * Protezione di immagini e runtime, uso di registri attendibili e compilazioni automatizzate sugli aggiornamenti dell'immagine di base.
+    * Include la protezione di immagine e di runtime e compilazioni automatizzate negli aggiornamenti di immagine di base.
 * [Procedure consigliate per la sicurezza dei pod](developer-best-practices-pod-security.md)
     * Protezione dell'accesso alle risorse, limitazione dell'esposizione delle credenziali e uso di identità dei pod e insiemi di credenziali delle chiavi digitali.
 

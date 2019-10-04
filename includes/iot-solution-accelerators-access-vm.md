@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: a58e408feadd10e6dbc9d6878b82a4d045918ea6
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609090"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781464"
 ---
 ## <a name="access-the-virtual-machine"></a>Accesso alla macchina virtuale
 
-I passaggi seguenti usano il comando `az` in Azure Cloud Shell. Se si preferisce, è possibile [installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sul computer di sviluppo ed eseguire i comandi in locale.
+I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure Cloud Shell. Se si preferisce, è possibile [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure nel computer di sviluppo ed eseguire i comandi localmente.
 
 I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per consentire l'accesso **SSH**. I passaggi illustrati presuppongono che il nome scelto per l'acceleratore di soluzioni sia **contoso-simulation**. Sostituire questo valore con il nome della distribuzione:
 
@@ -35,7 +35,7 @@ I passaggi seguenti mostrano come configurare la macchina virtuale di Azure per 
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Aggiornare la password dell'account **azureuser** nella macchina virtuale con una password conosciuta. Scegliere la propria password quando si esegue questo comando:
 

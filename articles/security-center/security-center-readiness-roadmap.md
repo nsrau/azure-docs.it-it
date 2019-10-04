@@ -3,9 +3,8 @@ title: Guida di orientamento alla preparazione del Centro sicurezza di Azure | M
 description: Questo documento fornisce una guida di orientamento alla preparazione per iniziare a usare il Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: ndicola
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244643"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200993"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -67,9 +66,8 @@ Usare le risorse seguenti per semplificare la gestione degli avvisi di sicurezza
 
 Articoli    
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protezione delle macchine virtuali nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 * [Protezione della rete nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protecting your applications in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
@@ -114,11 +112,11 @@ Articoli
 * [Pagina di documentazione dell'API REST del Centro sicurezza](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Domande frequenti sul Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)
 * [Pagina dei prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/)
-* [Procedure consigliate per la sicurezza delle identità](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Procedure consigliate per la sicurezza di rete](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [Procedure consigliate per la sicurezza delle identità](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+* [Procedure consigliate per la sicurezza di rete](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Consigli relativi a PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformità](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [I clienti di log analitica possono ora usare Centro sicurezza di Azure per proteggere i carichi di lavoro cloud ibridi](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [I clienti di log Analytics possono ora usare il Centro sicurezza di Azure per proteggere i propri carichi di lavoro cloud ibridi](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Risorse della community
 

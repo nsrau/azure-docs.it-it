@@ -9,12 +9,12 @@ ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1ffa56caebf16b588dffaba249a844915f9f44c7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47017688"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179889"
 ---
 ## <a name="view-cost-data"></a>Visualizzare i dati di costo
 

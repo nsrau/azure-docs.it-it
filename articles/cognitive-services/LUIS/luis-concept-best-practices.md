@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Procedure consigliate-LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulle procedure consigliate LUIS per ottenere i risultati migliori con il modello di app LUIS.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895816"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382885"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
-Usare il processo di creazione dell'app per compilare l'app LUIS. 
+Usare il processo di creazione di app per compilare l'app LUIS: 
 
 * Compilare il modello linguistico
 * Aggiungere alcune espressioni di esempio di training (10-15 per finalità)
@@ -27,7 +27,7 @@ Usare il processo di creazione dell'app per compilare l'app LUIS.
 * Test dall'endpoint 
 * Aggiungere funzionalità
 
-Dopo che l'app è stata [pubblicata](luis-how-to-publish-app.md), usare il ciclo di creazione per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo ulteriori espressioni di esempio. Questo non consente a LUIS di apprendere il modello con espressioni utente reali. 
+Una volta [pubblicata](luis-how-to-publish-app.md)l'app, usare il ciclo di creazione per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo ulteriori espressioni di esempio. Questo non consente a LUIS di apprendere il modello con espressioni utente reali. 
 
 Affinché LUIS assolva alla sua funzione di apprendimento in modo efficiente, non espandere le espressioni finché il set corrente di espressioni di esempio e di endpoint non restituiscono punteggi di stima elevati. Migliorare i punteggi usando l'[apprendimento attivo](luis-concept-review-endpoint-utterances.md), [criteri](luis-concept-patterns.md) ed [elenchi di frasi](luis-concept-feature.md). 
 
@@ -78,13 +78,13 @@ Per altre informazioni:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Aggiungere elenchi di frasi e criteri nelle iterazioni successive
 
-È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima di aggiungere gli elenchi di frase e modelli in quanto queste funzionalità sono un peso maggiore rispetto a espressioni di esempio e sfaserà confidenza. 
+È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima di aggiungere gli [elenchi di frasi](luis-concept-feature.md) e i [modelli](luis-concept-patterns.md) , perché queste funzionalità sono ponderate in modo più significativo rispetto alle espressioni di esempio e dipendono dalla confidenza. 
 
 Dopo aver compreso come si comporta l'app senza queste caratteristiche, aggiungerne una alla volta in base alle esigenze. Non è necessario aggiungere queste caratteristiche con ogni [iterazione](luis-concept-app-iteration.md) o modificarle con ogni versione. 
 
 Non è sbagliato aggiungerle all'inizio della progettazione del modello, ma è più facile vedere come ogni caratteristica influisce sui risultati dopo che il modello è stato testato con le espressioni. 
 
-È consigliabile eseguire i test tramite l'[endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance), per usufruire dell'ulteriore vantaggio dell'[apprendimento attivo](luis-concept-review-endpoint-utterances.md). Anche il [riquadro di test interattivo](luis-interactive-test.md) è una valida metodologia di test. 
+È consigliabile eseguire i test tramite l'[endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint), per usufruire dell'ulteriore vantaggio dell'[apprendimento attivo](luis-concept-review-endpoint-utterances.md). Anche il [riquadro di test interattivo](luis-interactive-test.md) è una valida metodologia di test. 
  
 
 ### <a name="phrase-lists"></a>Elenchi di frasi
@@ -97,7 +97,7 @@ Per altre informazioni:
 * Concetto: [Caratteristiche di tipo elenco di frasi nell'app LUIS](luis-concept-feature.md)
 * Procedura: [Usare gli elenchi di frasi in segnali boost dell'elenco di parole](luis-how-to-add-features.md)
 
-### <a name="patterns"></a>Modelli
+### <a name="patterns"></a>Criterio di ricerca
 
 Le espressioni utente reali dall'endpoint, molto simili tra loro, potrebbero rivelare criteri di scelta e posizionamento di parole. La funzionalità [criteri](luis-concept-patterns.md) apprende la scelta e il posizionamento delle parole oltre alle espressioni regolari per migliorare la precisione della stima. Un'espressione regolare nei criteri tiene conto delle parole e della punteggiatura che si intende ignorare mantenendo la corrispondenza ai criteri. 
 

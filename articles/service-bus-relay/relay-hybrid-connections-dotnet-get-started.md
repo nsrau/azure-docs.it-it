@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Websockets per Connessioni ibride di Inoltro di Azure in .NET | Microsoft Docs
-description: Scrivere un'applicazione console C# per Websockets per Connessioni ibride di Inoltro di Azure.
+title: Introduzione a Azure WebSockets connessioni ibride di inoltro in .NET | Microsoft Docs
+description: Scrivere un C# console applicazioni affinché i WebSocket le connessioni ibride inoltro di Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66428347"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websocket per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 
     ![applicazioni in esecuzione](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-A questo punto è stata creata un'applicazione per le connessioni ibride end-to-end.
+Complimenti, aver creato un'applicazione completa di connessioni ibride.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida introduttiva sono state create applicazioni client e server .NET che usano WebSocket per inviare e ricevere messaggi. La funzionalità Connessioni ibride di Inoltro di Azure supporta anche l'uso di HTTP per l'invio e la ricezione di messaggi. Per informazioni sull'uso di HTTP con Connessioni ibride di Inoltro di Azure, vedere la [guida introduttiva di HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

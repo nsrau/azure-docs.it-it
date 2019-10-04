@@ -1,24 +1,17 @@
 ---
 title: Errore Risorsa di Azure non trovata | Microsoft Docs
 description: Informazioni su come risolvere gli errori che segnalano l'impossibilità di trovare una risorsa.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 176de6f19274dfd8a6cf0335bb4cf16a8baa874b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: 9c999a70ffdbed0c954cfc960b5febdaff06e4ae
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525345"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206197"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
 

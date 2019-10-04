@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751580"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Data science per principianti
@@ -87,7 +87,7 @@ In questo modo si crea un *modello*. È come se si prendesse il modo reale e si 
 
 Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ogni punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
 
-Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
+Dal momento che si cerca di rispondere alla domanda *Quanto costa?* , è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
 A questo punto è disponibile un modello ed è possibile porre la domanda: Quanto costerà un diamante da 1,35 carati?

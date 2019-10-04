@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791525"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162336"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
@@ -26,10 +25,10 @@ Il database SQL di Azure è un servizio dati gestito automaticamente che esegue 
 L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 > [!NOTE]
-> Per istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurato tramite [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) solo. Configurazione basata sul portale e opzioni di ottimizzazione indice automatici descritte in questo articolo non si applicano all'istanza gestita.
+> Per Istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurata solo tramite [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Le opzioni di configurazione basata su portale e di ottimizzazione automatica degli indici descritte in questo articolo non si applicano a Istanza gestita.
 
 > [!NOTE]
-> Configurazione delle opzioni di ottimizzazione automatica tramite modelli ARM (Azure Resource Manager) non è supportata in questo momento.
+> In questo momento la configurazione delle opzioni di ottimizzazione automatica tramite il modello ARM (Azure Resource Manager) non è supportata.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
 
@@ -42,7 +41,7 @@ Per abilitare l'ottimizzazione automatica nel **server** logico del database SQL
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi.
+> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi. L'eliminazione degli indici inutilizzati non è supportata per i livelli di servizio Premium e business critical.
 >
 
 Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **Applica**.

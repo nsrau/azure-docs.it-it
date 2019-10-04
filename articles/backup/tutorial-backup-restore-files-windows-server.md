@@ -1,21 +1,19 @@
 ---
 title: Recuperare i file da Azure in un'istanza di Windows Server
 description: Questa esercitazione illustra nei dettagli come recuperare gli elementi da Azure in Windows Server.
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: eseguire il backup di windows server; ripristinare i file in windows server; eseguire il backup e ripristino di emergenza
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
-ms.author: saurse
+ms.date: 02/14/2018
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e03c085a9671ba84d3af63da658f749f09ebcdef
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607022"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210077"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperare i file da Azure in un'istanza di Windows Server
 

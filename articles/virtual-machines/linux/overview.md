@@ -4,23 +4,22 @@ description: Descrive i servizi di calcolo, archiviazione e rete di Azure con ma
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008934"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082430"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 Microsoft Azure è una raccolta in continua crescita di servizi cloud pubblici integrati, che includono analisi, macchine virtuali, database, dispositivi mobili, rete, archiviazione, servizi cloud e Web, ideali per l'hosting delle soluzioni.  Microsoft Azure fornisce una piattaforma di elaborazione scalabile che consente di pagare solo ciò che si usa, quando necessario, senza dover investire in hardware locale.  Azure è subito pronto quando occorre aumentare le prestazioni e le istanze delle soluzioni per ottenere la massima scalabilità necessaria per soddisfare le esigenze dei clienti.

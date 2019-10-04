@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60752046"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery
 
@@ -84,7 +84,7 @@ Per visualizzare le entità pubblicate, visitare l'URL seguente, sostituendo `[A
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Ad esempio: 
+Ad esempio:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 

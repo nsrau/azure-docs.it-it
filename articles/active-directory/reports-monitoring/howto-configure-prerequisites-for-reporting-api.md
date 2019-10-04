@@ -3,7 +3,7 @@ title: Prerequisiti di accesso all'API di creazione report di Azure AD | Microso
 description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 08/30/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60439091"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241649"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
-Le [API di creazione report di Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti.
+Le [API di creazione report di Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare queste API da strumenti e linguaggi di programmazione.
 
-L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) per autorizzare l'accesso alle API Web.
+L'API di creazione report usa l'autenticazione [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) per autorizzare l'accesso alle API Web.
 
 Per preparare l'accesso all'API di creazione report, è necessario:
 
@@ -43,14 +43,14 @@ Per accedere ai dati di creazione dei report tramite l'API, è necessario dispor
 
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
-- Amministratore della sicurezza
+- Amministratore della protezione
 
 - Amministratore globale
 
 
-## <a name="register-an-application"></a>Registrare un'applicazione
+## <a name="register-an-application"></a>Registra un'applicazione
 
-È necessario registrare un'applicazione, anche se si accede all'API di creazione dei report tramite uno script. Questo consente di avere un **ID applicazione** necessario per le chiamate di autorizzazione e consente al codice di ricevere i token.
+La registrazione è necessaria anche se si accede all'API di creazione report usando uno script. La registrazione fornisce un **ID applicazione**, necessario per le chiamate di autorizzazione e consente al codice di ricevere token.
 
 Per configurare la directory per l'accesso all'API di creazione report di Azure AD, è necessario accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore di Azure che è anche membro del ruolo di directory **Amministratore globale** nel tenant di Azure AD.
 
@@ -62,87 +62,65 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Nella pagina **Azure Active Directory** selezionare **Registrazioni per l'app**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. Nella pagina **Registrazioni per l'app** selezionare **Registrazione nuova applicazione**.
+3. Nella pagina **registrazioni app** selezionare **nuova registrazione**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/03.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
-4. Nella pagina **Crea** seguire la procedura seguente:
+4. Pagina **di registrazione di un'applicazione** :
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/04.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. Nella casella di testo **Nome** digitare `Reporting API application`.
 
-    b. Per **Tipo di applicazione** selezionare **App Web/API**.
+    b. Per **tipo di account supportati**, selezionare **account solo in questa organizzazione**.
 
-    c. Nella casella di testo **URL di accesso** digitare `https://localhost`.
+    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
 
-    d. Selezionare **Create**. 
+    d. Selezionare **Registra**. 
 
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni 
 
 A seconda delle API a cui si desidera accedere, è necessario concedere all'app le autorizzazioni seguenti:  
 
-| API | Autorizzazione |
+| API | Autorizzazioni |
 | --- | --- |
 | Microsoft Azure Active Directory | Leggi i dati della directory |
-| Microsoft Graph | Leggere tutti i dati dei log di controllo |
+| Microsoft Graph | Lettura di tutti i dati del log di controllo |
 
 
-![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
 Nella sezione seguente viene elencata la procedura per entrambe le API. Se non si desidera accedere a una delle API, è possibile ignorare le procedure relative.
 
 **Per concedere l'autorizzazione dell'applicazione per l'uso delle API:**
 
-1. Selezionare l'applicazione nella pagina **Registrazioni per l'app** e selezionare **impostazioni**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+1. Selezionare **autorizzazioni API** e quindi **Aggiungi un'autorizzazione**. 
 
-2. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie**. 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+2. Nella **pagina autorizzazioni API richiesta**individuare supporto dell' **API legacy** **Azure Active Directory Graph**. 
 
-3. Nella pagina **Autorizzazioni necessarie** fare clic su Windows **Azure Active Directory** nell'elenco delle **API**. 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+3. Nella pagina **autorizzazioni necessarie** selezionare **Autorizzazioni applicazione**, quindi **directory** CheckBox **Directory. ReadAll**.  Selezionare **Aggiungi autorizzazioni**.
 
-4. Nella pagina **Abilita l'accesso**, selezionare **Lettura dati directory** e deselezionare **Accedi e leggi il profilo di un altro utente**. 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+4. Nella pagina **API per la creazione di report-autorizzazioni API** selezionare **concedi il consenso dell'amministratore**. 
 
-5. Nel barra degli strumenti in alto fare clic su **Salva**.
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/15.png)
+5. Nota: **Microsoft Graph** viene aggiunto per impostazione predefinita durante la registrazione dell'API.
 
-6. Nella pagina **Autorizzazioni necessarie** fare clic su **Aggiungi** sulla barra degli strumenti in alto.
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/32.png)
-
-7. Nella pagina **Aggiungi accesso all'API** fare clic su **Selezionare un'API**.
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/31.png)
-
-8. Nella pagina **Selezionare un'API** fare clic su **Microsoft Graph** e quindi fare clic su **Seleziona**.
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/33.png)
-
-9. Nella pagina **Abilita l'accesso**, selezionare **Leggere tutti i dati del log di controllo**, quindi fare clic su **Seleziona**.  
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/34.png)
-
-10. Nella pagina **Aggiungi accesso all'API** fare clic su **Fatto**.  
-
-11. Nella pagina **Autorizzazioni necessarie**, sulla barra degli strumenti in alto. fare clic su **Concedi autorizzazioni** e quindi su **Sì**.
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/17.png)
-
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 ## <a name="gather-configuration-settings"></a>Ottenere le impostazioni di configurazione 
 
@@ -160,11 +138,11 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento a sinistra.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Nella pagina **Azure Active Directory** selezionare **Nomi di dominio personalizzati**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
 3. Copiare il nome del dominio dall'elenco dei domini.
 
@@ -175,37 +153,31 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Selezionare l'applicazione nella pagina **Registrazioni per l'app**.
 
 3. Nella pagina dell'applicazione, passare a **ID applicazione** e selezionare **Fare clic per copiare**.
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
 
 
 ### <a name="get-your-applications-client-secret"></a>Ottenere il segreto client dell'applicazione
-Per ottenere il segreto client dell'applicazione, è necessario creare una nuova chiave e salvare il relativo valore durante il salvataggio della nuova chiave perché non è più possibile recuperare il valore in un secondo momento.
+ Evitare errori durante il tentativo di accedere ai log di controllo o di accedere usando l'API.
 
 **Per ottenere il segreto client dell'applicazione:**
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Selezionare l'applicazione nella pagina **Registrazioni per l'app**.
 
-3. Nella pagina dell'applicazione selezionare **Impostazioni** nella barra degli strumenti nella parte superiore. 
+3.  Selezionare **certificati e segreti** nella pagina **applicazione API** , nella sezione **segreti client** fare clic su **+ nuovo segreto client**. 
 
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Registra applicazione](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-4. Nella pagina **Impostazioni** fare clic su **Chiavi** nella sezione **Accesso all'API**. 
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/12.png)
-
-5. Nel pagina **Chiavi** seguire questa procedura:
-
-    ![Registrare l'applicazione](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+5. Nella pagina **Aggiungi un segreto client** aggiungere:
 
     a. Nella casella di testo **Descrizione** digitare `Reporting API`.
 
@@ -225,7 +197,7 @@ L'endpoint Microsoft Graph versione 2 non è attualmente supportato: assicurarsi
 
 ### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Errore: Impossibile ottenere i ruoli utente da AD Graph
 
-È possibile ricevere questo messaggio di errore quando si tenta di accedere agli accessi tramite Graph Explorer. Assicurarsi di essere connessi a un account usando entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer, come illustrato nell'immagine seguente. 
+ Accedere all'account usando entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer per evitare di ricevere un errore durante il tentativo di accesso con Graph Explorer. 
 
 ![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
 
@@ -236,21 +208,19 @@ Se compare questo messaggio di errore durante il tentativo di accedere agli acce
 ![Interfaccia utente di Autorizzazioni di modifica](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Errore: Nessun tenant è B2C o il tenant non ha una licenza Premium
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Errore: Il tenant non è B2C o il tenant non ha una licenza Premium
 
 L'accesso ai report sugli accessi richiede una licenza Azure Active Directory Premium 1 (P1). Se viene visualizzato questo messaggio di errore durante l'accesso agli accessi, assicurarsi che il tenant sia concesso in licenza con una licenza Azure AD P1.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Errore: L'utente non è associato ai ruoli autorizzati 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Errore: I ruoli consentiti non includono User. 
 
-Se viene visualizzato questo messaggio di errore durante il tentativo di accedere ai log di controllo o agli accessi usando l'API, assicurarsi che l'account faccia parte del **ruolo con autorizzazioni di lettura per la sicurezza** o del **ruolo lettore report** nel tenant di Azure Active Directory. 
+ Evitare errori durante il tentativo di accedere ai log di controllo o di accedere usando l'API. Assicurarsi che l'account faccia parte del ruolo **lettore di sicurezza** o **lettore report** nel tenant del Azure Active Directory.
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Errore: L'applicazione non possiede l'autorizzazione "Leggi i dati della directory" di AAD 
 
-Seguire i passaggi descritti in [Prerequisiti di accesso all'API di creazione report di Azure AD](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione venga eseguita con il set di autorizzazioni corretto. 
-
 ### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Errore: L'applicazione non possiede l'autorizzazione "Leggere tutti i dati dei log di controllo" dell'API Microsoft Graph
 
-Seguire i passaggi descritti in [Prerequisiti di accesso all'API di creazione report di Azure AD](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione venga eseguita con il set di autorizzazioni corretto. 
+Seguire i passaggi descritti in [prerequisiti per accedere all'API di creazione report Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione sia in esecuzione con il set di autorizzazioni corretto. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,6 @@
 ---
 title: Connessione di MapReduce e SSH con Apache Hadoop in HDInsight - Azure
 description: Informazioni su come usare SSH per eseguire processi MapReduce con Apache Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 5eac6cd60b9e58dea8901fad076bb481d5f2eb06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078313"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Usare MapReduce con Apache Hadoop in HDInsight con SSH
 
@@ -28,9 +27,6 @@ Informazioni su come inviare processi MapReduce da una connessione Secure Shell 
 ## <a id="prereq"></a>Prerequisiti
 
 * Un cluster HDInsight (Hadoop in HDInsight) basato su Linux.
-
-  > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un client SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

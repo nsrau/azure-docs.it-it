@@ -1,25 +1,18 @@
 ---
-title: Archiviare il pacchetto di AppSource in una risorsa di archiviazione di Azure e generare un URL con la chiave di firma di accesso condiviso | Microsoft Docs
+title: Archiviare il pacchetto di AppSource in una risorsa di archiviazione di Azure e generare un URL con la chiave di firma di accesso condiviso
 description: Illustrare in dettaglio i passaggi necessari per caricare e proteggere un pacchetto di AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ad0e6eaae5c0fad74ea484827e0f8d535cfbf579
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: ac77767aee2dcde33f4266e1d2d09c49dcf5f8a3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884660"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943291"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Archiviare il pacchetto di AppSource in una risorsa di archiviazione di Azure e generare un URL con la chiave di firma di accesso condiviso
 =============================================================================

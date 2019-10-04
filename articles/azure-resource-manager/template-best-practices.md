@@ -1,22 +1,17 @@
 ---
 title: Procedure consigliate per i modelli di Azure Resource Manager
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389577"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983813"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -28,7 +23,7 @@ Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti clou
 
 ## <a name="template-limits"></a>Limiti del modello
 
-Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
+Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri. 
 
 Esistono anche i limiti seguenti:
 
@@ -42,12 +37,13 @@ Esistono anche i limiti seguenti:
 
 ## <a name="resource-group"></a>Gruppo di risorse
 
-Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati sulle risorse. I metadati vengono archiviati nel percorso del gruppo di risorse.
+Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
 Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
 ## <a name="parameters"></a>Parametri
-Le informazioni di questa sezione possono essere utili quando si usano i [parametri](resource-group-authoring-templates.md#parameters).
+
+Le informazioni di questa sezione possono essere utili quando si usano i [parametri](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Raccomandazioni generali per i parametri
 
@@ -149,7 +145,9 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 ## <a name="variables"></a>Variabili
 
-Le informazioni seguenti possono essere utili quando si usano le [variabili](resource-group-authoring-templates.md#variables):
+Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
+
+* Usare il caso Camel per i nomi delle variabili.
 
 * Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
 
@@ -173,7 +171,7 @@ Quando si decidono le [dipendenze](resource-group-define-dependencies.md) da imp
 
 * Impostare una risorsa figlio come dipendente dalla risorsa padre.
 
-* Le risorse con l'[elemento condition](resource-group-authoring-templates.md#condition) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
+* Le risorse con l'[elemento condition](conditional-resource-deployment.md) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
 
 * Consentire la propagazione a catena delle dipendenze senza impostarle esplicitamente. Ad esempio, una macchina virtuale dipende da un'interfaccia di rete virtuale e tale interfaccia dipende da una rete virtuale e indirizzi IP pubblici. La macchina virtuale viene quindi distribuita dopo tutte e tre le risorse, ma non deve essere impostata esplicitamente come dipendente da tutte e tre. Questo approccio offre chiarezza nell'ordine delle dipendenze e semplifica la successiva modifica del modello.
 
@@ -190,7 +188,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -201,43 +199,32 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
 * Se si usa un *endpoint pubblico* nel modello, come ad esempio un endpoint pubblico di archiviazione BLOB di Azure, *non impostare come hardcoded* lo spazio dei nomi. Usare la funzione **reference** per recuperare lo spazio dei nomi in modo dinamico. Questo approccio consente di distribuire il modello in ambienti diversi dello spazio dei nomi pubblico senza dover modificare manualmente l'endpoint nel modello. Impostare la versione dell'API sulla stessa versione in uso per l'account di archiviazione nel modello:
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   Se l'account di archiviazione viene distribuito nello stesso modello creato, non è necessario specificare lo spazio dei nomi del provider quando si fa riferimento alla risorsa. L'esempio seguente viene descritta la sintassi semplificata:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Se nel modello sono presenti altri valori configurati per usare uno spazio dei nomi pubblico, modificarli in modo da riflettere la stessa funzione **reference**. Ad esempio, è possibile impostare la proprietà **storageUri** del profilo di diagnostica della macchina virtuale:
+   Se l'account di archiviazione viene distribuito nello stesso modello che si sta creando e il nome dell'account di archiviazione non è condiviso con un'altra risorsa nel modello, non è necessario specificare lo spazio dei nomi del provider o apiVersion quando si fa riferimento alla risorsa. L'esempio seguente viene descritta la sintassi semplificata:
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    È anche possibile fare riferimento a un account di archiviazione in un gruppo di risorse diverso:
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
@@ -295,7 +282,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
 
 ## <a name="outputs"></a>Output
 
-Se viene usato un modello per creare indirizzi IP pubblici, deve includere una [sezione outputs](resource-group-authoring-templates.md#outputs) che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
+Se viene usato un modello per creare indirizzi IP pubblici, deve includere una [sezione outputs](template-outputs.md) che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
 
 ```json
 "outputs": {

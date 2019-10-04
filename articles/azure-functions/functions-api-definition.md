@@ -6,16 +6,15 @@ author: alexkarcher-msft
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00dedd069914384a1883a54bfb433857286fb49c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076735"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097567"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
 Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azure è una funzionalità di anteprima che consente di scrivere una definizione di OpenAPI 2.0 all'interno di un'app per le funzioni. Con l'app per le funzioni è poi possibile ospitare quel file.
@@ -36,7 +35,7 @@ I [metadati OpenAPI](https://swagger.io/) consentono a una funzione che ospita u
 > [!NOTE]
 > La funzionalità Definizione dell'API della funzione non è attualmente supportata per il runtime beta.
 
-Per abilitare la generazione di una definizione OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione (anteprima)**. L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
+Per abilitare la generazione di una definizione OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione (anteprima)** . L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
 
 ## <a name="generate-definition"></a>Generare una struttura Swagger dai metadati della funzione
 Per iniziare a scrivere la prima definizione OpenAPI può essere utile usare un modello. La funzione del modello di definizione crea una definizione OpenAPI di tipo sparse usando tutti i metadati contenuti nel file function.json per ognuna delle funzioni trigger HTTP. Le altre informazioni relative all'API, ad esempio i modelli di richiesta e risposta, devono essere inserite nella [specifica OpenAPI](https://swagger.io/specification/).
@@ -45,7 +44,7 @@ Per istruzioni dettagliate, vedere l'[esercitazione introduttiva](./functions-ap
 
 ### <a name="templates"></a>Modelli disponibili
 
-|NOME| DESCRIZIONE |
+|NOME| Descrizione |
 |:-----|:-----|
 |Definizione generata|Una definizione OpenAPI con la quantità massima di informazioni deducibili dai metadati esistenti della funzione.|
 
@@ -75,7 +74,7 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
    1. Impostare **Origine della definizione dell'API** su **Funzione**.
    1. Fare clic su **Genera modello di definizione dell'API** e su **Salva** per creare una definizione del modello da modificare in un secondo momento.
    1. Prendere nota dell'URL di definizione dell'API e della chiave.
-1. [Impostare l'integrazione continuata e la distribuzione continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Impostare l'integrazione continuata e la distribuzione continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Modificare il file swagger.json nel controllo del codice sorgente in \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 A questo punto, le modifiche apportate al file swagger.json nell'archivio sono ospitate dall'app per le funzioni con l'URL di definizione dell'API e la chiave annotate nel passaggio 1.c.

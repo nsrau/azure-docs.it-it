@@ -4,24 +4,23 @@ description: Informazioni sulle principali linee guida di progettazione e implem
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002675"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083131"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -55,8 +54,8 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
   * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
 * Le reti virtuali usano AZOS-USE-VN<strong>[numero]</strong>
-* I set di disponibilità usano azos-use-as-**[ruolo]**
-* I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
+* I set di disponibilità usano azos-use-as- **[ruolo]**
+* I nomi delle macchine virtuali usano azos-use-vm- **[nomevm]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.
@@ -76,7 +75,7 @@ Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tram
 * Percorso: Stati Uniti orientali 2
 * Spazio degli indirizzi della rete virtuale: 10.0.0.0/8
 * Prima subnet:
-  * Nome: FrontEnd
+  * Nome: Front-end
   * Spazio degli indirizzi: 10.0.1.0/24
 * Seconda subnet:
   * Nome: BackEnd

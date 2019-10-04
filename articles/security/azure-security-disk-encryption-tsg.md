@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e2464332727b0ef1e616c04a975df5ac475a7b19
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490038"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610278"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -52,11 +52,11 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Aggiornare l'agente di macchine virtuali di Azure e le versioni dell'estensione
 
-Operazioni di crittografia dischi di Azure potrebbero non riuscire nelle immagini di macchine virtuali con le versioni non supportate dell'agente di macchine virtuali di Azure. Per altre informazioni, consultare [supporto della versione minima per gli agenti di macchina virtuale in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Le operazioni di crittografia dischi di Azure possono avere esito negativo sulle immagini di macchine virtuali usando versioni non supportate dell'agente di macchine virtuali di Azure. Prima di abilitare la crittografia, è necessario aggiornare le immagini Linux con le versioni di Agent precedenti a 2.2.38. Per altre informazioni, vedere [come aggiornare l'agente Linux di Azure in una](../virtual-machines/extensions/update-linux-agent.md) macchina virtuale e il [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-La versione corretta dell'estensione dell'agente guest Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux è anche necessaria. Le versioni dell'estensione vengono mantenute e aggiornate automaticamente dalla piattaforma quando sono soddisfatti i prerequisiti di agente di macchine virtuali di Azure e viene utilizzata una versione supportata dell'agente di macchine virtuali.
+È necessaria anche la versione corretta dell'estensione agente guest Microsoft. Azure. Security. AzureDiskEncryption o Microsoft. Azure. Security. AzureDiskEncryptionForLinux. Le versioni delle estensioni vengono gestite e aggiornate automaticamente dalla piattaforma quando sono soddisfatti i prerequisiti dell'agente di macchine virtuali di Azure e viene usata una versione supportata dell'agente di macchine virtuali.
 
-L'estensione Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux è stato deprecato e non è più supportata.  
+L'estensione Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux è stata deprecata e non è più supportata.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Impossibile crittografare i dischi Linux
 
@@ -64,7 +64,7 @@ In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS d
 
 La sequenza di crittografia del disco del sistema operativo Linux smonta temporaneamente l'unità del sistema operativo, per poi eseguire la crittografia blocco per blocco dell'intero disco del sistema operativo e riportarlo allo stato crittografato. A differenza di Crittografia dischi di Azure in Windows, la crittografia dei dischi Linux non consente l'uso simultaneo della macchina virtuale mentre è in corso la crittografia. Le caratteristiche delle prestazioni della macchina virtuale possono determinare una differenza significativa nel tempo necessario per completare la crittografia. Tali caratteristiche includono le dimensioni del disco e l'archiviazione standard o premium (SSD) dell'account di archiviazione.
 
-Per controllare lo stato della crittografia, eseguire il polling il **ProgressMessage** restituita dal campo le [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mentre viene eseguita la crittografia dell'unità del sistema operativo, la macchina virtuale passa in stato di manutenzione e SSH viene disabilitato per impedire interruzioni del processo in corso. Mentre la crittografia è in corso, di norma viene visualizzato il messaggio **EncryptionInProgress**. Diverse ore più tardi, il messaggio **VMRestartPending** chiederà di riavviare la macchina virtuale. Ad esempio: 
+Per controllare lo stato della crittografia, eseguire il polling del campo **ProgressMessage** restituito dal comando [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Mentre viene eseguita la crittografia dell'unità del sistema operativo, la macchina virtuale passa in stato di manutenzione e SSH viene disabilitato per impedire interruzioni del processo in corso. Mentre la crittografia è in corso, di norma viene visualizzato il messaggio **EncryptionInProgress**. Diverse ore più tardi, il messaggio **VMRestartPending** chiederà di riavviare la macchina virtuale. Ad esempio:
 
 
 ```azurepowershell
@@ -100,7 +100,7 @@ Tutte le impostazioni dei gruppi di sicurezza di rete devono consentire all'endp
 Quando la crittografia è abilitata con le [credenziali di Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione di Azure Active Directory correnti sono mantenuti nelle sezioni 56 e 59 della documentazione [URL e intervalli di indirizzi IP per Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
-La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) che usa un indirizzo IP noto e non instradabile (`169.254.169.254`) accessibile solo dall'interno della macchina virtuale.  Non sono supportate le configurazioni di proxy che modificano il traffico HTTP locale a questo indirizzo (ad esempio, aggiungendo un'intestazione X-Forwarded-For).
+La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) che usa un indirizzo IP noto e non instradabile (`169.254.169.254`) accessibile solo dall'interno della macchina virtuale.  Le configurazioni proxy che modificano il traffico HTTP locale a questo indirizzo, ad esempio l'aggiunta di un'intestazione X-inoltro-for, non sono supportate.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Gestione pacchetti Linux protetto da firewall
 
@@ -130,7 +130,7 @@ Per risolvere il problema, copiare i quattro file seguenti da una macchina virtu
 
 1. Usare DiskPart per verificare i volumi, quindi procedere.  
 
-Ad esempio: 
+Ad esempio:
 
 ```
 DISKPART> list vol
@@ -148,13 +148,15 @@ If the expected encryption state does not match what is being reported in the po
 
 ## <a name="troubleshooting-encryption-status"></a>Risoluzione dei problemi relativi allo stato della crittografia 
 
-Il portale potrebbe visualizzare un disco come crittografato anche dopo che è stato crittografato all'interno della macchina virtuale.  Ciò può verificarsi quando i comandi di basso livello vengono utilizzati per decrittografare direttamente il disco dalla macchina virtuale, invece di usare i comandi di gestione crittografia dischi di Azure a livello superiore.  I comandi di livello superiore non solo decrittografare il disco dalla macchina virtuale, ma di fuori della macchina virtuale sono anche aggiornare impostazioni di crittografia a livello piattaforma importanti e le impostazioni di estensione associate alla macchina virtuale.  Se questi non vengono conservati nell'allineamento, la piattaforma non sarà in grado di segnalare lo stato della crittografia o effettuare il provisioning della macchina virtuale in modo corretto.   
+Il portale può visualizzare un disco come crittografato anche dopo che è stato decrittografato all'interno della macchina virtuale.  Questo problema può verificarsi quando si usano comandi di basso livello per decrittografare direttamente il disco dall'interno della VM, anziché usare i comandi di gestione di crittografia dischi di Azure di livello superiore.  I comandi di livello superiore non solo decrittografano il disco dalla macchina virtuale, ma all'esterno della macchina virtuale aggiornano anche le impostazioni di crittografia e le impostazioni di estensione di livello piattaforma associate alla VM.  Se questi non vengono mantenuti nell'allineamento, la piattaforma non sarà in grado di segnalare lo stato della crittografia o di effettuare il provisioning della macchina virtuale correttamente.   
 
-Per disabilitare correttamente la crittografia dischi di Azure, iniziare da uno stato noto soddisfacente con crittografia abilitata e quindi usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) e [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell i comandi, o la [disabilitare la crittografia delle vm az](/cli/azure/vm/encryption) riga di comando. 
+Per disabilitare crittografia dischi di Azure con PowerShell, usare [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguito da [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). L'esecuzione di Remove-AzVMDiskEncryptionExtension prima della disabilitazione della crittografia avrà esito negativo.
+
+Per disabilitare crittografia dischi di Azure con l'interfaccia della riga di comando, usare il comando [AZ VM Encryption Disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Crittografia dei dati inattivi in Azure](azure-security-encryption-atrest.md)
+- [Crittografia dei dati inattivi in Azure](fundamentals/encryption-atrest.md)

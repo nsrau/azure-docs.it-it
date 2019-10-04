@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002698"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773243"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
 In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per lo SKU Standard di Hub eventi.
+> [!NOTE]
+> La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -37,7 +38,9 @@ La funzionalità di ripristino di emergenza geografico di Hub eventi di Azure è
 
 ## <a name="basic-concepts-and-terms"></a>Concetti e terminologia di base
 
-La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. Si noti che la funzionalità di ripristino di emergenza geografico è disponibile solo per lo [SKU Standard](https://azure.microsoft.com/pricing/details/event-hubs/). Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
+La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. 
+
+La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/) . Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
 
 In questo articolo viene usata la terminologia seguente:
 
@@ -48,6 +51,19 @@ In questo articolo viene usata la terminologia seguente:
 -  *Metadati*: entità come hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
+
+## <a name="supported-namespace-pairs"></a>Coppie di spazi dei nomi supportate
+Sono supportate le seguenti combinazioni di spazi dei nomi primari e secondari:  
+
+| Spazio dei nomi primario | Spazio dei nomi secondario | Supportato | 
+| ----------------- | -------------------- | ---------- |
+| Standard | Standard | Sì | 
+| Standard | Dedicato | Yes | 
+| Dedicato | Dedicato | Sì | 
+| Dedicato | Standard | No | 
+
+> [!NOTE]
+> Non è possibile associare gli spazi dei nomi presenti nello stesso cluster dedicato. È possibile associare spazi dei nomi che si trovano in cluster distinti. 
 
 ## <a name="setup-and-failover-flow"></a>Configurazione e flusso del failover
 
@@ -84,7 +100,7 @@ Se si commette un errore, ad esempio associando le aree non corrette durante la 
 
 ## <a name="samples"></a>Esempi
 
-L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) illustra come configurare e avviare un failover. L'esempio illustra i concetti seguenti:
+L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra come configurare e avviare un failover. L'esempio illustra i concetti seguenti:
 
 - Impostazioni necessarie in Azure Active Directory per usare Azure Resource Manager con Hub eventi. 
 - Passaggi necessari per eseguire il codice di esempio. 
@@ -94,13 +110,19 @@ L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Tenere presente le considerazioni seguenti per questa versione:
 
-1. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
+1. Per impostazione predefinita, il ripristino di emergenza geografico di hub eventi non replica i dati e pertanto non è possibile riusare il valore di offset precedente dell'hub eventi primario nell'hub eventi secondario. Si consiglia di riavviare il ricevitore di eventi con uno dei seguenti elementi:
+
+- *EventPosition. FromStart ()* : se si desidera leggere tutti i dati nell'hub eventi secondario.
+- *EventPosition. FromEnd ()* : se si vogliono leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
+- *EventPosition. FromEnqueuedTime (DateTime)* : se si vuole leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e un'ora specificate.
+
+2. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
  
-2. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
+3. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
 
-3. È necessario [provare a eseguire](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) il failover di un'infrastruttura distribuita complessa almeno una volta. 
+4. È necessario [provare a eseguire](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
 
-4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
+5. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
 
 ## <a name="availability-zones"></a>Zone di disponibilità 
 
@@ -115,7 +137,7 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
+* L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
 * Nella [informazioni di riferimento sulle API del servizio REST](/rest/api/eventhub/disasterrecoveryconfigs) sono descritte le API che consentono di eseguire la configurazione del ripristino di emergenza geografico.
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:

@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877276"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60867302"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio
 Questo argomento illustra come visualizzare e interpretare risultati di stima in Azure Machine Learning Studio. Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
@@ -111,7 +111,7 @@ Per visualizzare i risultati del modulo [Score Model][score-model] come illustra
 
 ![Risultati del modulo Score Model](./media/interpret-model-results/7.png)
 
- Figura 7. Visualizzazione dei risultati del modulo Score Model nella classificazione multiclasse
+Figura 7. Visualizzazione dei risultati del modulo Score Model nella classificazione multiclasse
 
 **Interpretazione dei risultati**
 

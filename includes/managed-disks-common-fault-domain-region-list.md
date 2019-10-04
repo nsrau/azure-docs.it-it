@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440229"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812459"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Numero di domini di errore per area
 
 | Region              | Numero massimo di domini di errore  |
 |---------------------|-------------------------|
-| Stati Uniti orientali             | 3                       |
+| East US             | 3                       |
 | Stati Uniti orientali 2           | 3                       |
 | Stati Uniti occidentali             | 3                       |
 | Stati Uniti occidentali 2           | 2                       |
@@ -40,9 +40,12 @@ ms.locfileid: "52440229"
 | India occidentale          | 2                       |
 | Corea del Sud centrale       | 2                       |
 | Corea del Sud meridionale         | 2                       |
+| Emirati Arabi Uniti settentrionali           | 2                       |
 |                     |                         |
 | Australia orientale      | 2                       |
 | Australia sud-orientale | 2                       |
+| Australia centrale   | 2                       |
+| Australia centrale 2 | 2                       |
 |                     |                         |
 | Brasile meridionale        | 2                       |
 |                     |                         |

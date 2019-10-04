@@ -7,17 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1bf9c0b1393abfcad6646624301c4f131c8790a6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447974"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569098"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Argomenti di avvio rapido: Connessione ed esecuzione di query sui database SQL di Azure
 
@@ -39,6 +38,7 @@ Il documento seguente include collegamenti ad esempi di Azure che mostrano come 
 |[PHP](sql-database-connect-query-php.md)|Questa guida introduttiva illustra come usare PHP per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |[Python](sql-database-connect-query-python.md)|Questa guida introduttiva illustra come usare Python per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. |
 |[Ruby](sql-database-connect-query-ruby.md)|Questa guida introduttiva illustra come usare Ruby per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
+|[R](sql-database-connect-query-r.md)|Questa guida di avvio rapido illustra come usare R con Machine Learning Services del database SQL di Azure per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Considerazioni su TLS per la connettività del database SQL
@@ -93,7 +93,7 @@ La tabella seguente elenca esempi di framework ORM (Object Relational Mapping) e
   - [Connettersi al database SQL tramite Python](sql-database-connect-query-python.md)
   - [Connettersi al database SQL tramite Ruby](sql-database-connect-query-ruby.md)
 - Esempi di codice di logica di ripetizione dei tentativi:
-  - [Connettersi in modo resiliente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Connettersi in modo resiliente a SQL tramite ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Connettersi in modo resiliente a SQL tramite PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->

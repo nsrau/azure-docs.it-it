@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: a7016b8ca43abee9c3f346c6dec55a101ce4020a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528346"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203593"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
@@ -46,7 +46,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 ## <a name="programmatically-managing-firewall-rules"></a>Gestione di regole del firewall a livello di programmazione
 Oltre al portale di Azure, le regole del firewall possono essere gestite a livello di programmazione usando l'interfaccia della riga di comando di Azure. Vedere anche [Creare e gestire Database di Azure per le regole di firewall MySQL tramite l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
 
-## <a name="troubleshooting-the-database-firewall"></a>Risoluzione dei problemi del firewall del database
+## <a name="troubleshooting-firewall-issues"></a>Risoluzione dei problemi relativi al firewall
 Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si comporta come previsto, considerare quanto segue:
 
 * **Le modifiche all'elenco degli indirizzi consentiti non sono state ancora applicate:** Per rendere effettive le modifiche apportate alla configurazione del firewall del server di Database di Azure per MySQL possono essere necessari fino a cinque minuti.
@@ -55,11 +55,13 @@ Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si
 
 * **Indirizzo IP dinamico:** Se si dispone di una connessione Internet con indirizzi IP dinamici e si verificano problemi di comunicazione attraverso il firewall, è possibile provare una delle soluzioni seguenti:
 
-* Chiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al server di database di Azure per server MySQL, quindi aggiungere l'intervallo di indirizzi IP come una regola di firewall.
+   * Chiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al server di database di Azure per server MySQL, quindi aggiungere l'intervallo di indirizzi IP come una regola di firewall.
 
-* Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
+   * Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
+
+* **L'IP del server sembra essere pubblico:** Le connessioni al database di Azure per il server MySQL vengono instradate tramite un gateway di Azure accessibile pubblicamente. Tuttavia, l'indirizzo IP del server effettivo è protetto dal firewall. Per altre informazioni, vedere l' [articolo sull'architettura della connettività](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare e gestire regole di firewall per il database di Azure per MySQL mediante il portale di Azure](./howto-manage-firewall-using-portal.md)
-[Creare e gestire regole di firewall per il database di Azure per MySQL mediante l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
+* [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](./howto-manage-firewall-using-portal.md)
+* [Creare e gestire regole del firewall di database di Azure per MySQL usando l'interfaccia della riga di comando](./howto-manage-firewall-using-cli.md)

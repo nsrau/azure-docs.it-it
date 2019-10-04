@@ -1,6 +1,6 @@
 ---
 title: Gestire i criteri di Azure Data Lake Analytics
-description: Informazioni sull'uso dei criteri per controllare l'utilizzo di un account Data Lake Analytics.
+description: Informazioni su come usare i criteri per controllare l'uso di un account di Data Lake Analytics, ad esempio il numero massimo di unità di ricerca e i processi massimi.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 97b736d854661600a847b1d698af8f15ae58d237
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048819"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672868"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gestire Azure Data Lake Analytics con criteri
 
@@ -32,7 +32,7 @@ Per modificare il numero di AU per l'account di Data Lake Analytics:
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Numero massimo di AU** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 > [!NOTE]
 > Se è necessario impostare un numero di AU superiore al valore predefinito (250), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di AU disponibili nell'account di Data Lake Analytics può essere incrementato.
@@ -46,7 +46,7 @@ Per modificare il numero di processi che possono essere eseguiti contemporaneame
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Numero massimo di processi in esecuzione** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 > [!NOTE]
 > Se è necessario eseguire un numero di processi superiore al valore predefinito (20), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di processi che possono essere eseguiti contemporaneamente nell'account di Data Lake Analytics può essere incrementato.
@@ -60,7 +60,7 @@ Per modificare il tempo di archiviazione delle risorse e dei metadati dei proces
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Giorni di conservazione delle query del processo** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo.  
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ## <a name="job-level-policies"></a>Criteri a livello di processo
 
@@ -68,8 +68,8 @@ Con i criteri a livello di processo è possibile controllare il numero massimo d
 
 In Data Lake Analytics è possibile impostare due criteri a livello di processo:
 
-* **AU limit per job** (Limite AU per processo): gli utenti possono inviare solo processi che hanno al massimo il numero di AU specificato. Per impostazione predefinita, questo limite corrisponde a quello definito per l'account.
-* **Priorità**: gli utenti possono inviare solo processi che hanno una priorità inferiore o uguale a questo valore. Un numero più alto indica una priorità più bassa. Per impostazione predefinita, questo limite è impostato su 1, che corrisponde alla massima priorità possibile.
+* **Limite au per processo**: Gli utenti possono inviare solo processi che hanno fino a questo numero di AUs. Per impostazione predefinita, questo limite corrisponde a quello definito per l'account.
+* **Priorità**: Gli utenti possono inviare solo i processi con priorità minore o uguale a questo valore. Un numero più alto indica una priorità più bassa. Per impostazione predefinita, questo limite è impostato su 1, che corrisponde alla massima priorità possibile.
 
 Per ogni account è impostato un criterio predefinito che si applica a tutti gli utenti dell'account. È possibile impostare altri criteri per utenti e gruppi specifici. 
 
@@ -82,10 +82,10 @@ Per ogni account è impostato un criterio predefinito che si applica a tutti gli
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Limiti di invio del processo** fare clic sul pulsante **Aggiungi criterio**. Selezionare o immettere le impostazioni seguenti:
-    1. **Nome criteri di calcolo**: immettere un nome di criterio in modo da identificarne la finalità.
-    2. **Selezionare l'utente o il gruppo**: selezionare l'utente o il gruppo a cui si applica questo criterio.
-    3. **Impostare il limite AU del processo**: impostare il limite di AU che si applica all'utente o al gruppo selezionato.
-    4. **Impostare il limite di priorità del processo**: impostare il limite di priorità che si applica all'utente o al gruppo selezionato.
+    1. **Nome criteri di calcolo**: Immettere un nome di criterio per ricordare lo scopo del criterio.
+    2. **Seleziona utente o gruppo**: Selezionare l'utente o il gruppo a cui si applica questo criterio.
+    3. **Imposta il limite dell'au del processo**: Impostare il limite AU applicabile all'utente o al gruppo selezionato.
+    4. **Impostare il limite di priorità**: Consente di impostare il limite di priorità applicabile all'utente o al gruppo selezionato.
 
 4. Fare clic su **OK**.
 

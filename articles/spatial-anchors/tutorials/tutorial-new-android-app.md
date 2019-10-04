@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64f78b04d433c81302499addf15c3d19621bbf9f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919874"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562390"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come creare una nuova app Android che integra funz
 
 Per completare questa esercitazione, accertarsi di avere:
 
-- Un computer Windows o macOS con <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> installato.
+- Un computer Windows o macOS con <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">abilitato per lo sviluppo</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">idoneo per ARCore</a>.
 
 ## <a name="getting-started"></a>Introduzione
@@ -34,7 +34,7 @@ Nella finestra **Phone and Tablet** (Telefono e tablet) della finestra **Create 
 
 ## <a name="trying-it-out"></a>Prova pratica
 
-Per testare la nuova app, connettere il dispositivo abilitato per lo sviluppo al computer di sviluppo con un cavo USB. Fare clic su **Run (Esegui)**->**Run 'app' (Esegui 'app')**. Nella finestra **Select Deployment Target** (Selezionare la destinazione della distribuzione) selezionare il dispositivo e fare clic su **OK**. Android Studio installa l'app nel dispositivo connesso e la avvia. Dovrebbe essere visualizzato "Hello World!" nell'app in esecuzione nel dispositivo. Fare clic su **Run (Esegui)**->**Stop 'app' (Arresta 'app')**.
+Per testare la nuova app, connettere il dispositivo abilitato per lo sviluppo al computer di sviluppo con un cavo USB. Fare clic su **Run (Esegui)** ->**Run 'app' (Esegui 'app')** . Nella finestra **Select Deployment Target** (Selezionare la destinazione della distribuzione) selezionare il dispositivo e fare clic su **OK**. Android Studio installa l'app nel dispositivo connesso e la avvia. Dovrebbe essere visualizzato "Hello World!" nell'app in esecuzione nel dispositivo. Fare clic su **Run (Esegui)** ->**Stop 'app' (Arresta 'app')** .
 
 ## <a name="integrating-arcore"></a>Integrazione di _ARCore_
 
@@ -57,12 +57,12 @@ Modificare `app\manifests\AndroidManifest.xml` per includere le voci seguenti ne
 </application>
 ```
 
-Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata alla versione 1.5 di ARCore (il supporto per la versione 1.6 e successive in Ancoraggi nello spazio di Azure verrà aggiunto prossimamente). Dopo aver apportato questa modifica, è possibile che venga visualizzata una notifica di Gradle che chiede di eseguire la sincronizzazione. Fare clic su **Sync now** (Sincronizza ora).
+Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata ad ARCore versione 1.8. Dopo aver apportato questa modifica, è possibile che venga visualizzata una notifica di Gradle che chiede di eseguire la sincronizzazione. Fare clic su **Sync now** (Sincronizza ora).
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.8.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> semplifica il rendering di scene 3D realistiche nelle app di realtà aumentata, senza la necessità di competenze in OpenGL.
 
-Modificare `Gradle Scripts\build.gradle (Module: app)` per includere le voci seguenti. Questo codice consente all'app di usare i costrutti del linguaggio Java 8, richiesti da `Sceneform`. Assicura inoltre che l'app sia destinata alla versione 1.5 di `Sceneform`, perché deve corrispondere alla versione di ARCore usata dall'app. Dopo aver apportato questa modifica, è possibile che venga visualizzata una notifica di Gradle che chiede di eseguire la sincronizzazione. Fare clic su **Sync now** (Sincronizza ora).
+Modificare `Gradle Scripts\build.gradle (Module: app)` per includere le voci seguenti. Questo codice consente all'app di usare i costrutti del linguaggio Java 8, richiesti da `Sceneform`. Assicura inoltre che l'app sia destinata alla versione 1.8 di `Sceneform`, perché deve corrispondere alla versione di ARCore usata dall'app. Dopo aver apportato questa modifica, è possibile che venga visualizzata una notifica di Gradle che chiede di eseguire la sincronizzazione. Fare clic su **Sync now** (Sincronizza ora).
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     ...
 }
 ```
@@ -123,18 +123,18 @@ Infine, aggiungere il metodo `handleTap()` seguente, che collegherà tutti gli e
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Collegare un ancoraggio nello spazio di Azure locale
 
-Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata ad Ancoraggi nello spazio di Azure versione 1.0.2. In ogni caso, il riferimento a qualsiasi versione recente di Ancoraggi nello spazio di Azure dovrebbe funzionare.
+Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata ad Ancoraggi nello spazio di Azure versione 1.3.0. In ogni caso, il riferimento a qualsiasi versione recente di Ancoraggi nello spazio di Azure dovrebbe funzionare.
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.0.2]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.0.2]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
     ...
 }
 ```
 
-Fare clic con il pulsante destro del mouse su `app\java\<PackageName>`->**New (Nuovo)**->**Java Class (Classe Java)**. Impostare **Name** (Nome) su _MyFirstApp_ e **Superclass** (Superclasse) su _android.app.Application_. Lasciare inalterate le altre opzioni. Fare clic su **OK**. Verrà creato un file denominato `MyFirstApp.java`. Aggiungere l'istruzione import seguente:
+Fare clic con il pulsante destro del mouse su `app\java\<PackageName>`->**New (Nuovo)** ->**Java Class (Classe Java)** . Impostare **Name** (Nome) su _MyFirstApp_ e **Superclass** (Superclasse) su _android.app.Application_. Lasciare inalterate le altre opzioni. Fare clic su **OK**. Verrà creato un file denominato `MyFirstApp.java`. Aggiungere l'istruzione import seguente:
 
 ```java
 import com.microsoft.CloudServices;

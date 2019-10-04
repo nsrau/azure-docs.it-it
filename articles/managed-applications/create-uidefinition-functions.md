@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587921"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
 Questa sezione contiene le firme per tutte le funzioni supportate di CreateUiDefinition.
 
-Per usare una funzione, racchiudere la dichiarazione tra parentesi quadre. Ad esempio: 
+Per usare una funzione, racchiudere la dichiarazione tra parentesi quadre. Ad esempio:
 
 ```json
 "[function()]"
 ```
 
-È possibile fare riferimento a stringhe e altre funzioni come parametri per una funzione, ma le stringhe devono essere racchiuse tra virgolette singole. Ad esempio: 
+È possibile fare riferimento a stringhe e altre funzioni come parametri per una funzione, ma le stringhe devono essere racchiuse tra virgolette singole. Ad esempio:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Ove applicabile, si può fare riferimento alle proprietà dell'output di una funzione usando l'operatore punto. Ad esempio: 
+Ove applicabile, si può fare riferimento alle proprietà dell'output di una funzione usando l'operatore punto. Ad esempio:
 
 ```json
 "[func().prop1]"
@@ -526,7 +526,7 @@ L'esempio seguente restituisce `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>stringa
+### <a name="string"></a>string
 Converte il parametro in una stringa. Questa funzione supporta parametri di tutti i tipi di dati JSON.
 
 L'esempio seguente restituisce `"1"`:

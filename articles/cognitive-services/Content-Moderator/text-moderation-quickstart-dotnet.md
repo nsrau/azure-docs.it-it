@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva: Analizzare il contenuto di testo in C# - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Come analizzare il contenuto del testo di vario materiale discutibile usando Content Moderator SDK per .NET
+titleSuffix: Azure Cognitive Services
+description: Come analizzare il contenuto testuale di vario materiale discutibile usando Content Moderator SDK per .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756542"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564335"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
 
@@ -61,7 +61,7 @@ Aggiungere i campi statici seguenti alla classe **Program** in _Program.cs_. Que
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Occorrerà creare il file di input *TextFile.txt* e aggiornarne il percorso di conseguenza (i percorsi relativi sono relativi alla directory di esecuzione). Aprire _TextFile.txt_ e aggiungere il testo da sottoporre a moderazione. Questa guida introduttiva usa il testo di esempio seguente:
+Occorrerà creare il file di input *TextFile.txt* e aggiornarne il percorso (i percorsi sono relativi alla directory di esecuzione). Aprire _TextFile.txt_ e aggiungere il testo da sottoporre a moderazione. Questa guida introduttiva usa il testo di esempio seguente:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

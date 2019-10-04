@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
-ms.openlocfilehash: eac699a68558f0a8c9f94f0a8b75aabee561ebb3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 488f7bc4cb715e9cdb99b7a7c79407b9bbc0d29c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006003"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593590"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Località POP della rete CDN di Azure per abbreviazione
 > [!div class="op_single_selector"]

@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 95c2e9d3f54f967b3ebb434c742f69251b80573e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872034"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704921"
 ---
 # <a name="query-expression-syntax"></a>Sintassi delle espressioni di query
 

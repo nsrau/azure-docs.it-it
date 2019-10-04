@@ -4,7 +4,7 @@ description: Informazioni su come usare l'interfaccia della riga di comando di A
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 453628dca04fbc3c48564f15b6cf61802165b0cf
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bbe98c4ad3a1b737b9df0d2ea53d53875f26ba54
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499693"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668377"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 
@@ -337,7 +337,7 @@ Output:
 
 ### <a name="accept-the-terms"></a>Accettare le condizioni
 
-Per visualizzare e accettare le condizioni di licenza, usare il comando [az vm image accept-terms](/cli/azure/vm/image?). Quando si accettano le condizioni, si abilita la distribuzione a livello di codice nella sottoscrizione. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Ad esempio: 
+Per visualizzare e accettare le condizioni di licenza, usare il comando [az vm image accept-terms](/cli/azure/vm/image?). Quando si accettano le condizioni, si abilita la distribuzione a livello di codice nella sottoscrizione. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Ad esempio:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

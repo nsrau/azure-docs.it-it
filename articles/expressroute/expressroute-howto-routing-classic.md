@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 01486edce5ac5881ff192021a459b9c6d006e25b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370257"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64726202"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creare e modificare il peering per un circuito ExpressRoute (versione classica)
 > [!div class="op_single_selector"]
@@ -187,6 +187,10 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 ## <a name="azure-public-peering"></a>Peering pubblico di Azure
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering pubblico di Azure per un circuito ExpressRoute.
+
+> [!NOTE]
+> Peering pubblico di Azure è deprecato per nuovi circuiti.
+>
 
 ### <a name="to-create-azure-public-peering"></a>Per creare un peering pubblico di Azure
 

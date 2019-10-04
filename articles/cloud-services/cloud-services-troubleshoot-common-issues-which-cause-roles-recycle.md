@@ -4,23 +4,22 @@ description: Un ruolo del servizio cloud che viene riciclato improvvisamente pu√
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234495"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154969"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemi comuni che comportano il riciclo dei ruoli
 Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.

@@ -6,28 +6,65 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608623"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933421"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestione degli errori in Funzioni permanenti (Funzioni di Azure)
 
-Le orchestrazioni di Funzioni permanenti vengono implementate nel codice e possono usare le funzionalità di gestione degli errori del linguaggio di programmazione. Tenendo presente questa premessa non è necessario apprendere nuovi concetti quando si incorpora la compensazione e gestione degli errori nelle orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
+Le orchestrazioni di funzioni permanenti vengono implementate nel codice e possono utilizzare le funzionalità di gestione degli errori predefinite del linguaggio di programmazione. In realtà non sono presenti nuovi concetti necessari per aggiungere la gestione degli errori e la compensazione alle orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
 
 ## <a name="errors-in-activity-functions"></a>Errori nelle funzioni di attività
 
-Qualsiasi eccezione generata in una funzione di attività viene sottoposta a marshalling nella funzione dell'agente di orchestrazione e generata come `FunctionFailedException`. È possibile scrivere il codice di compensazione e gestione degli errori adatto alle esigenze nella funzione dell'agente di orchestrazione.
+Qualsiasi eccezione generata in una funzione di attività viene sottoposta a marshalling di nuovo nella funzione dell'agente `FunctionFailedException`di orchestrazione e generata come. È possibile scrivere il codice di compensazione e gestione degli errori adatto alle esigenze nella funzione dell'agente di orchestrazione.
 
 Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione che consente di trasferire fondi da un account a un altro:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
+
+```csharp
+[FunctionName("TransferFunds")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var transferDetails = ctx.GetInput<TransferOperation>();
+
+    await context.CallActivityAsync("DebitAccount",
+        new
+        {
+            Account = transferDetails.SourceAccount,
+            Amount = transferDetails.Amount
+        });
+
+    try
+    {
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.DestinationAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+    catch (Exception)
+    {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.SourceAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+}
+```
+
+### <a name="c-script"></a>Script C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -102,13 +139,29 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Se la chiamata alla funzione **CreditAccount** ha esito negativo per il conto di destinazione, la funzione dell'agente di orchestrazione esegue la compensazione tramite l'accredito di fondi al conto di origine.
+Se la prima chiamata di funzione **CreditAccount** ha esito negativo, la funzione dell'agente di orchestrazione compensa il credito dei fondi all'account di origine.
 
 ## <a name="automatic-retry-on-failure"></a>Ripetizione automatica in caso di errore
 
 Quando si chiamano le funzioni di attività o di orchestrazione secondaria, è possibile specificare un criterio di ripetizione automatica. Nell'esempio seguente si tenta di chiamare una funzione fino a tre volte e si attende 5 secondi tra un tentativo e l'altro:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
+
+```csharp
+[FunctionName("TimerOrchestratorWithRetry")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var retryOptions = new RetryOptions(
+        firstRetryInterval: TimeSpan.FromSeconds(5),
+        maxNumberOfAttempts: 3);
+
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
+
+    // ...
+}
+```
+
+### <a name="c-script"></a>Script C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -139,20 +192,50 @@ module.exports = df.orchestrator(function*(context) {
 
 L'API `CallActivityWithRetryAsync` (.NET) o `callActivityWithRetry` (JavaScript) accetta un parametro `RetryOptions`. Le chiamate di orchestrazione secondarie che usano l'API `CallSubOrchestratorWithRetryAsync` (.NET) o `callSubOrchestratorWithRetry` (JavaScript) possono usare gli stessi criteri di ripetizione dei tentativi.
 
-Per personalizzare i criteri di ripetizione automatica, sono disponibili diverse opzioni, incluse le seguenti:
+Per personalizzare i criteri di ripetizione automatica sono disponibili diverse opzioni:
 
 * **Numero massimo di tentativi**: Il massimi numero di tentativi.
 * **Primo intervallo tra tentativi**: il tempo di attesa prima del primo tentativo.
 * **Coefficiente di backoff**: il coefficiente usato per determinare la frequenza di aumento del backoff. Assume il valore predefinito 1.
 * **Intervallo massimo tra tentativi**: il tempo di attesa massimo tra i tentativi di ripetizione.
 * **Timeout tentativi**: il tempo massimo a disposizione per i tentativi. Il comportamento predefinito è la ripetizione per un periodo illimitato.
-* **Punto di controllo**: è possibile specificare un callback definito dall'utente che determina se deve essere eseguito un nuovo tentativo di chiamata di funzione.
+* **Punto di controllo**: È possibile specificare un callback definito dall'utente per determinare se una funzione deve essere ritentata.
 
 ## <a name="function-timeouts"></a>Timeout delle funzioni
 
-È possibile abbandonare una chiamata di funzione nell'ambito di una funzione dell'agente di orchestrazione, se il completamento richiede troppo tempo. A tale scopo il metodo migliore è creare un [timer permanente](durable-functions-timers.md) usando `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript), insieme a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript) come nell'esempio seguente:
+Potrebbe essere necessario abbandonare una chiamata di funzione all'interno di una funzione dell'agente di orchestrazione se il completamento richiede troppo tempo. A tale scopo il metodo migliore è creare un [timer permanente](durable-functions-timers.md) usando `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript), insieme a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript) come nell'esempio seguente:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
+
+```csharp
+[FunctionName("TimerOrchestrator")]
+public static async Task<bool> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using (var cts = new CancellationTokenSource())
+    {
+        Task activityTask = context.CallActivityAsync("FlakyFunction");
+        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
+
+        Task winner = await Task.WhenAny(activityTask, timeoutTask);
+        if (winner == activityTask)
+        {
+            // success case
+            cts.Cancel();
+            return true;
+        }
+        else
+        {
+            // timeout case
+            return false;
+        }
+    }
+}
+```
+
+### <a name="c-script"></a>Script C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -213,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 Se una funzione dell'agente di orchestrazione ha esito negativo generando un'eccezione non gestita, i dettagli dell'eccezione vengono registrati e l'istanza viene completata con uno stato `Failed`.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Informazioni sulle orchestrazioni eterne](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Informazioni su come eseguire la diagnostica dei problemi](durable-functions-diagnostics.md)

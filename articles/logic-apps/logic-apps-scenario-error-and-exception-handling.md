@@ -5,17 +5,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: b-hoedid
-ms.reviewer: estfan, LADocs
+ms.author: estfan
+ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098664"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385470"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
@@ -471,7 +471,7 @@ L'API viene chiamata da un'app per la logica usando la sintassi seguente:
 
 L'espressione nell'esempio di codice precedente verifica la presenza dello stato **Non riuscito** di *Create_NewPatientRecord*.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 * È possibile implementare facilmente la registrazione e la gestione degli errori in un'app per la logica.
 * È possibile usare Azure Cosmos DB come repository per i record di log e di errore (documenti).
@@ -485,4 +485,4 @@ Il codice sorgente dell'applicazione per le API di gestione delle eccezioni di a
 
 * [Visualizzare altri esempi e scenari di app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Informazioni sul monitoraggio delle app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Creare modelli di distribuzione automatizzati per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

@@ -4,17 +4,17 @@ description: Questo articolo descrive come gestire pacchetti Python 2 in Automaz
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f98b1454ff59eae62bcab7792fd7fd742babfb23
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500125"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478223"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
 

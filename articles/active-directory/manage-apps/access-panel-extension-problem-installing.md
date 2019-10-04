@@ -3,8 +3,8 @@ title: Installare l'estensione del browser per il pannello di accesso alle appli
 description: Risolvere gli errori comuni riscontrabili durante l'installazione dell'estensione del browser per il pannello di accesso.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/2018
-ms.author: celested
+ms.date: 05/04/2018
+ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388324"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
@@ -63,7 +63,8 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 È anche possibile scaricare l'estensione per Chrome e Microsoft Edge direttamente dai siti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Estensione per Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Estensione per Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Estensione per Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usare l'estensione per l'accesso sicuro alle app personali
 * Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:

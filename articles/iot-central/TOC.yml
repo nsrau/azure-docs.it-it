@@ -35,8 +35,6 @@
   items:
     - name: Connettere dispositivi
       items:
-        - name: Generare una stringa di connessione per dispositivo
-          href: howto-generate-connection-string.md
         - name: Preparare e connettere un'applicazione Node.js (generica)
           href: howto-connect-nodejs.md
         - name: Preparare e connettere un MXChip IoT DevKit
@@ -47,6 +45,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Preparare e connettere un dispositivo Windows IoT Core
           href: howto-connect-windowsiotcore.md
+        - name: Preparare e connettere un dispositivo SensorTile.box
+          href: howto-connect-sensortile.md
         - name: Monitorare la connettività dei dispositivi con la riga di comando
           href: howto-use-iotc-explorer.md
     - name: Gestire i dispositivi
@@ -60,7 +60,7 @@
         - name: Usare i set di dispositivi
           href: howto-use-device-sets.md
         - name: Creare una versione del modello del dispositivo
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Monitoraggio e analisi
       items:
         - name: Creare una regola di telemetria
@@ -87,16 +87,32 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Eseguire l'esportazione nell'archiviazione BLOB
               href: howto-export-data-blob-storage.md
+        - name: Creare regole personalizzate
+          href: howto-create-custom-rules.md
+        - name: Creare analisi personalizzate
+          href: howto-create-custom-analytics.md
         - name: Visualizzare dati in Power BI
           href: howto-connect-powerbi.md
         - name: Connettere altri cloud IoT
           href: howto-build-iotc-device-bridge.md
     - name: Administration
       items:
-        - name: Amministrare l'applicazione
+        - name: Gestire l'applicazione
           href: howto-administer.md
+        - name: Gestire utenti e ruoli
+          href: howto-manage-users-roles.md
+        - name: Visualizzare la fattura
+          href: howto-view-bill.md
+        - name: Personalizzare l'interfaccia utente dell'applicazione
+          href: howto-customize-ui.md
         - name: Preparare e caricare immagini
           href: howto-prepare-images.md
+        - name: Configurare il dashboard dell'applicazione
+          href: howto-configure-homepage.md
+        - name: Usare i riquadri del dashboard
+          href: howto-use-tiles.md
+        - name: Usare i modelli di applicazione
+          href: howto-use-app-templates.md
         - name: Gestire dal portale di Azure
           href: howto-manage-iot-central-from-portal.md
         - name: Gestire dall'interfaccia della riga di comando di Azure
@@ -104,38 +120,40 @@
         - name: Gestire da Azure PowerShell
           href: howto-manage-iot-central-from-powershell.md
         - name: Creare e gestire un'applicazione come CSP
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Configurare il dashboard dell'applicazione
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Personalizzazione
       items:
         - name: Creare dashboard personali
           href: howto-personalize-dashboard.md
         - name: Gestire le preferenze
           href: howto-manage-preferences.md
+        - name: Attivare e disattivare la live chat
+          href: howto-show-hide-chat.md
 - name: Risorse correlate
   items:
     - name: Soluzioni
       items:
-        - name: Acceleratori di soluzioni IoT
-          href: /azure/iot-suite
         - name: IoT Central
-          href: /microsoft-iot-central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-accelerators
     - name: Servizi della piattaforma
       items:
         - name: Hub IoT
           href: /azure/iot-hub
+        - name: Plug and Play IoT
+          href: /azure/iot-pnp
         - name: Servizio Device Provisioning in hub IoT
           href: /azure/iot-dps
-        - name: Servizi Location Based
-          href: /azure/location-based-services
-        - name: SDK per servizi
+        - name: IoT SDK per servizi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Mappe
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT SDK per dispositivi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

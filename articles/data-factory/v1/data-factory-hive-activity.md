@@ -3,25 +3,24 @@ title: Trasformare dati usando l'attività Hive - Azure | Documentazione Microso
 description: Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236145"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139524"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività Hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
@@ -76,14 +75,14 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome dell'attività |Sì |
-| description |Testo descrittivo per lo scopo dell'attività |No  |
-| type |HDinsightHive |Sì |
-| inputs |Input utilizzati dall'attività Hive |No  |
+| description |Testo descrittivo per lo scopo dell'attività |No |
+| type |HDinsightHive |Yes |
+| inputs |Input utilizzati dall'attività Hive |No |
 | outputs |Output generati dall'attività Hive |Sì |
 | linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
-| script |Specificare lo script Hive inline |No  |
-| script path |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
-| defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No  |
+| script |Specificare lo script Hive inline |No |
+| scriptPath |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |N. |
+| defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No |
 
 ## <a name="example"></a>Esempio
 Si prenda ad esempio l'analisi di log di giochi, in cui si desidera verificare il tempo che gli utenti hanno dedicato a giocare alle partite avviate dalla società. 
@@ -216,7 +215,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
       }
     }
     ```
-* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}**. 
+* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

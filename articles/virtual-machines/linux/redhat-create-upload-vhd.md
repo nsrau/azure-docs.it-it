@@ -4,26 +4,25 @@ description: Informazioni su come creare e caricare un disco rigido virtuale (VH
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aef25e79d99c6c7434123df76e85e605b22fde51
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001656"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082257"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su RedHat per Azure
-In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono la 6.7+ e la 7.1+. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al cloud di Red Hat, vedere gli articoli relativi al [sito web di accesso al cloud di Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e all'[esecuzione di RHEL in Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono la 6.7+ e la 7.1+. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al cloud di Red Hat, vedere gli articoli relativi al [sito web di accesso al cloud di Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e all'[esecuzione di RHEL in Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Per informazioni su come automatizzare la creazione di immagini RHEL, vedere il [Generatore di immagini di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale basata su Red Hat dalla console di gestione di Hyper-V
 
@@ -110,7 +109,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Non creare lo spazio di swapping sul disco del sistema operativo.
 
-    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in /etc/waagent.conf:
+    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in /etc/waagent.conf:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -124,6 +123,8 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -163,7 +164,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa modifica, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio: 
+1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa modifica, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -193,7 +194,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Non creare lo spazio di swapping sul disco del sistema operativo.
 
-    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
+    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -207,6 +208,8 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -315,7 +318,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
         # chkconfig waagent on
 
-1. L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in **/etc/waagent.conf**:
+1. L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in **/etc/waagent.conf**:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -329,6 +332,8 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -413,7 +418,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa configurazione, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio: 
+1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa configurazione, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -464,7 +469,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Non creare lo spazio di swapping sul disco del sistema operativo.
 
-    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
+    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -478,6 +483,8 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -561,7 +568,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A tale scopo, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio: 
+1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A tale scopo, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -593,7 +600,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 1. Non creare lo spazio di swapping sul disco del sistema operativo.
 
-    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
+    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -607,6 +614,8 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -667,7 +676,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa modifica, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio: 
+1. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. Per eseguire questa modifica, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -707,7 +716,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 1. Non creare lo spazio di swapping sul disco del sistema operativo.
 
-    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e può essere svuotato con il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
+    L'agente Linux di Azure può configurare automaticamente lo spazio di swapping usando il disco risorse locale collegato alla macchina virtuale dopo il provisioning della macchina virtuale in Azure. Si noti che il disco risorse locale è un disco temporaneo e potrebbe essere svuotato se viene effettuato il deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure nel passaggio precedente, modificare nel modo appropriato i parametri seguenti in `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -721,6 +730,8 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -875,7 +886,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
         NM_CONTROLLED=no
         EOF
 
-        # Deprovision and prepare for Azure
+        # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
 
         %end

@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60821678"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Inviare eventi a o ricevere eventi da hub eventi con Go
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -38,7 +38,7 @@ Questa sezione illustra come creare un'applicazione Go per inviare eventi a un h
 
 ### <a name="install-go-package"></a>Installare il pacchetto di Go
 
-Ottenere il pacchetto di Go per Hub eventi con `go get` o `dep`. Ad esempio: 
+Ottenere il pacchetto di Go per Hub eventi con `go get` o `dep`. Ad esempio:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go

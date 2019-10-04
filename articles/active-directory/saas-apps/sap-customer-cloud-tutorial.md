@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 669dfaa40cfe1bc65618d8706910e19d72c233ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud for Customer
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP Cloud for Customer, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di SAP Cloud for Customer](#configure-sap-cloud-for-customer-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di SAP Cloud for Customer](#create-sap-cloud-for-customer-test-user)**: per avere una controparte di Britta Simon in SAP Cloud for Customer collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di SAP Cloud for Customer](#configure-sap-cloud-for-customer-single-sign-on)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di SAP Cloud for Customer](#create-sap-cloud-for-customer-test-user)** : per avere una controparte di Britta Simon in SAP Cloud for Customer collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud for Customer,
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Cloud for Customer](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<server name>.crm.ondemand.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<server name>.crm.ondemand.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<server name>.crm.ondemand.com`
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud for Customer,
 
     b. Selezionare **Trasformazione** come **origine**.
 
-    c. Nell'elenco **Trasformazione** selezionare **ExtractMailPrefix()**.
+    c. Nell'elenco **Trasformazione** selezionare **ExtractMailPrefix()** .
 
     d. Nell'elenco **Parametro 1** selezionare l'attributo utente da usare per l'implementazione.
     Ad esempio, se si vuole usare il valore EmployeeID come identificatore utente univoco e il valore dell'attributo è stato archiviato in ExtensionAttribute2, selezionare user.extensionattribute2.

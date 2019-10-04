@@ -4,17 +4,17 @@ description: Questo articolo contiene informazioni sulla risoluzione dei problem
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785960"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240858"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Risolvere i problemi della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Causa
 
 Gli errori delle distribuzioni possono essere causati da uno dei motivi seguenti:
@@ -52,6 +60,7 @@ Gli errori delle distribuzioni possono essere causati da uno dei motivi seguenti
 2. È applicato un criterio che non consente la distribuzione della soluzione Avvio/Arresto di macchine virtuali.
 3. I tipi di risorse `Microsoft.OperationsManagement`, `Microsoft.Insights` o `Microsoft.Automation` non sono registrati.
 4. Esiste un blocco per l'area di lavoro Log Analytics.
+5. Si dispone di una versione obsoleta dei moduli AzureRM o della soluzione di avvio/arresto.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -66,6 +75,7 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
 
    Per altre informazioni sugli errori di registrazione dei provider, vedere[Risolvere gli errori di registrazione del provider di risorse](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 4. Se è presente un blocco sull'area di lavoro Log Analytics, passare all'area di lavoro nel portale di Azure e rimuovere tutti i blocchi sulla risorsa.
+5. Se le risoluzioni precedenti non consentono di risolvere il problema, seguire le istruzioni in [aggiornare la soluzione](../automation-solution-vm-management.md#update-the-solution) per ridistribuire la soluzione di avvio/arresto.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: non è possibile avviare o arrestare tutte le macchine virtuali
 
@@ -88,7 +98,7 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
 
 * Verificare di aver configurato correttamente una pianificazione per la soluzione Avvio/Arresto di macchine virtuali. Per informazioni su come configurare una pianificazione, vedere [Pianificazioni](../automation-schedules.md).
 
-* Verificare i [flussi di processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**. Nella pagina **Processi** cercare i processi di uno dei runbook seguenti:
+* Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**. Nella pagina **Processi** cercare i processi di uno dei runbook seguenti:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -141,9 +151,9 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
 
 * Per avviare e arrestare macchine virtuali, l'account RunAs per l'account di automazione deve avere le autorizzazioni appropriate sulla macchina virtuale. Per informazioni su come controllare le autorizzazioni su una risorsa, vedere [Avvio rapido - Visualizzare i ruoli assegnati a un utente tramite il portale di Azure](../../role-based-access-control/check-access.md). Sarà necessario specificare l'ID applicazione dell'entità servizio usata dall'account RunAs. È possibile recuperare questo valore passando al proprio account di automazione nel portale di Azure, selezionando **Account RunAs** in **Impostazioni account** e facendo clic sull'account RunAs appropriato.
 
-* Se la macchina virtuale mostra un problema di avvio o deallocazione, questo comportamento potrebbe essere dovuto a un problema nella macchina virtuale stessa. È possibile ad esempio che venga applicato un aggiornamento durante un tentativo di arresto, che un servizio si blocchi e così via. Passare alla risorsa macchina virtuale e verificare se nei **log attività** sono presenti errori. Si può anche provare ad accedere alla macchina virtuale per verificare se sono presenti errori nei log eventi. Per altre informazioni sulla risoluzione dei problemi della macchina virtuale, vedere [macchine virtuali di risoluzione dei problemi di Azure](../../virtual-machines/troubleshooting/index.md)
+* Se la macchina virtuale mostra un problema di avvio o deallocazione, questo comportamento potrebbe essere dovuto a un problema nella macchina virtuale stessa. È possibile ad esempio che venga applicato un aggiornamento durante un tentativo di arresto, che un servizio si blocchi e così via. Passare alla risorsa macchina virtuale e verificare se nei **log attività** sono presenti errori. Si può anche provare ad accedere alla macchina virtuale per verificare se sono presenti errori nei log eventi. Per altre informazioni sulla risoluzione dei problemi della VM, vedere [risoluzione dei problemi relativi alle macchine virtuali di Azure](../../virtual-machines/troubleshooting/index.md)
 
-* Verificare i [flussi di processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
+* Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
 
 ## <a name="custom-runbook"></a>Scenario: Il runbook personalizzato non riesce ad avviare o arrestare le macchine virtuali
 
@@ -157,7 +167,7 @@ Le cause dell'errore possono essere molte. Nel portale di Azure passare all'acco
 
 ### <a name="resolution"></a>Risoluzione
 
-È consigliabile usare la [soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md) per avviare e arrestare le macchine virtuali in Automazione di Azure. Questa soluzione è stata creata da Microsoft. I runbook personalizzati non sono supportati da Microsoft. Si può provare a cercare una soluzione per il runbook personalizzato nell'articolo [Risoluzione dei problemi relativi ai runbook](runbooks.md), che contiene indicazioni generali e procedure per la risoluzione dei problemi per i runbook di tutti i tipi. Verificare i [flussi di processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
+È consigliabile usare la [soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md) per avviare e arrestare le macchine virtuali in Automazione di Azure. Questa soluzione è stata creata da Microsoft. I runbook personalizzati non sono supportati da Microsoft. Si può provare a cercare una soluzione per il runbook personalizzato nell'articolo [Risoluzione dei problemi relativi ai runbook](runbooks.md), che contiene indicazioni generali e procedure per la risoluzione dei problemi per i runbook di tutti i tipi. Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Scenario: le macchine virtuali non vengono avviate o arrestate nella sequenza corretta
 
@@ -179,7 +189,7 @@ Eseguire la procedura seguente per verificare che la soluzione sia configurata c
 
 Per informazioni più dettagliate e istruzioni aggiuntive su come usare la soluzione per avviare e arrestare le macchine virtuali in sequenza, vedere [Avviare/arrestare le macchine virtuali in sequenza usando i tag](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Scenario: il processo di avvio/arresto delle macchine virtuali non riesce con stato 403 - Accesso negato 
+## <a name="403"></a>Scenario: il processo di avvio/arresto delle macchine virtuali non riesce con stato 403 - Accesso negato
 
 ### <a name="issue"></a>Problema
 
@@ -209,9 +219,12 @@ Durante l'uso della soluzione Avvio/Arresto di macchine virtuali durante gli ora
 
 Spesso gli errori possono essere causati dall'uso di una versione vecchia e non aggiornata della soluzione.
 
+> [!NOTE]
+> La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività è stata testata con i moduli di Azure che sono stati importati nell'account di automazione quando si distribuisce la soluzione. La soluzione attualmente non funziona con le versioni più recenti del modulo Azure. Questa operazione ha effetto solo sull'account di automazione usato per eseguire la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività. È comunque possibile usare le versioni più recenti del modulo Azure negli altri account di automazione, come descritto in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md)
+
 ### <a name="resolution"></a>Risoluzione
 
-Per risolvere diversi errori, è consigliabile rimuovere e aggiornare la soluzione. Per informazioni su come aggiornare la soluzione, vedere [Aggiornare la soluzione](../automation-solution-vm-management.md#update-the-solution). Inoltre, è possibile controllare la [flussi di processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
+Per risolvere diversi errori, è consigliabile rimuovere e aggiornare la soluzione. Per informazioni su come aggiornare la soluzione, vedere [Aggiornare la soluzione](../automation-solution-vm-management.md#update-the-solution). Inoltre, è possibile controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **Processi** in **Automazione processi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,52 +2,51 @@
 title: Competenza rilevamento lingua della ricerca cognitiva - Ricerca di Azure
 description: Valuta testo non strutturato e per ogni record restituisce un identificatore di lingua con un punteggio che indica il livello di attendibilità dell'analisi in una pipeline di arricchimento di Ricerca di Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 605f4c639cfc8c0f9732f7347532e1bd7edc055f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: fe21477865b5bbad65f5e4639e8df253f12dc1b6
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404655"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265412"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Competenza cognitiva di rilevamento lingua
 
-Il **rilevamento lingua** competenza rileva la lingua del testo di input e segnala il codice una sola lingua per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
+Il **rilevamento lingua** skill rileva la lingua del testo di input e segnala un singolo codice di lingua per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
 
 Questa funzionalità è particolarmente utile quando è necessario specificare la lingua del testo come input per altre competenze (ad esempio, la competenza [Analisi del sentiment](cognitive-search-skill-sentiment.md) o la competenza [Divisione del testo](cognitive-search-skill-textsplit.md)).
 
-Rilevamento della lingua si basa su librerie di elaborazione in linguaggio naturale di Bing, che supera il numero del [lingue e aree geografiche supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) elencati per testo Analitica. L'elenco esatto delle lingue non è pubblicato, ma include tutte le lingue, diffuse in più varianti, dialetti e alcune lingue internazionali e relative alla lingua. Se si dispone di contenuto espresso in un linguaggio usato meno frequentemente, è possibile [provare l'API di rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per vedere se viene restituito un codice. La risposta per le lingue che non può essere rilevato è `unknown`.
+Il rilevamento della lingua sfrutta le librerie di elaborazione del linguaggio naturale di Bing, che supera il numero di [lingue e aree supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) elencate per analisi del testo. L'elenco esatto delle lingue non è pubblicato, ma include tutte le lingue diffuse, oltre a varianti, dialetti e alcune lingue regionali e culturali. Se il contenuto è espresso in un linguaggio usato meno di frequente, è possibile [provare l'API rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per verificare se restituisce un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
 > [!NOTE]
-> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
+> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento a consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. L'estrazione di immagini è un addebito previsto in Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
+> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, è possibile usare la [competenza di divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, è possibile usare la [competenza di divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Input competenze
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input     | DESCRIZIONE |
+| Input     | Descrizione |
 |--------------------|-------------|
 | text | Testo da analizzare.|
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | DESCRIZIONE |
+| Nome output    | Descrizione |
 |--------------------|-------------|
 | languageCode | Il codice di lingua ISO 6391 per la lingua identificata. Ad esempio, "en". |
 | languageName | Il nome della lingua. Ad esempio, "Inglese". |
@@ -136,7 +135,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Se il testo è espresso in una lingua non supportata, viene generato un errore e non viene restituito alcun identificatore di lingua.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

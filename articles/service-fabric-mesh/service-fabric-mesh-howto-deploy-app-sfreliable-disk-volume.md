@@ -1,5 +1,5 @@
 ---
-title: Usare a disponibilità elevata Service Fabric Reliable Volume del disco in un'applicazione Azure Service Fabric Mesh | Microsoft Docs
+title: Usare un volume del disco affidabile Service Fabric a disponibilità elevata in un'applicazione di Azure Service Fabric mesh | Microsoft Docs
 description: Informazioni sull'archiviazione dello stato in un'applicazione Azure Service Fabric Mesh con il montaggio di un volume basato su Reliable Disk di Service Fabric all'interno del contenitore usando l'interfaccia della riga di comando di Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -8,19 +8,18 @@ manager: raunakpandya
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419221"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036144"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 
 Il metodo comune per rendere persistente lo stato con le app contenitore è usare una risorsa di archiviazione remota, ad esempio Archiviazione file di Azure o un database come Azure Cosmos DB. Ciò comporta un notevole latenza di rete per la lettura e la scrittura nell'archivio remoto.
@@ -73,7 +72,7 @@ Si noti il nome della risorsa del gateway con tipo di risorsa `Microsoft.Service
 
 Dopo aver distribuito correttamente l'applicazione, ottenere l'indirizzo IP della risorsa del gateway per l'app. Usare il nome del gateway evidenziato nelle sezione precedente.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 L'output deve avere una proprietà `ipAddress` che è l'indirizzo IP pubblico per l'endpoint di servizio. Aprirlo da un browser. Viene visualizzata una pagina Web con il valore del contatore aggiornato ogni secondo.

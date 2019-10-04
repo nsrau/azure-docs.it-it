@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344593"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059711"
 ---
 Dopo la propagazione dei record per il nome di dominio, sarà possibile usare il browser per verificare che il nome di dominio personalizzato possa essere usato per accedere all'app Web nel Servizio app di Azure.
 
@@ -30,7 +30,7 @@ Se non si è già aggiunta l'app Web come endpoint di Gestione traffico, è nece
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. Nel pannello **Domini personalizzati** fare clic su **Aggiungi il nome host**.
-4. Usare le caselle di testo **Nome host** per immettere il nome di dominio di Gestione traffico per l'associazione con questa app Web.
+4. Usare le caselle di testo nome **host** per immettere il nome di dominio personalizzato da associare a questa app Web.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Fare clic su **Convalida** per salvare la configurazione del nome di dominio.

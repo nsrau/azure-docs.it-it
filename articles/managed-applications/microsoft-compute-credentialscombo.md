@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251409"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742098"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento Microsoft.Compute.CredentialsCombo dell'interfaccia utente
 Si tratta di un gruppo di controlli con convalida predefinita per le chiavi pubbliche SSH e le password di Windows e Linux.
@@ -37,7 +37,7 @@ Per Linux con chiave pubblica SSH selezionata, gli utenti visualizzeranno:
 
 ![Chiave Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
-## <a name="schema"></a>SCHEMA
+## <a name="schema"></a>Schema
 Per Windows, usare il seguente schema:
 
 ```json
@@ -54,7 +54,7 @@ Per Windows, usare il seguente schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -84,7 +84,7 @@ Per **Linux**, usare il seguente schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -95,14 +95,14 @@ Per **Linux**, usare il seguente schema:
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
 - Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo le caselle di testo della password o della chiave pubblica SSH devono disporre di valori. Il valore predefinito è **true**.
 - Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.
 - Se `options.hidePassword` è impostato su **true**, l'opzione per l'uso dell'autenticazione della password è nascosta. È possibile usarla solo quando `osPlatform` è **Linux**. Il valore predefinito è **false**.
 - La proprietà `customPasswordRegex` permette di implementare vincoli aggiuntivi sulle password consentite. La stringa in `customValidationMessage` viene visualizzata quando una password non supera la convalida personalizzata. Il valore predefinito per entrambe le proprietà è **null**.
 
-## <a name="sample-output"></a>Output di esempio
+## <a name="sample-output"></a>Esempio di output
 Se `osPlatform` è **Windows** oppure `osPlatform` è **Linux** e l'utente ha specificato una password anziché una chiave pubblica SSH, il controllo restituisce l'output seguente:
 
 ```json

@@ -3,21 +3,20 @@ title: Aggiornare i modelli di Machine Learning con Azure Data Factory | Microso
 description: Illustra come creare pipeline predittive tramite Azure Data Factory e Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335480"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140538"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
 Questo articolo è complementare all'articolo principale sull'integrazione di Azure Data Factory e Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
@@ -60,11 +59,11 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 | Proprietà                      | Descrizione                              | Obbligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome dell'attività nella pipeline     | Sì      |
-| description                   | Testo che descrive l'attività.  | No        |
-| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Sì      |
+| description                   | Testo che descrive l'attività.  | No       |
+| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Yes      |
 | linkedServiceName             | Servizio collegato di Azure Machine Learning che contiene la proprietà updateResourceEndpoint. | Sì      |
-| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Sì      |
-| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Sì      |
+| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Yes      |
+| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Yes      |
 | trainedModelFilePath          | Il percorso file relativo in trainedModelLinkedService per rappresentare il file con estensione iLearner caricato dall'operazione di aggiornamento | Sì      |
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end

@@ -1,25 +1,18 @@
 ---
-title: Dettagli vetrina per un'offerta di app Power BI - Azure Marketplace | Microsoft Docs
+title: Dettagli della vetrina per un'App di Power BI offrono | Azure Marketplace
 description: Configurare i campi dei dettagli vetrina per un'offerta di app Power BI per Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942633"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Scheda Dettagli vetrina app di Power BI
 
@@ -32,13 +25,13 @@ Nel **dettagli dell'offerta** sezione, immettere le informazioni generali relati
 
 ![Sezione dettagli offerta della scheda Storefront Details (Dettagli vetrina)](./media/offer-details-section.png)
 
-Per completare i campi in questa sezione, usare la tabella seguente:
+Nella tabella seguente fornisce altre informazioni su questi campi. I campi obbligatori sono indicati da un asterisco (*).  
 
-|   Campo               |   DESCRIZIONE                                                                           |
+|   Campo               |   Descrizione                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Riepilogo offerta**     | Uno scopo breve dell'app, usando fino a 100 caratteri.                             |
-| **Descrizione dell'offerta** | Descrizione dell'app, usando fino a 3000 caratteri. Questo campo supporta la formattazione HTML semplice. |
-|                       |                                                                                         |
+| **Riepilogo dell'offerta\***     | Uno scopo breve dell'app, usando fino a 100 caratteri.                             |
+| **Descrizione dell'offerta\*** | Descrizione dell'app, usando fino a 3000 caratteri. Questo campo supporta la formattazione HTML semplice. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Sezione Listing Details (Dettagli dell'inserzione)
@@ -47,13 +40,13 @@ Il **listato dettagli** sezione raccoglie informazioni sul contesto dell'app: se
 
 ![Sezione dettagli inserzione della scheda Storefront Details (Dettagli vetrina)](./media/listing-details-section.png)
 
-Per completare i campi in questa sezione, usare la tabella seguente:
+Per completare i campi in questa sezione, usare la tabella seguente.  I campi obbligatori sono indicati da un asterisco (*).
  
-|   Campo                                  |   DESCRIZIONE                                                        |
+|   Campo                                  |   Descrizione                                                        |
 | --------------                           | ---------------------                                                |
 | **Settori**                           | Selezionare il settore in cui l'app si adatta meglio. Se l'app si riferisca a diversi settori industriali, lasciare vuoto questo campo.      |
-| **Categories** (Categorie)                           | Selezionare fino a tre categorie correlate all'app.     |
-| **Help link for your app** (Collegamento alla Guida per l'app)               | Specificare un URL a una pagina che offre la Guida online per l'app.           |
+| **Categorie\***                           | Selezionare fino a tre categorie correlate all'app.     |
+| **Collegamento alla Guida per l'app\***               | Specificare un URL a una pagina che offre la Guida online per l'app.           |
 | **Products your app works with (Max 3)** (Prodotti interrelati con l'app - al massimo 3) | Selezionare il **New** segno più per creare un campo di testo. Nella casella, immettere il nome di un prodotto che l'app funziona con. Elenco prodotti fino a tre.       |
 | **Search keywords (Max 3)** (Parole chiave di ricerca - al massimo 3)              | Immettere fino a tre parole chiave che gli utenti probabilmente userà per eseguire la ricerca per l'applicazione in AppSource. Ad esempio, se l'applicazione è denominata "My app invio per posta elettronica", le parole chiave potrebbero essere **messaggi di posta elettronica**, **mailing**, e **app di posta elettronica**. |
 |  |  |
@@ -65,13 +58,13 @@ Nel **contenuti di Marketing** sezione, caricamento della personalizzazione e ma
 
 ![Sezione artefatti di marketing della scheda Storefront Details (Dettagli vetrina)](./media/marketing-artifacts-section.png)
 
-Per completare i campi in questa sezione, usare la tabella seguente:
+Per completare i campi in questa sezione, usare la tabella seguente. I campi obbligatori sono indicati da un asterisco (*).
  
-|    Campo                             |    DESCRIZIONE                                                    |
+|    Campo                             |    Descrizione                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos* (Logo)                              |                                                                   |
-| **Offer logo (.png format, 48x48)** (Logo dell'offerta - formato PNG, 48x48)   | Caricare un logo da visualizzare nella panoramica dell'app o nei risultati della ricerca di app. AppSource supporta solo i formato PNG, con una risoluzione di 48 x 48 pixel.  |
-| **Offer logo (png format, 216x216)** (Logo dell'offerta - formato PNG 216x216) | Caricare un logo da visualizzare nella pagina dei dettagli dell'app.  AppSource supporta solo i formato PNG, con una risoluzione di 216x216 px.  |
+| **Logo offerta (formato png, 48 x 48)\***   | Caricare un logo da visualizzare nella panoramica dell'app o nei risultati della ricerca di app. AppSource supporta solo i formato PNG, con una risoluzione di 48 x 48 pixel.  |
+| **Logo offerta (formato png, 216x216)\*** | Caricare un logo da visualizzare nella pagina dei dettagli dell'app.  AppSource supporta solo i formato PNG, con una risoluzione di 216x216 px.  |
 | *Video*                             |                                                                   |
 | **Nome**                             | Immettere nome o il titolo dell'app.                                          |
 | **URL**                              | Immettere l'URL di un video ospitato in YouTube o Vimeo.                              |
@@ -79,7 +72,7 @@ Per completare i campi in questa sezione, usare la tabella seguente:
 | *Documents* (Documenti)                          | Aggiungere fino a tre documenti da visualizzare in AppSource, sotto il **altre informazioni** intestazione.  |
 | **Nome**                             | Immettere il nome o titolo di un documento di supporto.                              |
 | **File**                             | Caricare un file PDF.                             |
-| *Screenshot*                        | Aggiungere al massimo cinque screenshot.                        |
+| *Screenshot\**                      | Aggiungere al massimo cinque screenshot.                        |
 | **Nome**                             | Immettere un nome o titolo di una schermata.                                       |
 | **Immagine**                            | Caricare una schermata PNG. La risoluzione deve essere 1280x720 pixel.  | 
 |   |   |
@@ -98,10 +91,10 @@ Nel **legali** sezione, fornire i due documenti legali necessari per ogni offert
 
 Per completare i campi in questa sezione, usare la tabella seguente:
 
-|   Campo                |   DESCRIZIONE                           |
+|   Campo                |   Descrizione                           |
 |------------------------|--------------------------------------   |
-| **Privacy policy URL** | URL per l'informativa sulla privacy registrata       |
-| **Condizioni d'uso**       | I criteri di utilizzo, formattati come testo normale o HTML semplice     |
+| **Privacy policy URL\*** | URL per l'informativa sulla privacy registrata       |
+| **Condizioni per l'utilizzo\***       | I criteri di utilizzo, formattati come testo normale o HTML semplice     |
 |  |  |
 
 
@@ -116,7 +109,7 @@ Nel **gestione dei Lead** sezione configurare il sistema per raccogliere i lead 
 
 |    Campo               |   Clienti potenziali destinatari                               |
 |------------------------|--------------------------------------            |
-|  **Nessuno**              | Non raccogliere alcuna lead. Questa è l'opzione predefinita.  |
+|  **None**              | Non raccogliere alcuna lead. Questa è l'opzione predefinita.  |
 | **Azure Blob (deprecated)** (BLOB di Azure - deprecata) | Specificare [archiviazione Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) usando un nome di contenitore e una stringa di connessione.  Questa opzione è deprecata. Uso **tabelle di Azure** invece.  |
 | **Tabella di Azure**        | Specificare [archiviazione tabelle di Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) usando una stringa di connessione.  |
 | **Dynamics CRM Online** | Specificare [Dynamics 365](https://dynamics.microsoft.com/) usando un URL e l'autenticazione le credenziali. |

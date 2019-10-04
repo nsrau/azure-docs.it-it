@@ -3,17 +3,17 @@ title: File di inclusione
 description: File di inclusione
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665291"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594001"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 
@@ -35,7 +35,7 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
     | -------- | ----- |
     | **Nome** | Immettere *my-cdn-profile-123* per il nome del profilo. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. |
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |
-    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso o è possibile selezionare **Usa esistente** e selezionare **my-resource-group-123** nell'elenco a discesa. | 
+    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Se è già in uso, è possibile immettere un nome diverso o è possibile selezionare **Usa esistente** e selezionare **my-resource-group-123** nell'elenco a discesa. | 
     | **Località del gruppo di risorse** | Selezionare **Stati Uniti centrali** dall'elenco a discesa. |
     | **Piano tariffario** | Selezionare **Verizon standard** dall'elenco a discesa. |
     | **Crea un nuovo endpoint rete CDN ora** | Non selezionare alcun elemento. |  

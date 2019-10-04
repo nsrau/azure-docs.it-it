@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire server di database e database SQL singoli di Azure | Microsoft Docs
+title: Creare e gestire database singoli e server di database SQL di Azure | Microsoft Docs
 description: Informazioni sulla creazione e sulla gestione dei server di database SQL e dei database singoli.
 services: sql-database
 ms.service: sql-database
@@ -7,17 +7,16 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bcbed12940b7766d7ffb9e67b7c63931160ba9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecbfc8cee75da5bdf78bcc2d4ed426bc5193808c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331741"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566500"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Creare e gestire server di database SQL e database singoli in database SQL di Azure
 
@@ -59,7 +58,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per creare e gestire server di database SQL di Azure, database singoli e in pool e firewall di server di database SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -81,7 +80,7 @@ Per creare e gestire server di database SQL di Azure, database singoli e in pool
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Ottiene le regole del firewall per un server|
 |[Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|Modifica una regola del firewall in un server|
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Elimina una regola del firewall da un server|
-| New-AzSqlServerVirtualNetworkRule | Crea una [*regola della rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
+| New-AzSqlServerVirtualNetworkRule | Crea una [*regola di rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
 
 ## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Interfaccia della riga di comando di Azure: Gestire database singoli e server di database SQL
 

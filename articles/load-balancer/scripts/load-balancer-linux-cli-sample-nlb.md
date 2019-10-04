@@ -3,7 +3,7 @@ title: Esempio di interfaccia della riga di comando - Bilanciare il carico del t
 description: Questo esempio di script dell'interfaccia della riga di comando di Azure illustra come bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: 039667eae1dc605706100b7eabf0cd144709fd7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: allensu
+ms.openlocfilehash: 7ed3f0899d6a378285c9799b57e2aad76348c45d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443835"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273821"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Esempio di script dell'interfaccia della riga di comando di Azure: bilanciare il carico del traffico verso le macchine virtuali per la disponibilità elevata
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 
 Questo script di esempio dell'interfaccia della riga di comando di Azure crea tutti gli elementi necessari per eseguire più macchine virtuali Ubuntu configurate in una configurazione a disponibilità elevata e con bilanciamento del carico. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, aggiunte a un set di disponibilità di Azure e accessibili tramite Azure Load Balancer. 
 

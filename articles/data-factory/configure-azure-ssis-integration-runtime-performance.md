@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65232505"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -29,35 +29,44 @@ Questo articolo descrive come configurare un runtime di integrazione Azure-SSIS 
 La parte di script di configurazione riportata di seguito mostra le proprietà che è possibile configurare quando si crea un runtime di integrazione Azure-SSIS. Per lo script di PowerShell completo e la relativa descrizione, vedere [Distribuire pacchetti SQL Server Integration Services in Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
-$SubscriptionName = "<Azure subscription name>"
-$ResourceGroupName = "<Azure resource group name>"
-# Data factory name. Must be globally unique
-$DataFactoryName = "<Data factory name>" 
-$DataFactoryLocation = "EastUS" 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
+$SubscriptionName = "[your Azure subscription name]"
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
+$DataFactoryLocation = "EastUS"
 
-# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
-$AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
-$AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# Only EastUS, NorthEurope, and WestEurope are supported.
-$AzureSSISLocation = "EastUS" 
-# Only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_D3_v2"
-# Only 1-10 nodes are supported.
-$AzureSSISNodeNumber = 2 
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
-$AzureSSISMaxParallelExecutionsPerNode = 2 
+### Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
+$AzureSSISName = "[specify a name for your Azure-SSIS IR]"
+$AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
+$AzureSSISLocation = "EastUS"
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
+$AzureSSISNodeNumber = 2
+# Azure-SSIS IR edition/license info: Standard or Enterprise
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+# Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to max(2 x number of cores, 8) are currently supported
+$AzureSSISMaxParallelExecutionsPerNode = 8
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
 
-# SSISDB info
-$SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
-$SSISDBServerAdminUserName = "<Azure SQL server - user name>"
-$SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Database Managed Instance
-# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
-$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
+### SSISDB info
+$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+# Authentication info: SQL or Azure Active Directory (AAD)
+$SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
+$SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) in un database SQL di Azure. Impostare **AzureSSISLocation** sulla stessa posizione del server del database SQL che ospita SSISDB affinché il runtime di integrazione lavori nel modo più efficiente possibile.
+**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) in un database SQL di Azure. Impostare **AzureSSISLocation** sulla stessa posizione del server di database SQL che ospita SSISDB affinché il runtime di integrazione lavori nel modo più efficiente possibile.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni seguenti:
@@ -66,25 +75,39 @@ Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni
 -   Standard\_D1\_v2
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
--   Standard\_D4\_v2.
+-   Standard\_D4\_v2
+-   Standard\_D2\_v3
+-   Standard\_D4\_v3
+-   Standard\_D8\_v3
+-   Standard\_D16\_v3
+-   Standard\_D32\_v3
+-   Standard\_D64\_v3
+-   Standard\_E2\_v3
+-   Standard\_E4\_v3
+-   Standard\_E8\_v3
+-   Standard\_E16\_v3
+-   Standard\_E32\_v3
+-   Standard\_E64\_v3
 
 Nei test interni non ufficiali condotti dal team di progettazione SSIS, la serie D sembra essere più adatta all'esecuzione di pacchetti SSIS rispetto alla serie A.
 
--   Il rapporto tra prezzo e prestazioni nella serie D è migliore rispetto alla serie A.
--   A pari prezzo, la velocità effettiva per la serie D è superiore a quella per la serie A.
+-   Il rapporto di prestazioni/prezzo della serie D è superiore rispetto alla serie A e il rapporto di prestazioni/prezzo della serie v3 è superiore rispetto alla serie a v2.
+-   La velocità effettiva per la serie D è superiore rispetto alla serie allo stesso prezzo e la velocità effettiva per la serie v3 è superiore rispetto alla serie a v2 allo stesso prezzo.
+-   I nodi serie v2 del runtime di integrazione SSIS di Azure non sono adatti per l'installazione personalizzata, in modo da usare invece i nodi serie v3. Se si usano già i nodi serie v2, passare per l'uso di nodi serie v3 appena possibile.
+-   La serie E è ottimizzata per la memoria le dimensioni VM che fornisce un rapporto tra memoria e CPU superiore rispetto alle altre macchine. Se il pacchetto richiede una grande quantità di memoria, è possibile considerare la scelta della serie E macchina virtuale.
 
 ### <a name="configure-for-execution-speed"></a>Configurare la velocità di esecuzione
 Se non si dispone di molti pacchetti da eseguire e si desidera che vengano eseguiti rapidamente, usare le informazioni presentate nel grafico seguente per scegliere un tipo di macchina virtuale adatto allo scenario in uso.
 
-Questi dati rappresentano l'esecuzione di un singolo pacchetto in un singolo nodo del ruolo di lavoro. Il pacchetto carica 10 milioni di record con le colonne Nome e Cognome da Archiviazione BLOB di Azure, genera una colonna Nome completo e scrive in Archiviazione BLOB di Azure i record nei quali il nome completo è costituito da più di 20 caratteri.
+Questi dati rappresentano l'esecuzione di un singolo pacchetto in un singolo nodo del ruolo di lavoro. Il pacchetto Carica 3 milioni di record con nome e il cognome da archiviazione Blob di Azure, genera una colonna del nome completo e scrive i record con il nome completo di più di 20 caratteri Blob in archiviazione di Azure.
 
-![Velocità di esecuzione del pacchetto del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
+![Velocità di esecuzione del pacchetto del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configurare la velocità effettiva complessiva
 
 Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un requisito prioritario, usare le informazioni presentate nel grafico seguente per scegliere il tipo di macchina virtuale adatto allo scenario in uso.
 
-![Velocità effettiva complessiva massima del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
+![Velocità effettiva complessiva massima del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
@@ -92,17 +115,29 @@ Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi sono supportate da 1 a 8 esecuzioni parallele per nodo.
+Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi, 1-max(2 x number of cores, 8) esecuzioni parallele per nodo sono supportate. Se si desidera **AzureSSISMaxParallelExecutionsPerNode** oltre il valore massimo è supportati, è possibile aprire un ticket di supporto ed è possibile aumentare il valore massimo per l'utente e dopo che è necessario usare Azure Powershell per aggiornare  **AzureSSISMaxParallelExecutionsPerNode**.
 È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/windows/sizes-general.md).
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
-| Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2/2 x 500                         | 2 / 750                                        |
+| Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2/2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4/4 x 500                         | 2 / 1500                                       |
 | Standard\_D3\_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8/8 x 500                         | 4 / 3000                                       |
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16/16 x 500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8/8 x 500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16/16 x 500                       | 8 / 2000                                       |
+| Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
+| Standard\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
+| Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32 / 48 x 500                        | 8 / 8000                                       |
+| Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
+| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
+| Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
+| Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
+| Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48 x 500                       | 8 / 8000                                       |
+| Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96 x 500                       | 8 / 16000                                      |
+| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
 
 Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode**: 
 
@@ -117,6 +152,8 @@ Di seguito sono riportate le linee guida per l'impostazione del valore corretto 
 -   Se non si è interessati alla velocità di accodamento dell'esecuzione del pacchetto e di caricamento del log di esecuzione, è possibile scegliere il piano tariffario per database minimo. Il database SQL di Azure con prezzi Basic supporta 8 ruoli di lavoro in un'istanza di runtime di integrazione.
 
 -   Se il numero dei ruoli di lavoro è maggiore di 8 o il numero di core è superiore a 50, scegliere un database più potente del piano Basic. In caso contrario, il database diventa il collo di bottiglia dell'istanza di runtime di integrazione e si verifica un rallentamento delle prestazioni complessive.
+
+-   Scegliere un database più potente, ad esempio s3 se il livello di registrazione è impostato su dettagliato. In base ai nostri test interni non ufficiali, piano tariffario s3 può supportare l'esecuzione del pacchetto SSIS con 2 nodi, 128 conteggi paralleli e a livello di registrazione dettagliata.
 
 È inoltre possibile regolare il piano tariffario del database in base alle informazioni sull'utilizzo in [unità di trasmissione dati](../sql-database/sql-database-what-is-a-dtu.md) (DTU) disponibili nel portale di Azure.
 

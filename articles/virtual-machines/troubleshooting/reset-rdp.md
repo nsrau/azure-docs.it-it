@@ -4,7 +4,7 @@ description: Informazioni su come reimpostare la password di un account o Serviz
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407692"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058451"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Reimpostare Servizi Desktop remoto o la relativa password di amministratore in una macchina virtuale Windows
 Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione di Servizi Desktop remoto (opzione non supportata nei controller di dominio Windows). Per reimpostare la password, usare il portale di Azure o l'estensione di accesso alla macchina virtuale in Azure PowerShell. Dopo aver effettuato l'accesso alla macchina virtuale, reimpostare la password per l'amministratore locale.  
@@ -45,7 +45,7 @@ Innanzitutto, accedere al [portale di Azure](https://portal.azure.com) e quindi 
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Reimpostare la configurazione di Servizi Desktop remoto**
 
-Questo processo verrà abilitare Servizi Desktop remoto nella macchina virtuale e creare una regola del firewall per la porta RDP predefinita 3389.
+Questo processo Abilita il servizio Desktop remoto nella macchina virtuale e crea una regola del firewall per la porta RDP predefinita 3389.
 
 1. Selezionare la macchina virtuale Windows e quindi selezionare **Reimposta password** in **Supporto e risoluzione dei problemi**. Verrà visualizzata la finestra **Reimposta password**. 
 

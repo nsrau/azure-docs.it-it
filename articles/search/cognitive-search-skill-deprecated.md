@@ -2,23 +2,21 @@
 title: Competenze cognitive deprecate - Ricerca di Azure
 description: Questa pagina contiene un elenco delle competenze di ricerca cognitiva considerate deprecate e che non saranno supportate nel prossimo futuro.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958100"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265432"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitiva deprecate
+# <a name="deprecated-cognitive-search-skills"></a>Competenze di ricerca cognitive deprecate
 
 Questo documento descrive le competenze cognitive considerate deprecate. Usare la guida seguente per il contenuto:
 
@@ -43,7 +41,8 @@ Usare invece [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-ski
 
 Per eseguire la migrazione alla [competenza di riconoscimento entità](cognitive-search-skill-entity-recognition.md), sarà necessario apportare una o più delle modifiche seguenti alla definizione della competenza. È possibile aggiornare la definizione della competenza usando l'[API di aggiornamento del set di competenze](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Nota_: il punteggio di attendibilità come concetto non è attualmente supportato. Sarà supportato a breve in futuro. Il parametro `minimumPrecision` esiste in `EntityRecognitionSkill` per un utilizzo futuro e per la compatibilità con le versioni precedenti.
+> [!NOTE]
+> il punteggio di attendibilità come concetto non è attualmente supportato. Il parametro `minimumPrecision` esiste in `EntityRecognitionSkill` per un utilizzo futuro e per la compatibilità con le versioni precedenti.
 
 1. *(Obbligatorio)* Modificare `@odata.type` da `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` a `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 
@@ -147,7 +146,7 @@ _Nota_: il punteggio di attendibilità come concetto non è attualmente supporta
         }
         ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

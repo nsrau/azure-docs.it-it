@@ -3,22 +3,17 @@ title: Schema NetworkConfiguration dei Servizi cloud di Microsoft Azure| Microso
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: ed071d1da30a598eef830b4485c246ffae09c950
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: c5a6501c71420ca5b43c4c08c2a29ae5f27b4af5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004115"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945920"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schema Config NetworkConfiguration dei Servizi cloud di Microsoft Azure
 
@@ -49,7 +44,7 @@ L'esempio seguente illustra l'elemento `NetworkConfiguration` e i relativi eleme
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>
@@ -66,7 +61,7 @@ L'esempio seguente illustra l'elemento `NetworkConfiguration` e i relativi eleme
 
 La tabella seguente descrive gli elementi figlio dell'elemento `NetworkConfiguration`.
 
-| Elemento       | DESCRIZIONE |
+| Elemento       | Descrizione |
 | ------------- | ----------- |
 | AccessControl | facoltativo. Specifica le regole di accesso agli endpoint in un servizio cloud. Il nome del controllo di accesso è definito da una stringa per l'attributo `name`. L'elemento `AccessControl` contiene uno o più elementi `Rule`. È possibile definire più di un elemento `AccessControl`.|
 | Regola | facoltativo. Specifica l'azione che deve essere eseguita per un intervallo di subnet specifico di indirizzi IP. L'ordine della regola è definito da un valore stringa per l'attributo `order`. Più è basso il numero della regola, maggiore sarà la priorità. Ad esempio, le regole possono essere specificate con numeri di ordine pari a 100, 200 e 300. La regola che ha il numero di ordine pari a 100 ha la precedenza sulla regola che ha un ordine pari a 200.<br /><br /> L'azione per la regola è definita da una stringa per l'attributo `action`. I valori possibili sono:<br /><br /> -   `permit`: specifica che solo i pacchetti dell'intervallo di subnet specificato possono comunicare con l'endpoint.<br />-   `deny`: specifica che l'accesso è negato agli endpoint nell'intervallo di subnet indicato.<br /><br /> L'intervallo di subnet degli indirizzi IP interessati dalla regola è definito da una stringa per l'attributo `remoteSubnet`. La descrizione per la regola è definita da una stringa per l'attributo `description`.|

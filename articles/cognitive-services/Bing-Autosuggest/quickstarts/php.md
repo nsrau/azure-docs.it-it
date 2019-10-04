@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: aahill
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: bfaab155c98b0721868a46a6d34c3402d08c053f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7c9c12cd1097ab4a2b7138efd169e4e7a7f03720
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547912"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565795"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
 
 Usare questo argomento di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -152,7 +152,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione per Suggerimenti automatici Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
-- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

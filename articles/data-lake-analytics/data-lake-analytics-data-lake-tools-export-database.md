@@ -1,5 +1,5 @@
 ---
-title: Esportare un database U-SQL usando Strumenti Azure Data Lake per Visual Studio
+title: Esportare un database U-SQL-Strumenti Azure Data Lake per Visual Studio
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio per esportare un database U-SQL e importarlo automaticamente in un account locale.
 services: data-lake-analytics
 author: yanancai
@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496184"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315786"
 ---
 # <a name="export-a-u-sql-database"></a>Esportare un database U-SQL
 
@@ -26,7 +26,7 @@ Quando si sviluppano e si ottimizzano le query U-SQL negli ambienti di sviluppo 
 
 ## <a name="export-steps"></a>Procedura di esportazione
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>Passaggio 1: Esportare il database in Esplora Server
+### <a name="step-1-export-the-database-in-server-explorer"></a>Passaggio 1: Esportare il database in Esplora server
 
 Tutti gli account di Data Lake Analytics per cui si dispone di autorizzazioni sono elencati in Esplora server. Per esportare il database:
 
@@ -51,7 +51,7 @@ In questo passaggio, è possibile verificare gli oggetti selezionati nella casel
 
 È anche possibile configurare altre impostazioni per il database di destinazione dell'esportazione. Le descrizioni di configurazione sono elencate nella tabella seguente:
 
-|Configurazione|DESCRIZIONE|
+|Configurazione|Descrizione|
 |-------------|-----------|
 |Nome destinazione|Questo nome indica dove si vuole salvare le risorse di database esportate. Alcuni esempi sono gli assembly, i file aggiuntivi e i dati di esempio. Verrà creata una cartella con questo nome nella cartella radice dei dati locale.|
 |Directory del progetto|Questo percorso definisce dove si vuole salvare lo script U-SQL esportato. Tutte le definizioni di oggetto di database vengono salvate in questa posizione.|

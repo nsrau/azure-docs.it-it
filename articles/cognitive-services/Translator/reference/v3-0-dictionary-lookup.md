@@ -1,21 +1,21 @@
 ---
 title: Metodo Dictionary Lookup dell'API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Lookup dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: swmachan
+ms.openlocfilehash: 0bbdba343888bc91521245d0c9a0e4eaa87c5538
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578340"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932012"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: Ricerca nel dizionario
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
+  <th width="20%">Parametro di query</th>
   <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
@@ -45,7 +45,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>in</td>
     <td>*Parametro obbligatorio*.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.</td>
   </tr>
 </table>
@@ -53,10 +53,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th width="20%">Intestazioni</th>
+  <th>Descrizione</th>
   <tr>
-    <td>Intestazioni di autenticazione</td>
+    <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -104,7 +104,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
     * `posTag`: stringa che associa il termine a un tag che identifica la parte del discorso.
 
-        | Nome del tag | DESCRIZIONE  |
+        | Nome del tag | Descrizione  |
         |----------|--------------|
         | ADJ      | Aggettivi   |
         | ADV      | Avverbi      |
@@ -115,7 +115,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
         | PREP     | Preposizioni |
         | PRON     | Pronomi     |
         | VERB     | Verbi        |
-        | OTHER    | Altri        |
+        | OTHER    | Altro        |
 
         Come nota per l'implementazione, questi tag sono stati determinati in base alla parte del discorso che definisce la categoria in inglese e poi prendendo il tag più frequente per ogni coppia di origine/destinazione. Pertanto, se gli utenti spesso traducono una parola spagnola nel tag di una parte del discorso diversa in inglese, si potrebbe rilevare che i tag contengono errori rispetto al termine spagnolo.
 
@@ -140,13 +140,9 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come eseguire la ricerca di traduzioni spagnole alternative per il termine inglese `fly`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
-
----
 
 Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 
@@ -191,13 +187,9 @@ Il corpo della risposta (abbreviato per maggiore chiarezza) è:
 
 Questo esempio illustra cosa succede quando il termine cercato non esiste per la coppia di dizionario valida.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
-
----
 
 Poiché il termine non viene trovato nel dizionario, il corpo della risposta include un elenco `translations` vuoto.
 

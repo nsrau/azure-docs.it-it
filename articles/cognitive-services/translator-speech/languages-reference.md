@@ -3,22 +3,22 @@ title: Metodo per le lingue dell'API Traduzione vocale
 titleSuffix: Azure Cognitive Services
 description: Usare il metodo per le lingue dell'API Traduzione vocale.
 services: cognitive-services
-author: Jann-Skotdal
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 46ac3928238382f56db5a799226bd3d9243b7ca2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435763"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966403"
 ---
-# <a name="translator-speech-api-languages"></a>API Traduzione vocale: Languages
+# <a name="translator-speech-api-languages"></a>API Traduzione vocale: Lingue
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -38,7 +38,7 @@ Un client usa il parametro di query `scope` per definire i set di lingue desider
 * **Traduzione testuale:** usare il parametro di query `scope=text` per recuperare il set di lingue disponibili per la traduzione del testo trascritto.
 * **Sintesi vocale:**  usare il parametro di query `scope=tts` per recuperare il set di lingue e voci disponibili per eseguire la sintesi vocale del testo tradotto.
 
-Un client può recuperare più set contemporaneamente specificando un elenco di opzioni delimitato da virgole. Ad esempio: `scope=speech,text,tts`.
+Un client può recuperare più set contemporaneamente specificando un elenco di opzioni delimitato da virgole. Ad esempio `scope=speech,text,tts`.
 
 Una risposta corretta è un oggetto JSON con una proprietà per ogni set richiesto.
 
@@ -65,7 +65,7 @@ Di seguito è indicato il valore fornito con ogni proprietà.
 Il valore associato alla proprietà di conversione della voce in testo scritto, `speech`, è un dizionario di coppie (chiave, valore). Ogni chiave identifica una lingua supportata per la conversione della voce in testo scritto. La chiave è l'identificatore che il client passa all'API. Il valore associato alla chiave è un oggetto con le proprietà seguenti:
 
 * `name`: nome visualizzato della lingua.
-* `language`: tag della lingua scritta associata. Vedere "Transazioni di testo" più avanti.
+* `language`: tag della lingua scritta associata. Vedere la sezione "transazione testuale" riportata di seguito.
 Di seguito è riportato un esempio:
 
 ```
@@ -130,24 +130,24 @@ Valore di esempio del modello:
 
 Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (oggetto, facoltativo) }
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 
 |Intestazione|DESCRIZIONE|Type|
 :--|:--|:--|
-X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|stringa|
+X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|string|
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Descrizione|Tipo parametro|Tipo di dati|
 |:--|:--|:--|:--|
-|api-version    |Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query|stringa|
-|scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|stringa|
-|X-ClientTraceId    |GUID generato dal client per tenere traccia di una richiesta. Per semplificare la risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.|intestazione|stringa|
-|Accept-Language    |Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui vengono restituiti i nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Selezionare un tag nell'elenco di identificatori di lingua restituito con l'ambito `text`. Per le lingue non supportate, i nomi vengono forniti in lingua inglese.<br/>Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.|intestazione|stringa|
+|api-version    |Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query|string|
+|scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|string|
+|X-ClientTraceId    |GUID generato dal client per tenere traccia di una richiesta. Per semplificare la risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.|intestazione|string|
+|Accept-Language    |Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui vengono restituiti i nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Selezionare un tag nell'elenco di identificatori di lingua restituito con l'ambito `text`. Per le lingue non supportate, i nomi vengono forniti in lingua inglese.<br/>Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.|intestazione|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|
+|Codice di stato HTTP|`Reason`|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input per verificare che siano validi. L'oggetto della risposta include una descrizione più dettagliata dell'errore.|
 |429|Numero eccessivo di richieste.|

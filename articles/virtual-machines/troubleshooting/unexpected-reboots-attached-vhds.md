@@ -4,18 +4,18 @@ description: Come risolvere i problemi relativi ai riavvii imprevisti delle macc
 keywords: connessione SSH rifiutata, errore SSH, SSH Azure, connessione SSH non riuscita
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6273087e28be8b784168d5808918d04d0e4cf303
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3b54941d38424e71ac800d2e750ac9bbc96cde9
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443722"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086874"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Risolvere i problemi relativi a riavvii imprevisti di VM con dischi rigidi virtuali collegati
 

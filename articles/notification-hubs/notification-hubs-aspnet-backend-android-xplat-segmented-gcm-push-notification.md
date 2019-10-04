@@ -3,9 +3,9 @@ title: Eseguire il push di notifiche a dispositivi Android specifici con Hub di 
 description: In questa esercitazione si apprenderà come usare Hub di notifica di Azure e Google Cloud Messaging per effettuare il push di notifiche a dispositivi Android.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,20 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 1c777f705d9b2d3df713642349fe4dbd413e48e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872863"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212811"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Cloud Messaging
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
+
+> [!WARNING]
+> A partire dal 10 aprile 2018, Google ha deprecato Google Cloud Messaging (GCM). Il server GCM e le API client sono deprecati e verranno rimossi entro il 29 maggio 2019. Per altre informazioni, vedere le [domande frequenti su GCM ed FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 

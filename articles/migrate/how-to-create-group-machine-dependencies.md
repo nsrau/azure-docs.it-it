@@ -4,49 +4,77 @@ description: Descrive come creare una valutazione usando le dipendenze dei compu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 07/17/2019
+ms.author: hamusa
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795033"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200197"
 ---
-# <a name="group-machines-using-machine-dependency-mapping"></a>Raggruppare i computer usando il mapping delle dipendenze dei computer
+# <a name="set-up-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze per la valutazione
 
-Questo articolo descrive come creare un gruppo di computer per eseguire la valutazione con [Azure Migrate](migrate-overview.md) visualizzando le dipendenze dei computer. Questo metodo viene in genere usato quando si vogliono valutare gruppi di macchine virtuali con livelli di attendibilità più elevati controllando in modo incrociato le dipendenze dei computer prima di eseguire una valutazione. La visualizzazione delle dipendenze è utile per pianificare in modo efficace la migrazione a Azure. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire contemporaneamente la migrazione e determinare se un sistema in esecuzione è ancora utile o se è un candidato alla rimozione anziché alla migrazione.
+Questo articolo descrive come configurare il mapping delle dipendenze in Azure Migrate: Valutazione server.
 
-> [!NOTE]
-> La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
+Il mapping delle dipendenze consente di visualizzare le dipendenze tra i computer di cui si desidera eseguire la valutazione e la migrazione.
 
-## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
-Azure Migrate Usa mapping dei servizi nei log di monitoraggio di Azure per abilitare la visualizzazione delle dipendenze delle macchine.
+- In Azure Migrate: Server Assessment, i computer vengono raccolti per la valutazione. In genere i computer di cui si desidera eseguire la migrazione insieme.
+- In genere si usa il mapping delle dipendenze quando si desidera valutare i gruppi con livelli di confidenza più elevati.
+- Il mapping delle dipendenze consente di controllare in modo incrociato le dipendenze dei computer, prima di eseguire una valutazione e una migrazione.
+- Il mapping e la visualizzazione delle dipendenze consentono di pianificare in modo efficace la migrazione ad Azure. Consente di garantire che non venga lasciato nulla, evitando così interruzioni di sorpresa durante la migrazione.
+- Utilizzando il mapping è possibile individuare i sistemi interdipendenti di cui è necessario eseguire la migrazione insieme. È anche possibile determinare se un sistema in esecuzione sta ancora servendo gli utenti o se è un candidato per la rimozione delle autorizzazioni anziché per la migrazione.
 
-### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro Log Analytics
-Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
+[Altre](concepts-dependency-visualization.md#how-does-it-work) informazioni sulla visualizzazione delle dipendenze.
 
-- Per collegare un'area di lavoro Log Analytics a un progetto, in **Panoramica** passare alla sezione **Essentials** del progetto e fare clic su **Configurazione richiesta**
+## <a name="before-you-start"></a>Prima di iniziare
 
-    ![Associare un'area di lavoro Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+- Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
+- Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) la Azure migrate: Valutazione server.
+- Assicurarsi di aver individuato i computer in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: Valutazione server. [Altre informazioni](migrate-appliance.md)
 
-- Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
-  - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
-  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
 
-> [!NOTE]
-> Non è possibile modificare l'area di lavoro associata a un progetto di migrazione.
+**Funzionalità** | **Nota**
+--- | ---
+Disponibilità | La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
+Elenco dei servizi | La visualizzazione delle dipendenze USA Mapping dei servizi soluzione in monitoraggio di Azure. [Mapping dei servizi](../azure-monitor/insights/service-map.md) individua automaticamente e visualizza le connessioni tra i server.
+Agenti | Per usare la visualizzazione delle dipendenze, installare gli agenti seguenti nei computer di cui si vuole eseguire il mapping:<br/> - Agente [log Analytics](../azure-monitor/platform/log-analytics-agent.md) agente (in precedenza denominato Microsoft Monitoring Agent (MMA).<br/> - [Mapping dei servizi Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Per automatizzare l'installazione dell'agente, è possibile usare uno strumento di distribuzione come System Center Configuration Manager o uno strumento partner, ad esempio [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che dispone di una soluzione di distribuzione dell'agente per Azure migrate.
+Dependency Agent | Esaminare il [supporto di Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) per Windows e Linux.<br/><br/> [Altre](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) informazioni sull'uso degli script per installare Dependency Agent.
+Agente di Log Analytics (MMA) | [Altre](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) informazioni sui metodi di installazione di MMA.<br/><br/> Per i computer monitorati da System Center Operations Manager 2012 R2 o versione successiva, non è necessario installare l'agente MMA. Mapping dei servizi si integra con Operations Manager. È possibile abilitare l'integrazione usando il materiale sussidiario disponibile [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Si noti, tuttavia, che l'agente di dipendenza dovrà essere installato in tali computer.<br/><br/> [Esaminare](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) i sistemi operativi Linux supportati dall'agente log Analytics.
+Gruppi di valutazione | I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se sono presenti più di 10 computer, suddividerli in gruppi più piccoli per visualizzare le dipendenze.
 
-### <a name="download-and-install-the-vm-agents"></a>Scaricare e installare gli agenti di macchine virtuali
-Dopo aver configurato un'area di lavoro, è necessario scaricare e installare gli agenti in ogni computer locale che si vuole valutare. Se si hanno computer senza accesso a Internet, è necessario scaricare e installare il [Gateway Log Analytics](../azure-monitor/platform/gateway.md).
+## <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro Log Analytics
 
-1. In **Panoramica** fare clic su **Gestisci** > **Computer** e selezionare il computer necessario.
-2. Nella colonna **Dipendenze** fare clic su **Installa agenti**.
-3. Nella pagina **Dipendenze** scaricare e installare Microsoft Monitoring Agent (MMA) e Dependency Agent in ogni macchina virtuale che si vuole valutare.
-4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nel computer locale.
+Per usare la visualizzazione delle dipendenze, è necessario associare un' [area di lavoro log Analytics](../azure-monitor/platform/manage-access.md) a un progetto Azure migrate.
 
-> [!NOTE]
-> Per automatizzare l'installazione degli agenti è possibile usare qualsiasi strumento di distribuzione come System Center Configuration Manager o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), uno strumento di partner che dispone di una soluzione di distribuzione dell'agente per Azure Migrate.
+- È possibile aggiungere un'area di lavoro solo nella sottoscrizione del progetto Azure Migrate.
+- È possibile alleghi un'area di lavoro esistente o crearne una nuova.
+- L'area di lavoro viene collegata la prima volta che si configura la visualizzazione delle dipendenze per un computer.
+- È possibile aggiungere un'area di lavoro solo dopo l'individuazione di computer nel progetto Azure Migrate. A tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: Valutazione server. [Altre informazioni](migrate-appliance.md)
+
+Alleghi un'area di lavoro come segue:
+
+1. In **Azure migrate: Server Assessment**, fare clic su **Panoramica**. Se lo strumento Server Assessment non è ancora stato aggiunto, [eseguire prima questa operazione](how-to-assess.md).
+2. In **Panoramica**fare clic sulla freccia in giù per espandere **Essentials**.
+3. Nell' **area di lavoro di OMS**fare clic su **richiede la configurazione**.
+4. In **Configura area di lavoro**, specificare se si desidera creare una nuova area di lavoro oppure utilizzarne una esistente:
+
+    ![Aggiungi area di lavoro](./media/how-to-create-group-machine-dependencies/workspace.png)
+
+    - Dopo aver specificato un nome per una nuova area di lavoro, è possibile scegliere l' [area](https://azure.microsoft.com/global-infrastructure/regions/) in cui verrà creata l'area di lavoro.
+    - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione.
+    - Per poter essere collegato, è necessario l'accesso in lettura all'area di lavoro.
+    - Non è possibile modificare l'area di lavoro associata a un progetto dopo che è stata collegata.
+
+## <a name="download-and-install-the-vm-agents"></a>Scaricare e installare gli agenti di macchine virtuali
+
+Scaricare e installare gli agenti in ogni computer locale che si vuole visualizzare con il mapping delle dipendenze.
+
+1. In **Azure migrate: Server Assessment**, fare clic su **server individuati**.
+2. Per ogni computer per cui si vuole usare la visualizzazione delle dipendenze, fare clic su **richiede l'installazione dell'agente**.
+3. Nella pagina **dipendenze** di un computer > **scaricare e installare MMA**, scaricare l'agente appropriato e installarlo come descritto di seguito.
+4. In **scaricare e installare Dependency Agent**scaricare l'agente appropriato e installarlo come descritto di seguito.
+5. In **Configura agente MMA**copiare l'ID e la chiave dell'area di lavoro. Sono necessari quando si installa l'agente MMA.
 
 ### <a name="install-the-mma"></a>Installare MMA
 
@@ -55,12 +83,10 @@ Dopo aver configurato un'area di lavoro, è necessario scaricare e installare gl
 Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
+2. Nella pagina **iniziale** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
-
-È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio System Center Configuration Manager. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA.
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>Installare l'agente in un computer Linux
 
@@ -71,75 +97,70 @@ Per installare l'agente in un computer Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Altre informazioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sull'elenco dei sistemi operativi Linux supportati da MMA.
-
-#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Installare l'agente in un computer monitorato da SCOM
-
-Per i computer monitorati da System Center Operations Manager 2012 R2 o versioni successive, non è necessario installare l'agente MMA. Mapping dei servizi dispone di un'integrazione con SCOM che sfrutta l'MMA SCOM per raccogliere i dati sulle dipendenze necessari. È possibile abilitare l'integrazione usando il materiale sussidiario disponibile [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Si noti tuttavia che sarà necessario installare l'agente di dipendenza su tali computer.
-
-
 ### <a name="install-the-dependency-agent"></a>Installare Dependency Agent
 1. Per installare Dependency Agent in un computer Windows, fare doppio clic sul file di installazione e seguire la procedura guidata.
 2. Per installare Dependency Agent in un computer Linux, procedere all'installazione come utente ROOT usando il comando seguente:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
+## <a name="create-a-group-using-dependency-visualization"></a>Creare un gruppo usando la visualizzazione delle dipendenze
 
-[Altre informazioni](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
-
-
-## <a name="create-a-group"></a>Creare un gruppo
-
-1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Gestisci** > **Computer**.
-2. Cercare il computer in cui sono stati installati gli agenti.
-3. Nella colonna **Dipendenze** relativa al computer viene ora visualizzata la dicitura **Visualizza dipendenze**. Fare clic sulla colonna per visualizzare le dipendenze del computer.
-4. La mappa delle dipendenze del computer mostra i dettagli seguenti:
-    - Le connessioni TCP in ingresso (client) e in uscita (server) verso o dal computer
-        - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
-        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
-    - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
-    - Le proprietà di ogni computer, come il nome di dominio completo, il sistema operativo, l'indirizzo MAC e così via: fare clic su ogni casella di computer per visualizzare questi dettagli
-
-      ![Visualizzare le dipendenze dei computer](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+1. In **Azure migrate: Server Assessment**, fare clic su **server individuati**.
+2. Nella colonna **dipendenze** fare clic su **Visualizza dipendenze** per ogni computer che si desidera esaminare.
+3. Nella mappa delle dipendenze è possibile vedere quanto segue:
+    - Connessioni TCP in ingresso (client) e in uscita (Server), da e verso il computer.
+    - I computer dipendenti in cui non sono installati gli agenti di dipendenza sono raggruppati in base ai numeri di porta.
+    - I computer dipendenti con agenti di dipendenza installati vengono visualizzati come caselle separate.
+    - Processi in esecuzione all'interno del computer. Espandere ogni casella del computer per visualizzare i processi.
+    - Proprietà del computer (incluso FQDN, sistema operativo, indirizzo MAC). Fare clic su ogni casella del computer per visualizzare i dettagli.
 
 4. È possibile esaminare le dipendenze per intervalli di tempo diversi facendo clic sulla durata nell'etichetta dell'intervallo di tempo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
 
-   > [!NOTE]
-   >    Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare monitoraggio di Azure registra [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) su periodi di tempo.
-
-5. Dopo aver identificato i computer dipendenti da raggruppare, fare clic tenendo premuto CTRL per selezionare più computer nella mappa e quindi fare clic su **Raggruppa macchine virtuali**.
-6. Specificare un nome di gruppo. Verificare che i computer dipendenti siano stati individuati da Azure Migrate.
-
     > [!NOTE]
-    > Se un computer dipendente non viene individuato da Azure Migrate, non è possibile aggiungerlo al gruppo. Per aggiungere tali computer al gruppo, è necessario eseguire nuovamente il processo di individuazione con l'ambito corretto nel server vCenter e verificare che il computer venga individuato da Azure Migrate.  
+    > L'intervallo di tempo può essere fino a un'ora. Se è necessario un intervallo più lungo, usare monitoraggio di Azure per eseguire query sui dati dipendenti per un periodo di tempo più lungo.
 
-7. Se si vuole creare una valutazione per questo gruppo, selezionare la casella di controllo per creare una nuova valutazione per il gruppo.
+5. Dopo aver identificato i computer dipendenti che si desidera raggruppare, premere CTRL + clic per selezionare più computer nella mappa e fare clic su **raggruppa computer**.
+6. Specificare un nome di gruppo.
+7. Verificare che i computer dipendenti siano stati individuati da Azure Migrate.
+
+    - Se un computer dipendente non viene individuato da Azure Migrate: Server Assessment non è possibile aggiungerlo al gruppo.
+    - Per aggiungere un computer, eseguire di nuovo l'individuazione e verificare che il computer sia stato individuato.
+
+8. Se si vuole creare una valutazione per questo gruppo, selezionare la casella di controllo per creare una nuova valutazione per il gruppo.
 8. Fare clic su **OK** per salvare il gruppo.
 
-Una volta creato il gruppo, è consigliabile installare gli agenti in tutti i computer del gruppo e perfezionare il gruppo visualizzandone tutte le dipendenze.
+Dopo aver creato il gruppo, è consigliabile installare gli agenti in tutti i computer del gruppo e quindi visualizzare le dipendenze per l'intero gruppo.
 
-## <a name="query-dependency-data-from-azure-monitor-logs"></a>Eseguire query sui dati delle dipendenze dai log di monitoraggio di Azure
+## <a name="query-dependency-data-in-azure-monitor"></a>Eseguire query sui dati delle dipendenze in monitoraggio di Azure
 
-I dati sulle dipendenze acquisiti da mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analitica associato al progetto Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle di dati di mapping dei servizi per eseguire una query in Monitoraggio di Azure Registra. 
+È possibile eseguire query sui dati delle dipendenze acquisiti da Mapping dei servizi nell'area di lavoro Log Analytics associata al progetto Azure Migrate. Log Analytics viene usato per scrivere ed eseguire query di log di monitoraggio di Azure.
 
-Per eseguire la query Kusto:
+- [Informazioni su come](../azure-monitor/insights/service-map.md#log-analytics-records) cercare i dati Mapping dei servizi in log Analytics.
+- [Ottenere una panoramica sulla](../azure-monitor/log-query/get-started-queries.md) scrittura di query di log in [log Analytics](../azure-monitor/log-query/get-started-portal.md).
+
+Eseguire una query per i dati di dipendenza come segue:
 
 1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
-2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
-3. Nella pagina dell'area di lavoro Log Analytics, fare clic su **Generale** > **Log**.
-4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Trovare le query di esempio nella sezione successiva.
-5. Eseguire la query facendo clic su Esegui. 
+2. In **Azure migrate: Server Assessment**, fare clic su **Panoramica**. Per espandere **Essentials**, fare clic sulla freccia verso il basso.
+3. Nell' **area di lavoro di OMS**fare clic sul nome dell'area di lavoro.
+3. Nella pagina Log Analytics area di lavoro > **generale**, fare clic su **log**.
+4. Scrivere la query e fare clic su **Esegui**.
 
-[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sulla scrittura di query Kusto. 
+### <a name="sample-queries"></a>Query di esempio
 
-### <a name="sample-azure-monitor-logs-queries"></a>Monitoraggio di Azure di esempio registra le query
+Sono disponibili un numero di query di esempio che è possibile usare per estrarre i dati delle dipendenze.
 
-Di seguito sono esempi di query è possibile usare per estrarre i dati sulle dipendenze. È possibile modificare le query per estrarre i punti dati preferito. È disponibile un elenco completo dei campi nel record di dati delle dipendenze [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Trovare altri esempi di query [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+- È possibile modificare le query per estrarre i punti dati preferiti.
+- [Esaminare](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) un elenco completo dei record dei dati delle dipendenze.
+- [Esaminare](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) le query di esempio aggiuntive.
 
-#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Riepilogare le connessioni in ingresso in un set di computer
+#### <a name="sample-review-inbound-connections"></a>Esempio: Verificare le connessioni in ingresso
 
-Si noti che i record nella tabella di metriche relative alla connessione VMConnection, non rappresentano le connessioni di rete fisica. Più connessioni di rete fisiche sono raggruppate in una connessione logica. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sulla connessione di rete fisica come i dati vengono aggregati in un singolo record logico in VMConnection. 
+Verificare le connessioni in ingresso per un set di macchine virtuali.
+
+- I record della tabella per le metriche di connessione (VMConnection) non rappresentano le singole connessioni di rete fisica.
+- Più connessioni di rete fisiche vengono raggruppate in una connessione logica.
+- [Altre](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) informazioni sul modo in cui i dati della connessione di rete fisica sono aggregati in VMConnection.
 
 ```
 // the machines of interest
@@ -147,15 +168,17 @@ let ips=materialize(ServiceMapComputer_CL
 | summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
 | mvexpand ips to typeof(string));
 let StartDateTime = datetime(2019-03-25T00:00:00Z);
-let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
 VMConnection
-| where Direction == 'inbound' 
+| where Direction == 'inbound'
 | where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
 | join kind=inner (ips) on $left.DestinationIp == $right.ips
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Riepilogare volume dei dati inviati e ricevuti nelle connessioni in ingresso tra un set di computer
+#### <a name="sample-summarize-sent-and-received-data"></a>Esempio: Riepilogare i dati inviati e ricevuti
+
+In questo esempio viene riepilogato il volume di dati inviati e ricevuti per le connessioni in ingresso tra un set di computer.
 
 ```
 // the machines of interest
@@ -163,9 +186,9 @@ let ips=materialize(ServiceMapComputer_CL
 | summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
 | mvexpand ips to typeof(string));
 let StartDateTime = datetime(2019-03-25T00:00:00Z);
-let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
 VMConnection
-| where Direction == 'inbound' 
+| where Direction == 'inbound'
 | where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
 | join kind=inner (ips) on $left.DestinationIp == $right.ips
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
@@ -173,6 +196,4 @@ VMConnection
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sulle domande frequenti sulla visualizzazione delle dipendenze.
-- [Informazioni](how-to-create-group-dependencies.md) su come perfezionare il gruppo visualizzandone le dipendenze.
-- [Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.
+[Creare una valutazione](how-to-create-assessment.md) per un gruppo.

@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b17b07124cf4491a6c58e9be2b10f958e29217ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cee3867449aea1cb1c59ac5a7c3be57291d1aebc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783823"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000129"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -36,7 +36,7 @@ Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'i
 - [Criteri di Azure](../../../policy/overview.md) per bloccare i servizi che è possibile distribuire nell'ambiente e impedire la creazione di qualsiasi risorsa di indirizzo IP pubblico
 - Una rete virtuale che contiene una singola subnet e di cui è stato eseguito il peering a un ambiente di [servizi condivisi](../iso27001-shared/index.md) preesistente e che forza tutto il traffico a passare attraverso il firewall dei [servizi condivisi](../iso27001-shared/index.md). La rete virtuale ospita le risorse seguenti:
   - Un [ambiente del servizio app di Azure](../../../../app-service/environment/intro.md) che può essere usato per ospitare una o più applicazioni Web, API Web o funzioni
-  - Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) che usa un endpoint servizio di rete virtuale per l'archiviazione dei segreti usati dalle applicazioni in esecuzione nell'ambiente del carico di lavoro
+  - Un'istanza di [Azure Key Vault](../../../../key-vault/key-vault-overview.md) che usa un endpoint servizio di rete virtuale per l'archiviazione dei segreti usati dalle applicazioni in esecuzione nell'ambiente del carico di lavoro
   - Un'istanza del server di [database SQL di Azure](../../../../sql-database/sql-database-technical-overview.md) che usa un endpoint servizio di rete virtuale per ospitare i database usati per le applicazioni nell'ambiente del carico di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi

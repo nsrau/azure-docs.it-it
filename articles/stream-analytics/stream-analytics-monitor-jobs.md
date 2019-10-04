@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563847"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612246"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
 
@@ -24,7 +24,7 @@ In questo articolo viene illustrato come abilitare il monitoraggio per un proces
 
 Prima di iniziare questo processo, sono necessari i prerequisiti seguenti:
 
-* Visual Studio 2017 o 2015
+* Visual Studio 2019 or 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) scaricato e installato
 * Un processo di analisi di flusso esistente che richiede l'abilitazione del monitoraggio.
 
@@ -178,5 +178,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

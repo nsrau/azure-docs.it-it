@@ -8,7 +8,9 @@
   items:
     - name: Creare una nuova knowledge base
       href: How-To/create-knowledge-base.md
-    - name: Ottenere risposte da una knowledge base
+    - name: Aggiungere domande con i metadati
+      href: quickstarts/add-question-metadata-portal.md
+    - name: Ottenere la risposta
       items:
         - name: Uso di Postman
           href: Quickstarts/get-answer-from-kb-using-postman.md
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-new-kb-nodejs.md
+              href: Quickstarts/create-knowledge-rest-api-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: Pubblicare una knowledge base
@@ -37,10 +39,10 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: Quickstarts/publish-kb-nodejs.md
+              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
-        - name: Ottenere risposte da una knowledge base
+        - name: Ottenere la risposta
           items:
             - name: 'C#'
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
@@ -52,6 +54,14 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: Uso di SDK
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+        - name: Node.js
+          href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+        - name: Python
+          href: ./Quickstarts/python-sdk.md
 - name: Esercitazioni
   items:
     - name: Creare e rispondere da una knowledge base
@@ -66,8 +76,11 @@
     - name: Knowledge Base
       href: Concepts/knowledge-base.md
       displayName: 'metadata, pair'
+    - name: Uso di LUIS e QnA Maker
+      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
     - name: Ciclo di vita di sviluppo di una knowledge base
       href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: 'version control, test, index, publish, monitor usage, create'
     - name: Procedure consigliate
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -79,100 +92,104 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Guide alle procedure
   items:
+    - name: Modificare la knowledge base
+      items:
+        - name: Modificare una Knowledge Base
+          href: How-To/edit-knowledge-base.md
+        - name: Creare conversazioni in più turni con prompt di follow-up
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: Aggiungere chit chat
+          href: How-to/chit-chat-knowledge-base.md
+        - name: Aggiungere un file di SharePoint protetto
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Gestire la knowledge base
       items:
         - name: Creare e pubblicare una knowledge base
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Aggiungere chiacchiere a una knowledge base
-          href: How-to/chit-chat-knowledge-base.md
-        - name: Eseguire la migrazione di una knowledge base
-          href: Tutorials/migrate-knowledge-base.md
-        - name: Modificare una Knowledge Base
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: Aggiungere un file di SharePoint protetto
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: Collaborare a una knowledge base
-          href: How-To/collaborate-knowledge-base.md
+        - name: Ottenere risposte con i metadati
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: Creare bot con QnA Maker e LUIS
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: Creare una knowledge base in una lingua diversa
           href: How-To/language-knowledge-base.md
+        - name: Eseguire la migrazione di una knowledge base
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: Collaborare a una knowledge base
+          href: How-To/collaborate-knowledge-base.md
         - name: Testare una knowledge base
           href: How-To/test-knowledge-base.md
         - name: Usare l'apprendimento attivo per migliorare la knowledge base
           href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: Uso di una knowledge base
-      items:
-        - name: Usare metadati con l'API GenerateAnswer
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: Con un bot
-          href: Tutorials/integrate-qnamaker-luis.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Gestire il servizio
       items:
-        - name: Configurare un servizio QnA Maker
+        - name: Gestire risorse
           href: How-To/set-up-qnamaker-service-azure.md
-        - name: Ottenere analisi sulla Knowledge Base
+          displayName: 'azure, resource, key, upgrade, pricing, tier,'
+        - name: Ottenere l'analisi
           href: How-To/get-analytics-knowledge-base.md
-        - name: Gestire le chiavi
-          href: How-To/key-management.md
-        - name: Scegliere la capacità per la distribuzione di QnA Maker
+        - name: Scegliere la capacità
           href: Tutorials/choosing-capacity-qnamaker-deployment.md
-        - name: Aggiornare il servizio QnA Maker
-          href: How-To/upgrade-qnamaker-service.md
-        - name: Creare un piano di continuità aziendale per QnA Maker
+        - name: Creare un piano di continuità aziendale
           href: How-To/business-continuity-plan.md
-        - name: Risolvere i problemi e aggiornare il runtime di QnAMaker
-          href: How-To/troubleshooting-runtime.md
-    - name: Usare l'API REST
-      items:
-        - name: 'C#'
-          href: Quickstarts/csharp.md
-        - name: Java
-          href: Quickstarts/java.md
-        - name: Node.js
-          href: Quickstarts/nodejs.md
-        - name: Python
-          href: Quickstarts/python.md
-        - name: Go
-          href: Quickstarts/go.md
 - name: riferimento
   items:
     - name: Informazioni di riferimento sulle API REST
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
-    - name: Domande frequenti
-      href: faqs.md
+      items:
+        - name: API di creazione
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: API GenerateAnswer
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: API Train
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
+    - name: risoluzione dei problemi
+      href: troubleshooting.md
     - name: Limiti
       href: limits.md
-    - name: Glossario
-      href: glossary.md
-    - name: Codici di risposta HTTP
-      displayName: '200, 2xx, 400, 401, 403, 404'
-      href: http-response-codes.md
     - name: Esempi
       items:
         - name: Bot della Guida di QnA Maker
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: Documentazione di riferimento
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: Pacchetto NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
+            - name: Esempi
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp'
         - name: Go
           items:
+            - name: Documentazione di riferimento
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker'
             - name: SDK
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker'
+            - name: Esempi
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-go'
         - name: Node.js
           items:
+            - name: Documentazione di riferimento
+              href: 'https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+            - name: Esempi
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python
           items:
+            - name: Documentazione di riferimento
+              href: 'https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
+            - name: Esempi
+              href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-python'
         - name: Ruby
           items:
             - name: Gem
@@ -181,6 +198,8 @@
   items:
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi e limiti
@@ -190,8 +209,10 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
     - name: UserVoice
-      href: 'https://aka.ms/qnamaker-uservoice'
+      href: 'https://cognitive.uservoice.com/forums/578689-qna-maker-api'
     - name: Ricerca
       href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
     - name: Blog
       href: 'https://blog.botframework.com/category/QnAMaker/'
+- name: Portale di QnA Maker
+  href: 'https://www.qnamaker.ai'

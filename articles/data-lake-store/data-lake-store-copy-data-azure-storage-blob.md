@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878835"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **BLOB di Archiviazione di Azure** con alcuni dati.
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* **Un account di Azure Data Lake Analytics (facoltativo)**. Per istruzioni su come creare un account di Data Lake Analytics, vedere [Introduzione ad Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+* **Un account di Azure Data Lake Analytics (facoltativo)** . Per istruzioni su come creare un account di Data Lake Analytics, vedere [Introduzione ad Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 * **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintassi dello strumento AdlCopy
@@ -52,14 +52,14 @@ Usare la sintassi seguente per usare lo strumento AdlCopy
 
 I parametri nella sintassi sono descritti di seguito:
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
-| Source (Sorgente) |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
+| `Source` |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
 | Dest |Specifica la destinazione di Data Lake Storage Gen1 in cui eseguire la copia. |
 | SourceKey |Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
 | Account |**Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Azure Data Lake Storage Gen1) come origini dati per l'account di Data Lake Analytics. |
 | Unità |Specifica il numero di unità di Analisi Data Lake che verranno usate per il processo di copia. Questa opzione è obbligatoria se si usa l'opzione **/Account** per specificare l'account di Analisi Data Lake. |
-| Modello |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. La copia di tutti gli elementi è il criterio predefinito usato quando non viene specificato alcun modello. Non è consentito specificare più criteri file. |
+| Pattern |Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. La copia di tutti gli elementi è il criterio predefinito usato quando non viene specificato alcun modello. Non è consentito specificare più criteri file. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Usare AdlCopy (come file autonomo) per copiare i dati da un BLOB di Archiviazione di Azure
 1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
@@ -67,7 +67,7 @@ I parametri nella sintassi sono descritti di seguito:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Ad esempio: 
+    Ad esempio:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -86,7 +86,7 @@ I parametri nella sintassi sono descritti di seguito:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    Ad esempio: 
+    Ad esempio:
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -102,7 +102,7 @@ Quando si esegue una copia da un account di Archiviazione BLOB di Azure, è poss
 
         AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
-    Ad esempio: 
+    Ad esempio:
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
@@ -140,7 +140,7 @@ Eseguire il comando seguente per copiare da un BLOB di Archiviazione di Azure a 
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
-Ad esempio: 
+Ad esempio:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -156,11 +156,11 @@ Quando si copiano dati nell'ordine di terabyte, l'uso di AdlCopy con il proprio 
 Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nell'esempio di seguito un BLOB di Archiviazione di Azure) a un account Data Lake Storage Gen1 di destinazione tramite la corrispondenza dei modelli. Ad esempio, è possibile usare la procedura seguente per copiare tutti i file con estensione csv dal BLOB di origine alla destinazione.
 
 1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
-2. Eseguire il comando seguente per copiare tutti i file con estensione csv da un BLOB specifico del contenitore di origine a una cartella di Data Lake Storage Gen1:
+2. Eseguire il comando seguente per copiare tutti i file con estensione *.csv da un BLOB specifico del contenitore di origine a una cartella di Data Lake Storage Gen1:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    Ad esempio: 
+    Ad esempio:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 

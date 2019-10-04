@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca Web con Go - API REST Ricerca Web Bing'
+title: 'Avvio rapido: Eseguire una ricerca Web con Go - API REST Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Go e ricevere una risposta JSON
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57843884"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Go
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Go
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Go invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Go, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

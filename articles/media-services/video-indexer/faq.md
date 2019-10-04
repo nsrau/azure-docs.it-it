@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892660"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799509"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -160,7 +161,7 @@ Video Indexer usa un semplice modello di determinazione dei prezzi con pagamento
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando viene fatturato per l'uso di Video Indexer?
 
-Durante l'invio di un video da indicizzare, l'utente definirà l'indicizzazione per essere video analysis, analisi audio o entrambi. Determina quale SKU verrà addebitato. Se si verifica un errore a livello critico durante l'elaborazione, verrà restituito un codice di errore sotto forma di risposta. In tal caso, si verifica alcuna attività di fatturazione.  Un errore critico può essere causato da un bug nel codice o dispone di un errore critico in una relazione interna del servizio. Gli errori, ad esempio estrazione errato di identificazione o informazioni dettagliate non sono considerati come critico e viene restituita una risposta. In tutti i casi in cui viene restituita una risposta valida (codice non di errore), si verifica la fatturazione.
+Quando invia un video per l'indicizzazione, l'utente definirà l'indicizzazione come analisi video, analisi audio o entrambe. Questa selezione determina gli SKU che verranno addebitati. Se si verifica un errore di livello critico durante l'elaborazione, verrà restituito come risposta un codice errore. In tale caso non viene applicata alcuna fatturazione.  Un errore critico può essere provocato da un bug nel codice o da un errore critico in una dipendenza interna del server. Errori quali un'identificazione o un'estrazione di informazioni dettagliate non corretta non vengono considerati critici e viene restituita una risposta. Nei casi in cui viene restituita una risposta valida, ovvero un codice non di errore, viene applicata la fatturazione.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>È disponibile una versione di valutazione gratuita di Video Indexer?
 
@@ -168,4 +169,4 @@ Sì, è disponibile una versione di valutazione gratuita di Video Indexer che co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](video-indexer-overview.md)
+[Panoramica](video-indexer-overview.md)

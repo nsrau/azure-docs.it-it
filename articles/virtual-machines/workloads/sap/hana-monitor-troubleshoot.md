@@ -4,22 +4,21 @@ description: Monitoraggio e risoluzione dei problemi dal lato HANA in SAP HANA d
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: e2c596a876817f0a501025c37e463a7eebb55cf2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005248"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099830"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoraggio e risoluzione dei problemi dal lato HANA
 
@@ -27,18 +26,18 @@ Per analizzare efficacemente i problemi correlati a SAP HANA in Azure (istanze d
 
 Domande frequenti relative alle prestazioni di SAP HANA sono reperibili nelle note SAP seguenti:
 
-- [SAP Note #2222200 – FAQ: SAP HANA Network](https://launchpad.support.sap.com/#/notes/2222200)
-- [SAP Note #2100040 – FAQ: SAP HANA CPU](https://launchpad.support.sap.com/#/notes/0002100040)
-- [Nota SAP #199997 – FAQ: Memoria SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
-- [Nota SAP #200000 – FAQ: Ottimizzazione delle prestazioni di SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
-- [Nota SAP #199930 – FAQ: Analisi dei / o SAP HANA](https://launchpad.support.sap.com/#/notes/1999930)
-- [SAP Note #2177064 – FAQ: Riavvio del servizio SAP HANA e arresti anomali](https://launchpad.support.sap.com/#/notes/2177064)
+- [Note SAP #2222200 – domande frequenti: Rete SAP HANA](https://launchpad.support.sap.com/#/notes/2222200)
+- [Note SAP #2100040 – domande frequenti: CPU SAP HANA](https://launchpad.support.sap.com/#/notes/0002100040)
+- [Note SAP #199997 – domande frequenti: Memoria SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
+- [Note SAP #200000 – domande frequenti: Ottimizzazione delle prestazioni SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
+- [Note SAP #199930 – domande frequenti: Analisi di I/O SAP HANA](https://launchpad.support.sap.com/#/notes/1999930)
+- [Note SAP #2177064 – domande frequenti: Riavvio e arresti anomali del servizio SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
 
 ## <a name="sap-hana-alerts"></a>Avvisi SAP HANA
 
-Innanzitutto controllare i log di avviso correnti di SAP HANA. In SAP HANA Studio, passare a **Console di amministrazione: Avvisi: Mostra: tutti gli avvisi**. Questa scheda mostra tutti gli avvisi di SAP HANA per valori specifici (memoria fisica disponibile, utilizzo della CPU e così via) che si trovano all'esterno delle soglie minima e massima stabilite. Per impostazione predefinita i controlli vengono aggiornati automaticamente ogni 15 minuti.
+Innanzitutto controllare i log di avviso correnti di SAP HANA. In SAP Hana Studio passare alla console **di amministrazione: Avvisi Mostra: tutti gli**avvisi. Questa scheda mostra tutti gli avvisi di SAP HANA per valori specifici (memoria fisica disponibile, utilizzo della CPU e così via) che si trovano all'esterno delle soglie minima e massima stabilite. Per impostazione predefinita i controlli vengono aggiornati automaticamente ogni 15 minuti.
 
-![In SAP HANA Studio, passare alla Console di amministrazione: Avvisi: Mostra: tutti gli avvisi](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![In SAP HANA Studio passare alla console di amministrazione: Avvisi Mostra: tutti gli avvisi](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## <a name="cpu"></a>CPU
 
@@ -63,9 +62,9 @@ Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevat
 
 ![Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevato utilizzo precedente](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Un avviso generato a causa di un utilizzo elevato della CPU potrebbe essere causato da vari motivi, ad esempio, ma non solo: esecuzione di determinate transazioni, il caricamento dei dati, i processi che non rispondono, a esecuzione prolungata, le istruzioni SQL e le prestazioni delle query non valida (ad esempio, con BW in cubi HANA).
+Un avviso generato a causa di un utilizzo elevato della CPU potrebbe essere causato da vari motivi, tra cui, a sua scelta, l'esecuzione di determinate transazioni, il caricamento di dati, processi che non rispondono, istruzioni SQL con esecuzione prolungata e prestazioni di query non valide, ad esempio con BW nei cubi HANA).
 
-Fare riferimento al [di SAP HANA di risoluzione dei problemi: Soluzioni e della CPU Related Causes](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) sito per i passaggi di risoluzione dei problemi dettagliata.
+Vedere la [SAP Hana risoluzione dei problemi: Cause e soluzioni](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) correlate alla CPU per i passaggi dettagliati della risoluzione dei problemi.
 
 ## <a name="operating-system"></a>Sistema operativo
 
@@ -87,28 +86,28 @@ Il seguente comando di Linux non deve restituire alcun valore: **rpm -qa | grep 
 - Utilizzo di memoria totale della risorsa di archiviazione principale delle tabelle columnstore (avviso 45)
 - File di dump di runtime (avviso 46)
 
-Fare riferimento al [di SAP HANA di risoluzione dei problemi: Problemi di memoria](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) sito per i passaggi di risoluzione dei problemi dettagliata.
+Vedere la [SAP Hana risoluzione dei problemi: Sito problemi](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) di memoria per i passaggi dettagliati della risoluzione dei problemi.
 
 ## <a name="network"></a>Rete
 
 Vedere la [nota SAP #2081065 dedicata alla risoluzione dei problemi di rete di SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e svolgere i passaggi di risoluzione dei problemi riportati in questa nota SAP.
 
 1. Analisi del tempo di round trip tra client e server.
-  R. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
 2. Analizzare le comunicazioni internodo.
-  R. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
 3. Eseguire il comando di Linux **ifconfig** (l'output mostra se si verificano perdite di pacchetti).
 4. Eseguire il comando di Linux **tcpdump**.
 
 Usare inoltre lo strumento open source [IPERF](https://iperf.fr/) (o simile) per misurare le prestazioni reali della rete applicazioni.
 
-Fare riferimento al [di SAP HANA di risoluzione dei problemi: Problemi di connettività e prestazioni di rete](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) sito per i passaggi di risoluzione dei problemi dettagliata.
+Vedere la [SAP Hana risoluzione dei problemi: Sito problemi](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) di connettività e prestazioni di rete per procedure dettagliate per la risoluzione dei problemi.
 
 ## <a name="storage"></a>Archiviazione
 
-Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) si esegue lentamente, non risponde o può anche sembrare bloccata se si verificano problemi con le prestazioni dei / o. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
+Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) viene eseguita lentamente, non risponde o può sembrare non rispondere se si verificano problemi con le prestazioni di I/O. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
 
 ![Nella scheda Volumes (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -116,7 +115,7 @@ Nella parte inferiore della schermata sono visualizzati i dettagli dei volumi, a
 
 ![Nella parte inferiore della schermata sono visualizzati i dettagli dei volumi, ad esempio i file e le statistiche di I/O](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Fare riferimento al [di SAP HANA di risoluzione dei problemi: I/o le cause principali e le soluzioni legati](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) e [di SAP HANA di risoluzione dei problemi: Disco Related Root Causes e soluzioni](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) sito per i passaggi di risoluzione dei problemi dettagliata.
+Vedere la [SAP Hana risoluzione dei problemi: Cause e soluzioni](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) principali correlate all'I/O [e SAP Hana risoluzione dei problemi: Sito per le cause e le](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) soluzioni radice correlate al disco per procedure dettagliate per la risoluzione dei problemi.
 
 ## <a name="diagnostic-tools"></a>Strumenti di diagnostica
 
@@ -130,15 +129,15 @@ In SAP HANA Studio, sulla scheda **System Information** (Informazioni di sistema
 
 Selezionare il file SQL Statements.zip salvato in locale per importare una cartella con le istruzioni SQL corrispondenti. A questo punto possono essere eseguiti i molti diversi controlli di diagnostica con queste istruzioni SQL.
 
-Ad esempio, per testare i requisiti di larghezza di banda di SAP HANA System Replication, fare doppio clic sui **larghezza di banda** istruzione sotto **replica: Larghezza di banda** e selezionare **Open** nella Console di SQL.
+Ad esempio, per testare i requisiti di larghezza di banda di replica di sistema SAP Hana, fare **clic con il pulsante destro del mouse sull'istruzione bandwidth in replica Larghezza** di banda e selezionare **Apri** nella console di SQL.
 
 Verrà visualizzata l'istruzione SQL completa e sarà possibile modificare i parametri di input (sezione di modifica) e poi eseguirla.
 
 ![Verrà visualizzata l'istruzione SQL completa e sarà possibile modificare i parametri di input (sezione di modifica) e poi eseguirla](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Un altro esempio è il pulsante destro sulle istruzioni sotto **replica: Panoramica**. Selezionare **Run** (Esegui) dal menu di scelta rapida:
+Un altro esempio è fare clic con il pulsante destro **del mouse sulle istruzioni in replica: Panoramica**. Selezionare **Run** (Esegui) dal menu di scelta rapida:
 
-![Un altro esempio è il pulsante destro sulle istruzioni sotto Replication: Panoramica. Selezionare Run (Esegui) dal menu di scelta rapida](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![Un altro esempio è fare clic con il pulsante destro del mouse sulle istruzioni in replica: Panoramica. Selezionare Run (Esegui) dal menu di scelta rapida](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 Vengono visualizzate informazioni utili per la risoluzione dei problemi:
 

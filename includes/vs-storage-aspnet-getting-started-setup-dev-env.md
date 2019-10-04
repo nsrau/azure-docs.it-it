@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610136"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180048"
 ---
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 
@@ -25,7 +25,7 @@ Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo
 
 1. Nel menu principale selezionare **File** > **Nuovo** > **Progetto**.
 
-1. Nella finestra di dialogo **Nuovo progetto** selezionare **Web** > **Applicazione Web ASP.NET (.NET Framework)**. Nel campo **Nome** specificare **StorageAspNet**. Selezionare **OK**.
+1. Nella finestra di dialogo **Nuovo progetto** selezionare **Web** > **Applicazione Web ASP.NET (.NET Framework)** . Nel campo **Nome** specificare **StorageAspNet**. Selezionare **OK**.
 
     ![Screenshot della finestra di dialogo Nuovo progetto](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 

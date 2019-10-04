@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66133536"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 
@@ -213,11 +213,11 @@ Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\.contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\. contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Configurare la rete

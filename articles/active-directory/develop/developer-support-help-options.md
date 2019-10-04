@@ -3,27 +3,26 @@ title: Opzioni di supporto tecnico e assistenza per gli sviluppatori di app Azur
 description: Scoprire come ottenere assistenza e supporto per domande e problemi correlati allo sviluppo durante la creazione di applicazioni che si integrano con le identità di Microsoft (Azure Active Directory e account Microsoft)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
-ms.author: celested
-ms.reviewer: jmprieur, dadobali
+ms.date: 05/23/2019
+ms.author: ryanwi
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66235328"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
@@ -52,7 +51,7 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 ## <a name="use-the-development-support-tools"></a>Usare gli strumenti di supporto Microsoft per lo sviluppo
 
-| Strumento  | DESCRIZIONE  |
+| Strumento  | Descrizione  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph. |
@@ -63,7 +62,7 @@ Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo.
 
 Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova domanda a Stack Overflow. Per porre domande alla community in modo che possa identificarle e rispondere più rapidamente, usare uno dei tag seguenti:
 
-|Componente/area  | Tag |
+|Componente/area  | `Tags` |
 |---------|---------|
 | Libreria ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Libreria MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -82,10 +81,10 @@ I post di Stack Overflow seguenti contengono suggerimenti su come porre domande 
 
 In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-Per visualizzare un elenco di librerie e i repository corrispondenti in GitHub, vedere gli articoli seguenti (in inglese):
+Per un elenco di librerie e i repository di GitHub, vedere gli argomenti seguenti:
 
 * Librerie [ADAL](active-directory-authentication-libraries.md) e repository di GitHub
-* Librerie [MSAL](reference-v2-libraries.md) e repository di GitHub
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), e [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) librerie e i repository di GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 

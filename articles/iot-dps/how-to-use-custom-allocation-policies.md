@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500941"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348072"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -46,7 +46,7 @@ In questo articolo si eseguiranno i seguenti passaggi:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -102,7 +102,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
+    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)** .
 
     ![Aggiungere il gruppo di registrazioni dell'allocazione personalizzata per l'attestazione con chiave simmetrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -156,7 +156,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
 10. Sostituire il codice della nuova funzione C# con il codice riportato di seguito, quindi fare clic su **Salva**:    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -404,7 +404,7 @@ In questa sezione si aggiornerà un esempio di provisioning denominato **prov\_d
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo toaster e lo assegnerà all'hub IoT usando i criteri di allocazione personalizzati.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -508,7 +508,7 @@ La tabella seguente illustra gli scenari previsti e i codici di errore dei risul
 
 | Scenario | Risultato della registrazione dal servizio di provisioning | Effettuare il provisioning dei risultati SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnato  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
+| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnata  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
 | Il webhook restituisce 200 OK con 'iotHubHostName' incluso nella risposta ma impostato su una stringa vuota o Null | Stato del risultato: Failed<br><br> Codice errore: CustomAllocationIotHubNotSpecified (400208) | L'SDK restituisce PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Il webhook restituisce 401 - Non autorizzato | Stato del risultato: Failed<br><br>Codice errore: CustomAllocationUnauthorizedAccess (400209) | L'SDK restituisce PROV_DEVICE_RESULT_UNAUTHORIZED |
 | È stata creata una registrazione singola per disabilitare il dispositivo | Stato del risultato: Disabled | L'SDK restituisce PROV_DEVICE_RESULT_DISABLED |
@@ -538,8 +538,8 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-- Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
+- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi](concepts-device-reprovision.md) al provisioning dei dispositivi dell'hub. 
+- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente](how-to-unprovision-devices.md) sottoposti a provisioning automatico 
 
 
 

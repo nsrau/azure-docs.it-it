@@ -4,21 +4,20 @@ description: La guida del backup per SAP HANA offre due opzioni principali per i
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013353"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078755"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -90,7 +89,7 @@ SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di 
 
 In Azure, tenere in considerazione il fatto che la funzionalità dello snapshot del BLOB di Azure non garantisce coerenza dei file system. Vedere [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(Uso degli snapshot BLOB con PowerShell). Nella sezione successiva, _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_, vengono presentate alcune considerazioni su questa funzionalità.
 
-Inoltre, è necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del blob come descritto in questo articolo: [Informazioni su come comportano un aumento dei costi dovuto agli snapshot](/rest/api/storageservices/understanding-how-snapshots-accrue-charges), non è&#39;scontato come per l'uso di dischi virtuali di Azure.
+Inoltre, è necessario comprendere le implicazioni relative alla fatturazione quando si lavora spesso con gli snapshot BLOB, come descritto in questo articolo: [Comprendere il modo](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)in cui gli snapshot aumentano i&#39;costi: non è così ovvio come usare i dischi virtuali di Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione
 
@@ -207,7 +206,7 @@ Per il sistema di test, l'output dell'istruzione SQL corrisponde quasi esattamen
 
 La console di backup HANA Studio consente di limitare la dimensione massima dei file di backup di HANA. Nell'ambiente di esempio tale funzionalità consente di ottenere più file di backup più piccoli invece di un file di backup di 230 GB. Le dimensioni ridotte del file hanno un impatto significativo sulle prestazioni (vedere l'articolo correlato [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md)).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In base ai risultati dei test, le tabelle seguenti mostrano i vantaggi e gli svantaggi delle soluzioni per eseguire il backup di un database SAP HANA in esecuzione su macchine virtuali di Azure.
 

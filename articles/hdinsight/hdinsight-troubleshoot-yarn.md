@@ -1,18 +1,18 @@
 ---
 title: Risolvere i problemi di YARN in Azure HDInsight
 description: Risposte alle domande frequenti sull'utilizzo di Apache Hadoop YARN e Azure HDInsight.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408831"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122525"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -20,60 +20,60 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Come si crea una nuova coda YARN in un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione 
+### <a name="resolution-steps"></a>Procedura per la risoluzione
 
-Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l'allocazione delle capacità tra tutte le code. 
+Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l'allocazione delle capacità tra tutte le code.
 
 In questo esempio è stata modificata la capacità dal 50% al 25% per due code esistenti (**predefinita** e **thriftsvr**), in modo da consentire alla nuova coda (Spark) di avere una capacità del 50%.
+
 | Coda | Capacity | Capacità massima |
-| --- | --- | --- | --- |
-| default | 25% | 50% |
+| --- | --- | --- |
+| predefinito | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
 1. Selezionare l'icona **Visualizzazioni di Ambari** e scegliere il motivo di griglia. Selezionare quindi **YARN Queue Manager** (Gestore code YARN).
 
-    ![Selezionare l'icona Visualizzazioni di Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Gestore code YARN di Apache Ambari dashboard](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selezionare la coda **predefinita**.
 
-    ![Selezionare la coda predefinita](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Apache Ambari YARN selezionare coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Per la coda **predefinita**, modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr**, impostare la **capacità** sul 25%.
 
-    ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Per creare una nuova coda, fare clic su **Aggiungi coda**.
 
-    ![Selezionare Aggiungi coda](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Coda di aggiunta del dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Assegnare un nome alla nuova coda.
 
-    ![Assegnare alla coda il nome Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Coda nome dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lasciare i valori di **Capacità** al 50% e selezionare il pulsante **Azioni**.
 
-    ![Selezionare il pulsante Azioni](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Azione di selezione di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selezionare **Save and Refresh Queues** (Salva e aggiorna code).
 
-    ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'utilità di pianificazione YARN.
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 - [Utilità di pianificazione della capacità di YARN di Apache Hadoop](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
-
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Come si scaricano i log di YARN da un cluster?
 
-
-### <a name="resolution-steps"></a>Procedura per la risoluzione 
+### <a name="resolution-steps"></a>Procedura per la risoluzione
 
 1. Connettersi al cluster HDInsight con un client Secure Shell (SSH). Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-2).
 
-2. Elencare tutti gli ID applicazione delle applicazioni YARN attualmente in esecuzione con il comando seguente:
+1. Elencare tutti gli ID applicazione delle applicazioni YARN attualmente in esecuzione con il comando seguente:
 
     ```apache
     yarn top
     ```
+
     Gli ID sono elencati nella colonna **APPLICATIONID**, di cui è necessario scaricare i log **APPLICATIONID**.
 
     ```apache
@@ -89,42 +89,42 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Per scaricare i log dei contenitori YARN per tutti gli schemi dell'applicazione, usare il comando seguente:
-   
+1. Per scaricare i log dei contenitori YARN per tutti gli schemi dell'applicazione, usare il comando seguente:
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Verrà creato un file di log denominato amlogs.txt. 
+    Verrà creato un file di log denominato amlogs.txt.
 
-4. Per scaricare i log dei contenitori YARN solo per gli schemi dell'applicazione più recenti, usare il comando seguente:
+1. Per scaricare i log dei contenitori YARN solo per gli schemi dell'applicazione più recenti, usare il comando seguente:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Verrà creato un file di log denominato latestamlogs.txt. 
+    Verrà creato un file di log denominato latestamlogs.txt.
 
-4. Per scaricare i log dei contenitori YARN per i primi due schemi dell'applicazione, usare il comando seguente:
+1. Per scaricare i log dei contenitori YARN per i primi due schemi dell'applicazione, usare il comando seguente:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    Verrà creato un file di log denominato first2amlogs.txt. 
+    Verrà creato un file di log denominato first2amlogs.txt.
 
-5. Per scaricare tutti i log dei contenitori YARN, usare il comando seguente:
+1. Per scaricare tutti i log dei contenitori YARN, usare il comando seguente:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Verrà creato un file di log denominato logs.txt. 
+    Verrà creato un file di log denominato logs.txt.
 
-6. Per scaricare il log dei contenitori YARN per un determinato contenitore, usare il comando seguente:
+1. Per scaricare il log dei contenitori YARN per un determinato contenitore, usare il comando seguente:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
     Verrà creato un file di log denominato containerlogs.txt.
@@ -132,8 +132,14 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 ### <a name="additional-reading-2"></a>Informazioni aggiuntive
 
 - [Connettersi a HDInsight (Apache Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concetti e applicazioni di Apache Hadoop YARN)
+- [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow) (Concetti e applicazioni di Apache Hadoop YARN)
 
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="see-also"></a>Vedere anche
-[Risolvere i problemi usando Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
+
+- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+
+- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+
+- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

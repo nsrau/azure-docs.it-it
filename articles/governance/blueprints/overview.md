@@ -3,16 +3,16 @@ title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259423"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146111"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
 
@@ -54,7 +54,7 @@ Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente l
 
 |Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
 |---------|---------|---------|
-|Gruppi di risorse | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
+|Gruppi di risorse | Subscription | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
 |Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
 |Assegnazione dei criteri | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o le iniziative devono trovarsi nell'ambito della posizione della definizione di progetto. Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso. |
 |Assegnazione di ruolo | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
@@ -79,7 +79,7 @@ Quando si crea un progetto per la prima volta, questo viene considerato in modal
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 
-Ciascuna **versione** **pubblicata** di un progetto può essere assegnata a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
+Ogni **Versione** **pubblicata** di un progetto può essere assegnata (con un nome di lunghezza massima di 90 caratteri) a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorizzazioni in Azure Blueprint
 
@@ -106,10 +106,30 @@ Per assegnare o annullare l'assegnazione di un progetto l'account necessita dell
 > [!NOTE]
 > Dato che le assegnazioni di progetto vengono create in una sottoscrizione, le autorizzazioni per assegnare o annullare l'assegnazione devono essere concesse nell'ambito della sottoscrizione o essere ereditate nell'ambito della sottoscrizione.
 
-Tutte le autorizzazioni precedenti sono incluse nel ruolo **Proprietario**. Il ruolo **Collaboratore** dispone delle autorizzazioni per creare ed eliminare progetti, ma non delle autorizzazioni per l'assegnazione di progetti. Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
+Sono disponibili i ruoli predefiniti seguenti:
+
+|Ruolo Controllo degli accessi in base al ruolo | DESCRIZIONE |
+|-|-|
+|[Proprietario](../../role-based-access-control/built-in-roles.md#owner) | Oltre ad altre autorizzazioni, include tutte le autorizzazioni correlate ad Azure Blueprint. |
+|[Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) | Oltre ad altre autorizzazioni, può creare ed eliminare definizioni di progetto, ma non ha le autorizzazioni per l'assegnazione di progetti. |
+|[Collaboratore di progetto](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Può gestire le definizioni di progetto, ma non assegnarle. |
+|[Operatore di progetto](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Può assegnare i progetti pubblicati esistenti, ma non può creare nuove definizioni di progetto. L'assegnazione di progetti funziona solo se viene eseguita con un'identità gestita assegnata dall'utente. |
+
+Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Per poter abilitare la distribuzione, l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione.
+> Se si utilizza un'identità gestita assegnata al sistema, per poter abilitare la distribuzione l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione. Se si utilizza un'identità gestita assegnata dall'utente, solo l'utente che crea l'assegnazione del progetto ha bisogno delle autorizzazioni **proprietario**.
+
+## <a name="naming-limits"></a>Limiti di denominazione
+
+Per determinati campi, esistono le limitazioni seguenti:
+
+|Oggetto|Campo|Caratteri consentiti|Max. Length|
+|-|-|-|-|
+|Progetto|NOME|lettere, numeri, trattini e punti|48|
+|Progetto|Versione|lettere, numeri, trattini e punti|20|
+|Assegnazione progetto|NOME|lettere, numeri, trattini e punti|90|
+|Artefatto del progetto|NOME|lettere, numeri, trattini e punti|48|
 
 ## <a name="video-overview"></a>Video introduttivo
 

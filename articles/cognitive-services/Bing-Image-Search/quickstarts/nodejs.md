@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f3b174fa00c6f91c4e4840f2abcb14f95451d7f5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 737927aa725c117158ea867e007ecc0cedde50aa
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118477"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034657"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Node.js
 
@@ -154,11 +154,11 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
 > [!div class="nextstepaction"]
 > [Creare app a pagina singola](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) delle API Ricerca Bing. 
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

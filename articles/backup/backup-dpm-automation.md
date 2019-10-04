@@ -1,19 +1,19 @@
 ---
 title: 'Backup di Azure: eseguire il backup dei carichi di lavoro DPM tramite PowerShell'
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.date: 01/23/2017
+ms.author: dacurwin
+ms.openlocfilehash: 12c6df6b68ee0996b468ff1e7d929ce6bfa680c9
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651841"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210252"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
 
@@ -42,7 +42,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per iniziare, [scaricare la versione più recente di Azure PowerShell](/powershell/azure/install-az-ps).
+Per iniziare, [scaricare la Azure PowerShell più recente](/powershell/azure/install-az-ps).
 
 Le attività di installazione e registrazione seguenti possono essere automatizzate tramite PowerShell:
 
@@ -68,7 +68,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Usare la **New-AzRecoveryServicesVault** cmdlet per creare un nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
+3. Usare il cmdlet **New-AzRecoveryServicesVault** per creare un nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -88,9 +88,9 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualizzare gli insiemi di credenziali in un abbonamento
 
-Uso **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
+Usare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
 
-Eseguire il comando, Get-AzRecoveryServicesVault, e vengono elencati tutti gli insiemi di credenziali nella sottoscrizione.
+Eseguire il comando Get-AzRecoveryServicesVault e tutti gli insiemi di credenziali nella sottoscrizione sono elencati.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -213,7 +213,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 Nell'esempio precedente, l'area di gestione temporanea verrà impostata su *C:\StagingArea* nell'oggetto di PowerShell ```$setting```. Assicurarsi che la cartella specificata esista già, altrimenti il commit finale delle impostazioni di sottoscrizione avrà esito negativo.
 
-### <a name="encryption-settings"></a>Impostazioni crittografia
+### <a name="encryption-settings"></a>Impostazioni di crittografia
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino. È importante conservarla al sicuro e proteggerla dopo averla impostata.
 
@@ -274,7 +274,7 @@ Ogni agente DPM conosce l'elenco di origini dati nel server in cui è installato
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). In questo esempio viene filtrato il volume *unità d:\\*  che si vuole configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Ricordarsi di usare l'oggetto gruppo protezione dati *modificabile* ```$MPG``` per effettuare le aggiunte.
+Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). In questo esempio viene filtrato il volume *D:\\*  che si vuole configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Ricordarsi di usare l'oggetto gruppo protezione dati *modificabile* ```$MPG``` per effettuare le aggiunte.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

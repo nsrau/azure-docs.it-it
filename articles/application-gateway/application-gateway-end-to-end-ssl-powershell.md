@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d7b909bf88fde2277aa2a285bbf36916191db1f3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269351"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67973399"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -44,7 +44,7 @@ Questo scenario illustrerà come:
 
 Per configurare SSL end-to-end con un gateway applicazione, sono necessari un certificato per il gateway e i certificati per i server back-end. Il certificato del gateway viene usato per derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
-Per la crittografia SSL end-to-end, il back-end deve essere incluso nell'elenco elementi consentiti con il gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
+Per la crittografia SSL end-to-end, il back-end deve essere consentito in modo esplicito dal gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
 
 Questo processo di configurazione viene descritto nelle sezioni seguenti.
 
@@ -170,11 +170,11 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser all'indirizzo https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
-   > Il certificato fornito in questo passaggio deve essere la chiave pubblica del certificato PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio mostra come aggiungere il back-end all'elenco elementi consentiti con il gateway applicazione.
+   > Il certificato fornito nel passaggio precedente deve essere la chiave pubblica del certificato PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio mostra come aggiungere il back-end all'elenco elementi consentiti con il gateway applicazione.
 
    Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 
@@ -227,10 +227,79 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 
 Creare il gateway applicazione seguendo tutti i passaggi precedenti. La creazione del gateway è un processo a esecuzione prolungata.
 
+Per lo SKU V1 usare il comando seguente
 ```powershell
-$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+Per lo SKU V2 usare il comando seguente
+```powershell
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -TrustedRootCertificate $trustedRootCert01 -Verbose
+```
+
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Applicare un nuovo certificato se il certificato back-end è scaduto
+
+Usare questa procedura per applicare un nuovo certificato se il certificato back-end è scaduto.
+
+1. Recuperare il gateway applicazione da aggiornare.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Aggiungere la nuova risorsa di certificato dal file CER, che contiene la chiave pubblica del certificato e può anche essere lo stesso certificato aggiunto al listener per la terminazione SSL nel gateway applicazione.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Ottenere il nuovo oggetto certificato di autenticazione in una variabile (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Assegnare il nuovo certificato nell'impostazione **BackendHttp** e farvi riferimento con la variabile $AuthCert. Specificare il nome dell'impostazione HTTP che si desidera modificare.
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Eseguire il commit della modifica nel gateway applicazione e passare la nuova configurazione contenuta nella variabile $out.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Rimuovere un certificato scaduto non usato dalle impostazioni HTTP
+
+Usare questa procedura per rimuovere un certificato scaduto non usato dalle impostazioni HTTP.
+
+1. Recuperare il gateway applicazione da aggiornare.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Elencare il nome del certificato di autenticazione che si desidera rimuovere.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Rimuovere il certificato di autenticazione da un gateway applicazione.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Eseguire il commit della modifica.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limitare le versioni del protocollo SSL in un gateway applicazione esistente
 
 I passaggi precedenti descrivono la creazione di un'applicazione con SSL end-to-end e la disabilitazione di alcune versioni del protocollo SSL. Nell'esempio seguente alcuni criteri SSL vengono disabilitati su un gateway applicazione esistente.

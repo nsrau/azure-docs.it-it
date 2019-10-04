@@ -2,18 +2,18 @@
 title: Eliminazione temporanea per i BLOB di Archiviazione di Azure | Microsoft Docs
 description: Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
 services: storage
-author: MichaelHauss
+author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 07/15/2018
-ms.author: mihauss
+ms.topic: conceptual
+ms.date: 04/23/2019
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 253f42080d7c0eab2f7b3cfc5de3d4462f63c738
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506126"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673404"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
@@ -68,7 +68,7 @@ L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitor
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
-| Operazione API REST | Tipo di risorsa | DESCRIZIONE | Modifica del comportamento |
+| Operazione API REST | Tipo di risorsa | Descrizione | Modifica del comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
@@ -84,7 +84,7 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 
 È importante notare che la chiamata "Put Page" per sovrascrivere o cancellare gli intervalli di un BLOB di pagine non causerà la generazione automatica di snapshot. I dischi delle macchine virtuali sono supportati dai BLOB di pagine e usano **Put Page** per la scrittura dei dati.
 
-### <a name="recovery"></a>Ripristino
+### <a name="recovery"></a>Recupero
 Per semplificare il ripristino dei dati eliminati, è stata introdotta una nuova API "Undelete Blob". Chiamando l'API Undelete su un BLOB di base eliminato temporaneamente, il BLOB e tutti gli snapshot eliminati temporaneamente associati ad esso vengono ripristinati come attivi. Chiamando l'API Undelete su un BLOB di base attivo, tutti gli snapshot eliminati temporaneamente associati ad esso vengono ripristinati come attivi. Quando gli snapshot vengono ripristinati come attivi, sono simili agli snapshot generati dall'utente e non sovrascrivono il BLOB di base.
 
 Per ripristinare un BLOB a uno snapshot eliminato temporaneamente specifico, si può chiamare **Undelete Blob** sul BLOB di base e quindi copiare lo snapshot sul BLOB ora attivo. È anche possibile copiare lo snapshot in un nuovo BLOB.
@@ -227,10 +227,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### <a name="net-client-library"></a>Libreria client .Net
@@ -274,8 +276,8 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>È necessario usare l'eliminazione temporanea?
-Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, è consigliabile abilitare l'eliminazione temporanea. L'eliminazione temporanea fa parte di una strategia di protezione dati e può aiutare a evitare la perdita accidentale di dati.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Sono previste particolari considerazioni per l'uso dell'eliminazione temporanea?
+Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, è consigliabile abilitare l'eliminazione temporanea. L'abilitazione dell'eliminazione temporanea per i dati sovrascritti frequentemente può comportare un aumento degli addebiti per la capacità di archiviazione e una latenza maggiore Per attenuare questo problema, è possibile archiviare i dati sovrascritti di frequente in un account di archiviazione separato con l'eliminazione temporanea disabilitata. 
 
 ## <a name="faq"></a>Domande frequenti
 **Per quali tipi di risorse di archiviazione è possibile usare l'eliminazione temporanea?**  

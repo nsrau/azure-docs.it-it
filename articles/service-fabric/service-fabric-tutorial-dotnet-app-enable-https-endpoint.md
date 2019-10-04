@@ -3,7 +3,7 @@ title: Aggiungere un endpoint HTTPS a un'applicazione Service Fabric di Azure us
 description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a un servizio Web front-end ASP.NET Core usando Kestrel e distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69aa140fcecae13aae0d7a165c9f7bea0ab87ca1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045731"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301015"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -52,7 +52,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installare Visual Studio 2017](https://www.visualstudio.com/) versione 15.5 o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+* [Installare Visual Studio 2019](https://www.visualstudio.com/) versione 15.5 o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 * [Installare Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Ottenere un certificato o creare un certificato di sviluppo autofirmato
@@ -139,7 +139,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
                         listenOptions.NoDelay = true;
                     });
                 })
@@ -164,28 +164,30 @@ serviceContext =>
 Aggiungere anche il metodo seguente per consentire a Kestrel di trovare il certificato nell'archivio `Cert:\LocalMachine\My` usando il soggetto.  
 
 Sostituire "&lt;your_CN_value&gt;" con "mytestcert" se si è creato un certificato autofirmato con il comando di PowerShell precedente oppure usare il nome comune del certificato.
+Tenere presente che nel caso di una distribuzione locale a `localhost` è preferibile usare "CN=localhost" per evitare eccezioni di autenticazione.
 
 ```csharp
-private X509Certificate2 GetCertificateFromStore()
+private X509Certificate2 GetHttpsCertificateFromStore()
 {
-    var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-    try
+    using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
         store.Open(OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
         var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
-        return currentCerts.Count == 0 ? null : currentCerts[0];
-    }
-    finally
-    {
-        store.Close();
+        
+        if (currentCerts.Count == 0)
+                {
+                    throw new Exception("Https certificate is not found.");
+                }
+        
+        return currentCerts[0];
     }
 }
 ```
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Concedere a NETWORK SERVICE l'accesso alla chiave privata del certificato
 
-In un passaggio precedente si è importato il certificato nell'archivio `Cert:\LocalMachine\My` nel computer di sviluppo.  È necessario anche assegnare in modo esplicito all'account che esegue il servizio (per impostazione predefinita, NETWORK SERVICE) l'accesso alla chiave privata del certificato. È possibile eseguire questa operazione manualmente (con lo strumento certlm.msc), ma è preferibile eseguire automaticamente uno script di PowerShell [configurando uno script di avvio](service-fabric-run-script-at-service-startup.md) nel nodo **SetupEntryPoint** del manifesto del servizio.
+In un passaggio precedente si è importato il certificato nell'archivio `Cert:\LocalMachine\My` nel computer di sviluppo.  Ora assegnare in modo esplicito all'account che esegue il servizio (per impostazione predefinita, NETWORK SERVICE) l'accesso alla chiave privata del certificato. È possibile eseguire questo passaggio manualmente (con lo strumento certlm.msc), ma è preferibile eseguire automaticamente uno script di PowerShell [configurando uno script di avvio](service-fabric-run-script-at-service-startup.md) nel nodo **SetupEntryPoint** del manifesto del servizio.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurare il punto di ingresso dell'installazione del servizio
 

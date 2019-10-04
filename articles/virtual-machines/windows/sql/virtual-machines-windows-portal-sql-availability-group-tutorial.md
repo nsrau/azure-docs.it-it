@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003444"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036516"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -39,7 +38,7 @@ Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibil
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |DESCRIZIONE |
+|  |Requisito |Descrizione |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -53,7 +52,7 @@ La tabella seguente elenca i prerequisiti da completare prima di iniziare l'eser
 Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se questi prerequisiti sono già stati completati, è possibile passare a [Creare il cluster](#CreateCluster).
 
   >[!NOTE]
-  > Molti dei passaggi forniti in questa esercitazione è ora possibile automatizzare con [macchina virtuale di SQL Azure CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Molti dei passaggi disponibili in questa esercitazione possono ora essere automatizzati con l'interfaccia della riga di comando di [Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) e i [modelli di avvio rapido di Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -73,15 +72,18 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
    ![Creare un cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. Nella Creazione guidata Cluster creare un cluster a un nodo procedendo nelle pagine con le impostazioni della tabella seguente:
 
-   | Page | Impostazioni |
+   | Pagina | Impostazioni |
    | --- | --- |
-   | Prima di iniziare |Valori predefiniti |
+   | Prima di iniziare |Usa impostazioni predefinite |
    | Selezione dei server |Digitare il nome della prima istanza di SQL Server in **Immettere il nome del server** e fare clic su **Aggiungi**. |
    | Avviso di convalida |Selezionare **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti, si proseguirà con la creazione del cluster**. |
    | Punto di accesso per l'amministrazione del cluster |Digitare un nome di cluster, ad esempio **SQLAGCluster1**, in **Nome cluster**.|
    | Conferma |Usare le impostazioni predefinite a meno a meno che non si usino spazi di archiviazione. Vedere la nota che segue questa tabella. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Impostare l'indirizzo IP del cluster di failover di Windows Server
+
+  > [!NOTE]
+  > In Windows Server 2019, il cluster crea un **nome di server distribuito** anziché il **nome di rete del cluster**. Se si usa Windows Server 2019, ignorare tutti i passaggi che fanno riferimento al nome principale del cluster in questa esercitazione. È possibile creare un nome di rete cluster usando [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Esaminare il cluster [di failover del Blog: Oggetto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) rete cluster per ulteriori informazioni. 
 
 1. In **Gestione cluster di failover** scorrere verso il basso fino a **Risorse principali del cluster** ed espandere i dettagli del cluster. Lo stato visualizzato di entrambe le risorse **Nome** e **Indirizzo IP** deve essere **Operazione non riuscita**. La risorsa indirizzo IP non può essere portata online perché al cluster è assegnato lo stesso indirizzo IP del computer, quindi si tratta di un indirizzo duplicato.
 
@@ -114,7 +116,7 @@ Aggiungere l'altra istanza di SQL Server al cluster.
 
 1. Fare clic su **Avanti**.
 
-1. Fare clic su **Fine**.
+1. Scegliere **Fine**.
 
    A questo punto, Gestione cluster di failover visualizza il cluster con un nuovo nodo elencato nel contenitore **Nodi**.
 
@@ -177,7 +179,7 @@ Impostare ora il quorum del cluster.
 
 1. Verificare le impostazioni in **Conferma**. Fare clic su **Avanti**.
 
-1. Fare clic su **Fine**.
+1. Scegliere **Fine**.
 
 Le risorse principali del cluster vengono configurate con un controllo di condivisione file.
 
@@ -186,7 +188,7 @@ Le risorse principali del cluster vengono configurate con un controllo di condiv
 Abilitare ora la funzionalità **Gruppi di disponibilità AlwaysOn**. Eseguire questi passaggi in entrambe le istanze di SQL Server.
 
 1. Dalla schermata **Start** avviare **Gestione configurazione SQL Server**.
-2. Nella struttura del browser fare clic su **Servizi di SQL Server**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)**, quindi scegliere **Proprietà**.
+2. Nella struttura del browser fare clic su **Servizi di SQL Server**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)** , quindi scegliere **Proprietà**.
 3. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come segue:
 
     ![Abilitare Gruppi di disponibilità AlwaysOn in Azure](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
@@ -299,7 +301,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\**. Fare clic su **Avanti**.
+8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\** . Fare clic su **Avanti**.
 
    >[!NOTE]
    >La sincronizzazione completa acquisisce un backup completo del database nella prima istanza di SQL Server e lo ripristina nella seconda istanza. Per i database di grandi dimensioni, la sincronizzazione completa non è consigliabile perché può richiedere diverso tempo. È possibile ridurre manualmente il tempo necessario acquisendo un backup del database e ripristinandolo con `NO RECOVERY`. Se il database è già stato ripristinato con `NO RECOVERY` nella seconda istanza di SQL Server prima di configurare il gruppo di disponibilità, scegliere **Solo join**. Per acquisire il backup dopo la configurazione del gruppo di disponibilità, scegliere **Ignora sincronizzazione dei dati iniziale**.
@@ -365,7 +367,7 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
    | **Assegnazione indirizzi IP** |statico |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
-   | **Posizione** |Usare la stessa posizione della macchina virtuale. |
+   | **Location** |Usare la stessa posizione della macchina virtuale. |
 
    Il pannello del portale di Azure dovrebbe essere simile al seguente:
 
@@ -416,7 +418,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare le regole di bilanciamento del carico del listener come segue.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
@@ -424,9 +426,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1433 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1433 |
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
-   | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
+   | **Persistenza della sessione** | Elenco a discesa | **None** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Attivato |
+   | **IP mobile (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
@@ -443,7 +445,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -457,17 +459,17 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPoint |
-   | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
+   | **Indirizzo IP front-end IP** | Scegli un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 58888 |
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
-   | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
+   | **Persistenza della sessione** | Elenco a discesa | **None** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Attivato |
+   | **IP mobile (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.

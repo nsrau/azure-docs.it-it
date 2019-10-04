@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127379"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Panoramica
@@ -28,7 +28,7 @@ In questo articolo viene illustrato come usare PowerShell per concedere agli ute
 ## <a name="policies-as-resources"></a>Criteri come risorse
 Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) , il controllo degli accessi in base al ruolo consente la gestione specifica degli accessi delle risorse per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
 
-Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio di lab è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
+Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/** . Ogni criterio di lab è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
 
 Ad esempio, per concedere le autorizzazioni di lettura/scrittura agli utenti per il **Allowed VM Sizes** dei criteri, è possibile creare un ruolo personalizzato che funziona con i **Microsoft.DevTestLab/labs/policySets/policies/** azione e quindi assegnare gli utenti al ruolo nell'ambito del **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 

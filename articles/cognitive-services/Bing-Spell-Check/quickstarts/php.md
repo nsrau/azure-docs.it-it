@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e PHP"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e PHP"
+titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
 author: aahill
@@ -10,14 +10,14 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: dcec06113c418b6df6beb5473a282f5ffdc2faee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 15a550321c28703c7bb4d8155ffeb7791eafedc6
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533613"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423491"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e PHP
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Python invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -137,4 +137,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
-- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

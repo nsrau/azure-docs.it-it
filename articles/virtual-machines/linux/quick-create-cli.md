@@ -1,29 +1,28 @@
 ---
-title: "Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure | Microsoft Docs"
+title: "Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux"
 description: In questa guida introduttiva si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 5dda96786cde980fbec1b2f90bb7f755453b468a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.custom: mvc, seo-javascript-september2019
+ms.openlocfilehash: 2d66064167741b59766763f4fc1313409de1e649
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729660"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801050"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per distribuire in Azure una macchina virtuale Linux. In questa esercitazione verrà installato Ubuntu 16.04 LTS. Per mostrare la macchina virtuale in azione, connettersi a essa con SSH nella macchina virtuale e installare il server Web NGINX.
 
@@ -33,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
-Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile aprire Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere **INVIO** per eseguirli.
 
 Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
@@ -49,7 +48,7 @@ az group create --name myResourceGroup --location eastus
 
 Creare una VM con il comando [az vm create](/cli/azure/vm).
 
-Nell'esempio seguente viene creata una macchina virtuale denominata *myVM* e aggiunto un account utente denominato *azureuser*. Il parametro `--generate-ssh-keys` viene usato per generare automaticamente una chiave SSH e inserito nella posizione predefinita della chiave (*~/.ssh*). Per usare invece un set specifico di chiavi, usare l'opzione `--ssh-key-value`.
+Nell'esempio seguente viene creata una macchina virtuale denominata *myVM* e aggiunto un account utente denominato *azureuser*. Il parametro `--generate-ssh-keys` viene usato per generare automaticamente una chiave SSH e inserito nella posizione predefinita della chiave ( *~/.ssh*). Per usare invece un set specifico di chiavi, usare l'opzione `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -62,7 +61,7 @@ az vm create \
 
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti. L'output di esempio seguente mostra che l'operazione di creazione della macchina virtuale ha avuto esito positivo.
 
-```
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",

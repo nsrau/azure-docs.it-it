@@ -1,5 +1,5 @@
 ---
-title: Modelli
+title: 'Esercitazione: Criteri - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Usare criteri per migliorare le stime in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193739"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390347"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Esercitazione: Aggiungere formati comuni di espressione modello di criterio
 
@@ -197,7 +197,7 @@ Usare i criteri per rendere il punteggio della finalità significativamente supe
 Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in questa esercitazione. 
 
 ## <a name="template-utterances"></a>Espressioni modello
-Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio: 
+Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio:
 
 |Espressioni|
 |--|

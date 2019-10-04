@@ -1,6 +1,6 @@
 ---
 title: Ripristino di emergenza del database SQL | Documentazione Microsoft
-description: Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL.
+description: Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.date: 06/21/2019
+ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568827"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -34,18 +33,18 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 > Se si usano database o pool premium o business critical con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile.
 
 > [!NOTE]
-> I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile che il database secondario viene creato con le stesse dimensioni di calcolo (Dtu o Vcore) del database primario. Per altre informazioni, vedere [l'aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> I database primari e secondari devono avere lo stesso livello di servizio. Si consiglia inoltre di creare il database secondario con le stesse dimensioni di calcolo (DTU o VCore) del database primario. Per ulteriori informazioni, vedere [aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Usare uno o più gruppi di failover per gestire il failover di più database.
-> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e dimensione dell'ambiente di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
+> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e le stesse dimensioni di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 
 Per completare correttamente il ripristino su un'altra area dati tramite i gruppi di failover o i backup con ridondanza geografica, è necessario preparare un server in un'altra interruzione del data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:
 
 - Identificare il server di database SQL in un'altra area perché diventi il nuovo server primario. Per il ripristino geografico, questo è in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) a quella in cui si trova il database. Ciò consente di eliminare il costo del traffico aggiuntivo durante le operazioni di ripristino geografico.
-- Identificare ed eventualmente definire le regole del firewall per indirizzi IP a livello di server necessarie agli utenti per accedere al nuovo database primario.
+- Identificare ed eventualmente definire le regole del firewall IP a livello di server necessarie agli utenti per accedere al nuovo database primario.
 - Determinare come si desidera reindirizzare gli utenti al nuovo server primario, ad esempio tramite modifica delle stringhe di connessione o delle voci del DNS.
 - Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)
 - Identificare le regole di avviso che devono essere aggiornate per il mapping al nuovo database primario.
@@ -80,7 +79,7 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 - [Failover in un server secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 - [Failover nel server secondario tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [Eseguire il failover in un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Eseguire il failover su un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 
@@ -90,7 +89,7 @@ Se i tempi di inattività dell'applicazione non comportano una responsabilità a
 
 Se si esegue il ripristino da un'interruzione del servizio usando il ripristino geografico, è necessario assicurarsi che la connettività ai nuovi database sia configurata correttamente in modo da poter riprendere il normale funzionamento dell'applicazione. Di seguito è riportato un elenco di controllo di attività per fare in modo che il database ripristinato sia pronto per la produzione.
 
-### <a name="update-connection-strings"></a>Aggiornare le stringhe di connessione
+### <a name="update-connection-strings"></a>Aggiorna stringhe di connessione
 
 Poiché il database ripristinato si trova in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
 
@@ -98,7 +97,7 @@ Per altre informazioni sulla modifica delle stringhe di connessione, vedere il l
 
 ### <a name="configure-firewall-rules"></a>Configurare le regole firewall
 
-Verificare che le regole firewall configurate nel server e nel database corrispondano a quelle configurate nel server primario e nel database primario. Per ulteriori informazioni, consultare [Come configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
+Verificare che le regole firewall configurate nel server e nel database corrispondano a quelle configurate nel server primario e nel database primario. Per altre informazioni, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configurare gli account di accesso e gli utenti del database
 

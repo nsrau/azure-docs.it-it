@@ -2,24 +2,17 @@
 title: Foglio informativo su XPath per la configurazione del ruolo di Servizi cloud | Documentazione Microsoft
 description: Varie impostazioni di XPath che è possibile usare nella configurazione del ruolo del servizio cloud per esporre le impostazioni come una variabile di ambiente.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: cd2bdc4fc4b2a135907851ca4d3034430618e0cd
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527286"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359013"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Esporre le impostazioni di configurazione del ruolo come una variabile di ambiente con XPath
 Nel file di definizione del servzio del ruolo di lavoro o del ruolo Web del servizio cloud è possibile esporre i valori di configurazione di runtime come variabili di ambiente. Sono supportati i valori XPath seguenti, che corrispondono ai valori di API.

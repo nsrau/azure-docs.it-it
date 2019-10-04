@@ -1,10 +1,10 @@
 ---
-title: Autenticazione da servizio a servizio di Azure Active Directory che usa la specifica Outh2.0 On-Behalf-Of| Microsoft Docs
+title: Azure AD l'autenticazione da servizio a servizio OAuth 2.0 per conto di una specifica bozza | Microsoft Docs
 description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/06/2017
-ms.author: celested
+ms.topic: conceptual
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250859"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891511"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -38,7 +38,7 @@ Il flusso On-Behalf-Of (OBO) di OAuth 2.0 consente a un'applicazione che richiam
 
 Il flusso Obo inizia dopo che l'utente è stato autenticato in un'applicazione usando il [flusso di concessione del codice di autorizzazione OAuth 2.0](v1-protocols-oauth-code.md). A questo punto, l'applicazione invia un token di accesso (token A) che contiene le API Web (API A) contenenti le attestazioni dell'utente e il consenso per accedere all'API A. Successivamente, l'API A esegue una richiesta autenticata al downstream API Web (API B).
 
-Questi passaggi costituiscono il flusso On-Behalf-Of: ![flusso On-Behalf-Of di OAuth2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Questi passaggi costituiscono il flusso On-Behalf-Of: ![Mostra i passaggi del flusso per conto di OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L'applicazione client esegue una richiesta all'API A con il token A.
 1. L'API A esegue l'autenticazione all'endpoint di rilascio del token di Azure AD e richiede un token per accedere all'API B.
@@ -58,31 +58,32 @@ Registrare sia l'applicazione client che il servizio di livello intermedio in Az
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella barra in alto selezionare l'account e guardare nell'elenco **Directory** per scegliere il tenant di Active Directory per l'applicazione.
 1. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
-1. Selezionare **Registrazioni per l'app** e quindi su **Registrazione nuova applicazione**.
+1. Selezionare **registrazioni app** e quindi **nuova registrazione**.
 1. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione.
-    1. In base al tipo di applicazione, impostare l'URL di accesso o l'URL di reindirizzamento sull'URL di base.
-    1. Selezionare **Crea** per creare l'applicazione.
+1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+1. Impostare l'URI di reindirizzamento sull'URL di base.
+1. Selezionare **Registra** per creare l'applicazione.
 1. Generare un segreto client prima di uscire dal portale di Azure.
-   1. Nel portale di Azure scegliere l'applicazione e selezionare **Impostazioni**.
-   1. Selezionare **Chiavi** nel menu impostazioni e aggiungere una chiave con una durata della chiave di uno o due anni.
-   1. Quando si salva questa pagina, il portale di Azure consente di visualizzare il valore della chiave. Copiare e salvare la chiave in un percorso sicuro.
+1. Nella portale di Azure scegliere l'applicazione e selezionare **certificati & segreti**.
+1. Selezionare **nuovo segreto client** e aggiungere un segreto con una durata di un anno o di due anni.
+1. Quando si salva questa pagina, nel portale di Azure viene visualizzato il valore Secret. Copiare e salvare il valore del segreto in un luogo sicuro.
 
-      > [!IMPORTANT]
-      > La chiave è necessaria per configurare le impostazioni dell'applicazione nell'implementazione. Il valore di questa chiave non viene visualizzato anche in questo caso, e non è recuperabile con altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
+> [!IMPORTANT]
+> È necessario il segreto per configurare le impostazioni dell'applicazione nell'implementazione. Il valore del segreto non viene visualizzato di nuovo e non è recuperabile con altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
 
 ### <a name="register-the-client-application"></a>Registrare l'applicazione client
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella barra in alto selezionare l'account e guardare nell'elenco **Directory** per scegliere il tenant di Active Directory per l'applicazione.
 1. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
-1. Selezionare **Registrazioni per l'app** e quindi su **Registrazione nuova applicazione**.
+1. Selezionare **registrazioni app** e quindi **nuova registrazione**.
 1. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione.
-   1. In base al tipo di applicazione, impostare l'URL di accesso o l'URL di reindirizzamento sull'URL di base.
-   1. Selezionare **Crea** per creare l'applicazione.
-1. Configurare le autorizzazioni per l'applicazione.
-   1. Nel menu Impostazioni, scegliere **Autorizzazioni necessarie** e quindi **Aggiungi** e **Seleziona un'API**.
-   1. Digitare il nome del servizio di livello intermedio nel campo di testo.
-   1. Scegliere **Selezionare le autorizzazioni** e selezionare **Accedi a nome servizio**.
+1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+1. Impostare l'URI di reindirizzamento sull'URL di base.
+1. Selezionare **Registra** per creare l'applicazione.
+1. Configurare le autorizzazioni per l'applicazione. In **autorizzazioni API**selezionare **Aggiungi un'autorizzazione** e quindi **API personali**.
+1. Digitare il nome del servizio di livello intermedio nel campo di testo.
+1. Scegliere **Seleziona autorizzazioni** e quindi selezionare **nome \<servizio di accesso >** .
 
 ### <a name="configure-known-client-applications"></a>Configurare applicazioni client note
 
@@ -108,15 +109,15 @@ L'applicazione client è protetta da un segreto condiviso o da un certificato.
 
 Quando si usa un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti:
 
-| Parametro |  | DESCRIZIONE |
+| Parametro |  | Descrizione |
 | --- | --- | --- |
-| grant_type |Obbligatoria | Il tipo di richiesta del token. Una richiesta OBO usa un token Web JSON (JWT), il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |Obbligatoria | Il valore del token di accesso usato nella richiesta. |
-| client_id |Obbligatoria | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
-| client_secret |Obbligatoria | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
-| resource |Obbligatoria | L'URI dell'ID app del servizio ricevente (risorsa protetta). Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
-| requested_token_use |Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
-| scope |Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
+| grant_type |obbligatorio | Il tipo di richiesta del token. Una richiesta OBO usa un token Web JSON (JWT), il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |obbligatorio | Il valore del token di accesso usato nella richiesta. |
+| client_id |obbligatorio | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
+| client_secret |obbligatorio | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
+| resource |obbligatorio | L'URI dell'ID app del servizio ricevente (risorsa protetta). Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
+| requested_token_use |obbligatorio | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
+| scope |obbligatorio | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
 
 #### <a name="example"></a>Esempio
 
@@ -142,16 +143,16 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una richiesta di token di accesso da servizio a servizio con un certificato contiene i parametri seguenti:
 
-| Parametro |  | DESCRIZIONE |
+| Parametro |  | Descrizione |
 | --- | --- | --- |
-| grant_type |Obbligatoria | Il tipo di richiesta del token. Una richiesta OBO usa un token di accesso JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |Obbligatoria | Il valore del token usato nella richiesta. |
-| client_id |Obbligatoria | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
-| client_assertion_type |Obbligatoria |Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |Obbligatoria | Un token JSON Web che viene creato e firmato con il certificato registrato come credenziale per l'applicazione. Vedere [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sul formato dell'asserzione e su come registrare il certificato.|
-| resource |Obbligatoria | L'URI dell'ID app del servizio ricevente (risorsa protetta). Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
-| requested_token_use |Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
-| scope |Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
+| grant_type |obbligatorio | Il tipo di richiesta del token. Una richiesta OBO usa un token di accesso JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |obbligatorio | Il valore del token usato nella richiesta. |
+| client_id |obbligatorio | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
+| client_assertion_type |obbligatorio |Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion |obbligatorio | Un token JSON Web che viene creato e firmato con il certificato registrato come credenziale per l'applicazione. Vedere [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sul formato dell'asserzione e su come registrare il certificato.|
+| resource |obbligatorio | L'URI dell'ID app del servizio ricevente (risorsa protetta). Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
+| requested_token_use |obbligatorio | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
+| scope |obbligatorio | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
 
 Questi parametri sono quasi identici della richiesta tramite segreto condiviso con la differenza che il `client_secret parameter` viene sostituito da due parametri: `client_assertion_type` e `client_assertion`.
 
@@ -180,7 +181,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri seguenti:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |
@@ -195,7 +196,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 L'esempio seguente mostra una risposta corretta a una richiesta di token di accesso per l'API Web https://graph.windows.net.
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -212,9 +213,9 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
-L'endpoint del token di Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostato con un criterio di accesso condizionale (ad esempio, l'autenticazione a più fattori). Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che questa possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
+L'endpoint del token Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostata con criteri di accesso condizionale, ad esempio l'autenticazione a più fattori. Il servizio di livello intermedio deve esporre questo errore all'applicazione client in modo che l'applicazione client possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
@@ -252,15 +253,15 @@ Alcuni servizi Web di OAuth devono accedere ad altre API di servizi Web che acce
 
 Una richiesta da servizio a servizio per un'asserzione SAML contiene i parametri seguenti:
 
-| Parametro |  | DESCRIZIONE |
+| Parametro |  | Descrizione |
 | --- | --- | --- |
-| grant_type |Obbligatoria | Il tipo di richiesta del token. Per una richiesta che usa un JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |Obbligatoria | Il valore del token di accesso usato nella richiesta.|
-| client_id |Obbligatoria | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
-| client_secret |Obbligatoria | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
-| resource |Obbligatoria | L'URI dell'ID app del servizio ricevente (risorsa protetta). Si tratta della risorsa che rappresenta i destinatari del token SAML. Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
-| requested_token_use |Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
-| requested_token_type | Obbligatoria | Specifica il tipo di token richiesto. Il valore può essere **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, a seconda dei requisiti della risorsa a cui si accede. |
+| grant_type |obbligatorio | Il tipo di richiesta del token. Per una richiesta che usa un JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |obbligatorio | Il valore del token di accesso usato nella richiesta.|
+| client_id |obbligatorio | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
+| client_secret |obbligatorio | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
+| resource |obbligatorio | L'URI dell'ID app del servizio ricevente (risorsa protetta). Si tratta della risorsa che rappresenta i destinatari del token SAML. Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
+| requested_token_use |obbligatorio | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
+| requested_token_type | obbligatorio | Specifica il tipo di token richiesto. Il valore può essere **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, a seconda dei requisiti della risorsa a cui si accede. |
 
 La risposta contiene un token SAML con codifica UTF8 e Base64url.
 

@@ -4,7 +4,7 @@ description: Informazioni su come controllare il routing in reti virtuali median
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678579"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058778"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante l'interfaccia della riga di comando di Azure
 
@@ -72,8 +72,8 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
    
     Parametri
    
-   * **-l (o --location)**. Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
-   * **-n (o --name)**. Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
+   * **-l (o --location)** . Area di Azure in cui verrà creato il nuovo gruppo di sicurezza di rete. Per questo scenario, *westus*.
+   * **-n (o --name)** . Nome per il nuovo gruppo di sicurezza di rete. Per questo scenario, *NSG-FrontEnd*.
 3. Eseguire il comando seguente per creare una route nella tabella della route creata in precedenza per inviare tutto il traffico destinato alla subnet back-end (192.168.2.0/24) alla VM **FW1** (192.168.0.4):
 
     ```azurecli
@@ -87,11 +87,11 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
         info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
         info:    network route-table route set command OK
    
-    Parametri
+    Parametri:
    
-   * **-r (o --route-table-name)**. Nome della tabella di route in cui verrà aggiunta la route. Per questo scenario, *UDR-FrontEnd*.
-   * **-a (o --address-prefix)**. Prefisso di indirizzo della subnet alla quale sono destinati i pacchetti. Per questo scenario, *192.168.2.0/24*.
-   * **-t (o --next-hop-type)**. Tipo di oggetto al quale verrà inviato il traffico. I valori possibili sono *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
+   * **-r (o --route-table-name)** . Nome della tabella di route in cui verrà aggiunta la route. Per questo scenario, *UDR-FrontEnd*.
+   * **-a (o --address-prefix)** . Prefisso di indirizzo della subnet alla quale sono destinati i pacchetti. Per questo scenario, *192.168.2.0/24*.
+   * **-t (o --next-hop-type)** . Tipo di oggetto al quale verrà inviato il traffico. I valori possibili sono *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
    * **-p (o --next-hop-ip-address**). Indirizzo IP per l'hop successivo. Per questo scenario, *192.168.0.4*.
 4. Eseguire il comando seguente per associare la tabella di route creata con la subnet **FrontEnd**:
 
@@ -112,9 +112,9 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
         data:      Routes:
         info:    network vnet subnet route-table add command OK    
    
-    Parametri
+    Parametri:
    
-   * **-t (o --vnet-name)**. Nome della rete virtuale in cui si trova la subnet. Per questo scenario, *TestVNet*.
+   * **-t (o --vnet-name)** . Nome della rete virtuale in cui si trova la subnet. Per questo scenario, *TestVNet*.
    * **-n (o --subnet-name**. Nome della subnet in cui verrà aggiunta la tabella di route. Per questo scenario, *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Creare la route definita dall'utente per la subnet back-end

@@ -12,10 +12,10 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399344"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
@@ -139,7 +139,7 @@ Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/
 ## <a name="tuning"></a> Argomenti avanzati: Ottimizzare i parametri Hive per migliorare la velocità delle query
 Le impostazioni predefinite per i parametri del cluster Hive potrebbero non essere adatte alle query Hive e ai dati elaborati dalle query. In questa sezione vengono illustrati alcuni parametri che gli utenti possono regolare per migliorare le prestazioni delle query Hive. Gli utenti devono aggiungere la query di regolazione del parametro prima della query di elaborazione dei dati.
 
-1. **Spazio dell'heap di Java**: per le query che comportano l'unione di set di dati di grandi dimensioni o l'elaborazione di record estesi, un errore comune è quello di **esaurire lo spazio dell'heap**. Questo errore può essere evitato mediante l'impostazione di parametri *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* sui valori desiderati. Di seguito è fornito un esempio: 
+1. **Spazio dell'heap di Java**: per le query che comportano l'unione di set di dati di grandi dimensioni o l'elaborazione di record estesi, un errore comune è quello di **esaurire lo spazio dell'heap**. Questo errore può essere evitato mediante l'impostazione di parametri *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* sui valori desiderati. Di seguito è fornito un esempio:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;

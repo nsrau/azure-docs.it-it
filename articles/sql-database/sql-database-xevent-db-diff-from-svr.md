@@ -1,6 +1,6 @@
 ---
 title: Eventi estesi nel database SQL | Documentazione Microsoft
-description: Vengono descritti gli eventi estesi (XEvent) in Azure SQL Database e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
+description: Vengono descritti gli eventi estesi (XEvent) in Database SQL di Azure e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090611"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566073"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -90,9 +89,9 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 | **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione di eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database SQL del database. |
 
-In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
+In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a> [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
@@ -109,7 +108,7 @@ In Microsoft SQL Server le viste del catalogo simili sono denominate senza la pa
 - **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
-Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e Azure SQL Database:
+Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e database SQL di Azure:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -176,7 +175,7 @@ Il token della firma di accesso condiviso generato per il contenitore di Archivi
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più memoria attiva di quanto è adatto per l'intero sistema. Pertanto il sistema di Azure SQL Database imposta e regola in modo dinamico i limiti sulla quantità di memoria attiva che può essere accumulata da una sessione di eventi. Molti fattori vengono utilizzati nel calcolo dinamico.
+Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più memoria attiva di quanto è adatto per l'intero sistema. Pertanto il sistema di Database SQL di Azure imposta e regola in modo dinamico i limiti sulla quantità di memoria attiva che può essere accumulata da una sessione di eventi. Molti fattori vengono utilizzati nel calcolo dinamico.
 
 Se si riceve un messaggio di errore che indica che è stato applicato un massimo di memoria, alcune azioni correttive da eseguire sono:
 
@@ -197,7 +196,7 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREARE CREDENZIALI (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - La pagina Web *Aggiornamenti di Azure*, con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:

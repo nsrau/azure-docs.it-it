@@ -4,23 +4,22 @@ description: Informazioni su come creare immagini di disco rigido virtuale Debia
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: 6ef0a9f6efbf5f8398ba242150b2eb6102875f7e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 009918a95ca1ff6189553d502fd06773fcd0d402
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000330"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083458"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparare un disco rigido virtuale Debian per Azure
 ## <a name="prerequisites"></a>Prerequisiti

@@ -1,22 +1,23 @@
 ---
-title: "Guida introduttiva: Inviare una query all'API Bing Local Business Search in C# | Microsoft Docs"
+title: "Avvio rapido: Inviare una query all'API Ricerca attività commerciali locali Bing in C#"
 titleSuffix: Azure Cognitive Services
 description: Seguire questo articolo per iniziare a usare l'API Bing Local Business Search in C#.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 91ff4c8e6f8487a2b0e5849f881e0cdb9c10385f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 04/26/2019
+ms.author: rosh
+ms.openlocfilehash: 163a85a7fb7521054ebec58fb9ac86373963f2b9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763801"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906306"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Avvio rapido: Inviare una query all'API Bing Local Business Search in C#
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search in C#
 
 Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
 
@@ -24,7 +25,7 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per l
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

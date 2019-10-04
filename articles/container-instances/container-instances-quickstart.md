@@ -3,17 +3,18 @@ title: Avvio rapido - Distribuire un contenitore Docker in Istanze di Azure Cont
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per distribuire rapidamente un'app Web che viene eseguita in un'istanza di contenitore di Azure isolata
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368511"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050618"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
 
@@ -31,7 +32,7 @@ Per completare questa guida introduttiva è possibile usare Azure Cloud Shell o 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Le istanze di contenitore di Azure, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
+Le Istanze di Azure Container, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
 Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [az group create][az-group-create] seguente:
 
@@ -51,7 +52,7 @@ Per avviare un'istanza di contenitore, eseguire un comando simile al seguente. I
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta dall'interfaccia della riga di comando di Azure che indica che è stata completata la distribuzione. Controllarne lo stato usando il comando [az container show][az-container-show]:
+Entro pochi secondi si dovrebbe ricevere una risposta dall'interfaccia della riga di comando di Azure che indica che è stata completata la distribuzione. Controllarne lo stato con il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -151,7 +152,7 @@ In questo argomento di avvio rapido è stata creata un'istanza di contenitore di
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di Azure Container](./container-instances-tutorial-prepare-app.md)
 
-Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere la [guida introduttiva per il servizio Azure Kubernetes][container-service].
+Per provare le opzioni per l'esecuzione di contenitori in un sistema di orchestrazione in Azure, vedere le guide di avvio rapido per il [servizio Azure Kubernetes][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

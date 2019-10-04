@@ -1,19 +1,18 @@
 ---
-title: Informazioni sul mapping di rete per il ripristino di emergenza di macchine virtuali Hyper-V (con VMM) in Azure con Site Recovery | Microsoft Docs
+title: Informazioni sul mapping di rete per la macchina virtuale Hyper-V (con VMM) ripristino di emergenza in Azure con Site Recovery
 description: Illustra come configurare il mapping di rete per il ripristino di emergenza di macchine virtuali Hyper-V (gestite in cloud VMM) con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 12/27/2018
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009960"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813661"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
 
@@ -54,12 +53,12 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Posizione** | **Server VMM** | **Reti VM** | **Mappata a**
+**Location** | **Server VMM** | **Reti VM** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
- |  | VMNetwork2-NewYork | Non mappata
+ |  | VMNetwork2-NewYork | Mapping non configurato
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappata a VMNetwork1-NewYork
- | | VMNetwork2-Chicago | Non mappata
+ | | VMNetwork2-Chicago | Mapping non configurato
 
 Esempio:
 
@@ -79,7 +78,7 @@ SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
-**Posizione** | **Rete logica** | **Rete VM associata**
+**Location** | **Rete logica** | **Rete VM associata**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -115,7 +114,7 @@ Con queste impostazioni esaminare cosa accade in un paio di scenari possibili.
 **Scenario** | **Risultato**
 ---|---
 Nessuna modifica nelle proprietà della rete di VM-2 dopo il failover | VM-1 rimane connessa alla rete di origine.
-Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa  | VM-1 viene disconnessa
+Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa | VM-1 viene disconnessa
 Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene connessa a VMNetwork2-Chicago | Se non viene eseguito il mapping di VMNetwork2-Chicago, VM-1 verrà disconnessa
 Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa alla rete ora mappata a VMNetwork1-Chicago
 

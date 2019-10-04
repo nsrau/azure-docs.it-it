@@ -2,20 +2,20 @@
 title: Informazioni sui criteri personalizzati dello starter pack di Azure Active Directory B2C | Microsoft Docs
 description: Argomento sui criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b52f1a4cb6837dd779dcf4edac140bb13e06eacb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509570"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Informazioni sui criteri personalizzati dello starter pack di Azure AD B2C
 
@@ -47,7 +47,7 @@ Di seguito sono elencati i tipi di attestazioni disponibili.
 
 Le attestazioni seguenti sono necessarie per il corretto funzionamento dei percorsi utente:
 
-| Tipo di attestazione | DESCRIZIONE |
+| Tipo di attestazione | Descrizione |
 |-------------|-------------|
 | *UserId* | Username |
 | *signInName* | Nome di accesso |
@@ -78,7 +78,7 @@ Le attestazioni seguenti sono necessarie per il corretto funzionamento dei perco
 
 Le attestazioni seguenti sono necessarie per passare particolari parametri (inclusi alcuni parametri della stringa di query) ad altri provider di attestazioni:
 
-| Tipo di attestazione | DESCRIZIONE |
+| Tipo di attestazione | Descrizione |
 |-------------|-------------|
 | *nux* | Parametro speciale passato per autenticazione dell'account locale in login.microsoftonline.com |
 | *nca* | Parametro speciale passato per autenticazione dell'account locale in login.microsoftonline.com |
@@ -95,7 +95,7 @@ Le attestazioni seguenti sono necessarie per passare particolari parametri (incl
 
 Le seguenti sono attestazioni aggiuntive che possono essere raccolte dagli utenti, archiviate nella directory e inviate nel token. Come indicato prima, si possono aggiungere altre attestazioni a questo elenco.
 
-| Tipo di attestazione | DESCRIZIONE |
+| Tipo di attestazione | Descrizione |
 |-------------|-------------|
 | *givenName* | Nome di battesimo dell'utente (noto anche come nome) |
 | *surname* | Cognome dell'utente |
@@ -105,7 +105,7 @@ Le seguenti sono attestazioni aggiuntive che possono essere raccolte dagli utent
 
 Di seguito sono elencate le trasformazioni di attestazioni disponibili.
 
-| Trasformazione attestazione | DESCRIZIONE |
+| Trasformazione attestazione | Descrizione |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -118,7 +118,7 @@ Di seguito sono elencate le trasformazioni di attestazioni disponibili.
 
 Questa sezione descrive le definizioni del contenuto già dichiarate nel criterio *B2C_1A_base*. È possibile fare riferimento a queste definizioni del contenuto, eseguirne l'override e/o estenderle, se necessario, nei propri criteri oltre che nel criterio *B2C_1A_base_extensions*.
 
-| Provider di attestazioni | DESCRIZIONE |
+| Provider di attestazioni | Descrizione |
 |-----------------|-------------|
 | *Facebook* | |
 | *Accesso all'account locale* | |
@@ -137,19 +137,19 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-facebook"></a>Profili tecnici per Facebook
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Profili tecnici per l'accesso all'account locale
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Profili tecnici per PhoneFactor
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -157,7 +157,7 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Profili tecnici per Azure Active Directory
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *AAD-Common* | Profilo tecnico incluso dagli altri profili tecnici AAD-xxx |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Profilo tecnico per gli accessi basati su social network |
@@ -172,20 +172,20 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-self-asserted"></a>Profili tecnici per l'autocertificazione
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Profili tecnici per l'account locale
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
 ### <a name="technical-profiles-for-session-management"></a>Profili tecnici per la gestione delle sessioni
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *SM-Noop* | |
 | *SM-AAD* | |
@@ -199,7 +199,7 @@ Non sono attualmente definiti profili tecnici per il provider di attestazioni **
 
 ### <a name="technical-profiles-for-token-issuer"></a>Profili tecnici per l'autorità emittente di token
 
-| Profilo tecnico | DESCRIZIONE |
+| Profilo tecnico | Descrizione |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
@@ -207,7 +207,7 @@ Non sono attualmente definiti profili tecnici per il provider di attestazioni **
 
 Questa sezione illustra i percorsi utente già dichiarati nel criterio *B2C_1A_base*. È possibile fare ulteriore riferimento a questi percorsi utente, eseguirne l'override e/o estenderli, se necessario, nei propri criteri oltre che nel criterio *B2C_1A_base_extensions*.
 
-| Percorso utente | DESCRIZIONE |
+| Percorso utente | Descrizione |
 |--------------|-------------|
 | *SignUp* | |
 | *SignIn* | |

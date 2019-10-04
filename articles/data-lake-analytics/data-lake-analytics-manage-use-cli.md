@@ -1,5 +1,5 @@
 ---
-title: Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando di Azure
+title: Gestire Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per gestire processi, origini dati e utenti di Data Lake Analytics.
 services: data-lake-analytics
 author: jasonwhowell
@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387065"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309746"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -211,7 +211,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)

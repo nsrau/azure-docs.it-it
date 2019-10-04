@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891138"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227426"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Questo articolo illustra anche la configurazione predefinita del servizio di sincronizzazione Azure AD Connect. Scopo dell'articolo è spiegare con un esempio reale il funzionamento del modello di configurazione, detto provisioning dichiarativo. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -52,7 +52,7 @@ Gli oggetti utente seguenti **non** vengono sincronizzati con Azure AD:
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Non sincronizzare gli oggetti che non funzionerebbero in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-   Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
+  Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
   * Cartella pubblica abilitata alla posta elettronica (in anteprima a partire dalla versione 1.1.524.0)
   * Cassetta postale Supervisore sistema
   * Cassetta postale Database cassette postali (cassetta postale di sistema)
@@ -71,7 +71,7 @@ Si applicano le seguenti regole di attributo:
   2. Gli attributi che si possono trovare in un elenco indirizzi globale di Exchange verranno specificati dalla foresta con una cassetta postale di Exchange.
   3. Se non è possibile trovare una cassetta postale, questi attributi possono provenire da qualsiasi foresta.
   4. Gli attributi relativi a Exchange, ovvero attributi tecnici non visibili nell'elenco indirizzi globale, vengono specificati dalla foresta in cui `mailNickname ISNOTNULL`.
-  5. Se sono presenti più foreste che soddisfano una di queste regole, verrà usato l'ordine di creazione (data/ora) dei connettori (foreste) per determinare quale foresta specificherà gli attributi.
+  5. Se sono presenti più foreste che soddisfano una di queste regole, verrà usato l'ordine di creazione (data/ora) dei connettori (foreste) per determinare quale foresta specificherà gli attributi. La prima foresta connessa sarà la prima foresta da sincronizzare. 
 
 ### <a name="contact-out-of-box-rules"></a>Regole predefinite del contatto
 Un oggetto contatto deve soddisfare i seguenti requisiti per essere sincronizzato:
@@ -84,7 +84,7 @@ Un oggetto contatto deve soddisfare i seguenti requisiti per essere sincronizzat
 
 Gli oggetti contatto seguenti **non** vengono sincronizzati con Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Verificare che nessun oggetto contatto contrassegnato come critico venga sincronizzato. Non devono essere presenti oggetti contatto con una configurazione predefinita.
+* `IsPresent([isCriticalSystemObject])`). Verificare che nessun oggetto contatto contrassegnato come critico venga sincronizzato. Non devono essere presenti oggetti contatto con una configurazione predefinita.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Questi oggetti non funzionerebbero in Exchange Online.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Non sincronizzare oggetti generati dalla replica.
@@ -95,12 +95,12 @@ Un oggetto gruppo deve soddisfare i seguenti requisiti per essere sincronizzato:
 * Deve contenere meno di 50.000 membri. Si tratta del numero di membri del gruppo locale.
   * Se il numero di membri supera il limite prima che la prima sincronizzazione venga avviata, il gruppo non verrà sincronizzato.
   * Se il numero di membri aumenta rispetto al momento della creazione, la sincronizzazione si interromperà quando raggiunge i 50.000 membri, finché il numero dei membri non diventa nuovamente inferiore a 50.000.
-  * Note: il limite di 50.000 membri viene applicato anche da Azure AD. Non è possibile sincronizzare i gruppi con un numero maggiore di membri, anche se si modifica o si rimuove la regola.
+  * Nota: il limite di 50.000 membri viene applicato anche da Azure AD. Non è possibile sincronizzare i gruppi con un numero maggiore di membri, anche se si modifica o si rimuove la regola.
 * Se il gruppo è un **gruppo di distribuzione**deve essere anche abilitato per la posta elettronica. Per informazioni sull’applicazione di questa regola vedere [Regole predefinite del contatto](#contact-out-of-box-rules) .
 
 Gli oggetti di gruppo seguenti **non** vengono sincronizzati con Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Assicurarsi di non sincronizzare molti oggetti predefiniti in Active Directory, ad il gruppo predefinito Administrators.
+* `IsPresent([isCriticalSystemObject])`). Assicurarsi di non sincronizzare molti oggetti predefiniti in Active Directory, ad il gruppo predefinito Administrators.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Gruppo legacy usato da DirSync.
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Gruppo di ruoli.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Non sincronizzare oggetti generati dalla replica.
@@ -148,7 +148,7 @@ Essendo una regola predefinita, verrà visualizzato un avviso quando la si apre.
 
 Una regola di sincronizzazione include quattro sezioni di configurazione: descrizione, filtro per la definizione dell'ambito, regole di unione e trasformazioni.
 
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Descrizione
 La prima sezione fornisce informazioni di base, ad esempio il nome e una descrizione.
 
 ![Scheda Description (Descrizione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -220,7 +220,7 @@ La precedenza per le regole di sincronizzazione è impostata in gruppi mediante 
 ### <a name="putting-it-all-together"></a>Riassumendo
 Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per comprendere il modo in cui le diverse regole di sincronizzazione agiscono sulla configurazione. Se si prendono in considerazione un utente e gli attributi passati al metaverse, le regole vengono applicate nell'ordine seguente:
 
-| NOME | Comment |
+| NOME | Commento |
 |:--- |:--- |
 | In from AD – User Join |Regola per l'unione degli oggetti dello spazio connettore con il metaverse. |
 | In from AD – UserAccount Enabled |Attributi necessari per l'accesso ad Azure AD e Office 365. Questi attributi dovranno essere rilevati dall'account abilitato. |

@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentazione dei set di dati aperti di Azure (anteprima)
+summary: I set di dati aperti di Azure offrono dati curati e puliti, relativi ad esempio a meteo, censimento e festività, che è possibile usare con una preparazione minima per arricchire i modelli di Machine Learning.
+metadata:
+  title: Documentazione dei set di dati aperti (anteprima) - Azure
+  description: I set di dati aperti di Azure offrono dati curati e puliti, relativi ad esempio a meteo, censimento e festività, che è possibile usare con una preparazione minima per arricchire i modelli di Machine Learning.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: data-science-vm
+  ms.topic: landing-page
+  ms.collection: collection
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 44dea30e44e204664a5266a37c740b2eb23a49f7
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70309355"
+landingContent:
+- title: Informazioni sui set di dati aperti
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cosa sono i set di dati aperti?
+      url: overview-what-are-open-datasets.md
+    - text: Esempi
+      url: samples.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare un modello di regressione con un modello di Machine Learning automatizzato
+      url: tutorial-opendatasets-automl.md
+- title: Esplorare il contenuto di riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Python
+      url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py

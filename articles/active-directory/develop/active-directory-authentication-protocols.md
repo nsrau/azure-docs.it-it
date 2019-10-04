@@ -2,28 +2,28 @@
 title: Protocolli di autenticazione di Azure Active Directory | Microsoft Docs
 description: Panoramica dei protocolli di autenticazione supportati da Azure Active Directory (Azure AD).
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937aa5d5874ff2915bfb51d289bfb1aac44a0530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f292d4804adf7e1a58e5c2097f689aac182ff783
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300530"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835485"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolli di autenticazione di Azure Active Directory
 Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. Gli argomenti in questa sezione descrivono i protocolli supportati e l'implementazione di ciascuno in Azure AD. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.

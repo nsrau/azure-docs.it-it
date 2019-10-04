@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009481"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881913"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
 
@@ -32,9 +32,9 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 > - en-AU (inglese, Australia)
 > - zh-CN (cinese, Cina)
 
-## <a name="countries"></a>Paesi
+## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/Area geografica|Codice|
+|Paese/area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -49,7 +49,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Germania|DE|
 |RAS di Hong Kong|HK|
 |India|IN|
-|Indonesia|ID|
+|Indonesia|id|
 |Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
@@ -64,7 +64,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sud Africa|ZA|
+|Sudafrica|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -76,7 +76,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 
 ## <a name="markets"></a>Mercati
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|
+|Paese/area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -107,7 +107,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|
@@ -119,4 +119,4 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere le [informazioni di riferimento relative all'API Ricerca notizie Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere le [informazioni di riferimento relative all'API Ricerca notizie Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

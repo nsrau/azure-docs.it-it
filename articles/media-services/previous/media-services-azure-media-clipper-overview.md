@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 35f1f359b44af00000ccd9047673b80ca541d376
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61243861"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creare clip con Azure Media Clipper 
 

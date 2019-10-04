@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348825"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655810"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -48,9 +48,15 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 * È consigliabile [abilitare il Cestino di Active Directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Server di Azure AD Connect
+>[!IMPORTANT]
+>Il server Azure AD Connect contiene dati relativi alle identità critici e devono essere considerato come un componente di livello 0, come documentato in [il modello di livello amministrativo di Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+
 * Azure AD Connect non può essere installato su Small Business Server o Windows Server Essentials prima del 2019 (Windows Server Essentials 2019 è supportato). Il server deve utilizzare Windows Server Standard o versione successiva.
-* Installare Azure AD Connect in un Controller di dominio non è consigliabile a causa di procedure consigliate e le impostazioni più restrittive che possono impedire l'installazione correttamente Azure AD Connect
+* Installare Azure AD Connect in un Controller di dominio non è consigliata a causa di procedure consigliate e le impostazioni più restrittive che possono impedire l'installazione correttamente Azure AD Connect.
 * Il server Azure AD Connect deve avere un'interfaccia utente grafica completa installata. **Non è supportata** l'installazione su Server Core.
+>[!IMPORTANT]
+>Installa Azure AD Connect nel server di piccole imprese, essentials server o server core non è supportato.
+
 * Azure AD Connect deve essere installato in Windows Server 2008 R2 o versione successiva. Questo server deve essere aggiunto e può essere un controller di dominio o un server membro di dominio.
 * Se si installa Azure AD Connect in Windows Server 2008 R2, assicurarsi di applicare gli hotfix più recenti da Windows Update. Se il server non dispone delle patch, l'installazione non può iniziare.
 * Se si prevede di usare la funzionalità di **sincronizzazione delle password**, il server di Azure AD Connect deve essere in Windows Server 2008 R2 SP1 o versione successiva.
@@ -76,8 +82,8 @@ Per altre informazioni, vedere:
 * [La riduzione della superficie di attacco di Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usato da Azure AD Connect
-* Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express). SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa.
-* Se si usa un SQL Server separato, si applicano questi requisiti:
+* Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express). SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa. Il tipo di installazione di SQL Server può influire sulle [sulle prestazioni di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Se si usa un'installazione diversa di SQL Server, quindi applicano questi requisiti:
   * Azure AD Connect supporta tutte le versioni di Microsoft SQL Server da 2008 R2 (con Service Pack più recente) a SQL Server 2019. Il database SQL di Microsoft Azure **non è supportato** come database.
   * È necessario usare regole di confronto SQL senza distinzione tra maiuscole e minuscole. Queste regole di confronto sono identificate da \_CI_ all'interno del nome. **Non è supportato** l'uso di regole di confronto con distinzione tra maiuscole e minuscole identificate da _CS\_ all'interno del nome.
   * È possibile avere un unico motore di sincronizzazione per istanza SQL. **Non è supportata** la condivisione dell'istanza SQL con la sincronizzazione FIM/MIM, DirSync o Azure AD Sync.
@@ -127,7 +133,7 @@ Per altre informazioni, vedere:
 Per altre informazioni vedere MSDN sull'[elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 * Facoltativo: Un account utente di prova per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti

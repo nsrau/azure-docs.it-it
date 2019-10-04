@@ -16,14 +16,14 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242660"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176828"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Guida introduttiva
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuire l'accesso Single Sign-On facile
 
@@ -93,10 +93,10 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 ![Portale di Azure: riquadro di Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L'accesso SSO facile crea un account computer denominato `AZUREADSSOACC` in locale Active Directory (AD) in ogni foresta di Active Directory. Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` account del computer. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali e solo gli amministratori di dominio hanno accesso.
+> Seamless SSO crea un account computer denominato `AZUREADSSOACC` nella Active Directory locale (ad) in ogni foresta di Active Directory. Per `AZUREADSSOACC` motivi di sicurezza, l'account computer deve essere fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` per l'account computer. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso.
 
 >[!NOTE]
-> Se si usa le architetture di Pass-the-Hash e mitigazione dei rischi di furto delle credenziali in locale nell'ambiente in uso, apportare le modifiche appropriate per garantire che il `AZUREADSSOACC` account computer non termina nel contenitore di quarantena. 
+> Se si usano le architetture di mitigazione del furto di credenziali e pass-the-hash nell'ambiente locale, apportare le modifiche appropriate per assicurarsi che l' `AZUREADSSOACC` account computer non finisca nel contenitore di quarantena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
@@ -124,7 +124,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **configurazione utente** > **criteri** > **modelli amministrativi** > **Windows I componenti** > **Internet Explorer** > **Pannello di controllo Internet** > **pagina sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare a**criteri** > di >  **Configurazione utente** **modelli amministrativi** > **componenti**diWindows > **Internet Explorer**Internet >  > **Pagina sicurezza**del pannello di controllo. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: è l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
@@ -144,7 +144,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a **configurazione utente** > **modelli amministrativi** **criteri** > * * > **componenti Windows**  >  **Internet Explorer** > **Pannello di controllo Internet** > **pagina sicurezza**  >   **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a**criteri** > di >  **Configurazione utente** **modelli amministrativi** > **componenti**diWindows > **Internet Explorer**Internet >  > **Area Intranet**della**pagina** > sicurezza del pannello di controllo. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -221,7 +221,7 @@ Nel passaggio 2 Azure AD Connect crea account computer, che rappresentano Azure 
 >[!IMPORTANT]
 >In caso di perdita, la chiave di decrittografia Kerberos su un account computer può essere usata per generare ticket Kerberos per qualsiasi utente nella relativa foresta AD. Eventuali attori malintenzionati possono quindi rappresentare gli accessi di Azure AD per gli utenti di cui è stata compromessa la chiave. È altamente consigliabile eseguire periodicamente il rollover delle chiavi di decrittografia di Kerberos, almeno ogni 30 giorni.
 
-Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facile di Azure Active Directory: domande frequenti](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Microsoft sta sviluppando una funzionalità per introdurre il rollover automatizzato delle chiavi.
+Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facile di Azure Active Directory: domande frequenti](how-to-connect-sso-faq.md). Microsoft sta sviluppando una funzionalità per introdurre il rollover automatizzato delle chiavi.
 
 >[!IMPORTANT]
 >Non è necessario farlo _subito_ dopo aver abilitato la funzionalità. Rinnovare le chiavi di decrittografia Kerberos almeno una volta ogni 30 giorni.

@@ -3,24 +3,23 @@ title: Esecuzione e trigger di pipeline in Azure Data Factory | Microsoft Docs
 description: Questo articolo contiene informazioni sulla modalità di esecuzione di una pipeline in Azure Data Factory su richiesta o mediante la creazione di un trigger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453474"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137042"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory usato:"]
 > * [Versione 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versione corrente](concepts-pipeline-execution-triggers.md)
 
@@ -231,7 +230,7 @@ Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pip
 ### <a name="schema-overview"></a>Panoramica dello schema
 La tabella seguente fornisce una panoramica generale degli elementi dello schema principali correlati alla ricorrenza e alla pianificazione di un trigger:
 
-| Proprietà JSON | DESCRIZIONE |
+| Proprietà JSON | Descrizione |
 |:--- |:--- |
 | **startTime** | Valore data-ora. Per le pianificazioni di base, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. <!-- This property is optional. --> |
@@ -277,13 +276,13 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | stringa | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Sì | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | No  | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | stringa | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | object | No  | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **interval** | number | No | 1 | Da 1 a 1000 | `"interval":10` |
+| **endTime** | string | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | object | No | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:

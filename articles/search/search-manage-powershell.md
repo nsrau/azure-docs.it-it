@@ -1,20 +1,20 @@
 ---
-title: Script di PowerShell Usa modulo Az.Search - ricerca di Azure
-description: Creare e configurare un servizio di ricerca di Azure con PowerShell. È possibile aumentarlo o ridurlo in un servizio, gestire l'amministrazione e le chiavi api di query e le informazioni di sistema di query.
+title: Script di PowerShell con il modulo AZ. search-ricerca di Azure
+description: Creare e configurare un servizio di ricerca di Azure con PowerShell. È possibile aumentare o ridurre le prestazioni di un servizio, gestire chiavi API di amministrazione e query ed eseguire query su informazioni sul sistema.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194275"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648106"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -24,47 +24,47 @@ ms.locfileid: "60194275"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-È possibile eseguire i cmdlet di PowerShell e gli script in Windows, Linux, o nel [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per creare e configurare ricerca di Azure. Il **Az.Search** modulo estende Azure PowerShell] con parità completa per il [le API REST di gestione di Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell e **Az.Search**, è possibile eseguire le attività seguenti:
+È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o in [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per creare e configurare ricerca di Azure. Il modulo **AZ. search** estende Azure PowerShell] con la parità completa alle [API REST di gestione di ricerca di Azure](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell e **AZ. search**, è possibile eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * [Elencare tutti i servizi di ricerca nella sottoscrizione](#list-search-services)
-> * [Ottenere informazioni su un servizio di ricerca specifici](#get-search-service-information)
+> * [Ottenere informazioni su un servizio di ricerca specifico](#get-search-service-information)
 > * [Creare o eliminare un servizio](#create-or-delete-a-service)
-> * [Rigenerare le chiavi API amministratore](#regenerate-admin-keys)
-> * [Creare o eliminare le chiavi api di query](#create-or-delete-query-keys)
-> * [Ridimensionare un servizio aumentando o diminuendo le repliche e partizioni](#scale-replicas-and-partitions)
+> * [Rigenera chiavi API di amministrazione](#regenerate-admin-keys)
+> * [Creare o eliminare chiavi API di query](#create-or-delete-query-keys)
+> * [Ridimensionare un servizio aumentando o diminuendo le repliche e le partizioni](#scale-replicas-and-partitions)
 
-PowerShell non può essere usato per modificare il nome, area o a livelli del servizio. Risorse dedicate vengono allocate quando viene creato un servizio. La modifica dell'hardware sottostante (tipo di nodo o percorso) richiede un nuovo servizio. Non esistono strumenti o le API per il trasferimento di contenuto da un servizio a un altro. Tutto il contenuto viene attraverso [REST](https://docs.microsoft.com/rest/api/searchservice/) oppure [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API, e se si desidera spostare gli indici, sarà necessario ricreare e ricaricarli in un nuovo servizio. 
+Non è possibile usare PowerShell per modificare il nome, l'area o il livello del servizio. Le risorse dedicate vengono allocate quando viene creato un servizio. La modifica dell'hardware sottostante (tipo di percorso o nodo) richiede un nuovo servizio. Non sono disponibili strumenti o API per il trasferimento di contenuto da un servizio a un altro. Tutta la gestione dei contenuti avviene tramite le API [Rest](https://docs.microsoft.com/rest/api/searchservice/) o [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) . Se si desidera spostare gli indici, sarà necessario ricrearli e ricaricarli in un nuovo servizio. 
 
-Anche se non sono disponibili comandi di PowerShell dedicati per la gestione dei contenuti, è possibile scrivere script di PowerShell che chiama .NET o REST per creare e caricare indici. Il **Az.Search** modulo di per sé non fornisce queste operazioni.
+Sebbene non esistano comandi di PowerShell dedicati per la gestione dei contenuti, è possibile scrivere script di PowerShell che chiama REST o .NET per creare e caricare gli indici. Il modulo **AZ. search** non fornisce queste operazioni.
 
-Altre attività non è supportato tramite PowerShell o qualsiasi altra API (solo portale) includono:
-+ [Collegare una risorsa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) per [migliorato per intelligenza artificiale indicizzazione](cognitive-search-concept-intro.md). Un servizio cognitivo è collegato a un insieme di competenze, non una sottoscrizione o servizio.
-+ [Soluzioni di monitoraggio di componenti aggiuntivi](search-monitor-usage.md#add-on-monitoring-solutions) oppure [analitica il traffico di ricerca](search-traffic-analytics.md) utilizzato per il monitoraggio di ricerca di Azure.
+Altre attività non supportate tramite PowerShell o altre API (solo portale) includono:
++ [Alleghi una risorsa di servizi cognitivi per l'](cognitive-search-attach-cognitive-services.md) indicizzazione arricchita con [intelligenza artificiale](cognitive-search-concept-intro.md). Un servizio cognitivo è associato a un skillt, non a una sottoscrizione o un servizio.
++ [Soluzioni di monitoraggio dei componenti aggiuntivi](search-monitor-usage.md#add-on-monitoring-solutions) o [analisi del traffico di ricerca](search-traffic-analytics.md) usate per il monitoraggio di ricerca di Azure.
 
 <a name="check-versions-and-load"></a>
 
-## <a name="check-versions-and-load-modules"></a>Controllo delle versioni e caricare i moduli
+## <a name="check-versions-and-load-modules"></a>Controllare le versioni e caricare i moduli
 
-Gli esempi in questo articolo sono interattivi e richiedono autorizzazioni elevate. Azure PowerShell (il **Az** module) deve essere installato. Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).
+Gli esempi in questo articolo sono interattivi e richiedono autorizzazioni elevate. È necessario installare Azure PowerShell ( **AZ** Module). Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).
 
-### <a name="powershell-version-check-51-or-later"></a>Verifica della versione di PowerShell (5.1 o versione successiva)
+### <a name="powershell-version-check-51-or-later"></a>Verifica della versione di PowerShell (5,1 o versione successiva)
 
-PowerShell locale deve essere 5.1 o versione successiva, in qualsiasi sistema operativo supportato.
+PowerShell locale deve essere 5,1 o versione successiva in qualsiasi sistema operativo supportato.
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion
 ```
 
-### <a name="load-azure-powershell"></a>Caricare Azure PowerShell
+### <a name="load-azure-powershell"></a>Carica Azure PowerShell
 
-Se non si è certi se **Az** è installato, eseguire il comando seguente come passaggio di verifica. 
+Se non si è certi se **AZ** è installato, eseguire il comando seguente come passaggio di verifica. 
 
 ```azurepowershell-interactive
 Get-InstalledModule -Name Az
 ```
 
-Alcuni sistemi di eseguire operazioni non carica automaticamente i moduli. Se si verifica un errore nel comando precedente, provare a caricare il modulo e se il problema persiste, tornare indietro per le istruzioni di installazione per verificare se è stato saltato un passaggio.
+Alcuni sistemi non caricano automaticamente i moduli. Se viene visualizzato un errore nel comando precedente, provare a caricare il modulo e, in caso di errore, tornare alle istruzioni di installazione per vedere se non è stato eseguito alcun passaggio.
 
 ```azurepowershell-interactive
 Import-Module -Name Az
@@ -72,13 +72,13 @@ Import-Module -Name Az
 
 ### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Connettersi ad Azure con un token di accesso del browser
 
-È possibile usare le credenziali di accesso del portale per la connessione a una sottoscrizione in PowerShell. In alternativa è possibile [autenticare in modo non interattivo con un'entità servizio](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+È possibile usare le credenziali di accesso del portale per connettersi a una sottoscrizione in PowerShell. In alternativa, è possibile [eseguire l'autenticazione in modo non interattivo con un'entità servizio](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
 
-Se si mantiene più sottoscrizioni di Azure, impostare la sottoscrizione di Azure. Per visualizzare un elenco di sottoscrizioni correnti, eseguire questo comando.
+Se si contengono più sottoscrizioni di Azure, impostare la sottoscrizione di Azure. Per visualizzare un elenco di sottoscrizioni correnti, eseguire questo comando.
 
 ```azurepowershell-interactive
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
@@ -94,7 +94,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-all-azure-search-services-in-your-subscription"></a>Elencare tutti i servizi di ricerca di Azure nella sottoscrizione
 
-I comandi seguenti provengono [ **Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), vengono restituite informazioni sulle risorse esistenti e i servizi già effettuato il provisioning nella sottoscrizione. Se non si conosce quanti servizi di ricerca sono già stati creati, questi comandi restituiscono queste informazioni, risparmiando una corsa al portale.
+I comandi seguenti sono da [**AZ.** ](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)Resources, restituendo informazioni sulle risorse e i servizi esistenti già sottoposti a provisioning nella sottoscrizione. Se non si conosce il numero di servizi di ricerca già creati, questi comandi restituiscono tali informazioni, salvando un viaggio nel portale.
 
 Il primo comando restituisce tutti i servizi di ricerca.
 
@@ -102,13 +102,13 @@ Il primo comando restituisce tutti i servizi di ricerca.
 Get-AzResource -ResourceType Microsoft.Search/searchServices | ft
 ```
 
-Dall'elenco dei servizi, restituiscono informazioni su una risorsa specifica.
+Dall'elenco dei servizi, restituire informazioni su una risorsa specifica.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceName <service-name>
 ```
 
-Risultati dovrebbero essere simili all'output seguente.
+I risultati dovrebbero essere simili all'output seguente.
 
 ```
 Name              : my-demo-searchapp
@@ -118,23 +118,23 @@ Location          : westus
 ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
-## <a name="import-azsearch"></a>Import Az.Search
+## <a name="import-azsearch"></a>Importazione AZ. search
 
-I comandi dal [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) non sono disponibili solo dopo aver caricato il modulo.
+I comandi di [**AZ. search**](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) non sono disponibili finché non si carica il modulo.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Search
 ```
 
-### <a name="list-all-azsearch-commands"></a>Elenco di tutti i comandi Az.Search
+### <a name="list-all-azsearch-commands"></a>Elenca tutti i comandi AZ. search
 
-Come passaggio di verifica, restituire un elenco di comandi forniti nel modulo.
+Come passaggio di verifica, restituire un elenco di comandi disponibili nel modulo.
 
 ```azurepowershell-interactive
 Get-Command -Module Az.Search
 ```
 
-Risultati dovrebbero essere simili all'output seguente.
+I risultati dovrebbero essere simili all'output seguente.
 
 ```
 CommandType     Name                                Version    Source
@@ -152,13 +152,13 @@ Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
 
 ## <a name="get-search-service-information"></a>Ottenere informazioni sul servizio di ricerca
 
-Dopo aver **Az.Search** viene importato e si conosce il gruppo di risorse contenente il servizio di ricerca, eseguire [Get-AzSearchService](https://docs.microsoft.com/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) per restituire la definizione del servizio, inclusi nome, area, a livelli e replica e numero di partizioni.
+Dopo aver importato **AZ. search** e aver stabilito il gruppo di risorse contenente il servizio di ricerca, eseguire [Get-AzSearchService](https://docs.microsoft.com/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) per restituire la definizione del servizio, inclusi il nome, l'area, il livello e i conteggi della replica e della partizione.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
 ```
 
-Risultati dovrebbero essere simili all'output seguente.
+I risultati dovrebbero essere simili all'output seguente.
 
 ```
 Name              : my-demo-searchapp
@@ -174,12 +174,12 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>Creare o eliminare un servizio
 
-[**Nuovo AzSearchService** ](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per [creare un nuovo servizio di ricerca](search-create-service-portal.md).
+[**New-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per [creare un nuovo servizio di ricerca](search-create-service-portal.md).
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
 ``` 
-Risultati dovrebbero essere simili all'output seguente.
+I risultati dovrebbero essere simili all'output seguente.
 
 ```
 ResourceGroupName : demo-westus
@@ -195,19 +195,19 @@ Tags
 
 ## <a name="regenerate-admin-keys"></a>Riscrivere una chiave amministratore
 
-[**Nuovo AzSearchAdminKey** ](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per il rollover admin [le chiavi API](search-security-api-keys.md). Due chiavi amministratore vengono create con ogni servizio per l'accesso autenticato. Le chiavi sono necessarie a ogni richiesta. Entrambe le chiavi amministratore sono funzionalmente equivalenti, concessione dell'accesso completo in scrittura a un servizio di ricerca con la possibilità di recuperare qualsiasi informazione, oppure creare ed eliminare qualsiasi oggetto. Due chiavi presenti in modo che è possibile usare uno, sostituendo l'altro. 
+[**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per eseguire il rollover delle [chiavi API](search-security-api-keys.md)di amministrazione. Vengono create due chiavi amministratore con ogni servizio per l'accesso autenticato. Le chiavi sono obbligatorie per ogni richiesta. Entrambe le chiavi di amministrazione sono equivalenti dal punto di vista funzionale, concedendo l'accesso in scrittura completo a un servizio di ricerca con la possibilità di recuperare informazioni oppure di creare ed eliminare qualsiasi oggetto. Esistono due chiavi in modo che sia possibile utilizzarne una mentre si sostituisce l'altra. 
 
-È possibile rigenerare solo una alla volta, specificata come le `primary` o `secondary` chiave. Per la continuità del servizio, ricordarsi di aggiornare tutto il codice client per usare una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi durante le operazioni sono in corso.
+È possibile rigenerare solo una alla volta, specificata come `primary` chiave o. `secondary` Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
 
-Come è prevedibile, se si rigenerano le chiavi senza aggiornare il codice client, le richieste usando la chiave precedente avrà esito negativo. La rigenerazione di tutte le nuove chiavi non definitivamente impedire l'accesso al servizio ed è ancora possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per usare le nuove chiavi e operazioni riprenderanno conseguenza.
+Come si può immaginare, se si rigenerano le chiavi senza aggiornare il codice client, le richieste che usano la chiave precedente avranno esito negativo. La rigenerazione di tutte le nuove chiavi non blocca definitivamente il servizio ed è comunque possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per l'uso delle nuove chiavi e le operazioni riprenderanno di conseguenza.
 
-I valori per le chiavi API vengono generati dal servizio. È possibile fornire una chiave personalizzata per la ricerca di Azure da usare. Analogamente, non c'è alcun nome definito dall'utente per le chiavi API amministratore. Riferimenti della chiave sono stringhe fisse, ovvero `primary` o `secondary`. 
+I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, `primary` ovvero o. `secondary` 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
 ```
 
-Risultati dovrebbero essere simili all'output seguente. Entrambe le chiavi vengono restituite anche se si modifica solo una alla volta.
+I risultati dovrebbero essere simili all'output seguente. Entrambe le chiavi vengono restituite anche se si modifica solo una alla volta.
 
 ```
 Primary                    Secondary
@@ -215,31 +215,31 @@ Primary                    Secondary
 <alphanumeric-guid>        <alphanumeric-guid>  
 ```
 
-## <a name="create-or-delete-query-keys"></a>Creare o eliminare le chiavi di query
+## <a name="create-or-delete-query-keys"></a>Creare o eliminare chiavi di query
 
-[**Nuovo AzSearchQueryKey** ](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) viene usato per creare query [le chiavi API](search-security-api-keys.md) per accesso in lettura dalle App client in un indice di ricerca di Azure. Le chiavi di query vengono utilizzate per l'autenticazione a un indice specifico per recuperare i risultati della ricerca. Le chiavi di query non concedono l'accesso di sola lettura ad altri elementi nel servizio, ad esempio un indice, l'origine dati o indicizzatore.
+[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) viene usato per creare [chiavi API](search-security-api-keys.md) di query per l'accesso in sola lettura dalle app client a un indice di ricerca di Azure. Le chiavi di query vengono usate per eseguire l'autenticazione a un indice specifico allo scopo di recuperare i risultati della ricerca. Le chiavi di query non concedono l'accesso in sola lettura ad altri elementi nel servizio, ad esempio un indice, un'origine dati o un indicizzatore.
 
-È possibile fornire una chiave per la ricerca di Azure da usare. Le chiavi API vengono generate dal servizio.
+Non è possibile fornire una chiave per l'uso di ricerca di Azure. Le chiavi API vengono generate dal servizio.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
 ```
 
-## <a name="scale-replicas-and-partitions"></a>Partizioni e repliche di scalabilità
+## <a name="scale-replicas-and-partitions"></a>Ridimensionare le repliche e le partizioni
 
-[**Set-AzSearchService** ](https://docs.microsoft.com/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) viene usato per [aumentare o ridurre le repliche e partizioni](search-capacity-planning.md) di rettificare fatturabili alle risorse all'interno del servizio. Aumentando le repliche o partizioni viene aggiunto alla fattura, che ha entrambi i costi fissi e variabili. Se si ha l'esigenza temporaneo per potenza di elaborazione aggiuntivi, è possibile aumentare le repliche e partizioni per gestire il carico di lavoro. Nell'area monitoraggio nella pagina Panoramica del portale è riquadri sulla latenza di query, query al secondo e la limitazione delle richieste, che indica se la capacità corrente è adeguata.
+[**Set-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) viene usato per [aumentare o diminuire le repliche e le partizioni](search-capacity-planning.md) per modificare le risorse fatturabili all'interno del servizio. Aumentare le repliche o le partizioni aggiunge la fattura, con costi fissi e variabili. Se è necessaria una capacità di elaborazione aggiuntiva temporanea, è possibile aumentare le repliche e le partizioni per gestire il carico di lavoro. Nell'area monitoraggio della pagina del portale di panoramica sono presenti riquadri sulla latenza delle query, le query al secondo e la limitazione, che indica se la capacità corrente è adeguata.
 
-Può richiedere un po' di tempo per aggiungere o rimuovere risorse. Le rettifiche alla capacità si verificano in background, che consente di carichi di lavoro esistenti di continuare. Capacità aggiuntiva viene usata per le richieste in ingresso, non appena è pronto, senza alcuna configurazione aggiuntiva necessaria. 
+L'aggiunta o la rimozione della Resourcing può richiedere del tempo. Le modifiche alla capacità si verificano in background, consentendo la continuazione dei carichi di lavoro esistenti. La capacità aggiuntiva viene utilizzata per le richieste in ingresso non appena è pronta, senza che sia necessaria alcuna configurazione aggiuntiva. 
 
-Rimozione della capacità può essere problematica. Arrestare tutti i processi di indicizzazione e indicizzatore prima della riduzione della capacità, si consiglia di evitare richieste annullate. Non è fattibile, è possibile considerarne la riduzione della capacità in modo incrementale, una replica e partizione alla volta, fino a quando non vengono raggiunti i nuovi livelli di destinazione.
+La rimozione della capacità può risultare problematica. Per evitare le richieste Eliminate, è consigliabile arrestare tutti i processi di indicizzazione e di indicizzatore prima di ridurre la capacità. Se ciò non è fattibile, è possibile valutare la possibilità di ridurre in modo incrementale la capacità, una replica e una partizione alla volta, fino a raggiungere i nuovi livelli di destinazione.
 
-Dopo aver inviato il comando, non è a metà tramite possibile terminarlo. Si dovrà attendere il completamento del comando prima di revisione dei conteggi.
+Una volta inviato il comando, non è possibile terminarlo a metà. Prima di rivedere i conteggi, sarà necessario attendere il completamento del comando.
 
 ```azurepowershell-interactive
 Set-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
 ```
 
-Risultati dovrebbero essere simili all'output seguente.
+I risultati dovrebbero essere simili all'output seguente.
 
 ```
 ResourceGroupName : demo-westus
@@ -255,9 +255,9 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare un [indice](search-what-is-an-index.md), [query su un indice](search-query-overview.md) usando il portale, le API REST o .NET SDK.
+Compilare un [Indice](search-what-is-an-index.md), [eseguire una query su un indice](search-query-overview.md) usando il portale, le API REST o .NET SDK.
 
 * [Creare un indice di Ricerca di Azure nel portale di Azure](search-create-index-portal.md)
-* [Configurare un indicizzatore per caricare dati da altri servizi](search-indexer-overview.md)
+* [Configurare un indicizzatore per caricare i dati da altri servizi](search-indexer-overview.md)
 * [Eseguire query in un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure](search-explorer.md)
 * [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)

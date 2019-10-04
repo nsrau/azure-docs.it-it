@@ -2,18 +2,18 @@
 title: Introduzione alle raccolte di aree di lavoro di Microsoft Power BI
 description: Le raccolte di aree di lavoro di Power BI sono un servizio di Azure che consente agli sviluppatori di applicazioni di aggiungere report interattivi di Power BI alle proprie applicazioni.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 751d69cd9b52cf88bb54900e67283fdff3d90579
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 2b3381166e40f6d9586306e351b5f3ea77cc2ad8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520480"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669131"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introduzione alle raccolte di aree di lavoro di Microsoft Power BI
 
@@ -86,7 +86,7 @@ Dopo avere creato un'istanza di Power BI per l'applicazione e le **chiavi di acc
 
 Di seguito sono spiegate le differenze tra l'**importazione** e la modalità **DirectQuery**.
 
-| Importa | DirectQuery |
+| Import | DirectQuery |
 | --- | --- |
 | Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si usano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato. |Solo *tabelle e colonne* vengono importate o copiate in **Power BI Desktop**. Mentre si usano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati. |
 

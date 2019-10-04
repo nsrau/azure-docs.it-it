@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334029"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio
@@ -32,9 +32,9 @@ L'input per BES è simile all'input di dati usato da RRS. La differenza principa
 
 In generale, la distribuzione del modello avviene in tre passaggi:
 
-* **[Creare un esperimento di training]**: in Studio è possibile eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti e un set di grandi dimensioni di algoritmi di apprendimento automatico predefiniti.
+* **[Creare un esperimento di training]** : in Studio è possibile eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti e un set di grandi dimensioni di algoritmi di apprendimento automatico predefiniti.
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
-* **Eseguire la distribuzione** come **[nuovo servizio Web]** o come **[servizio Web classico]**: quando si distribuisce l'esperimento predittivo come servizio Web di Azure, gli utenti possono inviare dati al modello e ricevere le stime del modello.
+* **Eseguire la distribuzione** come **[nuovo servizio Web]** o come **[servizio Web classico]** : quando si distribuisce l'esperimento predittivo come servizio Web di Azure, gli utenti possono inviare dati al modello e ricevere le stime del modello.
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
 

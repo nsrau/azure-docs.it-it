@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548218"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137331"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "57548218"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -145,7 +145,12 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni dell'SDK per Python di Azure SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**. 
+> Tutte le versioni dell'API Python SDK per SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**. 
+> 
+> 
+
+> [!WARNING]
+> Tutte le versioni 1. x e 2. x di Python SDK per l'API SQL verranno ritirate il **30 agosto 2020**. 
 > 
 > 
 
@@ -155,27 +160,27 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal 
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 novembre 2018 |--- |
 | [3.0.1](#3.0.1) |4 ottobre 2018 |--- |
-| [2.3.3](#2.3.3) |8 settembre 2018 |--- |
-| [2.3.2](#2.3.2) |8 maggio 2018 |--- |
-| [2.3.1](#2.3.1) |21 dicembre 2017 |--- |
-| [2.3.0](#2.3.0) |10 novembre 2017 |--- |
-| [2.2.1](#2.2.1) |29 settembre 2017 |--- |
-| [2.2.0](#2.2.0) |10 maggio 2017 |--- |
-| [2.1.0](#2.1.0) |01 maggio 2017 |--- |
-| [2.0.1](#2.0.1) |30 ottobre 2016 |--- |
-| [2.0.0](#2.0.0) |29 settembre 2016 |--- |
-| [1.9.0](#1.9.0) |07 luglio 2016 |--- |
-| [1.8.0](#1.8.0) |14 giugno 2016 |--- |
-| [1.7.0](#1.7.0) |26 aprile 2016 |--- |
-| [1.6.1](#1.6.1) |08 aprile 2016 |--- |
-| [1.6.0](#1.6.0) |29 marzo 2016 |--- |
-| [1.5.0](#1.5.0) |03 gennaio 2016 |--- |
-| [1.4.2](#1.4.2) |06 ottobre 2015 |--- |
-| 1.4.1 |06 ottobre 2015 |--- |
-| [1.2.0](#1.2.0) |06 agosto 2015 |--- |
-| [1.1.0](#1.1.0) |09 luglio 2015 |--- |
-| [1.0.1](#1.0.1) |25 maggio 2015 |--- |
-| [1.0.0](#1.0.0) |07 aprile 2015 |--- |
+| [2.3.3](#2.3.3) |8 settembre 2018 |30 agosto 2020 |
+| [2.3.2](#2.3.2) |8 maggio 2018 |30 agosto 2020 |
+| [2.3.1](#2.3.1) |21 dicembre 2017 |30 agosto 2020 |
+| [2.3.0](#2.3.0) |10 novembre 2017 |30 agosto 2020 |
+| [2.2.1](#2.2.1) |29 settembre 2017 |30 agosto 2020 |
+| [2.2.0](#2.2.0) |10 maggio 2017 |30 agosto 2020 |
+| [2.1.0](#2.1.0) |01 maggio 2017 |30 agosto 2020 |
+| [2.0.1](#2.0.1) |30 ottobre 2016 |30 agosto 2020 |
+| [2.0.0](#2.0.0) |29 settembre 2016 |30 agosto 2020 |
+| [1.9.0](#1.9.0) |07 luglio 2016 |30 agosto 2020 |
+| [1.8.0](#1.8.0) |14 giugno 2016 |30 agosto 2020 |
+| [1.7.0](#1.7.0) |26 aprile 2016 |30 agosto 2020 |
+| [1.6.1](#1.6.1) |08 aprile 2016 |30 agosto 2020 |
+| [1.6.0](#1.6.0) |29 marzo 2016 |30 agosto 2020 |
+| [1.5.0](#1.5.0) |03 gennaio 2016 |30 agosto 2020 |
+| [1.4.2](#1.4.2) |06 ottobre 2015 |30 agosto 2020 |
+| 1.4.1 |06 ottobre 2015 |30 agosto 2020 |
+| [1.2.0](#1.2.0) |06 agosto 2015 |30 agosto 2020 |
+| [1.1.0](#1.1.0) |09 luglio 2015 |30 agosto 2020 |
+| [1.0.1](#1.0.1) |25 maggio 2015 |30 agosto 2020 |
+| [1.0.0](#1.0.0) |07 aprile 2015 |30 agosto 2020 |
 | 0.9.4-prelease |14 gennaio 2015 |29 febbraio 2016 |
 | 0.9.3-prelease |09 dicembre 2014 |29 febbraio 2016 |
 | 0.9.2-prelease |25 novembre 2014 |29 febbraio 2016 |
@@ -185,6 +190,6 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal 
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

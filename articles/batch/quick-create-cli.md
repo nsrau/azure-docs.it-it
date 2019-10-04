@@ -3,19 +3,19 @@ title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Interfaccia de
 description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752348"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322499"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-Il contenuto di `stdout.txt` può essere visualizzato in un editor di testo. Il contenuto visualizza le variabili di ambiente di Azure Batch impostate nel nodo. Quando si creano i propri processi Batch, è possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nelle app e negli script eseguiti dalle righe di comando. Ad esempio: 
+Il contenuto di `stdout.txt` può essere visualizzato in un editor di testo. Il contenuto visualizza le variabili di ambiente di Azure Batch impostate nel nodo. Quando si creano i propri processi Batch, è possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nelle app e negli script eseguiti dalle righe di comando. Ad esempio:
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

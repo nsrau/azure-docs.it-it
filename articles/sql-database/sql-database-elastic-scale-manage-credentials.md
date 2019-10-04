@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186623"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568419"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenziali usate per accedere alla libreria client dei database elastici
 
@@ -73,12 +72,12 @@ In questo esempio **smmUserConnectionString** contiene la stringa di connessione
 
 Come con le credenziali di amministratore, non usare valori nel formato "username@server". Usare invece solo "username".  Si noti inoltre che la stringa di connessione non contiene un nome di server e un nome di database, in quando la chiamata a **OpenConnectionForKey** reindirizzerà automaticamente la connessione alla partizione corretta in base alla chiave. Di conseguenza, non vengono forniti il nome del database e il nome del server.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
 [Protezione del Database SQL](sql-database-security-overview.md)
 
-[Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md)
+[processi di database elastico](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

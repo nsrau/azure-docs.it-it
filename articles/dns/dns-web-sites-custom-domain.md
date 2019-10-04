@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665951"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730264"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Esercitazione: Creare record DNS in un dominio personalizzato per un'app Web 
 
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -175,7 +175,7 @@ Aprire un browser e passare a `http://www.<your domainname>` e `http://<you doma
 > [!NOTE]
 > Assicurarsi di includere il prefisso `http://`. In caso contrario, il browser potrebbe tentare di prevedere automaticamente un URL.
 
-Dovrebbe essere visualizzata la stessa pagina per entrambi gli URL. Ad esempio: 
+Dovrebbe essere visualizzata la stessa pagina per entrambi gli URL. Ad esempio:
 
 ![Servizio app Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

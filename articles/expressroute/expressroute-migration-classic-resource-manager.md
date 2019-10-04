@@ -2,18 +2,18 @@
 title: 'Eseguire la migrazione di reti virtuali dal modello classico a Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
 description: Questa pagina illustra come eseguire la migrazione di reti virtuali associate ad ExpressRoute in Resource Manager dopo lo spostamento del circuito.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363853"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718180"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Eseguire la migrazione di reti virtuali associate ad ExpressRoute dal modello di distribuzione classica a Resource Manager
 
@@ -23,7 +23,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Verificare di avere la versione più recente dei moduli di Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Verificare di avere le versioni più recenti dei moduli di Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Per installare il modulo PowerShell Service Management (che è necessario per il modello di distribuzione classica), vedere [installazione del modulo di gestione di Azure PowerShell servizio](/powershell/azure/servicemanagement/install-azure-ps).
 * Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Rivedere le informazioni disponibili in [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-move.md). Assicurarsi di aver compreso pienamente i limiti e le limitazioni.
 * Verificare che il circuito sia completamente operativo nel modello di distribuzione classica.
@@ -41,7 +41,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 * È possibile eseguire la migrazione nell'ambiente Resource Manager di reti virtuali, gateway e distribuzioni associate che si trovano nella rete virtuale e sono associati al circuito ExpressRoute nella stessa sottoscrizione, senza tempi di inattività. È possibile seguire la procedura illustrata più avanti per eseguire la migrazione di risorse come reti virtuali, gateway e macchine virtuali distribuiti nella rete virtuale. È necessario assicurare che le reti virtuali siano configurate correttamente prima della migrazione. 
 * Le reti virtuali, i gateway e le distribuzioni associate che si trovano nella rete virtuale ma non sono inclusi nella stessa sottoscrizione del circuito ExpressRoute richiedono del tempo di inattività per il completamento della migrazione. L'ultima sezione del documento illustra la procedura da seguire per eseguire la migrazione delle risorse.
 * Non è possibile eseguire la migrazione di una rete virtuale con Gateway ExpressRoute e Gateway VPN.
-* La migrazione tra sottoscrizioni del circuito ExpressRoute non è supportata. Per altre informazioni, vedere [Servizi che non possono essere spostati](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
+* La migrazione tra sottoscrizioni del circuito ExpressRoute non è supportata. Per altre informazioni, vedere [Microsoft. Network spostare supporto](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Spostare un circuito ExpressRoute dal modello di distribuzione classica a Resource Manager
 È necessario spostare un circuito ExpressRoute da una distribuzione classica a un ambiente Resource Manager prima di provare a eseguire la migrazione delle risorse associate al circuito ExpressRoute. Per ottenere questo risultato, vedere gli articoli seguenti:

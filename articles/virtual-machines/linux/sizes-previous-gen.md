@@ -4,23 +4,22 @@ description: Elenca le generazioni di dimensioni precedenti disponibili per le m
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: b5da253c699c895c61df14ff50062a99e82d6913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e56fb938ca8d45a148700a0a6b91e22a4f9034c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541620"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100860"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -28,7 +27,7 @@ ms.locfileid: "60541620"
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="older-generations-of-virtual-machine-sizes"></a>Generazioni meno recenti di dimensioni delle macchine virtuali
+## <a name="older-generations-of-virtual-machine-sizes"></a>Generazioni precedenti di dimensioni di macchine virtuali
 
 [!INCLUDE [virtual-machines-common-sizes-older](../../../includes/virtual-machines-common-sizes-older.md)]
 

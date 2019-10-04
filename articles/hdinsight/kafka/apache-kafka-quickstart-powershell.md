@@ -1,21 +1,21 @@
 ---
 title: Configurare Apache Kafka in HDInsight usando Azure PowerShell - Avvio rapido
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite Azure PowerShell. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c86e5faa212fb6458326e00cba02fbe2ea83c8f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/12/2019
+ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850318"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123162"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Apache Kafka in HDInsight
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight usando PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
 
@@ -23,47 +23,39 @@ Questa guida di avvio rapido illustra come creare un cluster[Apache Kafka](https
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> Possono accedere all'API Kafka solo risorse interne alla stessa rete virtuale. In questa guida di avvio rapido si accede al cluster direttamente usando SSH. Per connettere altri servizi, reti o macchine virtuali a Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete.
->
-> Per altre informazioni, vedere il documento [Connettersi ad Apache Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
+Possono accedere all'API Kafka solo risorse interne alla stessa rete virtuale. In questa guida di avvio rapido si accede al cluster direttamente usando SSH. Per connettere altri servizi, reti o macchine virtuali a Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete. Per altre informazioni, vedere il documento [Connettersi ad Apache Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* Il [modulo Az](https://docs.microsoft.com/powershell/azure/overview) di PowerShell installato.
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+* Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Azure PowerShell. Per altre informazioni, vedere il documento [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-* Un client SSH. La procedura in questo documento usa SSH per la connessione al cluster.
+Accedere alla sottoscrizione di Azure con il cmdlet `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
-    Il comando `ssh` è disponibile per impostazione predefinita nei sistemi Linux, Unix e macOS. In Windows 10 usare uno dei metodi seguenti per installare il comando `ssh`:
+```azurepowershell-interactive
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-  * Usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell include il comando `ssh` e può essere configurata per l'utilizzo di Bash o di PowerShell come ambiente shell.
-
-  * [Installare il sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/install-win10). Le distribuzioni Linux disponibili nel Microsoft Store includono il comando `ssh`.
-
-    > [!IMPORTANT]  
-    > La procedura descritta in questo documento presuppone che si usi uno dei client SSH sopra menzionati. Se si usa un client SSH diverso e si riscontrano problemi, consultare la documentazione del client SSH.
-    >
-    > Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-## <a name="log-in-to-azure"></a>Accedere ad Azure
-
-Accedere alla sottoscrizione di Azure con il cmdlet `Login-AzAccount` e seguire le istruzioni visualizzate.
-
-```powershell
-Login-AzAccount
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente chiede di immettere il nome e il percorso e quindi crea un nuovo gruppo di risorse:
 
-```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+```azurepowershell-interactive
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -72,19 +64,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Mentre Kafka in HDInsight usa dischi gestiti di Azure per archiviare dati Kafka, il cluster usa anche Archiviazione di Microsoft Azure per archiviare informazioni quali i log. Usare [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) per creare un nuovo account di archiviazione.
 
-```powershell
+> [!IMPORTANT]  
+> La tipologia di account di archiviazione `BlobStorage` può essere utilizzata solo come archiviazione secondaria per i cluster HDInsight.
+
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
-        -ResourceGroupName $resourceGroup `
-        -Name $storageName `
-        -Type Standard_LRS `
-        -Location $location
+    -ResourceGroupName $resourceGroup `
+    -Name $storageName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 ```
 
 HDInsight archivia i dati nell'account di archiviazione in un contenitore blob. Usare [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) per creare un nuovo contenitore.
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -93,28 +90,27 @@ $storageKey = (Get-AzStorageAccountKey `
 $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Creare un cluster Apache Kafka
 
 Creare un cluster Apache Kafka in HDInsight con [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
-```powershell
-# Create a Kafka 1.0 cluster
+```azurepowershell-interactive
+# Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
-$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
-    -UserName "admin"
-$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
-$clusterOS="Linux"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.0")
+$kafkaConfig.Add("kafka", "1.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -122,7 +118,7 @@ New-AzHDInsightCluster `
         -Location $location `
         -ClusterSizeInNodes $numberOfWorkerNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
@@ -133,19 +129,13 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]  
-> La creazione del cluster HDInsight può richiedere fino a 20 minuti.
+La creazione del cluster HDInsight può richiedere fino a 20 minuti.
 
-> [!TIP]  
-> Il parametro `-DisksPerWorkerNode` configura la scalabilità di Kafka in HDInsight. Per archiviare i dati, Kafka in HDInsight usa il disco locale delle macchine virtuali nel cluster. Dal momento che in Kafka i processi I/O sono intensivi, viene usato il servizio [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) per assicurare una velocità effettiva elevata e fornire maggiore spazio di archiviazione per ogni nodo. 
->
-> Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). Il tipo di disco dipende dalla dimensione della VM utilizzata dai nodi del ruolo di lavoro (broker Kafka). I dischi Premium vengono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard. È possibile impostare il tipo di VM usando il parametro `-WorkerNodeSize`. Per altre informazioni sui parametri, vedere la documentazione di [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
+Il parametro `-DisksPerWorkerNode` configura la scalabilità di Kafka in HDInsight. Per archiviare i dati, Kafka in HDInsight usa il disco locale delle macchine virtuali nel cluster. Dal momento che in Kafka i processi I/O sono intensivi, viene usato il servizio [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) per assicurare una velocità effettiva elevata e fornire maggiore spazio di archiviazione per ogni nodo.
 
+Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). Il tipo di disco dipende dalla dimensione della VM utilizzata dai nodi del ruolo di lavoro (broker Kafka). I dischi Premium vengono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard. È possibile impostare il tipo di VM usando il parametro `-WorkerNodeSize`. Per altre informazioni sui parametri, vedere la documentazione di [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
-> [!IMPORTANT]  
-> Se si prevede di usare più di 32 nodi del ruolo di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario usare il parametro `-HeadNodeSize` per specificare una dimensione di VM con almeno 8 core e 14 GB di RAM.
->
-> Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Se si prevede di usare più di 32 nodi del ruolo di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario usare il parametro `-HeadNodeSize` per specificare una dimensione di VM con almeno 8 core e 14 GB di RAM. Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
@@ -161,7 +151,7 @@ New-AzHDInsightCluster `
 
 Dopo avere eseguito la connessione, vengono visualizzate informazioni simili al testo seguente:
 
-```text
+```output
 Authorized uses only. All activity may be monitored and reported.
 Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
@@ -180,7 +170,6 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
 ```
 
 ## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
@@ -203,16 +192,13 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Am
 
     Al prompt immettere il nome del cluster Kafka.
 
-3. Per impostare una variabile di ambiente con le informazioni degli host Zookeeper, usare il comando seguente:
+3. Per impostare una variabile di ambiente con le informazioni degli host Zookeeper, usare il comando seguente. Il comando recupera tutti gli host Zookeeper, quindi restituisce solo le prime due voci. per mantenere un certo livello di ridondanza nel caso in cui un host fosse irraggiungibile.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Al prompt immettere la password dell'account di accesso al cluster (non l'account SSH).
-
-    > [!NOTE]  
-    > Questo comando recupera tutti gli host Zookeeper, quindi restituisce solo le prime due voci, per mantenere un certo livello di ridondanza nel caso in cui un host fosse irraggiungibile.
 
 4. Usare il comando seguente per verificare che la variabile di ambiente sia impostata correttamente:
 
@@ -258,15 +244,13 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
 
     * Ogni partizione è replicata in tre nodi di ruolo di lavoro nel cluster.
 
-        > [!IMPORTANT]  
-        > Se il cluster è stato creato in un'area di Azure con tre domini di errore, usare il fattore di replica 3. In caso contrario usare il fattore di replica 4.
+        Se il cluster è stato creato in un'area di Azure con tre domini di errore, usare il fattore di replica 3. In caso contrario usare il fattore di replica 4.
         
         Nelle aree con tre domini di errore, il fattore di replica 3 consente di distribuire le repliche tra i domini di errore. Nelle aree con due domini di errore, il fattore di replica 4 distribuisce le repliche uniformemente tra i domini.
         
         Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        > [!IMPORTANT]   
-        > Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
+        Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 
         Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
 
@@ -325,8 +309,7 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
    
     Questo comando recupera i record dall'argomento e li visualizza. L'uso di `--from-beginning` indica al consumer di partire dall'inizio del flusso, quindi verranno recuperati tutti i record.
 
-    > [!NOTE]  
-    > Se si usa una versione meno recente di Kafka, sostituire `--bootstrap-server $KAFKABROKERS` con `--zookeeper $KAFKAZKHOSTS`.
+    Se si usa una versione meno recente di Kafka, sostituire `--bootstrap-server $KAFKABROKERS` con `--zookeeper $KAFKAZKHOSTS`.
 
 4. Usare __Ctrl + C__ per arrestare il consumer.
 
@@ -336,7 +319,7 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 Quando non sono più necessari, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse, l'istanza di HDInsight e tutte le risorse correlate.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

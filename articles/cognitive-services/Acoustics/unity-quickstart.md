@@ -3,25 +3,26 @@ title: Avvio rapido per Progetto Acustica con Unity
 titlesuffix: Azure Cognitive Services
 description: Usando il contenuto di esempio, sperimentare i controlli di progettazione di Progetto Acustica in Unity ed eseguire la distribuzione in Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ea020ca76381a4ae5d6b6e480c94e63f9aa2dab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317188"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933107"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Avvio rapido per Progetto Acustica in Unity
 Usare il contenuto di esempio di Progetto Acustica per Unity per sperimentare i controlli di progettazione supportati dalla simulazione.
 
 Requisiti software:
-* [Unity 2018.2+](http://unity3d.com) per Windows
+* [Unity 2018.2+](https://unity3d.com) per Windows
 * [Pacchetto di contenuto di esempio per Progetto Acustica](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Contenuto del pacchetto di esempio:
@@ -37,16 +38,35 @@ Importare il pacchetto di esempio in un nuovo progetto Unity.
 
 * Scegliere **ProjectAcoustics.unitypackage**.
 
+* Fare clic sul pulsante **Import** (Importa) per integrare il pacchetto Unity nel progetto.  
+  
+    ![Screenshot della finestra di dialogo di Unity per l'importazione del pacchetto](media/import-dialog.png)  
+
 Se si importa il pacchetto in un progetto esistente, per altri passaggi e note vedere l'articolo relativo all'[integrazione in Unity](unity-integration.md).
+
+>[!NOTE] 
+>Al termine dell'importazione, nel log della console verranno visualizzati diversi errori.  Procedere al passaggio successivo e riavviare Unity.
 
 ## <a name="restart-unity"></a>Riavviare Unity
 La parte per il baking del toolkit di acustica richiede la versione del runtime di scripting .NET 4.x. L'importazione del pacchetto aggiornerà le impostazioni del lettore Unity. Riavviare Unity per l'applicazione di queste impostazioni.
 
 È possibile verificare che l'impostazione sia stata applicata aprendo le **impostazioni del lettore**:
 
-![Screenshot del pannello di impostazioni del lettore in Unity](media/player-settings.png)
+![Screenshot del pannello di impostazioni del lettore in Unity](media/player-settings.png)  
 
-![Screenshot del pannello di impostazioni del lettore in Unity con l'opzione .NET 4.5 selezionata](media/net45.png)
+![Screenshot del pannello di impostazioni del lettore in Unity con l'opzione .NET 4.5 selezionata](media/net45.png)  
+
+>[!NOTE]
+>Lo screenshot è stato acquisito da Unity 2018.x. Le versioni più recenti di Unity potrebbero essere diverse.
+
+## <a name="open-the-project-acoustics-bake-window"></a>Aprire la finestra di bake di Progetto Acustica nell'editor
+Scegliere **Window > Acoustics** (Finestra > Acustica) dal menu di Unity:
+
+![Screenshot dell'editor Unity con l'opzione di menu della finestra Acoustics evidenziata](media/window-acoustics.png)
+
+Verrà visualizzata una nuova finestra mobile denominata **Acoustics** (Acustica),  in cui vengono impostate le proprietà della simulazione acustica.
+
+![Screenshot dell'editor Unity con la finestra Acoustics (Acustica) aperta](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-design-controls"></a>Sperimentare i controlli di progettazione
 Aprire la scena di esempio nella cartella **ProjectAcousticsSample** e fare clic sul pulsante di riproduzione nell'editor Unity. Usare W, A, S, D e il mouse per spostarsi. Per confrontare la scena con e senza acustica, premere il pulsante **R** fino a quando il testo di sovrimpressione diventa rosso e indica "Acustica: disabilitata". Per visualizzare i tasti di scelta rapida per altri controlli, premere **F1**. È possibile usare i controlli anche facendo clic con il pulsante destro del mouse per selezionare l'azione da eseguire e quindi con il pulsante sinistro del mouse per eseguirla.
@@ -55,7 +75,7 @@ Lo script **AcousticsAdjust** è associato alle sorgenti sonore nella scena di e
 
 ![Screenshot dello script AcousticsAdjust in Unity](media/acoustics-adjust.png)
 
-Di seguito vengono illustrati alcuni degli effetti che possono essere generati con i controlli disponibili. Per informazioni dettagliate su ogni controllo, vedere l'[esercitazione sulla progettazione in Unity per Progetto Acustica](unreal-workflow.md).
+Di seguito vengono illustrati alcuni degli effetti che possono essere generati con i controlli disponibili. Per informazioni dettagliate su ogni controllo, vedere l'[esercitazione sulla progettazione in Unity per Progetto Acustica](unity-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Modificare l'attenuazione basata sulla distanza
 Il DSP audio fornito dal plug-in di spazializzazione di Unity **Progetto Acustica** rispetta l'attenuazione basata sulla distanza per ogni sorgente predefinita nell'editor Unity. I controlli per l'attenuazione basata sulla distanza sono nel componente **Audio Source** (Sorgente audio) del pannello **Inspector** (Controllo) delle sorgenti sonore in **3D Sound Settings** (Impostazioni audio 3D):

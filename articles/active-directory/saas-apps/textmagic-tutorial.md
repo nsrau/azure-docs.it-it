@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261803"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Esercitazione: Integrazione di Azure Active Directory con TextMagic
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con TextMagic, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di TextMagic](#configure-textmagic-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di TextMagic](#create-textmagic-test-user)**: per avere una controparte di Britta Simon in TextMagic collegata alla relativa rappresentazione in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di TextMagic](#configure-textmagic-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di TextMagic](#create-textmagic-test-user)** : per avere una controparte di Britta Simon in TextMagic collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -166,13 +166,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con TextMagic, seguire ques
 
     ![Configurazione di TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Nella casella di testo  **Identity provider Entity ID**  (ID entità del provider di identità) incollare il valore di  **Identificatore di Azure AD** copiato dal portale di Azure.
+    a. Nella casella di testo **Identity provider Entity ID:** (ID entità del provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    b. Nella casella di testo  **Identity provider SSO URL:**  (URL SSO del provider di identità) incollare il valore di  **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **Identity Provider SSO URL** (URL SSO del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo  **Identity provider SLO URL:**  (URL SLO provider di identità) incollare il valore di  **URL disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo **Identity provider SLO URL** (URL di disconnessione singolo provider di identità) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo  **Public x509 certificate**  (Certificato X509 pubblico).
+    d. Aprire nel Blocco note il certificato con codifica **Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Public x509 certificate** (Certificato X509 pubblico).
 
     e. Fare clic su **Save**.
 
@@ -194,7 +194,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension** . Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 

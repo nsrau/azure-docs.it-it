@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b96606b5558e0fbb81733b2f548a89bfb38d5f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Esercitazione: Integrazione di Azure Active Directory con OrgChart Now
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>Aggiunta di OrgChart Now dalla raccolta
 
-Per configurare l'integrazione di OrgChart Now in Azure AD, è necessario aggiungere OrgChart Now dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di OrgChart Now in Azure AD, è necessario aggiungere OrgChart Now dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere OrgChart Now dalla raccolta, seguire questa procedura:**
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con OrgChart Now, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di OrgChart Now](#configure-orgchart-now-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di OrgChart Now](#create-orgchart-now-test-user)**: per avere una controparte di Britta Simon in OrgChart Now collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di OrgChart Now](#configure-orgchart-now-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di OrgChart Now](#create-orgchart-now-test-user)** : per avere una controparte di Britta Simon in OrgChart Now collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OrgChart Now, seguire q
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di OrgChart Now](common/idp-identifier.png)
 
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con OrgChart Now, seguire q
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` è l'**identificatore Azure AD** copiato dalla sezione **Configura OrgChart Now**, descritta più avanti nell'esercitazione.
+    > `<YourEntityID>` è l'**identificatore Azure AD** copiato dalla sezione **Configura Springer Link**, descritta più avanti nell'esercitazione.
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -161,7 +161,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OrgChart Now.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OrgChart Now.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **OrgChart Now**.
 
@@ -185,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-orgchart-now-test-user"></a>Creare un utente di test di OrgChart Now
+### <a name="create-orgchart-now-test-user"></a>Creare l'utente di test di OrgChart Now
 
 Per consentire agli utenti di Azure AD di accedere a OrgChart Now, è necessario effettuarne il provisioning in OrgChart Now. 
 

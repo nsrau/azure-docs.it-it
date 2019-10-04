@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008121"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844791"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming PlayReady offline per Windows 10  
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Versione 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure supporta il download o la riproduzione offline con la protezione DRM. Questo articolo illustra il supporto offline di Servizi multimediali di Azure per i client Windows 10/PlayReady. Per altre informazioni sul supporto della modalità offline per i dispositivi iOS/FairPlay e Android/Widevine, vedere gli articoli seguenti:
 
@@ -39,16 +39,16 @@ Servizi multimediali di Azure supporta il download o la riproduzione offline con
 
 Questa sezione descrive alcuni concetti di base sulla riproduzione in modalità offline, in particolare perché:
 
-* In alcuni paesi la disponibilità di Internet e/o la larghezza di banda sono limitate. Gli utenti possono scegliere di scaricare a priori il contenuto per poterlo visualizzare in una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, più spesso, il problema non è la disponibilità della rete, ma una limitazione nella larghezza di banda. I provider OTT/OVP richiedono il supporto della modalità offline.
+* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono scegliere di scaricare a priori il contenuto per poterlo visualizzare in una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, più spesso, il problema non è la disponibilità della rete, ma una limitazione nella larghezza di banda. I provider OTT/OVP richiedono il supporto della modalità offline.
 * Come ha dichiarato Reed Hastings, CEO di Netflix, durante la conferenza degli azionisti dell'azienda del terzo trimestre 2016, il download del contenuto è una "funzionalità molto richiesta", verso la quale "abbiamo un atteggiamento di apertura".
-* Alcuni provider di contenuti potrebbero disattivare la distribuzione di licenze DRM oltre i confini di un paese. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
+* Alcuni provider di contenuti possono impedire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
  
 Il problema che è necessario affrontare nell'implementazione della modalità offline è il seguente:
 
 * Il formato MP4 è supportato da numerosi lettori e strumenti di codifica, ma non è disponibile alcuna associazione tra il contenitore MP4 e DRM.
 * A lungo termine, la soluzione sarà CFF con CENC. Tuttavia, l'ecosistema di supporto per strumenti e lettori non è ancora in grado di offrire queste funzionalità. È necessaria una soluzione immediata.
  
-L'idea è: il formato di file Smooth Streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) con H264/AAC ha un'associazione con PlayReady (CTR AES-128). Un singolo file Smooth Streaming con estensione ismv (presupponendo che sia stato eseguito il muxing dell'audio nel video) è esso stesso un file MP4 frammentato (fMP4) e può essere usato per la riproduzione. Se a un contenuto Smooth Streaming viene applicata la crittografia PlayReady, ogni file con estensione ismv diventa un file fMP4 protetto da PlayReady. È possibile scegliere un file con estensione ismv con la velocità in bit preferita e rinominarlo come MP4 per il download.
+L'idea è: il formato di file Smooth Streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC ha un'associazione con PlayReady (CTR AES-128). Un singolo file Smooth Streaming con estensione ismv (presupponendo che sia stato eseguito il muxing dell'audio nel video) è esso stesso un file MP4 frammentato (fMP4) e può essere usato per la riproduzione. Se a un contenuto Smooth Streaming viene applicata la crittografia PlayReady, ogni file con estensione ismv diventa un file fMP4 protetto da PlayReady. È possibile scegliere un file con estensione ismv con la velocità in bit preferita e rinominarlo come MP4 per il download.
 
 Sono disponibili due opzioni per l'hosting di file MP4 protetti da PlayReady per il download progressivo:
 

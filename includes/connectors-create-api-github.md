@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
-ms.translationtype: HT
+ms.openlocfilehash: 11280e1678f52ede928cb2a85ea83add222e15fa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29764178"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180410"
 ---
 1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota. 
 

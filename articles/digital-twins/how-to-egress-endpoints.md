@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994824"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013929"
 ---
 # <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
 
@@ -47,16 +47,16 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attributo | type | DESCRIZIONE |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
-| id | stringa | Identificatore univoco dell'evento. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| id | string | Identificatore univoco dell'evento. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | data | object | Dati dell'evento specifici del provider di risorse. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
@@ -122,7 +122,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -153,7 +153,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -188,7 +188,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -223,7 +223,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -246,7 +246,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 >[!IMPORTANT]
 > Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
 
-Una richiesta HTTP POST autenticata su
+Richiesta HTTP POST autenticata rispetto a:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione|
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |

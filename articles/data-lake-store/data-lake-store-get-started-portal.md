@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60877954"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 

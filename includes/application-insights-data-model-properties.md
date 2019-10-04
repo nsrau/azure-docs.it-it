@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: eb4fb0e08564921556c0562e9fa7d670b76e860a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572313"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179904"
 ---
 Raccolta nome-valore di proprietà personalizzate. Questa raccolta viene usata per estendere la telemetria standard con dimensioni personalizzate, ad esempio uno slot di distribuzione che ha generato dati di telemetria o una proprietà specifica degli elementi di telemetria come il numero d'ordine. 
 
-La lunghezza massima della chiave è 150 e quella del valore è 8192.
+Lunghezza massima della chiave: Lunghezza del valore massimo 150: 8192

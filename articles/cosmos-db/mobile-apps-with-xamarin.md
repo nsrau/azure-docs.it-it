@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/15/2018
 ms.author: sngun
-ms.openlocfilehash: 0580129d8a1e8500a7be1b0728bacc947f4ece5a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4a9c0fe09bee553f53c90c9833922746aad35d14
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043873"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615074"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB offre le seguenti funzionalità principali per gli sviluppatori 
 
 * Query avanzate su dati senza schema. Azure Cosmos DB archivia i dati come documenti JSON senza schema in insiemi eterogenei. Offre [query avanzate e veloci](how-to-sql-query.md) senza la necessità di occuparsi di indici o schemi.
 * Alta velocità effettiva. Bastano pochi millisecondi per leggere e scrivere documenti con Azure Cosmos DB. Gli sviluppatori possono specificare la velocità effettiva di cui hanno bisogno e Azure Cosmos DB la rispetta con un contratto di servizio con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree.
-* Scalabilità senza limiti. Gli insiemi di Azure Cosmos DB [crescono al crescere dell'app](partition-data.md). È possibile iniziare con dati di piccole dimensioni e velocità effettiva di centinaia di richieste al secondo. Le raccolte o i database possono aumentare fino a petabyte di dati e velocità effettiva di grandi dimensioni con centinaia di milioni di richieste al secondo.
+* Scalabilità senza limiti. I contenitori Azure Cosmos [aumentano al crescere dell'app](partition-data.md). È possibile iniziare con dati di piccole dimensioni e velocità effettiva di centinaia di richieste al secondo. Le raccolte o i database possono aumentare fino a petabyte di dati e velocità effettiva di grandi dimensioni con centinaia di milioni di richieste al secondo.
 * Distribuzione a livello globale. Gli utenti dell'app per dispositivi mobili viaggiano spesso in tutto il mondo. Azure Cosmos DB è un [database distribuito a livello globale](distribute-data-globally.md). Fare clic sulla mappa per rendere i dati accessibili agli utenti.
 * Autorizzazioni avanzate integrate. Con Azure Cosmos DB è possibile implementare facilmente modelli diffusi come i [dati per utente](https://aka.ms/documentdb-xamarin-todouser) o i dati condivisi fra più utenti senza codice di autorizzazione personalizzato complesso.
 * Query geospaziali. Molte app per dispositivi mobili offrono oggi un'esperienza geografica contestuale. Grazie all'eccellente supporto per i [tipi geospaziali](geospatial.md), con Azure Cosmos DB è facile creare queste esperienze.

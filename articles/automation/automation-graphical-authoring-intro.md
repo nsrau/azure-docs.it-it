@@ -4,17 +4,17 @@ description: La creazione grafica consente di creare Runbook per Automazione di 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797108"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476681"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -44,7 +44,7 @@ Il canvas è l'area in cui vengono progettati i Runbook. È possibile aggiungere
 
 Il controllo Library consente di selezionare [attività](#activities) da aggiungere al Runbook. È possibile aggiungerle al canvas, dove vengono connesse ad altre attività. Il canvas include quattro sezioni descritte nella tabella seguente:
 
-| Sezione | DESCRIZIONE |
+| `Section` | Description |
 |:--- |:--- |
 | Cmdlets |Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbook |Include i runbook dell'account di Automazione. Questi runbook possono essere aggiunti al canvas per essere usati come runbook figlio. Vengono visualizzati solo i runbook dello stesso tipo di memoria centrale come il runbook in corso di modifica; per i runbook grafici vengono visualizzati solo i runbook basati su PowerShell, mentre per i runbook grafici del flusso di lavoro PowerShell vengono visualizzati solo i runbook basati sul flusso di lavoro PowerShell. |
@@ -89,7 +89,7 @@ Un Runbook non ancora pubblicato è con stato **New**. Quando viene pubblicato, 
 
 È anche possibile ripristinare la versione pubblicata di un Runbook. In questo modo verranno rimosse le modifiche apportate dopo l'ultima pubblicazione e la versione bozza del Runbook verrà sostituita con la versione pubblicata.
 
-## <a name="activities"></a>attività
+## <a name="activities"></a>Attività
 
 Le attività sono i blocchi predefiniti di un Runbook. Un'attività può essere un cmdlet di PowerShell, un Runbook figlio o un'attività flusso di lavoro. Per aggiungere un'attività al runbook, fare clic con il pulsante destro del mouse sul controllo Library e scegliere **Aggiungi ad area di disegno**. È quindi possibile fare clic e trascinare l'attività per posizionarla in un punto qualsiasi nel canvas desiderato. La posizione dell'attività sull'area di disegno non influirà in alcun modo sul funzionamento del runbook. È possibile modificare il layout del runbook nel modo più adatto per consentire di visualizzarne il funzionamento.
 
@@ -109,7 +109,7 @@ Nell'esempio seguente il cmdlet Get-AzureRmVM dispone di tre set di parametri. N
 
 Quando si specifica un valore per un parametro, è necessario selezionare un'origine dati per determinare come verrà specificato il valore. Le origini dati disponibili per un determinato parametro dipenderanno dai valori validi per il parametro. Ad esempio, Null non sarà disponibile come opzione di un parametro che non consente valori Null.
 
-| origine dati | DESCRIZIONE |
+| origine dati | Description |
 |:--- |:--- |
 | Constant Value |Digitare un valore per il parametro. Disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Activity Output |Output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Selezionare l'attività per usare il relativo output per il valore del parametro. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome della proprietà dopo aver selezionato l'attività. |
@@ -123,7 +123,7 @@ Quando si specifica un valore per un parametro, è necessario selezionare un'ori
 
 #### <a name="optional-additional-parameters"></a>Parametri aggiuntivi facoltativi
 
-Per tutti i cmdlet è possibile specificare parametri aggiuntivi. Si tratta di parametri comuni di PowerShell o di altri parametri personalizzati. Viene visualizzata una casella di testo in cui è possibile specificare parametri usando la sintassi di PowerShell. Per usare ad esempio il parametro comune **Verbose**, specificare **"-Verbose: $True"**.
+Per tutti i cmdlet è possibile specificare parametri aggiuntivi. Si tratta di parametri comuni di PowerShell o di altri parametri personalizzati. Viene visualizzata una casella di testo in cui è possibile specificare parametri usando la sintassi di PowerShell. Per usare ad esempio il parametro comune **Verbose**, specificare **"-Verbose: $True"** .
 
 ### <a name="retry-activity"></a>Ripetere l'attività
 
@@ -139,7 +139,7 @@ La condizione di ripetizione dei tentativi è un'espressione di PowerShell che v
 
 La condizione di ripetizione dei tentativi può usare una variabile denominata $RetryData che fornisce l'accesso alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | NumberOfAttempts |Numero di volte in cui l'attività è stata eseguita. |
 | Output |Output dell'ultima esecuzione dell'attività. |
@@ -191,7 +191,7 @@ Creare un collegamento tra due attività selezionando l'attività di origine e f
 
 Selezionare il collegamento per configurare le relative proprietà nel pannello Configuration, incluso il tipo di collegamento, che viene descritto nella tabella seguente:
 
-| Tipo di collegamento | DESCRIZIONE |
+| Tipo di collegamento | Description |
 |:--- |:--- |
 | Pipeline |L'attività di destinazione viene eseguita una volta per ogni oggetto restituito dall'attività di origine. L'attività di destinazione non viene eseguita se l'attività di origine non genera alcun output. L'output dell'attività di origine è disponibile come oggetto. |
 | Sequenza |L'attività di destinazione viene eseguita una sola volta. Riceve una matrice di oggetti dall'attività di origine. L'output dell'attività di origine è disponibile come matrice di oggetti. |
@@ -324,8 +324,8 @@ Ogni parametro di input è definito dalle proprietà descritte nella tabella seg
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
-| DESCRIZIONE |Descrizione facoltativa del parametro di input. |
+| Name |Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
+| Description |Descrizione facoltativa del parametro di input. |
 | Type |Tipo di dati previsto per il valore del parametro. Il portale di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. |
 | Mandatory |Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
 | Default Value |Specifica quale valore viene usato per il parametro se non ne viene specificato uno. Può essere Null o un valore specifico. |

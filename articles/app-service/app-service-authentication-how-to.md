@@ -4,22 +4,21 @@ description: Viene illustrato come personalizzare l'autenticazione e l'autorizza
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877306"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231963"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -41,9 +40,9 @@ La configurazione del portale non offre una soluzione pronta all'uso per present
 
 Prima di tutto, nella pagina **Autenticazione/Autorizzazione** nel portale di Azure configurare ogni provider di identità che si vuole abilitare.
 
-In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)**.
+In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)** .
 
-Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio: 
+Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +64,7 @@ Per reindirizzare l'utente dopo l'accesso a un URL personalizzato, usare il para
 
 In un accesso client l'applicazione esegue l'accesso manuale dell'utente al provider e poi invia il token di autenticazione al servizio app per la convalida (vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow)). La convalida non garantisce effettivamente l'accesso alle risorse dell'app desiderate, ma il completamento della convalida fornisce un token di sessione da usare per accedere alle risorse dell'app. 
 
-Per convalidare il token del provider, l'app del servizio app deve essere innanzitutto configurata con il provider desiderato. In fase di esecuzione, dopo aver recuperato il token di autenticazione dal provider, inviare il token a `/.auth/login/<provider>` per la convalida. Ad esempio:  
+Per convalidare il token del provider, l'app del servizio app deve essere innanzitutto configurata con il provider desiderato. In fase di esecuzione, dopo aver recuperato il token di autenticazione dal provider, inviare il token a `/.auth/login/<provider>` per la convalida. Ad esempio: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +95,7 @@ Se il token del provider viene convalidato, l'API restituisce un token `authenti
 }
 ```
 
-Dopo aver ottenuto il token di sessione, è possibile accedere alle risorse dell'app protette aggiungendo l'intestazione `X-ZUMO-AUTH` alle richieste HTTP. Ad esempio:  
+Dopo aver ottenuto il token di sessione, è possibile accedere alle risorse dell'app protette aggiungendo l'intestazione `X-ZUMO-AUTH` alle richieste HTTP. Ad esempio: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +116,7 @@ Ecco un semplice collegamento di disconnessione in una pagina Web:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Per impostazione predefinita, una corretta disconnessione reindirizza il client all'URL `/.auth/logout/done`. È possibile cambiare la pagina di reindirizzamento post-connessione aggiungendo il parametro di query `post_logout_redirect_uri`. Ad esempio: 
+Per impostazione predefinita, una corretta disconnessione reindirizza il client all'URL `/.auth/logout/done`. È possibile cambiare la pagina di reindirizzamento post-connessione aggiungendo il parametro di query `post_logout_redirect_uri`. Esempio:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -131,7 +130,7 @@ Quando si usano URL completamente qualificati, l'URL deve essere ospitato nello 
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-È necessario eseguire il comando seguente in [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Eseguire il comando seguente nella [Azure cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -186,7 +185,7 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 - **Account Microsoft**: In fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com) seguire anche questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
-    2. Nella finestra del browser a sinistra passare a **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    2. Nella finestra del browser a sinistra passare a **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**. 
     3. Fare clic su **Modifica**.
     4. Modificare la proprietà seguente. Sostituire _\<app\_id>_ con l'ID dell'applicazione Azure Active Directory del servizio a cui si vuole accedere.
 
@@ -198,7 +197,7 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 
 Dopo aver configurato il provider è possibile [trovare il token di aggiornamento e l'ora di scadenza del token di accesso](#retrieve-tokens-in-app-code) nell'archivio token. 
 
-Per aggiornare il token di accesso in qualsiasi momento, chiamare `/.auth/refresh` in qualsiasi linguaggio. Il frammento di codice seguente usa jQuery per aggiornare i token di accesso da un client JavaScript.
+Per aggiornare il token di accesso in qualsiasi momento, è `/.auth/refresh` sufficiente chiamare in qualsiasi linguaggio. Il frammento di codice seguente usa jQuery per aggiornare i token di accesso da un client JavaScript.
 
 ```JavaScript
 function refreshTokens() {
@@ -231,15 +230,63 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitare il dominio degli account di accesso
 
-Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure Active Directory consente un numero qualsiasi di domini personalizzati per gli account di accesso. Questo comportamento potrebbe essere inaccettabile per un'app interna a cui non si vuole concedere l'accesso agli utenti con un account _outlook.com_. Per limitare il nome di dominio degli account di accesso, seguire questa procedura.
+Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure AD consente un numero qualsiasi di domini personalizzati per gli account di accesso. Tuttavia, potrebbe essere necessario accelerare gli utenti direttamente alla pagina di accesso personalizzata Azure AD (ad esempio `contoso.com`). Per suggerire il nome di dominio degli account di accesso, seguire questa procedura.
 
-In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**. 
 
 Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+Questa impostazione Accoda il parametro `domain_hint` della stringa di query all'URL di reindirizzamento dell'account di accesso. 
+
+> [!IMPORTANT]
+> Il client può rimuovere il `domain_hint` parametro dopo la ricezione dell'URL di reindirizzamento e quindi eseguire l'accesso con un dominio diverso. Anche se questa funzione è comoda, non è una funzionalità di sicurezza.
+>
+
+## <a name="authorize-or-deny-users"></a>Autorizzare o negare gli utenti
+
+Sebbene il servizio app si occupi del caso di autorizzazione più semplice (ovvero rifiuta le richieste non autenticate), è possibile che l'app richieda un comportamento di autorizzazione più granulare, ad esempio limitando l'accesso solo a un gruppo specifico di utenti. In alcuni casi, è necessario scrivere il codice dell'applicazione personalizzata per consentire o negare l'accesso all'utente che ha eseguito l'accesso. In altri casi, il servizio app o il provider di identità potrebbe essere in grado di aiutare senza richiedere modifiche al codice.
+
+- [Livello server](#server-level-windows-apps-only)
+- [Livello del provider di identità](#identity-provider-level)
+- [Livello applicazione](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>Livello server (solo app di Windows)
+
+Per qualsiasi app di Windows, è possibile definire il comportamento di autorizzazione del server Web IIS modificando il file *Web. config* . Le app Linux non usano IIS e non possono essere configurate tramite *Web. config*.
+
+1. Passa a`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+
+1. In Esplora browser dei file del servizio app passare a *site/wwwroot*. Se il file *Web. config* non esiste, crearlo **+**  > selezionando **nuovo file**. 
+
+1. Selezionare la matita per *Web. config* per modificarla. Aggiungere il codice di configurazione seguente e fare clic su **Salva**. Se *Web. config* esiste già, è sufficiente aggiungere `<authorization>` l'elemento con tutti gli elementi al suo interno. Aggiungere gli account che si desidera consentire nell' `<allow>` elemento.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Livello del provider di identità
+
+Il provider di identità può fornire una certa autorizzazione per chiavi a chiave. Esempio:
+
+- Per [app Azure servizio](configure-authentication-provider-aad.md), è possibile [gestire l'accesso a livello aziendale](../active-directory/manage-apps/what-is-access-management.md) direttamente nella Azure ad. Per istruzioni, vedere [come rimuovere l'accesso di un utente a un'applicazione](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- Per [Google](configure-authentication-provider-google.md), i progetti API Google che appartengono a un' [organizzazione](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) possono essere configurati in modo da consentire l'accesso solo agli utenti dell'organizzazione. vedere la [pagina relativa alla configurazione del supporto **OAuth 2,0** di Google](https://support.google.com/cloud/answer/6158849?hl=en).
+
+### <a name="application-level"></a>Livello applicazione
+
+Se uno degli altri livelli non fornisce l'autorizzazione necessaria o se la piattaforma o il provider di identità non è supportato, è necessario scrivere codice personalizzato per autorizzare gli utenti in base alle [attestazioni utente](#access-user-claims).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]

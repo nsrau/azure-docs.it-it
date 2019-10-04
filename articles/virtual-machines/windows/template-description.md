@@ -4,23 +4,22 @@ description: Altre informazioni su come definire la risorsa della macchina virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327766"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101764"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -28,7 +27,7 @@ Questo articolo descrive gli aspetti di un modello di Azure Resource Manager che
 
 Sono disponibili numerosi [modelli nella raccolta](https://azure.microsoft.com/documentation/templates/?term=VM) che includono la risorsa di VM. Di seguito sono descritti solo alcuni elementi che possono essere inclusi in un modello.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Questo esempio mostra una sezione di risorse tipica di un modello per la creazione di un numero specificato di VM:
 
@@ -447,7 +446,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 
@@ -457,7 +456,7 @@ Per conoscere lo stato delle risorse nella distribuzione, visualizzare il gruppo
     
 Non è un problema usare lo stesso modello per creare risorse o per aggiornare le risorse esistenti. Quando si usano comandi per distribuire i modelli, si ha la possibilità di indicare la [modalità](../../resource-group-template-deploy.md) da usare. La modalità può essere impostata su **Completa** o **Incrementale**. Gli aggiornamenti incrementali sono il valore predefinito. Prestare attenzione quando si usa la modalità **Completa** perché è possibile eliminare accidentalmente le risorse. Quando si imposta la modalità su **Completa**, Resource Manager elimina tutte le risorse nel gruppo di risorse che non sono presenti nel modello.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Distribuire il modello creato usando [Creare una macchina virtuale Windows con un modello di Resource Manager](ps-template.md).

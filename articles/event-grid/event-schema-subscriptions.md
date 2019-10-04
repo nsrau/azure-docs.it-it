@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60561677"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schema di eventi di Griglia di eventi di Azure per le sottoscrizioni
 
@@ -236,14 +236,14 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
+| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
 | data | object | Dati dell'evento della sottoscrizione. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
@@ -251,14 +251,14 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | authorization | object | L'autorizzazione richiesta per l'operazione. |
 | claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
+| correlationId | string | Un ID operazione per la risoluzione dei problemi. |
 | httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
-| resourceProvider | stringa | Provider di risorse per l'operazione. |
-| resourceUri | stringa | L'URI della risorsa nell'operazione. |
-| operationName | stringa | Operazione eseguita. |
-| status | stringa | Lo stato dell'operazione. |
-| subscriptionId | stringa | L'ID sottoscrizione della risorsa. |
-| TenantId | stringa | L'ID tenant della risorsa. |
+| resourceProvider | string | Provider di risorse per l'operazione. |
+| resourceUri | string | L'URI della risorsa nell'operazione. |
+| operationName | string | Operazione eseguita. |
+| status | string | Lo stato dell'operazione. |
+| subscriptionId | string | L'ID sottoscrizione della risorsa. |
+| tenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

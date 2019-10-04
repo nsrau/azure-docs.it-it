@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780984"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497463"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -98,7 +98,25 @@ L'API Graph conferisce inoltre l'accesso a utenti e gruppi da Azure AD e ad altr
 
 I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per lo sviluppatore e l'utente dell'applicazione:
 
-1. Si supponga di avere un'applicazione client Web che deve richiedere autorizzazioni specifiche per accedere a una risorsa o un'API. Il portale di Azure viene usato per dichiarare le richieste di autorizzazione al momento della configurazione. Come altre impostazioni di configurazione, diventano parte della registrazione dell'applicazione in Azure Active Directory:
+1. Si supponga di avere un'applicazione client Web che deve richiedere autorizzazioni specifiche per accedere a una risorsa o un'API. Il portale di Azure viene usato per dichiarare le richieste di autorizzazione al momento della configurazione. Come altre impostazioni di configurazione, diventano parte delle registrazioni dell'applicazione in Azure Active Directory. Per il percorso della richiesta di autorizzazione è necessario seguire questa procedura:
+
+    a. Fare clic su **Registrazioni app** sul lato sinistro del menu e aprire l'applicazione digitandone il nome nella casella di ricerca.
+
+    ![API Graph](./media/openidoauth-tutorial/application.png)
+
+    b. Fare clic su **Visualizza le autorizzazioni dell'API**.
+
+    ![API Graph](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Fare clic su **Aggiungi un'autorizzazione**.
+
+    ![API Graph](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Fare clic su **Microsoft Graph**.
+
+    ![API Graph](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Selezionare le opzioni desiderate da **Autorizzazioni delegate** e **Autorizzazioni applicazione**.
 
     ![API Graph](./media/openidoauth-tutorial/graphapi.png)
 
@@ -118,12 +136,12 @@ Un utente normale può offrire il consenso per alcune autorizzazioni. Altre auto
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Differenza tra consenso dell'amministratore e consenso dell'utente
 
-In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso dell'amministratore impedisce che la finestra di dialogo di consenso sia visualizzata per ogni utente nel tenant. Gli utenti con ruolo di amministratore possono concedere il consenso nel portale di Azure. Nella pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** > **Concedi autorizzazioni**.
+In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso dell'amministratore impedisce che la finestra di dialogo di consenso sia visualizzata per ogni utente nel tenant. Gli utenti con ruolo di amministratore possono concedere il consenso nel portale di Azure. Nella pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** > **Concedi consenso amministratore**.
 
 ![Pulsante Concedi autorizzazioni](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è ora richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.
+> La concessione esplicita del consenso usando il pulsante **Concedi consenso amministratore** è ora richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.
 
 Le autorizzazioni solo app richiedono il consenso dell'amministratore tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
 

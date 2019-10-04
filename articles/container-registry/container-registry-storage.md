@@ -3,20 +3,21 @@ title: Archiviazione immagini in Registro Azure Container
 description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker in Registro Azure Container, tra cui sicurezza, ridondanza e capacità.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551025"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310528"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
-Ogni registro contenitori di Azure [Basic, Standard e Premium](container-registry-skus.md) beneficia delle funzionalità di archiviazione avanzate di Azure, come ad esempio la crittografia dei dati inattivi per la sicurezza dei dati di immagine e la ridondanza geografica per la protezione dei dati di immagine. Le sezioni seguenti descrivono sia le funzionalità che i limiti di archiviazione immagini in Registro Azure Container.
+Ogni Registro Azure Container [Basic, Standard e Premium](container-registry-skus.md) beneficia delle funzionalità di archiviazione avanzate di Azure, come ad esempio la crittografia dei dati inattivi per la sicurezza dei dati di immagine e la ridondanza geografica per la protezione dei dati di immagine. Le sezioni seguenti descrivono sia le funzionalità che i limiti di archiviazione immagini in Registro Azure Container.
 
 ## <a name="encryption-at-rest"></a>Crittografia dei dati inattivi
 
@@ -46,7 +47,7 @@ Un numero molto elevato di repository e tag può compromettere le prestazioni de
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 
-Per informazioni dettagliate sui prezzi, vedere [Prezzi di Registro Azure Container][pricing].
+Per informazioni dettagliate sui prezzi, vedere [prezzi di Azure container Registry][pricing].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

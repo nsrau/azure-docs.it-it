@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (Java) | Microsoft Docs
+title: "Guida introduttiva: Inviare dati di telemetria dall'hub IoT di Azure con Java"
 description: In questa guida introduttiva si eseguono due applicazioni Java di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -8,20 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.date: 06/21/2019
+ms.openlocfilehash: a97081101df5199d3201a6ec47df4c2ac2747416
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59004787"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309132"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Java)
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Guida introduttiva: Inviare dati di telemetria a un hub IoT di Azure e leggerli con un'applicazione Java
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-L'hub IoT è un servizio di Azure che consente di acquisire volumi elevati di dati di telemetria dai dispositivi IoT nel cloud per l'archiviazione o l'elaborazione. In questa Guida rapida, si inviano dati di telemetria da un'applicazione del dispositivo simulato, tramite l'Hub IoT, a un'applicazione di back-end per l'elaborazione.
+Questo argomento di avvio rapido illustra come inviare dati di telemetria a un hub IoT di Azure e leggerli con un'applicazione Java. L'hub IoT è un servizio di Azure che consente di acquisire volumi elevati di dati di telemetria dai dispositivi IoT nel cloud per l'archiviazione o l'elaborazione. In questa Guida rapida, si inviano dati di telemetria da un'applicazione del dispositivo simulato, tramite l'Hub IoT, a un'applicazione di back-end per l'elaborazione.
 
 La guida introduttiva usa due applicazioni Java già scritte, una per inviare i dati di telemetria e una per leggere i dati di telemetria dall'hub. Prima di eseguire queste due applicazioni, creare un hub IoT e registrare un dispositivo con l'hub.
 
@@ -31,9 +31,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Java. È necessario avere Java SE 8 o versione successiva nel computer di sviluppo.
+Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Java. È necessario avere Java SE 8 nel computer di sviluppo.
 
-È possibile scaricare Java per più piattaforme da [Oracle](https://aka.ms/azure-jdks).
+È possibile scaricare Java SE Development Kit 8 multipiattaforma dal [Supporto a lungo termine di Java per Azure e Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
 
 Per verificare la versione corrente di Java installata nel computer di sviluppo, usare il comando seguente:
 
@@ -87,7 +87,7 @@ Scaricare il progetto di esempio di Java da https://github.com/Azure-Samples/azu
 
     Il valore verrà usato più avanti in questa guida introduttiva.
 
-3. È necessario anche l'_endpoint compatibile con gli hub eventi_, il _percorso compatibile con gli hub eventi_, e la _chiave primaria iothubowner_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
+3. È necessario anche l'_endpoint compatibile con gli Hub eventi di Azure_, il _percorso compatibile con gli Hub eventi di Azure_, e la _chiave primaria di servizio_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
 
      **YourIoTHubName: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -96,7 +96,7 @@ Scaricare il progetto di esempio di Java da https://github.com/Azure-Samples/azu
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Prendere nota di questi tre valori, che saranno utili successivamente durante la guida introduttiva.
@@ -139,8 +139,7 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Sostituire il valore della variabile con l'endpoint compatibile di Hub eventi annotato in precedenza. |
     | `eventHubsCompatiblePath`     | Sostituire il valore della variabile con il percorso compatibile con Hub eventi annotato in precedenza. |
-    | `iotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria iothubowner annotata in precedenza. |
-
+    | `iotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria di servizio annotata in precedenza. |
 
 3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione back-end:
 

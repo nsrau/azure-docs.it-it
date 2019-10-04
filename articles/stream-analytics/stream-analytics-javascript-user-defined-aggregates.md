@@ -9,20 +9,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097972"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489528"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Funzioni di aggregazione JavaScript definite dall'utente in analisi di flusso di Azure
  
 Analisi di flusso di Azure supporta le aggregazioni definite dall'utente (UDA) scritte in JavaScript e ciò consente di implementare la logica di business con stato complessa. Le aggregazioni definite dall'utente garantiscono il controllo completo su strutture di dati sullo stato, accumulo di stati, decumulazione di stati e calcolo dei risultati dell'aggregazione. Nell'articolo sono descritte le due diverse interfacce JavaScript per aggregazioni definite dall'utente, le procedure per creare un'aggregazione definita dall'utente e come utilizzare questo tipo di aggregazione con operazioni basate su finestre temporali in query di Analisi di flusso di Azure.
 
 ## <a name="javascript-user-defined-aggregates"></a>aggregazioni JavaScript definite dall'utente
 
-Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di aggregazione definita dall'utente possono essere usati da Finestra a cascata, Finestra di salto e Finestra temporale scorrevole. L'aggregazione definita dall'utente di tipo AccumulateDeaccumulate ha prestazioni migliori rispetto a quella di tipo AccumulateOnly quando viene usata assieme a Finestra di salto e Finestra temporale scorrevole. Scegliere uno dei due tipi in base all'algoritmo usato.
+Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di aggregazione definita dall'utente possono essere utilizzati da una finestra a cascata, a salto, a scorrimento e a sessione. Tipo accumulatedeaccumulate UDA offre prestazioni migliori rispetto a tipo accumulateonly UDA quando viene usato insieme a una finestra di salto, scorrevole e di sessione. Scegliere uno dei due tipi in base all'algoritmo usato.
 
 ### <a name="accumulateonly-aggregates"></a>Aggregazioni di tipo AccumulateOnly
 
@@ -90,9 +90,9 @@ Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA J
 
 Tipo specifico supportato dal processo di Analisi di flusso di Azure oppure "Any" se si desidera gestire il tipo nella query.
 
-### <a name="function-name"></a>Nome della funzione
+### <a name="function-name"></a>Nome funzione
 
-Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere esattamente all'alias dell'aggregazione definita dall'utente (anticipazione: si sta valutando la possibilità di supporto della funzione anonima in GA).
+Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere all'alias UDA.
 
 ### <a name="method---init"></a>Metodo init()
 
@@ -100,11 +100,11 @@ Il metodo init() inizializza lo stato dell'aggregazione. Questo metodo viene chi
 
 ### <a name="method--accumulate"></a>Metodo accumulate()
 
-Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando l'evento entra in una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW o SLIDINGWINDOW).
+Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento entra in una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ### <a name="method--deaccumulate"></a>Metodo deaccumulate()
 
-Il metodo deaccumulate() ricalcola lo stato in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento abbandona una finestra di tipo SLIDINGWINDOW.
+Il metodo deaccumulate() ricalcola lo stato in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento lascia un SLIDINGWINDOW o SESSIONWINDOW.
 
 ### <a name="method--deaccumulatestate"></a>Metodo deaccumulateState()
 
@@ -112,7 +112,7 @@ Il metodo deaccumulateState() ricalcola lo stato in base allo stato precedente e
 
 ### <a name="method--computeresult"></a>Metodo computeResult()
 
-Il metodo computeResult() restituisce il risultato dell'aggregazione in base allo stato corrente. Questo metodo viene chiamato alla fine di una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW e SLIDINGWINDOW).
+Il metodo computeResult() restituisce il risultato dell'aggregazione in base allo stato corrente. Questo metodo viene chiamato alla fine di una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>Tipi di dati di input e output supportati dall'aggregazione JavaScript definita dall'utente
 Per i tipi di dati delle aggregazioni JavaScript definite dall'utente, vedere la sezione **Conversione dei tipi di Analisi di flusso di Azure e JavaScript** in [Integrare funzioni UDF di JavaScript](stream-analytics-javascript-user-defined-functions.md).
@@ -175,7 +175,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chiamata di un'aggregazione JavaScript definita dall'utente in una query ASA
 
-Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio: 
+Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio:
 
 ```SQL
 WITH value AS
@@ -225,7 +225,7 @@ Creare un file JSON locale con il contenuto riportato di seguito, caricare il fi
 ]
 ```
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Guida
 
 Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
@@ -234,5 +234,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

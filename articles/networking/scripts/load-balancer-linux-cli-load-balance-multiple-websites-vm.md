@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: e3dc9476d188382db31b03b37b2a23affc61aed3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60564885"
 ---
 # <a name="load-balance-multiple-websites"></a>Eseguire il bilanciamento del carico per più siti Web
 

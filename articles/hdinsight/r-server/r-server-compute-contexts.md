@@ -1,7 +1,6 @@
 ---
 title: Opzioni del contesto di calcolo per ML Services in HDInsight - Azure
 description: Informazioni sulle diverse opzioni del contesto di calcolo disponibili per gli utenti con ML Services in HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494476"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444334"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
 
@@ -77,6 +76,5 @@ Per altre informazioni ed esempi di contesti di calcolo di RevoScaleR, vedere la
 In questo articolo sono state descritte le opzioni disponibili per specificare se e come l'esecuzione venga parallelizzata tra i core del nodo perimetrale o del cluster HDInsight. Per altre informazioni sull'uso di ML Services con i cluster HDInsight, vedere gli argomenti seguenti:
 
 * [Panoramica di ML Services per Apache Hadoop](r-server-overview.md)
-* [Introduzione all'uso di ML Services per Apache Hadoop](r-server-get-started.md)
 * [Opzioni di Archiviazione di Azure per ML Services in HDInsight](r-server-storage.md)
 

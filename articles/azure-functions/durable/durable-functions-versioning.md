@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549085"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097629"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
 
@@ -96,7 +95,7 @@ Di seguito vengono indicate alcune strategie per affrontare le problematiche di 
 * Arrestare tutte le istanze in corso
 * Eseguire distribuzioni side-by-side
 
-### <a name="do-nothing"></a>Non eseguire alcuna operazione
+### <a name="do-nothing"></a>Non intervenire
 
 Il modo più semplice per gestire una modifica di rilievo è quello di consentire che le istanze di orchestrazione in corso abbiano esito negativo. Le nuove istanze eseguono correttamente il codice modificato.
 
@@ -140,7 +139,7 @@ Tutte le entità di Archiviazione di Azure sono denominate in base al valore di 
 È consigliabile distribuire la nuova versione dell'app per le funzioni a un nuovo [slot di distribuzione](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Gli slot di distribuzione consentono di eseguire side-by-side più copie dell'app per le funzioni con un solo slot come slot di *produzione* attivo. Quando è possibile esporre la nuova logica di orchestrazione all'infrastruttura esistente, l'operazione può essere semplice come la sostituzione della nuova versione nello slot di produzione.
 
 > [!NOTE]
-> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio code o hub eventi, la definizione del trigger dovrebbe [derivano da un'impostazione dell'app](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) che viene aggiornata come parte dell'operazione di sostituzione.
+> Questa strategia funziona meglio quando si usano trigger HTTP e di webhook per le funzioni dell'agente di orchestrazione. Per i trigger non HTTP, ad esempio le code o gli hub eventi, la definizione del trigger deve derivare [da un'impostazione dell'app](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) che viene aggiornata come parte dell'operazione di scambio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

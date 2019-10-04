@@ -1,6 +1,6 @@
 ---
-title: Codici di risposta HTTP delle API
-titleSuffix: Azure
+title: Codici di risposta HTTP dell'API-LUIS
+titleSuffix: Azure Cognitive Services
 description: Comprendere quali codici di risposta HTTP vengono restituiti dalle API di creazione LUIS e dalle API per endpoint
 services: cognitive-services
 author: diberry
@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 43fbca732bbd281ad980ae86e4a89f446fdb69bc
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337245"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945855"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Codici di risposta comuni API e relativo significato
 
-Le API di [creazione](https://aka.ms/luis-authoring-apis) e per [endpoint](https://aka.ms/luis-endpoint-apis) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale. 
+Le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) e per [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale. 
 
 ## <a name="common-status-codes"></a>Codici di stato comuni
-La tabella seguente elenca alcuni dei codici di stato di risposta HTTP più comuni per le API di [creazione ](https://aka.ms/luis-authoring-apis) e per [endpoint](https://aka.ms/luis-endpoint-apis):
+La tabella seguente elenca alcuni dei codici di stato di risposta HTTP più comuni per le API di [creazione ](https://go.microsoft.com/fwlink/?linkid=2092087) e per [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356):
 
 |Codice|API|Spiegazione|
 |:--|--|--|

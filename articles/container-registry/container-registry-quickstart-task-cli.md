@@ -3,17 +3,18 @@ title: "Guida di avvio rapido: Compilare ed eseguire un'immagine del contenitore
 description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore su richiesta, nel cloud.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793387"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310636"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Guida introduttiva: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
@@ -52,7 +53,7 @@ In questo esempio viene creato un registro *Basic*, ovvero un'opzione ottimizzat
 A questo punto usare Registro Azure Container per compilare un'immagine. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* con il contenuto seguente. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux, ma è possibile creare il Dockerfile standard personalizzato e compilare immagini per le altre piattaforme.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Eseguire il comando [az acr build][az-acr-build] per compilare l'immagine. Dopo la compilazione viene eseguito il push dell'immagine nel registro. Nell'esempio seguente viene eseguito il push dell'immagine `sample/hello-world:v1`. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.

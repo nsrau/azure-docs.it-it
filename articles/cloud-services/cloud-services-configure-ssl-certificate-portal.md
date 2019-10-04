@@ -3,23 +3,17 @@ title: Configurare SSL per un servizio cloud | Documentazione Microsoft
 description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: gwallace
+ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084345"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359743"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 
@@ -40,7 +34,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 
 * Il certificato deve includere una chiave privata.
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se è il nome di dominio personalizzato **contoso.com** , richiedere un certificato dalla CA per ***. contoso.com** oppure **www\.contoso.com**.
+* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se il nome di dominio personalizzato è **contoso.com** , è necessario richiedere un certificato dalla CA per * **. contoso.com** o **www\.contoso.com**.
 * Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato auto firmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.
@@ -49,7 +43,7 @@ A questo punto, è necessario includere le informazioni sul certificato nei file
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare i file di definizione e configurazione del servizio
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare la definizione del servizio e i file di configurazione
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
 
 1. Nell'ambiente di sviluppo aprire il file di definizione del servizio (CSDEF), aggiungere una sezione **Certificates** all'interno della sezione **WebRole** e includere le informazioni seguenti relative al certificato (e ai certificati intermedi):
@@ -82,7 +76,7 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
 
    Le autorizzazioni (attributo`permissionLevel`) possono essere impostate su uno dei seguenti valori:
 
-   | Valore di autorizzazione | DESCRIZIONE |
+   | Valore di autorizzazione | Descrizione |
    | --- | --- |
    | limitedOrElevated |**(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
    | elevated |Solo i processi con autorizzazioni elevate possono accedere alla chiave privata. |
@@ -138,12 +132,12 @@ Questo esempio usa **sha1** come algoritmo di identificazione personale. Specifi
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si usa **cspack**, non usare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
-## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Caricamento di un certificato
+## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Carica un certificato
 Connettersi al portale di Azure e...
 
 1. Nella sezione **Tutte le risorse** del portale selezionare il servizio cloud.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+    ![Pubblica il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Fare clic su **Certificati**.
 
@@ -155,7 +149,7 @@ Connettersi al portale di Azure e...
 
 4. Specificare il **file** e la **password**, quindi fare clic su **Carica** nella parte inferiore dell'area di immissione di dati.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passaggio 4: Connettersi all'istanza del ruolo usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passaggio 4: Connettersi all'istanza del ruolo tramite HTTPS
 Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
 
 1. Fare clic sull'**URL del sito** per aprire il Web browser.

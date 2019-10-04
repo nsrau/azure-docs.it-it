@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547828"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824685"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure in Linux
 
@@ -129,10 +129,10 @@ Al termine della creazione del server logico di database SQL, l'interfaccia dell
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall a livello di server per il database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
+Creare una [regola del firewall a livello di server di database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>Creare un database
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Creare la stringa di connessione
 
-Sostituire la stringa seguente con gli elementi *\<server-name>*, *\<db-username>* e *\<db-password>* usati prima.
+Sostituire la stringa seguente con gli elementi *\<server-name>* , *\<db-username>* e *\<db-password>* usati prima.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -169,7 +169,7 @@ In questo passaggio si distribuisce l'applicazione .NET Core connessa al databas
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Configurare una variabile di ambiente
+### <a name="configure-connection-string"></a>Configurare la stringa di connessione
 
 Per impostare le stringhe di connessione per l'app Azure, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Nel comando seguente sostituire *\<app-name>* e il parametro *\<connection-string>* con la stringa di connessione creata prima.
 
@@ -177,13 +177,21 @@ Per impostare le stringhe di connessione per l'app Azure, usare il comando [`az 
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
 
-Configurare quindi l'impostazione dell'app `ASPNETCORE_ENVIRONMENT` su _Production_. Questa impostazione consente di determinare se l'esecuzione è in corso in Azure, perché si usa SQLLite per l'ambiente di sviluppo locale e il database SQL per l'ambiente Azure.
+In ASP.NET Core è possibile usare questa stringa di connessione denominata (`MyDbConnection`) con il modello standard, così come qualsiasi stringa di connessione specificata in *appsettings.json*. In questo caso, la stringa `MyDbConnection` è definita anche in *appsettings.json*. In caso di esecuzione nel servizio app, la stringa di connessione definita nel servizio app ha la precedenza su quella definita in *appsettings.json*. Il codice usa il valore di *appsettings.json* durante lo sviluppo locale e il valore del servizio app quando viene distribuito.
 
-L'esempio seguente configura un'impostazione dell'app `ASPNETCORE_ENVIRONMENT` nell'app Azure. Sostituire il segnaposto *\<app-name>*.
+Per osservare come viene fatto riferimento alla stringa di connessione nel codice, vedere [Connettersi al database SQL nell'ambiente di produzione](#connect-to-sql-database-in-production).
+
+### <a name="configure-environment-variable"></a>Configurare la variabile di ambiente
+
+Configurare quindi l'impostazione dell'app `ASPNETCORE_ENVIRONMENT` su _Production_. Questa impostazione consente di determinare se l'esecuzione è in corso in Azure, perché si usa SQLite per l'ambiente di sviluppo locale e il database SQL per l'ambiente Azure.
+
+L'esempio seguente configura un'impostazione dell'app `ASPNETCORE_ENVIRONMENT` nell'app Azure. Sostituire il segnaposto *\<app-name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+Per osservare come viene fatto riferimento alla variabile di ambiente nel codice, vedere [Connettersi al database SQL nell'ambiente di produzione](#connect-to-sql-database-in-production).
 
 ### <a name="connect-to-sql-database-in-production"></a>Connettersi al database SQL nell'ambiente di produzione
 
@@ -209,9 +217,9 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Se questo codice rileva di essere in esecuzione nell'ambiente di produzione (che indica l'ambiente Azure), usa la stringa di connessione configurata per connettersi al database SQL. Per informazioni su come accedere alle impostazioni dell'app in Servizio app, vedere [Accedere alle variabili di ambiente](configure-language-dotnetcore.md#access-environment-variables).
+Se questo codice rileva di essere in esecuzione nell'ambiente di produzione (corrispondente all'ambiente Azure), usa la stringa di connessione configurata per connettersi al database SQL. Per informazioni su come accedere alle impostazioni dell'app in Servizio app, vedere [Accedere alle variabili di ambiente](configure-language-dotnetcore.md#access-environment-variables).
 
-La chiamata a `Database.Migrate()` è utile quando viene eseguita in Azure, perché crea automaticamente i database necessari per l'app .NET Core, in base alla configurazione della migrazione.
+La chiamata di `Database.Migrate()` è utile in caso di esecuzione in Azure perché crea automaticamente i database necessari per l'app .NET Core, in base alla configurazione della migrazione.
 
 Salvare le modifiche, quindi eseguire il commit nel repository Git.
 
@@ -362,7 +370,7 @@ Tutte le attività esistenti rimangono visualizzate. Quando si pubblica nuovamen
 
 ## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
 
-Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) con due modifiche della configurazione:
+Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) con due modifiche della configurazione:
 
 - Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.

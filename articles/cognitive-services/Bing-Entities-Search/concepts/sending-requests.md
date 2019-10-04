@@ -7,26 +7,24 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
-ms.topic: quickstart
-ms.date: 02/01/2019
+ms.topic: conceptual
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 8eab941f9589e84d7193cc32f91d080d7cda7c08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0788b220f2612170fdea974a8bb27e8374a0b3be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864758"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879215"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Invio di richieste di ricerca all'API Ricerca entità Bing
 
-L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Per le località, la query può specificare il nome dell'azienda locale o richiedere un elenco (ad esempio, ristoranti nelle vicinanze). I risultati relativi all'entità includono persone, località o cose. In questo contesto, per località si intendono attrazioni turistiche, stati, paesi e così via. 
-
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Per le località, la query può specificare il nome dell'azienda locale o richiedere un elenco (ad esempio, ristoranti nelle vicinanze). I risultati relativi all'entità includono persone, località o cose. In questo contesto, per località si intendono attrazioni turistiche, stati, paesi/aree geografiche e così via.
 
 ## <a name="the-endpoint"></a>L'endpoint
 
 Per ottenere entità e località nei risultati della ricerca, inviare una richiesta GET all'endpoint seguente:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
@@ -37,18 +35,18 @@ Le richieste devono usare il protocollo HTTPS.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Specificare parametri di query e intestazioni
 
-La richiesta deve specificare il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query), contenente il termine di ricerca dell'utente. La richiesta deve specificare anche il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) (Parametri di query). Eseguire la codifica URL di tutti i parametri della query.  
+La richiesta deve specificare il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), contenente il termine di ricerca dell'utente. La richiesta deve specificare anche il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) (Parametri di query). Eseguire la codifica URL di tutti i parametri della query.  
   
-La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:  
+La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:  
   
--   [User-agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
--   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
+-   [User-agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
+-   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
 
 Le intestazioni relative a IP client e posizione sono importanti per la restituzione di contenuto con riconoscimento della posizione.  
 
-Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) (Intestazioni).
+Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) (Intestazioni).
 
 ## <a name="the-request"></a>Richiesta
 
@@ -68,7 +66,9 @@ Se è la prima volta che si chiama un'API Bing, non includere l'intestazione del
 
 ## <a name="the-response"></a>Risposta
 
-Di seguito è riportata la risposta alla richiesta precedente. L'esempio mostra anche le intestazioni di risposta specifiche di Bing. Per informazioni sull'oggetto della risposta, vedere [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+Di seguito è riportata la risposta alla richiesta precedente. L'esempio mostra anche le intestazioni di risposta specifiche di Bing. Per informazioni sull'oggetto della risposta, vedere [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

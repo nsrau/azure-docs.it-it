@@ -3,25 +3,24 @@ title: Domande frequenti sui database SQL di Azure di livello Hyperscale | Micro
 description: Risposte alle domande comuni dei clienti sul database SQL di Azure nel livello di servizio Hyperscale, detto comunemente database Hyperscale.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 05/06/2019
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680903"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162261"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
-Questo articolo fornisce le risposte alle domande frequenti dei clienti che valutano la scelta di un database SQL di Azure nel livello di servizio Hyperscale, detto comunemente database Hyperscale (attualmente disponibile in versione di anteprima pubblica). Questo articolo descrive gli scenari supportati dal livello Hyperscale e i servizi multi funzionalità compatibili con il database SQL Hyperscale in generale.
+Questo articolo fornisce le risposte alle domande frequenti per i clienti che considerano un database nel livello di servizio iperscalabile del database SQL di Azure, comunemente denominato database con iperscalabilità. Questo articolo descrive gli scenari supportati dal livello Hyperscale e i servizi multi funzionalità compatibili con il database SQL Hyperscale in generale.
 
 - Queste domande frequenti sono destinate a coloro che hanno una conoscenza superficiale del livello di servizio Hyperscale e necessitano di risposte a domande e preoccupazioni specifiche.
 - Queste domande frequenti non sono da ritenersi una guida e non rispondono a domande su come usare un database SQL di Azure di livello Hyperscale. A tale scopo, fare riferimento alla documentazione sul [database SQL di Azure di livello Hyperscale](sql-database-service-tier-hyperscale.md).
@@ -38,25 +37,25 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>Quali sono le differenze tra il livello di servizio Hyperscale e i livelli di servizio per utilizzo generico e business critical
 
-I livelli di servizio basati su vCore si differenziano principalmente in base a disponibilità, tipo di archiviazione e operazioni di I/O al secondo.
+I livelli di servizio basati su vCore vengono principalmente distinti in base alla disponibilità, al tipo di archiviazione e ai IOPs.
 
 - Il livello di servizio per utilizzo generico è appropriato per la maggior parte dei carichi di lavoro aziendali e offre un set bilanciato di opzioni di calcolo e di archiviazione in cui la latenza di I/O o i tempi di failover non rappresentano una priorità.
 - Il livello di servizio Hyperscale è ottimizzato per i carichi di lavoro di database di dimensioni molto grandi.
 - Il livello di servizio business critical è adatto per i carichi di lavoro aziendali in cui la latenza di I/O è una priorità.
 
 | | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
-|:---|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|  La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | Applicazioni dati con i requisiti di capacità di dati di grandi dimensioni e possibilità di ridimensionamento automatico delle risorse di archiviazione e facile ridimensionamento delle risorse di calcolo. | Applicazioni OLTP con frequenza di transazioni elevata e livelli minimi di latenza di I/O. Offre massima resilienza agli errori tramite diverse repliche isolate.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
-| **Dimensione di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
+| **Dimensioni di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
 | **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni archiviazione** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
-| **Velocità effettiva di I/O** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | Ancora sconosciuta | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
+| **Velocità effettiva di I/O** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPs effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | Istanza gestita: Dipende dalle dimensioni del file|
-|**Disponibilità**|Tutti|1 replica, senza scalabilità in lettura, senza cache locale | Più repliche, fino a 15 repliche con scalabilità in lettura, cache locale parziale | 3 repliche, 1 replica con scalabilità in lettura, disponibilità elevata con ridondanza della zona, cache locale completa |
-|**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita), recupero temporizzato a intervalli costanti | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
+|**Disponibilità**|Tutti|1 replica, senza scalabilità in lettura, senza cache locale | Più repliche, fino a 4 cache locale parziale con scalabilità in lettura | 3 repliche, 1 replica con scalabilità in lettura, disponibilità elevata con ridondanza della zona, cache locale completa |
+|**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
 
 \* Pool elastici non supportati nel livello di servizio Hyperscale
 
@@ -73,15 +72,15 @@ Il livello di servizio Hyperscale è destinato principalmente ai clienti che han
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Quali aree supportano attualmente il livello Hyperscale
 
-Il livello Hyperscale è attualmente disponibile per i database singoli nelle aree seguenti:  US1 occidentali, Stati Uniti occidentali 2, US1 orientali, Stati Uniti centrali, Europa occidentale, Europa settentrionale, Asia sudorientale, Giappone orientale, Corea centrale, Australia sud-orientale e Australia orientale.
+Il livello iperscalabile del database SQL di Azure è attualmente disponibile nelle aree elencate nella [Panoramica sull'iperscalabilità del database SQL di Azure](sql-database-service-tier-hyperscale.md#regions).
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>È possibile creare più database Hyperscale per ogni server di database SQL
+### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>È possibile creare più database Hyperscale per ogni server logico
 
-Sì. Per altre informazioni e per i limiti al numero di database Hyperscale per ogni server di database SQL, vedere [SQL Database resource limits for single and pooled databases on a SQL Database server](sql-database-resource-limits-database-server.md) (Limiti delle risorse del database SQL per database singoli e in pool in un server di database SQL).
+Sì. Per altre informazioni e per i limiti al numero di database Hyperscale per ogni server logico, vedere [Limiti delle risorse del database SQL per database singoli e in pool in un server logico](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Quali sono le caratteristiche delle prestazioni di un database Hyperscale
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Quali sono le caratteristiche di prestazioni di un database con iperscalabilità
 
-L'architettura del database SQL Hyperscale offre livelli elevati di prestazioni e velocità effettiva e supporto per database di grandi dimensioni. Durante il periodo di anteprima pubblica non sono disponibili informazioni precise sul profilo delle prestazioni e sulle caratteristiche.
+L'architettura del database SQL Hyperscale offre livelli elevati di prestazioni e velocità effettiva e supporto per database di grandi dimensioni. 
 
 ### <a name="what-is-the-scalability-of-a-hyperscale-database"></a>Qual è la scalabilità di un database Hyperscale
 
@@ -92,13 +91,13 @@ Il database SQL Hyperscale offre scalabilità rapida in base alle esigenze dei c
   Con il livello Hyperscale, è possibile aumentare le dimensioni di calcolo primarie in termini di risorse come CPU e memoria e quindi ridurle, in un tempo costante. Poiché l'archiviazione è condivisa, la scalabilità verticale non è un'operazione di ridimensionamento dei dati.  
 - **Scalabilità orizzontale**
 
-  Con il livello Hyperscale è anche possibile effettuare il provisioning di uno o più nodi di calcolo aggiuntivi, da usare per rispondere alle richieste di lettura. Ciò significa che è possibile usare questi nodi di calcolo aggiuntivi come nodi di sola lettura per l'offload del carico di lavoro di lettura dalle risorse di calcolo primarie. Questi nodi, oltre a essere di sola lettura, vengono usati anche come hot standby in caso di failover dal nodo primario.
+  Con il livello Hyperscale è anche possibile effettuare il provisioning di uno o più nodi di calcolo aggiuntivi, da usare per rispondere alle richieste di lettura. Ciò significa che è possibile usare questi nodi di calcolo aggiuntivi come nodi di sola lettura per l'offload del carico di lavoro di lettura dalle risorse di calcolo primarie. Oltre a essere di sola lettura, questi nodi vengono usati anche come hot-standby in caso di failover dal database primario.
 
-  Il provisioning di ognuno di questi nodi di calcolo aggiuntivi può essere effettuato in un tempo costante ed è un'operazione online. È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `read_only`. Tutte le connessioni contrassegnate con `read-only` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.
+  Il provisioning di ognuno di questi nodi di calcolo aggiuntivi può essere effettuato in un tempo costante ed è un'operazione online. È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.
 
 ## <a name="deep-dive-questions"></a>Domande di approfondimento
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>È possibile combinare database singoli e Hyperscale nel server di database SQL
+### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>È possibile combinare iperscalare e database singoli in un singolo server logico
 
 Sì,
 
@@ -116,11 +115,11 @@ Sì. Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-bene
 
 ### <a name="what-kind-of-workloads-is-sql-database-hyperscale-designed-for"></a>Per quali tipi di carici di lavoro è pensato il database SQL Hyperscale
 
-Il database SQL Hyperscale supporta tutti i carichi di lavoro di SQL Server ma è ottimizzato principalmente per OLTP. È adatto anche per carichi di lavoro ibridi e di analisi (data mart).
+Il database SQL Hyperscale supporta tutti i carichi di lavoro di SQL Server ma è ottimizzato principalmente per OLTP. È possibile importare anche carichi di lavoro ibridi (HTAP) e analitici (data mart).
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Come è possibile scegliere tra Azure SQL Data Warehouse e il database SQL Hyperscale
 
-Se attualmente si eseguono query di analisi interattive usando SQL Server come data warehouse, un database SQL Hyperscale è ideale perché permette di ospitare data warehouse di dimensioni relativamente ridotte (ad esempio da pochi TB fino a decine di TB) a un costo inferiore ed è possibile eseguire la migrazione del carico di lavoro di data warehouse al database SQL Hyperscale senza modifiche al codice T-SQL.
+Se si eseguono query di analisi interattive usando SQL Server come data warehouse, l'iperscalabilità del database SQL è un'ottima opzione perché è possibile ospitare data warehouse relativamente piccoli, ad esempio pochi TB fino a decine di TB, a un costo inferiore ed è possibile eseguire la migrazione dei dati w il carico di lavoro arehouse all'iperscalabilità del database SQL senza modifiche al codice T-SQL.
 
 Se si eseguono analisi dei dati su vasta scala con query complesse e si usano Parallel Data Warehouse (PDW), Teradata o altri data warehouse MPP (Massively Parallel Processor, elaborazione parallela elevata), SQL Data Warehouse può essere la scelta migliore.
   
@@ -128,23 +127,23 @@ Se si eseguono analisi dei dati su vasta scala con query complesse e si usano Pa
 
 ### <a name="can-i-pause-my-compute-at-any-time"></a>È possibile sospendere il calcolo in qualsiasi momento
 
- No.
+Al momento, tuttavia, è possibile ridimensionare il calcolo e il numero di repliche per ridurre i costi durante le ore non di punta.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>È possibile effettuare il provisioning di risorse di calcolo con RAM aggiuntiva per un carico di lavoro a elevato utilizzo di memoria
 
- No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a una dimensione di calcolo superiore. L'hardware di quarta generazione offre una maggiore quantità di RAM rispetto a quello di quinta generazione. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a dimensioni di calcolo superiori. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>È possibile effettuare il provisioning di più nodi di calcolo di dimensioni diverse
 
- No.
+No.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Quante repliche con scalabilità in lettura sono supportate
 
-Nella versione di anteprima pubblica, i database Hyperscale vengono creati con una replica con scalabilità in lettura (due repliche in totale) per impostazione predefinita. Se si vuole aggiungere o rimuovere repliche con scalabilità in lettura, inviare una richiesta di supporto usando il portale di Azure.
+Per impostazione predefinita, i database con iperscalabilità vengono creati con una replica con scalabilità in lettura (due repliche totali). È possibile ridimensionare il numero di repliche di sola lettura tra 0 e 4 usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)della riga di comando.
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Per la disponibilità elevata, è necessario effettuare il provisioning di nodi di calcolo aggiuntivi
 
-Nei database Hyperscale la disponibilità elevata viene fornita a livello di archiviazione. È necessaria solo una replica per fornire disponibilità elevata. Quando la replica di calcolo non è attiva, viene creata automaticamente una nuova replica senza alcuna perdita di dati.
+Nei database con iperscalabilità, la resilienza viene fornita a livello di archiviazione. È necessaria una sola replica per garantire la resilienza. Quando la replica di calcolo non è attiva, viene creata automaticamente una nuova replica senza alcuna perdita di dati.
 
 Se tuttavia c'è una sola replica, potrebbe essere necessario un po' di tempo per creare la cache locale nella nuova replica dopo il failover. Durante la fase di ricompilazione della cache, il database recupera i dati direttamente dai server di pagina, con una conseguente riduzione delle prestazioni di query e del numero di operazioni di I/O al secondo.
 
@@ -158,7 +157,7 @@ Per le app cruciali che richiedono disponibilità elevata, è necessario effettu
 
 ### <a name="what-is-the-size-of-the-transaction-log-with-hyperscale"></a>Quali sono le dimensioni del log delle transazioni con il livello Hyperscale
 
-Il log delle transazioni con il livello Hyperscale è praticamente infinito. Non è necessario preoccuparsi di esaurire lo spazio di log in un sistema con velocità effettiva di log elevata. La frequenza di generazione dei log potrebbe tuttavia venire limitata per i carichi di lavoro impegnativi continui. I valori di picco e medi della frequenza di generazione dei log non sono ancora noti (il servizio è ancora in versione di anteprima).
+Il log delle transazioni con il livello Hyperscale è praticamente infinito. Non è necessario preoccuparsi di esaurire lo spazio di log in un sistema con velocità effettiva di log elevata. La frequenza di generazione dei log potrebbe tuttavia venire limitata per i carichi di lavoro impegnativi continui. La velocità massima di generazione dei log è di circa 100 MB/sec.
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>Il database temporaneo viene ridimensionato quando le dimensioni del database aumentano
 
@@ -170,7 +169,7 @@ Le dimensioni del database aumentano automaticamente man mano che si inseriscono
 
 ### <a name="what-is-the-smallest-database-size-that-sql-database-hyperscale-supports-or-starts-with"></a>Quali sono le dimensioni iniziali o più piccole supportate dal database SQL Hyperscale
 
-5 GB
+10 GB
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>In base a quali incrementi aumentano le dimensioni del database
 
@@ -182,11 +181,11 @@ Con il livello Hyperscale, i file di dati vengono archiviati in Archiviazione St
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>È possibile gestire o definire file o filegroup con il livello Hyperscale
 
-No 
+No
   
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>È possibile effettuare il provisioning di un limite rigido per la crescita dei dati per il database
 
-No 
+No
 
 ### <a name="how-are-data-files-laid-out-with-sql-database-hyperscale"></a>Come vengono organizzati i file di dati con il database SQL Hyperscale
 
@@ -194,11 +193,11 @@ I file di dati vengono controllati dai server di pagina. Man mano che le dimensi
 
 ### <a name="is-database-shrink-supported"></a>È supportata la compattazione del database
 
-No 
+No
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 
-Sì
+Yes
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
@@ -208,15 +207,15 @@ Sì. Le pagine di dati associate a una determinata tabella possono venire distri
 
 ### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>È possibile spostare i database SQL di Azure esistenti al livello di servizio Hyperscale
 
-Sì. È possibile spostare i database SQL di Azure esistenti al livello Hyperscale. In anteprima pubblica questo spostamento è una migrazione unidirezionale. Non è possibile spostare i database dal livello di servizio con iperscalabilità in un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio con iperscalabilità per il modello di verifica.
+Sì. È possibile spostare i database SQL di Azure esistenti al livello Hyperscale. Si tratta di una migrazione unidirezionale. Non è possibile spostare i database da Hyperscale a un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio Hyperscale per il modello di verifica.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>È possibile spostare i database Hyperscale ad altre edizioni
 
- No. Nella versione di anteprima pubblica, non è possibile spostare un database Hyperscale a un altro livello di servizio.
+No. Al momento non è possibile spostare un database iperscalabile in un altro livello di servizio.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Dopo la migrazione al livello di servizio Hyperscale si perdono funzionalità o caratteristiche
 
-Sì. I backup con conservazione a lungo termine nel Database SQL di Azure non è supportato in con Iperscalabilità durante l'anteprima pubblica. Dopo la migrazione dei database per con Iperscalabilità, questa funzionalità smette di funzionare.
+Sì. Alcune funzionalità del database SQL di Azure non sono ancora supportate in iperscalabilità, incluso il backup di conservazione a lungo termine, incluso, ma non limitato. Dopo la migrazione dei database al livello Hyperscale, queste funzionalità smettono di funzionare.  Si prevede che queste limitazioni siano temporanee.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>È possibile spostare il database di SQL Server locale o il database delle macchine virtuali di SQL Server al livello Hyperscale
 
@@ -229,17 +228,17 @@ Il tempo di inattività equivale a quello per la migrazione dei database a un da
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>Quanto tempo è necessario per spostare una determinata quantità di dati nel database SQL Hyperscale
 
-Queste informazioni non sono ancora note (il servizio è ancora in versione di anteprima)
+L'iperscalabilità è in grado di consumare 100 MB/sec di dati nuovi/modificati.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>È possibile leggere i dati dall'archiviazione BLOB ed eseguire il caricamento rapido (come Polybase e SQL Data Warehouse)
 
 È possibile leggere i dati da Archiviazione di Azure e caricarli in un database Hyperscale (esattamente come è possibile fare con un normale database singolo). La tecnologia Polybase non è attualmente supportata nel database SQL di Azure. È possibile usare la tecnologia Polybase tramite [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) oppure eseguendo un processo Spark in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con il [connettore Spark per SQL](sql-database-spark-connector.md). Il connettore Spark per SQL supporta l'inserimento bulk.
 
-Il modello di recupero con registrazione minima o con registrazione bulk non è supportato nel livello Hyperscale. Per fornire disponibilità elevata è richiesto il modello di recupero con registrazione completa. Il livello Hyperscale offre tuttavia una frequenza di inserimento dei dati migliore rispetto a un database singolo, grazie alla nuova architettura di log.
+Il modello di recupero con registrazione minima o con registrazione bulk non è supportato nel livello Hyperscale. Per fornire disponibilità elevata è richiesto il modello di recupero con registrazione completa. Il livello Hyperscale offre tuttavia una frequenza di inserimento dei dati migliore rispetto a un database SQL di Azure singolo, grazie alla nuova architettura di log.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>Il database SQL Hyperscale permette il provisioning di più nodi per l'inserimento di grandi quantità di dati
 
- No. Il database SQL Hyperscale è un'architettura SMP e non un'architettura a multielaborazione simmetrica o multimaster. È possibile solo creare più repliche per la scalabilità orizzontale dei carichi di lavoro di sola lettura.
+No. Il database SQL Hyperscale è un'architettura SMP e non un'architettura a multielaborazione simmetrica o multimaster. È possibile solo creare più repliche per la scalabilità orizzontale dei carichi di lavoro di sola lettura.
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Qual è la versione di SQL Server meno recente di cui sarà supportata la migrazione al database SQL Hyperscale
 
@@ -253,11 +252,11 @@ Sì. Per origini dati diverse da SQL Server è necessaria la migrazione logica. 
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Quali contratti di servizio vengono forniti per un database Hyperscale
 
-In generale, non viene fornito un contratto di servizio durante l'anteprima pubblica. Il livello Hyperscale fornisce tuttavia lo stesso livello di disponibilità elevata delle offerte di database SQL correnti. Vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
+Con la replica primaria predefinita più secondaria leggibile, il contratto di contratto è disponibile al 99,95%.  Con un numero maggiore di repliche, il contratto di contratto scende al 99,99%.  
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>I backup dei database vengono gestiti automaticamente dal servizio di database SQL di Azure
 
-Sì
+Yes
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Con che frequenza vengono eseguiti i backup dei database
 
@@ -265,77 +264,77 @@ Per i database SQL Hyperscale non sono previsti i tradizionali backup completi, 
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>Il database SQL Hyperscale supporta il ripristino temporizzato
 
-Sì
+Yes
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Quali sono l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per le operazioni di backup/ripristino nel database SQL Hyperscale
 
-L'obiettivo del punto di ripristino è 0 minuti. L'obiettivo del tempo di ripristino è inferiore a 10 minuti, indipendentemente dalle dimensioni del database. Durante l'anteprima pubblica, tuttavia, potrebbero verificarsi tempi di ripristino più lunghi.
+L'obiettivo del punto di ripristino è 0 minuti. L'obiettivo del tempo di ripristino è inferiore a 10 minuti, indipendentemente dalle dimensioni del database. 
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>I backup di database di grandi dimensioni influiscono sulle prestazioni di calcolo del nodo primario
 
- No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di file. Non influiscono sul carico di lavoro dell'utente nel nodo primario.
+No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di file. Non influiscono sul carico di lavoro dell'utente nel nodo primario.
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>È possibile eseguire il ripristino geografico con un database SQL Hyperscale
 
-No, non durante la fase di anteprima pubblica.
+Sì.  Il ripristino geografico è completamente supportato.
 
 ### <a name="can-i-setup-geo-replication-with-sql-database-hyperscale-database"></a>È possibile configurare la replica geografica con il database SQL Hyperscale
 
-No, non durante la fase di anteprima pubblica.
+Attualmente non è possibile.
 
 ### <a name="do-my-secondary-compute-nodes-get-geo-replicated-with-sql-database-hyperscale"></a>Viene eseguita la replica geografica dei nodi di calcolo secondari con il database SQL Hyperscale
 
-No, non durante la fase di anteprima pubblica.
+Attualmente non è possibile.
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>È possibile ripristinare un backup di un database SQL Hyperscale nel server locale o in SQL Server in una macchina virtuale
 
- No. Il formato di archiviazione per i database Hyperscale è diverso da quello di SQL Server tradizionale e non è possibile controllare i backup o accedervi. Per estrarre i dati da un database SQL Hyperscale, usare il servizio di esportazione oppure gli script e BCP.
+No. Il formato di archiviazione per i database Hyperscale è diverso da quello di SQL Server tradizionale e non è possibile controllare i backup o accedervi. Per estrarre i dati da un database SQL Hyperscale, usare il servizio di esportazione oppure gli script e BCP.
 
 ## <a name="cross-feature-questions"></a>Domande sulle funzionalità
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Dopo la migrazione al livello di servizio Hyperscale si perdono funzionalità o caratteristiche
 
-Sì. I backup con conservazione a lungo termine nel Database SQL di Azure non è supportato in con Iperscalabilità durante l'anteprima pubblica. Dopo la migrazione dei database per con Iperscalabilità, questa funzionalità smette di funzionare.
+Sì. Alcune funzionalità del database SQL di Azure non sono supportate in iperscalabilità, incluso un backup con conservazione a lungo termine a lungo termine. Dopo la migrazione dei database al livello Hyperscale, queste funzionalità smettono di funzionare.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase funzionerà con il database SQL Hyperscale
 
- No. La tecnologia Polybase non è supportata nel database SQL di Azure.
+No. La tecnologia Polybase non è supportata nel database SQL di Azure.
 
 ### <a name="does-the-compute-have-support-for-r-and-python"></a>Le risorse di calcolo offrono supporto per R e Python
 
- No. R and Python non sono supportati nel database SQL di Azure.
+No. R and Python non sono supportati nel database SQL di Azure.
 
 ### <a name="are-the-compute-nodes-containerized"></a>I nodi di calcolo sono inclusi in contenitori
 
- No. Il database si trova in un macchina virtuale di calcolo e non in un contenitore.
+No. Il database si trova in un macchina virtuale di calcolo e non in un contenitore.
 
 ## <a name="performance-questions"></a>Domande sulle prestazioni
 
 ### <a name="how-much-throughput-can-i-push-on-the-largest-sql-database-hyperscale-compute"></a>Qual è la velocità effettiva di cui è possibile eseguire il push nelle operazioni di calcolo più grandi del database SQL Hyperscale
 
-Queste informazioni non sono ancora note (il servizio è ancora in versione di anteprima)
+Si è visto un 100 MB/sec coerente di dati delle modifiche (generazione di dati del log delle transazioni)
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-sql-database-hyperscale-compute"></a>Quante operazioni di I/O al secondo è possibile raggiungere nelle operazioni di calcolo più grandi del database SQL Hyperscale
 
-Queste informazioni non sono ancora note (il servizio è ancora in versione di anteprima)
+La latenza di IOPS e i/o variano a seconda dei modelli di carico di lavoro.  Se i dati che devono essere accessibili sono locali per la cache di calcolo, saranno gli stessi modelli di i/o dell'unità SSD locale.   
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>La velocità effettiva è influenzata dai backup
 
- No. Il calcolo è separato dal livello di archiviazione per evitare un impatto sulle risorse di calcolo.
+No. Il calcolo è separato dal livello di archiviazione per evitare un impatto sulle risorse di calcolo.
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>La velocità effettiva cambia quando viene effettuato il provisioning di nodi di calcolo aggiuntivi
 
-Poiché lo spazio di archiviazione è condiviso e non viene eseguita alcuna replica fisica diretta tra i nodi di calcolo primari e secondari, tecnicamente, la velocità effettiva nel nodo primario verrà influenzata dall'aggiunta di nodi con scalabilità in lettura. Tuttavia, un carico di lavoro impegnativo continuo potrebbe venire limitato per consentire l'applicazione del log nei nodi secondari e permettere ai server di pagina di recuperare, evitando il peggioramento delle prestazioni di lettura nei nodi secondari.
+Poiché lo spazio di archiviazione è condiviso e non viene eseguita alcuna replica fisica diretta tra i nodi di calcolo primari e secondari, tecnicamente, la velocità effettiva del nodo primario non sarà interessata dall'aggiunta di nodi con scalabilità in lettura. Tuttavia, un carico di lavoro impegnativo continuo potrebbe venire limitato per consentire l'applicazione del log nei nodi secondari e permettere ai server di pagina di recuperare, evitando il peggioramento delle prestazioni di lettura nei nodi secondari.
 
 ## <a name="scalability-questions"></a>Domande sulla scalabilità
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-node"></a>Quanto tempo è necessario per ridimensionare un nodo di calcolo
 
-Alcuni minuti
+La scalabilità verso l'alto o verso il basso dovrebbe richiedere 5-10 minuti indipendentemente dalla dimensione dei dati.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Il database è offline mentre vengono eseguite le operazioni di ridimensionamento
 
- No. Le operazioni di ridimensionamento vengono eseguite online.
+No. Le operazioni di ridimensionamento vengono eseguite online.
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>Possono verificarsi interruzioni della connessione mentre vengono eseguite le operazioni di ridimensionamento
 
@@ -349,39 +348,44 @@ Attivata dall'utente finale. Non è un'operazione automatica.
 
 Sì. Il database temporaneo viene ridimensionato automaticamente quando aumentano le risorse di calcolo.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile effettuare il provisioning di più risorse di calcolo primarie, ad esempio un sistema multimaster in cui più nodi head di calcolo primari possono consentire un livello più elevato di concorrenza
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile eseguire il provisioning di più nodi di calcolo primari, ad esempio un sistema multimaster, in cui più teste di calcolo primarie possono guidare un livello più elevato di concorrenza
 
- No. Solo il nodo di calcolo primario accetta le richieste di lettura/scrittura. I nodi di calcolo secondari accettano solo le richieste di sola lettura.
+No. Solo il nodo di calcolo primario accetta le richieste di lettura/scrittura. I nodi di calcolo secondari accettano solo le richieste di sola lettura.
 
 ## <a name="read-scale-questions"></a>Domande sulla scalabilità in lettura
 
 ### <a name="how-many-secondary-compute-nodes-can-i-provision"></a>Di quanti nodi di calcolo secondari è possibile effettuare il provisioning
 
-Nella versione di anteprima pubblica vengono create due repliche per i database Hyperscale per impostazione predefinita. Se si vuole modificare il numero di repliche, inviare una richiesta di supporto usando il portale di Azure.
+Per impostazione predefinita, vengono create 2 repliche per i database con iperscalabilità. Se si desidera modificare il numero di repliche, è possibile utilizzare [portale di Azure](https://portal.azure.com).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Come è possibile stabilire la connessione ai nodi di calcolo secondari
 
-È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `read_only`. Tutte le connessioni contrassegnate con `read-only` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.  
+È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Ricerca per categorie verificare se è stata stabilita la connessione al nodo di calcolo secondario usando SSMS/altri strumenti client?
+
+È possibile eseguire la query T-SQL seguente usando SSMS/altri strumenti client: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+Il risultato è `READ_ONLY` se la connessione fa riferimento al nodo secondario di sola lettura o `READ_WRITE` se la connessione fa riferimento al nodo primario.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>È possibile creare un endpoint dedicato per la replica con scalabilità in lettura
 
- No. Nella versione di anteprima pubblica, è solo possibile connettersi alla replica con scalabilità in lettura specificando `ApplicationIntent=ReadOnly`.
+No. È possibile connettersi solo a una replica con scalabilità in `ApplicationIntent=ReadOnly`lettura specificando.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Il sistema esegue il bilanciamento del carico intelligente per il carico di lavoro di lettura
 
- No. Nella versione di anteprima, il carico di lavoro di sola lettura viene reindirizzato a una replica casuale con scalabilità in lettura.
+No. Il carico di lavoro di sola lettura viene reindirizzato a una replica casuale con scalabilità in lettura.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>È possibile ridimensionare i nodi di calcolo secondari indipendentemente dal nodo di calcolo primario
 
-No, non durante la fase di anteprima pubblica.
+No. I nodi di calcolo secondari vengono usati anche per la disponibilità elevata, pertanto devono essere la stessa configurazione del database primario, in caso di failover.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Il database temporaneo viene ridimensionato in modo diverso per il nodo di calcolo primario e i nodi di calcolo secondari aggiuntivi
 
- No. Il database `tempdb` viene configurato in base al provisioning delle dimensioni di calcolo, durante l'anteprima pubblica, e i nodi di calcolo secondari hanno le stesse dimensioni del nodo di calcolo primario.
+No. Il `tempdb` è configurato in base al provisioning delle dimensioni di calcolo, i nodi di calcolo secondari hanno le stesse dimensioni del calcolo primario.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>È possibile aggiungere indici e viste nei nodi di calcolo secondari
 
- No. I database Hyperscale hanno un'archiviazione condivisa e ciò significa che tutti i nodi di calcolo vedono gli stessi indici, tabelle e viste. Se si vuole disporre di indici aggiuntivi ottimizzati per operazioni di lettura nei nodi secondari, è prima di tutto necessario aggiungerli nel nodo primario.
+No. I database Hyperscale hanno un'archiviazione condivisa e ciò significa che tutti i nodi di calcolo vedono gli stessi indici, tabelle e viste. Se si vuole disporre di indici aggiuntivi ottimizzati per operazioni di lettura nei nodi secondari, è prima di tutto necessario aggiungerli nel nodo primario.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-node"></a>Quanto ritardo c'è tra il nodo di calcolo primario e quello secondario
 
@@ -389,4 +393,4 @@ Dal momento in cui viene eseguito il commit di una transazione nel nodo primario
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul livello di servizio Hyperscale, vedere [Livello di servizio Hyperscale (anteprima)](sql-database-service-tier-hyperscale.md).
+Per altre informazioni sul livello di servizio di iperscalabilità, vedere [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).

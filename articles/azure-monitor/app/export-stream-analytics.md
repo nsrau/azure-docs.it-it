@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120785"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625071"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -148,7 +148,7 @@ Incollare questa query:
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Viene usato [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di un minuto.
+* Viene usato [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) raggruppa gli elementi in periodi di tempo di un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Query per visualizzare i valori delle metriche
 ```SQL

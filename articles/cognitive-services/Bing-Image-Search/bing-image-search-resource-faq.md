@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049425"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881706"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Domande frequenti sull'API Ricerca immagini Bing
 
@@ -63,6 +63,6 @@ Questo approccio protegge inoltre la chiave API dall'esposizione al pubblico, in
 
 La domanda riguarda una funzione o una funzionalità mancante? È possibile richiederla o votarla nel [sito Web UserVoice](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Stack Overflow: Servizi cognitivi](https://stackoverflow.com/questions/tagged/bing-api)

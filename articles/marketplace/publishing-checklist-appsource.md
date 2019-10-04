@@ -1,27 +1,22 @@
 ---
-title: Elenco di controllo per la pubblicazione per AppSource | Azure
+title: Elenco di controllo pubblicazione per AppSource | Azure Marketplace
 description: Elenco di controllo per la pubblicazione per AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7df88c941c1d42bc4a49e391fa3d64273237bd08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937590"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Elenco di controllo per la pubblicazione per AppSource  
+
 Controllare i componenti necessari prima di avviare il processo di pubblicazione.  
 
 Per pubblicare l'app in AppSource sono necessari gli elementi seguenti.  

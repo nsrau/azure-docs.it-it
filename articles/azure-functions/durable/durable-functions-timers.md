@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608234"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087051"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
@@ -132,7 +131,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Usare `CancellationTokenSource` per annullare un timer permanente (C#) o una chiamata `cancel()` sull'oggetto restituito `TimerTask` (JavaScript) se il codice non attenderà il completamento. Durable Task Framework non modificherà lo stato di un'orchestrazione su "completato" fino a quando non sono state completate o annullate tutte le attività in sospeso.
+> Usare `CancellationTokenSource` per annullare un timer permanente (C#) o una chiamata `cancel()` sull'oggetto restituito `TimerTask` (JavaScript) se il codice non attenderà il completamento. Il Framework di attività permanenti non modifica lo stato di un'orchestrazione su "completato" fino a quando tutte le attività in sospeso non vengono completate o annullate.
 
 Questo meccanismo non termina effettivamente l'esecuzione della funzione di attività in corso, ma consente semplicemente alla funzione di orchestrazione di ignorare il risultato e continuare. Se l'app per le funzioni usa il piano a consumo, verranno comunque addebitati il tempo e la memoria utilizzati dalla funzione di attività abbandonata. Per impostazione predefinita, le funzioni in esecuzione nel piano a consumo hanno un timeout di cinque minuti. Se questo limite viene superato, l'host di Funzioni di Azure viene riciclato per interrompere ogni esecuzione e impedire una fatturazione eccessiva. Il [timeout delle funzioni è configurabile](../functions-host-json.md#functiontimeout).
 

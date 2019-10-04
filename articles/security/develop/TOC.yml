@@ -1,0 +1,87 @@
+- name: Documentazione sullo sviluppo sicuro
+  href: index.yml
+- name: App di esempio
+  expanded: true
+  items:
+    - name: Introduzione allo sviluppo sicuro
+      items:
+        - name: App Web in un contenitore Linux
+          href: secure-web-app.md
+        - name: App Web con Azure Active Directory
+          href: secure-aad-app.md
+    - name: Soluzioni conformi al settore
+      items:
+        - name: Payment Card Industry
+          href: secure-pci-web-app.md
+- name: Concetti
+  expanded: true
+  items:
+    - name: Procedure consigliate
+      items:
+        - name: Panoramica
+          href: secure-dev-overview.md
+        - name: Progettare app sicure
+          href: secure-design.md
+        - name: Sviluppare app sicure
+          href: secure-develop.md
+        - name: Distribuire app sicure
+          href: secure-deploy.md
+- name: Risorse
+  expanded: true
+  items:
+    - name: Analisi del codice di sicurezza Microsoft
+      items:
+        - name: Panoramica
+          href: security-code-analysis-overview.md
+        - name: Onboarding e installazione
+          href: security-code-analysis-onboard.md
+        - name: Configurazione
+          href: security-code-analysis-customize.md
+        - name: Domande frequenti
+          href: security-code-analysis-faq.md
+    - name: Microsoft Threat Modeling Tool
+      displayName: stride
+      href: threat-modeling-tool.md
+      items:
+        - name: Introduzione
+          href: threat-modeling-tool-getting-started.md
+        - name: Panoramica delle funzionalità
+          href: threat-modeling-tool-feature-overview.md
+        - name: Minacce
+          href: threat-modeling-tool-threats.md
+        - name: Rilasci
+          href: threat-modeling-tool-releases.md
+          items:
+            - name: Threat Modeling Tool in disponibilità generale versione 7.1.5091.2 - 12 settembre 2018
+              href: threat-modeling-tool-releases-71509112.md
+            - name: Aggiornamento di Threat Modeling Tool versione 7.1.51023.1 - 1 novembre 2018
+              href: threat-modeling-tool-releases-71510231.md
+            - name: Aggiornamento di Threat Modeling Tool versione 7.1.60126.1 - 29 gennaio 2019
+              href: threat-modeling-tool-releases-71601261.md
+            - name: Aggiornamento di Threat Modeling Tool versione 7.1.60408.1 - 9 aprile 2019
+              href: threat-modeling-tool-releases-71604081.md
+            - name: Aggiornamento di Threat Modeling Tool versione 7.1.60702.1 - 02/07/2019
+              href: threat-modeling-tool-releases-71607021.md
+        - name: Soluzioni di prevenzione
+          href: threat-modeling-tool-mitigations.md
+          items:
+            - name: Controllo e registrazione
+              href: threat-modeling-tool-auditing-and-logging.md
+            - name: Authentication
+              href: threat-modeling-tool-authentication.md
+            - name: Authorization
+              href: threat-modeling-tool-authorization.md
+            - name: Sicurezza delle comunicazioni
+              href: threat-modeling-tool-communication-security.md
+            - name: Gestione della configurazione
+              href: threat-modeling-tool-configuration-management.md
+            - name: Crittografia
+              href: threat-modeling-tool-cryptography.md
+            - name: Gestione delle eccezioni
+              href: threat-modeling-tool-exception-management.md
+            - name: Convalida dell'input
+              href: threat-modeling-tool-input-validation.md
+            - name: Dati sensibili
+              href: threat-modeling-tool-sensitive-data.md
+            - name: Gestione delle sessioni
+              href: threat-modeling-tool-session-management.md

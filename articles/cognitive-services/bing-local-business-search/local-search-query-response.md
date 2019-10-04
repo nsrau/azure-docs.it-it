@@ -1,20 +1,21 @@
 ---
-title: Invio e uso di query e risposte dell'API di ricerca di attività locali Bing | Microsoft Docs
+title: Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per informazioni su come inviare e usare query di ricerca con l'API di ricerca di attività locali Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh; v-gedod
-ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.subservice: bing-local-business
+ms.topic: conceptual
+ms.date: 06/26/2018
+ms.author: rosh
+ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779794"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906367"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
 
@@ -22,7 +23,7 @@ ms.locfileid: "57779794"
 
 ## <a name="creating-a-request"></a>Creazione di una richiesta
 
-Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Ad esempio: 
+Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Esempio:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -37,6 +38,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## <a name="using-responses"></a>Uso di risposte
 
 Le risposte JSON dell'API di ricerca di attività locali Bing contengono un oggetto `SearchResponse`. L'API restituirà risultati della ricerca pertinenti nel campo `places`. Se non vengono trovati risultati, il campo `places` non verrà incluso nella risposta.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {
@@ -61,7 +64,7 @@ I risultati JSON restituiti dall'API includono gli attributi seguenti:
 * name
 * routeablePoint
 * telephone
-* URL
+* url
 
 Per informazioni generali su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API di ricerca locale Bing v7](local-search-reference.md).
 

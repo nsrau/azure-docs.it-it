@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Node.js"
+title: "Guida introduttiva: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Node.js"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per cercare entità con l'SDK di Ricerca entità Bing per Node.js
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/24/2019
+ms.author: aahi
+ms.openlocfilehash: 40c9062dba5eb3bbed6ee90bfdb0a74c1d6c11d5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097031"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479022"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Avvio rapido: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Node.js
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Guida introduttiva: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Node.js
 
 Usare questa guida introduttiva per iniziare a cercare entità con l'SDK di Ricerca entità Bing per Node.js. Mentre Ricerca entità Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 

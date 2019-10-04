@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cf84d685bf20f1117aa2378cf2e2696cb78a46a5
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253525"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076156"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -74,7 +74,7 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
 
 1. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 3. Configurare le proprietà seguenti:
    
    * **Sottoscrizione** selezionare la sottoscrizione di Azure usata per creare il cluster.
@@ -90,14 +90,14 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
 > Assicurarsi di selezionare il gruppo di risorse di Azure per il cluster HDInsight esistente.  In caso contrario, verrà visualizzato il messaggio di errore "Non è possibile eseguire l'operazione richiesta su una risorsa annidata. La risorsa padre '&lt;NomeCluster>' non è stata trovata".
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Aggiungere un nodo perimetrale durante la creazione di un cluster
-In questa sezione si userà un modello di Resource Manager per creare un cluster HDInsight con un nodo perimetrale.  Il modello di Resource Manager sono reperibili nel [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.
+In questa sezione si userà un modello di Resource Manager per creare un cluster HDInsight con un nodo perimetrale.  Il modello di Gestione risorse si trova nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.
 
 **Creare un cluster HDInsight con un nodo perimetrale**
 
 1. Creare un cluster HDInsight, se non ne è ancora disponibile uno.  Vedere [Introduzione all'uso di Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 3. Configurare le proprietà seguenti:
    
    * **Sottoscrizione** selezionare la sottoscrizione di Azure usata per creare il cluster.
@@ -108,7 +108,7 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
    * **Password dell'account di accesso del cluster**: immettere la password utente HTTP di Hadoop.
    * **Nome utente SSH**: immettere il nome utente SSH. Il nome predefinito è **sshuser**.
    * **Password SSH**: immettere la password utente SSH.
-   * **Install Script Action** (Installa azione script): per eseguire questa esercitazione mantenere il valore predefinito.
+   * **Install Script Action** (Installa azione script): Mantieni il valore predefinito per questo articolo.
      
      Alcune proprietà sono state impostate come hardcoded nel modello: il tipo di cluster, il numero di nodi di ruolo di lavoro del cluster, le dimensioni e il nome del nodo perimetrale.
 4. Selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista** per creare il cluster con il nodo perimetrale.

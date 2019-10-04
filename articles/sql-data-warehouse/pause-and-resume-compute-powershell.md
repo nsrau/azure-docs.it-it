@@ -10,14 +10,14 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe9cd6c951f9eba73cee1bea66df88f3143859b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846835"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306098"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Guida introduttiva: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse con PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Sospendere e riprendere il calcolo in Azure SQL Data Warehouse con Azure PowerShell
 
 PowerShell consente di sospendere il calcolo in un'istanza di Azure SQL Data Warehouse per ridurre i costi. [Riprendere il calcolo](sql-data-warehouse-manage-compute-overview.md) quando si è pronti a usare il data warehouse.
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa guida introduttiva presuppone che l'utente abbia già un data warehouse SQL di cui è possibile sospendere e riprendere l'esecuzione. Se è necessario crearne uno, è possibile usare [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Data Warehouse di cui è possibile sospendere e riprendere l'esecuzione. Se è necessario crearne uno, è possibile usare [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 

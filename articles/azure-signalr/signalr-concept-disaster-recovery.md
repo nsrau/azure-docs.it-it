@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61402133"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
 
@@ -41,7 +41,7 @@ Al momento della connessione, tuttavia, un client viene sempre indirizzato al se
 
 Di seguito è riportato un diagramma che illustra tale topologia:
 
-![topologia](media/signalr-concept-disaster-recovery/topology.png)
+![Topologia](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurare i server app con più istanze del servizio SignalR
 

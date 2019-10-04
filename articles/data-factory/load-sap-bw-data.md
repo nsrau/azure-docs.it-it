@@ -9,14 +9,14 @@ ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a123ed45b5857aa40fc9853a95c528833ba8aa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523189"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449692"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare Azure Data Factory per copiare dati da SAP B
 
 - **Azure Data Factory**: Se non si dispone di uno, seguire i passaggi necessari per [creare una data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
-- **SAP BW Open Hub destinazione (OHD) con tipo di destinazione "Tabella di Database"**: Per creare un OHD o per verificare che il OHD sia configurato correttamente per l'integrazione con Data Factory, vedere la [configurazioni dalla destinazione SAP BW Open Hub](#sap-bw-open-hub-destination-configurations) sezione di questo articolo.
+- **SAP BW Open Hub destinazione (OHD) con tipo di destinazione "Tabella di Database"** : Per creare un OHD o per verificare che il OHD sia configurato correttamente per l'integrazione con Data Factory, vedere la [configurazioni dalla destinazione SAP BW Open Hub](#sap-bw-open-hub-destination-configurations) sezione di questo articolo.
 
 - **L'utente di SAP BW richiede le autorizzazioni seguenti**:
 
@@ -125,7 +125,7 @@ Nel portale di Azure, passare alla data factory. Selezionare **crea e monitora**
 
     ![Visualizzazione dettagli di output attività](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="do-an-incremental-copy-from-sap-bw-open-hub"></a>Eseguire una copia incrementale da SAP BW Open Hub
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>Copia incrementale di Hub aperto di SAP BW
 
 > [!TIP]
 > Visualizzare [flusso di Hub aperto di SAP BW connector delta estrazione](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) per informazioni su come il connettore SAP BW Open Hub in Data Factory copia incrementale dei dati da SAP BW. Questo articolo consentono inoltre di comprendere la configurazione connettore di base.
@@ -179,9 +179,9 @@ In data factory **attività iniziali** pagina, selezionare **creare una pipeline
             "properties": {
                "sapOpenHubMaxRequestId": {
                   "type": "string"
-               },
-               "type": "object"
-            }
+               }
+            },
+            "type": "object"
          }
          ```
 

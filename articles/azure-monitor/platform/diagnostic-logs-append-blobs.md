@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237636"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258394"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure memorizzati in un account di archiviazione
 
@@ -24,16 +24,16 @@ ms.locfileid: "60237636"
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-Monitoraggio di Azure offre una funzionalità che ti permette di inviare i dati di log attività e i dati di diagnostica di risorsa in un account di archiviazione di Azure, nomi di hub eventi, o in un'area di lavoro di Log Analitica in Monitoraggio di Azure. Per risolvere un problema di prestazioni di sistema, il **1° novembre 2018, a mezzanotte UTC**, verrà modificato il formato dei log di invio dei dati nell'archiviazione blob. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
+Monitoraggio di Azure offre una funzionalità che consente di inviare dati di diagnostica delle risorse e dati del log attività in un account di archiviazione di Azure, in uno spazio dei nomi di hub eventi o in un'area di lavoro Log Analytics in monitoraggio di Azure. Per risolvere un problema di prestazioni di sistema, il **1° novembre 2018, a mezzanotte UTC**, verrà modificato il formato dei log di invio dei dati nell'archiviazione blob. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
 
 * Giovedì 1° novembre 2018, a mezzanotte UTC, il formato blob verrà modificato per diventare [righe JSON](http://jsonlines.org/). Ciò significa che ogni record sarà delimitato da una nuova riga, senza matrice di record esterna e senza virgola tra i record JSON.
 * Il formato del blob cambia per tutte le impostazioni di diagnostica in tutte le sottoscrizioni, in una sola volta. Il primo file PT1H.json generato per il 1° novembre userà questo nuovo formato. I nomi di blob e contenitore rimangono invariati.
 * Se si configura un'impostazione di diagnostica tra ora e il 1° novembre, continuerà a inviare i dati nel formato corrente fino a quella data.
-* Questa modifica verrà eseguita in una volta sola, in tutte le aree di cloud pubblico. La modifica non verrà ancora eseguita nei cloud di Azure per enti pubblici, Azure Germania o Azure Cina.
+* Questa modifica verrà eseguita in una volta sola, in tutte le aree di cloud pubblico. La modifica non si verificherà ancora nei Microsoft Azure gestiti da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
 * Questa modifica interessa i tipi di dati seguenti:
-  * [I log di diagnostica di risorse Azure](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([vedere l'elenco delle risorse qui](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [Dati del log attività Azure esportati tramite i profili di log](./../../azure-monitor/platform/archive-activity-log.md)
+  * [I log di diagnostica di risorse Azure](archive-diagnostic-logs.md) ([vedere l'elenco delle risorse qui](diagnostic-logs-schema.md))
+  * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](diagnostic-settings.md)
+  * [Dati del log attività Azure esportati tramite i profili di log](archive-activity-log.md)
 * Questa modifica non interessa:
   * Log dei flussi di rete
   * Log di servizio di Azure non ancora resi disponibili tramite Monitoraggio di Azure (ad esempio, i log di diagnostica del Servizio app di Azure, i log di analisi di archiviazione)

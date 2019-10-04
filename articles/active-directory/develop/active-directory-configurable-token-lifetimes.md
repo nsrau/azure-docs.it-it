@@ -3,33 +3,34 @@ title: Durata dei token configurabili in Azure Active Directory | Microsoft Docs
 description: Informazioni su come impostare la durata per i token rilasciati da Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.topic: conceptual
+ms.date: 09/17/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3696ebc216062a6d52fd187819f07dfb0078057
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411369"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812584"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
 
 > [!IMPORTANT]
-> In seguito ai commenti dei clienti durante l'anteprima, stiamo pianificando di sostituire questa funzionalità con una nuova funzione di Accesso condizionale di Azure Active Directory.  Al completamento della nuova funzione, questa funzionalità verrà infine deprecata dopo un periodo di notifica.  Se si usano i criteri di durata dei Token configurabili, prepararsi a passare alla nuova funzione di Accesso condizionale quando sarà disponibile. 
+> Dopo aver ascoltato i clienti durante l'anteprima, sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. Dopo il 1 ° novembre 2019 non sarà possibile usare i criteri di durata dei token configurabili per configurare i token di sessione e di aggiornamento. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
 
 In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole applicazioni o a tutte le applicazioni di un'organizzazione. Ogni tipo di criteri ha una struttura univoca con un set di proprietà che vengono applicate agli oggetti a cui sono assegnate.
 
@@ -39,6 +40,7 @@ In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole
 > I criteri per la durata dei token configurabili non sono supportati per SharePoint Online.  Anche se si ha la possibilità di creare questo criterio tramite PowerShell, SharePoint Online non lo riconoscerà. Fare riferimento ai [blog di SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) per altre informazioni sulla configurazione dei timeout di sessione inattiva.
 >* La durata predefinita per il token di accesso di SharePoint Online è 1 ora. 
 >* Il tempo di inattività massimo predefinito del token di aggiornamento di SharePoint Online è 90 giorni.
+
 
 ## <a name="token-types"></a>Tipi di token
 
@@ -65,11 +67,11 @@ I client pubblici non possono archiviare in modo sicuro una password client, ovv
 I token ID vengono passati a siti Web e client nativi e contengono informazioni relative al profilo di un utente. Ogni token ID è associato a una combinazione specifica di utente e client ed è considerato valido fino alla relativa scadenza. La durata della sessione di un utente in un'applicazione Web corrisponde in genere alla durata del token ID rilasciato per l'utente. È possibile regolare la durata del token ID per controllare con quale frequenza si verifica la scadenza di una sessione in un'applicazione Web ed è necessario rieseguire l'autenticazione dell'utente con Azure AD, in modo automatico o interattivo.
 
 ### <a name="single-sign-on-session-tokens"></a>Token di sessione Single Sign-On
-Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessione Single Sign-On (SSO) con Azure AD e il browser dell'utente. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Si noti che il token di sessione SSO non è associato a un'applicazione client o a una risorsa specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
+Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessione Single Sign-On (SSO) con Azure AD e il browser dell'utente. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
 
 Azure AD usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione e vengono eliminati alla chiusura del browser. In genere viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
 
-I token di sessione non permanenti hanno una durata di 24 ore, mentre i token permanenti hanno una durata di 180 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, tale periodo viene esteso per altre 24 ore o altri 180 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
+I token di sessione non permanenti hanno una durata di 24 ore, mentre i token permanenti hanno una durata di 180 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 180 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
 È possibile usare criteri per impostare il periodo di tempo dopo il rilascio del primo token di sessione oltre il quale tale token non viene più accettato. A tale scopo, usare la proprietà Validità massima del token di sessione. È possibile regolare la durata dei token di sessione per controllare quando e con quale frequenza viene richiesto all'utente di immettere di nuovo le credenziali durante l'uso di un'applicazione Web, anziché eseguirne automaticamente l'autenticazione.
 
@@ -79,14 +81,15 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
 | Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massima |
 | --- | --- | --- | --- | --- | --- |
-| Durata dei token di accesso |AccessTokenLifetime |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
+| Durata dei token di accesso |AccessTokenLifetime<sup>2</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
 | Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
-| Validità massima token di sessione a fattore singolo |MaxAgeSessionSingleFactor<sup>2</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
-| Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor<sup>3</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
+| Validità massima token di sessione a fattore singolo |MaxAgeSessionSingleFactor |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
+| Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 
 * <sup>1</sup> La durata esplicita massima che è possibile impostare per questi attributi è 365 giorni.
+* <sup>2</sup> Per far funzionare il client Web Microsoft teams, è consigliabile impostare AccessTokenLifetime su un valore superiore a 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
 | Proprietà | Impatto | Predefinito |
@@ -103,13 +106,13 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * Se i criteri sono assegnati in modo esplicito all'entità servizio, vengono applicati.
 * Se all'entità servizio non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati in modo esplicito all'elemento organizzazione padre dell'entità servizio.
 * Se all'entità servizio o all'organizzazione non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati all'applicazione.
-* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, vengono applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
+* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, verranno applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
 
 Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
 
 La validità di un token viene valutata quando questo viene usato. Vengono applicati i criteri con la priorità più alta per l'applicazione a cui si accede.
 
-Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[TimeSpan](https://msdn.microsoft.com/library/system.timespan) C# - D.HH:MM:SS.  Quindi 80 giorni e 30 minuti sarebbe `80.00:30:00`.  La D iniziale può essere eliminata se è zero, pertanto 90 minuti sarebbe `00:90:00`.  
+Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[TimeSpan](/dotnet/api/system.timespan) C# - D.HH:MM:SS.  Quindi 80 giorni e 30 minuti sarebbe `80.00:30:00`.  La D iniziale può essere eliminata se è zero, pertanto 90 minuti sarebbe `00:90:00`.  
 
 > [!NOTE]
 > Di seguito è riportato uno scenario di esempio.
@@ -220,11 +223,11 @@ Per iniziare, seguire questa procedura:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Esempio: Gestire i criteri predefiniti di un'organizzazione
-In questo esempio vengono creati criteri che permettono agli utenti di eseguire l'accesso con una frequenza minore nell'intera organizzazione. A tale scopo, vengono creati criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati a tutta l'organizzazione. Tali criteri vengono applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri.
+In questo esempio si crea un criterio che consente agli utenti di accedere con minore frequenza nell'intera organizzazione. A tale scopo, vengono creati criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati a tutta l'organizzazione. Tali criteri vengono applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri.
 
 1. Creare i criteri per la durata dei token.
 
-    1.  Impostare il token di aggiornamento a fattore singolo in modo che sia valido fino alla revoca. In questo modo il token non scade fino a quando non viene revocato l'accesso. Creare la definizione dei criteri seguente:
+    1. Impostare il token di aggiornamento a fattore singolo in modo che sia valido fino alla revoca. In questo modo il token non scade fino a quando non viene revocato l'accesso. Creare la definizione dei criteri seguente:
 
         ```powershell
         @('{
@@ -236,16 +239,16 @@ In questo esempio vengono creati criteri che permettono agli utenti di eseguire 
         }')
         ```
 
-    2.  Per creare i criteri, eseguire questo comando:
+    2. Per creare i criteri, eseguire questo comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
+    3. Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Aggiornare i criteri.
@@ -253,7 +256,7 @@ In questo esempio vengono creati criteri che permettono agli utenti di eseguire 
     Il primo criterio impostato in questo esempio potrebbe non essere rigoroso quanto richiesto dal servizio. Per impostare il token di aggiornamento a fattore singolo in modo che scada tra due giorni, eseguire questo comando:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Esempio: Creare criteri per l'accesso Web
@@ -264,88 +267,98 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
 
     Questi criteri per l'accesso Web consentono di impostare su due ore la durata dei token di accesso/ID e la validità massima di un token di sessione a fattore singolo.
 
-    1.  Per creare i criteri, eseguire questo comando:
+    1. Per creare i criteri, eseguire questo comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
+    2. Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Assegnare i criteri all'entità servizio. È necessario ottenere anche l'**ObjectId** dell'entità servizio. 
+2. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'**ObjectId** dell'entità servizio.
 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
-
-    2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
-
+    1. Usare il cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) per visualizzare tutte le entità servizio dell'organizzazione o una singola entità servizio.
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
+    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Esempio: Creare criteri per un'app nativa che chiama un'API Web
 In questo esempio vengono creati i criteri in base ai quali viene richiesto agli utenti di eseguire l'autenticazione con minore frequenza. Questi criteri prolungano anche l'intervallo di tempo di inattività dell'utente prima che sia necessario rieseguire l'autenticazione. I criteri vengono applicati all'API web. Quando l'app nativa richiede l'API Web come risorsa, vengono applicati questi criteri.
 
 1. Creare i criteri per la durata dei token.
 
-    1.  Per creare criteri rigidi per un'API Web, eseguire questo comando:
+    1. Per creare criteri rigidi per un'API Web, eseguire questo comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
+    2. Per visualizzare i nuovi criteri, eseguire il comando seguente:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assegnare i criteri all'API Web. È necessario ottenere anche l'**ObjectId** dell'app. Il modo migliore per trovare l'**ObjectId** dell'app è tramite il [portale di Azure](https://portal.azure.com/).
+2. Assegnare i criteri all'API Web. È necessario ottenere anche l'**ObjectId** dell'app. Usare il cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) per trovare l' **ObjectID**dell'app o usare il [portale di Azure](https://portal.azure.com/).
 
-   Dopo aver ottenuto l'**ObjectId** dell'app, eseguire questo comando:
+    Ottenere l' **ObjectID** dell'app e assegnare i criteri:
 
-        ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-        ```
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Esempio: Gestire criteri avanzati
-In questo esempio vengono creati alcuni criteri per illustrare il funzionamento del sistema di priorità. Viene illustrato anche come gestire più criteri applicati a vari oggetti.
+In questo esempio vengono creati alcuni criteri per apprendere il funzionamento del sistema di priorità. Viene inoltre illustrato come gestire più criteri applicati a diversi oggetti.
 
 1. Creare i criteri per la durata dei token.
 
-    1.  Per creare i criteri predefiniti di un'organizzazione in base ai quali la durata dei token di aggiornamento a fattore singolo è impostata su 30 giorni, eseguire questo comando:
+    1. Per creare i criteri predefiniti di un'organizzazione in base ai quali la durata dei token di aggiornamento a fattore singolo è impostata su 30 giorni, eseguire questo comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
+    2. Per visualizzare i nuovi criteri, eseguire il comando seguente:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Assegnare i criteri a un'entità servizio.
 
     A questo punto sono disponibili criteri che si applicano all'intera organizzazione. Si supponga di voler conservare tali criteri della durata di 30 giorni per un'entità servizio specifica, impostando però i criteri predefiniti dell'organizzazione sul valore limite superiore, ovvero fino alla revoca.
 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
+    1. Per visualizzare tutte le entità servizio dell'organizzazione, usare il cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
 
-    2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
+    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:
 
-            ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
 3. Impostare il flag `IsOrganizationDefault` su false.
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Creare nuovi criteri predefiniti dell'organizzazione.
@@ -370,7 +383,7 @@ Crea nuovi criteri.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
@@ -387,9 +400,9 @@ Ottiene tutti i criteri di Azure AD o i criteri specificati.
 Get-AzureADPolicy
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Facoltativo] |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code>[Facoltativo] |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -400,9 +413,9 @@ Ottiene tutte le app e le entità servizio collegate a criteri specifici.
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -413,9 +426,9 @@ Aggiorna i criteri esistenti.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code>[Facoltativo] |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code>[Facoltativo] |Se true, imposta i criteri come predefiniti dell'organizzazione. Se false, non esegue alcuna operazione. |`-IsOrganizationDefault $true` |
@@ -431,9 +444,9 @@ Elimina i criteri specificati.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -447,9 +460,9 @@ Collega i criteri specificati a un'applicazione.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -461,9 +474,9 @@ Ottiene i criteri assegnati a un'applicazione.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -474,9 +487,9 @@ Rimuove i criteri da un'applicazione.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -491,9 +504,9 @@ Collega i criteri specificati a un'entità servizio.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -505,9 +518,9 @@ Ottiene i criteri collegati all'entità servizio specificata.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -518,7 +531,7 @@ Rimuove i criteri dall'entità servizio specificata.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parametri | DESCRIZIONE | Esempio |
+| Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |

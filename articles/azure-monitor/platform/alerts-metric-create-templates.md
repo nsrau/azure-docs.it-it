@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 13507361411a08852a059782f1ed6f00e25bec94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541317"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873288"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -119,7 +119,8 @@ Salvare il codice JSON seguente come simplestaticmetricalert.json ai fini di que
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -128,13 +129,30 @@ Salvare il codice JSON seguente come simplestaticmetricalert.json ai fini di que
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -194,7 +212,7 @@ Salvare il codice JSON seguente come simplestaticmetricalert.parameters.json e m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -366,7 +384,8 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -375,13 +394,25 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -446,7 +477,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.parameters.json e 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -586,13 +617,30 @@ Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di q
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -645,7 +693,7 @@ Salvare e modificare il codice JSON seguente come advancedstaticmetricalert.para
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -800,13 +848,25 @@ Salvare il codice JSON seguente come advanceddynamicmetricalert.json ai fini di 
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -857,7 +917,7 @@ Salvare e modificare il codice JSON seguente come advanceddynamicmetricalert.par
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -940,7 +1000,7 @@ az group deployment create \
 
 ## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso delle metriche che consente di monitorare più risorse
 
-Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità di anteprima è attualmente disponibile solo tramite i modelli di Azure Resource Manager e l'API REST ed è supportata solo per le macchine virtuali.
+Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali e i dispositivi databox Edge.
 
 Le regole di avviso con soglie dinamiche possono anche creare soglie personalizzate per centinaia di serie di metriche (persino di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire.
 
@@ -1100,7 +1160,8 @@ Salvare il codice JSON seguente come all-vms-in-resource-group-static.json ai fi
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1109,13 +1170,29 @@ Salvare il codice JSON seguente come all-vms-in-resource-group-static.json ai fi
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1174,7 +1251,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-resource-group-stat
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1411,7 +1488,8 @@ Salvare il codice JSON seguente come all-vms-in-resource-group-dynamic.json ai f
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1420,13 +1498,25 @@ Salvare il codice JSON seguente come all-vms-in-resource-group-dynamic.json ai f
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1490,7 +1580,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-resource-group-dyna
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1717,7 +1807,8 @@ Salvare il codice JSON seguente come all-vms-in-subscription-static.json ai fini
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1726,13 +1817,29 @@ Salvare il codice JSON seguente come all-vms-in-subscription-static.json ai fini
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -1791,7 +1898,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-subscription-static
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2025,7 +2132,8 @@ Salvare il codice JSON seguente come all-vms-in-subscription-dynamic.json ai fin
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2034,13 +2142,25 @@ Salvare il codice JSON seguente come all-vms-in-subscription-dynamic.json ai fin
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2104,7 +2224,7 @@ Salvare e modificare il codice JSON seguente come all-vms-in-subscription-dynami
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2328,7 +2448,8 @@ Salvare il codice JSON seguente come list-of-vms-static.json ai fini di questa p
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2337,13 +2458,30 @@ Salvare il codice JSON seguente come list-of-vms-static.json ai fini di questa p
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
             "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H""
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2402,7 +2540,7 @@ Salvare e modificare il codice JSON seguente come list-of-vms-static.parameters.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2639,7 +2777,8 @@ Salvare il codice JSON seguente come list-of-vms-dynamic.json ai fini di questa 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2648,13 +2787,25 @@ Salvare il codice JSON seguente come list-of-vms-dynamic.json ai fini di questa 
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
+             "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format."
             }
         },
         "evaluationFrequency": {
             "type": "string",
-            "defaultValue": "PT1M",
+            "defaultValue": "PT5M",
+             "allowedValues": [
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
             }
@@ -2718,7 +2869,7 @@ Salvare e modificare il codice JSON seguente come list-of-vms-dynamic.parameters
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2795,8 +2946,159 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sugli [avvisi in Azure](alerts-overview.md)
-* Informazioni su come [creare un gruppo di azione con i modelli di Resource Manager](action-groups-create-resource-manager-template.md)
-* Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).
+## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>Modello per un test di disponibilità insieme a un avviso di test di disponibilità
 
+[Application Insights test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) consentono di monitorare la disponibilità del sito Web o dell'applicazione da diverse località in tutto il mondo. Gli avvisi di test di disponibilità segnalano quando i test di disponibilità non riescono da un determinato numero di posizioni.
+Avvisi di test di disponibilità dello stesso tipo di risorsa degli avvisi delle metriche (Microsoft. Insights/metricAlerts). Il modello di Azure Resource Manager di esempio seguente può essere usato per configurare un test di disponibilità semplice e un avviso associato.
+
+Salvare il file JSON seguente come availabilityalert. JSON ai fini di questa procedura dettagliata.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "type": "string"
+    },
+    "pingURL": {
+      "type": "string"
+    },
+    "pingText": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "actionGroupId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "pingTestName": "[concat('PingTest-', toLower(parameters('appName')))]",
+    "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
+  },
+  "resources": [
+    {
+      "name": "[variables('pingTestName')]",
+      "type": "Microsoft.Insights/webtests",
+      "apiVersion": "2014-04-01",
+      "location": "West Central US",
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "Name": "[variables('pingTestName')]",
+        "Description": "Basic ping test",
+        "Enabled": true,
+        "Frequency": 300,
+        "Timeout": 120,
+        "Kind": "ping",
+        "RetryEnabled": true,
+        "Locations": [
+          {
+            "Id": "us-va-ash-azr"
+          },
+          {
+            "Id": "emea-nl-ams-azr"
+          },
+          {
+            "Id": "apac-jp-kaw-edge"
+          }
+        ],
+        "Configuration": {
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('pingURL'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExecutionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+        },
+        "SyntheticMonitorId": "[variables('pingTestName')]"
+      }
+    },
+    {
+      "name": "[variables('pingAlertRuleName')]",
+      "type": "Microsoft.Insights/metricAlerts",
+      "apiVersion": "2018-03-01",
+      "location": "global",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
+      },
+      "properties": {
+        "description": "Alert for web test",
+        "severity": 1,
+        "enabled": true,
+        "scopes": [
+          "[resourceId('Microsoft.Insights/webtests',variables('pingTestName'))]",
+          "[resourceId('Microsoft.Insights/components',parameters('appName'))]"
+        ],
+        "evaluationFrequency": "PT1M",
+        "windowSize": "PT5M",
+        "templateType": 0,
+        "criteria": {
+          "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+          "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
+          "componentId": "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+          "failedLocationCount": 2
+        },
+        "actions": [
+          {
+            "actionGroupId": "[parameters('actionGroupId')]"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+È possibile impostare i valori per i parametri nella riga di comando o tramite un file di parametri. Di seguito viene fornito un file di parametri di esempio.
+
+Salvare il file JSON seguente come availabilityalert. Parameters. JSON e modificarlo come richiesto.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "value": "Replace with your Application Insights component name"
+        },
+        "pingURL": {
+            "value": "https://www.yoursite.com"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+È possibile creare il test di disponibilità e l'avviso associato usando il modello e il file dei parametri usando PowerShell o l'interfaccia della riga di comando di Azure.
+
+Uso di Azure PowerShell
+
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzResourceGroupDeployment -Name AvailabilityAlertDeployment -ResourceGroupName ResourceGroupofApplicationInsightsComponent `
+  -TemplateFile availabilityalert.json -TemplateParameterFile availabilityalert.parameters.json
+```
+
+Utilizzare l'interfaccia della riga di comando di Azure
+
+```azurecli
+az login
+
+az group deployment create \
+    --name AvailabilityAlertDeployment \
+    --resource-group ResourceGroupofApplicationInsightsComponent \
+    --template-file availabilityalert.json \
+    --parameters @availabilityalert.parameters.json
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni sugli [avvisi in Azure](alerts-overview.md)
+- Informazioni su come [creare un gruppo di azione con i modelli di Resource Manager](action-groups-create-resource-manager-template.md)
+- Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).

@@ -1,21 +1,19 @@
 ---
-title: Come usare l'archiviazione code da Java | Microsoft Docs
+title: Come usare l'archiviazione di Accodamento da Java-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Java.
-services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: Java
-ms.topic: article
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 7c2fbc168c663cc4dc5981071d40540cfc4797ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 5d2bd94f6b95ff993ae367b99f48746c091f5739
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648487"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721422"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,9 +21,9 @@ ms.locfileid: "58648487"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Panoramica
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
+Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
-Note: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
+Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +32,7 @@ Note: per gli sviluppatori che usano il servizio di archiviazione di Azure in di
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in Azure.
 
-A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
+A questo scopo, è necessario installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, sarà necessario verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nell'archivio [Azure Storage SDK for Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di archiviazione di Azure per Java nel sistema dall'archivio indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere alle code:
@@ -66,7 +64,7 @@ String storageConnectionString =
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
-## <a name="how-to-create-a-queue"></a>Procedura: Creare una coda
+## <a name="how-to-create-a-queue"></a>Procedura: Crea una coda
 Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. (Nota: Esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure].
 
 Usare l'oggetto **CloudQueueClient** t per ottenere un riferimento alla coda da usare. È possibile creare la coda se non esiste già.
@@ -393,7 +391,7 @@ catch (Exception e)
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * [Azure Storage SDK per Java][Azure Storage SDK for Java]
-* [Riferimento all'SDK del client di Archiviazione di Azure][Riferimento all'SDK del client di Archiviazione di Azure]
+* [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
 * [API REST dei servizi di archiviazione di Azure][Azure Storage Services REST API]
 * [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
 

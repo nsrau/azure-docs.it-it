@@ -7,17 +7,16 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100911"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567823"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Caricare dati da CSV in un database SQL di Azure (file flat)
 
@@ -33,7 +32,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari:
 * Utilità della riga di comando bcp installata
 * Utilità della riga di comando sqlcmd installata
 
-È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][Microsoft Download Center].
+È possibile scaricare le utilità bcp e sqlcmd dall' [Area download Microsoft][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dati in formato ASCII o UTF-16
 

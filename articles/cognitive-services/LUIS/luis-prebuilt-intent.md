@@ -1,5 +1,5 @@
 ---
-title: Finalità predefinite
+title: Intent predefiniti per Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS include un set di finalità predefinite per aggiungere rapidamente scenari di conversazione utente comuni.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8e11b6d5a9c9df10e789c8e0be3a90d94ecf3d23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b14d9f39ef5bb0806cfe0720dbaa2fe95b32421
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505677"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932623"
 ---
 # <a name="add-prebuilt-intents-for-common-intents"></a>Aggiungere finalità predefinite per finalità comuni 
 

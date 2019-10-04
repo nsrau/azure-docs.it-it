@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
-ms.translationtype: HT
+ms.openlocfilehash: 4d9d0f132a2cc754cd9f69bb54ef4dbb78a2c493
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34677917"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180412"
 ---
 1. Quando viene chiesto di immettere le informazioni di connessione, specificare questi dettagli:
 
    *Obbligatorio*
 
-   | Proprietà | Valore | Descrizione | 
+   | Proprietà | Valore | DESCRIZIONE | 
    |----------|-------|-------------| 
-   | Connection Name | <*connection-name*> | Nome creato per la connessione | 
-   | Storage Account | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. | 
+   | Connection Name (Nome connessione) | <*nome connessione*> | Nome creato per la connessione | 
+   | Account di archiviazione | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. | 
    ||| 
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Creare la connessione](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
 

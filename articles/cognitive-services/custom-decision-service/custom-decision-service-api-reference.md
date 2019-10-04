@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4f263e3b57103174f0084ab3d25430d8c47359fd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510964"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707307"
 ---
 # <a name="api"></a>API
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493876"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341717"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di insights per ottenere informazioni dettagliate per un'immagine
 
@@ -64,7 +64,7 @@ Per esempi che usano il token di informazioni dettagliate, vedere [C#](#use-with
 
 ### <a name="c-prerequisites"></a>C#prerequisiti
 
-- Qualsiasi versione di [Visual Studio 2017](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows.
+- Qualsiasi versione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows.
 - Una sottoscrizione di Azure. Per questa Guida introduttiva, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chiave di sottoscrizione o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
@@ -245,7 +245,7 @@ namespace VisualSearchInsightsToken
 Per eseguire l'applicazione, seguire questa procedura:
 
 1. Scaricare o installare il [libreria Gson Java](https://github.com/google/gson). È anche possibile ottenere Gson tramite Maven.
-2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
+2. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito.
 3. Aggiungere il codice fornito in un file denominato `VisualSearch.java`.
 4. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
 5. Eseguire il programma.
@@ -434,7 +434,8 @@ Per eseguire l'applicazione, seguire questa procedura:
 # Run the following in a command console window
 # pip3 install requests
 
-import requests, json
+import requests
+import json
 
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
@@ -449,10 +450,11 @@ insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simi
 formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
 
-file = {'knowledgeRequest' : (None, formData)}
+file = {'knowledgeRequest': (None, formData)}
+
 
 def main():
-    
+
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
@@ -467,7 +469,6 @@ def print_json(obj):
     print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
 
 
-
 # Main execution
 if __name__ == '__main__':
     main()
@@ -475,7 +476,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un'app web a pagina singola di ricerca visiva](tutorial-bing-visual-search-single-page-app.md)  
+[Creare un'app Web a pagina singola con Ricerca visiva](tutorial-bing-visual-search-single-page-app.md)  
 [Che cos'è l'API ricerca visiva Bing?](overview.md)  
 [Prova servizi cognitivi](https://aka.ms/bingvisualsearchtryforfree)  
 [Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

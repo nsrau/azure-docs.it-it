@@ -7,6 +7,16 @@
       href: Home.md
 - name: Guide introduttive
   items:
+    - name: Uso dell'SDK client
+      items:
+        - name: .NET SDK
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: Python SDK
+          href: quickstarts-sdk/python-sdk.md
+        - name: SDK per Java
+          href: quickstarts-sdk/java-sdk.md
+        - name: Node.js SDK
+          href: quickstarts-sdk/node-sdk.md
     - name: Utilizzo dell'API REST
       items:
         - name: Analizzare un'immagine remota
@@ -21,12 +31,8 @@
               href: QuickStarts/javascript-analyze.md
             - name: Node.js
               href: QuickStarts/node-analyze.md
-            - name: PHP
-              href: QuickStarts/php-analyze.md
             - name: Python
               href: QuickStarts/python-analyze.md
-            - name: Ruby
-              href: QuickStarts/ruby-analyze.md
         - name: Analizzare un'immagine locale
           items:
             - name: 'C#'
@@ -47,13 +53,19 @@
               href: QuickStarts/javascript-thumb.md
             - name: Node.js
               href: QuickStarts/node-thumb.md
-            - name: PHP
-              href: QuickStarts/php-thumb.md
             - name: Python
               href: QuickStarts/python-thumb.md
-            - name: Ruby
-              href: QuickStarts/ruby-thumb.md
-        - name: Estrarre testo stampato
+        - name: Estrarre testo (API di lettura)
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Estrarre testo stampato (OCR)
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-print-text.md
@@ -67,86 +79,60 @@
               href: QuickStarts/javascript-print-text.md
             - name: Node.js
               href: QuickStarts/node-print-text.md
-            - name: PHP
-              href: QuickStarts/php-print-text.md
             - name: Python
               href: QuickStarts/python-print-text.md
-            - name: Ruby
-              href: QuickStarts/ruby-print-text.md
-        - name: Estrarre testo scritto a mano
-          items:
-            - name: 'C#'
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
         - name: Usare un modello di dominio
           items:
-            - name: PHP
-              href: QuickStarts/php-domain.md
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: Uso di .NET SDK
-      items:
-        - name: Analizzare un'immagine
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Generare un'anteprima
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Estrazione del testo
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: Uso di Python SDK
-      href: quickstarts-sdk/python-sdk.md
 - name: Esercitazioni
   items:
     - name: Generare metadati per le immagini
       href: Tutorials/storage-lab-tutorial.md
 - name: Concetti
   items:
-    - name: Assegnazione di tag alle immagini
+    - name: Tag di contenuto
       href: concept-tagging-images.md
     - name: Rilevamento di oggetti
       href: concept-object-detection.md
-    - name: Rilevamento dei marchi
+    - name: Rilevamento del marchio
       href: concept-brand-detection.md
-    - name: Classificazione delle immagini
+    - name: Categorizzazione delle immagini
       href: concept-categorizing-images.md
-    - name: Descrizione delle immagini
+    - name: Descrizioni delle immagini
       href: concept-describing-images.md
-    - name: Rilevamento dei visi
+    - name: Rilevamento del viso
       href: concept-detecting-faces.md
-    - name: Rilevamento dei tipi di immagine
+    - name: Rilevamento del tipo di immagine
       href: concept-detecting-image-types.md
-    - name: Rilevamento di contenuti specifici del dominio
+    - name: Contenuto specifico del dominio
       href: concept-detecting-domain-content.md
-    - name: Rilevamento delle combinazioni di colori
+    - name: Rilevamento della combinazione di colori
       href: concept-detecting-color-schemes.md
-    - name: Generazione di anteprime
+    - name: Anteprime ritagliate in modo intelligente
       href: concept-generating-thumbnails.md
-    - name: Riconoscere il testo stampato e scritto a mano
+    - name: Riconoscimento del testo stampato e scritto a mano
       href: concept-recognizing-text.md
-    - name: Rilevamento di contenuti audaci e per adulti
+    - name: Rilevamento contenuto per adulti
       href: concept-detecting-adult-content.md
 - name: Guide alle procedure
   items:
-    - name: Usare Visione artificiale
-      items:
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: JavaScript
-          href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
     - name: Chiamare l'API Visione artificiale
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Usare i contenitori
       items:
         - name: Installare ed eseguire i contenitori
           href: computer-vision-how-to-install-containers.md
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: Configurare i contenitori
           href: computer-vision-resource-container-config.md
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+        - name: Usare con Kubernetes e Jenkins
+          href: deploy-computer-vision-on-premises.md
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+        - name: Usare istanze di contenitore
+          href: deploy-computer-vision-on-container-instances.md
+          displayName: 'container instances, container, containers, images'
     - name: Usare il servizio connesso di Visione artificiale
       href: vs-computer-vision-connected-service.md
     - name: Analizzare video in tempo reale
@@ -171,10 +157,8 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
-        - name: Android (Java)
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
-        - name: Swift
-          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: Risorse
   items:
     - name: Esempi
@@ -199,3 +183,5 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

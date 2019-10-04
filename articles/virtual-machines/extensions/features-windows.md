@@ -3,25 +3,24 @@ title: Estensioni e funzionalità delle macchine virtuali di Azure per Windows |
 description: Informazioni sulle estensioni disponibili per le macchine virtuali di Azure, raggruppate in base a ciò che forniscono o migliorano.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849759"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174081"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -36,7 +35,7 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [connettere macchine virtuali di Azure per i log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../windows/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -62,7 +61,7 @@ Per garantire la migliore esperienza possibile, sono previsti requisiti minimi p
 L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
+Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"* . Vedere la documentazione della singola estensione per informazioni sul supporto.
 
 #### <a name="network-access"></a>Accesso alla rete
 
@@ -291,7 +290,7 @@ Per verificare la versione in esecuzione, vedere [Detecting installed Windows Gu
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "properties": {
@@ -368,7 +367,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="view-extension-status"></a>Visualizzare lo stato dell'estensione
 
-Dopo l'esecuzione di un'estensione macchina virtuale da una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
+Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]* ).
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -418,7 +417,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | DESCRIZIONE | Altre informazioni |
+| Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |

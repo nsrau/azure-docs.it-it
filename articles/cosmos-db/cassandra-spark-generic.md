@@ -7,13 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 09/01/2019
+ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037226"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241251"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connettersi all'API Cassandra di Azure Cosmos DB da Spark
 
@@ -29,7 +29,7 @@ Questo articolo è uno di una serie di articoli sull'integrazione dell'API Cassa
 
 * **Libreria helper di Azure Cosmos DB per l'API Cassandra:** oltre al connettore Spark, è necessaria un'altra libreria chiamata [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) da Azure Cosmos DB. Questa libreria contiene una classe factory di connessione e una classe per i criteri di ripetizione, entrambe personalizzate.
 
-  I criteri di ripetizione in Azure Cosmos DB sono configurati per gestire le eccezioni con codice stato HTTP 429 ("La frequenza delle richieste è troppo elevata"). L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra ed è possibile riprovare con backoff. Dato che Azure Cosmos DB usa il modello di velocità effettiva con provisioning, quando il traffico in ingresso/uscita aumenta si verificano eccezioni di limitazione della frequenza delle richieste. I criteri di ripetizione proteggono i processi Spark da picchi di dati che superano temporaneamente la velocità effettiva allocata per la raccolta.
+  I criteri di ripetizione in Azure Cosmos DB sono configurati per gestire le eccezioni con codice stato HTTP 429 ("La frequenza delle richieste è troppo elevata"). L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra ed è possibile riprovare con backoff. Dato che Azure Cosmos DB usa il modello di velocità effettiva con provisioning, quando il traffico in ingresso/uscita aumenta si verificano eccezioni di limitazione della frequenza delle richieste. Il criterio di ripetizione dei tentativi protegge i processi Spark rispetto ai picchi di dati che superano momentaneamente la velocità effettiva allocata per il contenitore.
 
   > [!NOTE] 
   > I criteri di ripetizione possono proteggere i processi di Spark solo da picchi momentanei. Se non è stato configurato un numero sufficiente di UR per eseguire il carico di lavoro, i criteri di ripetizione non sono applicabili e la classe dei criteri di ripetizione genera nuovamente l'eccezione.
@@ -46,8 +46,8 @@ La tabella seguente elenca i parametri di configurazione della velocità effetti
 | spark.cassandra.connection.connections_per_executor_max  | Nessuna | Numero massimo di connessioni per ogni nodo per ogni executor. 10*n equivale a 10 connessioni per nodo in un cluster Cassandra con n-nodi. Pertanto, se sono necessarie 5 connessioni per nodo per ogni executor per un cluster Cassandra a 5 nodi, è necessario impostare questa configurazione su 25. Modificare questo valore in base al grado di parallelismo o al numero di executor per cui sono configurati i processi Spark.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Definisce il numero di scritture parallele che possono verificarsi per ogni executor. Dato che "batch.size.rows" è impostato su 1, assicurarsi di aumentare questo valore di conseguenza. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro. |
 | spark.cassandra.concurrent.reads |  512 | Definisce il numero di letture parallele che possono verificarsi per ogni executor. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro.  |
-| spark.cassandra.output.throughput_mb_per_sec  | Nessuna | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva dei processi Spark, basandolo sulla velocità effettiva con provisioning della raccolta di Cosmos DB.   |
-| spark.cassandra.input.reads_per_sec| Nessuna   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva dei processi Spark, basandolo sulla velocità effettiva con provisioning della raccolta di Cosmos DB.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nessuna | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Nessuna   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Definisce il numero di batch per ogni singola attività Spark che possono essere archiviati in memoria prima dell'invio all'API Cassandra |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Definisce il periodo di tempo fino a quando sono disponibili connessioni inutilizzate. | 
 

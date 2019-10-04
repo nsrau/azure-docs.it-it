@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396165"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "64922813"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
 Diagnostica di Azure fornisce metodi flessibili per raccogliere le metriche e i log delle macchine virtuali (VM) di servizi cloud e trasferire i risultati in Archiviazione di Azure. A partire da marzo 2016 (SDK 2.9), è possibile eseguire inviare la diagnostica a origini dati completamente personalizzate e trasferire i dati del percorso critico in pochi secondi tramite [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -45,7 +45,7 @@ La ricezione di dati di Diagnostica di Azure in Hub eventi è supportata in Serv
 * Provisioning dello spazio dei nomi dell'Hub eventi eseguito in base all'articolo [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Collegare Diagnostica di Azure al sink dell'Hub eventi
-Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio, il FILE *wadcfgx* file viene archiviato nel percorso seguente: **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **file diagnostics.wadcfgx**.
+Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio, il FILE *wadcfgx* file viene archiviato nel percorso seguente: **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **file diagnostics.wadcfgx**.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ Nell'esempio seguente viene illustrato come uno sviluppatore può limitare la qu
 In questo esempio, il sink viene applicato ai log e filtrato solo per l'analisi a livello di errore.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuire e aggiornare un'applicazione dei servizi cloud e della configurazione della diagnostica
-Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **diagnostics.wadcfgx**.  
+Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **diagnostics.wadcfgx**.  
 
 A questo punto, tutte le operazioni di distribuzione e di aggiornamento delle distribuzioni in Visual Studio, Visual Studio Team System e tutti i comandi o script che si basano su MSBuild e usano la destinazione **/t:publish** includeranno il file *.wadcfgx* nel processo di creazione dei pacchetti. Le distribuzioni e gli aggiornamenti distribuiscono anche il file in Azure tramite l'appropriata estensione agente di Diagnostica di Azure nelle macchine virtuali.
 
@@ -286,10 +286,10 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”;
+            string eventHubConnectionString = "Endpoint= <your connection string>";
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
-            string storageAccountKey = "<Storage account key>”;
+            string storageAccountKey = "<Storage account key>";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
             string eventProcessorHostName = Guid.NewGuid().ToString();

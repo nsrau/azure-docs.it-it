@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035696"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177076"
 ---
 # <a name="routing-events-and-messages"></a>Routing di eventi e messaggi
 
@@ -21,7 +21,7 @@ Le soluzioni IoT spesso riuniscono diversi potenti servizi, tra cui archiviazion
 
 ## <a name="route-types"></a>Tipi di routing  
 
-Gemelli digitali di Azure offre due metodi per integrare gli eventi IoT in altri servizi di Azure o applicazioni aziendali:
+I dispositivi gemelli digitali di Azure offrono due modi per connettere gli eventi Internet con altri servizi di Azure o applicazioni aziendali:
 
 * **Routing di eventi di Gemelli digitali di Azure**: un oggetto nel grafico spaziale che cambia, dati di telemetria che vengono ricevuti o una funzione definita dall'utente che crea una notifica in base a condizioni predefinite possono attivare eventi di Gemelli digitali di Azure. Gli utenti possono inviare questi eventi a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [argomenti del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) o [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) per l'ulteriore elaborazione.
 
@@ -29,7 +29,7 @@ Gemelli digitali di Azure offre due metodi per integrare gli eventi IoT in altri
 
 Gli utenti possono specificare uno o più endpoint in uscita per inviare eventi o inoltrare messaggi. Eventi e messaggi verranno inviati agli endpoint in base a queste preferenze di routing predefinite. In altre parole, gli utenti possono specificare un determinato endpoint per ricevere gli eventi delle operazioni del grafico, un altro per ricevere gli eventi di telemetria dei dispositivi e così via.
 
-![Routing di eventi di Gemelli digitali di Azure][1]
+[![Routing degli eventi di dispositivi gemelli digitali di Azure](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Il routing a Hub eventi mantiene l'ordine di invio dei messaggi di telemetria. I messaggi arrivano quindi nell'endpoint nello stesso ordine con cui sono stati originariamente ricevuti. Griglia di eventi e il bus di servizio non garantiscono che gli endpoint ricevano gli eventi nello stesso ordine in cui si sono verificati. Lo schema degli eventi include tuttavia un timestamp che è possibile usare per identificare l'ordine dopo che gli eventi raggiungono l'endpoint.
 
@@ -55,9 +55,9 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguen
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
-| Hub eventi|     X          |         X         |     X       |      X       |   X       |
-| ServiceBus|              |         X         |     X       |      X       |   X       |
-| EventGrid|               |         X         |     X       |      X       |   X       |
+| Hub eventi|     x          |         X         |     X       |      X       |   x       |
+| ServiceBus|              |         x         |     X       |      X       |   x       |
+| EventGrid|               |         x         |     X       |      X       |   x       |
 
 >[!NOTE]  
 >Per altre informazioni su come creare endpoint e per esempi di schema degli eventi, vedere [Traffico in uscita ed endpoint](how-to-egress-endpoints.md).
@@ -67,6 +67,3 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguen
 - Per informazioni sui limiti dell'anteprima di Gemelli digitali di Azure, vedere [Limiti del servizio durante l'anteprima pubblica](concepts-service-limits.md).
 
 - Per provare un esempio di Gemelli digitali di Azure, vedere [Guida introduttiva: Trovare le stanze disponibili ](quickstart-view-occupancy-dotnet.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png

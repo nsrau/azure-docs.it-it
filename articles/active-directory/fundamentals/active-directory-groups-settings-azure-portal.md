@@ -2,23 +2,23 @@
 title: Modificare le informazioni del gruppo - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come modificare le informazioni del gruppo usando Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561871"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modificare le informazioni del gruppo usando Azure Active Directory
 
@@ -39,7 +39,7 @@ Con Azure Active Directory (Azure AD) è possibile modificare le impostazioni di
 
 4. Selezionare il gruppo **MDM policy - West** e selezionare **Proprietà** dall'area **Gestione**.
 
-    ![Pagina Panoramica gruppo, con opzione di membro e le informazioni evidenziate](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Pagina Panoramica gruppo, con l'opzione membro e le informazioni evidenziate](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Aggiornare le informazioni in **Impostazioni generali** in base alle esigenze, tra cui:
 

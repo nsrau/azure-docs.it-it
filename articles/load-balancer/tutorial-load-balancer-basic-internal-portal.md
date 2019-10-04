@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Questa esercitazione illustra come creare un servizio di bilanciamento del carico interno Basic tramite il portale di Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489315"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273487"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -46,7 +46,7 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchin
    - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyResourceGroupLB*, quindi selezionare **OK**. 
    - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    ![Crea rete virtuale](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
@@ -91,8 +91,8 @@ Creare un servizio di bilanciamento del carico interno Basic usando il portale. 
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
-    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
+    | Subscription               | Selezionare la propria sottoscrizione.    |    
+    | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Interno**.                                        |
@@ -265,4 +265,4 @@ Questa esercitazione ha illustrato come creare un servizio di bilanciamento del 
 È ora possibile apprendere come bilanciare il carico delle macchine virtuali tra zone di disponibilità.
 
 > [!div class="nextstepaction"]
-> [Bilanciare il carico delle VM tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Bilanciare il carico delle macchine virtuali tra zone di disponibilità](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

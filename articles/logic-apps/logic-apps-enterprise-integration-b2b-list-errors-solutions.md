@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60998833"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure
 
@@ -34,7 +34,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore | Non sono stati trovati accordi con le identità: 'AS2Identity'::'Partner1' e 'AS2Identity'::'Partner3' | 
+| Descrizione dell'errore | Nessun accordo trovato con le identità: 'AS2Identity':: "Partner1" e 'AS2Identity':: 'Partner3' | 
 | Azione utente | Configurata un'intestazione AS2-From o AS2-To non valida per l'accordo. </br>Correggere l'intestazione "AS2-From" o "AS2-To" del messaggio AS2 o l'accordo in modo da assicurare la corrispondenza degli ID AS2 presenti nelle intestazioni del messaggio AS2 con le configurazioni dell'accordo. |
 |   |   |     
 
@@ -64,7 +64,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 | Azione utente | Aggiungere @base64ToBinary a AS2Message prima dell'invio al partner. |
 |||
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 "HTTP": {
@@ -84,7 +84,7 @@ Ad esempio:
 | Azione utente | Aggiungere @base64ToBinary alla notifica sulla ricezione del messaggio prima dell'invio al partner. | 
 |||
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 "Response": {
@@ -145,7 +145,7 @@ Ad esempio:
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore | Modello non valido. Impossibile elaborare le espressioni del linguaggio del modello negli input dell'azione "Flat_File_Decoding", riga "1" e colonna "1902". Per la proprietà obbligatoria "content" è previsto un valore ma risulta null. Percorso ".'. |
+| Descrizione dell'errore | Modello non valido. Impossibile elaborare le espressioni del linguaggio del modello nell'azione 'Flat_File_Decoding' input alla riga '1' e alla colonna "1902": ' Necessarie proprietà 'content' prevede un valore ma è stato ottenuto null. Percorso ".'. |
 | Azione utente | Questo errore indica che il messaggio di input non contiene un corpo. |
 |   |   | 
 

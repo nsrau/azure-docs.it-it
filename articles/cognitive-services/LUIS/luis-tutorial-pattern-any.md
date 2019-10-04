@@ -1,5 +1,5 @@
 ---
-title: Entità pattern.any
+title: 'Esercitazione: Entità Pattern.any - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859930"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390294"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Esercitazione: Estrarre dati in formato libero con entità pattern.any
 
@@ -53,7 +53,7 @@ Le espressioni con il nome descrittivo hanno l'aspetto seguente:
 |Espressione|
 |--|
 |Dove si trova la **Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5**?|
-|Chi ha creato la **"Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5"**?|
+|Chi ha creato la **"Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5"** ?|
 |La **Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5** viene pubblicata in francese?|
 
 La lunghezza variabile include parole che potrebbero confondere LUIS circa la fine dell'entità. Usando un'entità Pattern.any in un criterio è possibile specificare l'inizio e la fine del nome del modulo in modo che LUIS lo estragga correttamente.
@@ -65,24 +65,20 @@ La lunghezza variabile include parole che potrebbero confondere LUIS circa la fi
 |{NomeModulo} viene pubblicato in francese[?]|
 
 ## <a name="import-example-app"></a>Importare l'app di esempio
-Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Seguire questa procedura:
+1. Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. Nel [portale LUIS](https://www.luis.ai), nella pagina delle **app personali**, importare il file JSON in una nuova app.
 
-2. Importare il file JSON in una nuova app.
-
-3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
+1. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="add-example-utterances"></a>Aggiungere espressioni di esempio 
-Se è difficile creare e assegnare un'etichetta all'entità FormName, rimuovere l'entità keyPhrase predefinita. 
 
 1. Selezionare **Build** (Compila) dalla barra di spostamento in alto, quindi selezionare **Intents** (Finalità) dalla barra di spostamento a sinistra.
 
-2. Selezionare **FindForm** dall'elenco delle finalità.
+1. Selezionare **FindForm** dall'elenco delle finalità.
 
-3. Aggiungere alcune espressioni di esempio:
+1. Aggiungere alcune espressioni di esempio:
 
     |Espressione di esempio|
     |--|
@@ -94,13 +90,13 @@ Se è difficile creare e assegnare un'etichetta all'entità FormName, rimuovere 
     Senza un'entità Pattern.any, sarebbe difficile per LUIS capire dove finisce il titolo del modulo a causa delle numerose variazioni dei nomi di modulo.
 
 ## <a name="create-a-patternany-entity"></a>Creare un'entità pattern.any
-L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un criterio perché il criterio contrassegna l'inizio e la fine dell'entità. Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per risolvere il problema. 
+L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un criterio perché il criterio contrassegna l'inizio e la fine dell'entità.  
 
 1. Selezionare **Entities** (Entità) nel riquadro di spostamento sinistro.
 
-2. Selezionare **Crea una nuova entità**, immettere il nome `FormName` e selezionare **Pattern.any** come tipo. Selezionare **Operazione completata**. 
+1. Selezionare **Crea una nuova entità**, immettere il nome `FormName` e selezionare **Pattern.any** come tipo. Selezionare **Operazione completata**. 
 
-    Non è possibile assegnare un'etichetta all'entità nella finalità perché Pattern.any è valido solo in un criterio. 
+    Non è possibile assegnare un'etichetta all'entità nelle espressioni di esempio relative a una finalità perché un'entità Pattern.any è valida solo in un criterio. 
 
     Se si vuole che i dati estratti includano altre entità, ad esempio numero o datetimeV2, è necessario creare un'entità composita che includa Pattern.any, nonché un numero e datetimeV2.
 
@@ -108,9 +104,9 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 
 1. Selezionare **Patterns** (Criteri) dal riquadro di spostamento sinistro.
 
-2. Selezionare la finalità **FindForm**.
+1. Selezionare la finalità **FindForm**.
 
-3. Immettere le espressioni modello seguenti che usano la nuova entità:
+1. Immettere le espressioni modello seguenti che usano la nuova entità:
 
     |Espressioni modello|
     |--|
@@ -121,8 +117,6 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 
     Se si intende tenere conto delle variazioni del modulo, ad esempio le virgolette singole anziché le virgolette doppie o un punto invece di un punto interrogativo, creare un nuovo criterio per ogni variante.
 
-4. Se è stata rimossa l'entità keyPhrase, aggiungerla nuovamente all'app. 
-
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testare il nuovo criterio per l'estrazione dei dati in formato libero
 1. Selezionare **Test** nella barra superiore per aprire il pannello test. 
 
-2. Immettere l'espressione seguente: 
+1. Immettere l'espressione seguente: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Selezionare **Inspect** (Ispeziona) sotto il risultato per visualizzare i risultati del test per entità e finalità.
+1. Selezionare **Inspect** (Ispeziona) sotto il risultato per visualizzare i risultati del test per entità e finalità.
 
     Prima viene trovata l'entità `FormName`, poi il criterio a determinare la finalità. Se nel risultato di un test le entità non vengono rilevate e di conseguenza il criterio non viene trovato, è necessario aggiungere un maggior numero di espressioni di esempio sulla finalità (non il criterio).
 
-4. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
+1. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
+
+## <a name="using-an-explicit-list"></a>Uso di un elenco esplicito
+
+Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per risolvere il problema.
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

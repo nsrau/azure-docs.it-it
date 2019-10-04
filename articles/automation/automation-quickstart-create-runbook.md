@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2cbb37b4e93468a42335f40a19baf4c742cb6dbb
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750274"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098612"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Creare un runbook di Automazione di Azure
 
@@ -34,7 +34,7 @@ Creare prima di tutto un runbook. Per impostazione predefinita, il runbook di es
 
 1. Fare clic su **Runbook** in **AUTOMAZIONE PROCESSI**. Viene visualizzato l'elenco di runbook.
 
-1. Fare clic sul pulsante **Aggiungi runbook** all'inizio dell'elenco. Nella pagina **Aggiungi runbook** selezionare **Creazione rapida**.
+1. Fare clic sul pulsante **Crea un runbook** all'inizio dell'elenco.
 
 1. Immettere "Hello-World" per il **nome** del runbook e selezionare **PowerShell** per **Tipo di runbook**. Fare clic su **Create**(Crea).
 
@@ -45,7 +45,7 @@ Creare prima di tutto un runbook. Per impostazione predefinita, il runbook di es
     ![Modificare lo script di PowerShell nell'editor del runbook](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Digitare o copiare e incollare nel riquadro di modifica il codice seguente, che crea un parametro di input facoltativo denominato "Name" con il valore predefinito "World" e genera come output una stringa che usa questo valore di input:
-   
+
    ```powershell-interactive
    param
    (
@@ -102,4 +102,3 @@ In questa guida introduttiva è stato creato, modificato e pubblicato un runbook
 
 > [!div class="nextstepaction"]
 > [Procedure di Automazione - Tipi di runbook](./automation-runbook-types.md)
-

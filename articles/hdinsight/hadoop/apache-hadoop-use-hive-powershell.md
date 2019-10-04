@@ -1,7 +1,6 @@
 ---
 title: Usare Apache Hive con PowerShell in HDInsight - Azure
-description: Usare PowerShell per eseguire query Hive in Apache Hadoop in HDInsight.
-services: hdinsight
+description: Usare PowerShell per eseguire query Apache Hive in Apache Hadoop in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 89fa7976b922ba0e40e97b72de5d4eb9a02f0dfd
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360759"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736074"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Eseguire query Apache Hive usando PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -29,9 +28,6 @@ Questo documento fornisce un esempio di come usare Azure PowerShell nel gruppo d
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Un cluster Apache Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
-
-  > [!IMPORTANT]  
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un client con Azure PowerShell.
 
@@ -61,7 +57,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
         .\hivejob.ps1
 
-    Quando viene eseguito lo script, viene richiesto di immettere il nome cluster e le credenziali dell'account HTTPS/Amministratore del cluster. Può anche essere richiesto di eseguire l'accesso alla sottoscrizione di Azure.
+    Quando viene eseguito lo script, viene richiesto di immettere il nome cluster e le credenziali dell'account HTTPS/Amministratore del cluster. Potrebbe anche essere richiesto di accedere alla sottoscrizione di Azure.
 
 3. Al termine, il processo restituisce informazioni simili al testo seguente:
 
@@ -87,7 +83,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    >
    > Per altre informazioni su **Here-Strings**, vedere <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell "Here-Strings"</a> (Uso di Here-Strings di Windows PowerShell).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se al termine del processo non viene restituita alcuna informazione, visualizzare i log degli errori. Per visualizzare le informazioni sugli errori relative a questo processo, aggiungere il codice seguente alla fine del file `hivejob.ps1`, salvare il file e quindi eseguirlo nuovamente.
 
@@ -102,7 +98,7 @@ Get-AzHDInsightJobOutput `
 
 Questo cmdlet restituisce le informazioni scritte in STDERR durante l'esecuzione del processo.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Come è possibile notare, Azure PowerShell fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 

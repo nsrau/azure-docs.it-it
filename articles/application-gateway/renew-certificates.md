@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: 90200f7be6c71346441922365fc4439111dd8701
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66133683"
 ---
 # <a name="renew-application-gateway-certificates"></a>Rinnovare i certificati del gateway applicazione
 

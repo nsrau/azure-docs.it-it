@@ -3,9 +3,9 @@ title: Come usare Hub di notifica con PHP
 description: Informazioni su come usare Hub di notifica di Azure da un back-end PHP.
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4df48475af4b140e4446dde9069eafcc95d9d3b2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838596"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213181"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Come usare Hub di notifica da PHP
 
@@ -278,7 +280,7 @@ Aggiungere quindi il codice di invio a seconda della piattaforma mobile di desti
 
 Eseguendo il codice PHP dovrebbe essere visualizzata una notifica sul dispositivo di destinazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. A questo punto è possibile:
 

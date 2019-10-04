@@ -2,22 +2,22 @@
 title: Accesso remoto ad app locali - Azure Active Directory Application Proxy | Microsoft Docx
 description: Azure Active Directory Application Proxy consente l'accesso remoto sicuro ad applicazioni Web locali. Dopo un accesso singolo (SSO) ad Azure AD, gli utenti possono accedere sia alle applicazioni nel cloud che a quelle locali tramite un URL esterno o un portale per le applicazioni interno. Ad esempio, Application Proxy può rendere disponibile l'accesso remoto e Single Sign-On a Desktop remoto, SharePoint, Teams, Tableau, Qlik e applicazioni line-of-business (LOB).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108387"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accesso remoto ad applicazioni locali tramite Azure Active Directory Application Proxy 
 
@@ -27,7 +27,7 @@ Il proxy di applicazione di Azure AD:
 
 - **Semplice da usare**. Gli utenti possono accedere alle applicazioni locali nello stesso modo in cui accedono a Office 365 e alle altre app SaaS integrate in Azure AD. Non è necessario modificare o aggiornare le applicazioni per usare il proxy di applicazione. 
 
-- **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
+- **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, in locale le applicazioni possono usare la verifica in due passaggi e l'accesso condizionale. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
  
 - **Convenienza**. Le soluzioni locali richiedono generalmente di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse. Application Proxy viene eseguito nel cloud ed è quindi facile da usare. Per usare Application Proxy non è necessario modificare l'infrastruttura di rete o installare altre appliance nell'ambiente locale.
 
@@ -44,6 +44,8 @@ Application Proxy supporta:
 
 Application Proxy supporta Single Sign-On. Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
+Proxy dell'applicazione è consigliato per concedere agli utenti remoti l'accesso alle risorse interne. Proxy dell'applicazione sostituisce la necessità di una VPN o un proxy inverso. Non è destinato agli utenti interni nella rete aziendale.  Questi utenti che usano inutilmente il Proxy di applicazione possono introdurre problemi di prestazioni impreviste e indesiderate.
+
 ## <a name="how-application-proxy-works"></a>Come funziona Application Proxy
 
 Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy per offrire l'accesso Single Sign-On alle applicazioni locali.
@@ -57,7 +59,7 @@ Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy p
 5. Il connettore invia la richiesta all'applicazione locale.  
 6. La risposta viene inviata all'utente tramite il servizio e il connettore Application Proxy.
 
-| Componente | DESCRIZIONE |
+| Componente | Descrizione |
 | --------- | ----------- |
 | Endpoint  | L'endpoint è un URL o un [portale per gli utenti finali](end-user-experiences.md). Gli utenti possono raggiungere le applicazioni all'esterno della rete accedendo a un URL esterno. Gli utenti all'interno della rete possono accedere all'applicazione tramite un URL o un portale per gli utenti finali. Quando gli utenti proseguono verso uno di questi endpoint, si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.|
 | Azure AD | Azure AD esegue l'autenticazione usando la directory del tenant archiviata nel cloud. |

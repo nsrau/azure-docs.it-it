@@ -1,31 +1,26 @@
 ---
 title: Procedure di distribuzione sicure tra aree - Azure Deployment Manager
 description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066830"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Abilitare le procedure di distribuzione sicure con Azure Deployment Manager (anteprima privata)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare la procedure di distribuzione sicure con distribuzione di gestione di Azure (anteprima pubblica)
 
 Per distribuire il servizio in più aree e verificare che venga eseguito come previsto in ogni area, è possibile usare Azure Deployment Manager per coordinare un'implementazione a fasi del servizio. Proprio come per qualsiasi distribuzione di Azure, si definiscono le risorse per il servizio nei [modelli di Resource Manager](resource-group-authoring-templates.md). Dopo aver creato i modelli, si usa Deployment Manager per descrivere la topologia per il servizio e come deve essere implementato.
 
-Deployment Manager è una funzionalità di Resource Manager. Espande le funzionalità durante la distribuzione. Usare Deployment Manager quando è necessario distribuire un servizio complesso in più aree. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se le particolari precauzioni di un'implementazione a fasi non sono necessarie, usare le [opzioni di distribuzione](resource-group-template-deploy-portal.md) standard per Resource Manager. Deployment Manager si integra perfettamente con tutti gli strumenti di terze parti esistenti che supportano le distribuzioni di Resource Manager, ad esempio le offerte di integrazione continua e recapito continuo (CI/CD). 
+Deployment Manager è una funzionalità di Resource Manager. Espande le funzionalità durante la distribuzione. Usare Deployment Manager quando è necessario distribuire un servizio complesso in più aree. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se le particolari precauzioni di un'implementazione a fasi non sono necessarie, usare le [opzioni di distribuzione](resource-group-template-deploy-portal.md) standard per Resource Manager. Deployment Manager si integra perfettamente con tutti gli strumenti di terze parti esistenti che supportano le distribuzioni di Resource Manager, ad esempio le offerte di integrazione continua e recapito continuo (CI/CD).
 
-Azure Deployment Manager è nella versione di anteprima privata. Per usare Azure Deployment Manager, completare il [modulo di iscrizione](https://aka.ms/admsignup). È possibile lasciare [commenti e suggerimenti](https://aka.ms/admfeedback) per migliorare la funzionalità.
+Azure Deployment Manager è disponibile in anteprima. Aiutaci a migliorare la funzionalità, fornendo [commenti e suggerimenti](https://aka.ms/admfeedback).
 
 Per usare Deployment Manager, è necessario creare quattro file:
 
@@ -36,17 +31,18 @@ Per usare Deployment Manager, è necessario creare quattro file:
 
 Si distribuisce il modello di topologia prima di distribuire il modello di implementazione.
 
-Le informazioni di riferimento sull'API REST di Azure Deployment Manager sono disponibili [qui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Risorse aggiuntive:
 
-## <a name="supported-locations"></a>Località supportate
-
-Per l'anteprima, le risorse di Deployment Manager sono supportate negli Stati Uniti centrali e negli Stati Uniti orientali 2. Quando si definiscono le risorse nei modelli di implementazione e topologia, ad esempio le unità di servizio, le origini degli artefatti e le implementazioni descritte in questo articolo, è necessario specificare una di tali aree come località. Le risorse distribuite per creare il servizio, ad esempio le macchine virtuali, gli account di archiviazione e le app Web, sono tuttavia supportate in tutte le [località standard](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+- Il [riferimento al REST API di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
+- [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identità e accesso
 
 Con Deployment Manager, un'[identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) esegue le azioni di distribuzione. Si crea questa identità prima di avviare la distribuzione. Deve avere accesso alla sottoscrizione in cui si distribuisce il servizio e autorizzazioni sufficienti per completare la distribuzione. Per informazioni sulle azioni concesse tramite i ruoli, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md).
 
-L'identità deve trovarsi in una delle località supportate per Deployment Manager e deve trovarsi nella stessa località dell'implementazione.
+L'identità deve risiedere nella stessa posizione come l'implementazione.
 
 ## <a name="topology-template"></a>Modello di topologia
 
@@ -119,7 +115,7 @@ L'esempio seguente illustra il formato generale della risorsa topologia del serv
 
 Per altre informazioni, vedere [serviceTopologies template reference](/azure/templates/Microsoft.DeploymentManager/serviceTopologies) (Informazioni di riferimento sul modello serviceTopologies).
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servizi
 
 L'esempio seguente illustra il formato generale della risorsa servizi. In ogni servizio si specificano l'ID sottoscrizione di Azure e la località da usare per distribuire il servizio. Per la distribuzione in più aree, si definisce un servizio per ogni area. Il servizio dipende dalla topologia del servizio.
 
@@ -200,7 +196,9 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 
 ### <a name="steps"></a>Passaggi
 
-È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente è disponibile solo il passaggio `wait`. Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
+È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente, solo il `wait` passaggio e il passaggio 'healthCheck' sono disponibili.
+
+Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
 
 ```json
 {
@@ -218,6 +216,8 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 ```
 
 La proprietà duration usa lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L'esempio precedente specifica un'attesa di un minuto.
+
+Per altre informazioni sul passaggio di verifica dell'integrità, vedere [introducono implementazione di integrazione dell'integrità di gestione di distribuzione di Azure](./deployment-manager-health-check.md) e [esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Per altre informazioni, vedere [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps) (Informazioni di riferimento sul modello steps).
 
@@ -267,13 +267,13 @@ Per altre informazioni, vedere [rollouts template reference](/azure/templates/Mi
 
 ## <a name="parameter-file"></a>File di parametri
 
-Creare due file di parametri. Un file di parametri viene usato quando si distribuisce la topologia del servizio e l'altro viene usato per la distribuzione dell'implementazione. È necessario verificare che alcuni valori specifici siano uguali in entrambi i file di parametri.  
+Creare due file di parametri. Un file di parametri viene usato quando si distribuisce la topologia del servizio e l'altro viene usato per la distribuzione dell'implementazione. È necessario verificare che alcuni valori specifici siano uguali in entrambi i file di parametri.
 
 ## <a name="containerroot-variable"></a>Variabile containerRoot
 
 Con le distribuzioni con versione, il percorso degli artefatti viene modificato con ogni nuova versione. La prima volta che si esegue una distribuzione il percorso potrebbe essere `https://<base-uri-blob-container>/binaries/1.0.0.0`. La seconda volta potrebbe essere `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager consente di ottenere più facilmente il percorso radice corretto per la distribuzione corrente usando la variabile `$containerRoot`. Questo valore viene modificato con ogni versione e non è noto prima della distribuzione.
 
-Usare la variabile `$containerRoot` nel file di parametri per consentire al modello di distribuire le risorse di Azure. In fase di distribuzione, questa variabile viene sostituita con i valori effettivi dell'implementazione. 
+Usare la variabile `$containerRoot` nel file di parametri per consentire al modello di distribuire le risorse di Azure. In fase di distribuzione, questa variabile viene sostituita con i valori effettivi dell'implementazione.
 
 Durante l'implementazione, ad esempio, si crea un'origine per gli artefatti binari.
 

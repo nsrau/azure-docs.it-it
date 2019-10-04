@@ -1,22 +1,22 @@
 ---
-title: Provare gratuitamente i servizi di riconoscimento vocale
+title: Prova il servizio di riconoscimento vocale gratuitamente
 titleSuffix: Azure Cognitive Services
-description: Iniziare a usare i servizi di riconoscimento vocale è semplice e conveniente. Una versione di valutazione gratuita di 30 giorni permette di scoprire cosa può fare il servizio e decidere se è adatto alle esigenze della propria applicazione.
+description: Iniziare a usare il servizio riconoscimento vocale è facile ed economicamente conveniente. Una versione di valutazione gratuita di 30 giorni permette di scoprire cosa può fare il servizio e decidere se è adatto alle esigenze della propria applicazione.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103724"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535102"
 ---
 # <a name="try-speech-services-for-free"></a>Provare gratuitamente i servizi di riconoscimento vocale
 
@@ -26,7 +26,7 @@ Se è necessario più tempo, effettuare l'iscrizione per un account di Microsoft
 
 Infine, il servizio di riconoscimento vocale offre un livello gratuito di basso volume adatto allo sviluppo di applicazioni. È possibile mantenere questa sottoscrizione gratuita anche dopo la scadenza del credito di servizio.
 
-## <a name="free-trial"></a>Versione di prova gratuita
+## <a name="free-trial"></a>Versione di valutazione gratuita
 
 La versione di prova gratuita di 30 giorni consente di accedere al piano tariffario standard per un periodo di tempo limitato.
 
@@ -38,7 +38,7 @@ Per iscriversi a una versione di prova gratuita di 30 giorni:
 
    ![Scheda Servizi di riconoscimento vocale](media/index/try-speech-api-free-trial1.png)
 
-1. In **Servizi di riconoscimento vocale** selezionare il tasto **Ottieni chiave API**.
+1. In **servizi vocali**selezionare **Ottieni chiave API**.
 
    ![Chiave API](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ Per iscriversi a una versione di prova gratuita di 30 giorni:
 
 1. Accedere tramite il proprio account Microsoft, Facebook, LinkedIn o GitHub.
 
-    È possibile creare un account Microsoft gratuito sul [portale Account Microsoft](https://account.microsoft.com/account). Per iniziare, fare clic su **Accedi con Microsoft** e quindi, quando viene richiesto di accedere, fare clic su **Creane uno.** Seguire i passaggi per creare e verificare il nuovo account Microsoft.
+    È possibile creare un account Microsoft gratuito sul [portale Account Microsoft](https://account.microsoft.com/account). Per iniziare, selezionare **Accedi con Microsoft** e quindi, quando viene richiesto di eseguire l'accesso, selezionare **crea uno.** Seguire i passaggi per creare e verificare il nuovo account Microsoft.
 
 Dopo l'accesso a Prova Servizi cognitivi, la versione di prova gratuita è pronta. La pagina Web visualizzata elenca tutti i Servizi cognitivi per i quali si dispone attualmente di sottoscrizioni di prova. Sono elencate due chiavi di sottoscrizione accanto a **Servizi di riconoscimento vocale**. È possibile usare entrambe le chiavi nelle applicazioni.
 
@@ -59,9 +59,9 @@ Dopo l'accesso a Prova Servizi cognitivi, la versione di prova gratuita è pront
 
 I nuovi account Azure ricevono un credito di servizio di 200 dollari che è disponibile fino a un massimo di 30 giorni. Questo credito può essere usato per scoprire ulteriori funzioni del servizio di riconoscimento vocale o per iniziare lo sviluppo di applicazioni.
 
-Per creare un nuovo account Azure, andare alla [Pagina di iscrizione di Azure](https://azure.microsoft.com/free/ai/), fare clic su **Inizia gratis,** quindi creare un nuovo account Azure usando il proprio account Microsoft.
+Per iscriversi per ottenere un nuovo account Azure, passare alla [pagina di iscrizione ad Azure](https://azure.microsoft.com/free/ai/), selezionare **Avvia gratis** e creare un nuovo account di Azure usando il account Microsoft.
 
-È possibile creare un account Microsoft gratuito sul [portale Account Microsoft](https://account.microsoft.com/account). Per iniziare, fare clic su **Accedi con Microsoft** e quindi, quando viene richiesto di accedere, fare clic su **Creane uno.** Seguire i passaggi per creare e verificare il nuovo account Microsoft.
+È possibile creare un account Microsoft gratuito sul [portale Account Microsoft](https://account.microsoft.com/account). Per iniziare, selezionare **Accedi con Microsoft** e quindi, quando viene richiesto di eseguire l'accesso, selezionare **crea uno.** Seguire i passaggi per creare e verificare il nuovo account Microsoft.
 
 Dopo aver creato il proprio account Azure, seguire i passaggi nella sezione successiva per avviare una sottoscrizione al servizio di riconoscimento vocale.
 
@@ -73,7 +73,7 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
 1. Selezionare **Crea una risorsa** in alto a sinistra sul portale.
 
-    ![Creare una risorsa](media/index/try-speech-api-create-speech1.png)
+    ![Crea una risorsa](media/index/try-speech-api-create-speech1.png)
 
 1. Nella finestra **Nuova**, cercare **Voce**.
 
@@ -89,8 +89,8 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
    * Un nome per la nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni per il servizio stesso.
    * Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
-   * Scegliere l'area in cui verrà usata la risorsa. Attualmente, il servizio di riconoscimento vocale è disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti occidentali.
-   * Scegliere un piano tariffario gratuito o a pagamento. Fare clic su **Visualizza i dettagli completi sui prezzi** per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello.
+   * Scegliere l' [area](regions.md) in cui verrà utilizzata la risorsa.
+   * Scegliere un piano tariffario gratuito o a pagamento. Selezionare **Visualizza dettagli prezzi completi** per informazioni complete su prezzi e quote di utilizzo per ogni livello.
    * Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
    * Per un rapido accesso alla sottoscrizione in futuro, selezionare la casella di controllo **Aggiungi al dashboard**.
    * Selezionare **Crea.**
@@ -101,7 +101,7 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
      ![Pannello di avvio rapido](media/index/try-speech-api-create-speech5.png)
 
-1. Sotto **Avvio rapido**, fare clic sul collegamento **Chiavi** nel passaggio 1 per visualizzare le chiavi di sottoscrizione. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Selezionare pulsante accanto a ogni chiave per copiarla negli Appunti e incollarla quindi nel codice.
+1. In **Guida introduttiva**selezionare il collegamento **chiavi** nel passaggio 1 per visualizzare le chiavi di sottoscrizione. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Selezionare pulsante accanto a ogni chiave per copiarla negli Appunti e incollarla quindi nel codice.
 
 > [!NOTE]
 > È possibile creare un numero illimitato di sottoscrizioni di livello standard in una o più aree. Tuttavia, è possibile creare solo una sottoscrizione gratuita. Le distribuzioni di modelli nel livello gratuito che rimangono inutilizzate per 7 giorni saranno automaticamente rimosse.

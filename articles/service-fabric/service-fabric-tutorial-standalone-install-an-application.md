@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670305"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384987"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Esercitazione: Distribuire un'applicazione in un cluster autonomo di Service Fabric
 
@@ -38,7 +38,7 @@ Nella terza parte della serie si apprenderà come:
 
 Prima di iniziare questa esercitazione:
 
-* [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+* [Installare Visual Studio 2019](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 * [Installare Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Scaricare l'applicazione di voto di esempio
@@ -61,7 +61,7 @@ Ora che l'applicazione è stata scaricata, è possibile distribuirla in un clust
 
 4. Fare clic con il pulsante destro del mouse sul progetto di applicazione `Voting` in Esplora soluzioni e scegliere **Pubblica**
 
-5. Selezionare l'elenco a discesa per **Endpoint connessione** e immettere il nome DNS pubblico di uno dei nodi del cluster.  Ad esempio: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. Selezionare l'elenco a discesa per **Endpoint connessione** e immettere il nome DNS pubblico di uno dei nodi del cluster.  Ad esempio: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Si noti che in Azure, un nome di dominio completo (FQDN) non viene fornito automaticamente, ma può facilmente [essere impostato nella pagina della panoramica delle macchine virtuali.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
 
 6. Aprire il browser preferito e digitare l'indirizzo del cluster (l'endpoint della connessione; l'app viene distribuita nella porta 8080, ad esempio ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

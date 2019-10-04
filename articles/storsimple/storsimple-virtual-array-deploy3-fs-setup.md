@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516770"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>Introduzione
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
 
 Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere: [Deploy your StorSimple 8000 series device running Update 2](storsimple-deployment-walkthrough-u2.md) (Distribuire StorSimple serie 8000 con aggiornamento 2 in esecuzione).
@@ -42,7 +45,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Passaggio 1: Completare l'installazione dell'interfaccia utente Web locale e registrare il dispositivo
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Per completare l'installazione e registrare il dispositivo
-1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare: 
+1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare:
    
    `https://<ip-address of network interface>`
    
@@ -166,13 +169,13 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
    
    È possibile procedere all'aggiunta di una condivisione.
 
-## <a name="step-3-add-a-share"></a>Passaggio 3: Aggiungere una condivisione
+## <a name="step-3-add-a-share"></a>Passaggio 3: Aggiungi una condivisione
 Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) per creare una condivisione.
 
 #### <a name="to-create-a-share"></a>Per creare una condivisione
 1. Selezionare il file server configurato nel passaggio precedente e fare clic su **...** (o sul pulsante destro del mouse). Nel menu di scelta rapida selezionare **Aggiungi condivisione**. In alternativa, è possibile fare clic su **+ Aggiungi condivisione** sulla barra dei comandi del dispositivo.
    
-   ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
+   ![Aggiungi una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Specificare le impostazioni di condivisione seguenti:
 
    1. Un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
@@ -182,7 +185,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    3. Un **Tipo** per la condivisione. Il tipo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale** . Per tutti gli altri dati, selezionare una **Condivisione a livelli** .
       Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
    
-   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o il gruppo di nel *john\@contoso.com* formato. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel *formato\@John contoso.com* . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
    
    5. Fare clic su **Aggiungi** per creare la condivisione. 
     
@@ -190,11 +193,11 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    
        Viene ricevuta una notifica che indica che la creazione della condivisione è in corso.
    
-       ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Aggiungi una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** verrà aggiornato per riflettere la nuova condivisione. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per la condivisione.
    
-      ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Aggiungi una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Passaggio 4: Connettersi alla condivisione
 A questo punto, è necessario connettersi a una o più condivisioni create nel passaggio precedente. Eseguire questi passaggi nell'host di Windows Server connesso all'array virtuale StorSimple.

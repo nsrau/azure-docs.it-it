@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
-ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7333fa51da1cd5bbd9175d56571ec1d17cbbe33f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65203935"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider di stato sessione ASP.NET per Cache Redis di Azure
 
@@ -81,6 +81,7 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly richiesto e agg
          host=""
          accessKey=""
          ssl="true" />
+  </providers>
 </sessionState>
 ```
 

@@ -1,22 +1,22 @@
 ---
-title: Personalizzazione Azure AD self-service di reimpostazione della password - Azure Active Directory
+title: Personalizzazione della reimpostazione della password self-service Azure AD-Azure Active Directory
 description: Opzioni di personalizzazione per la reimpostazione della password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415660"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666306"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -24,14 +24,22 @@ I professionisti IT che vogliono distribuire la reimpostazione della password se
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizzare il collegamento "Contatta l'amministratore"
 
-Anche se la reimpostazione della password self-service non è abilitata, gli utenti possono tuttavia usare un collegamento "Contatta l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona il collegamento:
+Per gli utenti con reimpostazione della password self-service è disponibile un collegamento "contattare l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona questo collegamento, effettuerà una delle due operazioni seguenti:
 
-* Invia un messaggio di posta elettronica agli amministratori e richiede assistenza nella modifica della password dell'utente.
-* Invia gli utenti a un URL specificato per ottenere assistenza.
+* Se lasciato nello stato predefinito:
+   * Viene inviato un messaggio di posta elettronica agli amministratori e viene chiesto di fornire assistenza per la modifica della password dell'utente. Vedere il [messaggio di posta elettronica di esempio](#sample-email) seguente.
+* Se personalizzato:
+   * Invia l'utente a una pagina Web o a un indirizzo di posta elettronica specificato dall'amministratore per assistenza.
 
-È consigliabile impostare questo contatto ad esempio per un indirizzo di posta elettronica o un sito Web che gli utenti sono soliti usare per inviare domande al supporto tecnico.
+> [!TIP]
+> Se si Personalizza questa impostazione, è consigliabile impostarla su un elemento con cui gli utenti hanno già familiarità per il supporto
 
-![Richiesta di esempio per posta elettronica inviato all'amministratore di reimpostare][Contact]
+> [!WARNING]
+> Se si Personalizza questa impostazione con un indirizzo di posta elettronica e un account che richiedono la reimpostazione della password, l'utente potrebbe non essere in grado di richiedere assistenza.
+
+### <a name="sample-email"></a>Esempio di messaggio di posta elettronica
+
+![Richiesta di esempio per reimpostare la posta elettronica inviata all'amministratore][Contact]
 
 Questo contatto di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
@@ -68,12 +76,12 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 * Dopo che l'utente immette il proprio nome utente
 * Se l'utente accede all'URL personalizzato:
-   * Passando il `whr` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando il `username` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando il `whr` parametro alla pagina di reimpostazione della password, ad esempio`https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando il `username` parametro alla pagina di reimpostazione della password, ad esempio`https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](../fundamentals/customize-branding.md).
 
-### <a name="directory-name"></a>Nome della directory
+### <a name="directory-name"></a>Nome directory
 
 È possibile modificare l'attributo del nome della directory in **Azure Active Directory** > **Proprietà**. È possibile visualizzare un nome descrittivo per l'organizzazione nel portale e nelle comunicazioni automatizzate. Questa opzione è la più visibile nei messaggi di posta elettronica automatizzati nei formati seguenti:
 
@@ -95,4 +103,4 @@ Per Informazioni dettagliate su come configurare le informazioni personalizzate 
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Esempio di messaggio di posta elettronica per contattare l'amministratore e richiedere assistenza per la reimpostazione della password"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contattare l'amministratore per assistenza per la reimpostazione dell'esempio di indirizzo di posta elettronica della password"

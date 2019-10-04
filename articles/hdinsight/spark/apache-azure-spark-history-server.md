@@ -1,19 +1,19 @@
 ---
-title: Usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark - Azure HDInsight
+title: Server cronologia Spark esteso per il debug di applicazioni Spark-Azure HDInsight
 description: Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark - Azure HDInsight.
-ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 09/04/2019
+ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484590"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130364"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
@@ -21,16 +21,17 @@ Questo articolo illustra come usare il Server cronologia Apache Spark esteso per
 
 ## <a name="get-access-to-apache-spark-history-server"></a>Ottenere l'accesso al Server cronologia Apache Spark
 
-Server cronologia Apache Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. 
+Server cronologia Apache Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione.
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Aprire l'interfaccia utente Web di Server cronologia Apache Spark dal portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark. 
+2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
-    ![Server cronologia Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Server cronologia Spark")
+    ![Server cronologia Spark di avvio del portale](./media/apache-azure-spark-history-server/launch-history-server.png "Server cronologia Spark")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Aprire l'interfaccia utente Web di Server cronologia Spark dall'URL
+
 Aprire il Server cronologia Spark passando all'URL seguente, sostituendo `<ClusterName>` con il nome del cluster Spark del cliente.
 
    ```
@@ -41,67 +42,67 @@ L'interfaccia utente Web Server cronologia Spark è simile all'immagine seguente
 
 ![Server cronologia Spark in HDInsight](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
-
 ## <a name="data-tab-in-spark-history-server"></a>Scheda dati nel Server cronologia Spark
+
 Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli strumenti per ottenere la visualizzazione dati.
 
 + Controllare **Inputs** (Input), **Outputs** (Output) e **Table Operations** (Operazioni tabella) selezionando le schede separatamente.
 
-    ![Schede dati](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![Dati per le schede dell'applicazione Spark](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + Copiare tutte le righe facendo clic sul pulsante **Copy** (Copia).
 
-    ![Copia dati](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Dati per la copia dell'applicazione Spark](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + Salvare tutti i dati come file con estensione CSV facendo clic sul pulsante **csv**.
 
-    ![Salvataggio dati](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![Dati per il salvataggio dell'applicazione Spark](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + Eseguire ricerche immettendo parole chiave nel campo **Search** (Cerca). I risultati della ricerca verranno visualizzati immediatamente.
 
-    ![Ricerca dati](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![Dati per la ricerca di applicazioni Spark](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + Fare clic sull'intestazione di colonna per ordinare la tabella, fare clic sul segno più per espandere una riga e visualizzare altri dettagli o fare clic sul segno meno per comprimere una riga.
 
-    ![Tabella dati](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![Dati per la tabella dell'applicazione Spark](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + Scaricare un singolo file facendo clic sul pulsante **Partial Download** (Download parziale) sulla destra. Il file selezionato verrà scaricato in locale e, se non esiste più, si aprirà una nuova scheda con i messaggi di errore.
 
-    ![Riga download dati](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
+    ![Dati per la riga di download dell'applicazione Spark](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
 + Copiare il percorso completo o relativo selezionando **Copy Full Path** (Copia percorso completo) o **Copy Relative Path** (Copia percorso relativo) dall'elenco di opzioni visualizzate espandendo il menu di download. Per i file di Azure Data Lake Storage, facendo clic su **Open in Azure Storage Explorer** (Apri in Azure Storage Explorer) si aprirà Azure Storage Explorer e all'accesso verrà visualizzata la cartella.
 
-    ![Percorso di copia dati](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
+    ![Dati per il percorso di copia dell'applicazione Spark](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
-+ Fare clic sul numero sotto la tabella per spostarsi tra le pagine quando in un'unica pagina compaiono troppe righe. 
++ Fare clic sul numero sotto la tabella per spostarsi tra le pagine quando in un'unica pagina compaiono troppe righe.
 
-    ![Pagina dati](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![Pagina dei dati per l'applicazione Spark](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + Passare il puntatore sul punto interrogativo accanto a Data (Dati) per visualizzare la descrizione comando oppure fare clic sul punto interrogativo per ottenere altre informazioni.
 
-    ![Altre informazioni sui dati](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
+    ![Ulteriori informazioni per l'applicazione Spark](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
 + Per inviare feedback sui problemi, fare clic su **Provide us feedback** (Invia feedback).
 
-    ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
-
+    ![Spark Graph fornisce commenti e suggerimenti](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 ## <a name="graph-tab-in-apache-spark-history-server"></a>Scheda del grafo nel Server cronologia Apache Spark
+
 Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu degli strumenti per ottenere la visualizzazione del grafico del processo.
 
-+ Controllare la panoramica del processo tramite il grafico del processo generato. 
++ Controllare la panoramica del processo tramite il grafico del processo generato.
 
 + Per impostazione predefinita vengono mostrati tutti i processi ed è possibile filtrare la visualizzazione per **ID processo**.
 
-    ![ID processo del grafico](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![ID del processo dell'applicazione Spark e del grafico del processo](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + Per impostazione predefinita è selezionato **Progress** (Avanzamento). È anche possibile controllare il flusso di dati selezionando **Read/Written** (Letti/Scritti) nell'elenco a discesa **Display** (Visualizza).
 
-    ![Visualizzazione del grafico](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
+    ![Visualizzazione dell'applicazione Spark e del grafico del processo](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
 
     Il nodo del grafico viene visualizzato in colori che rappresentano la mappa termica.
 
-    ![Mappa termica del grafico](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
+    ![Applicazione Spark e grafo del processo mappa termica](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 + Riprodurre il processo facendo sul pulsante **Playback** (Riproduci) e arrestare la riproduzione in qualsiasi momento facendo clic sul pulsante di arresto. Durante la riproduzione, le attività vengono visualizzate in colori che indicano lo stato:
 
@@ -111,30 +112,29 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
   + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
   + Il rosso indica l'esito negativo: l'attività non è stata completata.
 
-    ![Esempio di colore del grafico, in esecuzione](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
- 
-    La fase ignorata viene visualizzata in bianco.
-    ![Esempio di colore del grafo, ignorato](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    ![Esempio di colore dell'applicazione Spark e del grafico del processo, in esecuzione](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
-    ![Esempio di colore del grafico, non riuscito](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
- 
+    La fase ignorata viene visualizzata in bianco.
+    ![Esempio di colore dell'applicazione Spark e del grafico del processo, ignorare](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
+    ![Esempio di colore dell'applicazione Spark e del grafico del processo non riuscito](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
+
     > [!NOTE]  
     > È possibile riprodurre qualsiasi processo. Per un processo non completato, la riproduzione non è supportata.
 
-
 + Usare la rotellina del mouse per ingrandire/ridurre il grafico del processo o fare clic su **Zoom to fit** (Adatta alla finestra) per adattarlo alle dimensioni dello schermo.
- 
-    ![Adattamento del grafico alla finestra](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
+
+    ![Adatta allo zoom del grafico del processo e dell'applicazione Spark](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
 
 + Passare il puntatore sul nodo del grafico per visualizzare la descrizione comando quando sono presenti attività non riuscite e fare clic sulla fase per aprire la pagina della fase.
 
-    ![Descrizione comando del grafico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+    ![Descrizione comando dell'applicazione Spark e del grafico del processo](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Nella scheda del grafo del processo per le fasi verranno visualizzate una descrizione comando e una piccola icona se hanno attività che soddisfano le condizioni seguenti:
   + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB.
   + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min.
 
-    ![Icona dello sfasamento nel grafo](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+    ![Icona dell'applicazione Spark e della distorsione del grafico del processo](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Il nodo del grafico del processo visualizzerà le informazioni seguenti per ogni fase:
   + ID.
@@ -154,49 +154,51 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 
 + Per inviare feedback sui problemi, fare clic su **Provide us feedback** (Invia feedback).
 
-    ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
-
+    ![Commenti e suggerimenti sull'applicazione Spark e sui grafici dei processi](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 ## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Scheda della diagnosi nel Server cronologia Apache Spark
+
 Selezionare l'ID di processo, quindi fare clic su **Diagnosi** nel menu degli strumenti per ottenere la visualizzazione della diagnosi del processo. La scheda della diagnosi include **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
-    
+
 + Controllare **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor) selezionando le rispettive schede.
 
-    ![Schede della diagnosi](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+    ![SparkUI di nuovo la scheda asimmetria dati diagnosi](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### <a name="data-skew"></a>Asimmetria dei dati
-Fare clic sulla scheda **Asimmetria dei dati** per visualizzare le attività asimmetriche corrispondenti in base ai parametri specificati. 
+
+Fare clic sulla scheda **Asimmetria dei dati** per visualizzare le attività asimmetriche corrispondenti in base ai parametri specificati.
 
 + **Specificare i parametri**: la prima sezione visualizza i parametri usati per rilevare l'asimmetria dei dati. La regola predefinita è: la quantità di dati attività letti è superiore al triplo della quantità media di dati attività letti e la quantità di dati attività letti è superiore a 10 MB. Per definire una regola personalizzata per le attività asimmetriche, è possibile scegliere i parametri e le sezioni **Fase asimmetrica** e **Skew Char** (Grafico asimmetrico) verranno aggiornate di conseguenza.
 
 + **Fase asimmetrica**: la seconda sezione visualizza le fasi con attività asimmetriche che soddisfano i criteri specificati sopra. Se in una fase sono presenti più attività asimmetriche, la tabella in Fase asimmetrica visualizza l'attività più asimmetrica (ad esempio, la quantità di dati maggiore per l'asimmetria dei dati).
 
-    ![Sezione 2 di Asimmetria dei dati](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+    ![scheda asimmetria dati diagnosi sparkui](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
 + **Skew Chart** (Grafico asimmetrico): quando una riga della tabella in Fase asimmetrica viene selezionata, il grafico asimmetrico visualizza altri dettagli sulle distribuzioni dell'attività in base alla quantità di dati letti e al tempo di esecuzione. Le attività asimmetriche vengono contrassegnate in rosso, quelle normali in blu. Per motivi di prestazioni, il grafico visualizza solo un massimo di 100 attività di esempio. Nel pannello in basso a destra vengono visualizzati i dettagli dell'attività.
 
-    ![Sezione 3 di Asimmetria dei dati](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+    ![grafico di asimmetria sparkui per la fase 10](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
 ### <a name="time-skew"></a>Sfasamento dell'ora
-La scheda **Sfasamento dell'ora** visualizza le attività asimmetriche in base al tempo di esecuzione delle attività. 
+
+La scheda **Sfasamento dell'ora** visualizza le attività asimmetriche in base al tempo di esecuzione delle attività.
 
 + **Specificare i parametri**: la prima sezione visualizza i parametri usati per rilevare lo sfasamento dell'ora. I criteri predefiniti per rilevare lo sfasamento dell'ora sono: il tempo di esecuzione dell'attività è superiore al triplo del tempo di esecuzione medio e il tempo di esecuzione dell'attività è superiore a 30 secondi. È possibile modificare i parametri in base alle esigenze. **Fase asimmetrica** e **Skew Chart** (Grafico asimmetrico) visualizzano le informazioni corrispondenti sulle fasi e sulle attività, come la scheda **Asimmetria dei dati** precedente.
 
 + Fare clic su **Sfasamento dell'ora** per visualizzare il risultato filtrato nella sezione **Fase asimmetrica** in base ai parametri impostati nella sezione **Specificare i parametri**. Fare clic su un elemento nella sezione **Fase asimmetrica** per creare una bozza del grafico corrispondente nella sezione 3 e visualizzare i dettagli dell'attività nel pannello in basso a destra.
 
-    ![Sezione 2 di Sfasamento dell'ora](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+    ![sezione sfasamento dell'ora diagnosi sparkui](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
 ### <a name="executor-usage-analysis"></a>Executor Usage Analysis (Analisi utilizzo executor)
+
 Il grafico Executor Usage (Utilizzo executor) visualizza l'allocazione di executor effettiva del processo Spark e lo stato di esecuzione.  
 
 + Fare clic su **Executor Usage Analysis** (Analisi utilizzo executor) per tracciare quattro tipi di curve sull'utilizzo degli executor, tra cui **Allocated Executors** (Executor allocati), **Running Executors** (Executor in esecuzione), **idle Executors** (Executor inattivi) e **Max Executor Instances** (Numero massimo di istanze di executor). Per quanto riguarda gli executor allocati, ogni evento di aggiunta o di rimozione di un executor aumenterà o diminuirà il numero di executor allocati. Per un ulteriore confronto, è possibile controllare la sequenza temporale di eventi nella scheda "Processi".
 
-    ![Scheda degli executor](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+    ![scheda esecutori diagnosi sparkui](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
 + Fare clic sull'icona del colore per selezionare o deselezionare il contenuto corrispondente in tutte le bozze.
 
-    ![Selezionare il grafico](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
-
+    ![sparkui diagnosi selezione grafico](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 ## <a name="faq"></a>Domande frequenti
 
@@ -211,33 +213,32 @@ Per tornare alla versione Community, procedere come segue:
 5. La proprietà viene impostata su **false**.
 6. Fare clic su **Salva** per salvare la configurazione.
 
-    ![Funzionalità disattivata](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![La funzionalità Apache Ambari si disattiva](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. Fare clic su **Spark2** nel pannello a sinistra e nella scheda **Summary** (Riepilogo) fare clic su **Spark2 History Server** (Server cronologia Spark2).
 
-    ![Riavvio del server 1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![Visualizzazione di riepilogo di Apache Ambari Spark2](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
 8. Riavviare il server cronologia facendo clic su **Restart** (Riavvia) per **Spark2 History Server** (Server cronologia Spark2).
 
-    ![Riavvio del server 2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
-
+    ![Riavvio della cronologia di Apache Ambari Spark2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Aggiornare l'interfaccia utente Web Server cronologia Spark. Verrà ripristinata la versione Community.
 
 ### <a name="2-upload-history-server-event"></a>2. Caricare eventi del server cronologia
 
 Se si verificano errori del server cronologia, procedere come segue per recuperare l'evento:
+
 1. Scaricare l'evento facendo clic su **Download** nell'interfaccia utente Web Server cronologia.
 
-    ![Download dell'evento](./media/apache-azure-spark-history-server/sparkui-download-event.png)
+    ![Download del server della cronologia Spark2](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
 2. Fare clic su **Provide us feedback** (Invia feedback) nella scheda dei dati o del grafico.
 
-    ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    ![Spark Graph fornisce commenti e suggerimenti](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 3. Specificare il titolo e la descrizione dell'errore, trascinare il file ZIP nel campo di modifica, quindi fare clic su **Submit new issue** (Invia nuovo problema).
 
-    ![Problema file](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
-
+    ![esempio di problema di file Apache Spark](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Aggiornare il file JAR per lo scenario di aggiornamento rapido
 
@@ -290,23 +291,23 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
     fi
    ```
 
-**Utilizzo**: 
+**Utilizzo**:
 
 `upgrade_spark_enhancement.sh https://${jar_path}`
 
 **Esempio**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`
 
 **Per usare il file Bash dal portale di Azure**
 
-1. Avviare il [Portale di Azure](https://ms.portal.azure.com) e selezionare il cluster.
+1. Avviare [portale di Azure](https://ms.portal.azure.com)e selezionare il cluster.
 2. Fare clic su **Azioni script**, quindi su **Invia nuova**. Completare il modulo **Invia azione script**, quindi fare clic sul pulsante **Crea**.
-    
+
     + **Tipo di script**: selezionare **Personalizzato**.
     + **Nome**: specificare un nome per lo script.
     + **URI script Bash**: caricare il file Bash nel cluster privato, quindi copiare l'URL qui. In alternativa, usare l'URI fornito.
-    
+
    ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
@@ -314,21 +315,19 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
    + Selezionare **Head** e **Lavoro**.
    + **Parametri**: impostare i parametri per l'utilizzo del file Bash.
 
-     ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/sparkui-upload2.png)
-
+     ![portale di Azure invia azione script](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 ## <a name="known-issues"></a>Problemi noti
 
-1.  Attualmente la procedura funziona solo per i cluster Spark 2.3.
+1. Attualmente funziona solo per i cluster Spark 2,3 e 2,4.
 
-2.  I dati di input/output in formato RDD non verranno visualizzati nella scheda dati.
+2. I dati di input/output in formato RDD non verranno visualizzati nella scheda dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestire le risorse di un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
 * [Configurare le impostazioni di Apache Spark](apache-spark-settings.md)
 
-
-## <a name="contact-us"></a>Contatti
+## <a name="contact-us"></a>Contattaci
 
 Per eventuali commenti oppure se si riscontrano problemi nell'uso di questo strumento, inviare un messaggio di posta elettronica all'indirizzo ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

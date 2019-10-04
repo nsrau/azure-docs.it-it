@@ -1,123 +1,114 @@
 ---
-title: Creare un pool di host di anteprima di Desktop virtuale Windows con PowerShell - Azure
-description: Come creare un pool di host in anteprima di Desktop virtuale Windows con i cmdlet di PowerShell.
+title: Creare un pool di host per desktop virtuali Windows con PowerShell-Azure
+description: Come creare un pool host in un desktop virtuale Windows con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 04/05/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258471"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679568"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant dell'anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+I pool host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di desktop virtuali Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usare il client di PowerShell per creare un pool di host
 
 Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
 
-Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Windows
+Eseguire il cmdlet seguente per accedere all'ambiente desktop virtuale di Windows
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Successivamente, eseguire il cmdlet seguente per impostare il contesto per il gruppo di tenant. Se non si ha il nome del gruppo di tenant, il tenant è più probabile "Default Tenant gruppo" in modo che è possibile ignorare questo cmdlet.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
-```
-
-Successivamente, eseguire questo cmdlet per creare un nuovo pool di host nel proprio tenant di Desktop virtuale Windows:
+Eseguire quindi questo cmdlet per creare un nuovo pool di host nel tenant del desktop virtuale Windows:
 
 ```powershell
 New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 ```
 
-Eseguire il successivo cmdlet per creare un token di registrazione per autorizzare un host di sessione a vengono aggiunti al pool di host e salvarlo in un nuovo file nel computer locale. È possibile specificare quanto tempo il token di registrazione è valido utilizzando il parametro - ExpirationHours.
+Eseguire il cmdlet Next per creare un token di registrazione per autorizzare un host sessione ad aggiungere il pool host e salvarlo in un nuovo file nel computer locale. È possibile specificare il periodo di validità del token di registrazione utilizzando il parametro-ExpirationHours.
 
 ```powershell
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
 ```
 
-Successivamente, eseguire questo cmdlet per aggiungere gli utenti di Azure Active Directory al gruppo di app desktop predefinito per il pool di host.
+Eseguire questo cmdlet per aggiungere Azure Active Directory utenti al gruppo di app desktop predefinito per il pool host.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Il **Add-RdsAppGroupUser** cmdlet non supporta l'aggiunta di gruppi di sicurezza e aggiunge solo un utente alla volta per il gruppo di app. Se si desidera aggiungere più utenti al gruppo di app, eseguire nuovamente il cmdlet con i nomi dell'entità utente appropriato.
+Il cmdlet **Add-RdsAppGroupUser** non supporta l'aggiunta di gruppi di sicurezza e aggiunge un solo utente alla volta al gruppo di app. Se si desidera aggiungere più utenti al gruppo di app, eseguire di nuovo il cmdlet con i nomi dell'entità utente appropriati.
 
-Eseguire il cmdlet seguente per esportare il token di registrazione in una variabile, che verrà usato successivamente nel [registrare le macchine virtuali nel pool di Desktop virtuale di Windows host](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Eseguire il cmdlet seguente per esportare il token di registrazione in una variabile, che sarà utilizzata più avanti in [registrare le macchine virtuali nel pool host del desktop virtuale di Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
 ```
 
-## <a name="create-virtual-machines-for-the-host-pool"></a>Creare macchine virtuali per il pool di host
+## <a name="create-virtual-machines-for-the-host-pool"></a>Creazione di macchine virtuali per il pool host
 
-A questo punto è possibile creare una macchina virtuale di Azure che possono essere aggiunti al pool di host di Desktop virtuale Windows.
+A questo punto è possibile creare una macchina virtuale di Azure che può essere unita in join al pool di host per desktop virtuali Windows.
 
-È possibile creare una macchina virtuale in più modi:
+È possibile creare una macchina virtuale in diversi modi:
 
 - [Creare una macchina virtuale da un'immagine della raccolta di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
 - [Creare una macchina virtuale da un'immagine gestita](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Creare una macchina virtuale da un'immagine non gestita](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Preparare le macchine virtuali per le installazioni dell'agente di anteprima di Desktop virtuale Windows
+>[!NOTE]
+>Se si distribuisce una macchina virtuale usando Windows 7 come sistema operativo host, il processo di creazione e distribuzione sarà leggermente diverso. Per ulteriori informazioni, vedere [la pagina relativa alla distribuzione di una macchina virtuale Windows 7 sul desktop virtuale di Windows](deploy-windows-7-virtual-machine.md).
 
-È necessario eseguire le operazioni seguenti per preparare le macchine virtuali prima di installare gli agenti Windows Desktop virtuale e registrare le macchine virtuali al pool di host di Desktop virtuale Windows:
+Dopo aver creato le macchine virtuali host sessione, [applicare una licenza Windows a una VM host sessione](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare per un'altra licenza. 
 
-- È necessario aggiunta al dominio del computer. Ciò consente agli utenti di Desktop virtuale Windows in arrivo eseguire il mapping dal proprio account Azure Active Directory al proprio account Active Directory ed è stato consentito l'accesso alla macchina virtuale.
-- Se la macchina virtuale è in esecuzione un sistema operativo Windows Server, è necessario installare il ruolo Host sessione Desktop remoto (RDSH). Il ruolo Host sessione Desktop remoto consente gli agenti di Desktop virtuale Windows da installare in modo corretto.
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparare le macchine virtuali per le installazioni di agenti desktop virtuali Windows
 
-A è stata aggiunta al dominio, eseguire le operazioni seguenti in ogni macchina virtuale:
+Per preparare le macchine virtuali, è necessario eseguire le operazioni seguenti prima di installare gli agenti desktop virtuali di Windows e registrare le macchine virtuali nel pool host del desktop virtuale Windows:
 
-1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
-2. Nella macchina virtuale, avviare **Pannello di controllo** e selezionare **sistema**.
-3. Selezionare **nome Computer**, selezionare **modificare le impostazioni**, quindi selezionare **modifica...**
-4. Selezionare **dominio** e quindi immettere il dominio di Active Directory nella rete virtuale.
-5. Eseguire l'autenticazione con un account di dominio che disponga dei privilegi per le macchine di aggiunta al dominio.
+- È necessario aggiungere il computer a un dominio. Ciò consente di eseguire il mapping degli utenti di desktop virtuali Windows in ingresso dal proprio account di Azure Active Directory al proprio account di Active Directory e di consentire l'accesso alla macchina virtuale.
+- Se la macchina virtuale esegue un sistema operativo Windows Server, è necessario installare il ruolo host sessione Desktop remoto (RDSH). Il ruolo RDSH consente di installare correttamente gli agenti desktop virtuali di Windows.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrare le macchine virtuali al pool di host di anteprima di Desktop virtuale Windows
+Per aggiungere correttamente un dominio, eseguire le operazioni seguenti in ogni macchina virtuale:
 
-Le macchine virtuali a un pool di Desktop virtuale di Windows host di registrazione è semplice come installare gli agenti Windows Desktop virtuale.
+1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
+2. Nella macchina virtuale avviare il **Pannello di controllo** e selezionare **sistema**.
+3. Selezionare **nome computer**, fare clic su **Modifica impostazioni**e quindi selezionare **modifica...**
+4. Selezionare **dominio** e quindi immettere il dominio Active Directory nella rete virtuale.
+5. Eseguire l'autenticazione con un account di dominio che disponga dei privilegi per i computer aggiunti al dominio.
 
-Per registrare gli agenti Windows Desktop virtuale, eseguire le operazioni seguenti in ogni macchina virtuale:
+    >[!NOTE]
+    > Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
-1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
-2. Scaricare e installare l'agente di Desktop virtuali di Windows.
-   - Scaricare il [agente di Desktop virtuale Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Fare clic sul programma di installazione scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile il programma di installazione.
-   - Eseguire il programma di installazione. Quando il programma di installazione viene richiesto per il token di registrazione, immettere il valore ottenuto tramite il **Export-RdsRegistrationInfo** cmdlet.
-3. Scaricare e installare il caricatore di avvio Windows virtuale dell'agente di Desktop.
-   - Scaricare il [caricatore di avvio di Windows dell'agente di Desktop virtuale](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Fare clic sul programma di installazione scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile il programma di installazione.
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrare le macchine virtuali nel pool host del desktop virtuale Windows
+
+La registrazione delle macchine virtuali in un pool host di desktop virtuali Windows è semplice quanto l'installazione degli agenti desktop virtuali di Windows.
+
+Per registrare gli agenti desktop virtuali Windows, eseguire le operazioni seguenti in ogni macchina virtuale:
+
+1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
+2. Scaricare e installare l'agente desktop virtuale di Windows.
+   - Scaricare l' [agente desktop virtuale di Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Fare clic con il pulsante destro del mouse sul programma di installazione scaricato, scegliere **Proprietà**, selezionare **Sblocca**e quindi fare clic su **OK**. Questo consentirà al sistema di considerare attendibile il programma di installazione.
+   - Eseguire il programma di installazione. Quando il programma di installazione richiede il token di registrazione, immettere il valore ottenuto dal cmdlet **Export-RdsRegistrationInfo** .
+3. Scaricare e installare il bootloader dell'agente desktop virtuale di Windows.
+   - Scaricare il [bootloader dell'agente desktop virtuale di Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+   - Fare clic con il pulsante destro del mouse sul programma di installazione scaricato, scegliere **Proprietà**, selezionare **Sblocca**e quindi fare clic su **OK**. Questo consentirà al sistema di considerare attendibile il programma di installazione.
    - Eseguire il programma di installazione.
-4. Installare oppure attivare lo stack side-by-side di Desktop virtuale Windows. I passaggi saranno diversi a seconda di quale versione del sistema operativo Usa la macchina virtuale.
-   - Se il sistema operativo della macchina virtuale è Windows Server 2016:
-     - Scaricare il [stack side-by-side di Desktop virtuale Windows](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Fare clic sul programma di installazione scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile il programma di installazione.
-     - Eseguire il programma di installazione.
-   - Se il sistema operativo della macchina virtuale è Windows 10 1809 o versioni successive o Windows Server 2019 o versione successiva:
-     - Scaricare il [script](https://go.microsoft.com/fwlink/?linkid=2084268) per attivare lo stack side-by-side.
-     - Fare clic sullo script scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile lo script.
-     - Dal **avviare** menu, cercare Windows PowerShell ISE, pulsante destro del mouse, quindi selezionare **Esegui come amministratore**.
-     - Selezionare **File**, quindi **aprire...** e quindi trovare lo script di PowerShell dai file scaricati e aprirlo.
-     - Selezionare il pulsante di riproduzione di colore verde per eseguire lo script.
 
 >[!IMPORTANT]
->Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono state apportate a un pool di host, è possibile popolarlo con RemoteApp. Per altre informazioni su come gestire le app in Desktop virtuale Windows, vedere l'esercitazione Gestire i gruppi di app.
+Ora che è stato creato un pool di host, è possibile popolarlo con RemoteApp. Per altre informazioni su come gestire le app in Desktop virtuale Windows, vedere l'esercitazione Gestire i gruppi di app.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Gestire i gruppi di app](./manage-app-groups.md)

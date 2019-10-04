@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753471"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734315"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -102,6 +101,8 @@ Il nome dell'hub attività verrà impostato in base al valore dell’impostazion
 
 Di seguito è riportato un esempio di C# precompilato su come scrivere una funzione che usa un oggetto [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) per funzionare con un hub attività configurato come Impostazione app:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -120,8 +121,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Di seguito è riportata la configurazione necessaria per JavaScript. La proprietà dell'hub attività nel file `function.json` viene configurata tramite Impostazione app:
+### <a name="javascript"></a>JavaScript
 
+La proprietà dell'hub attività nel file `function.json` viene configurata tramite Impostazione app:
 ```json
 {
     "name": "input",

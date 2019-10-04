@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65143295"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
 > [!NOTE]
@@ -205,8 +205,8 @@ Dopo aver registrato correttamente il gateway, se si desidera visualizzare o agg
 ### <a name="configure-proxy-server-settings"></a>Configurare le impostazioni del server proxy
 Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il gateway usa l'impostazione proxy contenuta in diahost.exe.config e diawp.exe.config. Se non è stato specificato alcun proxy in diahost.exe.config e diawp.exe.config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy. La procedura seguente fornisce istruzioni per l'aggiornamento del file diahost.exe.config.
 
-1. In Esplora file creare una copia sicura di C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config per eseguire il backup del file originale.
-2. Avviare Notepad.exe come amministratore e aprire il file di testo "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config". Il tag predefinito per system.net viene trovato come indicato nel codice seguente:
+1. In Esplora File creare una copia sicura dei *c:\\\\i file di programma\\Gateway di gestione dati di Microsoft\\2.0\\condiviso\\diahost* a eseguire il backup del file originale.
+2. Avviare Notepad.exe in esecuzione come amministratore e aprire il file di testo *c:\\\\i file di programma\\Gateway di gestione dati di Microsoft\\2.0\\condiviso\\ diahost*. Il tag predefinito per system.net viene trovato come indicato nel codice seguente:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
 
 [Per gateway a nodo singolo]
 1. Avviare Windows PowerShell nel computer gateway.
-2. Passare alla cartella C:\Programmi\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
+2. Passare al *c:\\\\i file di programma\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  cartella.
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.
 
     ```powershell
@@ -293,7 +293,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
     ```
    [Per il gateway a più nodi a disponibilità e scalabilità elevate](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Avviare Windows PowerShell nel computer gateway.
-2. Passare alla cartella C:\Programmi\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
+2. Passare al *c:\\\\i file di programma\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  cartella.
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.
 
     Per il gateway con funzionalità di disponibilità elevata, è necessario un parametro di AuthKey aggiuntivo.
@@ -310,7 +310,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
 Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
 1. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità.
-2. Eseguire il file eseguibile **ConfigManager.exe** nella cartella: **C:\Programmi\Microsoft Data Management Gateway\2.0\Shared**
+2. Eseguire il file eseguibile *ConfigManager.exe* nella cartella: *C:\\\\file di programma\\Gateway di gestione dati Microsoft\\2.0\\condiviso*.
 
 ### <a name="home-page"></a>Home page
 Nella home page è possibile eseguire queste operazioni:
@@ -363,7 +363,7 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 
 La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:
 
-Proprietà monitoraggio | DESCRIZIONE
+Proprietà monitoraggio | Descrizione
 :------------------ | :----------
 Name | Nome del gateway logico e nodi associati al gateway. Il nodo è un computer Windows locale in cui è installato il gateway. Per informazioni sulla possibilità di avere più di un nodo (fino a quattro nodi) in un singolo gateway logico, vedere [Gateway di gestione dati: disponibilità elevata e scalabilità](data-factory-data-management-gateway-high-availability-scalability.md).
 Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status).
@@ -511,7 +511,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. In Azure PowerShell, passare alla cartella: **C:\\programmare Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Eseguire **RegisterGateway.ps1** associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
+1. In Azure PowerShell, passare alla cartella: *C:\\\\file di programma\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Eseguire *RegisterGateway.ps1* associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

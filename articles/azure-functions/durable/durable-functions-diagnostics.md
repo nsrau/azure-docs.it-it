@@ -2,20 +2,19 @@
 title: Diagnostica in Funzioni permanenti - Azure
 description: Informazioni su come eseguire la diagnostica dei problemi con l'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608487"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933511"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -33,7 +32,7 @@ Ogni evento del ciclo di vita di un'istanza di orchestrazione genera la scrittur
 
 * **hubName**: nome dell'hub attività in cui vengono eseguite le orchestrazioni.
 * **appName**: Nome dell'app per le funzioni. Questo campo è utile quando più app per le funzioni condividono la stessa istanza di Application Insights.
-* **slotName**: [slot di distribuzione](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) in cui è in esecuzione l'app per le funzioni corrente. Questo campo è utile quando si usano gli slot di distribuzione per controllare le versioni delle orchestrazioni.
+* **slotName**: [slot di distribuzione](../functions-deployment-slots.md) in cui è in esecuzione l'app per le funzioni corrente. Questo campo è utile quando si usano gli slot di distribuzione per controllare le versioni delle orchestrazioni.
 * **functionName**: nome della funzione dell'agente di orchestrazione o di attività.
 * **functionType**: tipo di funzione, ad esempio **agente di orchestrazione** o **attività**.
 * **instanceId**: ID univoco dell'istanza di orchestrazione.
@@ -159,9 +158,26 @@ Il risultato è un elenco di ID istanza e dello stato di runtime corrente.
 
 È importante tenere presente il comportamento di riesecuzione dell'agente di orchestrazione quando si scrivono i log direttamente da una funzione dell'agente di orchestrazione. Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
 
-```cs
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+### <a name="c-script"></a>Script C#
+
+```csharp
 public static async Task Run(
     DurableOrchestrationContext context,
     ILogger log)
@@ -212,6 +228,23 @@ Done!
 
 Se si vuole eseguire la registrazione solo con l'esecuzione senza riesecuzione, è possibile scrivere un'espressione condizionale per eseguire la registrazione solo se `IsReplaying` è `false`. Si consideri l'esempio precedente, ma questa volta con i controlli di riesecuzione.
 
+#### <a name="precompiled-c"></a>C# precompilato
+
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
 #### <a name="c"></a>C#
 
 ```cs
@@ -258,7 +291,7 @@ Done!
 
 Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `DurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `DurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `DurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>C# precompilato
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
@@ -273,7 +306,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -316,18 +349,19 @@ I client visualizzano la risposta seguente:
 
 Funzioni di Azure supporta direttamente il debug del codice della funzione e lo stesso supporto si estende a Funzioni permanenti, in esecuzione in Azure o in locale. Quando si esegue il debug, è tuttavia opportuno conoscere alcuni comportamenti:
 
-* **Replay**: le funzioni dell'agente di orchestrazione vengono rieseguite regolarmente alla ricezione di nuovi input. Ciò implica che una singola esecuzione *logica* di una funzione dell'agente di orchestrazione può comportare l'accesso più volte allo stesso punto di interruzione, soprattutto se è impostata all'inizio del codice della funzione.
-* **Await**: ogni volta che viene rilevato `await`, il controllo viene restituito al dispatcher di Durable Task Framework. Se è la prima volta che uno specifico `await` è stato rilevato, l'attività associata non viene ripresa *mai*. Poiché l'attività non viene ripresa mai, non è possibile eseguire lo *step over* per await (F10 in Visual Studio). Questa operazione funziona solo se un'attività è in corso di riesecuzione.
-* **Timeout di messaggistica**: Durable Functions usa internamente i messaggi in coda per gestire l'esecuzione delle funzioni sia di orchestrazione sia di attività. In un ambiente con più macchine virtuali, a causa dell'interruzione del debug per lunghi periodi di tempo è possibile che un'altra macchina virtuale prelevi il messaggio, generando un'esecuzione duplicata. Questo comportamento esiste anche per le normali funzioni attivate da coda, ma è importante sottolinearlo in questo contesto poiché le code sono un dettaglio dell'implementazione.
+* **Replay**: Le funzioni dell'agente di orchestrazione vengono regolarmente [riprodotte](durable-functions-orchestrations.md#reliability) quando vengono ricevuti nuovi input. Ciò implica che una singola esecuzione *logica* di una funzione dell'agente di orchestrazione può comportare l'accesso più volte allo stesso punto di interruzione, soprattutto se è impostata all'inizio del codice della funzione.
+* **Await**: Ogni volta `await` che un oggetto viene rilevato in una funzione dell'agente di orchestrazione, restituisce il controllo al dispatcher di Durable Task Framework. Se è la prima volta che uno specifico `await` è stato rilevato, l'attività associata non viene ripresa *mai*. Poiché l'attività non viene ripresa mai, non è possibile eseguire lo *step over* per await (F10 in Visual Studio). Questa operazione funziona solo se un'attività è in corso di riesecuzione.
+* **Timeout di messaggistica**: Durable Functions usa internamente i messaggi della coda per guidare l'esecuzione di funzioni di orchestrazione, attività ed entità. In un ambiente con più macchine virtuali, a causa dell'interruzione del debug per lunghi periodi di tempo è possibile che un'altra macchina virtuale prelevi il messaggio, generando un'esecuzione duplicata. Questo comportamento esiste anche per le normali funzioni attivate da coda, ma è importante sottolinearlo in questo contesto poiché le code sono un dettaglio dell'implementazione.
+* **Arresto e avvio**: I messaggi nelle funzioni permanenti vengono mantenuti tra le sessioni di debug. Se si interrompe il debug e si termina il processo host locale mentre è in esecuzione una funzione durevole, la funzione potrebbe essere rieseguita automaticamente in una sessione di debug futura. Questa operazione può generare confusione quando non è prevista. La cancellazione di tutti i messaggi dalle [code di archiviazione interne](durable-functions-perf-and-scale.md#internal-queue-triggers) tra le sessioni di debug è una tecnica per evitare questo comportamento.
 
 > [!TIP]
-> Quando si impostano i punti di interruzione, se si vuole impostare il punto di interruzione solo su un'esecuzione senza riesecuzione, è possibile impostare un punto di interruzione condizionale con arresto solo se `IsReplaying` è `false`.
+> Quando si impostano punti di interruzione nelle funzioni dell'agente di orchestrazione, se si desidera interrompere l'esecuzione solo in assenza di riproduzione, è possibile impostare `IsReplaying` un `false`punto di interruzione condizionale che si interrompe solo se è.
 
 ## <a name="storage"></a>Archiviazione
 
 Per impostazione predefinita, Funzioni permanenti archivia lo stato in Archiviazione di Azure. È quindi possibile controllare lo stato delle orchestrazioni tramite strumenti come [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Screenshot di Esplora archivi Azure](./media/durable-functions-diagnostics/storage-explorer.png)
+![Schermata Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Risulta utile per il debug perché viene visualizzato esattamente lo stato in cui potrebbe trovarsi un'orchestrazione. È possibile esaminare i messaggi nelle code anche per individuare le attività in sospeso o, in alcuni casi, bloccate.
 
@@ -337,4 +371,4 @@ Risulta utile per il debug perché viene visualizzato esattamente lo stato in cu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come usare i timer permanenti](durable-functions-timers.md)
+> [Altre informazioni sul monitoraggio in funzioni di Azure](../functions-monitoring.md)

@@ -3,19 +3,20 @@ title: Come usare la proprietà "entità prevista" delle azioni di Conversation 
 titleSuffix: Azure
 description: Informazioni su come usare la proprietà "entità prevista" in un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 01d991cff9b7f7a66740f86e537833ffe4e862c7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5fbe4f09d377b9f157368184ab26341782e9aed1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226269"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707312"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Come usare la proprietà "entità prevista" delle azioni
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
 ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60684449"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -65,7 +65,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
    | Proprietà | DESCRIZIONE |
    | --- | --- |
-   | NOME |Nome del contratto |
+   | Name |Nome del contratto |
    | Tipo di contratto | Deve essere EDIFACT |
    | Host Partner (Partner host) |Un contratto prevede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che configura il contratto. |
    | Host Identity (Identità host) |Un identificatore per il partner host |
@@ -92,21 +92,21 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB6.1 (password di riferimento destinatario) |Immettere un valore alfanumerico costituito da un numero di caratteri compreso tra 1 e 14. |
 | UNB6.2 (qualificatore di riferimento destinatario) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo due. |
 
 ### <a name="acknowledgments"></a>Ringraziamenti
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Conferma recapito messaggi (CONTRL) |Selezionare questa casella di controllo per restituire un acknowledgment tecnico (CONTRL) al mittente dell'interscambio. L'acknowledgment viene inviato al mittente dell'interscambio in base alle impostazioni di invio del contratto. |
 | Acknowledgement (CONTRL) |Selezionare questa casella di controllo per restituire un acknowledgment funzionale (CONTRL) al mittente dell'interscambio. L'acknowledgment viene inviato al mittente dell'interscambio in base alle impostazioni di invio del contratto. |
 
 ### <a name="schemas"></a>Schemi
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNH2.1 (tipo) |Selezionare un tipo di set di transazioni. |
 | UNH2.2 (versione) |Immettere il numero di versione del messaggio (da un minimo di un carattere a un massimo di tre). |
@@ -117,7 +117,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 | Schema |Selezionare lo schema caricato in precedenza che si vuole usare dall'account di integrazione associato. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Selezionare questa casella di controllo per bloccare gli interscambi duplicati. Se questa opzione è selezionata, l'azione di decodifica EDIFACT verifica che il numero di controllo (UNB5) dell'interscambio ricevuto non corrisponda al numero di controllo di un interscambio elaborato in precedenza. Se viene rilevata una corrispondenza, l'interscambio non viene elaborato. |
 | Verifica UNB5 duplicati ogni (giorni) |Se si è scelto di non consentire numeri di controllo di interscambio duplicati, è possibile il numero di giorni in cui verrà eseguito il controllo assegnando il valore appropriato a questa impostazione. |
@@ -129,7 +129,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Tipo messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |
@@ -140,7 +140,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ### <a name="internal-settings"></a>Impostazioni interne
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Crea tag XML vuoti se sono consentiti separatori finali |Selezionare questa casella di controllo se si vuole che il mittente dell'interscambio includa tag XML vuoti come separatori finali. |
 | Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore|Consente di analizzare ogni set di transazioni di un interscambio in un documento XML separato applicando la busta appropriata al set di transazioni. Sospende solo i set di transazioni che non superano la convalida. |
@@ -165,7 +165,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB1.2 (versione sintassi) |Selezionare un valore compreso tra **1** e **4**. |
 | UNB2.3 (indirizzo di routing inverso mittente) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
@@ -175,14 +175,14 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | UNB7 (ID riferimento applicazione) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Conferma recapito messaggi (CONTRL) |Selezionare questa casella di controllo se il partner host prevede di ricevere un riconoscimento tecnico (CONTRL). Questa impostazione specifica che il partner host che invia il messaggio richiede un acknowledgment dal partner guest. |
 | Acknowledgement (CONTRL) |Selezionare questa casella di controllo se il partner host prevede di ricevere un acknowledgment funzionale (CONTRL). Questa impostazione specifica che il partner host che invia il messaggio richiede un acknowledgment dal partner guest. |
 | Genera il ciclo SG1/SG4 per i set di transazioni accettate |Se si è scelto di richiedere un acknowledgement funzionale, selezionare questa casella di controllo per forzare la generazione di cicli SG1/SG4 negli acknowledgement funzionali CONTRL per i set di transazioni accettati. |
 
 ### <a name="schemas"></a>Schemi
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNH2.1 (tipo) |Selezionare un tipo di set di transazioni. |
 | UNH2.2 (versione) |Immettere il numero di versione del messaggio. |
@@ -190,7 +190,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | SCHEMA |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Per accedere agli schemi, collegare l'account di integrazione alla app per la logica. |
 
 ### <a name="envelopes"></a>Buste
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB8 (codice di priorità elaborazione) |Immettere un valore alfabetico di lunghezza non superiore a un carattere. |
 | UNB10 (contratto comunicazioni) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 40. |
@@ -202,7 +202,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori da usare per ogni tipo di messaggio. Se per un determinato schema del messaggio non è specificato un set di caratteri, viene usato il set di caratteri predefinito.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB1.1 (identificatore di sistema) |Selezionare il set di caratteri EDIFACT da applicare all'interscambio in uscita. |
 | SCHEMA |Selezionare uno schema nell'elenco a discesa. Dopo aver completato ogni riga, viene aggiunta automaticamente una nuova riga. Per lo schema selezionato, selezionare il set di separatori da usare, in base alle descrizioni di separatore seguenti. |
@@ -213,7 +213,7 @@ Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori
 | Suffisso |Selezionare il carattere usato con l'identificatore di segmento. Se si designa un suffisso, l'elemento dati del terminatore di segmenti può essere vuoto. Se il carattere di terminazione segmento viene lasciato vuoto, è necessario designare un suffisso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB5 (numero di controllo interscambio) |Immettere un prefisso, un intervallo di valori per il numero di controllo dell'interscambio e un suffisso. Questi valori verranno usati per generare un interscambio in uscita. Il prefisso e il suffisso sono facoltativi, mentre il numero di controllo è obbligatorio. Il numero di controllo viene incrementato per ogni nuovo messaggio, mentre il prefisso e il suffisso rimangono invariati. |
 | UNG5 (numero di controllo gruppo) |Immettere un prefisso, un intervallo di valori per il numero di controllo dell'interscambio e un suffisso. Questi valori verranno usati per generare il numero di controllo di gruppo. Il prefisso e il suffisso sono facoltativi, mentre il numero di controllo è obbligatorio. Il numero di controllo viene incrementato per ogni nuovo messaggio fino al raggiungimento del valore massimo, mentre il prefisso e il suffisso rimangono invariati. |
@@ -223,7 +223,7 @@ Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | Tipo messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |

@@ -5,22 +5,21 @@ keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: b7ec3a6919a27633fc36ba7fb1551ead10e06ffe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0170c016b1a8226424ccf9b25cfde3a4c196f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542714"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091427"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 

@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Python SDK.
 services: cognitive-services
 author: areddish
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 47e2f2a03c08ae1e44dcba35b440880ce06f6f95
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87c504fa936d89707020f1bf3ac9a0ccd4f81946
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484462"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946100"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python
 
@@ -45,7 +45,7 @@ Creare un nuovo file denominato *sample.py* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate.
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un classificatore](getting-started-build-a-classifier.md) nella guida al portale Web, vedere il metodo [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ).   
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -79,7 +79,7 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
-Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. Sarà necessario immettere il percorso dell'URL dell'immagine di base, che varia a seconda di dove è stato scaricato il progetto Cognitive Services Python SDK Samples.
+Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. È possibile caricare fino a 64 immagini in un singolo batch.
 
 > [!NOTE]
 > Occorrerà anche modificare il percorso delle immagini in base a dove è stato scaricato il progetto cognitive-services-java-sdk-samples.
@@ -139,11 +139,13 @@ from azure.cognitiveservices.vision.customvision.prediction import CustomVisionP
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
-    results = predictor.classify_image(project.id, publish_iteration_name, image_contents.read())
+    results = predictor.classify_image(
+        project.id, publish_iteration_name, image_contents.read())
 
     # Display the results.
     for prediction in results.predictions:
-        print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
+        print("\t" + prediction.tag_name +
+              ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
@@ -167,7 +169,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test/**) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
+Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test/** ) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

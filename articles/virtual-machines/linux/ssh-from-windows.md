@@ -4,23 +4,22 @@ description: Informazioni su come generare e usare chiavi SSH in un computer Win
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8e63f2c916153b5d43267869d7bc5be8fa646c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005688"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081987"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Come usare le chiavi SSH con Windows in Azure
 
@@ -48,7 +47,7 @@ Altri comuni client SSH Windows che è possibile installare in locale sono inclu
 * Accedere a Cloud Shell come un terminale da Visual Studio Code installando l'[estensione Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
-Le sezioni seguenti descrivono due opzioni per creare una coppia di chiavi SSH in Windows. È possibile usare un comando della shell (`ssh-keygen`) o uno strumento con interfaccia utente grafica (PuTTYgen).
+Le sezioni seguenti descrivono due opzioni per creare una coppia di chiavi SSH in Windows. È possibile usare un comando della shell (`ssh-keygen`) o uno strumento con interfaccia utente grafica (PuTTYgen). Si noti anche che quando si usa PowerShell per creare una chiave, caricare la chiave pubblica come formato SSH. com (SECSH). Quando si usa l'interfaccia della riga di comando, convertire la chiave nel formato OpenSSH prima del caricamento. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Creare chiavi SSH con ssh-keygen
 

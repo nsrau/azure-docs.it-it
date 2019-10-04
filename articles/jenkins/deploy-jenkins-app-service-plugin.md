@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864814"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840442"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -35,7 +35,7 @@ Se non è già disponibile un master Jenkins, iniziare con il [modello di soluzi
 * [Credenziali di Azure](https://plugins.jenkins.io/azure-credentials) versione 1.2
 * [Servizio app di Azure](https://plugins.jenkins.io/azure-app-service) versione 0.1
 
-Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
+Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Python, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
 
 > [!NOTE]
 > Per compilare il progetto Java sono necessari Java JDK e Maven. Installare i componenti nel master Jenkins o nell'agente di macchine virtuali, se in uso per l'integrazione continua. Se si distribuisce un'applicazione Java SE, è necessario anche ZIP sul server di compilazione.
@@ -72,7 +72,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 
 
 1. Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il [comando `az appservice plan create` dell'interfaccia della riga di comando di Azure](/cli/azure/appservice/plan#az-appservice-plan-create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse. Le risorse condivise permettono di risparmiare sui costi quando si ospitano più app.
-2. Creare un'app Web. È possibile usare il [portale di Azure](/azure/app-service-web/web-sites-configure) o il comando `az` dell'interfaccia della riga di comando di Azure seguente:
+2. Creare un'app Web. È possibile usare il [portale di Azure](/azure/app-service/configure-common) o il comando `az` dell'interfaccia della riga di comando di Azure seguente:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```

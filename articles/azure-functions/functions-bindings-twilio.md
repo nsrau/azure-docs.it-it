@@ -4,20 +4,19 @@ description: Informazioni su come usare le associazioni di Twilio in Funzioni di
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306654"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114364"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associazione di Twilio per Funzioni di Azure
 
@@ -122,7 +121,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-Non è possibile usare parametri out nel codice sincrono. Ecco un esempio di codice script C# asincrono:
+Non è possibile usare parametri out nel codice asincrono. Ecco un esempio di codice script C# asincrono:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -298,7 +297,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-Non è possibile usare parametri out nel codice sincrono. Ecco un esempio di codice script C# asincrono:
+Non è possibile usare parametri out nel codice asincrono. Ecco un esempio di codice script C# asincrono:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -403,7 +402,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|---------|----------------------|
 |**type**|**type**| deve essere impostato su `twilioSms`.|
 |**direction**|**direction**| deve essere impostato su `out`.|
-|**nome**|**nome**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
+|**name**|**name**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il SID account di Twilio, ad esempio TwilioAccountSid. Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il token di autenticazione di Twilio, ad esempio TwilioAccountAuthToken. Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAuthToken". |
 |**to**| N/D - specificare nel codice | **To**| Questo valore è impostato sul numero di telefono a cui viene inviato il messaggio SMS.|

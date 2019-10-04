@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
 ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743191"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Usare un TAP di rete virtuale con l'interfaccia della riga di comando di Azure
 

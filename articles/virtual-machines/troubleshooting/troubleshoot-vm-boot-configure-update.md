@@ -4,22 +4,21 @@ description: Presentazione della procedura per risolvere il problema di blocco d
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0a946ede154561aaa49d335b7b91fdae72c51d3
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443842"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155545"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
@@ -121,7 +120,7 @@ Per creare uno snapshot, seguire i passaggi descritti in [Creare uno snapshot di
 
 Seguire la procedura descritta nella sezione [Raccogliere un dump del sistema operativo](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) per raccogliere un dump del sistema operativo quando la macchina virtuale è bloccata in fase di configurazione.
 
-## <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
+## <a name="contact-microsoft-support"></a>Contatta il supporto tecnico Microsoft
 
 Dopo aver raccolto il file di dump, contattare il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per analizzare la causa radice.
 

@@ -5,6 +5,7 @@ description: Informazioni su come creare un servizio di bilanciamento del carico
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b864a4bf352c547779bb368650971fa8b805fca7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097982"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090977"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
 
@@ -61,7 +62,7 @@ Si noti che questo uso del cmdlet di Windows PowerShell [Add-AzureEndpoint](http
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passaggio 2: Aggiungere endpoint all'istanza del bilanciamento del carico interno
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -86,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio: 
+Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -147,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Per usare questi comandi, inserire i valori rimuovendo < and >.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -165,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Per usare questi comandi, inserire il valore e rimuovere < and >.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"

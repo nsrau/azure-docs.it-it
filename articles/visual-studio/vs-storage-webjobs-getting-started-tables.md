@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione di Azure e ai servizi relativi a Visual St
 description: Informazioni su come iniziare a usare l’archiviazione tabella di Azure in un progetto WebJobs di Azure in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390839"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510673"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle funzioni chiamate manualmente e non mediante uno degli attributi del trigger.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Come aggiungere entità a una tabella
-Per aggiungere entità a una tabella, usare l'attributo **Table** con un parametro **ICollector<T>** o **IAsyncCollector<T>** dove **T** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
+Per aggiungere entità a una tabella, usare l'attributo **Table** con un **parametro\<ICollector t >** o **\<IAsyncCollector t >** dove **t** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
 
 L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *Ingresso*.
 
@@ -79,7 +79,7 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 ![Funzione Ingress completata](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Come leggere più entità da una tabella
-Per leggere una tabella, usare l'attributo **Tabella** con un parametro **IQueryable<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
+Per leggere una tabella, usare l'attributo **Table** con un **parametro\<IQueryable T >** dove il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
 Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso**:
 

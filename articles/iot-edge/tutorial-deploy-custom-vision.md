@@ -5,24 +5,24 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087160"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003909"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
-Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi di lavoro dal cloud alla rete perimetrale. Questa funzionalità è particolarmente utile per i servizi che elaborano grandi quantità di dati, come i modelli di visione artificiale. Il [Servizio visione artificiale personalizzato](../cognitive-services/custom-vision-service/home.md) consente di compilare classificatori di immagini personalizzate e di distribuirli ai dispositivi come contenitori. Insieme, questi due servizi consentono di trovare informazioni dettagliate nelle immagini e nei flussi video senza dover prima trasferire tutti i dati in remoto. Il Servizio visione artificiale personalizzato fornisce un classificatore che confronta un'immagine con un modello con training per generare informazioni dettagliate. 
+Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi di lavoro dal cloud alla rete perimetrale. Questa funzionalità è particolarmente utile per i servizi che elaborano grandi quantità di dati, come i modelli di visione artificiale. Il [Servizio visione artificiale personalizzato](../cognitive-services/custom-vision-service/home.md) consente di compilare classificatori di immagini personalizzate e di distribuirli ai dispositivi come contenitori. Insieme, questi due servizi consentono di trovare informazioni dettagliate nelle immagini e nei flussi video senza dover prima trasferire tutti i dati in remoto. Il Servizio visione artificiale personalizzato fornisce un classificatore che confronta un'immagine con un modello con training per generare informazioni dettagliate.
 
-In un dispositivo IoT Edge, ad esempio, il Servizio visione artificiale personalizzato potrebbe determinare se un'autostrada sta registrando un traffico superiore o inferiore al normale o se in un garage ci sono posti disponibili in una fila. Queste informazioni dettagliate possono essere condivise con un altro servizio in modo da intraprende l'azione appropriata. 
+In un dispositivo IoT Edge, ad esempio, il Servizio visione artificiale personalizzato potrebbe determinare se un'autostrada sta registrando un traffico superiore o inferiore al normale o se in un garage ci sono posti disponibili in una fila. Queste informazioni dettagliate possono essere condivise con un altro servizio in modo da intraprende l'azione appropriata.
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 >
@@ -39,25 +39,22 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un dispositivo Azure IoT Edge:
+>[!TIP]
+>Questa esercitazione è una versione semplificata del progetto di esempio [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) (Visione personalizzata e Azure IoT Edge in un Raspberry Pi 3). È stata progettata per l'esecuzione in una macchina virtuale cloud e usa immagini statiche per eseguire il training e il test del classificatore di immagini, utile per chi inizia a valutare Visione personalizzata in IoT Edge. Il progetto di esempio usa hardware fisico e configura un feed di videocamera dal vivo per eseguire il training e il test del classificatore di immagini, utile per chi vuole provare uno scenario reale più dettagliato.
 
-* È possibile usare il computer di sviluppo o una macchina virtuale come dispositivo IoT Edge seguendo la procedura illustrata nella [guida introduttiva per Linux](quickstart-linux.md).
-* Attualmente il modulo di Visione personalizzata è disponibile solo come contenitore Linux per le architetture x64. 
+Prima di iniziare questa esercitazione, è necessario aver completato l'esercitazione precedente per configurare l'ambiente per lo sviluppo di contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti: 
 
-Risorse cloud:
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
+* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
-* Un registro contenitori. Questa esercitazione usa [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/). 
-* È necessario conoscere le credenziali dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro contenitori.
-
-Risorse per lo sviluppo:
+Per sviluppare un modulo IoT Edge con il servizio Visione personalizzata, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Estensione [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code
-* Estensione [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) per Visual Studio Code
-* [Docker CE](https://docs.docker.com/install/)
+* [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Compilare un classificatore di immagini con il Servizio visione artificiale personalizzato
 
@@ -79,10 +76,11 @@ Dopo aver compilato ed eseguito il training del classificatore di immagini, è p
    | ----- | ----- |
    | NOME | Specificare un nome per il progetto, ad esempio **EdgeTreeClassifier**. |
    | DESCRIZIONE | Descrizione facoltativa del progetto. |
-   | Gruppo di risorse | Accettare il valore predefinito **Limited trial** (valutazione limitata). |
+   | Gruppo di risorse | Selezionare uno dei gruppi di risorse di Azure che include una risorsa del servizio Visione personalizzata o **crearne uno nuovo** se non ne è stato ancora aggiunto uno. |
    | Tipi di progetto | **Classificazione** |
-   | Tipi di classificazione | **Multiclass (single tag per image)** (Multiclasse - singolo tag per immagine) | 
+   | Tipi di classificazione | **Multiclass (single tag per image)** (Multiclasse - singolo tag per immagine) |
    | Domini | **General (compact)** (Generale - compatto) |
+   | Funzionalità di esportazione | **Piattaforme di base (Tensorflow, CoreML, ONNX, ...)** |
 
 5. Selezionare **Create project** (Crea progetto).
 
@@ -146,17 +144,9 @@ Una soluzione è un modo logico per sviluppare e organizzare più moduli per una
 
 1. In Visual Studio Code selezionare **Visualizza** > **Terminale** per aprire il terminale integrato di Visual Studio Code.
 
-2. Nel terminale integrato immettere il comando seguente per installare o aggiornare **cookiecutter**, da usare per creare il modello di modulo Python IoT Edge in Visual Studio Code:
+1. Selezionare **Visualizza** > **Riquadro comandi** per aprire il riquadro comandi di VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Assicurarsi che la directory in cui verrà installato cookiecutter sia nell'elemento `Path` dell'ambiente in modo che sia possibile richiamarlo da un prompt dei comandi.
-
-3. Selezionare **Visualizza** > **Riquadro comandi** per aprire il riquadro comandi di VS Code. 
-
-4. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
+1. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
 
    | Campo | Valore |
    | ----- | ----- |
@@ -169,6 +159,22 @@ Una soluzione è un modo logico per sviluppare e organizzare più moduli per una
    ![Specificare il repository di immagini Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
 La finestra di Visual Studio Code carica l'area di lavoro della soluzione IoT Edge.
+
+### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
+
+Il file dell'ambiente archivia le credenziali per il registro contenitori e le condivide con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge.
+
+1. Nello strumento di esplorazione di Visual Studio Code aprire il file con estensione env.
+2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal Registro Azure Container.
+3. Salvare questo file.
+
+### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione
+
+Attualmente, Visual Studio Code consente di sviluppare moduli per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché il contenitore viene creato ed eseguito in modo diverso in base al tipo di architettura. Il valore predefinito è Linux AMD64, che verrà usato per questa esercitazione. 
+
+1. Aprire il riquadro comandi e cercare **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge: Imposta la piattaforma di destinazione predefinita per la soluzione Edge) oppure selezionare l'icona del collegamento sulla barra laterale nella parte inferiore della finestra. 
+
+2. Nel riquadro comandi selezionare l'architettura di destinazione nell'elenco di opzioni. Per questa esercitazione si usa una macchina virtuale Ubuntu come dispositivo IoT Edge, quindi si manterrà il valore predefinito **amd64**. 
 
 ### <a name="add-your-image-classifier"></a>Aggiungere il classificatore di immagini
 
@@ -188,7 +194,7 @@ Il modello di modulo Python in Visual Studio Code contiene del codice di esempio
 
 6. Aprire il file **module.json** nella cartella classifier. 
 
-7. Aggiornare il parametro **platforms** in modo che punti al nuovo Dockerfile aggiunto e rimuovere l'architettura ARM32 e le opzioni AMD64.debug, che attualmente non sono supportate per il modulo di Visione personalizzata. 
+7. Aggiornare il parametro **platforms** in modo che punti al nuovo Dockerfile aggiunto e rimuovere tutte le opzioni tranne AMD64, che è l'unica architettura usata per questa esercitazione. 
 
    ```json
    "platforms": {
@@ -231,35 +237,22 @@ In questa sezione si aggiungerà un nuovo modulo alla stessa CustomVisionSolutio
     import os
     import requests
     import json
-
-    import iothub_client
-    # pylint: disable=E0611
-    from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider
-    from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError
-    # pylint: disable=E0401
-
-    # messageTimeout - the maximum time in milliseconds until a message times out.
-    # The timeout period starts at IoTHubModuleClient.send_event_async.
-    MESSAGE_TIMEOUT = 10000
-
-    # Choose HTTP, AMQP or MQTT as transport protocol.  
-    PROTOCOL = IoTHubTransportProvider.MQTT
+    from azure.iot.device import IoTHubModuleClient, Message
 
     # global counters
-    SEND_CALLBACKS = 0
+    SENT_IMAGES = 0
+
+    # global client
+    CLIENT = None
 
     # Send a message to IoT Hub
     # Route output1 to $upstream in deployment.template.json
     def send_to_hub(strMessage):
-        message = IoTHubMessage(bytearray(strMessage, 'utf8'))
-        hubManager.send_event_to_output("output1", message, 0)
-
-    # Callback received when the message that we send to IoT Hub is processed.
-    def send_confirmation_callback(message, result, user_context):
-        global SEND_CALLBACKS
-        SEND_CALLBACKS += 1
-        print ( "Confirmation received for message with result = %s" % result )
-        print ( "   Total calls confirmed: %d \n" % SEND_CALLBACKS )
+        message = Message(bytearray(strMessage, 'utf8'))
+        CLIENT.send_message_to_output(message, "output1")
+        global SENT_IMAGES
+        SENT_IMAGES += 1
+        print( "Total images sent: {}".format(SENT_IMAGES) )
 
     # Send an image to the image classifying server
     # Return the JSON response from the server with the prediction result
@@ -276,28 +269,15 @@ In questa sezione si aggiungerà un nuovo modulo alla stessa CustomVisionSolutio
 
         return json.dumps(response.json())
 
-    class HubManager(object):
-        def __init__(self, protocol, message_timeout):
-            self.client_protocol = protocol
-            self.client = IoTHubModuleClient()
-            self.client.create_from_environment(protocol)
-            # set the time until a message times out
-            self.client.set_option("messageTimeout", message_timeout)
-            
-        # Sends a message to an output queue, to be routed by IoT Edge hub. 
-        def send_event_to_output(self, outputQueueName, event, send_context):
-            self.client.send_event_async(
-                outputQueueName, event, send_confirmation_callback, send_context)
-
     def main(imagePath, imageProcessingEndpoint):
         try:
             print ( "Simulated camera module for Azure IoT Edge. Press Ctrl-C to exit." )
 
             try:
-                global hubManager 
-                hubManager = HubManager(PROTOCOL, MESSAGE_TIMEOUT)
-            except IoTHubError as iothub_error:
-                print ( "Unexpected error %s from IoTHub" % iothub_error )
+                global CLIENT
+                CLIENT = IoTHubModuleClient.create_from_edge_environment()
+            except Exception as iothub_error:
+                print ( "Unexpected error {} from IoTHub".format(iothub_error) )
                 return
 
             print ( "The sample is now sending images for processing and will indefinitely.")
@@ -348,7 +328,7 @@ Invece di usare una videocamera reale per fornire un feed di immagini per questo
 
 3. Passare alla directory della soluzione IoT Edge e incollare l'immagine di test nella cartella **modules** / **cameraCapture**. L'immagine dovrebbe essere nella stessa cartella del file main.py modificato nella sezione precedente. 
 
-3. In Visual Studio Code aprire il file **Dockerfile.amd64** per il modulo cameraCapture. ARM32 non è attualmente supportato dal modulo Visione personalizzata. 
+3. In Visual Studio Code aprire il file **Dockerfile.amd64** per il modulo cameraCapture. 
 
 4. Dopo la riga che stabilisce la directory di lavoro, `WORKDIR /app`, aggiungere la riga di codice seguente: 
 
@@ -366,9 +346,9 @@ L'estensione IoT Edge per Visual Studio Code fornisce un modello in ogni soluzio
 
 1. Aprire il file **deployment.template.json** nella cartella della soluzione. 
 
-2. Trovare la sezione **modules**, che dovrebbe contenere tre moduli: i due creati nell'esercitazione, classifier e cameraCapture, e un terzo incluso per impostazione predefinita, tempSensor. 
+2. Trovare la sezione **modules**, che dovrebbe contenere tre moduli: i due creati nell'esercitazione, classifier e cameraCapture, e un terzo incluso per impostazione predefinita, SimulatedTemperatureSensor. 
 
-3. Eliminare il modulo **tempSensor** con tutti i suoi parametri. Lo scopo di questo modulo è fornire dati di esempio per gli scenari di test, che in questa distribuzione non sono necessari. 
+3. Eliminare il modulo **SimulatedTemperatureSensor** con tutti i relativi parametri. Lo scopo di questo modulo è fornire dati di esempio per gli scenari di test, che in questa distribuzione non sono necessari. 
 
 4. Se al modulo di classificazione delle immagini è stato assegnato un nome diverso da **classifier**, verificare che contenga solo lettere minuscole. Il modulo cameraCapture chiama il modulo Classifier mediante una libreria di richieste che formatta tutte le richieste in minuscolo, e IoT Edge rileva la differenza tra maiuscole e minuscole. 
 
@@ -392,28 +372,6 @@ L'estensione IoT Edge per Visual Studio Code fornisce un modello in ogni soluzio
 
 7. Salvare il file **deployment.template.json**.
 
-### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
-
-Tra i prerequisiti di questa esercitazione è incluso un registro contenitori, necessario per archiviare le immagini del contenitore per i moduli creati. Occorre fornire le credenziali di accesso per il registro in due posizioni: in Visual Studio Code, per compilare le immagini ed eseguirne il push nel registro, e nel manifesto della distribuzione, per consentire al dispositivo IoT Edge di eseguire il pull delle immagini e distribuirle. 
-
-Se si usa il Registro Azure Container, assicurarsi di conoscere il nome utente, il server di accesso e la password dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account). 
-
-1. In Visual Studio Code aprire il terminale integrato selezionando **Visualizza** > **Terminale**. 
-
-2. Immettere il comando seguente nel terminale integrato: 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. Quando richiesto, specificare la password del registro e premere **INVIO**.
-
-4. Aprire il file con estensione **env** nella cartella della soluzione. Questo file viene ignorato da Git e archivia le credenziali del registro in modo che non sia necessario impostarle come hardcoded nel file di modello della distribuzione. 
-
-5. Specificare il nome utente e la password del registro contenitori senza racchiuderli tra virgolette. 
-
-6. Salvare il file con estensione **env**.
-
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>Compilare e distribuire la soluzione IoT Edge
 
 Dopo aver creato i due moduli e aver configurato il modello di manifesto della distribuzione, si è pronti per compilare le immagini del contenitore ed eseguirne il push nel registro contenitori. 
@@ -426,13 +384,7 @@ Prima di tutto, compilare la soluzione ed eseguirne il push nel registro conteni
 2. Si noti che alla soluzione è stata aggiunta una nuova cartella, **config**. Espandere questa cartella e aprire il file **deployment.json**.
 3. Esaminare le informazioni contenute nel file deployment.json. Il file deployment.json viene creato (o aggiornato) automaticamente in base al file del modello di distribuzione configurato e alle informazioni della soluzione, inclusi il file con estensione env e il file module.json. 
 
-Configurare quindi l'accesso all'hub IoT da Visual Studio Code. 
-
-1. Nel riquadro comandi di VS Code selezionare **Hub IoT di Azure: Selezionare l'hub IoT**.
-2. Seguire le istruzioni per accedere all'account Azure. 
-3. Nel riquadro comandi selezionare la sottoscrizione di Azure, quindi selezionare l'hub IoT. 
-
-Infine, selezionare il dispositivo e distribuire la soluzione.
+Successivamente, selezionare il dispositivo e distribuire la soluzione.
 
 1. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
 2. Fare clic con il pulsante destro del mouse sul dispositivo che si vuole specificare come destinazione della distribuzione e scegliere **Create deployment for single device** (Crea la distribuzione per un unico dispositivo). 
@@ -456,7 +408,7 @@ Dal dispositivo, visualizzare i log del modulo cameraCapture per vedere i messag
    iotedge logs cameraCapture
    ```
 
-Da Visual Studio Code, fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start monitoring D2C message** (Avvia monitoraggio messaggio da dispositivo a cloud). 
+In Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia monitoraggio endpoint eventi predefinito). 
 
 I risultati del modulo di Visione personalizzata, inviati come messaggi dal modulo cameraCapture, includono la probabilità che l'immagine sia un abete canadese o un ciliegio. Poiché l'immagine corrisponde a un abete canadese, la probabilità dovrebbe essere indicata come 1.0. 
 
@@ -465,12 +417,9 @@ I risultati del modulo di Visione personalizzata, inviati come messaggi dal modu
 
 Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test. 
 
-In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
+In caso contrario, è possibile eliminare le configurazioni locali e le risorse di Azure usate in questo articolo per evitare addebiti. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -482,4 +431,4 @@ Se si vuole provare una versione più avanzata di questo scenario con un feed di
 Continuare con le esercitazioni successive per ottenere informazioni sugli altri modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni dettagliate aziendali nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
-> [Trovare le medie usando una finestra mobile in Analisi di flusso di Azure](tutorial-deploy-stream-analytics.md)
+> [Archiviare dati sul perimetro con database di SQL Server](tutorial-store-data-sql-server.md)

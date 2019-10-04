@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402769"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310285"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
@@ -26,7 +26,7 @@ Il payload all'interno di un messaggio, oppure di un comando o di una richiesta 
 
 Per gli ambienti di sviluppo e test in cui code e argomenti vengono spesso usati nel contesto di esecuzioni parziali di applicazioni o parti di applicazioni, è anche consigliabile che i messaggi di test abbandonati vengano automaticamente sottoposti a Garbage Collection, in modo che l'esecuzione dei test successiva possa iniziare in modo pulito.
 
-La scadenza dei singoli messaggi può essere controllata impostando la proprietà di sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), che specifica una durata relativa. La scadenza diventa un istante assoluto quando il messaggio viene accodato nell'entità. In quel momento, la proprietà [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume il valore [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). L'impostazione TTL (time-to-live) di un messaggio negoziato non viene applicata se non ci sono client attivamente in ascolto.
+La scadenza dei singoli messaggi può essere controllata impostando la proprietà di sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), che specifica una durata relativa. La scadenza diventa un istante assoluto quando il messaggio viene accodato nell'entità. In quel momento, la proprietà [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume il valore [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). L'impostazione TTL (time-to-Live) in un messaggio negoziato non viene applicata quando non ci sono client in ascolto attivo.
 
 Passato l'istante definito da **ExpiresAtUtc**, i messaggi non sono più idonei per il recupero. La scadenza non influisce sui messaggi attualmente bloccati per il recapito. Tali messaggi vengono comunque gestiti normalmente. Se il blocco scade o il messaggio viene abbandonato, la scadenza ha effetto immediato.
 
@@ -35,6 +35,11 @@ Quando il messaggio è bloccato, l'applicazione potrebbe essere in possesso di u
 ## <a name="entity-level-expiration"></a>Scadenza a livello di entità
 
 Tutti i messaggi inviati a una coda o un argomento sono soggetti a una scadenza predefinita che viene impostata a livello di entità con la proprietà [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) e che può essere impostata anche nel portale durante la creazione e modificata in un secondo momento. La scadenza predefinita viene usata per tutti i messaggi inviati all'entità in cui il valore di [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) non è impostato in modo esplicito. La scadenza predefinita funge anche da limite massimo per il valore **TimeToLive**. I messaggi con un valore della scadenza **TimeToLive** superiore rispetto al valore predefinito vengono modificati automaticamente impostando il valore **defaultMessageTimeToLive** prima di essere accodati.
+
+> [!NOTE]
+> Il valore predefinito di [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) per un messaggio negoziato è [TimeSpan. max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) se non diversamente specificato.
+>
+> Per le entità di messaggistica (code e argomenti), l'ora di scadenza predefinita è anche [TimeSpan. max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) per i livelli standard e Premium del bus di servizio.  Per il livello Basic, l'ora di scadenza predefinita è 14 giorni.
 
 Facoltativamente, i messaggi scaduti possono essere spostati in una [coda di messaggi non recapitabili](service-bus-dead-letter-queues.md) impostando la proprietà [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) oppure selezionando la casella corrispondente nel portale. Se l'opzione viene lasciata disabilitata, i messaggi scaduti vengono eliminati. I messaggi scaduti spostati nella coda di messaggi non recapitabili possono essere distinti dagli altri messaggi della coda di messaggi non recapitabili valutando la proprietà [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) che il broker archivia nella sezione delle proprietà utente. In questo caso, il valore è [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq).
 

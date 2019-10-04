@@ -6,16 +6,15 @@ author: apwestgarth
 manager: stefsch
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 0fbc76f3cb3fea84347ef55e40e1b2bed9b98152
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547549"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085504"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installare l'anteprima del runtime di Funzioni di Azure 2
 
@@ -53,7 +52,7 @@ Il programma di installazione dell'anteprima del runtime di Funzioni di Azure gu
 
 1. Fare clic su **Avanti**.
 1. Dopo aver letto le condizioni dell'**EULA**, **selezionare la casella** per accettare le condizioni e fare clic su **Avanti** per continuare.
-1. Selezionare i ruoli che si intende installare nel computer, **Functions Management Role (ruolo di gestione per le funzioni)** e/o **Functions Worker Role (ruolo di lavoro per le funzioni)**, e fare clic su **Avanti**.
+1. Selezionare i ruoli che si intende installare nel computer, **Functions Management Role (ruolo di gestione per le funzioni)** e/o **Functions Worker Role (ruolo di lavoro per le funzioni)** , e fare clic su **Avanti**.
 
     ![Programma di installazione dell'anteprima del runtime di Funzioni di Azure - Selezione del ruolo][3]
 
@@ -104,13 +103,13 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
 Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-1. Selezionare il **portale di Runtime di funzioni di Azure** come `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com`.
+1. Passare al **portale di runtime di funzioni di Azure** , `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com`.
 
 1. Viene richiesto di effettuare l'**accesso**. Se distribuito in un dominio usare il nome utente e la password dell'account di dominio, altrimenti usare il nome utente e la password dell'account locale per accedere al portale.
 
     ![Anteprima del runtime di Funzioni di Azure - Accesso al portale][14]
 
-1. Per creare app per le funzioni è necessario creare una sottoscrizione.  Nell'angolo superiore sinistro del portale, fare clic sui **+** opzione accanto alle sottoscrizioni.
+1. Per creare app per le funzioni è necessario creare una sottoscrizione.  Nell'angolo superiore sinistro del portale fare clic sull' **+** opzione accanto alle sottoscrizioni.
 
     ![Anteprima del runtime di Funzioni di Azure - Sottoscrizioni del portale][15]
 
@@ -118,7 +117,7 @@ Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
     ![Anteprima del runtime di Funzioni di Azure - Nome e piano di sottoscrizione del portale][16]
 
-1. Tutte le app per le funzioni sono elencate nel riquadro a sinistra del portale.  Per creare una nuova app per le funzioni selezionare l'intestazione **App per le funzioni** e fare clic sull'opzione **+**.
+1. Tutte le app per le funzioni sono elencate nel riquadro a sinistra del portale.  Per creare una nuova app per le funzioni selezionare l'intestazione **App per le funzioni** e fare clic sull'opzione **+** .
 
 1. Immettere un nome per l'app per le funzioni, selezionare la sottoscrizione corretta, scegliere la versione del runtime di Funzioni di Azure che si desidera programmare e fare clic su **Crea**
 

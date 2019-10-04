@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60197086"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrazione di Azure Data Lake Storage Gen1 con altri servizi di Azure
@@ -65,7 +65,7 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, ch
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Usare Data Lake Storage Gen1 con Hub eventi di Azure
 È possibile usare Azure Data Lake Storage Gen1 per archiviare e acquisire i dati ricevuti da Hub eventi di Azure. Per altre informazioni, vedere [Usare Data Lake Storage Gen1 con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introduzione a Data Lake Storage Gen1 con il portale](data-lake-store-get-started-portal.md)
 * [Iniziare a usare Data Lake Storage Gen1 tramite PowerShell](data-lake-store-get-started-powershell.md)  

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66166198"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -343,7 +343,7 @@ L'hub IoT registra questo log all'arrivo di un messaggio contenente proprietà d
 
 In questo caso, il valore di `durationMs` non viene calcolato in quanto l'orologio dell'hub IoT potrebbe non essere sincronizzato con l'orologio del dispositivo e quindi il calcolo della durata potrebbe essere fuorviante. È consigliabile scrivere la logica usando i timestamp nella sezione `properties` per acquisire i picchi di latenza da dispositivo a cloud.
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Dimensione del messaggio da dispositivo a cloud in byte |
 | **deviceId** | Stringa di caratteri alfanumerici ASCII a 7 bit | Identità del dispositivo |
@@ -377,10 +377,10 @@ L'hub IoT registra questo log quando un messaggio contenente proprietà di tracc
 
 Nel `properties` sezione, questo log contiene informazioni aggiuntive sui messaggi in ingresso.
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | String | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -409,11 +409,11 @@ L'hub IoT Hub registra questo log quando il [routing](iot-hub-devguide-messages-
 
 Nel `properties` sezione, questo log contiene informazioni aggiuntive sui messaggi in ingresso.
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | string | Nome dell'endpoint di routing |
-| **endpointType** | string | Tipo dell'endpoint di routing |
-| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | String | Nome dell'endpoint di routing |
+| **endpointType** | String | Tipo dell'endpoint di routing |
+| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Leggere i log da Hub eventi di Azure
 

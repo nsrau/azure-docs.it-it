@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Linux) - Servizi Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in C++ su Linux con Speech SDK
 services: cognitive-services
@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: dbc9c2adc2663d3ba0ec3f9ea17b758ca2723441
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012365"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553706"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Eseguire la sintesi vocale in C++ su Linux con Speech SDK
+# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Eseguire la sintesi vocale in C++ su Linux con Speech SDK
 
-In questo articolo viene creata un'applicazione console C++ per Ubuntu Linux 16.04 o 18.04. È possibile usare [Speech SDK](speech-sdk.md) di Servizi cognitivi per eseguire la sintesi vocale in tempo reale e riprodurre la voce dall'altoparlante del PC. L'applicazione viene compilata con il [Speech SDK per Linux](https://aka.ms/csspeech/linuxbinary) e il compilatore C++ della distribuzione di Linux (ad esempio, `g++`).
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-cpp-linux.md).
+
+In questo articolo viene creata un'applicazione console C++ per Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). È possibile usare [Speech SDK](speech-sdk.md) di Servizi cognitivi per eseguire la sintesi vocale in tempo reale e riprodurre la voce dall'altoparlante del PC. L'applicazione viene compilata con il [Speech SDK per Linux](https://aka.ms/csspeech/linuxbinary) e il compilatore C++ della distribuzione di Linux (ad esempio, `g++`).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +31,7 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.4.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come file tar da https://aka.ms/csspeech/linuxbinary.
 
@@ -37,10 +39,19 @@ Scaricare e installare SDK come indicato di seguito:
 
 1. Assicurarsi che le dipendenze SDK siano installate.
 
-   ```sh
-   sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-   ```
+   * In Ubuntu:
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+     ```
+
+   * In Debian 9:
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+     ```
 
 1. Scegliere una directory in cui estrarre i file di Speech SDK e impostare la `SPEECHSDK_ROOT` variabile di ambiente in modo che punti a tale directory. La variabile semplifica il riferimento alla directory nei comandi futuri. Ad esempio, se si desidera usare la directory `speechsdk` nella home directory, usare un comando simile al seguente:
 
@@ -89,13 +100,13 @@ Scaricare e installare SDK come indicato di seguito:
 * In un sistema **x64**  (64 bit), eseguire il comando seguente per compilare l'applicazione.
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libasound.so.2
   ```
 
 * In un sistema **x86** (32 bit), eseguire il comando seguente per compilare l'applicazione.
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
@@ -134,7 +145,7 @@ Scaricare e installare SDK come indicato di seguito:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare i carattere voce](how-to-customize-voice-font.md)
 - [Registrare esempi vocali](record-custom-voice-samples.md)

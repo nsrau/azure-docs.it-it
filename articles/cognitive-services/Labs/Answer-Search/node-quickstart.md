@@ -9,12 +9,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ROBOTS: NOINDEX
+ms.openlocfilehash: ace83b9bdc8003e2e38d5b0a188582bc0cc2147c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294043"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707105"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Guida introduttiva: Project Answer Search con Node
 
@@ -22,7 +23,7 @@ L'esempio seguente di Node crea una query per ottenere informazioni su Yosemite 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Questo esempio usa Node v8.9.4
 

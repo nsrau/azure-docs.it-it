@@ -1,9 +1,9 @@
 ---
 title: Eseguire il training di modelli di Machine Learning con oggetti Estimator
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come eseguire il training su nodo singolo e distribuito di modelli di Machine Learning tradizionale e di apprendimento avanzato usando la classe Estimator del servizio Machine Learning
-ms.author: minxia
-author: mx-iao
+titleSuffix: Azure Machine Learning
+description: Informazioni su come eseguire il training a nodo singolo e distribuito di modelli tradizionali di apprendimento automatico e apprendimento avanzato usando Azure Machine Learning classe Estimator
+ms.author: maxluk
+author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 73887c39ebcee2efc4a31925f4aacfffb3c53ca7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548171"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828061"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 
 Con Azure Machine Learning, è possibile inviare facilmente lo script di training a [diverse destinazioni di calcolo](how-to-set-up-training-targets.md#compute-targets-for-training), usando l'[oggetto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e l'[oggetto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Questo modello offre una notevole della flessibilità e il massimo controllo.
 
-Per semplificare il training dei modelli di Deep Learning, Python SDK di Azure Machine Learning fornisce un'astrazione alternativa di più alto livello, la classe Estimator, che consente agli utenti di creare con facilità configurazioni di esecuzione. È possibile creare e usare un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare lo script di training usando qualsiasi framework di apprendimento scelto (ad esempio Scikit-learn) da eseguire in qualsiasi destinazione di calcolo, che si tratti del computer locale, di una singola macchina virtuale in Azure o di un cluster GPU in Azure. Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche gli oggetti Estimator, rispettivamente per [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py), che semplificano l'uso di questi framework.
+Per semplificare il training dei modelli di Deep Learning, Python SDK di Azure Machine Learning fornisce un'astrazione alternativa di più alto livello, la classe Estimator, che consente agli utenti di creare con facilità configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training usando qualsiasi framework di apprendimento scelto (ad esempio Scikit-learn) in qualsiasi destinazione di calcolo scelta, sia che si tratti del computer locale, di una singola macchina virtuale in Azure o di un cluster GPU in Azure. Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
 
 ## <a name="train-with-an-estimator"></a>Eseguire il training con un Estimator
 
-Dopo aver creato l'[area di lavoro](concept-azure-machine-learning-architecture.md#workspace) e configurato l'[ambiente di sviluppo](how-to-configure-environment.md), il training di un modello in Azure Machine Learning prevede i passaggi seguenti:  
+Dopo aver creato l'[area di lavoro](concept-workspace.md) e configurato l'[ambiente di sviluppo](how-to-configure-environment.md), il training di un modello in Azure Machine Learning prevede i passaggi seguenti:  
 1. Creare una [destinazione di calcolo remota](how-to-set-up-training-targets.md) (è anche possibile usare il computer locale come destinazione di calcolo)
 2. Caricare i [dati di training](how-to-access-data.md) nell'archivio dati (facoltativo)
 3. Creare lo [script di training](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -56,17 +56,17 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-Parametro | DESCRIZIONE
+Parametro | Descrizione
 --|--
-`source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote 
-`script_params`| Dizionario che specifica gli argomenti della riga di comando allo script di training `entry_script`, sotto forma di < argomento della riga di comando, valore > coppie. Per specificare un flag dettagliato nella `script_params`, usare `<command-line argument, "">`.
-`compute_target`| Destinazione di calcolo remota in cui verrà eseguito lo script di training, in questo caso un cluster dell'ambiente di calcolo di Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). Si noti che, anche se il cluster AmlCompute è la destinazione di uso comune, è possibile scegliere altri tipi di destinazioni di calcolo, ad esempio macchine virtuali di Azure o anche un computer locale.
-`entry_script`| Percorso file (relativo a `source_directory`) dello script di training da eseguire nelle risorse di calcolo remote. Questo file e gli eventuali file aggiuntivi da cui dipende, devono trovarsi in questa cartella
+`source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale al calcolo remoto.
+`script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script `entry_script`di training, sotto forma `<command-line argument, value>` di coppie. Per specificare un flag dettagliato in `script_params`, utilizzare. `<command-line argument, "">`
+`compute_target`| Destinazione di calcolo remota in cui verrà eseguito lo script di training, in questo caso un cluster dell'ambiente di calcolo di Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). Si noti che anche se il cluster AmlCompute è la destinazione di uso comune, è anche possibile scegliere altri tipi di destinazione di calcolo, ad esempio macchine virtuali di Azure o persino computer locale.
+`entry_script`| Percorso file (relativo a `source_directory`) dello script di training da eseguire nelle risorse di calcolo remote. Questo file e tutti i file aggiuntivi da cui dipende devono trovarsi in questa cartella.
 `conda_packages`| Elenco dei pacchetti Python da installare tramite Conda, necessari per lo script di training.  
 
-Il costruttore ha un altro parametro chiamato `pip_packages` che è possibile usare per gli eventuali pacchetti pip necessari
+Il costruttore dispone di un altro `pip_packages` parametro denominato usato per tutti i pacchetti PIP necessari.
 
-Ora che è stato creato l'oggetto `Estimator`, inviare il processo di training per l'esecuzione sulle risorse di calcolo remote tramite una chiamata alla funzione `submit` sull'oggetto [Experiment](concept-azure-machine-learning-architecture.md#experiment)`experiment`. 
+Ora che è stato creato l'oggetto `Estimator`, inviare il processo di training per l'esecuzione sulle risorse di calcolo remote tramite una chiamata alla funzione `submit` sull'oggetto [Experiment](concept-azure-machine-learning-architecture.md#experiments)`experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -94,25 +94,27 @@ Il codice seguente mostra come eseguire il training distribuito per un modello K
 
 ```Python
 from azureml.train.estimator import Estimator
+from azureml.core.runconfig import MpiConfiguration
 
 estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
-                      distributed_backend='mpi',     
+                      distributed_training=MpiConfiguration(),        
                       conda_packages=['tensorflow', 'keras'],
-                      custom_docker_base_image='continuumio/miniconda')
+                      custom_docker_image='continuumio/miniconda')
 ```
 
 Il codice precedente espone i nuovi parametri seguenti al costruttore di `Estimator`:
 
-Parametro | DESCRIZIONE | Predefinito
+Parametro | Descrizione | Predefinito
 --|--|--
-`custom_docker_base_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Numero di nodi da usare per il processo di training. | `1`
 `process_count_per_node`| Numero di processi (o "ruoli di lavoro") da eseguire in ogni nodo. In questo caso si usano i `2` GPU disponibili in ogni nodo.| `1`
-`distributed_backend`| Back-end per l'avvio del training distribuito, offerto da Estimator tramite MPI.  Per eseguire il training parallelo o distribuito (ad esempio `node_count`> 1 o `process_count_per_node`> 1 o entrambi), impostare `distributed_backend='mpi'`. L'implementazione MPI usata da Azure Machine Learning è [Open MPI](https://www.open-mpi.org/).| `None`
+`distributed_training`| Oggetto [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) per l'avvio della formazione distribuita tramite il back-end MPI.  | `None`
+
 
 Infine, inviare il processo di training:
 ```Python
@@ -120,14 +122,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
+## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
+
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+
 ## <a name="examples"></a>Esempi
-Per un notebook che illustra il modello Estimator di base, vedere:
+Per un notebook che mostra le nozioni di base di un modello di Estimator, vedere:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Per un notebook che esegue il training di un modello Scikit-learn usando l'oggetto Estimator, vedere:
+Per un notebook che addestra un modello Scikit-learn usando Estimator, vedere:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Per i notebook per il training dei modelli tramite oggetti Estimator specifici del framework di Deep Learning, vedere:
+Per i notebook sui modelli di training usando gli estimatori specifici del Framework per l'apprendimento avanzato, vedere:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

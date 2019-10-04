@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 5481e9f28d8fc47936ad62bd8d974beb5ca85fcd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720388"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071300"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
 
@@ -65,7 +64,7 @@ az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 
 ## <a name="using-docker-images-from-a-private-registry"></a>Utilizzo di immagini Docker da un registro privato
 
-È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato.  È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
+È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato. È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -108,5 +107,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
 * [Installare l'interfaccia da riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
-* [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurare ambienti di servizio App di Azure di staging](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Distribuzione continua con l'app Web per contenitori](app-service-linux-ci-cd.md)

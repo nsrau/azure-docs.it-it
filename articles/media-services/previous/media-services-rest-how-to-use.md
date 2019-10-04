@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu
-ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.author: juliako
+ms.reviewer: johndeu
+ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293615"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014855"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -55,7 +58,7 @@ Quando si usa REST, si applicano le considerazioni seguenti:
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Intestazioni delle richieste HTTP standard supportate da Servizi multimediali
 Per ogni chiamata effettuata in Servizi multimediali, è necessario includere nella richiesta un set di intestazioni obbligatorie ed eventualmente un set di intestazioni facoltative. Nella seguente tabella sono elencate le intestazioni obbligatorie:
 
-| Intestazione | Type | Valore |
+| Intestazione | Type | Value |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o versione più recente)|
@@ -69,35 +72,35 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 
 Nella seguente tabella è riportato un set di intestazioni facoltative:
 
-| Intestazione | Type | Valore |
+| Intestazione | Type | Value |
 | --- | --- | --- |
-| Data |Data RFC 1123 |Timestamp della richiesta. |
+| Date |Data RFC 1123 |Timestamp della richiesta. |
 | Accept |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
-| Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Note: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
+| Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Nota: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
 | Accept-Language |"en", "es" e così via. |Lingua preferita per la risposta. |
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |string |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |String |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p>Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
 | Intestazione | Type | Valore |
 | --- | --- | --- |
-| request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
-| client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
-| Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
+| request-id |String |Identificatore univoco per l'operazione corrente, generato dal servizio. |
+| client-request-id |String |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
+| Date |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Variabile |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Variabile |Gzip o deflate, a seconda delle esigenze. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbi HTTP standard supportati da Servizi multimediali
 Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è possibile usare per la creazione di richieste HTTP:
 
-| Verbo | DESCRIZIONE |
+| Verbo | Descrizione |
 | --- | --- |
 | GET |Restituisce il valore corrente di un oggetto. |
-| POST |Crea un oggetto in base ai dati forniti o invia un comando. |
+| INSERISCI |Crea un oggetto in base ai dati forniti o invia un comando. |
 | PUT |Sostituisce un oggetto o ne crea uno nuovo con nome, se applicabile. |
 | DELETE |Elimina un oggetto. |
 | MERGE |Aggiorna un oggetto esistente con le modifiche alle proprietà denominate. |

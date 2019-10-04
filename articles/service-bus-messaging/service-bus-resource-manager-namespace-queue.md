@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047790"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444779"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi e una coda del bus di servizio tramite il modello di Azure Resource Manager
 
@@ -37,7 +37,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi e della coda d
 > * [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **bus di servizio**.
+> Per verificare gli ultimi modelli, visitare il [Azure Quickstart Templates][Azure Quickstart Templates] gallery e cercare **Bus di servizio**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
+Vedere l'argomento seguente viene illustrato come creare una regola di autorizzazione per spazio dei nomi/coda: [Creare una regola di autorizzazione del Bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
+
+Informazioni su come gestire queste risorse, visualizzare i seguenti articoli:
 
 * [Gestire Bus di servizio con PowerShell](service-bus-manage-with-ps.md)
 * [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

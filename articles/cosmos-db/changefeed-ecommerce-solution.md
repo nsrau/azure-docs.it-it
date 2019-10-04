@@ -5,18 +5,18 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526343"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616955"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
-Il feed di modifiche di Azure Cosmos DB è un meccanismo per ottenere un feed continuo e incrementale di record da un contenitore di Azure Cosmos DB mentre i record vengono creati o modificati. Il supporto del feed di modifiche rimane in ascolto del contenitore per qualsiasi modifica. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Per altre informazioni sul feed di modifiche, vedere l'articolo sull'[uso di feed di modifiche](change-feed.md). 
+Il feed di modifiche Azure Cosmos DB è un meccanismo per ottenere un feed continuo e incrementale di record da un contenitore di Azure Cosmos durante la creazione o la modifica di tali record. Il supporto del feed di modifiche rimane in ascolto del contenitore per qualsiasi modifica. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Per altre informazioni sul feed di modifiche, vedere l'articolo sull'[uso di feed di modifiche](change-feed.md). 
 
 Questo articolo descrive come il feed di modifiche può essere usato da una società di e-commerce al dettaglio per comprendere i criteri definiti dall'utente ed eseguire la visualizzazione e l'analisi dei dati in tempo reale. Verranno analizzati eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento. Quando si verifica uno di questi eventi, viene creato un nuovo record e il feed di modifiche registra quel record. Il feed di modifiche quindi attiva una serie di passaggi che consentono la visualizzazione delle metriche che analizzano le prestazioni aziendali e l'attività risultante. Le metriche di esempio che è possibile visualizzare includono i ricavi, i visitatori univoci del sito, gli elementi più diffusi e il prezzo medio degli elementi che vengono visualizzati rispetto a quelli aggiunti al carrello e a quelli acquistati. Queste metriche di esempio consentono a una società di e-commerce di valutare la popolarità del sito, sviluppare le strategie relative a pubblicità e prezzi e prendere decisioni riguardanti gli inventari in cui investire.
 
@@ -41,9 +41,9 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
    }
    ```
 
-2. **Azure Cosmos DB:** i dati generati sono archiviati in una raccolta di Azure Cosmos DB.  
+2. **Azure Cosmos DB:** I dati generati vengono archiviati in un contenitore di Azure Cosmos.  
 
-3. **Feed di modifiche:** il feed di modifiche sarà in ascolto per le modifiche alla raccolta di Azure Cosmos DB. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
+3. **Feed di modifiche:** Il feed di modifiche resterà in ascolto delle modifiche apportate al contenitore Azure Cosmos. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
 
 4. **Funzione di Azure:** la funzione di Azure elabora i nuovi dati e li invia a un [hub eventi di Azure](../event-hubs/event-hubs-about.md).  
 
@@ -143,7 +143,7 @@ Hub eventi di Azure riceve i dati dell'evento, li archivia, li elabora e inoltra
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Impostare una funzione di Azure per leggere il feed di modifiche
 
-Quando viene creato un nuovo documento o un documento corrente viene modificato in una raccolta di Cosmos DB, tale il feed di modifiche aggiunge automaticamente il documento modificato alla sua cronologia delle modifiche alla raccolta. Ora è necessario compilare ed eseguire una funzione di Azure che elabori i feed di modifiche. Quando un documento viene creato o modificato nella raccolta creata, la funzione di Azure verrà attivata dal feed di modifiche. La funzione di Azure invierà quindi il documento modificato per l'Hub eventi.
+Quando viene creato un nuovo documento o un documento corrente viene modificato in un contenitore Cosmos, il feed delle modifiche aggiunge automaticamente il documento modificato alla cronologia delle modifiche apportate alla raccolta. Ora è necessario compilare ed eseguire una funzione di Azure che elabori i feed di modifiche. Quando un documento viene creato o modificato nella raccolta creata, la funzione di Azure verrà attivata dal feed di modifiche. La funzione di Azure invierà quindi il documento modificato per l'Hub eventi.
 
 1. Tornare al repository clonato nel dispositivo.  
 
@@ -169,7 +169,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 3. Aggiungere i nomi della **raccolta** e del **database**. (Questi nomi devono essere **changefeedlabcollection** e **changefeedlabdatabase** a meno che non si scelga di assegnare un nome diverso.)
 
-   ![Aggiornare le stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   ![Aggiorna stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
  
 4. Salvare le modifiche su tutti i file modificati.  
 
@@ -221,7 +221,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 8. Tornare quindi a **streamjob1** e selezionare **Modifica query**.
 
-   ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
+   ![Modifica query](./media/changefeed-ecommerce-solution/edit-query.png)
  
 9. Incollare la seguente query nella relativa finestra. La query **PREZZO MEDIO** calcola il prezzo medio di tutti gli elementi visualizzati da utenti, il prezzo medio di tutti gli elementi che vengono aggiunti ai carrelli degli utenti e il prezzo medio di tutti gli elementi che vengono acquistati dagli utenti. Questa metrica può aiutare le società di e-commerce a decidere a quali prezzi vendere gli elementi e in quale inventario investire. Ad esempio, se il prezzo medio degli elementi visualizzati è molto superiore al prezzo medio degli elementi acquistati, una società potrebbe scegliere di aggiungere elementi meno costosi per l'inventario.
 
@@ -318,7 +318,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: Visualizzazione con un sito di e-commerce
 
-A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database Azure Cosmos DB per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
+A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database di Azure Cosmos per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
 
 1. Tornare al [portale di Azure](https://portal.azure.com/), quindi all'**account Cosmos DB** e in seguito a **Esplora dati**.  
 

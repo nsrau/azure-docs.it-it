@@ -8,15 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
+ms.openlocfilehash: cfe6dd63234a7750fe01614d6f1b38bb7cce1adb
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575291"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142434"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
 
@@ -28,9 +29,9 @@ Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 name | Nome dell'attività nella pipeline | Sì
 description | Testo che descrive l'attività | no
-type | Il tipo di attività è SetVariable | Sì
-value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | Sì
-variableName | Nome della variabile che verrà impostata da questa attività | Sì
+type | Il tipo di attività è SetVariable | sì
+value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | sì
+variableName | Nome della variabile che verrà impostata da questa attività | sì
 
 
 ## <a name="next-steps"></a>Passaggi successivi

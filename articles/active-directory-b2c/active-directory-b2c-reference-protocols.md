@@ -2,23 +2,23 @@
 title: Protocolli di autenticazione in Azure Active Directory B2C | Microsoft Docs
 description: Come compilare app direttamente usando i protocolli supportati da Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47c99b14a41ac50e13198f934e38718e205e6e79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317019"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835746"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolli di autenticazione
-Azure Active Directory B2C (Azure AD B2C) fornisce l'identità come servizio per le app grazie al supporto di due protocolli standard del settore: OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. 
+Azure Active Directory B2C (Azure AD B2C) fornisce l'identità come servizio per le app grazie al supporto di due protocolli standard del settore: OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli.
 
 Le informazioni in questa guida sono utili se si scrive codice inviando e gestendo direttamente le richieste HTTP, anziché usando una raccolta open source. Si consiglia di leggere questa pagina prima di approfondire i dettagli dei protocolli specifici. Se si ha già familiarità con Azure AD B2C, è possibile passare direttamente alle [guide di riferimento dei protocolli](#protocols).
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio quattro parti:
 
-![Ruoli di OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![Diagramma che mostra i quattro ruoli di OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * Il **server di autorizzazione** è l'endpoint di Azure AD. Gestisce in modo sicuro tutto ciò che ha a che fare con l'accesso e le informazioni sull'utente, nonché le relazioni di trust tra le parti in un flusso. Verifica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. È anche noto come provider di identità.
 
@@ -51,18 +51,18 @@ In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio q
 * Il **server delle risorse** è la posizione in cui si trova la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. Usa i token di accesso di connessione per fare in modo che sia possibile concedere l'accesso a una risorsa.
 
 ## <a name="policies-and-user-flows"></a>Criteri e flussi utente
-I criteri di Azure AD B2C sono probabilmente la caratteristica più importante del servizio. Azure AD B2C estende i protocolli OAuth 2.0 e OpenID Connect standard con l'introduzione dei criteri. Questi consentono ad Azure AD B2C di andare oltre la semplice autenticazione e autorizzazione. 
+I criteri di Azure AD B2C sono probabilmente la caratteristica più importante del servizio. Azure AD B2C estende i protocolli OAuth 2.0 e OpenID Connect standard con l'introduzione dei criteri. Questi consentono ad Azure AD B2C di andare oltre la semplice autenticazione e autorizzazione.
 
-Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati **flussi utente**. I flussi utente descrivono in modo completo le esperienze di identità dell'utente, inclusi l'iscrizione, l'accesso e la modifica del profilo. I flussi utente possono essere definiti in un'interfaccia utente amministrativa ed eseguiti usando un parametro di query speciale nelle richieste di autenticazione HTTP. 
+Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati **flussi utente**. I flussi utente descrivono in modo completo le esperienze di identità dell'utente, inclusi l'iscrizione, l'accesso e la modifica del profilo. I flussi utente possono essere definiti in un'interfaccia utente amministrativa ed eseguiti usando un parametro di query speciale nelle richieste di autenticazione HTTP.
 
 I criteri e i flussi utente non sono una funzionalità standard di OAuth 2.0 e OpenID Connect, è quindi consigliabile cercare di approfondirli. Per altre informazioni, vedere la [guida di riferimento dei flussi utente di Azure AD B2C](active-directory-b2c-reference-policies.md).
 
-## <a name="tokens"></a>Tokens
+## <a name="tokens"></a>token
 L'implementazione di OAuth 2.0 e OpenID Connect in Azure AD B2C fa un uso intensivo dei token di connessione, inclusi quelli rappresentati come token Web JSON (JWT). Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta.
 
 Per "portatore" si intende qualsiasi parte che possa presentare il token. Per poter ricevere un token di connessione, Azure AD deve prima autenticare una parte. Se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, potrebbe essere intercettato e usato da parti non autorizzate.
 
-Alcuni token di sicurezza hanno meccanismi predefiniti che ne impediscono l'uso da parti non autorizzate, ma i token di connessione non presentano questo meccanismo. Devono essere trasportati usando un canale protetto, ad esempio un protocollo Transport Layer Security (HTTPS). 
+Alcuni token di sicurezza hanno meccanismi predefiniti che ne impediscono l'uso da parti non autorizzate, ma i token di connessione non presentano questo meccanismo. Devono essere trasportati usando un canale protetto, ad esempio un protocollo Transport Layer Security (HTTPS).
 
 Se un token di connessione viene trasmesso al di fuori di un canale protetto, un utente malintenzionato potrebbe usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando i token di connessione vengono archiviati o memorizzati nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro.
 

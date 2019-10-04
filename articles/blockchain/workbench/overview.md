@@ -1,25 +1,27 @@
 ---
-title: Panoramica di Azure Blockchain Workbench
-description: Panoramica e funzionalità di Azure Blockchain Workbench.
+title: Panoramica dell'anteprima di Azure Blockchain Workbench
+description: Panoramica e funzionalità dell'anteprima di Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332558"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844111"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Cos'è Azure Blockchain Workbench?
 
-Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere processi di business e dati con altre organizzazioni. Azure Blockchain Workbench fornisce lo scaffolding di infrastruttura per la compilazione di applicazioni blockchain, consentendo agli sviluppatori di concentrarsi sulla creazione della logica di business e dei contratti intelligenti. Semplifica anche la creazione di applicazioni blockchain grazie all'integrazione di vari servizi e funzionalità di Azure che consentono di automatizzare attività di sviluppo comuni.
+L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Azure Blockchain Workbench fornisce lo scaffolding di infrastruttura per la compilazione di applicazioni blockchain, consentendo agli sviluppatori di concentrarsi sulla creazione della logica di business e dei contratti intelligenti. Semplifica anche la creazione di applicazioni blockchain grazie all'integrazione di vari servizi e funzionalità di Azure che consentono di automatizzare attività di sviluppo comuni.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="create-blockchain-applications"></a>Creare un'applicazione blockchain
 
@@ -41,13 +43,13 @@ Workbench recapita automaticamente gli eventi al bus di servizio e alla Griglia 
 
 Azure Blockchain Workbench semplifica la configurazione della rete consortium blockchain come soluzione preconfigurata con un modello di soluzione di Azure Resource Manager. Il modello fornisce una distribuzione semplificata che consente di distribuire tutti i componenti necessari per eseguire un consortium. Attualmente Blockchain Workbench supporta Ethereum.
 
-## <a name="use-active-directory-login"></a>Usare l'accesso Active Directory
+## <a name="use-active-directory"></a>Usa Active Directory
 
 Con i protocolli blockchain esistenti, le identità blockchain sono rappresentate come un indirizzo sulla rete. Azure Blockchain Workbench estrae l'identità di blockchain associandola a un'identità di Active Directory e in questo modo semplifica la compilazione delle applicazioni aziendali con identità di Active Directory.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizzare i dati on-chain con l'archivio off-chain
 
-Azure Blockchain Workbench semplifica l'analisi dei dati e degli eventi di blockchain eseguendo automaticamente la sincronizzazione dei dati nel blockchain con l'archivio off-chain. Anziché estrarre i dati direttamente dal blockchain, è possibile eseguire una query su sistemi di database off-chain, ad esempio SQL Server. Non è necessaria esperienza specifica con blockchain per gli utenti finali che eseguono attività di analisi dei dati. 
+Azure Blockchain Workbench semplifica l'analisi dei dati e degli eventi di blockchain eseguendo automaticamente la sincronizzazione dei dati nel blockchain con l'archivio off-chain. Anziché estrarre i dati direttamente dal blockchain, è possibile eseguire una query su sistemi di database off-chain, ad esempio SQL Server. L'esperienza con blockchain non è necessaria per gli utenti finali che eseguono attività di analisi dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

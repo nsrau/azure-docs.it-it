@@ -1,7 +1,7 @@
 ---
-title: Configurare Azure Application Insights per monitorare i modelli di Machine Learning
-titleSuffix: Azure Machine Learning service
-description: Monitorare i servizi web distribuiti con il servizio di Azure Machine Learning con Azure Application Insights
+title: Configurare applicazione Azure Insights per monitorare i modelli di ML
+titleSuffix: Azure Machine Learning
+description: Monitorare i servizi Web distribuiti con Azure Machine Learning usando applicazione Azure Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 785507e9ae12d8da564a223c8cdf544a98b8de61
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885501"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002875"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitorare i modelli di Azure Machine Learning con Application Insights
 
-In questo articolo viene illustrato come configurare Azure Application Insights per il servizio Azure Machine Learning. Application Insights offre la possibilità di monitorare:
+Questo articolo illustra come configurare applicazione Azure Insights per la Azure Machine Learning. Application Insights offre la possibilità di monitorare:
 * Frequenza delle richieste, tempi di risposta e percentuali di errore.
 * Tassi di dipendenza, tempi di risposta e percentuali di errore.
 * eccezioni,
@@ -30,7 +30,7 @@ Altre informazioni su [Application Insights](../../azure-monitor/app/app-insight
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+* Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) .
 
 * Un'area di lavoro di Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Per informazioni su come ottenere questi prerequisiti, vedere [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 * Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes o nel servizio Azure Container. Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
@@ -97,7 +97,7 @@ Per disabilitare Application Insights, usare il codice seguente:
 
 1. Selezionare **Aggiorna** nella parte inferiore della schermata per applicare le modifiche. 
 
-### <a name="disable"></a>Disabilitazione
+### <a name="disable"></a>Disattiva
 1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com).
 1. Selezionare **Distribuzioni**, il servizio e quindi **Modificare**.
 
@@ -111,7 +111,7 @@ Per disabilitare Application Insights, usare il codice seguente:
  
 
 ## <a name="evaluate-data"></a>Valutare i dati
-I dati del servizio vengono archiviati nell'account di Application Insights nello stesso gruppo di risorse del servizio Azure Machine Learning.
+I dati del servizio vengono archiviati nell'account di Application Insights, all'interno dello stesso gruppo di risorse Azure Machine Learning.
 Per visualizzarli:
 1. Passare all'area di lavoro del servizio Machine Learning nel [portale di Azure](https://portal.azure.com) e fare clic sul collegamento di Application Insights.
 
@@ -127,15 +127,15 @@ Per visualizzarli:
    [![Tracce personalizzate](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Per altre informazioni su Application Insights, vedere [Che cos'è Application Insights?](../../azure-monitor/app/app-insights-overview.md).
-    
+
 
 ## <a name="example-notebook"></a>Notebook di esempio
 
-Il notebook [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) dimostra i concetti in questo articolo. 
+Il notebook [Enable-App-Insights-in-Production-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) illustra i concetti descritti in questo articolo. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Nell'ambiente di produzione è possibile anche raccogliere i dati sui modelli. Leggere l'articolo [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md). 
 
-Leggere anche [monitoraggio di Azure per contenitori](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Leggere anche [monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

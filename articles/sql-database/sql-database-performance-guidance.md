@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438611"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567113"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ottimizzazione manuale delle prestazioni delle query in Database SQL di Azure
 
@@ -34,27 +33,27 @@ Nel sistema SQL Server tradizionale in locale il processo di pianificazione dell
 
 ### <a name="application-characteristics"></a>Caratteristiche dell'applicazione
 
-Anche se i livelli di servizio del database SQL di Azure sono progettati per migliorare la stabilità e la prevedibilità delle prestazioni di un'applicazione, alcune procedure consigliate consentono di ottimizzare l'applicazione in modo da sfruttare al meglio le risorse in una dimensione di calcolo. Anche se in molte applicazioni è possibile ottenere miglioramenti significativi delle prestazioni semplicemente passando a una dimensione di calcolo o un livello di servizio superiore, questo vantaggio non è assicurato per tutte le applicazioni senza un'ottimizzazione aggiuntiva. Per ottenere un aumento delle prestazioni, prendere in considerazione operazioni di ottimizzazione aggiuntive per le applicazioni con queste caratteristiche:
+Anche se i livelli di servizio del database SQL di Azure sono progettati per migliorare la stabilità e la prevedibilità delle prestazioni di un'applicazione, alcune procedure consigliate consentono di ottimizzare l'applicazione in modo da sfruttare al meglio le risorse corrispondenti alle dimensioni di calcolo. Anche se in molte applicazioni è possibile ottenere miglioramenti significativi delle prestazioni semplicemente passando a un livello di servizio o dimensioni di calcolo superiori, questo vantaggio non è assicurato per tutte le applicazioni senza un'ottimizzazione aggiuntiva. Per ottenere un aumento delle prestazioni, prendere in considerazione operazioni di ottimizzazione aggiuntive per le applicazioni con queste caratteristiche:
 
 - **Applicazioni con prestazioni ridotte a causa di un comportamento "eccessivamente comunicativo"**
 
-  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. Ad esempio, si potrebbero migliorare le prestazioni dell'applicazione usando tecniche come l'invio in batch di query ad hoc o lo spostamento delle query alle stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
+  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. Ad esempio, è possibile migliorare le prestazioni dell'applicazione utilizzando tecniche come l'invio in batch di query ad hoc o lo spostando le query nelle stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
 
 - **Database con un carico di lavoro elevato che non possono essere supportati da una singola macchina virtuale intera**
 
-   I database che superano le risorse della dimensione di calcolo Premium più elevata potrebbero trarre vantaggio dall'aumento del numero di istanze del carico di lavoro. Per altre informazioni, vedere [Partizionamento orizzontale tra database](#cross-database-sharding) e [Partizionamento funzionale](#functional-partitioning).
+   I database che superano le risorse delle dimensioni di calcolo Premium più elevate potrebbero trarre vantaggio dall'aumento del numero di istanze del carico di lavoro. Per altre informazioni, vedere [Partizionamento orizzontale tra database](#cross-database-sharding) e [Partizionamento funzionale](#functional-partitioning).
 
 - **Applicazioni con query non ottimali**
 
-  Le applicazioni, in particolare quelle incluse nel livello di accesso ai dati, con query non ottimizzate correttamente potrebbero non ottenere vantaggi da una dimensione di calcolo superiore. Tra queste sono incluse query prive della clausola WHERE, con indici mancanti o con statistiche obsolete. Queste applicazioni possono trarre vantaggio dalle tecniche standard di ottimizzazione delle prestazioni delle query. Per altre informazioni, vedere [Indici mancanti](#identifying-and-adding-missing-indexes) e [Hint/Ottimizzazione di query](#query-tuning-and-hinting).
+  Le applicazioni, in particolare quelle incluse nel livello di accesso ai dati, con query non ottimizzate correttamente potrebbero non ottenere vantaggi da dimensioni di calcolo superiori. Tra queste sono incluse query prive della clausola WHERE, con indici mancanti o con statistiche obsolete. Queste applicazioni possono trarre vantaggio dalle tecniche standard di ottimizzazione delle prestazioni delle query. Per altre informazioni, vedere [Indici mancanti](#identifying-and-adding-missing-indexes) e [Hint/Ottimizzazione di query](#query-tuning-and-hinting).
 
 - **Applicazioni con struttura di accesso ai dati non ottimale**
 
-   Le applicazioni con problemi intrinseci di concorrenza per l'accesso ai dati, ad esempio il deadlock, potrebbero non trarre vantaggio da una dimensione di calcolo superiore. Provare a ridurre i round trip nel database SQL di Azure memorizzando nella cache i dati sul lato client con il servizio Caching di Azure o un'altra tecnologia di memorizzazione nella cache. Vedere [Memorizzazione nella cache a livello di applicazione](#application-tier-caching).
+   Le applicazioni con problemi intrinseci di concorrenza per l'accesso ai dati, ad esempio il deadlock, potrebbero non trarre vantaggio da dimensioni di calcolo superiori. Provare a ridurre i round trip nel database SQL di Azure memorizzando nella cache i dati sul lato client con il servizio Caching di Azure o un'altra tecnologia di memorizzazione nella cache. Vedere [Memorizzazione nella cache a livello di applicazione](#application-tier-caching).
 
 ## <a name="tune-your-database"></a>Ottimizzare il database
 
-Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare il database SQL di Azure, in modo da ottenere le prestazioni migliori per l'applicazione ed eseguirla alla dimensione di calcolo più bassa possibile. Alcune di queste tecniche corrispondono alle tradizionali procedure consigliate di ottimizzazione di SQL Server, ma altre sono specifiche del database SQL di Azure. In alcuni casi è possibile esaminare le risorse utilizzate per un database, in modo da individuare aree che richiedono ottimizzazione aggiuntiva e da estendere le tecniche tradizionali di SQL Server per l'uso nel database SQL di in Azure.
+Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare il database SQL di Azure, in modo da ottenere le prestazioni migliori per l'applicazione ed eseguirla alle dimensioni di calcolo più basse possibile. Alcune di queste tecniche corrispondono alle tradizionali procedure consigliate di ottimizzazione di SQL Server, ma altre sono specifiche del database SQL di Azure. In alcuni casi è possibile esaminare le risorse utilizzate per un database, in modo da individuare aree che richiedono ottimizzazione aggiuntiva e da estendere le tecniche tradizionali di SQL Server per l'uso nel database SQL di Azure.
 
 ### <a name="identifying-and-adding-missing-indexes"></a>Identificazione e aggiunta di indici mancanti
 
@@ -121,11 +120,11 @@ Dopo la creazione, la stessa istruzione SELECT seleziona un piano diverso, che u
 
 ![Piano di query con indici corretti](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-L'aspetto chiave è che la capacità di I/O di un sistema apposito condiviso è più limitata di un computer server dedicato. Esiste un vantaggio nella riduzione dell'I/O non necessario, che consente di sfruttare al massimo il sistema nel valore di DTU di ogni dimensione di calcolo inclusa nei livelli di servizio per il database SQL di Azure. Le opzioni appropriate di progettazione fisica del database possono migliorare notevolmente la latenza delle singole query, la velocità effettiva di richieste simultanee gestibili per unità di scala e ridurre i costi necessari per soddisfare la query. Per altre informazioni sulle DMV di indici mancanti, vedere [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+L'aspetto chiave è che la capacità di I/O di un sistema apposito condiviso è più limitata di un computer server dedicato. Esiste un vantaggio nella riduzione dell'I/O non necessario, che consente di sfruttare al massimo il sistema nel valore di DTU delle dimensioni di calcolo incluse nei livelli di servizio per il database SQL di Azure. Le opzioni appropriate di progettazione fisica del database possono migliorare notevolmente la latenza delle singole query, la velocità effettiva di richieste simultanee gestibili per unità di scala e ridurre i costi necessari per soddisfare la query. Per altre informazioni sulle DMV di indici mancanti, vedere [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Hint/Ottimizzazione di query
 
-Query Optimizer nel database SQL di Azure è simile a Query Optimizer tradizionale di SQL Server. La maggior parte delle procedure consigliate per ottimizzare le query e per comprendere i motivi delle limitazioni del modello per Query Optimizer si applica anche al database SQL di Azure. Se si ottimizzano query nel database SQL di Azure, si potrebbe ottenere il vantaggio aggiuntivo della riduzione delle richieste di risorsa aggregate. L'applicazione potrebbe essere eseguita a un costo inferiore rispetto a un'applicazione equivalente non ottimizzata, perché può usare una dimensione di calcolo inferiore.
+Query Optimizer nel database SQL di Azure è simile a Query Optimizer tradizionale di SQL Server. La maggior parte delle procedure consigliate per ottimizzare le query e per comprendere i motivi delle limitazioni del modello per Query Optimizer si applica anche al database SQL di Azure. Se si ottimizzano query nel database SQL di Azure, si potrebbe ottenere il vantaggio aggiuntivo della riduzione delle richieste di risorsa aggregate. L'applicazione potrebbe essere eseguita a un costo inferiore rispetto a un'applicazione equivalente non ottimizzata, perché può usare dimensioni di calcolo inferiori.
 
 Un esempio comune in SQL Server e applicabile anche al database SQL di Azure è costituito dal modo in cui Query Optimizer "analizza" i parametri. Durante la compilazione, Query Optimizer valuta il valore corrente di un parametro per determinare se può generare un piano di query più idoneo. Anche se questa strategia può comportare spesso la creazione di un piano di query significativamente più veloce rispetto a un piano compilato senza valori di parametri noti, non funziona attualmente in modo perfetto in SQL Server e nel database SQL di Azure. In alcuni casi il parametro non viene analizzato e in altri casi viene analizzato, ma il piano generato non è ottimale per l'intero set di valori di parametri in un carico di lavoro. Microsoft include gli hint per la query (direttive) per consentire di specificare la finalità più deliberatamente ed eseguire l'override del comportamento predefinito per l'analisi dei parametri. Se si usano gli hint, è spesso possibile risolvere i casi in cui il comportamento predefinito di SQL Server o del database SQL di Azure non è perfetto per il carico di lavoro di un cliente specifico.
 
@@ -248,7 +247,7 @@ Anche se il partizionamento orizzontale del database non riduce la capacità agg
 
 Gli utenti di SQL Server combinano spesso molte funzioni all'interno di un singolo database. Se un'applicazione include ad esempio la logica per gestire l'inventario di un negozio, è possibile che quel database includa la logica associata all'inventario, il rilevamento degli ordini di acquisto, le stored procedure e le viste indicizzate o materializzate mediante le quali sono stati gestiti i report di fine mese. Questa tecnica semplifica l'amministrazione del database per operazioni quali il backup, ma richiede anche il ridimensionamento dell'hardware per gestire il carico massimo in tutte le funzioni di un'applicazione.
 
-Se si usa un'architettura con aumento del numero di istanze nel database SQL di Azure, è consigliabile suddividere le diverse funzioni di un'applicazione in diversi database. Se si usa questa tecnica, ogni applicazione viene ridimensionata in modo indipendente. Quando un'applicazione viene usata con maggiore frequenza e il carico nel relativo database aumenta, l'amministratore può scegliere una dimensione di calcolo indipendente per ogni funzione in un'applicazione. Nei limiti, questa architettura fa sì che le dimensioni di un'applicazione diventino più grandi di quelle gestibili da una singola macchina apposita, perché il carico viene distribuito in più macchine.
+Se si usa un'architettura con aumento del numero di istanze nel database SQL di Azure, è consigliabile suddividere le diverse funzioni di un'applicazione in diversi database. Se si usa questa tecnica, ogni applicazione viene ridimensionata in modo indipendente. Quando un'applicazione viene usata con maggiore frequenza e il carico nel relativo database aumenta, l'amministratore può scegliere dimensioni di calcolo indipendenti per ogni funzione in un'applicazione. Nei limiti, questa architettura fa sì che le dimensioni di un'applicazione diventino più grandi di quelle gestibili da una singola macchina apposita, perché il carico viene distribuito in più macchine.
 
 ### <a name="batch-queries"></a>Invio di query in batch
 
@@ -258,7 +257,7 @@ Alcune applicazioni comportano un utilizzo elevato di scrittura. È a volte poss
 
 ### <a name="application-tier-caching"></a>Memorizzazione nella cache a livello di applicazione
 
-Alcune applicazioni di database contengono carichi di lavoro con intensa attività di lettura. I livelli di memorizzazione nella cache possono consentire di ridurre il carico nel database e di ridurre la dimensione di calcolo necessaria per supportare un database usando il database SQL di Azure. La [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), in caso di carico di lavoro con intensa attività di lettura, può consentire di leggere i dati una volta o forse una volta per macchina di livello applicazione, a seconda della relativa configurazione, e di archiviare i dati al di fuori del database SQL. In questo modo è possibile ridurre il carico del database (CPU e I/O letti), ma vi sarà un impatto sulla coerenza transazionale poiché i dati letti dalla cache potrebbero non essere sincronizzati con i dati nel database. Anche se in molte applicazioni è accettabile un livello di incoerenza, ciò non rappresenta una soluzione valida per tutti i carichi di lavoro. È necessario conoscere bene tutti i requisiti delle applicazioni prima di implementare una strategia di caching a livello di applicazione.
+Alcune applicazioni di database contengono carichi di lavoro con intensa attività di lettura. I livelli di memorizzazione nella cache possono consentire di ridurre il carico nel database e di ridurre le dimensioni di calcolo necessarie per supportare un database usando il database SQL di Azure. La [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), in caso di carico di lavoro con intensa attività di lettura, può consentire di leggere i dati una volta o forse una volta per macchina di livello applicazione, a seconda della relativa configurazione, e di archiviare i dati al di fuori del database SQL. In questo modo è possibile ridurre il carico del database (CPU e I/O letti), ma vi sarà un impatto sulla coerenza transazionale poiché i dati letti dalla cache potrebbero non essere sincronizzati con i dati nel database. Anche se in molte applicazioni è accettabile un livello di incoerenza, ciò non rappresenta una soluzione valida per tutti i carichi di lavoro. È necessario conoscere bene tutti i requisiti delle applicazioni prima di implementare una strategia di caching a livello di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

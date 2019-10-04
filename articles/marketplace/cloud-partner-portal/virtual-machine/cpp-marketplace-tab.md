@@ -1,64 +1,60 @@
 ---
-title: Scheda Marketplace della macchina virtuale nel portale Cloud Partner per Azure | Microsoft Docs
+title: Scheda di Marketplace di macchine virtuali nel portale per Cloud Partner per Azure Marketplace
 description: Descrive la scheda Marketplace usata nella creazione di un'offerta di macchina virtuale in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938196"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
 
-La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa forma estesa è suddivisa in quattro sezioni: **Cenni preliminari sulla**, **gli elementi di Marketing**, **condurre una gestione**, e **legali**. 
+La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa forma estesa è suddivisa in quattro sezioni: **Cenni preliminari sulla**, **gli elementi di Marketing**, **condurre una gestione**, e **legali**.
+
 
 ## <a name="overview-section"></a>Sezione Panoramica
-In questa sezione immettere le informazioni generali sull'offerta di Azure Marketplace.  Un asterisco (*) alla fine del nome del campo indica che il campo è obbligatorio.
+In questa sezione immettere le informazioni generali sull'offerta di Azure Marketplace.  Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
-![Sezione Overview (Panoramica) della scheda Marketplace nel modulo Nuova offerta per le macchine virtuali](./media/publishvm_008.png)
+![Sezione Panoramica della scheda di Marketplace per macchine virtuali](./media/publishvm_008.png)
 
-La tabella seguente descrive lo scopo e il contenuto di questi campi.
+La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi obbligatori sono indicati da un asterisco (*).
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titolo**                 | Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace.  La lunghezza massima consentita è di 50 caratteri. |
-| **Summary**               | Descrizione breve dello scopo o della funzione della soluzione.  La lunghezza massima consentita è di 100 caratteri. |
-| **Long Summary** (Riepilogo lungo)          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
-| **Descrizione**           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
-| **Canale rivenditore CSP di Microsoft** | Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali. |
-| **Marketing Identifier** (Identificatore di marketing)  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
+| **Titolo\***                 | Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace.  La lunghezza massima consentita è di 50 caratteri. |
+| **Riepilogo\***               | Descrizione breve dello scopo o della funzione della soluzione.  La lunghezza massima consentita è di 100 caratteri. |
+| **Riepilogo esteso\***          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
+| **Descrizione\***           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
+| **Canale rivenditore CSP di Microsoft\*** | Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali. |
+| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **ID sottoscrizione di anteprima\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
-| **Suggested Categories (Max 5)** (Categorie suggerite - Max 5) | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  Il numero massimo consentito è cinque.  |
+| **Suggeriti categorie (al massimo 5)\*** | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  Il numero massimo consentito è cinque.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Sezione Marketing Artifacts (Artefatti di marketing)
 
-Questa seconda sezione è suddivisa in tre sottosezioni: **Logo**, **Screenshot**, e **video**. I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti.
+Questa seconda sezione è suddivisa in tre sottosezioni: **Logo**, **Screenshot**, e **video**. I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti. 
 
 ![Sezione Marketing Artifacts (Artefatti di marketing) della scheda Marketplace nel modulo Nuova offerta per le macchine virtuali](./media/publishvm_009.png)
+
+La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi obbligatori sono indicati da un asterisco (*).
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos* (Logo)  |  |
-| **Small**                 | Bitmap con estensione ico, 40x40 pixel                                                      |
-| **Medium**                | Bitmap con estensione ico, 90x90 pixel                                                      |
-| **Large**                 | Bitmap con estensione ico, 115x115 pixel                                                   |
-| **Wide** (Largo)                  | Bitmap con estensione ico, 255x115 pixel                                                    |
+| **Small\***                 | Bitmap con estensione ico, 40x40 pixel                                                      |
+| **Medium\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
+| **Large\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
+| **Wide\***                  | Bitmap con estensione ico, 255x115 pixel                                                    |
 | **Hero** (Banner)                  | Bitmap, 815x290.  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Questa seconda sezione è suddivisa in tre sottosezioni: **Logo**, **Screenshot*
 | **Nome**                  | Nome o titolo  <!-- TODO - max char length? -->                              |
 | **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Bitmap, 533x324                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Linee guida per il logo
 
@@ -105,7 +100,6 @@ L'immagine seguente illustra il modo in cui vengono visualizzate le informazioni
 
 
 ## <a name="lead-management-section"></a>Sezione Lead Management (Gestione clienti potenziali)
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 La terza sezione consente di raccogliere clienti potenziali generati dalle offerte in Azure Marketplace. Per queste informazioni, questa sezione offre le opzioni di archiviazione seguenti da un elenco a discesa.
 
@@ -122,15 +116,16 @@ Dopo aver pubblicato l'offerta, verrà convalidata la connessione al cliente pot
 
 ## <a name="legal-section"></a>Sezione legale
 
-Questa sezione consente di fornire i due documenti legali necessari per ogni offerta: informativa sulla privacy e condizioni per l'utilizzo.
+Questa sezione consente di specificare i documenti legali necessari richiesti per ogni offerta.  
 
-|  **Campo**                |     **Descrizione**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL dell'informativa sulla privacy**    | URL dell'informativa sulla privacy pubblicata                                            |
-| **Condizioni d'uso**          | Norme in testo normale o HTML semplice.  <!-- TODO - max char length? -->       |
+|  **Campo**                    |     **Descrizione**                                        |
+|  ---------                    |     ---------------                                        |
+| **Privacy Policy URL\***      | URL dell'informativa sulla privacy pubblicata                          |
+| **Usare il contratto Standard?\***  |   |
+| **Condizioni per l'utilizzo\***            | Norme in testo normale o HTML semplice.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Nella scheda successiva, [Support](./cpp-support-tab.md) (Supporto) è possibile specificare le risorse tecniche e di supporto utente della propria offerta.
-

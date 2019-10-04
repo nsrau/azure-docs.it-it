@@ -1,6 +1,6 @@
 ---
 title: Che cos'è l'API Ricerca video Bing?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come cercare video nel Web usando l'API Ricerca video Bing.
 services: cognitive-services
 author: swhite-msft
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267173"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500160"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
 
@@ -27,7 +27,7 @@ L'API Ricerca video Bing semplifica l'aggiunta di funzionalità di ricerca video
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggerimento dei termini di ricerca in tempo reale](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 | [Filtro e limitazione dei video restituiti come risultato](concepts/get-videos.md#filtering-videos)                      | È possibile filtrare i video restituiti come risultato modificando i parametri della query.                                                                                                       |
-| [Ritaglio, ridimensionamento e visualizzazione anteprime](resize-and-crop-thumbnails.md)                                                | È possibile modificare e visualizzare le anteprime dei video restituiti dall'API Ricerca video Bing.                                                                                      |
+| [Ritaglio, ridimensionamento e visualizzazione anteprime](../bing-web-search/resize-and-crop-thumbnails.md)                                                | È possibile modificare e visualizzare le anteprime dei video restituiti dall'API Ricerca video Bing.                                                                                      |
 | [Ricerca di video di tendenza](trending-videos.md) | È possibile cercare video di tendenza da tutto il mondo.                                                                                                          |
 | [Ricerca di informazioni dettagliate per i video](video-insights.md) | È possibile personalizzare una ricerca per trovare video di tendenza da tutto il mondo.                                                                                                          |
 
@@ -48,8 +48,8 @@ Quando si è pronti per chiamare l'API, creare un [account API servizi cognitivi
 
 Usare la [guida introduttiva](csharp.md) per eseguire rapidamente la prima richiesta API.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* La pagina di riferimento per l'[API Ricerca video Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati di ricerca.
+* La pagina di riferimento per l'[API Ricerca video Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati di ricerca.
 
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.

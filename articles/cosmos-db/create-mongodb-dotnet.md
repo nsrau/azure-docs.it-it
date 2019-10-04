@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: cc910359b5519d2cf1bd8a8bf019924dff660362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73caa57fe7e721d69091bfb6ee74f7d88baf1ba3
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852286"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979097"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Web .NET usando l'API Azure Cosmos DB per MongoDB 
 
@@ -34,7 +34,7 @@ Questo argomento di avvio rapido illustra come creare un account Cosmos con l'[A
 
 Per eseguire l'esempio, sono necessari [Visual Studio](https://www.visualstudio.com/downloads/) e un account Azure Cosmos DB valido.
 
-Se non si ha già Visual Studio, scaricare [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web** installato con il programma di installazione.
+Se Visual Studio non è ancora installato, scaricare [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web** installato con il programma di installazione.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

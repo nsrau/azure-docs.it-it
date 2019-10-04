@@ -3,7 +3,7 @@ title: Creare un’app per un contenitore Windows su Service Fabric in Azure | M
 description: In questa guida introduttiva viene creata la prima applicazione contenitore Windows in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051547"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599381"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Windows in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
-Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questa guida introduttiva illustra come distribuire un'immagine del contenitore Docker predefinita in un'applicazione di Service Fabric. Al termine, saranno in esecuzione un server Windows Server Core 2016 e un contenitore IIS. Questa guida introduttiva descrive la distribuzione di un contenitore Windows. Vedere [questa guida introduttiva](service-fabric-quickstart-containers-linux.md) per distribuire un contenitore Linux.
+Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questa guida introduttiva illustra come distribuire un'immagine del contenitore Docker predefinita in un'applicazione di Service Fabric. Al termine, saranno in esecuzione un server Windows Server Core 2016 e un contenitore IIS. Questa guida di avvio rapido descrive la distribuzione di un contenitore di Windows. Per distribuire un contenitore di Linux, vedere [questa guida di avvio rapido](service-fabric-quickstart-containers-linux.md).
 
 ![Pagina Web predefinita di IIS][iis-default]
 
@@ -44,7 +44,7 @@ In questa guida introduttiva si apprende come:
 
 * Una sottoscrizione di Azure. È possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un computer di sviluppo che esegue:
-  * Visual Studio 2015 o Visual Studio 2017.
+  * Visual Studio 2019 o Windows 2019.
   * [SDK e strumenti di Service Fabric](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Creare un pacchetto di un contenitore di un'immagine Docker con Visual Studio
@@ -53,11 +53,11 @@ L'SDK e gli strumenti di Service Fabric offrono un modello di servizio che perme
 
 Avviare Visual Studio come "Amministratore".  Selezionare **File** > **Nuovo** > **Progetto**.
 
-Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer" e fare clic su **OK**.
+Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer" e fare clic su **Crea**.
 
 Selezionare **Contenitore** dai modelli **Applicazioni e contenitori ospitati**.
 
-In **Nome immagine** immettere "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", ossia l'[immagine di base di Windows Server Core Server e IIS](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+In **Nome immagine** immettere "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", ossia l'[immagine di base di Windows Server Core Server e IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Configurare il mapping dalla porta all'host del contenitore in modo che per le richieste in ingresso per il servizio sulla porta 80 venga eseguito il mapping alla porta 80 del contenitore.  Impostare la **Porta del contenitore** su "80" e impostare **Porta host** su "80".  
 
@@ -67,7 +67,7 @@ Assegnare al servizio il nome "MyContainerService" e fare clic su **OK**.
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Specificare la build del sistema operativo per l'immagine del contenitore
 
-I contenitori compilati con una versione specifica di Windows Server potrebbero non supportare l'esecuzione in un host con una versione diversa di Windows Server. Ad esempio, i contenitori compilati con Windows Server 1709 non possono essere eseguiti negli host che eseguono Windows Server versione 2016. Per altre informazioni, vedere [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host). 
+I contenitori compilati con una versione specifica di Windows Server potrebbero non supportare l'esecuzione in un host con una versione diversa di Windows Server. Ad esempio, i contenitori compilati con Windows Server versione 1709 non possono essere eseguiti negli host che eseguono Windows Server 2016. Per altre informazioni, vedere [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host). 
 
 Con la versione 6.1 del runtime di Service Fabric e le versioni più recenti, è possibile specificare più immagini del sistema operativo per ogni contenitore e contrassegnare ognuna con la versione della build del sistema operativo in cui deve essere distribuita. Ciò consente di assicurarsi che l'applicazione venga eseguita in host che eseguono versioni diverse del sistema operativo Windows. Per altre informazioni, vedere [Specificare immagini del contenitore specifiche per la build del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -77,14 +77,14 @@ Microsoft pubblica immagini diverse per le versioni di IIS compilate per version
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Il manifesto del servizio continua a specificare solo un'immagine per nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+Il manifesto del servizio continua a specificare solo un'immagine per nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 Nel file *ApplicationManifest.xml* impostare anche **PasswordEncrypted** su **false**. Dato che l'account e la password sono vuoti per l'immagine del contenitore pubblica disponibile nell'hub Docker, si disattiva la crittografia perché la crittografia di una password vuota genera un errore di compilazione.
 
@@ -106,7 +106,7 @@ Copiare lo script seguente negli Appunti e aprire **Windows PowerShell ISE**.  I
 
 Dopo avere specificato i valori per le variabili, premere **F5** per eseguire lo script.
 
-Dopo l'esecuzione dello script e la creazione del cluster, trovare `ClusterEndpoint` nell'output. Ad esempio: 
+Dopo l'esecuzione dello script e la creazione del cluster, trovare `ClusterEndpoint` nell'output. Ad esempio:
 
 ```powershell
 ...
@@ -117,7 +117,7 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 Si installerà ora il certificato PFX nell'archivio certificati *CurrentUser\My*. Il file PFX si troverà nella directory specificata con la variabile di ambiente `certfolder` nello script di PowerShell precedente.
 
-Passare a tale directory e quindi eseguire il comando di PowerShell seguente sostituendo il nome del file PFX che si trova nella directory `certfolder` e la password specificata nella variabile `certpwd`. In questo esempio, come directory corrente è impostata la directory specificata dalla variabile `certfolder` nello script di PowerShell. Da questa posizione viene eseguito il comando `Import-PfxCertificate`:
+Passare a tale directory e quindi eseguire il comando di PowerShell seguente, sostituendo il nome del file PFX che si trova nella directory `certfolder` e la password specificata nella variabile `certpwd`. In questo esempio, come directory corrente è impostata la directory specificata dalla variabile `certfolder` nello script di PowerShell. Da questa posizione viene eseguito il comando `Import-PfxCertificate`:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)

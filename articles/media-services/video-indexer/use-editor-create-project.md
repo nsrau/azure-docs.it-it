@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65518143"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Usare l'editor di indicizzatore Video per creare progetti
 
@@ -88,7 +89,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, aprir�
     
     Aggiungere tutti i segmenti di un video, fare clic sull'opzione di menu elenco accanto al video e selezionando **selezionare tutti i segmenti**. 
 
-    ![Aggiungi tutti](./media/video-indexer-view-edit/add-all.png)
+    ![Aggiungi tutto](./media/video-indexer-view-edit/add-all.png)
 
     È possibile deselezionare tutti la selezione selezionando annullare la selezione.
 
@@ -129,7 +130,7 @@ Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **S
 
     Verrà visualizzata la stessa pagina in cui è utilizzato per creare un nuovo progetto. A differenza di nuovo progetto, noterete che i segmenti di insights con timestamp del video, che si era ha iniziato la modifica in precedenza.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Video Indexer](video-indexer-overview.md)
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568992"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735133"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 
-Le API delle Mappe di Azure [Recinto virtuale GET](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) e [Recinto virtuale POST](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) consentono di recuperare la prossimità di una coordinata relativa a un recinto virtuale specificato o un set di recinti. Questo articolo illustra come preparare i dati del recinto virtuale che possono essere usati nelle API delle Mappe di Azure GET e POST.
+Le API delle Mappe di Azure [Recinto virtuale GET](/rest/api/maps/spatial/getgeofence) e [Recinto virtuale POST](/rest/api/maps/spatial/postgeofence) consentono di recuperare la prossimità di una coordinata relativa a un recinto virtuale specificato o un set di recinti. Questo articolo illustra come preparare i dati del recinto virtuale che possono essere usati nelle API delle Mappe di Azure GET e POST.
 
 I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'oggetto `Feature` e oggetto `FeatureCollection` nel formato`GeoJSON`, che viene definito in [rfc7946](https://tools.ietf.org/html/rfc7946). Inoltre:
 
@@ -38,7 +38,7 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
-* Tutti i valori delle coordinate sono rappresentati come [latitudine, longitudine] definiti in `WGS84`.
+* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine `WGS84`] definito in.
 * Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: Tutti i punti in `MultiPoint` useranno lo stesso raggio in modo da formare più recinti virtuali.
 * In uno scenario punto-cerchio, una geometria circolare può essere rappresentata usando un oggetto di geometria `Point` con proprietà elaborate nell'[Estensione delle geometrie GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

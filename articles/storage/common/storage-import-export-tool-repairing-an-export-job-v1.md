@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61477944"
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
 Al termine di un processo di esportazione, è possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure in locale per:  
@@ -30,7 +30,7 @@ Il comando per la riparazione di un processo di importazione è **RepairExport**
 
 È possibile specificare i parametri seguenti con **RepairExport**:  
   
-|Parametro|DESCRIZIONE|  
+|Parametro|Descrizione|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|Richiesto. Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
 |**/logdir:&lt;LogDirectory\>**|facoltativo. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  

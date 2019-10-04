@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60536831"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066908"
 ---
-# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Apache Hadoop in HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare C# funzioni definite dall'utente con Apache hive e Apache Pig in Apache Hadoop in HDInsight
 
 Informazioni su come usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig in HDInsight.
 
@@ -159,19 +159,19 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 3. Se richiesto, immettere le credenziali della sottoscrizione di Azure, quindi fare clic su **Accedi**.
 
-4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__.
+4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__ .
 
-    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
-    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__.
+    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__ .
 
-    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__.
+    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__ .
 
 6. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 
    * Se si usa un __Account di Archiviazione di Azure__, fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Ok**.
 
-       ![icona relativa al caricamento](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![Icona di caricamento HDInsight per il nuovo progetto](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Se si usa __Azure Data Lake Storage__, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco di file e quindi scegliere __Carica__. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Apri**.
 
@@ -213,7 +213,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 ## <a name="run-an-apache-pig-job"></a>Eseguire un processo Apache Pig
 
-1. Connettersi al cluster HDInsight usando SSH. Ad esempio: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Connettersi al cluster HDInsight usando SSH. Ad esempio `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Usare uno dei comandi seguenti per avviare la riga di comando di Pig:
 

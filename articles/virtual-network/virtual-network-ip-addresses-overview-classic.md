@@ -5,6 +5,7 @@ description: Informazioni sugli indirizzi IP pubblici e privati (classici) in Az
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652168"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058919"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
@@ -87,12 +88,12 @@ Gli indirizzi IP pubblici statici (riservati) sono comunemente usati negli scena
 ### <a name="at-a-glance"></a>Riepilogo
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP pubblici.
 
-| Risorsa | Dinamico | statico | Più indirizzi IP |
+| Risorsa | Dynamic | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
-| servizio cloud |Sì |Sì |Sì |
-| Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No  |No  |
-| gateway VPN |Sì |No  |No  |
-| gateway applicazione |Sì |No  |No  |
+| servizio cloud |Yes |Sì |Sì |
+| Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No |No |
+| gateway VPN |Yes |No |No |
+| gateway applicazione |Yes |No |No |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse Azure di comunicare con altre risorse in un servizio cloud, in una [rete virtuale](virtual-networks-overview.md)(VNet) o nella rete locale (tramite un gateway VPN o il circuito ExpressRoute), senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -137,10 +138,10 @@ Nel caso di un servizio cloud *autonomo* , sarà possibile risolvere i nomi host
 ### <a name="at-a-glance"></a>Riepilogo
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP privati.
 
-| Risorsa | Dinamico | statico | Più indirizzi IP |
+| Risorsa | Dynamic | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
 | Macchina virtuale (in una rete virtuale o un servizio cloud *autonomo*) |Sì |Sì |Sì |
-| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Sì |No  |No  |
+| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Yes |No |No |
 | Front-end del servizio di bilanciamento del carico interno |Sì |Sì |Sì |
 | Front-end del gateway applicazione |Sì |Sì |Sì |
 
@@ -162,7 +163,7 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Differenze tra le distribuzioni di Gestione risorse e le distribuzioni classiche
 Di seguito è riportato un confronto tra la funzione di assegnazione degli indirizzi IP in Gestione risorse e quella usata nel modello di distribuzione classico.
 
-|  | Risorsa | Classico | Gestione risorse |
+|  | Risorsa | Classica | Gestione risorse |
 | --- | --- | --- | --- |
 | **Indirizzo IP pubblico** |***VM*** |Indicato come un ILPIP (solo dinamico) |Indicato come un IP pubblico (dinamico o statico) |
 |  ||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Associato alla scheda NIC della VM |

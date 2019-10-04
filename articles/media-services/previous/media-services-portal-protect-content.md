@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259075"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64866957"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione dei contenuti tramite il portale di Azure
+
+> [!NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+>
+
  Con Servizi multimediali di Azure, è possibile proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e distribuzione. È possibile usare Servizi multimediali per distribuire contenuti crittografati dinamicamente con Advanced Encryption Standard (AES), tramite chiavi di crittografia a 128 bit. È inoltre possibile usarlo con crittografia comune (CENC) tramite Digital Rights Management (DRM) PlayReady e/o Widevine e Apple FairPlay. 
 
 Servizi multimediali offre un servizio per la distribuzione di licenze DRM e chiavi non crittografate AES ai client autorizzati. È possibile usare il portale di Azure per creare un criterio di autorizzazione per chiavi/licenze per tutti i tipi di crittografia.

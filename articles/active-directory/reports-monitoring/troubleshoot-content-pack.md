@@ -3,7 +3,7 @@ title: Risoluzione dei problemi relativi ai pacchetti di contenuto dei log attiv
 description: Offre un elenco dei messaggi di errore del pacchetto di contenuto delle attività di Azure Active Directory e i passaggi per risolvere il problema.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 06/07/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e50f2b92318ada729ad8e3405af8403f31d7b6e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284951"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129278"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Risoluzione dei problemi relativi ai pacchetti di contenuto dei log attività di Azure Active Directory 
 
@@ -47,7 +47,7 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
 | Causa | Modalità di correzione |
 | ---   | ---        |
 | Gli errori di aggiornamento non riuscito possono verificarsi quando le credenziali degli utenti che si connettono al pacchetto di contenuto sono state reimpostate ma non sono state aggiornate nelle impostazioni di connessione del pacchetto di contenuto. | Individuare in Power BI il set di dati corrispondente al dashboard dei log attività di Azure AD (**Log attività di Azure Active Directory**), scegliere Pianifica aggiornamenti e quindi immettere le credenziali di Azure AD. |
-| Un aggiornamento può non riuscire a causa di problemi relativi ai dati nel pacchetto di contenuto sottostante. | [Inviare un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Un aggiornamento può avere esito negativo a causa di set di impostazioni di grandi dimensioni. | Attualmente, il pacchetto di contenuto Azure AD con Power BI può supportare solo set di dati di piccole dimensioni (inferiori a 500.000 righe) a causa di alcune limitazioni relative ai timeout nel servizio di Power BI. Se si verificano errori di limitazione o se l'aggiornamento non riesce a causa di problemi di timeout, è possibile che si stia tentando di recuperare un set di dati di grandi dimensioni. Ridurre il periodo di tempo nella query e riprovare.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>L'aggiornamento delle credenziali dell'origine dati non è riuscito 
@@ -71,6 +71,6 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installa pacchetto di contenuto di Power BI per i report di Azure AD](quickstart-install-power-bi-content-pack.md).
+* [Installare Power bi pacchetto di contenuto per i report Azure ad](quickstart-install-power-bi-content-pack.md).
 * [Usare il pacchetto di contenuto di Power BI per i report di Azure AD per visualizzare i dati](howto-power-bi-content-pack.md)
 * [Come ottenere supporto per Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

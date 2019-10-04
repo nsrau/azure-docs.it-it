@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2c24a87377eb4b893cbcae1b9a36522e586a6d56
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481689"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570147"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
  
@@ -91,17 +90,17 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script della demo (che chiama il *Deploy-TenantAnalytics\<XX > con estensione ps1* script) che consente di creare l'archivio di analitica di tenant. 
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *deploy-\<TenantAnalytics XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) connettersi **tenants1-dpt -&lt;utente&gt;**  e **catalog-dpt -&lt;utente&gt;**  server usando l'account di accesso = *developer*, Password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **tenants1--&lt;user&gt;**  e **Catalog-&lt;&gt;** Server che usano login = *Developer*, password *=\@P ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 In Esplora oggetti seguire questa procedura:
 
-1. Espandere il server *tenants1-dpt-&lt;Utente&gt;*.
+1. Espandere il server *tenants1-dpt-&lt;Utente&gt;* .
 2. Espandere il nodo Database per visualizzare l'elenco dei database dei tenant.
-3. Espandere il server *catalog-dpt-&lt;Utente&gt;*.
+3. Espandere il server *catalog-dpt-&lt;Utente&gt;* .
 4. Verificare che vengano visualizzati l'archivio di analisi e il database jobaccount.
 
 Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espandendo il nodo dell'archivio di analisi:
@@ -169,13 +168,13 @@ I dati nella tabella dello schema star includono tutti i dati relativi alle vend
 Seguire questa procedura per connettersi a Power BI e importare le viste create in precedenza:
 
 1. Avviare Power BI Desktop.
-2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
+2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro** dal menu.
 3. Nella finestra **Recupera dati** selezionare il database SQL di Azure.
 4. Nella finestra di accesso al database immettere il nome del server, ossia catalog-dpt-&lt;Utente&gt;.database.windows.net. Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -227,7 +226,7 @@ Sono state osservate le tendenze nei dati dei tenant dell'applicazione WingTip. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > - Distribuire un database di analisi dei tenant con tabelle predefinite di uno schema star
@@ -241,5 +240,5 @@ Congratulazioni!
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - Altre [esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Processi elastici](sql-database-elastic-jobs-overview.md).
+- [Processi elastici](elastic-jobs-overview.md).
 - [Analisi su più tenant con dati estratti in un'app multi-tenant](saas-multitenantdb-tenant-analytics.md)

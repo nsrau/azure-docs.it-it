@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900394"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -42,7 +42,7 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
 1. [Aprire Analisi e scrivere la query](../../azure-monitor/log-query/get-started-portal.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
-3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
+3. Nel menu **Esporta** scegliere **Power BI (M)** . Salvare il file di testo.
    
     ![Screenshot di Analisi con il menu Esporta evidenziato](./media/export-power-bi/analytics-export-power-bi.png)
 4. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.

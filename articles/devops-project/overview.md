@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 6ae2d0723b195ed59f8c6a7320245509145094df
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fed4f0976dd118186c122b0152f255d0c452c0ce
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776598"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404494"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Panoramica di Azure DevOps Projects
 
  Azure DevOps Projects permette di iniziare a usare Azure velocemente. Consente di avviare l'app preferita nel servizio di Azure desiderato in pochi passaggi rapidi dal portale di Azure. 
 
- DevOps Projects configura tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'applicazione. È possibile usare il dashboard del progetto DevOps per monitorare i commit, le compilazioni e le distribuzioni del codice, il tutto da una singola visualizzazione nel portale di Azure.
+ DevOps Projects configura tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'applicazione. È possibile usare il dashboard di DevOps Projects per monitorare i commit, le compilazioni e le distribuzioni del codice, il tutto da una singola visualizzazione nel portale di Azure.
 
 ## <a name="why-should-i-use-devops-projects"></a>Perché usare DevOps Projects?
 
-  DevOps Projects automatizza l'installazione di un'intera pipeline di integrazione continua (CI) e di recapito continuo (CD) in Azure.  È possibile iniziare con il codice esistente o usare una delle applicazioni di esempio fornite. Quindi sarà possibile distribuire rapidamente l'applicazione in vari servizi di Azure, ad esempio Macchine virtuali, Servizio app, servizi Azure Kubernetes (AKS), Database SQL di Azure e Azure Service Fabric.  
+  DevOps Projects automatizza l'installazione di un'intera pipeline di integrazione continua (CI) e di recapito continuo (CD) in Azure.  È possibile iniziare con il codice esistente o usare una delle applicazioni di esempio fornite. Quindi sarà possibile distribuire rapidamente l'applicazione in vari servizi di Azure, ad esempio Macchine virtuali, Servizio app, servizi Azure Kubernetes, Database SQL di Azure e Azure Service Fabric.  
 
   DevOps Projects esegue tutto il lavoro per la configurazione iniziale di una pipeline DevOps, ovvero tutte le operazioni che spaziano dalla configurazione del repository Git iniziale, la configurazione della pipeline CI/CD, la creazione di una risorsa di Application Insights per il monitoraggio, fino alla presentazione di una singola visualizzazione dell'intera soluzione con la creazione di un dashboard di DevOps Projects nel portale di Azure.
 
@@ -78,4 +78,4 @@ Dopo aver creato il progetto DevOps, è possibile:
 
 ##  <a name="devops-projects-videos"></a>Video di DevOps Projects
 
-* [Creare CI/CD con Azure DevOps Projects](https://channel9.msdn.com/Events/Connect/2017/T174/player/)
+* [Creare CI/CD con Azure DevOps Projects](https://www.youtube.com/watch?v=NuYDAs3kNV8)

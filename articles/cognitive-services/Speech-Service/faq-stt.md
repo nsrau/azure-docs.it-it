@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539061"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839241"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -69,7 +69,7 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
 
-Se è necessario un dimensionamento ancora superiore, rivolgersi a Microsoft.
+Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se è necessaria una maggiore scalabilità.
 
 **D: è possibile scaricare il modello ed eseguirlo in locale?**
 
@@ -83,7 +83,12 @@ Se è necessario un dimensionamento ancora superiore, rivolgersi a Microsoft.
 
 **R**: L'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
-In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
+**D: Come addebito per l'audio a doppio canale?**
+
+**R**: Se si invia separatamente ogni canale (ogni canale nel proprio file), viene addebitato per la durata di ciascun file. Se si invia un singolo file con ogni canale multiplex insieme, ti verrà addebitata per la durata del file singolo.
+
+> [!IMPORTANT]
+> In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
 
 ## <a name="importing-data"></a>Importazione di dati
 

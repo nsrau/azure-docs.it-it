@@ -2,20 +2,20 @@
 title: 'Connettersi ad Azure SQL Data Warehouse: VSTS |Documentazione Microsoft'
 description: Eseguire query in SQL Data Warehouse con Visual Studio.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.subservice: development
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 564a30767f650e4ead025acb22e518eb0da55bd4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463583"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575306"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Connettersi a SQL Data Warehouse con Visual Studio e SSDT
 > [!div class="op_single_selector"]
@@ -27,17 +27,17 @@ ms.locfileid: "55463583"
 > 
 > 
 
-È possibile usare Visual Studio per eseguire query in Azure SQL Data Warehouse in pochi minuti. Questo metodo usa l'estensione di SQL Server Data Tools (SSDT) in Visual Studio. 
+È possibile usare Visual Studio per eseguire query in Azure SQL Data Warehouse in pochi minuti. Questo metodo usa l'estensione SQL Server Data Tools (SSDT) in Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa esercitazione, è necessario:
 
-* Un'istanza di SQL Data Warehouse esistente. Per crearne una, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse].
-* SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente SSDT è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installazione di Visual Studio e SSDT][Installing Visual Studio and SSDT].
-* Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connettersi ad Azure SQL Data Warehouse][Connect to SQL Data Warehouse].
+* SQL Data Warehouse esistente. Per crearne una, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse].
+* SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente SSDT è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse][Installing Visual Studio and SSDT].
+* Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Connettersi ad Azure SQL Data Warehouse).
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Connettersi all'istanza di SQL Data Warehouse
-1. Aprire Visual Studio 2013 o 2015.
+1. Aprire Visual Studio 2019.
 2. Aprire Esplora oggetti di SQL Server. A questo scopo, selezionare **Visualizza** > **Esplora oggetti di SQL Server**.
    
     ![Esplora oggetti di SQL Server][1]
@@ -78,7 +78,7 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con PowerBI][visualizing the data with PowerBI].
 
-Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Eseguire l'autenticazione in SQL Data Warehouse][Authenticate to SQL Data Warehouse].
+Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Authentication to Azure SQL Data Warehouse][Authenticate to SQL Data Warehouse](Autenticazione in Azure SQL Data Warehouse).
 
 <!--Arcticles-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66256138"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -34,7 +34,7 @@ Allo stesso tempo, la raccolta di un set completo di eventi può essere svantagg
 
 ## <a name="pre-aggregated-metrics"></a>Metriche preaggregate
 
-Oltre alle metriche basate su log, nell'autunno del 2018 il team di Application Insights ha reso disponibile un'anteprima pubblica di un tipo di metriche che sono archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), [dashboard](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards) più reattivi e così via.
+Oltre alle metriche basate su log, nell'autunno del 2018 il team di Application Insights ha reso disponibile un'anteprima pubblica di un tipo di metriche che sono archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), [dashboard](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) più reattivi e così via.
 
 > [!IMPORTANT]
 > Le metriche basate su log e quelle preaggregate coesistono in Azure Application Insights. Per distinguere tra i due tipi, nell'esperienza utente di Application Insights le metriche preaggregate sono ora denominate "metriche standard (anteprima)", mentre le metriche tradizionali derivate da eventi sono state rinominate "metriche basate su log".
@@ -63,7 +63,7 @@ La raccolta di dimensioni di metriche personalizzate è disattivata per impostaz
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Creazione di grafici ed esplorazione di metriche basate su log e preaggregate standard
 
-È possibile usare Esplora metriche in Monitoraggio di Azure per tracciare grafici da metriche preaggregate e basate su log, nonché creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
+Uso [Esplora metriche di monitoraggio di Azure](../platform/metrics-getting-started.md) per tracciare i grafici dalla metrica preaggregata e basato su log, nonché creare dashboard con i grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
 
 ![Spazio dei nomi delle metriche](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

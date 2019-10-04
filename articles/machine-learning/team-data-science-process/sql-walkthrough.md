@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606524"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
@@ -376,7 +376,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
+Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>** .
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
@@ -515,7 +515,7 @@ In questo esempio, un campo numerico continuo viene trasformato in intervalli di
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Progettazione di caratteristiche: estrazione di caratteristiche relative alle rappresentazioni decimali di latitudine/longitudine
-In questo esempio, la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese, città, paese, quartiere e così via.  Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
+In questo esempio suddivide la rappresentazione decimale di un campo di latitudine o longitudine viene suddivisa in più campi area di diversa granularità, ad esempio, paese/area geografica, città, città, blocco e così via. Si noti che non viene eseguito il mapping dei nuovi campi geografici alle località effettive. Per informazioni sul mapping delle località con codice geografico, vedere [Servizi REST di Bing Mappe](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -575,7 +575,7 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 1. Inserire i dati in Azure Machine Learning tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa dati).
    
     ![Dati di importazione di Azure Machine Learning][17]
-2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
+2. Selezione di **Database SQL di Azure** come **Origine dati** nel pannello **Proprietà**.
 3. Immissione del nome DNS del database nel campo **Nome server database** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Immissione del **Nome database** nel campo corrispondente.
 5. Immettere il **nome utente SQL** in **Server user account name** (Nome account utente server) e la **password** in **Server user account password** (Password account utente server).

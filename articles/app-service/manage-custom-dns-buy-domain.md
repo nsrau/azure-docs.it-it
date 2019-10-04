@@ -10,21 +10,20 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121537"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073124"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
-I domini del servizio app (anteprima) sono i domini di primo livello che sono gestiti direttamente in Azure. Semplificano le operazioni di gestione dei domini personalizzati per il [Servizio app di Azure](overview.md). In questa esercitazione viene illustrato come acquistare un dominio del servizio app e come assegnare i nomi DNS al Servizio app di Azure.
+I domini del servizio app sono domini di primo livello gestiti direttamente in Azure. Semplificano le operazioni di gestione dei domini personalizzati per il [Servizio app di Azure](overview.md). In questa esercitazione viene illustrato come acquistare un dominio del servizio app e come assegnare i nomi DNS al Servizio app di Azure.
 
 Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Assegnare il dominio del servizio app alla macchina virtuale di Azure o ad Archiviazione di Azure). Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -41,7 +40,7 @@ Per completare questa esercitazione:
 
 Per usare domini personalizzati in Servizio app di Azure, è necessario che il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) sia un livello a pagamento (**Condiviso**, **Basic**, **Standard** o **Premium**). In questo passaggio, verificare che l'app sia supportata dal piano tariffario adeguato.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -55,7 +54,7 @@ Viene visualizzata la pagina di gestione dell'app del servizio app.
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
+Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)** .
 
 ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -80,9 +79,9 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 ## <a name="buy-the-domain"></a>Acquistare il dominio
 
 ### <a name="pricing-information"></a>Informazioni sui prezzi
-Per informazioni sui prezzi nei domini del servizio app di Azure, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere fino a Dominio del servizio app.
+Per informazioni sui prezzi dei domini app Azure Service, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere verso il basso fino al dominio del servizio app.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedi ad Azure
 Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
 
 ### <a name="launch-buy-domains"></a>Avvio di Acquistare un dominio
@@ -116,17 +115,17 @@ Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di 
 
 Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella seguente per alcune spiegazioni:
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
-|Protezione della privacy | Abilita | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
-| Assegnare i nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
+|Protezione della privacy | Attiva | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
+| Assegna nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
 
 ### <a name="accept-terms-and-purchase"></a>Accettare i termini di acquisto
 
 Fare clic su **Termini legali** per leggere i termini e le tariffe, quindi fare clic su **Acquista**.
 
 > [!NOTE]
-> Domini del servizio App usano GoDaddy per la registrazione del dominio e DNS di Azure per ospitare i domini. Oltre alla tariffa di registrazione del dominio, si applicano le spese di utilizzo per il DNS di Azure. Per altre informazioni, vedere la pagina relativa ai [prezzi del DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
+> I domini del servizio app usano GoDaddy per la registrazione del dominio e DNS di Azure per ospitare i domini. Oltre alla tariffa di registrazione del dominio, si applicano le spese di utilizzo per il DNS di Azure. Per altre informazioni, vedere la pagina relativa ai [prezzi del DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -138,19 +137,23 @@ Nella pagina **Dominio di servizio app** fare clic su **OK**. Mentre l'operazion
 
 ### <a name="test-the-hostnames"></a>Verifica dei nomi host
 
-Se sono stati assegnati nomi host predefiniti all'app, è anche possibile visualizzare una notifica di esito positivo per ogni nome host selezionato. 
+Se sono stati assegnati nomi host predefiniti all'app, è anche possibile visualizzare una notifica di esito positivo per ogni nome host selezionato.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host personalizzati**. 
+I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host personalizzati**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio nella schermata precedente, provare a passare a _kontoso.net_ e _www\.kontoso.net_.
+> [!NOTE]
+> Un'etichetta **non sicura** per il dominio personalizzato significa che non è ancora associata a un certificato SSL e qualsiasi richiesta HTTPS da un browser al dominio personalizzato riceverà un errore o un avviso, a seconda del browser. Per configurare l'associazione SSL, vedere [acquistare e configurare un certificato SSL per il servizio app Azure](web-sites-purchase-ssl-web-site.md).
+>
+
+Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio dello screenshot precedente, provare a passare a _kontoso.NET_ e _www\.kontoso.NET_.
 
 ## <a name="assign-hostnames-to-app"></a>Assegnare i nomi host all'app
 
-Se si sceglie di non assegnare uno o più nomi host predefiniti all'app durante il processo di acquisto oppure se è necessario assegnare un nome host non elencato, è possibile assegnare un nome host in qualsiasi momento.
+Se si sceglie di non assegnare uno o più nomi host predefiniti all'app durante il processo di acquisto o se è necessario assegnare un nome host non elencato, è possibile assegnare un nome host in qualsiasi momento.
 
 È inoltre possibile assegnare i nomi host nel dominio del servizio app a qualsiasi altra app. I passaggi variano in base all'appartenenza alla stessa sottoscrizione da parte del dominio del servizio app e dell'app.
 
@@ -174,10 +177,10 @@ Verificare che il dominio acquistato sia presente nella sezione **domini del ser
 Selezionare **Aggiungi il nome host**.
 
 ### <a name="configure-hostname"></a>Configurare il nome host
-Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio: 
+Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Esempio:
 
 - kontoso.net
-- www\.kontoso.net
+- kontoso.NET\.www
 - abc.kontoso.net
 
 Al termine, selezionare **Convalida**. Il tipo di record del nome host viene selezionato automaticamente.
@@ -201,7 +204,9 @@ Navigare tra i nomi host elencati nel browser. Nell'esempio della schermata prec
 
 ## <a name="renew-the-domain"></a>Rinnovare il dominio
 
-Il dominio del servizio app acquistato è valido per un anno dalla data di acquisto. Per impostazione predefinita, il dominio è configurato per il rinnovo automatico tramite l'addebito dell'importo per l'anno successivo in base al metodo di pagamento selezionato. Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
+Il dominio del servizio app acquistato è valido per un anno dalla data di acquisto. Per impostazione predefinita, il dominio è configurato per il rinnovo automatico tramite l'addebito dell'importo per l'anno successivo in base al metodo di pagamento selezionato. È possibile rinnovare manualmente il nome di dominio.
+
+Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
 
 Nella scheda **Servizi app** fare clic sul nome dell'app, selezionare **Impostazioni** e quindi **Domini personalizzati**.
 
@@ -211,11 +216,25 @@ Nella sezione **Domini del servizio app** selezionare il dominio che si desidera
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva**. 
+Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino a 90 giorni prima della scadenza del dominio.
+Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino a [90 giorni prima della scadenza del dominio](#when-domain-expires).
+
+Se il rinnovo del dominio ha esito positivo, si riceverà una notifica tramite posta elettronica entro 24 ore.
+
+## <a name="when-domain-expires"></a>Quando il dominio scade
+
+Azure gestisce i domini del servizio app in scadenza o scaduti come indicato di seguito:
+
+* Se il rinnovo automatico è disabilitato: 90 giorni prima della scadenza del dominio, viene inviato un messaggio di posta elettronica di notifica del rinnovo e il pulsante **rinnova dominio** viene attivato nel portale.
+* Se il rinnovo automatico è abilitato: Il giorno dopo la data di scadenza del dominio, Azure tenta di fatturare l'utente per il rinnovo del nome di dominio.
+* Se si verifica un errore durante il rinnovo automatico, ad esempio se la scheda è scaduta o se il rinnovo automatico è disabilitato e si consente la scadenza del dominio, Azure invia una notifica alla scadenza del dominio e parcheggia il nome di dominio. È possibile [rinnovare manualmente](#renew-the-domain) il dominio.
+* Il giorno 4 e i 12 giorni dopo la scadenza, Azure invia messaggi di posta elettronica di notifica aggiuntivi. È possibile [rinnovare manualmente](#renew-the-domain) il dominio.
+* Il 19 ° giorno dopo la scadenza, il dominio rimane in attesa, ma diventa soggetto a una tariffa di riscatto. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, in base alle eventuali tariffe di rinnovo e riscatto applicabili.
+* Il 25 ° giorno dopo la scadenza, Azure inserisce il dominio per l'asta a un servizio di vendita all'asta di un nome di dominio. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, in base alle eventuali tariffe di rinnovo e riscatto applicabili.
+* Il 30 ° giorno dopo la scadenza non sarà più possibile riscattare il dominio.
 
 <a name="custom"></a>
 
@@ -251,7 +270,7 @@ Nel menu a sinistra del portale di Azure selezionare **Tutti i servizi** > **Dom
 
 Selezionare il dominio che si desidera annullare o eliminare. 
 
-### <a name="delete-hostname-bindings"></a>Eliminare associazioni nome host
+### <a name="delete-hostname-bindings"></a>Elimina associazioni nome host
 
 Nel menu a sinistra del dominio, selezionare **Associazioni nome host**. Le associazioni nome host da tutti i servizi Azure sono elencate di seguito.
 
@@ -259,7 +278,7 @@ Nel menu a sinistra del dominio, selezionare **Associazioni nome host**. Le asso
 
 Non è possibile eliminare il dominio del servizio app finché non vengono eliminate tutte le associazioni nome host.
 
-Eliminare le associazioni nome host selezionando **...** > **Elimina**. Dopo l'eliminazione di tutte le associazioni, selezionare **Salva**.
+Eliminare le associazioni nome host selezionando **...**  > **Elimina**. Dopo l'eliminazione di tutte le associazioni, selezionare **Salva**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
@@ -278,7 +297,3 @@ Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e
 ## <a name="direct-default-url-to-a-custom-directory"></a>Indirizzare l'URL predefinito a una directory personalizzata
 
 Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Per indirizzarle a una sottodirectory, ad esempio `public`, vedere la sezione relativa all'[indirizzamento dell'URL predefinito a una directory personalizzata](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Altre risorse
-
-[FAQ: App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/) (Domande frequenti: dominio del servizio app (anteprima) e domini personalizzati)

@@ -1,7 +1,6 @@
 ---
 title: Usare MapReduce e PowerShell con Apache Hadoop - Azure HDInsight
 description: Informazioni su come usare PowerShell per eseguire in modalità remota processi MapReduce con Apache Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2ba8ab07edc4fd036b82c97f0ae3fb565d5eed72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078391"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell
 
@@ -27,9 +26,6 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Un cluster Azure HDInsight (Hadoop in HDInsight)**
-
-  > [!IMPORTANT]  
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Workstation con Azure PowerShell**.
 

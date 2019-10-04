@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602818"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594232"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
 
@@ -72,11 +72,11 @@ Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le 
 
 ![Creare un profilo e un endpoint nel portale](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | DESCRIZIONE |
 | ------- | --------------- | ----------- |
 | **Profilo CDN** | myCDNProfile | Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
 | **Piano tariffario** | Standard Akamai | Il [piano tariffario](cdn-features.md) specifica il provider e le funzionalità disponibili. Questa esercitazione usa *Akamai standard*. |
-| **Nome endpoint rete CDN** | Qualsiasi nome univoco nel dominio azureedge.net | Si accede alle risorse memorizzate nella cache nel dominio *&lt;nomeendpoint&gt;*.azureedge.net.
+| **Nome endpoint rete CDN** | Qualsiasi nome univoco nel dominio azureedge.net | Si accede alle risorse memorizzate nella cache nel dominio *&lt;nomeendpoint&gt;* .azureedge.net.
 
 Selezionare **Crea** per creare un profilo di rete CDN.
 

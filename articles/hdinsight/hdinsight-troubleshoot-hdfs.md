@@ -1,36 +1,36 @@
 ---
 title: Risolvere i problemi di HDFS in Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di HDFS e Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: troubleshooting
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 1c5d9f665c9b3e7a439a09f4259f304f8f8b1a0a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993026"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718338"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS di Apache Hadoop usando Azure HDInsight
 
-Informazioni sui problemi principali che possono verificarsi quando si usano i payload di HDFS (Hadoop Distributed File System) in Apache Ambari unitamente alle risoluzioni.
+Informazioni sui problemi principali che possono verificarsi quando si usano i payload di HDFS (Hadoop Distributed File System) in Apache Ambari unitamente alle risoluzioni. Per un elenco completo dei comandi, vedere la [Guida ai comandi di HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) e la [Guida alla shell del file System](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Come si accede al sistema HDFS locale dall'interno di un cluster?
 
 ### <a name="issue"></a>Problema
 
-Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicazione anziché usare l'archiviazione BLOB di Azure o Azure Data Lake Storage dall'interno del cluster HDInsight.   
+Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicazione anziché usare l'archiviazione BLOB di Azure o Azure Data Lake Storage dall'interno del cluster HDInsight.
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
 1. Al prompt dei comandi usare `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` in modo letterale, come nel comando seguente:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
     Found 3 items
     drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
     drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
@@ -65,167 +65,43 @@ Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicaz
 3. Eseguire il file con estensione jar compilato, ad esempio un file denominato `java-unit-tests-1.0.jar`, nel cluster HDInsight con il comando seguente:
 
     ```apache
-    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
 
+## <a name="du"></a>du
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Come forzare la disabilitazione della modalità sicura di Hadoop Distributed File System in un cluster
+Il comando [-du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) Visualizza le dimensioni dei file e delle directory contenuti nella directory specificata o la lunghezza di un file nel caso in cui si tratti semplicemente di un file.
 
-### <a name="issue"></a>Problema
+L'opzione `-s` produce un riepilogo aggregato delle lunghezze di file visualizzate.  
+L'opzione `-h` formatta le dimensioni dei file.
 
-Il sistema HDFS locale è bloccato in modalità sicura nel cluster HDInsight.   
+Esempio:
 
-### <a name="detailed-description"></a>Descrizione dettagliata
-
-L'errore si verifica quando si esegue il comando HDFS seguente:
-
-```apache
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```bash
+hdfs dfs -du -s -h hdfs://mycluster/
+hdfs dfs -du -s -h hdfs://mycluster/tmp
 ```
 
-L'errore seguente viene visualizzato quando si esegue il comando:
+## <a name="rm"></a>RM
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
-org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
-        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
-        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at javax.security.auth.Subject.doAs(Subject.java:422)
-        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
-        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
-        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
-        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
-        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
-        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
-        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
-        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
-        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
-        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
-        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
-        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
-        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
-        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
-mkdir: Cannot create directory /temp. Name node is in safe mode.
+Il comando [-RM](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) Elimina i file specificati come argomenti.
+
+Esempio:
+
+```bash
+hdfs dfs -rm hdfs://mycluster/tmp/testfile
 ```
 
-### <a name="probable-cause"></a>Possibile causa
+## <a name="next-steps"></a>Passaggi successivi
 
-Il cluster HDInsight è stato ridotto a pochissimi nodi. Il numero di nodi è inferiore o vicino al fattore di replica di HDFS.
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione 
+* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-1. Ottenere lo stato di HDFS nel cluster HDInsight usando i comandi seguenti:
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-    ```apache
-    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-    ```
-
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-    Safe mode is ON
-    Configured Capacity: 3372381241344 (3.07 TB)
-    Present Capacity: 3138625077248 (2.85 TB)
-    DFS Remaining: 3102710317056 (2.82 TB)
-    DFS Used: 35914760192 (33.45 GB)
-    DFS Used%: 1.14%
-    Under replicated blocks: 0
-    Blocks with corrupt replicas: 0
-    Missing blocks: 0
-    Missing blocks (with replication factor 1): 0
-
-    -------------------------------------------------
-    Live datanodes (8):
-
-    Name: 10.0.0.17:30010 (10.0.0.17)
-    Hostname: 10.0.0.17
-    Decommission Status : Normal
-    Configured Capacity: 421547655168 (392.60 GB)
-    DFS Used: 5288128512 (4.92 GB)
-    Non DFS Used: 29087272960 (27.09 GB)
-    DFS Remaining: 387172253696 (360.58 GB)
-    DFS Used%: 1.25%
-    DFS Remaining%: 91.85%
-    Configured Cache Capacity: 0 (0 B)
-    Cache Used: 0 (0 B)
-    Cache Remaining: 0 (0 B)
-    Cache Used%: 100.00%
-    Cache Remaining%: 0.00%
-    Xceivers: 2
-    Last contact: Wed Apr 05 16:22:00 UTC 2017
-    ...
-    ```
-
-2. Verificare l'integrità di HDFS nel cluster HDInsight usando i comandi seguenti:
-
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-    ```
-
-    ```apache
-    Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-    FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-    ....................................................................................................
-
-    ....................................................................................................
-    ..................Status: HEALTHY
-    Total size:    9330539472 B
-    Total dirs:    37
-    Total files:   2618
-    Total symlinks:                0 (Files currently being written: 2)
-    Total blocks (validated):      2535 (avg. block size 3680686 B)
-    Minimally replicated blocks:   2535 (100.0 %)
-    Over-replicated blocks:        0 (0.0 %)
-    Under-replicated blocks:       0 (0.0 %)
-    Mis-replicated blocks:         0 (0.0 %)
-    Default replication factor:    3
-    Average block replication:     3.0
-    Corrupt blocks:                0
-    Missing replicas:              0 (0.0 %)
-    Number of data-nodes:          8
-    Number of racks:               1
-    FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
-
-    The filesystem under path '/' is HEALTHY
-    ```
-
-3. Se si determina che non esistono blocchi mancanti, danneggiati o replicati in modo insufficiente o che questi blocchi possono essere ignorati, eseguire questo comando per sbloccare il nodo dei nomi dalla modalità sicura:
-
-    ```apache
-    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-    ```
-
-### <a name="see-also"></a>Vedere anche
-[Risolvere i problemi usando Azure HDInsight](hdinsight-troubleshoot-guide.md)
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

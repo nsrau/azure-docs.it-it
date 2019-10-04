@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000214"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570438"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
 Questa esercitazione illustra come distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets (Wingtip). L'app usa un modello di database per tenant per archiviare i dati di più tenant. L'app è stata progettata per presentare le funzionalità del database SQL di Azure che semplificano l'abilitazione degli scenari SaaS.
 
-Cinque minuti dopo la selezione di **Distribuisci in Azure**, è disponibile un'applicazione SaaS multi-tenant. L'app include un database SQL che viene eseguito nel cloud. L'app viene distribuita con tre tenant di esempio, ognuno con il proprio database. Tutti i database vengono distribuiti in un pool elastico SQL. L'app viene distribuita nella sottoscrizione di Azure. Si ottiene l'accesso completo per l'esplorazione e l'utilizzo dei singoli componenti dell'app. Gli script di gestione e il codice sorgente in C# dell'applicazione sono disponibili nel [repository WingtipTicketsSaaS-DbPerTenant di GitHub][github-wingtip-dpt].
+Cinque minuti dopo la selezione di **Distribuisci in Azure**, è disponibile un'applicazione SaaS multi-tenant. L'app include un database SQL che viene eseguito nel cloud. L'app viene distribuita con tre tenant di esempio, ognuno con il proprio database. Tutti i database vengono distribuiti in un pool elastico SQL. L'app viene distribuita nella sottoscrizione di Azure. Si ottiene l'accesso completo per l'esplorazione e l'utilizzo dei singoli componenti dell'app. Il codice C# sorgente dell'applicazione e gli script di gestione sono disponibili nel [repository GitHub repository wingtipticketssaas-DbPerTenant][github-wingtip-dpt].
 
 In questa esercitazione si apprenderà:
 
@@ -75,7 +74,7 @@ Scegliere ora i nomi e annotarli.
 
 1. Per monitorare lo stato di distribuzione, selezionare **Notifiche** (l'icona a forma di campanella a destra della casella di ricerca). La distribuzione dell'app SaaS Wingtip Tickets richiede circa cinque minuti.
 
-   ![Distribuzione completata](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![La distribuzione è riuscita](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Scaricare e sbloccare gli script di gestione di Wingtip Tickets
 
@@ -103,7 +102,7 @@ Prima di eseguire uno script, aggiornare il gruppo di risorse e i valori utente 
 
 Sono presenti riferimenti a questi valori in quasi ogni script.
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
 
 L'app illustra le sedi che ospitano gli eventi. I tipi di sede includono sale concerto, jazz club e club sportivi. Nell'app Wingtip Tickets le sedi sono registrate come tenant. Una sede registrata come tenant consente la visualizzazione dell'elenco di eventi e la vendita dei biglietti ai clienti. Ogni sede è associata a un sito Web personalizzato in cui sono elencati i relativi eventi e dove è possibile la vendita dei biglietti.
 
@@ -127,10 +126,10 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../traffic-manager/t
 
     Le parti del formato precedente sono illustrate nella tabella seguente.
 
-    | Parte URL        | DESCRIZIONE       |
+    | Parte URL        | Descrizione       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
-    | .*&lt;user&gt;* | *af1* nell'esempio. |
+    | http://events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* ( *-sa*) o di *database multi-tenant* ( *-mt*). |
+    | . *&lt;user&gt;* | *af1* nell'esempio. |
     | .trafficmanager.net/ | Gestione traffico, URL di base. |
     | fabrikamjazzclub | Identifica il tenant denominato Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +181,7 @@ Per controllare e monitorare i processi in background, usare i cmdlet seguenti:
     - Per impostazione predefinita, i processi in background vengono eseguiti per 120 minuti.
     - Ogni processo comporta un carico sulla CPU in un database tenant eseguendo *sp_CpuLoadGenerator*. L'intensità e la durata del carico variano a seconda del valore `$DemoScenario`.
     - *sp_CpuLoadGenerator* esegue un ciclo per un'istruzione SQL SELECT che causa un carico elevato della CPU. L'intervallo di tempo tra i problemi creati dall'istruzione SELECT varia in base ai valori di parametro per creare un carico della CPU controllabile. I livelli di carico e gli intervalli sono casuali per simulare carichi più realistici.
-    - Questo file con estensione sql viene archiviato in *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Questo file con estensione sql viene archiviato in *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Se `$OneTime = $false`, il generatore di carico avvia i processi in background e quindi prosegue l'esecuzione. Ogni 10 secondi, esegue il monitoraggio di eventuali nuovi tenant di cui viene effettuato il provisioning. Se si imposta `$OneTime = $true`, il generatore di carico avvia i processi in background e quindi arresta l'esecuzione in primo piano. Per questa esercitazione lasciare `$OneTime = $false`.
 
@@ -221,14 +220,14 @@ Aggiornare la pagina Events Hub per includere il nuovo tenant nell'elenco.
 
 Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibile esaminare alcune delle risorse distribuite.
 
-1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server  **catalog-dpt-&lt;UTENTE&gt;** .
+1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server  **catalog-dpt-&lt;UTENTE&gt;**  .
     - Il server di catalogo contiene due database, **tenantcatalog** e **basetenantdb**, un database modello che viene copiato per creare nuovi tenant.
 
    ![Database](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Tornare all'elenco di istanze di SQL Server.
 
-3. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;**  che include i database tenant.
+3. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;**   che include i database tenant.
 
 4. Vedere gli elementi seguenti:
 
@@ -254,7 +253,7 @@ I due grafici illustrano che i pool elastici e il database SQL sono adatti ai ca
 
 - Per altre informazioni, vedere altre [esercitazioni basate sull'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Per informazioni sui pool elastici, vedere [Definizione di pool elastici SQL di Azure](sql-database-elastic-pool.md).
-- Per informazioni sui processi elastici, vedere [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md).
+- Per informazioni sui processi elastici, vedere [Gestione dei database cloud con scalabilità orizzontale](elastic-jobs-overview.md).
 - Per informazioni sulle applicazioni SaaS multi-tenant, vedere [Modelli di progettazione per le applicazioni SaaS multi-tenant](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

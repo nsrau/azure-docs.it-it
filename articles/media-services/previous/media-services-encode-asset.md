@@ -1,32 +1,29 @@
 ---
-title: Panoramica e confronto dei codificatori multimediali su richiesta di Azure | Microsoft Docs
-description: Questo argomento offre una panoramica e un confronto tra i codificatori multimediali su richiesta di Azure.
+title: Panoramica dei codificatori multimediali su richiesta di Azure | Microsoft Docs
+description: Questo argomento offre una panoramica dei codificatori multimediali su richiesta di Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801697"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019040"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Panoramica e confronto dei codificatori multimediali su richiesta di Azure 
-
-## <a name="encoding-overview"></a>Panoramica della codifica
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di Azure 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
 
@@ -35,7 +32,7 @@ I codec sono costituiti da software che implementa gli algoritmi di compressione
 
 Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica Smooth Streaming o MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, ovvero MPEG-DASH, HLS, Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming.
 
-Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. La fatturazione per gli endpoint di streaming si verifica ogni volta che l'endpoint si trova in uno stato di **esecuzione** .
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
@@ -46,7 +43,8 @@ In questo articolo è fornita una breve panoramica dei codificatori multimediali
 
 Per impostazione predefinita, in ciascun account di Servizi multimediali può essere attiva una sola attività di codifica alla volta. È tuttavia possibile riservare unità di codifica che consentano di eseguire più attività di codifica contemporaneamente, una per ciascuna unità acquistata. Per informazioni, vedere [Scalabilità dell’unità di codifica](media-services-scale-media-processing-overview.md).
 
-## <a name="media-encoder-standard"></a>Codificatore multimediale standard
+## <a name="media-encoder-standard"></a>Media Encoder Standard
+
 ### <a name="how-to-use"></a>Utilizzo
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
@@ -70,10 +68,10 @@ Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](med
 ### <a name="create-overlays"></a>Creare sovrimpressioni
 Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Vedere anche 
+### <a name="see-also"></a>Vedere anche
 [Blog di Servizi multimediali](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Flusso di lavoro Premium del codificatore multimediale
+## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
 ### <a name="overview"></a>Panoramica
 [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -84,7 +82,6 @@ Il flusso di lavoro Premium del codificatore multimediale viene configurato usan
 
 ### <a name="known-issues"></a>Problemi noti
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
-
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

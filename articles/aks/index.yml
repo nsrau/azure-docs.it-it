@@ -6,14 +6,12 @@ metadata:
   title: 'Documentazione del servizio Azure Kubernetes: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
   meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
   services: container-service
-  author: carolz
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07-21-2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Il servizio Azure Kubernetes gestisce l''ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell''orchestrazione di contenitori. Elimina anche l''impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l''aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.'
 sections:
@@ -33,7 +31,7 @@ sections:
             text: Portale di Azure
             href: /azure/aks/kubernetes-walkthrough-portal
       - type: paragraph
-        text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con AKS:'
+        text: 'Informazioni su come sviluppare applicazioni ed eseguirne il debug con il servizio Azure Kubernetes:'
       - type: list
         style: icon48
         items:

@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496438"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231182"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
@@ -40,6 +39,9 @@ Database SQL di Azure protegge i dati in un database singolo o in pool consenten
 
 Per altre informazioni, vedere gli articoli [Database SQL di Azure - Sicurezza avanzata](/azure/sql-database/sql-database-security-index) e [Panoramica della funzionalità di sicurezza del database SQL di Azure](sql-database-security-overview.md).
 
+> [!TIP]
+> Il modulo seguente di Microsoft Learn consente di imparare gratuitamente come [proteggere il database SQL di Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare di avere i prerequisiti seguenti:
@@ -56,7 +58,7 @@ Per tutti i passaggi dell'esercitazione, accedere al [portale di Azure](https://
 
 ## <a name="create-firewall-rules"></a>Creare regole del firewall
 
-I database SQL sono protetti da firewall in Azure. Per impostazione predefinita, tutte le connessioni al server e al database vengono rifiutate, ad eccezione di quelle provenienti da altri servizi di Azure. Per altre informazioni, vedere [Regole firewall a livello di server e di database per il database SQL di Azure](sql-database-firewall-configure.md).
+I database SQL sono protetti da firewall in Azure. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e al database. Per altre informazioni, vedere [Regole firewall a livello di database e di server di database SQL di Azure](sql-database-firewall-configure.md).
 
 La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO**. Quindi, creare un [IP riservato (distribuzione classica)](../virtual-network/virtual-networks-reserved-public-ip.md) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
 
@@ -85,9 +87,6 @@ Per configurare una regola del firewall a livello di server:
    1. Selezionare **OK** e chiudere la pagina **Impostazioni del firewall**.
 
 È ora possibile connettersi a qualsiasi database nel server con l'indirizzo IP specificato o con un intervallo di indirizzi IP.
-
-> [!IMPORTANT]
-> Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure in **Consenti l'accesso a Servizi di Azure**. Scegliere **NO** per disabilitare l'accesso per tutti i servizi di Azure.
 
 ### <a name="setup-database-firewall-rules"></a>Configurare le regole del firewall per il database
 

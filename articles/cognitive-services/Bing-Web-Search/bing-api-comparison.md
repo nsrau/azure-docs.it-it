@@ -7,19 +7,19 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 5a883fcb3533374afbbf946281b6a4a1e9a2912e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e9a71e1e826569930cf593a7e264020617bdc3a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903114"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883401"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Informazioni sulle API di ricerca Bing
 
-API di ricerca Bing consentono di creare App web connesse e i servizi che ricerca le pagine Web, immagini, notizie, posizioni e molto altro senza annunci. Inviando richieste di ricerca tramite le API REST o gli SDK di Ricerca Bing, è possibile ottenere informazioni e contenuti rilevanti per le ricerche Web. Usare questo articolo per apprendere le diverse API di ricerca Bing e come è possibile integrare le ricerche cognitive nelle applicazioni e servizi. I prezzi e i limiti di velocità possono variare tra le API.
+Il API di ricerca Bing consente di creare app e servizi connessi al Web in grado di trovare pagine Web, immagini, notizie, posizioni e altro ancora senza annunci. Inviando richieste di ricerca tramite le API REST o gli SDK di Ricerca Bing, è possibile ottenere informazioni e contenuti rilevanti per le ricerche Web. Usare questo articolo per ottenere informazioni sulle diverse API di ricerca Bing e su come integrare le ricerche cognitive nelle applicazioni e nei servizi. I prezzi e i limiti di velocità possono variare tra le API.
 
 ## <a name="the-bing-web-search-api"></a>API Ricerca Web Bing
 
@@ -29,28 +29,28 @@ L'[API Ricerca Web Bing](../Bing-Web-Search/index.yml) restituisce pagine Web, i
 
 ## <a name="content-specific-bing-search-apis"></a>API di ricerca Bing specifiche del contenuto
 
-L'API di ricerca Bing seguenti restituiscono contenuto specifico dal web, ad esempio immagini, notizie, attività commerciali locali e i video.
+Le API di ricerca Bing seguenti restituiscono contenuti specifici dal Web, ad esempio immagini, notizie, aziende locali e video.
 
-| API Bing | DESCRIZIONE |
+| API Bing | Descrizione |
 | -- | -- |
-| [Ricerca entità](../Bing-Entities-Search/index.yml) | L'API Ricerca entità Bing restituisce risultati della ricerca contenenti entità, che possono essere persone, luoghi o cose. A seconda della query, l'API restituirà una o più entità che soddisfano la query di ricerca. La query di ricerca può includere singoli degno di nota, attività commerciali locali, riferimenti, destinazioni e altro ancora. |
-| [Ricerca immagini](../Bing-Image-Search/index.yml) | L'API ricerca immagini Bing consente di cercare e trovare statico che quello animato immagini di alta qualità simile a [Bing.com/images](https://www.Bing.com/images). È possibile ridefinire le ricerche in modo da includere o escludere immagini in base ad attributi, come dimensioni, colore, licenza e aggiornamento. È anche possibile eseguire la ricerca di immagini di tendenza, caricare immagini per ottenere informazioni dettagliate e visualizzare anteprime. |
-| [Ricerca notizie](../Bing-News-Search/index.yml) | L'API ricerca notizie Bing consente di trovare simile alla storie [Bing.com/news](https://www.Bing.com/news). L'API restituisce articoli di notizie da più fonti o domini specifici. È possibile eseguire ricerche in categorie diverse per ottenere articoli di tendenza, storie principali e titoli. |
-| [Ricerca video](../Bing-Video-Search/index.yml) | L'API ricerca Video Bing consente di trovare video nel Web. Si possono ottenere video di tendenza, contenuto correlato e anteprime. |
+| [Ricerca entità](../Bing-Entities-Search/index.yml) | L'API Ricerca entità Bing restituisce risultati della ricerca contenenti entità, che possono essere persone, luoghi o cose. A seconda della query, l'API restituirà una o più entità che soddisfano la query di ricerca. La query di ricerca può includere utenti degni di nota, aziende locali, punti di interesse, destinazioni e altro ancora. |
+| [Ricerca immagini](../Bing-Image-Search/index.yml) | Il API Ricerca immagini Bing consente di cercare e trovare immagini statiche e animate di alta qualità simili a [Bing.com/images](https://www.Bing.com/images). È possibile ridefinire le ricerche in modo da includere o escludere immagini in base ad attributi, come dimensioni, colore, licenza e aggiornamento. È anche possibile eseguire la ricerca di immagini di tendenza, caricare immagini per ottenere informazioni dettagliate e visualizzare anteprime. |
+| [Ricerca notizie](../Bing-News-Search/index.yml) | Il API Ricerca notizie Bing consente di trovare storie di notizie simili a [Bing.com/News](https://www.Bing.com/news). L'API restituisce articoli di notizie da più fonti o domini specifici. È possibile eseguire ricerche in categorie diverse per ottenere articoli di tendenza, storie principali e titoli. |
+| [Ricerca video](../Bing-Video-Search/index.yml) | Il API Ricerca video Bing consente di trovare i video sul Web. Si possono ottenere video di tendenza, contenuto correlato e anteprime. |
 | [Ricerca visiva](../Bing-visual-search/index.yml) | Caricare un'immagine o usare un URL per ottenere informazioni significative, ad esempio prodotti simili a livello visivo, immagini e ricerche correlate. |
- [Ricerca aziende locali](../bing-local-business-search/index.yml) | L'API di ricerca Bing Business locale consente alle applicazioni di trovare informazioni di contatto e la posizione di attività commerciali locali basate su query di ricerca. |
+ [Ricerca aziende locali](../bing-local-business-search/index.yml) | L'API di ricerca aziendale locale Bing consente alle applicazioni di trovare informazioni sul contatto e sul percorso relative alle aziende locali in base alle query di ricerca. |
 
 ## <a name="the-bing-custom-search-api"></a>API Ricerca personalizzata Bing
 
-Creazione di un'istanza di ricerca personalizzata con il [ricerca personalizzata Bing](../Bing-Custom-Search/index.yml) API consente di creare un'esperienza di ricerca con stato attivo solo sul contenuto e gli argomenti si è interessati. Ad esempio, dopo aver specificato i domini, siti Web e pagine Web specifiche che eseguirà la ricerca Bing, ricerca personalizzata Bing personalizzino i risultati di tale contenuto specifico. È possibile incorporare le API Suggerimenti automatici, Ricerca immagini e Ricerca video Bing personalizzate per personalizzare ulteriormente la ricerca.
+La creazione di un'istanza di ricerca personalizzata con l'API [ricerca personalizzata Bing](../Bing-Custom-Search/index.yml) consente di creare un'esperienza di ricerca incentrata solo sul contenuto e sugli argomenti a cui si è interessati. Ad esempio, dopo aver specificato i domini, i siti Web e le pagine Web specifiche che Bing cercherà, Ricerca personalizzata Bing utilizzerà i risultati in base a tale contenuto specifico. È possibile incorporare le API Suggerimenti automatici, Ricerca immagini e Ricerca video Bing personalizzate per personalizzare ulteriormente la ricerca.
 
 ## <a name="additional-bing-search-apis"></a>API di ricerca Bing aggiuntive
 
-Le API di ricerca Bing seguenti consentono di migliorare l'esperienza di ricerca combinandoli con altre API di ricerca di Bing.
+Il API di ricerca Bing seguente consente di migliorare l'esperienza di ricerca unendoli con altre API di ricerca Bing.
 
-| API | DESCRIZIONE |
+| API | Descrizione |
 | -- | -- |
-| [Suggerimenti automatici Bing](../Bing-Autosuggest/index.yml) | Miglioramento dell'esperienza di ricerca dell'applicazione con l'API suggerimenti automatici Bing, restituendo ricerche suggerite in tempo reale.  |
+| [Suggerimenti automatici Bing](../Bing-Autosuggest/index.yml) | Migliorare l'esperienza di ricerca dell'applicazione con la API Suggerimenti automatici Bing restituendo le ricerche suggerite in tempo reale.  |
 | [Statistiche Bing](bing-web-stats.md) | Statistiche Bing offre analisi per le API di ricerca Bing usate dall'applicazione. Tra i dati di analisi disponibili sono inclusi il volume delle chiamate, le principali stringhe di query e la distribuzione geografica. |
 
 ## <a name="next-steps"></a>Passaggi successivi

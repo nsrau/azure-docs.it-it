@@ -1,19 +1,18 @@
 ---
 title: 'Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure | Microsoft Docs'
 description: Informazioni su come estendere i file server Windows con Sincronizzazione file di Azure, dall'inizio alla fine.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049150"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699496"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 
@@ -100,13 +99,13 @@ A questo punto, sono stati creati un account di archiviazione e una condivisione
    1. Nella scheda **Dischi** in **Opzioni disco** lasciare le impostazioni predefinite.
    1. In **DISCHI DATI** selezionare **Create and attach a new disk** (Crea e collega un nuovo disco).
 
-   1. Usare le impostazioni predefinite, ad eccezione di **Dimensioni (GiB)**, che è possibile modificare in **1GB** per questa esercitazione.
+   1. Usare le impostazioni predefinite, ad eccezione di **Dimensioni (GiB)** , che è possibile modificare in **1GB** per questa esercitazione.
 
       ![Dettagli del disco dati](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
    1. Selezionare **OK**.
 1. Selezionare **Rivedi e crea**.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    Selezionare l'icona **Notifiche** per guardare lo **stato di avanzamento della distribuzione**. Il completamento della creazione di una nuova macchina virtuale potrebbe richiedere alcuni minuti.
 
@@ -161,7 +160,7 @@ Ora è possibile aggiungere un disco dati alla VM.
 
 1. Fare clic con il pulsante destro del mouse sul disco da 1 GB denominato **Disco virtuale Msft** e selezionare **Nuovo volume**.
 1. Completare la procedura guidata. Usare le impostazioni predefinite e prendere nota della lettera unità assegnata.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **Chiudi**.
 
    A questo punto, il disco è stato portato online ed è stato creato un volume. Aprire Esplora File nella VM Windows Server per verificare la presenza del disco dati aggiunto di recente.
@@ -290,7 +289,7 @@ Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un 
    | **Account di archiviazione** | Scegliere **Selezionare l'account di archiviazione**. Nel riquadro visualizzato selezionare l'account di archiviazione con la condivisione file di Azure creata. Usare *afsstoracct101918* per questa esercitazione. |
    | **Condivisione file di Azure** | Il nome della condivisione file di Azure creato. Usare *afsfileshare* per questa esercitazione. |
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 Se si seleziona il gruppo di sincronizzazione, si noterà che ora si ha un solo **endpoint cloud**.
 
@@ -312,7 +311,7 @@ Un endpoint server rappresenta una posizione specifica in un server registrato. 
    | **Suddivisione in livelli nel cloud** | Lasciare disattivato per questa esercitazione. |
    | **Spazio disponibile volume** | Lasciare vuoto per questa esercitazione. |
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 I file sono ora sincronizzati tra la condivisione file di Azure e Windows Server.
 

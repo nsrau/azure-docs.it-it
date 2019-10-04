@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: microsoft flow, flow, app per la logica, funzioni di azure, funzioni, processi web di azure, processi web, elaborazione di eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895648"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155048"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
@@ -53,7 +52,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 
 Funzioni e App per la logica sono servizi di Azure che abilitano i carichi di lavoro senza server. Funzioni di Azure è un servizio di calcolo serverless, mentre App per la logica di Azure fornisce flussi di lavoro serverless. Entrambi consentono di creare complesse *orchestrazioni*. Un'orchestrazione è una raccolta di funzioni o passaggi, definiti *azioni* in App per la logica, che vengono eseguito per completare un'attività complessa. Per elaborare ad esempio un batch di ordini è possibile eseguire molte istanze di una funzione in parallelo, attendere il completamento di tutte le istanze e quindi eseguire una funzione che calcola un risultato sull'aggregazione.
 
-Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-concepts.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
+Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-overview.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
 
 È possibile combinare i servizi quando si compila un'orchestrazione, chiamando funzioni da app per la logica e chiamando app per la logica da funzioni. Scegliere il modo in cui compilare ogni orchestrazione in base alle funzionalità dei servizi o delle preferenze personali. La tabella seguente elenca alcune differenze essenziali tra questi servizi:
  
@@ -89,10 +88,10 @@ Basandosi su WebJobs SDK, Funzioni di Azure condivide molti degli stessi trigger
 |[Pagamento a consumo](functions-scale.md#consumption-plan)|✔||
 |[Integrazione con App per la logica](functions-twitter-email.md)|✔||
 | Eventi di attivazione |[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Griglia di eventi di Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java (anteprima) |C#<sup>1</sup>|
+| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
 |Gestione pacchetti|NPM e NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> Processi Web (senza WebJobs SDK) supporta C#, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python e altro ancora. Questo elenco non è esaustivo. Un processo Web può eseguire qualsiasi programma o script eseguibile nella sandbox del servizio app.
+<sup>1</sup> Processi Web (senza WebJobs SDK) supporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python e altro ancora. Questo elenco non è esaustivo. Un processo Web può eseguire qualsiasi programma o script eseguibile nella sandbox del servizio app.
 
 <sup>2</sup> Processi Web (senza WebJobs SDK) supporta NPM e NuGet.
 
@@ -119,8 +118,8 @@ L'integrazione tra Microsoft Flow, App per la logica e Funzioni continua a migli
 
 Per altre informazioni sui servizi di integrazione, seguire i collegamenti seguenti:
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Sfruttare Funzioni di Azure e Servizio app di Azure per scenari di integrazione) di Christopher Anderson
-* [Integrations Made Simple](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions & Azure App Service for integration scenarios](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Sfruttare Funzioni di Azure e Servizio app di Azure per scenari di integrazione) di Christopher Anderson
+* [Integrations Made Simple](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast live su App per la logica](https://aka.ms/logicappslive)
 * [Domande frequenti su Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

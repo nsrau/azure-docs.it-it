@@ -3,8 +3,8 @@ title: Connettere reti virtuali con il peering di rete virtuale - Interfaccia de
 description: In questo articolo viene illustrato come connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 8e1cf2a1c5503f31a70bc654ae1a211d1ab64581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694568"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203864"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -95,7 +95,7 @@ az network vnet peering create \
   --name myVirtualNetwork1-myVirtualNetwork2 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork1 \
-  --remote-vnet-id $vNet2Id \
+  --remote-vnet $vNet2Id \
   --allow-vnet-access
 ```
 
@@ -106,7 +106,7 @@ az network vnet peering create \
   --name myVirtualNetwork2-myVirtualNetwork1 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork2 \
-  --remote-vnet-id $vNet1Id \
+  --remote-vnet $vNet1Id \
   --allow-vnet-access
 ```
 
@@ -170,7 +170,7 @@ La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtu
 }
 ```
 
-Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.
+Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.
 
 ## <a name="communicate-between-vms"></a>Stabilire la comunicazione tra le macchine virtuali
 

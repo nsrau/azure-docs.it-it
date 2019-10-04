@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: b31530966d2c5ca9a3f82f3e74ba349e66053a83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111181"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478922"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Criteri di errore di output in Analisi di flusso di Azure
 Questo articolo descrive i criteri di gestione degli errori per i dati di output che possono essere configurati in Analisi di flusso di Azure.

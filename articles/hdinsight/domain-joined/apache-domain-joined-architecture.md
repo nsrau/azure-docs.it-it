@@ -1,19 +1,19 @@
 ---
 title: Architettura di Azure HDInsight con Enterprise Security Package
-description: Informazioni su come pianificare la sicurezza di HDInsight con Enterprise Security Package.
+description: Informazioni su come pianificare la sicurezza di Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 7e71f27ab8d577602dd4b02f83d57ff84a92858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 06/24/2019
+ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60536014"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810953"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -21,7 +21,7 @@ Il cluster Azure HDInsight standard è un cluster a utente singolo. Si tratta di
 
 Molte aziende sono passate a un modello in cui i team IT gestiscono i cluster e più team delle applicazioni condividono i cluster. Per queste aziende di grandi dimensioni è necessario l'accesso multiutente al cluster in Azure HDInsight.
 
-HDInsight si basa su un provider di identità diffuso, Active Directory, in modo gestito. Grazie all'integrazione di HDInsight con [Azure Active Directory Domain Services (Azure Active Directory Domain Services)](../../active-directory-domain-services/active-directory-ds-overview.md), è possibile accedere ai cluster usando le credenziali di dominio. 
+HDInsight si basa su un provider di identità diffuso, Active Directory, in modo gestito. Grazie all'integrazione di HDInsight con [Azure Active Directory Domain Services (Azure Active Directory Domain Services)](../../active-directory-domain-services/overview.md), è possibile accedere ai cluster usando le credenziali di dominio. 
 
 Le macchine virtuali (VM) in HDInsight sono parte del dominio specificato. Pertanto, tutti i servizi in esecuzione in HDInsight, come Apache Ambari, server Apache Hive, Apache Ranger, server Apache Spark Thrift e altri, funzionano senza problemi per l'utente autenticato. Gli amministratori possono quindi creare criteri di autorizzazione sicuri usando Apache Ranger per fornire il controllo di accesso basato sui ruoli per le risorse nel cluster.
 
@@ -37,7 +37,7 @@ Gli elementi seguenti vengono creati automaticamente:
 
 In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 
-- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services).
+- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services). **Il nome di dominio deve contenere 39 caratteri o meno per lavorare con Azure HDInsight.**
 - Secure LDAP (LDAPS) abilitato in Azure Active Directory Domain Services.
 - Connettività di rete adeguata dalla rete virtuale HDInsight alla rete virtuale di Azure Active Directory Domain Services, se si scelgono reti virtuali separate. Una macchina virtuale all'interno della rete virtuale HDInsight dovrebbe avere una linea visiva verso Azure Active Directory Domain Services attraverso il peering di rete virtuale. Se HDInsight e Azure Active Directory Domain Services sono distribuiti nella stessa rete virtuale, la connettività viene stabilita automaticamente e non sono necessarie altre operazioni.
 
@@ -45,7 +45,7 @@ In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 HDInsight attualmente supporta solo Azure Active Directory Domain Services come controller di dominio principale che il cluster userà per la comunicazione Kerberos. Ma sono possibili anche altre configurazioni complesse di Active Directory, purché tali configurazioni portino all'abilitazione di Azure Active Directory Domain Services per l'accesso a HDInsight.
 
 ### <a name="azure-active-directory-domain-services"></a>Servizi di dominio Azure Active Directory
-[Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) fornisce un dominio gestito che è completamente compatibile con Windows Server Active Directory. Microsoft si occupa della gestione, dell'applicazione di patch e del monitoraggio del dominio AD in una configurazione a disponibilità elevata. È possibile distribuire il cluster senza doversi preoccupare di gestire i controller di dominio. 
+[Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) fornisce un dominio gestito che è completamente compatibile con Windows Server Active Directory. Microsoft si occupa della gestione, dell'applicazione di patch e del monitoraggio del dominio AD in una configurazione a disponibilità elevata. È possibile distribuire il cluster senza doversi preoccupare di gestire i controller di dominio. 
 
 Utenti, gruppi e password vengono sincronizzati da Azure AD. La sincronizzazione unidirezionale dall'istanza di Azure AD per Azure Active Directory Domain Services consente agli utenti di accedere al cluster usando le stesse credenziali aziendali. 
 
@@ -63,32 +63,50 @@ L'uso di Active Directory locale o di Active Directory sulle sole macchine virtu
 
 Se è in uso la federazione e gli hash delle password vengono sincronizzati correttamente ma si ricevono errori di autenticazione, verificare che l'autenticazione della password cloud sia abilitata per l'entità servizio PowerShell. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
 
-1. Installare il modulo Azure AD PowerShell.
+1. Installare il modulo di anteprima [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-   ```
+   ```powershell
    Install-Module AzureAD
    ```
 
-2. Accedere a `Connect-AzureAD` usando le credenziali di amministratore globale (amministratore del tenant).
+2. Connettersi utilizzando le credenziali di amministratore globale (amministratore tenant).
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Controllare se è già stata creata l'entità servizio Microsoft Azure PowerShell.
 
-   ```
-   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```powershell
+   Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Se non esiste, ovvero se `($powershellSPN -eq $null)`, creare l'entità servizio.
+4. Se non esiste, creare l'entità servizio.
 
-   ```
+   ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
 5. Creare e associare i criteri a questa entità servizio.
 
-   ```
-   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```powershell
+    # Determine whether policy exists
+    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
 
-   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+    # Create if not exists
+    $policy = New-AzureADPolicy `
+        -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
+        -DisplayName "EnableDirectAuth" `
+        -Type "HomeRealmDiscoveryPolicy"
+
+    # Determine whether a policy for the service principal exist
+    Get-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId
+    
+    # Add a service principal policy if not exist
+    Add-AzureADServicePrincipalPolicy `
+        -Id $powershellSPN.ObjectId `
+        -refObjectID $policy.ID
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi

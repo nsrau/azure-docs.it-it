@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331920"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568307"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 
@@ -45,8 +44,8 @@ Dopo aver creato questi database, riempire i segnaposto nel file **Program.cs** 
 
 Gli sviluppatori Entity Framework si basano su uno dei quattro seguenti flussi di lavoro per compilare le applicazioni e garantire la persistenza degli oggetti applicazione:
 
-* **Code First (nuovo database)**: lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
-* **Code First (database esistente)**: lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
+* **Code First (nuovo database)** : lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
+* **Code First (database esistente)** : lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
 * **Model First**: lo sviluppatore crea il modello in Entity Framework Designer e quindi Entity Framework crea il database a partire dal modello.
 * **Database First**: lo sviluppatore usa gli strumenti di Entity Framework per dedurre il modello da un database esistente. 
 
@@ -134,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * La mappa partizioni crea la connessione aperta alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata.
   * Tale connessione aperta viene nuovamente passata al costruttore di classe base di DbContext per indicare che Entity Framework deve usare quella anziché crearne automaticamente una nuova. In questo modo, la connessione è stata contrassegnata dall’API client dei database elastici al fine di garantire coerenza durante le operazioni di gestione della mappa partizioni.
 
-Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Di seguito è fornito un esempio:  
+Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Di seguito è fornito un esempio: 
 
 ```csharp
 // Create and save a new blog.
@@ -274,7 +273,7 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 * Le modifiche all'applicazione che implicano modifiche dello schema del database devono passare attraverso le migrazioni di Entity Framework su tutte le partizioni. Il codice di esempio per questo documento non illustra come eseguire questa operazione. Provare a usare Update-Database con un parametro ConnectionString per eseguire l'iterazione su tutte le partizioni oppure estrarre lo script T-SQL per la migrazione in sospeso usando Update-Database con l'opzione –Script e applicare lo script T-SQL alle partizioni.  
 * Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, la libreria client fornisce la classe **MultiShardQuery** che implementa un'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni. 
 

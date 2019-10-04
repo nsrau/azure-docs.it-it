@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65962908"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache.
@@ -101,10 +101,10 @@ Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minusc
 ## <a name="cache-expiration"></a>Ora di scadenza della cache
 L'ordine delle intestazioni seguente viene usato per determinare quanto tempo un elemento rimane memorizzato nella cache:</br>
 1. Cache-Control: s-maxage =\<secondi >
-2. Cache-Control: maxage =\<secondi >
+2. Cache-Control: max-age =\<secondi >
 3. Scadenza: \<http-date >
 
-Le intestazioni di risposta Cache-Control che indicano che le risposte non verranno memorizzate nella cache, ad esempio Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store devono essere rispettate. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta.
+Le intestazioni di risposta Cache-Control che indicano che le risposte non verranno memorizzate nella cache, ad esempio Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store devono essere rispettate. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcuna Cache-Control del comportamento predefinito è che AFD memorizza nella cache della risorsa per X periodo di tempo in cui X è selezionato in modo casuale compreso tra 1 e 3 giorni.
 
 
 ## <a name="request-headers"></a>Intestazioni della richiesta

@@ -2,19 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 06/05/2019
 ms.topic: include
-ms.openlocfilehash: a956cd1e029371fa7031d262206b0ce10aa8dbff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 550ace93479278df2a592a87ee34d10f8763d2f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133415"
 ---
 > [!IMPORTANT]
 >
-> Se si usa questa funzionalità di Azure da PowerShell, è necessario che sia installato il modulo `AzureRM`. Si tratta di un modulo meno recente disponibile solo per Windows PowerShell 5.x, ancora in grado di ricevere gli aggiornamenti critici, ma non più le nuove funzionalità. Se si ha il modulo `Az` installato, è necessario installare anche `AzureRM`. Per installare `AzureRM`:
-> 
-> 1. Disabilitare gli alias di AzureRM in `Az` (se abilitati) con `Disable-AzAlias`. Questo comando non genera alcun problema se non è installato il modulo `Az` o se sono disabilitati gli alias.
-> 2. Seguire le [istruzioni di installazione di AzureRM più recenti](/powershell/azure/install-az-ps). Anche se si ha già il modulo `AzureRM` installato, è comunque necessario aggiornarlo alla versione più recente.
+> Se si usa questa funzionalità di Azure da PowerShell, è necessario che sia installato il modulo `AzureRM`. Si tratta di un modulo meno recente, disponibile solo per Windows PowerShell 5.1.x, che non riceve più le nuove funzionalità.
+> I moduli `Az` e `AzureRM` __non__ sono compatibili con quando vengono installati per le stesse versioni di PowerShell.
+> Se sono necessarie entrambe le versioni:
+>
+> 1. [Disinstallare il modulo Az](/powershell/azure/uninstall-az-ps) da una sessione di PowerShell 5.1.
+> 2. [Installare il modulo AzureRM](/powershell/azure/azurerm/install-azurerm-ps) da una sessione di PowerShell 5.1.
+> 3. [Scaricare e installare PowerShell Core 6.x o versioni successive](/powershell/scripting/install/installing-powershell-core-on-windows).
+> 4. [Installare il modulo Az](/powershell/azure/install-az-ps) in una sessione di PowerShell Core.
 

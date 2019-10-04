@@ -1,21 +1,18 @@
 ---
 title: Testing unità di Funzioni durevoli di Azure
 description: Informazioni su come eseguire lo unit test di Funzioni durevoli.
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords: ''
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: kadimitr
-ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: glenga
+ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094076"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967108"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
@@ -27,7 +24,7 @@ Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framew
 
 * Testing unità
 
-* Funzioni permanenti
+* Durable Functions
 
 * [xUnit](https://xunit.github.io/): framework di test
 
@@ -91,11 +88,11 @@ Viene successivamente simulato `CreateCheckStatusResponse` per restituire sempre
         });
 ```
 
-Viene simulato anche `TraceWriter`:
+Viene simulato anche `ILogger`:
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -111,7 +108,7 @@ Il metodo `Run` viene ora chiamato dallo unit test:
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  L'ultimo passaggio è il confronto dell'output con il valore previsto:

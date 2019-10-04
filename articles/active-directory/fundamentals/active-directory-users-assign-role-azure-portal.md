@@ -2,23 +2,23 @@
 title: Assegnare ruoli della directory agli utenti - Azure Active Directory | Microsoft Docs
 description: Istruzioni su come assegnare ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd26fa53c91c53893c7f326afda5158fa430be1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2247b7678573594c4929bd33747fffb91203f457
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561787"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Assegnazione di ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory
 Se un utente nell'organizzazione richiede l'autorizzazione per gestire le risorse di Azure Active Directory (Azure AD), è necessario assegnare all'utente un ruolo appropriato in Azure AD, in base alle azioni per cui richiede l'autorizzazione.

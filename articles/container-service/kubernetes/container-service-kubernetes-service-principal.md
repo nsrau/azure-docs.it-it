@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609104"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DEPRECATO) Configurare un'entità servizio di Azure AD per un cluster Kubernetes in servizio Container
 
@@ -127,7 +127,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/acsServicePrincipal.json` nel computer usato per eseguire il comando.
 
-* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure](../../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
+* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [Registro Azure Container](../../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
 
 * Le credenziali dell'entità servizio possono scadere e in questo caso i nodi del cluster passano a uno stato **Non pronto**. Per informazioni sulle opzioni di mitigazione, vedere la sezione [Scadenza delle credenziali](#credential-expiration).
 

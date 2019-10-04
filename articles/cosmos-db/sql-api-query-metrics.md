@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983592"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614831"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -38,13 +38,13 @@ Quando si esegue una query in Azure Cosmos DB, l'SDK esegue i passaggi logici se
 
 L'SDK offre varie opzioni per l'esecuzione di query. Ad esempio, in .NET queste opzioni sono disponibili nella classe `FeedOptions`. La tabella seguente illustra queste opzioni e il relativo impatto sul tempo di esecuzione delle query. 
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | Deve essere impostato su true per qualsiasi query che richiede l'esecuzione in più di una partizione. Si tratta di un flag esplicito che consente di trovare un compromesso adeguato per le prestazioni in fase di sviluppo. |
 | `EnableScanInQuery` | Deve essere impostato su true se è stata rifiutata esplicitamente l'indicizzazione, ma si vuole comunque eseguire la query tramite un'analisi. Applicabile solo se l'indicizzazione per il percorso di filtro richiesto è disabilitata. | 
 | `MaxItemCount` | Numero massimo di elementi da restituire per ogni round trip al server. Impostando -1, è possibile lasciare che sia il server a gestire il numero di elementi. In alternativa, è possibile ridurre questo valore per recuperare solo un numero limitato di elementi per ogni round trip. 
 | `MaxBufferedItemCount` | Questa è un'opzione sul lato client e viene usata per limitare l'uso della memoria durante l'esecuzione di clausole ORDER BY tra partizioni. Un valore più alto consente di ridurre la latenza di ordinamento tra partizioni. |
-| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite sul lato client durante l'esecuzione di query in parallelo nel servizio database di Azure Cosmos DB. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
+| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite sul lato client durante l'esecuzione di query parallele nel servizio Azure Cosmos database. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
 | `PopulateQueryMetrics` | Consente la registrazione dettagliata delle statistiche sul tempo impiegato nelle varie fasi di esecuzione della query, come il tempo di compilazione, il tempo del ciclo di indice e il tempo di caricamento dei documenti. È possibile condividere l'output delle statistiche sulle query con il supporto tecnico di Azure per la diagnostica dei problemi di prestazioni delle query. |
 | `RequestContinuation` | È possibile riprendere l'esecuzione delle query passando il token di continuazione opaco restituito da qualsiasi query. Il token di continuazione incapsula tutti gli stati necessari per l'esecuzione delle query. |
 | `ResponseContinuationTokenLimitInKb` | È possibile limitare la dimensione massima del token di continuazione restituito dal server. Potrebbe essere necessario eseguire questa operazione se l'host applicazione applica limiti per le dimensioni delle intestazioni delle risposte. L'impostazione di questa opzione può determinare un aumento della durata complessiva e delle unità di richieste usate per la query.  |
@@ -168,7 +168,7 @@ Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere 
 Per informazioni su come ottenere le migliori prestazioni sul lato client da Azure Cosmos DB, vedere [Suggerimenti sulle prestazioni](performance-tips.md) e [Test delle prestazioni](performance-testing.md). Sono inclusi l'uso degli SDK più recenti, la configurazione di impostazioni specifiche della piattaforma come il numero predefinito di connessioni, la frequenza della Garbage Collection e l'uso delle opzioni di connettività leggera come Direct/TCP. 
 
 
-#### <a name="max-item-count"></a>Numero massimo di elementi
+#### <a name="max-item-count"></a>Numero massimo elementi
 Per le query, il valore di `MaxItemCount` può avere un impatto significativo sulla durata delle query end-to-end. Ogni round trip al server restituirà un numero di elementi mai maggiore di quello specificato in `MaxItemCount` (100 elementi per impostazione predefinita). L'impostazione di un valore maggiore (-1 è il valore massimo e consigliato) migliora la durata complessiva delle query limitando il numero di round trip tra server e client, in particolare per le query con set di risultati di grandi dimensioni.
 
 ```cs
@@ -216,7 +216,7 @@ La sezione sulle metriche di esecuzione delle query descrive come recuperare la 
 ### <a name="indexing-policy"></a>Criterio di indicizzazione
 Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](index-policy.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
 
-Per impostazione predefinita, Azure Cosmos DB verrà applicata l'indicizzazione automatica di tutti i dati. Per prestazioni elevate inserire gli scenari, considerare l'esclusione percorsi come ciò riduce il costo in unità richiesta per ogni operazione di inserimento. 
+Per impostazione predefinita, Azure Cosmos DB applicherà l'indicizzazione automatica a tutti i dati. Per gli scenari di inserimento a prestazioni elevate, provare a escludere i percorsi, in modo da ridurre il costo delle unità richiesta per ogni operazione di inserimento 
 
 ## <a name="query-execution-metrics"></a>Metriche di esecuzione delle query
 È possibile ottenere metriche dettagliate sull'esecuzione delle query passando l'intestazione facoltativa `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` in .NET SDK). Il valore restituito in `x-ms-documentdb-query-metrics` contiene le seguenti coppie chiave-valore, pensate per risoluzione dei problemi più avanzati di esecuzione delle query. 
@@ -249,9 +249,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | millisecondi | Tempo impiegato per il caricamento di documenti  | 
 | `systemFunctionExecuteTimeInMs` | millisecondi | Tempo totale impiegato per l'esecuzione di funzioni di sistema (predefinite) in millisecondi  | 
 | `userFunctionExecuteTimeInMs` | millisecondi | Tempo totale impiegato per l'esecuzione di funzioni definite dall'utente in millisecondi | 
-| `retrievedDocumentCount` | count | Numero totale di documenti recuperati  | 
+| `retrievedDocumentCount` | Conteggio | Numero totale di documenti recuperati  | 
 | `retrievedDocumentSize` | byte | Dimensione totale dei documenti recuperati in byte  | 
-| `outputDocumentCount` | count | Numero di documenti di output | 
+| `outputDocumentCount` | Conteggio | Numero di documenti di output | 
 | `writeOutputTimeInMs` | millisecondi | Tempo di esecuzione della query in millisecondi | 
 | `indexUtilizationRatio` | rapporto (<=1) | Rapporto del numero di documenti corrispondenti al filtro rispetto al numero di documenti caricati  | 
 
@@ -259,7 +259,7 @@ L'SDK client può eseguire internamente più operazioni di query per servire la 
 
 Di seguito sono riportate alcune query di esempio, con informazioni su come interpretare alcune delle metriche restituite dall'esecuzione delle query: 
 
-| Query | Metrica di esempio | DESCRIZIONE | 
+| Query | Metrica di esempio | Descrizione | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Il numero di documenti recuperati è 100+1 per la corrispondenza alla clausola TOP. Il tempo della query viene impiegato per lo più in `WriteOutputTime` e `DocumentLoadTime` poiché si tratta di un'analisi. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount è ora superiore (500+1 per la corrispondenza alla clausola TOP). | 
@@ -272,7 +272,7 @@ Di seguito sono riportate alcune query di esempio, con informazioni su come inte
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](how-to-sql-query.md). 
+* Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](sql-query-getting-started.md). 
 * Per informazioni sulle unità richiesta, vedere [Unità richiesta](request-units.md).
 * Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](index-policy.md) 
 

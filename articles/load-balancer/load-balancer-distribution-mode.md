@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Come configurare la modalità di Azure Load Balancer per supportare l'affinità IP di origine.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 0d3ddf2e005338a19972cfcdef025579764f7f23
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883662"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114725"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurare la modalità di distribuzione per Azure Load Balancer
 
@@ -32,7 +32,7 @@ La modalità di distribuzione predefinita per Azure Load Balancer è un hash a 5
 
 ## <a name="source-ip-affinity-mode"></a>Modalità di affinità IP di origine
 
-Load Balancer può anche essere configurato usando la modalità di distribuzione affinità IP di origine. Questa modalità di distribuzione è nota anche come affinità di sessione o affinità IP client. La modalità usa un hash a 2 tuple (IP di origine e IP di destinazione) o a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. Usando l'affinità IP di origine, le connessioni che vengono avviate dallo stesso computer client passano allo stesso endpoint DIP.
+Load Balancer può anche essere configurato usando la modalità di distribuzione affinità IP di origine. Questa modalità di distribuzione è nota anche come affinità di sessione o affinità IP client. La modalità usa un hash a 2 tuple (IP di origine e IP di destinazione) o a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. Utilizzando l'affinità IP di origine, le connessioni avviate dallo stesso computer client passano allo stesso endpoint DIP.
 
 La figura seguente illustra una configurazione a 2 tuple. Si noti che la configurazione a 2 tuple viene eseguita tramite il bilanciamento del carico nella macchina virtuale 1 (VM1). Quindi viene eseguito il backup di VM1 in VM2 e VM3.
 
@@ -42,7 +42,7 @@ La modalità affinità IP di origine risolve un'incompatibilità tra Azure Load 
 
 Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricamento dei dati avviene tramite UDP, ma il piano di controllo viene raggiunto tramite TCP:
 
-* Un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene indirizzato a uno specifico DIP. Il canale viene lasciato attivo per monitorare lo stato della connessione.
+* Un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene indirizzata a un DIP specifico. Il canale viene lasciato attivo per monitorare lo stato della connessione.
 * Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. La connessione viene indirizzata allo stesso endpoint DIP della connessione TCP precedente. Il caricamento del supporto può essere eseguito con una velocità effettiva elevata mantenendo un canale di controllo tramite TCP.
 
 > [!NOTE]
@@ -50,9 +50,26 @@ Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricame
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurare le impostazioni dell'affinità IP di origine
 
-Per le macchine virtuali distribuite con Resource Manager, usare PowerShell per modificare le impostazioni di distribuzione del servizio di bilanciamento carico su una regola di bilanciamento del carico esistente. In questo modo viene aggiornata la modalità di distribuzione: 
+### <a name="azure-portal"></a>Portale di Azure
 
-```powershell
+È possibile modificare la configurazione della modalità di distribuzione modificando la regola di bilanciamento del carico nel portale.
+
+1. Accedere al portale di Azure e individuare il gruppo di risorse contenente il servizio di bilanciamento del carico che si desidera modificare facendo clic su **gruppi di risorse**.
+2. Nel pannello panoramica del servizio di bilanciamento del carico fare clic su **regole di bilanciamento del carico** in **Impostazioni**.
+3. Nel pannello regole di bilanciamento del carico fare clic sulla regola di bilanciamento del carico per cui si vuole modificare la modalità di distribuzione.
+4. Nella regola, la modalità di distribuzione viene modificata modificando la casella di riepilogo a discesa **persistenza sessione** .  Sono disponibili le seguenti opzioni:
+    
+    * **None (basato su hash)** : specifica che le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi macchina virtuale.
+    * **IP client (affinità IP di origine 2-tupla)** : specifica che le richieste successive provenienti dallo stesso indirizzo IP client verranno gestite dalla stessa macchina virtuale.
+    * **IP e protocollo client (affinità IP di origine 3-tupla)** : specifica che le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client verranno gestite dalla stessa macchina virtuale.
+
+5. Scegliere la modalità di distribuzione e quindi fare clic su **Salva**.
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Per le macchine virtuali distribuite con Gestione risorse, usare PowerShell per modificare le impostazioni di distribuzione del servizio di bilanciamento del carico in una regola di bilanciamento del carico esistente. Il comando seguente aggiorna la modalità di distribuzione: 
+
+```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -60,7 +77,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 
 Per le macchine virtuali classiche, usare Azure PowerShell per modificare le impostazioni di distribuzione. Aggiungere un endpoint di Azure a una macchina virtuale e configurare la modalità di distribuzione del bilanciamento del carico:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
@@ -88,13 +105,13 @@ Recuperare una configurazione di modalità di distribuzione del bilanciamento de
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Quando l'elemento `LoadBalancerDistribution` non è presente, Azure Load Balancer usa l'algoritmo a 5 tuple predefinito.
+Quando l' `LoadBalancerDistribution` elemento non è presente, Azure Load Balancer usa l'algoritmo a 5 tuple predefinito.
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurare la modalità di distribuzione su un set di endpoint con carico bilanciato
 
 Quando gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario configurare la modalità di distribuzione sul set di endpoint con carico bilanciato:
 
-```azurepowershell
+```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 

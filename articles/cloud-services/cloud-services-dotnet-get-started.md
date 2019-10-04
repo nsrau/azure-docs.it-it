@@ -3,23 +3,19 @@ title: Introduzione a Servizi cloud di Azure e ASP.NET | Microsoft Docs
 description: Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60521368"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827667"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -36,7 +32,7 @@ Questa applicazione è un BBS pubblicitario. Gli utenti creano un'inserzione tra
 L'applicazione usa il [modello di lavoro incentrato sulle code](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Architettura alternativa: servizio app e processi Web
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [servizio app di Azure](/azure/app-service/) e usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](../app-service/overview-compare.md).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [servizio app di Azure](/azure/app-service/) e usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
@@ -51,11 +47,12 @@ Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
+Le istruzioni dell'esercitazione funzionano con uno dei prodotti seguenti:
 
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
+* Visual Studio 2019
 
 Se uno di questi prodotti non è disponibile, Visual Studio potrà essere installato automaticamente quando si installa Azure SDK.
 
@@ -235,7 +232,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 2. Fare clic sulla scheda **Impostazioni**. Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione (**...**) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
+3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione ( **...** ) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
 
     ![Casella di creazione della stringa di connessione](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** fare clic su **Sottoscrizione** scegliere l'account di archiviazione creato in precedenza, quindi fare clic su **OK**. Se non è già stato effettuato l'accesso, saranno richieste le credenziali dell'account di Azure.
@@ -325,7 +322,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Creare una soluzione servizio cloud di Visual Studio
 1. In Visual Studio scegliere **Nuovo progetto** from the **File**.
-2. Nel riquadro sinistro della finestra di dialogo **Nuovo progetto** espandere **Visual C#**, scegliere i modelli **Cloud**, quindi selezionare il modello **Servizio cloud di Azure**.
+2. Nel riquadro sinistro della finestra di dialogo **Nuovo progetto** espandere **Visual C#** , scegliere i modelli **Cloud**, quindi selezionare il modello **Servizio cloud di Azure**.
 3. Assegnare al progetto e alla soluzione il nome ContosoAdsCloudService, quindi fare clic su **OK**.
 
     ![Nuovo progetto](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -517,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 Il file *_Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads" (Annunci).
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
@@ -699,7 +696,7 @@ public override void Run()
 }
 ```
 
-Dopo ogni iterazione del ciclo, se non sono stati trovati messaggi di coda, il programma rimane inattivo per un secondo. Ciò impedisce al ruolo di lavoro di generare costi eccessivi relativi al tempo della CPU e alle transazioni di archiviazione. Come ricordato da Microsoft Customer Advisory Team, uno sviluppatore aveva scordato di includere questo dettaglio, aveva eseguito la distribuzione in produzione ed era partito per le ferie. Al ritorno, si era reso conto che la dimenticanza era costata più cara delle ferie.
+Dopo ogni iterazione del ciclo, se non sono stati trovati messaggi di coda, il programma rimane inattivo per un secondo. Ciò impedisce al ruolo di lavoro di generare costi eccessivi relativi al tempo della CPU e alle transazioni di archiviazione. Come ricordato da Microsoft Customer Advisory Team, uno sviluppatore aveva scordato di includere questo dettaglio, aveva eseguito la distribuzione in produzione ed era partito per le ferie. Al ritorno, i costi di supervisione sono maggiori rispetto alle ferie.
 
 A volte il contenuto di un messaggio di coda provoca un errore di elaborazione. Questo messaggio è definito un *messaggio non elaborabile*. Se è stato appena registrato un errore e il ciclo è stato riavviato, è possibile che si tenti di elaborare questo messaggio all'infinito.  Il blocco CATCH include quindi un'istruzione IF che verifica il numero di volte in cui l'app ha tentato di elaborare il messaggio corrente. Se il numero è superiore a 5, il messaggio sarà eliminato dalla coda.
 

@@ -4,22 +4,21 @@ description: Presenta l'estensione per macchine virtuali Diagnostica prestazioni
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307907"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057553"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -73,7 +72,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
 |type|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione.
-|performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
+|performanceScenario|di base|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
 |perfCounterTrace|p|Opzione che abilita la traccia del contatore delle prestazioni. I valori validi sono **p** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |networkTrace|n|Opzione che abilita la traccia di rete. I valori validi sono **n** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
@@ -85,7 +84,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
 
-## <a name="install-the-extension"></a>Installare l'estensione
+## <a name="install-the-extension"></a>Installa l'estensione
 
 Per installare l'estensione in macchine virtuali Windows, seguire queste istruzioni:
 
@@ -99,7 +98,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
 4. Selezionare **Azure Performance Diagnostics** (Diagnostica prestazioni di Azure), rivedere i termini e le condizioni e selezionare **Crea**.
 
     ![Screenshot della schermata Nuova risorsa, con Azure Performance Diagnostics evidenziato](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Specificare i valori per i parametri di installazione e fare clic su **OK** per installare l'estensione. Per altre informazioni sugli scenari supportati, vedere [Come usare PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Specificare i valori per i parametri di installazione e fare clic su **OK** per installare l'estensione. Per altre informazioni sugli scenari supportati, vedere [Come usare PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Screenshot della finestra di dialogo Installa estensione](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. Al termine dell'installazione viene visualizzato un messaggio che ne indica lo stato.
@@ -113,7 +112,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
 Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la macchina virtuale da cui si vuole rimuovere l'estensione e quindi selezionare il pannello **Estensioni**. 
-2. Selezionare (**…**) in corrispondenza della voce Performance Diagnostics Extension dell'elenco e scegliere **Disinstalla**.
+2. Selezionare ( **…** ) in corrispondenza della voce Performance Diagnostics Extension dell'elenco e scegliere **Disinstalla**.
 
     ![Screenshot del pannello Estensioni con Disinstalla evidenziato](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +233,7 @@ Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnosti
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 
-L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento SAS al file ZIP di output è disponibile in un file di testo denominato *zipfilename*_saslink.txt presente nella cartella **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versione>**. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
+L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento SAS al file ZIP di output è disponibile in un file di testo denominato *zipfilename*_saslink.txt presente nella cartella **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versione>** . Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Per facilitare il lavoro del tecnico del supporto responsabile del ticket, Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica.
 

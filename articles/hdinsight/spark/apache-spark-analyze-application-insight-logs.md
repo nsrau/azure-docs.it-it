@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326649"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145588"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analizzare i log di telemetria di Application Insights con Apache Spark in HDInsight
 
@@ -27,9 +27,6 @@ Informazioni su come usare [Apache Spark](https://spark.apache.org/) in HDInsigh
 
 * Familiarità con la creazione di un cluster HDInsight basato su Linux. Per altre informazioni, vedere [Introduzione: Creare un cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]  
-  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * Un Web browser.
 
 Per lo sviluppo e il test di questo documento, sono state usate le risorse seguenti:
@@ -42,7 +39,7 @@ Per lo sviluppo e il test di questo documento, sono state usate le risorse segue
 
 Il diagramma seguente illustra l'architettura del servizio dell'esempio:
 
-![diagramma che illustra un flusso di dati da Application Insights nell'archiviazione BLOB e la fase di elaborazione Spark in HDInsight](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![Flusso di dati da Application Insights all'archiviazione BLOB, quindi Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
@@ -75,7 +72,7 @@ Per aggiungere l'account di Archiviazione di Azure a un cluster esistente, usare
 
 1. Nel [Portale di Azure](https://portal.azure.com)selezionare il proprio Spark sul cluster HDInsight. Nella sezione **Collegamenti rapidi** selezionare **Dashboard cluster** e quindi selezionare **Notebook di Jupyter** nella sezione Dashboard cluster.
 
-    ![Il dashboard del cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Pyspark dashboard cluster portale di Azure](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 
 2. Nell'angolo superiore destro della pagina Jupyter selezionare **Nuovo** e quindi **PySpark**. Si apre una nuova scheda del browser contenente un notebook di Jupyter basato su Python.
 
@@ -218,7 +215,8 @@ Per aggiungere l'account di Archiviazione di Azure a un cluster esistente, usare
 
 1. Nel [Portale di Azure](https://portal.azure.com)selezionare il proprio Spark sul cluster HDInsight. Nella sezione **Collegamenti rapidi** selezionare **Dashboard cluster** e quindi selezionare **Notebook di Jupyter** nella sezione Dashboard cluster.
 
-    ![Il dashboard del cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Dashboard del cluster portale di Azure scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+
 2. Nell'angolo superiore destro della pagina Jupyter selezionare **Nuovo** e quindi **Scala**. Si apre una nuova scheda del browser contenente un notebook di Jupyter basato su Scala.
 3. Nel primo campo della pagina (denominato **cella**) immettere il testo seguente:
 

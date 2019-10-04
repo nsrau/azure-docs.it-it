@@ -17,7 +17,7 @@
       href: AnalyzeMethod.md
     - name: Metodo analyzers
       href: AnalyzersMethod.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API Analisi linguistica
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb'

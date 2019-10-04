@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526589"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073412"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Sottoscrizioni in Gestione API di Azure
 
@@ -42,7 +41,7 @@ Le sottoscrizioni possono essere associate a vari ambiti: prodotto, tutte le API
 
 ### <a name="subscriptions-for-a-product"></a>Sottoscrizioni per un prodotto
 
-In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo l'approvazione di una richiesta di sottoscrizione (automaticamente o dagli editori delle API), lo sviluppatore può usare le chiavi in essa per accedere a tutte le API nel prodotto.
+In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo che una richiesta di sottoscrizione è stata approvata, automaticamente o dagli editori di API, lo sviluppatore può usare le chiavi disponibili per accedere a tutte le API nel prodotto. Al momento, il portale per sviluppatori Mostra solo le sottoscrizioni con ambito prodotto nella sezione profilo utente. 
 
 ![Sottoscrizioni prodotto](./media/api-management-subscriptions/product-subscription.png)
 

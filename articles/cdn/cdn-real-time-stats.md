@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334625"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593498"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistiche in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

@@ -6,19 +6,18 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901424"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828435"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -55,7 +54,7 @@ in un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipeline
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
 È necessario disporre di un'app da distribuire archiviata in un repository Git.
-Per questa esercitazione, si consiglia di usare [questa app di esempio disponibile in GitHub](https://github.com/azooinmyluggage/fabrikam-node). Questa esercitazione contiene uno script di esempio usato per installare Node.js e un'applicazione. Per usare il proprio repository, è consigliabile configurare un esempio simile.
+Per questa esercitazione, si consiglia di usare [questa app di esempio disponibile in GitHub](https://github.com/azure-devops/fabrikam-node). Questa esercitazione contiene uno script di esempio usato per installare Node.js e un'applicazione. Per usare il proprio repository, è consigliabile configurare un esempio simile.
 
 Creare un fork di questa app e prendere nota del percorso (URL) per l'uso nei passaggi successivi di questa esercitazione. Per altre informazioni, vedere [Creare una copia tramite fork di un repository](https://help.github.com/articles/fork-a-repo/).    
 
@@ -133,7 +132,7 @@ Un endpoint di servizio consente ad Azure DevOps Services di connettersi a Jenki
 
 1. Aprire la scheda **Versioni** nell'hub **Compilazione e versione**, quindi aprire **Gruppi di distribuzione** e selezionare **+ Nuovo**.
 2. Immettere un nome per il gruppo di distribuzione e una descrizione facoltativa, Selezionare quindi **Crea**.
-3. Scegliere il sistema operativo per la macchina virtuale di destinazione di distribuzione. Ad esempio selezionare **Ubuntu 16.04+**.
+3. Scegliere il sistema operativo per la macchina virtuale di destinazione di distribuzione. Ad esempio selezionare **Ubuntu 16.04+** .
 4. Selezionare **Usa un token di accesso personale nello script per l'autenticazione**.
 5. Selezionare il collegamento **Prerequisiti di sistema**. Installare i prerequisiti per il sistema operativo.
 6. Selezionare **Copia script negli appunti** per copiare lo script.
@@ -166,7 +165,7 @@ Per creare la pipeline di versione in Azure Pipelines:
 2. Selezionare la build completata nell'elenco a discesa evidenziato e quindi **Accoda**.
 3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio:  "Versione **Versione-1** creata".
 4. Aprire la scheda **Log** per osservare l'output della console della versione.
-5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}**.
+5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}** .
 6. Passare al repository Git di origine e modificare il contenuto del titolo **h1** nel file app/views/index.jade con un testo modificato.
 7. Eseguire il commit delle modifiche.
 8. Dopo alcuni minuti, si noterà una nuova versione creata nella pagina **Versioni** di Azure DevOps. Aprire la versione per visualizzare la distribuzione in corso. Congratulazioni!

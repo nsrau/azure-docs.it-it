@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189700"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709521"
 ---
 # <a name="encoding-error-codes"></a>Codici di errore di codifica
 
@@ -30,7 +30,7 @@ Nella tabella seguente sono elencati i codici di errore che potrebbero essere re
 | Sconosciuto |Errore sconosciuto durante l'esecuzione dell'attività |
 | ErrorDownloadingInputAssetMalformedContent |Categoria di errori relativa agli errori durante il download di asset di input, ad esempio nomi di file non validi, file di lunghezza zero, formati errati e così via. |
 | ErrorDownloadingInputAssetServiceFailure |Categoria di errori relativa a problemi sul lato del servizio, ad esempio errori di rete o archiviazione durante il download. |
-| ErrorParsingConfiguration |Categoria di errori in cui l'attività <see cref="MediaTask.PrivateData"/> (configurazione) non è valida, ad esempio la configurazione non è un set di impostazioni di sistema valido o contiene XML non valido. |
+| ErrorParsingConfiguration |Categoria di errori in cui l'attività \<vedere cref="MediaTask.PrivateData"/ > (configurazione) non è valida, ad esempio la configurazione non è un valido sistema preimpostati o contiene XML non valido. |
 | ErrorExecutingTaskMalformedContent |Categoria di errori durante l'esecuzione dell'attività in cui i problemi nei file multimediali di input causano un errore. |
 | ErrorExecutingTaskUnsupportedFormat |Categoria di errori in cui il processore di contenuti multimediali non è in grado di elaborare i file forniti: formato di file multimediale non supportato o non corrispondente alla configurazione. Ad esempio, si tenta di produrre un output solo audio da un asset che ha il solo video |
 | ErrorProcessingTask |Categoria di altri errori che il processore di contenuti multimediali rileva durante l'elaborazione dell'attività non correlati al contenuto. |

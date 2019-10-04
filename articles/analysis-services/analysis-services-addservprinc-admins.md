@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a8fbbdbd647aa3d733a26ceaf72629058ae3a274
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730223"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619280"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -42,7 +42,7 @@ Per completare questa attività, è necessario avere autorizzazioni di [amminist
 
 
 > [!NOTE]
-> Per operazioni server con i cmdlet di PowerShell di Azure, service principal in esecuzione dell'utilità di pianificazione deve appartenere anche al **Owner** ruolo per la risorsa nello [controllo degli accessi (accessi)](../role-based-access-control/overview.md). 
+> Per le operazioni del server che usano i cmdlet di Azure PowerShell, l'entità servizio che esegue l'utilità di pianificazione deve appartenere anche al ruolo di **proprietario** per la risorsa nel controllo degli accessi in [base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informazioni correlate
 

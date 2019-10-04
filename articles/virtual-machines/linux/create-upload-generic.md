@@ -4,23 +4,22 @@ description: Come creare e caricare un disco rigido virtuale Azure (VHD) che con
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb6ef87edd2ff16750573c6b8c719fa4b81d3a4c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327967"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083596"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +73,7 @@ Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda 
 ### <a name="resizing-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 MB.  In genere i dischi rigidi virtuali creati tramite Hyper-V sono già allineati correttamente.  Se il disco rigido virtuale non è allineato correttamente, è possibile che venga visualizzato un messaggio di errore simile al seguente quando si tenta di creare un'immagine dal disco rigido virtuale.
 
-* La dimensione virtuale del VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd di 21475270656 byte non è valida. La dimensione deve essere un numero intero (in MB).
+* Il disco rigido virtuale\/http:/\<mystorageaccount >. blob. Core. Windows. NET/VHD/MyLinuxVM. vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
 
 In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
 
@@ -144,10 +143,10 @@ Se è necessario un kernel personalizzato, è consigliabile usare una versione p
 Le patch seguenti devono essere incluse nel kernel. Questo elenco non può essere completato per tutte le distribuzioni.
 
 * [ata_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: Account per i pacchetti in transito nel percorso di ripristino](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc Account per i pacchetti in transito nel percorso di reimpostazione](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: avoid usage of WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: Disabilitare la scrittura stesso per RAID e i driver della scheda host virtuale](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc: Correzione di dereferenziazione del puntatore NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc Disabilitare lo stesso WRITE per i driver delle schede RAID e host virtuali](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc Correzione della dereferenziazione del puntatore NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: ring buffer failures may result in I/O freeze](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: protect against double execution of __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 

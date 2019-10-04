@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a85cafce13cffcebbcce3ebf022941ce899fa72b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520758"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852761"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (WPF) di Windows che potrà consentire l'accesso ad account personali, aziendali e dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
@@ -51,13 +49,14 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+> 1. Passare alla pagina [Registrazioni app](https://aka.ms/MobileAppReg) di Microsoft Identity Platform per sviluppatori.
 > 1. Selezionare **Nuova registrazione**.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `Win-App-calling-MsGraph`.
->      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
+>      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 >      - Selezionare **Registra** per creare l'applicazione.
 > 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
-> 1. Nella sezione **URI di reindirizzamento** individuare la sezione **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** e selezionare **urn:ietf:wg:oauth:2.0:oob**.
+> 1. Espandere la sezione **Desktop e dispositivi**.  Se **Desktop e dispositivi** non è visibile, fare prima clic sul banner in alto per visualizzare l'anteprima dell'esperienza di autenticazione.
+> 1. Nella sezione **URI di reindirizzamento** selezionare **Aggiungi un URI**.  Digitare **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -71,7 +70,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
-[Scaricare il progetto di Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Visualizzare il progetto in GitHub](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
@@ -83,6 +82,9 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
     private static string ClientId = "Enter_the_Application_Id_here";
     private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Dove:
@@ -93,7 +95,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 >   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa e account Microsoft personali**, sostituire questo valore con `common`
 >
 > > [!TIP]
-> > Per trovare i valori di **ID applicazione (client)**, **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
+> > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 
 ## <a name="more-information"></a>Altre informazioni
 
@@ -150,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
-Non si desidera richiedere all'utente di convalidare le proprie credenziali ogni volta che deve accedere a una risorsa. La maggior parte delle volte si desidera che le acquisizioni e i rinnovi dei token avvengano senza alcuna interazione da parte dell'utente. È possibile usare il metodo `AcquireTokenSilentAsync` per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenInteractive` iniziale:
+Non si desidera richiedere all'utente di convalidare le proprie credenziali ogni volta che deve accedere a una risorsa. La maggior parte delle volte si desidera che le acquisizioni e i rinnovi dei token avvengano senza alcuna interazione da parte dell'utente. È possibile usare il metodo `AcquireTokenSilent` per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenInteractive` iniziale:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -173,3 +175,7 @@ Provare l'esercitazione di Windows Desktop per una guida dettagliata completa su
 > [!div class="nextstepaction"]
 > [Esercitazione sulla chiamata dell'API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
+Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
+
+> [!div class="nextstepaction"]
+> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

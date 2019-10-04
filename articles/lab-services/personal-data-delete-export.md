@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 07/19/2019
 ms.author: spelluru
-ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394991"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371180"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Esportare o eliminare dati personali da Azure DevTest Labs
 Questo articolo illustra la procedura da eseguire per eliminare ed esportare dati personali dal servizio Azure DevTest Labs. 
@@ -39,10 +39,10 @@ DevTest Labs usa l'indirizzo di posta elettronica utente per inviare notifiche d
 ### <a name="user-object-id"></a>ID oggetto utente
 DevTest Labs usa l'ID oggetto utente per mostrare agli amministratori dei lab gli andamenti mensili dei costi e le informazioni sui costi per risorsa. Consente di tenere traccia dei costi e gestire i valori di soglia per i lab. 
 
-**Andamento dei costi stimato per il mese di calendario corrente:**
+**Andamento dei costi stimato per il mese di calendario corrente:** 
 ![Andamento dei costi stimato per il mese di calendario corrente](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Costi stimati per risorsa da inizio mese:**
+**Costi stimati per risorsa da inizio mese:** 
 ![Costi stimati per risorsa da inizio mese](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -55,6 +55,12 @@ Se un utente del lab vuole che i dati personali vengano eliminati, può provvede
 Se ad esempio si elimina la macchina virtuale o si rimuove l'indirizzo di posta elettronica, il servizio DevTest Labs rende anonimi questi dati dopo 30 giorni dall'eliminazione della risorsa. Il criterio di conservazione dei 30 giorni dopo l'eliminazione serve ad assicurare all'amministratore del lab che le previsioni dei costi mensili sono accurate.
 
 ## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Come si può richiedere un'esportazione dei dati personali?
+È possibile esportare i dati personali e di utilizzo del Lab usando il portale di Azure o PowerShell. I dati vengono esportati come due diversi file CSV:
+
+- **Disks. csv** : contiene informazioni sui dischi usati dalle diverse macchine virtuali
+- **VirtualMachines. csv** : contiene informazioni sulle macchine virtuali nel Lab.
+
+### <a name="azure-portal"></a>Portale di Azure
 Un utente del lab può richiedere un'esportazione dei dati personali archiviati nel servizio DevTest Labs. Per richiedere un'esportazione, passare all'opzione **Dati personali** nella pagina **Panoramica** del lab. Selezionare il pulsante **Richiedi esportazione** per avviare la creazione di un file Excel scaricabile nell'account di archiviazione dell'amministratore del lab. È quindi possibile contattare l'amministratore di lab per visualizzare i dati.
 
 1. Selezionare **Dati personali** nel menu a sinistra. 
@@ -62,7 +68,7 @@ Un utente del lab può richiedere un'esportazione dei dati personali archiviati 
     ![Pagina Dati personali](./media/personal-data-delete-export/personal-data-page.png)
 2. Selezionare il **gruppo di risorse** che contiene il lab.
 
-    ![Selezionare il gruppo di risorse](./media/personal-data-delete-export/select-resource-group.png)
+    ![Seleziona gruppo di risorse](./media/personal-data-delete-export/select-resource-group.png)
 3. Selezionare l'**account di archiviazione** nel gruppo di risorse.
 4. Nella pagina **Account di archiviazione** selezionare **BLOB**.
 
@@ -73,6 +79,138 @@ Un utente del lab può richiedere un'esportazione dei dati personali archiviati 
 6. Selezionare la **cartella** denominata in base al lab. In questa cartella sono presenti file con estensione **csv** per i **dischi** e le **macchine virtuali** del lab. È possibile scaricare i file con estensione csv, filtrare il contenuto relativo all'utente del lab che richiede un accesso e condividere il contenuto con tale utente.
 
     ![Scaricare il file con estensione csv](./media/personal-data-delete-export/download-csv-file.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+Param (
+    [Parameter (Mandatory=$true, HelpMessage="The storage account name where to store usage data")]
+    [string] $storageAccountName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The storage account key")]
+    [string] $storageKey,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab name to get usage data from")]
+    [string] $labName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab subscription")]
+    [string] $labSubscription
+    )
+
+#Login
+Login-AzureRmAccount
+
+# Set the subscription for the lab
+Get-AzureRmSubscription -SubscriptionId $labSubscription  | Select-AzureRmSubscription
+
+# DTL will create this container in the storage when invoking the action, cannot be changed currently
+$containerName = "labresourceusage"
+
+# Get the storage context
+$Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey 
+$SasToken = New-AzureStorageAccountSASToken -Service Blob, File -ResourceType Container, Service, Object -Permission rwdlacup -Protocol HttpsOnly -Context $Ctx
+
+# Generate the storage blob uri
+$blobUri = $Ctx.BlobEndPoint + $SasToken
+
+# blobStorageAbsoluteSasUri and usageStartDate are required
+$actionParameters = @{
+    'blobStorageAbsoluteSasUri' = $blobUri    
+}
+
+$startdate = (Get-Date).AddDays(-7)
+
+$actionParameters.Add('usageStartDate', $startdate.Date.ToString())
+
+# Get the lab resource group
+$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $labName}).ResourceGroupName
+    
+# Create the lab resource id
+$resourceId = "/subscriptions/" + $labSubscription + "/resourceGroups/" + $resourceGroupName + "/providers/Microsoft.DevTestLab/labs/" + $labName + "/"
+
+# !!!!!!! this is the new resource action to get the usage data.
+$result = Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+ 
+# Finish up cleanly
+if ($result.Status -eq "Succeeded") {
+    Write-Output "Telemetry successfully downloaded for " $labName
+    return 0
+}
+else
+{
+    Write-Output "Failed to download lab: " + $labName
+    Write-Error $result.toString()
+    return -1
+}
+```
+
+I componenti principali dell'esempio precedente sono i seguenti:
+
+- Comando Invoke-AzureRmResourceAction.
+   
+    ```
+    Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+    ```
+- Due parametri di azione
+    - **blobStorageAbsoluteSasUri** : URI dell'account di archiviazione con il token di firma di accesso condiviso (SAS). Nello script di PowerShell, questo valore può essere passato al posto della chiave di archiviazione.
+    - **usageStartDate** : data di inizio per il pull dei dati e la data di fine rappresenta la data corrente in cui viene eseguita l'azione. La granularità è a livello di giorno, quindi anche se si aggiungono informazioni temporali, verranno ignorate.
+
+### <a name="exported-data---a-closer-look"></a>Dati esportati: un aspetto più vicino
+Verranno ora esaminati in dettaglio i dati esportati. Come indicato in precedenza, una volta che i dati sono stati esportati correttamente, saranno presenti due file CSV. 
+
+**VirtualMachines. csv** contiene le colonne di dati seguenti:
+
+| Nome colonna | Descrizione |
+| ----------- | ----------- | 
+| SubscriptionId | Identificatore della sottoscrizione in cui è presente il Lab. |
+| LabUId | Identificatore GUID univoco per il Lab. |
+| LabName | Nome del lab. |
+| LabResourceId | ID risorsa lab completo. |
+| ResourceGroupName | Nome del gruppo di risorse che contiene la macchina virtuale | 
+| ResourceId | ID risorsa completo per la macchina virtuale. |
+| ResourceUId | GUID della macchina virtuale |
+| Name | Nome della macchina virtuale. |
+| CreatedTime | Data e ora in cui è stata creata la macchina virtuale. |
+| DeletedDate | Data e ora in cui la macchina virtuale è stata eliminata. Se è vuota, l'eliminazione non è ancora stata eseguita. |
+| ResourceOwner | Proprietario della macchina virtuale. Se il valore è vuoto, si tratta di una macchina virtuale richiedibile o creata da un'entità servizio. |
+| PricingTier | Piano tariffario della macchina virtuale |
+| ResourceStatus | Stato di disponibilità della macchina virtuale. Attivo, se è ancora presente o inattivo, se la macchina virtuale è stata eliminata. |
+| ComputeResourceId | Identificatore completo della risorsa di calcolo della macchina virtuale. |
+| Disposizione degli utenti | Impostare su true se la macchina virtuale è una macchina virtuale richiedibile | 
+| Oggetto environmentID nell' | Identificatore di risorsa dell'ambiente in cui è stata creata la macchina virtuale. È vuota quando la macchina virtuale non è stata creata come parte di una risorsa dell'ambiente. |
+| ExpirationDate | Data di scadenza della macchina virtuale. È impostato su Empty, se non è stata impostata una data di scadenza.
+| GalleryImageReferenceVersion |  Versione dell'immagine di base della macchina virtuale. |
+| GalleryImageReferenceOffer | Offerta dell'immagine di base della macchina virtuale. |
+| GalleryImageReferencePublisher | Autore dell'immagine di base della macchina virtuale. |
+| GalleryImageReferenceSku | SKU dell'immagine di base della macchina virtuale |
+| GalleryImageReferenceOsType | Tipo di sistema operativo dell'immagine di base della macchina virtuale |
+| CustomImageId | ID completo dell'immagine personalizzata di base della macchina virtuale. |
+
+Di seguito sono elencate le colonne di dati contenute in **Disks. csv** :
+
+| Nome colonna | Descrizione | 
+| ----------- | ----------- | 
+| SubscriptionId | ID della sottoscrizione che contiene il Lab |
+| LabUId | GUID per il Lab |
+| LabName | Nome del Lab | 
+| LabResourceId | ID risorsa completo per il Lab | 
+| ResourceGroupName | Nome del gruppo di risorse che contiene il Lab | 
+| ResourceId | ID risorsa completo per la macchina virtuale. |
+| ResourceUId | GUID della macchina virtuale |
+ |Name | Nome del disco collegato |
+| CreatedTime |Data e ora di creazione del disco dati. |
+| DeletedDate | Data e ora in cui è stato eliminato il disco dati. |
+| ResourceStatus | Stato della risorsa. Attivo, se la risorsa esiste. Inattivo, quando viene eliminato. |
+| DiskBlobName | Nome del BLOB per il disco dati. |
+| DiskSizeGB | Dimensioni del disco dati. |
+| DiskType | Tipo del disco dati. 0 per standard, 1 per Premium. |
+| LeasedByVmId | ID risorsa della macchina virtuale a cui è stato collegato il disco dati. |
+
+
+> [!NOTE]
+> Se si gestiscono più Lab e si desidera ottenere informazioni generali, le due colonne chiave sono **LabUID** e **ResourceUId**, che sono gli ID univoci tra le sottoscrizioni.
+
+I dati esportati possono essere modificati e visualizzati usando strumenti, ad esempio SQL Server, Power BI e così via. Questa funzionalità è particolarmente utile quando si vuole segnalare l'utilizzo del Lab al team di gestione che potrebbe non usare la stessa sottoscrizione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 

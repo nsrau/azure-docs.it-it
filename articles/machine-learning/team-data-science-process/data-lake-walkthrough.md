@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399958"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Attività di data science scalabili con Azure Data Lake: procedura dettagliata end-to-end
@@ -677,7 +677,7 @@ Il dashboard del servizio Web verrà visualizzato a breve:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Seguendo questa procedura dettagliata è stato creato un ambiente di analisi scientifica dei dati per la creazione di soluzioni end-to-end scalabili in Azure Data Lake. Questo ambiente è stato quindi usato per analizzare un set di dati pubblico di grandi dimensioni, sottoposto ai passaggi del processo di analisi scientifica dei dati: dall'acquisizione dei dati al training del modello, fino alla distribuzione del modello come servizio Web. Per elaborare, esplorare e campionare i dati è stato usato U-SQL, mentre per creare e distribuire i modelli predittivi sono stati usati Python e Hive con Azure Machine Learning Studio.
 
 ## <a name="whats-next"></a>Passaggi successivi

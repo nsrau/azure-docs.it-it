@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: b91ae155761f6357e286f4742d57b97cf96d909a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805169"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180076"
 ---
 ## <a name="scenario"></a>Scenario
 Per illustrare meglio come creare una route definita dall'utente, in questo documento verrà usato lo scenario seguente.

@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3576a50cd1510a4da562981ff9ae98e12a357fc9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65991439"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Microsoft Azure (AMS) consente di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
@@ -174,7 +177,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-|NOME|Stato|Data center
+|Name|Stato|Data center
 |---|---|---|
 |Standard|GA|Tutti|
 |Premium|GA|Tutti|
@@ -205,7 +208,6 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Rilevamento multimediale volti di Azure|Anteprima|Tutti|
-|Azure Media Hyperlapse|Anteprima|Tutti|
 |Azure Media Indexer|GA|Tutti|
 |Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
 |Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|

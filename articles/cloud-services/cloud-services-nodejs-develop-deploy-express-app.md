@@ -3,23 +3,18 @@ title: Creare e distribuire un'app Express in Node.js in Servizi cloud di Azure
 description: Creare e distribuire un'applicazione Express.js in Node.js in Servizi cloud di Azure
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528151"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306782"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
 
@@ -98,7 +93,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
    
    ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
+   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per ulteriori informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
 2. Modificare l'ultima riga di testo aggiungendo **in Azure**.
    
    ![File index.jade che nell'ultima riga riporta: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -119,7 +114,7 @@ Al termine dell'operazione di distribuzione, verrà aperto il browser e verrà v
 ![A web browser displaying the Express page. L'URL indica che la pagina ora è ospitata su Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](https://docs.microsoft.com/azure/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/

@@ -1,22 +1,22 @@
 ---
 title: Informazioni sul linguaggio di query dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per sviluppatori: descrizione del linguaggio di query dell'hub IoT simile a SQL usato per recuperare informazioni su dispositivi/moduli gemelli e processi dall'hub IoT."
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730604"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450068"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
-L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli](iot-hub-devguide-device-twins.md), [processi](iot-hub-devguide-jobs.md) e [routing di messaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
+L'IoT Hub fornisce un linguaggio simile a SQL avanzato per recuperare le informazioni relative a [sui dispositivi gemelli](iot-hub-devguide-device-twins.md), [moduli gemelli](iot-hub-devguide-module-twins.md), [processi](iot-hub-devguide-jobs.md), e [routingdeimessaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio Per informazioni sul linguaggio di query per il routing dei messaggi, vedere [Query nel routing dei messaggi](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni 
 
 ## <a name="device-and-module-twin-queries"></a>Query su dispositivi e moduli gemelli
 
-I [dispositivi gemelli](iot-hub-devguide-device-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+[Dispositivi gemelli](iot-hub-devguide-device-twins.md) e [moduli gemelli](iot-hub-devguide-module-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
 
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente (i moduli gemelli sarebbero simili, avrebbero solo un moduleId aggiuntivo):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Query sui moduli gemelli
 
-Le query sui moduli gemelli sono simili alle query sui dispositivi gemelli, ma usano raccolte/spazi dei nomi differenti, ad esempio invece di "from devices" è possibile eseguire la query su device.modules:
+Una query su moduli gemelli è simile all'esecuzione di query sui dispositivi gemelli, ma con una raccolta/spazio dei nomi diverso; anziché da **periferiche**, si esegue una query da **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Attualmente le query su **devices.jobs** non supportano:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
 
-Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
+Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti per eseguire l'iterazione (**periferiche**, **devices.modules**, o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,10 +326,10 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Clausola FROM
 
-La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices** per effettuare una query dei dispositivi gemelli o **FROM devices.jobs** per effettuare una query dei dettagli per ogni dispositivo.
-
+Il **FROM < from_specification >** clausola può avere solo tre valori: **DAI dispositivi** alla query dei dispositivi gemelli, **da devices.modules** a moduli gemelli di query, o **da devices.jobs** a dettagli di ogni dispositivo di processo di query.
 
 ## <a name="where-clause"></a>Clausola WHERE
+
 La clausola **WHERE <filter_condition>** è facoltativa e specifica una o più condizioni che i documenti JSON della raccolta FROM devono soddisfare per essere inclusi come parte del risultato. Per essere incluso nel risultato, qualsiasi documento JSON deve restituire "true" per le condizioni specificate.
 
 Le condizioni consentite vengono descritte nella sezione [Espressioni e condizioni](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Attualmente le clausole di selezione diverse da **SELECT*** sono supportate solo nelle query aggregate in dispositivi gemelli.
 
 ## <a name="group-by-clause"></a>Clausola GROUP BY
+
 La clausola **GROUP BY <group_specification>** è un passaggio facoltativo che viene eseguito dopo l'applicazione del filtro specificato nella clausola WHERE e prima della proiezione specificata in SELECT. Raggruppa i documenti in base al valore di un attributo. Questi gruppi vengono usati per generare valori aggregati come specificato nella clausola SELECT.
 
 Ecco un esempio di query che usa GROUP BY:
@@ -393,9 +394,9 @@ Attualmente la clausola GROUP BY è supportata solo quando si effettua una query
 > [!IMPORTANT]
 > Il termine `group` viene attualmente considerato una parola chiave speciale nelle query. Se si utilizza `group` come nome di proprietà, è consigliabile racchiuderlo tra doppie parentesi quadre per evitare errori, ad esempio `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Espressioni e condizioni
+
 In generale, un'*espressione*:
 
 * Restituisce un'istanza di un tipo JSON, ad esempio un operatore booleano, un numero, una stringa, una matrice o un oggetto.
@@ -443,6 +444,7 @@ Per informazioni sul significato di ogni simbolo nella sintassi delle espression
 | string_literal |I valori letterali stringa sono stringhe Unicode rappresentate da una sequenza di zero o più caratteri Unicode o sequenze di escape. I valori letterali stringa sono racchiusi tra virgolette singole o virgolette doppie. Caratteri di escape consentiti: `\'`, `\"`, `\\`, `\uXXXX` per i caratteri Unicode definiti da 4 cifre esadecimali. |
 
 ### <a name="operators"></a>Operatori
+
 Sono supportati gli operatori seguenti:
 
 | Famiglia | Operatori |
@@ -452,15 +454,16 @@ Sono supportati gli operatori seguenti:
 | Confronto |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funzioni
+
 Quando si eseguono query gemelle e di processi l'unica funzione supportata è:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | IS_DEFINED(proprietà) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore (incluso `null`). |
 
 Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
@@ -473,7 +476,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
 Nelle condizioni di route, sono supportate le funzioni di trasmissione e controllo seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
@@ -487,7 +490,7 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 
 Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | LENGTH(x) | Restituisce il numero di caratteri dell'espressione stringa specificata.|

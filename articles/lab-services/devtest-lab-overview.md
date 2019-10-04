@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: b7cd6bb1fd0377ca1440d9c667453df922aacbd4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60561456"
 ---
 # <a name="about-azure-devtest-labs"></a>Informazioni su Azure DevTest Labs
 Azure DevTest Labs consente agli sviluppatori nel team di gestire in modo efficiente self-macchine virtuali (VM) e risorse PaaS senza tempi di attesa per le approvazioni.

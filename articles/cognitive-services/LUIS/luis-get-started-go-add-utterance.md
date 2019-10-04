@@ -1,7 +1,7 @@
 ---
-title: Modificare l'app ed eseguirne il training, Go
+title: "Guida introduttiva: Cambiare l'app ed eseguirne il training, Go - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva al linguaggio Go si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
-titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 60594137306bfe58024877947959f2865fffe019
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 84704e000688c6681773b14542d80a1046228c3f
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961806"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307635"
 ---
 # <a name="quickstart-change-model-using-go"></a>Avvio rapido: Modificare il modello tramite Go
 
-In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

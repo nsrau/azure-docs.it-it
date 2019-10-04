@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60749445"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -270,7 +270,7 @@ Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal
 | --- | --- | --- |
 | attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (**Dichiara()**)}| ------> |  |
+| transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (**Dichiara()** )}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={ID transazione}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Eseguire una transazione
@@ -284,8 +284,8 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | . . . <br/>Attività transazionali<br/>in altri collegamenti<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ ValoreAmqp (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| transfer(<br/>delivery-id=57, ...)<br/>{ ValoreAmqp (<br/>**Discharge(txn-id=0,<br/>fail=false)** )}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Invio di un messaggio in una transazione
 
@@ -295,8 +295,8 @@ Tutte le attività transazionali vengono eseguite con lo stato di recapito trans
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Eliminazione di un messaggio in una transazione
 
@@ -307,7 +307,7 @@ L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / 
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Funzionalità avanzate del bus di servizio
@@ -361,10 +361,10 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| operation |No  |stringa |**put-token** |
-| type |No  |stringa |Tipo di token inserito. |
-| name |No  |stringa |"Destinatari" a cui è applicabile il token. |
-| expiration |Sì | timestamp |Ora di scadenza del token. |
+| operation |No |string |**put-token** |
+| type |No |string |Tipo di token inserito. |
+| name |No |string |"Destinatari" a cui è applicabile il token. |
+| expiration |Yes |timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
@@ -380,8 +380,8 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| status-code |No  |int |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Sì |stringa |Descrizione dello stato. |
+| status-code |No |int |Codice di risposta HTTP **[RFC2616]** . |
+| status-description |Yes |string |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 
@@ -403,7 +403,7 @@ Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a 
 
 | Client | | Bus di servizio |
 | --- | --- | --- |
-| attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target=**{tramite entità}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
+| attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target= **{tramite entità}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
 | | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |
 
 ## <a name="next-steps"></a>Passaggi successivi

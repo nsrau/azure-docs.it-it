@@ -1,67 +1,66 @@
 ---
-title: Diagnosticare e risolvere i problemi quando si usa Azure Cosmos DB .NET SDK
-description: Usare le funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi di Azure Cosmos DB quando si usa .NET SDK.
+title: Diagnosticare e risolvere i problemi relativi all'uso di Azure Cosmos DB .NET SDK
+description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi Azure Cosmos DB quando si usa .NET SDK.
 author: j82w
 ms.service: cosmos-db
-ms.date: 01/19/2019
+ms.date: 05/28/2019
 ms.author: jawilley
-ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7f969ab6059140ec32c9c5bf5045c546602a3c15
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 51b37c43b94ad59090f32af0d57bbefaa57f30fa
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411353"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932564"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa Azure Cosmos DB .NET SDK
-Questo articolo descrive i problemi comuni, le soluzioni alternative, i passaggi di diagnostica e strumenti quando si usa la [.NET SDK](sql-api-sdk-dotnet.md) con gli account API SQL di Azure Cosmos DB.
-.NET SDK fornisce una rappresentazione logica sul lato client per accedere alle API SQL di Azure Cosmos DB. Questo articolo descrive strumenti e approcci utili ad affrontare eventuali problemi.
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi relativi all'uso di Azure Cosmos DB .NET SDK
+Questo articolo descrive i problemi comuni, le soluzioni alternative, i passaggi di diagnostica e gli strumenti quando si usa [.NET SDK](sql-api-sdk-dotnet.md) con Azure Cosmos DB account API SQL.
+.NET SDK fornisce una rappresentazione logica sul lato client per accedere all'API SQL Azure Cosmos DB. Questo articolo descrive strumenti e approcci utili ad affrontare eventuali problemi.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Elenco di controllo per la risoluzione dei problemi:
-Si consideri il seguente elenco di controllo prima di spostare l'applicazione nell'ambiente di produzione. Usando l'elenco di controllo, si impedirà di alcuni problemi comuni che potrebbero essere visualizzati. È possibile diagnosticare rapidamente quando si verifica un problema:
+Prendere in considerazione il seguente elenco di controllo prima di spostare l'applicazione in produzione. Utilizzando l'elenco di controllo, si eviteranno diversi problemi comuni che potrebbero verificarsi. È anche possibile diagnosticare rapidamente quando si verifica un problema:
 
-*   Usare la versione più recente [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md). Non usare gli SDK di anteprima per la produzione. Sarà in grado di raggiungere i noti problemi già risolti.
-*   Esaminare i [suggerimenti sulle prestazioni](performance-tips.md) e seguire le procedure consigliate. Ciò impedirà altri problemi di prestazioni, latenza e scalabilità.
-*   Abilitare la registrazione di SDK che consentono di risolvere un problema. Abilitare la registrazione può influire sulle prestazioni è consigliabile abilitarlo solo durante la risoluzione dei problemi. È possibile abilitare i log seguenti:
-    *   [Registrare metriche](monitor-accounts.md) usando il portale di Azure. Metriche del portale mostrano i dati di telemetria di Azure Cosmos DB, ciò è utile per determinare se il problema corrispondente per Azure Cosmos DB o se si tratta del lato client.
-    *   Log di [stringa di diagnostica](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) da risposte dell'operazione di punto.
-    *   Log di [metriche di Query SQL](sql-api-query-metrics.md) da tutte le risposte alle query 
-    *   Eseguire il programma di installazione per [registrazione SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*   Usare l' [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)più recente. Gli SDK di anteprima non devono essere usati per la produzione. In questo modo si eviteranno problemi noti già corretti.
+*   Esaminare i [suggerimenti sulle prestazioni](performance-tips.md) e seguire le procedure consigliate. Ciò consentirà di evitare la scalabilità, la latenza e altri problemi di prestazioni.
+*   Abilitare la registrazione dell'SDK per facilitare la risoluzione di un problema. L'abilitazione della registrazione può influire sulle prestazioni, pertanto è consigliabile abilitarla solo quando si risolvono i problemi. È possibile abilitare i log seguenti:
+    *   [Registrare le metriche](monitor-accounts.md) usando il portale di Azure. Le metriche del portale mostrano i dati di telemetria Azure Cosmos DB, che risulta utile per determinare se il problema corrisponde a Azure Cosmos DB o se è dal lato client.
+    *   Registrare la [stringa di diagnostica](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) dalle risposte dell'operazione punto.
+    *   Registra le [metriche della query SQL](sql-api-query-metrics.md) da tutte le risposte alle query 
+    *   Seguire la configurazione per la [registrazione dell'SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Diamo un'occhiata alla sezione [Problemi e soluzioni alternative comuni](#common-issues-workarounds) in questo articolo.
 
-Verificare i [sezione dei problemi di GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) che viene attivamente monitorato. Verificare se è già stato pubblicato un problema simile con una soluzione alternativa. Se non è stata trovata una soluzione, quindi segnalare un problema di GitHub. È possibile aprire un tick per il supporto per problemi urgenti.
+Vedere la [sezione relativa ai problemi di GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) monitorati attivamente. Verificare se è già stato pubblicato un problema simile con una soluzione alternativa. Se non è stata trovata alcuna soluzione, archiviare un problema di GitHub. È possibile aprire un ciclo di supporto per i problemi urgenti.
 
 
 ## <a name="common-issues-workarounds"></a>Problemi e soluzioni alternative comuni
 
 ### <a name="general-suggestions"></a>Suggerimenti generici
-* Eseguire l'app nella stessa area di Azure con l'account Azure Cosmos DB, laddove possibile. 
-* È possibile riscontrare problemi di connettività/disponibilità a causa di mancanza di risorse del computer client. È consigliabile monitorare l'utilizzo della CPU nei nodi che eseguono il client Azure Cosmos DB e la scalabilità verticale/orizzontale se sono in esecuzione con carico elevato.
+* Eseguire l'app nella stessa area di Azure dell'account di Azure Cosmos DB, laddove possibile. 
+* È possibile che si verifichino problemi di connettività/disponibilità a causa di risorse insufficienti nel computer client. È consigliabile monitorare l'utilizzo della CPU nei nodi che eseguono il client di Azure Cosmos DB e aumentare o ridurre le prestazioni se sono in esecuzione con un carico elevato.
 
 ### <a name="check-the-portal-metrics"></a>Controllare le metriche del portale
-Verifica la [le metriche del portale](monitor-accounts.md) aiuterà a determinare se si tratta di un problema sul lato client o se si verifica un problema con il servizio. Ad esempio se le metriche contengono una frequenza elevata delle richieste soggette a limitazioni (codice di stato HTTP 429) che indica la richiesta è limitazioni quindi controlla la [Frequenza delle richieste troppo grande] sezione. 
+Il controllo delle [metriche del portale](monitor-accounts.md) consente di determinare se si tratta di un problema lato client o se si verifica un problema con il servizio. Se, ad esempio, le metriche contengono una frequenza elevata di richieste con limitazioni di frequenza (codice di stato HTTP 429) che indica che la richiesta è soggetta a limitazioni, controllare la sezione frequenza delle richieste [Frequenza delle richieste troppo grande] . 
 
-### <a name="request-timeouts"></a>Timeout delle richieste
-RequestTimeout avviene in genere quando si usa Direct/TCP, ma può avvenire in modalità Gateway. Queste sono le cause note più comuni e i suggerimenti su come risolvere il problema.
+### <a name="request-timeouts"></a>Timeout richieste
+RequestTimeout in genere si verifica quando si usa Direct/TCP, ma può verificarsi in modalità gateway. Queste sono le cause più comuni e suggerimenti su come risolvere il problema.
 
-* Utilizzo della CPU è elevato, che verrà causano latenza e/o timeout richieste. Il cliente può aumentare il computer host per assegnare più risorse o il carico può essere distribuito tra più computer.
-* Socket o della disponibilità delle porte potrebbe essere insufficiente. Quando si usano gli SDK di .NET, rilasciata prima della versione 2.0, i client in esecuzione in Azure è stato raggiunto il [Esaurimento delle porte SNAT (PAT) di Azure]. Questo esempio del motivo per cui è consigliabile eseguire sempre l'ultima versione del SDK.
-* Creazione di più istanze di DocumentClient potrebbe causare contese di connessione e i problemi di timeout. Seguire le [suggerimenti sulle prestazioni](performance-tips.md)e usare una singola istanza di DocumentClient in un intero processo.
-* Gli utenti visualizzano i timeout di richiesta o la latenza con privilegi elevati in alcuni casi perché le relative raccolte vengono effettuato il provisioning rilevavano, il back-end limita le richieste e il client esegue nuovi tentativi internamente senza questo esponendo al chiamante. Verificare i [le metriche del portale](monitor-accounts.md).
-* Azure Cosmos DB distribuisce la velocità effettiva con provisioning globale in modo uniforme tra le partizioni fisiche. Controllare le metriche del portale per vedere se il carico di lavoro sta riscontrando un accesso frequente [chiave di partizione](partition-data.md). In questo modo la velocità effettiva usata aggregata (UR/sec) per essere visualizzati all'interno delle unità richiesta con provisioning, ma una singolo partizioni utilizzate le unità elaborate (UR/sec) supera la velocità effettiva con provisioning. 
-* Inoltre, il SDK 2.0 aggiunge la semantica di canale alle connessioni direct/TCP. Una connessione TCP viene utilizzata per più richieste contemporaneamente. Questo può causare due problemi in casi specifici:
-    * Un elevato livello di concorrenza può causare la contesa nel canale.
-    * Richieste di grandi dimensioni o le risposte possono causare il blocco head-of-line sul canale e aggravare contesa, anche con un livello relativamente basso di concorrenza.
-    * Se il case rientra in uno qualsiasi di queste due categorie (o se si sospetta un utilizzo elevato della CPU), queste sono le soluzioni possibili:
-        * Provare a scalabilità verticale/orizzontale dell'applicazione.
-        * Inoltre, i log del SDK possono essere acquisiti tramite [Listener di traccia](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) per ottenere altri dettagli.
+* L'utilizzo della CPU è elevato, che provocherà timeout di latenza e/o richiesta. Il cliente può scalare verticalmente il computer host in modo da fornire più risorse oppure il carico può essere distribuito tra più computer.
+* La disponibilità del socket/porta potrebbe essere bassa. Quando è in esecuzione in Azure, i client che usano .NET SDK possono raggiungere l'esaurimento delle porte di Azure SNAT (PAT). Per ridurre la possibilità di raggiungere questo problema, usare la versione 2. x o 3. x più recente di .NET SDK. Questo è un esempio del motivo per cui è consigliabile eseguire sempre la versione più recente dell'SDK.
+* La creazione di più istanze di DocumentClient può comportare problemi di conflitti e conflitti di connessione. Seguire i [suggerimenti](performance-tips.md)per le prestazioni e usare una singola istanza di DocumentClient in un intero processo.
+* Gli utenti talvolta visualizzano i timeout di richieste o latenze elevate perché il provisioning delle raccolte viene effettuato in modo insufficiente, il back-end limita le richieste e il client ritenta internamente senza che questo venga sottoposto al chiamante. Controllare le [metriche del portale](monitor-accounts.md).
+* Azure Cosmos DB distribuisce in modo uniforme la velocità effettiva di provisioning complessiva tra le partizioni fisiche. Controllare le metriche del portale per verificare se il carico di lavoro sta riscontrando una [chiave di partizione](partition-data.md)attiva. In questo modo, la velocità effettiva aggregata utilizzata (UR/sec) verrà visualizzata sotto le UR sottoposte a provisioning, ma una singola partizione utilizzata (UR/sec) supererà la velocità effettiva con provisioning. 
+* Inoltre, 2,0 SDK aggiunge la semantica del canale alle connessioni dirette/TCP. Una connessione TCP viene utilizzata per più richieste allo stesso tempo. Questo può causare due problemi in casi specifici:
+    * Un elevato livello di concorrenza può causare conflitti sul canale.
+    * Le richieste o le risposte di grandi dimensioni possono compromettere il blocco del canale ed esacerbare i conflitti, anche con un livello di concorrenza relativamente basso.
+    * Se il case rientra in una di queste due categorie (o se si sospetta un utilizzo elevato della CPU), si tratta di possibili mitigazioni:
+        * Provare a ridimensionare l'applicazione.
+        * Inoltre, i log SDK possono essere acquisiti tramite il [listener di traccia](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) per ottenere maggiori dettagli.
 
 ### <a name="connection-throttling"></a>Limitazione della connessione
-La limitazione delle richieste di connessione può verificarsi a causa di un limite di connessione in un computer host. Precedenti a 2.0, i client in esecuzione in Azure è stato raggiunto il [Esaurimento delle porte SNAT (PAT) di Azure].
+La limitazione della connessione può verificarsi a causa di un limite di connessione in un computer host. Nelle precedenti 2,0, i client in esecuzione in Azure potevano raggiungere l' [Esaurimento delle porte SNAT (PAT) di Azure].
 
 ### <a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
 
@@ -69,7 +68,7 @@ Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP p
 
  Le porte SNAT di Azure vengono usate solo quando la macchina virtuale ha un indirizzo IP privato e un processo dalla macchina virtuale prova a connettersi a un indirizzo IP pubblico. Esistono due soluzioni alternative per evitare la limitazione per le porte SNAT di Azure:
 
-* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Aggiungere l'endpoint del servizio Azure Cosmos DB alla subnet della rete virtuale di macchine virtuali di Azure. Per altre informazioni, vedere [Endpoint servizio di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
 
     Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assegnare un indirizzo IP pubblico alla macchina virtuale di Azure.
@@ -79,12 +78,12 @@ Se si usa un proxy HTTP, assicurarsi che possa supportare il numero di connessio
 In caso contrario, verranno riscontrati problemi di connessione.
 
 ### Frequenza delle richieste troppo grande<a name="request-rate-too-large"></a>
-'Troppo grande percentuale di richieste' o codice di errore 429 indica che le richieste sono limitate, poiché la velocità effettiva usata (UR/sec) ha superato la velocità effettiva con provisioning. il SDK ritenterà automaticamente le richieste basate sull'oggetto specificato [criterio di ripetizione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). Se questo errore si verifica spesso, provare ad aumentare la velocità effettiva per la raccolta. Verificare i [le metriche del portale](use-metrics.md) per vedere se si ricevono 429 errori. Rivedere le [chiave di partizione](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey) per assicurarsi che il risultato è una distribuzione uniforme dei volumi di archiviazione e richiesta. 
+' Frequenza richieste troppo grande ' o codice di errore 429 indica che le richieste sono in fase di limitazione, perché la velocità effettiva utilizzata (UR/sec) ha superato la velocità effettiva con provisioning. L'SDK tenterà automaticamente di ritentare le richieste in base ai [criteri di ripetizione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)specificati. Se questo errore si verifica spesso, è consigliabile aumentare la velocità effettiva della raccolta. Controllare le [metriche del portale](use-metrics.md) per vedere se si ricevono errori 429. Esaminare la [chiave di partizione](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey) per assicurarsi che venga generata una distribuzione uniforme del volume di archiviazione e di richiesta. 
 
-### <a name="slow-query-performance"></a>Prestazioni delle query lente
-Il [una query sulle metriche](sql-api-query-metrics.md) aiuterà a determinare in cui la query trascorre la maggior parte dei casi. Le metriche di query, si noterà quanta parte di esso viene impiegato in Visual Studio back-end del client.
-* Se la query di back-end restituisce rapidamente e trascorre un tempo elevato per il client di controllare il carico nel computer. È probabile che non sono disponibili risorse sufficienti e il SDK è in attesa di risorse siano disponibili per gestire la risposta.
-* Se la query di back-end è lenta, provare [ottimizzazione della query](optimize-cost-queries.md) ed esaminando l'oggetto corrente [criteri di indicizzazione](index-overview.md) 
+### <a name="slow-query-performance"></a>Rallentamento delle prestazioni delle query
+La [metrica della query](sql-api-query-metrics.md) consente di determinare la posizione in cui la query sta spendendo la maggior parte del tempo. Dalla metrica della query è possibile vedere la quantità di spazio dedicato al back-end rispetto al client.
+* Se la query back-end viene restituita rapidamente e trascorre molto tempo sul client, controllare il carico sul computer. È probabile che la risorsa non sia sufficiente e che l'SDK sia in attesa della disponibilità di risorse per la gestione della risposta.
+* Se la query back-end è lenta, provare a [ottimizzare la query](optimize-cost-queries.md) e a esaminare i [criteri di indicizzazione](index-overview.md) correnti 
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds

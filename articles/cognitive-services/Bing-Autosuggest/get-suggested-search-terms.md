@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui Suggerimenti automatici Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Imparare a usare l'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 13606fa5a58106575648a39e5074507f5d3bf471
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010107"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405380"
 ---
 # <a name="what-is-bing-autosuggest"></a>Informazioni sui Suggerimenti automatici Bing
 
@@ -47,7 +47,7 @@ Quando un utente seleziona un suggerimento dall'elenco a discesa, è possibile u
 
 Per iniziare rapidamente con la prima richiesta, vedere [Effettuare la prima query](quickstarts/csharp.md).
 
-Acquisire familiarità con la documentazione di riferimento sull'[API Suggerimenti automatici Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference). La documentazione di riferimento contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i termini di query suggeriti e le definizioni degli oggetti della risposta.
+Acquisire familiarità con la documentazione di riferimento sull'[API Suggerimenti automatici Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). La documentazione di riferimento contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i termini di query suggeriti e le definizioni degli oggetti della risposta.
 
 Informazioni su come effettuare ricerche sul Web con l'[API Ricerca Web Bing](../bing-web-search/search-the-web.md).
 

@@ -1,25 +1,25 @@
 ---
 title: Eseguire la registrazione in Gestione costi di Azure usando Cloudyn in Azure | Microsoft Docs
-description: Questo argomento di avvio rapido illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale.
+description: Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 835a7027293694551e672220a3d7db4c7085550b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 17f4069e38b4e4f0ee7a4ef4acc4535198b62b02
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188272"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969190"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Eseguire la registrazione al programma per i partner CSP e visualizzare i dati sui costi
 
-Come partner CSP è possibile eseguire la registrazione in Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questo argomento di avvio rapido illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
+Come partner CSP è possibile eseguire la registrazione in Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
 
 
 > [!NOTE]
@@ -72,7 +72,7 @@ I partner CSP indiretti accedono al portale di Cloudyn usando gli account creati
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido sono state usate le informazioni CSP per eseguire la registrazione in Cloudyn. È stato anche eseguito l'accesso al portale di Cloudyn ed è stata avviata la visualizzazione dei dati sui costi. Per altre informazioni su Cloudyn, passare all'esercitazione su Cloudyn.
+In questa guida introduttiva sono state usate le informazioni CSP per eseguire la registrazione in Cloudyn. È stato anche eseguito l'accesso al portale di Cloudyn ed è stata avviata la visualizzazione dei dati sui costi. Per altre informazioni su Cloudyn, passare all'esercitazione su Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Esaminare l'utilizzo e i costi](./tutorial-review-usage.md)

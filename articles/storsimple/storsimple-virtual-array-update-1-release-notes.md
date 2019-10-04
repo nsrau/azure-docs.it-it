@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 777718c4893f1edab3613be5dc941e2716d4c972
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: fdf37a8360ec69017458fabee2a9e16aa2c160aa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24010864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60789672"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple
 
@@ -55,7 +55,7 @@ L'aggiornamento 1.0 corrisponde alla versione del software **10.0.10296.0**.
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| di serie | Funzionalità | Problema |
+| No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Autenticazione basata su Azure Active Directory| Questa versione contiene delle modifiche che consentono ad Azure Active Directory di eseguire l'autenticazione con Gestione dispositivi StorSimple.|
 | 2 |Garbage Collection| Questo problema è stato segnalato nel sito di un cliente in cui l'account del dispositivo e l'account di archiviazione sono in due aree diverse. Il cliente ha segnalato errori di rete intermittenti che hanno un impatto sulla fatturazione. In questa versione il problema è stato corretto. |
@@ -66,14 +66,14 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti.
 
-| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare gli array virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi array virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un array virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |
 | **3.** |Criteri di gruppo |Nei dispositivi aggiunti a un dominio, l'applicazione di criteri di gruppo può influire negativamente sul funzionamento dei dispositivi. |Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO). |
 | **4.** |Interfaccia utente Web locale |Se sono abilitate le funzionalità di sicurezza avanzate di Internet Explorer, alcune pagine dell'interfaccia utente Web locale come Risoluzione dei problemi o Manutenzione potrebbero non funzionare correttamente. Anche i pulsanti di queste pagine potrebbero non funzionare. |Disattivare le funzionalità di protezione avanzata di Internet Explorer. |
 | **5.** |Interfaccia utente Web locale |In una macchina virtuale Hyper-V, le interfacce di rete nell'interfaccia utente Web vengono visualizzate come interfacce da 10 Gbps. |Questo comportamento è una reflection di Hyper-V. Hyper-V visualizza sempre 10 Gbps per le schede di rete virtuale. |
-| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate:  <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: quando si usano volumi aggiunti in locale e il blocco dell'intervallo di byte è abilitato, il volume aggiunto in locale può risultare online ancora prima del completamento del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
+| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate: <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: quando si usano volumi aggiunti in locale e il blocco dell'intervallo di byte è abilitato, il volume aggiunto in locale può risultare online ancora prima del completamento del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
 | **7.** |Condivisioni a livelli |Lavorare con file di grandi dimensioni può comportare una suddivisione in livelli lenta. |Durante l'uso di file di grandi dimensioni, è consigliabile che il file più grande sia più piccolo del 3% rispetto alle dimensioni della condivisione. |
 | **8.** |Capacità usata per le condivisioni |Anche in assenza di dati nelle condivisioni, è possibile riscontrarne il consumo. Questo consumo si verifica perché la capacità usata per le condivisioni include i metadati. | |
 | **9.** |Ripristino di emergenza |È possibile eseguire solo il ripristino di emergenza di un file server nello stesso dominio del dispositivo di origine. Il ripristino di emergenza su un dispositivo di destinazione in un dominio diverso non è supportato in questa versione. |L'implementazione è prevista per una versione futura. Per altre informazioni, vedere [Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure](storsimple-virtual-array-failover-dr.md) |
@@ -84,7 +84,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **14.** |File server |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
 | **15.** |File server |I collegamenti simbolici non sono supportati. | |
 | **16.** |File server |I file protetti da Windows Encrypting File System (EFS), quando vengono copiati o archiviati in un file server StorSimple Virtual Array, restituiscono una configurazione non supportata.  | |
-| **17.** |Aggiornamenti |Se viene visualizzato il codice di errore: 2359302 (hex 0x240006) quando si tenta di installare un aggiornamento rapido tramite l'interfaccia utente locale, vuol dire che l'aggiornamento rapido è già installato nel dispositivo.   | |
+| **17.** |Aggiornamenti |Se viene visualizzato errore codice: 2359302 (hex 0x240006) quando si tenta di installare un hotfix tramite l'interfaccia utente locale, quindi questo implica che l'hotfix è già installato nel dispositivo.   | |
 | **18.** |Aggiornamenti |Se si usa l'interfaccia utente Web locale per installare l'aggiornamento 1 nell'array virtuale, verificare che si stia eseguendo l'aggiornamento 0.6. Se si esegue una versione precedente all'aggiornamento 0.6, installare prima l'aggiornamento 0.6 e quindi applicare l'aggiornamento 1. Se si installa direttamente l'aggiornamento 1.0 da una versione precedente all'aggiornamento 0.6, alcuni aggiornamenti non verranno eseguiti e i grafici di monitoraggio non funzioneranno.   | |
 
 

@@ -4,12 +4,11 @@ description: In questa esercitazione viene descritto come usare l'interfaccia de
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -17,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 9f4aec031d9ba8a162b022541c6e4cb35ce976a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370806"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081497"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -46,11 +45,9 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 **Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host della macchina virtuale di Azure. I dischi temporanei sono altamente efficienti e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Tuttavia, se la macchina virtuale viene spostata in un nuovo host, tutti i dati memorizzati su un disco temporaneo vengono rimossi. Le dimensioni del disco temporaneo sono determinate dalle dimensioni della macchina virtuale. I dischi temporanei vengono etichettati come */dev/sdb* e hanno un punto di montaggio */mnt*.
 
-
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
 
-Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare quattro dischi dati.
-
+Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare quattro dischi dati.
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 
@@ -107,7 +104,7 @@ Per creare e collegare un nuovo disco a una macchina virtuale esistente, usare i
 az vm disk attach \
     --resource-group myResourceGroupDisk \
     --vm-name myVM \
-    --disk myDataDisk \
+    --name myDataDisk \
     --size-gb 128 \
     --sku Premium_LRS \
     --new
@@ -256,7 +253,7 @@ Usare il comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) per c
 az vm disk attach \
    –g myResourceGroupDisk \
    --vm-name myVM \
-   --disk $datadisk
+   --name $datadisk
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

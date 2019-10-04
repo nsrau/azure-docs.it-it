@@ -3,15 +3,15 @@ title: Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio
 description: Informazioni su come modellare e partizionare un esempio reale usando l'API Core di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 3/27/2019
+ms.topic: conceptual
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: HT
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919894"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093421"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -124,7 +124,7 @@ Questa richiesta è semplice da implementare in quanto è sufficiente creare o a
 
 ![Scrittura di un singolo elemento nel contenitore utenti](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 7 ms | 5,71 UR | ✅ |
 
@@ -134,17 +134,17 @@ Per recuperare un utente si legge l'elemento corrispondente dal contenitore `use
 
 ![Recupero di un singolo elemento dal contenitore utenti](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 2 ms | 1 UR | ✅ |
 
 ### <a name="c2-createedit-a-post"></a>[C2] Creare/modificare un post
 
-Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
+Analogamente a **[C1]** , occorre solo scrivere nel contenitore `posts`.
 
 ![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 8,76 UR | ✅ |
 
@@ -156,7 +156,7 @@ Si inizia con il recupero del documento corrispondente dal contenitore `posts`. 
 
 Ognuna delle query aggiuntive filtra la chiave di partizione del rispettivo contenitore, che è proprio ciò che si vuole ottenere per ottimizzare le prestazioni e la scalabilità. Tuttavia, alla fine sarà necessario eseguire quattro operazioni per restituire un singolo post, perciò si procederà a migliorarlo nella prossima iterazione.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 19,54 UR | ⚠ |
 
@@ -171,7 +171,7 @@ Questa implementazione presenta numerosi svantaggi:
 - è necessario eseguire le query che aggregano i numeri di commenti e Mi piace per ogni post restituito dalla prima query
 - la query principale non filtra la chiave di partizione del contenitore `posts`, causando un fan-out e un'analisi della partizione nell'intero contenitore.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 130 ms | 619,41 UR | ⚠ |
 
@@ -181,7 +181,7 @@ Per creare un commento basta scrivere l'elemento corrispondente nel contenitore 
 
 ![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 7 ms | 8,57 UR | ✅ |
 
@@ -193,27 +193,27 @@ Per iniziare, si esegue una query che recupera tutti i commenti per tale post e,
 
 Anche se la query principale filtra la chiave di partizione del contenitore, aggregare separatamente i nomi utente penalizza le prestazioni complessive. Sarà possibile migliorarle in un secondo momento.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 23 ms | 27,72 UR | ⚠ |
 
 ### <a name="c4-like-a-post"></a>[C4] Aggiungere Mi piace a un post
 
-Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `posts`.
+Come per **[C3]** , basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
 ![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 6 ms | 7,05 UR | ✅ |
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Elencare i Mi piace ricevuti da un post
 
-Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
+Analogamente a **[Q4]** , si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
 
 ![Recupero di tutti i Mi piace ricevuti da un post e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 59 ms | 58,92 UR | ⚠ |
 
@@ -225,7 +225,7 @@ Si recuperano i post più recenti eseguendo la query del contenitore `posts` per
 
 Anche in questo caso, la query iniziale non filtra la chiave di partizione del contenitore `posts`, che attiva un fan-out dispendioso. Questa situazione è persino peggiore, perché l'obiettivo è un set di risultati molto più grande e i risultati vengono ordinati con una clausola `ORDER BY`, che lo rende più dispendioso in termini di unità richiesta.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 306 ms | 2063,54 UR | ⚠ |
 
@@ -282,7 +282,7 @@ Si modificano anche i commenti e i Mi piace aggiungendo il nome utente del relat
 
 L'obiettivo in questo caso è incrementare il `commentCount` o il `likeCount` nel post corrispondente ogni volta che si aggiunge un commento o un Mi piace. Dal momento che il contenitore `posts` è partizionato per `postId`, il nuovo elemento (commento o Mi piace) e il post corrispondente si trovano nella medesima partizione logica. Di conseguenza, è possibile usare una [stored procedure](stored-procedures-triggers-udfs.md) per eseguire tale operazione.
 
-A questo punto, quando si crea un commento (**[C3]**), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
+A questo punto, quando si crea un commento ( **[C3]** ), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
 
 ```javascript
 function createComment(postId, comment) {
@@ -370,7 +370,7 @@ Ora che la denormalizzazione è stata applicata, è necessario solo recuperare u
 
 ![Recupero di un singolo elemento dal contenitore post](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 2 ms | 1 UR | ✅ |
 
@@ -380,7 +380,7 @@ Anche in questo caso, è possibile fare a meno delle richieste aggiuntive che re
 
 ![Recupero di tutti i commenti per un post](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 7,72 UR | ✅ |
 
@@ -390,13 +390,13 @@ La stessa esatta situazione di quando si elencano i Mi piace.
 
 ![Recupero di tutti i Mi piace per un post](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 8,92 UR | ✅ |
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: assicurarsi che tutte le richieste siano scalabili
 
-Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]**. Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
+Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]** . Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Elencare i post di un utente in forma breve
 
@@ -450,7 +450,7 @@ A questo punto è possibile indirizzare la query al contenitore `users`, filtran
 
 ![Recupero di tutti i post per un utente](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 6,46 UR | ✅ |
 
@@ -479,7 +479,7 @@ Dunque, per ottimizzare quest'ultima richiesta, si introduce nella progettazione
 
 Questo contenitore è suddiviso in partizioni per `type`, che sarà sempre `post` negli elementi di questo esempio. Questa operazione assicura che tutti gli elementi in questo contenitore si troveranno nella stessa partizione.
 
-Per ottenere la denormalizzazione, è sufficiente utilizzare la pipeline del feed di modifiche introdotta in precedenza per inviare i post al nuovo contenitore. È importante assicurarsi che vengano archiviati solo i 100 post più recenti; in caso contrario, il contenuto del contenitore può eccedere le dimensioni massime di una partizione. Per eseguire questa operazione si chiama un [post-trigger](stored-procedures-triggers-udfs.md#triggers) ogni volta che viene aggiunto un documento al contenitore:
+Per ottenere la denormalizzazione, è sufficiente utilizzare la pipeline del feed di modifiche introdotta in precedenza per inviare i post al nuovo contenitore. È importante ricordare che è necessario assicurarsi che vengano archiviati solo i 100 post più recenti. In caso contrario, il contenuto del contenitore può eccedere le dimensioni massime di una partizione. Per eseguire questa operazione si chiama un [post-trigger](stored-procedures-triggers-udfs.md#triggers) ogni volta che viene aggiunto un documento al contenitore:
 
 ![Denormalizzazione dei post nel contenitore feed](./media/how-to-model-partition-example/denormalization-3.png)
 
@@ -534,15 +534,15 @@ Il passaggio finale consiste nel reindirizzare la query al nuovo contenitore `fe
 
 ![Recupero dei post più recenti](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 16,97 UR | ✅ |
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della scalabilità introdotti nelle diverse versioni progettate.
 
-| | V1 | V2 | V3 |
+| | V1 | Versione 2 | V3 |
 | --- | --- | --- | --- |
 | **[C1]** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
 | **[Q1]** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |
@@ -574,5 +574,5 @@ Il feed di modifiche usato per distribuire gli aggiornamenti negli altri conteni
 Dopo questa introduzione pratica alla modellazione di dati e al partizionamento, consultare gli articoli seguenti per rivedere i concetti che sono stati trattati:
 
 - [Usare database, contenitori ed elementi](databases-containers-items.md)
-- [Partizionamento in Azure Cosmos DB](partitioning-overview.md)
+- [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partizionamento in Azure Cosmos DB)
 - [Feed di modifiche in Azure Cosmos DB](change-feed.md)

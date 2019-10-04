@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855938"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907703"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
 Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
@@ -32,7 +32,7 @@ Il processo di modellazione richiede il training e la valutazione su un set di d
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) è la soluzione ospitata in Azure di Spark open source. Include anche il supporto per istanze di Jupyter Scala Notebook nel cluster Spark ed è in grado di eseguire query Spark SQL interattive per trasformare, filtrare e visualizzare dati archiviati nell'archiviazione BLOB di Azure. I frammenti di codice Scala presentati in questo articolo che consentono di creare le soluzioni e offrono i tracciati pertinenti per la visualizzazione dei dati sono eseguiti in istanze di Jupyter Notebook installate in cluster Spark. La procedura di modellazione riportata in questi argomenti include anche codice che illustra come eseguire il training, valutare, salvare e usare ogni tipo di modello.
 
-La procedura e il codice di installazione riportati in questo articolo si riferiscono ad Azure HDInsight 3.4 Spark 1.6. Tuttavia, il codice in questo esempio e in [Jupyter Scala Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster potrebbero essere leggermente diversi rispetto a quanto illustrato in questo articolo.
+La procedura e il codice di installazione riportati in questo articolo si riferiscono ad Azure HDInsight 3.4 Spark 1.6. Tuttavia, il codice in questo esempio e in [Jupyter Scala Notebook](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb) è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster potrebbero essere leggermente diversi rispetto a quanto illustrato in questo articolo.
 
 > [!NOTE]
 > Per un argomento che illustra come usare Python anziché Scala per completare le attività per un processo di analisi scientifica dei dati end-to-end, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md).
@@ -123,7 +123,7 @@ Importare la libreria Spark, MLlib e altre librerie necessarie tramite il codice
     val sqlContext = new SQLContext(sc)
 
 
-## <a name="data-ingestion"></a>Inserimento di dati
+## <a name="data-ingestion"></a>Inserimento dati
 Il primo passaggio nel processo di analisi scientifica dei dati è inserire i dati da analizzare. Spostare i dati dalle origini o dai sistemi in cui si trovano nell'ambiente di esplorazione e modellazione dei dati. In questo articolo, i dati inseriti rappresentano un campione unito in join pari allo 0,1% del file con estensione tsv relativo alle corse e alle tariffe dei taxi. L'ambiente di modellazione ed esplorazione dei dati è Spark. Questa sezione contiene il codice per completare la serie di attività seguenti:
 
 1. Impostare i percorsi di directory per l'archiviazione di dati e modelli.

@@ -1,29 +1,25 @@
 ---
-title: Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP - App per la logica di Azure | Microsoft Docs
+title: Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP-app per la logica di Azure
 description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica di Azure
 services: logic-apps
-keywords: flussi di lavoro, endpoint HTTP
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304165"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875960"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in app per la logica di Azure
 
 È possibile esporre a livello nativo gli endpoint HTTP sincroni come trigger sulle app per la logica, permettendo in tal modo di attivare o di chiamare le app per la logica tramite un URL. È inoltre possibile annidare i flussi di lavoro nell'app per la logica usando un modello di endpoint richiamabile.
 
@@ -245,11 +241,11 @@ Per alcune richieste che avviano un'app per la logica, può risultare utile risp
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | statusCode |Specifica il codice di stato HTTP per la risposta alla richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
 | headers |Definisce un numero illimitato di intestazioni da includere nella risposta. |
-| Corpo |Specifica un oggetto body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente. |
+| body |Specifica un oggetto body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente. |
 
 Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l'azione **Risposta**:
 
@@ -275,9 +271,9 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 
 ## <a name="q--a"></a>Domande e risposte
 
-#### <a name="q-what-about-url-security"></a>D: Per quanto riguarda sicurezza URL?
+#### <a name="q-what-about-url-security"></a>D: E per quanto riguarda la sicurezza degli URL?
 
-R: Azure genera in modo sicuro gli URL callback delle app per la logica usando una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+R: Azure genera in modo sicuro gli URL di callback delle app per la logica usando una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
    > [!IMPORTANT]
    > Per i sistemi di produzione e protezione, è consigliabile evitare la chiamata dell'app per la logica direttamente dal browser in quanto:
@@ -287,16 +283,16 @@ R: Azure genera in modo sicuro gli URL callback delle app per la logica usando u
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 
-R: Sì, gli endpoint HTTP supportano configurazioni più avanzate tramite [ **gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+R: Sì, gli endpoint HTTP supportano una configurazione più avanzata tramite [**gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configurare i domini di Gestione API nel [portale di Azure](https://portal.azure.com/ "portale di Azure")
 * Impostare la norma per verificare l'autenticazione di base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Che cosa è cambiato la migrazione dello schema dalla versione di anteprima 1 dicembre 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Cosa è cambiato quando lo schema è stato migrato dal 1 ° dicembre 2014 Preview?
 
-R: Ecco un riepilogo di queste modifiche:
+R: Di seguito è riportato un riepilogo di queste modifiche:
 
 | Anteprima del 1 dicembre 2014 | 1 giugno 2016 |
 | --- | --- |

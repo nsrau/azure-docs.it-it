@@ -3,8 +3,8 @@ title: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Di
 description: Informazioni su come inserire un'applicazione che supporta l'accesso Single Sign-On nella raccolta di app di Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 09/16/2019
+ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5ec950a91f3ed0099873e40c7235a9d59f0cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300136"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176919"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
-Questo articolo illustra come inserire un'applicazione nella raccolta di applicazioni Azure AD, implementare single sign-on (SSO) e gestire l'elenco.
+Questo articolo illustra come elencare un'applicazione nella raccolta di applicazioni di Azure AD, implementare l'accesso Single Sign-on (SSO) e gestire l'elenco.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
 
@@ -48,10 +48,7 @@ Questo articolo illustra come inserire un'applicazione nella raccolta di applica
 
 - Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
 
-- Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
-
->[!NOTE]
->Viene eseguito con un numero elevato di richieste di connettore SCIM, pertanto è stata interrotta la accettando nuove richieste nel nostro portale. Tenere premuto su richieste fino a ulteriore avviso. Abbiamo scuse per questo ritardo e inconveniente causato.
+- È necessario un account permanente per il test con almeno 2 utenti registrati.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
@@ -83,7 +80,7 @@ Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto 
     ![Sequenza temporale dell'inserimento di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
 
     * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID Connect & OAuth 2.0** (OpenID Connect e OAuth 2.0) come indicato in precedenza.
-    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2.0** o **WS-Fed**: Se l'app supporta SAML 2.0, può essere integrata direttamente con un tenant di Azure AD usando le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
 
@@ -101,6 +98,12 @@ Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[acc
 * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando SSO con password selezionare **Password SSO** (SSO con password) come indicato in precedenza.
 * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## <a name="requesting-for-user-provisioning"></a>Richiesta di provisioning utenti
+
+Seguire il processo seguente per richiedere il provisioning dell'utente-
+
+   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## <a name="updateremove-existing-listing"></a>Aggiornare e rimuovere un elenco esistente
 
 Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Azure AD, è prima necessario inviare la richiesta nel [portale di rete delle applicazioni](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, accedere con l'account Microsoft (ad esempio, Outlook o Hotmail).
@@ -109,29 +112,29 @@ Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Az
 
     ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * Se si vuole aggiornare un'applicazione esistente, selezionare **Update existing application listing** (Aggiorna elenco applicazioni esistente).
-    * Se si vuole rimuovere un'applicazione esistente dalla raccolta di Azure AD, selezionare **Remove existing application listing** (Rimuovi elenco applicazioni esistente).
-    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Se si desidera aggiornare un'applicazione esistente, selezionare l'opzione appropriata in base ai requisiti.
+    * Se si vuole rimuovere un'applicazione esistente dalla raccolta di Azure AD, selezionare **Rimuovi l'elenco di applicazioni dalla raccolta**.
+    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="listing-requests-by-customers"></a>Elenco di richieste da parte dei clienti
+## <a name="listing-requests-by-customers"></a>Elenco di richieste da clienti
 
-I clienti possono inviare la richiesta di inserire un'applicazione facendo clic **App richiede da parte dei clienti** -> **Invia nuova richiesta**.
+I clienti possono inviare la richiesta di elencare un'applicazione facendo clic su **richieste di app da** -> parte dei clienti per**inviare una nuova richiesta**.
 
-![Riquadro App richieste dei clienti](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Mostra il riquadro app richieste dal cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Di seguito è riportato che il flusso del cliente ha richiesto le applicazioni-
+Di seguito è riportato il flusso di applicazioni richieste dal cliente:
 
-![Flusso di App richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
+![Mostra il flusso delle app richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tempistica
 
 La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
 
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
+  ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
 
 La tempistica del processo di inserimento di un'applicazione OpenID Connect nella raccolta è di 2-5 giorni lavorativi.
 
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
+  ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalation
 

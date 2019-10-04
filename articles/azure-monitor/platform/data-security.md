@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 407aaf15808d1d1420fd1a3804651d29a407d4b3
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312852"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68606664"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
-Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/security-microsoft-trust-center.md).  
+Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/fundamentals/trust-center.md).  
 
 Questo articolo illustra il modo in cui i dati vengono raccolti, elaborati e protetti da Log Analytics. È possibile usare gli agenti per connettersi al servizio Web, usare System Center Operations Manager per raccogliere dati operativi o recuperare dati da Diagnostica di Azure per usarli in Log Analytics. 
 
@@ -173,7 +173,7 @@ Come descritto sopra, i dati provenienti dal server di gestione o dagli agenti c
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Il servizio Log Analytics riceve ed elabora i dati
 Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati in un Hub di eventi di Azure nell'area in cui verranno infine archiviati i dati inattivi. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio Log Analytics elabora i dati non elaborati e li inserisce nel database.
 
-Il periodo di conservazione dei dati raccolti archiviati nel database varia a seconda del piano tariffario selezionato. Per il livello *gratuito*, i dati raccolti sono disponibili per sette giorni. Per il livello *a pagamento*, i dati raccolti sono disponibili per 31 giorni per impostazione predefinita, ma è possibile estendere il periodo a 730 giorni. I dati vengono archiviati in modalità crittografata quando sono inattivi in Archiviazione di Azure, per garantirne la riservatezza, e vengono replicati all'interno dell'area locale mediante archiviazione con ridondanza locale (LRS). Le ultime due settimane di dati vengono anche archiviate nella cache basata su unità SSD e questa cache viene crittografata.
+Il periodo di conservazione dei dati raccolti archiviati nel database varia a seconda del piano tariffario selezionato. Per il livello *gratuito*, i dati raccolti sono disponibili per sette giorni. Per il livello *a pagamento*, i dati raccolti sono disponibili per 31 giorni per impostazione predefinita, ma è possibile estendere il periodo a 730 giorni. I dati vengono archiviati in modalità crittografata quando sono inattivi in Archiviazione di Azure, per garantirne la riservatezza, e vengono replicati all'interno dell'area locale mediante archiviazione con ridondanza locale (LRS). Le ultime due settimane di dati vengono archiviate anche nella cache basata su SSD e questa cache è crittografata.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Usare Log Analytics per accedere ai dati
 Per accedere all'area di lavoro Log Analytics, accedere al portale di Azure usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale e il servizio Log Analytics viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale, viene generato un ID di sessione nel client utente (Web browser) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie sul lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale di Azure termina.

@@ -1,6 +1,6 @@
 ---
-title: Architettura della connettività per un'istanza gestita di Database SQL di Azure | Microsoft Docs
-description: Informazioni sulle comunicazioni istanza Database SQL di Azure gestiti e anche l'architettura della connettività come i componenti di indirizzano il traffico all'istanza gestita.
+title: Architettura di connettività per un'istanza gestita nel database SQL di Azure | Microsoft Docs
+description: Informazioni sulla comunicazione dell'istanza gestita di database SQL di Azure e sull'architettura di connettività, nonché sul modo in cui i componenti indirizzano il traffico all'istanza gestita.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,115 +10,114 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d539bd569eee613eb43947e5fd0e3b0614ca5d79
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006132"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858615"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura di connettività per un'istanza gestita nel database SQL di Azure
 
-Questo articolo illustra le comunicazioni in un'istanza gestita di Database SQL di Azure. Vengono inoltre descritte architettura della connettività e modo in cui i componenti di indirizzano il traffico all'istanza gestita.  
+Questo articolo illustra la comunicazione in un'istanza gestita di database SQL di Azure. Viene inoltre descritta l'architettura di connettività e il modo in cui i componenti indirizzano il traffico all'istanza gestita.  
 
-L'istanza gestita di Database SQL viene inserito all'interno di rete virtuale di Azure e la subnet dedicata nelle istanze gestite. Questa distribuzione include:
+L'istanza gestita di database SQL è posizionata all'interno della rete virtuale di Azure e della subnet dedicata alle istanze gestite. Questa distribuzione fornisce:
 
 - Un indirizzo IP privato protetto.
-- La possibilità di connettere una rete locale a un'istanza gestita.
-- La possibilità di connettersi a un'istanza gestita a un server collegato o un altro archivio dati in-premise.
-- La possibilità di connettersi a un'istanza gestita per le risorse di Azure.
+- Possibilità di connettere una rete locale a un'istanza gestita.
+- Possibilità di connettere un'istanza gestita a un server collegato o a un altro archivio dati locale.
+- Possibilità di connettere un'istanza gestita a risorse di Azure.
 
 ## <a name="communication-overview"></a>Panoramica delle comunicazioni
 
-Il diagramma seguente mostra le entità che si connettono a un'istanza gestita. Indica anche le risorse necessarie per comunicare con l'istanza gestita. Il processo di comunicazione nella parte inferiore del diagramma rappresenta le applicazioni dei clienti e gli strumenti che si connettono all'istanza gestita come origini dati.  
+Nel diagramma seguente vengono illustrate le entità che si connettono a un'istanza gestita. Vengono inoltre illustrate le risorse che devono comunicare con l'istanza gestita. Il processo di comunicazione nella parte inferiore del diagramma rappresenta le applicazioni e gli strumenti del cliente che si connettono all'istanza gestita come origini dati.  
 
-![Entità nell'architettura della connettività](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entità nell'architettura di connettività](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Un'istanza gestita è una piattaforma come un'offerta di servizio (PaaS). Microsoft Usa automatizzati agents (gestione, distribuzione e manutenzione) per gestire questo servizio basato su flussi di dati di telemetria. Poiché Microsoft è responsabile della gestione, i clienti non possono accedere le macchine virtuali del cluster di istanza gestita tramite Remote Desktop Protocol (RDP).
+Un'istanza gestita è un'offerta di piattaforma distribuita come servizio (PaaS). Microsoft usa agenti automatizzati (gestione, distribuzione e manutenzione) per gestire questo servizio in base ai flussi di dati di telemetria. Poiché Microsoft è responsabile della gestione, i clienti non possono accedere ai computer del cluster virtuale dell'istanza gestita tramite Remote Desktop Protocol (RDP).
 
-Alcune operazioni avviate da applicazioni o gli utenti finali potrebbero richiedere di SQL Server gestito le istanze per interagire con la piattaforma. Un caso è la creazione di un database in istanza gestita. Questa risorsa viene esposta tramite il portale di Azure, PowerShell, CLI di Azure e l'API REST.
+Alcune SQL Server operazioni avviate dagli utenti finali o dalle applicazioni potrebbero richiedere che le istanze gestite possano interagire con la piattaforma. Un caso è la creazione di un database di istanza gestita. Questa risorsa viene esposta tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure e l'API REST.
 
-Le istanze gestite dipendono da servizi di Azure come archiviazione di Azure per i backup, hub eventi di Azure per i dati di telemetria, Azure Active Directory per l'autenticazione, Azure Key Vault per Transparent Data Encryption (TDE) e un paio di servizi della piattaforma Azure che forniscono funzionalità di sicurezza e al supporto. Le istanze gestite stabilisce le connessioni a tali servizi.
+Le istanze gestite dipendono da servizi di Azure, ad esempio archiviazione di Azure per i backup, Hub eventi di Azure per la telemetria, Azure Active Directory per l'autenticazione, Azure Key Vault per Transparent Data Encryption (Transparent Data Encryption) e un paio di servizi della piattaforma Azure che forniscono funzionalità di sicurezza e supporto. Le istanze gestite consentono di stabilire connessioni a tali servizi.
 
-Tutte le comunicazioni vengono crittografate e firmati mediante certificati. Per verificare l'attendibilità delle parti, gestite in comunicazione istanze verificare costantemente questi certificati tramite gli elenchi di revoche di certificati. Se i certificati vengono revocati, l'istanza gestita chiude le connessioni per proteggere i dati.
+Tutte le comunicazioni vengono crittografate e firmate tramite certificati. Per verificare l'affidabilità delle parti che comunicano, le istanze gestite verificano costantemente questi certificati tramite gli elenchi di revoche di certificati. Se i certificati vengono revocati, l'istanza gestita chiude le connessioni per proteggere i dati.
 
 ## <a name="high-level-connectivity-architecture"></a>Architettura generale della connettività
 
-A livello generale, un'istanza gestita è un set di componenti del servizio. Questi componenti sono ospitati in un set dedicato di macchine virtuali isolate eseguite all'interno di subnet della rete virtuale del cliente. Queste macchine formano un cluster virtuale.
+A un livello elevato, un'istanza gestita è un set di componenti del servizio. Questi componenti sono ospitati in un set dedicato di macchine virtuali isolate che vengono eseguite all'interno della subnet della rete virtuale del cliente. Questi computer formano un cluster virtuale.
 
-Un cluster virtuale può ospitare più istanze gestite. Se necessario, il cluster viene automaticamente espande o comprime quando il cliente modifica il numero di istanze sottoposte a provisioning nella subnet.
+Un cluster virtuale può ospitare più istanze gestite. Se necessario, il cluster si espande automaticamente o si contrae quando il cliente modifica il numero di istanze di cui è stato effettuato il provisioning nella subnet.
 
-Le applicazioni dei clienti possono connettersi a istanze gestite e possono eseguire una query e aggiornare i database all'interno della rete virtuale, rete virtuale con peering, o una rete connessa tramite VPN o ExpressRoute di Azure. Questa rete deve utilizzare un endpoint e un indirizzo IP privato.  
+Le applicazioni dei clienti possono connettersi a istanze gestite e possono eseguire query e aggiornare i database all'interno della rete virtuale, della rete virtuale con peering o della rete connessa tramite VPN o Azure ExpressRoute. Questa rete deve usare un endpoint e un indirizzo IP privato.  
 
-![Diagramma dell'architettura della connettività](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagramma dell'architettura di connettività](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Servizi di distribuzione e gestione di Microsoft vengono eseguiti all'esterno della rete virtuale. Un'istanza gestita e servizi Microsoft di connettersi tramite gli endpoint che dispongono di indirizzi IP pubblici. Quando un'istanza gestita consente di creare una connessione in uscita, estremità ricevente rende Network Address Translation (NAT) l'aspetto di connessione proviene da questo indirizzo IP pubblico.
+I servizi di distribuzione e gestione Microsoft vengono eseguiti all'esterno della rete virtuale. Un'istanza gestita e i servizi Microsoft si connettono sugli endpoint che hanno indirizzi IP pubblici. Quando un'istanza gestita crea una connessione in uscita, alla ricezione della connessione NAT (Network Address Translation) finale la connessione risulta simile a quella proveniente da questo indirizzo IP pubblico.
 
-Gestione traffico scorre attraverso la rete virtuale del cliente. Ciò significa che gli elementi dell'infrastruttura della rete virtuale possono danneggiare il traffico di gestione, rendendo l'istanza di esito negativo e non saranno più disponibili.
+Il traffico di gestione fluisce attraverso la rete virtuale del cliente. Questo significa che gli elementi dell'infrastruttura della rete virtuale possono danneggiare il traffico di gestione rendendo l'istanza non riuscita e diventare non disponibile.
 
 > [!IMPORTANT]
-> Per migliorare l'esperienza dei clienti e disponibilità dei servizi, Microsoft applicherà i criteri preventivo rete sugli elementi dell'infrastruttura di rete virtuale di Azure. I criteri possono influire sul funzionamento di istanza gestita. Questo meccanismo platform comunica in modo trasparente i requisiti di rete per gli utenti. L'obiettivo principale del criterio è per evitare errori di configurazione di rete e per assicurare il funzionamento normale istanza gestita. Quando si elimina un'istanza gestita, viene rimosso anche il criterio preventivi di rete.
+> Per migliorare l'esperienza dei clienti e la disponibilità dei servizi, Microsoft applica criteri per finalità di rete negli elementi dell'infrastruttura di rete virtuale di Azure. I criteri possono influire sul funzionamento dell'istanza gestita. Questo meccanismo della piattaforma comunica in modo trasparente i requisiti di rete agli utenti. L'obiettivo principale del criterio è impedire la configurazione errata della rete e garantire le normali operazioni dell'istanza gestita. Quando si elimina un'istanza gestita, vengono rimossi anche i criteri per finalità di rete.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Architettura della connettività del cluster virtuale
 
-Diamo un esame approfondito nell'architettura di connettività per le istanze gestite. Il diagramma seguente illustra il layout concettuale del cluster virtuale.
+Si esaminerà in dettaglio l'architettura di connettività per le istanze gestite. Il diagramma seguente illustra il layout concettuale del cluster virtuale.
 
-![Architettura della connettività del cluster virtuale](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Architettura di connettività del cluster virtuale](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-I client si connettono a un'istanza gestita usando un nome host che ha il formato `<mi_name>.<dns_zone>.database.windows.net`. Questo nome host si risolve un indirizzo IP privato anche se è registrato in una zona di dominio pubblico Name System (DNS) ed è risolvibile pubblicamente. Il `zone-id` viene generato automaticamente quando si crea il cluster. Se un cluster appena creato ospita un'istanza gestita secondaria, condivide il relativo ID della zona con il cluster primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+I client si connettono a un'istanza gestita utilizzando un nome host con `<mi_name>.<dns_zone>.database.windows.net`il formato. Questo nome host viene risolto in un indirizzo IP privato anche se è registrato in una zona DNS (Public Domain Name System) ed è risolvibile pubblicamente. `zone-id` Viene generato automaticamente quando si crea il cluster. Se un cluster appena creato ospita un'istanza gestita secondaria, condivide il relativo ID di zona con il cluster primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Questo indirizzo IP privato a cui appartiene al servizio di bilanciamento del carico interno dell'istanza gestita. Il servizio di bilanciamento del carico indirizza il traffico al gateway dell'istanza gestita. Poiché più istanze gestite possono essere eseguiti all'interno dello stesso cluster, nome host dell'istanza gestita il gateway Usa per reindirizzare il traffico al servizio del motore SQL corretto.
+Questo indirizzo IP privato appartiene al servizio di bilanciamento del carico interno dell'istanza gestita. Il servizio di bilanciamento del carico indirizza il traffico al gateway dell'istanza gestita. Poiché più istanze gestite possono essere eseguite all'interno dello stesso cluster, il gateway usa il nome host dell'istanza gestita per reindirizzare il traffico al servizio motore SQL corretto.
 
-Servizi di distribuzione e gestione di connettersi a un'istanza gestita usando un [endpoint di gestione](#management-endpoint) che esegue il mapping a un riferimento esterno bilanciamento del carico. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set predefinito di porte che utilizzano solo i componenti di gestione dell'istanza gestita. Un firewall incorporato nei nodi è configurare per consentire il traffico solo da intervalli di indirizzi IP di Microsoft. I certificati si escludono a vicenda autenticano tutte le comunicazioni tra i componenti di gestione e il piano di gestione.
+I servizi di gestione e distribuzione si connettono a un'istanza gestita tramite un [endpoint di gestione](#management-endpoint) che esegue il mapping a un servizio di bilanciamento del carico esterno. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set predefinito di porte utilizzate solo dai componenti di gestione dell'istanza gestita. Un firewall integrato nei nodi viene configurato per consentire il traffico solo da intervalli IP Microsoft. I certificati autenticano reciprocamente tutte le comunicazioni tra i componenti di gestione e il piano di gestione.
 
 ## <a name="management-endpoint"></a>Endpoint di gestione
 
-Microsoft gestisce l'istanza gestita usando un endpoint di gestione. Questo endpoint si trova all'interno del cluster virtuale dell'istanza. L'endpoint di gestione è protetto da un firewall a livello di rete predefinito. A livello di applicazione, è protetto dalla verifica reciproca dei certificati. Per trovare l'indirizzo IP dell'endpoint, vedere [determinare l'indirizzo IP dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft gestisce l'istanza gestita tramite un endpoint di gestione. Questo endpoint si trova all'interno del cluster virtuale dell'istanza. L'endpoint di gestione è protetto da un firewall incorporato a livello di rete. A livello di applicazione, è protetto dalla verifica reciproca dei certificati. Per trovare l'indirizzo IP dell'endpoint, vedere [determinare l'indirizzo IP dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Quando avviare le connessioni all'interno dell'istanza gestita (come con i backup e i log di controllo), il traffico viene visualizzata per l'avvio dall'indirizzo IP pubblico dell'endpoint di gestione. È possibile limitare l'accesso a servizi pubblici da un'istanza gestita impostando le regole del firewall per consentire solo indirizzo IP dell'istanza gestita. Per altre informazioni, vedere [firewall incorporato dell'istanza gestita di verificare](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Quando le connessioni vengono avviate all'interno dell'istanza gestita, ad esempio i backup e i log di controllo, il traffico sembra iniziare dall'indirizzo IP pubblico dell'endpoint di gestione. È possibile limitare l'accesso ai servizi pubblici da un'istanza gestita impostando le regole del firewall in modo da consentire solo l'indirizzo IP dell'istanza gestita. Per ulteriori informazioni, vedere [verificare il firewall incorporato dell'istanza gestita](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice destinati a servizi di Azure che si trovano all'interno di aree dell'istanza gestita è ottimizzata e per tale motivo non fornisca all'indirizzo IP pubblico di istanza possono Gestione endpoint. Per questo motivo se è necessario usare le regole del firewall basato su IP, più comunemente per l'archiviazione del servizio deve essere in un'area diversa dall'istanza gestita.
+> Il traffico che passa ai servizi di Azure che si trovano all'interno dell'area dell'istanza gestita è ottimizzato e per questo motivo non è stato gestito con l'indirizzo IP pubblico dell'endpoint di gestione delle istanze gestite. Per questo motivo, se è necessario usare le regole del firewall basate su IP, in genere per l'archiviazione, il servizio deve trovarsi in un'area diversa rispetto all'istanza gestita.
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
-Distribuire un'istanza gestita in una subnet dedicata all'interno della rete virtuale. La subnet deve avere le seguenti caratteristiche:
+Distribuire un'istanza gestita in una subnet dedicata all'interno della rete virtuale. La subnet deve avere le caratteristiche seguenti:
 
-- **Subnet dedicata:** Subnet dell'istanza gestita non può contenere qualsiasi altro servizio cloud che è associato, e non può essere una subnet del gateway. La subnet non può contenere qualsiasi risorsa, ma l'istanza gestita e non è possibile aggiungere in un secondo momento le risorse nella subnet.
-- **Gruppo di sicurezza di rete**: È necessario definire un gruppo di sicurezza che è associati con la rete virtuale [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint di dati dell'istanza gestita filtrando il traffico sulla porta 1433 e le porte 11000-11999 quando l'istanza gestita è configurata per reindirizzare le connessioni.
-- **Tabella di route definita (UDR) utente:** Una tabella di route definita dall'utente che ha associato con la rete virtuale deve includere specifiche [voci](#user-defined-routes).
-- **Nessun endpoint di servizio:** Nessun endpoint di servizio deve essere associato a subnet dell'istanza gestita. Assicurarsi che l'opzione endpoint di servizio viene disabilitato quando si crea la rete virtuale.
-- **Indirizzi IP sufficienti:** Subnet dell'istanza gestita deve avere almeno 16 indirizzi IP. Il valore minimo consigliato è 32 indirizzi IP. Per altre informazioni, vedere [determinare le dimensioni della subnet per le istanze gestite](sql-database-managed-instance-determine-size-vnet-subnet.md). È possibile distribuire le istanze gestite nel [della rete esistente](sql-database-managed-instance-configure-vnet-subnet.md) dopo la configurazione per soddisfare [requisiti di rete per le istanze gestite](#network-requirements). In caso contrario, creare un [nuova rete e subnet](sql-database-managed-instance-create-vnet-subnet.md).
+- **Subnet dedicata:** La subnet dell'istanza gestita non può contenere nessun altro servizio cloud associato e non può essere una subnet del gateway. La subnet non può contenere alcuna risorsa ma l'istanza gestita e successivamente non sarà possibile aggiungere altri tipi di risorse nella subnet.
+- **Gruppo di sicurezza di rete**: Un NSG associato alla rete virtuale deve definire [le regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [le regole di sicurezza](#mandatory-outbound-security-rules) in uscita prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint dati dell'istanza gestita filtrando il traffico sulla porta 1433 e sulle porte 11000-11999 quando l'istanza gestita è configurata per le connessioni di reindirizzamento.
+- **Tabella route definita dall'utente (UDR):** Una tabella UDR associata alla rete virtuale deve includere [voci](#user-defined-routes)specifiche.
+- **Nessun endpoint servizio:** Nessun endpoint di servizio deve essere associato alla subnet dell'istanza gestita. Assicurarsi che l'opzione endpoint di servizio sia disabilitata quando si crea la rete virtuale.
+- **Indirizzi IP sufficienti:** La subnet dell'istanza gestita deve contenere almeno 16 indirizzi IP. Il valore minimo consigliato è 32 indirizzi IP. Per ulteriori informazioni, vedere [determinare le dimensioni della subnet per le istanze gestite](sql-database-managed-instance-determine-size-vnet-subnet.md). È possibile distribuire istanze gestite nella [rete esistente](sql-database-managed-instance-configure-vnet-subnet.md) dopo averla configurata in modo da soddisfare [i requisiti di rete per le istanze gestite](#network-requirements). In caso contrario, creare una [nuova rete e una nuova subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Se la subnet di destinazione non dispone di queste caratteristiche, è possibile distribuire una nuova istanza gestita. Quando si crea un'istanza gestita, viene applicato un criterio di finalità di rete nella subnet per impedire modifiche non conformi alla configurazione di rete. Dopo l'ultima istanza viene rimossa dalla subnet, viene rimosso anche il criterio preventivi di rete.
+> Non è possibile distribuire una nuova istanza gestita se la subnet di destinazione non dispone di queste caratteristiche. Quando si crea un'istanza gestita, nella subnet viene applicato un criterio di finalità della rete per evitare modifiche non conformi alla configurazione della rete. Una volta rimossa l'ultima istanza dalla subnet, viene rimosso anche il criterio per finalità di rete.
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Name       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Port                        |Protocol|Source           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
-|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
-|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |CONSENTI |
+|gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Allow |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Name       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
+| NOME       |Port          |Protocol|Source           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
-|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
+|gestione  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
-> Assicurarsi che ci sia solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Gestito tramite Azure Resource Manager, le distribuzioni avrà esito negativo se le regole in ingresso e in uscita vengono configurate separatamente per ogni porta di provisioning dell'istanza. Se queste porte sono regole distinte, la distribuzione avrà esito negativo con codice di errore `VnetSubnetConflictWithIntendedPolicy`
+> Verificare che sia presente solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Istanza gestita il provisioning tramite Azure Resource Manager distribuzioni non riuscirà se le regole in ingresso e in uscita vengono configurate separatamente per ogni porta. Se queste porte sono in regole separate, la distribuzione avrà esito negativo con codice di errore`VnetSubnetConflictWithIntendedPolicy`
 
-\* SUBNET MI fa riferimento all'intervallo di indirizzi IP per la subnet in 10.x.x.x/y il form. È possibile trovare queste informazioni nel portale di Azure, nelle proprietà di subnet.
+\*La SUBNET MI fa riferimento all'intervallo di indirizzi IP per la subnet nel formato 10. x.x. x/y. È possibile trovare queste informazioni nella portale di Azure, in proprietà subnet.
 
 > [!IMPORTANT]
-> Anche se le regole di sicurezza in ingresso necessario consentano il traffico dagli _qualsiasi_ sulle porte di origine 9000, 9003, 1438, 1440 e 1452, queste porte sono protette da un firewall incorporato. Per altre informazioni, vedere [determinare l'indirizzo dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Sebbene le regole di sicurezza in ingresso obbligatorie consentano il traffico da _qualsiasi_ origine sulle porte 9000, 9003, 1438, 1440 e 1452, queste porte sono protette da un firewall incorporato. Per ulteriori informazioni, vedere [determinare l'indirizzo dell'endpoint di gestione](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 > [!NOTE]
-> Se si usa la replica transazionale in un'istanza gestita e se si usa qualsiasi database di istanza come server di pubblicazione o un server di distribuzione, aprire la porta 445 (TCP in uscita) nelle regole di sicurezza della subnet. Questa porta verrà concesso l'accesso alla condivisione file di Azure.
+> Se si utilizza la replica transazionale in un'istanza gestita di e si utilizza un database di istanza come server di pubblicazione o server di distribuzione, aprire la porta 445 (TCP in uscita) nelle regole di sicurezza della subnet. Questa porta consentirà l'accesso alla condivisione file di Azure.
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
@@ -135,15 +134,15 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 |mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
 |mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
 |mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-65-52-14-NextHop-Internet|65.52.0.0/14|Internet|
 |mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-70-37-17-NextHop-Internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-NextHop-Internet|70.37.128.0/18|Internet|
 |mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
-|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-94-245-64-18-NextHop-Internet|94.245.64.0/18|Internet|
+|Mi-103-9-8-22-NextHop-Internet|103.9.8.0/22|Internet|
+|Mi-103-25-156-22-NextHop-Internet|103.25.156.0/22|Internet|
+|Mi-103-36-96-22-NextHop-Internet|103.36.96.0/22|Internet|
 |mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
 |mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
 |mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
@@ -156,7 +155,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 |mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
 |mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
 |mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-137-135-16-NextHop-Internet|137.135.0.0/16|Internet|
 |mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
 |mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
 |mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
@@ -164,33 +163,33 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 |mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
 |mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
 |mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-150-171-16-NextHop-Internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-NextHop-Internet|150.242.48.0/22|Internet|
+|mi-157-54-15-NextHop-Internet|157.54.0.0/15|Internet|
+|mi-157-56-14-NextHop-Internet|157.56.0.0/14|Internet|
 |mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
 |mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
 |mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
 |mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
 |mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|Mi-192-32-16-NextHop-Internet|192.32.0.0/16|Internet|
+|Mi-192-48-225-24-NextHop-Internet|192.48.225.0/24|Internet|
+|Mi-192-84-159-24-NextHop-Internet|192.84.159.0/24|Internet|
 |mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
 |mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|Mi-192-100-103-24-NextHop-Internet|192.100.103.0/24|Internet|
+|Mi-192-197-157-24-NextHop-Internet|192.197.157.0/24|Internet|
 |mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-193-221-113-24-NextHop-Internet|193.221.113.0/24|Internet|
 |mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
 |mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
 |mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
 |mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
 |mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
 |mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-74-210-24-NextHop-Internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-NextHop-Internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-NextHop-Internet|199.103.122.0/24|Internet|
 |mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
 |mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
 |mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
@@ -226,17 +225,17 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-Inoltre, è possibile aggiungere voci alla tabella di route per instradare il traffico con gli intervalli IP privati in locale come destinazione tramite il gateway di rete virtuale o appliance di rete virtuale (NVA).
+Inoltre, è possibile aggiungere voci alla tabella di route per instradare il traffico con intervalli di indirizzi IP privati locali come destinazione tramite il gateway di rete virtuale o l'appliance di rete virtuale (NVA).
 
-Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato deve essere in grado di risolvere i nomi host in \*. core.windows.net zona. Usando le funzionalità aggiuntive, ad esempio autenticazione di Azure AD potrebbe richiedere la risoluzione di altri nomi di dominio completi. Per altre informazioni, vedere [configurare un DNS personalizzato](sql-database-managed-instance-custom-dns.md).
+Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato deve essere in grado di risolvere i record DNS pubblici. L'uso di funzionalità aggiuntive come Autenticazione di Azure AD potrebbe richiedere la risoluzione di nomi di dominio completi aggiuntivi. Per ulteriori informazioni, vedere la pagina relativa alla [configurazione di un DNS personalizzato](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Database SQL di protezione dati avanzata](sql-database-managed-instance.md).
-- Informazioni su come [configurare una nuova rete virtuale di Azure](sql-database-managed-instance-create-vnet-subnet.md) o un' [rete virtuale di Azure esistente](sql-database-managed-instance-configure-vnet-subnet.md) dove è possibile distribuire le istanze gestite.
-- [Calcolare le dimensioni della subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) in cui si desidera distribuire le istanze gestite.
+- Per una panoramica, vedere [sicurezza dei dati avanzata del database SQL](sql-database-managed-instance.md).
+- Informazioni su come [configurare una nuova rete virtuale di Azure](sql-database-managed-instance-create-vnet-subnet.md) o una [rete virtuale di Azure esistente](sql-database-managed-instance-configure-vnet-subnet.md) in cui è possibile distribuire istanze gestite.
+- Consente [di calcolare le dimensioni della subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) in cui si desidera distribuire le istanze gestite.
 - Informazioni su come creare un'istanza gestita:
   - Nel [portale di Azure](sql-database-managed-instance-get-started.md).
-  - Usando [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
-  - Usando [un modello Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [un modello di Azure Resource Manager (tramite JumpBox, con SQL Server Management Studio incluso)](https://portal.azure.com/). 
+  - Tramite [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
+  - Utilizzando [un modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Usando [un modello di Azure Resource Manager (usando JumpBox, con SSMS incluso)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

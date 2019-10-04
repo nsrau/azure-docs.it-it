@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991207"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812914"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -24,22 +24,30 @@ Attualmente, Griglia di eventi invia singolarmente ogni evento ai sottoscrittori
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
-Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Se un endpoint non risponde o restituisce un codice di errore, griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
+Griglia di eventi attende 30 secondi per una risposta dopo la distribuzione di un messaggio. Dopo 30 secondi, se l'endpoint non ha risposto, il messaggio viene accodato per la ripetizione dei tentativi. Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
 
-1. 10 secondi
-1. 30 secondi
-1. 1 minuto
-1. 5 minuti
-1. 10 minuti
-1. 30 minuti
-1. 1 ora
-1. Su base oraria per fino a 24 ore
+- 10 secondi
+- 30 secondi
+- 1 minuto
+- 5 minuti
+- 10 minuti
+- 30 minuti
+- 1 ora
+- Su base oraria per fino a 24 ore
+
+Se l'endpoint risponde entro 3 minuti, griglia di eventi proverà a rimuovere l'evento dalla coda di tentativi in base ad approssimazioni ottimali, ma è comunque possibile ricevere i duplicati.
 
 Griglia di eventi aggiunge una piccola parte di casualità a tutti i passaggi di ripetizione dei tentativi e può, in base alle esigenze, ignorare determinati tentativi se un endpoint è coerente non integro, verso il basso per un lungo periodo o sembra essere sovraccaricato.
 
 Per un comportamento deterministico, impostare l'ora dell'evento durata (TTL) e i tentativi di recapito massimo nel [i criteri di ripetizione dei tentativi di sottoscrizione](manage-event-delivery.md).
 
 Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore. Quando si crea una sottoscrizione di eventi, è possibile [personalizzare i criteri di ripetizione](manage-event-delivery.md). È necessario specificare il numero massimo di tentativi di recapito (il valore predefinito è 30) e la durata (TTL) dell'evento (il valore predefinito è 1440 minuti).
+
+## <a name="delayed-delivery"></a>Recapito ritardato
+
+Come un endpoint di esperienze di errori di recapito, griglia di eventi inizierà a ritardare il recapito e i nuovi tentativi di eventi verso tale endpoint. Ad esempio, se i primi dieci eventi pubblicati in un endpoint hanno esito negativo, griglia di eventi presupporrà che l'endpoint si è verificati problemi e ritarderà tutti i tentativi successivi *nuovi e* recapiti per un certo tempo, in alcuni casi fino a diverse ore .
+
+Lo scopo di funzionalità di recapito ritardato consiste nella protezione endpoint non integri, nonché il sistema griglia di eventi. Senza eseguire il backoff e il ritardo della consegna agli endpoint non integri, criteri di ripetizione della griglia di eventi e le funzionalità di volume possono facilmente sovraccaricare un sistema.
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
 
@@ -61,25 +69,29 @@ Griglia di eventi usa i codici di risposta HTTP per confermare la ricezione degl
 
 ### <a name="success-codes"></a>Codici di riuscita
 
-I codici di risposta HTTP seguenti indicano che un evento è stato recapitato correttamente al webhook. Griglia di eventi considera il recapito completato.
+Griglia di eventi considera **solo** i seguenti codici di risposta HTTP come recapiti riusciti. Tutti gli altri stato codici sono considerati non riusciti durante i recapiti e verranno ritentati o non recapitabile come appropriato. Dopo aver ricevuto un codice di stato di esito positivo, griglia di eventi considera il recapito completato.
 
 - 200 - OK
+- 201 Creato
 - 202 - Accettato
+- Informazioni non autorevoli 203
+- 204 No Content (Nessun contenuto)
 
 ### <a name="failure-codes"></a>Codici di errore
 
-I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un evento non è riuscito.
+Tutti gli altri codici non nel set precedente (200 204) vengono considerati come errori e verranno ritentate. Alcuni dispongono di criteri di ripetizione specifiche associati a tali procedure elencate di seguito, tutti gli altri segue il modello standard di esponenziale backoff. È importante tenere presente che, a causa della natura parallelizzazione elevata dell'architettura della griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
 
-- 400 - Richiesta non valida
-- 401 - Non autorizzato
-- 404 - Non trovato
-- 408 - Timeout richiesta
-- 413 Entità della richiesta troppo grande
-- 414 - URI richiesta troppo lungo
-- 429 - Numero eccessivo di richieste
-- 500 - Errore interno del server
-- 503 - Servizio non disponibile
-- 504 - Timeout gateway
+| status code | Comportamento in caso di nuovo tentativo |
+| ------------|----------------|
+| 400 - Richiesta non valida | Nuovo tentativo dopo 5 minuti o più (messaggi non recapitabili immediatamente se il programma di installazione di messaggi non recapitabili) |
+| 401 - Non autorizzato | Nuovo tentativo dopo 5 minuti o più |
+| 403 - Accesso negato | Nuovo tentativo dopo 5 minuti o più |
+| 404 - Non trovato | Nuovo tentativo dopo 5 minuti o più |
+| 408 - Timeout richiesta | Nuovo tentativo dopo 2 minuti o più |
+| 413 Entità della richiesta troppo grande | Riprova dopo 10 secondi o più (messaggi non recapitabili immediatamente se il programma di installazione di messaggi non recapitabili) |
+| 503 - Servizio non disponibile | Nuovo tentativo dopo 30 secondi o più |
+| Tutti gli altri | Riprova dopo 10 secondi o più |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

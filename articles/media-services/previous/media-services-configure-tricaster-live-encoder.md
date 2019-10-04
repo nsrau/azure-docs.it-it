@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991992"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016733"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.  
 > [!div class="op_single_selector"]
@@ -30,7 +31,7 @@ ms.locfileid: "57991992"
 >
 >
 
-Questo articolo illustra come configurare il codificatore live [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) per inviare un flusso a bitrate singolo a canali AMS abilitati per la codifica live. Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
+Questo articolo illustra come configurare il codificatore live [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) per inviare un flusso a bitrate singolo a canali AMS abilitati per la codifica live. Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -52,9 +53,9 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Creare un canale
+## <a name="create-a-channel"></a>Crea un canale
 
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -78,7 +79,7 @@ Durante l'avvio del canale è possibile [configurare il codificatore](media-serv
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurare il codificatore NewTek TriCaster
+## <a name="a-idconfigure_tricaster_rtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurare il codificatore NewTek TriCaster
 
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 

@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python"
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con Python e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa306ecd7690085d96f561fcf7e043064013344d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109577"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478937"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Python invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
@@ -144,4 +144,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../search-the-web.md)
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

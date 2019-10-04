@@ -2,24 +2,17 @@
 title: Servizi Go-To-Market - Procedure consigliate per le inserzioni di offerte | Azure
 description: Servizi Go-To-Market - Questa sezione descrive le procedure consigliate per le inserzioni di un'offerta
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a660fe0f7663ac87b82038a3bd3d4c4fbf18544
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863934"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962778"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -45,7 +38,7 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 | Logo dell'offerta (formato PNG, 48&nbsp;&times;&nbsp;48): pagina di ricerca | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina di ricerca dell'offerta. |
 | Logo dell'offerta (formato PNG, 216&nbsp;&times;&nbsp;216): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. |
 | Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio: <ul> <li> White paper </li> <li> Brochure, </li> <li> Elenchi di controllo </li> <li> Presentazioni di PowerPoint</li> </ul>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti. <br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
-| Video: solo AppSource, servizi di consulenza e offerte SaaS | I video più efficaci comunicano il valore dell'offerta in forma narrativa:<ul> <li> Il protagonista deve essere il cliente e non la società che presenta l'offerta. </li> <li> Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del cliente a cui ci si rivolge. </li> <li> Lunghezza consigliata: da 60 a 90 secondi.</li> <li> Includere parole chiave di ricerca che usano il nome dei video. </li> <li> Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire un avvio rapido o presentare la testimonianza di un cliente. </li> </ul> |
+| Video solo AppSource, servizi di consulenza e offerte SaaS | I video più efficaci comunicano il valore dell'offerta in forma narrativa:<ul> <li> Il protagonista deve essere il cliente e non la società che presenta l'offerta. </li> <li> Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del cliente a cui ci si rivolge. </li> <li> Lunghezza consigliata: da 60 a 90 secondi.</li> <li> Includere parole chiave di ricerca che usano il nome dei video. </li> <li> Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire un avvio rapido o presentare la testimonianza di un cliente. </li> </ul> |
 | Screenshot (1280&nbsp;&times;&nbsp;720) | Aggiungere al massimo cinque screenshot:<br>Includere parole chiave di ricerca nei nomi file. |
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Creare un collegamento alla pagina dell'offerta dal sito Web
@@ -60,7 +53,7 @@ Aggiungendo questi parametri all'URL di AppSource, è possibile controllare l'ef
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui servizi GTM del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
+Scopri di più sui [vantaggi del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
 

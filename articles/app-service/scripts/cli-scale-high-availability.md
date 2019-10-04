@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare l'app a livello globale con Gestione traffico | Microsoft Docs
+title: Esempio di script dell’interfaccia della riga di comando di Azure - Ridimensionare l'app a livello globale con Gestione traffico | Microsoft Docs
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'app del servizio app a livello globale con un'architettura a disponibilità elevata
 services: appservice
 documentationcenter: appservice
@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 3165904eb7757b43d35a4fa3051d29d10bce70a6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136668"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Ridimensionare un'app del servizio app a livello globale con un'architettura a disponibilità elevata usando l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un'app del
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) | Consente di crea un profilo di Gestione traffico di Azure. |
+| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) | Crea un profilo di Gestione traffico di Azure. |
 | [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) | Aggiunge un endpoint a un profilo di Gestione traffico di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -2,23 +2,19 @@
 title: Introduzione ai certificati di Key Vault
 description: Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275896"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879317"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -43,8 +39,7 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
 -   L'onboarding come amministratore IT o PKI o altro utente responsabile della gestione degli account con le CA per una determinata azienda (ad esempio, Contoso) è un prerequisito per usare i certificati di Key Vault.  
     Le CA seguenti sono gli attuali provider partner di Key Vault.  
     -   DigiCert: Key Vault offre certificati SSL OV con DigiCert.  
-    -   GlobalSign: Key Vault offre certificati SSL OV con GlobalSign.  
-    -   WoSign: Key Vault offre certificati SSL OV o EV con WoSign in base all'impostazione configurata dal cliente nel proprio account WoSign nel portale di WoSign.  
+    -   GlobalSign-Key Vault offre certificati di protezione con GlobalSign.  
 
 **Passaggio 2**. Un amministratore account per un provider CA crea le credenziali che verranno usate da Key Vault per la registrazione, il rinnovo e l'uso di certificati SSL tramite Key Vault.
 
@@ -102,16 +97,16 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
 
 -   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Esempio: se non sono presenti informazioni sull'autorità di certificazione.  
 
-### <a name="formats-of-import-we-support"></a>Formati di importazione sono supportati
-Sono supportati i seguenti tipi di importazione per il formato di file con estensione PEM. Un singolo certificato con codificata PEM insieme a un PKCS #8 codificato, chiave non crittografata che presenta le seguenti
+### <a name="formats-of-import-we-support"></a>Formati di importazione supportati
+Sono supportati i seguenti tipi di importazione per il formato di file PEM. Un singolo certificato con codifica PEM insieme a una chiave codificata PKCS # 8 e non crittografata con la seguente
 
----BEGIN CERTIFICATE------END CERTIFICATE--
+-----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
----BEGIN PRIVATE KEY------END PRIVATE KEY--
+-----INIZIO CHIAVE PRIVATA----------CHIAVE PRIVATA FINALE-----
 
-Merge certificato Supportiamo formati con estensione PEM in base 2. È possibile unire in un singolo certificato con codificato PKCS #8 oppure P7B file con codifica base64. ---BEGIN CERTIFICATE------END CERTIFICATE--
+Nell'Unione del certificato sono supportati 2 formati basati su PEM. È possibile unire un solo certificato con codifica PKCS # 8 o un file P7B con codifica Base64. -----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
-Attualmente non supportiamo le chiavi CE nel formato PEM.
+Attualmente non sono supportate le chiavi EC nel formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Creazione di un certificato con una CA non partner di Key Vault  
  Questo metodo consente di usare CA diverse dai provider partner di Key Vault, in modo che l'organizzazione possa avvalersi di una CA di propria scelta.  

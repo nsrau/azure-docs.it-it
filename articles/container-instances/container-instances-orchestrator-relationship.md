@@ -3,17 +3,18 @@ title: Istanze di Azure Container e orchestrazione dei contenitori
 description: Informazioni sull'interazione tra Istanze di Azure Container e agenti di orchestrazione dei contenitori.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838149"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972244"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
 
@@ -56,11 +57,11 @@ Invece di aumentare il numero di macchine virtuali nel cluster e quindi distribu
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementazione di esempio: nodi virtuali per il servizio Azure Kubernetes (AKS)
 
-Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) è possibile usare *nodi virtuali* creati dinamicamente in Istanze di Azure Container. Attualmente in anteprima, i nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in ACI e nel cluster del servizio Azure Kubernetes. 
+Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) è possibile usare *nodi virtuali* creati dinamicamente in Istanze di Azure Container. I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in ACI e nel cluster del servizio Azure Kubernetes. 
 
 I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o il [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-I nodi virtuali usano il [kubelet virtuale][aci-connector-k8s] open source per simulare il [kubelet][kubelet-doc] di Kubernetes eseguendo la registrazione come nodo con capacità illimitata. Il kubelet virtuale recapita la creazione di [pod][pod-doc] come gruppi di contenitori in Istanze di Azure Container.
+I nodi virtuali usano il [Kubelet virtuale][aci-connector-k8s] open source per simulare il [Kubelet][kubelet-doc] Kubernetes registrando come nodo con capacità illimitata. Il Kubelet virtuale Invia la creazione di [Pod][pod-doc] come gruppi di contenitori in istanze di contenitore di Azure.
 
 Vedere il progetto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) (Kubelet virtuale) per altri esempi di estensione dell'API Kubernetes nelle piattaforme di contenitori senza server.
 
@@ -71,6 +72,6 @@ Creare il primo contenitore usando la [guida introduttiva](container-instances-q
 <!-- IMAGES -->
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
+[aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

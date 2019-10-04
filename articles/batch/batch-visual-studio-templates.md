@@ -4,23 +4,22 @@ description: Informazioni su come questi modelli di progetto di Visual Studio co
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538124"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094348"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
 
@@ -56,13 +55,13 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 Per usare i modelli di Batch, sarà necessario quanto segue:
 
 * Un computer in cui è installato Visual Studio 2015. I modelli di Batch sono attualmente supportati solo per Visual Studio 2015.
-* I modelli di Batch, disponibili in [Visual Studio Gallery][vs_gallery] come estensioni di Visual Studio. È possibile ottenere i modelli in due modi:
+* I modelli di batch, disponibili in [Visual Studio Gallery][vs_gallery] come estensioni di Visual Studio. È possibile ottenere i modelli in due modi:
   
-  * Installare i modelli usando la finestra di dialogo **Estensioni e aggiornamenti** in Visual Studio. Per altre informazioni, vedere [Ricerca e uso delle estensioni di Visual Studio][vs_find_use_ext]. Nella finestra di dialogo **Estensioni e aggiornamenti** cercare e scaricare le due estensioni seguenti:
+  * Installare i modelli usando la finestra di dialogo **estensioni e aggiornamenti** in Visual Studio (per altre informazioni, vedere [ricerca e uso delle estensioni di Visual Studio][vs_find_use_ext]). Nella finestra di dialogo **Estensioni e aggiornamenti** cercare e scaricare le due estensioni seguenti:
     
     * Azure Batch Job Manager with Job Splitter (Gestore di processi di Azure Batch con componente di suddivisione dei processi)
     * Azure Batch Task Processor (Elaboratore di attività di Azure Batch)
-  * Scaricare i modelli dalla raccolta online per Visual Studio: [Microsoft Azure Batch Project Templates][vs_gallery_templates] (Modelli di progetto di Microsoft Azure Batch)
+  * Scaricare i modelli dalla raccolta online per Visual Studio: [Modelli di progetto Microsoft Azure Batch][vs_gallery_templates]
 * Se si prevede di usare la funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) per distribuire il gestore di processi e l'elaboratore di attività nei nodi di calcolo di Batch, è necessario collegare un account di archiviazione all'account Batch.
 
 ## <a name="preparation"></a>Operazioni preliminari
@@ -157,14 +156,14 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> La sezione con annotazioni nel metodo `Split()` è la sola del codice del modello Job Manager (Gestore di processi) che può essere modificata dall'utente aggiungendo la logica per suddividere i processi in attività diverse. Per modificare un'altra sezione del modello, assicurarsi di avere familiarità con il funzionamento di Batch e provare a usare alcuni [esempi di codice di Batch][github_samples].
+> La sezione con annotazioni nel metodo `Split()` è la sola del codice del modello Job Manager (Gestore di processi) che può essere modificata dall'utente aggiungendo la logica per suddividere i processi in attività diverse. Per modificare un'altra sezione del modello, assicurarsi di avere familiarità con il funzionamento di batch e provare alcuni [esempi di codice di batch][github_samples].
 > 
 > 
 
 L'implementazione di Split() ha accesso a:
 
 * Parametri del processo, tramite il campo `_parameters` .
-* Oggetto CloudJob che rappresenta il processo, tramite il campo `_job`.
+* Oggetto CloudJob che rappresenta il processo, tramite il campo `_job` .
 * Oggetto CloudTask che rappresenta l'attività del gestore di processi, tramite il campo `_jobManagerTask` .
 
 L'implementazione di `Split()` non richiede di aggiungere le attività direttamente al processo. Il codice deve invece restituire una sequenza di oggetti CloudTask che verranno aggiunti automaticamente al processo dalle classi del framework che richiamano il componente di suddivisione dei processi. Di solito si usa la funzionalità dell'iteratore di C# (`yield return`) per implementare i componenti di suddivisione dei processi per poter iniziare a eseguire le attività il prima possibile invece di attendere che tutte le attività vengano calcolate.
@@ -202,7 +201,7 @@ In caso di errore dell'attività del gestore di processi, alcune attività potre
 Tutte le informazioni restituite dalle eccezioni vengono scritte nei file stdout.txt e stderr.txt. Per altre informazioni, vedere [Gestione degli errori](batch-api-basics.md#error-handling).
 
 ### <a name="client-considerations"></a>Considerazioni sul client
-Questa sezione illustra alcuni requisiti dell'implementazione client quando si richiama un gestore di processi basato su questo modello. Per informazioni dettagliate sul passaggio dei parametri e delle impostazioni di ambiente, vedere [Passare i parametri e le variabili di ambiente dal codice client](#pass-environment-settings).
+Questa sezione illustra alcuni requisiti dell'implementazione client quando si richiama un gestore di processi basato su questo modello. Per informazioni dettagliate sul passaggio dei parametri e delle impostazioni di ambiente, vedere [Passare i parametri e le variabili di ambiente dal codice client](#pass-environment-settings) .
 
 **Credenziali obbligatorie**
 
@@ -369,9 +368,9 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività dell'elaboratore di attività implementata con il modello Task Processor (Elaboratore di attività) può restituire tre possibili codici di uscita:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
+| [Process. ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
 | 1 |L'elaboratore di attività non è riuscito con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in `TaskProcessorException` con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
 | 2 |L'elaboratore di attività non è riuscito con un'eccezione "non prevista". L'eccezione è stata registrata nell'output standard, ma l'elaboratore di attività non è riuscito ad aggiungere altre informazioni di diagnostica o correzione. |
 
@@ -394,7 +393,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-L'account di archiviazione è quindi disponibile nella classe TaskProcessor tramite la proprietà `_configuration.StorageAccount`.
+L'account di archiviazione è quindi disponibile nella classe TaskProcessor tramite la proprietà `_configuration.StorageAccount` .
 
 Se si preferisce usare l'URL di un contenitore con la firma di accesso condiviso, è anche possibile passarlo tramite un'impostazione di ambiente comune del processo, ma il modello di elaboratore di attività attualmente non include il supporto predefinito a questo scopo.
 
@@ -410,7 +409,7 @@ Un client può passare informazioni all'attività del gestore di processi sotto 
 * URL dell'account Batch
 * Chiave dell'account Batch
 
-Il servizio Batch ha un semplice meccanismo per passare le impostazioni di ambiente a un'attività del gestore di processi usando la proprietà `EnvironmentSettings` in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+Il servizio batch ha un semplice meccanismo per passare le impostazioni di ambiente a un'attività del gestore di `EnvironmentSettings` processi usando la proprietà in [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
 
 Ad esempio, per ottenere l'istanza di `BatchClient` per un account Batch, è possibile passare come variabili di ambiente dal codice client l'URL e le credenziali con chiave condivisa per l'account Batch. Analogamente, per accedere all'account di archiviazione collegato all'account Batch, è possibile passare il nome dell'account di archiviazione e la chiave dell'account di archiviazione come variabili di ambiente.
 
@@ -437,7 +436,7 @@ parameters.json e, se lo trova, lo carica come dizionario di parametri. Per pass
 
 ## <a name="next-steps"></a>Passaggi successivi
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Rendere persistenti l'output di attività e processi in Archiviazione di Azure
-Un altro strumento utile nello sviluppo di soluzioni Batch è [Azure Batch File Conventions][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
+Un altro strumento utile nello sviluppo di soluzioni batch è [Azure batch convenzioni di file][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

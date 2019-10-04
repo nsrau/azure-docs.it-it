@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: c35bf9649a0a22f3488c45d1f4f8729e211e0ddb
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860304"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707090"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guida introduttiva: Project Answer Search con Python
 
@@ -23,7 +24,7 @@ L'esempio in Python seguente crea e invia una richiesta di informazioni su "Rock
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Questo esempio usa Python 3.6.4
 

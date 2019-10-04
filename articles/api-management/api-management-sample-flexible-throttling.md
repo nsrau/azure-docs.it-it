@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783789"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066764"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitazione avanzata delle richieste con Gestione API di Azure
 La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamentali di Gestione API di Azure. Tramite il controllo della frequenza delle richieste o del totale delle richieste o dei dati trasferiti, Gestione API consente ai provider di API di proteggere le API da abusi e di aggiungere valore a diversi livelli di prodotto API.
@@ -28,6 +28,10 @@ La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamenta
 Finora le funzionalità di limitazione della frequenza avevano come ambito una sottoscrizione specifica a un prodotto, definita nel portale di Azure. Tali funzionalità sono utili per consentire al provider di API di applicare limiti agli sviluppatori che si sono registrati per l'uso dell'API, ma non consente di limitare ad esempio i singoli utenti finali dell'API. Il singolo utente dell'applicazione dello sviluppatore può usare l'intera quota e quindi impedire ad altri clienti dello sviluppatore di usare l'applicazione. Inoltre, alcuni clienti possono generare un numero elevato di richieste, limitando l'accesso agli utenti occasionali.
 
 ## <a name="custom-key-based-throttling"></a>Limitazione basata su chiave personalizzata
+
+> [!NOTE]
+> I `rate-limit-by-key` criteri `quota-by-key` e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
+
 I nuovi criteri [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) e [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che vengono usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
 
 ## <a name="ip-address-throttling"></a>Limitazione dell'indirizzo IP
@@ -71,9 +75,9 @@ Quando la chiave per la limitazione viene definita mediante un' [espressione di 
 
 In questo modo l'applicazione client dello sviluppatore è in grado di scegliere la modalità di creazione della chiave di limitazione della frequenza. Gli sviluppatori di client possono creare i propri livelli di frequenza allocando set di chiavi agli utenti e ruotando l'utilizzo delle chiavi.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Gestione API di Azure offre funzionalità di limitazione della frequenza e della quota per proteggere e aggiungere valore al proprio servizio API. I nuovi criteri di limitazione con regole personalizzate di definizione dell'ambito consentono di controllare con granularità maggiore tali criteri per consentire ai clienti di creare applicazioni migliori. Gli esempi in questo articolo illustrano l'uso di questi nuovi criteri tramite la produzione di chiavi per la limitazione della frequenza con gli indirizzi IP del client, l'identità dell'utente e valori generati dal client. È tuttavia possibile usare molte altre parti del messaggio, ad esempio l'agente utente, frammenti del percorso dell'URL e la dimensione del messaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile inserire commenti e suggerimenti per questo argomento nel thread Disqus. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
+Inviare commenti e suggerimenti come problema di GitHub per questo argomento. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
 

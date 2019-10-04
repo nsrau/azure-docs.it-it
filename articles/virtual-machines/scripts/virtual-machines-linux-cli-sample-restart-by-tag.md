@@ -3,8 +3,8 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Riavv
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Riavviare macchine virtuali in base al tag e all'ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: allclark
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 78e646887a0e595589b9d0cc794029dcd4be91ca
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751141"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841411"
 ---
 # <a name="restart-vms"></a>Riavviare le VM
 

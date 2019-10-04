@@ -3,18 +3,18 @@ title: Creare una definizione di criteri personalizzata
 description: Creare una definizione di criteri personalizzata per Criteri di Azure per imporre regole di business personalizzate.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267753"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979676"
 ---
-# <a name="create-a-custom-policy-definition"></a>Creare una definizione di criteri personalizzata
+# <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
 La definizione di criteri personalizzata consente ai clienti di definire le proprie regole per l'uso di Azure. Queste regole consentono in genere di imporre:
 
@@ -46,12 +46,11 @@ Prima di creare la definizione del criterio, è importante identificarne la fina
 
 I requisiti devono identificare chiaramente gli stati delle risorse "essere" e "non essere".
 
-A questo punto è stato definito lo stato previsto della risorsa, ma non l'operazione che dovrà essere eseguita con le risorse non conformi. Il servizio Criteri supporta diversi [effetti](../concepts/effects.md). Per questa esercitazione, verrà definito il requisito aziendale di impedire la creazione di risorse non conformi alle regole di business. Per soddisfare questo obiettivo, verrà usato l'effetto [Nega](../concepts/effects.md#deny). Verrà inoltre aggiunta l'opzione per sospendere il criterio per specifiche assegnazioni. A questo scopo, verrà usato l'effetto [Disabilitato](../concepts/effects.md#disabled), che verrà impostato come [parametro](../concepts/definition-structure.md#parameters) nella definizione del criterio.
+A questo punto è stato definito lo stato previsto della risorsa, ma non l'operazione che dovrà essere eseguita con le risorse non conformi. Il servizio Criteri di Azure supporta diversi [effetti](../concepts/effects.md). Per questa esercitazione, verrà definito il requisito aziendale di impedire la creazione di risorse non conformi alle regole di business. Per soddisfare questo obiettivo, verrà usato l'effetto [Nega](../concepts/effects.md#deny). Verrà inoltre aggiunta l'opzione per sospendere il criterio per specifiche assegnazioni. A questo scopo, verrà usato l'effetto [Disabilitato](../concepts/effects.md#disabled), che verrà impostato come [parametro](../concepts/definition-structure.md#parameters) nella definizione del criterio.
 
 ## <a name="determine-resource-properties"></a>Determinare le proprietà della risorsa
 
-In base al requisito aziendale, la risorsa di Azure da controllare con Criteri è un account di archiviazione.
-Tuttavia, le proprietà da usare nella definizione del criterio non sono note. I criteri vengono valutati rispetto alla rappresentazione JSON della risorsa, quindi è necessario individuare le proprietà disponibili per tale risorsa.
+In base ai requisiti aziendali, la risorsa di Azure da controllare con Criteri di Azure è un account di archiviazione. Tuttavia, le proprietà da usare nella definizione del criterio non sono note. Criteri di Azure esegue una valutazione rispetto alla rappresentazione JSON della risorsa, quindi è necessario individuare le proprietà disponibili per tale risorsa.
 
 Per determinare le proprietà delle risorse di Azure, sono disponibili varie opzioni, che verranno descritte in questa esercitazione:
 
@@ -69,9 +68,9 @@ Per determinare le proprietà delle risorse di Azure, sono disponibili varie opz
 #### <a name="existing-resource-in-the-portal"></a>Risorsa esistente nel portale
 
 Il modo più semplice per trovare proprietà consiste nell'esaminare una risorsa esistente dello stesso tipo. Le risorse già configurate con l'impostazione da applicare forniscono anche il valore da confrontare.
-Esaminare la pagina **Script di automazione** in **Impostazioni** nel portale di Azure per questa specifica risorsa.
+Esaminare la pagina **Esporta modello** in **Impostazioni** nel portale di Azure per questa specifica risorsa.
 
-![Esportare la pagina del modello sulla risorsa esistente](../media/create-custom-policy-definition/automation-script.png)
+![Esportare la pagina del modello sulla risorsa esistente](../media/create-custom-policy-definition/export-template.png)
 
 Per un account di archiviazione questa pagina visualizza un modello simile a questo esempio:
 
@@ -121,8 +120,7 @@ Sotto **properties** è presente un valore denominato **supportsHttpsTrafficOnly
 
 #### <a name="create-a-resource-in-the-portal"></a>Creare una risorsa nel portale
 
-Un'altra opzione del portale è l'esperienza di creazione di risorse. Durante la creazione di un account di archiviazione tramite il portale, una delle opzioni della scheda **Avanzate** è **Trasferimento sicuro obbligatorio**.
-Questa proprietà prevede le opzioni _Disabilitato_ e _Abilitato_. L'icona di informazioni include testo aggiuntivo che conferma che questa opzione corrisponde alla proprietà giusta. Tuttavia, il nome della proprietà non è indicato in questa schermata del portale.
+Un'altra opzione del portale è l'esperienza di creazione di risorse. Durante la creazione di un account di archiviazione tramite il portale, una delle opzioni della scheda **Avanzate** è **Trasferimento sicuro obbligatorio**. Questa proprietà prevede le opzioni _Disabilitato_ e _Abilitato_. L'icona di informazioni include testo aggiuntivo che conferma che questa opzione corrisponde alla proprietà giusta. Tuttavia, il nome della proprietà non è indicato in questa schermata del portale.
 
 Nella parte inferiore della scheda **Rivedi e crea** è disponibile un collegamento all'opzione **Scaricare un modello per l'automazione**. Selezionando questo collegamento si aprirà il modello che consente di creare la risorsa configurata. In questo caso, vengono visualizzate due informazioni:
 
@@ -181,8 +179,7 @@ I risultati includono un alias supportato dagli account di archiviazione denomin
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-In Azure PowerShell il cmdlet `Get-AzPolicyAlias` consente di cercare gli alias delle risorse.
-Verrà applicato un filtro per trovare lo spazio dei nomi **Microsoft.Storage** in base ai dettagli recuperati in precedenza sulla risorsa di Azure.
+In Azure PowerShell il cmdlet `Get-AzPolicyAlias` consente di cercare gli alias delle risorse. Verrà applicato un filtro per trovare lo spazio dei nomi **Microsoft.Storage** in base ai dettagli recuperati in precedenza sulla risorsa di Azure.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ Anche in questo caso, come con l'interfaccia della riga di comando di Azure, i r
 
 [Azure Resource Graph](../../resource-graph/overview.md) è un nuovo servizio disponibile in anteprima. Rende disponibile un altro metodo per trovare le proprietà delle risorse di Azure. Ecco una query di esempio per esaminare un singolo account di archiviazione con Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-I risultati sono simili a quelli visti nei modelli di Resource Manager e tramite Azure Resource Explorer. Tuttavia, i risultati di Azure Resource Graph includono anche dettagli sugli [alias](../concepts/definition-structure.md#aliases). Ecco un esempio di output di un account di archiviazione per gli alias:
+I risultati sono simili a quelli visti nei modelli di Resource Manager e tramite Azure Resource Explorer. Tuttavia, i risultati di Azure Resource Graph possono includere anche i dettagli sugli [alias](../concepts/definition-structure.md#aliases) tramite la _proiezione_ della matrice _aliases_:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Ecco un esempio di output di un account di archiviazione per gli alias:
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Il servizio Azure Resource Graph (anteprima) può essere usato tramite [Cloud Sh
 
 ## <a name="determine-the-effect-to-use"></a>Determinare quale effetto usare
 
-La decisione in merito all'operazione da eseguire in caso di risorse non conformi è quasi altrettanto importante di quella relativa alle valutazioni da effettuare. Ogni possibile risposta a una risorsa non conforme si chiama [effetto](../concepts/effects.md). L'effetto controlla se la risorsa non conforme viene registrata, bloccata, include dati aggiunti o è associata a una distribuzione per riportarla a uno stato conforme.
+La decisione in merito all'operazione da eseguire in caso di risorse non conformi è quasi altrettanto importante di quella relativa alle valutazioni da effettuare. Ogni possibile risposta a una risorsa non conforme si chiama [effetto](../concepts/effects.md).
+L'effetto controlla se la risorsa non conforme viene registrata, bloccata, include dati aggiunti o è associata a una distribuzione per riportarla a uno stato conforme.
 
 Per questo esempio, l'effetto da scegliere è Nega, perché nell'ambiente di Azure non dovranno essere create risorse non conformi. L'effetto Controllo è una prima scelta valida per determinare l'impatto di un criterio prima di impostarlo su Nega. Per semplificare la modifica dell'effetto in base all'assegnazione, è possibile parametrizzare l'effetto. Per informazioni, vedere [Parametri](#parameters) di seguito.
 

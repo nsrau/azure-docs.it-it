@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aca7aa30744c79cefd3c7704a8fde1df203b2c9d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198984"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933220"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Agenti di orchestrazione singleton in Funzioni permanenti (Funzioni di Azure)
 
@@ -56,16 +55,43 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
+Ecco il file function.json:
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+Ecco il codice JavaScript:
 ```javascript
 const df = require("durable-functions");
 
-modules.exports = async function(context, req) {
+module.exports = async function(context, req) {
     const client = df.getClient(context);
 
     const instanceId = req.params.instanceId;
-    const functionName = req.params.functionsName;
+    const functionName = req.params.functionName;
 
     // Check if an instance with the specified ID already exists.
     const existingInstance = await client.getStatus(instanceId);
@@ -87,9 +113,6 @@ modules.exports = async function(context, req) {
 
 Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. In questo caso, l'ID istanza viene passato ai dati della route dall'URL. Il codice chiama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. In caso contrario, viene creata un'istanza con tale ID.
 
-> [!WARNING]
-> Quando si sviluppa in locale con JavaScript, è necessario impostare la variabile di ambiente `WEBSITE_HOSTNAME` su `localhost:<port>`, ad esempio `localhost:7071` per usare i metodi su `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 > [!NOTE]
 > In questo esempio c'è una possibile race condition. Se due istanze di **HttpStartSingle** vengono eseguite contemporaneamente, entrambe le chiamate di funzione segnaleranno l'esito positivo, ma verrà effettivamente avviata solo un'istanza dell'orchestrazione. A seconda dei requisiti, questo potrebbe avere effetti indesiderati. Per questo motivo è importante assicurarsi che due richieste non possano eseguire questa funzione trigger contemporaneamente.
 
@@ -98,4 +121,4 @@ I dettagli di implementazione della funzione dell'agente di orchestrazione non s
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come chiamare le orchestrazioni secondarie](durable-functions-sub-orchestrations.md)
+> [Informazioni sulle funzionalità HTTP native delle orchestrazioni](durable-functions-http-features.md)

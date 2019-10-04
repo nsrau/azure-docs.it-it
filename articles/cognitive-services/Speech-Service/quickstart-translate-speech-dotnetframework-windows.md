@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Traduzione vocale, C# (.NET Framework Windows) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Traduzione vocale, C# (.NET Framework Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Framework per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843324"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553457"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Framework
+
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md).
 
 In questa guida introduttiva si creerà una semplice applicazione .NET Framework per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
 
@@ -67,7 +69,7 @@ Esempi aggiuntivi, ad esempio come eseguire il riconoscimento vocale da un file 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

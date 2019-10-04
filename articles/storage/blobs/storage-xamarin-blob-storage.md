@@ -1,19 +1,18 @@
 ---
 title: Come usare l'archiviazione di oggetti (BLOB) da Xamarin | Microsoft Docs
 description: La libreria client di Archiviazione di Azure per Xamarin consente agli sviluppatori di creare app per Windows Store, iOS e Android con le proprie interfacce utente native. Questa esercitazione illustra come usare Xamarin per creare un'applicazione che usa l'archiviazione BLOB di Azure.
-services: storage
-documentationcenter: xamarin
-author: michaelhauss
-ms.service: storage
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 05/11/2017
-ms.author: michaelhauss
-ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8a1c91c8a8a59af26386e70e68e7c4fd93f5eaa9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010063"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726334"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Come usare l'archiviazione BLOB da Xamarin
 
@@ -24,18 +23,20 @@ Xamarin consente agli sviluppatori di utilizzare una base di codici C# condivisa
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>Creare una nuova applicazione Xamarin
+
 Per questa esercitazione verrà generata un'applicazione destinata ad Android, iOS e Windows. Questa applicazione creerà semplicemente un contenitore nel quale caricherà un BLOB. Verrà usato Visual Studio in Windows, ma le stesse istruzioni possono essere applicate per la creazione di un'applicazione con Xamarin Studio su macOS.
 
 Attenersi alla procedura seguente per creare l'applicazione:
 
 1. Se necessario, scaricare e installare [Xamarin per Visual Studio](https://www.xamarin.com/download).
-2. Aprire Visual Studio e creare un'App vuota (nativa portatile): **File > Nuovo > progetto > multipiattaforma > Blank App (Native Portable)**.
+2. Aprire Visual Studio e creare un'app vuota (nativa portatile): **File > nuovo progetto > > app vuota > multipiattaforma (nativa portatile)** .
 3. Nel riquadro Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Gestisci pacchetti NuGet per la soluzione**. Cercare **WindowsAzure.Storage** e installare la versione stabile più recente su tutti i progetti nella soluzione.
 4. Compilare ed eseguire il progetto.
 
 A questo punto si disporrà di un'applicazione che consente di fare clic su un pulsante e incrementare un contatore.
 
 ## <a name="create-container-and-upload-blob"></a>Creare un contenitore e caricare un BLOB
+
 Quindi, sotto il progetto `(Portable)`, si aggiungerà codice a `MyClass.cs`. Questo codice crea un contenitore e carica in esso un oggetto BLOB. `MyClass.cs` deve apparire come segue:
 
 ```csharp
@@ -75,7 +76,7 @@ namespace XamarinApp
 }
 ```
 
-Assicurarsi di sostituire "your_account_name_here" e "your_account_key_here" con il nome e la chiave dell'account effettivi. 
+Assicurarsi di sostituire "your_account_name_here" e "your_account_key_here" con il nome e la chiave dell'account effettivi.
 
 Tutti i progetti iOS, Android e Windows Phone contengono riferimenti al progetto portatile, vale a dire che è possibile scrivere tutto il codice condiviso in una posizione e utilizzarlo in tutti i progetti. È ora possibile aggiungere la seguente riga di codice in ogni progetto per iniziare a sfruttare i vantaggi: `MyClass.performBlobOperation()`
 
@@ -228,12 +229,14 @@ namespace XamarinApp.WinPhone
 }
 ```
 
-## <a name="run-the-application"></a>Eseguire l'applicazione
+## <a name="run-the-application"></a>Esecuzione dell'applicazione
+
 È ora possibile eseguire questa applicazione in un emulatore Android o Windows Phone. È inoltre possibile eseguire questa applicazione in un emulatore iOS, ma questo richiederà un Mac. Per istruzioni specifiche su come eseguire questa operazione, leggere la documentazione relativa alla [connessione di Visual Studio a un Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
 Dopo aver eseguito l'applicazione, verrà creato il contenitore `mycontainer` nell'account di archiviazione. Questo deve contenere il BLOB, `myblob`, che include il testo, `Hello, world!`. È possibile verificarlo tramite [Esplora archivi di Microsoft Azure](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione è stato illustrato come creare un'applicazione multipiattaforma in Xamarin che usa Archiviazione di Azure, con particolare attenzione a uno scenario di archiviazione BLOB. È tuttavia possibile svolgere molte altre operazioni, non solo con l'archiviazione BLOB, ma anche con archiviazione tabelle, archiviazione file e archiviazione code. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)

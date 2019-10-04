@@ -10,231 +10,256 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001188"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937084"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
-Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
 
-Application Insights è compatibile con tutte le pagine Web, con una minima aggiunta di codice JavaScript. Se il servizio Web è [Java](java-get-started.md) o [ASP.NET](asp-net.md), è possibile integrare i dati di telemetria dal server e dai client.
+Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiungono [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
 
-![In portal.azure.com aprire la risorsa dell'app e fare clic su Browser](media/javascript/03.png)
+Application Insights è compatibile con tutte le pagine Web, con una minima aggiunta di codice JavaScript. Se il servizio Web è [Java](java-get-started.md) o [ASP.NET](asp-net.md), è possibile usare gli SDK sul lato server insieme all'SDK JavaScript sul lato client per ottenere una conoscenza end-to-end delle prestazioni dell'applicazione.
 
-È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). Se il team ha una sottoscrizione per l'organizzazione, chiedere al proprietario di aggiungervi l'account Microsoft dell'utente.
+## <a name="adding-the-javascript-sdk"></a>Aggiunta di JavaScript SDK
 
-## <a name="set-up-application-insights-for-your-web-page"></a>Installare Application Insights per la pagina Web
-Aggiungere il frammento di codice del caricatore alle pagine Web, come indicato di seguito.
+1. Per prima cosa è necessaria una risorsa Application Insights. Se non si dispone già di una risorsa e di una chiave di strumentazione, seguire le [istruzioni per creare una nuova risorsa](create-new-resource.md).
+2. Copiare la chiave di strumentazione dalla risorsa in cui si vogliono inviare i dati di telemetria JavaScript.
+3. Aggiungere Application Insights JavaScript SDK all'app o alla pagina Web tramite una delle due opzioni seguenti:
+    * [Installazione di NPM](#npm-based-setup)
+    * [Frammento JavaScript](#snippet-based-setup)
 
-### <a name="open-or-create-application-insights-resource"></a>Aprire o creare una risorsa Application Insights
-La risorsa di Application Insights è dove vengono visualizzati i dati sulle prestazioni e l'utilizzo della pagina. 
+> [!IMPORTANT]
+> È sufficiente usare uno dei metodi seguenti per aggiungere la Application Insights JavaScript SDK all'applicazione. Se si usa l'installazione basata su NPM, non usare l'installazione basata sul frammento. Lo stesso vale per lo scenario inverso quando si usa l'approccio basato su frammenti di codice, non usare anche la configurazione basata su NPM. 
 
-Accedere al [portale di Azure](https://portal.azure.com).
+### <a name="npm-based-setup"></a>Configurazione basata su NPM
 
-Se è già stato configurato il monitoraggio per il lato server dell'app, si ha già una risorsa:
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
-![Scegliere Sfoglia, quindi Servizi per gli sviluppatori, Application Insights](media/javascript/01-find.png)
+const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+```
 
-Se non si ha un account, crearlo:
+### <a name="snippet-based-setup"></a>Configurazione basata su frammenti
 
-![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights.](media/javascript/01-create.png)
+Se l'app non usa NPM, è possibile instrumentare direttamente le pagine Web con Application Insights incollando il frammento di codice nella parte superiore di ogni pagina. Preferibilmente, dovrebbe essere il primo script nella `<head>` sezione, in modo da poter monitorare eventuali problemi potenziali con tutte le dipendenze. Se si usa l'app Server blazer, aggiungere il frammento di codice nella parte superiore del file `_Host.cshtml` nella sezione `<head>`.
 
-*Altre domande?* [Altre informazioni sulla creazione di una risorsa](create-new-resource.md ).
-
-### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Aggiungere lo script SDK per l'app o pagine Web
-
-```HTML
-<!-- 
-To collect user behavior analytics about your application, 
-insert the following script into each page you want to track.
-Place this code immediately before the closing </head> tag,
-and before any other scripts. Your first data will appear 
-automatically in just a few seconds.
--->
+```html
 <script type="text/javascript">
-var appInsights=window.appInsights||function(a){
-  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
-  }({
-      instrumentationKey:"<your instrumentation key>"
-  });
-  
-window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+{
+  instrumentationKey:"INSTRUMENTATION_KEY"
+}
+);window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
-Inserire lo script poco prima del tag `</head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio: 
+### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
+
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Sono inclusi:
+
+- **Eccezioni non rilevate** nell'app, incluse informazioni su
+    - Analisi dello stack
+    - Dettagli dell'eccezione e messaggio che accompagna l'errore
+    - Numero di colonna & riga di errore
+    - URL in cui è stato generato un errore
+- Richieste di **dipendenza di rete** effettuate dall'app **XHR** e **Fetch** (fetch Collection è disabilitato per impostazione predefinita) richieste, include informazioni su
+    - URL dell'origine di dipendenza
+    - Comando & metodo usato per richiedere la dipendenza
+    - Durata della richiesta
+    - Codice risultato e stato di esito positivo della richiesta
+    - ID (se presente) dell'utente che effettua la richiesta
+    - Contesto di correlazione (se presente) in cui viene effettuata la richiesta
+- **Informazioni utente** (ad esempio, località, rete, IP)
+- **Informazioni sul dispositivo** (ad esempio browser, sistema operativo, versione, lingua, risoluzione, modello)
+- **Informazioni sulla sessione**
+
+### <a name="telemetry-initializers"></a>Inizializzatori di telemetria
+Gli inizializzatori di telemetria vengono usati per modificare il contenuto dei dati di telemetria raccolti prima di essere inviati dal browser dell'utente. Possono anche essere usati per impedire l'invio di alcuni dati di telemetria, `false`restituendo. È possibile aggiungere più inizializzatori di telemetria all'istanza di Application Insights e vengono eseguiti in ordine di aggiunta.
+
+L'argomento di input `addTelemetryInitializer` per è un callback che [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) accetta come argomento e restituisce `boolean` o `void`. Se restituisce `false`, l'elemento di telemetria non viene inviato, altrimenti passa all'inizializzatore di telemetria successivo, se presente, o viene inviato all'endpoint della raccolta dei dati di telemetria.
+
+Esempio di uso degli inizializzatori di telemetria:
+```ts
+var telemetryInitializer = (envelope) => {
+  envelope.data.someField = 'This item passed through my telemetry initializer';
+};
+appInsights.addTelemetryInitializer(telemetryInitializer);
+appInsights.trackTrace({message: 'This message will use a telemetry initializer'});
+
+appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
+appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
+```
+## <a name="configuration"></a>Configurazione
+La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi `instrumentationKey`ad eccezione di.
+
+| Attività | Predefinito | Descrizione |
+|------|---------|-------------|
+| InstrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
+| accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
+| sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti |
+| sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
+| maxBatchSizeInBytes | 10000 | Dimensioni massime del batch di telemetria. Se un batch supera questo limite, viene immediatamente inviato e viene avviato un nuovo batch |
+| maxBatchInterval | 15000 | Durata della telemetria batch per prima dell'invio (millisecondi) |
+| disableExceptionTracking | false | Se true, le eccezioni non sono autocollected. Il valore predefinito è false. |
+| disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. Il valore predefinito è false. |
+| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. Il valore predefinito è false. <br>***Nota:*** Se si abilita questa impostazione, la telemetria verrà eliminata ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug `consoleLoggingLevel` , `telemetryLoggingLevel` provare a `enableDebug`usare o invece di. |
+| loggingLevelConsole | 0 | Registra gli errori **interni** di Application Insights alla console. <br>0: disattivato, <br>1: Solo errori critici, <br>2: Tutto (errori & avvisi) |
+| loggingLevelTelemetry | 1 | Invia errori **interni** di Application Insights come dati di telemetria. <br>0: disattivato, <br>1: Solo errori critici, <br>2: Tutto (errori & avvisi) |
+| diagnosticLogInterval | 10000 | interno Intervallo di polling (in MS) per la coda di registrazione interna |
+| samplingPercentage | 100 | Percentuale di eventi che verranno inviati. Il valore predefinito è 100, ovvero tutti gli eventi vengono inviati. Impostare questa impostazione se si desidera mantenere il limite di dati per le applicazioni su larga scala. |
+| autoTrackPageVisitTime | false | Se true, in una pagina di visualizzazione, il tempo di visualizzazione della pagina instrumentata precedente viene rilevato e inviato come dati di telemetria e viene avviato un nuovo timer per la visualizzazione corrente. Il valore predefinito è false. |
+| disableAjaxTracking | false | Se il valore è true, le chiamate AJAX non vengono raccolte. Il valore predefinito è false. |
+| disableFetchTracking | true | Se il valore è true, le richieste di recupero non vengono raccolte. Il valore predefinito è true |
+| overridePageViewDuration | false | Se true, il comportamento predefinito di trackPageView viene modificato per registrare la fine dell'intervallo di durata della visualizzazione pagina quando viene chiamato trackPageView. Se false e non viene fornita alcuna durata personalizzata a trackPageView, le prestazioni della visualizzazione pagina vengono calcolate usando l'API di intervallo di navigazione. Il valore predefinito è false. |
+| maxAjaxCallsPerView | 500 | Default 500-controlla il numero di chiamate AJAX che verranno monitorate per ogni visualizzazione pagina. Impostare su-1 per monitorare tutte le chiamate AJAX (illimitate) nella pagina. |
+| disableDataLossAnalysis | true | Se false, i buffer dei mittenti di telemetria interni verranno controllati all'avvio per gli elementi non ancora inviati. |
+| disableCorrelationHeaders | false | Se false, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste di dipendenza per metterle in correlazione con richieste corrispondenti sul lato server. Il valore predefinito è false. |
+| correlationHeaderExcludedDomains |  | Disabilitare le intestazioni di correlazione per domini specifici |
+| correlationHeaderDomains |  | Abilitare le intestazioni di correlazione per domini specifici |
+| disableFlushOnBeforeUnload | false | Valore predefinito false. Se true, il metodo Flush non verrà chiamato quando viene attivato l'evento onBeforeUnload |
+| enableSessionStorageBuffer | true | Valore predefinito true. Se true, il buffer con tutti i dati di telemetria non inviati viene archiviato nell'archiviazione della sessione. Il buffer viene ripristinato al caricamento della pagina |
+| isCookieUseDisabled | false | Valore predefinito false. Se true, l'SDK non archivia né legge i dati dai cookie.|
+| cookieDomain | Null | Dominio cookie personalizzato. Questa operazione è utile se si desidera condividere Application Insights cookie tra sottodomini. |
+| isRetryDisabled | false | Valore predefinito false. Se false, riprovare su 206 (operazione parzialmente riuscita), 408 (timeout), 429 (troppe richieste), 500 (errore interno del server), 503 (servizio non disponibile) e 0 (offline, solo se rilevato) |
+| isStorageUseDisabled | false | Se true, l'SDK non archivia né legge i dati dall'archiviazione locale e della sessione. Il valore predefinito è false. |
+| isBeaconApiDisabled | true | Se false, l'SDK invierà tutti i dati di telemetria usando l' [API Beacon](https://www.w3.org/TR/beacon) |
+| onunloadDisableBeacon | false | Valore predefinito false. Quando la scheda è chiusa, l'SDK invierà tutti i dati di telemetria rimanenti usando l' [API Beacon](https://www.w3.org/TR/beacon) |
+| sdkExtension | Null | Imposta il nome dell'estensione SDK. Sono consentiti solo caratteri alfabetici. Il nome dell'estensione viene aggiunto come prefisso al tag ' ai. Internal. sdkVersion ' (ad esempio,' ext_javascript: 2.0.0'). Il valore predefinito è Null. |
+| isBrowserLinkTrackingEnabled | false | Il valore predefinito è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| appId | Null | AppId viene utilizzato per la correlazione tra le dipendenze AJAX che si verificano sul lato client con le richieste lato server. Quando l'API Beacon è abilitata, non può essere usata automaticamente, ma può essere impostata manualmente nella configurazione. Il valore predefinito è null |
+| enableCorsCorrelation | false | Se true, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste CORS per correlare le dipendenze AJAX in uscita con le richieste corrispondenti sul lato server. Il valore predefinito è false |
+| namePrefix | non definito | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
+| enableAutoRouteTracking | false | Rilevare automaticamente le modifiche del route nelle applicazioni a pagina singola (SPA). Se true, ogni modifica della route invierà una nuova visualizzazione a Application Insights. Anche le modifiche della`example.com/foo#bar`Route hash () vengono registrate come nuove visualizzazioni di pagina.
+| enableRequestHeaderTracking | false | Se true, vengono rilevate le intestazioni della richiesta di recupero & AJAX, il valore predefinito è false.
+| enableResponseHeaderTracking | false | Se true, vengono rilevate le intestazioni di risposta della richiesta di recupero & AJAX, il valore predefinito è false.
+| distributedTracingMode | `DistributedTracingModes.AI` | Imposta la modalità di traccia distribuita. Se è impostata la modalità AI_AND_W3C o W3C, le intestazioni del contesto di traccia W3C (traceparent/tracestate) verranno generate e incluse in tutte le richieste in uscita. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati.
+
+## <a name="single-page-applications"></a>Applicazioni a pagina singola
+
+Per impostazione predefinita, questo SDK **non** gestirà la modifica della Route basata sullo stato che si verifica nelle applicazioni a pagina singola. Per abilitare il rilevamento automatico delle modifiche della route per l'applicazione a pagina singola `enableAutoRouteTracking: true` , è possibile aggiungere alla configurazione di installazione.
+
+Attualmente si offre un plug-in [React](#react-extensions) separato che è possibile inizializzare con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di [telemetria specifici di React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+## <a name="react-extensions"></a>Estensioni React
+
+| Estensioni |
+|---------------|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="explore-browserclient-side-data"></a>Esplorare i dati sul lato client e sul browser
+
+Per visualizzare i dati del browser/lato client, passare a **metriche** e aggiungere singole metriche a cui si è interessati: 
+
+![](./media/javascript/page-view-load-time.png)
+
+È anche possibile visualizzare i dati da JavaScript SDK tramite l'esperienza del browser nel portale.
 
-* In un progetto ASP.NET MVC inserire lo script in `View\Shared\_Layout.cshtml`
-* Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](sharepoint.md).
+Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
-Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa di Application Insights. 
+![](./media/javascript/browser.png)
 
-[Spiegazione più approfondita dello script](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/).
+### <a name="performance"></a>Prestazioni 
 
-## <a name="detailed-configuration"></a>Configurazione dettagliata
-Sono disponibili diversi [parametri](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) che è possibile impostare, anche se nella maggior parte dei casi non è necessario farlo. È ad esempio possibile disabilitare o limitare il numero di chiamate AJAX segnalate per visualizzazione pagina allo scopo di ridurre il traffico oppure impostare la modalità di debug per velocizzare lo spostamento dei dati di telemetria nella pipeline senza che vengano divisi in batch.
+![](./media/javascript/performance-operations.png)
 
-Per impostare questi parametri, cercare la riga seguente nel frammento di codice e aggiungere altri elementi delimitati da virgole dopo la riga:
+### <a name="dependencies"></a>Dependencies
 
-    })({
-      instrumentationKey: "..."
-      // Insert here
-    });
+![](./media/javascript/performance-dependencies.png)
 
-I [parametri disponibili](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) includono:
+### <a name="analytics"></a>Analisi 
 
-    // Send telemetry immediately without batching.
-    // Remember to remove this when no longer required, as it
-    // can affect browser performance.
-    enableDebug: boolean,
+Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Aggiungendo un' `where` istruzione di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
+ 
+```kusto
+// average pageView duration by name
+let timeGrain=5m;
+let dataset=pageViews
+// additional filters can be applied here
+| where timestamp > ago(1d)
+| where client_Type == "Browser" ;
+// calculate average pageView duration for all pageViews
+dataset
+| summarize avg(duration) by bin(timestamp, timeGrain)
+| extend pageView='Overall'
+// render result in a chart
+| render timechart
+```
 
-    // Don't log browser exceptions.
-    disableExceptionTracking: boolean,
+### <a name="source-map-support"></a>Supporto della mappa di origine
 
-    // Don't log ajax calls.
-    disableAjaxTracking: boolean,
+Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminified nel portale di Azure. Tutte le integrazioni esistenti nel pannello Dettagli eccezione funzioneranno con il nuovo unminified stack. Il trascinamento della selezione della mappa di origine unminifying supporta tutti gli SDK JS esistenti e futuri (+ node. JS), pertanto non è necessario aggiornare la versione dell'SDK. Per visualizzare il stack unminified,
+1. Selezionare un elemento di telemetria delle eccezioni nel portale di Azure per visualizzare i relativi dettagli della transazione end-to-end.
+2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso`.map`
+3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nel portale di Azure![](https://i.imgur.com/Efue9nU.gif)
 
-    // Limit number of Ajax calls logged, to reduce traffic.
-    maxAjaxCallsPerView: 10, // default is 500
+### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 
-    // Time page load up to execution of first trackPageView().
-    overridePageViewDuration: boolean,
+Per un'esperienza semplificata, è invece possibile installare la versione di base di Application Insights
+```
+npm i --save @microsoft/applicationinsights-web-basic
+```
+Questa versione include il numero minimo di caratteristiche e funzionalità e si basa su di esso per compilarlo nel modo appropriato. Ad esempio, non esegue alcuna raccolta (eccezioni non rilevate, AJAX e così via). Le API per inviare determinati tipi di dati di telemetria, ad esempio `trackTrace`, `trackException`e così via, non sono incluse in questa versione, pertanto sarà necessario fornire un wrapper personalizzato. L'unica API disponibile è `track`. Un [esempio](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) è disponibile qui.
 
-    // Set dynamically for an authenticated user.
-    accountId: string,
+## <a name="examples"></a>Esempi
 
-## <a name="run"></a>Eseguire l'app
-Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla premendo **F5** sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
+Per esempi eseguibili, vedere [esempi di Application Insights JavaScript SDK](https://github.com/topics/applicationinsights-js-demo)
 
-Se si desidera controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (**F12** in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
+## <a name="upgrading-from-the-old-version-of-application-insights"></a>Aggiornamento dalla versione precedente di Application Insights
 
-## <a name="explore-your-browser-performance-data"></a>Esplorare i dati sulle prestazioni del browser
-Aprire il pannello Browser per visualizzare i dati sulle prestazioni aggregati relativi ai browser degli utenti.
+Modifiche di rilievo nella versione SDK v2:
+- Per consentire una migliore firma API, alcune delle chiamate API, ad esempio trackPageView, trackexception sono state aggiornate. L'esecuzione in IE8 o versioni precedenti del browser non è supportata.
+- La busta di telemetria presenta modifiche al nome del campo e alla struttura a causa degli aggiornamenti dello schema dati.
+- Spostato `context.operation` in `context.telemetryTrace`. Sono stati modificati anche alcuni campi`operation.id`( --> `telemetryTrace.traceID`)
+  - Se si desidera aggiornare manualmente l'ID di visualizzazione corrente (ad esempio, nelle app SPA), è possibile eseguire questa operazione con`appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
-![In portal.azure.com aprire la risorsa dell'app e fare clic su Impostazioni, Browser](./media/javascript/03.png)
+Se si usa l'SDK di produzione di Application Insights (1.0.20) corrente e si vuole verificare se il nuovo SDK funziona in fase di esecuzione, aggiornare l'URL a seconda dello scenario di caricamento dell'SDK corrente.
 
-Ancora nessun dato? Fare clic su **Aggiorna** nella parte superiore della pagina. Ancora niente di fatto? Vedere [Domande su Application Insights per ASP.NET](troubleshoot-faq.md).
+- Scarica tramite lo scenario della rete CDN: Aggiornare il frammento di codice che si utilizza attualmente per puntare all'URL seguente:
+   ```
+   "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
+   ```
 
-Il pannello Browser è un [pannello di Esplora metriche](metrics-explorer.md) con selezioni di grafici e filtri predefiniti. È possibile modificare l'intervallo di tempo, i filtri e la configurazione del grafico e salvare il risultato tra i preferiti. Fare clic su **Ripristina impostazioni predefinite** per tornare alla configurazione originale del pannello.
+- Scenario NPM: Chiamare `downloadAndSetup` per scaricare lo script ApplicationInsights completo dalla rete CDN e inizializzarlo con la chiave di strumentazione:
 
-## <a name="page-load-performance"></a>Prestazioni di caricamento delle pagine
-Nella parte superiore è presente un grafico segmentato relativo ai tempi di caricamento delle pagine. L'altezza totale del grafico rappresenta il tempo medio di caricamento e visualizzazione delle pagine dall'app nel browser degli utenti. Il tempo viene misurato dal momento in cui il browser invia la richiesta HTTP iniziale fino al termine dell'elaborazione di tutti gli eventi di caricamento sincrono, inclusi gli script di esecuzione e layout. Non sono incluse le attività asincrone, ad esempio il caricamento di Web part da chiamate AJAX.
+   ```ts
+   appInsights.downloadAndSetup({
+     instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
+     url: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
+     });
+   ```
 
-Il grafico segmenta il tempo totale di caricamento delle pagine negli [intervalli di tempo standard definiti da W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
+Eseguire il test in un ambiente interno per verificare che la telemetria del monitoraggio funzioni come previsto. Se tutto funziona, aggiornare le firme dell'API in modo appropriato alla versione SDK v2 e distribuirle negli ambienti di produzione.
 
-![](./media/javascript/08-client-split.png)
+## <a name="sdk-performanceoverhead"></a>Prestazioni/overhead SDK
 
-Si noti che il tempo di *connessione alla rete* è spesso inferiore al previsto, perché è una media di tutte le richieste dal browser al server. Molte richieste singole hanno un tempo di connessione pari a 0 perché esiste già una connessione attiva sul server.
+A soli 25 KB gzippato e impiegando solo ~ 15 ms per l'inizializzazione, Application Insights aggiunge una quantità trascurabile di LoadTime al sito Web. Usando il frammento di codice, vengono caricati rapidamente i componenti minimi della libreria. Nel frattempo, lo script completo viene scaricato in background.
 
-### <a name="slow-loading"></a>Caricamento lento
-Il caricamento lento delle pagine è tra le principali cause di insoddisfazione per gli utenti. Se il grafico indica caricamenti lenti delle pagine, è possibile eseguire delle semplici ricerche diagnostiche.
+Durante il download dello script dalla rete CDN, tutte le tracce della pagina vengono accodate. Al termine dell'inizializzazione asincrona dello script scaricato, verranno rilevati tutti gli eventi accodati. Di conseguenza, non si perderanno i dati di telemetria durante l'intero ciclo di vita della pagina. Questo processo di installazione fornisce alla pagina un sistema di analisi trasparente, invisibile agli utenti.
 
-Il grafico mostra la media di tutti i caricamenti di pagina nell'app. Per verificare se il problema è limitato a determinate pagine, vedere la griglia segmentata in base agli URL delle pagine più in basso nel pannello:
+> Riepilogo:
+> - gzippato di **25 KB**
+> - tempo totale di inizializzazione di **15 ms**
+> - **Nessun** rilevamento perso durante il ciclo di vita della pagina
 
-![](./media/javascript/09-page-perf.png)
+## <a name="browser-support"></a>Supporto browser
 
-Si noti il conteggio delle visualizzazioni pagina e la deviazione standard. Se il conteggio delle pagine è molto basso, il problema non influisce molto sugli utenti. Una deviazione standard elevata, paragonabile alla media stessa, indica grandi differenze tra le singole misure.
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+✔ Più recenti | ✔ Più recenti | 9 + ✔ | ✔ Più recenti | ✔ Più recenti |
 
-**Ingrandire un URL e una visualizzazione pagina.**  Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
+## <a name="open-source-sdk"></a>SDK open source
 
-![](./media/javascript/35.png)
-
-Fare clic su `...` per un elenco completo delle proprietà dell'evento oppure controllare le chiamate AJAX e gli eventi correlati. La lentezza delle chiamate AJAX influisce sul tempo di caricamento totale delle pagine se le chiamate sono sincrone. Gli eventi correlati includono le richieste server per lo stesso URL, se Application Insights è stato configurato nel server Web.
-
-**Prestazioni delle pagine nel tempo.**  Tornare al pannello Browser e trasformare la griglia del tempo di caricamento della visualizzazione pagina in un grafico a linee per verificare se ci sono stati picchi in orari specifici:
-
-![Fare clic sull'intestazione della griglia e selezionare un nuovo tipo di grafico](./media/javascript/10-page-perf-area.png)
-
-**Segmentare in base ad altre dimensioni.**  Il caricamento delle pagine potrebbe risultare più lento in un determinato browser, un sistema operativo client o una località utente. Aggiungere un nuovo grafico e provare la dimensione **Raggruppamento** .
-
-![](./media/javascript/21.png)
-
-## <a name="ajax-performance"></a>Prestazioni AJAX
-Assicurarsi che le prestazioni di tutte le chiamate AJAX nelle pagine Web siano soddisfacenti. Spesso vengono usate per riempire parti della pagina in modo asincrono. Anche se la pagina in generale viene caricata tempestivamente, gli utenti potrebbero non essere soddisfatti dei tempi di caricamento e visualizzazione troppo lenti di alcune Web part.
-
-Le chiamate AJAX eseguite dalla pagina Web vengono visualizzate nel pannello Browser come dipendenze.
-
-Sono disponibili grafici di riepilogo nella parte superiore del pannello:
-
-![](./media/javascript/31.png)
-
-e griglie dettagliate più in basso:
-
-![](./media/javascript/33.png)
-
-Fare clic su una riga per visualizzare i dettagli specifici.
-
-> [!NOTE]
-> Se si elimina il filtro Browser nel pannello, le dipendenze AJAX e server verranno incluse entrambe in questi grafici. Fare clic su Ripristina impostazioni predefinite per riconfigurare il filtro.
-> 
-> 
-
-**Per esaminare le chiamate AJAX non riuscite** , scorrere verso il basso fino alla griglia degli errori di dipendenza e quindi fare clic su una riga per visualizzare le istanze specifiche.
-
-![](./media/javascript/37.png)
-
-Fare clic su `...` per visualizzare i dati di telemetria completi per una chiamata AJAX.
-
-### <a name="no-ajax-calls-reported"></a>Nessuna chiamata AJAX segnalata
-Le chiamate AJAX includono tutte le chiamate HTTP/HTTPS inviate dallo script della pagina Web. Se non vengono segnalate, controllare che nel frammento di codice non siano impostati i [parametri](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView` .
-
-## <a name="browser-exceptions"></a>Eccezioni del browser
-Nel pannello Browser è presente un grafico di riepilogo delle eccezioni, una griglia dei tipi di eccezione è disponibile più in basso nel pannello.
-
-![](./media/javascript/39.png)
-
-Se le eccezioni del browser non vengono segnalate, controllare che nel frammento di codice non sia impostato il [parametro](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
-
-## <a name="inspect-individual-page-view-events"></a>Esaminare singoli eventi di visualizzazione pagina
-
-In genere la telemetria delle visualizzazioni di pagina viene analizzata da Application Insights e vengono quindi visualizzati solo i report cumulativi, mediati su tutti gli utenti del sito. A scopo di debug, tuttavia, è possibile visualizzare anche singoli eventi di visualizzazione di pagina.
-
-Nella falda di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
-
-![](./media/javascript/12-search-pages.png)
-
-Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
-
-> [!NOTE]
-> Se si usa [Ricerca](diagnostic-search.md), si noti che è necessaria la corrispondenza dell'intera parola: "Informaz" e "Info" non corrispondono a "Informazioni".
-> 
-> 
-
-Per eseguire ricerche sulle visualizzazioni di pagina, è anche possibile usare l'avanzato [linguaggio di query di Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour).
-
-### <a name="page-view-properties"></a>Proprietà delle visualizzazioni di pagina
-* **Durata della visualizzazione pagina** 
-  
-  * Per impostazione predefinita, indica il tempo necessario per caricare la pagina, dalla richiesta del client al caricamento completo, inclusi i file ausiliari ma escludendo le attività asincrone come le chiamate Ajax. 
-  * Se si imposta `overridePageViewDuration` nella [configurazione della pagina](#detailed-configuration), indica l'intervallo tra la richiesta del client e l'esecuzione del primo `trackPageView`. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
-  * Se viene impostato il valore `overridePageViewDuration` e viene specificato un argomento Duration nella chiamata `trackPageView()`, viene usato invece il valore dell'argomento. 
-
-## <a name="custom-page-counts"></a>Conteggi di pagina personalizzati
-Per impostazione predefinita, viene conteggiata una pagina ogni volta che una nuova pagina viene caricata nel browser client.  Potrebbero tuttavia essere utile conteggiare visualizzazioni di pagina aggiuntive. Ad esempio, il contenuto di una pagina potrebbe essere visualizzato in schede e si desidera conteggiare una pagina quando l'utente cambia scheda oppure un codice JavaScript nella pagina potrebbe caricare nuovi contenuti senza cambiare l'URL del browser.
-
-Inserire una chiamata JavaScript simile a questa nel punto appropriato nel codice del client:
-
-    appInsights.trackPageView(myPageName);
-
-Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "#" o "?" vengono ignorati.
-
-## <a name="usage-tracking"></a>Monitoraggio dell'utilizzo
-Per sapere in che modo gli utenti usano l'app,
-
-* [Informazioni sugli strumenti di analitica del comportamento utente](usage-overview.md)
-* [Altre informazioni sull'API per gli eventi e le metriche personalizzati](api-custom-events-metrics.md).
-
-## <a name="video"></a> Video
-
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
-
-
+Il Application Insights JavaScript SDK è open source per visualizzare il codice sorgente o per contribuire al progetto visitare il [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-JS).
 
 ## <a name="next"></a> Passaggi successivi
 * [Tenere traccia dell'utilizzo](usage-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Rilevamento delle combinazioni di colori - Visione artificiale
+title: Rilevamento della combinazione di colori-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi al rilevamento della combinazione di colori nelle immagini tramite l'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368588"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945287"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
 
@@ -30,7 +30,7 @@ Visione artificiale restituisce anche un valore booleano che indica se un'immagi
 
 L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma i colori di primo piano e di sfondo dominanti sono il nero e i colori dominanti per l'immagine nel suo complesso sono il nero e il bianco.
 
-![Mountain outdoor al tramonto, con sagoma una persona](./Images/mountain_vista.png)
+![Mountain outdoor al tramonto, con la silhouette di una persona](./Images/mountain_vista.png)
 
 ```json
 {

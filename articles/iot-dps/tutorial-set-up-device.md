@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500975"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911691"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
@@ -27,7 +27,7 @@ Nell'esercitazione precedente è stato descritto come configurare il servizio De
 
 In questa esercitazione si presuppone che siano già stati creati l'istanza del servizio Device Provisioning e un hub IoT, seguendo le istruzioni indicate nell'esercitazione [Configurare risorse cloud](tutorial-set-up-cloud.md) precedente.
 
-Questa esercitazione usa il [repository per gli SDK e le librerie di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c), che include l'SDK client per il servizio Device Provisioning per C. L'SDK offre attualmente il supporto per TPM e X.509 per dispositivi in esecuzione su implementazioni Windows o Ubuntu. Questa esercitazione è basata sull'uso di un client di sviluppo Windows e ciò presuppone anche competenze di base di Visual Studio 2017. 
+Questa esercitazione usa il [repository per gli SDK e le librerie di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c), che include l'SDK client per il servizio Device Provisioning per C. L'SDK offre attualmente il supporto per TPM e X.509 per dispositivi in esecuzione su implementazioni Windows o Ubuntu. Questa esercitazione è basata sull'uso di un client di sviluppo Windows e ciò presuppone anche competenze di base di Visual Studio. 
 
 Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md) prima di continuare. 
 
@@ -36,14 +36,14 @@ Se non si ha familiarità con il processo di provisioning automatico, vedere [Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio 2015](https://visualstudio.microsoft.com/vs/) o versioni successive con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Creare una versione dell'SDK specifica per la piattaforma
 
-L'SDK client del servizio Device Provisioning consente di implementare il software di registrazione del dispositivo. Prima di poterlo usare, è tuttavia necessario creare una versione dell'SDK specifica per la piattaforma client di sviluppo e per il meccanismo di attestazione. In questa esercitazione viene creato un SDK che usa Visual Studio 2017 su una piattaforma di sviluppo Windows per un tipo supportato di attestazione:
+L'SDK client del servizio Device Provisioning consente di implementare il software di registrazione del dispositivo. Prima di poterlo usare, è tuttavia necessario creare una versione dell'SDK specifica per la piattaforma client di sviluppo e per il meccanismo di attestazione. In questa esercitazione viene creato un SDK che usa Visual Studio su una piattaforma di sviluppo Windows per un tipo supportato di attestazione:
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
@@ -120,7 +120,7 @@ A seconda del fatto che l'SDK sia stato compilato per usare l'attestazione per u
 
    1. Nel riquadro *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**. 
 
-   1. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". La finestra di output visualizza l'**_ID registrazione_** del simulatore TPM e la **_Chiave di approvazione_**, necessari per la registrazione dei dispositivi. Copiare questi valori per un utilizzo successivo. È possibile chiudere questa finestra contenente ID registrazione e Chiave di approvazione, ma lasciare aperta la finestra del simulatore TPM in esecuzione avviato al passaggio 1.
+   1. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". La finestra di output visualizza l' **_ID registrazione_** del simulatore TPM e la **_Chiave di approvazione_** , necessari per la registrazione dei dispositivi. Copiare questi valori per un utilizzo successivo. È possibile chiudere questa finestra contenente ID registrazione e Chiave di approvazione, ma lasciare aperta la finestra del simulatore TPM in esecuzione avviato al passaggio 1.
 
 - Per un dispositivo X.509 simulato:
 
@@ -128,9 +128,9 @@ A seconda del fatto che l'SDK sia stato compilato per usare l'attestazione per u
 
   1. Nel riquadro *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **dice\_device\_enrollment** e scegliere **Set as Startup Project** (Imposta come progetto di avvio). 
   
-  1. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". Nella finestra di output immettere **i** per la registrazione singola quando richiesto. Nella finestra di output viene visualizzato un certificato X.509 generato in locale per il dispositivo simulato. Copiare l'output da *-----BEGIN CERTIFICATE-----* alla prima occorrenza di *-----END CERTIFICATE-----*, assicurandosi di includere anche queste due righe. È necessario solo il primo certificato indicato nella finestra di output.
+  1. Eseguire la soluzione usando uno dei comandi "Avvia" dal menu "Debug". Nella finestra di output immettere **i** per la registrazione singola quando richiesto. Nella finestra di output viene visualizzato un certificato X.509 generato in locale per il dispositivo simulato. Copiare l'output da *-----BEGIN CERTIFICATE-----* alla prima occorrenza di *-----END CERTIFICATE-----* , assicurandosi di includere anche queste due righe. È necessario solo il primo certificato indicato nella finestra di output.
  
-  1. Creare un file denominato **_X509testcert.pem_**, aprirlo in un editor di testo di propria scelta e copiare il contenuto degli Appunti in questo file. Salvare il file, perché verrà usato in seguito per la registrazione dei dispositivi. Quando il software di registrazione viene eseguito, usa lo stesso certificato durante il provisioning automatico.    
+  1. Creare un file denominato **_X509testcert.pem_** , aprirlo in un editor di testo di propria scelta e copiare il contenuto degli Appunti in questo file. Salvare il file, perché verrà usato in seguito per la registrazione dei dispositivi. Quando il software di registrazione viene eseguito, usa lo stesso certificato durante il provisioning automatico.    
 
 Questi elementi di sicurezza sono necessari durante la registrazione del dispositivo nel servizio Device Provisioning. Il servizio di provisioning attende che il dispositivo venga ad un certo punto avviato e connesso. Quando il dispositivo viene avviato per la prima volta, la logica dell'SDK client interagisce con il chip o con il simulatore per estrarre gli elementi di sicurezza dal dispositivo e verifica la registrazione con il servizio Device Provisioning. 
 
@@ -141,7 +141,7 @@ L'ultimo passaggio consiste nella scrittura di un'applicazione di registrazione 
 > [!NOTE]
 > Per questo passaggio si presuppone l'uso di un dispositivo simulato, ottenuto tramite l'esecuzione di un'applicazione di registrazione di esempio dell'SDK dalla workstation. Gli stessi concetti sono tuttavia applicabili se si compila un'applicazione di registrazione per la distribuzione in un dispositivo fisico. 
 
-1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_**. L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione.
+1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_** . L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione.
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 

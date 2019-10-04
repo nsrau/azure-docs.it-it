@@ -1,19 +1,17 @@
 ---
 title: Registrare le origini dati in Azure Data Catalog
 description: Questo articolo illustra come registrare le origini dati in Azure Data Catalog, inclusi i campi di metadati estratti durante la registrazione.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 08/01/2019
+ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002987"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736317"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrare le origini dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
@@ -76,7 +74,7 @@ La registrazione di un'origine dati la rende individuabile in Data Catalog quand
 
 La nuova registrazione di un'origine dati già registrata esegue un'operazione di unione "upsert": gli oggetti esistenti vengono aggiornati e i nuovi oggetti vengono creati. Tutti i metadati forniti dagli utenti tramite il portale di Data Catalog vengono mantenuti.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione dell'origine dati in Data Catalog, poiché copia i metadati strutturali e descrittivi da un'origine dati al servizio catalogo, rende più facile trovare e comprendere i dati. Dopo avere registrato l'origine dati, è possibile annotarla, gestirla e trovarla usando il portale di Data Catalog.
 
 ## <a name="next-steps"></a>Passaggi successivi

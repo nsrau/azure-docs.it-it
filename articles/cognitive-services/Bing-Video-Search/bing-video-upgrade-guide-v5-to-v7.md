@@ -1,6 +1,6 @@
 ---
 title: Aggiornamento di API Ricerca video Bing da v5 a v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,22 +10,22 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5dc4c870ae8dbe9f082456d738836aced1271732
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867223"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500738"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca video
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca video Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio: `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 
@@ -38,7 +38,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|DESCRIZIONE
+|Codice|Sottocodice|Descrizione
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.
@@ -71,11 +71,11 @@ Bloccato|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parametri di query
 
-- Il parametro di query `modulesRequested` è stato rinominato in [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- Il parametro di query `modulesRequested` è stato rinominato in [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `nextOffsetAddCount` di [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) è stato rinominato in `nextOffset`. È stata modificata anche la modalità d'uso dell'offset. In precedenza il parametro di query [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) veniva impostato sul valore `nextOffset` più il valore di offset precedente e il numero di video nel risultato. Ora è sufficiente impostare il parametro di query `offset` sul valore `nextOffset`.  
+- Il campo `nextOffsetAddCount` di [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) è stato rinominato in `nextOffset`. È stata modificata anche la modalità d'uso dell'offset. In precedenza il parametro di query [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) veniva impostato sul valore `nextOffset` più il valore di offset precedente e il numero di video nel risultato. Ora è sufficiente impostare il parametro di query `offset` sul valore `nextOffset`.  
   
-- Il tipo di dati del campo `relatedVideos` è stato cambiato da `Video[]` a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (vedere [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
+- Il tipo di dati del campo `relatedVideos` è stato cambiato da `Video[]` a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (vedere [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
 

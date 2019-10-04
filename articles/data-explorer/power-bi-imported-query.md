@@ -1,30 +1,30 @@
 ---
-title: 'Guida introduttiva: Visualizzare i dati da Esplora dati di Azure con una query importata in Power BI '
-description: 'In questa guida introduttiva viene descritto come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: importazione di una query da Esplora dati di Azure.'
+title: 'Visualizzare i dati da Esplora dati di Azure con una query importata in Power BI '
+description: 'In questo articolo descrive come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: importazione di una query da Esplora dati di Azure.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050587"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806413"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Guida introduttiva: Visualizzare i dati tramite una query importata in Power BI
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizzare i dati tramite una query importata in Power BI
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 
-Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questa Guida introduttiva illustra come importare una query per ottenere dati e visualizzarli in un report di Power BI.
+Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come importare una query in modo che è possibile ottenere i dati e visualizzarli in un report di Power BI.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva è necessario quanto segue:
+È necessario quanto segue per completare questo articolo:
 
 * Un account di posta elettronica dell'organizzazione membro di Azure Active Directory, in modo da potersi connettere al [cluster della guida di Esplora dati di Azure](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -78,9 +78,8 @@ In primo luogo, si crea una query nell'app desktop di Esplora dati di Azure e la
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il report creato per questa Guida introduttiva non è più necessario, eliminare il file di Power BI Desktop (pbix).
+Se non è più necessario il report creato per questo articolo, eliminare il file di Power BI Desktop (pbix).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Visualizzare i dati tramite una query importata in Power BI](power-bi-sql-query.md)
+[Visualizzare i dati usando il connettore di Esplora dati di Azure per Power BI](power-bi-connector.md)

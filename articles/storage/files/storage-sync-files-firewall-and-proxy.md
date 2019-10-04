@@ -1,27 +1,23 @@
 ---
 title: Impostazioni di proxy e firewall locali di Sincronizzazione file di Azure | Microsoft Docs
 description: Configurazione della rete locale di Sincronizzazione file di Azure
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 69f4c767b9fc1da90db021ffb3eb8704983ca69b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460482"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699300"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
 
 Questo articolo offre informazioni dettagliate sui requisiti e le opzioni disponibili per connettere un server a Sincronizzazione file di Azure in modo sicuro ed efficiente.
-
-> [!Important]
-> Sincronizzazione file di Azure non supporta ancora firewall e reti virtuali per gli account di archiviazione.
 
 ## <a name="overview"></a>Panoramica
 Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione tra Windows Server, la condivisione file di Azure e altri servizi di Azure per la sincronizzazione dei dati, come descritto nel gruppo di sincronizzazione. Per consentire il corretto funzionamento di Sincronizzazione file di Azure, è necessario configurare i server in modo che possano comunicare con i servizi di Azure seguenti:
@@ -86,14 +82,14 @@ Per configurare le impostazioni proxy a livello di computer, attenersi alla proc
 
       net stop filesyncsvc
 
-      Note: il servizio Storage Sync Agent (filesyncsvc) si avvia in modo automatico dopo l'arresto.
+      Nota: il servizio Storage Sync Agent (filesyncsvc) si avvia in modo automatico dopo l'arresto.
 
 ## <a name="firewall"></a>Firewall
 Come indicato in una sezione precedente, la porta 443 deve essere aperta in uscita. In base ai criteri definiti a livello di data center, ramo o area geografica, è possibile che sia necessario o preferibile limitare il traffico su questa porta a domini specifici.
 
 La tabella seguente illustra i domini necessari per la comunicazione:
 
-| Service | Endpoint del cloud pubblico | Endpoint di Azure per enti pubblici | Uso |
+| Service | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
 | **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Le chiamate di Azure Resource Manager devono essere effettuate da un utente autenticato. Per l'autenticazione utente viene usato questo URL. |
@@ -111,22 +107,33 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 
 | Cloud  | Region | URL dell'endpoint primario | Area associata | URL di individuazione |
 |--------|--------|----------------------|---------------|---------------|
-| Pubblico |Australia orientale | https://kailani-aue.one.microsoft.com | Australia sud-orientale | https://kailani-aue.one.microsoft.com |
-| Pubblico |Australia sud-orientale | https://kailani-aus.one.microsoft.com | Australia orientale | https://tm-kailani-aus.one.microsoft.com |
-| Pubblico | Canada centrale | https://kailani-cac.one.microsoft.com | Canada orientale | https://tm-kailani-cac.one.microsoft.com |
-| Pubblico | Canada orientale | https://kailani-cae.one.microsoft.com | Canada centrale | https://tm-kailani.cae.one.microsoft.com |
-| Pubblico | Stati Uniti centrali | https://kailani-cus.one.microsoft.com | Stati Uniti orientali 2 | https://tm-kailani-cus.one.microsoft.com |
-| Pubblico | Asia orientale | https://kailani11.one.microsoft.com | Asia sud-orientale | https://tm-kailani11.one.microsoft.com |
-| Pubblico | Stati Uniti orientali | https://kailani1.one.microsoft.com | Stati Uniti occidentali | https://tm-kailani1.one.microsoft.com |
-| Pubblico | Stati Uniti orientali 2 | https://kailani-ess.one.microsoft.com | Stati Uniti centrali | https://tm-kailani-ess.one.microsoft.com |
-| Pubblico | Europa settentrionale | https://kailani7.one.microsoft.com | Europa occidentale | https://tm-kailani7.one.microsoft.com |
-| Pubblico | Asia sud-orientale | https://kailani10.one.microsoft.com | Asia orientale | https://tm-kailani10.one.microsoft.com |
-| Pubblico | Regno Unito meridionale | https://kailani-uks.one.microsoft.com | Regno Unito occidentale | https://tm-kailani-uks.one.microsoft.com |
-| Pubblico | Regno Unito occidentale | https://kailani-ukw.one.microsoft.com | Regno Unito meridionale | https://tm-kailani-ukw.one.microsoft.com |
-| Pubblico | Europa occidentale | https://kailani6.one.microsoft.com | Europa settentrionale | https://tm-kailani6.one.microsoft.com |
-| Pubblico | Stati Uniti occidentali | https://kailani.one.microsoft.com | Stati Uniti orientali | https://tm-kailani.one.microsoft.com |
-| Government | US Gov Arizona | https://usgovarizona01.afs.azure.us | US Gov Texas | https://tm-usgovarizona01.afs.azure.us |
-| Government | US Gov Texas | https://usgovtexas01.afs.azure.us | US Gov Arizona | https://tm-usgovtexas01.afs.azure.us |
+| Public |Australia orientale | https:\//Kailani-Aue.One.Microsoft.com | Australia sud-orientale | https:\//TM-Kailani-Aue.One.Microsoft.com |
+| Public |Australia sud-orientale | https:\//Kailani-aus.One.Microsoft.com | Australia orientale | https:\//TM-Kailani-aus.One.Microsoft.com |
+| Public | Brasile meridionale | https:\//brazilsouth01.afs.azure.net | Stati Uniti centro-meridionali | https:\//tm-brazilsouth01.afs.azure.net |
+| Public | Canada centrale | https:\//Kailani-CAC.One.Microsoft.com | Canada orientale | https:\//TM-Kailani-CAC.One.Microsoft.com |
+| Public | Canada orientale | https:\//Kailani-CAE.One.Microsoft.com | Canada centrale | https:\//tm-kailani.cae.one.microsoft.com |
+| Public | India centrale | https:\//Kailani-cin.One.Microsoft.com | India meridionale | https:\//TM-Kailani-cin.One.Microsoft.com |
+| Public | Stati Uniti centrali | https:\//Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https:\//TM-Kailani-CUS.One.Microsoft.com |
+| Public | Asia orientale | https:\//kailani11.One.Microsoft.com | Asia sud-orientale | https:\//TM-kailani11.One.Microsoft.com |
+| Public | East US | https:\//kailani1.One.Microsoft.com | Stati Uniti occidentali | https:\//TM-kailani1.One.Microsoft.com |
+| Public | Stati Uniti orientali 2 | https:\//Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https:\//TM-Kailani-ESS.One.Microsoft.com |
+| Public | Giappone orientale | https:\//japaneast01.afs.azure.net | Giappone occidentale | https:\//tm-japaneast01.afs.azure.net |
+| Public | Giappone occidentale | https:\//japanwest01.afs.azure.net | Giappone orientale | https:\//tm-japanwest01.afs.azure.net |
+| Public | Corea del Sud centrale | https:\//koreacentral01.afs.azure.net/ | Corea del Sud meridionale | https:\//tm-koreacentral01.afs.azure.net/ |
+| Public | Corea del Sud meridionale | https:\//koreasouth01.AFS.Azure.NET/ | Corea del Sud centrale | https:\//tm-koreasouth01.afs.azure.net/ |
+| Public | Stati Uniti centro-settentrionali | https:\//northcentralus01.afs.azure.net | Stati Uniti centro-meridionali | https:\//tm-northcentralus01.afs.azure.net |
+| Public | Europa settentrionale | https:\//kailani7.One.Microsoft.com | Europa occidentale | https:\//TM-kailani7.One.Microsoft.com |
+| Public | Stati Uniti centro-meridionali | https:\//southcentralus01.afs.azure.net | Stati Uniti centro-settentrionali | https:\//tm-southcentralus01.afs.azure.net |
+| Public | India meridionale | https:\//Kailani-sin.One.Microsoft.com | India centrale | https:\//TM-Kailani-sin.One.Microsoft.com |
+| Public | Asia sud-orientale | https:\//kailani10.One.Microsoft.com | Asia orientale | https:\//TM-kailani10.One.Microsoft.com |
+| Public | Regno Unito meridionale | https:\//Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https:\//TM-Kailani-UKS.One.Microsoft.com |
+| Public | Regno Unito occidentale | https:\//Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https:\//TM-Kailani-UKW.One.Microsoft.com |
+| Public | Stati Uniti centro-occidentali | https:\//westcentralus01.afs.azure.net | Stati Uniti occidentali 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Public | Europa occidentale | https:\//kailani6.One.Microsoft.com | Europa settentrionale | https:\//TM-kailani6.One.Microsoft.com |
+| Public | Stati Uniti occidentali | https:\//Kailani.One.Microsoft.com | East US | https:\//TM-Kailani.One.Microsoft.com |
+| Public | Stati Uniti occidentali 2 | https:\//westus201.afs.azure.net | Stati Uniti centro-occidentali | https:\//tm-westus201.afs.azure.net |
+| Enti governativi | US Gov Arizona | https:\//usgovarizona01.afs.azure.us | US Gov Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Enti governativi | US Gov Texas | https:\//usgovtexas01.afs.azure.us | US Gov Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se si usano account di archiviazione con ridondanza locale (LRS) o con ridondanza della zona (ZRS), è sufficiente abilitare l'URL elencato in "URL dell'endpoint primario".
 
@@ -134,9 +141,9 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 
 **Esempio:** si distribuisce un servizio di sincronizzazione archiviazione in `"West US"` e si registra il server con esso. Gli URL con cui consentire al server di comunicare per questo caso sono:
 
-> - https://kailani.one.microsoft.com (endpoint primario: Stati Uniti occidentali)
-> - https://kailani1.one.microsoft.com (area di failover abbinata: Stati Uniti orientali)
-> - https://tm-kailani.one.microsoft.com (URL di individuazione dell'area primaria)
+> - https:\//Kailani.One.Microsoft.com (endpoint primario: Stati Uniti occidentali)
+> - https:\//kailani1.One.Microsoft.com (area di failover abbinata: Stati Uniti orientali)
+> - https:\//TM-Kailani.One.Microsoft.com (URL di individuazione dell'area primaria)
 
 ## <a name="summary-and-risk-limitation"></a>Riepilogo e limitazione dei rischi
 Gli elenchi riportati in questo documento contengono gli URL con cui comunica attualmente Sincronizzazione file di Azure. I firewall devono essere in grado di consentire il traffico in uscita da questi domini. Microsoft si impegna a mantenere l'elenco costantemente aggiornato.

@@ -1,19 +1,19 @@
 ---
-title: Configurare gli avvisi di integrità dei servizi di Azure con PagerDuty | Microsoft Docs
+title: Inviare gli avvisi di integrità servizio di Azure con PagerDuty usando i webhook
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di PagerDuty.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067144"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Configurare gli avvisi di integrità dei servizi con PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Inviare gli avvisi di integrità servizio di Azure con PagerDuty usando i webhook
 
 Questo articolo illustra come configurare le notifiche di integrità dei servizi di Azure tramite PagerDuty usando un webhook. Con il tipo di integrazione personalizzata Microsoft Azure di [PagerDuty](https://www.pagerduty.com/) è possibile aggiungere facilmente gli avvisi di integrità dei servizi ai servizi nuovi o esistenti di PagerDuty.
 

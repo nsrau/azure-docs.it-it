@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: c0c1b9c1e9afc84e9702f6c1897d372a017be868
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629886"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859205"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Java
 
@@ -65,7 +65,9 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Aggiungere campi fondamentali
 
-Sostituire la classe **Main** con il codice seguente. Questi dati consentono di specificare come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga l'identificatore di area corretta (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). È anche possibile impostare il valore `imageWithFaces` su un percorso che punti a un file di immagine diverso.
+Sostituire la classe **Main** con il codice seguente. Questi dati consentono di specificare come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e modificare la stringa `uriBase` in modo che contenga la stringa dell'endpoint corretta. È anche possibile impostare il valore `imageWithFaces` su un percorso che punti a un file di immagine diverso.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 Il campo `faceAttributes` è semplicemente un elenco di alcuni tipi di attributi, che specifica quali informazioni recuperare sui visi rilevati.
 
@@ -74,15 +76,8 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
     private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        "https://<My Endpoint String>.com/face/v1.0/detect";
 
     private static final String imageWithFaces =
         "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
@@ -159,7 +154,7 @@ Direttamente sotto il codice precedente, aggiungere il blocco seguente, che conv
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-Compilare ed eseguire il codice. Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile nella finestra della console. Ad esempio: 
+Compilare ed eseguire il codice. Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile nella finestra della console. Ad esempio:
 
 ```json
 [{

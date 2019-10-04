@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 936c516385c88191428a46d22c14b3991885340b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878163"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114336"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Esempio: Come analizzare video in tempo reale
 
@@ -36,7 +36,7 @@ Esistono molti modi di risolvere il problema dell'esecuzione di un'analisi near 
 
 Il progetto più semplice per un sistema di analisi near real time prevede un ciclo infinito in cui ogni iterazione acquisisce un fotogramma, lo analizza e successivamente ne usa il risultato:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -54,7 +54,7 @@ Se l'analisi consiste in un algoritmo lato client leggero, questo approccio è a
 
 Se l'uso di un ciclo con thread singolo semplice ha senso per un algoritmo semplificato su lato client, non è invece adatto in presenza della latenza insita nelle chiamata all'API cloud. Per risolvere questo problema, le chiamate all'API a esecuzione prolungata devono essere eseguite in parallelo con l'acquisizione dei fotogrammi. In C# è possibile applicare questa soluzione usando il parallelismo basato sulle attività, ad esempio:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -75,7 +75,7 @@ Questo codice avvia ogni analisi in un'attività separata, che può essere esegu
 
 Nel sistema "producer-consumer" finale è presente un thread producer simile al ciclo infinito precedente. Invece di usare i risultati dell'analisi man mano che diventano disponibili, il producer inserisce semplicemente le attività in una coda per tenerne traccia.
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
@@ -112,7 +112,7 @@ while (true)
 
 È anche presente un thread consumer che prende le attività dalla coda, attende che siano completate e visualizza il risultato o solleva l'eccezione che era stata generata. L'uso della coda assicura che i risultati vengano usati uno alla volta, nell'ordine corretto, senza limitare la frequenza dei fotogrammi massima del sistema.
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -144,7 +144,7 @@ La libreria contiene la classe FrameGrabber, che implementa il sistema producer
 
 Per illustrare alcune delle possibilità, sono disponibili due app di esempio che usano la libreria. La prima è una semplice app console, di cui una versione semplificata è riprodotta di seguito. Acquisisce i fotogrammi dalla webcam predefinita e li invia all'API Viso per il rilevamento del volto.
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
@@ -160,7 +160,9 @@ namespace VideoFrameConsoleApplication
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
             // Create Face API Client. Insert your Face API key here.
-            FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
+            private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 
             // Set up our Face API call.
             grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));

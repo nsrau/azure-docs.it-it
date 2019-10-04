@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335768"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593474"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

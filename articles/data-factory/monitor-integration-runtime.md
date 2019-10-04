@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: b84ea0b9859e69eaf45cd9a89b2443cf42949f79
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576334"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141071"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory  
 Il **runtime di integrazione** è l'infrastruttura di calcolo usata da Azure Data Factory per fornire varie funzionalità di integrazione di dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
@@ -36,7 +36,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 Il cmdlet restituisce informazioni diverse per diversi tipi di runtime di integrazione. In questo articolo vengono illustrate le proprietà e gli stati per ogni tipo di runtime di integrazione.  
 
 ## <a name="azure-integration-runtime"></a>Runtime di integrazione di Azure
-La risorsa di calcolo per un runtime di integrazione di Azure è completamente gestita in modo elastico in Azure. Nella tabella seguente fornisce le descrizioni per le proprietà restituite per il **Get-AzDataFactoryV2IntegrationRuntime** comando:
+La risorsa di calcolo per un runtime di integrazione di Azure è completamente gestita in modo elastico in Azure. La tabella seguente fornisce le descrizioni per le proprietà restituite dal comando **Get-AzDataFactoryV2IntegrationRuntime** :
 
 ### <a name="properties"></a>Properties
 Nella tabella seguente vengono fornite descrizioni per le proprietà restituite dal cmdlet per un runtime di integrazione Azure:
@@ -59,7 +59,7 @@ La tabella seguente indica i possibili stati di un runtime di integrazione di Az
 | Offline | Il runtime di integrazione di Azure è offline a causa di un errore interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime di integrazione self-hosted
-In questa sezione vengono fornite descrizioni per le proprietà restituite dal cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
+In questa sezione vengono fornite le descrizioni per le proprietà restituite dal cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > La proprietà restituite e lo stato contengono informazioni sul runtime di integrazione self-hosted generale e su ogni nodo nel runtime.  
@@ -87,7 +87,7 @@ Il valore predefinito del limite di processi simultanei è impostato in base all
 
 Per aumentare questo limite è necessario incrementare il numero di nodi. In questo modo, infatti, il limite di processi simultanei corrisponde alla somma dei valori limite di processi simultanei di tutti i nodi disponibili.  Se ad esempio un nodo consente di eseguire un massimo di 12 processi simultanei, aggiungendo altri tre nodi simili sarà possibile eseguire un massimo di 48 processi simultanei, ovvero 4 x 12. È consigliabile aumentare il limite di processi simultanei solo quando si nota uno scarso utilizzo delle risorse con i valori predefiniti su ogni nodo.
 
-È possibile sostituire il valore predefinito calcolato nel portale di Azure. Selezionare Autore > Connessioni > Runtime di integrazione > Modifica > Nodi > modificare il limite di processi simultanei per ogni nodo. È anche possibile usare il comando di PowerShell [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) comando.
+È possibile sostituire il valore predefinito calcolato nel portale di Azure. Selezionare Autore > Connessioni > Runtime di integrazione > Modifica > Nodi > modificare il limite di processi simultanei per ogni nodo. È anche possibile usare il comando PowerShell [Update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) .
   
 ### <a name="status-per-node"></a>Stato (per ogni nodo)
 La tabella seguente indica i possibili stati di un nodo di runtime di integrazione self-hosted:
@@ -112,7 +112,7 @@ La tabella seguente indica i possibili stati di un runtime di integrazione self-
 | Offline | Nessun nodo è online. |
 | Limitato | Non tutti i nodi in questo runtime di integrazione self-hosted sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. La causa di questo stato potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. |
 
-Usare la **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet per recuperare il payload JSON che contiene la modalità self-hosted le proprietà di runtime di integrazione, e i valori relativi snapshot durante la fase di esecuzione del cmdlet.
+Usare il cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** per recuperare il payload JSON contenente le proprietà dettagliate del runtime di integrazione self-hosted e i relativi valori di snapshot durante l'esecuzione del cmdlet.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
@@ -171,7 +171,7 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 | CatalogServerEndpoint | L'endpoint del server di istanza gestita/database SQL di Azure esistente per ospitare il database SSIS. |
 | CatalogAdminUserName | Il nome utente amministratore del server di istanza gestita/database SQL di Azure esistente. Il servizio Data Factory utilizza queste informazioni per preparare e gestire il database SSIS per conto dell'utente. |
 | CatalogAdminPassword | La password amministratore del server di istanza gestita/database SQL di Azure esistente. |
-| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server del database SQL di Azure esistente.  Non applicabile all'Istanza gestita di database SQL di Azure che ospita il database SSIS. |
+| CatalogPricingTier | Il piano tariffario per il database SSIS ospitato dal server di database SQL di Azure esistente.  Non applicabile all'Istanza gestita di database SQL di Azure che ospita il database SSIS. |
 | VNetId | L'ID della risorsa di rete virtuale per aggiungere un runtime di integrazione SSIS di Azure. |
 | Subnet | Il nome della subnet per aggiungere un runtime di integrazione SSIS di Azure. |
 | ID | L’ID di risorsa del runtime di integrazione SSIS di Azure. |
@@ -222,7 +222,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 Vedere gli articoli seguenti per ulteriori informazioni sul runtime di integrazione SSIS di Azure:
 
 - [Runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo vengono fornite le informazioni sui runtime di integrazione in generale incluso il runtime di integrazione SSIS di Azure. 
-- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database Azure SQL per ospitare il catalogo SSIS. 
+- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database SQL di Azure per ospitare il catalogo SSIS. 
 - [Procedura: Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni sull'uso dell'Istanza gestita di database SQL di Azure e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene inoltre mostrato come scalare orizzontalmente il runtime di integrazione SSIS di Azure aggiungendo più nodi al runtime di integrazione. 
 - [Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo offre informazioni concettuali sull'aggiunta di un runtime di integrazione Azure-SSIS a una rete virtuale di Azure. Indica inoltre i passaggi per usare il portale di Azure per configurare la rete virtuale in modo che il runtime di integrazione Azure-SSIS possa essere aggiunto alla rete virtuale. 

@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813444"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -111,7 +111,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics
 
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
-2. Fare clic su **Controllo di accesso (IAM)** > **Aggiungi un'assegnazione di ruolo**.
+2. Fare clic su **Controllo di accesso (IAM)**  > **Aggiungi un'assegnazione di ruolo**.
 3. Selezionare un ruolo.
 4. Aggiungere un utente.
 5. Fare clic su **OK**.

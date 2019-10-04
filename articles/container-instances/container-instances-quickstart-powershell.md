@@ -3,17 +3,18 @@ title: Avvio rapido - Distribuire un contenitore Docker in Istanze di Azure Cont
 description: In questo argomento di avvio rapido viene usato Azure PowerShell per distribuire rapidamente un'app Web che viene eseguita in un'istanza di contenitore di Azure isolata
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8c50a3069ea8b1303e45c571425a6f4c9b4c0d5b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7fe199d2ac228ddb0ccfd1e5bc980e680e160acf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368189"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325835"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con Azure PowerShell
 
@@ -27,13 +28,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Le istanze di contenitore di Azure, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
+Le Istanze di Azure Container, analogamente a tutte le risorse di Azure, devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
 Per iniziare, creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* con il comando [New-AzResourceGroup][New-AzResourceGroup] seguente:
 
@@ -53,7 +54,7 @@ Per avviare un'istanza di contenitore, eseguire un comando simile al seguente. I
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta da Azure. Inizialmente, il valore `ProvisioningState` del contenitore è **Creazione in corso**, ma dovrebbe passare a  **	Operazione completata** entro un minuto o due. Controllare lo stato di distribuzione con il cmdlet [Get-AzContainerGroup][Get-AzContainerGroup]:
+Entro pochi secondi si dovrebbe ricevere una risposta da Azure. Inizialmente, il valore `ProvisioningState` del contenitore è **Creazione in corso**, ma dovrebbe passare a **Operazione completata** entro un minuto o due. Controllare lo stato di distribuzione con il cmdlet [Get-AzContainerGroup][Get-AzContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -99,7 +100,7 @@ Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di Azure Container.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un Registro Azure Container privato, passare all'esercitazione su Istanze di Azure Container.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di Azure Container](./container-instances-tutorial-prepare-app.md)

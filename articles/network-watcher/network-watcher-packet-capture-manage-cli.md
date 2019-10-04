@@ -3,8 +3,8 @@ title: Gestire le acquisizioni di pacchetti con Azure Network Watcher - Interfac
 description: Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando l'interfaccia della riga di comando di Azure
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: cf03872607546f38d19a280f65f641abf627268b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 7e6b1d77d002b8c1ed32a4e7adbdd1a46cf65668
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687094"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando l'interfaccia della riga di comando di Azure
 

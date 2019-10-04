@@ -2,19 +2,19 @@
 title: Formati dei documenti e convenzioni di denominazione - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Guida ai formati dei documenti e alle convenzioni di denominazione in Custom Translator. Questo concetto consente di gestire meglio i nomi dei documenti e di evitare conflitti di denominazione.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512919"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595862"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
 
@@ -22,7 +22,7 @@ I file usati per la traduzione personalizzata devono includere **almeno** quattr
 
 Questa tabella include tutti i formati di file supportati che è possibile usare per creare il proprio sistema di traduzione:
 
-| Format            | Estensioni   | DESCRIZIONE                                                                                                                                                                                                                                                                    |
+| Formato            | Estensioni   | Descrizione                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | XLIFF             | XLF, XLIFF | Formato di documento parallelo, esportazione di sistemi di memoria di traduzione. Le lingue usate vengono definite all'interno del file.                                                                                                                                                              |
 | TMX               | TMX         | Formato di documento parallelo, esportazione di sistemi di memoria di traduzione. Le lingue usate vengono definite all'interno del file.                                                                                                                                                              |
@@ -31,13 +31,13 @@ Questa tabella include tutti i formati di file supportati che è possibile usare
 | Microsoft Word    | DOCX        | Documento di Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | PDF         | Documento portatile di Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | HTML, HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8. Il nome del file non deve contenere caratteri giapponesi.                                                                                                                                                                                        |
+| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8. Il nome file non deve contenere caratteri giapponesi.                                                                                                                                                                                        |
 | File di testo allineato | ALIGN       | `.ALIGN` è un'estensione speciale che è possibile usare se si è certi che le frasi nella coppia di documenti siano perfettamente allineate. Se si fornisce un file `.ALIGN`, Custom Translator non allinea le frasi automaticamente. |
 | File di Excel        | XLSX        | File di Excel (2013 o versione successiva). La prima riga del foglio di calcolo deve essere il codice della lingua.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formati di dizionario
 
-Per i dizionari, Custom Translator supporta tutti i formati di file supportati per il set di training. Se si usa il dizionario di Excel, assicurarsi che la prima riga del foglio di calcolo contenga i codici della lingua.
+Per i dizionari, il convertitore personalizzato supporta tutti i formati di file supportati per i set di training. Se si utilizza un dizionario di Excel, la prima riga/riga del foglio di calcolo deve essere costituita da codici di lingua.
 
 ## <a name="zip-file-formats"></a>Formati di file ZIP
 

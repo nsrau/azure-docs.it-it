@@ -6,14 +6,15 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: ganesr;cherylmc
+ms.author: ganesr
+ms.reviewer: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7468338e7bc39128564e71831abe61bb1714ff72
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370268"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849235"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
@@ -21,6 +22,7 @@ ms.locfileid: "60370268"
 > * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
@@ -125,7 +127,7 @@ get-help get-azurededicatedcircuit -detailed
 È possibile eseguire le attività seguenti senza tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
-* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato. 
+* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato.
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
 
@@ -154,8 +156,8 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 
 > [!IMPORTANT]
 > Questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Considerazioni
 
@@ -189,8 +191,8 @@ Per le opzioni relative alla larghezza di banda supportate per il provider, vede
 > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
 >
 > Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Ridimensionare un circuito
 

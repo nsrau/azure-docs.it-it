@@ -7,17 +7,17 @@ author: jeffhollan
 manager: jpconnock
 keywords: funzioni di Azure, funzioni, elaborazione eventi, calcolo, architettura senza server, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b2f5567e037c65d7650b3f95a2ee81b93ac987b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085878"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
@@ -43,15 +43,15 @@ Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che sia
 
 ## <a name="create-a-functions-project"></a>Creare un progetto per le funzioni
 
-1. In Eclipse scegliere **Project** (Progetto) dal menu **File**. 
-1. Nella finestra **New Project** (Nuovo progetto) aprire la cartella **Java Project** (Progetto Java) e selezionare **Maven Project** (Progetto Maven) e quindi scegliere **Next** (Avanti).
+1. In Eclipse selezionare il menu **file** e quindi selezionare **New-&gt; Maven Project**. 
 1. Nella finestra di dialogo **New Maven Project** (Nuovo progetto Maven) accettare i valori predefiniti e scegliere **Next** (Avanti).
 1. Selezionare **Add Archetype** (Aggiungi archetipo) e aggiungere le voci per [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID gruppo archetipo): com.microsoft.azure
     - Archetype Artifact ID (ID artefatto archetipo): azure-functions-archetype
-    - Versione: Usare la versione più recente dal [il repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Maven Eclipse creare](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Fare clic su **OK**, immettere i dettagli per il progetto corrente e quindi fare clic su **Finish** (Fine).
+    - Versione: Usare la versione più recente **1,22** dal [repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![centrale Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Fare clic su **OK** e quindi su **Avanti** per immettere valori come lo snapshot seguente (usare un diverso AppName diverso da **Fabrikam-Function-20170920120101928**) e infine **terminare**.
+    ![Create2 di Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il codice generato nel progetto è una semplice funzione [attivata tramite HTTP](/azure/azure-functions/functions-bindings-http-webhook) che restituisce il corpo della richiesta di attivazione dell'HTTP.
 
@@ -68,7 +68,7 @@ Dopo aver completato la procedura di test della funzione, terminare il runtime n
 
 ### <a name="debug-the-function-in-eclipse"></a>Eseguire il debug della funzione in Eclipse
 
-Nella procedura di configurazione **Run As** descritta nel passaggio precedente, sostituire `azure-functions:run` con `mvn azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
+Nella procedura di configurazione **Run As** descritta nel passaggio precedente, sostituire `azure-functions:run` con `azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
 
 Selezionare il menu **Run** (Esegui) e aprire **Debug Configurations** (Configurazioni di debug). Scegliere **Remote Java Application** (Applicazione Java remota) e crearne una nuova. Assegnare un nome alla configurazione e specificare le impostazioni. La porta deve essere coerente con la porta di debug aperta dall'host di funzioni, che per impostazione predefinita è `5005`. Al termine dell'installazione, fare clic su `Debug` per avviare il debug.
 

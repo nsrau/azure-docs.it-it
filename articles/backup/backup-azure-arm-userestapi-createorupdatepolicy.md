@@ -1,21 +1,21 @@
 ---
 title: "Backup di Azure: Creare criteri di backup usando l'API REST"
 description: Gestire i criteri di backup (pianificazione e conservazione) usando l'API REST
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289648"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954958"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
@@ -30,13 +30,13 @@ I passaggi per creare un criterio di backup per un insieme di credenziali di Ser
   - Condivisione file di Azure
 - Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.
 - Un criterio è costituito da due componenti
-  - Pianificazione: quando creare il backup
-  - Conservazione: per quanto tempo ogni backup deve essere conservato.
+  - Pianificazione Quando eseguire il backup
+  - Conservazione Per quanto tempo devono essere conservati i backup.
 - La pianificazione può essere "giornaliera" o "settimanale" rispetto a uno specifico punto temporale.
 - La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
 - "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
 - La conservazione per i punti di backup "mensili" o "annuali" viene definita "LongTermRetention".
-- Con un insieme di credenziali, viene creato anche un criterio per i backup di macchine virtuali di Azure denominato "DefaultPolicy", che può essere usato per il backup delle macchine virtuali di Azure.
+- Quando viene creato un insieme di credenziali, viene creato anche un criterio per i backup di VM di Azure denominato "DefaultPolicy" e può essere usato per eseguire il backup di macchine virtuali di Azure.
 
 Per creare o aggiornare un criterio di Backup di Azure, usare l'operazione *PUT* seguente
 
@@ -50,10 +50,10 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Nome  |Obbligatorio  |Tipo  |Descrizione  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
-|tags     |         | Oggetto        |  Tag delle risorse       |
+|tags     |         | Object        |  Tag delle risorse       |
 
 Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -152,13 +152,13 @@ Il criterio indica:
 > [!IMPORTANT]
 > I formati di ora per la pianificazione e la conservazione supportano solo DateTime. Non supportano il solo formato Time.
 
-## <a name="responses"></a>Risposte
+## <a name="responses"></a>Responses
 
-La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-Restituisce due risposte: 202 (Accettato) quando viene creata un'altra operazione e quindi 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Descrizione  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |

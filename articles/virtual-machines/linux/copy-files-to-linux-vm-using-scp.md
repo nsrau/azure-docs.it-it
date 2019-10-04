@@ -3,25 +3,24 @@ title: Spostare file da e verso macchine virtuali Linux di Azure usando SCP | Mi
 description: Spostare in sicurezza file da e verso una macchina virtuale Linux in Azure usando SCP e una coppia di chiavi SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
-ms.author: danlep
+ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7d5b2d2ee7e7320fb8bf91c8a62a0f46c403c977
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b264b61976607a3afdaa7a6ec7dc5da2091aba
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328766"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173948"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Spostare file da e verso una macchina virtuale Linux usando SCP
 
@@ -57,7 +56,7 @@ Per altre informazioni sulla configurazione del file `~/.ssh/config` e delle chi
 
 Nel primo esempio si copia un file di configurazione di Azure in una macchina virtuale Linux usata per distribuire l'automazione. Poiché questo file contiene credenziali di API di Azure, che includono informazioni riservate, la sicurezza è particolarmente importante e il tunnel crittografato fornito con SSH assicura la protezione dei contenuti del file.
 
-Il comando seguente consente di copiare il file *.azure/config* locale in una macchina virtuale di Azure con FQDN: *myserver.eastus.cloudapp.azure.com*. Il nome utente dell'amministratore nella macchina virtuale di Azure è *azureuser*. Il file è destinato ad essere inserito nella directory */home/azureuser/*. Nel comando sostituire i valori predefiniti con quelli personali.
+Il comando seguente consente di copiare il file *.azure/config* locale in una macchina virtuale di Azure con FQDN: *myserver.eastus.cloudapp.azure.com*. Il nome utente dell'amministratore nella macchina virtuale di Azure è *azureuser*. Il file è destinato ad essere inserito nella directory */home/azureuser/* . Nel comando sostituire i valori predefiniti con quelli personali.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

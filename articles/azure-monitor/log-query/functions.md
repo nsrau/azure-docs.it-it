@@ -13,39 +13,31 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750770"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076709"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
 
-> [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
-
 Per usare una query di log con un'altra query è possibile salvarla come funzione. Questa possibililità consente di semplificare query complesse suddividendole in più parti e di riusare codice comune con più query.
 
-## <a name="create-a-function"></a>Creare una funzione
+## <a name="create-a-function"></a>Crea una funzione
 
-Creare una funzione con Log Analitica nel portale di Azure facendo clic **salvare** quindi fornendo le informazioni nella tabella seguente.
+Per creare una funzione con Log Analytics nel portale di Azure, fare clic su **Salva** e quindi fornire le informazioni riportate nella tabella seguente.
 
 | Impostazione | DESCRIZIONE |
 |:---|:---|
-| NOME           | Nome visualizzato della query in **Esplora Query**. |
+| Name           | Nome visualizzato della query in **Esplora Query**. |
 | Salva con nome        | Funzione |
 | Alias della funzione | Nome breve per usare la funzione in altre query. Non può contenere spazi e deve essere univoco. |
-| Categoria       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
+| Category       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
 
 > [!NOTE]
 > Una funzione in Monitoraggio di Azure non può contenere un'altra funzione.
 
-> [!NOTE]
-> Il salvataggio di una funzione è possibile per le query di log di Monitoraggio di Azure, ma attualmente non per le query di Application Insights.
 
 
 

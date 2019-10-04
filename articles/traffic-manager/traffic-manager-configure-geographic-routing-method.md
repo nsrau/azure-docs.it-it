@@ -2,20 +2,21 @@
 title: Configurare il metodo di routing del traffico Geografico tramite Gestione traffico di Azure
 description: Questo articolo descrive come configurare il metodo di routing del traffico Geografico tramite Gestione traffico di Azure
 services: traffic-manager
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: allensu
+ms.openlocfilehash: bd01849e33d4c061b25c27a5391701876861b76b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051069"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurare il metodo di routing del traffico Geografico tramite Gestione traffico
 

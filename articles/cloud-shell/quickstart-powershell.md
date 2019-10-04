@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido di PowerShell in Azure Cloud Shell | Microsoft Docs
-description: Guida introduttiva a PowerShell in Cloud Shell
+title: Guida introduttiva Azure Cloud Shell | Microsoft Docs
+description: Guida introduttiva per Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199528"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224557"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guida introduttiva a PowerShell in Azure Cloud Shell
 
@@ -147,7 +147,7 @@ Con la stringa di connessione, è possibile usare il comando seguente per montar
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-Per informazioni, vedere [Montare una condivisione file di Azure e accedere alla condivisione in Windows][azmount].
+Per informazioni dettagliate, vedere [montare una condivisione file di Azure e accedere alla condivisione in Windows][azmount].
 
 È anche possibile esplorare le directory nella condivisione di File di Azure come indicato di seguito:
 
@@ -186,14 +186,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   Se si dispone di una macchina virtuale, MyVM1, usare `Invoke-AzVMCommand` per richiamare un blocco di script di PowerShell nel computer remoto.
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   È anche possibile passare prima alla directory VirtualMachines e poi eseguire `Invoke-AzVMCommand` come indicato di seguito.
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -215,13 +216,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 È possibile utilizzare `Enter-AzVM` per accedere in modo interattivo a una macchina virtuale in esecuzione in Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 È anche possibile prima passare alla directory `VirtualMachines` e poi eseguire `Enter-AzVM` come indicato di seguito.
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### <a name="discover-webapps"></a>Scoprire WebApp
@@ -267,7 +268,7 @@ Per eseguire l'autenticazione a server o macchine virtuali tramite SSH, generare
 
 ### <a name="using-ssh"></a>Uso di SSH
 
-Seguire le istruzioni [qui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) per creare una nuova configurazione di macchina virtuale usando i cmdlet di PowerShell di Azure.
+Seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) per creare una nuova configurazione di macchina virtuale usando i cmdlet di Azure PowerShell.
 Prima di chiamare `New-AzVM` per avviare la distribuzione, aggiungere la chiave pubblica SSH alla configurazione di macchina virtuale.
 La nuova macchina virtuale conterrà la chiave pubblica nel percorso `~\.ssh\authorized_keys`, abilitando quindi le sessioni SSH senza credenziali nella macchina virtuale.
 
@@ -296,7 +297,7 @@ In alternativa, è sempre possibile usare `Get-Command *az* -Module Az.*` per sc
 
 ## <a name="install-custom-modules"></a>Installazione di moduli personalizzati
 
-È possibile eseguire `Install-Module` per installare moduli dalla [PowerShell Gallery][gallery].
+È possibile eseguire `Install-Module` per installare i moduli dal [PowerShell Gallery][gallery].
 
 ## <a name="get-help"></a>Get-Help
 
@@ -334,11 +335,11 @@ Quando si usa PowerShell in Cloud Shell la volta successiva, il file `helloworld
 È possibile personalizzare l'ambiente PowerShell creando un profilo o più profili PowerShell `profile.ps1` (o `Microsoft.PowerShell_profile.ps1`).
 Salvarlo in `$profile.CurrentUserAllHosts` (o `$profile.CurrentUserAllHosts`) in modo che possa essere caricato in ogni sessione di PowerShell in Cloud Shell.
 
-Per informazioni su come creare un profilo, fare riferimento a [Informazioni sui profili][profile].
+Per informazioni su come creare un profilo, vedere [About Profiles][profile].
 
 ## <a name="use-git"></a>Usare Git
 
-Per clonare un repository Git in Cloud Shell, è necessario creare un [token di accesso personale][githubtoken] e usarlo come nome utente. Dopo avere ottenuto il token, clonare il repository come indicato di seguito:
+Per clonare un repository git nella Cloud Shell, è necessario creare un [token di accesso personale][githubtoken] e usarlo come nome utente. Dopo avere ottenuto il token, clonare il repository come indicato di seguito:
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

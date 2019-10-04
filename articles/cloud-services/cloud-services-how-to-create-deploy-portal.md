@@ -3,23 +3,17 @@ title: Come creare e distribuire un servizio Cloud | Documentazione Microsoft
 description: Informazioni su come creare e distribuire un servizio cloud mediante il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: gwallace
+ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551703"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359122"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Il portale di Azure offre due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *creazione personalizzata*.
@@ -27,7 +21,7 @@ Il portale di Azure offre due modi per creare e distribuire un servizio cloud: *
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
 > [!NOTE]
-> Se si prevede di pubblicare il servizio cloud da Azure DevOps, usare Creazione rapida e quindi impostare la pubblicazione di Azure DevOps dall'avvio rapido di Azure o dal dashboard. Per altre informazioni, consultare [Recapito continuo in Azure usando Azure DevOps][TFSTutorialForCloudService] o la pagina **Avvio rapido**.
+> Se si prevede di pubblicare il servizio cloud da Azure DevOps, usare Creazione rapida e quindi impostare la pubblicazione di Azure DevOps dall'avvio rapido di Azure o dal dashboard. Per altre informazioni, vedere [recapito continuo in Azure tramite Azure DevOps][TFSTutorialForCloudService]o vedere la guida per la pagina **avvio rapido** .
 >
 >
 
@@ -39,7 +33,7 @@ Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre
 * **Configurazione del servizio**  
   l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
 * **Pacchetto del servizio**  
-   Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+  Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
 
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
@@ -62,7 +56,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
 4. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
@@ -71,7 +65,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 8. Fare clic su **OK** per chiudere il riquadro **Carica un pacchetto**.
 9. Se non è disponibile un certificato da aggiungere, fare clic su **Crea**.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Caricamento di un certificato
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
@@ -80,7 +74,7 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
 3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verificare che la distribuzione sia stata completata correttamente
 1. Fare clic sull'istanza del servizio cloud.

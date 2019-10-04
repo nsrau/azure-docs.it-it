@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 59d2277bd99fac1e8357c1b0d7336ca7451bf8dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122880"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
 
@@ -94,7 +94,7 @@ Prima di iniziare, completare la procedura di installazione illustrata in preced
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66117015"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -35,15 +35,18 @@ Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi r
 
 Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due modalità di convalida della sottoscrizione.
 
-1. **Handshake ValidationCode (programmatico)**: se si controlla il codice sorgente per l'endpoint, è consigliabile usare questo metodo. In fase di creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
+1. **Handshake ValidationCode (programmatico)** : se si controlla il codice sorgente per l'endpoint, è consigliabile usare questo metodo. In fase di creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
 
-2. **Handshake ValidationURL (manuale)**: in alcuni casi è impossibile accedere al codice sorgente dell'endpoint per implementare l'handshake ValidationCode. Se ad esempio si usa un servizio di terze parti, come [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile rispondere con il codice di convalida a livello di programmazione.
+2. **Handshake ValidationURL (manuale)** : in alcuni casi è impossibile accedere al codice sorgente dell'endpoint per implementare l'handshake ValidationCode. Se ad esempio si usa un servizio di terze parti, come [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile rispondere con il codice di convalida a livello di programmazione.
 
    A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, trovare l'URL nei dati dell'evento e inviare manualmente una richiesta GET a tali dati. È possibile usare un client REST o un Web browser.
 
    L'URL specificato è valido per 5 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 5 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
 
     Questo meccanismo di autenticazione richiede anche l'endpoint di webhook per restituire un codice di stato HTTP 200, in modo che sappia che è stata accettata la richiesta POST per l'evento di convalida prima che possa essere inviato in modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200, ma non restituisce nuovamente una risposta di convalida a livello di codice, la modalità viene passata alla modalità di convalida manuale. Se è presente una richiesta GET nell'URL di convalida entro 5 minuti, viene considerato l'handshake di convalida abbia esito positivo.
+
+> [!NOTE]
+> Utilizzo dei certificati autofirmati per la convalida non è supportata. Usare invece un certificato firmato da un'autorità di certificazione (CA).
 
 ### <a name="validation-details"></a>Dettagli di convalida
 
@@ -64,8 +67,8 @@ Un esempio di SubscriptionValidationEvent è mostrato di seguito:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -201,7 +204,7 @@ Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizio
 
 È possibile [assegnare questi ruoli a un utente o a un gruppo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor (anteprima)**: gestisce le operazioni di sottoscrizione alla Griglia di eventi
+**EventGrid EventSubscription Contributor (anteprima)** : gestisce le operazioni di sottoscrizione alla Griglia di eventi
 
 ```json
 [
@@ -237,7 +240,7 @@ Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizio
 ]
 ```
 
-**EventGrid EventSubscription Reader (anteprima)**: legge le sottoscrizioni alla Griglia di eventi
+**EventGrid EventSubscription Reader (anteprima)** : legge le sottoscrizioni alla Griglia di eventi
 
 ```json
 [

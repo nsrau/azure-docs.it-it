@@ -3,19 +3,18 @@ title: Eseguire la prima query con l'interfaccia della riga di comando di Azure
 description: Questo articolo illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure ed eseguire la prima query.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6fffd9e0bbaea47bfeac56a7972a38df0cbef351
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792246"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164700"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 
 Il primo passaggio per usare Azure Resource Graph richiede di controllare che l'estensione per l'[interfaccia della riga di comando di Azure](/cli/azure/) sia installata. Questa guida introduttiva illustra il processo di aggiunta dell'estensione all'installazione dell'interfaccia della riga di comando di Azure. È possibile usare l'estensione con l'interfaccia della riga di comando di Azure installata in locale o tramite [Azure Cloud Shell](https://shell.azure.com).
 
@@ -36,7 +35,7 @@ Per consentire all'interfaccia della riga di comando di Azure di eseguire query 
    az extension add --name resource-graph
    ```
 
-1. Verificare che l'estensione sia stata installata e la sua versione sia corretta, ovvero sia almeno la **0.1.7**:
+1. Verificare che l'estensione sia stata installata e che la versione sia quella prevista (almeno **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -81,7 +80,7 @@ Ora che l'estensione dell'interfaccia della riga di comando di Azure è stata ag
 
 Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
-## <a name="cleanup"></a>Pulizia
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere l'estensione Resource Graph dall'ambiente dell'interfaccia della riga di comando di Azure, è possibile usare il comando seguente:
 
@@ -89,9 +88,6 @@ Per rimuovere l'estensione Resource Graph dall'ambiente dell'interfaccia della r
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```
-
-> [!NOTE]
-> Questo comando non elimina il file dell'estensione scaricato in precedenza, ma lo rimuove semplicemente dall'ambiente dell'interfaccia della riga di comando di Azure in esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

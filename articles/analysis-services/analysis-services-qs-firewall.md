@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187284"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905890"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Guida introduttiva: Configurare il firewall del server - Portale
 
@@ -23,6 +23,7 @@ Questa guida introduttiva consente di configurare un firewall per il server di A
 
 - Un server di Analysis Services nella sottoscrizione. Per altre informazioni, vedere [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md) o [Guida introduttiva: Creare un server - PowerShell](analysis-services-create-powershell.md)
 - Uno o più intervalli di indirizzi IP per i computer client (se necessario).
+- Si noti che lo scenario di importazione da Power BI Premium attualmente non è supportato.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure 
 
@@ -33,7 +34,7 @@ Questa guida introduttiva consente di configurare un firewall per il server di A
 1. Fare clic sul server per aprire la pagina Panoramica. 
 2. In **IMPOSTAZIONI** > **Firewall** > **Abilita firewall** fare clic su **Sì**.
 3. Per consentire l'accesso DirectQuery dal servizio Power BI, in **Allow access from Power BI** (Consenti accesso da Power BI) fare clic su **Sì**.  
-4. (Facoltativo) Specificare uno o più intervalli di indirizzi IP. Immettere un nome e un indirizzo IP iniziale e finale per ogni intervallo. 
+4. (Facoltativo) Specificare uno o più intervalli di indirizzi IP. Immettere un nome e un indirizzo IP iniziale e finale per ogni intervallo. Il nome della regola firewall deve essere limitato a 128 caratteri e può contenere solo caratteri maiuscoli, caratteri minuscoli, numeri, underscore e trattini. Gli spazi e altri caratteri speciali non sono consentiti.
 5. Fare clic su **Save**.
 
      ![Impostazioni del firewall](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

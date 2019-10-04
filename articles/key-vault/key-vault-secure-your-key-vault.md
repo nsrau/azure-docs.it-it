@@ -2,23 +2,19 @@
 title: Proteggere l'accesso a un insieme di credenziali delle chiavi - Azure Key Vault | Microsoft Docs
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304949"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883098"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -62,7 +58,7 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 ## <a name="management-plane-and-rbac"></a>Piano di gestione e controllo degli accessi in base al ruolo
 
-Nel piano di gestione, è utilizzare RBAC (controllo di accesso basato su ruolo) per autorizzare le operazioni di che un chiamante può eseguire. Nel modello di controllo degli accessi in base al ruolo ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Nel piano di gestione si usa il controllo degli accessi in base al ruolo per autorizzare le operazioni che un chiamante può eseguire. Nel modello di controllo degli accessi in base al ruolo ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
 
@@ -89,7 +85,7 @@ L'accesso al piano dati viene concesso impostando i criteri di accesso di Key Va
 > I criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
 >
 
-È possibile limitare l'accesso al piano dati usando gli [endpoint di servizio della rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole della rete virtuale](key-vault-network-security.md) per un ulteriore livello di sicurezza.
+È possibile limitare l'accesso al piano dati usando gli [endpoint servizio di rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole di rete virtuale](key-vault-network-security.md) per un ulteriore livello di sicurezza.
 
 ## <a name="example"></a>Esempio
 

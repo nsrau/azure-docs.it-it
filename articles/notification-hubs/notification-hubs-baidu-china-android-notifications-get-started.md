@@ -3,27 +3,30 @@ title: Introduzione ad Hub di notifica di Azure tramite Baidu | Documentazione M
 description: In questa esercitazione, si apprenderà come usare Hub di notifica di Azure per inviare notifiche push a dispositivi Android tramite Baidu.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/19/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 06/19/2019
+ms.openlocfilehash: de02c1add1d6ea3a98d30407b7661e71a28458fe
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848678"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211920"
 ---
-# <a name="get-started-with-notification-hubs-using-baidu"></a>Introduzione ad Hub di notifica tramite Baidu
+# <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Deprecato Introduzione ad Hub di notifica tramite Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> Questa esercitazione è deprecata. 
 
 Baidu cloud push è un servizio cloud cinese che consente di inviare notifiche push ai dispositivi mobili.
 
@@ -101,7 +104,7 @@ Quando si crea un progetto di Baidu cloud push, si ricevono l'ID dell'app, la ch
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. Nell'hub di notifica selezionare **Servizi di notifica** e quindi **Baidu (Android China)**.
+&emsp;&emsp;6. Nell'hub di notifica selezionare **Servizi di notifica** e quindi **Baidu (Android China)** .
 
 &emsp;&emsp;&emsp;&emsp;![Hub di notifica di Azure: Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

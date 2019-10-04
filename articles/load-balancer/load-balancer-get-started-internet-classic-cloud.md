@@ -5,7 +5,7 @@ description: Informazioni su come creare un servizio di bilanciamento del carico
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: azure-service-management
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 66c978a7eb151ce9df939a11e2e3c0016c8e7c9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a425a9054dfb1a48b98679429250ce80f232efe
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532522"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090862"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet per i servizi cloud
 

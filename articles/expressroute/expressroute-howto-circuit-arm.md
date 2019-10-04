@@ -6,20 +6,22 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: ganesr;cherylmc
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366318"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846633"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
@@ -44,7 +46,7 @@ Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-pr
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Ottenere l'elenco dei provider, delle località e delle larghezze di banda supportate
 Prima di creare un circuito ExpressRoute, è necessario avere l'elenco delle località, delle opzioni di larghezza di banda e dei provider di connettività supportati.
 
-Il cmdlet di PowerShell **Get-AzExpressRouteServiceProvider** restituisce queste informazioni, che verrà usato nei passaggi successivi:
+Il cmdlet **Get-AzExpressRouteServiceProvider** di PowerShell restituisce queste informazioni, che verranno usate nei passaggi successivi:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -78,8 +80,8 @@ Verificare di aver specificato il livello e la famiglia SKU corretti:
 
 > [!IMPORTANT]
 > Il circuito ExpressRoute viene addebitato dal momento in cui viene emessa una chiave di servizio. Verificare che l'operazione venga eseguita quando il provider di connettività è pronto a effettuare il provisioning del circuito.
-> 
-> 
+>
+>
 
 La risposta contiene la chiave di servizio. È possibile ottenere descrizioni dettagliate di tutti i parametri eseguendo il comando seguente:
 
@@ -89,7 +91,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Elencare tutti i circuiti ExpressRoute
-Per ottenere un elenco di tutti i circuiti ExpressRoute creati, eseguire la **Get-AzExpressRouteCircuit** comando:
+Per ottenere un elenco di tutti i circuiti ExpressRoute creati, eseguire il comando **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -208,14 +210,14 @@ Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione del 
 
 > [!IMPORTANT]
 > Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito una VPN IP, come MPLS), il provider di connettività configura e gestisce il routing per conto dell'utente.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Collegare una rete virtuale a un circuito ExpressRoute
 Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento all'articolo [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md) quando si usa il modello di distribuzione di Resource Manager.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Ottenere lo stato di un circuito ExpressRoute
-È possibile recuperare queste informazioni in qualsiasi momento usando il **Get-AzExpressRouteCircuit** cmdlet. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
+È possibile recuperare queste informazioni in qualsiasi momento usando il cmdlet **Get-AzExpressRouteCircuit** . Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit
@@ -291,7 +293,7 @@ get-help get-azurededicatedcircuit -detailed
 È possibile eseguire le attività seguenti senza tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
-* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato. 
+* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato.
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
 
@@ -314,8 +316,8 @@ Le funzionalità del componente aggiuntivo ExpressRoute Premium sono così abili
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Per disabilitare il componente aggiuntivo ExpressRoute Premium
 > [!IMPORTANT]
 > Questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
-> 
-> 
+>
+>
 
 Tenere presente quanto segue:
 
@@ -341,7 +343,7 @@ Per le opzioni relative alla larghezza di banda supportate per il provider, vede
 > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
 >
 > Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
-> 
+>
 
 Una volta stabilite le dimensioni necessarie, usare il comando seguente per ridimensionare il circuito:
 
@@ -369,7 +371,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Per controllare l'accesso all'ambiente classico e all'ambiente Resource Manager
-Vedere le istruzioni contenute in [Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md).  
+Vedere le istruzioni contenute in [Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 Tenere presente quanto segue:

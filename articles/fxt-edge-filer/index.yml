@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure FXT Edge Filer
+metadata:
+  title: Documentazione di Azure FXT Edge Filer
+  description: Usare Azure FXT Edge Filer come livello di memorizzazione nella cache per attività HPC (High-Performance Computing ) a elevato utilizzo di operazioni di lettura
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+  ms.author: v-erkell
+abstract:
+  description: 'La cache di archiviazione ibrida Azure FXT Edge Filer è un sistema ibrido hardware/software che velocizza l''accesso ai dati per flussi di lavoro HPC (High Performance Computing) basati su file e a elevato utilizzo di operazioni di lettura. Un cluster composto da tre o più dispositivi Azure FXT Edge Filer può accelerare le prestazioni di archiviazione per sistemi NAS locali (NetApp o Dell EMC Isilon), archiviazione nel cloud o una combinazione di soluzioni.'
+sections:
+  - title: Esercitazioni dettagliate
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Installare l'hardware di Azure FXT Edge Filer</a>
+          - html: <a href="fxt-network-power">Creare connessioni di rete per Azure FXT Edge Filer</a>
+          - html: <a href="fxt-node-password">Impostare password radice nei nodi hardware</a>
+          - html: <a href="fxt-cluster-create">Creare il cluster di cache di archiviazione ibrida</a>
+          - html: <a href="fxt-add-nodes">Aggiungere nodi del cluster</a>
+          - html: <a href="fxt-add-storage">Aggiungere archiviazione back-end e configurare lo spazio dei nomi virtuale</a>
+          - html: <a href="fxt-configure-network">Configurare le impostazioni di rete del cluster</a>
+  - title: Guide alle procedure
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">Connettere i client al cluster Azure FXT Edge Filer</a>
+          - html: <a href="fxt-monitor">Monitorare Azure FXT Edge Filer</a>
+          - html: <a href="fxt-power-off">Spegnere in sicurezza un nodo hardware</a>
+  - title: Risorse
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Specifiche hardware</a>
+          - html: <a href="fxt-additional-doc">Documentazione aggiuntiva</a>
+          - html: <a href="fxt-support-ticket">Aprire un ticket di supporto</a>

@@ -1,6 +1,6 @@
 ---
 title: Esempio - Controllare gli insiemi di credenziali delle chiavi per rilevare l'assenza di endpoint di rete virtuale
-description: Questa definizione di criteri di esempio controlla gli insiemi di credenziali Key Vault per rilevare le istanze che non hanno endpoint di servizio di rete virtuale.
+description: Questa definizione di criteri di esempio controlla gli insiemi di credenziali Key Vault per rilevare le istanze che non hanno endpoint servizio di rete virtuale.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -16,7 +16,7 @@ ms.locfileid: "59276372"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Esempio - Insiemi di credenziali Key Vault senza endpoint di rete virtuale
 
-Questo criterio controlla gli insiemi di credenziali delle chiavi Key Vault senza endpoint di rete virtuali. Usare per imporre requisiti di sicurezza. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Questo criterio controlla gli insiemi di credenziali delle chiavi Key Vault senza endpoint di rete virtuali. Usare per imporre requisiti di sicurezza. Per altre informazioni, vedere [Endpoint servizio di rete virtuale in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 È possibile distribuire questo criterio di esempio tramite:
 

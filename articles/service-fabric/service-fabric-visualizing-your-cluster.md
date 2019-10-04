@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060419"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -61,7 +61,7 @@ Per connettersi a un cluster di Service Fabric, è necessario specificare l'endp
 ### <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
-Se si prova a connettersi a un cluster sicuro, a seconda della configurazione del cluster è necessario presentare un certificato client oppure eseguire l'accesso con AAD.
+Se si prova a connettersi a un cluster protetto, quindi in base alla configurazione del cluster è necessario presentare un certificato client oppure accedere con AAD.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendere il layout di Service Fabric Explorer
 È possibile spostarsi all'interno di Service Fabric Explorer seguendo la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.
@@ -123,16 +123,22 @@ EventStore è una funzionalità offerta dalla piattaforma che rende disponibili 
 >[!NOTE]
 >A partire da Service Fabric versione 6.4. le API di EventStore sono disponibili solo per i cluster Windows eseguiti in Azure. Questa funzionalità sarà presto disponibile anche per Linux e per i cluster autonomi.
 
+## <a name="image-store-viewer"></a>Visualizzatore Image Store
+Visualizzatore di archivio immagini è che una funzionalità offerta se usando Native Image Store che consente di visualizzare il contenuto corrente dell'immagine di archiviarla e ottiene informazioni file e cartelle, con la rimozione di file e cartelle.
+
+![Mappa del cluster di Service Fabric Explorer][sfx-imagestore]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png

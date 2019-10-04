@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Informazioni su come abilitare i log di diagnostica per eventi e contatore regole per un gruppo di sicurezza di rete di Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
-ms.author: jdial
-ms.openlocfilehash: f718e57e257a79a18ad4d0b6b47c10f855b6db60
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006991"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259448"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registrazione diagnostica per un gruppo di sicurezza di rete
 
@@ -30,7 +31,7 @@ I log di diagnostica sono disponibili solo per i gruppi di sicurezza di rete dis
 
 La registrazione diagnostica viene abilitata separatamente per *ogni* gruppo di sicurezza di rete per cui si vogliono raccogliere dati di diagnostica. Se è interessati invece ai log operativi, o log attività, vedere le informazioni sulla [registrazione delle attività di Azure](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="enable-logging"></a>Abilitazione della registrazione
+## <a name="enable-logging"></a>Abilita registrazione
 
 È possibile usare il [portale di Azure](#azure-portal), [PowerShell](#powershell) o l'[interfaccia della riga di comando di Azure](#azure-cli) per abilitare la registrazione diagnostica.
 
@@ -41,13 +42,13 @@ La registrazione diagnostica viene abilitata separatamente per *ogni* gruppo di 
 3. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso.
 4. In **Monitoraggio** selezionare **Log di diagnostica** e quindi selezionare **Abilita diagnostica**, come illustrato nell'immagine seguente:
 
-   ![Attivare la diagnostica](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+   ![Abilita diagnostica](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. In **Impostazioni di diagnostica** immettere o selezionare le informazioni seguenti e quindi selezionare **Salva**:
 
     | Impostazione                                                                                     | Valore                                                          |
     | ---------                                                                                   |---------                                                       |
-    | NOME                                                                                        | Un nome di propria scelta.  Ad esempio: *DiagnosticaGsr*      |
+    | Attività                                                                                        | Un nome di propria scelta.  Ad esempio: *DiagnosticaGsr*      |
     | **Archivia in un account di archiviazione**, **Streaming in un hub eventi** e **Invia a Log Analytics** | È possibile selezionare tutte le destinazioni desiderate. Per altre informazioni su ognuna, vedere [Destinazioni dei log](#log-destinations).                                                                                                                                           |
     | LOG                                                                                         | Selezionare una o entrambe le categorie di log. Per altre informazioni su dati registrati per ogni categoria, vedere [Categorie di log](#log-categories).                                                                                                                                             |
 6. Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
@@ -56,11 +57,11 @@ La registrazione diagnostica viene abilitata separatamente per *ogni* gruppo di 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o versione successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per accedere ad Azure con un account con il [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per accedere ad Azure con un account che disponga delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
 Per abilitare la registrazione diagnostica, è necessario l'ID di un gruppo di sicurezza di rete esistente. Se non si dispone di un NSG esistente, è possibile crearne uno con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Recuperare il gruppo di sicurezza di rete che si vuole abilitare la registrazione diagnostica per con [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Ad esempio, per recuperare un gruppo di sicurezza di rete denominato *myNsg* esistente in un gruppo di risorse denominato *myResourceGroup*, immettere il comando seguente:
+Recuperare il gruppo di sicurezza di rete per cui si vuole abilitare la registrazione diagnostica con [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Ad esempio, per recuperare un gruppo di sicurezza di rete denominato *myNsg* esistente in un gruppo di risorse denominato *myResourceGroup*, immettere il comando seguente:
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -68,7 +69,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-È possibile scrivere i log di diagnostica in tre tipi di destinazione. Per altre informazioni, vedere [Destinazioni dei log](#log-destinations). In questo articolo, i log vengono inviati alla destinazione *Log Analytics*, a titolo di esempio. Recuperare un'area di lavoro di Log Analitica esistente con [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Ad esempio, per recuperare un'area di lavoro esistente denominata *myWorkspace* in un gruppo di risorse denominato *myWorkspaces*, immettere il comando seguente:
+È possibile scrivere i log di diagnostica in tre tipi di destinazione. Per altre informazioni, vedere [Destinazioni dei log](#log-destinations). In questo articolo, i log vengono inviati alla destinazione *Log Analytics*, a titolo di esempio. Recuperare un'area di lavoro Log Analytics esistente con [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Ad esempio, per recuperare un'area di lavoro esistente denominata *myWorkspace* in un gruppo di risorse denominato *myWorkspaces*, immettere il comando seguente:
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -76,9 +77,9 @@ $Oms=Get-AzOperationalInsightsWorkspace `
   -Name myWorkspace
 ```
 
-Se non si dispone di un'area di lavoro, è possibile crearne uno con [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
+Se non si dispone di un'area di lavoro esistente, è possibile crearne una con [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Esistono due categorie di registrazione per cui è possibile abilitare i log. Per altre informazioni, vedere [Categorie di log](#log-categories). Abilitare la registrazione diagnostica per il NSG con [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). L'esempio seguente registra sia i dati della categoria evento che quelli della categoria contatore nell'area di lavoro per un gruppo sicurezza di rete, usando gli ID per il gruppo sicurezza di rete e l'area di lavoro recuperati in precedenza:
+Esistono due categorie di registrazione per cui è possibile abilitare i log. Per altre informazioni, vedere [Categorie di log](#log-categories). Abilitare la registrazione diagnostica per NSG con [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). L'esempio seguente registra sia i dati della categoria evento che quelli della categoria contatore nell'area di lavoro per un gruppo sicurezza di rete, usando gli ID per il gruppo sicurezza di rete e l'area di lavoro recuperati in precedenza:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -87,7 +88,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Se si vogliono registrare i dati solo per una categoria o l'altra, anziché entrambe, aggiungere l'opzione `-Categories` al comando precedente, seguita da *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se si vogliono registrare i dati solo per una categoria o l'altra, anziché entrambe, aggiungere l'opzione `-Categories` al comando precedente, seguita da *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
 
@@ -122,7 +123,7 @@ az monitor diagnostic-settings create \
 
 Se non si dispone di un'area di lavoro, è possibile crearne una usando il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Esistono due categorie di registrazione per cui è possibile abilitare i log.
 
-Per registrare i dati di una sola categoria, rimuovere la categoria per la quale non si vogliono registrare i dati nel comando precedente. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Per registrare i dati di una sola categoria, rimuovere la categoria per la quale non si vogliono registrare i dati nel comando precedente. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
 
@@ -130,14 +131,14 @@ Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e 
 
 I dati di diagnostica possono essere:
 - [Scritti in un account di archiviazione di Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
-- [Trasmessi in streaming a un hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
-- [Scritti nei log di monitoraggio di Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Trasmessi in streaming a un hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
+- [Scritto nei log di monitoraggio di Azure](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="log-categories"></a>Categorie di log
+## <a name="log-categories"></a>Categorie log
 
 Per le categorie di log seguenti vengono scritti dati in formato JSON:
 
-### <a name="event"></a>Event
+### <a name="event"></a>Evento
 
 Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza di rete vengono applicate alle macchine virtuali, in base all'indirizzo MAC. I dati seguenti vengono registrati per ogni evento. Nell'esempio seguente, i dati vengono registrati per una macchina virtuale con indirizzo IP 192.168.1.4 e indirizzo MAC 00-0D-3A-92-6A-7C:
 
@@ -197,7 +198,7 @@ Il log contatore regole contiene informazioni su ogni regola applicata alle riso
 
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
-Per informazioni su come visualizzare i dati dei log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se si inviano i dati di diagnostica a:
+Per informazioni su come visualizzare i dati dei log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se si inviano i dati di diagnostica a:
 - **Log di Monitoraggio di Azure**: è possibile usare la soluzione di [analisi del gruppo di sicurezza di rete](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) per ottenere ulteriori informazioni dettagliate. La soluzione offre visualizzazioni per le regole dei gruppi di sicurezza di rete che consentono o negano il traffico, in base all'indirizzo MAC, dell'interfaccia di rete in una macchina virtuale.
 - **Account di archiviazione di Azure**: i dati vengono scritti in un file PT1H.json. È possibile trovare il:
@@ -206,7 +207,7 @@ Per informazioni su come visualizzare i dati dei log di diagnostica, vedere [Pan
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scoprire di più sulla [registrazione delle attività](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), precedentemente nota come log di controllo o operativi. La registrazione delle attività è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsiasi modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti:
+- Scoprire di più sulla [registrazione delle attività](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), precedentemente nota come log di controllo o operativi. La registrazione delle attività è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsiasi modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

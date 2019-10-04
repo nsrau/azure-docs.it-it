@@ -1,28 +1,27 @@
 ---
 title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight
-description: Informazioni sull'uso di ETL in HDInsight con Apache Hadoop.
-services: hdinsight
+description: Informazioni su come estrarre, trasformare e caricare viene usato in HDInsight con Apache Hadoop.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337613"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066930"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
-Estrazione, trasformazione e caricamento (ETL) è il processo tramite il quale i dati vengono acquisiti da varie origini, raccolti in una posizione standard, puliti ed elaborati e infine caricati in un archivio dati da cui è possibile eseguire query. I processi ETL legacy importano i dati, li puliscono sul posto e quindi li archiviano in un motore dati relazionale. Con HDInsight, un'ampia gamma di componenti dell'ecosistema Apache Hadoop supporta l'esecuzione di ETL su larga scala. 
+Estrazione, trasformazione e caricamento (ETL) è il processo tramite il quale i dati vengono acquisiti da varie origini, raccolti in una posizione standard, puliti ed elaborati e infine caricati in un archivio dati da cui è possibile eseguire query. I processi ETL legacy importano i dati, li puliscono sul posto e quindi li archiviano in un motore dati relazionale. Con HDInsight, un'ampia gamma di componenti dell'ecosistema Apache Hadoop supporta l'esecuzione di ETL su larga scala.
 
 L'uso di HDInsight nel processo ETL può essere riassunto da questa pipeline:
 
-![Panoramica di ETL in HDInsight](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![Panoramica di HDInsight ETL su larga scala](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 Le sezioni seguenti illustrano ogni fase del processo ETL e i relativi componenti associati.
 
@@ -36,11 +35,11 @@ L'orchestrazione è necessaria per eseguire il processo appropriato al momento g
 
 Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop. Viene eseguito all'interno di un cluster HDInsight ed è integrato con lo stack di Hadoop. Oozie supporta i processi Hadoop per Apache Hadoop MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare i processi specifici di un sistema, ad esempio i programmi Java o gli script della shell.
 
-Per altre informazioni, vedere [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](../hdinsight-use-oozie-linux-mac.md). Per un approfondimento su come usare Oozie per gestire una pipeline end-to-end, vedere [Rendere operativa una pipeline di analisi dei dati](../hdinsight-operationalize-data-pipeline.md). 
+Per altre informazioni, vedere [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](../hdinsight-use-oozie-linux-mac.md). Per un approfondimento su come usare Oozie per gestire una pipeline end-to-end, vedere [Rendere operativa una pipeline di analisi dei dati](../hdinsight-operationalize-data-pipeline.md).
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
 
-Azure Data Factory offre funzionalità di orchestrazione sotto forma di piattaforma distribuita come servizio (PaaS). È un servizio di integrazione dei dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati. 
+Azure Data Factory offre funzionalità di orchestrazione sotto forma di piattaforma distribuita come servizio (PaaS). È un servizio di integrazione dei dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
 
 Con Azure Data Factory è possibile:
 
@@ -66,7 +65,7 @@ Archiviazione di Azure include anche un livello API WebHDFS per l'archiviazione 
 
 I dati vengono in genere inseriti in Archiviazione di Azure tramite PowerShell, Azure Storage SDK o AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Archiviazione di Azure Data Lake
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Si ottiene una velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
 
@@ -128,9 +127,9 @@ Sqoop usa MapReduce per l'importazione e l'esportazione dei dati per assicurare 
 
 Apache Flume è un servizio distribuito, affidabile e disponibile per raccogliere, aggregare e spostare in modo efficiente grandi quantità di dati di log. Ha un'architettura semplice e flessibile basata su flussi di dati. Flume è un servizio solido e a tolleranza di errore dotato di meccanismi di affidabilità ottimizzabili e molti meccanismi di failover e ripristino. Usa un modello di dati estensibile semplice per consentire applicazioni analitiche online.
 
-Apache Flume non può essere usato con Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
+Apache Flume non può essere usato con Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
 
-## <a name="transform"></a>Trasformare
+## <a name="transform"></a>Trasforma
 
 Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli o prepararli per un modello di utilizzo specifico.  Hive, Pig e Spark SQL sono soluzioni ottime per questo tipo di attività  e sono tutte supportate in HDInsight. 
 

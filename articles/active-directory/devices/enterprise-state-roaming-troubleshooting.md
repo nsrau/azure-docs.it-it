@@ -2,29 +2,21 @@
 title: Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory | Documentazione Microsoft
 description: Fornisce le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app.
 services: active-directory
-keywords: impostazioni di enterprise state roaming, cloud windows, domande frequenti su enterprise state roaming
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353177"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481862"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -70,12 +62,11 @@ Questa sezione offre suggerimenti su come risolvere e diagnosticare i problemi r
 
 Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD. Sebbene non siano specifiche per Enterprise State Roaming, con le istruzioni riportate di seguito è possibile verificare che il client Windows 10 sia registrato, nonché confermare l'identificazione personale, l'URL delle impostazioni di Azure AD, lo stato NGC e altre informazioni.
 
-1.  Aprire il prompt dei comandi con privilegi non elevati. Per fare questo in Windows, aprire la finestra Esegui (WIN+R) e digitare "cmd".
-2.  Dopo aver aperto il prompt dei comandi, digitare "*dsregcmd.exe /status*".
-3.  Per ottenere l'output previsto, il valore del campo **AzureAdJoined** deve essere "SÌ", il valore del campo **WamDefaultSet** deve essere "SÌ" e il valore del campo **WamDefaultGUID** deve essere un GUID con "(AzureAd)" alla fine.
+1. Aprire il prompt dei comandi con privilegi non elevati. Per fare questo in Windows, aprire la finestra Esegui (WIN+R) e digitare "cmd".
+1. Dopo aver aperto il prompt dei comandi, digitare "*dsregcmd.exe /status*".
+1. Per ottenere l'output previsto, il valore del campo **AzureAdJoined** deve essere "SÌ", il valore del campo **WamDefaultSet** deve essere "SÌ" e il valore del campo **WamDefaultGUID** deve essere un GUID con "(AzureAd)" alla fine.
 
 **Potenziale problema**: **WamDefaultSet** e **AzureAdJoined** presentano entrambi "NO" come valore del campo, il dispositivo è stato aggiunto al dominio e registrato con Azure AD e il dispositivo non viene sincronizzato. Se viene visualizzato questo, il dispositivo potrebbe dover attendere che i criteri siano applicati oppure l'autenticazione del dispositivo non è riuscita durante la connessione ad Azure AD. L'utente potrebbe dover attendere alcune ore per l'applicazione dei criteri. Altri passaggi di risoluzione dei problemi potrebbero includere un nuovo tentativo di registrazione automatica mediante disconnessione e riconnessione o l'avvio dell'attività nell'Utilità di pianificazione. In alcuni casi eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
-
 
 **Potenziale problema**: il campo relativo a **SettingsUrl** è vuoto e il dispositivo non è sincronizzato. L'utente potrebbe aver eseguito l'ultimo accesso al dispositivo prima dell'abilitazione di Enterprise State Roaming nel portale di Azure Active Directory. Riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Facoltativamente, nel portale l'amministratore IT può provare a passare ad **Azure Active Directory** > **Dispositivi** > **Enterprise State Roaming** e quindi disabilitare e riabilitare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Una volta riattivata l'opzione, riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Se il problema non viene risolto, il campo **SettingsUrl** potrebbe essere vuoto in caso di un certificato del dispositivo non valido. In questo caso eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
 
@@ -85,7 +76,7 @@ In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a si
 
 **Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN Microsoft Passport for Work o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
 
-**Potenziale problema**: La sincronizzazione può non riuscire se l'amministratore configura in Active Directory Federation Services il criterio di accesso condizionale Multi-Factor Authentication e il token di accesso al dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
+**Potenziale problema**: Sincronizzazione può non riuscire se l'amministratore configura i criteri di accesso Active Directory Federation Services multi-Factor Authentication condizionale e alla scadenza del token di accesso nel dispositivo. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
 
 ### <a name="event-viewer"></a>Aprire il Visualizzatore eventi
 
@@ -161,7 +152,7 @@ Connettere il dispositivo a una rete aziendale in modo da riprendere la sincroni
 Se l'utente dispone di un UPN con maiuscole miste a minuscole (ad esempio NomeUtente anziché nome utente) e si trova su un dispositivo aggiunto ad Azure AD aggiornato da Windows 10 compilato da 10586 a 14393, il dispositivo dell'utente potrebbe non eseguire per la sincronizzazione. 
 
 **Azione consigliata**  
-L'utente dovrà separare e aggiungere nuovamente il dispositivo al cloud. Per farlo, effettuare l'accesso come utente amministratore locale e separare il dispositivo andando in **Impostazioni** > **Sistema** > **About (Informazioni)** e selezionare "Gestisci o disconnettiti dall'azienda o dall'istituto di istruzione". Cancellare i file seguenti e aggiungere di nuovo il dispositivo ad Azure AD in **Impostazioni** > **Sistema** > **About (Informazioni)**, selezionando "Connetti all'azienda o all'istituto di istruzione". Continuare la procedura per aggiungere il dispositivo ad Azure Active Directory e completare il flusso.
+L'utente dovrà separare e aggiungere nuovamente il dispositivo al cloud. Per farlo, effettuare l'accesso come utente amministratore locale e separare il dispositivo andando in **Impostazioni** > **Sistema** > **About (Informazioni)** e selezionare "Gestisci o disconnettiti dall'azienda o dall'istituto di istruzione". Cancellare i file seguenti e aggiungere di nuovo il dispositivo ad Azure AD in **Impostazioni** > **Sistema** > **About (Informazioni)** , selezionando "Connetti all'azienda o all'istituto di istruzione". Continuare la procedura per aggiungere il dispositivo ad Azure Active Directory e completare il flusso.
 
 Nel passaggio sulla pulizia, cancellare i file seguenti:
 - Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`

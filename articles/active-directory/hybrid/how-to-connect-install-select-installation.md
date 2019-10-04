@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348281"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect
@@ -47,7 +47,7 @@ Casi in cui è comunque possibile usare l'installazione rapida:
 - Se non si vogliono sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida deselezionando **Avvia il processo di sincronizzazione...*** nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](how-to-connect-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
 - Si desidera abilitare una delle funzionalità in Azure AD Premium, ad esempio il writeback delle password. Completare innanzitutto l'intera procedura di installazione rapida iniziale. Eseguire quindi di nuovo l'Installazione guidata e modificare le [opzioni di configurazione](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
-## <a name="custom"></a>Personalizzate
+## <a name="custom"></a>Personalizzato
 Il percorso personalizzato offre molte più opzioni rispetto a quello rapido e deve essere usato in tutti i casi in cui l'organizzazione non dispone della configurazione indicata nella sezione precedente per l'installazione rapida.
 
 Usare questo tipo nei seguenti casi:

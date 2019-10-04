@@ -3,9 +3,9 @@ title: Push avanzato degli hub di notifica di Azure
 description: Informazioni su come inviare notifiche push complesse a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#.
 documentationcenter: ios
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447753"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212200"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avanzato degli hub di notifica di Azure
 
@@ -50,12 +52,12 @@ In generale:
     ![][IOS2]
 5. In `Notifications.cs` aggiungere l'istruzione using seguente:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Aggiornare l'intera classe `Notifications` con il codice seguente. Assicurarsi di sostituire i segnaposto con le credenziali dell'hub di notifica e il nome file di immagine.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +107,7 @@ In generale:
 
 7. In `NotificationsController.cs` ridefinire `NotificationsController con i frammenti di codice riportati di seguito. Questo codice invia un ID notifica avanzata automatica iniziale al dispositivo e consente il recupero lato client dell'immagine:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

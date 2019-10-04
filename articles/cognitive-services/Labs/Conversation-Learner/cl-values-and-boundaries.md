@@ -3,19 +3,20 @@ title: Configurazione predefinita di Conversation Learner - Servizi cognitivi Mi
 titleSuffix: Azure
 description: Informazioni sulla configurazione predefinita di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8050008bbae4a23f09b5fa94874a6315e798b448
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: aaef6f5498e5a8da65d1c829feae8b3e85dba0fd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211288"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705304"
 ---
 # <a name="default-values-and-boundaries"></a>Limiti e valori predefiniti
 

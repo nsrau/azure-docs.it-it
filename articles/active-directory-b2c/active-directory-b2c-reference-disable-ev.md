@@ -1,38 +1,40 @@
 ---
-title: Disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente in Azure Active Directory B2C | Microsoft Docs
-description: Questo argomento illustra come disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente in Azure Active Directory B2C.
+title: Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C
+description: Informazioni su come disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: davidmu
+ms.date: 09/25/2018
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e139f40e9724840f3dad4dc9f0b4d5317a75ebd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a7adc04991dd4a472bdaf1aa47aacaf6cdeb190
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317276"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256922"
 ---
-# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente in Azure Active Directory B2C 
-Quando è abilitato, Azure Active Directory (Azure AD) B2C permette all'utente di iscriversi alle applicazioni specificando un indirizzo di posta elettronica e creando un account locale. Azure AD B2C garantisce la validità degli indirizzi di posta elettronica richiedendone la verifica agli utenti durante il processo di iscrizione. Impedisce anche a processi dannosi automatizzati di generare account fittizi per le applicazioni.
+# <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C
 
-Alcuni sviluppatori di applicazioni preferiscono ignorare la verifica tramite posta elettronica durante il processo di iscrizione, chiedendo agli utenti di verificare l'indirizzo di posta elettronica in un secondo momento. A tale scopo, è possibile configurare Azure AD B2C in modo da disabilitare la verifica tramite posta elettronica. In questo modo si ottiene un processo di iscrizione più semplice e gli sviluppatori hanno la possibilità di distinguere gli utenti che hanno verificato l'indirizzo di posta elettronica da quelli che non lo hanno fatto.
+Per impostazione predefinita, Azure Active Directory B2C (Azure AD B2C) verifica l'indirizzo di posta elettronica del cliente per gli account locali (account per gli utenti che effettuano l'iscrizione con l'indirizzo di posta elettronica o il nome utente). Azure AD B2C garantisce indirizzi di posta elettronica validi richiedendo ai clienti di verificarli durante il processo di iscrizione. Impedisce inoltre a un utente malintenzionato di usare processi automatizzati per generare account illeciti nelle applicazioni.
 
-Per impostazione predefinita, nei flussi utente di iscrizione la verifica tramite posta elettronica è abilitata. Per disabilitarla, seguire questa procedura:
+Alcuni sviluppatori di applicazioni preferiscono ignorare la verifica tramite posta elettronica durante il processo di iscrizione e i clienti possono invece verificare il proprio indirizzo di posta elettronica in un secondo momento. A tale scopo, è possibile configurare Azure AD B2C in modo da disabilitare la verifica tramite posta elettronica. Questa operazione consente di creare un processo di iscrizione più semplice e offre agli sviluppatori la flessibilità necessaria per distinguere i clienti che hanno verificato il proprio indirizzo di posta elettronica dai clienti che non lo hanno fatto.
 
-1. Fare clic su **Flussi utente**.
-2. Fare clic sul flusso utente, ad esempio "B2C_1_SiUp", per aprirlo. 
-3. Fare clic su **Layout di pagina**.
-4. Fare clic su **Pagina di iscrizione dell'account locale**.
-5. Fare clic su **Indirizzo di posta elettronica** nella colonna **Nome** sotto la sezione **Attributi utente**.
-6. In **Richiede la verifica** selezionare **No**.
-7. Fare clic su **Salva** nella parte superiore del pannello. L'operazione è completata.
+Per disabilitare la verifica tramite posta elettronica, attenersi alla procedura seguente:
 
-> [!NOTE]
-> Disabilitando la verifica tramite posta elettronica nel processo di iscrizione si potrebbe ricevere posta indesiderata. Se si disabilita il sistema di verifica predefinito, è consigliabile aggiungerne uno personalizzato.
-> 
->
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
+1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare **Flussi utente**.
+1. Selezionare il flusso utente per il quale si desidera disabilitare la verifica tramite posta elettronica. Ad esempio, *B2C_1_signinsignup*.
+1. Selezionare **layout di pagina**.
+1. Selezionare **la pagina di iscrizione dell'account locale**.
+1. In **attributi utente**selezionare **indirizzo di posta elettronica**.
+1. Nell'elenco a discesa **richieste di verifica** selezionare **No**.
+1. Selezionare **Salva**. La verifica tramite posta elettronica è ora disabilitata per questo flusso utente.
+
+> [!WARNING]
+> Disabilitando la verifica tramite posta elettronica nel processo di iscrizione si potrebbe ricevere posta indesiderata. Se si disattiva la verifica predefinita della posta elettronica fornita dal Azure AD B2C, si consiglia di implementare un sistema di verifica sostitutivo.

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693744"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
@@ -47,7 +47,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     **Figura 1** Parte posteriore del dispositivo principale in cui vengono mostrati il PCM e i moduli del controller
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -60,7 +60,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     **Figura 2** Parte posteriore del PCM in cui vengono mostrati gli indicatori LED di monitoraggio
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |

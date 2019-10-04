@@ -3,40 +3,58 @@ title: Origini dati supportate - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker estrae automaticamente coppie di domanda-risposta dal contenuto semistrutturato, ad esempio le domande frequenti, i manuali di prodotti, le linee guida, i documenti di supporto e i criteri archiviati come pagine Web, file PDF o file Microsoft Word. I contenuti possono anche essere aggiunti alla Knowledge Base da file di contenuto QnA strutturati.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/26/2019
-ms.author: tulasim
-ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.topic: conceptual
+ms.date: 09/25/2019
+ms.author: diberry
+ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578629"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695286"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
 QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semistrutturato come domande frequenti, manuali di prodotto, linee guida, documenti di supporto e criteri archiviati come pagine Web, file PDF o file di documento di Microsoft Word. I contenuti possono anche essere aggiunti alla Knowledge Base da file di contenuto QnA strutturati. 
 
+<a name="data-types"></a>
+
+## <a name="file-and-url-data-types"></a>Tipi di dati di file e URL
+
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Tipo contenuto| Esempi|
+|Tipo di origine|Tipo di contenuto| Esempi|
 |--|--|--|
 |URL|Domande frequenti<br> (con struttura piatta, a sezioni o con collegamenti ad altre pagine)<br>Pagine del supporto <br> (singola pagina di procedure dettagliate, articoli sulla risoluzione dei problemi e così via).|[Domande frequenti semplici](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[domande frequenti con collegamenti](https://www.microsoft.com/software-download/faq),<br> [domande frequenti con home page degli argomenti](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[articolo del supporto tecnico](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|File domanda-risposta strutturato<br> (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+|PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Esempio white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Esempio di multi-turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|\* Excel|File domanda-risposta strutturato<br> (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|\* TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+I **file TSV e XLS**, dalle Knowledge base esportate, possono essere usati solo importando i file dalla pagina **Impostazioni** nel portale di QnA Maker. Non possono essere utilizzate come origini dati durante la creazione della Knowledge base o dalla funzionalità Aggiungi file o URL nella pagina **Impostazioni** . 
+
+Altre informazioni sull'uso di [documenti a più turni](). 
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 
-La maggior parte dei percorsi di origine di dati necessario fornire l'URL pubblico o file, che non richiedono l'autenticazione. 
+I percorsi delle origini dati sono **URL o file pubblici**, che non richiedono l'autenticazione. 
 
-[Località dell'origine dati SharePoint](../How-to/add-sharepoint-datasources.md) possono fornire file autenticati. Risorse di SharePoint devono essere file, non le pagine web. 
+Se è necessaria l'autenticazione per l'origine dati, considerare i metodi seguenti per ottenere i dati in QnA Maker:
 
-Se si dispone di un file autenticato o un URL, un'opzione alternativa consiste nello scaricare il file dal sito di autenticazione nel computer locale, quindi aggiungere il file dal computer locale i computer alla knowledge base. 
+* [Scaricare manualmente il file](#download-file-from-authenticated-data-source-location) e importarlo in QnA Maker
+* Importa file per percorso di [SharePoint](#import-file-from-authenticated-sharepoint) autenticato 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>Scarica file dal percorso dell'origine dati autenticato
+
+Se si dispone di un file autenticato (non in un percorso di SharePoint autenticato) o di un URL, un'opzione alternativa consiste nel scaricare il file dal sito autenticato al computer locale, quindi aggiungere il file dal computer locale alla Knowledge base.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>Importa il file da SharePoint autenticato 
+
+I [percorsi delle origini dati di SharePoint](../How-to/add-sharepoint-datasources.md) possono fornire **file**autenticati. Le risorse di SharePoint devono essere file, non pagine Web. Se l'URL termina con un'estensione Web, ad esempio **. ASPX**, non verrà importato in QnA Maker da SharePoint.
+
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 
@@ -98,7 +116,7 @@ Di seguito è riportato un esempio di un manuale con una pagina di indice e con 
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochure, linee guida, documenti e altri file
 
-Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. incluse le seguenti: brochure, linee guida, report, white paper, documenti scientifici, criteri, documentazioni e così via. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. Sono inclusi: brochure, linee guida, report, white paper, documenti scientifici, criteri, documentazioni e così via. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Di seguito è riportato un esempio di documento semistrutturato, senza un indice:
 
@@ -126,22 +144,34 @@ Di seguito è riportato un esempio di un documento di Word di domanda-risposta s
 
 Anche i documenti domanda-risposta sotto forma di file *.txt*, *.tsv* oppure *.xls* strutturati possono essere caricati da QnA Maker per creare o estendere una knowledge base.  Questi file possono essere testo normale, o possono disporre di contenuto in formato RTF o HTML. 
 
-| Domanda  | Risposta  | I metadati (1 tasto: 1 valore) |
+| Domanda  | Risposta  | Metadati (1 chiave: 1 valore) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
 
 Qualsiasi colonna aggiuntiva nel file di origine viene ignorata.
 
+### <a name="example-of-structured-excel-file"></a>Esempio di file di Excel strutturato
+
 Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, con contenuto HTML:
 
  ![Esempio di file Excel domanda-risposta strutturato per una knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Esempio di domande alternative per una singola risposta in un file di Excel
+
+Di seguito è riportato un esempio di un file QnA *. xls* strutturato, con diverse domande alternative per una singola risposta:
+
+ ![Esempio di domande alternative per una singola risposta in un file di Excel](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+Una volta importato il file, la coppia di domande e risposte si trova nella Knowledge base, come illustrato di seguito:
+
+ ![Screenshot delle domande alternative per la singola risposta importata nella Knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato di dati strutturati tramite l'importazione
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file TSV strutturato che contiene informazioni sull'origine dei dati. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Target| I metadati (1 tasto: 1 valore) |          
+| Domanda  | Risposta  | Source| Metadati (1 chiave: 1 valore) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
@@ -150,14 +180,43 @@ L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Ba
 
 Se non è presente contenuto pre-esistente per popolare la Knowledge Base, è possibile aggiungere contenuti domanda-risposta a livello editoriale nella Knowledge Base di QnA Maker. Informazioni su come aggiornare la Knowledge Base sono disponibili [qui](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## <a name="formatting-considerations"></a>Considerazioni di formattazione
 
-Dopo aver importato un file o un URL, questo viene convertito in Markdown e archiviato in questo formato. Se il processo di conversione non converte correttamente i collegamenti nei file e gli URL, è consigliabile modificare le domande e risposte nella pagina **Modifica**. 
+Dopo aver importato un file o un URL, QnA Maker converte e archivia il contenuto nel [formato Markdown](https://en.wikipedia.org/wiki/Markdown). Il processo di conversione aggiunge nuove righe nel testo, ad esempio `\n\n`. Una conoscenza del formato Markdown consente di comprendere il contenuto convertito e gestire il contenuto della Knowledge base. 
 
-|Formato|Scopo|
-|--|--|
-|`\n\n`| Nuova riga|
-|`\n*`|Punto elenco per elenco ordinato|
+Se si aggiunge o modifica il contenuto direttamente nella Knowledge base, utilizzare la **formattazione Markdown** per creare contenuto RTF o modificare il contenuto del formato Markdown già presente nella risposta. QnA Maker supporta gran parte del formato Markdown per fornire funzionalità di testo avanzate ai contenuti. Tuttavia, l'applicazione client, ad esempio un bot di chat, potrebbe non supportare lo stesso set di formati Markdown. È importante testare la visualizzazione delle risposte dell'applicazione client. 
+
+Di seguito è riportato l'elenco dei formati Markdown che è possibile usare in QnA Maker: 
+
+|Scopo|Formato|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
+|--|--|--|--|
+Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formattare la nuova riga tra due frasi](../media/qnamaker-concepts-datasources/format-newline.png)|
+|Intestazioni da H1 a H6, il numero di `#` indica l'intestazione. 1 `#` è il H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formattare con le intestazioni Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formattare con le intestazioni Markdown da H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Corsivo |`*text*`|`How do I create a bot with *QnA Maker*?`|![formattare con corsivo](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Stringa (in grassetto)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formato con contrassegno forte per grassetto](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL per il collegamento|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato per URL (collegamento ipertestuale)](../media/qnamaker-concepts-datasources/format-url.png)|
+|\* URL per l'immagine pubblica|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato dell'URL dell'immagine pubblica ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Barrato|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato per barrato](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Grassetto e corsivo|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato per grassetto e corsivo](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL grassetto per il collegamento|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formattare l'URL in grassetto](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|URL corsivo per il collegamento|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Caratteri di escape Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Elenco ordinato|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>Nell'esempio precedente viene usata la numerazione automatica incorporata in Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>Nell'esempio precedente viene usata la numerazione esplicita.|![formato dell'elenco ordinato](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Elenco non ordinato|`\n * item1 \n * item2`<br>oppure<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato dell'elenco non ordinato](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Elenchi annidati|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>È possibile annidare insieme elenchi ordinati e non ordinati. La scheda, `\t`, indica il livello di rientro dell'elemento figlio.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato per un elenco non ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato dell'elenco ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+
+\* QnA Maker non elabora l'immagine in alcun modo. Si tratta del ruolo dell'applicazione client per il rendering dell'immagine. 
+
+Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornamento/sostituzione e il contenuto e il file contengono tag HTML, è possibile mantenere il codice HTML nel file assicurandosi che l'apertura e la chiusura dei tag vengano convertite nel formato codificato.
+
+| Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
+|-----------|---------|-------------------------|
+| Yes | \&lt; br\&gt; | &lt;BR&gt; |
+| Yes | \&lt; H3\&gt; intestazione\&lt;/H3\&gt; | &lt;/H3&gt;intestazione&lt;H3&gt; |
+
+Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata\\, ad esempio:'\\\\\\r\\n'è\\t'
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
 
@@ -170,6 +229,10 @@ Dopo aver completato le modifiche, reimportare il file TSV dalla pagina **Impost
 ## <a name="testing-your-markdown"></a>Test di Markdown
 
 Usare l'esercitazione **[CommonMark](https://commonmark.org/help/tutorial/index.html)** per convalidare il codice Markdown. L'esercitazione contiene la funzionalità **Prova** per la convalida veloce copia/incolla. 
+
+## <a name="version-control-for-data-in-your-knowledge-base"></a>Controllo della versione per i dati nella Knowledge base
+
+Il controllo della versione per i dati viene fornito tramite la [funzionalità importazione/esportazione](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) nella pagina **Impostazioni** . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

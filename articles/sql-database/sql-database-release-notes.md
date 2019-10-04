@@ -1,126 +1,90 @@
 ---
-title: Note sulla versione di Database SQL di Azure | Microsoft Docs
-description: Scopri le nuove funzionalità e miglioramenti nel servizio Database SQL di Azure e nella documentazione del Database SQL di Azure
+title: Note sulla versione del database SQL di Azure | Microsoft Docs
+description: Informazioni sulle nuove funzionalità e miglioramenti nel servizio database SQL di Azure e nella documentazione del database SQL di Azure
 services: sql-database
-author: CarlRabeler
-manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
-ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/15/2019
+ms.author: sstein
+ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495106"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266431"
 ---
-# <a name="sql-database-release-notes"></a>Note sulla versione di Database SQL
+# <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
-Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Database SQL e nella documentazione del Database SQL. Per il miglioramento del servizio di Database SQL, vedere anche [aggiornamenti del servizio Database SQL](https://azure.microsoft.com/updates/?product=sql-database). Per apportare miglioramenti ad altri servizi di Azure, vedere [aggiornamenti del servizio](https://azure.microsoft.com/updates).
+Questo articolo elenca le funzionalità del database SQL attualmente disponibili in anteprima pubblica. Per aggiornamenti e miglioramenti del database SQL, vedere [aggiornamenti del servizio di database SQL](https://azure.microsoft.com/updates/?product=sql-database). Per gli aggiornamenti e i miglioramenti apportati ad altri servizi di Azure, vedere [aggiornamenti dei servizi](https://azure.microsoft.com/updates).
 
-## <a name="features-in-public-preview"></a>Funzionalità in anteprima pubblica
+## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica
+
+### <a name="single-databasetabsingle-database"></a>[Database singolo](#tab/single-database)
 
 | Funzionalità | Dettagli |
 | ---| --- |
-| Processi di database elastici | Per informazioni, vedere [creare, configurare e gestire processi elastici](elastic-jobs-overview.md) |
-| Transazioni elastiche | [Transazioni distribuite in database cloud](sql-database-elastic-transactions-overview.md) |
-| Query elastiche | Per informazioni, vedere [panoramica delle query elastiche](sql-database-elastic-query-overview.md) |
-| Replica con le istanze gestite |Per informazioni, vedere [configurare la replica in un database di istanza gestita di Database SQL di Azure](replication-with-sql-database-managed-instance.md)|
-| Regole di confronto di istanza con istanze gestite |Per informazioni, vedere [usare PowerShell con modelli Azure Resource Manager per creare un'istanza gestita di Database SQL di Azure](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
-| R services / machine learning con i database singoli e pool elastici |Per informazioni, vedere [servizi di Machine Learning nel Database SQL di Azure](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
-| Recupero di database accelerata con i database singoli e pool elastici | Per informazioni, vedere [ripristino accelerato del Database](sql-database-accelerated-database-recovery.md)|
-| Individuazione dati e classificazione  |Per informazioni, vedere [Database SQL di Azure e SQL Data Warehouse individuazione dati e classificazione](sql-database-data-discovery-and-classification.md)|
-| Transparent data encryption (TDE) con Bring Your Own Key (BYOK) con le istanze gestite |Per informazioni, vedere [Azure SQL Transparent Data Encryption con chiavi gestite dal cliente in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md)|
-| Ricrea database eliminati con le istanze gestite |Per informazioni, vedere [ricreare eliminato i database nell'istanza gestita SQL di Azure](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
-| Rilevamento delle minacce con le istanze gestite |Per informazioni, vedere [istanza gestita di configurare il rilevamento delle minacce nel Database SQL di Azure](sql-database-managed-instance-threat-detection.md)|
-| Livelli di servizio con scalabilità elevatissima con i database singoli |Per informazioni, vedere [livello di servizio con Iperscalabilità per fino a 100 TB](sql-database-service-tier-hyperscale.md)|
-| Editor di query nel portale di Azure |Per informazioni, vedere [usare editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati](sql-database-connect-query-portal.md)|
-|Numero approssimativo di Distinct|Per informazioni, vedere [approssimativo Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
-|Modalità batch a Rowstore (con il livello di compatibilità 150)|Per informazioni, vedere [la modalità Batch a Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
-|Feedback delle concessioni di memoria (modalità riga) (con il livello di compatibilità 150)|Per informazioni, vedere [Feedback delle concessioni di memoria (modalità riga)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
-|Tabella variabili posticipata compilazione (con il livello di compatibilità 150)|Per informazioni, vedere [compilazione posticipata variabili tabella](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
-|Analitica SQL|Per informazioni, vedere [Analitica SQL di Azure](../azure-monitor/insights/azure-sql.md)|
-| Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
-|||
-
-## <a name="march-2019"></a>Marzo 2019
-
-### <a name="service-improvements"></a>Miglioramenti al servizio
-
-| Miglioramenti al servizio | Dettagli |
-| --- | --- |
-| Disponibilità generale: Supporto per la scalabilità in lettura per il database SQL di Azure | Per altre informazioni, vedere [scalabilità in lettura](sql-database-read-scale-out.md)|
+| [Collegamento privato di Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Collegamento privato semplifica l'architettura di rete e protegge la connessione tra endpoint in Azure mantenendo i dati sulla rete di Azure ed eliminando quindi l'esposizione a Internet. Collegamento privato ti permette anche di creare ed eseguire il rendering di servizi personalizzati in Azure. |
+| Recupero accelerato del database con singoli database e pool elastici | Per informazioni, vedere [accelerazione del ripristino del database](sql-database-accelerated-database-recovery.md).|
+|Conteggio approssimativo Distinct|Per informazioni, vedere [conteggio approssimativo Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
+|Modalità batch su rowstore (con livello di compatibilità 150)|Per informazioni, vedere [modalità batch su rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
+| Individuazione dati e classificazione  |Per informazioni, vedere [database SQL di Azure e SQL data warehouse individuazione dati & classificazione](sql-database-data-discovery-and-classification.md).|
+| Processi di database elastici | Per informazioni, vedere [creare, configurare e gestire processi elastici](elastic-jobs-overview.md). |
+| Query elastiche | Per informazioni, vedere [Panoramica delle query elastiche](sql-database-elastic-query-overview.md). |
+| Transazioni elastiche | [Transazioni distribuite tra database cloud](sql-database-elastic-transactions-overview.md). |
+|Feedback delle concessioni di memoria (modalità riga) (con livello di compatibilità 150)|Per informazioni, vedere [feedback delle concessioni di memoria (modalità riga)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
+| Editor di query nel portale di Azure |Per informazioni, vedere [usare l'editor di query SQL di portale di Azure per connettersi ed eseguire query sui dati](sql-database-connect-query-portal.md).|
+| R Services/Machine Learning con database singoli e pool elastici |Per informazioni, vedere [Machine Learning Services nel database SQL di Azure](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| Livello di elaborazione serverless | Per informazioni, vedere [database SQL senza server (anteprima)](sql-database-serverless.md).|
+|Analitica SQL|Per informazioni, vedere [analisi SQL di Azure](../azure-monitor/insights/azure-sql.md).|
+|Compilazione posticipata della variabile di tabella (con livello di compatibilità 150)|Per informazioni, vedere [compilazione posticipata della variabile di tabella](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |
 
-### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
+### <a name="managed-instancetabmanaged-instance"></a>[Istanza gestita](#tab/managed-instance)
 
-| Miglioramenti alla documentazione | Dettagli |
-| --- | --- |
-| Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
-| Aggiunta log limiti per i database singoli|Per altre informazioni, vedere [limiti delle risorse di Vcore per database singolo](sql-database-vcore-resource-limits-single-databases.md).|
-| Aggiunta log limiti dei pool elastici e i database in pool|Per altre informazioni, vedere [dei limiti delle risorse di Vcore per pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).|
-| Governance delle velocità di log delle transazioni aggiunto| Aggiunto nuovo contenuto per [governance delle velocità di log delle transazioni](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
-| Esempi aggiornati di PowerShell per database singoli e pool elastici per usare il modulo az.sql | Per altre informazioni, vedere [esempi di PowerShell per database singoli e pool elastici](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| Funzionalità | Dettagli |
+| ---| --- |
+| <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a> | Un modo pratico ed economicamente conveniente per eseguire la migrazione di istanze SQL più piccole al cloud. |
+| <a href="https://aka.ms/managed-instance-tde-byok">Transparent Data Encryption (Transparent Data Encryption) con Bring Your Own Key (BYOK)</a> |Per informazioni, vedere [Transparent Data Encryption SQL di Azure con chiavi gestite dal cliente in Azure Key Vault: Supporto](transparent-data-encryption-byok-azure-sql.md)Bring your own key.|
+| <a href="https://aka.ms/managed-instance-aadlogins">Entità del server Azure AD a livello di istanza (account di accesso)</a> | Creare account di accesso a livello di server utilizzando l'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">create login from External provider</a> . |
+| [Replica transazionale](sql-database-managed-instance-transactional-replication.md) | Replicare le modifiche dalle tabelle in altri database posizionati in istanze gestite, database singoli o istanze di SQL Server o aggiornare le tabelle quando alcune righe vengono modificate in altre istanze gestite o SQL Server istanza. Per informazioni, vedere [configurare la replica in un database dell'istanza gestita di database SQL di Azure](replication-with-sql-database-managed-instance.md). |
+| Rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in istanza gestita di database SQL di Azure](sql-database-managed-instance-threat-detection.md).|
+| Ricreare database eliminati con istanze gestite |Per informazioni, vedere [ricreare database rimossi in Azure SQL istanza gestita](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
 | &nbsp; |
 
-## <a name="february-2019"></a>Febbraio 2019
+---
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
+## <a name="new-features"></a>Nuove funzionalità
 
-| Miglioramenti al servizio | Dettagli |
-| --- | --- |
-|Creazione di un indice online ripristinabile è ora disponibile a livello generale| Per altre informazioni, vedere [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
-|Supporto per le tabelle di route migliorati per istanza gestita| Per altre informazioni, vedere [requisiti di rete](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
-|Ridenominazione del database è supportata in istanza gestita | Per altre informazioni, vedere la [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) e [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) sintassi.|
-|Database SQL come origine dei dati di riferimento per Stream Analitica. | Per altre informazioni, vedere [Analitica Stream](https://azure.microsoft.com/services/stream-analytics/).|
-|Data Migration Assistant aggiunge il supporto per l'istanza gestita. |Per altre informazioni, vedere [novità in DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
-|SQL Server Migration Assistant aggiunge il supporto per la valutazione della conformità di destinazione per l'istanza gestita. | Per altre informazioni, vedere [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
-|Servizio migrazione del database supporta la migrazione da Amazon Servizi Desktop remoto a istanza gestita | Per altre informazioni, vedere [Esercitazione: Eseguire la migrazione di servizi desktop remoto SQL Server al Database SQL di Azure o un'istanza gestita Azure SQL Database online usando servizio migrazione del database](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
-| &nbsp; |
+### <a name="managed-instance-h2-2019-updates"></a>Aggiornamenti dell'istanza gestita H2 2019
 
-### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
+- I [gruppi di failover automatico](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) consentono di replicare tutti i database dall'istanza primaria a un'istanza secondaria in un'altra area.
+- Configurare il comportamento dell'istanza gestita con i [flag di traccia globali](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
-| Miglioramenti alla documentazione | Dettagli |
-| --- | --- |
-|Aggiunta di gestiti chiarimenti opzione di distribuzione istanza|Aggiornato molti articoli per chiarire l'applicabilità al singolo database, pool elastico e opzioni di distribuzione dell'istanza gestita. |
-|Dimensioni di tempdb aggiornato per il modello di acquisto basato su DTU | Per altre informazioni, vedere [database Tempdb nel Database SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
-|Aggiornata di importazione / esportazione con il file bacpac per il supporto di istanza gestita| Per altre informazioni, vedere [importare da BACPAC](sql-database-import.md) e [esportare in file BACPAC](sql-database-export.md). |
-| &nbsp; |
+### <a name="managed-instance-h1-2019-updates"></a>Aggiornamenti H1 2019 per istanza gestita
 
+Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istanza gestita in H1 2019:
+  - Supporto per le sottoscrizioni con <a href="https://aka.ms/sql-mi-visual-studio-subscribers">credito mensile di Azure per Sottoscrittori di Visual Studio</a> e maggiori [limiti a livello](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)di area.
+  - Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e per <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - Creare istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server</a> e il <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso orario</a> desiderato.
+  - Le istanze gestite sono ora protette con il <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall incorporato</a>.
+  - Configurare le istanze per l'uso di [endpoint pubblici](sql-database-managed-instance-public-endpoint-configure.md), la connessione per [l'override del proxy](sql-database-connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update">4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La conservazione dei backup a lungo termine (fino a 10 anni) non è ancora abilitata, quindi è possibile usare i <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come alternativa.
+  - Le nuove funzionalità consentono di eseguire <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">il ripristino geografico del database in un altro Data Center tramite PowerShell</a>, [Rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [Delete Virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
+  - Il nuovo [ruolo Collaboratore istanza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporato consente la conformità alla separazione dei compiti (SOD) con i principi di sicurezza e la conformità agli standard aziendali.
+  - Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona), nonché in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
 
-## <a name="january-2019"></a>Gennaio 2019
+## <a name="fixed-known-issues"></a>Problemi noti risolti
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
+- **Aug 2019** : i database indipendenti sono completamente supportati nell'istanza gestita.
 
-| Miglioramenti al servizio | Dettagli |
-| --- | --- |
-| Opzioni di granularità aggiuntivo per le risorse di calcolo | Livelli per di servizio utilizzo generico e business critica [database singoli](sql-database-vcore-resource-limits-single-databases.md) e [i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md) ora disponibili più opzioni di calcolo con granularità fine.|
-| Record di controllo di visualizzazione per istanza gestita nel portale di Azure | Visualizzando [record per le istanze gestite di controllo](sql-database-managed-instance-auditing.md) nel portale di Azure è ora supportato portale.|
-| Funzionalità di rilevamento delle minacce avanzato rinominato in protezione dati avanzata | Funzionalità di rilevamento delle minacce avanzato rinominata [protezione dati avanzata](sql-advanced-threat-protection.md) per singoli database, pool elastici e istanze gestite. |
-| &nbsp; |
+## <a name="updates"></a>Aggiornamenti
 
-### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
+Per un elenco degli aggiornamenti e dei miglioramenti del database SQL, vedere [aggiornamenti del servizio di database SQL](https://azure.microsoft.com/updates/?product=sql-database).
 
-| Miglioramenti alla documentazione | Dettagli |
-| --- | --- |
-| Le istanze gestite e la replica transazionale | Aggiunta articolo sull'uso di [la replica transazionale con le istanze gestite](replication-with-sql-database-managed-instance.md) |
-| Aggiunta AD Azure con l'esercitazione per istanza gestita | Ciò [Azure AD con istanza gestita](sql-database-managed-instance-aad-security-tutorial.md) Mostra dell'esercitazione, è necessario configurare e testare gestiti sicurezza istanza usando gli account di accesso di Azure AD. |
-| Contenuto aggiornato per l'automazione di processi usando gli script Transact-SQL | Aggiornamento e il contenuto per l'uso di chiarimento [automazione di processi tramite Transact-SQL script](sql-database-job-automation-overview.md) per singoli database, pool elastici e istanze gestite |
-| Contenuto di protezione per le istanze gestite aggiornato | Aggiornamento e chiarimento contenuto per il [modello di sicurezza per le istanze gestite](sql-database-security-overview.md), analogie con il modello di sicurezza per i database singoli e pool elastici e |
-| Aggiornare tutte le guide introduttive ed esercitazioni | Tutte le guide introduttive ed esercitazioni nel [documentazione](https://docs.microsoft.com/azure/sql-database) sono stati aggiornati e aggiornata in modo da riflettere le modifiche nel portale di Azure |
-| Aggiunta di guide di panoramica | Una Guida di panoramica introduttiva per l'aggiunta [database singoli](sql-database-quickstart-guide.md) e per [istanze gestite](sql-database-managed-instance-quickstart-guide.md) |
-| Glossario di Database SQL aggiunta dei termini | Ciò [glossario di termini](sql-database-glossary-terms.md) articolo fornisce un elenco definitivo di termini di Database SQL e i collegamenti alla pagina concettuale principale che illustra il termine nel contesto. |
-| &nbsp; |
+Per aggiornamenti e miglioramenti a tutti i servizi di Azure, vedere [aggiornamenti dei servizi](https://azure.microsoft.com/updates).
 
-## <a name="contribute-to-content-improvement"></a>Contribuire al miglioramento del contenuto
+## <a name="contribute-to-content"></a>Contribuisci al contenuto
 
-Set di documentazione di SQL di Azure è open source. Operare in offre diversi vantaggi:
-
-- Repository open source la pianificazione per ottenere commenti e suggerimenti su quali docs sono più necessari.
-- Revisione dei repository open source di open per pubblicare il contenuto più utile nella prima versione.
-- Repository open source gli aggiornamenti per renderne più semplice migliorare continuamente il contenuto.
-
-Per contribuire al contenuto della documentazione di Database SQL di Azure, vedere la [Panoramica della Guida per i collaboratori Microsoft Docs](https://docs.microsoft.com/contribute/). L'esperienza utente in [docs.microsoft.com](https://docs.microsoft.com/) integra [GitHub](https://github.com/) flussi di lavoro direttamente per renderne ancora più semplice. Avviarsi [modificando il documento che si sta visualizzando](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). O, aiutare [revisionando i nuovi argomenti](https://docs.microsoft.com/contribute/#review-open-prs), o [creare problemi di qualità](https://docs.microsoft.com/contribute/#create-quality-issues).
+Per contribuire alla documentazione del database SQL di Azure, vedere la guida per i [collaboratori di docs](https://docs.microsoft.com/contribute/).

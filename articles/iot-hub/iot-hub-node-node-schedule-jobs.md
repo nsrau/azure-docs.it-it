@@ -8,15 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 08/16/2019
+ms.openlocfilehash: 124af71e458e103392c554a9c86d679f691df5b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796791"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147655"
 ---
-# <a name="schedule-and-broadcast-jobs-node"></a>Pianificare e trasmettere processi (Node)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>Pianificare e trasmettere processi (node. js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -30,9 +30,9 @@ Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene 
 
 Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
-* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md) e [esercitazione: Come usare le proprietà del dispositivo gemello](tutorial-device-twins.md)
+* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-node-node-twin-getstarted.md) ed [esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
 
-* Metodi diretti: [Guida per gli sviluppatori dell'IoT Hub - metodi diretti](iot-hub-devguide-direct-methods.md) e [esercitazione: metodi diretti](quickstart-control-device-node.md)
+* Metodi diretti: [Guida per gli sviluppatori dell'hub Internet-metodi diretti](iot-hub-devguide-direct-methods.md) ed [esercitazione: metodi diretti](quickstart-control-device-node.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,9 +48,9 @@ Al termine di questa esercitazione si avranno due app Node.js:
 
 * **scheduleJobService.js**, che chiama un metodo diretto nell'app per dispositivo simulato e aggiorna le proprietà desiderate di un dispositivo gemello tramite un processo.
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Versione di Node. js 4.0.x o versione successiva [preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) viene descritto come installare Node. js per questa esercitazione in Windows o Linux.
+* Node. js versione 10.0. x o successiva. [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descrive come installare Node. js per questa esercitazione in Windows o Linux.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -58,9 +58,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Ottenere la stringa di connessione per l'hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -70,55 +68,55 @@ In questa sezione viene creata un'applicazione console Node.js che risponde a un
 
 1. Creare una nuova cartella vuota chiamata **simDevice**.  Nella cartella **simDevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
 
-   ```
+   ```console
    npm init
    ```
 
 2. Eseguire questo comando al prompt dei comandi nella cartella **simDevice** per installare il pacchetto SDK per dispositivi **azure-iot-device** e il pacchetto **azure-iot-device-mqtt**:
-   
-   ```
+
+   ```console
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
 3. Con un editor di testo creare un nuovo file **simDevice.js** nella cartella **simDevice**.
 
 4. Aggiungere le istruzioni "require" seguenti all'inizio del file **simDevice.js**:
-   
-    ```
+
+    ```javascript
     'use strict';
-   
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**. Sostituire il `{yourDeviceConnectionString}` valore del segnaposto con la stringa di connessione del dispositivo copiata in precedenza.
+
+    ```javascript
+    var connectionString = '{yourDeviceConnectionString}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
 6. Aggiungere la funzione seguente per gestire il metodo **lockDoor**.
-   
-    ```
+
+    ```javascript
     var onLockDoor = function(request, response) {
-   
+
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
-   
+
         console.log('Locking Door!');
     };
     ```
 
 7. Aggiungere il codice seguente per registrare il gestore per il metodo **lockDoor**.
 
-   ```
+   ```javascript
    client.open(function(err) {
         if (err) {
             console.error('Could not connect to IotHub client.');
@@ -135,36 +133,42 @@ In questa sezione viene creata un'applicazione console Node.js che risponde a un
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 >
 
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Pianificare i processi per chiamare un metodo diretto e aggiornare le proprietà dei dispositivi gemelli
 
 In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** remoto su un dispositivo usando un metodo diretto e verranno aggiornate le proprietà del dispositivo gemello.
 
 1. Creare una nuova cartella vuota chiamata **scheduleJobService**.  Nella cartella **scheduleJobService** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
 
-    ```
+    ```console
     npm init
     ```
 
 2. Eseguire questo comando al prompt dei comandi nella cartella **scheduleJobService** per installare il pacchetto SDK per dispositivi **azure-iothub** e il pacchetto **azure-iot-device-mqtt**:
-   
-    ```
+
+    ```console
     npm install azure-iothub uuid --save
     ```
 
 3. Usando un editor di testo, creare un nuovo file **scheduleJobService.js** nella cartella **scheduleJobService**.
 
-4. Aggiungere le istruzioni "require" seguenti all'inizio del file **dmpatterns_gscheduleJobServiceetstarted_service.js**:
-   
-    ```
+4. Aggiungere le istruzioni "require" seguenti all'inizio del file **scheduleJobService. js** :
+
+    ```javascript
     'use strict';
-   
+
     var uuid = require('uuid');
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. Aggiungere le dichiarazioni di variabile seguenti e sostituire i valori segnaposto:
-   
-    ```
+5. Aggiungere le dichiarazioni di variabili seguenti. Sostituire il `{iothubconnectionstring}` valore del segnaposto con il valore copiato in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string). Se è stato registrato un dispositivo diverso da **myDeviceId**, assicurarsi di modificarlo nella condizione di query.
+
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
@@ -173,8 +177,8 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
     ```
 
 6. Aggiungere la funzione seguente che verrà usata per monitorare l'esecuzione del processo:
-   
-    ```
+
+    ```javascript
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
             jobClient.getJob(jobId, function(err, result) {
@@ -193,14 +197,14 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
     ```
 
 7. Aggiungere il codice seguente per pianificare il processo che chiama il metodo del dispositivo:
-   
-    ```
+  
+    ```javascript
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
         responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
-   
+
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
@@ -224,8 +228,8 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
     ```
 
 8. Aggiungere il codice seguente per pianificare il processo che aggiorna il dispositivo gemello:
-   
-    ```
+
+    ```javascript
     var twinPatch = {
        etag: '*',
        properties: {
@@ -235,9 +239,9 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
            }
        }
     };
-   
+
     var twinJobId = uuid.v4();
-   
+
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
                                 queryCondition,
@@ -266,23 +270,31 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
 A questo punto è possibile eseguire le applicazioni.
 
 1. Al prompt dei comandi nella cartella **simDevice** eseguire questo comando per iniziare l'ascolto del metodo diretto di riavvio.
-   
-    ```
+
+    ```console
     node simDevice.js
     ```
 
 2. Eseguire il comando riportato di seguito al prompt dei comandi nella cartella **scheduleJobService** per attivare i processi per bloccare la porta e aggiornare il dispositivo gemello
-   
-    ```
+
+    ```console
     node scheduleJobService.js
     ```
 
-3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
+3. Viene visualizzata la risposta del dispositivo al metodo diretto e lo stato del processo nella console di.
+
+   Di seguito viene illustrata la risposta del dispositivo al metodo diretto:
+
+   ![Output app dispositivo simulato](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+
+   Di seguito vengono illustrati i processi di pianificazione dei servizi per il metodo diretto e l'aggiornamento del dispositivo gemello e i processi in esecuzione fino al completamento:
+
+   ![Eseguire un'app di dispositivo simulato](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, vedere [esercitazione: Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
+Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio in modalità remota tramite l'aggiornamento [del firmware aereo, vedere l'esercitazione: Come eseguire un aggiornamento](tutorial-firmware-update.md)del firmware.
 
-Per altre informazioni sull'IoT Hub, vedere [Introduzione ad Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Per altre informazioni introduttive sull'hub Internet, vedere la pagina relativa all'introduzione [a Azure IOT Edge](../iot-edge/tutorial-simulate-device-linux.md).

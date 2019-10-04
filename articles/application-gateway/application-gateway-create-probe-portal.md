@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b92b9d953b6dd941b8b5f445ad64059f557c2980
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862166"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061800"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
 
@@ -54,10 +54,10 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
    |**Nome**|customProbe|Nome descrittivo del probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità.|
    |**Host**|vale a dire contoso.com|Nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.|
-   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito di http:\//contoso.com usare semplicemente '/' |
+   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http:\//contoso.com è sufficiente usare '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.|
-   |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.|
+   |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. La soglia può essere impostata su 1 o più.|
 
    > [!IMPORTANT]
    > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL

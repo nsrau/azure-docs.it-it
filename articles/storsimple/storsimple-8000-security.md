@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976019"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963523"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -256,7 +258,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 * [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurare CHAP per il dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
-**D:** Vorrei comunicare la password di Snapshot Manager StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?
+**D:** Vorrei comunicare la password di Snapshot Manager StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. Cosa si può fare?
 
 **R:** Se si dimentica la password, è necessario crearne una nuova. Informare quindi tutti gli utenti esistenti che la password è stata modificata e che devono aggiornare i client per usare la nuova password. Per istruzioni, vedere:
 

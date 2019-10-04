@@ -3,25 +3,25 @@ title: Esecuzione del montaggio di un volume di File di Azure in Istanze di Azur
 description: Informazioni su come montare un volume di File di Azure per rendere persistente lo stato con Istanze di Azure Container
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370619"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68325496"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
 Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure creata con [File di Azure](../storage/files/storage-files-introduction.md) per l'uso con Istanze di Azure Container. File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
 
 > [!NOTE]
-> Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
+> Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
@@ -62,9 +62,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume"></a>Distribuire contenitori e montare volumi
+## <a name="deploy-container-and-mount-volume---cli"></a>Distribuire il contenitore e montare il volume-CLI
 
-Per montare una condivisione file di Azure come volume in un contenitore, specificare la condivisione e il punto di montaggio del volume quando si crea il contenitore con [az container create][az-container-create]. Se è stata eseguita la procedura precedente, è possibile montare la condivisione creata in precedenza tramite il comando seguente per creare un contenitore:
+Per montare una condivisione file di Azure come volume in un contenitore usando l'interfaccia della riga di comando di Azure, specificare la condivisione e il punto di montaggio del volume quando si crea il contenitore con [AZ container create][az-container-create]. Se è stata eseguita la procedura precedente, è possibile montare la condivisione creata in precedenza tramite il comando seguente per creare un contenitore:
 
 ```azurecli-interactive
 az container create \
@@ -79,23 +79,160 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nel comando precedente se viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS** quando si esegue il comando.
+Il `--dns-name-label` valore deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nel comando precedente se viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS** quando si esegue il comando.
 
 ## <a name="manage-files-in-mounted-volume"></a>Gestire i file nel volume montato
 
-Una volta avviato il contenitore, è possibile usare la semplice app web distribuita tramite il Microsoft [aci-hellofiles] [ aci-hellofiles] immagine per creare i file di testo di piccole dimensioni nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere il nome di dominio completo (FQDN) dell'app Web con il comando [az container show] [ az-container-show]:
+Quando il contenitore viene avviato, è possibile usare l'app Web semplice distribuita tramite l'immagine Microsoft [ACI-hellofiles][aci-hellofiles] per creare piccoli file di testo nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere il nome di dominio completo (FQDN) dell'app Web con il comando [AZ container Show][az-container-show] :
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-È possibile usare il [portale di Azure][portal] oppure uno strumento come [Microsoft Azure Storage Explorer][storage-explorer] per recuperare e ispezionare il file scritto nella condivisione file.
+Dopo aver salvato il testo con l'app, è possibile usare il [portale di Azure][portal] o uno strumento come il [Microsoft Azure Storage Explorer][storage-explorer] per recuperare e ispezionare il file scritto nella condivisione file.
+
+## <a name="deploy-container-and-mount-volume---yaml"></a>Distribuire il contenitore e montare volume-YAML
+
+È anche possibile distribuire un gruppo di contenitori e montare un volume in un contenitore con l'interfaccia della riga di comando di Azure e un [modello YAML](container-instances-multi-container-yaml.md). La distribuzione mediante il modello YAML è il metodo preferito quando si distribuiscono gruppi di contenitori costituiti da più contenitori.
+
+Il modello YAML seguente definisce un gruppo di contenitori con un contenitore creato con `aci-hellofiles` l'immagine. Il contenitore monta la condivisione file di Azure *acishare nello* creata in precedenza come volume. Dove indicato, immettere il nome e la chiave di archiviazione per l'account di archiviazione che ospita la condivisione file. 
+
+Come nell'esempio dell'interfaccia della riga `dnsNameLabel` di comando, il valore deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Se necessario, aggiornare il valore nel file YAML.
+
+```yaml
+apiVersion: '2018-10-01'
+location: eastus
+name: file-share-demo
+properties:
+  containers:
+  - name: hellofiles
+    properties:
+      environmentVariables: []
+      image: mcr.microsoft.com/azuredocs/aci-hellofiles
+      ports:
+      - port: 80
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+      volumeMounts:
+      - mountPath: /aci/logs/
+        name: filesharevolume
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+      - port: 80
+    dnsNameLabel: aci-demo
+  volumes:
+  - name: filesharevolume
+    azureFile:
+      sharename: acishare
+      storageAccountName: <Storage account name>
+      storageAccountKey: <Storage account key>
+tags: {}
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Per eseguire la distribuzione con il modello YAML, salvare il YAML precedente in un `deploy-aci.yaml`file denominato, quindi eseguire il comando [AZ container create][az-container-create] con il `--file` parametro:
+
+```azurecli
+# Deploy with YAML template
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
+```
+## <a name="deploy-container-and-mount-volume---resource-manager"></a>Distribuire il contenitore e montare il volume Gestione risorse
+
+Oltre all'interfaccia della riga di comando e alla distribuzione YAML, è possibile distribuire un gruppo di contenitori e montare un volume in un contenitore usando un [modello di gestione risorse](/azure/templates/microsoft.containerinstance/containergroups)di Azure.
+
+Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo di contenitori del modello. 
+
+Quindi, per ogni contenitore in cui si vuole montare il volume, popolare la `volumeMounts` matrice `properties` nella sezione della definizione del contenitore.
+
+Il modello di gestione risorse seguente definisce un gruppo di contenitori con un contenitore creato `aci-hellofiles` con l'immagine. Il contenitore monta la condivisione file di Azure *acishare nello* creata in precedenza come volume. Dove indicato, immettere il nome e la chiave di archiviazione per l'account di archiviazione che ospita la condivisione file. 
+
+Come negli esempi precedenti, il `dnsNameLabel` valore deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Se necessario, aggiornare il valore nel modello.
+
+```JSON
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "container1name": "hellofiles",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-hellofiles"
+  },
+  "resources": [
+    {
+      "name": "file-share-demo",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2018-10-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "name": "filesharevolume",
+                  "mountPath": "/aci/logs"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            }
+          ],
+          "dnsNameLabel": "aci-demo"
+        },
+        "volumes": [
+          {
+            "name": "filesharevolume",
+            "azureFile": {
+                "shareName": "acishare",
+                "storageAccountName": "<Storage account name>",
+                "storageAccountKey": "<Storage account key>"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Per eseguire la distribuzione con il modello di gestione risorse, salvare il codice JSON precedente `deploy-aci.json`in un file denominato, quindi eseguire il comando [AZ Group Deployment create][az-group-deployment-create] con il `--template-file` parametro:
+
+```azurecli
+# Deploy with Resource Manager template
+az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+```
+
 
 ## <a name="mount-multiple-volumes"></a>Montare più volumi
 
-Per montare più volumi in un'istanza di contenitore, è necessario eseguire la distribuzione tramite un [modello di Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) o un file con estensione yaml.
+Per montare più volumi in un'istanza di contenitore, è necessario eseguire la distribuzione tramite un [modello di Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) o un file con estensione yaml. Per usare un modello o un file YAML, fornire i dettagli della condivisione e definire i volumi popolando la `volumes` matrice `properties` nella sezione del modello. 
 
-Per usare un modello, specificare i dettagli di condivisione e definire i volumi popolando la matrice `volumes` nella sezione `properties` del modello. Ad esempio, se sono state create due condivisioni file di Azure denominate *share1* e *share2* nell'account di archiviazione *myStorageAccount*, la matrice `volumes` sarà simile a quanto segue:
+Se, ad esempio, sono state create due condivisioni di file di Azure denominate *Share1* e *Share2* nell'account di archiviazione *myStorageAccount*, la `volumes` matrice in un modello di gestione risorse apparirà simile alla seguente:
 
 ```JSON
 "volumes": [{
@@ -129,8 +266,6 @@ Successivamente, per ogni contenitore del relativo gruppo in cui si desidera mon
 }]
 ```
 
-Per un esempio di distribuzione di istanze di contenitore con un modello di Azure Resource Manager, vedere [Deploy a container group](container-instances-multi-container-group.md) (Distribuire un gruppo contenitore). Per un esempio di utilizzo di un file con estensione yaml, vedere [Deploy a multi-container group with YAML](container-instances-multi-container-yaml.md) (Distribuire un gruppo multicontenitore con YAML)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
@@ -147,3 +282,4 @@ Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create

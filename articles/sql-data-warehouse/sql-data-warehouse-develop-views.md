@@ -2,20 +2,20 @@
 title: Uso di viste T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dba6d49590cc4064155e58784a166d3abbb19b6f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468428"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479516"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Viste in Azure SQL Data Warehouse
 Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni. 
@@ -23,12 +23,18 @@ Suggerimenti per l'uso di viste T-SQL in Azure SQL Data Warehouse per lo svilupp
 ## <a name="why-use-views"></a>Perché usare le viste?
 Le viste risultano utili in molti modi diversi per migliorare la qualità della soluzione.  Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
 
+
+> [!IMPORTANT]
+> Per la nuova sintassi della vista materializzata [, vedere creare una vista materializzata come SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Per ulteriori informazioni, vedere le [Note sulla versione](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > La sintassi per CREATE VIEW non viene illustrata in questo articolo. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Astrazione dell'architettura
+
 Un modello di applicazione comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
 
 L'esempio seguente aggiunge nuovi record di data a una dimensione data. Si noti come viene creata prima di tutto una nuova tabella, DimDate_New, che viene poi rinominata per sostituire la versione originale della tabella.

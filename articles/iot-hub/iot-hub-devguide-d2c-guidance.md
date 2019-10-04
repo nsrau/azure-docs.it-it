@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57007982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60885517"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Indicazioni sulle comunicazioni da dispositivo a cloud
 
@@ -35,7 +35,7 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da disposit
 | Archiviazione e recupero | Archiviati temporaneamente dall'hub IoT, per un massimo di 7 giorni. Solo lettura sequenziale. | Archiviate dall'hub IoT nel dispositivo gemello. Recuperabili mediante il [linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md). | Archiviati nell'account di Archiviazione di Azure specificato dall'utente. |
 | Dimensione | Fino a messaggi di 256 KB. | Le dimensioni massime per le proprietà segnalate sono 8 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Media. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). |
-| Protocollo | Disponibile in tutti i protocolli. | Disponibile tramite MQTT o AMQP. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTPS nel dispositivo. |
+| Protocol | Disponibile in tutti i protocolli. | Disponibile tramite MQTT o AMQP. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTPS nel dispositivo. |
 
 Un'applicazione può avere la necessità di inviare informazioni sotto forma di serie temporali di telemetria o di avvisi e di renderle disponibili nel dispositivo gemello. In questo scenario è possibile scegliere una delle opzioni seguenti:
 

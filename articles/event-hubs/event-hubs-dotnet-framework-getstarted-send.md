@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0cccf6f6187f894faadbe4f572d75c483638aafd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603515"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Inviare eventi a o ricevere eventi da hub eventi di Azure usando .NET Framework
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -30,7 +30,7 @@ Questa esercitazione illustra come creare applicazioni console .NET Framework in
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-- [Microsoft Visual Studio 2017 o versione successiva](https://visualstudio.com).
+- [Microsoft Visual Studio 2019](https://visualstudio.com).
 - **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Quindi, ottenere il **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
 
 ## <a name="send-events"></a>Inviare eventi 
@@ -103,7 +103,7 @@ In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il 
 5. Eseguire il programma e assicurarsi che non siano presenti errori.
   
 ## <a name="receive-events"></a>Ricevere eventi
-In questa sezione si scrive un'applicazione console .NET Framework che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze][Scale out Event Processing with Event Hubs] illustra come usare l'host processore di eventi con più ricevitori.
+In questa sezione si scrive un'applicazione console .NET Framework che riceve i messaggi da un hub eventi usando il [Host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -225,7 +225,6 @@ Leggere gli articoli seguenti:
 <!-- Links -->
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Event Hubs overview]: event-hubs-about.md
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
 [Event Processor Host]: event-hubs-event-processor-host.md

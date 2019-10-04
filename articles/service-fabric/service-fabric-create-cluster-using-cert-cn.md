@@ -3,7 +3,7 @@ title: Creare un cluster di Azure Service Fabric usando il nome comune dei certi
 description: Informazioni su come creare un cluster di Service Fabric usando il nome comune dei certificati da un modello.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
-ms.author: aljo
-ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/06/2019
+ms.author: atsenthi
+ms.openlocfilehash: 73e02b4482f69ec0c9d5a602f30cefea77279778
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394269"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764732"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuire un cluster di Service Fabric che usa il nome comune dei certificati anziché l'identificazione personale
 Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Un cluster che usa il nome comune del certificato rende molto più semplice la gestione certificati. In questo articolo viene descritto come distribuire un cluster di Service Fabric per usare il nome comune del certificato anziché l'identificazione personale del certificato.
@@ -62,7 +62,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -84,12 +84,18 @@ Prima di tutto, aprire il file *azuredeploy.parameters.json* in un editor di tes
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 Successivamente, impostare i valori dei parametri *certificateCommonName*, *sourceVaultValue* e *certificateUrlValue* usando quelli restituiti dallo script precedente:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -108,6 +114,12 @@ Aprire quindi il file *azuredeploy.json* in un editor di testo e apportare tre a
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -215,8 +227,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 * Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
 * Semplificare la gestione dei certificati con la [modifica del cluster dall'identificazione personale del certificato al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
-
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-ic-cluster-change-cert-thumbprint-to-cn.md))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

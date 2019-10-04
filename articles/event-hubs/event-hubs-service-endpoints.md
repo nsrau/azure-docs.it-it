@@ -1,5 +1,5 @@
 ---
-title: Endpoint del servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
+title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint del servizio eventhub a una rete virtuale.
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080530"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint del servizio della rete virtuale con Hub eventi di Azure
+# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
 
 L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità.
 
@@ -41,7 +41,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 > - Esplora dati di Azure
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
-> - App Web di Azure 
+> - App Web di Azure
 > - Funzioni di Azure
 
 > [!IMPORTANT]
@@ -59,9 +59,9 @@ Questo significa che le soluzioni cloud con requisiti di sicurezza elevati non s
 
 Le *regole delle reti virtuali* rappresentano la funzionalità di sicurezza firewall che controlla se lo spazio dei nomi di Hub eventi di Azure accetta le connessioni da una specifica subnet della rete virtuale.
 
-L'associazione di uno spazio dei nomi di Hub eventi a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint del servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.EventHub" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi di Hub eventi all'endpoint con una *regola della rete virtuale*.
+L'associazione di uno spazio dei nomi di Hub eventi a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.EventHub" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi di Hub eventi all'endpoint con una *regola di rete virtuale*.
 
-La regola della rete virtuale è un'associazione dello spazio dei nomi di Hub eventi e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi di Hub eventi. Hub eventi non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
+La regola di rete virtuale è un'associazione dello spazio dei nomi di Hub eventi e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi di Hub eventi. Hub eventi non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creare una regola di rete virtuale con i modelli di Azure Resource Manager
 
@@ -70,11 +70,11 @@ Il modello di Resource Manager seguente consente di aggiungere una regola di ret
 Parametri del modello:
 
 * **namespaceName**: Spazio dei nomi dell'Hub eventi di Azure.
-* **vnetRuleName**: nome per la regola della rete virtuale da creare.
-* **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
+* **vnetRuleName**: nome per la regola di rete virtuale da creare.
+* **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > from

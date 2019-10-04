@@ -1,25 +1,18 @@
 ---
-title: Pagina Tutte le offerte per Azure Marketplace | Microsoft Docs
-description: .
+title: Pagina tutte le offerte per Azure Marketplace
+description: Panoramica di tutti offre pagina nel portale Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942083"
 ---
 # <a name="all-offers-page"></a>Pagina Tutte le offerte
 

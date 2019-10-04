@@ -4,24 +4,23 @@ description: In questa esercitazione viene illustrato come usare Azure PowerShel
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce8b52717541ea9cf12112ee83d767a23b61f636
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8742700f472f5cedcf5de307f1b151634303a0be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848219"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101630"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Windows in Azure con i certificati SSL archiviati in Key Vault
 
@@ -33,7 +32,7 @@ Per proteggere i server Web, è possibile usare un certificato Secure Sockets La
 > * Creare una macchina virtuale e installare il server Web IIS
 > * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione SSL
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -57,7 +56,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Creare quindi un insieme di credenziali delle chiavi con [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `mykeyvault` con il nome univoco del proprio Key Vault:
+Creare quindi un insieme di credenziali delle chiavi con [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `mykeyvault` con il nome univoco del proprio Key Vault:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -68,16 +67,16 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generare un certificato e archiviarlo in Key Vault
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) che usi i criteri dei certificati predefiniti da [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). Per questa esercitazione, l'esempio seguente illustra come generare un certificato autofirmato con il comando [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) che usi i criteri dei certificati predefiniti da [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
-$policy = New-AzureKeyVaultCertificatePolicy `
+$policy = New-AzKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
     -IssuerName Self `
     -ValidityInMonths 12
 
-Add-AzureKeyVaultCertificate `
+Add-AzKeyVaultCertificate `
     -VaultName $keyvaultName `
     -Name "mycert" `
     -CertificatePolicy $policy 
@@ -121,10 +120,10 @@ Per creare la macchina virtuale sono necessari alcuni minuti. L'ultimo passaggio
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Aggiungere un certificato alla macchina virtuale da Key Vault
-Per aggiungere un certificato da Key Vault a una macchina virtuale, ottenere l'ID del certificato con [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Aggiungere il certificato alla VM con [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
+Per aggiungere un certificato da Key Vault a una macchina virtuale, ottenere l'ID del certificato con [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Aggiungere il certificato alla VM con [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
-$certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
+$certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId

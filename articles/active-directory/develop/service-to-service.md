@@ -3,8 +3,8 @@ title: App da servizio a servizio in Azure Active Directory
 description: Descrive che cosa sono le applicazioni da servizio a servizio e presenta le informazioni di base su flusso del protocollo, registrazione e scadenza del token per questo tipo di app.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540308"
 ---
 # <a name="service-to-service-apps"></a>App da servizio a servizio
 

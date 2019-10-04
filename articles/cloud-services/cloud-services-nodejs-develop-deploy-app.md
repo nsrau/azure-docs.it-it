@@ -3,23 +3,18 @@ title: Guida introduttiva a Node.js
 description: Informazioni su come creare una semplice applicazione Web Node.js e distribuirla in un servizio cloud di Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: gwallace
+ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761158"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359540"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -164,7 +159,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js].
 
 <!-- URL List -->
 
-[Confronto tra siti Web, servizi cloud e macchine virtuali]: ../app-service/overview-compare.md
+[Confronto tra siti Web, servizi cloud e macchine virtuali]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usare un'app Web leggera]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK per .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

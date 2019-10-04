@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069260"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
 
@@ -75,9 +75,9 @@ Scaricare il [file BACPAC](https://armtutorials.blob.core.windows.net/sqlextensi
 
     * **Sottoscrizione** Selezionare la sottoscrizione di Azure.
     * **Gruppo di risorse**: Selezionare **Crea nuovo** e assegnargli un nome. Un gruppo di risorse è un contenitore per le risorse di Azure con scopi di gestione. In questa esercitazione è possibile usare lo stesso gruppo di risorse per l'account di archiviazione e il database SQL di Azure. Prendere nota del nome di questo gruppo di risorse, sarà necessario alla creazione successiva del database SQL di Azure nelle esercitazioni.
-    * **Località**: Scegliere un'area, Ad esempio **Stati Uniti centrali**. 
+    * **Località**: Scegliere un'area, Ad esempio **Stati Uniti centrali**.
     * **Tipo di account di archiviazione**: usare il valore predefinito, ovvero **Standard_LRS**.
-    * **Località**: Usare il valore predefinito, ovvero **[resourceGroup().location]**. Si usa pertanto la posizione del gruppo di risorse per l'account di archiviazione.
+    * **Località**: Usare il valore predefinito, ovvero **[resourceGroup().location]** . Si usa pertanto la posizione del gruppo di risorse per l'account di archiviazione.
     * **Accetto le condizioni riportate sopra**: (selezionato)
 3. Selezionare **Acquisto**.
 4. Selezionare l'icona di notifica a forma di campanello in alto a destra nel portale per visualizzare lo stato di distribuzione.
@@ -87,7 +87,7 @@ Scaricare il [file BACPAC](https://armtutorials.blob.core.windows.net/sqlextensi
 
 ### <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 
-Prima di poter caricare i file, è necessario un contenitore BLOB. 
+Prima di poter caricare i file, è necessario un contenitore BLOB.
 
 1. Selezionare l'account di archiviazione per aprirlo. Nel gruppo di risorse verrà visualizzato solo un account di archiviazione. Il nome del proprio account di archiviazione è diverso da quello mostrato nello screenshot seguente.
 
@@ -99,7 +99,7 @@ Prima di poter caricare i file, è necessario un contenitore BLOB.
 3. Selezionare **+ Contenitore** in alto per creare un nuovo contenitore.
 4. Immettere i valori seguenti:
 
-    * **Nome**: immettere **sqlbacpac**. 
+    * **Nome**: immettere **sqlbacpac**.
     * **Livello di accesso pubblico**: usare il valore predefinito, **Privato - nessun accesso anonimo**.
 5. Selezionare **OK**.
 6. Selezionare **sqlbacpac** per aprire il contenitore appena creato.
@@ -237,7 +237,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC tramite un token di firma di accesso condiviso. Per informazioni su come distribuire le risorse di Azure in più aree e su come usare procedure di distribuzione sicure, vedere:
+In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC tramite un token di firma di accesso condiviso. Per informazioni su come creare una pipeline di Azure per sviluppare e distribuire modelli di Resource Manager in modo continuo, vedere
 
 > [!div class="nextstepaction"]
-> [Usare Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Integrazione continua con Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md)

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096453"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593793"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione dei file è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
@@ -165,6 +165,6 @@ Per gli endpoint abilitati per lo streaming della rete CDN di Servizi multimedia
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Risoluzione dei problemi della compressione dei file CDN](cdn-troubleshoot-compression.md)    
 

@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304840"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329346"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
-Le unità di streaming rappresentano le risorse di calcolo allocate per eseguire un processo. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
+Le unità di streaming rappresenta le risorse di calcolo allocate per l'esecuzione di un processo di Stream Analitica. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
@@ -51,7 +51,7 @@ In generale la procedura consigliata consiste nell'iniziare con 6 unità di stre
 Per altre informazioni sulla scelta del numero corretto di unità di streaming, vedere questa pagina: [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota massima di 200 unità di streaming per tutti i processi di analisi in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](https://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
+> Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di unità di streaming fino a 500 per tutti i processi di analitica in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](https://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming 
 
@@ -59,7 +59,7 @@ Gli elementi di query temporali costituiscono il set principale degli operatori 
 
 Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
 
-La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema.
+La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. Aumentare il numero di unità di streaming per un processo non può ridurre la percentuale di unità di streaming utilizzo se la query non è [perfettamente parallelo](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
 Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
@@ -85,7 +85,7 @@ Ad esempio, nella query seguente il numero associato a `clusterid` è la cardina
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Per risolvere i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare a Hub eventi gli eventi partizionati in base a `clusterid` e scalare orizzontalmente la query, consentendo al sistema di elaborare ogni partizione di input separatamente usando **PARTITION BY**, come mostrato nell'esempio seguente:
+Per attenuare eventuali problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a Hub eventi partizionati in base alla `clusterid`e scalare orizzontalmente la query, consentendo al sistema elaborare ogni partizione di input separatamente usando **partizione DA** come illustrato nell'esempio seguente:
 
    ```sql
    SELECT count(*) 

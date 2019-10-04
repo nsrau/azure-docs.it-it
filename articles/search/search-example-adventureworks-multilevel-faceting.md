@@ -1,19 +1,19 @@
 ---
 title: 'Esempio: Facet multilivello - Ricerca di Azure'
 description: Informazioni su come creare strutture di facet per tassonomie multilivello, realizzando così una struttura di esplorazione nidificata che è possibile includere nelle pagine delle applicazioni.
-author: cstone
-manager: cgronlun
+author: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: heidist
+ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194816"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274093"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Esempio: Facet multilivello in Ricerca di Azure
 
@@ -87,7 +87,7 @@ categories.count = sum;
   ![filtro in base a facet multilivello](./media/search-example-adventureworks/multi-level-facet.png "filtro in base a facet multilivello")
 
  
-Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio: 
+Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` restituisce tutti i documenti nel ramo Accessories
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` restituisce solo i documenti con sottocategoria Bike Racks nel ramo Accessories.
@@ -97,6 +97,6 @@ Questa tecnica può essere adattata per gestire scenari più complessi come albe
 > [!TIP]
 > La velocità della query dipende dal numero di facet restituiti. Per supportare set di tassonomia molto grandi, è consigliabile aggiungere un campo **Edm.String** abilitato per l'esplorazione in base a facet che contenga il valore di tassonomia di primo livello per ogni documento. Applicare quindi la stessa tecnica descritta in precedenza, ma eseguire solo la query in base a facet di tipo raccolta (ovvero filtrata in base al campo radice della tassonomia) quando l'utente espande un nodo di primo livello. In alternativa, se non è necessaria una percentuale di richiamo del 100%, è sufficiente ridurre il totale dei facet a un numero ragionevole e assicurarsi che le voci dei facet siano ordinate in base al totale.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempio: Modellare il database di inventario di AdventureWorks per Ricerca di Azure](search-example-adventureworks-modeling.md)

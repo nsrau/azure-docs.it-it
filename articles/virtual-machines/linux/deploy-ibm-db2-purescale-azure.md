@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: edprice
+ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014983"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083440"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -80,7 +79,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 
 | Nome schermata               | Campo                                        | Valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Schermata iniziale                   |                                              | New Install (Nuova installazione)                                                                                           |
+| Procedura guidata                   |                                              | New Install (Nuova installazione)                                                                                           |
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |
@@ -88,7 +87,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 | Instance Owner (Proprietario istanza)            | Existing User For Instance, User name (Utente esistente per istanza, Nome utente)        | DB2sdin1                                                                                              |
 | Fenced User (Utente confinato)               | Existing User, User name (Utente esistente, Nome utente)                     | DB2sdfe1                                                                                              |
 | Cluster File System (File system cluster)       | Shared disk partition device path (Percorso dispositivo partizione disco condiviso)            | /dev/dm-2                                                                                             |
-|                           | Mount point (Punto di montaggio)                                  | /DB2sd\_1804a                                                                                         |
+|                           | Punto di montaggio                                  | /DB2sd\_1804a                                                                                         |
 |                           | Shared disk for data (Disco condiviso per i dati)                         | /dev/dm-1                                                                                             |
 |                           | Mount point (Data) (Punto di montaggio - Dati)                           | /DB2fs/datafs1                                                                                        |
 |                           | Shared disk for log (Disco condiviso per il log)                          | /dev/dm-0                                                                                             |

@@ -1,33 +1,33 @@
 ---
-title: "Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C | Microsoft Docs"
+title: Avvio rapido - Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 description: Eseguire un'applicazione a singola pagina di esempio che usa Azure Active Directory B2C per consentire l'accesso all'account.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/24/2018
-ms.author: davidmu
+ms.date: 09/12/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c841497fe0a072497b622876b9b0205097ccb25e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 18a2063c2ee2ae734e481cf663573ab5543e5edf
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191704"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065789"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social networking e account aziendali usando protocolli standard aperti. In questa guida introduttiva si usa un'applicazione a pagina singola per eseguire l'accesso con un provider di identità basato su social network e chiamare un'API Web protetta da Azure AD B2C.
+Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social networking e account aziendali usando protocolli standard aperti. In questa guida introduttiva si usa un'applicazione a pagina singola per eseguire l'accesso con un provider di identità basato su social network e chiamare un'API Web protetta da Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 - Installare [Node.js](https://nodejs.org/en/download/)
-- Un account di social networking di Facebook, Google, Microsoft o Twitter.
+- Un account di social networking di Facebook, Google o Microsoft.
 - [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'app Web di esempio da GitHub.
 
     ```
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-1. Avviare il server eseguendo questi comandi al prompt dei comandi di Node.js: 
+1. Avviare il server eseguendo questi comandi al prompt dei comandi di Node.js:
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -56,23 +56,23 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 1. Fare clic su **Login** (Accedi) per avviare il flusso di lavoro.
 
-    ![App di esempio nel browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![App di esempio dell'applicazione a pagina singola visualizzata nel browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter. 
+    L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questo argomento di avvio rapido, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google o Microsoft.
 
-2. Azure AD B2C presenta una pagina di accesso personalizzata per un marchio fittizio denominato Wingtip Toys per l'app Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
+2. Azure AD B2C presenta una pagina di accesso per un'azienda fittizia denominata Fabrikam per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
 
-    ![Provider di accesso o di iscrizione](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Pagina di accesso o di iscrizione che mostra i pulsanti del provider di identità](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Per leggere le informazioni dell'account di social networking, eseguire l'autenticazione (accesso) tramite le credenziali di tale account e autorizzare l'applicazione. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
+    È necessario eseguire l'autenticazione (accesso) tramite le credenziali dell'account di social networking e autorizzare l'applicazione a leggere informazioni da questo account. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente.
 
 3. Completare il processo di accesso per il provider di identità.
 
 ## <a name="access-a-protected-api-resource"></a>Accedere a una risorsa API protetta
 
-Fare clic su **Call Web API** (Chiama API Web) affinché la chiamata all'API Web restituisca il nome visualizzato come oggetto JSON. 
+Fare clic su **Call Web API** (Chiama API Web) affinché la chiamata all'API Web restituisca il nome visualizzato come oggetto JSON.
 
-![Risposta API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Applicazione di esempio nel browser che mostra la risposta dell'API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 L'applicazione a pagina singola include un token di accesso nella richiesta alla risorsa API Web protetta.
 
@@ -82,7 +82,12 @@ L'applicazione a pagina singola include un token di accesso nella richiesta alla
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata usata un'applicazione a pagina singola di esempio per accedere con una pagina di accesso personalizzata e con un provider di identità basato su social network, creare un account Azure AD B2C e chiamare un'API Web protetta da Azure AD B2C. 
+In questo argomento di avvio rapido è stata usata un'applicazione a pagina singola di esempio per:
+
+* Accedere con una pagina di accesso personalizzata
+* Accedere con un provider di identità basato su social network
+* Creare un account Azure AD B2C
+* Chiamare un'API Web protetta da Azure AD B2C
 
 Iniziare ora a creare un tenant di Azure AD B2C.
 

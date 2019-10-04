@@ -3,18 +3,17 @@ title: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Az
 description: Gli sviluppatori possono utilizzare l'insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all'interno dell'ambiente Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543366"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268838"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -25,31 +24,11 @@ Key Vault consente di accedere in modo sicuro ai dati sensibili dall'interno del
 - L'applicazione possa usare le chiavi per la firma e la crittografia, ma tenga la gestione della chiave esterna all'applicazione in modo che la soluzione sia adatta a essere un'app geograficamente distribuita.
 - A partire dalla versione di settembre 2016 di Key Vault, le applicazioni possono ora gestire i certificati di Key Vault. Per i dettagli, vedere l'articolo relativo alle [informazioni su chiavi, segreti e certificati](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
-Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere l'articolo [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
+Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere l'articolo [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-overview.md)
 
 ## <a name="public-previews"></a>Anteprime pubbliche
 
 Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalità di Key Vault. Provare le nuove funzionalità e comunicare il feedback all'indirizzo e-mail azurekeyvault@microsoft.com, dedicato ai commenti e ai suggerimenti.
-
-### <a name="storage-account-keys---july-10-2017"></a>Chiavi degli account di archiviazione - 10 luglio 2017
-
->[!NOTE]
->Per questo aggiornamento di Azure Key Vault è disponibile in anteprima solo la funzionalità **Chiavi degli account di archiviazione**.
-
-Questa versione di anteprima include la nuova funzionalità di chiavi degli account di archiviazione, disponibile tramite queste interfacce: [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) e [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Per ulteriori informazioni sulla nuova funzionalità chiavi degli account di archiviazione, vedere [Panoramica delle chiavi degli account di Azure Key Vault](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Video
-
-Questo video mostra come creare il proprio insieme di credenziali delle chiavi e come usarlo dall'applicazione di esempio 'Hello Key Vault'.
-
-- [Guida introduttiva per gli sviluppatori di Key Vault](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Risorse citate nel video precedente:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Codice di esempio dell'insieme di credenziali delle chiavi di Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Creazione e gestione di insiemi di credenziali delle chiavi
 
@@ -149,7 +128,7 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 - [Panoramica delle chiavi dell'account di archiviazione di Key Vault](key-vault-ovw-storage-keys.md) descrive le chiavi dell'account di archiviazione di Azure dell'integrazione di Key Vault.
 - [Scenari di sicurezza di Key Vault](key-vault-ovw-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 
-## <a name="social"></a>Social media
+## <a name="social"></a>Sociale
 
 - [Blog sull'insieme di credenziali delle chiavi](https://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](https://aka.ms/kvforum)

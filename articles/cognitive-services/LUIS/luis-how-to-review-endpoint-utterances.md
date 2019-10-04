@@ -1,35 +1,35 @@
 ---
-title: Esaminare le espressioni utente
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Apprendimento attivo acquisisce le query di endpoint e seleziona utterances endpoint dell'utente che è certi della. Esaminare queste espressioni per selezionare lo scopo e contrassegnare le entità per le espressioni di lettura del mondo. Accettare tali modifiche in espressioni di esempio quindi eseguire il training e di pubblicazione. LUIS identifica quindi espressioni in modo più accurato.
+title: Esaminare le espressioni utente-LUIS
+titleSuffix: Azure Cognitive Services
+description: L'apprendimento attivo acquisisce le query dell'endpoint e seleziona le espressioni dell'endpoint dell'utente che non sono sicure. Si esaminano queste espressioni per selezionare le entità Intent e Mark per queste espressioni di lettura. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195125"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382349"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Come esaminare utterances endpoint nel portale di LUIS per apprendimento attivo
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Come esaminare le espressioni di endpoint nel portale LUIS per l'apprendimento attivo
 
-[Apprendimento attivo](luis-concept-review-endpoint-utterances.md) acquisisce le query di endpoint e seleziona utterances endpoint dell'utente che è certi della. Esaminare queste espressioni per selezionare lo scopo e contrassegnare le entità per le espressioni di lettura del mondo. Accettare tali modifiche in espressioni di esempio quindi eseguire il training e di pubblicazione. LUIS identifica quindi espressioni in modo più accurato.
+L' [apprendimento attivo](luis-concept-review-endpoint-utterances.md) acquisisce le query dell'endpoint e seleziona le espressioni dell'endpoint dell'utente che non sono sicure. Si esaminano queste espressioni per selezionare le entità Intent e Mark per queste espressioni di lettura. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
 
 
-## <a name="enable-active-learning"></a>Abilitare l'apprendimento attivo
+## <a name="enable-active-learning"></a>Abilita apprendimento attivo
 
-Per abilitare l'apprendimento attivo, registrare le query utente. Questa operazione viene eseguita impostando il [query endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con il `log=true` querystring parametro e valore.
+Per abilitare l'apprendimento attivo, registrare le query utente. Questa operazione viene eseguita impostando la [query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) dell'endpoint `log=true` con il parametro e il valore QueryString.
 
 ## <a name="disable-active-learning"></a>Disabilitare l'apprendimento attivo
 
-Per disabilitare l'apprendimento attivo, non registrare query utente. Questa operazione viene eseguita impostando il [query endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con il `log=false` querystring parametro e valore.
+Per disabilitare l'apprendimento attivo, non registrare le query utente. Questa operazione viene eseguita impostando la [query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) dell'endpoint `log=false` con il parametro e il valore QueryString.
 
 ## <a name="filter-utterances"></a>Filtrare le espressioni
 

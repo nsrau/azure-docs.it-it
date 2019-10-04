@@ -4,9 +4,9 @@ description: Questa esercitazione descrive come usare Hub di notifica di Azure p
 services: notification-hubs
 documentationcenter: windows
 keywords: notifica push, inviare notifiche push, push per windows phone
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: df42a0e2fcc8c139c7a2b6ecfa78ce1780fe54ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843568"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213465"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app Windows Phone con Hub di notifica di Azure
 

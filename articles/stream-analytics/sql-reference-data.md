@@ -1,5 +1,5 @@
 ---
-title: Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
+title: Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
 description: Questo articolo descrive come usare un database SQL come input dei dati di riferimento per un processo di Analisi di flusso di Azure nel portale di Azure e in Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084311"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461743"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
 
 Analisi di flusso di Azure supporta il database SQL di Azure come origine di input per i dati di riferimento. È possibile usare i dati contenuti in un database SQL come dati di riferimento per il processo di Analisi di flusso nel portale di Azure e in Visual Studio con gli strumenti di Analisi di flusso. Questo articolo illustra come fare con entrambi i metodi.
 
@@ -59,16 +59,14 @@ Seguire questa procedura per aggiungere il database SQL di Azure come origine di
 
 ### <a name="visual-studio-prerequisites"></a>Prerequisiti di Visual Studio
 
-1. Se si usa Visual Studio 2017, aggiornare alla versione 15.8.2 o successiva. Si noti che le versioni 16.0 e successive non sono attualmente supportate.
-
-2. [Installare gli strumenti di Analisi di flusso per Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Sono supportate le versioni seguenti di Visual Studio:
+1. [Installare gli strumenti di Analisi di flusso per Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Sono supportate le versioni seguenti di Visual Studio:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Acquisire familiarità con l'argomento di avvio rapido sugli [strumenti di Analisi di flusso per Visual Studio](stream-analytics-quick-create-vs.md).
+2. Acquisire familiarità con l'argomento di avvio rapido sugli [strumenti di Analisi di flusso per Visual Studio](stream-analytics-quick-create-vs.md).
 
-4. Creare un account di archiviazione.
+3. Creare un account di archiviazione.
 
 ### <a name="create-a-sql-database-table"></a>Creare una tabella del database SQL
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Aprire il file SQL nell'editor e scrivere la query SQL.
 
-5. Se si usa Visual Studio 2017 ed è installato SQL Server Data Tools, è possibile testare la query facendo clic su **Esegui**. Verrà visualizzata una finestra della procedura guidata per eseguire la connessione al database SQL e il risultato della query comparirà nella parte inferiore della finestra.
+5. Se si usa Visual Studio 2019 e aver installato SQL Server Data tools, è possibile testare la query facendo clic **Execute**. Verrà visualizzata una finestra della procedura guidata per eseguire la connessione al database SQL e il risultato della query comparirà nella parte inferiore della finestra.
 
 ### <a name="specify-storage-account"></a>Specificare l'account di archiviazione
 
@@ -159,7 +157,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
  
 2. Creare la query delta. 
    
-   Questa query recupera tutte le righe nel database SQL che sono state inserite o eliminate all'interno di un'ora di inizio  **\@deltaStartTime**e un'ora di fine  **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga viene inserita o eliminata tra  **\@deltaStartTime** e  **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
+   Questa query recupera tutte le righe nel database SQL che sono state inserite o eliminate all'interno di un'ora di inizio  **\@deltaStartTime**e un'ora di fine  **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_** . Questa colonna definisce se la riga viene inserita o eliminata tra  **\@deltaStartTime** e  **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
 
    Per i record aggiornati, la tabella temporale registra un'operazione di inserimento ed eliminazione. Il runtime di Analisi di flusso applicherà quindi i risultati della query delta allo snapshot precedente per mantenere aggiornati i dati di riferimento. Un esempio di query delta è illustrato di seguito:
 
@@ -174,6 +172,9 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    ```
  
    Si noti che il runtime di Analisi di flusso può eseguire periodicamente la query snapshot oltre alla query delta per archiviare i checkpoint.
+
+## <a name="test-your-query"></a>Testare la query
+   È importante verificare che la query restituisca il set di dati previsto che verranno utilizzate dal processo di Stream Analitica dei dati di riferimento. Per testare la query, passare agli Input nella sezione topologia processo nel portale. È quindi possibile selezionare i dati di esempio nel riferimento al Database SQL di input. Dopo che il codice di esempio è diventato disponibile, è possibile scaricare il file e controllare se i dati restituiti è come previsto. Se si desidera un ottimizza le iterazioni di sviluppo e test, è consigliabile usare la [strumenti di Stream Analitica per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). È possibile anche qualsiasi altro strumento a scelta prima di tutto verificare che la query restituisce i risultati corretti da parte dell'utente del Database SQL di Azure e quindi usarlo nel processo di Stream Analitica. 
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -194,10 +195,6 @@ La combinazione delle due metriche può essere usata per dedurre se il processo 
 
 Analisi di flusso di Azure funziona con qualsiasi tipo di database SQL di Azure. Tuttavia, è importante comprendere che la frequenza di aggiornamento impostata per l'input dei dati di riferimento potrebbe incidere sul carico di query. Per usare l'opzione della query delta, è consigliabile usare le tabelle temporali nel database SQL di Azure.
 
-**È possibile campionare input dall'input dei dati di riferimento del database SQL?**
-
-Questa funzionalità non è disponibile.
-
 **Perché Analisi di flusso di Azure archivia gli snapshot nell'account di archiviazione di Azure?**
 
 Analisi di flusso garantisce un'elaborazione di eventi di tipo exactly-once e il recapito degli eventi almeno una volta. Nei casi in cui problemi temporanei incidano sul processo, per ripristinare lo stato è necessaria una breve riproduzione. Per abilitare la riproduzione è necessario aver archiviato questi snapshot in un account di archiviazione di Azure. Per altre informazioni sulla riproduzione dei checkpoint, vedere [Concetti di checkpoint e riproduzione nei processi di Analisi di flusso di Azure](stream-analytics-concepts-checkpoint-replay.md).
@@ -205,5 +202,5 @@ Analisi di flusso garantisce un'elaborazione di eventi di tipo exactly-once e il
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
-* [Guida introduttiva: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
+* [Avvio rapido: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
 * [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio (anteprima)](stream-analytics-live-data-local-testing.md)

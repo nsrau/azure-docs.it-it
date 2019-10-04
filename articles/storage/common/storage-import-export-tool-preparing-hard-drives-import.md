@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478514"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
@@ -76,7 +76,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="dataset-csv-file-fields"></a>Campi del file CSV dataset
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | BasePath | **[Obbligatorio]**<br/>Il valore di questo parametro rappresenta l'origine in cui si trovano i dati da importare. Lo strumento copierà in modo ricorsivo tutti i dati che si trovano in questo percorso.<br><br/>**Valori consentiti**: deve essere un percorso valido nel computer locale o un percorso di condivisione valido e deve essere accessibile dall'utente. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo. Se il percorso termina con "\\" rappresenta una directory, mentre se termina senza "\\" rappresenta un file.<br/>In questo campo non sono consentiti regex. Se il percorso contiene spazi, racchiuderlo tra "".<br><br/>**Esempio**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\nomecondivisione\directory\"  |
 | DstBlobPathOrPrefix | **[Obbligatorio]**<br/> Percorso della directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può esistere già o meno. Se non esiste, il servizio Importazione/Esportazione ne crea una.<br/><br/>Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole sulla denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati). Se è specificata solo la radice, la struttura di directory dell'origine viene replicata nel contenitore BLOB di destinazione. Se si vuole una struttura di directory diversa da quella dell'origine, sono necessarie più righe di mapping nel file CSV<br/><br/>È possibile specificare un contenitore o un prefisso di BLOB come music/70s/. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e facoltativamente può includere una directory BLOB virtuale che termina con "/".<br/><br/>Quando la destinazione è il contenitore radice, è necessario specificarlo in modo esplicito, compresa la barra, con $root/. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice le sottodirectory della directory di origine non vengono copiate.<br/><br/>**Esempio**<br/>Se il percorso BLOB di destinazione è https://mystorageaccount.blob.core.windows.net/video, il valore di questo campo può essere video/  |
@@ -107,11 +107,10 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>Campi del file CSV driveset
 
-| Campi | Valore |
+| Campi | Value |
 | --- | --- |
 | DriveLetter | **[Obbligatorio]**<br/> Ogni unità fornita allo strumento come destinazione deve includere un volume NTFS semplice e deve avere una lettera di unità assegnata.<br/> <br/>**Esempio**: R o r |
-| FormatOption | 
-  **[Obbligatorio]** Format &#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
+| FormatOption | **[Obbligatorio]** Format &#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
 | SilentOrPromptOnFormat | **[Obbligatorio]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: se si specifica questo valore, l'utente può eseguire lo strumento in modalità non interattiva. <br/>**PromptOnFormat**: lo strumento richiede all'utente di confermare se l'azione è veramente prevista per tutti i formati.<br/><br/>Se non è impostato, il comando verrà interrotto e verrà visualizzato il messaggio di errore: "Incorrect value for SilentOrPromptOnFormat: none" |
 | Crittografia | **[Obbligatorio]** Encrypt &#124; AlreadyEncrypted<br/> Il valore di questo campo indica quale disco crittografare. <br/><br/>**Encrypt**: lo strumento formatta l'unità. Se il campo "FormatOption" è impostato su "Format", il valore di questo campo deve essere "Encrypt". Se in questo caso viene specificato"AlreadyEncrypted", viene restituito l'errore seguente: "When Format is specified, Encrypt must also be specified" (Quando viene specificato Format, è necessario specificare anche Encrypt).<br/>**AlreadyEncrypted**: lo strumento decrittografa l'unità usando la chiave BitLocker specificata nel campo "ExistingBitLockerKey". Se il valore del campo "FormatOption" è "AlreadyFormatted", il valore di questo campo può essere "Encrypt" o "AlreadyEncrypted". |
 | ExistingBitLockerKey | **[Obbligatorio]** Se il valore del campo "Encryption" è "AlreadyEncrypted",<br/> il valore di questo campo corrisponde alla chiave BitLocker associata al disco specifico. <br/><br/>Se il valore del campo "Encryption" è "Encrypt", questo campo deve essere lasciato vuoto.  Se in questo caso è specificata una chiave BitLocker, viene restituito l'errore "Bitlocker Key should not be specified".<br/>  **Esempio**: 060456-014509-132033-080300-252615-584177-672089-411631|
@@ -200,7 +199,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>Parametri di WAImportExport
 
-| Parametri | DESCRIZIONE |
+| Parametri | Descrizione |
 | --- | --- |
 |     /j:&lt;FileJournal&gt;  | **Obbligatorio**<br/> Percorso del file journal. Un file journal tiene traccia di un set di unità e registra lo stato di avanzamento della preparazione di queste unità. È sempre necessario specificare il file journal.  |
 |     /logdir:&lt;DirectoryLog&gt;  | **Facoltativo**. Directory dei log.<br/> In questa directory vengono registrati i file di log dettagliati e alcuni file temporanei. Se questo parametro non è specificato, come directory dei log viene usata la directory corrente. La directory dei log può essere specificata una sola volta per lo stesso file journal.  |

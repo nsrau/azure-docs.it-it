@@ -3,24 +3,23 @@ title: Estensioni e funzionalità delle macchine virtuali di Azure per Linux | M
 description: Informazioni sulle estensioni disponibili per le macchine virtuali di Azure, raggruppate in base a ciò che forniscono o migliorano.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: akjosh
+ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387274"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169009"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -57,7 +56,7 @@ Per garantire la migliore esperienza possibile, sono previsti requisiti minimi p
 L'agente Linux viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
+Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"* . Vedere la documentazione della singola estensione per informazioni sul supporto.
 
 #### <a name="network-access"></a>Accesso alla rete
 
@@ -86,7 +85,7 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L'esempio seguente esegue l'estensione di script personalizzato su una VM denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*:
+Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). Nell'esempio seguente viene eseguita l'estensione script personalizzata in una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*. Sostituire il nome del gruppo di risorse di esempio, il nome della macchina virtuale e\/lo script da eseguire (https:/RAW.githubusercontent.com/me/Project/Hello.sh) con le informazioni personali. 
 
 ```azurecli
 az vm extension set `
@@ -264,7 +263,7 @@ Nell'output di esempio precedente l'elemento padre o la "versione distribuita de
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente Linux lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Quando è disponibile l'aggiornamento di un'estensione, l'agente Linux lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +336,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente Linux, esaminare l'attività di quando il provisioning dell'estensione è stato eseguito in */var/log/waagent.log*
 
-2. Per informazioni più dettagliate, controllare i log effettivi dell'estensione in */var/log/azure/<extensionName>*
+2. Per altri dettagli, vedere i log di estensione effettivi */var/log/Azure/\<>*
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
@@ -404,7 +403,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
 
-| Nome estensione | DESCRIZIONE | Altre informazioni |
+| Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione script personalizzata per Linux |Eseguire gli script in una macchina virtuale di Azure |[Estensione script personalizzata per Linux](custom-script-linux.md) |
 | Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione dell'accesso alle macchine virtuali](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

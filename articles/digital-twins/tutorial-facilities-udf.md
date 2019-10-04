@@ -2,22 +2,22 @@
 title: 'Esercitazione: Monitorare uno spazio con Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come effettuare il provisioning delle risorse spaziali e monitorare le condizioni di lavoro con Gemelli digitali di Azure usando i passaggi descritti in questa esercitazione.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 09/20/2019
+ms.author: alinast
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535383"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300058"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Gemelli digitali di Azure
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Anteprima di Gemelli digitali di Azure
 
-Questa esercitazione illustra come usare Gemelli digitali di Azure per monitorare la temperatura e il livello di comfort dei propri spazi. Dopo aver [configurato l'edificio di esempio](tutorial-facilities-setup.md), è possibile effettuare il provisioning dell'edificio ed eseguire funzioni personalizzate sui dati dei sensori usando la procedura descritta in questa esercitazione.
+Questa esercitazione illustra come usare Anteprima di Gemelli digitali di Azure per monitorare la temperatura e il livello di comfort dei propri spazi. Dopo aver [configurato l'edificio di esempio](tutorial-facilities-setup.md), è possibile effettuare il provisioning dell'edificio ed eseguire funzioni personalizzate sui dati dei sensori usando la procedura descritta in questa esercitazione.
 
 In questa esercitazione si apprenderà come:
 
@@ -37,38 +37,39 @@ Questa esercitazione presuppone che sia stata [completata l'installazione di Gem
 - [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per compilare ed eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta. 
 - [Visual Studio Code](https://code.visualstudio.com/) per esplorare il codice di esempio. 
 
+> [!TIP]
+> Se si esegue il provisioning di una nuova istanza, usare un nome istanza di Gemelli digitali univoco.
+
 ## <a name="define-conditions-to-monitor"></a>Definire le condizioni da monitorare
 
 È possibile definire un set di condizioni specifiche da monitorare nei dati dei dispositivi o dei sensori, denominate *matcher*. È quindi possibile definire funzioni chiamate *funzioni definite dall'utente*. che eseguono la logica personalizzata sui dati provenienti dagli spazi e dai dispositivi, quando si verificano le condizioni specificate dai matcher. Per altre informazioni, vedere [Elaborazione dati e funzioni definite dall'utente](concepts-user-defined-functions.md). 
 
 Dal progetto di esempio **occupancy-quickstart** aprire il file **src\actions\provisionSample.yaml** in Visual Studio Code. Si noti la sezione che inizia con il tipo **matchers**. Ogni voce di questo tipo crea un matcher con il **nome** specificato, che monitorerà un sensore di tipo **dataTypeValue**. Si noti che è correlato allo spazio *Focus Room A1*, che ha un nodo **devices**, contenente alcuni sensori. Per effettuare il provisioning di un matcher che terrà traccia di questi sensori, assicurarsi che **dataTypeValue** corrisponda all'elemento **dataType** del sensore. 
 
-Aggiungere il matcher seguente sotto i matcher esistenti. Assicurarsi che le chiavi siano allineate e gli spazi non vengano sostituiti da caratteri di tabulazione.
+Aggiungere il matcher seguente sotto i matcher esistenti. Assicurarsi che le chiavi siano allineate e gli spazi non vengano sostituiti da caratteri di tabulazione. Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Tale matcher terrà traccia del sensore SAMPLE_SENSOR_TEMPERATURE aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga.
-
-<a id="udf"></a>
+Tale matcher terrà traccia del sensore `SAMPLE_SENSOR_TEMPERATURE` aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Creare una funzione definita dall'utente
 
 Le funzioni definite dall'utente consentono di personalizzare l'elaborazione dei dati dei sensori. Sono costituite da codice JavaScript personalizzato che può essere eseguito all'interno dell'istanza di Gemelli digitali di Azure, quando si verificano condizioni specifiche descritte dai matcher. È possibile creare matcher e funzioni definite dall'utente per ogni sensore che si vuole monitorare. Per altre informazioni, vedere [Elaborazione dati e funzioni definite dall'utente](concepts-user-defined-functions.md). 
 
-Nel file provisionSample.yaml di esempio cercare una sezione che inizia con il tipo **userdefinedfunctions**. Questa sezione effettua il provisioning di una funzione definita dall'utente con un **nome** specificato, che agisce sull'elenco di matcher in **matcherNames**. Tenere presente che è possibile fornire il proprio file JavaScript per la funzione definita dall'utente come **script**.
+Nel file *provisionSample.yaml* di esempio cercare una sezione che inizia con il tipo **userdefinedfunctions**. Questa sezione effettua il provisioning di una funzione definita dall'utente con un **nome** specificato, che agisce sull'elenco di matcher in **matcherNames**. Tenere presente che è possibile fornire il proprio file JavaScript per la funzione definita dall'utente come **script**.
 
 Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Amministratore dello spazio alla funzione definita dall'utente. Questo ruolo consente di accedere agli eventi provenienti da uno qualsiasi degli spazi con provisioning. 
 
-1. Configurare la funzione definita dall'utente per includere il matcher relativo alla temperatura aggiungendo la riga seguente o rimuovendone il commento nel nodo `matcherNames` del file provisionSample.yaml:
+1. Configurare la funzione definita dall'utente per includere il matcher relativo alla temperatura aggiungendo la riga seguente o rimuovendone il commento nel nodo `matcherNames` del file *provisionSample.yaml*:
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. Aprire il file **src\actions\userDefinedFunctions\availability.js** nell'editor. Si tratta del file a cui si fa riferimento nell'elemento **script** di provisionSample.yaml. La funzione definita dall'utente in questo file cerca le condizioni in cui non viene rilevato alcun movimento nel locale e i livelli di emissione di anidride carbonica sono inferiori a 1,000 ppm. 
+1. Aprire il file **src\actions\userDefinedFunctions\availability.js** nell'editor. Si tratta del file a cui si fa riferimento nell'elemento **script** di *provisionSample.yaml*. La funzione definita dall'utente in questo file cerca le condizioni in cui non viene rilevato alcun movimento nel locale e i livelli di emissione di anidride carbonica sono inferiori a 1,000 ppm. 
 
    Modificare il file JavaScript per monitorare la temperatura e le altre condizioni. Aggiungere le righe di codice seguenti per cercare le condizioni in non viene rilevato alcun movimento nel locale, i livelli di emissione di anidride carbonica sono inferiori a 1,000 ppm e la temperatura è inferiore 78 gradi Fahrenheit.
 
@@ -135,15 +136,12 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -182,16 +180,14 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
    > [!IMPORTANT]
    > Per evitare l'accesso non autorizzato all'API di gestione di Gemelli digitali, l'applicazione **occupancy-quickstart** richiede di accedere con le credenziali dell'account Azure. Salva le credenziali per un breve periodo, quindi non dovrebbe essere necessario eseguire l'accesso ogni volta che viene eseguita. Quando questo programma viene eseguito per la prima volta o quando le credenziali salvate scadono, l'applicazione indirizzerà a una pagina di accesso e si riceverà un codice specifico della sessione da immettere in tale pagina. Seguire le istruzioni per accedere con l'account Azure.
 
-1. Dopo l'autenticazione dell'account, l'applicazione avvia la creazione di un grafico spaziale di esempio configurato in provisionSample.yaml. Attendere finché non viene completato il processo di provisioning. L'operazione richiederà alcuni minuti. Al termine, esaminare i messaggi nella finestra di comando. Si noterà che il grafico spaziale è stato creato. Si noti che l'applicazione crea un hub IoT nel nodo radice o `Venue`.
+1. Dopo l'autenticazione dell'account, l'applicazione avvia la creazione di un grafico spaziale di esempio configurato in *provisionSample.yaml*. Attendere finché non viene completato il processo di provisioning. L'operazione richiederà alcuni minuti. Al termine, esaminare i messaggi nella finestra di comando. Si noterà che il grafico spaziale è stato creato. Si noti che l'applicazione crea un hub IoT nel nodo radice o `Venue`.
 
 1. Dall'output della finestra di comando copiare negli Appunti il valore di `ConnectionString`, nella sezione `Devices`. Questo valore sarà necessario per simulare la connessione del dispositivo nella sezione successiva.
 
-    ![Effettuare il provisioning dell'esempio](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![Effettuare il provisioning dell'esempio](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Se viene visualizzato un messaggio di errore simile a "The I/O operation has been aborted because of either a thread exit or an application request", durante il provisioning, provare a eseguire nuovamente il comando. Questa situazione può verificarsi se il client HTTP ha raggiunto il timeout a causa di un problema di rete.
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulare i dati dei sensori
 
@@ -209,9 +205,9 @@ In questa sezione si userà il progetto denominato *device-connectivity* nell'es
 
    a. **DeviceConnectionString**: assegnare il valore di `ConnectionString` nella finestra di output della sezione precedente. Copiare questa stringa completamente, all'interno delle virgolette, per consentire al simulatore di connettersi senza problemi all'hub IoT.
 
-   b. **HardwareId** nella matrice **Sensors**: dal momento che si stanno simulando eventi dai sensori di cui è stato effettuato il provisioning nell'istanza di Gemelli digitali di Azure, l'ID hardware e i nomi dei sensori in questo file corrisponderanno a quelli del nodo `sensors` del file provisionSample.yaml.
+   b. **HardwareId** nella matrice **Sensors**: dal momento che si stanno simulando eventi dai sensori di cui è stato effettuato il provisioning nell'istanza di Gemelli digitali di Azure, l'ID hardware e i nomi dei sensori in questo file corrisponderanno a quelli del nodo `sensors` del file *provisionSample.yaml*.
 
-      Aggiungere una nuova voce per il sensore della temperatura. Il nodo **Sensors** in appsettings.json sarà simile al seguente:
+      Aggiungere una nuova voce per il sensore della temperatura. Il nodo **Sensors** in *appsettings.json* sarà simile al seguente:
 
       ```JSON
       "Sensors": [{
@@ -249,9 +245,9 @@ La funzione definita dall'utente viene eseguita ogni volta che l'istanza riceve 
 
 La finestra di output visualizza come viene eseguita la funzione definita dall'utente e intercetta gli eventi della simulazione del dispositivo. 
 
-   ![Output per la funzione definita dall'utente](./media/tutorial-facilities-udf/udf-running.png)
+   [![Output per la funzione definita dall'utente](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-Se la condizione monitorata viene soddisfatta, la funzione definita dall'utente imposta il valore dello spazio con il messaggio pertinente, come è stato illustrato nella [sezione precedente](#udf). La funzione `GetAvailableAndFreshSpaces` visualizza il messaggio nella console.
+Se la condizione monitorata viene soddisfatta, la funzione definita dall'utente imposta il valore dello spazio con il messaggio pertinente, come è stato illustrato nella [sezione precedente](#create-a-user-defined-function). La funzione `GetAvailableAndFreshSpaces` visualizza il messaggio nella console.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

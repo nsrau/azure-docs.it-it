@@ -7,19 +7,18 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7c444235ed7aa641fe218b4d1667e661ff05d77e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443674"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569231"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL ed eseguire query
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
 
 Questa guida introduttiva illustra come usare il [framework .NET](https://www.microsoft.com/net/) e il codice C# in Visual Studio per eseguire query nel database SQL di Azure usando istruzioni Transact-SQL.
 
@@ -34,7 +33,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
@@ -43,7 +42,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
   > [!IMPORTANT]
   > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise Edition.
 
 ## <a name="get-sql-server-connection-information"></a>Ottenere informazioni di connessione SQL Server
 
@@ -59,7 +58,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**. 
    
-1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#**, quindi **App console (.NET Framework)**.
+1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#** , quindi **App console (.NET Framework)** .
    
 1. Immettere *sqltest* come nome di progetto e quindi selezionare **OK**. Viene creato il nuovo progetto. 
    
@@ -73,7 +72,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
    
 1. Al termine dell'installazione, è possibile chiudere **Gestisci pacchetti NuGet**. 
    
-1. Nell'editor di codice, sostituire i contenuti **Program.cs** con il codice seguente. Sostituire con i valori per `<server>`, `<username>`, `<password>`, e `<database>`.
+1. Nell'editor di codice, sostituire i contenuti **Program.cs** con il codice seguente. Sostituire con i valori per `<server>`, `<username>`, `<password>` e `<database>`.
    
    >[!IMPORTANT]
    >Il codice in questo esempio usa i dati di esempio di AdventureWorksLT, che è possibile scegliere come origine durante la creazione del database. Se il database contiene dati diversi, utilizzare le tabelle del database personale nella query SELECT. 

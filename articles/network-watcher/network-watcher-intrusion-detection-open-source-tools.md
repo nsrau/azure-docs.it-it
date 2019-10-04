@@ -3,8 +3,8 @@ title: Eseguire il rilevamento di intrusioni di rete con Azure Network Watcher e
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65605713"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
@@ -255,7 +255,7 @@ Per questo articolo, è stato fornito un dashboard di esempio per visualizzare t
 
 Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suricata:
 
-1. Alerts by GeoIP (Avvisi per IP geografico): mappa che illustra la distribuzione degli avvisi per paese di origine in base alla località geografica (determinata dall'IP)
+1. Avvisi da GeoIP: una mappa che illustra la distribuzione di avvisi per i relativi paesi di origine basato su posizione geografica (determinata dall'IP)
 
     ![IP geografico][3]
 

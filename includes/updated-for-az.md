@@ -5,11 +5,11 @@ manager: carmonm
 ms.date: 04/17/2019
 ms.topic: include
 ms.openlocfilehash: bba762fca7154067e528ebbbb0ea94c8ba7965f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188326"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "67171088"
 ---
 > [!NOTE]
 > Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.

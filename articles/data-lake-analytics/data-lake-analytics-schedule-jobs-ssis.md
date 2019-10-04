@@ -1,6 +1,6 @@
 ---
 title: Pianificare processi U-SQL di Azure Data Lake Analytics tramite SSIS
-description: Informazioni su come usare SQL Server Integration Services (SSIS) per pianificare processi U-SQL.
+description: Informazioni su come usare SQL Server Integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523172"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672904"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
 
@@ -93,7 +93,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
     
     Per creare questa connessione file:
 
-   1. Scegli  **\<nuova connessione... >** nell'impostazione FileConnection.
+   1. Scegliere **\<new Connection... >** nell'impostazione FileConnection.
    2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
 
        ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -171,4 +171,3 @@ In alcuni casi può essere necessario impostare il valore della variabile U-SQL 
 - [Eseguire pacchetti SSIS in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Feature Pack di Azure per Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Pianificare processi U-SQL tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

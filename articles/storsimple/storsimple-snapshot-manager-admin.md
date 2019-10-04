@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
 ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872184"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60630020"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
@@ -51,7 +51,7 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 | Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos’è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Installare Gestione Snapshot StorSimple<br>Reinstallare StorSimple Snapshot Manager<br>rimuovere Gestione Snapshot StorSimple |[Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Usare Gestione Snapshot StorSimple menu e funzionalità:<ul><li>Barra dei menu</li><li>Barra degli strumenti</li><li>Riquadro Ambito</li><li>Riquadro Risultati</li><li>Riquadro Azioni</li><li>Navigazione da tastiera e tasti di scelta rapida</li></ul> |[Interfaccia utente di gestione Snapshot StorSimple](storsimple-use-snapshot-manager.md) |
-| Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>View</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Guida</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
+| Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>View</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Help</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
 | Aggiunta o sostituzione di un dispositivo<br>Collegare un dispositivo<br>Verificare i gruppi di volumi importati<br>Aggiornamento dei dispositivi connessi<br>Autenticazione di un dispositivo<br>Visualizzazione dei dettagli del dispositivo<br>Eliminazione della configurazione di un dispositivo<br>Modifica della password di un dispositivo<br>Sostituzione di un dispositivo guasto<br> |[Utilizzare Gestione Snapshot StorSimple per connettersi e gestire i dispositivi StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Montare i volumi<br>Visualizzare informazioni sui volumi<br>Eliminare un volume<br>Ripetere la scansione dei volumi<br>Configurare ed eseguire il backup di un volume di base<br>Configura e backup di un volume con mirroring dinamico |[Utilizzare Gestione Snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md) |
 | Visualizzazione dei gruppi di volumi<br>Creare un gruppo di volumi<br>Eseguire il backup di un gruppo di volumi<br>Modificare un gruppo di volumi<br>Eliminare un gruppo di volumi |[Utilizzare Gestione Snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md) |

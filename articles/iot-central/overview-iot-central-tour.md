@@ -3,20 +3,22 @@ title: Presentazione dell'interfaccia utente di Azure IoT Central | Microsoft Do
 description: I generatori devono acquisire familiarità con le aree principali dell'interfaccia utente di Azure IoT Central usata per creare una soluzione IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f794fad0f42a27190bdd948df49d0133dfaa1a92
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678650"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066420"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 In questo articolo viene presentata l'interfaccia utente di Microsoft Azure IoT Central. È possibile usare l'interfaccia utente per creare, gestire e usare una soluzione Azure IoT Central e i relativi dispositivi connessi.
 
@@ -33,14 +35,32 @@ Gli _operatori_ usano l'interfaccia utente di Azure IoT Central per gestire la s
 - Risolvere e correggere i problemi relativi ai dispositivi.
 - Eseguire il provisioning di nuovi dispositivi.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Usare il menu di spostamento a sinistra
 
-Usare il menu di spostamento a sinistra per accedere alle diverse aree dell'applicazione. È possibile espandere o comprimere la barra di spostamento selezionando **<** o **>**:
+Usare il menu di spostamento a sinistra per accedere alle diverse aree dell'applicazione. È possibile espandere o comprimere la barra di spostamento selezionando **<** o **>** :
 
-| Menu | DESCRIZIONE |
-| ---- | ----------- |
-| ![Menu di spostamento a sinistra](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Il pulsante **Dashboard** consente di accedere al dashboard dell'applicazione. I creatori possono personalizzare il dashboard per gli operatori. Anche gli utenti possono creare dashboard personalizzati.</li><li>Il pulsante **Device Explorer** consente di visualizzare un elenco dei dispositivi simulati e reali associati a ogni modello di dispositivo nell'applicazione. Gli operatori usano **Device Explorer** (Esplora dispositivi) per gestire i dispositivi connessi.</li><li>Il pulsante **Device Sets** (Set di dispositivi) consente di visualizzare e creare set di dispositivi. Gli operatori possono creare set di dispositivi come raccolta logica di dispositivi specificati da una query.</li><li>Il pulsante **Analytics** (Analisi) consente di visualizzare l'analisi derivata dai dati di telemetria dei dispositivi per dispositivi e set di dispositivi. Gli operatori possono creare visualizzazioni personalizzate basate sui dati dei dispositivi per derivare informazioni dettagliate dall'applicazione.</li><li>Il pulsante **Processi** abilita la gestione dei dispositivi in blocco consentendo di eseguire aggiornamenti su vasta scala tramite la creazione e l'esecuzione di processi.</li><li>Il pulsante **Modelli di dispositivo** visualizza gli strumenti usati da un generatore per creare e gestire i modelli di dispositivo.</li><li>Il pulsante **Esportazione dati continua** consente a un amministratore di configurare un'esportazione continua in altri servizi di Azure, come archiviazione e code.</li><li>Il pulsante **Administration** (Amministrazione) consente di visualizzare le pagine di amministrazione dell'applicazione in cui un amministratore può gestire impostazioni, utenti e ruoli.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+     **Dashboard** consente di accedere al dashboard dell'applicazione. I creatori possono personalizzare il dashboard per gli operatori. Anche gli utenti possono creare dashboard personalizzati.
+    
+     **Esplora dispositivi** offre un elenco dei dispositivi simulati e reali associati a ogni modello di dispositivo nell'applicazione. Gli operatori usano **Device Explorer** (Esplora dispositivi) per gestire i dispositivi connessi.
+    
+     **Set di dispositivi** consente di visualizzare e creare set di dispositivi. Gli operatori possono creare set di dispositivi come raccolta logica di dispositivi specificati da una query.
+    
+     **Analisi** mostra le analisi derivate dai dati di telemetria dei dispositivi per dispositivi e set di dispositivi. Gli operatori possono creare visualizzazioni personalizzate basate sui dati dei dispositivi per derivare informazioni dettagliate dall'applicazione.
+    
+     **Processi** supporta la gestione dei dispositivi in blocco consentendo di creare ed eseguire processi per aggiornamenti su vasta scala.
+    
+     **Modelli di dispositivo** mostra gli strumenti usati da un generatore per creare e gestire modelli di dispositivo.
+    
+     **Esportazione dati continua** consente a un amministratore di configurare un'esportazione continua in altri servizi di Azure, come archiviazione e code.
+    
+     **Amministrazione** consente di visualizzare le pagine di amministrazione dell'applicazione in cui un amministratore può gestire impostazioni, utenti e ruoli.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>Ricerca, guida e supporto tecnico
 
@@ -51,17 +71,22 @@ Il menu superiore viene visualizzato in ogni pagina:
 - Per cercare modelli di dispositivo e dispositivi, immettere un valore in **Search** (Cerca).
 - Per cambiare la lingua o il tema dell'interfaccia utente, scegliere l'icona **Settings** (Impostazioni).
 - Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
-- Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse.
+- Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. In una versione di valutazione dell'applicazione le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
 
 È possibile scegliere tra un tema scuro o un tema chiaro per l'interfaccia utente:
 
 ![Scegliere un tema per l'interfaccia utente](media/overview-iot-central-tour/themes.png)
 
+> [!NOTE]
+> L'opzione per scegliere il tema chiaro o scuro non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
+
 ## <a name="dashboard"></a>dashboard
 
 ![dashboard](media/overview-iot-central-tour/homepage.png)
 
-Il dashboard è la prima pagina visualizzata quando si accede all'applicazione Azure IoT Central. I creatori possono personalizzare il dashboard dell'applicazione per altri utenti aggiungendo riquadri. Per altre informazioni, vedere l'esercitazione sulla [personalizzazione della visualizzazione operatore di Azure IoT Central](tutorial-customize-operator.md). Anche gli utenti possono [creare dashboard personalizzati](howto-personalize-dashboard.md).
+* Il dashboard è la prima pagina visualizzata quando si accede all'applicazione Azure IoT Central. I creatori possono personalizzare il dashboard dell'applicazione per altri utenti aggiungendo riquadri. Per altre informazioni, vedere l'esercitazione sulla [personalizzazione della visualizzazione operatore di Azure IoT Central](tutorial-customize-operator.md).
+
+* Gli operatori possono creare dashboard personalizzati e spostarsi tra di essi e il dashboard predefinito. Per altre informazioni, vedere [Creare e gestire i dashboard personali](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Esplora dispositivi
 
@@ -88,25 +113,32 @@ La pagina Analytics (Analisi) visualizza grafici che consentono di comprendere i
 
 ![Pagina dei processi](media/overview-iot-central-tour/jobs.png)
 
-La pagina dei processi consente di eseguire operazioni di gestione in blocco per i dispositivi. Il generatore usa questa pagina per aggiornare le proprietà, le impostazioni e i comandi del dispositivo. Per altre informazioni, vedere l'articolo [Eseguire un processo](howto-run-a-job.md).
+La pagina dei processi consente di eseguire operazioni di gestione dei dispositivi in blocco nei propri dispositivi. Il generatore usa questa pagina per aggiornare le proprietà, le impostazioni e i comandi del dispositivo. Per altre informazioni, vedere l'articolo [Eseguire un processo](howto-run-a-job.md).
 
 ## <a name="device-templates"></a>Modelli di dispositivo
 
 ![Pagina Modelli di dispositivo](media/overview-iot-central-tour/templates.png)
 
-Questa pagina consente a un generatore di creare e gestire i modelli di dispositivo nell'applicazione. Per altre informazioni, vedere l'esercitazione sulla [definizione di un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](tutorial-define-device-type.md).
+Questa pagina consente a un generatore di creare e gestire i modelli di dispositivo nell'applicazione. Un modello di dispositivo specifica le caratteristiche del dispositivo, come:
+
+- Dati di telemetria, stato e misure di evento.
+- Impostazioni e proprietà.
+- Comandi.
+- Regole basate su eventi o valori di telemetria.
+
+Per altre informazioni, vedere l'esercitazione sulla [definizione di un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](tutorial-define-device-type.md).
 
 ## <a name="continuous-data-export"></a>Esportazione dati continua
 
 ![Pagina Esportazione dati continua](media/overview-iot-central-tour/export.png)
 
-Questa pagina consente a un amministratore di definire come esportare i dati, ad esempio di telemetria, dall'applicazione. I dati esportati possono essere archiviati in altri servizi o usati per l'analisi. Per altre informazioni, vedere l'articolo [Esportare i dati in Azure IoT Central](howto-export-data.md).
+Questa pagina consente a un amministratore di definire come eseguire lo streaming dei dati, ad esempio di telemetria, dall'applicazione. I dati esportati possono essere archiviati in altri servizi o usati per l'analisi. Per altre informazioni, vedere l'articolo [Esportare i dati in Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administration
 
 ![Pagina Administration (Amministrazione)](media/overview-iot-central-tour/administration.png)
 
-La pagina Administration (Amministrazione) contiene i collegamenti agli strumenti usati da un amministratore, ad esempio per definire utenti e ruoli nell'applicazione. Per altre informazioni, vedere l'articolo sull'[amministrazione dell'applicazione Azure IoT Central](howto-administer.md).
+La pagina Administration (Amministrazione) contiene i collegamenti agli strumenti usati da un amministratore, ad esempio per definire utenti e ruoli nell'applicazione e personalizzare l'interfaccia utente. Per altre informazioni, vedere l'articolo sull'[amministrazione dell'applicazione Azure IoT Central](howto-administer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

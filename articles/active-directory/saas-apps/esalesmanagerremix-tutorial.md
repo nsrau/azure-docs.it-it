@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429240"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "65406965"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -103,7 +103,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     a. Nella casella **URL accesso** digitare un URL in questo formato: *https://\<URL basato sul server>/\<sottodominio>/esales-pc*.
 
-    b. Nella casella **Identificatore** digitare un URL in questo formato: *https://\<URL basato sul server>/\<sottodominio>/*.
+    b. Nella casella **Identificatore** digitare un URL in questo formato: *https://\<URL basato sul server>/\<sottodominio>/* .
 
     c. Annotare il valore di **Identificatore**, che verrà usato successivamente in questa esercitazione.
     
@@ -158,7 +158,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     
     b. Nell'elenco a discesa nella sezione **Collaboration item** (Elemento collaborazione) selezionare **email** (e-mail).
 
-    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore di attestazione precedentemente copiato dal portale di Azure, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore di attestazione precedentemente copiato dal portale di Azure, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
     d. Nella casella **Issuer (entity ID)** (Autorità di certificazione - ID entità) incollare il valore dell'identificatore copiato prima dalla sezione **URL e dominio E Sales Manager Remix** del portale di Azure.
 

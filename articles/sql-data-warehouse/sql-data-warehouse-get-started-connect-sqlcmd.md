@@ -2,20 +2,20 @@
 title: Connettersi ad Azure SQL Data Warehouse con sqlcmd | Documentazione Microsoft
 description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e0e423ef0503bc4d23fddf4e1b9ff985636d2ec2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463515"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479513"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Connettersi a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.locfileid: "55463515"
 > 
 > 
 
-Usare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi ed eseguire query in un'istanza di Azure SQL Data Warehouse.  
+Utilizzare l'utilità della riga di comando [SQLCMD][sqlcmd] per connettersi ed eseguire query su un Azure SQL data warehouse.  
 
-## <a name="1-connect"></a>1. Connettere
+## <a name="1-connect"></a>1. Connetti
 Per iniziare a usare [sqlcmd][sqlcmd], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
 
 * **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere la [documentazione di sqlcmd][sqlcmd].
+Per ulteriori informazioni sulle opzioni disponibili in sqlcmd, vedere la [documentazione di sqlcmd][sqlcmd] .
 
 <!--Image references-->
 

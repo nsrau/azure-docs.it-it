@@ -9,12 +9,10 @@
   items:
     - name: Uso dell'SDK client
       items:
-        - name: Rilevare i visi in un'immagine
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: .NET SDK
+          href: Quickstarts/csharp-sdk.md
+        - name: Python SDK
+          href: QuickStarts/python-sdk.md
     - name: Utilizzo dell'API REST
       items:
         - name: Rilevare i visi in un'immagine
@@ -45,16 +43,26 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Guide alle procedure
+- name: Concetti
   items:
     - name: Rilevamento del viso
+      href: concepts/face-detection.md
+    - name: Riconoscimento del viso
+      href: concepts/face-recognition.md
+- name: Guide alle procedure
+  items:
+    - name: Rilevare visi
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identificazione viso
+    - name: Identificare visi
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Aggiungere visi
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Usare l'attributo HeadPose
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Specificare un modello di riconoscimento volto
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Specificare un modello di rilevamento volto
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Usare la funzionalità su larga scala
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Analizzare video in tempo reale
@@ -67,12 +75,10 @@
           href: face-how-to-install-containers.md
         - name: Configurare i contenitori
           href: face-resource-container-config.md
+        - name: Usare istanze di contenitore
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
     - name: Usare il servizio connesso dell'API Viso
       href: vs-face-connected-service.md
-- name: Esempi
-  items:
-    - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: riferimento
   items:
     - name: API Viso
@@ -80,7 +86,7 @@
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
         - name: Python
@@ -93,10 +99,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Risorse
   items:
-    - name: Glossario
-      href: Glossary.md
-    - name: Domande frequenti
-      href: FAQ.md
+    - name: Esempi
+      items:
+        - name: Esempi di API Viso
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice
@@ -107,5 +113,7 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Note sulla versione
       href: ReleaseNotes.md

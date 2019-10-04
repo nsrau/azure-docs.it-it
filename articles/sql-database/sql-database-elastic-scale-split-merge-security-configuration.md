@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335224"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568357"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 
-Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azure. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configurazione dei certificati
 
@@ -121,7 +120,7 @@ La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa �
 La configurazione predefinita consente qualunque accesso all'endpoint HTTPS. Tale impostazione può essere limitata ulteriormente.
 
 ### <a name="changing-the-configuration"></a>Modifica della configurazione
-Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint sono configurati nel  **\<EndpointAcls >** sezione la **file di configurazione del servizio**.
+Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella  **\<sezione EndpointAcls >** nel **file di configurazione del servizio**.
 
 ```xml
 <EndpointAcls>
@@ -130,7 +129,7 @@ Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint sono
 </EndpointAcls>
 ```
 
-Le regole in un gruppo di controllo di accesso vengono configurate un \<AccessControl name = "" > sezione del file di configurazione del servizio. 
+Le regole in un gruppo di controllo di accesso vengono configurate in un \<nome di AccessControl = "" > sezione del file di configurazione del servizio. 
 
 Il formato è illustrato nella documentazione relativa agli elenchi di controllo di accesso di rete.
 Ad esempio, per consentire l'accesso all'endpoint HTTPS solo per gli indirizzi IP compresi nell'intervallo da 100.100.0.0 a 100.100.255.255, le regole saranno simili alle seguenti:
@@ -359,8 +358,8 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà seguir
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
 * Copiare il valore dell'identificazione personale
-  * Eliminare i caratteri Unicode non visibili davanti alla prima cifra
-  * Eliminare tutti gli spazi
+  * Elimina i caratteri Unicode non visibili davanti alla prima cifra
+  * Elimina tutti gli spazi
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurare i client consentiti nel file di configurazione del servizio
 Aggiornare il valore della seguente impostazione nel file di configurazione del servizio con un elenco delimitato da virgole delle identificazioni personali dei certificati client a cui è consentito accedere al servizio:

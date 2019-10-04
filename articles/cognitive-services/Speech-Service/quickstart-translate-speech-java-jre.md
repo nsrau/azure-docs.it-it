@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, Java (Windows, Linux)- Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Traduzione vocale, Java (Windows, Linux)- Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows e Linux.
 services: cognitive-services
@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897104"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553399"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Traduzione vocale con Speech SDK per Java
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Traduzione vocale con Speech SDK per Java
 
-In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. Quest'applicazione è progettata per l'esecuzione in Windows a 64 bit o Ubuntu Linux a 64 bit 16.04/18.04 ed è integrata con il pacchetto Speech SDK Maven e l'ambiente IDE Java Eclipse.
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
+
+In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. Questa applicazione è progettata per l'esecuzione in Windows a 64 bit o Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9) oppure in macOS 10.13 o versioni successive. Viene creata con il pacchetto Maven per Speech SDK e l'IDE Eclipse Java.
 
 Per un elenco completo di lingue disponibili per la traduzione vocale, vedere [Supporto per le lingue](language-support.md).
 
@@ -27,17 +29,26 @@ Per un elenco completo di lingue disponibili per la traduzione vocale, vedere [S
 
 Questa guida introduttiva richiede:
 
-* Sistema operativo: Windows a 64 bit o Ubuntu Linux a 64 bit 16.04/18.04
+* Sistema operativo: Windows a 64 bit, Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9), oppure macOS 10.13 o versioni successive
 * [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
-Se si esegue Ubuntu 16.04/18.04, assicurarsi che queste dipendenze siano installate prima di avviare Eclipse.
+Se si esegue Linux, assicurarsi che queste dipendenze siano installate prima di avviare Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * In Ubuntu:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * In Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
@@ -79,7 +90,7 @@ Esempi aggiuntivi, ad esempio come eseguire il riconoscimento vocale da un file 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)

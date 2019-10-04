@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568124"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover
 
@@ -89,7 +88,9 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 > [!NOTE]
 > Se si vuole concedere l'accesso utente al database secondario, ma non al database primario, è possibile modificare l'account di accesso utente nel server primario usando la sintassi seguente.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE non modifica la password, pertanto è sempre possibile abilitare l'accesso, se necessario.
 

@@ -3,7 +3,7 @@ title: Panoramica di Service Fabric e contenitori | Documentazione Microsoft
 description: Panoramica di Service Fabric e dell'uso dei contenitori per la distribuzione di applicazioni di microservizi. Questo articolo offre una panoramica di come possono essere usati i contenitori e delle funzionalità disponibili in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo
-ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662746"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599771"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 
@@ -35,8 +35,8 @@ Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi com
 
 Per iniziare subito a usare i contenitori in Service Fabric, provare una guida introduttiva, un'esercitazione o un esempio:  
 
-[Guida introduttiva: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Guida introduttiva: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
+[Avvio rapido: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Avvio rapido: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
 [Distribuire un'app .NET esistente in un contenitore](service-fabric-host-app-in-a-container.md)  
 [Esempi di contenitori di Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +48,10 @@ Vengono eseguiti direttamente sul kernel e hanno una vista isolata del file syst
 
 Rispetto alle macchine virtuali, i contenitori offrono i vantaggi seguenti:
 
-* **Small**: I contenitori usano uno spazio di archiviazione singolo e livelli di versioni e aggiornamenti per aumentare l'efficienza.
-* **Fast**: I contenitori non devono eseguire l'avvio di un intero sistema operativo, in modo che possa avviarsi più velocemente, in genere in pochi secondi.
-* **Portabilità**: Immagine di un'applicazione in contenitore può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente su computer fisici.
-* **Governance delle risorse**: Un contenitore può limitare le risorse fisiche utilizzabili da sul relativo host.
+* **Small**: I contenitori usano un unico spazio di archiviazione e versioni di livello e aggiornamenti per aumentare l'efficienza.
+* **Veloce**: I contenitori non devono avviare un intero sistema operativo, quindi possono iniziare molto più velocemente, in genere in pochi secondi.
+* **Portabilità**: Un'immagine dell'applicazione in contenitori può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente in computer fisici.
+* **Governance delle risorse**: Un contenitore può limitare le risorse fisiche che può utilizzare nell'host.
 
 ### <a name="container-types-and-supported-environments"></a>Tipi di contenitori e ambienti supportati
 
@@ -76,11 +76,11 @@ La figura seguente illustra i diversi tipi di livelli di virtualizzazione e isol
 
 Ecco alcuni esempi tipici dei casi in cui un contenitore rappresenta una buona scelta:
 
-* **IIS lift- and -shift**: È possibile inserire un oggetto esistente [ASP.NET MVC](https://www.asp.net/mvc) app in un contenitore invece di eseguire la migrazione a ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **Lift-and-Shift IIS**: È possibile inserire un'app [MVC ASP.NET](https://www.asp.net/mvc) esistente in un contenitore anziché eseguirne la migrazione a ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
-* **Combinazione di contenitori e microservizi di Service Fabric**: Usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
+* **Combinare contenitori e Service Fabric microservizi**: Usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
 
-* **Ridurre l'impatto dei servizi "vicini fastidiosi"**: È possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse che usa un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
+* **Ridurre l'effetto dei servizi "vicini rumorosi"** : È possibile utilizzare la funzionalità di governance delle risorse dei contenitori per limitare le risorse utilizzate da un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
 
 ## <a name="service-fabric-support-for-containers"></a>Supporto di Service Fabric per i contenitori
 

@@ -1,17 +1,17 @@
 ---
 title: Informazioni su come gestire la coerenza in Azure Cosmos DB
 description: Informazioni su come gestire la coerenza in Azure Cosmos DB
-author: christopheranderson
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 07/08/2019
+ms.author: mjbrown
+ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904322"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093312"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
@@ -21,21 +21,21 @@ Questo articolo illustra come gestire i livelli di coerenza in Azure Cosmos DB. 
 
 ## <a name="configure-the-default-consistency-level"></a>Configurare il livello di coerenza predefinito
 
-Il livello di coerenza predefinito è il livello di coerenza che i client usano per impostazione predefinita. I client possono eseguirne l'override.
+Il [livello di coerenza predefinito](consistency-levels.md) è il livello di coerenza che i client usano per impostazione predefinita. I client possono sempre eseguirne l'override.
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 
 ```bash
 # create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Strong
+az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level BoundedStaleness
+az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-Questo esempio crea un nuovo account Azure Cosmos DB con il supporto multimaster abilitato nelle aree Stati Uniti orientali e Stati Uniti occidentali. Il criterio di coerenza predefinito è impostato come Sessione.
+Questo esempio crea un nuovo account Azure Cosmos con più aree di scrittura abilitate nelle aree Stati Uniti orientali e Stati Uniti occidentali. Il livello di coerenza predefinito viene impostato su *Sessione*.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,32 +59,39 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>Portale
+### <a name="azure-portal"></a>Portale di Azure
 
-Per visualizzare o modificare il livello di coerenza predefinito, accedere al portale di Azure. Individuare l'account Azure Cosmos DB e aprire il riquadro **Coerenza predefinita**. Selezionare il livello di coerenza desiderato come il nuovo valore predefinito e quindi selezionare **Salva**.
+Per visualizzare o modificare il livello di coerenza predefinito, accedere al portale di Azure. Individuare l'account Azure Cosmos e aprire il riquadro **Coerenza predefinita**. Selezionare il livello di coerenza desiderato come il nuovo valore predefinito e quindi selezionare **Salva**. Il portale di Azure offre anche una visualizzazione dei diversi livelli di coerenza con note musicali. 
 
 ![Menu relativo alla coerenza nel portale di Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Sostituire il livello di coerenza predefinito
 
-Nei client è possibile impostare un livello di coerenza diverso dall'impostazione predefinita del servizio. L'impostazione può essere applicata all'intero client o alle singole richieste.
+Nei client è possibile impostare un livello di coerenza diverso dall'impostazione predefinita del servizio. Il livello di coerenza può essere impostato per singole richieste, che esegue l'override del livello di coerenza predefinito impostato a livello di account.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK
+### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
-ConsistencyPolicy consistencyPolicy = new ConsistencyPolicy
-    {
-        DefaultConsistencyLevel = ConsistencyLevel.BoundedStaleness,
-        MaxStalenessIntervalInSeconds = 5,
-        MaxStalenessPrefix = 100
-    };
-documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, consistencyPolicy);
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.Eventual);
 
 // Override consistency at the request level via request options
-RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+```
+
+### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+// Override consistency at the request level via request options
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+
+var response = await client.GetContainer(databaseName, containerName)
+    .CreateItemAsync(
+        item, 
+        new PartitionKey(itemPartitionKey), 
+        requestOptions);
 ```
 
 ### <a id="override-default-consistency-java-async"></a>Java Async SDK
@@ -106,7 +113,7 @@ AsyncDocumentClient client =
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
+DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
 ### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
@@ -115,7 +122,7 @@ DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connecti
 // Override consistency at the client level
 const client = new CosmosClient({
   /* other config... */
-  consistencyLevel: ConsistencyLevel.Strong
+  consistencyLevel: ConsistencyLevel.Eventual
 });
 
 // Override consistency at the request level via request options
@@ -127,14 +134,17 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Strong)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## <a name="utilize-session-tokens"></a>Utilizzare i token di sessione
 
+Uno dei livelli di coerenza in Azure Cosmos DB è il livello di coerenza *Sessione*. Questo è il livello predefinito applicato agli account Cosmos per impostazione predefinita. Quando si usa il livello di coerenza *Sessione*, il client userà internamente un token di sessione con ogni richiesta di lettura/query per assicurarsi che venga mantenuto il livello di coerenza impostato.
+
 Per gestire i token di sessione manualmente, ottenere il token di sessione dalla risposta e impostarli per ogni richiesta. Se non si ha necessità di gestire manualmente i token di sessione, non è necessario usare questi esempi. L'SDK tiene traccia dei token di sessione automaticamente. Se non si imposta il token di sessione manualmente, per impostazione predefinita l'SDK usa il token di sessione più recente.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -145,6 +155,18 @@ RequestOptions options = new RequestOptions();
 options.SessionToken = sessionToken;
 var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
+```
+
+### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = client.GetContainer(databaseName, collectionName);
+ItemResponse<SalesOrder> response = await container.CreateItemAsync<SalesOrder>(salesOrder);
+string sessionToken = response.Headers.Session;
+
+ItemRequestOptions options = new ItemRequestOptions();
+options.SessionToken = sessionToken;
+ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
 ### <a id="utilize-session-tokens-java-async"></a>Java Async SDK
@@ -209,15 +231,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Per visualizzare la metrica PBS, passare all'account Azure Cosmos DB nel portale di Azure. Aprire il riquadro **Metriche** e selezionare la scheda **Coerenza**. Esaminare il grafico denominato **Probabilità di letture con coerenza assoluta in base al carico di lavoro (vedere PBS)**.
+Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)** ](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **Metriche** e selezionare la scheda **Coerenza**. Esaminare il grafico denominato **Probabilità di letture con coerenza assoluta in base al carico di lavoro (vedere PBS)** .
 
 ![Grafico PBS nel portale di Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
-Per visualizzare questa metrica, usare il menu delle metriche di Azure Cosmos DB. Non viene visualizzata nell'esperienza delle metriche di Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scoprire di più su come gestire i conflitti di dati o passare al concetto chiave successivo di Azure Cosmos DB. Vedere gli articoli seguenti:
 
+* [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 * [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
 * [Partizionamento e distribuzione dei dati](partition-data.md)
+* [Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Disponibilità elevata](high-availability.md)
+* [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

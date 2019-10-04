@@ -2,22 +2,22 @@
 title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
 description: Creare rapidamente un server logico di database SQL, una regola del firewall a livello di server e un data warehouse con Azure PowerShell.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 4/11/2019
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545129"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574898"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query con Azure PowerShell
 
 Creare rapidamente un'istanza di Azure SQL Data Warehouse con Azure PowerShell.
 
@@ -90,7 +90,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall a livello di server SQL di Azure](../sql-database/sql-database-firewall-configure.md) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un data warehouse SQL tramite il firewall del servizio di SQL Data Warehouse. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
+Creare una [regola del firewall a livello di server SQL di Azure](../sql-database/sql-database-firewall-configure.md) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un'istanza di SQL Data Warehouse tramite il firewall del servizio SQL Data Warehouse. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `

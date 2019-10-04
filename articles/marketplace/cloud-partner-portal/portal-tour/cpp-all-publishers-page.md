@@ -1,25 +1,18 @@
 ---
-title: Pagina Tutti gli autori per Azure Marketplace | Microsoft Docs
-description: .
+title: Pagina di tutti i server di pubblicazione per Azure Marketplace
+description: Panoramica di tutti i server di pubblicazione nel portale per Cloud Partner per Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e2c780992143ab753dad1ca89b22593d20fdedc4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64941992"
 ---
 # <a name="all-publishers-page"></a>Pagina Tutti gli autori
 

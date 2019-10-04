@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione:  Integrare una singola foresta Active Directory in Azure tramite l'autenticazione pass-through | Microsoft Docs"
+title: "Esercitazione:  Integrare una singola foresta di AD mediante l'autenticazione pass-through"
 description: Viene illustrato come configurare un ambiente ibrido di gestione delle identità tramite l'autenticazione pass-through.
 services: active-directory
 author: billmath
@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098043"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473002"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Esercitazione:  Integrare una singola foresta di AD mediante l'autenticazione pass-through
 
@@ -143,6 +143,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -153,7 +154,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Creare un utente di Active Directory per Windows Server
@@ -186,7 +187,7 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 1. Selezionare il [portale di Azure](https://portal.azure.com) e accedere con un account che dispone di una sottoscrizione di Azure.
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
-4. Selezionare **Create**.</br>
+4. Selezionare **Create** (Crea).</br>
 ![Creare](media/tutorial-password-hash-sync/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.

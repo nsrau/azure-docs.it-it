@@ -3,19 +3,20 @@ title: Gestione dei dati utente con Conversation Learner - Servizi cognitivi Mic
 titleSuffix: Azure
 description: Informazioni su come gestire i dati utente con Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 857e899764d284e2d78f1172fa8eeac04c57d618
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249079"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705187"
 ---
 # <a name="managing-user-data"></a>Gestione dei dati utente
 

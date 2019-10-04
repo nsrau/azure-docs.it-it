@@ -1,25 +1,18 @@
 ---
-title: "Aggiornare un'offerta di App di Power BI: Azure Marketplace | Microsoft Docs"
+title: Aggiornare un'offerta di App di Power BI | Azure Marketplace
 description: Aggiornare un'offerta di app Power BI dopo che è stata pubblicata in Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 953c53b4ef2244b3444abb745f52e125306468f2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.author: pabutler
+ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942036"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Aggiornare un'offerta di App di Power BI
 

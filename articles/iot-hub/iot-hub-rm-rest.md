@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 6d91f5e61dfd7c3cb4d1869edf0c6cb8c2c85190
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65827482"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Creare un hub IoT con l'API REST del provider di risorse (.NET)
 
@@ -26,7 +26,7 @@ ms.locfileid: "59606787"
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Visual Studio 2015 o Visual Studio 2017.
+* Visual Studio.
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -36,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="prepare-your-visual-studio-project"></a>Preparare il progetto di Visual Studio
 
-1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **CreateIoTHubREST**.
+1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)** . Denominare il progetto **CreateIoTHubREST**.
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
 

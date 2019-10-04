@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.author: erikre
+ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
+ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693025"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870918"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Come usare il servizio di posta elettronica SendGrid da PHP
 
@@ -117,7 +118,7 @@ Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, us
 ```
 
 ### <a name="web-api"></a>API Web
-Usare la [funzione curl][curl function] di PHP per inviare messaggi di posta elettronica tramite l'API Web SendGrid.
+Usare la [funzione curl][curl function] di PHP per inviare messaggi di posta elettronica tramite l'API Web di SendGrid.
 
 ```php
 <?php
@@ -405,7 +406,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  print_r($response);
  ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 

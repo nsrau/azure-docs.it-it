@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188187"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015470"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -75,9 +76,9 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 ```
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | DESCRIZIONE |
+| Nome attributo | Descrizione |
 | --- | --- |
-| Mode |Fast: velocità di elaborazione elevata, ma meno accurata (impostazione predefinita).|
+| Modalità |Fast: velocità di elaborazione elevata, ma meno accurata (impostazione predefinita).|
 
 ### <a name="json-output"></a>Output JSON
 L'esempio seguente di output JSON è stato troncato.
@@ -152,7 +153,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | DESCRIZIONE |
 | --- | --- |
-| Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituisce dei valori medi delle emozioni per tutti i visi nel fotogramma. |
+| Modalità |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituisce dei valori medi delle emozioni per tutti i visi nel fotogramma. |
 | AggregateEmotionWindowMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi. |
 | AggregateEmotionIntervalMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica con quale frequenza produrre risultati aggregati. |
 

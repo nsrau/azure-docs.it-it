@@ -1,19 +1,18 @@
 ---
 title: Procedura per distribuire File di Azure | Microsoft Docs
 description: Informazioni su come distribuire di File di Azure dall'inizio alla fine.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481179"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699707"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
@@ -108,7 +107,7 @@ Robocopy è un noto strumento di copia incluso in Windows e Windows Server. Robo
 ### <a name="azcopy"></a>AzCopy
 AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso File di Azure, oltre ad Archiviazione BLOB di Azure usando semplici comandi con prestazioni ottimali. Usare AzCopy è semplice:
 
-1. Scaricare la [versione più recente di AzCopy in Windows](https://aka.ms/downloadazcopy) o in [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Scaricare la [versione più recente di AzCopy in Windows](https://aka.ms/downloadazcopy) o in [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
 2. Usare `azcopy` nella riga di comando per spostare i dati nella condivisione file di Azure. La sintassi in Windows è la seguente: 
 
     ```

@@ -2,20 +2,18 @@
 title: Risolvere i problemi comuni degli indicizzatori di ricerca - Ricerca di Azure
 description: Correggere gli errori e i problemi comuni con gli indicizzatori in Ricerca di Azure, inclusi connessione all'origine dati, firewall e documenti mancanti.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321843"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640604"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Risoluzione dei problemi comuni degli indicizzatori in Ricerca di Azure
 
@@ -35,20 +33,17 @@ Archiviazione di Azure fornisce un firewall configurabile. Per impostazione pred
 
 Non vengono visualizzati messaggi di errore specifici quando il firewall è abilitato. Gli errori del firewall in genere sono simili a `The remote server returned an error: (403) Forbidden`.
 
-È possibile verificare che il firewall sia abilitato nel [portale](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Se il firewall è attivato, sono disponibili due opzioni per aggirare questo problema:
+È possibile verificare che il firewall sia abilitato nel [portale](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). L'unica soluzione alternativa supportata consiste nel disabilitare il firewall scegliendo di consentire l'accesso da ["tutte le reti"](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Disabilitare il firewall scegliendo di consentire l'accesso da ["Tutte le reti"](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [Aggiungere un'eccezione](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) per l'indirizzo IP del servizio di ricerca. Per trovare questo indirizzo IP, usare il comando seguente:
+Se per l'indicizzatore non è associato un valore di competenze, è _possibile_ tentare di [aggiungere un'eccezione](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) per gli indirizzi IP del servizio di ricerca. Tuttavia, questo scenario non è supportato e non è garantito che funzioni correttamente.
 
-`nslookup <service name>.search.windows.net`
-
-Le eccezioni non possono essere usate per la [ricerca cognitiva](cognitive-search-concept-intro.md). L'unica soluzione alternativa consiste nel disabilitare il firewall.
+È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del relativo FQDN (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
 #### <a name="indexing-isnt-enabled"></a>L'indicizzazione non è abilitata
 
-Ricerca di Azure ha una dipendenza implicita dall'indicizzazione di Cosmos DB. Se si disattiva l'indicizzazione automatica in Cosmos DB, Ricerca di Azure restituisce uno stato di esito positivo, ma non riesce a indicizzare i contenuti dei contenitori. Per istruzioni su come controllare le impostazioni e attivare l'indicizzazione, vedere [Gestire l'indicizzazione in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Ricerca di Azure ha una dipendenza implicita dall'indicizzazione di Cosmos DB. Se si disattiva l'indicizzazione automatica in Cosmos DB, Ricerca di Azure restituisce uno stato di esito positivo, ma non riesce a indicizzare i contenuti dei contenitori. Per istruzioni su come controllare le impostazioni e attivare l'indicizzazione, vedere [Gestire l'indicizzazione in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Errori di elaborazione dei documenti
 
@@ -57,7 +52,7 @@ Ricerca di Azure ha una dipendenza implicita dall'indicizzazione di Cosmos DB. S
 L'indicizzatore BLOB [registra i formati di documento supportati in modo esplicito](search-howto-indexing-azure-blob-storage.md#supported-document-formats). In alcuni casi, un contenitore di archiviazione BLOB contiene documenti non supportati. In altri casi potrebbero essere presenti documenti problematici. È possibile evitare di arrestare l'indicizzatore su questi documenti [modificando le opzioni di configurazione](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -71,11 +66,11 @@ api-key: [admin key]
 
 L'indicizzatore BLOB [trova ed estrae il testo dai BLOB in un contenitore](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). I problemi relativi all'estrazione del testo includono i seguenti:
 
-* Il documento contiene solo immagini digitalizzate. I BLOB PDF con contenuti non testuali, ad esempio immagini digitalizzate (JPG), non producono risultati in una pipeline di indicizzazione BLOB standard. Se è presente contenuto di immagini con elementi di testo, è possibile usare la [ricerca cognitiva](cognitive-search-concept-image-scenarios.md) per trovare ed estrarre il testo.
+* Il documento contiene solo immagini digitalizzate. I BLOB PDF con contenuti non testuali, ad esempio immagini digitalizzate (JPG), non producono risultati in una pipeline di indicizzazione BLOB standard. Se si dispone di contenuto di immagine con elementi di testo, è possibile usare la [ricerca cognitiva](cognitive-search-concept-image-scenarios.md) per trovare ed estrarre il testo.
 * L'indicizzatore BLOB è configurato solo per i metadati dell'indice. Per estrarre il contenuto, l'indicizzatore BLOB deve essere configurato per [estrarre sia il contenuto che i metadati](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,5 +89,5 @@ Gli indicizzatori trovano i documenti da un'[origine dati](https://docs.microsof
 * Il documento non è stato indicizzato. Cercare nel portale un'esecuzione dell'indicizzatore riuscita.
 * Il documento è stato aggiornato dopo l'esecuzione dell'indicizzatore. Se l'indicizzatore fa parte di una [pianificazione](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), a un certo punto verrà eseguito nuovamente e selezionerà il documento.
 * La [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) specificata nell'origine dati esclude il documento. Gli indicizzatori non possono indicizzare i documenti che non fanno parte dell'origine dati.
-* I [mapping dei campi](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) o la [ricerca cognitiva](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) hanno modificato il documento che risulta diverso dal previsto.
+* I [mapping dei campi](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) o la [ricerca cognitiva](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) hanno modificato il documento e hanno un aspetto diverso da quello previsto.
 * Usare l'[API di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) per trovare il documento.

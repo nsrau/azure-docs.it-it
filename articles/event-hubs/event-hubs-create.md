@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: a7976c0798bd78fd51632d3025147526a645b041
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528797"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072801"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -27,7 +27,7 @@ In questa guida introduttiva viene creato un hub eventi usando il [portale di Az
 Per completare questa guida introduttiva, assicurarsi di disporre di quanto segue:
 
 - Sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
+- [Visual Studio 2019](https://www.visualstudio.com/vs) o versioni successive.
 - [NET Standard SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -57,13 +57,13 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, a 
    ![Cercare Hub eventi](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Selezionare **Hub eventi** sotto **PREFERITI** nel menu di spostamento a sinistra e scegliere **Aggiungi** sulla barra degli strumenti.
 
-   ![Pulsante Aggiungi della barra degli strumenti](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Pulsante Aggiungi](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Nella pagina **Crea spazio dei nomi** seguire questa procedura:
     1. Immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
     2. Scegliere il piano tariffario (Basic o Standard).
     3. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
     4. Selezionare una **località** per lo spazio dei nomi.
-    5. Selezionare **Create**. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
+    5. Selezionare **Create** (Crea). Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
 
        ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/create-event-hub1.png)
 5. Aggiornare la pagina **Hub eventi** per visualizzare lo spazio dei nomi dell'hub eventi. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. 
@@ -92,10 +92,16 @@ Congratulazioni! È stato usato il portale per creare uno spazio dei nomi di Hub
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un gruppo di risorse, uno spazio dei nomi Hub eventi e un hub eventi. Per istruzioni dettagliate relative all'invio o alla ricezione di eventi da un hub eventi, vedere le esercitazioni seguenti:  
+In questo articolo è stato creato un gruppo di risorse, uno spazio dei nomi Hub eventi e un hub eventi. Per istruzioni dettagliate relative all'invio o alla ricezione di eventi da un hub eventi, vedere le esercitazioni per l'**invio e la ricezione di eventi**: 
 
-- **Inviare eventi a un hub eventi**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Ricevere eventi da un hub eventi**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (solo invio)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (solo ricezione)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

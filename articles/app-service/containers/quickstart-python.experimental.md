@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546332"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071009"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Python nel Servizio app di Azure in Linux (anteprima)
 
@@ -41,7 +40,7 @@ In Cloud Shell creare una directory quickstart e passare ad essa.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
@@ -64,7 +63,7 @@ Checking connectivity... done.
 
 Passare alla directory contenente il codice di esempio ed eseguire il comando `az webapp up`.
 
-Nell'esempio seguente sostituire <app_name> con un nome di app univoco.
+Nell'esempio seguente sostituire *\<nome_app>* con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`.
 
 ```bash
 cd python-docs-hello-world

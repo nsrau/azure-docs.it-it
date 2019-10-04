@@ -10,22 +10,22 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895856"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609862"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
-Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporati](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, si consiglia di chiamare le API, i sistemi e i servizi che non sono disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
+Sebbene app per la logica [di Azure offra centinaia di connettori](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, potrebbe essere necessario chiamare API, sistemi e servizi che non sono disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
 
 * Estendere gli attuali flussi di lavoro di integrazione del sistema e integrazione dei dati.
 * Aiutare i clienti a usare il servizio per gestire attività professionali o personali.
 * Espandere la copertura, l'individuabilità e l'uso del servizio.
 
-In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
+In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o node. js, per la creazione di connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
 
 Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-overview.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-overview.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
 
@@ -45,7 +45,7 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Differenza tra le API e i connettori personalizzati
 
-Le API personalizzate e i [connettori personalizzati](../logic-apps/custom-connector-overview.md) sono API Web che usano REST per le interfacce modulari, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché questi connettori e API sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, tra cui .NET, Java o Node.js, per la compilazione di API e connettori personalizzati.
+Le API personalizzate e i [connettori personalizzati](../logic-apps/custom-connector-overview.md) sono API Web che usano REST per le interfacce modulari, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché le API e i connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o node. js, per la creazione di API e connettori personalizzati.
 
 Le API personalizzate consentono di chiamare API che non sono connettori e forniscono gli endpoint che è possibile chiamare con HTTP + Swagger, Gestione API di Azure o Servizi app. I connettori personalizzati funzionano come le API personalizzate, ma hanno anche questi attributi:
 
@@ -175,7 +175,7 @@ Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi fi
 
 | La richiesta include `triggerState`? | Risposta dell'API | 
 | -------------------------------- | -------------| 
-| No  | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
+| No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
 | Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
 ||| 
 

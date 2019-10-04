@@ -4,24 +4,25 @@ description: Informazioni su come configurare l'attestazione basata su ruolo ril
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/21/2019
+ms.topic: conceptual
+ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412278"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207197"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -58,7 +59,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     ![Pagina Proprietà](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e completare questi passaggi:
+6. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e seguire questa procedura:
 
     a. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -152,20 +153,20 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
-9. Nella sezione **Attributi e attestazioni utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come mostrato nell'immagine e completare i passaggi seguenti.
+9. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
     | Nome attributo | Valore attributo |
     | -------------- | ----------------|
     | Nome del ruolo  | user.assignedroles |
 
     >[!NOTE]
-    >Se il valore di attestazione di ruolo è null, quindi Azure AD non le invia questo valore nel token e questo è l'impostazione predefinita in base alla progettazione.
+    >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
 
-    a. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+    a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Selezionare **Aggiungi attributo** per aprire il riquadro **Gestisci attestazioni utente**.
+    b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -185,7 +186,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 Per aggiornare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer).
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -223,7 +224,7 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
 Per eliminare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Graph Explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 

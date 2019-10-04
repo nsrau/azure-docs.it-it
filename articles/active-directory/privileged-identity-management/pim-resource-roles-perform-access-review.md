@@ -1,9 +1,9 @@
 ---
-title: Eseguire una verifica di accesso dei ruoli personali risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
-description: Informazioni su come eseguire una verifica di accesso dei ruoli delle risorse di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Verificare l'accesso ai ruoli delle risorse di Azure in PIM-Azure Active Directory | Microsoft Docs
+description: Informazioni su come verificare l'accesso dei ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22c0ce1a5eee4b8d4cc40c47dadd4bcdc74d03ba
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287473"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804096"
 ---
-# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Eseguire una verifica di accesso dei ruoli delle risorse di Azure in PIM
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica come le aziende gestiscono l'accesso con privilegi alle risorse in Azure. 
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>Verificare l'accesso ai ruoli delle risorse di Azure in PIM
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure. 
 
 Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di confermare a intervalli regolari che il ruolo sia ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento oppure accedere direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
 
@@ -45,13 +45,13 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
 1. Passare all'applicazione PIM di Azure AD.
 2. Selezionare il pannello **Verifica di accesso**.
 
-   ![Screenshot dell'applicazione PIM, con selezionato il pannello Verifica di accesso](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![Screenshot dell'applicazione PIM, con selezionato il pannello Verifica di accesso](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. Selezionare la verifica da completare. 
 4. Scegliere **Approva** o **Nega**. Potrebbe essere necessario includere un motivo per la decisione nella **casella Provide a reason** (Specifica il motivo).
 
-   ![Screenshot della pagina dei dettagli della verifica](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Screenshot della pagina dei dettagli della verifica](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire una verifica di accesso dei ruoli personali AD Azure in PIM](pim-how-to-perform-security-review.md)
+- [Eseguire una verifica di accesso dei ruoli di Azure AD in PIM](pim-how-to-perform-security-review.md)

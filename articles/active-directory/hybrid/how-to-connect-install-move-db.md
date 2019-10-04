@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918847"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Spostare il database di Azure AD Connect da SQL Server Express a SQL Server 
 
@@ -25,7 +25,7 @@ Questo documento descrive come spostare il database di Azure AD Connect dal serv
 ## <a name="about-this-scenario"></a>Informazioni sullo scenario
 Di seguito sono riportate alcune brevi informazioni sullo scenario.  In questo scenario, Azure AD Connect versione 1.1.819.0 è installato in un singolo controller di dominio Windows Server 2016.  Usa la versione integrata SQL Server 2012 Express Edition per il database.  Il database verrà spostato in un server SQL Server 2017.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![Architettura dello scenario](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Spostare il database di Azure AD Connect
 Seguire questa procedura per spostare il database di Azure AD Connect in un'istanza remota di SQL Server.
@@ -37,7 +37,7 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
 5. Nel server SQL remoto aprire SQL Server Management Studio.
 6. In Database fare clic con il pulsante destro del mouse e scegliere Connetti.
 7. Nella schermata **Collega database** fare clic su **Aggiungi** e selezionare il file ADSync.mdf.  Fare clic su **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![Collega database](media/how-to-connect-install-move-db/move2.png)
 
 8. Una volta collegato il database, tornare al server di Azure AD Connect e installare Azure AD Connect.
 9. Al termine dell'installazione del file con estensione msi, viene avviata la procedura guidata per l'installazione di Azure AD Connect in modalità rapida. Chiudere la schermata facendo clic sull'icona di chiusura.
@@ -46,7 +46,7 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Viene visualizzata la schermata iniziale di Azure AD Connect. Accettare le condizioni di licenza e l'informativa sulla privacy e quindi fare clic su **Continua**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db3.png)
-12. Nella schermata **Installazione dei componenti necessari** l'opzione **Usa un'istanza di SQL Server esistente** è abilitata. Specificare il nome dell'istanza di SQL Server che ospita il database ADSync. Se l'istanza del motore SQL usata per ospitare il database ADSync non è quella predefinita in SQL Server, è necessario specificarne il nome. Inoltre, se l'esplorazione di SQL non è abilitata, è necessario specificare il numero di porta dell'istanza del motore SQL, Ad esempio:          
+12. Nella schermata **Installazione dei componenti necessari** l'opzione **Usa un'istanza di SQL Server esistente** è abilitata. Specificare il nome dell'istanza di SQL Server che ospita il database ADSync. Se l'istanza del motore SQL usata per ospitare il database ADSync non è quella predefinita in SQL Server, è necessario specificarne il nome. Inoltre, se l'esplorazione di SQL non è abilitata, è necessario specificare il numero di porta dell'istanza del motore SQL, Ad esempio:         
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db4.png)           
 
 13. Nella schermata **Connessione ad Azure AD** è necessario specificare le credenziali di amministratore globale della directory di Azure AD. È consigliabile usare un account nel dominio onmicrosoft.com predefinito. Questo account viene usato solo per creare un account di servizio in Azure AD e al termine della procedura guidata non viene più usato.
@@ -72,7 +72,7 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+- Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
 - [Installare Azure AD Connect usando un database ADSync esistente](how-to-connect-install-existing-database.md)
 - [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](how-to-connect-install-sql-delegation.md)
 

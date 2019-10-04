@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65956170"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app Node. js di Linux per servizio App di Azure
 
@@ -55,7 +55,7 @@ Questa impostazione specifica la versione di Node. js da usare, entrambi in fase
 
 ## <a name="configure-nodejs-server"></a>Configurare il server Node. js
 
-I contenitori di Node. js sono dotate [PM2](http://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per l'avvio con PM2, o con NPM o con un comando personalizzato.
+I contenitori di Node. js sono dotate [PM2](https://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per l'avvio con PM2, o con NPM o con un comando personalizzato.
 
 - [Eseguire un comando personalizzato](#run-custom-command)
 - [Eseguire npm start](#run-npm-start)
@@ -71,7 +71,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Eseguire npm start
 
-Per avviare l'app usando `npm start`, assicurarsi di un `start` script è nel *package. JSON* file. Ad esempio: 
+Per avviare l'app usando `npm start`, assicurarsi di un `start` script è nel *package. JSON* file. Ad esempio:
 
 ```json
 {
@@ -99,12 +99,12 @@ Il contenitore avvia automaticamente l'app con PM2 quando uno dei file di Node. 
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Uno dei seguenti [file PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *Process* e *ecosystem.config.js*
+- Uno dei seguenti [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *Process* e *ecosystem.config.js*
 
 È anche possibile configurare un file di avvio personalizzata con le estensioni seguenti:
 
 - Oggetto *js* file
-- Oggetto [file PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con l'estensione *JSON*, *. config. js*, *yaml*, o *yml*
+- Oggetto [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con l'estensione *JSON*, *. config. js*, *yaml*, o *yml*
 
 Per aggiungere un file di avvio personalizzate, eseguire il comando seguente [Cloud Shell](https://shell.azure.com):
 
@@ -119,7 +119,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 È possibile eseguire il debug di app Node. js in modalità remota in [Visual Studio Code](https://code.visualstudio.com/) se si configura per [eseguito con PM2](#run-with-pm2), tranne quando si esegue usando un *. config. js, *.yml, o *yaml*.
 
-Nella maggior parte dei casi, non è necessario per l'app alcuna configurazione aggiuntiva. Se l'app viene eseguita con un *Process* file (predefinito o personalizzato), deve avere un `script` proprietà nella radice del JSON. Ad esempio: 
+Nella maggior parte dei casi, non è necessario per l'app alcuna configurazione aggiuntiva. Se l'app viene eseguita con un *Process* file (predefinito o personalizzato), deve avere un `script` proprietà nella radice del JSON. Ad esempio:
 
 ```json
 {
@@ -137,7 +137,7 @@ Una volta terminato il debug, arrestare il debugger selezionando **Disconnect**.
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio App, è possibile [impostare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) di fuori di codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
 
 ```javascript
 process.env.NODE_ENV
@@ -147,7 +147,7 @@ process.env.NODE_ENV
 
 Per impostazione predefinita, viene eseguito Kudu `npm install --production` quando riconosce viene distribuita un'app Node. js. Se l'app richiede uno qualsiasi degli strumenti di automazione più diffusi, ad esempio Grunt, Bower o Gulp, è necessario fornire un [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
 
-Per abilitare il repository eseguire questi strumenti, è necessario aggiungerle alle dipendenze in *package. JSON.* Ad esempio: 
+Per abilitare il repository eseguire questi strumenti, è necessario aggiungerle alle dipendenze in *package. JSON.* Ad esempio:
 
 ```json
 "dependencies": {
@@ -226,7 +226,7 @@ fi
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](http://expressjs.com/guide/behind-proxies.html). Ad esempio: 
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](https://expressjs.com/guide/behind-proxies.html). Ad esempio:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -249,16 +249,16 @@ if (req.secure) {
 Quando un'app Node. js funzionante nel servizio App, si comporta in modo diverso o presenta errori, procedere come segue:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio: 
+- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio:
     - A seconda del *package. JSON*, pacchetti diversi possono essere installati per la modalità di produzione (`dependencies` confronto `devDependencies`).
     - Alcuni Framework web possono distribuire file statici in modo diverso in modalità di produzione.
     - Alcuni Framework web può usare gli script di avvio personalizzate durante l'esecuzione in modalità di produzione.
-- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](http://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](https://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App Node. js con MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Esercitazione: App Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Servizio app di Linux, domande frequenti](app-service-linux-faq.md)
+> [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

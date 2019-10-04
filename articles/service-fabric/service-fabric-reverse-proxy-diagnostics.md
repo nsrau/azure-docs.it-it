@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60726843"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorare e diagnosticare l'elaborazione della richiesta nel proxy inverso
 

@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115604"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180086"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
 
@@ -32,7 +32,7 @@ La tabella seguente include una descrizione di ogni stato dell'istanza e indica 
 Stato
 </th>
 <th>
-DESCRIZIONE
+Descrizione
 </th>
 <th>
 Fatturazione dell'utilizzo dell'istanza
@@ -178,7 +178,7 @@ Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma 
 <p><b>Stati</b></p>
 </td>
 <td width="366">
-<p>DESCRIZIONE</p>
+<p>Descrizione</p>
 </td>
 </tr>
 <tr>

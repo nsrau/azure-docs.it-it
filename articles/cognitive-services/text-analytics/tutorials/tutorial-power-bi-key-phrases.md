@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003469"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241018"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 - Microsoft Power BI Desktop. [Download gratuito](https://powerbi.microsoft.com/get-started/).
 - Un account Microsoft Azure. [Avviare una versione di valutazione gratuita](https://azure.microsoft.com/free/) o [eseguire l'accesso](https://portal.azure.com/).
 - Un account API Servizi cognitivi con l'API Analisi del testo. Se non se ne ha uno, è possibile [iscriversi](../../cognitive-services-apis-create-account.md) e usare il livello gratuito per 5.000 transazioni al mese (vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)) per completare questa esercitazione.
-- La [chiave di accesso di Analisi del testo](../how-tos/text-analytics-how-to-access-key.md) generata durante l'iscrizione.
+- La [chiave di accesso di Analisi del testo](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generata durante l'iscrizione.
 - Commenti dei clienti. È possibile usare i [nostri dati di esempio](https://aka.ms/cogsvc/ta) o i propri dati. Questa esercitazione presuppone che si usino i nostri dati di esempio.
 
 ## <a name="load-customer-data"></a>Caricare i dati dei clienti
@@ -103,7 +103,7 @@ L'[API Frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/Te
 A questo punto è possibile creare la funzione personalizzata che integrerà Power BI e Analisi del testo. La funzione riceve il testo da elaborare come parametro. Converte i dati nel e dal formato JSON necessario e invia la richiesta HTTP all'API Frasi chiave. La funzione analizza quindi la risposta dell'API e restituisce una stringa che contiene un elenco delimitato da virgole delle frasi chiave estratte.
 
 > [!NOTE]
-> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](https://msdn.microsoft.com/library/mt211003.aspx), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](https://docs.microsoft.com/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
+> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](https://docs.microsoft.com/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
 
 In Power BI Desktop verificare che sia ancora aperta la finestra 	Editor di query. Se non lo è, selezionare la scheda **Home** sulla barra multifunzione, quindi nel gruppo **Dati esterni** fare clic su **Modifica query**.
 
@@ -114,13 +114,14 @@ Verrà visualizzata una nuova query, inizialmente denominata `Query1`, nell'elen
 Ancora nella scheda **Home** sulla barra multifunzione, nel gruppo **Query** fare clic su **Editor avanzato** per aprire la finestra Editor avanzato. Eliminare il codice già presente nella finestra e incollare il codice seguente. 
 
 > [!NOTE]
-> Gli esempi seguenti presuppongono che l'endpoint dell'API Analisi del testo inizi con `https://westus.api.cognitive.microsoft.com`. Analisi del testo consente di creare una sottoscrizione in 13 aree diverse. Se l'iscrizione al servizio è stata effettuata in un'altra area, assicurarsi di usare l'endpoint corretto per l'area selezionata. Per trovare questo endpoint, accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/), selezionare la propria sottoscrizione di Analisi del testo e quindi selezionare la pagina Panoramica.
+> Sostituire l'endpoint di esempio seguente (contenente `<your-custom-subdomain>`) con l'endpoint generato per la risorsa Analisi del testo. Per trovare questo endpoint, accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/), selezionare la propria sottoscrizione di Analisi del testo e quindi selezionare `Quick start`.
+
 
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics" & "/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -144,7 +145,7 @@ Nella finestra Editor di query di Power BI Desktop tornare alla query `FabrikamC
 
 Viene visualizzata la finestra di dialogo Richiama funzione personalizzata. In **Nome nuova colonna** immettere `keyphrases`. In **Query della funzione** selezionare la funzione personalizzata creata, `KeyPhrases`.
 
-Nella finestra di dialogo viene visualizzato un nuovo campo, **testo (facoltativo)**. In questo campo occorre specificare la colonna che si vuole usare per fornire i valori per il parametro `text` dell'API Frasi chiave. Tenere presente che i valori per i parametri `language` e `id` sono già stati impostati come hardcoded. Selezionare `Merged` (la colonna creata [in precedenza](#PreparingData) tramite il merge dei campi dell'oggetto e del messaggio) dal menu a discesa.
+Nella finestra di dialogo viene visualizzato un nuovo campo, **testo (facoltativo)** . In questo campo occorre specificare la colonna che si vuole usare per fornire i valori per il parametro `text` dell'API Frasi chiave. Tenere presente che i valori per i parametri `language` e `id` sono già stati impostati come hardcoded. Selezionare `Merged` (la colonna creata [in precedenza](#PreparingData) tramite il merge dei campi dell'oggetto e del messaggio) dal menu a discesa.
 
 ![[Richiamo di una funzione personalizzata]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -164,7 +165,8 @@ Fare clic su **Modifica credenziali**, assicurarsi che l'opzione `Anonymous` sia
 > [!NOTE]
 > Occorre selezionare `Anonymous` in quanto il servizio Analisi del testo autentica l'utente tramite la sua chiave di accesso, in modo che Power BI non debba specificare le credenziali per la richiesta HTTP stessa.
 
-![[impostazione dell'autenticazione su anonima]](../media/tutorials/power-bi/access-web-content.png)
+> [!div class="mx-imgBorder"]
+> ![[impostazione dell'autenticazione su anonima]](../media/tutorials/power-bi/access-web-content.png)
 
 Se viene visualizzato il banner Modifica credenziali anche dopo aver scelto l'accesso anonimo, è possibile che si sia dimenticato di incollare la chiave di accesso di Analisi del testo nel codice nella [funzione personalizzata](#CreateCustomFunction) `KeyPhrases`.
 
@@ -188,7 +190,7 @@ Questa colonna verrà ora usata per generare una nuvola di parole. Per iniziare,
 > [!NOTE]
 > Perché usare le frasi chiave estratte per generare una nuvola di parole anziché usare il testo completo di ogni commento? Le frasi chiave forniscono le parole *importanti* dei commenti del cliente, non solo le *parole più comuni*. Inoltre, le dimensioni delle parole nella nuvola risultante non sono distorte dall'uso frequente di una parola in un numero relativamente piccolo di commenti.
 
-Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello Visualizzazioni nella parte destra dell'area di lavoro, fare clic sui puntini di sospensione (**...**) e scegliere **Importa dall'archivio**. Cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo Word Cloud. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
+Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello Visualizzazioni nella parte destra dell'area di lavoro, fare clic sui puntini di sospensione ( **...** ) e scegliere **Importa dall'archivio**. Cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo Word Cloud. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
 
 ![[aggiunta di un oggetto visivo personalizzato]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -223,7 +225,7 @@ La funzione Analisi del sentiment seguente restituisce un punteggio che indica i
 // Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/sentiment",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -240,7 +242,7 @@ Di seguito sono presentate due versioni di una funzione di Rilevamento lingua. L
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -254,7 +256,7 @@ in  language
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +276,7 @@ Infine, ecco una variante della funzione Frasi chiave già presentata che restit
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -294,7 +296,7 @@ Altre informazioni sul servizio Analisi del testo,sulla lingua della formula M d
 > [Informazioni di riferimento sull'API Analisi del testo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sulla lingua della formula M di Power Query](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Informazioni di riferimento sulla lingua della formula M di Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentazione di Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

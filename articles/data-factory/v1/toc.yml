@@ -22,8 +22,6 @@
       items:
         - name: Copia guidata
           href: data-factory-copy-data-wizard-tutorial.md
-        - name: Portale di Azure
-          href: data-factory-copy-activity-tutorial-using-azure-portal.md
         - name: Visual Studio
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell
@@ -80,7 +78,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: Ricerca di Azure
               href: data-factory-azure-search-connector.md
-            - name: Database SQL di Azure
+            - name: database SQL di Azure
               href: data-factory-azure-sql-connector.md
             - name: Azure SQL Data Warehouse
               href: data-factory-azure-sql-data-warehouse-connector.md

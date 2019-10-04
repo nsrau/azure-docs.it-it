@@ -6,16 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108070"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933553"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
@@ -23,7 +23,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 > [!NOTE]
 > 
-> * Se si sviluppano funzioni permanenti in C#, è consigliabile usare invece lo [sviluppo di Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Se si sviluppano funzioni permanenti C#in, è necessario prendere in considerazione [lo sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
@@ -38,7 +38,7 @@ Per impostazione predefinita, l'app per le funzioni creata usa la versione 2.x d
 
 Se si stanno creando funzioni durevoli in JavaScript, è necessario installare il [`durable-functions` pacchetto npm](https://www.npmjs.com/package/durable-functions).
 
-1. Selezionare il nome dell'app per le funzioni, seguito da **Funzionalità della piattaforma**, quindi **Strumenti avanzati (Kudu)**.
+1. Selezionare il nome dell'app per le funzioni, seguito da **Funzionalità della piattaforma**, quindi **Strumenti avanzati (Kudu)** .
 
    ![Funzionalità della piattaforma Funzioni, scegliere Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
@@ -139,4 +139,4 @@ La prima funzione permanente è ora attiva e in esecuzione in Azure.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri di funzione permanente comuni](durable-functions-concepts.md)
+> [Informazioni sui criteri di funzione permanente comuni](durable-functions-overview.md#application-patterns)

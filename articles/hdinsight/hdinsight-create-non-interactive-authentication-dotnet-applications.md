@@ -2,41 +2,40 @@
 title: Creare applicazioni .NET di autenticazione non interattive in Azure HDInsight
 description: Informazioni su come creare applicazioni Microsoft .NET di autenticazione non interattive in Azure HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722293"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433674"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Creare un'applicazione HDInsight .NET di autenticazione non interattiva
 È possibile eseguire l'applicazione Microsoft .NET di Azure HDInsight con l'identità specifica dell'applicazione (non interattiva) o con l'identità dell'utente che ha eseguito l'accesso all'applicazione (interattiva). Questo articolo descrive come creare un'applicazione .NET di autenticazione non interattiva per connettersi ad Azure e gestire HDInsight. Per un esempio di applicazione interattiva, vedere [Connettersi ad Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Dall'applicazione .NET non interattiva, è necessario disporre degli elementi seguenti:
 
-* ID tenant della sottoscrizione di Azure, detto anche *ID directory*. Vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-* ID client dell'applicazione Azure Active Directory (Azure AD). Vedere [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Ottenere l'ID applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Chiave privata dell'applicazione Azure AD. Vedere [Ottenere la chiave di autenticazione dell'applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* ID tenant della sottoscrizione di Azure, detto anche *ID directory*. Vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* ID client dell'applicazione Azure Active Directory (Azure AD). Vedere [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Ottenere l'ID applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Chiave privata dell'applicazione Azure AD. Vedere [Ottenere la chiave di autenticazione dell'applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Un cluster HDInsight. Vedere l'[esercitazione introduttiva](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Assegnare un ruolo all'applicazione Azure AD
-Assegnare un [ruolo](../role-based-access-control/built-in-roles.md) all'applicazione Azure AD per concedere le autorizzazioni per l'esecuzione di azioni. È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate ai livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione può leggere il gruppo di risorse e le risorse in esso contenute. In questa esercitazione si imposta l'ambito a livello di gruppo di risorse. Per altre informazioni, vedere [Usare l'assegnazione dei ruoli per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
+Assegnare un [ruolo](../role-based-access-control/built-in-roles.md) all'applicazione Azure AD per concedere le autorizzazioni per l'esecuzione di azioni. È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate ai livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione può leggere il gruppo di risorse e le risorse in esso contenute. In questo articolo, si imposta l'ambito a livello di gruppo di risorse. Per altre informazioni, vedere [Usare l'assegnazione dei ruoli per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Per aggiungere il ruolo Proprietario all'applicazione Azure AD**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu a sinistra selezionare **Gruppi di risorse**.
-3. Selezionare il gruppo di risorse contenente il cluster HDInsight in cui verrà eseguita la query Hive più avanti in questa esercitazione. Se c'è un numero elevato di gruppi di risorse, è possibile usare il filtro per trovare il gruppo desiderato.
-4. Nel menu relativo al gruppo di risorse selezionare **Controllo di accesso (IAM)**.
+3. Selezionare il gruppo di risorse con il cluster HDInsight in cui verrà eseguita la query Hive più avanti in questo articolo. Se c'è un numero elevato di gruppi di risorse, è possibile usare il filtro per trovare il gruppo desiderato.
+4. Nel menu relativo al gruppo di risorse selezionare **Controllo di accesso (IAM)** .
 5. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco corrente di assegnazioni di ruolo.
 6. Nella parte superiore della pagina selezionare **Aggiungi un'assegnazione di ruolo**.
 7. Seguire le istruzioni per aggiungere il ruolo Proprietario all'applicazione Azure AD. Dopo avere aggiunto il ruolo, l'applicazione viene elencata per il ruolo Proprietario. 

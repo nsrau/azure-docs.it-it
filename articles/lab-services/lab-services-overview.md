@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257621"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275729"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introduzione ad Azure Lab Services
 Azure Lab Services consente di configurare rapidamente nel cloud un ambiente per il team, ad esempio un ambiente di sviluppo, un ambiente di test o un ambiente di lab per le classi. Il proprietario di un lab crea un lab, esegue il provisioning delle macchine virtuali Windows o Linux, installa il software e gli strumenti necessari e li rende disponibili per gli utenti del lab. Gli utenti del lab si connettono alle macchine virtuali del lab e le usano per le attività giornaliere, per i progetti a breve termine o per svolgere i compiti scolastici. Quando gli utenti iniziano a usare le risorse nel lab, un amministratore del lab può analizzare il costo e l'utilizzo in più lab e impostare criteri omnicomprensivi per ottimizzare i costi del team o dell'organizzazione.

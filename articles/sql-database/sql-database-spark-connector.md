@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331512"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566474"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Consente di accelerare il processo di big data analytics in tempo reale con connettore Spark per database SQL di Azure e SQL Server
 
@@ -202,7 +201,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",
@@ -214,7 +212,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se ancora non lo si è fatto, scaricare il connettore Spark per il database Azure SQL dal [repository GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) ed esplorare le risorse aggiuntive nel repository:
+Se ancora non lo si è fatto, scaricare il connettore Spark per il database SQL di Azure e SQL Server dal [repository GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) ed esplorare le risorse aggiuntive nel repository:
 
 -   [Esempi di notebook Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Script di esempio (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)

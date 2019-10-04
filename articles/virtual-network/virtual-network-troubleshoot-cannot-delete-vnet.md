@@ -4,7 +4,7 @@ description: Informazioni su come risolvere il problema in cui non è possibile 
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415220"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056934"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: Impossibile eliminare una rete virtuale in Azure
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: Non è stato possibile eliminare una rete virtuale in Azure
 
 Quando si tenta di eliminare una rete virtuale in Microsoft Azure, è possibile che si riceva un errore. Questo articolo illustra la procedura per risolvere questo tipo di problema. 
 
@@ -66,7 +66,7 @@ Se Active Directory Domain Service è abilitato e connesso alla rete virtuale, n
 
 ![Controllare il dispositivo collegato](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Per disabilitare il servizio, vedere [Disabilitare Azure Active Directory Domain Services tramite il portale di Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Per disabilitare il servizio, vedere [Disabilitare Azure Active Directory Domain Services tramite il portale di Azure](../active-directory-domain-services/delete-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Verificare se la rete virtuale è connessa ad altre risorse
 

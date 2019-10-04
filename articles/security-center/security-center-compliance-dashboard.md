@@ -3,23 +3,22 @@ title: Migliorare la conformità alle normative con il Centro sicurezza di Azure
 description: 'Esercitazione: informazioni su come migliorare la conformità alle normative con il Centro sicurezza di Azure.'
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2e73cbd1de4336a08e26a609dfe704da0a068860
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 4/30/2019
+ms.author: memildin
+ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106005"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202438"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 ---
@@ -47,8 +46,7 @@ La visualizzazione del dashboard Conformità alle normative consente di concentr
 
 >[!NOTE]
 > Attualmente sono supportati gli standard normativi seguenti: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. Altri standard verranno inclusi nello sviluppo futuro del dashboard.
-
-1.  Nel menu principale del Centro sicurezza selezionare il dashboard **Conformità alle normative** in **CRITERI E CONFORMITÀ**. <br>
+1.  Nel menu principale del Centro sicurezza selezionare **Conformità alle normative** in **CRITERI E CONFORMITÀ**. <br>
 Nella parte superiore della schermata verrà visualizzato un dashboard con una panoramica dello stato di conformità al set delle normative di conformità supportate. È possibile visualizzare il punteggio di conformità complessivo e il numero di valutazioni superate e non superate associate a ogni standard.
 
     ![Descrizione dei computer: affidabilità elevata](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -58,12 +56,17 @@ Nella parte superiore della schermata verrà visualizzato un dashboard con una p
 
     ![Scheda relativa alla conformità](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3.  Selezionare la scheda **Tutti** per visualizzare tutte le raccomandazioni del Centro sicurezza rilevanti e gli standard associati. Tale visualizzazione può essere utile per identificare tutti i diversi standard interessati da una determinata raccomandazione. <br> È possibile usare questa visualizzazione per classificare in ordine di priorità le raccomandazioni da risolvere. Se per la raccomandazione **Abilitare MFA per gli account con autorizzazioni di proprietario per la sottoscrizione** viene visualizzato un esito negativo per più risorse e tale raccomandazione è associata a più standard, ad esempio, risolverla avrà un impatto elevato sul punteggio di conformità complessivo.
+3. Selezionare la scheda **Tutti** per visualizzare tutte le raccomandazioni del Centro sicurezza rilevanti e gli standard associati. Tale visualizzazione può essere utile per identificare tutti i diversi standard interessati da una determinata raccomandazione. <br> È possibile usare questa visualizzazione per classificare in ordine di priorità le raccomandazioni da risolvere. Se per la raccomandazione **Abilitare MFA per gli account con autorizzazioni di proprietario per la sottoscrizione** viene visualizzato un esito negativo per più risorse e tale raccomandazione è associata a più standard, ad esempio, risolverla avrà un impatto elevato sul punteggio di conformità complessivo.
 
     ![Impatto sul punteggio di conformità](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-## <a name="improve-your-compliance-posture"></a>Migliorare il comportamento di conformità
+1. Per generare e scaricare un report PDF che riepiloga lo stato di conformità corrente per uno specifico standard, fare clic su **Scarica report**.
 
+    Il report fornisce un riepilogo dettagliato dello stato di conformità per lo standard selezionato basato sui dati di valutazione del Centro sicurezza ed è organizzato in base ai controlli di tale particolare standard. Il report può essere condiviso con gli stakeholder di rilievo e può essere usato per fornire giustificativi a revisori interni ed esterni.
+
+    ![download](./media/security-center-compliance-dashboard/download-report.png)
+
+## <a name="improve-your-compliance-posture"></a>Migliorare il comportamento di conformità
 
 In base alle informazioni riportate nel dashboard Conformità alle normative, è possibile migliorare il comportamento di conformità risolvendo le raccomandazioni direttamente all'interno del dashboard.
 

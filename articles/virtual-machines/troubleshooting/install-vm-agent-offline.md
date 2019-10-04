@@ -4,22 +4,21 @@ description: Informazioni su come installare l'agente di macchine virtuali di Az
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259683"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059242"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -36,27 +35,17 @@ Installare l'agente di macchine virtuali in modalità offline negli scenari segu
 
 Usare la procedura seguente per installare l'agente di macchine virtuali in modalità offline.
 
-> [!NOTE]
-> È possibile automatizzare il processo di installazione dell'agente di macchine virtuali in modalità offline.
-> A questo scopo, usare gli [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md) (script di ripristino della macchina virtuale di Azure). Se si sceglie di usare gli script di ripristino della macchina virtuale di Azure, è possibile seguire la procedura seguente:
-> 1. Ignorare il passaggio 1 usando gli script per collegare il disco del sistema operativo della VM interessata a una macchina virtuale di ripristino.
-> 2. Seguire i passaggi da 2 a 10 per applicare le mitigazioni.
-> 3. Ignorare il passaggio 11 usando gli script per ricreare la macchina virtuale.
-> 4. Seguire il passaggio 12.
-
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Passaggio 1: Collegare il disco del sistema operativo della macchina virtuale a un'altra macchina virtuale come disco dati
 
-1.  Eliminare la macchina virtuale. Assicurarsi di aver selezionato l'opzione **Keep the disks** (Mantieni i dischi) quando si esegue questa operazione.
+1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi alporre il disco a una VM di risoluzione dei problemi. Per altre informazioni, vedere [risolvere i problemi di una VM Windows connettendo il disco del sistema operativo a una VM di ripristino usando il portale di Azure](troubleshoot-recovery-disks-portal-windows.md). Per la macchina virtuale classica, eliminare la macchina virtuale e mantenete il disco del sistema operativo e quindi alleghi il disco del sistema operativo alla VM di risoluzione dei problemi.
 
-2.  Collegare il disco del sistema operativo come disco dati a un'altra macchina virtuale (nota come _macchina virtuale per la risoluzione dei problemi_). Per altre informazioni, vedere [Collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md).
-
-3.  Connettersi alla macchina virtuale per la risoluzione dei problemi. Aprire **Gestione computer** > **Gestione disco**. Verificare che il disco del sistema operativo sia online e che siano assegnate lettere di unità alle partizioni del disco.
+2.  Connettersi alla macchina virtuale per la risoluzione dei problemi. Aprire **Gestione computer** > **Gestione disco**. Verificare che il disco del sistema operativo sia online e che siano assegnate lettere di unità alle partizioni del disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Passaggio 2: Modificare il disco del sistema operativo per installare l'agente di macchine virtuali di Azure
 
 1.  Attivare una connessione Desktop remoto alla macchina virtuale per la risoluzione dei problemi.
 
-2.  Nel disco del sistema operativo collegato passare alla cartella \windows\system32\config. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
+2.  Nella macchina virtuale di risoluzione dei problemi individuare il disco del sistema operativo collegato, quindi aprire la cartella \Windows\System32\Config. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
 
 3.  Avviare l'**Editor del Registro di sistema** (regedit.exe).
 
@@ -109,7 +98,7 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
 
 10.  Selezionare **BROKENSOFTWARE**. Scegliere **File** > **Scarica hive** dal menu.
 
-11.  Scollegare il disco del sistema operativo e quindi ricreare la macchina virtuale usando il disco del sistema operativo.
+11.  Scollegare il disco del sistema operativo e [modificare il disco del sistema operativo per la macchina virtuale interessata](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Per la macchina virtuale classica, creare una nuova macchina virtuale usando il disco del sistema operativo riparato.
 
 12.  Accedere alla macchina virtuale. Si noti che RdAgent è in esecuzione e i log vengono generati.
 

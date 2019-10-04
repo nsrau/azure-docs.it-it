@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171373"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Creare un server MariaDB e configurare una regola del firewall tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di Azure di esempio consente di creare un singolo server Database di Azure per MariaDB e di configurare una regola del firewall a livello di server. Dopo che lo script è stato eseguito correttamente, il server MariaDB è accessibile da tutti i servizi di Azure e dall'indirizzo IP configurato.

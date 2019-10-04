@@ -3,19 +3,20 @@ title: 'Modello demo di Conversation Learner: ordinazione pizza - Servizi cognit
 titleSuffix: Azure
 description: Informazioni su come creare un modello dimostrativo di apprendimento della conversazione.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d42121468b8a875ecd13fb936d810728bd4b644
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431006"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703431"
 ---
 # <a name="demo-pizza-order"></a>Demo: Ordinazione pizza
 Questa demo illustra un bot per l'ordinazione di pizze che supporta l'ordinazione di pizze singole mediante:

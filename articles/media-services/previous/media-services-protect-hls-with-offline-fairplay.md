@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.author: willzhan
+ms.reviewer: dwgeo
+ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002664"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871650"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 3](../latest/offline-fairplay-for-ios.md)
 > * [Versione 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure include un set di [servizi di protezione del contenuto](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati che riguardano le tecnologie seguenti:
 
@@ -42,8 +43,8 @@ La crittografia DRM (Digital Rights Management) o AES (Advanced Encryption Stand
 Oltre alla protezione del contenuto per lo streaming online su vari protocolli, anche la modalità offline per il contenuto protetto è una funzionalità molto richiesta. Il supporto della modalità offline è necessaria per gli scenari seguenti:
 
 * Riproduzione del contenuto quando la connessione Internet non è disponibile, ad esempio in viaggio.
-* Alcuni provider di contenuti potrebbero disattivare la distribuzione di licenze DRM oltre i confini di un paese. Per visualizzare del contenuto all'esterno del paese, è prima necessario scaricarlo offline.
-* In alcuni paesi la disponibilità di Internet e/o la larghezza di banda sono limitate. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
+* Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se gli utenti desiderano guardare il contenuto mentre si recano all'esterno del paese, è necessario scaricare offline.
+* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
 
 Questo articolo illustra il supporto della modalità offline di FairPlay Streaming (FPS) per dispositivi che eseguono iOS 10 o versioni successive. Questa funzionalità non è supportata per altre piattaforme Apple, ad esempio watchOS, tvOS o Safari su macOS.
 
@@ -207,7 +208,7 @@ Questa sezione include le risposte ad alcune domande frequenti utili per la riso
 - **Perché, anche dopo aver aggiunto audio-only=false, in modalità offline continua a essere riprodotto solo l'audio senza il video?** A seconda del modo in cui è progettata la chiave di cache della rete CDN, è possibile che il contenuto sia memorizzato nella cache. Ripulire la cache.
 - **La modalità offline di FPS è anche supportata in iOS 11 oltre che in iOS 10?** Sì. La modalità offline di FPS è supportata per iOS 10 e iOS 11.
 - **Il documento "Offline Playback with FairPlay Streaming and HTTP Live Streaming" non è incluso in FPS Server SDK. Perché?** A partire dalla versione 4 di FPS Server SDK, questo documento è stato incluso in "FairPlay Streaming Programming Guide" (Guida alla programmazione di FairPlay Streaming).
-- **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?**
+- **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Per informazioni su questa API, vedere [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet) (Metodo FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration). Il parametro rappresenta la durata del periodo di noleggio offline, con l'ora specificata come unità.
@@ -244,7 +245,7 @@ Un file boot.xml di esempio:
 </HLSMoviePackage>
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Questo documento include le procedure e le informazioni seguenti che è possibile usare per implementare la modalità offline di FPS:
 
 * La procedura di configurazione della protezione del contenuto in Servizi multimediali tramite l'API .NET di Servizi multimediali consente di configurare la crittografia dinamica FairPlay e la distribuzione delle licenze FairPlay in Servizi multimediali.

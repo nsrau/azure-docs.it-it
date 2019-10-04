@@ -1,34 +1,33 @@
 ---
 title: Indicizzare i BLOB JSON da un indicizzatore di BLOB di Azure per la ricerca full-text - Ricerca di Azure
 description: Ricercare per indicizzazione i BLOB JSON di Azure per il contenuto di testo usando l'indicizzatore di BLOB di Ricerca di Azure. Gli indicizzatori automatizzano l'inserimento di dati per le origini dati selezionate, ad esempio l'archiviazione BLOB di Azure.
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527354"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656667"
 ---
-# <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
-Questo articolo illustra come configurare un blob di ricerca di Azure [indicizzatore](search-indexer-overview.md) per estrarre contenuto strutturato dai documenti JSON in archiviazione Blob di Azure e rendere disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 
+# <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di BLOB di ricerca di Azure
+Questo articolo illustra come configurare un [indicizzatore](search-indexer-overview.md) di BLOB di ricerca di Azure per estrarre il contenuto strutturato dai documenti JSON nell'archivio BLOB di Azure e renderlo ricercabile in ricerca di Azure. Questo flusso di lavoro crea un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 
 
-Per indicizzare il contenuto JSON è possibile usare il [portale](#json-indexer-portal), le [API REST](#json-indexer-rest) o [.NET SDK](#json-indexer-dotnet). Comuni a tutti gli approcci sono che si trovano i documenti JSON in un contenitore blob in un account di archiviazione di Azure. Per istruzioni su come eseguire il push di documenti JSON da altre piattaforme non Azure, vedere [Indicizzazione dei dati esterni per le query in Ricerca di Azure](search-what-is-data-import.md).
+Per indicizzare il contenuto JSON è possibile usare il [portale](#json-indexer-portal), le [API REST](#json-indexer-rest) o [.NET SDK](#json-indexer-dotnet). Il comune a tutti gli approcci è che i documenti JSON si trovano in un contenitore BLOB in un account di archiviazione di Azure. Per istruzioni su come eseguire il push di documenti JSON da altre piattaforme non Azure, vedere [Indicizzazione dei dati esterni per le query in Ricerca di Azure](search-what-is-data-import.md).
 
-I BLOB JSON in archiviazione Blob di Azure sono in genere un singolo documento JSON o una raccolta di entità JSON. Per le raccolte JSON, il blob potrebbe avere un **matrice** degli elementi JSON ben formati. Anche i BLOB è stato composto da più entità JSON singole separate da un carattere di nuova riga. L'indicizzatore di blob in ricerca di Azure consente di analizzare tali costruzione, a seconda del modo in cui impostato il **parsingMode** parametro nella richiesta.
+I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON o una raccolta di entità JSON. Per le raccolte JSON, il BLOB può avere una **matrice** di elementi JSON ben formati. I BLOB possono anche essere composti da più entità JSON singole separate da una nuova riga. L'indicizzatore BLOB in ricerca di Azure può analizzare qualsiasi costruzione di questo tipo, a seconda della modalità con cui si imposta il parametro **parsingMode** nella richiesta.
 
-> [!IMPORTANT]
-> `json` e `jsonArray` modalità di analisi disponibili a livello generale, ma `jsonLines` modalità di analisi è in anteprima pubblica e non deve essere utilizzata in ambienti di produzione. Per altre informazioni, vedere [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+Tutte le modalità di analisi JSON`json`( `jsonArray`, `jsonLines`,) sono ora disponibili a livello generale. 
 
 > [!NOTE]
-> Seguire le indicazioni di configurazione dell'indicizzatore nelle [indicizzazione di uno-a-molti](search-howto-index-one-to-many-blobs.md) per visualizzare più documenti di ricerca da un blob di Azure.
+> Seguire i consigli di configurazione dell'indicizzatore nell' [indicizzazione uno-a-molti](search-howto-index-one-to-many-blobs.md) per restituire più documenti di ricerca da un BLOB di Azure.
 
 <a name="json-indexer-portal"></a>
 
@@ -42,13 +41,13 @@ Il metodo più semplice di indicizzazione dei documenti JSON consiste nell'usare
 
 1. [Accedere al portale di Azure](https://portal.azure.com/).
 
-1. [Creare un contenitore Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per contenere i dati. Il livello di accesso pubblico può essere impostato su uno qualsiasi dei relativi valori validi.
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per contenere i dati. Il livello di accesso pubblico può essere impostato su uno dei valori validi.
 
-È necessario il nome di account di archiviazione, nome del contenitore e una chiave di accesso per recuperare i dati nel **importare dati** procedura guidata.
+Per recuperare i dati nella procedura guidata **Importa dati** , sono necessari il nome dell'account di archiviazione, il nome del contenitore e una chiave di accesso.
 
 ### <a name="2---start-import-data-wizard"></a>2 - Avviare la procedura guidata Importa dati
 
-Nella pagina Panoramica del servizio di ricerca di Azure, è possibile [avviare la procedura guidata](search-import-data-portal.md) dalla barra dei comandi o facendo clic **Aggiungi ricerca di Azure** nel **servizio Blob** sezione il account di archiviazione a sinistra del riquadro di spostamento.
+Nella pagina Panoramica del servizio ricerca di Azure è possibile [avviare la procedura guidata](search-import-data-portal.md) dalla barra dei comandi oppure facendo clic su **Aggiungi ricerca di Azure** nella sezione **servizio BLOB** del riquadro di spostamento a sinistra dell'account di archiviazione.
 
    ![Comando Importa dati nel portale](./media/search-import-data-portal/import-data-cmd2.png "Avviare la procedura guidata Importa dati")
 
@@ -58,13 +57,13 @@ Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azu
 
 + **Dati da estrarre** deve essere impostato su *Contenuto e metadati*. La selezione di questa opzione consente alla procedura guidata di dedurre uno schema di indice e di eseguire il mapping dei campi per l'importazione.
    
-+ **Modalità di analisi** deve essere impostata su *JSON*, *matrice JSON* oppure *righe JSON*. 
++ La **modalità di analisi** deve essere impostata su *JSON*, *matrici JSON* o *righe JSON*. 
 
   *JSON* articola ogni BLOB come singolo documento di ricerca, che viene visualizzato come elemento indipendente nei risultati della ricerca. 
 
-  *Matrice JSON* è per i blob che contengono dati JSON ben formati, il codice JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento articolata come autonomo, documento di ricerca indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON*, l'intero BLOB viene inserito come un solo documento.
+  La *matrice JSON* è per i BLOB che contengono dati JSON ben formati, il JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento venga articolato come documento di ricerca autonomo e indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON*, l'intero BLOB viene inserito come un solo documento.
 
-  *Le righe JSON* è per i BLOB è costituita da più entità JSON separate da una nuova riga, in cui si desidera ogni entità articolata come un documento di ricerca indipendente autonomo. Se i BLOB sono complessi e non si sceglie *righe JSON* analisi-modalità, quindi l'intero blob vengono inseriti come un singolo documento.
+  Le *righe JSON* sono per i BLOB composti da più entità JSON separate da una nuova riga, in cui si vuole che ogni entità venga articolata come documento di ricerca indipendente autonomo. Se i BLOB sono complessi e non si sceglie la modalità di analisi delle *righe JSON* , l'intero BLOB viene inserito come singolo documento.
    
 + In **Contenitore di archiviazione** occorre specificare l'account di archiviazione e il contenitore oppure una stringa di connessione che si risolve nel contenitore. È possibile ottenere le stringhe di connessione nella pagina del portale del servizio BLOB.
 
@@ -74,21 +73,21 @@ Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azu
 
 L'aggiunta di funzionalità di ricerca cognitiva non è necessaria per l'importazione di documenti JSON. A meno che non si abbia la specifica esigenza di [includere trasformazioni e API Servizi cognitivi](cognitive-search-concept-intro.md) alla pipeline di indicizzazione, saltare questo passaggio.
 
-Per ignorare il passaggio, passare alla pagina successiva.
+Per ignorare il passaggio, passare prima alla pagina successiva.
 
    ![Pulsante Pagina successiva per la ricerca cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
 
-Da tale pagina è possibile passare direttamente alla personalizzazione dell'indice.
+Da questa pagina è possibile passare alla personalizzazione degli indici.
 
    ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
 
 ### <a name="5---set-index-attributes"></a>5 - Impostare gli attributi dell'indice
 
-Nella pagina **Indice** dovrebbe essere presente un elenco di campi con un tipo di dati e una serie di caselle di controllo per l'impostazione degli attributi di indice. La procedura guidata può generare un elenco di campi in base a metadati e tramite il campionamento dei dati di origine. 
+Nella pagina **Indice** dovrebbe essere presente un elenco di campi con un tipo di dati e una serie di caselle di controllo per l'impostazione degli attributi di indice. La procedura guidata può generare un elenco di campi in base ai metadati e al campionamento dei dati di origine. 
 
-È possibile selezionare in massa attributi facendo clic sulla casella di controllo nella parte superiore di una colonna di attributo. Scegli **recuperabile** e **ricercabile** per ogni campo che deve essere restituito da un'app client e soggetti a elaborazione della ricerca full-text. Si noterà che i numeri interi non sono full-text o fuzzy ricercabili (i numeri vengono valutati come verbatim e sono spesso utili nei filtri).
+È possibile selezionare in blocco gli attributi facendo clic sulla casella di controllo nella parte superiore di una colonna attributo. Scegliere **recuperabile** e **ricercabile** per ogni campo che deve essere restituito a un'app client e soggetto all'elaborazione della ricerca full-text. Si noterà che gli Integer non sono full-text o ricerca fuzzy (i numeri vengono valutati Verbatim e spesso sono utili nei filtri).
 
-Esaminare la descrizione della [attributi dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) e [analizzatori di lingua](https://docs.microsoft.com/rest/api/searchservice/language-support) per altre informazioni. 
+Per ulteriori informazioni, vedere la descrizione degli [attributi degli indici](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) e degli [analizzatori della lingua](https://docs.microsoft.com/rest/api/searchservice/language-support) . 
 
 Dedicare qualche momento alla revisione delle selezioni. Con l'esecuzione della procedura guidata vengono create strutture dei dati fisiche e non è possibile eliminare questi campi senza eliminare e ricreare tutti gli oggetti.
 
@@ -109,58 +108,58 @@ Fare clic su **OK** per eseguire la procedura guidata e creare tutti gli oggetti
 Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-explorer.md) per eseguire query sull'indice.
 
 > [!NOTE]
-> Se non viene visualizzato i dati che previsti, si potrebbe essere necessario impostare altri attributi in altri campi. Eliminare l'indice e l'indicizzatore appena creato, quindi eseguire la procedura guidata nuovo, modificando le selezioni effettuate per gli attributi dell'indice nel passaggio 5. 
+> Se non vengono visualizzati i dati previsti, potrebbe essere necessario impostare più attributi in altri campi. Eliminare l'indice e l'indicizzatore appena creati, quindi eseguire di nuovo la procedura guidata modificando le selezioni per gli attributi di indice nel passaggio 5. 
 
 <a name="json-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>Usare le API REST
 
-È possibile usare l'API REST per indicizzare i BLOB JSON, seguendo un flusso di lavoro in tre parti comune a tutti gli indicizzatori in ricerca di Azure: creare un'origine dati, creare un indice, creare un indicizzatore. Estrazione dei dati dall'archiviazione blob si verifica quando si invia la richiesta di creare un indicizzatore. Dopo aver completata questa richiesta, si avrà un indice sottoponibili a query. 
+È possibile usare l'API REST per indicizzare i BLOB JSON, seguendo un flusso di lavoro in tre parti comune a tutti gli indicizzatori in ricerca di Azure: creare un'origine dati, creare un indice, creare un indicizzatore. L'estrazione dei dati dall'archiviazione BLOB si verifica quando si invia la richiesta create Indexer. Al termine di questa richiesta, sarà presente un indice Queryable. 
 
-È possibile esaminare [il codice di esempio REST](#rest-example) alla fine di questa sezione che illustra come creare tutti e tre gli oggetti. In questa sezione sono contenuti inoltre dettagli sulle [modalità di analisi JSON](#parsing-modes), [singolo BLOB](#parsing-single-blobs), [matrici JSON](#parsing-arrays), e [annidati matrici](#nested-json-arrays).
+È possibile esaminare il [codice di esempio REST](#rest-example) alla fine di questa sezione in cui viene illustrato come creare tutti e tre gli oggetti. Questa sezione contiene anche informazioni dettagliate sulle [modalità di analisi JSON](#parsing-modes), [BLOB singoli](#parsing-single-blobs), [matrici JSON](#parsing-arrays)e [matrici annidate](#nested-json-arrays).
 
-Per l'indicizzazione basata su codice JSON, usare [Postman](search-fiddler.md) e l'API REST per creare questi oggetti:
+Per l'indicizzazione JSON basata sul codice, usare il [post](search-get-started-postman.md) e l'API REST per creare questi oggetti:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
++ [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-Ordine delle operazioni è necessario creare e chiamare gli oggetti nell'ordine indicato. A differenza del flusso di lavoro del portale, un approccio di codice richiede un indice disponibile per accettare i documenti JSON inviati tramite il **creare un indicizzatore** richiesta.
+L'ordine delle operazioni richiede la creazione e la chiamata di oggetti in questo ordine. A differenza del flusso di lavoro del portale, un approccio del codice richiede un indice disponibile per accettare i documenti JSON inviati tramite la richiesta **create Indexer** .
 
-I BLOB JSON in archiviazione Blob di Azure sono in genere un singolo documento JSON o un file JSON "matrice". L'indicizzatore di BLOB di Ricerca di Azure è in grado di analizzare entrambi i tipi di costruzione, a seconda dell'impostazione del parametro **parsingMode** nella richiesta.
+I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON o una "matrice" JSON. L'indicizzatore di BLOB di Ricerca di Azure è in grado di analizzare entrambi i tipi di costruzione, a seconda dell'impostazione del parametro **parsingMode** nella richiesta.
 
-| Documento JSON | parsingMode | DESCRIZIONE | Disponibilità |
+| Documento JSON | parsingMode | Descrizione | Disponibilità |
 |--------------|-------------|--------------|--------------|
-| Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale in entrambe [resto](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | Disponibile in anteprima in entrambe [resto](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Più documenti per BLOB | `jsonLines` | Analizza un blob che contiene più entità JSON ("matrice") separate da un carattere di nuova riga, in cui ogni entità diventa un documento separato di ricerca di Azure. | Disponibile in anteprima in entrambe [resto](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Più documenti per BLOB | `jsonLines` | Analizza un BLOB che contiene più entità JSON (una "matrice") separate da una nuova riga, in cui ogni entità diventa un documento di ricerca di Azure separato. | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
-### <a name="1---assemble-inputs-for-the-request"></a>1 - assemblare gli input per la richiesta
+### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
-Per ogni richiesta, è necessario fornire il nome del servizio e chiave di amministrazione per ricerca di Azure (nell'intestazione POST) e il nome di account di archiviazione e la chiave per l'archiviazione blob. È possibile usare [Postman](search-fiddler.md) per inviare richieste HTTP in ricerca di Azure.
+Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per ricerca di Azure (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. È possibile usare il [post](search-get-started-postman.md) per inviare richieste HTTP a ricerca di Azure.
 
-Copiare i quattro valori seguenti nel blocco note, in modo da poterli incollare in una richiesta:
+Copiare i quattro valori seguenti nel blocco note in modo che sia possibile incollarli in una richiesta:
 
-+ Nome di servizio ricerca di Azure
-+ Azure chiave di amministrazione di ricerca
++ Nome del servizio ricerca di Azure
++ Chiave amministratore di ricerca di Azure
 + Nome dell'account di archiviazione di Azure
 + Chiave dell'account di archiviazione di Azure
 
 È possibile trovare questi valori nel portale:
 
-1. Nelle pagine del portale per la ricerca di Azure, copiare l'URL del servizio di ricerca dalla pagina di panoramica.
+1. Nelle pagine del portale per ricerca di Azure copiare l'URL del servizio di ricerca dalla pagina panoramica.
 
-2. Nel riquadro di spostamento a sinistra, fare clic su **chiavi** e quindi copiare la chiave primaria o secondaria (sono equivalenti).
+2. Nel riquadro di spostamento a sinistra fare clic su **chiavi** e quindi copiare la chiave primaria o secondaria (sono equivalenti).
 
-3. Passare alle pagine del portale dell'account di archiviazione. Nel riquadro di spostamento a sinistra, sotto **le impostazioni**, fare clic su **chiavi di accesso**. Questa pagina fornisce il nome dell'account e la chiave. Nel blocco note, copiare il nome di account di archiviazione e una delle chiavi.
+3. Passare alle pagine del portale per l'account di archiviazione. Nel riquadro di spostamento a sinistra, in **Impostazioni**, fare clic su **chiavi di accesso**. In questa pagina vengono forniti il nome e la chiave dell'account. Copiare il nome dell'account di archiviazione e una delle chiavi nel blocco note.
 
-### <a name="2---create-a-data-source"></a>2 - creare un'origine dati
+### <a name="2---create-a-data-source"></a>2-creare un'origine dati
 
-Questo passaggio vengono fornite informazioni di connessione origine dati usate dall'indicizzatore. L'origine dati è un oggetto specifico in ricerca di Azure che rende persistenti le informazioni di connessione. Tipo di origine dati `azureblob`, determina quali comportamenti di estrazione dei dati vengono richiamati dall'indicizzatore. 
+Questo passaggio fornisce le informazioni di connessione all'origine dati utilizzate dall'indicizzatore. L'origine dati è un oggetto denominato in ricerca di Azure che rende permanente le informazioni di connessione. Il tipo di origine dati `azureblob`,, determina quali comportamenti di estrazione dei dati vengono richiamati dall'indicizzatore. 
 
-Sostituire i valori validi per nome del servizio, chiave amministratore, account di archiviazione e i segnaposto di chiavi dell'account.
+Sostituire i valori validi per il nome del servizio, la chiave amministratore, l'account di archiviazione e i segnaposto della chiave dell'account.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -171,7 +170,7 @@ Sostituire i valori validi per nome del servizio, chiave amministratore, account
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-### <a name="3---create-a-target-search-index"></a>3 - creare un indice di ricerca di destinazione 
+### <a name="3---create-a-target-search-index"></a>3: creare un indice di ricerca di destinazione 
 
 Gli indicizzatori sono associati allo schema di un indice. Se si usa l'API, anziché il portale, preparare un indice in anticipo in modo poterlo specificare per l'operazione dell'indicizzatore.
 
@@ -179,7 +178,7 @@ L'indice archivia il contenuto ricercabile in Ricerca di Azure. Per creare un in
 
 L'esempio seguente illustra una richiesta [Crea indice](https://docs.microsoft.com/rest/api/searchservice/create-index). L'indice avrà un campo `content` ricercabile in cui archiviare il testo estratto dai BLOB:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -192,11 +191,11 @@ L'esempio seguente illustra una richiesta [Crea indice](https://docs.microsoft.c
     }
 
 
-### <a name="4---configure-and-run-the-indexer"></a>4: configurare ed eseguire l'indicizzatore
+### <a name="4---configure-and-run-the-indexer"></a>4-configurare ed eseguire l'indicizzatore
 
-Come con un indice e un tipo di dati di origine e dell'indicizzatore è anche un oggetto denominato dell'oggetto che viene creato e riutilizzare in un servizio di ricerca di Azure. Una richiesta completamente specificata per creare un indicizzatore può apparire come segue:
+Come per un indice e un'origine dati, l'indicizzatore è anche un oggetto denominato che è possibile creare e riutilizzare in un servizio di ricerca di Azure. Una richiesta completamente specificata per la creazione di un indicizzatore potrebbe avere un aspetto simile al seguente:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -208,22 +207,22 @@ Come con un indice e un tipo di dati di origine e dell'indicizzatore è anche un
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Configurazione dell'indicizzatore è nel corpo della richiesta. È necessaria un'origine dati e un indice di destinazione vuoto che esiste già in ricerca di Azure. 
+La configurazione dell'indicizzatore è nel corpo della richiesta. Richiede un'origine dati e un indice di destinazione vuoto già esistente in ricerca di Azure. 
 
-Pianificazione e i parametri sono facoltativi. Se vengono omessi, l'indicizzatore viene eseguito immediatamente usando `json` come la modalità di analisi.
+La pianificazione e i parametri sono facoltativi. Se vengono omessi, l'indicizzatore viene eseguito immediatamente, `json` usando come modalità di analisi.
 
-Questo indicizzatore particolare non include i mapping dei campi. All'interno della definizione dell'indicizzatore, è possibile tralasciare **mapping dei campi** se le proprietà del documento JSON di origine corrispondono ai campi dell'indice di ricerca di destinazione. 
+Questo particolare indicizzatore non include i mapping dei campi. All'interno della definizione dell'indicizzatore è possibile escludere i **mapping dei campi** se le proprietà del documento JSON di origine corrispondono ai campi dell'indice di ricerca di destinazione. 
 
 
 ### <a name="rest-example"></a>Esempio REST
 
-In questa sezione è riportato un riepilogo di tutte le richieste per la creazione di oggetti. Per una descrizione delle parti di componente, vedere le sezioni precedenti in questo articolo.
+Questa sezione è un riepilogo di tutte le richieste usate per la creazione di oggetti. Per una discussione sulle parti del componente, vedere le sezioni precedenti di questo articolo.
 
-### <a name="data-source-request"></a>Richiesta di origine dati
+### <a name="data-source-request"></a>Richiesta origine dati
 
-Tutti gli indicizzatori richiedono un oggetto origine dati che fornisce informazioni sulla connessione ai dati esistenti. 
+Tutti gli indicizzatori richiedono un oggetto origine dati che fornisca informazioni di connessione ai dati esistenti. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -237,9 +236,9 @@ Tutti gli indicizzatori richiedono un oggetto origine dati che fornisce informaz
 
 ### <a name="index-request"></a>Richiesta di indice
 
-Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. Il corpo della richiesta definisce lo schema dell'indice, costituita da campi, attribuiti in modo da supportare i comportamenti desiderati in un indice ricercabile. Questo indice deve essere vuoto quando si esegue l'indicizzatore. 
+Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. Il corpo della richiesta definisce lo schema dell'indice, costituito da campi, con attributi per supportare i comportamenti desiderati in un indice ricercabile. Questo indice deve essere vuoto quando si esegue l'indicizzatore. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -254,11 +253,11 @@ Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. 
 
 ### <a name="indexer-request"></a>Richiesta dell'indicizzatore
 
-Questa richiesta Mostra un indicizzatore specificato completamente. Include i mapping di campo, che sono stati omessi negli esempi precedenti. È importante ricordare che "schedule", "parameters", e "fieldMappings" sono facoltativi, purché vi sia una predefinite disponibili. L'omissione "pianificazione" fa in modo che l'indicizzatore per l'esecuzione immediata. L'omissione "parsingMode" fa in modo che l'indice da utilizzare il valore predefinito "json".
+Questa richiesta Mostra un indicizzatore completamente specificato. Sono inclusi i mapping dei campi, che sono stati omessi negli esempi precedenti. Tenere presente che "Schedule", "Parameters" e "fieldMappings" sono facoltativi a condizione che esista un valore predefinito. Se si omette "Schedule", l'indicizzatore viene eseguito immediatamente. Se si omette "parsingMode", l'indice userà il valore predefinito "JSON".
 
-Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene eseguito immediatamente e, successivamente in base a una pianificazione se è stato fornito uno.
+La creazione dell'indicizzatore in ricerca di Azure attiva l'importazione dati. Viene eseguito immediatamente e successivamente in base a una pianificazione, se ne è stato specificato uno.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -280,7 +279,7 @@ Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene
 
 ## <a name="use-net-sdk"></a>Usare .NET SDK
 
-.NET SDK è del tutto equivalente all'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
+.NET SDK ha una parità completa con l'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -291,25 +290,25 @@ Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene
 
 ## <a name="parsing-modes"></a>Modalità di analisi
 
-I BLOB JSON possono presupporre che più moduli. Il **parsingMode** parametro nell'indicizzatore JSON determina come il contenuto di blob JSON è analizzare e strutturare un indice di ricerca di Azure:
+I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indicizzatore JSON determina il modo in cui il contenuto BLOB JSON viene analizzato e strutturato in un indice di ricerca di Azure:
 
-| parsingMode | DESCRIZIONE |
+| parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni blob come singolo documento. Questa è la modalità predefinita. |
-| `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario ogni elemento della matrice diventi un documento separato in ricerca di Azure. |
-|`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, che sono separate da una nuova riga, ed è necessario ogni entità diventi un documento separato in ricerca di Azure. |
+| `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è l'impostazione predefinita. |
+| `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in ricerca di Azure. |
+|`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, separate da una nuova riga, ed è necessario che ogni entità diventi un documento separato in ricerca di Azure. |
 
-Un documento può essere considerato come un singolo elemento nei risultati della ricerca. Se si desidera che ogni elemento della matrice visualizzato nei risultati della ricerca come un elemento indipendente, quindi usare il `jsonArray` o `jsonLines` opzione come appropriato.
+Un documento può essere considerato come un singolo elemento nei risultati della ricerca. Se si vuole che ogni elemento nella matrice venga visualizzato nei risultati della ricerca come elemento indipendente, usare l' `jsonArray` opzione o `jsonLines` nel modo appropriato.
 
-Se si vuole, all'interno della definizione dell'indicizzatore è possibile usare i [mapping dei campi](search-indexer-field-mappings.md) per scegliere quali proprietà del documento JSON di origine vengono usate per popolare l'indice di ricerca di destinazione. Per `jsonArray` analisi della modalità, se la matrice esiste come proprietà di livello inferiore, è possibile impostare la radice di un documento che indica dove la matrice viene posizionata all'interno del blob.
+Se si vuole, all'interno della definizione dell'indicizzatore è possibile usare i [mapping dei campi](search-indexer-field-mappings.md) per scegliere quali proprietà del documento JSON di origine vengono usate per popolare l'indice di ricerca di destinazione. Per `jsonArray` la modalità di analisi, se la matrice esiste come proprietà di livello inferiore, è possibile impostare una radice del documento che indichi la posizione della matrice all'interno del BLOB.
 
 > [!IMPORTANT]
-> Quando si usa `json`, `jsonArray` o `jsonLines` modalità di analisi, ricerca di Azure presuppone che tutti i BLOB presenti nell'origine dati contengano codice JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando si usa `json`, `jsonArray` o `jsonLines` la modalità di analisi, ricerca di Azure presuppone che tutti i BLOB nell'origine dati contengano JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
 
-## <a name="parse-single-json-blobs"></a>Analizzare i singoli BLOB JSON
+## <a name="parse-single-json-blobs"></a>Analizzare singoli BLOB JSON
 
 Per impostazione predefinita, l' [indicizzatore BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di tipo JSON come blocco singolo di testo. È spesso possibile che si voglia preservare la struttura dei documenti JSON. Si supponga, ad esempio, che in Archiviazione BLOB di Azure sia presente il documento JSON seguente:
 
@@ -327,9 +326,9 @@ Come già indicato, i mapping dei campi non sono obbligatori. Dato un indice con
 
 <a name="parsing-arrays"></a>
 
-## <a name="parse-json-arrays"></a>Analizzare le matrici JSON
+## <a name="parse-json-arrays"></a>Analizza matrici JSON
 
-In alternativa, è possibile utilizzare l'opzione di matrice JSON. Questa opzione è utile quando i BLOB contengono una *matrice di oggetti JSON ben formati*, e si vuole che ogni elemento diventi un documento separato di ricerca di Azure. Ad esempio, dato il BLOB JSON seguente, è possibile popolare l'indice di Ricerca di Azure con tre documenti separati, ognuno con i campi "id" e "text".  
+In alternativa, è possibile usare l'opzione di matrice JSON. Questa opzione è utile quando i BLOB contengono una *matrice di oggetti JSON ben formati*e si vuole che ogni elemento diventi un documento di ricerca di Azure separato. Ad esempio, dato il BLOB JSON seguente, è possibile popolare l'indice di Ricerca di Azure con tre documenti separati, ognuno con i campi "id" e "text".  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -337,9 +336,9 @@ In alternativa, è possibile utilizzare l'opzione di matrice JSON. Questa opzion
         { "id" : "3", "text" : "example 3" }
     ]
 
-Per una matrice JSON, la definizione di indicizzatore dovrebbe avere un aspetto simile all'esempio seguente. Si noti che il parametro parsingMode specifica il parser `jsonArray`. Specifica il parser a destra e con i dati corretti input sono solo due requisiti specifici delle matrici per l'indicizzazione di BLOB JSON.
+Per una matrice JSON, la definizione di indicizzatore dovrebbe avere un aspetto simile all'esempio seguente. Si noti che il parametro parsingMode specifica il parser `jsonArray`. Specificare il parser corretto e avere l'input di dati appropriato sono gli unici due requisiti specifici della matrice per l'indicizzazione dei BLOB JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -355,8 +354,8 @@ Anche in questo caso il mapping dei campi può essere omesso. Dato un indice con
 
 <a name="nested-json-arrays"></a>
 
-## <a name="parse-nested-arrays"></a>Analizzare le matrici nidificate
-Per JSON matrici con elementi nidificati, è possibile specificare un `documentRoot` per indicare una struttura a più livelli. Ad esempio, se i BLOB sono simili a questo:
+## <a name="parse-nested-arrays"></a>Analizza matrici annidate
+Per le matrici JSON con elementi annidati, è possibile specificare `documentRoot` un per indicare una struttura a più livelli. Ad esempio, se i BLOB sono simili a questo:
 
     {
         "level1" : {
@@ -376,9 +375,9 @@ Usare questa configurazione per indicizzare la matrice contenuta nella propriet�
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## <a name="parse-blobs-separated-by-newlines"></a>Analizzare i BLOB separati da caratteri di nuova riga
+## <a name="parse-blobs-separated-by-newlines"></a>Analizza i BLOB separati da una nuova riga
 
-Se il blob contiene più entità JSON separate da un carattere di nuova riga e si vuole che ogni elemento diventi un documento separato di ricerca di Azure, è possibile scegliere per l'opzione delle linee di JSON. Ad esempio, dato il blob seguente (dove sono disponibili tre diverse entità JSON), è possibile popolare l'indice di ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
+Se il BLOB contiene più entità JSON separate da una nuova riga e si vuole che ogni elemento diventi un documento di ricerca di Azure separato, è possibile scegliere l'opzione per le righe JSON. Ad esempio, dato il BLOB seguente (in cui sono presenti tre entità JSON diverse), è possibile popolare l'indice di ricerca di Azure con tre documenti distinti, ognuno con i campi "ID" e "Text".
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
@@ -386,7 +385,7 @@ Se il blob contiene più entità JSON separate da un carattere di nuova riga e s
 
 Per le righe JSON, la definizione dell'indicizzatore dovrebbe essere simile all'esempio seguente. Si noti che il parametro parsingMode specifica il parser `jsonLines`. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -398,13 +397,13 @@ Per le righe JSON, la definizione dell'indicizzatore dovrebbe essere simile all'
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-Anche in questo caso, si noti che i mapping dei campi può essere omesso, simile al `jsonArray` modalità di analisi.
+Anche in questo caso, si noti che è possibile omettere i mapping dei `jsonArray` campi, analogamente alla modalità di analisi.
 
 ## <a name="add-field-mappings"></a>Aggiungere i mapping dei campi
 
 Quando i campi di origine e di destinazione non sono perfettamente allineati, è possibile definire una sezione di mapping dei campi nel corpo della richiesta per esplicitare le associazioni tra i campi.
 
-Attualmente, ricerca di Azure non è possibile indicizzare documenti JSON arbitrari direttamente, perché supporta solo tipi di dati primitivi, matrici di stringhe e punti GeoJSON. È tuttavia possibile usare i **mapping dei campi** per selezionare parti del documento JSON e "portarle" nei campi di livello superiore del documento di ricerca. Per nozioni fondamentali sui mapping dei campi, vedere [Mapping dei campi negli indicizzatori di Ricerca di Azure](search-indexer-field-mappings.md).
+Attualmente, ricerca di Azure non è in grado di indicizzare direttamente i documenti JSON arbitrari perché supporta solo i tipi di dati primitivi, le matrici di stringhe e i punti GeoJSON. È tuttavia possibile usare i **mapping dei campi** per selezionare parti del documento JSON e "portarle" nei campi di livello superiore del documento di ricerca. Per nozioni fondamentali sui mapping dei campi, vedere [Mapping dei campi negli indicizzatori di Ricerca di Azure](search-indexer-field-mappings.md).
 
 Tornando al documento JSON di esempio:
 
@@ -435,7 +434,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 >
 >
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
 + [Indicizzazione di Archiviazione BLOB di Azure con Ricerca di Azure](search-howto-index-json-blobs.md)

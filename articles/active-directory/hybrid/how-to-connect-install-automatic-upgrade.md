@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349845"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -67,15 +67,15 @@ Verranno visualizzati i log eventi associati allo stato dell'aggiornamento autom
 
 Il codice risultato presenta un prefisso con una panoramica dello stato.
 
-| Prefisso codice risultato | DESCRIZIONE |
+| Prefisso codice risultato | Descrizione |
 | --- | --- |
-| Success |L'installazione è stata aggiornata correttamente. |
+| Riuscito |L'installazione è stata aggiornata correttamente. |
 | UpgradeAborted |Una condizione temporanea ha interrotto l'aggiornamento. Verrà ripetuto di nuovo e si prevede che in seguito riuscirà. |
 | UpgradeNotSupported |La configurazione del sistema impedisce l'aggiornamento automatico del sistema stesso. Verrà ripetuto per verificare se lo stato viene modificato, ma si prevede che il sistema debba essere aggiornato manualmente. |
 
 Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, ma il messaggio dei risultati indicherà chiaramente il problema.
 
-| Messaggio dei risultati | DESCRIZIONE |
+| Messaggio dei risultati | Descrizione |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Non è possibile scrivere nel Registro di sistema. |

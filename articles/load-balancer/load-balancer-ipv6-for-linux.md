@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Come configurare DHCPv6 per VM Linux.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516543"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274922"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurare DHCPv6 per macchine virtuali Linux
 
@@ -54,9 +54,9 @@ Questo documento descrive come abilitare DHCPv6 in modo che la macchina virtuale
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partire da Ubuntu 17.10, il meccanismo di configurazione di rete predefinito è [NETPLAN]( https://netplan.io).  In fase di installazione/creazione di istanze, NETPLAN legge la configurazione di rete da questo percorso file di configurazione YAML: / {lib,etc,run}/netplan/*.yaml.
+A partire da Ubuntu 17,10, il meccanismo di configurazione di rete predefinito è [Netplan]( https://netplan.io).  Al momento dell'installazione/creazione dell'istanza, NETPLAN legge la configurazione di rete dai file di configurazione YAML in questa posizione:/{lib e così via, Esegui}/Netplan/*. yaml.
 
-Includi un *dhcp6:true* istruzione per ogni interfaccia ethernet nella configurazione.  Ad esempio: 
+Includere un'istruzione *dhcp6: true* per ogni interfaccia Ethernet nella configurazione.  Ad esempio:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Includi un *dhcp6:true* istruzione per ogni interfaccia ethernet nella configura
             eno1:
               dhcp6: true
 
-Durante l'avvio iniziali, il netplan "rete renderer" scrive la configurazione su/Esegui per presentare il controllo dei dispositivi per il daemon di rete specificato per informazioni di riferimento su NETPLAN, vedere https://netplan.io/reference.
+Durante l'avvio anticipato, il Netplan "Network renderer" scrive la configurazione in/Run per passare il controllo dei dispositivi al daemon di rete specificato per informazioni di riferimento https://netplan.io/reference su Netplan, vedere.
  
 ## <a name="debian"></a>Debian
 

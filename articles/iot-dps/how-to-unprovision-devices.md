@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 3c6e2a9006d73d269422292dc959866d3f6d8a82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: ba62d8cff646ce5ef4f4b8a36fdad78ddc354227
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60626507"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico 
 

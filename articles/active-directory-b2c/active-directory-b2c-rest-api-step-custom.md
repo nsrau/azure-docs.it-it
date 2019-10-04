@@ -1,41 +1,36 @@
 ---
-title: Scambi di attestazioni API REST come passaggio di orchestrazione in Azure Active Directory B2C | Microsoft Docs
-description: Argomento sull'integrazione di criteri personalizzati di Azure Active Directory B2C con un'API.
+title: Scambi di attestazioni API REST-Azure Active Directory B2C
+description: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/24/2017
-ms.author: davidmu
+ms.date: 08/21/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 55740b74aef5ce3d2def5ad22cfe3ededa1204d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12ddbe9f43baf68f6c11c9b720a0f684316af46a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316885"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065328"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere scambi di attestazioni API REST a criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Il framework dell'esperienza di gestione delle identità alla base di Azure Active Directory B2C (Azure AD B2C) consente allo sviluppatore delle identità di integrare un'interazione con un'API RESTful in un percorso utente.  
+È possibile aggiungere un'interazione con un'API RESTful ai [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure ad B2C). Questo articolo illustra come creare un percorso utente Azure AD B2C che interagisce con i servizi RESTful.
 
-Al termine di questa procedura dettagliata sarà possibile creare percorsi utente di Azure AD B2C che interagiscono con i servizi RESTful.
-
-Il framework dell'esperienza di gestione delle identità invia i dati in attestazioni e riceve di nuovo i dati in attestazioni. Lo scambio di attestazioni di API REST:
+L'interazione include uno scambio di attestazioni di informazioni tra le attestazioni API REST e Azure AD B2C. Gli scambi di attestazioni hanno le caratteristiche seguenti:
 
 - Può essere progettato come passaggio di orchestrazione.
 - Può attivare un'azione esterna. Può registrare ad esempio un evento in un database esterno.
 - Consente di recuperare un valore e quindi archiviarlo nel database utente.
+- Può modificare il flusso di esecuzione.
 
-È possibile usare le attestazioni ricevute in un secondo momento per modificare il flusso di esecuzione.
-
-È anche possibile progettare l'interazione come un profilo di convalida. Per altre informazioni, vedere [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md).
-
-Lo scenario è che quando un utente esegue la modifica di un profilo, si desidera:
+Lo scenario rappresentato in questo articolo include le azioni seguenti:
 
 1. Cercare l'utente in un sistema esterno.
 2. Ottenere la città in cui tale utente è registrato.
@@ -43,203 +38,204 @@ Lo scenario è che quando un utente esegue la modifica di un profilo, si desider
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
-- Un endpoint API REST con il quale interagire. Questa procedura dettagliata usa come esempio un webhook di app per le funzioni di Azure molto semplice.
-- *Consigliato*: completare la [Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md).
+- Completare la procedura descritta in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
+- Un endpoint API REST con il quale interagire. Questo articolo usa come esempio una semplice funzione di Azure. Per creare la funzione di Azure, vedere [creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Passaggio 1: Preparare la funzione API REST
+## <a name="prepare-the-api"></a>Preparare l'API
 
-> [!NOTE]
-> La configurazione delle funzioni API REST non rientra nell'ambito di questo articolo. [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference) offre un eccellente toolkit per creare servizi RESTful nel cloud.
+In questa sezione si prepara la funzione di Azure per ricevere un valore per `email`e quindi si restituisce il valore per `city` che può essere usato da Azure ad B2C come attestazione.
 
-È stata configurata una funzione di Azure che riceve un'attestazione denominata `email` e quindi restituisce l'attestazione `city` con il valore assegnato di `Redmond`. La funzione di Azure di esempio è disponibile in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
-
-L'attestazione `userMessage` restituita dalla funzione di Azure è facoltativa in questo contesto e verrà ignorata dal framework dell'esperienza di gestione delle identità. Può essere usata come messaggio passato all'applicazione e presentata all'utente in un secondo momento.
+Modificare il file run. CSX per la funzione di Azure creata per usare il codice seguente:
 
 ```csharp
-if (requestContentAsJObject.email == null)
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    return request.CreateResponse(HttpStatusCode.BadRequest);
-}
+  log.LogInformation("C# HTTP trigger function processed a request.");
+  string email = req.Query["email"];
+  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+  dynamic data = JsonConvert.DeserializeObject(requestBody);
+  email = email ?? data?.email;
 
-var email = ((string) requestContentAsJObject.email).ToLower();
-
-return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.OK,
-    new ResponseContent
-    {
+  return email != null
+    ? (ActionResult)new OkObjectResult(
+      new ResponseContent
+      {
         version = "1.0.0",
         status = (int) HttpStatusCode.OK,
-        userMessage = "User Found",
         city = "Redmond"
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
+      })
+      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
+}
+
+public class ResponseContent
+{
+    public string version { get; set; }
+    public int status { get; set; }
+    public string city {get; set; }
+}
 ```
 
-Un'app per le funzioni di Azure semplifica il recupero dell'URL della funzione, che include l'identificatore della funzione specifica. In questo caso, l'URL è: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. È possibile usarlo per il test.
+## <a name="configure-the-claims-exchange"></a>Configurare lo scambio di attestazioni
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Passaggio 2: Configurare lo scambio di attestazioni API RESTful come profilo tecnico nel file TrustFrameworkExtensions.xml
+Un profilo tecnico fornisce la configurazione per lo scambio di attestazioni.
 
-Un profilo tecnico è la configurazione completa dello scambio desiderato con il servizio RESTful. Aprire il file TrustFrameworkExtensions.xml e aggiungere il frammento XML seguente all'interno dell'elemento `<ClaimsProvider>`.
-
-> [!NOTE]
-> Nell'XML seguente il provider RESTful `Version=1.0.0.0` viene descritto come il protocollo. Considerarlo come la funzione che interagirà con il servizio esterno. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+Aprire il file *TrustFrameworkExtensions. XML* e aggiungere l'elemento XML **ClaimsProvider** seguente all'interno dell'elemento **ClaimsProviders** .
 
 ```XML
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-LookUpLoyaltyWebHook">
-            <DisplayName>Check LookUpLoyalty Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
-                <Item Key="AuthenticationType">None</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
-            </InputClaims>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
-            </OutputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="AzureFunctions-WebHook">
+      <DisplayName>Azure Function Web Hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-L'elemento `<InputClaims>` definisce le attestazioni che verranno inviate dal framework dell'esperienza di gestione delle identità al servizio REST. In questo esempio il contenuto dell'attestazione `givenName` verrà inviato al servizio REST come attestazione `email`.  
+L'elemento **InputClaims** definisce le attestazioni inviate al servizio REST. In questo esempio, il valore dell'attestazione `givenName` viene inviato al servizio REST come attestazione. `email` L'elemento **OutputClaims** definisce le attestazioni previste dal servizio REST.
 
-L'elemento `<OutputClaims>` definisce le attestazioni che il framework dell'esperienza di gestione delle identità deve ricevere dal servizio REST. Indipendentemente dal numero di attestazioni ricevute, il framework dell'esperienza di gestione delle identità usa soltanto le attestazioni qui indicate. In questo esempio viene eseguito il mapping dell'attestazione ricevuta come `city` a un'attestazione del framework dell'esperienza di gestione delle identità denominata `city`.
+I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [proteggere le API RESTful con](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) l'autenticazione di base e le [API RESTful sicure con l'autenticazione del certificato](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Passaggio 3: Aggiungere la nuova attestazione `city` allo schema del file TrustFrameworkExtensions.xml
+## <a name="add-the-claim-definition"></a>Aggiungere la definizione di attestazione
 
-L'attestazione `city` non è ancora definita nello schema. In tal caso, aggiungere una definizione all'interno dell'elemento `<BuildingBlocks>`. È possibile trovare questo elemento all'inizio del file TrustFrameworkExtensions.xml.
+Aggiungere una definizione per `city` all'interno dell'elemento **BuildingBlocks** . È possibile trovare questo elemento all'inizio del file TrustFrameworkExtensions.xml.
 
 ```XML
 <BuildingBlocks>
-    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
-    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
-    <ClaimsSchema>
-        <ClaimType Id="city">
-            <DisplayName>City</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your city</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
-    </ClaimsSchema>
+  <ClaimsSchema>
+    <ClaimType Id="city">
+      <DisplayName>City</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Your city</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  </ClaimsSchema>
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Passaggio 4: Includere lo scambio di attestazioni del servizio REST come passaggio di orchestrazione nel percorso utente di modifica del profilo nel file TrustFrameworkExtensions.xml
+## <a name="add-an-orchestration-step"></a>Aggiungere un passaggio di orchestrazione
 
-Aggiungere un passaggio al percorso utente di modifica del profilo, dopo che l'utente è stato autenticato (passaggi di orchestrazione da 1 a 4 riportati nel seguente XML) e che ha specificato le informazioni sul profilo aggiornato (passaggio 5).
+In molti casi d'uso la chiamata all'API REST può essere usata come passaggio di orchestrazione. Come passaggio di orchestrazione, può essere usata come aggiornamento a un sistema esterno dopo che un utente ha completato un'attività, come una prima registrazione o un aggiornamento del profilo per sincronizzare le informazioni. In questo caso viene usata per incrementare le informazioni fornite all'applicazione dopo la modifica del profilo.
 
-> [!NOTE]
-> In molti casi d'uso la chiamata all'API REST può essere usata come passaggio di orchestrazione. Come passaggio di orchestrazione, può essere usata come aggiornamento a un sistema esterno dopo che un utente ha completato un'attività, come una prima registrazione o un aggiornamento del profilo per sincronizzare le informazioni. In questo caso viene usata per incrementare le informazioni fornite all'applicazione dopo la modifica del profilo.
-
-Copiare il codice XML del percorso utente di modifica del profilo dal file TrustFrameworkBase.xml al file TrustFrameworkExtensions.xml all'interno dell'elemento `<UserJourneys>`. Eseguire quindi la modifica indicata nel passaggio 6.
+Aggiungere un passaggio al percorso utente di modifica del profilo. Dopo l'autenticazione dell'utente (passaggi dell'orchestrazione 1-4 nel codice XML seguente) e l'utente ha fornito le informazioni aggiornate sul profilo (passaggio 5). Copiare il codice XML del percorso utente di modifica del profilo dal file *TrustFrameworkBase. XML* nel file *TrustFrameworkExtensions. XML* all'interno dell'elemento **UserJourneys** . Apportare quindi la modifica come passaggio 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
-    <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-    </ClaimsExchanges>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-> [!IMPORTANT]
-> Se l'ordine non corrisponde alla versione usata, assicurarsi di inserire il codice come passaggio prima del `ClaimsExchange`tipo`SendClaims`.
-
-Il codice XML finale per il percorso utente dovrebbe essere simile al seguente:
+Il codice XML finale per il percorso utente dovrebbe essere simile a questo esempio:
 
 ```XML
 <UserJourney Id="ProfileEdit">
-    <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-            <ClaimsProviderSelections>
-                <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-                <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-            </ClaimsProviderSelections>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-                <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>localAccountAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>socialIdpAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the JWT token is created-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-    </OrchestrationSteps>
-    <ClientDefinition ReferenceId="DefaultWeb" />
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
+      <ClaimsProviderSelections>
+        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
+      </ClaimsProviderSelections>
+    </OrchestrationStep>
+    <OrchestrationStep Order="2" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>localAccountAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>socialIdpAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="5" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <!-- Add a step 6 to the user journey before the JWT token is created-->
+    <OrchestrationStep Order="6" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+  </OrchestrationSteps>
+  <ClientDefinition ReferenceId="DefaultWeb" />
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Passaggio 5: Aggiungere l'attestazione `city` al file dei criteri relying party, in modo che l'attestazione venga inviata all'applicazione
+## <a name="add-the-claim"></a>Aggiungere l'attestazione
 
-Modificare il file relying party (RP) ProfileEdit.xml e l'elemento `<TechnicalProfile Id="PolicyProfile">` per aggiungere quanto segue: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Modificare il file *ProfileEdit. XML* e aggiungere `<OutputClaim ClaimTypeReferenceId="city" />` all'elemento **OutputClaims** .
 
-Dopo aver aggiunto la nuova attestazione, il profilo tecnico avrà un aspetto simile al seguente:
+Dopo aver aggiunto la nuova attestazione, il profilo tecnico ha un aspetto simile a quello riportato nell'esempio seguente:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>Passaggio 6: Caricare le modifiche ed eseguire un test
+## <a name="upload-your-changes-and-test"></a>Caricare le modifiche ed eseguire un test
 
-Sovrascrivere le versioni esistenti dei criteri.
+1. (Facoltativo) Salvare la versione esistente (scaricando) dei file prima di procedere.
+2. Caricare *TrustFrameworkExtensions. XML* e *ProfileEdit. XML* e scegliere di sovrascrivere il file esistente.
+3. Selezionare **B2C_1A_ProfileEdit**.
+4. Per **selezionare l'applicazione** nella pagina Panoramica del criterio personalizzato, selezionare l'applicazione Web denominata *app Web 1* registrata in precedenza. Verificare che l' **URL di risposta** sia `https://jwt.ms`.
+4. Selezionare **Esegui ora**. Accedere con le credenziali dell'account e fare clic su **continue (continua**).
 
-1.  (Facoltativo) Salvare, scaricandola, la versione esistente del file delle estensioni, prima di procedere. Per tenere bassa la complessità iniziale, evitare di caricare più versioni del file delle estensioni.
-2.  (Facoltativo) Rinominare la nuova versione dell'ID dei criteri del file di modifica dei criteri modificando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Caricare il file delle estensioni.
-4.  Caricare il file RP di modifica dei criteri.
-5.  Usare **Esegui adesso** per testare i criteri. Esaminare il token restituito dal framework dell'esperienza di gestione delle identità all'applicazione.
-
-Se tutte le impostazioni sono corrette, il token include la nuova attestazione `city`, con il valore `Redmond`.
+Se tutti gli elementi sono configurati correttamente, il token include `city`la nuova attestazione `Redmond`, con il valore.
 
 ```JSON
 {
@@ -249,7 +245,7 @@ Se tutte le impostazioni sono corrette, il token include la nuova attestazione `
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_trustframeworkprofileedit",
+  "acr": "b2c_1a_profileedit",
   "nonce": "defaultNonce",
   "iat": 1493049692,
   "auth_time": 1493049692,
@@ -259,6 +255,13 @@ Se tutte le impostazioni sono corrette, il token include la nuova attestazione `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare un'API REST come passaggio di convalida](active-directory-b2c-rest-api-validation-custom.md)
+È anche possibile progettare l'interazione come un profilo di convalida. Per altre informazioni, vedere [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md).
 
 [Cambiare la modifica del profilo per raccogliere altre informazioni dagli utenti](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Informazioni di riferimento: Profilo tecnico RESTful](restful-technical-profile.md)
+
+Per informazioni su come proteggere le API, vedere gli articoli seguenti:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Proteggere l'API RESTful con l'atenticazione di base - nome utente e password)
+* [Proteggere l'API RESTful con certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

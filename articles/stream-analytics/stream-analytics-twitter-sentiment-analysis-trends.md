@@ -2,52 +2,46 @@
 title: Analisi del sentiment su Twitter in tempo reale con Analisi di flusso di Azure
 description: Questo articolo descrive come usare Analisi di flusso per l'analisi del sentiment su Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 07/09/2019
+ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003701"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173166"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
-> [!IMPORTANT] 
-> La creazione dell'applicazione Twitter non è più disponibile tramite [apps.twitter.com](https://apps.twitter.com/). Questa esercitazione è in corso di aggiornamento per includere la nuova API di Twitter.
+Si imparerà a creare una soluzione di analisi del sentiment per i social media portando gli eventi di Twitter in tempo reale negli hub eventi di Azure. Quindi scrivere una query di analisi di flusso di Azure per analizzare i dati e archiviare i risultati per un uso successivo oppure creare un dashboard [Power bi](https://powerbi.com/) per fornire informazioni in tempo reale.
 
-Si imparerà a creare una soluzione di analisi del sentiment per i social media portando gli eventi di Twitter in tempo reale negli hub eventi di Azure. Si potrà quindi scrivere una query di Analisi di flusso di Azure per analizzare i dati e archiviare i risultati per analisi successive o usare un dashboard e [Power BI](https://powerbi.com/) per rendere disponibili informazioni rilevanti in tempo reale.
+Gli strumenti di analisi dei social media permettono alle organizzazioni di determinare gli argomenti di tendenza, Gli argomenti di tendenza sono soggetti e atteggiamenti che hanno un volume elevato di post sui social media. L'analisi dei sentimenti, definita anche *Opinion Mining*, USA gli strumenti di analisi dei social media per determinare gli atteggiamenti verso un prodotto o un'idea. 
 
-Gli strumenti di analisi dei social media permettono alle organizzazioni di determinare gli argomenti di tendenza, vale a dire gli argomenti e gli atteggiamenti che registrano un numero elevato di post nei social media. L'analisi del sentiment, detta anche *opinion mining*, usa gli strumenti di analisi dei social media per determinare le attitudini rispetto a un prodotto, un'idea e così via. 
-
-L'analisi delle tendenze Twitter in tempo reale offre un ottimo esempio di strumento di analisi, perché il modello di sottoscrizione hashtag consente di ascoltare parole chiave specifiche (hashtag) e sviluppare l'analisi del sentiment del feed.
+L'analisi delle tendenze Twitter in tempo reale è un ottimo esempio di strumento di analisi, perché il modello di sottoscrizione hashtag consente di ascoltare parole chiave specifiche (hashtag) e sviluppare l'analisi dei sentimenti del feed.
 
 ## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: analisi del sentiment su social media in tempo reale
 
 Una società con un sito Web di notizie è interessata a superare la concorrenza offrendo contenuti del sito immediatamente fruibili per i lettori. La società usa l'analisi dei social media su argomenti rilevanti per i lettori eseguendo l'analisi del sentiment in tempo reale sui dati di Twitter.
 
-Per identificare in tempo reale gli argomenti di tendenza su Twitter, la società deve eseguire un'analisi in tempo reale sul volume dei tweet e sul sentiment relativo agli argomenti più importanti. In altre parole, ciò che serve è un motore di analisi del sentiment basato su questo feed di social media.
+Per identificare in tempo reale gli argomenti di tendenza su Twitter, la società deve eseguire un'analisi in tempo reale sul volume dei tweet e sul sentiment relativo agli argomenti più importanti.
 
 ## <a name="prerequisites"></a>Prerequisiti
-In questa esercitazione si usa un'applicazione client che si connette a Twitter e cerca i tweet con determinati hashtag, che è possibile impostare. Per eseguire l'applicazione e analizzare i tweet tramite Analisi di flusso di Azure, è necessario quanto segue:
+Questa guida illustra come usare un'applicazione client che si connette a Twitter e cerca Tweet con determinati hashtag, che è possibile impostare. Per eseguire l'applicazione e analizzare i tweet usando analisi di flusso di Azure, è necessario disporre di quanto segue:
 
-* Una sottoscrizione di Azure.
-* Un account Twitter 
-* Un'applicazione Twitter e il [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) per tale applicazione. Più avanti sono riportate istruzioni dettagliate per creare un'applicazione Twitter.
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
+* Un account [Twitter](https://twitter.com) .
 * L'applicazione TwitterWPFClient, che legge il feed di Twitter. Per ottenere questa applicazione, scaricare il file [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) da GitHub e decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'applicazione in un debugger, è possibile ottenere il codice sorgente da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Creare un hub eventi per l'input di Analisi di flusso
 
 L'applicazione di esempio genera eventi e ne esegue il push a un hub eventi di Azure. Gli hub eventi di Azure sono la soluzione preferita per l'inserimento di eventi per Analisi di flusso. Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
-
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Creare uno spazio dei nomi dell'hub eventi e un hub eventi
-In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si aggiungerà un hub eventi a tale spazio. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
+Creare uno spazio dei nomi dell'hub eventi e quindi aggiungere un hub eventi a tale spazio dei nomi. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
 
 1. Accedere al portale di Azure e fare clic su **Crea una risorsa** > **Internet delle cose** > **Hub eventi**. 
 
@@ -113,27 +107,26 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 L'applicazione client ottiene gli eventi tweet direttamente da Twitter. A questo scopo, è necessaria l'autorizzazione per chiamare le API di streaming di Twitter. Per configurare questa autorizzazione, si crea un'applicazione in Twitter in modo da generare credenziali univoche, ad esempio un token OAuth. Si può quindi configurare l'applicazione client in modo da usare queste credenziali quando esegue chiamate API. 
 
 ### <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
-Se si ha già un'applicazione Twitter utilizzabile per questa esercitazione, è possibile crearne una. È necessario avere già un account Twitter.
+Se non si ha già un'applicazione Twitter che è possibile usare per questa guida, è possibile crearne una. È necessario avere già un account Twitter.
 
 > [!NOTE]
 > La procedura esatta da seguire in Twitter per creare un'applicazione e ottenere le chiavi, i segreti e il token può cambiare. Se queste istruzioni non corrispondono alle informazioni visualizzate sul sito di Twitter, consultare la documentazione per sviluppatori di Twitter.
 
-1. Passare alla [pagina di gestione delle applicazioni Twitter](https://apps.twitter.com/). 
+1. In un Web browser passare a [Twitter per sviluppatori](https://developer.twitter.com/en/apps) e selezionare **Create an app** (Crea un'app). Potrebbe essere visualizzato un messaggio che indica che è necessario richiedere un account per sviluppatori Twitter. Eseguire questa operazione e, dopo l'approvazione della richiesta, si dovrebbe ricevere un messaggio di posta elettronica di conferma. L'approvazione di un account di sviluppatore potrebbe richiedere diversi giorni.
 
-2. Creare una nuova applicazione. 
+   ![Conferma dell'account per sviluppatori Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Conferma dell'account per sviluppatori Twitter")
 
-   * Per l'URL del sito Web, specificare un URL valido. Non è necessario che corrisponda a un sito live, ma non è possibile specificare semplicemente `localhost`.
-   * Lasciare vuoto il campo relativo al callback. L'applicazione client usata per questa esercitazione non richiede callback.
+   ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Dettagli dell'applicazione Twitter")
 
-     ![Creazione di un'applicazione in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+2. Nella pagina **Create an application** (Crea applicazione) specificare i dettagli per la nuova app e quindi selezionare **Create your Twitter application** (Crea applicazione Twitter).
 
-3. Facoltativamente, modificare le autorizzazioni dell'applicazione impostandole in sola lettura.
+   ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Dettagli dell'applicazione Twitter")
 
-4. Una volta creata l'applicazione, accedere alla pagina **Keys and Access Tokens** (Chiavi e token di accesso).
+3. Nella pagina dell'applicazione selezionare **Keys and Tokens** (Chiavi e token) e copiare i valori di **Consumer API Key** (Chiave API consumer) e **Consumer API Secret Key** (Chiave privata API consumer). Selezionare inoltre **Create** (Crea) in **Access Token and Access Token Secret** (Token di accesso e Segreto del token di accesso) per generare i token di accesso. Copiare i valori di **Access Token** (Token di accesso) e **Access Token Secret** (Segreto del token di accesso).
 
-5. Fare clic sul pulsante per generare un token di accesso e un segreto del token.
+    ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Dettagli dell'applicazione Twitter")
 
-Tenere queste informazioni a portata di mano perché saranno necessarie nella procedura successiva.
+Salvare i valori recuperati per l'applicazione Twitter. Sono necessari i valori in un secondo momento nelle procedure.
 
 >[!NOTE]
 >Le chiavi e i segreti dell'applicazione Twitter consentono l'accesso all'account Twitter personale. Trattarle come dati sensibili, allo stesso modo della password di Twitter. Evitare, ad esempio, di incorporare queste informazioni in un'applicazione che si prevede di distribuire ad altri utenti. 
@@ -232,9 +225,9 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
 ## <a name="specify-the-job-query"></a>Specificare la query del processo
 
-Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Questa esercitazione permette di creare e testare diverse query su dati di Twitter.
+Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Questa guida dettagliata consente di creare e testare diverse query su dati di Twitter.
 
-Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una [finestra a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) per ottenere il conteggio delle menzioni per argomento ogni cinque secondi.
+Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una [finestra a cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) per ottenere il conteggio delle menzioni per argomento ogni cinque secondi.
 
 1. Chiudere il pannello **Input** se non si è già fatto.
 
@@ -266,7 +259,7 @@ Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una 
 
     Se non si è usato `TwitterStream` come alias per l'input, sostituire l'alias per `TwitterStream` nella query.  
 
-    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing viene eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi. Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing viene eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi. Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Questa query accede anche a un timestamp per la fine di ogni finestra usando la proprietà **System.Timestamp**.
 
@@ -292,7 +285,7 @@ La tabella seguente elenca i campi che fanno parte dei dati di flusso JSON. È p
 
 A questo punto sono stati definiti un flusso di eventi, un input dell'hub eventi per inserire gli eventi e una query per eseguire una trasformazione nel flusso. L'ultimo passaggio consiste nel definire un sink di output per il processo.  
 
-In questa esercitazione gli eventi tweet aggregati ottenuti dalla query del processo vengono scritti nell'archiviazione BLOB di Azure.  È anche possibile eseguire il push dei risultati al database SQL di Azure, ad Archiviazione tabelle di Azure, a Hub eventi o a Power BI, in base alle esigenze specifiche dell'applicazione.
+In questa guida è possibile scrivere gli eventi Tweet aggregati dalla query del processo all'archivio BLOB di Azure.  È anche possibile eseguire il push dei risultati al database SQL di Azure, ad Archiviazione tabelle di Azure, a Hub eventi o a Power BI, in base alle esigenze specifiche dell'applicazione.
 
 ## <a name="specify-the-job-output"></a>Specificare l'output del processo
 
@@ -348,9 +341,9 @@ Per visualizzare l'output del processo in tempo reale, usare uno strumento come 
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Creare un'altra query per identificare gli argomenti di tendenza
 
-Un'altra query che è possibile usare per comprendere il sentiment su Twitter si basa su un [finestra temporale scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx). Per identificare gli argomenti di tendenza si cercano gli argomenti in cui le menzioni superano un valore soglia entro un determinato periodo di tempo.
+Un'altra query che è possibile usare per comprendere il sentiment su Twitter si basa su un [finestra temporale scorrevole](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Per identificare gli argomenti di tendenza si cercano gli argomenti in cui le menzioni superano un valore soglia entro un determinato periodo di tempo.
 
-Ai fini di questa esercitazione, si cercano gli argomenti menzionati più di 20 volte negli ultimi cinque secondi.
+Ai fini di questa procedura, si verificano gli argomenti citati più di 20 volte negli ultimi 5 secondi.
 
 1. Nel pannello del processo fare clic su **Arresta** per arrestare il processo. 
 
@@ -379,5 +372,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

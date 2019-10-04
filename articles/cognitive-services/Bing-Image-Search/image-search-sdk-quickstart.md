@@ -1,22 +1,22 @@
 ---
 title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per C#'
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa009ed99b2067b5a3cbde910a7265f42ea478f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ef5fe57610d4e97b2e382c1a476cd6a70eb7b1ad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337449"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034447"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Avvio rapido: Cercare immagini con l'SDK di Ricerca immagini Bing per C#
 
@@ -25,10 +25,10 @@ Usare questa guida introduttiva per effettuare la prima ricerca di immagini tram
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://visualstudio.microsoft.com/vs/whatsnew/).
 * Il [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Per installare l'SDK di Ricerca immagini Bing in Visual Studio, usare l'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.
+Per installare l'SDK di Ricerca immagini Bing in Visual Studio, usare l'opzione **Gestisci pacchetti NuGet** da **Esplora soluzioni**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -94,11 +94,11 @@ if (imageResults != null)
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Esempi .NET per l'SDK di Servizi cognitivi di Azure](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

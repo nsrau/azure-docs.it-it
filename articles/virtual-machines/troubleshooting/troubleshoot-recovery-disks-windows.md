@@ -4,21 +4,20 @@ description: Informazioni su come risolvere i problemi delle VM Windows in Azure
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: d28710bf249bd940ae9d685560e9f7140234e3a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99bf2a41bc82722fd31c1835f34f913163ce55b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318715"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088218"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell
 Se nella macchina virtuale (VM) Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare Azure PowerShell per connettere il disco a un'altra VM Windows per risolvere eventuali errori e quindi riparare la VM originale. 
@@ -126,8 +125,8 @@ $diskName = 'newOSDisk'
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType = 'Standard_LRS'
 
 #Provide the Azure region (e.g. westus) where Managed Disks will be located.
 #This location should be same as the snapshot location

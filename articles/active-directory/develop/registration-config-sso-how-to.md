@@ -1,28 +1,29 @@
 ---
-title: Come configurare una nuova applicazione multi-tenant | Microsoft Docs
+title: Configurare l'accesso Single Sign-on dell'applicazione | Microsoft Docs
 description: Come configurare l'accesso Single Sign-on per un'applicazione personalizzata che si sta sviluppando e registrando con Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92ff0eea2bbd55330a954746245dd4a5ee75a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbc9f20903d65fbde161d26ed3e194e63d341ccb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297833"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320948"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Come configurare una nuova applicazione multi-tenant
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Come configurare l'accesso Single Sign-on per un'applicazione
 
 L'abilitazione dell'accesso Single Sign-on (SSO) federato nell'applicazione avviene automaticamente quando si esegue la federazione tramite Azure AD per OpenID Connect, SAML 2.0 o WS-Fed. Se gli utenti finali devono eseguire l'accesso nonostante dispongano già di una sessione esistente con Azure AD, è probabile che l'applicazione non sia configurata correttamente.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni sulla creazione di un servizio Load Balancer Standard pubblico con un front-end con ridondanza della zona tramite l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
-ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: allensu
+ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592928"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274319"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Bilanciare il carico delle macchine virtuali in tutte le zone di disponibilità tramite l'interfaccia della riga di comando di Azure
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Creare un indirizzo IP pubblico standard con ridondanza della zona
-Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Un front-end con ridondanza della zona viene servito contemporaneamente da tutte le zone di disponibilità di un'area. Creare un zona ridondante indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Un indirizzo IP pubblico standard viene creato con ridondanza della zona per impostazione predefinita.
+Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Un front-end con ridondanza della zona viene servito contemporaneamente da tutte le zone di disponibilità di un'area. Creare un indirizzo IP pubblico con ridondanza della zona con [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create). Un indirizzo IP pubblico standard viene creato con ridondanza della zona per impostazione predefinita.
 
 L'esempio seguente crea un indirizzo IP pubblico con ridondanza della zona denominato *myPublicIP* nel gruppo di risorse *myResourceGroupLoadBalancer*.
 

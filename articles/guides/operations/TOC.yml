@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Panoramica della distribuzione di Azure Stack
-              href: /azure-stack/asdk/asdk-download
+              href: ../../azure-stack/azure-stack-deploy-overview.md
         - name: Backup di Azure
           items:
             - name: Eseguire il backup di una macchina virtuale nel portale di Azure

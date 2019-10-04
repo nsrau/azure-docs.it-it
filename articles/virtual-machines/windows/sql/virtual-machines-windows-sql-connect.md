@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650854"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102094"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Connettersi a una macchina virtuale SQL Server in Azure
 
@@ -40,7 +39,7 @@ Se si esegue il provisioning di una VM di SQL Server nel portale di Azure, è po
 
 Le opzioni per la connettività sono:
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 |---|---|
 | **Pubblica** | Connettersi a SQL Server tramite Internet |
 | **Privata** | Connettersi a SQL Server nella stessa rete virtuale |
@@ -94,13 +93,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a>Modificare le impostazioni di connettività SQL
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 È possibile modificare le impostazioni di connettività per la macchina virtuale di SQL Server nel portale di Azure.
 
-1. Nel portale di Azure selezionare **Macchine virtuali**.
+1. Nella portale di Azure selezionare **macchine virtuali SQL**.
 
 2. Selezionare la VM di SQL Server.
 
-3. In **Impostazioni** fare clic su **Configurazione di SQL Server**.
+3. In **Impostazioni**selezionare **sicurezza**.
 
 4. Modificare il valore di **Livello di connettività SQL** sull'impostazione necessaria. Facoltativamente, è possibile usare quest'area per modificare la porta di SQL Server o le impostazioni di autenticazione SQL.
 
@@ -134,7 +135,7 @@ Benché il portale offra opzioni per la configurazione automatica della connetti
 
 La tabella seguente elenca i requisiti per la connessione a SQL Server in esecuzione in una macchina virtuale di Azure.
 
-| Requisito | DESCRIZIONE |
+| Requisito | Descrizione |
 |---|---|
 | [Abilitare la modalità di autenticazione di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | L'autenticazione di SQL Server è necessaria per connettersi alla macchina virtuale in remoto, a meno che non sia stato configurato Active Directory in una rete virtuale. |
 | [Creare un account di accesso SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Se si usa l'autenticazione SQL, è necessario un account di accesso SQL con un nome utente e una password dotato delle autorizzazioni per il database di destinazione. |

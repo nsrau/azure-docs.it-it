@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786711"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66155055"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS con l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -84,14 +84,14 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
 
     1. Selezionare **Database SQL di Azure** per **Tipo**.
     2. Selezionare il runtime di integrazione di Azure **predefinito** per connettersi al database SQL di Azure che ospita il database `SSISDB`.
-    3. Selezionare il server SQL di Azure che ospita il database SSISDB per il campo**Nome server**.
+    3. Selezionare il database SQL di Azure che ospita il database SSISDB per il campo**Nome server**.
     4. Selezionare **SSISDB** per **Nome database**.
     5. Per **Nome utente** immettere il nome dell'utente che ha accesso al database.
     6. Per **Password** immettere la password dell'utente. 
     7. Testare la connessione al database facendo clic sul pulsante **Test connessione**.
     8. Salvare il servizio collegato facendo clic sul pulsante **Salva**. 
 
-        ![Servizio collegato per il database SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Servizio collegato per il database SQL di Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Nella finestra delle proprietà passare alla scheda **Stored procedure** dalla scheda **Account SQL** e seguire questa procedura: 
 
     1. Selezionare **Modifica**. 
@@ -107,8 +107,8 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
         ```
 
-        ![Servizio collegato per il database SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Per convalidare la configurazione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
+        ![Servizio collegato per il database SQL di Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+6. Per convalidare la configurazione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>** .
 
     ![Convalidare la pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Pubblicare la pipeline in Data Factory facendo clic sul pulsante **Publish All** (Pubblica tutto). 

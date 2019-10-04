@@ -3,8 +3,8 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Crear
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una macchina virtuale Windows Server 2016
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: rickstercdn
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
-ms.author: rickstercdn
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2f63bbc444367afdad32615d0f6132e8986a6160
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 565c660473d819a046ce54c6bb3dfa05c90ee5df
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670350"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173829"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Creare rapidamente una macchina virtuale con l'interfaccia della riga di comando di Azure
 

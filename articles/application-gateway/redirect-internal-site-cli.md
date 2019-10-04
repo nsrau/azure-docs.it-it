@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101993"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513358"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 
@@ -213,15 +213,15 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http:\//www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\.contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio http:\/www.contoso.org e si dovrebbe vedere che il traffico è stato reindirizzato al listener per www\.contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > * Configurare la rete
 > * Creare un gateway applicazione

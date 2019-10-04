@@ -5,19 +5,19 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525637"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219900"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
-Il supporto del feed di modifiche in Azure Cosmos DB è in ascolto di eventuali modifiche in un contenitore di Azure Cosmos DB. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
+Il supporto del feed delle modifiche in Azure Cosmos DB funziona ascoltando un contenitore di Azure Cosmos per eventuali modifiche. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
 
 Azure Cosmos DB è particolarmente adatto per le applicazioni IoT, di videogiochi, del settore della vendita al dettaglio e di registrazioni di operazioni. Uno schema progettuale comune in queste applicazioni prevede l'uso delle modifiche ai dati per attivare azioni aggiuntive. Esempi di azioni aggiuntive:
 
@@ -35,14 +35,14 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 
 | **Driver client** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | Sì | No  | No  | Sì | No  |
-|Java|ND|Sì|No |No |Sì|No |
-|Python|ND|Sì|No |No |Sì|No |
-|Node/JS|ND|Sì|No |No |Sì|No |
+| .NET | NA | Yes | No | No | Yes | No |
+|Java|NA|Yes|No|No|Yes|No|
+|Python|NA|Yes|No|No|Yes|No|
+|Node/JS|NA|Yes|No|No|Yes|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
-Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "soft marker" sull'elemento per aggiornamenti e filtrare in base a esso durante l'elaborazione di elementi nel feed di modifiche. Attualmente, le eliminazioni non vengono registrate nel feed di modifiche. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed di modifiche per gli elementi cronologici, ad esempio, gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
+Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "soft marker" sull'elemento per aggiornamenti e filtrare in base a esso durante l'elaborazione di elementi nel feed di modifiche. Attualmente, le eliminazioni non vengono registrate nel feed di modifiche. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed delle modifiche per gli elementi cronologici (la modifica più recente corrispondente all'elemento, non include le modifiche intermedie), ad esempio gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordinamento degli elementi nel feed di modifiche
 
@@ -56,9 +56,9 @@ In un account Azure Cosmos con più aree, se un'area di scrittura effettua il fa
 
 Se una proprietà TTL (Time to Live) è impostata su un elemento su -1, il feed di modifiche verrà mantenuto per sempre. Se i dati non sono eliminati, rimarranno nel feed di modifiche.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed di modifiche e _etag, _lsn or _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Feed di modifiche e _etag, _lsn or _ts
 
-Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto per solo; del feed di modifiche rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
+Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch aggiunto solo per il feed di modifiche. rappresenta l'ID della transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Casi d'uso e scenari del feed di modifiche
 
@@ -94,7 +94,7 @@ Di seguito sono indicati alcuni degli scenari che è possibile implementare faci
 È possibile utilizzare il feed di modifiche utilizzando le opzioni seguenti:
 
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
-* [Uso del feed di modifiche con la libreria del processore dei feed di modifiche](change-feed-processor.md) 
+* [Uso del feed delle modifiche con il processore del feed delle modifiche](change-feed-processor.md) 
 
 Il feed di modifiche è disponibile per ogni chiave di partizione logica nel contenitore, ed è quindi possibile distribuirlo a uno o più consumer per l'elaborazione parallela, come illustrato nell'immagine seguente.
 
@@ -108,7 +108,7 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 * Il feed di modifiche include inserimenti e operazioni di aggiornamenti eseguite sugli elementi all'interno del contenitore. È possibile acquisire le eliminazioni impostando un flag "eliminazione temporanea" all'interno degli elementi (ad esempio, documenti) al posto delle eliminazioni. In alternativa, è possibile impostare un periodo di scadenza limitato per gli elementi con la [funzionalità TTL](time-to-live.md). Per esempio, 24 ore e utilizzare il valore di quella proprietà per acquisire le eliminazioni. Con questa soluzione è necessario elaborare le modifiche in un intervallo di tempo minore rispetto al periodo di scadenza TTL. 
 
-* Ogni modifica apportata a un elemento viene visualizzata una sola volta nel feed di modifiche e i client devono gestire la logica di checkpoint. Per evitare la complessità del checkpoint di gestione, la libreria del processore del feed di modifiche fornisce funzionalità di checkpoint automatiche e semantica di tipo "at least once". Vedere [Uso del feed di modifiche con la libreria del processore dei feed di modifiche](change-feed-processor.md).
+* Ogni modifica apportata a un elemento viene visualizzata una sola volta nel feed di modifiche e i client devono gestire la logica di checkpoint. Se si desidera evitare la complessità della gestione dei checkpoint, il processore del feed di modifiche fornisce il checkpoint automatico e la semantica "almeno una volta". Vedere [uso del feed di modifiche con il processore del feed delle modifiche](change-feed-processor.md).
 
 * Solo la modifica più recente per un determinato elemento viene inclusa nel registro modifiche. Le modifiche intermedie potrebbero non essere disponibili.
 
@@ -126,4 +126,4 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 * [Opzioni per la lettura di feed di modifiche](read-change-feed.md)
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
-* [Uso della libreria del processore dei feed di modifiche](change-feed-processor.md)
+* [Uso del processore dei feed di modifiche](change-feed-processor.md)

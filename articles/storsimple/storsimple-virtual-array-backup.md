@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60581300"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 

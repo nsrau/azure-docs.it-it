@@ -4,7 +4,7 @@ description: Descrive la causa dell'errore RequestDisallowedByPolicy.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c160fe39b02d8adf6c12e3736307cf7f9688b0c5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483234"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121240"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure
 
@@ -37,7 +37,7 @@ Durante la distribuzione, è possibile che venga visualizzato un errore **Reques
 }
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per recuperare i dettagli sui criteri bloccati nella distribuzione, usare uno dei metodi seguenti:
 

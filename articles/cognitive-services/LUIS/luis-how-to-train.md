@@ -1,6 +1,6 @@
 ---
-title: Eseguire il training dell'app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Train app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Il training è il processo di appredimento per la propria versione applicazione Language Understanding (LUIS) al fine di migliorare la comprensione del linguaggio naturale. Eseguire il training dell'app LUIS dopo gli aggiornamenti al modello, ad esempio aggiunta, modifica, aggiunta di etichette o eliminazione di entità, finalità o espressioni.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/07/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195853"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932764"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
 
@@ -44,9 +44,9 @@ Per avviare il processo iterativo nel [portale LUIS](https://www.luis.ai), è pr
 >[!NOTE]
 >Se nell'app ci sono una o più finalità che non includono espressioni di esempio, non è possibile eseguire il training. Aggiungere espressioni per tutte le finalità. Per altre informazioni, vedere [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio).
 
-## <a name="training-date-and-time"></a>Formazione su data e ora
+## <a name="training-date-and-time"></a>Data e ora di training
 
-Formazione su data e ora è GMT + 2. 
+La data e l'ora di training sono GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
 

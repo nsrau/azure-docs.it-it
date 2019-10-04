@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468273"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332063"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -94,9 +94,9 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 Questa procedura configura la regola di utilizzo medio della CPU per il consiglio sulle macchine virtuali a utilizzo ridotto.
 
-Advisor monitora l'utilizzo delle macchine virtuali per 14 giorni, in modo da identificare le macchine virtuali il cui utilizzo è ridotto. Le macchine virtuali con un utilizzo della CPU pari al 5% o inferiore e un utilizzo di rete pari a 7 MB o inferiore per quattro o più giorni sono considerate macchine virtuali a utilizzo ridotto.
+Advisor monitora l'utilizzo della macchina virtuale per 7 giorni e quindi identifica le macchine virtuali di utilizzo ridotto. Virtuale macchine sono considerate utilizzo ridotto se l'uso della CPU è 5% o meno e relativo utilizzo di rete è inferiore al 2% o se il carico di lavoro corrente può essere soddisfatto dalle dimensioni della macchina virtuale inferiori.
 
-Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  La regola di utilizzo medio della CPU può essere impostata su 5%, 10%, 15% o 20%.
+Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  A % 5, 10%, 15% o 20%, è possibile impostare la regola di utilizzo della CPU.
 
 > [!NOTE]
 > Per modificare questa regola per identificare le macchine virtuali a utilizzo ridotto, è necessario essere un *proprietario* della sottoscrizione.  Se non si dispone delle autorizzazioni necessarie per una sottoscrizione o un gruppo di risorse, l'opzione per includere o escludere la sottoscrizione o il gruppo di risorse è disabilitata nell'interfaccia utente. 

@@ -1,19 +1,18 @@
 ---
 title: Gestire i server registrati con Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni su come registrare e annullare la registrazione di Windows Server con un servizio di sincronizzazione archiviazione di File di Azure.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048446"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699277"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -102,9 +101,7 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 È anche possibile eseguire la registrazione del server tramite PowerShell. Questo è l'unico modo supportato per registrare server per le sottoscrizioni Cloud Solution Provider (CSP):
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Annullare la registrazione del server con il servizio di sincronizzazione archiviazione
@@ -135,17 +132,15 @@ Prima di annullare la registrazione del server nel servizio di sincronizzazione 
 Questa operazione può essere eseguita anche con un semplice script di PowerShell:
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Connect-AzAccount
 
-$accountInfo = Connect-AzAccount
-Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$storageSyncServiceName = "<your-storage-sync-service>"
+$resourceGroup = "<your-resource-group>"
 
-$StorageSyncService = "<your-storage-sync-service>"
-
-Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
-    $SyncGroup = $_; 
-    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $storageSyncServiceName | ForEach-Object { 
+    $syncGroup = $_; 
+    Get-AzStorageSyncServerEndpoint -ParentObject $syncGroup | Where-Object { $_.ServerEndpointName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -InputObject $_ 
     } 
 }
 ```
@@ -156,7 +151,7 @@ Dopo che tutti i dati sono stati richiamati e il server è stato rimosso da tutt
 1. Nel portale di Azure passare alla sezione *Server registrati* del servizio di sincronizzazione archiviazione.
 2. Fare clic con il pulsante destro del mouse sul server per cui si vuole annullare la registrazione e fare clic su "Annulla registrazione server".
 
-    ![Annullare la registrazione del server](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Annulla registrazione server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Corretta integrazione di Sincronizzazione file di Azure nel data center 
 Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzione nel data center, potrebbe essere opportuno limitarne l'utilizzo della rete e dello spazio di archiviazione.
@@ -192,7 +187,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Usare QoS di archiviazione di Windows Server 
 Quando il servizio Sincronizzazione file di Azure è ospitato in una macchina virtuale eseguita in un host di virtualizzazione Windows Server, è possibile usare QoS (Quality of Service) di archiviazione per regolamentare l'utilizzo di I/O di archiviazione. I criteri QoS di archiviazione possono essere impostati come massimo o limite (come il limite StorageSyncNetwork applicato sopra) oppure come minimo o prenotazione. Impostando un minimo anziché un massimo, Sincronizzazione file di Azure potrà potenziare l'uso della larghezza di banda di archiviazione disponibile se non viene usata da altri carichi di lavoro. Per altre informazioni, vedere [QoS di archiviazione](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 - [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

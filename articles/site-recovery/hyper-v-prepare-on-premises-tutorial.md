@@ -1,34 +1,33 @@
 ---
-title: Predisporre i server Hyper-V locali per il ripristino di emergenza di macchine virtuali Hyper-V in Azure| Microsoft Docs
+title: Predisporre i server Hyper-V locali per il ripristino di emergenza di macchine virtuali Hyper-V in Azure
 description: Informazioni su come predisporre le macchine virtuali Hyper-V locali per il ripristino di emergenza in Azure con il servizio Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 04/08/2019
+ms.topic: tutorial
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788074"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813722"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
 
-Questo articolo descrive come preparare l'infrastruttura Hyper-V in locale quando si desidera configurare il ripristino di emergenza di macchine virtuali Hyper-v in Azure, usando [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo descrive come predisporre l'infrastruttura Hyper-V locale per la configurazione del ripristino di emergenza di macchine virtuali Hyper-V in Azure con [Azure Site Recovery](site-recovery-overview.md).
 
 
-Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V locali. Nella prima esercitazione, abbiamo [configurare i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza Hyper-V.
+Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali Hyper-V locali. Nella prima esercitazione sono stati [configurati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di Hyper-V.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Se gli host Hyper-V sono gestiti da System Center VMM, rivedere i requisiti di Hyper-V e i requisiti di VMM.
-> * Predisporre VMM, se applicabile.
-> * Verificare l'accesso internet alle posizioni di Azure.
-> * Preparare le macchine virtuali in modo che sia possibile accedervi dopo il failover in Azure.
+> * Verificare i requisiti di Hyper-V e i requisiti di VMM se gli host Hyper-V sono gestiti da System Center VMM.
+> * Predisporre VMM, se necessario.
+> * Verificare l'accesso Internet alle località di Azure.
+> * Predisporre le VM in modo che sia possibile accedervi dopo il failover in Azure.
 
 > [!NOTE]
 > Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.

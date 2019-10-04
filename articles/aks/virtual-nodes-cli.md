@@ -2,32 +2,29 @@
 title: Creare nodi virtuali usando l'interfaccia della riga di comando di Azure nel servizio Azure Kubernetes
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un cluster del servizio Azure Kubernetes che usa nodi virtuali per eseguire i pod.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
-ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 05/06/2019
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682968"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67613789"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali tramite la CLI di Azure
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
-Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. Non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes e quindi abilitare i nodi virtuali.
+Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. Non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. I nodi virtuali sono supportati solo con i pod e i nodi Linux.
 
-> [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
->
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes e quindi abilitare i nodi virtuali.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in ACI e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio Azure Kubernetes creati usando reti *avanzate*. Per impostazione predefinita, i cluster del servizio Azure Kubernetes vengono creati con reti *di base*. Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
 
-Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo status del provider di registrazione di ACI usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
+Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider ACI usando il comando [AZ provider list][az-provider-list] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -41,31 +38,38 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Se il provider viene visualizzato come *NotRegistered*, registrare il provider usando [az provider register][az-provider-register] come illustrato nell'esempio seguente:
+Se il provider viene visualizzato come *NotRegistered*, registrare il provider usando il comando [AZ provider Register][az-provider-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
-Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
+Per le distribuzioni di nodi virtuali sono supportate le aree seguenti:
 
 * Australia orientale (australiaeast)
+* Stati Uniti centrali (centralus)
 * Stati Uniti orientali (eastus)
-* Stati Uniti centrali (westcentralus)
+* Stati Uniti orientali 2 (eastus2)
+* Giappone orientale (japaneast)
+* Europa settentrionale (northeurope)
+* Asia sudorientale (SouthEastAsia)
+* Stati Uniti centro-occidentali (westcentralus)
 * Europa occidentale (westeurope)
 * Stati Uniti occidentali (westus)
+* Stati Uniti occidentali 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitazioni note
-Funzionalità di nodi virtuali è dipende in larga misura dal set di funzionalità di ACI. Gli scenari seguenti non sono ancora supportati con i nodi virtuali
+La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di ACI. Gli scenari seguenti non sono ancora supportati con i nodi virtuali
 
-* Utilizzo di entità servizio di pull le immagini di contenitori di AZURE. [Soluzione alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste nell'usare [segreti Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitazioni di rete virtuale](../container-instances/container-instances-vnet.md) inclusi peering reti virtuali, i criteri di rete Kubernetes e il traffico in uscita a internet con gruppi di sicurezza di rete.
-* Contenitori di Init
-* [Alias dell'host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Gli argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in ACI
-* [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i POD per nodo virtuale
+* Uso dell'entità servizio per il pull delle immagini ACR. [Soluzione alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste nell'usare i [segreti Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitazioni della rete virtuale](../container-instances/container-instances-vnet.md) , tra cui il peering VNet, i criteri di rete Kubernetes e il traffico in uscita verso Internet con gruppi di sicurezza di rete.
+* Contenitori init
+* [Alias host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argomenti](../container-instances/container-instances-exec.md#restrictions) per Exec in ACI
+* [Gli elementi daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i pod al nodo virtuale
+* I [nodi di Windows Server (attualmente in anteprima in AKS)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile usare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi di Windows Server in un cluster AKS.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -96,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Creare ora una subnet aggiuntiva per i nodi virtuali usando il comando [az network vnet subnet create][az-network-vnet-subnet-create]. L'esempio seguente crea una subnet denominata *myVirtualNodeSubnet* con il prefisso di indirizzo *10.241.0.0/16*.
+Creare ora una subnet aggiuntiva per i nodi virtuali usando il comando [AZ Network VNET subnet create][az-network-vnet-subnet-create] . L'esempio seguente crea una subnet denominata *myVirtualNodeSubnet* con il prefisso di indirizzo *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -134,13 +138,13 @@ Prendere nota di *appId* e *password*. Questi valori vengono usati nei passaggi 
 
 Per consentire al cluster di usare e gestire la rete virtuale, è necessario concedere all'entità servizio del servizio Azure Kubernetes i diritti necessari per usare le risorse di rete.
 
-Ottenere innanzitutto l'ID risorsa della rete virtuale usando [az network vnet show][az-network-vnet-show]:
+Per prima cosa, ottenere l'ID di risorsa della rete virtuale usando [AZ Network VNET Show][az-network-vnet-show]:
 
 ```azurecli-interactive
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-Per concedere l'accesso corretto al cluster del servizio Azure Kubernetes per l'uso della rete virtuale, creare un'assegnazione di ruolo usando il comando [az role assignment create][az-role-assignment-create]. Sostituire `<appId`> e `<vnetId>` con i valori raccolti nei due passaggi precedenti.
+Per concedere l'accesso corretto per il cluster AKS per l'uso della rete virtuale, creare un'assegnazione di ruolo usando il comando [AZ Role Assignment create][az-role-assignment-create] . Sostituire `<appId`> e `<vnetId>` con i valori raccolti nei due passaggi precedenti.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -148,13 +152,13 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio creata nel passaggio precedente. Ottenere l'ID della subnet usando il comando [az network vnet subnet show][az-network-vnet-subnet-show]:
+Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio creata nel passaggio precedente. Ottenere l'ID di questa subnet usando [AZ Network VNET subnet Show][az-network-vnet-subnet-show]:
 
 ```azurecli-interactive
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Usare il comando [az servizio Azure Kubernetes create][az-aks-create] per creare un cluster del servizio Azure Container. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Sostituire `<subnetId>` con l'ID ottenuto nel passaggio precedente e quindi `<appId>` e `<password>` con 
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Sostituire `<subnetId>` con l'ID ottenuto nel passaggio precedente e quindi `<appId>` e `<password>` con 
 
 ```azurecli-interactive
 az aks create \
@@ -172,9 +176,9 @@ az aks create \
 
 Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
-## <a name="enable-virtual-nodes-addon"></a>Abilitare un componente aggiuntivo per i nodi virtuali
+## <a name="enable-virtual-nodes-addon"></a>Attiva addon nodi virtuali
 
-Per abilitare i nodi virtuali, usare il comando [az aks enable-addons][az-aks-enable-addons]. L'esempio seguente usa la subnet denominata *myVirtualNodeSubnet* creata nel passaggio precedente:
+Per abilitare i nodi virtuali, usare ora il comando [AZ AKS Enable-addons][az-aks-enable-addons] . L'esempio seguente usa la subnet denominata *myVirtualNodeSubnet* creata nel passaggio precedente:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -183,15 +187,10 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> Se si riceve un errore sul nodo virtuale non viene trovato, potrebbe essere necessario installare l'estensione dell'interfaccia della riga 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]. Con questo passaggio si scaricano le credenziali e si configura l'interfaccia della riga di comando di Kubernetes per il loro uso.
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Con questo passaggio si scaricano le credenziali e si configura l'interfaccia della riga di comando di Kubernetes per il loro uso.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -215,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Distribuire un'app di esempio
 
-Creare un file denominato `virtual-node.yaml` e copiarlo nel codice YAML seguente. Per pianificare il contenitore nel nodo, vengono definiti [nodeSelector][node-selector] e [tolleranza][toleration].
+Creare un file denominato `virtual-node.yaml` e copiarlo nel codice YAML seguente. Per pianificare il contenitore nel nodo, vengono definiti [nodeSelector][node-selector] e [tolleranza][toleration] .
 
 ```yaml
 apiVersion: apps/v1
@@ -248,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Eseguire l'applicazione con il comando [kubectl apply][kubectl-apply].
+Eseguire l'applicazione con il comando [kubectl Apply][kubectl-apply] .
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod e il nodo pianificato. Si noti che il pod `aci-helloworld` è stato pianificato nel nodo `virtual-node-aci-linux`.
+Usare il comando [kubectl Get Pod][kubectl-get] con l' `-o wide` argomento per restituire un elenco di Pod e il nodo pianificato. Si noti che il pod `aci-helloworld` è stato pianificato nel nodo `virtual-node-aci-linux`.
 
 ```
 $ kubectl get pods -o wide
@@ -266,7 +265,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Al pod viene assegnato un indirizzo IP interno della subnet di rete virtuale di Azure delegata per l'uso con nodi virtuali.
 
 > [!NOTE]
-> Se si usano immagini archiviate nel Registro Azure Container, [configurare e usare un segreto Kubernetes][acr-aks-secrets]. Una limitazione corrente dell'anteprima dei nodi virtuali è costituita dall'impossibilità di usare l'autenticazione dell'entità servizio di Azure AD. Se non si usa un segreto, i pod pianificati nei nodi virtuali non si avviano e segnalano l'errore `HTTP response status code 400 error code "InaccessibleImage"`.
+> Se si usano immagini archiviate in Azure Container Registry, [configurare e usare un segreto Kubernetes][acr-aks-secrets]. Una limitazione corrente dei nodi virtuali è che non è possibile usare l'autenticazione dell'entità servizio Azure AD integrata. Se non si usa un segreto, i pod pianificati nei nodi virtuali non si avviano e segnalano l'errore `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testare il pod del nodo virtuale
 
@@ -282,7 +281,7 @@ Installare `curl` nel pod usando `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4*. Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
+Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4* . Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
 
 ```console
 curl -L http://10.241.0.4
@@ -304,7 +303,15 @@ Chiudere la sessione del terminale nel pod del test con `exit`. Quando viene ter
 
 ## <a name="remove-virtual-nodes"></a>Rimuovere i nodi virtuali
 
-Se si vuole interrompere l'uso di nodi virtuali, è possibile disabilitarli usando il comando [az aks disable-addons][az aks disable-addons]. L'esempio seguente disabilita i nodi virtuali Linux:
+Se non si vuole più usare i nodi virtuali, è possibile disabilitarli usando il comando [AZ AKS Disable-addons][az aks disable-addons] . 
+
+Prima di tutto, eliminare il Pod HelloWorld in esecuzione sul nodo virtuale:
+
+```azurecli-interactive
+kubectl delete -f virtual-node.yaml
+```
+
+Il comando di esempio seguente Disabilita i nodi virtuali Linux:
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -313,35 +320,41 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 A questo punto, rimuovere le risorse di rete virtuale e il gruppo di risorse:
 
 ```azurecli-interactive
-# Change the name of your resource group and network resources as needed
+# Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
+AKS_CLUSTER=myAKScluster
+AKS_VNET=myVnet
+AKS_SUBNET=myVirtualNodeSubnet
+
+# Get AKS node resource group
+NODE_RES_GROUP=$(az aks show --resource-group $RES_GROUP --name $AKS_CLUSTER --query nodeResourceGroup --output tsv)
 
 # Get network profile ID
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato pianificato un pod nel nodo virtuale ed è stato assegnato un indirizzo IP interno privato. In alternativa, è possibile creare una distribuzione di servizio e instradare il traffico al pod attraverso un bilanciamento del carico o un controller in ingresso. Per altre informazioni, vedere l'argomento relativo alla [creazione di un controller di ingresso di base in servizio Azure Kubernetes][aks-basic-ingress].
+In questo articolo è stato pianificato un pod nel nodo virtuale ed è stato assegnato un indirizzo IP interno privato. In alternativa, è possibile creare una distribuzione di servizio e instradare il traffico al pod attraverso un bilanciamento del carico o un controller in ingresso. Per altre informazioni, vedere [creare un controller di ingresso di base in AKS][aks-basic-ingress].
 
 I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel servizio Azure Kubernetes. Per altre informazioni sulle soluzioni di scalabilità, vedere gli articoli seguenti:
 
-- [Use the Kubernetes horizontal pod autoscaler][aks-hpa] (Usare la scalabilità automatica orizzontale dei pod di Kubernetes)
-- [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler] (Usare la scalabilità automatica dei cluster di Kubernetes)
-- [Estrarre l'esempio di scalabilità automatica per i nodi virtuali][virtual-node-autoscale]
-- [Per ulteriori informazioni su Virtual Kubelet libreria open source][virtual-kubelet-repo]
+- [Usare il ridimensionamento automatico del Pod Kubernetes orizzontale][aks-hpa]
+- [Usare il servizio di scalabilità automatica del cluster Kubernetes][aks-cluster-autoscaler]
+- [Vedere l'esempio di scalabilità automatica per i nodi virtuali][virtual-node-autoscale]
+- [Scopri di più sulla libreria open source Kubelet virtuale][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

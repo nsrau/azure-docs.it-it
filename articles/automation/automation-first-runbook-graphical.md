@@ -5,17 +5,17 @@ keywords: runbook, modello di runbook, automazione runbook, runbook di Azure
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 043a39fbcb908e4c277e5eba9972a2a17ca23813
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426795"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478673"
 ---
 # <a name="my-first-graphical-runbook"></a>Il primo runbook grafico
 
@@ -142,7 +142,7 @@ Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile c
 1. Nella pagina Valore parametro selezionare **Asset variabile** per **Origine dati**, selezionare **AzureSubscriptionId** dall'elenco e quindi fare clic su **OK** due volte.
 1. Passare il puntatore su **Login to Azure** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Specify Subscription Id**.
 
-A questo punto l'aspetto del runbook sarà simile al seguente:  <br>![Configurazione dell'autenticazione runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
+A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazione dell'autenticazione runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
 ## <a name="add-activity-to-start-a-vm"></a>Aggiungere un'attività per avviare una macchina virtuale
 
@@ -157,7 +157,7 @@ Qui viene aggiunta un'attività **Start-AzureRmVM** per avviare una macchina vir
 1. Fare clic sul riquadro Test in modo da testare il runbook.
 1. Fare clic su **Avvia** per avviare il test. Dopo aver completato l'attività, controllare che la macchina virtuale sia stata avviata.
 
-A questo punto l'aspetto del runbook sarà simile al seguente:  <br>![Configurazione dell'autenticazione runbook](media/automation-first-runbook-graphical/runbook-startvm.png)
+A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazione dell'autenticazione runbook](media/automation-first-runbook-graphical/runbook-startvm.png)
 
 ## <a name="add-additional-input-parameters"></a>Aggiungere altri parametri di input
 
@@ -209,7 +209,7 @@ Ora si modificherà il runbook in modo che provi ad avviare la macchina virtuale
 
 1. Creare un collegamento da **Get Status** a **Start-AzureRmVM**.<br> ![Runbook con il modulo Code](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Selezionare il collegamento e nel riquadro Configurazione impostare **Applica condizione** su **Sì**. Si noti che il collegamento si trasforma in una linea tratteggiata per indicare che l'attività di destinazione verrà eseguita solo se la condizione restituisce true.  
-1. Per **Espressione condizione**digitare *$ActivityOutput['Get Status'] -eq "Stopped"*. **Start-AzureRmVM** verrà ora eseguito solo se la macchina virtuale è arrestata.
+1. Per **Espressione condizione**digitare *$ActivityOutput['Get Status'] -eq "Stopped"* . **Start-AzureRmVM** verrà ora eseguito solo se la macchina virtuale è arrestata.
 1. Nel controllo Libreria, espandere **Cmdlets** e quindi **Microsoft.PowerShell.Utility**.
 1. Aggiungere **Write-Output** all'area di disegno due volte.
 1. Nel primo controllo **Write-Output** fare clic su **Parametri** e cambiare il valore di **Etichetta** in *Notify VM Started*.

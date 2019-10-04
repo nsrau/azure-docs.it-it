@@ -4,22 +4,16 @@ description: Come configurare l'applicazione del servizio cloud di Azure per con
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: mmccrory
-ms.openlocfilehash: e9e5308f63034efefc0616997301bfc1b383fd84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: memccror
+ms.openlocfilehash: bea4e0c43d6ae6e0ea05c43343535195a25cf3e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527387"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359525"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
@@ -66,7 +60,7 @@ Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessio
 4. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto.
 
 >[!NOTE]
-> Se il servizio cloud si trova dietro un gruppo di sicurezza di rete, potrebbe essere necessario creare regole che consentano il traffico sulle porte **3389** e **20000**.  Desktop remoto usa la porta **3389**.  Dato che alle istanze del servizio cloud viene applicato il bilanciamento del carico, non è possibile controllare direttamente a quale istanza connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* gestiscono il traffico RDP e consentono al client di inviare un cookie RDP e specificare una singola istanza a cui connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* richiedono che la porta **20000***, che potrebbe essere bloccata in presenza di un gruppo di sicurezza di rete, sia aperta.
+> Se il servizio cloud si trova dietro un gruppo di sicurezza di rete, potrebbe essere necessario creare regole che consentano il traffico sulle porte **3389** e **20000**.  Desktop remoto usa la porta **3389**.  Dato che alle istanze del servizio cloud viene applicato il bilanciamento del carico, non è possibile controllare direttamente a quale istanza connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* gestiscono il traffico RDP e consentono al client di inviare un cookie RDP e specificare una singola istanza a cui connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* richiedono che la porta **20000** *, che potrebbe essere bloccata in presenza di un gruppo di sicurezza di rete, sia aperta.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

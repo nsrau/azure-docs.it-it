@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474544"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66243280"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
 Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'organizzazione in modo da poter accedere a risorse potenzialmente limitate.
@@ -116,3 +116,4 @@ Dopo avere aggiunto il dispositivo alla rete dell'organizzazione, è necessario 
 
 - Se l'organizzazione richiede la registrazione del dispositivo personale, ad esempio il telefono, vedere [Registrare il dispositivo personale nella rete dell'organizzazione](user-help-register-device-on-network.md).
 
+- Se l'organizzazione viene gestita con Microsoft Intune e si hanno domande sulla registrazione, accedi o qualsiasi altro correlati a Intune problema, vedere la [il contenuto della Guida utente di Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

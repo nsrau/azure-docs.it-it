@@ -7,18 +7,18 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e9e27e224e42bf3f65fadcac22210fda314445fa
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426223"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665989"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Soluzione integrità agente in Monitoraggio di Azure
 La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente all'area di lavoro di Log Analitica in Monitoraggio di Azure o un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, che sono non risponde e invio dati operativi.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
@@ -63,7 +63,7 @@ Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integr
 | Distribution by Agent Version (Distribuzione per versione dell'agente) | Indicazione delle diverse versioni dell'agente installate nell'ambiente e conteggio di ogni versione.|
 | Distribution by Agent Category (Distribuzione per categoria dell'agente) | Indicazione delle diverse categorie di agenti che inviano eventi di heartbeat, ovvero agenti diretti, agenti OpsMgr o un server di gestione di OpsMgr.|
 | Distribuzione per gruppo di gestione | Indicazione dei diversi gruppi di gestione di Operations Manager nell'ambiente in uso.|
-| Posizione geografica degli agenti | Indicazione dei diversi paesi in cui sono presenti agenti e conteggio totale del numero di agenti installati in ogni paese.|
+| Posizione geografica degli agenti | Indicazione dei diversi paesi/aree geografiche in cui sono presenti agenti e un conteggio totale del numero di agenti che sono stati installati in ogni paese/area geografica.|
 | Count of Gateways Installed (Conteggio dei gateway installati) | Numero di server in cui è installato il gateway Log Analytics ed elenco dei server.|
 
 ![Esempio di dashboard della soluzione Integrità agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -74,7 +74,7 @@ La soluzione crea un tipo di record nell'area di lavoro Log Analytics.
 ### <a name="heartbeat-records"></a>Record di heartbeat
 Viene creato un record di tipo **Heartbeat**.  Questi record includono le proprietà elencate nella tabella seguente.  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | `Type` | *Heartbeat*|
 | `Category` | Il valore è *Agente diretto*, *SCOM Agent* (Agente SCOM) o *SCOM Management Server* (Server di gestione SCOM).|

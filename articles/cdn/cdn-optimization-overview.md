@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435604"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593641"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Ottimizzare la rete CDN di Azure per il tipo di distribuzione di contenuti
 

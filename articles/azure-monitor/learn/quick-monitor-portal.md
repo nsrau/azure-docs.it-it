@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805347"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916132"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
@@ -26,7 +26,7 @@ Questa guida introduttiva illustra come aggiungere Application Insights a un'app
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
-1. Aprire il progetto in Visual Studio 2017.
+1. Aprire il progetto in Visual Studio 2019.
 2. Selezionare **Configura Application Insights** dal menu Progetto. Visual Studio aggiunge Application Insights SDK all'applicazione.
 
     > [!IMPORTANT]
@@ -47,7 +47,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 4. Selezionare la sottoscrizione e fare clic su **Registra**.
 
-5. Eseguire l'applicazione selezionando **Avvia debug** dal menu **Debug** oppure premendo F5.
+5. Selezionare **Progetto** > **Gestisci pacchetti NuGet** > **Origine pacchetto: nuget.org** > **Aggiorna** per aggiornare i pacchetti di Application Insights SDK all'ultima versione stabile.
+
+6. Eseguire l'applicazione selezionando **Avvia debug** dal menu **Debug** oppure premendo F5.
 
 ## <a name="confirm-app-configuration"></a>Verificare la configurazione dell'app
 
@@ -63,13 +65,13 @@ Application Insights raccoglie i dati di telemetria per l'applicazione indipende
 
 1. Espandere la cartella **Servizi connessi** (icona a forma di nuvole e spina) in Esplora soluzioni e quindi fare clic con il pulsante destro del mouse su **Application Insights** e fare clic su **Apri portale Application Insights**.  Verranno visualizzate alcune informazioni sull'applicazione e diverse opzioni.
 
-    ![Mappa delle applicazioni](media/quick-monitor-portal/4overview.png)
+    ![Mappa delle applicazioni](media/quick-monitor-portal/04-overview.png)
 
 2. Fare clic su **Mappa delle applicazioni** per ottenere un layout visivo delle relazioni di dipendenza tra i componenti dell'applicazione.  Ogni componente mostra indicatori KPI come carico, prestazioni, errori e avvisi.
 
-    ![Mappa delle applicazioni](media/quick-monitor-portal/5appmap.png)
+    ![Mappa delle applicazioni](media/quick-monitor-portal/05-appmap.png)
 
-3. Fare clic sull'icona di **App Analytics** ![Mappa delle applicazioni](media/quick-monitor-portal/app-analytics-icon.png) **Visualizza in Analisi** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights.  In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Fare clic sull'icona di **App Analytics** ![Mappa delle applicazioni](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualizza in Log (Analisi)** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Log (Analisi)** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 

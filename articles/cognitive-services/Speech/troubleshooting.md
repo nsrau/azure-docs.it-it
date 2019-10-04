@@ -3,20 +3,20 @@ title: Risoluzione dei problemi di Riconoscimento vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Come risolvere i problemi quando si usa Riconoscimento vocale Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1213045867f84efd6d77aebff12b8c8725d82d08
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513966"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965575"
 ---
 # <a name="troubleshooting-bing-speech"></a>Risoluzione dei problemi di Riconoscimento vocale Bing
 

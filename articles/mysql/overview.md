@@ -6,17 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 08/13/2019
+ms.openlocfilehash: 1299f82c28181d1c24f68a0d36ba13c6b40d21ee
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295403"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013396"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Database di Azure per MySQL:
 
-Database di Azure per MySQL è un servizio di database relazionale in Microsoft cloud basato sul [MySQL Community Edition](https://www.mysql.com/products/community/) (disponibile con la licenza GPLv2) versione 5.6 e 5.7, motore di database. Database di Azure per MySQL offre:
+Database di Azure per MySQL è un servizio di database relazionale in Microsoft cloud basato su [MySQL Community Edition](https://www.mysql.com/products/community/) , disponibile con il motore di database di GPLv2 License, versioni 5,6, 5,7 e 8,0. Database di Azure per MySQL offre:
 
 - Disponibilità elevata integrata senza costi aggiuntivi.
 - Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo.

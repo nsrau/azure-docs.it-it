@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761822"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568855"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 

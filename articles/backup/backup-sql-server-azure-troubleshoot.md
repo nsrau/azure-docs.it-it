@@ -1,177 +1,236 @@
 ---
-title: Risoluzione dei problemi di backup dei database di SQL Server con Backup di Azure | Microsoft Docs
+title: Risolvere i problemi di SQL Server backup del database tramite backup di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
-services: backup
-author: anuragm
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: article
-ms.date: 03/13/2019
-ms.author: anuragm
-ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/18/2019
+ms.author: dacurwin
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254656"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018988"
 ---
-# <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
+# <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
-Questo articolo offre informazioni sulla risoluzione dei problemi relativi al backup di macchine virtuali di SQL Server in Azure (anteprima).
+Questo articolo fornisce informazioni sulla risoluzione dei problemi per SQL Server database in esecuzione in macchine virtuali di Azure.
 
-## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
-
-Per visualizzare la considerazione delle funzionalità, vedere l'articolo [backup su SQL Server in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Per altre informazioni sul processo di backup e sulle limitazioni, vedere [informazioni su SQL Server backup in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
 
-Per configurare la protezione per un database di SQL Server in una macchina virtuale, l'estensione **AzureBackupWindowsWorkload** deve essere installata nella macchina virtuale. Se viene visualizzato l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non ha le autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura in [Impostare le autorizzazioni per le macchine virtuali SQL non del marketplace](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Per configurare la protezione per un database di SQL Server in una macchina virtuale, è necessario installare l'estensione **AzureBackupWindowsWorkload** in tale macchina virtuale. Se si riceve l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non dispone delle autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura descritta in [impostare le autorizzazioni della macchina virtuale](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
-
-Usare le informazioni nelle tabelle seguenti per risolvere i problemi e gli errori rilevati durante il backup di SQL Server in Azure.
-
-## <a name="alerts"></a>Avvisi
+## <a name="error-messages"></a>messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Gravità | DESCRIZIONE | Possibili cause | Azione consigliata |
+| severity | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Impostazioni correnti per questo database non supportano una determinata tipologia di tipi di backup presenti nei criteri associati. | <li>**Master DB**: Solo un'operazione di backup completo del database può essere eseguita sul database master. né **differenziale** backup né transazione **log** è possibile eseguire backup. </li> <li>Qualsiasi database nel **modello di recupero con registrazione minima** non consente l'esecuzione del backup del **log** delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato o il processo di backup avrà esito negativo per backup ad hoc.
+| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup ad hoc.
 
-
-## <a name="backup-failures"></a>Errori di backup
-
-Le tabelle seguenti sono organizzate in base al codice di errore.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il database SQL non supporta il tipo di backup richiesto. | Si verifica quando il modello di recupero del database non consente il tipo di backup richiesto. L'errore può verificarsi nelle situazioni seguenti: <br/><ul><li>Un database che usa un modello di recupero con registrazione minima non consente backup del log.</li><li>I backup differenziali e del log non sono consentiti per un database master.</li></ul>Per altri dettagli, vedere la documentazione [Modelli di recupero (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Se il backup del log ha esito negativo per il database nel modello di recupero con registrazione minima, provare una delle opzioni seguenti:<ul><li>Se il database è in modalità di recupero con registrazione minima, disabilitare i backup del log.</li><li>Usare la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) per informazioni su come modificare il modello di recupero da con registrazione completa a con registrazione minima delle operazioni bulk. </li><li> Se non si vuole modificare il modello di recupero ed esistono criteri standard per eseguire il backup più database che non possono essere modificati, ignorare l'errore. I backup completi e differenziali funzioneranno come da pianificazione. Verranno ignorati i backup del log, come previsto in questo caso.</li></ul>Nel caso di un database master e se è stato configurato il backup differenziale o del log, usare uno dei passaggi seguenti:<ul><li>Usare il portale per modificare la pianificazione dei criteri di backup per il database master, per impostare il backup completo.</li><li>Se esistono criteri standard per eseguire il backup di più database che non possono essere modificati, ignorare l'errore. Il backup completo funzionerà come da pianificazione. Non verranno eseguiti i backup differenziali e del log, come previsto in questo caso.</li></ul> |
-| L'operazione è stata annullata perché è già in esecuzione un'operazione in conflitto nello stesso database. | Vedere il [post di blog sulle limitazioni di backup e ripristino](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) eseguiti contemporaneamente.| [Usare SQL Server Management Studio (SSMS) per monitorare i processi di backup.](manage-monitor-sql-database-backup.md) Quando l'operazione in conflitto non riesce, riavviare l'operazione.|
+| Il database SQL non supporta il tipo di backup richiesto. | Si verifica quando il modello di recupero del database non consente il tipo di backup richiesto. L'errore può verificarsi nelle situazioni seguenti: <br/><ul><li>Un database che utilizza un modello di recupero con registrazione minima non consente il backup del log.</li><li>I backup differenziali e del log non sono consentiti per un database master.</li></ul>Per informazioni dettagliate, vedere la documentazione relativa ai [modelli di recupero SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Se il backup del log non riesce per il database nel modello di recupero con registrazione minima, provare una delle opzioni seguenti:<ul><li>Se il database è in modalità di recupero con registrazione minima, disabilitare i backup del log.</li><li>Utilizzare la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) per modificare il modello di recupero del database in completo o con registrazione minima delle operazioni bulk. </li><li> Se non si vuole modificare il modello di recupero ed esistono criteri standard per eseguire il backup più database che non possono essere modificati, ignorare l'errore. I backup completi e differenziali funzioneranno come da pianificazione. Verranno ignorati i backup del log, come previsto in questo caso.</li></ul>Se si tratta di un database master ed è stato configurato il backup differenziale o del log, usare uno dei passaggi seguenti:<ul><li>Usare il portale per modificare la pianificazione dei criteri di backup per il database master in full.</li><li>Se esistono criteri standard per eseguire il backup di più database che non possono essere modificati, ignorare l'errore. Il backup completo funzionerà come da pianificazione. Non verranno eseguiti i backup differenziali e del log, come previsto in questo caso.</li></ul> |
+| L'operazione è stata annullata perché è già in esecuzione un'operazione in conflitto nello stesso database. | Vedere il [post di Blog sulle limitazioni di backup e ripristino](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) eseguite simultaneamente.| [Usare SQL Server Management Studio (SSMS) per monitorare i processi di backup](manage-monitor-sql-database-backup.md). Quando l'operazione in conflitto ha esito negativo, riavviare l'operazione.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il database SQL non esiste. | Il database è stato eliminato o rinominato. | Controllare se il database è stato eliminato o rinominato accidentalmente.<br/><br/> Se il database è stato eliminato accidentalmente, per continuare con i backup, ripristinare il database nel percorso originale.<br/><br/> Se il database è stato eliminato e non sono necessari backup futuri, nell'insieme di credenziali di Servizi di ripristino, fare clic su [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backup.md) (Arresta backup con "Elimina/Mantieni dati").
+| Il database SQL non esiste. | Il database è stato eliminato o rinominato. | Controllare se il database è stato eliminato o rinominato accidentalmente.<br/><br/> Se il database è stato eliminato accidentalmente, per continuare con i backup, ripristinare il database nel percorso originale.<br/><br/> Se il database è stato eliminato e non sono necessari backup futuri, nell'insieme di credenziali di servizi di ripristino selezionare **Interrompi backup** con **Mantieni dati di backup** o **Elimina dati di backup**. Per ulteriori informazioni, vedere [gestire e monitorare i database SQL Server](manage-monitor-sql-database-backup.md)sottoposti a backup.
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| La catena di log è interrotta. | Il backup del database o della macchina virtuale viene eseguito con un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup è un backup del log ad hoc, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è richiesto alcun intervento perché il servizio Backup di Azure attiverà automaticamente un backup completo per risolvere questo problema.</li>|
+| La catena di log è interrotta. | Viene eseguito il backup del database o della macchina virtuale tramite un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup era un backup del log ad hoc, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è necessaria alcuna azione perché il servizio backup di Azure attiverà automaticamente un backup completo per risolvere il problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il servizio Backup di Azure non riesce a connettersi all'istanza SQL. | Backup di Azure non è in grado di connettersi all'istanza di SQL Server. | Usare i dettagli aggiuntivi nel menu dell'errore nel portale di Azure per risalire alle cause radice. Fare riferimento a [Risolvere i problemi di connessione al motore di database di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) per correggere l'errore.<br/><ul><li>Se le impostazioni di SQL Server predefinite non consentono le connessioni remote, modificare le impostazioni. Vedere gli articoli seguenti per informazioni su come modificare le impostazioni.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se sono presenti problemi di accesso, vedere i collegamenti seguenti per risolvere il problema:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Il servizio Backup di Azure non riesce a connettersi all'istanza SQL. | Backup di Azure non è in grado di connettersi all'istanza di SQL Server. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Fare riferimento a [Risolvere i problemi di connessione al motore di database di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) per correggere l'errore.<br/><ul><li>Se le impostazioni SQL predefinite non consentono le connessioni remote, modificare le impostazioni. Per informazioni sulla modifica delle impostazioni, vedere gli articoli seguenti:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se si verificano problemi di accesso, usare i collegamenti seguenti per correggerli:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Manca il primo backup completo per questa origine dati. | Manca un backup completo per il database. I backup del log e differenziali fanno riferimento a un backup completo, quindi occorre creare un backup completo prima di attivare backup differenziali o del log. | Attivare un backup completo ad hoc.   |
+| Manca il primo backup completo per questa origine dati. | Manca un backup completo per il database. I backup di log e differenziali sono elementi padre di un backup completo, quindi assicurarsi di eseguire backup completi prima di attivare backup differenziali o del log. | Attivare un backup completo ad hoc.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Cannot take backup as transaction log for the data source is full (Non è possibile eseguire il backup perché il log delle transazioni per l'origine dati è pieno). | Lo spazio del log delle transazioni del database è pieno. | Per risolvere questo problema, fare riferimento alla [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Il database SQL non supporta il tipo di backup richiesto. | Le repliche secondarie di gruppi di disponibilità Always On non supportano backup completi e differenziali. | <ul><li>Se è attivato un backup ad hoc, attivare i backup nel nodo primario.</li><li>Se il backup è stato pianificato da criteri, verificare che il nodo primario sia registrato. Per registrare il nodo [seguire la procedura per individuare un database di SQL Server](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
-
-## <a name="restore-failures"></a>Errori di ripristino
-
-I codici di errore seguenti vengono visualizzati in caso di esito negativo dei processi di ripristino.
+| Cannot take backup as transaction log for the data source is full (Non è possibile eseguire il backup perché il log delle transazioni per l'origine dati è pieno). | Lo spazio del log delle transazioni del database è pieno. | Per risolvere il problema, fare riferimento alla [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Un database con lo stesso nome esiste già nel percorso di destinazione | La destinazione di ripristino di destinazione include già un database con lo stesso nome.  | <ul><li>Modificare il nome del database di destinazione</li><li>In alternativa, usare l'opzione per forzare la sovrascrittura nella pagina di ripristino</li> |
+| Un database con lo stesso nome esiste già nel percorso di destinazione | Per la destinazione di ripristino di destinazione è già presente un database con lo stesso nome.  | <ul><li>Modificare il nome del database di destinazione.</li><li>In alternativa, usare l'opzione forza sovrascrittura nella pagina Ripristina.</li> |
 
 ### <a name="usererrorrestorefaileddatabasecannotbeofflined"></a>UserErrorRestoreFailedDatabaseCannotBeOfflined
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Il database di destinazione deve essere portato offline durante un ripristino. Backup di Azure non è in grado di portare offline i dati. | Usare i dettagli aggiuntivi nel menu dell'errore nel portale di Azure per risalire alle cause radice. Per altre informazioni, vedere la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Quando si esegue un ripristino, il database di destinazione deve essere portato offline. Backup di Azure non è in grado di portare offline questi dati. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Per ulteriori informazioni, vedere la [documentazione SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Cannot find the server certificate with thumbprint on the target (Non è possibile trovare il certificato del server con l'identificazione personale). | Il database master nell'istanza di destinazione non ha un'identificazione digitale per la crittografia valida. | Importare l'identificazione personale del certificato valida usata nell'istanza di origine, nell'istanza di destinazione. |
+| Cannot find the server certificate with thumbprint on the target (Non è possibile trovare il certificato del server con l'identificazione personale). | Il database master nell'istanza di destinazione non dispone di un'identificazione personale di crittografia valida. | Importare nell'istanza di destinazione l'identificazione personale del certificato valida utilizzata nell'istanza di di origine. |
 
 ### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log utilizzato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per arrestare in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di ripristino registrati in blocco, non è possibile recuperare i dati tra una transazione di operazioni bulk registrate e il troncamento del log successivo. | Scegliere un altro punto nel tempo per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
-
-## <a name="registration-failures"></a>Errori di registrazione
-
-I codici di errore seguenti riguardano gli errori di registrazione.
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Non è possibile soddisfare le preferenze di backup per il gruppo di disponibilità AlwaysOn SQL perché alcuni nodi del gruppo di disponibilità non sono registrati. | I nodi necessari per eseguire i backup non sono registrati o non sono raggiungibili. | <ul><li>Verificare che tutti i nodi necessari per eseguire i backup del database siano registrati e integri, quindi ripetere l'operazione.</li><li>Modificare la preferenza per il backup dei gruppi di disponibilità Always On di SQL Server.</li></ul> |
+| Non è possibile soddisfare le preferenze di backup per il gruppo di disponibilità AlwaysOn SQL perché alcuni nodi del gruppo di disponibilità non sono registrati. | I nodi necessari per eseguire i backup non sono registrati o non sono raggiungibili. | <ul><li>Verificare che tutti i nodi necessari per eseguire i backup del database siano registrati e integri, quindi ripetere l'operazione.</li><li>Modificare le preferenze di backup per il gruppo di disponibilità SQL Server Always On.</li></ul> |
 
 ### <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| L'istanza di SQL Server è stata arrestata e non è accessibile al servizio Backup di Azure. | La macchina virtuale è stata arrestata | Verificare che SQL Server sia in esecuzione. |
+| L'istanza di SQL Server è stata arrestata e non è accessibile al servizio Backup di Azure. | La macchina virtuale viene arrestata. | Verificare che l'istanza di SQL Server sia in esecuzione. |
 
 ### <a name="guestagentstatusunavailableusererror"></a>GuestAgentStatusUnavailableUserError
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il servizio Backup di Azure usa l'agente guest di macchine virtuali di Azure per l'esecuzione del backup ma l'agente guest non è disponibile nel server di destinazione. | L'agente guest non è abilitato o non è integro | [Installare l'agente guest di macchine virtuali](../virtual-machines/extensions/agent-windows.md) manualmente. |
-
-## <a name="configure-backup-failures"></a>Configurare gli errori di backup
-
-I codici di errore seguenti riguardano gli errori di backup.
+| Il servizio Backup di Azure usa l'agente guest di macchine virtuali di Azure per l'esecuzione del backup ma l'agente guest non è disponibile nel server di destinazione. | L'agente guest non è abilitato o non è integro. | [Installare l'agente guest di macchine virtuali](../virtual-machines/extensions/agent-windows.md) manualmente. |
 
 ### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| La finalità di protezione automatica è stata rimossa o non è più valida. | Quando si abilita la protezione automatica in un'istanza SQL, i processi di **configurazione del backup** vengono eseguiti per tutti i database dell'istanza. Se si disabilita la protezione automatica mentre i processi sono in esecuzione, i processi **in corso** vengono annullati con questo codice di errore. | Abilitare di nuovo la protezione automatica per proteggere tutti i database rimanenti. |
+| La finalità di protezione automatica è stata rimossa o non è più valida. | Quando si Abilita la protezione automatica in un'istanza di SQL Server, configurare i processi di **backup** eseguiti per tutti i database in tale istanza. Se si disabilita la protezione automatica mentre i processi sono in esecuzione, i processi **in corso** vengono annullati con questo codice di errore. | Abilitare di nuovo la protezione automatica per proteggere tutti i database rimanenti. |
 
-## <a name="re-registration-failures"></a>Errori di ri-registrazione
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
 
-Controllo per uno o più i [sintomi](#symptoms) prima di attivare l'operazione di ripetere la registrazione.
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+L'operazione è bloccata perché è stato raggiunto il limite per il numero di operazioni consentite nelle 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. <br> Ad esempio:  Se è stato raggiunto il limite per il numero di processi di backup di configurazione che possono essere attivati al giorno e si tenta di configurare il backup su un nuovo elemento, verrà visualizzato questo errore. | In genere, la ripetizione dell'operazione dopo 24 ore risolve questo problema. Tuttavia, se il problema persiste, è possibile contattare il supporto tecnico Microsoft per assistenza.
 
-### <a name="symptoms"></a>Sintomi
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
-* Tutte le operazioni, ad esempio backup, ripristino e configurare il backup hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* Il **lo stato di Backup** per il Backup viene visualizzato l'elemento **non è raggiungibile**. Anche se è necessario escludere tutti gli altri motivi per cui possono inoltre comportare lo stesso stato:
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere in caso di operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio:  Se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ogni elemento protetto e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore. 
 
-  * Mancanza di autorizzazioni per eseguire operazioni correlate di backup nella macchina virtuale  
-  * Macchina virtuale è stata arrestata a causa della quale non possono avere luogo i backup
+
+## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
+
+Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei seguenti sintomi:
+
+* Tutte le operazioni, ad esempio il backup, il ripristino e la configurazione del backup, hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* L'area **stato backup** per l'elemento di backup **non è raggiungibile**. Escludere tutte le altre cause che possono generare lo stesso stato:
+
+  * Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale  
+  * Arrestare la macchina virtuale, quindi non è possibile eseguire i backup
   * Problemi di rete  
 
-    ![Ripetere la registrazione della macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
+  ![Stato "non raggiungibile" nella ripetizione della registrazione di una macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
 
-* In caso di gruppo di disponibilità always on, i backup hanno iniziato a bloccarsi dopo aver modificato la preferenza di backup o quando si è verificato un failover
+* Nel caso di un gruppo di disponibilità di Always On, i backup hanno avuto esito negativo dopo aver modificato la preferenza di backup o dopo un failover.
 
-### <a name="causes"></a>Cause
-Questi problemi possono verificarsi a causa di uno o più dei motivi seguenti:
+Questi sintomi possono verificarsi per uno o più dei seguenti motivi:
 
-  * Estensione è stata eliminata o disinstallata dal portale 
-  * Estensione è stata disinstallata dal **Pannello di controllo** della macchina virtuale in **Disinstalla o modifica programma** dell'interfaccia utente
-  * Macchina virtuale è stata ripristinata indietro nel tempo tramite il ripristino di dischi in locale
-  * Macchina virtuale è stata arrestata per un periodo prolungato a causa della quale la configurazione dell'estensione su di esso è scaduto
-  * Macchina virtuale è stata eliminata e un'altra macchina virtuale è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminato
-  * Uno dei nodi del gruppo di disponibilità non è stata ricevuta la configurazione del backup completata, ciò può verificarsi sia al momento della registrazione di gruppo di disponibilità per l'insieme di credenziali o quando viene aggiunto un nuovo nodo  <br>
-    Negli scenari precedenti, è consigliabile attivare registrare di nuovo l'operazione sulla macchina virtuale. Questa opzione è disponibile solo tramite PowerShell e sarà presto disponibile nel portale di Azure anche.
+* Un'estensione è stata eliminata o disinstallata dal portale. 
+* Un'estensione è stata disinstallata dal **Pannello di controllo** nella macchina virtuale in **Disinstalla o modifica programma**.
+* La macchina virtuale è stata ripristinata di nuovo nel tempo tramite il ripristino del disco sul posto.
+* La macchina virtuale è stata arrestata per un periodo prolungato, quindi la configurazione dell'estensione è scaduta.
+* La macchina virtuale è stata eliminata e un'altra VM è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminata.
+* Uno dei nodi del gruppo di disponibilità non ha ricevuto la configurazione del backup completo. Questo problema può verificarsi quando il gruppo di disponibilità viene registrato nell'insieme di credenziali o quando viene aggiunto un nuovo nodo.
 
+Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione della registrazione nella macchina virtuale. Per il momento, questa opzione è disponibile solo tramite PowerShell.
+
+## <a name="size-limit-for-files"></a>Limite dimensioni per i file
+
+Le dimensioni totali della stringa dei file dipendono non solo dal numero di file, ma anche dai rispettivi nomi e percorsi. Per ogni file di database, ottenere il nome e il percorso fisico del file logico. È possibile usare questa query SQL:
+
+```sql
+SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
+               INNER JOIN sys.databases db ON db.database_id = mf.database_id
+               WHERE db.name = N'<Database Name>'"
+```
+
+Ora è possibile disporli nel formato seguente:
+
+```json
+[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+```
+
+Di seguito è riportato un esempio:
+
+```json
+[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+```
+
+Se le dimensioni della stringa del contenuto superano 20.000 byte, i file di database vengono archiviati in modo diverso. Durante il ripristino, non sarà possibile impostare il percorso del file di destinazione per il ripristino. I file verranno ripristinati nel percorso SQL predefinito fornito da SQL Server.
+
+### <a name="override-the-default-target-restore-file-path"></a>Esegui override del percorso predefinito del file di ripristino di destinazione
+
+È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un `database_name.json` file e inserirlo nel percorso *C:\Program Files\Azure carico di lavoro Backup\bin\plugins\SQL*.
+
+Il contenuto del file deve essere nel formato seguente:
+```json
+[
+  {
+    "Path": "<Restore_Path>",
+    "LogicalName": "<LogicalName>",
+    "IsDir": "false"
+  },
+  {
+    "Path": "<Restore_Path>",
+    "LogicalName": "LogicalName",
+    "IsDir": "false"
+  },  
+]
+```
+
+Di seguito è riportato un esempio:
+
+```json
+[
+  {
+   "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
+   "LogicalName": "testdb7",
+   "IsDir": "false"
+  },
+  {
+    "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
+    "LogicalName": "testdb7_log",
+    "IsDir": "false"
+  },  
+]
+```
+
+Nel contenuto precedente è possibile ottenere il nome logico del file di database usando la query SQL seguente:
+
+```sql
+SELECT mf.name AS LogicalName FROM sys.master_files mf
+                INNER JOIN sys.databases db ON db.database_id = mf.database_id
+                WHERE db.name = N'<Database Name>'"
+  ```
+
+
+Questo file deve essere inserito prima di attivare l'operazione di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Backup di Azure per macchine virtuali di SQL Server (anteprima pubblica), vedere [Backup di Azure per le macchine virtuali SQL (anteprima pubblica)](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Per altre informazioni su backup di Azure per le macchine virtuali SQL Server (anteprima pubblica), vedere [backup di Azure per macchine virtuali SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).

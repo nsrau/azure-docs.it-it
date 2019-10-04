@@ -1,26 +1,22 @@
 ---
 title: Come creare un BLOB in Archiviazione di Azure con la libreria client per Java v7 | Microsoft Docs
 description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di Archiviazione di Azure per Java v7 per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
-services: storage
-author: roygara
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 02/04/2019
-ms.author: rogarana
-ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999940"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390326"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Come caricare, scaricare ed elencare BLOB con la libreria client per Java v7
 
 Questa guida pratica illustra come usare la libreria client per Java v7 per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
-
-> [!TIP]
-> La versione più recente della libreria client di Archiviazione di Azure per Java è v10. È consigliabile usare la versione della libreria client più recente quando possibile. Per iniziare a usare la versione v10, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

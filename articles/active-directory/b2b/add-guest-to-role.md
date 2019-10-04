@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ffebd117d1ea69a81395c1517b6f75505b83ac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cb195fd3fbf668afe436d3247767d2cc998281a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65767580"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Concedere autorizzazioni agli utenti di organizzazioni partner nel tenant di Azure Active Directory
 

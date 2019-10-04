@@ -7,15 +7,14 @@ ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d2436e09ccb1c134d28a1dc471adc298cf090d05
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283546"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231615"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Guida introduttiva: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
@@ -32,7 +31,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Registrare il provider di risorse Policy Insights usando l'interfaccia della riga di comando di Azure. La registrazione del provider di risorse consente di assicurare che la sottoscrizione lo usi. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione del provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
+Registrare il provider di risorse Azure Policy Insights usando l'interfaccia della riga di comando di Azure. La registrazione del provider di risorse consente di assicurare che la sottoscrizione lo usi. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione del provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -54,7 +53,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Il comando precedente usa le informazioni seguenti.
 
-- **Name**: nome effettivo dell'assegnazione.  Per questo esempio è stato usato il nome *audit-vm-manageddisks*.
+- **Name**: nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome *audit-vm-manageddisks*.
 - **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene utilizzato *controllare le macchine virtuali senza assegnazione di dischi gestiti*.
 - **Policy**: ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri *Controllare le macchine virtuali che non usano i dischi gestiti*. Per ottenere l'ID della definizione di criteri, eseguire questo comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.

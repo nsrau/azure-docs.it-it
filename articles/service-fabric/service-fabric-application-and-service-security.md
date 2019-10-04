@@ -3,7 +3,7 @@ title: Informazioni sulla sicurezza dell'applicazione Azure Service Fabric | Mic
 description: Panoramica su come eseguire in sicurezza applicazioni di microservizi in Service Fabric. Informazioni su come eseguire servizi e script di avvio con account di sicurezza diversi, autenticare e autorizzare utenti, gestire i segreti delle applicazioni, proteggere comunicazioni di servizio, usare un gateway API e proteggere i dati inattivi delle applicazioni.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.author: atsenthi
+ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670422"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600062"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
 Un'architettura di microservizi può apportare [numerosi vantaggi](service-fabric-overview-microservices.md). Gestire la sicurezza dei microservizi, tuttavia, richiede procedure complesse, diverse da quelle necessarie per gestire la sicurezza delle tradizionali applicazioni monolitiche. 
@@ -36,7 +36,7 @@ Il primo passaggio del processo decisionale relativo all'attendibilità a livell
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 
 
-Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  ma anche provider di autenticazione esterni, in modo che gli utenti possano accedere tramite processi di autenticazione esistenti forniti da provider come Microsoft, Google, Facebook o Twitter. 
+Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  Sono supportati anche i provider di autenticazione esterni, in modo che gli utenti possano accedere usando i processi di autenticazione esistenti da provider come Microsoft, Google, Facebook o Twitter.
 
 ### <a name="authorization"></a>Authorization
 Dopo l'autenticazione, i servizi devono autorizzare l'accesso utente o determinare cosa può fare un utente. Questo processo, ad esempio, consente a un servizio di rendere le API disponibili per alcuni utenti autenticati, ma non per tutti. L'autorizzazione è ortogonale e indipendente dall'autenticazione, che costituisce invece il processo con cui si accerta l'identità di un utente. L'autenticazione, inoltre, può creare una o più identità per l'utente corrente.
@@ -66,7 +66,7 @@ In questo flusso sono presenti quattro passaggi principali:
 3. Crittografare i valori dei segreti quando si distribuisce un'applicazione con il certificato e inserirli nel file di configurazione Settings.xml del servizio.
 4. Leggere i valori crittografati risultati da Settings. XML eseguendo la decrittografia con lo stesso certificato di crittografia. 
 
-[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric.
+[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come modo per ottenere i certificati installati nei cluster Service fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric.
 
 Per un esempio, vedere [Gestire i segreti dell'applicazione](service-fabric-application-secret-management.md).
 

@@ -3,25 +3,25 @@ title: Sperimentale un set di impostazioni per la codifica compatibile con conte
 description: Questo articolo viene illustrata la codifica compatibile con il contenuto in servizi multimediali di Azure
 services: media-services
 documentationcenter: ''
-author: sethmanheim
+author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 04/05/2019
-ms.author: sethm
+ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ddb7bfd2437af806c8db75068c50545e69867ea0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65151015"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Sperimentale set di impostazioni per la codifica compatibile con il contenuto
 
-Per preparare il contenuto per il recapito tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video deve essere codificato per più velocità in bit-(in alto al basso). Per assicurare una riduzione del funzionamento della qualità, come la velocità in bit si riducono così è la risoluzione del video. Ciò comporta un cosiddetto ladder codifica: una tabella di risoluzioni e velocità in bit, come si può notare in alcuni dei nostri predefiniti di codifica predefiniti, ad esempio [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+Per preparare il contenuto per il recapito tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video deve essere codificato per più velocità in bit-(in alto al basso). Per assicurare una riduzione del funzionamento della qualità, come la velocità in bit si riducono così è la risoluzione del video. Ciò comporta un cosiddetto ladder codifica: una tabella di risoluzioni e velocità in bit; visualizzare i servizi multimediali [predefiniti di codifica predefiniti](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Panoramica
 

@@ -4,21 +4,20 @@ description: Informazioni su come risolvere i problemi di Servizi Desktop remoto
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318901"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087084"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -42,8 +41,8 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
     **Data**:          16/12/2017 11:19:36</br>
     **ID evento**:      7022</br>
     **Categoria attività**: Nessuna</br>
-    **Livello**:         Tipi di errore</br>
-    **Parole chiave**:      Classico</br>
+    **Livello**:         Errore</br>
+    **Parole chiave**:      Classica</br>
     **Utente**:          N/D</br>
     **Computer**:      vm.contoso.com</br>
     **Descrizione**: Servizi Desktop remoto non si avvia. 
@@ -57,8 +56,8 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 Questo problema si verifica perché Servizi Desktop remoto non è in esecuzione sulla macchina virtuale. La causa dipende dagli scenari seguenti: 
 
 - Il servizio TermService è **disabilitato**. 
-- Il servizio TermService è arrestato in modo anomalo o non risponde. 
-- Il TermService è non avvio causa di una configurazione errata.
+- Il servizio TermService si è arrestato in modo anomalo o non risponde. 
+- Il TermService non viene avviato a causa di una configurazione non corretta.
 
 ## <a name="solution"></a>Soluzione
 
@@ -97,7 +96,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
    ```
 8. Se il servizio non si avvia, seguire la soluzione in base all'errore ricevuto:
 
-    |  Tipi di errore |  Suggerimento |
+    |  Errore |  Suggerimento |
     |---|---|
     |5- ACCESS DENIED |Vedere [Il servizio TermService viene arrestato a causa di un errore di accesso negato](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Vedere [Il servizio TermService è disabilitato](#termservice-service-is-disabled).  |  
@@ -146,7 +145,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
-    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio: `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
+    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale funzionante in cui è installato lo strumento di monitoraggio del processo.
 
 6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Applicare quindi il filtro  **Result is ACCESS DENIED** (Risultato è ACCESSO NEGATO), come illustrato nello screenshot seguente：
@@ -222,6 +221,6 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

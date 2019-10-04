@@ -5,23 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ece75ff84c9f45e7284d7a5976f55f8a4ac4680f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8ba8f98268f076710b120166ccb3a4440307cfbf
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410662"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059701"
 ---
-Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. È sufficiente fare clic su **Copia** per copiare il codice, incollarlo in Cloud Shell e quindi premere INVIO per eseguirlo. Esistono alcuni modi per avviare Cloud Shell:
+Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet è possibile usare Azure Cloud Shell, un ambiente di shell interattiva ospitato in Azure e usato tramite il browser. In Azure Cloud Shell sono preinstallati i cmdlet di Azure PowerShell.
+
+Per eseguire il codice contenuto in questo articolo in Azure Cloud Shell, aprire una sessione di Cloud Shell, usare il pulsante **Copia** in un blocco di codice per copiare il codice e incollarlo nella sessione di Cloud Shell con __CTRL+MAIUSC+V__ in Windows e Linux o __CMD+MAIUSC+V__ in macOS. Il testo incollato non viene eseguito automaticamente. Premere quindi **INVIO** per eseguire il codice.
+
+È possibile avviare Azure Cloud Shell nei modi seguenti:
 
 |  |   |
 |-----------------------------------------------|---|
-| Fare clic su **Prova** nell'angolo superiore destro di un blocco di codice. | ![Cloud Shell in questo articolo](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
-| Aprire Cloud Shell nel browser. | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| Fare clic sul pulsante **Cloud Shell** nel menu in alto a destra nel portale di Azure. | [![Cloud Shell nel portale](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
-|  |  |
+| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Questa azione __non__ copia automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Aprire [shell.azure.com](https://shell.azure.com) nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
-Se non si vuole usare Azure Cloud Shell, è possibile installare PowerShell in locale. Se si sceglie di installare e usare PowerShell in locale, assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager, per ottenere le funzionalità più recenti. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Se non si vuole usare Azure Cloud Shell, installare invece Azure PowerShell localmente. Assicurarsi di installare la versione più recente del Azure PowerShell AZ Module per ottenere le funzionalità aggiornate. Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).

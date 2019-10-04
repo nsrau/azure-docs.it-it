@@ -1,22 +1,22 @@
 ---
-title: "Esercitazione: Creare un'app Web di una pagina - API Ricerca notizie Bing"
-titlesuffix: Azure Cognitive Services
+title: "Esercitazione: Creare un'app Web di una pagina usando l'API Ricerca notizie Bing"
+titleSuffix: Azure Cognitive Services
 description: Usare questa esercitazione per compilare un'applicazione Web composta da una sola pagina in grado di inviare query di ricerca all'API Ricerca notizie Bing e visualizzare i risultati all'interno della pagina Web.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 07/12/2019
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 29539ba39e724208093910f8fb6fa2d3bc309bda
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885039"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423615"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Esercitazione: Creare app Web a pagina singola
 
@@ -381,7 +381,7 @@ La funzione renderer delle notizie:
 > * Compila i tag HTML `<a>` che collegano l'immagine e la pagina che la contiene.
 > * Compila la descrizione che consente di visualizzare informazioni sull'immagine e il sito in cui si trova.
 
-La dimensione dell'anteprima viene usata sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Il [servizio di anteprima Bing](resize-and-crop-thumbnails.md) invia un'anteprima esattamente di tali dimensioni.
+La dimensione dell'anteprima viene usata sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Il [servizio di anteprima Bing](../bing-web-search/resize-and-crop-thumbnails.md) invia un'anteprima esattamente di tali dimensioni.
 
 ## <a name="persisting-client-id"></a>ID client persistente
 Le risposte dalle API di ricerca Bing potrebbero includere un'intestazione `X-MSEdge-ClientID` che deve essere inviata di nuovo all'API con le richieste successive. Se vengono usate più API di ricerca Bing, usare se possibile lo stesso ID client con tutte le API.
@@ -397,7 +397,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 > [!NOTE]
 > In un'applicazione Web di produzione è necessario effettuare la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
-A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che accetta le intestazioni di risposta e le rende disponibili a JavaScript.
 
 È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
 

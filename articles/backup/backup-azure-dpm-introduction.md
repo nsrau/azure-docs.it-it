@@ -1,19 +1,19 @@
 ---
 title: Preparare il server DPM per eseguire il backup dei carichi di lavoro in Azure
 description: Introduzione al backup dei dati DPM in un insieme di credenziali di servizi di ripristino di Azure.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.author: dacurwin
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306902"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954718"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -48,12 +48,13 @@ DPM in una macchina virtuale di Azure | System Center 2012 R2 con aggiornamento 
 DPM in un server fisico | System Center 2012 SP1 o versione successiva, System Center 2012 R2.
 DPM su una macchina virtuale Hyper-V | System Center 2012 SP1 o versione successiva, System Center 2012 R2.
 DPM in una macchina virtuale VMware | System Center 2012 R2 con aggiornamento cumulativo 5 o successivo.
-Componenti | Il server DPM deve avere installato .NET Framework 4.5 e Windows PowerShell.
+Componenti | Nel server DPM devono essere installati Windows PowerShell e .NET Framework 4,5.
 App supportate | [Informazioni](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) relative agli elementi di cui DPM può eseguire il backup.
 Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup con Backup di Azure: crittografati, solo backup completi; compressi, backup incrementali supportati; sparse, backup incrementali supportati; compressi e sparse considerati come sparse.
 Tipi di file non supportati | Server nei file system che distinguono tra maiuscole e minuscole; collegamenti reali, ignorati; reparse point, ignorati; crittografati e compressi, ignorati; crittografati e sparse, ignorati; flusso compresso; analisi di flusso.
 Archiviazione locale | Le dimensioni dello spazio di archiviazione disponibile di ogni computer di cui si desidera eseguire il backup devono essere almeno il 5% di quelle dei dati sottoposti a backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esistono limiti relativi alla quantità di dati che è possibile includere nel backup in un insieme di credenziali di Backup di Azure, tuttavia le dimensioni dell'origine dati, ad esempio, di un database o una macchina virtuale, non devono superare 54.400 GB.
+Azure ExpressRoute | Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.<br/><br/> Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato per eseguire il backup dei dati in Azure.<br/><br/> **Nota:** Il peering pubblico è deprecato per i nuovi circuiti.
 Agente di Backup di Azure | Se DPM è in esecuzione in System Center 2012 SP1, installare il rollup 2 o successivo per DPM SP1. È necessario per l'installazione dell'agente.<br/><br/> Questo articolo descrive come distribuire la versione più recente dell'agente di Backup di Azure, noto anche come agente del servizio di ripristino di Microsoft Azure. Se è stata distribuita una versione precedente, eseguire l'aggiornamento alla versione più recente per garantire che il backup funzioni come previsto.
 
 Prima di iniziare è necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -79,7 +80,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-dpm-introduction/choose-storage-configuration-rs-vault.png)
 
-## <a name="download-vault-credentials"></a>Scaricare le credenziali dell’insieme di credenziali
+## <a name="download-vault-credentials"></a>Scarica credenziali dell'insieme di credenziali
 
 Usare le credenziali dell'insieme di credenziali quando si registra il server DPM nell'insieme di credenziali.
 
@@ -90,13 +91,13 @@ Usare le credenziali dell'insieme di credenziali quando si registra il server DP
 
 ### <a name="best-practices-for-vault-credentials"></a>Procedure consigliate per le credenziali dell'insieme di credenziali
 
-Per ottenere le credenziali scaricare il file delle credenziali dell'insieme di credenziali dal portale di Azure tramite un canale sicuro:
+Per ottenere le credenziali, scaricare il file dell'insieme di credenziali tramite un canale protetto dal portale di Azure:
 
 - Il file delle credenziali dell'insieme di credenziali viene usato solo durante il flusso di lavoro di registrazione.
 - È responsabilità dell'utente garantire che il file delle credenziali dell'insieme di credenziali sia sicuro e non venga danneggiato.
     - Se si perde il controllo delle credenziali, le credenziali dell'insieme di credenziali possono essere usate per registrare altri computer nell'insieme di credenziali.
     - Poiché i dati di backup sono crittografati tramite una passphrase appartenente al cliente, i dati di backup esistenti non possono tuttavia essere compromessi.
-- Assicurarsi che il file venga salvato in un percorso accessibile dal server DPM. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
+- Verificare che il file venga salvato in un percorso accessibile dal server DPM. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 - Le credenziali dell'insieme di credenziali scadono dopo 48 ore. È possibile scaricare le nuove credenziali dell'insieme di credenziali ogni volta che è necessario. Tuttavia, durante il flusso di lavoro di registrazione, è possibile usare solo il file di credenziali dell'insieme di credenziali più recente.
 - Il servizio Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è disponibile nel portale o nel servizio.
 
@@ -144,7 +145,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Configurazione proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 9. In **Insieme di credenziali per il backup** individuare e selezionare il file delle credenziali dell'insieme di credenziali scaricato.
 
-    ![Credenziali di insieme](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
+    ![Credenziali dell'insieme di credenziali](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
 10. In **Impostazione di limitazione** è facoltativamente possibile abilitare la limitazione della larghezza di banda per i backup. È possibile impostare i limiti di velocità per specificare i giorni e le ore di lavoro.
 
@@ -182,7 +183,7 @@ Il file delle credenziali di insieme è valido solo per 48 ore dopo che è stato
 
 ### <a name="access-error"></a>Errore di accesso
 
-Verificare che il file delle credenziali di insieme sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
+Verificare che il file delle credenziali dell'insieme di credenziali sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
 
 ### <a name="invalid-credentials-error"></a>Errore di credenziali non valide
 

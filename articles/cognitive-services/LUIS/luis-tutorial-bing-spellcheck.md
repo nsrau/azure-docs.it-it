@@ -1,6 +1,6 @@
 ---
-title: Correggere gli errori di ortografia
-titleSuffix: Azure
+title: Correggi parole errate-LUIS
+titleSuffix: Azure Cognitive Services
 description: È possibile correggere le parole in espressioni errate aggiungendo API Controllo ortografico Bing v7 alle query di endpoint LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495001"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300265"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
@@ -89,7 +89,13 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorare errori di ortografia
-Se non si desidera utilizzare il servizio API Controllo ortografico Bing v7, è possibile etichettare le espressioni che presentano errori di ortografia in modo che LUIS possa imparare l'ortografia corretta e gli errori di battitura. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
+
+Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta. 
+
+Sono disponibili due soluzioni:
+
+* Etichettare espressioni di esempio con tutte le ortografie diverse in modo che LUIS possa apprendere l'ortografia corretta e gli errori di digitazione. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
+* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio. 
 
 ## <a name="publishing-page"></a>Pubblicazione di una pagina
 La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione. 

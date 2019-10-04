@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Documentazione della Guida dell'utente
+summary: Dipendenti, professionisti IT o utenti finali possono configurare l'autenticazione per l'account aziendale o dell'istituto di istruzione, reimpostare le loro password, configurare e aggiungere dispositivi, configurare l'app Microsoft Authenticator e usare i vari portali.
+metadata:
+  title: Guida dell'utente per l'autenticazione, le app e i dispositivi
+  description: Informazioni per dipendenti o utenti finali su come configurare e usare l'autenticazione, l'app Microsoft Authenticator e il portale App personali.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: lizross
+  ms.date: 08/26/2019
+  ms.openlocfilehash: 168c8ad8acd1734aa06be111f42f4c0b2da92d3e
+  ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70072670"
+landingContent:
+- title: Configurare e usare l'app Microsoft Authenticator
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'app Microsoft Authenticator?
+      url: user-help-auth-app-overview.md
+  - linkListType: download
+    links:
+    - text: Scaricare e installare l'app
+      url: user-help-auth-app-download-install.md
+  - linkListType: how-to-guide
+    links:
+    - text: Backup e ripristino delle informazioni dell'account
+      url: user-help-auth-app-backup-recovery.md
+    - text: Accedere con l'app
+      url: user-help-auth-app-sign-in.md
+- title: Scegliere i metodi di verifica in due passaggi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è l'autenticazione a due fattori?
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i metodi di verifica
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: Gestire le impostazioni
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: Ottenere aiuto
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: Aggiornare le informazioni nel portale App personali
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sul portale delle app personali
+      url: my-apps-portal-end-user-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aggiornare le informazioni personali
+      url: my-apps-portal-end-user-update-profile.md
+    - text: Ottenere aiuto
+      url: my-apps-portal-end-user-troubleshoot.md
+- title: Configurare e gestire le informazioni di sicurezza (anteprima)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cosa sono le informazioni di sicurezza (anteprima)?
+      url: user-help-security-info-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i metodi per le informazioni di sicurezza
+      url: security-info-add-update-methods-overview.md
+    - text: Aggiungere informazioni durante la richiesta di accesso
+      url: security-info-setup-signin.md
+- title: Gestire le informazioni nel portale Profilo personale (anteprima)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è il portale Profilo personale (anteprima)?
+      url: myprofile-portal-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire le organizzazioni
+      url: myprofile-portal-organizations-page.md
+    - text: Gestire i dispositivi connessi
+      url: myprofile-portal-devices-page.md
+- title: Reimpostare la password
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è la reimpostazione della password?
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Registrarsi per la reimpostazione delle password
+      url: active-directory-passwords-reset-register.md
+    - text: Reimpostare la password
+      url: user-help-reset-password.md

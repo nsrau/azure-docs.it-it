@@ -4,7 +4,7 @@ titlesuffix: Azure Traffic Manager
 description: Questo articolo descrive la funzionalità "Profili nidificati" di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: kumud
-ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330261"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333785"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
@@ -94,6 +94,20 @@ Si supponga di usare Gestione traffico per facilitare la migrazione di traffico 
 Le impostazioni di monitoraggio in un profilo di Gestione traffico si applicano a tutti gli endpoint all'interno del profilo. Per definire impostazioni di monitoraggio diverse nei profili annidati si usa invece un profilo figlio diverso per ogni sito.
 
 ![Monitoraggio degli endpoint di Gestione traffico con impostazioni per ogni endpoint][10]
+
+## <a name="faqs"></a>Domande frequenti
+
+* [Ricerca per categorie configurare i profili annidati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+
+* [Quanti livelli di annidamento è supportato da Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [È possibile combinare altri tipi di endpoint con profili figlio annidati nello stesso profilo di gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [Come viene applicato il modello di fatturazione per i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [Si è verificato un effetto sulle prestazioni per i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+
+* [In che modo Traffic Manager calcola lo stato di integrità di un endpoint annidato in un profilo padre?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

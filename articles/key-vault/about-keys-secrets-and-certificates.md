@@ -2,23 +2,19 @@
 title: Informazioni su chiavi, segreti e certificati di Azure Key Vault - Azure Key Vault
 description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi, i segreti e i certificati.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306113"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241061"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -29,7 +25,7 @@ Azure Key Vault consente agli utenti e alle applicazioni di Microsoft Azure di a
 - Certificati. Supporta i certificati, basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
 - Archiviazione di Azure. Può gestire le chiavi di un account di archiviazione di Azure per l'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. 
 
-Per altre informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+Per altre informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -80,7 +76,7 @@ Dove:
 |`keyvault-name`|Il nome per un insieme di credenziali delle chiavi nel servizio Microsoft Azure Key Vault.<br /><br /> I nomi di Key Vault vengono selezionati dall'utente e sono univoci.<br /><br /> Il nome dell'insieme di credenziali delle chiavi deve essere costituito da una stringa di lunghezza compresa tra 3 e 24 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
 |`object-type`|Tipo di oggetto, "chiave" o "segreto".|  
 |`object-name`|Un `object-name` è un nome utente fornito per un Key Vault e deve essere univoco all'interno di esso. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
-|`object-version`|`object-version` è un identificatore di stringa di 32 caratteri generato dal sistema che viene usato facoltativamente per fare riferimento a una versione univoca di un oggetto.|  
+|`object-version`|Un `object-version` è un identificatore di stringa di caratteri 32 generato dal sistema, utilizzato facoltativamente * o, indirizzare una versione univoca di un oggetto.|  
 
 ## <a name="key-vault-keys"></a>Chiavi Key Vault
 
@@ -88,8 +84,8 @@ Dove:
 
 Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault.  
 
-- **Chiavi "soft"**: chiave elaborata da Key Vault nel software, ma archiviata come crittografata quando inattiva tramite l'uso di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
-- **Chiavi "hard"**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.
+- **Chiavi "soft"** : chiave elaborata da Key Vault nel software, ma archiviata come crittografata quando inattiva tramite l'uso di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
+- **Chiavi "hard"** : chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm a JWK per ottenere il materiale della chiave del modulo di protezione hardware.
 
      Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -200,9 +196,9 @@ Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)]
 
 ###  <a name="key-access-control"></a>Controllo di accesso per le chiavi
 
-Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. I criteri di controllo di accesso per le chiavi sono distinti dai criteri di controllo di accesso per i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
+Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. Il criterio di controllo di accesso per le chiavi è diverso dai criteri di controllo di accesso per i segreti nello stesso Key Vault. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
 
-Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano fedelmente le operazioni consentite su un oggetto chiave:  
+Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano fedelmente le operazioni consentite su un oggetto chiave.  La concessione dell'accesso a un'entità servizio nell'insieme di credenziali delle chiavi è un'operazione eseguita una sola volta e rimarrà la stessa per tutte le sottoscrizioni di Azure. È possibile usarlo per distribuire tutti i certificati desiderati. 
 
 - Autorizzazioni per le operazioni di gestione delle chiavi
   - *get*: consente di leggere la parte pubblica di una chiave e i relativi attributi
@@ -266,7 +262,7 @@ Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di 
 - Autorizzazioni per le operazioni di gestione dei segreti
   - *get*: legge un segreto  
   - *list*: consente di elencare i segreti o le versioni di un segreto archiviati in un Key Vault  
-  - *set*: Creare un segreto  
+  - *set*: Crea un segreto  
   - *delete*: consente di eliminare un segreto  
   - *recover*: consente di recuperare un server eliminato
   - *backup*: consente di eseguire il backup di un segreto in un insieme di credenziali delle chiavi
@@ -480,5 +476,4 @@ Per altre informazioni, vedere le operazioni relative ai certificati in [Key Vau
 ## <a name="see-also"></a>Vedere anche
 
 - [Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
-- [Versioni di Key Vault](key-vault-versions.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-developers-guide)

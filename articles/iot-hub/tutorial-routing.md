@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2f382c31c6bfb6ab71afd495c4c3f702715633c0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661889"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535114"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure e il portale di Azure per configurare il routing dei messaggi per l'hub IoT
 
@@ -35,7 +35,7 @@ Nota sul debug: questo script usa il simbolo di continuazione (barra rovesciata 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
 #   in which you're logged in.
-# This field is used to set up the routing rules.
+# This field is used to set up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -220,7 +220,7 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 
 ## <a name="create-a-simulated-device"></a>Creare un dispositivo simulato
 
-[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,20 +7,19 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608580"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815986"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione C# viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2017. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un Istanza gestita SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova C# funzione viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per il Istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) per potersi connettere da funzioni di Azure. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
@@ -40,7 +39,7 @@ Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi scegliere il database nella pagina **Database SQL**.
 
-1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa.
+1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa. Per Azure SQL Istanza gestita Copiare la stringa di connessione per l'endpoint pubblico.
 
     ![Copiare la stringa di connessione ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -64,7 +63,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi a un database SQL.
 
-1. Aprire il progetto dell'app per le funzioni locale in Visual Studio 2017.
+1. Aprire il progetto di app per le funzioni locali in Visual Studio 2019.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Gestisci pacchetti NuGet**.
 
@@ -127,7 +126,7 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 
     Alla prima esecuzione dovrebbero essere aggiornate 32 righe di dati. Le esecuzioni successive non aggiornano alcuna riga di dati, a meno che non si apportino modifiche ai dati della tabella SalesOrderHeader in modo che vengano selezionate altre righe dall'istruzione `UPDATE`.
 
-Se si intende [pubblicare questa funzione](functions-develop-vs.md#publish-to-azure), ricordarsi di modificare l'attributo `TimerTrigger` specificando una [pianificazione CRON](functions-bindings-timer.md#cron-expressions) più ragionevole rispetto a ogni 15 secondi.
+Se si intende [pubblicare questa funzione](functions-develop-vs.md#publish-to-azure), ricordarsi di modificare l'attributo `TimerTrigger` specificando una [pianificazione CRON](functions-bindings-timer.md#ncrontab-expressions) più ragionevole rispetto a ogni 15 secondi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -139,6 +138,6 @@ Si vedrà ora come usare Funzioni con app per la logica per l'integrazione con a
 Per altre informazioni su Funzioni, vedere gli articoli seguenti:
 
 + [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 + [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.  
+  Descrive diversi strumenti e tecniche per il test delle funzioni.  

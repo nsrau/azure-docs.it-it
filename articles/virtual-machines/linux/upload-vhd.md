@@ -4,7 +4,7 @@ description: Caricare o copiare una macchina virtuale personalizzata usando il m
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 6483fa8737ee3de6a60c4e4646fefec30ae702b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 026cab6a5749f556d6f748c80e492d1c920767d1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006640"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708397"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creare una macchina virtuale Linux da un disco personalizzato tramite l'interfaccia della riga di comando di Azure
 

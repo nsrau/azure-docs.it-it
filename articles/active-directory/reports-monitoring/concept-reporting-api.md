@@ -3,7 +3,7 @@ title: Introduzione all'API di creazione report di Azure AD | Microsoft Docs
 description: Come iniziare a usare l'API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ff3e530dae3a6db4b7c84292a25e83c11000baf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28c64653ee0f9135e6da4c3768b89f9a0b25b2ef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286727"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127351"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -39,7 +39,7 @@ Nel caso di problemi, vedere [Come ottenere supporto per Azure Active Directory]
 Per accedere all'API di creazione report con o senza intervento dell'utente, è necessario:
 
 1. Assegnare i ruoli (Ruolo con autorizzazioni di lettura per la sicurezza, Amministratore della sicurezza, Amministratore globale)
-2. Registrare un'applicazione
+2. Registra un'applicazione
 3. Concedere le autorizzazioni
 4. Ottenere le impostazioni di configurazione
 
@@ -49,7 +49,7 @@ Per istruzioni dettagliate vedere i [prerequisiti di accesso all'API di creazion
 
 L'endpoint API Microsoft Graph per i log di controllo è `https://graph.microsoft.com/beta/auditLogs/directoryAudits`, mentre l'endpoint API Microsoft Graph per gli accessi è `https://graph.microsoft.com/beta/auditLogs/signIns`. Per altre informazioni, vedere le [informazioni di riferimento sull'API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) e le [informazioni di riferimento sull'API di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
-Inoltre, è possibile usare l'[API per gli eventi di rischio di Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) per ottenere l'accesso programmatico ai rilevamenti relativi alla sicurezza, tramite Microsoft Graph. Per altre informazioni, vedere [Introduzione a Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+Inoltre, è possibile usare l' [API rilevamento dei rischi di Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) per ottenere l'accesso a livello di codice ai rilevamenti di sicurezza usando Microsoft Graph. Per altre informazioni, vedere [Introduzione a Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
 >  L'endpoint **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** è deprecato. Usare i nuovi endpoint dell'API, descritti sopra, per accedere programmaticamente ai report sull'attività e sulla sicurezza.

@@ -3,25 +3,24 @@ title: Creare una VM Windows suddivisa in zone - Azure PowerShell | Microsoft Do
 description: Creare una macchina virtuale Windows in una zona di disponibilità con Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 74f23881ae6aca479c976adfbdbb6a46b23e42af
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 8e850de9314ba2de678ebe1aa25b4ffc251bf59f
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007645"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173833"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Creare una macchina virtuale Windows in una zona di disponibilità con PowerShell
 
@@ -29,7 +28,7 @@ Questo articolo illustra come usare Azure PowerShell per creare una macchina vir
 
 Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#services-support-by-region).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
@@ -67,7 +66,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 ```
 
 
-## <a name="create-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-resource-group"></a>Crea gruppo di risorse
 
 Creare un gruppo di risorse di Azure con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus2*. 
 
@@ -178,4 +177,4 @@ Tags               : {}
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Per altre informazioni, vedere [Aree e disponibilità](regions-and-availability.md) per le VM di Azure.
+In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla [disponibilità](availability.md) per le macchine virtuali di Azure.

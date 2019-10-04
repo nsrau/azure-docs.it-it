@@ -3,8 +3,8 @@ title: Credenziali del certificato in Azure AD | Microsoft Docs
 description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/24/2018
-ms.author: celested
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411414"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835463"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -44,7 +44,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie di [t
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 
-| Parametro |  Osservazioni |
+| Parametro |  Note |
 | --- | --- |
 | `aud` | Audience: Deve essere **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data di scadenza: la data di scadenza del token. L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|
@@ -98,11 +98,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>Caricamento del file del certificato
 
 Nella registrazione dell'app di Azure per l'applicazione client:
-1. Selezionare **Impostazioni > Chiavi** e quindi selezionare **Carica la chiave pubblica**. 
-2. Selezionare il file del certificato che si vuole caricare.
-3. Selezionare **Salva**. 
-   
-   Dopo il salvataggio, il certificato viene caricato e vengono visualizzati i valori di identificazione personale, data di inizio e scadenza. 
+1. Selezionare **Certificati e segreti**. 
+2. Fare clic su **Carica certificato** e selezionare il file di certificato da caricare.
+3. Fare clic su **Aggiungi**.
+  Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza. 
 
 ### <a name="updating-the-application-manifest"></a>Aggiornamento del manifesto dell'applicazione
 
@@ -114,7 +113,7 @@ Con un certificato disponibile, è necessario calcolare:
 È anche necessario specificare un GUID per identificare la chiave nel manifesto dell'applicazione (`$keyId`).
 
 Nella registrazione dell'app di Azure per l'applicazione client:
-1. Aprire il manifesto dell'applicazione.
+1. Selezionare **manifesto** per aprire il manifesto dell'applicazione.
 2. Sostituire la proprietà *keyCredentials* con le nuove informazioni del certificato usando lo schema seguente.
 
    ```

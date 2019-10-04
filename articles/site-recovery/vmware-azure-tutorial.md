@@ -1,20 +1,19 @@
 ---
-title: Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357871"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813395"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -161,7 +160,7 @@ Selezionare e verificare le risorse di destinazione.
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e selezionare **Tutte le risorse**.
 2. Selezionare l'insieme di credenziali di Servizi di ripristino (**ContosoVMVault** in questa esercitazione).
-3. Per creare i criteri di replica, selezionare **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
+3. Per creare i criteri di replica, selezionare **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 4. In **Creare i criteri di replica** immettere il nome dei criteri. In questo scenario viene usato **VMwareRepPolicy**.
 5. In **Soglia RPO** usare il valore predefinito di 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
 6. In **Conservazione del punto di ripristino** specificare per quanto tempo viene conservato ogni punto di ripristino. Per questa esercitazione, selezionare 72 ore. Le macchine virtuali replicate possono essere ripristinate in qualsiasi punto all'interno dell'intervallo di conservazione.
@@ -180,7 +179,7 @@ Abilitare la replica per le macchine virtuali nel modo seguente:
 1. In **Origine** selezionare **Locale** e selezionare il server di configurazione in **Percorso di origine**.
 1. In **Tipo di computer** selezionare **Macchine virtuali**.
 1. In **vCenter/vSphere Hypervisor** selezionare l'host vSphere o il server vCenter che gestisce l'host.
-1. Selezionare il server di elaborazione, installato per impostazione predefinita nella macchina virtuale del server di configurazione. Selezionare **OK**.
+1. Selezionare il server di elaborazione, installato per impostazione predefinita nella macchina virtuale del server di configurazione. Selezionare **OK**. Viene indicato lo stato di integrità di ogni server di elaborazione in base ai limiti consigliati e altri parametri. Scegliere un server di elaborazione integro. Non è possibile scegliere un server di elaborazione [critico](vmware-physical-azure-monitor-process-server.md#process-server-alerts). È possibile [individuare e risolvere](vmware-physical-azure-troubleshoot-process-server.md) gli errori **oppure** configurare un [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md).
 1. In **Destinazione** selezionare la sottoscrizione e il gruppo di risorse in cui si vogliono creare le macchine virtuali di cui viene effettuato il failover. Viene usato il modello di distribuzione di Resource Manager. 
 1. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure create dopo il failover.
 1. Selezionare **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutte le macchine virtuali in cui viene abilitata la replica. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer.

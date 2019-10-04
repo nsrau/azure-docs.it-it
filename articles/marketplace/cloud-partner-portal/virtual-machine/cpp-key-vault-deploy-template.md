@@ -1,25 +1,18 @@
 ---
-title: Modello di distribuzione di Azure Key Vault | Microsoft Docs
+title: Modello di distribuzione di Azure Key Vault | Azure Marketplace
 description: Elenca il modello di Azure Resource Manager necessario per distribuire una nuova istanza di Azure Key Vault.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01aedadfed1ce24b8b6ae75a9163dfe0629ac7c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 053a9f8ddfcc523532597d9e73aa095bf9110d72
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938609"
 ---
 # <a name="key-vault-deployment-template"></a>Modello di distribuzione dell'insieme di credenziali delle chiavi
 

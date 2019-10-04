@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un server di Database di Azure per MariaDB - Portale di Azure'
+title: 'Avvio rapido: Creare un server di Database di Azure per MariaDB - Portale di Azure'
 description: Questo articolo illustra come usare il portale di Azure per creare rapidamente un server di Database di Azure per MariaDB in circa cinque minuti.
 author: ajlam
 ms.author: andrela

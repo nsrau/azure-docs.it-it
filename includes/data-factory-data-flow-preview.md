@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: ac07373bcdf4bbf0f7bfc5b131ffe4eb26bc3ac4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804311"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "67509866"
 ---
 > [!NOTE] 
-> Mapping Data Flow è una nuova funzionalità di Azure Data Factory. È attualmente in anteprima pubblica limitata e non è soggetta alle disposizioni del contratto di servizio per i clienti di Azure. [Per iscriversi all'anteprima, richiedere l'accesso qui](https://aka.ms/dataflowpreview).
+> Il flusso di dati del mapping Azure Data Factory è attualmente una funzionalità di anteprima pubblica e non è soggetta alle disposizioni del contratto di servizio di Azure. Attualmente, i flussi di dati di mapping non sono disponibili nelle aree di Azure seguenti: Stati Uniti centro-occidentali, Brasile meridionale, Francia centrale, Corea centrale.

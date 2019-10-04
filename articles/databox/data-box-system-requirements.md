@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206748"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839758"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -31,68 +31,35 @@ I requisiti software includono le informazioni sui sistemi operativi supportati,
 
 ### <a name="supported-operating-systems-for-clients"></a>Sistemi operativi supportati per i client
 
-Di seguito è riportato l'elenco dei sistemi operativi supportati per l'operazione di copia dei dati eseguiti tramite i client connessi al dispositivo Data Box.
-
-| **Sistema operativo** | **Versioni** | 
-| --- | --- | 
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-|  Windows |7, 8, 10 | 
-|Linux    |         |
+[!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 ### <a name="supported-file-systems-for-linux-clients"></a>File system supportati per client Linux
 
-| **Protocolli** | **Versioni** | 
-| --- | --- | 
-| SMB |2.X e versioni successive |
-| NFS | Tutte le versioni fino alla 4.1 compresa|
+[!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 ### <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
-Di seguito è riportato un elenco degli account di archiviazione e dei tipi di archiviazione supportati per il dispositivo Data Box. Per l'intero elenco dei diversi tipi di account di archiviazione e delle funzionalità complete, vedere [Tipi di account di archiviazione](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
-
-| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine*** |**File di Azure** |**Note**|
-| --- | --- | -- | -- | -- |
-| Versione classica Standard | S | S | S |
-| Utilizzo generico v1 Standard  | S | S | S | Sono supportati BLOB sia ad accesso frequente che sporadico.|
-| Utilizzo generico v1 Premium  |  | S| | |
-| Utilizzo generico v2 Standard  | S | S | S | Sono supportati BLOB sia ad accesso frequente che sporadico.|
-| Utilizzo generico v2 Premium  |  |S | | |
-| Archiviazione BLOB Standard |S | | |Sono supportati BLOB sia ad accesso frequente che sporadico. |
-
-\*  *I dati caricati nei BLOB di pagine devono essere pari a 512 byte allineati, ad esempio vhd.*
-
->[!NOTE]
-> Gli account di Azure Data Lake Storage Gen 2 non sono supportati.
-
+[!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
 ### <a name="supported-storage-types"></a>Tipi di archiviazione supportati
 
-Di seguito è riportato un elenco dei tipi di archiviazione supportati per il dispositivo Data Box.
-
-| **Formato file** | **Note** |
-| --- | --- |
-| BLOB in blocchi di Azure | |
-| BLOB di pagine di Azure  | I dati devono essere allineati a 512 byte.|
-| File di Azure | |
-
+[!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 
 ### <a name="supported-web-browsers"></a>Web browser supportati
 
-Di seguito è riportato un elenco dei Web browser supportati per l'interfaccia utente Web locale.
-
-| **Browser** | **Versioni** | **Requisiti aggiuntivi/note** |
-| --- | --- | --- |
-| Google Chrome |Versione più recente |Testato con Chrome|
-| Microsoft Edge |Versione più recente | |
-| FireFox | Versione più recente | Testato con FireFox|
-| Internet Explorer |Versione più recente |Se non è possibile accedere, verificare se cookie e Javascript sono abilitati. Per abilitare l'accesso all'interfaccia utente, aggiungere l'IP del dispositivo in **Gestione della privacy** in modo che il dispositivo possa accedere ai cookie. |
-
+[!INCLUDE [data-box-supported-web-browsers](../../includes/data-box-supported-web-browsers.md)]
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
 Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
 
-## <a name="next-step"></a>Passaggio successivo
+### <a name="port-requirements"></a>Requisiti delle porte
+
+Nella tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* oppure *in uscita* fa riferimento alla direzione in cui il dispositivo Data Box invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita a Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
+
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Distribuire Azure Data Box](data-box-deploy-ordered.md)
-

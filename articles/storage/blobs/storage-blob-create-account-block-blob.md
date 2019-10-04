@@ -1,20 +1,21 @@
 ---
 title: Creare un account di archiviazione blob di blocco - archiviazione di Azure | Microsoft Docs
 description: Viene illustrato come creare un account di archiviazione blob di blocchi di Azure con caratteristiche di prestazioni premium.
+author: tamram
+services: storage
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
-author: twooley
-ms.author: twooley
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65141009"
 ---
-# <a name="create-a-block-blob-storage-account"></a>Creare un account di archiviazione blob di blocco
+# <a name="create-a-block-blob-storage-account"></a>Creare un account di archiviazione BLOB in blocchi
 
 Il tipo di account di archiviazione blob blocco consente di creare i BLOB in blocchi con caratteristiche di prestazioni premium. Questo tipo di account di archiviazione è ottimizzato per carichi di lavoro con frequenze di transazioni elevate o che richiedono tempi di accesso molto veloce. Questo articolo illustra come creare un account di archiviazione blob di blocco tramite il portale di Azure, il comando di Azure o Azure PowerShell.
 
@@ -42,11 +43,11 @@ Per creare un account di archiviazione blob di blocco nel portale di Azure, segu
 
 1. Per il resto delle impostazioni, configurare quanto segue:
 
-   |Campo     |Valore  |
+   |Campo     |Value  |
    |---------|---------|
    |**Prestazioni**    |  Selezionare **Premium**.   |
    |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
-   |**Replica**    |  Lasciare l'impostazione predefinita **archiviazione con ridondanza locale (LRS)**.      |
+   |**Replica**    |  Lasciare l'impostazione predefinita **archiviazione con ridondanza locale (LRS)** .      |
 
    ![Mostra interfaccia utente per creare un account di archiviazione blob di blocco del portale](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 

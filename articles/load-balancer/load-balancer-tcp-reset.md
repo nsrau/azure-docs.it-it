@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: Load Balancer con pacchetti TCP RST bidirezionali per timeout di inattività
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2019
-ms.author: kumud
-ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 05/03/2019
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58132430"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274151"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con TCP Reset per inattività (anteprima pubblica)
 
@@ -27,7 +27,7 @@ ms.locfileid: "58132430"
 ![TCP Reset di Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Servizio di bilanciamento del carico con ripristino delle funzionalità di timeout di inattività TCP è disponibile come anteprima pubblica in questo momento. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Load Balancer con la funzionalità di reimpostazione TCP per il timeout di inattività è disponibile come anteprima pubblica al momento. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Si modifica questo comportamento predefinito e si abilita l'invio di TCP Reset per timeout di inattività per regole NAT in ingresso, regole di bilanciamento del carico e [regole in uscita](https://aka.ms/lboutboundrules).  Quando questo comportamento viene abilitato per ogni regola, Load Balancer invierà TCP Reset bidirezionali (pacchetti TCP RST) agli endpoint client e server al momento del timeout di inattività per tutti i flussi corrispondenti.
 
@@ -74,6 +74,7 @@ Disponibile in tutte le aree.
 ## <a name="limitations"></a>Limitazioni
 
 - Non è possibile usare il portale per configurare o visualizzare TCP Reset.  Usare in alternativa i modelli, l'API REST, l'interfaccia della riga di comando di Azure 2.0 o PowerShell.
+- Il protocollo RST TCP viene inviato solo durante la connessione TCP nello stato stabilito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

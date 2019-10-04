@@ -2,24 +2,17 @@
 title: Guida alla pubblicazione di offerte di macchine virtuali per Azure Marketplace
 description: Questo articolo descrive i requisiti per pubblicare una macchina virtuale e una versione di prova gratuita del software da distribuire dal Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937730"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 

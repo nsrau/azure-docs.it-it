@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.author: juliako
+ms.reviewer: milanga; johndeu
+ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620003"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015401"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
-## <a name="overview"></a>Informazioni generali
+## <a name="overview"></a>Panoramica
 Sempre più organizzazioni adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing consente di archiviare e riprodurre in streaming questi file multimediali di grandi dimensioni, nonché di accedervi. Tuttavia, man mano che la libreria aziendale di contenuti video aumenta, è necessario un mezzo altrettanto efficace per estrarre informazioni dal contenuto. 
 
 Per soddisfare questa esigenza in crescita, i Servizi multimediali di Azure offrono Analisi Servizi multimediali. Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Analisi Servizi multimediali, una soluzione creata usando i componenti principali della piattaforma Servizi multimediali, può iniziare fin da subito a elaborare i file multimediali su larga scala.
@@ -58,7 +59,6 @@ Analisi Servii multimediali può aiutare le organizzazioni e le aziende a scopri
 
 * **Call center**. Anche con l'avvento dei social media, i call center dedicati ai clienti continuano a ospitare un'alta percentuale delle transazioni del servizio clienti. In questi dati audio sono codificate numerose informazioni sui clienti che possono essere analizzate per ottenere una maggiore soddisfazione del cliente. Con Media Indexer, le organizzazioni possono estrarre il testo e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
 * **Moderazione dei contenuti generati dall'utente**. Molte organizzazioni, dalle agenzie di stampa ai dipartimenti di polizia, dispongono di portali pubblici che accettano file multimediali generati dagli utenti, ad esempio immagini e video. A causa di eventi imprevisti, il volume dei contenuti potrebbe raggiungere il limite. In questi scenari è difficile eseguire un efficace controllo manuale sull'adeguatezza dei contenuti. I clienti possono fare affidamento sul servizio di moderazione dei contenuti per concentrare l'attenzione sui contenuti appropriati.
-* **Sorveglianza**. L'incremento nell'uso di telecamere IP comporta un aumento nell'inventario dei video di sorveglianza. Il controllo manuale dei video di sorveglianza richiede molto tempo ed è soggetto a errori umani. Analisi Servizi multimediali offre servizi come il rilevamento dei movimenti, il rilevamento viso e Hyperlapse per agevolare il processo di controllo, gestione e creazione dei derivati.
 
 ## <a name="media-analytics-media-processors"></a>Processori di contenuti multimediali di Analisi Servizi multimediali
 Questa sezione elenca tutti i processori di contenuti multimediali di Analisi Servizi multimediali e illustra come usare .NET o REST per ottenere un oggetto dei processori di contenuti multimediali.
@@ -66,7 +66,6 @@ Questa sezione elenca tutti i processori di contenuti multimediali di Analisi Se
 ### <a name="mp-names"></a>Nomi dei processori di contenuti multimediali
 * Azure Media Indexer 2 Preview
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Rilevamento multimediale volti di Azure
 * Rilevatore multimediale di movimento Azure
 * Anteprime video multimediali di Azure
@@ -126,7 +125,7 @@ Risposta:
 ## <a name="demos"></a>Demo
 Vedere le [demo di Analisi Servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Invia commenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Articoli correlati

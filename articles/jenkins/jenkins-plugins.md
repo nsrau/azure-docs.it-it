@@ -9,17 +9,17 @@ ms.author: tarcher
 ms.date: 03/22/2019
 ms.topic: article
 ms.openlocfilehash: c103bc0a314f1e5a4a0afef3f7969f53b6a0dccd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60640974"
 ---
 # <a name="jenkins-plugins-for-azure"></a>Plug-in Jenkins per Azure
 
 Il plug-in Jenkins seguenti supportano diverse funzionalità per l'uso con Azure.
   
-| Plug-in Jenkins | DESCRIZIONE                                   |
+| Plug-in Jenkins | Descrizione                                   |
 |------------------------------------------------------------------------------|
 | [Plug-in servizio App di Azure](https://plugins.jenkins.io/azure-app-service)     | Plug-in Jenkins per distribuire un servizio App di Azure (attualmente supporta solo l'App Web). | 
 | [Plug-in Azure AD](https://plugins.jenkins.io/azure-ad)                       | Plug-in Jenkins che supporta l'autenticazione e autorizzazione tramite Azure Active Directory. | 

@@ -4,22 +4,22 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 45b05498702042c931df3765b9e1bd79489dbb6e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: bbb8dcb410f17ba894210c9c090ec0975f83c0b3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972142"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796128"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure
 
-Per poter usare i dispositivi IoT con Azure IoT Edge, è necessario registrarli nell'hub IoT. Dopo la registrazione di un dispositivo, si riceve una stringa di connessione che può essere usata per configurare il dispositivo per i carichi di lavoro Edge.
+Per poter usare i dispositivi IoT con Azure IoT Edge, è necessario registrarli nell'hub IoT. Dopo avere registrato un dispositivo, si riceve una stringa di connessione che può essere utilizzata per configurare il dispositivo per i carichi di lavoro di IoT Edge.
 
 L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning di dispositivi e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
@@ -28,12 +28,12 @@ Questo articolo illustra come registrare un nuovo dispositivo IoT Edge usando l'
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az –-version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Creare un dispositivo
 
-Usare il comando seguente per creare una nuova identità del dispositivo nell'hub IoT:
+Usare la [az iot hub device-identity creare](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) comando per creare una nuova identità del dispositivo nell'hub IoT. Ad esempio:
 
    ```cli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -51,7 +51,7 @@ Questo comando include tre parametri:
 
 ## <a name="view-all-devices"></a>Visualizzare tutti i dispositivi
 
-Usare il comando seguente per visualizzare tutti i dispositivi nell'hub IoT:
+Usare la [elenco di az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) comando per visualizzare tutti i dispositivi nell'hub IoT. Ad esempio:
 
    ```cli
    az iot hub device-identity list --hub-name [hub name]
@@ -61,7 +61,7 @@ Per qualsiasi dispositivo registrato come dispositivo IoT Edge, la proprietà **
 
 ## <a name="retrieve-the-connection-string"></a>Recuperare la stringa di connessione
 
-Quando si è pronti per configurare il dispositivo, è necessaria la stringa di connessione che collega il dispositivo fisico alla relativa identità nell'hub IoT. Usare il comando seguente per restituire la stringa di connessione per un singolo dispositivo:
+Quando si è pronti per configurare il dispositivo, è necessaria la stringa di connessione che collega il dispositivo fisico alla relativa identità nell'hub IoT. Usare la [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) comando per restituire la stringa di connessione per un singolo dispositivo:
 
    ```cli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
@@ -71,4 +71,4 @@ Per il parametro `device-id` viene fatta distinzione tra maiuscole e minuscole. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire moduli in un dispositivo con l'interfaccia della riga di comando di Azure](how-to-deploy-modules-cli.md)
+Informazioni su come [distribuire moduli in un dispositivo con Azure CLI](how-to-deploy-modules-cli.md).

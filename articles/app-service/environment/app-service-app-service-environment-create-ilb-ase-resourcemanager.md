@@ -10,17 +10,16 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 862887e1e530bfdca4359e914b9a81c9360ac4dd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107379"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070417"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
@@ -40,7 +39,7 @@ L'automazione della creazione di un ambiente del servizio app con servizio di bi
 3. Il certificato SSL caricato viene assegnato in modo esplicito all'ambiente del servizio app con servizio di bilanciamento del carico interno come certificato "predefinito".  Il certificato SSL verrà usato per il traffico SSL verso le app nell'ambiente del servizio app con bilanciamento del carico interno quando le app vengono indirizzate attraverso un dominio radice comune assegnato all'ambiente del servizio app (ad esempio https://someapp.mycustomrootcomain.com)
 
 ## <a name="creating-the-base-ilb-ase"></a>Creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno
-Un modello di Azure Resource Manager di esempio e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
+Un esempio di Azure Resource Manager modello e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
 
 La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione sia dell'ambiente del servizio app con servizio di bilanciamento del carico interno che dell'ambiente del servizio app associato a un indirizzo VIP pubblico.  L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno:
 
@@ -58,18 +57,18 @@ Dopo che il file *azuredeploy.parameters.json* è stato compilato per un ambient
 Dopo aver inviato il modello di Azure Resource Manager, la creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno richiederà alcune ore.  Al termine della creazione, l'ambiente del servizio app con servizio di bilanciamento del carico interno verrà visualizzato nel portale nell'elenco di ambienti del servizio app per la sottoscrizione che ha attivato la distribuzione.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Caricamento e configurazione del certificato SSL "predefinito"
-Dopo aver creato l'ambiente del servizio app con servizio di bilanciamento del carico interno è necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito", per stabilire le connessioni SSL alle app.  Proseguendo con l'esempio dell'ipotetica Contoso Corporation, se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, allora una connessione a *https://some-random-app.internal-contoso.com* richiede un certificato SSL che sia valido per **.internal-contoso.com*. 
+Dopo aver creato l'ambiente del servizio app con servizio di bilanciamento del carico interno è necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito", per stabilire le connessioni SSL alle app.  Proseguendo con l'esempio dell'ipotetica Contoso Corporation, se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, allora una connessione a *https://some-random-app.internal-contoso.com* richiede un certificato SSL che sia valido per * *.internal-contoso.com*. 
 
 Esistono diversi modi per ottenere un certificato SSL valido, tra cui CA interne, l'acquisto di un certificato da un'autorità di certificazione esterna e l'uso di un certificato autofirmato.  Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
-* *Soggetto*:  questo attributo deve essere impostato su **.your-root-domain-here.com*
-* *Nome alternativo del soggetto*:  questo attributo deve includere sia **.your-root-domain-here.com* che **.scm.your-root-domain-here.com*.  La seconda voce è necessaria perché le connessioni SSL al sito SCM/Kudu associato a ogni app verranno eseguite con un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
+* *Soggetto*:  questo attributo deve essere impostato su * *.your-root-domain-here.com*
+* *Nome alternativo del soggetto*:  questo attributo deve includere sia * *.your-root-domain-here.com* che * *.scm.your-root-domain-here.com*.  La seconda voce è necessaria perché le connessioni SSL al sito SCM/Kudu associato a ogni app verranno eseguite con un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
 
 Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari.  Il certificato SSL deve essere convertito/salvato come file con estensione pfx.  Il file con estensione pfx deve includere tutti i certificati intermedi e radice ed essere protetto con una password.
 
 Il file con estensione pfx dovrà quindi essere convertito in una stringa con codifica Base64 perché il certificato SSL verrà caricato usando un modello di Azure Resource Manager.  Poiché i modelli di Azure Resource Manager sono file di testo, il file con estensione pfx deve essere convertito in una stringa con codifica Base64 per essere incluso come parametro del modello.
 
-Il frammento di codice Powershell riportato di seguito illustra un esempio di generazione di un certificato autofirmato, esportazione del certificato come file con estensione pfx, conversione del file con estensione pfx in una stringa con codifica Base64 e quindi salvataggio della stringa con codifica Base64 in un file separato.  Il codice Powershell per la codifica Base64 è stato adattato dal [blog di script di Powershell][examplebase64encoding].
+Il frammento di codice Powershell riportato di seguito illustra un esempio di generazione di un certificato autofirmato, esportazione del certificato come file con estensione pfx, conversione del file con estensione pfx in una stringa con codifica Base64 e quindi salvataggio della stringa con codifica Base64 in un file separato.  Il codice PowerShell per la codifica Base64 è stato adattato dal [Blog di script di PowerShell][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -83,7 +82,7 @@ Il frammento di codice Powershell riportato di seguito illustra un esempio di ge
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Dopo aver generato il certificato SSL e averlo convertito in una stringa con codifica Base64, è possibile usare il modello di esempio di Azure Resource Manager disponibile in GitHub per la [configurazione del certificato SSL predefinito][configuringDefaultSSLCertificate].
+Una volta che il certificato SSL è stato generato e convertito in una stringa con codifica Base64, è possibile usare il modello di esempio Azure Resource Manager in GitHub per la [configurazione del certificato SSL predefinito][configuringDefaultSSLCertificate] .
 
 I parametri del file *azuredeploy.parameters.json* sono elencati di seguito:
 
@@ -130,7 +129,7 @@ Dopo che il file *azuredeploy.parameters.json* è stato compilato, il certificat
 
 Dopo l'invio del modello di Azure Resource Manager, ci vorranno circa 40 minuti per ogni front-end dell'ambiente del servizio app per apportare la modifica.  Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiederà all'incirca un'ora e venti minuti.  Durante l'esecuzione del modello, l'ambiente del servizio app non potrà essere ridimensionato.  
 
-Al termine dell'esecuzione del modello sarà possibile accedere alle app nell'ambiente del servizio app con servizio di bilanciamento del carico interno tramite HTTPS e le connessioni saranno protette con il certificato SSL predefinito.  Il certificato SSL predefinito verrà usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito.  Ad esempio, *https://mycustomapp.internal-contoso.com* usa il certificato SSL predefinito per **.internal-contoso.com*.
+Al termine dell'esecuzione del modello sarà possibile accedere alle app nell'ambiente del servizio app con servizio di bilanciamento del carico interno tramite HTTPS e le connessioni saranno protette con il certificato SSL predefinito.  Il certificato SSL predefinito verrà usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito.  Ad esempio, *https://mycustomapp.internal-contoso.com* usa il certificato SSL predefinito per * *.internal-contoso.com*.
 
 Proprio come le app in esecuzione nel servizio multi-tenant pubblico, gli sviluppatori possono tuttavia anche configurare nomi host personalizzati e associazioni univoche a certificati SNI SSL per le singole app.  
 

@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569585"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
 
@@ -40,7 +39,7 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per questa esercitazione occorrono:
 
@@ -163,10 +162,10 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 ### <a name="validation"></a>Convalida
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Summary](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![Riepilogo](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 Al termine della procedura guidata, il database è configurato per la crittografia sempre attiva. La procedura guidata esegue le azioni seguenti:
@@ -226,7 +225,7 @@ Il codice seguente mostra come abilitare Always Encrypted impostando [SqlConnect
 ## <a name="register-the-azure-key-vault-provider"></a>Registrare il provider dell'insieme di credenziali delle chiavi di Azure
 Il codice seguente mostra come registrare il provider dell'insieme di credenziali delle chiavi di Azure con il driver ADO.NET.
 
-```C#
+```csharp
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()

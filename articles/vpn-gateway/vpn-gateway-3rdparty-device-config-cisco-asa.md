@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648742"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configurazione di esempio: dispositivo Cisco ASA (IKEv2/senza BGP)
 Questo articolo fornisce configurazioni di esempio per la connessione di dispositivi Cisco ASA (Adaptive Security Appliance) a gateway VPN di Azure. L'esempio si applica a dispositivi Cisco ASA che eseguono IKEv2 senza il protocollo BGP (Border Gateway Protocol). 
@@ -27,7 +27,7 @@ Questo articolo fornisce configurazioni di esempio per la connessione di disposi
 | Modello testato           | ASA 5505                          |
 | Versione testata         | 9.2                               |
 | Versione IKE            | IKEv2                             |
-| BGP                    | No                                 |
+| BGP                    | No                                |
 | Tipo di gateway VPN di Azure | Gateway VPN basato su route           |
 |                        |                                   |
 
@@ -78,7 +78,7 @@ La tabella seguente include gli algoritmi di IPsec/IKE e i parametri usati nell'
 | * Crittografia IPsec | AES256                               |
 | * Integrità IPsec  | SHA1                                 |
 | Gruppo PFS        | PFS24                                |
-| Durata associazione di sicurezza in modalità rapida   | 7.200 secondi                         |
+| Durata associazione di sicurezza in modalità rapida   | 7\.200 secondi                         |
 | Selettore di traffico | UsePolicyBasedTrafficSelectors $True |
 | Chiave precondivisa   | PreSharedKey                         |
 |                  |                                      |

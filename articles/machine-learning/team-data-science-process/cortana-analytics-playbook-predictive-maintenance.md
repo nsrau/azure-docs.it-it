@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573780"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -92,7 +92,7 @@ Questa sezione è incentrata su una raccolta di casi d'uso PdM per diversi setto
 |**Finanza** |                         |
 |Un _guasto di uno sportello bancomat_ è un problema comune nel settore bancario. In questo caso, il problema consiste nel calcolare la probabilità che una transazione di incasso da un bancomat venga interrotta a causa di un inceppamento delle banconote o un guasto di un componente del dispositivo di erogazione del contante. La possibilità di stimare in anticipo gli errori delle transazioni consente di intervenire proattivamente sugli sportelli bancomat per evitare che si verifichino errori.| Invece di lasciare che si verifichi un guasto nel corso di una transazione, è preferibile programmare il macchinario in modo da negare il servizio in base alla stima.|
 |**Energia** |                          |
-|_Guasti di turbine eoliche_: le turbine eoliche sono la principale fonte di energia nei Paesi più attenti all'ambiente e comportano costi di capitale elevati. Un aspetto fondamentale per le turbine eoliche è rappresentato dal motore del generatore. Un guasto di questo componente mette fuori servizio la turbina. È inoltre molto costoso da riparare.|La stima di indicatori KPI come il tempo medio tra i guasti (MTBF) può consentire alle aziende del settore energetico di evitare i guasti delle turbine e ridurre al minimo i tempi di inattività. Stimando le probabilità di guasto, i tecnici possono monitorare le turbine con la più alta probabilità di guasto e pianificare regimi di manutenzione temporizzata. I modelli predittivi forniscono informazioni dettagliate sui diversi fattori che contribuiscono al guasto, permettendo ai tecnici comprendere meglio le cause radice dei problemi.|
+|_Guasti di turbine eoliche_: Le turbine eoliche sono la fonte di energia principale in ambientalistica responsabile paesi/aree geografiche e comportano costi di capitale elevati. Un aspetto fondamentale per le turbine eoliche è rappresentato dal motore del generatore. Un guasto di questo componente mette fuori servizio la turbina. È inoltre molto costoso da riparare.|La stima di indicatori KPI come il tempo medio tra i guasti (MTBF) può consentire alle aziende del settore energetico di evitare i guasti delle turbine e ridurre al minimo i tempi di inattività. Stimando le probabilità di guasto, i tecnici possono monitorare le turbine con la più alta probabilità di guasto e pianificare regimi di manutenzione temporizzata. I modelli predittivi forniscono informazioni dettagliate sui diversi fattori che contribuiscono al guasto, permettendo ai tecnici comprendere meglio le cause radice dei problemi.|
 |_Guasti di interruttori automatici_: per garantire la distribuzione di corrente ad abitazioni e aziende, è necessario che le linee elettriche siano operative ininterrottamente. Gli interruttori automatici consentono di limitare o evitare il danneggiamento delle linee elettriche in caso di sovraccarico o condizioni meteorologiche avverse. Il problema aziendale in questo caso consiste nella stima della probabilità di guasto degli interruttori.| Le soluzioni PdM contribuiscono a ridurre i costi di riparazione e prolungano il ciclo di vita delle apparecchiature come gli interruttori. Consentono di migliorare la qualità della rete elettrica riducendo i guasti imprevisti e le interruzioni dei servizi.|
 |**Trasporti e logistica** |    |
 |_Guasti delle porte degli ascensori_: le grandi aziende produttrici di ascensori offrono una gamma completa di servizi per milioni di ascensori in funzione in tutto il mondo. La sicurezza, l'affidabilità e i tempi di attività degli ascensori sono un elemento critico per i clienti. Queste aziende tengono traccia di questi e molti altri attributi tramite sensori, per facilitare la manutenzione correttiva e preventiva. In un ascensore, il problema più evidente per un cliente è il malfunzionamento delle porte. Il problema aziendale in questo caso consiste nel fornire un'applicazione predittiva con una base di conoscenze che possa stimare le cause potenziali dei guasti alle porte.| Gli ascensori rappresentano investimenti di capitale che possono avere una durata di 20 e 30 anni. Ogni vendita potenziale può essere altamente competitiva, pertanto le aspettative per il servizio e il supporto sono molto elevate. La manutenzione predittiva può fornire a queste aziende un vantaggio rispetto alla concorrenza nelle offerte di prodotti e servizi.|
@@ -215,7 +215,7 @@ Alcuni esempi di funzioni di aggregazione in sequenza in una finestra temporale 
 Un'altra tecnica utile in PdM consiste nell'acquisire modifiche della tendenza, picchi e modifiche dei livelli usando algoritmi che rilevano le anomalie nei dati.
 
 #### <a name="tumbling-aggregates"></a>Aggregazioni a cascata
-Per ogni record con etichetta di un asset, viene definita una finestra con dimensione _W-<sub>k</sub>_, dove _k_ è il numero di finestre con dimensione _W_. Vengono quindi create le aggregazioni su _k_ _finestre a cascata_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ per i periodi prima di un timestamp del record. _k_ può essere un numero ridotto per acquisire gli effetti a breve termine o un numero elevato per acquisire schemi di degradazione a lungo termine (vedere la figura 2).
+Per ogni record con etichetta di un asset, viene definita una finestra con dimensione _W-<sub>k</sub>_ , dove _k_ è il numero di finestre con dimensione _W_. Vengono quindi create le aggregazioni su _k_ _finestre a cascata_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ per i periodi prima di un timestamp del record. _k_ può essere un numero ridotto per acquisire gli effetti a breve termine o un numero elevato per acquisire schemi di degradazione a lungo termine (vedere la figura 2).
 
 ![Figura 2. Funzioni di aggregazione a cascata](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Figura 2. Funzioni di aggregazione a cascata
 
@@ -291,11 +291,11 @@ In questo caso, la domanda è: "qual è la probabilità che un asset si guasti e
 
 ![Figura 5. Etichette per la classificazione multiclasse per la stima dell'ora del guasto](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto
 
-In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo per via della causa radice o del problema _P<sub>i</sub>_?" dove _i_ è il numero di possibili cause radice. Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto per via della causa radice _P<sub>i</sub>_" (etichetta = _P<sub>i</sub>_). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). Anche in questo metodo le etichette sono categoriche (vedere la figura 6).
+In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo per via della causa radice o del problema _P<sub>i</sub>_ ?" dove _i_ è il numero di possibili cause radice. Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto per via della causa radice _P<sub>i</sub>_ " (etichetta = _P<sub>i</sub>_ ). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). Anche in questo metodo le etichette sono categoriche (vedere la figura 6).
 
 ![Figura 6. Etichette di classificazione multiclasse per la stima delle cause radice](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice
 
-Il modello assegna una probabilità di guasto a causa di ogni problema _P<sub>i</sub>_, oltre alla probabilità che non si verifichi alcun guasto. Queste probabilità possono essere ordinate per grandezza, per consentire la stima dei problemi con la più alta possibilità che si verifichino in futuro.
+Il modello assegna una probabilità di guasto a causa di ogni problema _P<sub>i</sub>_ , oltre alla probabilità che non si verifichi alcun guasto. Queste probabilità possono essere ordinate per grandezza, per consentire la stima dei problemi con la più alta possibilità che si verifichino in futuro.
 
 In questo caso, la domanda è: "quali azioni di manutenzione consigliare dopo un guasto?" Per rispondere a questa domanda, l'assegnazione di etichette _non richiede la selezione di un orizzonte futuro_, perché il modello non deve prevedere un guasto in futuro. Deve semplicemente stimare la causa radice più probabile_dopo che il guasto si è già verificato_.
 

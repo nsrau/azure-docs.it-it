@@ -3,21 +3,20 @@ title: Creare trigger di pianificazione in Azure Data Factory | Microsoft Docs
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in base a una pianificazione.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432822"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141618"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
@@ -44,7 +43,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 3. Nella pagina **Nuovo trigger** seguire questa procedura: 
 
     1. Verificare che sia selezionata l'opzione **Pianificazione** per **Tipo**. 
-    2. Specificare il valore datetime di inizio del trigger per **Data di inizio (UTC)**. Per impostazione predefinita, questa opzione è impostata sul valore datetime corrente. 
+    2. Specificare il valore datetime di inizio del trigger per **Data di inizio (UTC)** . Per impostazione predefinita, questa opzione è impostata sul valore datetime corrente. 
     3. Specificare **Ricorrenza** per il trigger. Selezionare uno dei valori dall'elenco a discesa (Ogni minuto, Ogni ora, Ogni giorno, Ogni settimana e Ogni mese). Immettere il moltiplicatore nella casella di testo. Ad esempio, se si vuole impostare l'esecuzione del trigger una volta ogni 15 minuti, selezionare **Ogni minuto** e immettere **15** nella casella di testo. 
     4. Per il campo **Fine**, se non si vuole specificare un valore datetime di fine per il trigger, selezionare **No End** (Nessuna data di fine). Per specificare un valore datetime di fine, selezionare **On Date** (In data), specificare un valore datetime di fine e fare clic su **Applica**. Ogni esecuzione della pipeline è associata a un costo. Se si stanno eseguendo test, si consiglia di verificare che la pipeline sia attivata solo un paio di volte. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente.
 
@@ -111,31 +110,31 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
     - Il trigger è associato alla pipeline **Adfv2QuickStartPipeline**. Per associare più pipeline a un trigger, aggiungere più sezioni **pipelineReference**.
     - La pipeline dell'Avvio rapido accetta due valori **parameters**: **inputPath** e **outputPath**. È pertanto possibile passare i valori per questi parametri dal trigger.
 
-2. Creare un trigger usando il **Set-AzDataFactoryV2Trigger** cmdlet:
+2. Creare un trigger usando il cmdlet **set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confermare che lo stato del trigger viene **Stopped** tramite il **Get-AzDataFactoryV2Trigger** cmdlet:
+3. Verificare che lo stato del trigger venga **interrotto** con il cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Avviare il trigger usando il **Start-AzDataFactoryV2Trigger** cmdlet:
+4. Avviare il trigger usando il cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confermare che lo stato del trigger viene **avviato** tramite il **Get-AzDataFactoryV2Trigger** cmdlet:
+5. Verificare che lo stato del trigger venga **avviato** con il cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Ottenere il trigger viene eseguito in Azure PowerShell usando il **Get-AzDataFactoryV2TriggerRun** cmdlet. Per ottenere informazioni sulle esecuzioni di trigger, eseguire periodicamente il comando seguente. Aggiornare i valori di **TriggerRunStartedAfter** e **TriggerRunStartedBefore** in modo che corrispondano a quelli nella definizione del trigger:
+6.  Ottenere il trigger viene eseguito in Azure PowerShell usando il cmdlet **Get-AzDataFactoryV2TriggerRun** . Per ottenere informazioni sulle esecuzioni di trigger, eseguire periodicamente il comando seguente. Aggiornare i valori di **TriggerRunStartedAfter** e **TriggerRunStartedBefore** in modo che corrispondano a quelli nella definizione del trigger:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -254,9 +253,7 @@ Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizi
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-Per altre informazioni, vedere le istruzioni in [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
+```
 
 ## <a name="json-schema"></a>Schema JSON
 La definizione JSON seguente illustra come creare un trigger di pianificazione con pianificazione e ricorrenza:
@@ -274,7 +271,7 @@ La definizione JSON seguente illustra come creare un trigger di pianificazione c
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [
@@ -312,7 +309,7 @@ La definizione JSON seguente illustra come creare un trigger di pianificazione c
 ### <a name="schema-overview"></a>Panoramica dello schema
 La tabella seguente fornisce una panoramica generale degli elementi dello schema principali correlati alla ricorrenza e alla pianificazione di un trigger:
 
-| Proprietà JSON | DESCRIZIONE |
+| Proprietà JSON | Descrizione |
 |:--- |:--- |
 | **startTime** | Valore di data e ora. Per le pianificazioni semplici, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. Questa proprietà è facoltativa. |
@@ -325,13 +322,13 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sì | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Oggetto | Sì | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Number | No  | 1 | Da 1 a 1.000 | `"interval":10` |
-| **endTime** | string | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Oggetto | No  | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | String | Yes | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Object | Yes | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
+| **endTime** | String | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Object | No | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -359,7 +356,7 @@ Se vengono specificati più elementi **schedule**, l'ordine di valutazione è da
 La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
 
-| Elemento JSON | DESCRIZIONE | Valori validi |
+| Elemento JSON | Descrizione | Valori validi |
 |:--- |:--- |:--- |
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul> |
@@ -373,7 +370,7 @@ Questa sezione fornisce esempi di pianificazioni di ricorrenza con attenzione al
 
 Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica "monthDays" nell'oggetto **schedule**. Restrizioni come queste sono indicate nella tabella nella sezione precedente.
 
-| Esempio | DESCRIZIONE |
+| Esempio | Descrizione |
 |:--- |:--- |
 | `{"hours":[5]}` | Viene eseguito alle 5:00 ogni giorno. |
 | `{"minutes":[15], "hours":[5]}` | Viene eseguito alle 05:15 ogni giorno. |

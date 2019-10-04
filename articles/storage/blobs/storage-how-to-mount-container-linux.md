@@ -1,23 +1,23 @@
 ---
 title: Come montare l'archivio BLOB di Azure come file system in Linux | Microsoft Docs
 description: Montare un contenitore di archiviazione BLOB di Azure con FUSE in Linux
-services: storage
-author: seguler
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: seguler
-ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392484"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845014"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Come montare l'archivio BLOB come file system con blobfuse
 
 ## <a name="overview"></a>Panoramica
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) è un driver virtuale file system per l'archivio BLOB di Azure. Blobfuse consente di accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Archiviazione BLOB di Azure è un servizio di archiviazione di oggetti e non ha uno spazio dei nomi gerarchico. Blobfuse fornisce questo spazio dei nomi tramite lo schema della directory virtuale con la barra "/" come delimitatore.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) è un driver virtuale file system per l'archivio BLOB di Azure. Blobfuse consente di accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Blobfuse usa lo schema di directory virtuale con la barra "/" come delimitatore.  
 
 Questa guida illustra come usare blobfuse e come montare un contenitore di archiviazione BLOB in Linux e accedere ai dati. Per altre informazioni su blobfuse, vedere i dettagli nel [repository di blobfuse](https://github.com/Azure/azure-storage-fuse).
 
@@ -29,7 +29,7 @@ Questa guida illustra come usare blobfuse e come montare un contenitore di archi
 ## <a name="install-blobfuse-on-linux"></a>Installare blobfuse in Linux
 I file binari di blobfuse sono disponibili nei [repository software Microsoft per Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) per le distribuzioni Ubuntu e RHEL. Per installare blobfuse in queste distribuzioni, configurare uno dei repository presenti nell'elenco. Se non sono disponibili file binari per la distribuzione, è anche possibile generare i file binari dal codice sorgente seguendo la [procedura di installazione di Archiviazione di Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source).
 
-Blobfuse supporta l'installazione in Ubuntu 14.04, 16.04 e 18.04. Eseguire questo comando per verificare che sia stata distribuita una di tali versioni:
+Blobfuse supporta l'installazione in Ubuntu 14,04, 16,04 e 18,04. Eseguire questo comando per verificare che sia stata distribuita una di tali versioni:
 ```
 lsb_release -a
 ```
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Analogamente, sostituire l'URL con `.../ubuntu/16.04/...` o `.../ubuntu/18.04/...` fare riferimento a un'altra versione di Ubuntu.
+Allo stesso modo, modificare l' `.../ubuntu/16.04/...` URL `.../ubuntu/18.04/...` in o per fare riferimento a un'altra versione di Ubuntu.
 
 ### <a name="install-blobfuse"></a>Installare blobfuse
 
@@ -97,7 +97,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-Il `accountName` è il prefisso per l'account di archiviazione, non l'URL completo.
+`accountName` È il prefisso per l'account di archiviazione, non l'URL completo.
 
 Creare questo file usando:
 
@@ -105,7 +105,7 @@ Creare questo file usando:
 touch ~/fuse_connection.cfg
 ```
 
-Dopo aver creato e modificato questo file, assicurarsi di limitare l'accesso in modo che nessun altro utente possono leggerlo.
+Dopo aver creato e modificato questo file, assicurarsi di limitare l'accesso in modo che nessun altro utente possa leggerlo.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

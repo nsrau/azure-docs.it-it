@@ -1,23 +1,25 @@
 ---
-title: Come monitorare un account di archiviazione di Azure | Microsoft Docs
+title: Come monitorare un account di archiviazione di Azure nella portale di Azure | Microsoft Docs
 description: Informazioni su come monitorare un account di archiviazione in Azure usando il portale di Azure.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317681"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211863"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
-[Analisi archiviazione di Azure](storage-analytics.md) offre metriche per tutti i servizi di archiviazione e log per BLOB, code e tabelle. È possibile usare il [portale di Azure](https://portal.azure.com) per configurare quali metriche e log verranno registrati per l'account e i grafici che offriranno una rappresentazione visiva dei dati di metrica.
+[Analisi archiviazione di Azure](storage-analytics.md) offre metriche per tutti i servizi di archiviazione e log per BLOB, code e tabelle. È possibile usare il [portale di Azure](https://portal.azure.com) per configurare quali metriche e log verranno registrati per l'account e i grafici che offriranno una rappresentazione visiva dei dati di metrica. 
+
+È consigliabile esaminare [monitoraggio di Azure per l'archiviazione](../../azure-monitor/insights/storage-insights-overview.md) (anteprima). Si tratta di una funzionalità di monitoraggio di Azure che offre un monitoraggio completo degli account di archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. Non è necessario abilitare o configurare elementi ed è possibile visualizzare immediatamente queste metriche dai grafici interattivi predefiniti e da altre visualizzazioni incluse.
 
 > [!NOTE]
 > All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione](storage-analytics.md).
@@ -41,7 +43,7 @@ ms.locfileid: "58317681"
    Per impostare i criteri di conservazione dei dati, spostare il dispositivo di scorrimento **Conservazione (in giorni)** oppure immettere il numero desiderato di giorni, da 1 a 365. L'impostazione predefinita per i nuovi account di archiviazione è sette giorni. Se non si desidera impostare criteri di conservazione, immettere zero. Se non vengono impostati criteri di conservazione, i dati di monitoraggio dovranno essere eliminati manualmente.
 
    > [!WARNING]
-   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Visualizzare [fatturazione per le metriche di archiviazione](storage-analytics-metrics.md#billing-on-storage-metrics) per altre informazioni.
+   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Per ulteriori informazioni, vedere [fatturazione sulle metriche di archiviazione](storage-analytics-metrics.md#billing-on-storage-metrics) .
    >
 
 1. Al termine della configurazione del monitoraggio, selezionare **Salva**.
@@ -93,7 +95,7 @@ Le metriche selezionate in **Diagnostica** determinano la risoluzione delle metr
 
 È possibile creare avvisi per ricevere una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
-1. Per aprire il **pannello delle regole di avviso** scorrere alla sezione **MONITORAGGIO** del **pannello Menu** e selezionare **Avvisi (classico)**.
+1. Per aprire il **pannello delle regole di avviso** scorrere alla sezione **MONITORAGGIO** del **pannello Menu** e selezionare **Avvisi (classico)** .
 2. Selezionare **Aggiungi avviso per la metrica (versione classica)** per aprire il pannello **Aggiungi una regola di avviso**
 3. Immettere un **Nome** e una **Descrizione** per la nuova regola di avviso.
 4. Selezionare la **metrica** per cui si vuole aggiungere un avviso, una **condizione** di avviso e una **soglia**. Il tipo di unità della soglia varia a seconda della metrica scelta. Ad esempio, il tipo di unità per *ContainerCount* è "conteggio", mentre l'unità per la metrica *PercentNetworkError* è una percentuale.
@@ -134,11 +136,11 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 1. Verificare che l'opzione **Stato** sia impostata su **Attivato** e selezionare i **servizi** per cui si vuole abilitare la registrazione.
 
     ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 
-Per informazioni sull'accesso al contenitore $logs, vedere [la registrazione analitica dell'archiviazione](storage-analytics-logging.md).
+Per informazioni sull'accesso al contenitore $logs, vedere [registrazione di analisi archiviazione](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

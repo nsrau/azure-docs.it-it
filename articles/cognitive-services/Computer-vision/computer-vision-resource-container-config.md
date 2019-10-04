@@ -1,26 +1,26 @@
 ---
 title: Configurare i contenitori - Visione artificiale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Configurare varie impostazioni per i contenitori di riconoscimento del testo in Visione artificiale.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 09/18/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203527"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129972"
 ---
-# <a name="configure-recognize-text-docker-containers"></a>Configurare i contenitori del Docker di riconoscimento del testo
+# <a name="configure-computer-vision-docker-containers"></a>Configurare Visione artificiale contenitori Docker
 
-L'ambiente di runtime del contenitore **Riconoscimento del testo** si configura mediante gli argomenti del comando `docker run`. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+Configurare l'ambiente di runtime del contenitore visione artificiale usando gli argomenti `docker run` del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -31,11 +31,11 @@ L'ambiente di runtime del contenitore **Riconoscimento del testo** si configura 
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-Il `ApiKey` impostazione specifica di Azure `Cognitive Services` chiave di risorsa usata per rilevare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per la chiave API e il valore deve essere una chiave valida per il _servizi cognitivi_ risorsa specificata per il [ `Billing` ](#billing-configuration-setting) impostazione di configurazione.
+L' `ApiKey` impostazione specifica la chiave `Cognitive Services` di risorsa di Azure usata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per APIKEY e il valore deve essere una chiave valida per la risorsa _Servizi cognitivi_ specificata per l' [`Billing`](#billing-configuration-setting) impostazione di configurazione.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** gestione delle risorse, in **chiavi**
+* Portale di Azure: **Servizi cognitivi** Gestione delle risorse, in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -43,17 +43,17 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-Il `Billing` impostazione specifica l'URI dell'endpoint del _servizi cognitivi_ risorsa di Azure usato per controllare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per un _servizi cognitivi_ risorse in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
+L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _Servizi cognitivi_ in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa di _Servizi cognitivi_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** panoramica, con l'etichetta `Endpoint`
+* Portale di Azure: **Servizi cognitivi** Panoramica, con etichetta`Endpoint`
 
-Ricordarsi di aggiungere il `vision/v1.0` routing per l'URI dell'endpoint come illustrato nella tabella seguente. 
+Ricordarsi di aggiungere `vision/v1.0` il routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatorio| Name | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Attività | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -65,7 +65,7 @@ Ricordarsi di aggiungere il `vision/v1.0` routing per l'URI dell'endpoint come i
 
 ## <a name="http-proxy-credentials-settings"></a>Impostazioni delle credenziali del proxy HTTP
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Impostazioni di registrazione
  
@@ -79,56 +79,85 @@ I contenitori Visione artificiale non usano montaggi di input o di output per l'
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](computer-vision-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| Name | Tipo di dati | DESCRIZIONE |
+|Facoltativi| Attività | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Non consentito| `Input` | String | I contenitori di Visione artificiale non la usano.|
-|Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Facoltativi| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
+## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`.  Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](computer-vision-how-to-install-containers.md#stop-the-container).
 
 * **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 * **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 
-Ricordarsi di aggiungere il `vision/v1.0` routing per l'URI dell'endpoint come illustrato nella tabella seguente. 
-
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{BILLING_KEY} | La chiave di endpoint della risorsa di servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | Chiave dell'endpoint della `Computer Vision` risorsa nella pagina chiavi di Azure. `Computer Vision` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Computer Vision` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](computer-vision-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](computer-vision-how-to-install-containers.md#billing).
-> Il valore ApiKey è il **Key** da Azure `Cognitive Services` pagina chiavi di risorsa. 
+> Il valore APIKEY è la **chiave** della pagina chiavi `Cognitive Services` di risorsa di Azure.
 
-## <a name="recognize-text-container-docker-examples"></a>Esempi di contenitore di riconoscimento del testo Docker
+## <a name="container-docker-examples"></a>Esempi di contenitori Docker
 
-Gli esempi Docker seguenti sono per il contenitore di riconoscimento del testo. 
+#### <a name="readtabread"></a>[Lettura](#tab/read)
 
-### <a name="basic-example"></a>Esempio di base 
+Gli esempi di Docker seguenti sono per il contenitore di lettura.
+
+### <a name="basic-example"></a>Esempio di base
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Esempio di registrazione 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 
+#### <a name="recognize-texttabrecognize-text"></a>[Riconoscimento del testo](#tab/recognize-text)
+
+Gli esempi di Docker seguenti sono per il contenitore riconoscimento del testo.
+
+### <a name="basic-example"></a>Esempio di base
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
+  ```
+
+### <a name="logging-example"></a>Esempio di registrazione
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
+  Logging:Console:LogLevel:Default=Information
+  ```
+
+***
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [Come installare ed eseguire i contenitori](computer-vision-how-to-install-containers.md)
+* Vedere [come installare ed eseguire i contenitori](computer-vision-how-to-install-containers.md).

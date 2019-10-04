@@ -3,17 +3,17 @@ title: Funzionalità di richiesta dati dei clienti in Azure IoT Central | Micros
 description: Funzionalità di richiesta dati dei clienti in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/17/2018
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 2952008ca788a620f2b558d5997aeebd59196b7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a1775c8680b2e0d931c623d2e8ced2224205a767
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314569"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050483"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -33,7 +33,7 @@ Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune infor
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
 
-La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori delle applicazioni selezionare l'utente da eliminare e selezionare **eliminare** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
+La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori di applicazioni possono selezionare l'utente da eliminare e selezionare **Elimina** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
 
 Dopo l'eliminazione di un utente, non gli vengono più inviati avvisi tramite posta elettronica. Tuttavia, l'indirizzo di posta elettronica deve essere rimosso singolarmente da ogni avviso configurato.
 

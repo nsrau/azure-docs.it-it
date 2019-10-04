@@ -7,25 +7,25 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323272"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593255"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP specifiche di Verizon per il motore regole della rete CDN di Azure
 
 Pe i prodotti **Azure CDN Premium di Verizon**, quando una richiesta HTTP viene inviata al server di origine, il server POP (Point Of Presence) può aggiungere una o due intestazioni riservate (o intestazioni speciali proxy) nella richiesta client al POP. Queste intestazioni si aggiungono alle intestazioni di inoltro standard ricevute. Per informazioni sulle intestazioni di richiesta standard, vedere [Request fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields) (Campi di richiesta).
 
-Se si vuole impedire l'aggiunta di una di queste intestazioni riservate nella richiesta POP della rete CDN (rete per la distribuzione di contenuti) di Azure al server di origine, è necessario creare una regola con la [funzionalità Intestazioni speciali proxy](cdn-rules-engine-reference-features.md#proxy-special-headers) nel motore regole. In questa regola, escludere l'intestazione che si vuole rimuovere dall'elenco predefinito di intestazioni nel campo delle intestazioni. Se si è abilitata la [funzionalità Intestazioni di risposta di debug per la cache](cdn-rules-engine-reference-features.md#debug-cache-response-headers), assicurarsi di aggiungere le intestazioni `X-EC-Debug` necessarie. 
+Se si vuole impedire l'aggiunta di una di queste intestazioni riservate nella richiesta POP della rete CDN (rete per la distribuzione di contenuti) di Azure al server di origine, è necessario creare una regola con la [funzionalità Intestazioni speciali proxy](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) nel motore regole. In questa regola, escludere l'intestazione che si vuole rimuovere dall'elenco predefinito di intestazioni nel campo delle intestazioni. Se si è abilitata la [funzionalità Intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), assicurarsi di aggiungere le intestazioni `X-EC-Debug` necessarie. 
 
 Ad esempio, per rimuovere il `Via` intestazione, il campo intestazioni della regola deve includere l'elenco di intestazioni seguente: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
@@ -33,7 +33,7 @@ Ad esempio, per rimuovere il `Via` intestazione, il campo intestazioni della reg
 
 La tabella seguente descrive le intestazioni che possono essere aggiunte dal POP della rete CDN Verizon:
 
-Intestazione della richiesta | DESCRIZIONE | Esempio
+Intestazione della richiesta | Descrizione | Esempio
 ---------------|-------------|--------
 [Via](#via-request-header) | Identifica il server POP che ha trasmesso tramite proxy la richiesta al server di origine. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indica l'indirizzo IP del richiedente.| 10.10.10.10
@@ -42,7 +42,7 @@ X-Host | Indica il nome host della richiesta. | cdn.mydomain.com
 X-Midgress | Indica se la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo. Ad esempio, da un server POP a un server shield di origine o da un server POP a un server gateway ADN. <br />Questa intestazione viene aggiunta alla richiesta solo in caso di traffico midgress. In questo caso l'intestazione viene impostata su 1 per indicare che la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo.| 1
 [Host](#host-request-header) | Identifica l'host e la porta in cui trovare il contenuto richiesto. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica l'elenco di failover dei server Gateway ADN assegnati a un'origine cliente. <br />Shield origine: Indica il set di server shield di origine assegnato a un'origine cliente. | `icn1,hhp1,hnd1`
-X-EC-_&lt;nome&gt;_ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
+X-EC- _&lt;nome&gt;_ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
 
 ## <a name="via-request-header"></a>Intestazione di richiesta Via
 Il formato tramite il quale l'intestazione di richiesta `Via` identifica un server POP è specificato dalla sintassi seguente:

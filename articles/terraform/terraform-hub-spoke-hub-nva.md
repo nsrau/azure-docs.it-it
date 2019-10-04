@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 1fae21e9a60f533533607e74609853ef68348daf
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993517"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173409"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Esercitazione: Creare un'appliance di rete virtuale hub con Terraform in Azure
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Creare una topologia di rete hub-spoke ibrida con Terraform in Azure](./terraform-hub-spoke-introduction.md).
+1. [Creare una topologia di rete ibrida hub-spoke con Terraform in Azure](./terraform-hub-spoke-introduction.md).
 1. [Creare una rete virtuale locale con Terraform in Azure](./terraform-hub-spoke-on-prem.md).
 1. [Creare una rete virtuale hub con Terraform in Azure](./terraform-hub-spoke-hub-network.md).
 
@@ -68,7 +68,7 @@ Creare il file di configurazione Terraform che dichiara la rete virtuale locale.
 
 1. Incollare il codice seguente nell'editor:
     
-    ```JSON
+    ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"

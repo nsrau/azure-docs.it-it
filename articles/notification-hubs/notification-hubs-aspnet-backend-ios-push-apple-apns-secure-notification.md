@@ -2,9 +2,9 @@
 title: Push sicuro degli hub di notifica di Azure
 description: Informazioni su come inviare notifiche push sicure a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#.
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: d88bdb1eaeb95413df84bf69ed4fc763b6d4901f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449268"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212141"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push sicuro degli hub di notifica di Azure
 

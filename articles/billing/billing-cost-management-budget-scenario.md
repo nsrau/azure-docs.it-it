@@ -3,7 +3,7 @@ title: Scenario di budget per la gestione dei costi e la fatturazione di Azure |
 description: Informazioni su come usare Automazione di Azure per arrestare le macchine virtuali in base a specifiche soglie di budget.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 03/13/2019
-ms.author: erikre
-ms.openlocfilehash: c92789c12f4454f5d76590e5323b78223b49c97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113062"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719919"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
@@ -277,8 +277,8 @@ Quando si crea il gruppo di azioni, è necessario definire un puntatore all'app 
 4.  Aggiungere e verificare quanto segue:
     - Nome gruppo di azione
     - Nome breve
-    - Sottoscrizione
-    - Gruppo di risorse
+    - Subscription
+    - Resource group
 
     ![Azure - App per la logica - Aggiungere un gruppo di azioni](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -289,7 +289,7 @@ A questo punto sono stati creati tutti i componenti di supporto necessari per or
 
 ## <a name="create-the-azure-budget"></a>Creare il budget di Azure
 
-È possibile creare un budget definito nel portale di Azure usando il [funzionalità del Budget](../cost-management/tutorial-acm-create-budgets.md) in Gestione costi. In alternativa, è possibile creare un budget definito tramite le API REST, cmdlet di Powershell, o usare l'interfaccia della riga di comando. Nella procedura seguente si userà l'API REST. Prima di chiamare l'API REST, è necessario un token di autorizzazione. Per creare un token di autorizzazione, è possibile usare il progetto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** consente di eseguire l'autenticazione ad Azure Resource Manager e ottenere un token per chiamare le API.
+È possibile creare un budget nel portale di Azure usando la [funzionalità Budget](../cost-management/tutorial-acm-create-budgets.md) in Gestione costi. È altrimenti possibile creare un budget usando le API REST, i cmdlet di PowerShell oppure usando l'interfaccia della riga di comando. Nella procedura seguente si userà l'API REST. Prima di chiamare l'API REST, è necessario un token di autorizzazione. Per creare un token di autorizzazione, è possibile usare il progetto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** consente di eseguire l'autenticazione ad Azure Resource Manager e ottenere un token per chiamare le API.
 
 ### <a name="create-an-authentication-token"></a>Ottenere un token di autenticazione
 
@@ -328,7 +328,7 @@ In questa procedura si configurerà **Postman** per creare un budget chiamando l
 8.  In **Value** (Valore) impostare il token creato usando ArmClient alla fine della sezione precedente.
 9.  Selezionare la scheda **Body** (Corpo) all'interno di Postman.
 10. Selezionare il pulsante **Raw** (Non elaborato).
-11. Nella casella di testo, incollare la seguente definizione del budget di esempio, tuttavia è necessario sostituire il **subscriptionid**, **nome budget**, e **actiongroupname** parametri con il ID sottoscrizione, un nome univoco per il tuo budget e il nome del gruppo di azione che è stato creato l'URL sia il corpo della richiesta:
+11. Nella casella di testo incollare la seguente definizione di budget di esempio, sostituendo però i parametri **subscriptionid**, **budgetname** e **actiongroupname** rispettivamente con l'ID della sottoscrizione, un nome univoco per il budget e il nome del gruppo di azioni creato sia nell'URL che nel corpo della richiesta:
 
     ```
         {

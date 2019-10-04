@@ -3,19 +3,20 @@ title: Come distribuire un bot di Conversation Learner - Servizi cognitivi Micro
 titleSuffix: Azure
 description: Informazioni su come distribuire un bot di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05fd83506aac26df33f18bec83dcadac8dee2d90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994649"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705275"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Come distribuire un bot di Conversation Learner
 
@@ -90,11 +91,11 @@ Il bot viene ora eseguito in locale  ed è possibile accedervi con Bot Framework
 
 2. Viene così attivata la conversazione con il bot.
 
-## <a name="option-2-deploy-to-azure"></a>Opzione 2: Distribuisci in Azure
+## <a name="option-2-deploy-to-azure"></a>Opzione 2: Distribuire in Azure
 
 Pubblicare il bot di Conversation Learner così come si pubblicherebbe qualsiasi altro bot. A livello generale, si carica il codice in un sito Web ospitato, si impostano i valori di configurazione appropriati e quindi si registra il bot in vari canali. Istruzioni dettagliate sono disponibili in questo video, che illustra come pubblicare il bot con il servizio Azure Bot.
 
-Una volta che viene distribuito il bot e in esecuzione, è possibile connettersi diversi canali, ad esempio Facebook, Teams, Skype via. utilizzo di una registrazione di canali Bot di Azure. Per la documentazione relativa a tale processo, vedere https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Una volta che il bot è stato distribuito ed è in esecuzione, è possibile connettere canali diversi, ad esempio Facebook, teams, Skype e così via. usando una registrazione del canale di Azure bot. Per la documentazione relativa a tale processo, vedere https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Di seguito sono riportate istruzioni dettagliate per la distribuzione di un bot di Conversation Learner in Azure.  Queste istruzioni presuppongono che l'origine del bot sia disponibile in un'origine basata sul cloud come Azure DevOps Services, GitHub, BitBucket o OneDrive e configurano il bot per la distribuzione continua.
 

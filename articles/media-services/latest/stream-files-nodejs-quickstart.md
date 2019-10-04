@@ -1,6 +1,6 @@
 ---
 title: Eseguire lo streaming di file video con Servizi multimediali di Azure - Node.js | Microsoft Docs
-description: Seguire i passaggi di questa guida introduttiva per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming ad Azure Media Player.
+description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming su Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, streaming
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522756"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639401"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Guida introduttiva: Eseguire lo streaming di file video - Node.js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Node.js
 
-Questa guida introduttiva illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
-L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
+Questa esercitazione illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
 
-Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un video.  
+L'esempio in questo articolo codifica contenuti resi accessibili tramite un URL HTTPS. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
+
+Al termine dell'esercitazione, sarà possibile eseguire lo streaming di un video.  
 
 ![Riprodurre il video](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -90,7 +91,7 @@ Azure Media Player può essere usato a scopo di test ma non deve essere usato in
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se l'intero contenuto del gruppo di risorse non è più necessario, compresi gli account di archiviazione e di Servizi multimediali creati per questa guida introduttiva, eliminare il gruppo di risorse.
+Se l'intero contenuto del gruppo di risorse non è più necessario, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse.
 
 Eseguire il comando dell'interfaccia della riga di comando seguente:
 
@@ -98,7 +99,7 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Codici di errore dei processi](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 

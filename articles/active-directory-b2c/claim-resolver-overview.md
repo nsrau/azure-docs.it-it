@@ -2,28 +2,28 @@
 title: Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come vengono usati i resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313835"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064405"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
-I resolver di attestazioni nei [criteri personalizzati](active-directory-b2c-overview-custom.md) di Azure Active Directory (Azure AD) B2C offrono informazioni di contesto su una richiesta di autorizzazione, ad esempio nome del criterio, ID di correlazione della richiesta, lingua dell'interfaccia utente e altro ancora.
+I resolver di attestazioni nei [criteri personalizzati](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure ad B2C) forniscono informazioni sul contesto di una richiesta di autorizzazione, ad esempio il nome del criterio, l'ID di correlazione della richiesta, la lingua dell'interfaccia utente e altro ancora.
 
-Per usare un resolver di attestazioni in un'attestazione di input o output, si definisce un **ClaimType** di tipo stringa, nell'elemento [ClaimsSchema](claimsschema.md), quindi si imposta **DefaultValue** sul resolver di attestazioni nell'elemento attestazione di input o output. Azure AD B2C legge il valore del resolver di attestazioni e usa il valore nel profilo tecnico. 
+Per usare un resolver di attestazioni in un'attestazione di input o output, si definisce un **ClaimType** di tipo stringa, nell'elemento [ClaimsSchema](claimsschema.md), quindi si imposta **DefaultValue** sul resolver di attestazioni nell'elemento attestazione di input o output. Azure AD B2C legge il valore del resolver di attestazioni e usa il valore nel profilo tecnico.
 
-Nell'esempio seguente viene definito un tipo di attestazione denominato `correlationId` con **DataType** `string`.  
+Nell'esempio seguente viene definito un tipo di attestazione denominato `correlationId` con **DataType** `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -47,14 +47,14 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 | Attestazione | DESCRIZIONE | Esempio |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
-| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1040 |
+| {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | it-IT |
+| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 16 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Criteri
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nome dei criteri della relying party. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
@@ -69,13 +69,13 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametro di stringa di query `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | N/D |
+| {OIDC:MaxAge} | Oggetto `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | Accesso |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
 
-### <a name="context"></a>Context
+### <a name="context"></a>Contesto
 
 | Attestazione | DESCRIZIONE | Esempio |
 | ----- | ----------- | --------|
@@ -107,7 +107,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 ### <a name="restful-technical-profile"></a>Profilo tecnico RESTful
 
-In un profilo tecnico [RESTful](restful-technical-profile.md) può essere utile inviare la lingua dell'utente, il nome dei criteri, l'ambito e l'ID client. Sulla base di queste attestazioni, l'API REST può eseguire logica di business personalizzata e, se necessario, generare un messaggio di errore localizzato. 
+In un profilo tecnico [RESTful](restful-technical-profile.md) può essere utile inviare la lingua dell'utente, il nome dei criteri, l'ambito e l'ID client. Sulla base di queste attestazioni, l'API REST può eseguire logica di business personalizzata e, se necessario, generare un messaggio di errore localizzato.
 
 Nell'esempio seguente viene illustrato un profilo tecnico RESTful:
 

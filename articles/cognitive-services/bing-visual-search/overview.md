@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630215"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195213"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
-L'API Ricerca visiva Bing restituisce informazioni dettagliate relative a un'immagine. È possibile caricare un'immagine o specificarne l'URL. Le informazioni dettagliate sono immagini visivamente simili, luoghi di acquisto degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. Le informazioni dettagliate restituite dall'API Ricerca visiva Bing sono simili a quelle visualizzate nel sito Bing.com/images.
+L'API Ricerca visiva Bing restituisce informazioni dettagliate relative a un'immagine. È possibile caricare un'immagine o specificarne l'URL. Le informazioni dettagliate sono immagini visivamente simili, luoghi di acquisto degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. Le informazioni dettagliate restituite dall'API Ricerca visiva Bing sono simili a quelle visualizzate nel sito Bing.com/images. 
 
 Se si usa l'[API Ricerca immagini Bing](../bing-image-search/overview.md) è possibile usare i token di informazioni dettagliate restituiti dai risultati della ricerca dell'API per Ricerca visiva Bing invece di caricare un'immagine.
 
@@ -38,6 +38,7 @@ Ricerca visiva Bing consente di individuare le informazioni dettagliate seguenti
 | Ricerche correlate                     | Elenco di ricerche correlate eseguite da altri utenti o basate sul contenuto dell'immagine.            |
 | Pagine Web che includono l'immagine     | Pagine Web che includono l'immagine.            |
 | Ricette                              | Pagine Web contenenti ricette per preparare il piatto illustrato nell'immagine di input.            |
+| Entità                             | Persone famose, oggetti e località note. |
 
 Oltre alle informazioni dettagliate, Ricerca visiva Bing restituisce una varietà di termini (ovvero tag) derivati dall'immagine di input. I tag consentono agli utenti di esplorare i concetti trovati nell'immagine. Se ad esempio l'immagine di input è quella di un atleta famoso, uno dei tag potrebbe essere il nome dell'atleta e un altro tag potrebbe essere Sport. In alternativa, se l'immagine di input è una torta di mele, i tag possono essere Torta di mele, Torte e Dessert.
 
@@ -47,7 +48,7 @@ I risultati di Ricerca visiva Bing includono anche rettangoli di selezione per l
 
 L'API Ricerca visiva Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'API REST o l'SDK.
 
-1. Creare un [account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/). È possibile ottenere la chiave di sottoscrizione dal [portale di Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) dopo la creazione dell'account oppure il [sito Web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) dopo l'attivazione di una versione di valutazione gratuita.
+1. Creare un [account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/). È possibile ottenere la chiave di sottoscrizione dal [portale di Azure](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account oppure il [sito Web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) dopo l'attivazione di una versione di valutazione gratuita.
 2. Inviare una richiesta all'API con una query di ricerca valida.
 3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
@@ -58,7 +59,7 @@ La demo illustra come personalizzare rapidamente una query di ricerca ed esplora
 
 Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * L'argomento di riferimento sulla [Ricerca visiva di immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
 

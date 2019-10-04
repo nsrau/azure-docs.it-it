@@ -2,20 +2,20 @@
 title: Linee guida di progettazione per tabelle replicate - Azure SQL Data Warehouse | Microsoft Docs
 description: Consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/19/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885458"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479321"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
 Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
@@ -32,13 +32,13 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 - Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
 
 ## <a name="what-is-a-replicated-table"></a>Che cos'è una tabella replicata?
-Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare le tabelle più grandi.
+Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare tabelle di dimensioni maggiori.
 
 Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. In SQL Data Warehouse la tabella replicata viene interamente copiata in un database di distribuzione in ogni nodo di calcolo. 
 
 ![Tabella replicata](media/guidance-for-using-replicated-tables/replicated-table.png "Tabella replicata")  
 
-Le tabelle replicate anche per le tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni vengono in genere unite alle tabelle dei fatti che vengono distribuite in modo diverso rispetto alla tabella della dimensione.  Le dimensioni sono generalmente di dimensioni che consente di archiviare e gestire più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La natura a modifica lenta dei dati comporta meno operazioni di manutenzione della tabella replicata. 
+Le tabelle replicate funzionano correttamente per le tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni vengono in genere unite in join alle tabelle dei fatti distribuite in modo diverso rispetto alla tabella delle dimensioni.  Le dimensioni sono in genere di dimensioni che rendono possibile l'archiviazione e la gestione di più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La natura a modifica lenta dei dati conduce a una minore manutenzione della tabella replicata. 
 
 Provare a usare una tabella replicata nei casi seguenti:
 
@@ -48,7 +48,7 @@ Provare a usare una tabella replicata nei casi seguenti:
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
 - La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
-- Il data warehouse viene ridimensionato spesso. Ridimensionamento di un data warehouse modifica il numero di nodi di calcolo, che comporta la ricompilazione tabella replicata.
+- Il data warehouse viene ridimensionato spesso. Il ridimensionamento di un data warehouse modifica il numero di nodi di calcolo, che comporta la ricompilazione della tabella replicata.
 - La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati per le colonne richieste. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
@@ -59,7 +59,7 @@ Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di
 
 Le query che richiedono un uso intensivo della CPU hanno prestazioni migliori quando il lavoro viene distribuito tra tutti i nodi di calcolo. Ad esempio, le query che eseguono calcoli in ogni riga di una tabella hanno prestazioni migliori nelle tabelle distribuite che non nelle tabelle replicate. Poiché una tabella replicata viene completamente archiviata in ogni nodo di calcolo, una query che richiede un uso intensivo di CPU su una tabella replicata viene eseguita sull'intera tabella in ogni nodo di calcolo. Il calcolo aggiuntivo può rallentare le prestazioni delle query.
 
-Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando i dati in una tabella distribuita invece di una tabella replicata. In questo esempio, i dati possono essere distribuito round robin.
+Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando i dati si trova in una tabella distribuita anziché in una tabella replicata. In questo esempio, i dati possono essere distribuiti con Round Robin.
 
 ```sql
 
@@ -70,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertire le tabelle round robin esistenti in tabelle replicate
-Se si dispone già di tabelle round robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri descritti in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
+Se sono già presenti tabelle Round Robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri descritti in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
 
 Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
 

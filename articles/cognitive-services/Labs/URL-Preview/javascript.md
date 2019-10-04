@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec8a7ceef8cd938984b8eedc8397f6f67294c990
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873649"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706936"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Guida introduttiva: URL Preview in JavaScript 
 

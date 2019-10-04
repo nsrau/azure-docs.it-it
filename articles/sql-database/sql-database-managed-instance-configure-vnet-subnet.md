@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792436"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567639"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale esistente per Istanza gestita di database SQL di Azure
 
@@ -31,6 +30,8 @@ Se uno degli scenari seguenti si applica al proprio caso, è possibile convalida
 
 > [!Note]
 > È possibile creare un'istanza gestita solo nelle reti virtuali create tramite il modello di distribuzione di Azure Resource Manager. Le reti virtuali di Azure create tramite il modello di distribuzione classica non sono supportate. Calcolare le dimensioni della subnet seguendo le indicazioni dell'articolo [Determinare le dimensioni di una subnet per le istanze gestite](sql-database-managed-instance-determine-size-vnet-subnet.md). Non è possibile ridimensionare la subnet dopo che vi sono state distribuite le risorse.
+>
+> Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Convalidare e modificare una rete virtuale esistente
 

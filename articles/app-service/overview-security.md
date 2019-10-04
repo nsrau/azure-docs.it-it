@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523444"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074108"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -58,7 +57,7 @@ Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile,
 
 Per impostazione predefinita, l'app del servizio app accetta le richieste da tutti gli indirizzi IP da Internet, ma è possibile limitare tale accesso a un sottoinsieme ristretto di indirizzi IP. Il servizio app in Windows consente di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask. Per altre informazioni, vedere [Restrizioni IP statico del Servizio app di Azure](app-service-ip-restrictions.md).
 
-Per il servizio app in Windows è inoltre possibile limitare gli indirizzi IP dinamicamente tramite la configurazione del file _web.config_. Per altre informazioni, vedere [sicurezza degli IP dinamici \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Per il servizio app in Windows è inoltre possibile limitare gli indirizzi IP dinamicamente tramite la configurazione del file _web.config_. Per altre informazioni, vedere [dynamicIpSecurity di sicurezza \<IP dinamico >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticazione e autorizzazione dei client
 
@@ -71,7 +70,7 @@ La soluzione di autorizzazione e autenticazione del servizio app supporta più p
 Per eseguire l'autenticazione con un servizio back-end, il servizio app fornisce due meccanismi diversi a seconda delle esigenze:
 
 - **Identità del servizio**: si accede alla risorsa remota usando l'identità dell'app stessa. Servizio app consente di creare facilmente un'[identità gestita](overview-managed-identity.md), che può essere usata per eseguire l'autenticazione con altri servizi, come il [database SQL di Azure](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Per un'esercitazione completa di questo approccio, vedere [Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita](app-service-web-tutorial-connect-msi.md).
-- **OBO (On-behalf-of)**: è possibile impostare l'accesso delegato alle risorse remote per conto dell'utente. Con Azure Active Directory come provider di autenticazione, l'app del servizio app può eseguire l'accesso delegato a un servizio remoto, come l'[API Graph di Azure Active Directory](../active-directory/develop/active-directory-graph-api.md) o un'app per le API remota nel servizio app. Per un'esercitazione completa di questo approccio, vedere [Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure](app-service-web-tutorial-auth-aad.md).
+- **OBO (On-behalf-of)** : è possibile impostare l'accesso delegato alle risorse remote per conto dell'utente. Con Azure Active Directory come provider di autenticazione, l'app del servizio app può eseguire l'accesso delegato a un servizio remoto, come l'[API Graph di Azure Active Directory](../active-directory/develop/active-directory-graph-api.md) o un'app per le API remota nel servizio app. Per un'esercitazione completa di questo approccio, vedere [Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Connettività alle risorse remote
 
@@ -87,7 +86,7 @@ In ognuno di questi casi, il servizio app fornisce un modo per stabilire conness
 
 Quando l'app si connette a risorse di Azure, ad esempio [Database SQL](https://azure.microsoft.com/services/sql-database/) e [Archiviazione di Azure](/azure/storage/), la connessione rimane all'interno di Azure e non supera i confini di rete. Tuttavia, la connessione passa attraverso le reti condivise di Azure, pertanto occorre sempre assicurarsi che la connessione sia crittografata. 
 
-Se l'app è ospitata in un [ambiente del servizio app](environment/intro.md), è necessario [connettersi a servizi di Azure supportati usando gli endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
+Se l'app è ospitata in un [ambiente del servizio app](environment/intro.md), è necessario [connettersi a servizi di Azure supportati usando gli endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Risorse all'interno di una rete virtuale di Azure
 
@@ -105,7 +104,7 @@ Per isolare completamente la connettività delle risorse dalle reti condivise in
 
 ## <a name="application-secrets"></a>Segreti dell'applicazione
 
-Non archiviare i segreti dell'applicazione, come le credenziali del database, i token API e le chiavi private, nel codice o nei file di configurazione. L'approccio comunemente accettato consiste nell'accedere ai segreti come [variabili di ambiente](https://wikipedia.org/wiki/Environment_variable) usando il modello standard nel linguaggio preferito. Nel servizio app, il modo per definire le variabili di ambiente è attraverso [le impostazioni dell'app](web-sites-configure.md#app-settings) (e, in particolare per le applicazioni .NET, le [stringhe di connessione](web-sites-configure.md#connection-strings)). Le impostazioni dell'app e le stringhe di connessione vengono archiviate in Azure in formato crittografato e vengono decrittografate solo prima di essere inserite nella memoria processi dell'app all'avvio di quest'ultima. Le chiavi di crittografia vengono sottoposte a rotazione regolarmente.
+Non archiviare i segreti dell'applicazione, come le credenziali del database, i token API e le chiavi private, nel codice o nei file di configurazione. L'approccio comunemente accettato consiste nell'accedere ai segreti come [variabili di ambiente](https://wikipedia.org/wiki/Environment_variable) usando il modello standard nel linguaggio preferito. Nel servizio app, il modo per definire le variabili di ambiente è attraverso [le impostazioni dell'app](configure-common.md#configure-app-settings) (e, in particolare per le applicazioni .NET, le [stringhe di connessione](configure-common.md#configure-connection-strings)). Le impostazioni dell'app e le stringhe di connessione vengono archiviate in Azure in formato crittografato e vengono decrittografate solo prima di essere inserite nella memoria processi dell'app all'avvio di quest'ultima. Le chiavi di crittografia vengono sottoposte a rotazione regolarmente.
 
 In alternativa, è possibile integrare l'app del servizio app con [Azure Key Vault](/azure/key-vault/) per la gestione avanzata dei segreti. [Accedendo all'insieme di credenziali delle chiavi con un'identità gestita](../key-vault/tutorial-web-application-keyvault.md), l'app del Servizio app può accedere in modo sicuro ai segreti necessari.
 
@@ -113,7 +112,6 @@ In alternativa, è possibile integrare l'app del servizio app con [Azure Key Vau
 
 Fatta eccezione per il piano tariffario **Isolato**, tutti i piani eseguono le app nell'infrastruttura di rete condivisa del servizio app. Ad esempio, gli indirizzi IP pubblici e i servizi di bilanciamento del carico di front-end vengono condivisi con altri tenant. Il piano **Isolato** offre un isolamento di rete completo mediante l'esecuzione delle app all'interno di un [ambiente del servizio app](environment/intro.md) dedicato. Un ambiente del servizio app viene eseguito nell'istanza di [rete virtuale di Azure](/azure/virtual-network/) dell'utente. Consente di: 
 
-- Limitare l'accesso alla rete con [gruppi di sicurezza di rete](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servire le app tramite un endpoint pubblico dedicato, con front-end dedicati.
 - Servire le applicazioni interne mediante un servizio di bilanciamento del carico interno, che consente l'accesso solo dall'interno della rete virtuale di Azure. Questo servizio ha un indirizzo IP della subnet privata, che offre un isolamento totale delle app da Internet.
 - [Usare un servizio di bilanciamento del carico interno dietro un WAF (Web Application Firewall)](environment/integrate-with-application-gateway.md). Il WAF offre una protezione a livello aziendale per le applicazioni pubbliche, fornendo funzionalità come la protezione DDoS, il filtro degli URI e la prevenzione di attacchi SQL injection.

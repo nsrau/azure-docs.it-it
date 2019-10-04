@@ -2,18 +2,18 @@
 title: Interagire con i report usando l'API JavaScript | Microsoft Docs
 description: L'API JavaScript per Power BI consente di incorporare facilmente i report di Power BI nelle applicazioni.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 47bfdc3afed5fd17d7df98c6664e58374410a7f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8203070fa8a48420dd192208701c539dc3ca7f25
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516840"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669071"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagire con i report di Power BI usando l'API JavaScript
 

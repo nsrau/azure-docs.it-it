@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370554"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125185"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare i rilevamenti di eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
 
 In questa esercitazione si abiliteranno funzionalità di Azure Active Directory (Azure AD) Identity Protection, una funzionalità di Azure AD Premium P2 che è molto di più di uno strumento monitoraggio e creazione di report. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente a comportamenti rischiosi. Questi criteri possono attivare un blocco immediato oppure avviare una misura di correzione, tra cui la richiesta di modiche delle password e l'applicazione di Multi-Factor Authentication.
 
 I criteri di Azure AD Identity Protection possono essere usati in aggiunta ai criteri di accesso condizionale esistenti, come ulteriore livello di protezione. Gli utenti potrebbero anche non attivare mai un comportamento rischioso che richiede l'applicazione di uno di questi criteri, ma in questo modo un amministratore può essere sicuro che siano protetti.
 
-Alcune condizioni che possono attivare un evento di rischio includono:
+Alcune condizioni che possono attivare un rilevamento di eventi di rischio includono:
 
 * Utenti con credenziali perse
 * Accessi da indirizzi IP anonimi

@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546233"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071113"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 
@@ -45,7 +44,7 @@ In Cloud Shell creare una directory quickstart e passare ad essa.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart. Quindi, passare alla directory `multicontainerwordpress`.
@@ -102,7 +101,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 ## <a name="create-a-docker-compose-app"></a>Creare un'app Docker Compose
 
-Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app (i caratteri validi sono `a-z`, `0-9` e `-`).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

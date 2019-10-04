@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012687"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570214"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
 
@@ -25,9 +24,9 @@ In questa esercitazione, si distribuisce ed esplora l'applicazione di esempio Sa
 
 L'applicazione autonoma o un modello di applicazione per tenant consente di distribuire un'istanza di applicazione per ogni tenant.  Ogni applicazione è configurata per un tenant specifico e distribuita in un gruppo di risorse di Azure separato. È possibile effettuare il provisioning di più istanze dell'applicazione per offrire una soluzione multi-tenant. Questo modello è più adatto per piccoli numeri di tenant, in cui l'isolamento è una priorità. Azure offre programmi partner che consentono di distribuire risorse nella sottoscrizione del tenant e di gestirle tramite un provider di servizi per conto del tenant. 
 
-In questa esercitazione, si distribuiscono tre applicazioni autonome per tre tenant nella propria sottoscrizione Azure.  Si ottiene l'accesso completo per l'esplorazione e l'uso dei singoli componenti dell'applicazione.
+In questa esercitazione verranno distribuite tre applicazioni autonome per tre tenant nella sottoscrizione di Azure.  Si ottiene l'accesso completo per l'esplorazione e l'uso dei singoli componenti dell'applicazione.
 
-Il codice sorgente e gli script di gestione dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) di GitHub. L'applicazione è stata creata con Visual Studio 2015 e non è possibile aprirla e compilarla in Visual Studio 2017 senza eseguire l'aggiornamento.
+Il codice sorgente e gli script di gestione dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) di GitHub. L'applicazione è stata creata con Visual Studio 2015 e non viene aperta e compilata correttamente in Visual Studio 2019 senza aggiornamenti.
 
 
 In questa esercitazione si apprenderà:
@@ -37,7 +36,7 @@ In questa esercitazione si apprenderà:
 > * Dove ottenere gli script di gestione e il codice sorgente dell'applicazione
 > * Informazioni su server e database che costituiscono l'app
 
-Verranno rese disponibili esercitazioni aggiuntive che consentiranno di esplorare diversi scenari di gestione basati su questo modello di applicazione.   
+Verranno rese disponibili esercitazioni aggiuntive Consentono di esplorare una gamma di scenari di gestione basati su questo modello di applicazione.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Distribuire l'applicazione SaaS autonoma Wingtip Tickets
 
@@ -55,8 +54,8 @@ Distribuire l'app per i tre tenant specificati:
     > [!IMPORTANT]
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. **Creare un nuovo gruppo di risorse** per ogni distribuzione di applicazione.  Non usare un gruppo di risorse esistente. Non utilizzare l'applicazione o le risorse che crea per la produzione. Eliminare tutti i gruppi di risorse quando non è più necessario usare le applicazioni, per interrompere la fatturazione correlata.
 
-    Nei nomi delle risorse è preferibile usare solo lettere minuscole, numeri e trattini.
-    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  Per \<venueName\>, sostituire il nome eventi omettendo gli spazi. Per \<user\>, sostituire il valore utente come indicato più avanti.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    È consigliabile usare solo lettere minuscole, numeri e trattini nei nomi delle risorse.
+    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **Wingtip-sa -\<venueName\>-\<user\>**  è il modello consigliato.  \<Per\>LocationName, sostituire il nome del luogo senza spazi. Per \<User\>, sostituire il valore dell'utente riportato di seguito.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selezionare un **percorso** nell'elenco a discesa.
 
     * Per **User** è consigliabile un valore breve, ad esempio le iniziali seguite da una cifra, ad esempio *af1*.
@@ -76,16 +75,16 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
 1. Aprire la pagina degli eventi per ognuno dei tre tenant in schede separate del browser:
 
-   - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;utente&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;utente&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;utente&gt;.trafficmanager.net
 
      In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
    ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Microsoft Azure*](../traffic-manager/traffic-manager-overview.md). Ogni istanza dell'app specifica del tenant include il nome del tenant come parte del nome di dominio nell'URL. Gli URL di tutti i tenant includono valori di **User** specifici. Gli URL hanno il formato seguente:
-- http://events.&lt;nomeluogo&gt;.&lt;utente&gt;.trafficmanager.net
+- http://events.&lt ;nomeluogo&gt;.&lt; utente&gt;.trafficmanager.net
 
 La **posizione** del database di ogni tenant è inclusa nelle impostazioni dell'app distribuita corrispondente.
 
@@ -98,7 +97,7 @@ In un ambiente di produzione si crea in genere un record CNAME DNS per [*configu
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse.
 2. Dovrebbero essere visualizzati i tre gruppi di risorse del tenant.
-3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;**, che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub**.
+3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;** , che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub**.
 
 Ogni database del tenant è un database *autonomo* con 50 DTU.
 
@@ -107,7 +106,7 @@ Ogni database del tenant è un database *autonomo* con 50 DTU.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Per informazioni sulle applicazioni SaaS multi-tenant, vedere [Modelli di progettazione per le applicazioni SaaS multi-tenant](saas-tenancy-app-design-patterns.md).
@@ -126,6 +125,6 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-Successivamente, eseguire l'esercitazione su [provisioning e catalogazione](saas-standaloneapp-provision-and-catalog.md) in cui viene illustrato l'utilizzo di un catalogo di tenant che consente una serie scenari tra tenant, ad esempio l'analisi dei tenant e la gestione degli schemi.
+Successivamente, provare l'esercitazione sul provisioning [e il catalogo](saas-standaloneapp-provision-and-catalog.md) in cui verrà illustrato l'uso di un catalogo di tenant che Abilita una gamma di scenari tra tenant come la gestione dello schema e l'analisi dei tenant.
  
 

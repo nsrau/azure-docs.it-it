@@ -1,87 +1,220 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Azure HDInsight
+summary: Azure HDInsight è un servizio Apache Hadoop gestito che consente di eseguire Apache Spark, Apache Hive, Apache Kafka, Apache HBase e altro ancora nel cloud.
 metadata:
-  title: Documentazione di Azure HDInsight - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: 'Informazioni su Apache Hadoop in HDInsight. La documentazione illustra come usare Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase e altri strumenti per elaborare e analizzare i Big Data e individuare nuove prospettive.'
+  title: HDInsight di Azure
+  description: Azure HDInsight è un servizio Apache Hadoop gestito che consente di eseguire Apache Spark, Apache Hive, Apache Kafka, Apache HBase e altro ancora.
   services: hdinsight
-  author: hrasheed-msft
-  ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 03/26/2019
-abstract:
-  description: 'Informazioni su come usare Azure HDInsight per analizzare dati di streaming o cronologici. Le esercitazioni e gli altri documenti illustrano come creare cluster, elaborare e analizzare i Big Data e sviluppare soluzioni con i framework open source più diffusi come Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm e Microsoft Machine Learning Server.<p>Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. HDInsight è un servizio cloud che rende semplice, rapida ed economicamente conveniente l''elaborazione di grandi quantità di dati. HDInsight supporta anche un''ampia gamma di scenari, ad esempio l''estrazione, la trasformazione e il caricamento (ETL), data warehousing, Machine learning e IoT.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Apache Kafka in HDInsight (17:19)'
-    href: 'https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/'
-    width: 250
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Informazioni su come creare un cluster HDInsight ed eseguire processi:'
-      - type: list
-        style: icon64
-        items:
-          - image:
-              src: media/index/hadoop_r.svg
-            text: Apache Hadoop
-            href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
-          - image:
-              src: media/index/spark_r.svg
-            text: Apache Spark
-            href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
-          - image:
-              src: media/index/kafka_r.svg
-            text: Apache Kafka
-            href: /azure/hdinsight/kafka/apache-kafka-get-started
-          - image:
-              src: media/index/hbase_r.svg
-            text: Apache HBase
-            href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
-          - image:
-              src: media/index/hive_r.svg
-            text: Interactive Query
-            href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
-          - image:
-              src: media/index/storm_r.svg
-            text: Apache Storm
-            href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
-          - image:
-              src: media/index/ml-server_r.svg
-            text: ML Services
-            href: /azure/hdinsight/r-server/r-server-get-started
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come usare Azure HDInsight in diversi scenari:'
-      - type: list
-        style: unordered
-        items:
-          - html: 'Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Eseguire operazioni ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Creare cluster su richiesta</a>'
-          - html: 'Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Eseguire query interattive</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizzare i dati</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>'
-          - html: 'Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming strutturato con Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usare con Storm in HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usare API Kafka per producer e consumer</a>'
-          - html: 'Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Creare cluster HBase in una rete virtuale</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usare Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connettersi a Spark</a>'
-          - html: 'Query interattiva &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Connettersi con Power BI tramite Direct Query</a>'
-          - html: 'Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Creare una topologia Storm in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Distribuire topologie Storm in HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Scrivere da Storm a Data Lake Store</a>'
-          - html: 'ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Usare R Tools per Visual Studio</a>'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Strumenti
-            html: '<p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Strumento IntelliJ per HDInsight</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Strumento Eclipse per HDInsight</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Strumento VSCode per HDInsight</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Strumento Visual Studio per HDInsight</a></p>'
-          - title: Riga di comando
-            html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
-          - title: Languages
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/hdinsight/">API REST</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">API REST (Spark)</a></p>'
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 08/30/2019
+  ms.openlocfilehash: 2e6a0bcc654bbf94bec5c562815aa7591cfabd60
+  ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71272224"
+landingContent:
+- title: Informazioni su HDInsight
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure HDInsight?
+      url: ./hdinsight-overview.md
+  - linkListType: concept
+    links:
+    - text: Componenti e versioni di HDInsight
+      url: ./hdinsight-component-versioning.md
+    - text: Tipi di VM supportati da HDInsight
+      url: ./hdinsight-supported-node-configuration.md
+    - text: Confrontare le opzioni di archiviazione
+      url: ./hdinsight-hadoop-compare-storage-options.md
+  - linkListType: tutorial
+    links:
+    - text: Configurare i cluster di HDInsight
+      url: ./hdinsight-hadoop-provision-linux-clusters.md
+    - text: Creare cluster con Data Lake Store Gen2
+      url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+  - linkListType: whats-new
+    links:
+    - text: Ridimensionare automaticamente i cluster di Hadoop
+      url: ./hdinsight-autoscale-clusters.md
+    - text: Monitoraggio con HDInsight
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: Eseguire la migrazione di tabelle Apache Hive a HDInsight 4.0
+      url: ./interactive-query/apache-hive-migrate-workloads.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Apache Spark?
+      url: ./spark/apache-spark-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Creare cluster di Apache Spark nel portale di Azure
+      url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+  - linkListType: concept
+    links:
+    - text: Ottimizzare i processi Spark
+      url: ./spark/apache-spark-perf.md
+  - linkListType: tutorial
+    links:
+    - text: Creare un'applicazione Scala Maven per Spark
+      url: ./spark/apache-spark-create-standalone-application.md
+    - text: Caricare i dati ed eseguire query in Apache Spark
+      url: ./spark/apache-spark-load-data-run-query.md
+    - text: Eseguire su Apache HBase con Apache Spark
+      url: ./hdinsight-using-spark-query-hbase.md
+    - text: Analizzare dati Spark con Power BI
+      url: ./spark/apache-spark-use-bi-tools.md
+- title: Apache Hadoop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Apache Hadoop?
+      url: ./hadoop/apache-hadoop-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Creare cluster di Apache Hadoop nel portale di Azure
+      url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+  - linkListType: concept
+    links:
+    - text: Estrazione, trasformazione e caricamento di dati Hadoop su larga scala
+      url: ./hadoop/apache-hadoop-etl-at-scale.md
+    - text: Eseguire la migrazione di Hadoop al cloud
+      url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+    - text: Pianificazione della capacità dei cluster di Hadoop
+      url: ./hdinsight-capacity-planning.md
+  - linkListType: tutorial
+    links:
+    - text: Connettere Excel ad Apache Hadoop
+      url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+    - text: Monitorare Hadoop con i log di Monitoraggio di Azure
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: Monitorare e gestire i cluster di Hadoop con l'interfaccia utente di Ambari
+      url: ./hdinsight-hadoop-manage-ambari.md
+- title: Apache Kafka
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Apache Kafka?
+      url: ./kafka/apache-kafka-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: Creare cluster di Apache Kafka nel portale di Azure
+      url: ./kafka/apache-kafka-get-started.md
+  - linkListType: concept
+    links:
+    - text: Ottimizzare le prestazioni di Kafka
+      url: ./kafka/apache-kafka-performance-tuning.md
+    - text: Scalabilità di Kafka
+      url: ./kafka/apache-kafka-scalability.md
+    - text: Disponibilità elevata di Kafka
+      url: ./kafka/apache-kafka-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Usare le API Kafka per producer e consumer
+      url: ./kafka/apache-kafka-producer-consumer-api.md
+    - text: Streaming strutturato di Apache Spark con Apache Kafka
+      url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - text: Mirroring di Kafka per il ripristino di emergenza
+      url: ./kafka/apache-kafka-mirroring.md
+    - text: Configurazione di SSL di Kafka per l'autenticazione
+      url: ./kafka/apache-kafka-ssl-encryption-authentication.md
+- title: Apache HBase
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Apache HBase?
+      url: ./hbase/apache-hbase-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Eseguire query su HBase con Apache Phoenix
+      url: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+  - linkListType: concept
+    links:
+    - text: Scritture accelerate per Apache HBase
+      url: ./hbase/apache-hbase-accelerated-writes.md
+    - text: Procedure consigliate per Apache Phoenix
+      url: ./hbase/apache-hbase-phoenix-performance.md
+  - linkListType: tutorial
+    links:
+    - text: Usare Apache HBase in Azure HDInsight
+      url: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - text: Eseguire la migrazione di HBase a una nuova versione
+      url: ./hbase/apache-hbase-migrate-new-version.md
+- title: Query interattiva
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Interactive Query?
+      url: ./interactive-query/apache-interactive-query-get-started.md
+  - linkListType: quickstart
+    links:
+    - text: Eseguire query su Apache Hive con Apache Zeppelin
+      url: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+  - linkListType: concept
+    links:
+    - text: Ottimizzare le query Hive
+      url: ./hdinsight-hadoop-optimize-hive-query.md
+    - text: Uso di Hive come strumento di estrazione, trasformazione e caricamento
+      url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+  - linkListType: tutorial
+    links:
+    - text: Analizzare i dati sui voli con Apache Hive
+      url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - text: Connettere Spark e Hive con Hive Warehouse Connector
+      url: ./interactive-query/apache-hive-warehouse-connector.md
+    - text: Connettere Hive con Power BI tramite DirectQuery
+      url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+- title: Soluzione pronta per l'azienda
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica della sicurezza di HDInsight
+      url: ./domain-joined/hdinsight-security-overview.md
+  - linkListType: concept
+    links:
+    - text: Pianificare la rete virtuale
+      url: ./hdinsight-plan-virtual-network-deployment.md
+    - text: 'Hadoop in Active Directory: Enterprise Security Package'
+      url: ./domain-joined/apache-domain-joined-architecture.md
+    - text: Ridimensionare automaticamente i cluster di Hadoop
+      url: ./hdinsight-autoscale-clusters.md
+    - text: Eseguire la migrazione di cluster locali al cloud
+      url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+  - linkListType: tutorial
+    links:
+    - text: Configurazione della sicurezza aziendale con Azure ADDS
+      url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
+- title: ML Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è ML Services in HDInsight?
+      url: ./r-server/r-server-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Eseguire uno script R in un cluster di ML Services
+      url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
+  - linkListType: tutorial
+    links:
+    - text: Usare R nel contesto di calcolo di Spark
+      url: ./r-server/ml-services-tutorial-spark-compute.md
+- title: Apache Storm
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Apache Storm?
+      url: ./storm/apache-storm-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Creare una topologia Apache Storm
+      url: ./storm/apache-storm-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Scrivere in HDFS usando Apache Storm
+      url: ./storm/apache-storm-write-data-lake-store.md

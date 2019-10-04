@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65800109"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizzare un modello delle persone con il sito Web di Video Indexer
 

@@ -8,20 +8,21 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682560"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891552"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -54,8 +55,10 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 > 1. Selezionare **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `ASPNET-Quickstart`.
->      - Aggiungere `https://localhost:44368/` in **URI di reindirizzamento** e fare clic su **Registra**.
-Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione implicita** e quindi selezionare **Salva**.
+>      - Aggiungere `http://localhost:44368/` in **URI di reindirizzamento** e fare clic su **Registra**.
+>      - Nel riquadro di spostamento a sinistra selezionare **Autenticazione** nella sezione Gestione.
+>          - Nella sottosezione **Concessione implicita** selezionare **Token ID**.
+>          - Selezionare quindi **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
@@ -68,34 +71,39 @@ Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione 
 
 #### <a name="step-2-download-your-project"></a>Passaggio 2: Scaricare il progetto
 
-[Scaricare la soluzione di Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip).
+[Scaricare la soluzione di Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
 1. Estrarre il file con estensione zip in una cartella locale vicina alla cartella radice, ad esempio **C:\Azure-Samples**
 1. Aprire la soluzione in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. A seconda della versione di Visual Studio, potrebbe essere necessario fare clic con il pulsante destro del mouse sul progetto `AppModelv2-WebApp-OpenIDConnect-DotNet` e su **Ripristina pacchetti NuGet**
+1. Aprire la console di Gestione pacchetti (Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti) ed eseguire il comando `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Modificare **Web.config** e sostituire i parametri `ClientId` e `Tenant` con le righe seguenti:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
 > Dove:
 > - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
 > - `Enter_the_Tenant_Info_Here` è una delle opzioni riportate di seguito.
->   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.onmicrosoft.com)
 >   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
 >   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`
 >
 > > [!TIP]
-> > Per trovare i valori di *ID applicazione*, *ID della directory (tenant)* e *Tipi di account supportati*, passare alla pagina **Panoramica**.
+> > - Per trovare i valori di *ID applicazione*, *ID della directory (tenant)* e *Tipi di account supportati*, passare alla pagina **Panoramica**.
+> > - Verificare che il valore di `redirectUri` in **Web.config** corrisponda all'**URI di reindirizzamento** definito per la registrazione dell'app in Azure AD. In caso contrario, passare al menu **Autenticazione** per la registrazione dell'app e aggiornare l'**URI di reindirizzamento** in modo che corrisponda.
 
 ## <a name="more-information"></a>Altre informazioni
 
-Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. La panoramica aiuta a capire il funzionamento del codice, gli argomenti principali e anche se si desidera aggiungere l'accesso a un'applicazione ASP.NET esistente.
+Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. Questa panoramica è utile per comprendere il funzionamento del codice, conoscere gli argomenti principali e anche se si intende aggiungere l'accesso a un'applicazione ASP.NET esistente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacchetti NuGet middleware OWIN
 
@@ -109,7 +117,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe di avvio OWIN
 
-Il middleware OWIN usa una *classe di avvio* che viene eseguita in seguito all'inizializzazione del processo di hosting (nel caso di questa guida introduttiva il file *startup.cs* che si trova nella cartella radice). Il codice seguente mostra il parametro usato da questa guida introduttiva:
+Il middleware OWIN usa una *classe di avvio* che viene eseguita quando si inizializza il processo di hosting. In questa guida di avvio rapido il file *startup.cs* si trova nella cartella radice. Il codice seguente mostra il parametro usato da questa guida introduttiva:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -195,3 +203,8 @@ Provare l'esercitazione per ASP.NET per una guida dettagliata completa sulla cre
 > [Esercitazione sull'accesso](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
+
+> [!div class="nextstepaction"]
+> [Sondaggio su Microsoft Identity Platform](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

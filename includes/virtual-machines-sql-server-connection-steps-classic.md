@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227130"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180091"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determinare il nome DNS della macchina virtuale
 Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale. (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).  
 
-1. Nel portale di Azure (o dal passaggio precedente) selezionare **Macchine virtuali (versione classica)**.
+1. Nel portale di Azure (o dal passaggio precedente) selezionare **Macchine virtuali (versione classica)** .
 2. Selezionare la macchina virtuale di SQL.
 3. Nel pannello **Macchina virtuale** copiare il **nome DNS** per la macchina virtuale.
    

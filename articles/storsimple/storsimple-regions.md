@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996051"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965130"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Aree disponibili per StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -32,7 +34,7 @@ La scelta di un'area di Azure è molto importante ed è influenzata da fattori q
 Per la soluzione StorSimple, la scelta dell'area è determinata dai seguenti fattori:
 
 - Aree in cui è disponibile il servizio Gestione dispositivi StorSimple.
-- I paesi in cui è disponibile il dispositivo StorSimple fisico, cloud o virtuale è disponibile.
+- I paesi/aree geografiche in cui è disponibile il dispositivo StorSimple fisico, cloud o virtuale.
 - Le aree in cui gli account di archiviazione che contengono i dati StorSimple dovrebbero essere disponibili per l'ottimizzazione delle prestazioni.
 
 Questa esercitazione illustra le aree di disponibilità per il servizio Gestione dispositivi StorSimple, i dispositivi fisici in locale e i dispositivi cloud. Le informazioni contenute in questo articolo si applicano ai dispositivi StorSimple serie 8000 e 1200.
@@ -61,36 +63,36 @@ Se si usa un'appliance cloud StorSimple, è in genere consigliabile posizionare 
 
 ## <a name="availability-of-storsimple-device"></a>Disponibilità del dispositivo StorSimple
 
-A seconda del modello, i dispositivi StorSimple possono essere disponibili in aree geografiche o paesi diversi.
+A seconda del modello, i dispositivi StorSimple possono essere disponibili in diverse aree geografiche o paesi.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Dispositivo fisico StorSimple (modelli 8100/8600)
 
-Se si utilizza un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è disponibile nei seguenti paesi.
+Se si usa un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è disponibile nei paesi/aree geografiche seguenti.
 
-| #  | Paese        | #  | Paese     | #  | Paese      | #  | Paese              |
-|----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | RAS di Hong Kong| 31 | Nuova Zelanda  | 46 | Sud Africa         |
-| 2  | Austria        | 17 | Ungheria     | 32 | Nigeria      | 47 | Corea del Sud          |
-| 3  | Bahrain        | 18 | Islanda     | 33 | Norvegia       | 48 | Spagna                |
-| 4  | Belgio        | 19 | India       | 34 | Perù         | 49 | Sri Lanka            |
-| 5  | Brasile         | 20 | Indonesia   | 35 | Filippine  | 50 | Svezia               |
-| 6  | Canada         | 21 | Irlanda     | 36 | Polonia       | 51 | Svizzera          |
-| 7  | Cile          | 22 | Israele      | 37 | Portogallo     | 52 | Taiwan               |
-| 8  | Colombia       | 23 | Italia       | 38 | Portorico  | 53 | Thailandia             |
-| 9  | Repubblica ceca | 24 | Giappone       | 39 | Qatar        | 54 | Turchia               |
-| 10 | Danimarca        | 25 | Kenya       | 40 | Romania      | 55 | Ucraina              |
-| 11 | Egitto          | 26 | Kuwait      | 41 | Russia       | 56 | Emirati Arabi Uniti |
-| 12 | Finlandia        | 27 | RAS di Macao   | 42 | Arabia Saudita | 57 | Regno Unito       |
-| 13 | Francia         | 28 | Malaysia    | 43 | Singapore    | 58 | Stati Uniti        |
-| 14 | Germania        | 29 | Messico      | 44 | Slovacchia     | 59 | Vietnam              |
-| 15 | Grecia         | 30 | Paesi Bassi | 45 | Slovenia     | 60 | Croazia              |
+| #  | Paese/Area geografica        | #  | Paese/Area geografica     | #  | Paese/Area geografica      | #  | Paese/Area geografica             |
+|----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
+| 1  | Australia             | 16 | RAS di Hong Kong      | 31 | Nuova Zelanda         | 46 | Sudafrica               |
+| 2  | Austria               | 17 | Ungheria            | 32 | Nigeria             | 47 | Corea del Sud                |
+| 3  | Bahrain               | 18 | Islanda            | 33 | Norvegia              | 48 | Spagna                      |
+| 4  | Belgio               | 19 | India              | 34 | Perù                | 49 | Sri Lanka                  |
+| 5  | Brasile                | 20 | Indonesia          | 35 | Filippine         | 50 | Svezia                     |
+| 6  | Canada                | 21 | Irlanda            | 36 | Polonia              | 51 | Svizzera                |
+| 7  | Cile                 | 22 | Israele             | 37 | Portogallo            | 52 | Taiwan                     |
+| 8  | Colombia              | 23 | Italia              | 38 | Portorico         | 53 | Thailandia                   |
+| 9  | Ceca, Repubblica        | 24 | Giappone              | 39 | Qatar               | 54 | Turchia                     |
+| 10 | Danimarca               | 25 | Kenya              | 40 | Romania             | 55 | Ucraina                    |
+| 11 | Egitto                 | 26 | Kuwait             | 41 | Russia              | 56 | Emirati Arabi Uniti       |
+| 12 | Finlandia               | 27 | RAS di Macao          | 42 | Arabia Saudita        | 57 | Regno Unito             |
+| 13 | Francia                | 28 | Malaysia           | 43 | Singapore           | 58 | Stati Uniti              |
+| 14 | Germania               | 29 | Messico             | 44 | Slovacchia            | 59 | Vietnam                    |
+| 15 | Grecia                | 30 | Paesi Bassi        | 45 | Slovenia            | 60 | Croazia                    |
 
-Questo elenco viene modificato quando si aggiungono nuovi paesi. Per un elenco più aggiornato dei luoghi geografici, vedere l'appendice dei termini della matrice di archiviazione nelle [condizioni del prodotto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Questo elenco cambia quando vengono aggiunti altri paesi/aree geografiche. Per un elenco più aggiornato dei luoghi geografici, vedere l'appendice dei termini della matrice di archiviazione nelle [condizioni del prodotto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft può fornire l'hardware fisico e la sostituzione dei pezzi di ricambio dell'hardware per StorSimple per le aree geografiche nell'elenco precedente.
 
 > [!IMPORTANT]
-> Non posizionare un dispositivo fisico StorSimple in un'area in cui StorSimple non è supportato. Microsoft non potrà fornire eventuali parti di ricambio in paesi in cui StorSimple non è supportato.
+> Non posizionare un dispositivo fisico StorSimple in un'area in cui StorSimple non è supportato. Microsoft non sarà in grado di distribuire parti sostitutive a paesi/aree geografiche in cui StorSimple non è supportato.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>Appliance cloud StorSimple (modelli 8010/8020)
 

@@ -1,22 +1,22 @@
 ---
-title: Configurare i contenitori
-titlesuffix: Face - Azure Cognitive Services
+title: Configurare i contenitori-API viso
+titleSuffix: Azure Cognitive Services
 description: Impostazioni di configurazione per i contenitori.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 09/18/2019
+ms.author: dapine
+ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677783"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101944"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -31,11 +31,11 @@ L'ambiente di runtime del contenitore **Viso** si configura mediante gli argomen
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per la chiave API e il valore deve essere una chiave valida per il _servizi cognitivi_ risorsa specificata per il [ `Billing` ](#billing-configuration-setting) impostazione di configurazione.
+L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per APIKEY e il valore deve essere una chiave valida per la risorsa _Servizi cognitivi_ specificata per l' [`Billing`](#billing-configuration-setting) impostazione di configurazione.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** gestione delle risorse, in **chiavi**
+* Portale di Azure: **Servizi cognitivi** Gestione delle risorse, in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -43,17 +43,17 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-Il `Billing` impostazione specifica l'URI dell'endpoint del _servizi cognitivi_ risorsa di Azure usato per controllare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per un _servizi cognitivi_ risorse in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
+L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _Servizi cognitivi_ in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa di _Servizi cognitivi_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** panoramica, con l'etichetta `Endpoint`
+* Portale di Azure: **Servizi cognitivi** Panoramica, con etichetta`Endpoint`
 
-Ricordarsi di aggiungere il _viso_ il routing per l'URI dell'endpoint, come illustrato nell'esempio. 
+Ricordarsi di aggiungere il routing del _volto_ all'URI dell'endpoint, come illustrato nell'esempio. 
 
-|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -61,9 +61,9 @@ Ricordarsi di aggiungere il _viso_ il routing per l'URI dell'endpoint, come illu
 
 Le impostazioni di configurazione nella sezione `CloudAI` forniscono le opzioni specifiche per il contenitore proprie del rispettivo contenitore. Gli oggetti e le impostazioni seguenti sono supportati per il contenitore Viso nella sezione `CloudAI`
 
-| NOME | Tipo di dati | DESCRIZIONE |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
-| `Storage` | Oggetto | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
+| `Storage` | Object | Lo scenario di archiviazione usato dal contenitore Viso. Per altre informazioni sugli scenari di archiviazione e sulle impostazioni associate per l'oggetto `Storage`, vedere [Impostazioni di uno scenario di archiviazione](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Impostazioni di uno scenario di archiviazione
 
@@ -80,11 +80,11 @@ Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda 
 
 Gli scenari di archiviazione e le impostazioni di configurazione associate sono gestite dall'oggetto `Storage`, sotto la sezione di configurazione `CloudAI`. Le impostazioni di configurazione seguenti sono disponibili nell'oggetto `Storage`:
 
-| NOME | Tipo di dati | DESCRIZIONE |
+| Name | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
-| `StorageScenario` | string | Lo scenario di archiviazione supportato dal contenitore. Sono disponibili i valori seguenti<br/>`Memory` - Valore predefinito. Il contenitore usa l'archiviazione non permanente, non distribuita e in memoria, per l'utilizzo temporaneo in un singolo nodo. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene eliminata definitivamente.<br/>`Azure` - Il contenitore utilizza le risorse di Azure per l'archiviazione. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene salvata in modo permanente.|
-| `ConnectionStringOfAzureStorage` | string | La stringa di connessione per la risorsa di archiviazione di Azure usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
-| `ConnectionStringOfCosmosMongo` | string | La stringa di connessione MongoDB per la risorsa di Azure Cosmos DB usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
+| `StorageScenario` | String | Lo scenario di archiviazione supportato dal contenitore. Sono disponibili i valori seguenti<br/>`Memory` - Valore predefinito. Il contenitore usa l'archiviazione non permanente, non distribuita e in memoria, per l'utilizzo temporaneo in un singolo nodo. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene eliminata definitivamente.<br/>`Azure` - Il contenitore utilizza le risorse di Azure per l'archiviazione. Se il contenitore viene arrestato o rimosso, l'archiviazione per tale contenitore viene salvata in modo permanente.|
+| `ConnectionStringOfAzureStorage` | String | La stringa di connessione per la risorsa di archiviazione di Azure usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | String | La stringa di connessione MongoDB per la risorsa di Azure Cosmos DB usata dal contenitore.<br/>Questa impostazione si applica solo se `Azure` viene specificato per l'impostazione di configurazione `StorageScenario`. |
 
 Il comando seguente, ad esempio, specifica lo scenario di archiviazione di Azure e fornisce le stringhe di connessione di esempio per le risorse di archiviazione di Azure e Cosmos DB usate per archiviare i dati per il contenitore Viso.
 
@@ -122,10 +122,10 @@ I contenitori Viso non usano montaggi di input o output per archiviare i dati di
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](face-how-to-install-containers.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| NOME | Tipo di dati | DESCRIZIONE |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | string | I contenitori Viso non la usano.|
-|Facoltativo| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non consentito| `Input` | String | I contenitori Viso non la usano.|
+|Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
 
@@ -136,14 +136,16 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Segnaposto | Value | Formato o esempio |
 |-------------|-------|---|
-|{BILLING_KEY} | La chiave di endpoint della risorsa di servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Il valore dell'endpoint fatturazione inclusi area e il routing di visi.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | Chiave dell'endpoint della `Face` risorsa nella pagina chiavi di Azure. `Face` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Face` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](face-how-to-install-containers.md#gathering-required-parameters) per esempi espliciti. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](face-how-to-install-containers.md#billing).
-> Il valore ApiKey è il **Key** da Azure `Cognitive Services` pagina chiavi di risorsa. 
+> Il valore APIKEY è la **chiave** della pagina chiavi `Cognitive Services` di risorsa di Azure. 
 
 ## <a name="face-container-docker-examples"></a>Esempi di contenitore Docker Viso
 
@@ -155,8 +157,8 @@ Gli esempi Docker seguenti sono per il contenitore Viso.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Esempio di registrazione 
@@ -164,7 +166,7 @@ Gli esempi Docker seguenti sono per il contenitore Viso.
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

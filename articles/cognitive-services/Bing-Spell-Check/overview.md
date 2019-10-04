@@ -1,21 +1,21 @@
 ---
 title: Informazioni sull'API Controllo ortografico Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni sull'API Controllo ortografico Bing, che usa le funzionalità di apprendimento automatico e di traduzione automatica statistica per il controllo ortografico contestuale.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 22f75efb3cb4baa645030e7ad64072674de662ed
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890810"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514803"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 

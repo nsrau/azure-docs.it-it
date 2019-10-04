@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 472d7fcbca1a221b69d681ce33d39978b53a3204
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526822"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620938"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
 
@@ -87,5 +87,5 @@ Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di 
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
 * [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

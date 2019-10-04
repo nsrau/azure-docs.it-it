@@ -1,21 +1,22 @@
 ---
-title: Distribuire il modello di soluzione Ansible per Azure in CentOS
-description: Informazioni su come distribuire il modello di soluzione Ansible in una macchina virtuale CentOS ospitata in Azure, insieme agli strumenti configurati per l'uso con Azure.
-ms.service: azure
+title: Avvio rapido - Distribuire il modello di soluzione Ansible per Azure in CentOS | Microsoft Docs
+description: In questo argomento di avvio rapido viene illustrato come distribuire il modello di soluzione Ansible in una macchina virtuale CentOS ospitata in Azure, insieme agli strumenti configurati per l'uso con Azure.
 keywords: ansible, azure, devops, modello di soluzione, macchina virtuale, Identità gestite per le risorse di azure, centos, red hat
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 01/28/2019
-ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104217"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231009"
 ---
-# <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Distribuire il modello di soluzione Ansible per Azure in CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Guida introduttiva: Distribuire il modello di soluzione Ansible per Azure in CentOS
+
 Il modello di soluzione Ansible per Azure è progettato per configurare un'istanza di Ansible in una macchina virtuale CentOS insieme ad Ansible e a una suite di strumenti configurati per funzionare con Azure. Gli strumenti comprendono:
 
 - **Moduli Ansible per Azure**: i [moduli Ansible per Azure](./ansible-matrix.md) sono una suite di moduli che consente di creare e gestire l'infrastruttura in Azure. Per impostazione predefinita viene restituita la versione più recente di questi moduli. Tuttavia, durante il processo di distribuzione del modello di soluzione, è possibile specificare un numero di versione appropriato per l'ambiente.
@@ -23,9 +24,10 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 - **Identità gestite per le risorse di Azure**: la funzionalità delle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) risolve il problema della sicurezza delle credenziali dell'applicazione cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-## <a name="deploy-the-ansible-solution-template-from-the-azure-marketplace"></a>Distribuire il modello di soluzione Ansible da Azure Marketplace
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## <a name="deploy-the-ansible-solution-template"></a>Distribuire il modello di soluzione Ansible
 
 1. Passare a al [modello di soluzione Ansible in Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -46,7 +48,7 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
    - **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare **Crea nuovo** e specificare un nome per un nuovo gruppo di risorse. A scopo dimostrativo, viene usato un nuovo gruppo di risorse denominato `ansiblerg`.
    - **Percorso**: selezionare il percorso appropriato per lo scenario specifico nell'elenco a discesa.
 
-     ![Scheda del portale di Azure per le impostazioni di base di Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Scheda del portale di Azure per le impostazioni di base di Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Selezionare **OK**.
 
@@ -60,19 +62,19 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
    - **Etichetta del nome di dominio**: immettere il nome di dominio pubblico della macchina virtuale. Il nome deve essere univoco e soddisfare i requisiti di denominazione. Per altre informazioni su come specificare un nome per la macchina virtuale, vedere [Convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
    - **Versione di Ansible**: specificare un numero di versione o il valore `latest` per distribuire la versione più recente. Selezionare l'icona informazioni accanto a **Versione di Ansible** per visualizzare altre informazioni sulle versioni disponibili.
 
-     ![Scheda del portale di Azure per le impostazioni aggiuntive di Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Scheda del portale di Azure per le impostazioni aggiuntive di Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Selezionare **OK**.
 
 1. Nella scheda **Impostazioni di integrazione di Ansible** specificare il tipo di autenticazione. Per altre informazioni sulla protezione delle risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Scheda del portale di Azure per le impostazioni di integrazione](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
+    ![Scheda del portale di Azure per le impostazioni di integrazione](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Selezionare **OK**.
 
 1. La pagina **Riepilogo** mostra il processo di convalida ed elenca i criteri specificati per la distribuzione di Ansible. Un collegamento nella parte inferiore della scheda consente di **scaricare il modello e i parametri** da usare con i linguaggi e le piattaforme di Azure supportati. 
 
-     ![Scheda Riepilogo di Ansible nel portale di Azure](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Scheda Riepilogo di Ansible nel portale di Azure](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Selezionare **OK**.
 
@@ -80,10 +82,11 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 
 1. Selezionare l'icona **Notifiche** in alto nella pagina del sito per tenere traccia della distribuzione di Ansible. Una volta completata la distribuzione, selezionare **Vai al gruppo di risorse**. 
 
-     ![Scheda Riepilogo di Ansible nel portale di Azure](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Scheda Riepilogo di Ansible nel portale di Azure](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. Nella pagina del gruppo di risorse, ottenere l'indirizzo IP dell'host di Ansible e accedere per gestire le risorse di Azure con Ansible.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"] 
-> [Usare Ansible per creare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/ansible-create-vm)
+> [Guida introduttiva: Configurare una macchina virtuale Linux in Azure tramite Ansible](/azure/virtual-machines/linux/ansible-create-vm)

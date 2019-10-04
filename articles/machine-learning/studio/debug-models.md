@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
 ms.openlocfilehash: 9c505262030e5b5aa13b8d221cf1e39c4a9c7833
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751122"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Debug del modello in Azure Machine Learning Studio
 

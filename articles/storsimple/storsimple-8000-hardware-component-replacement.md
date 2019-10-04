@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321834"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
@@ -67,11 +67,11 @@ Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel 
 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |No  |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controller primari |2 |Sì |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 764W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Batteria di backup |2 |Sì |[Sostituire il modulo batteria di backup nel dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
-| Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Controller primari |2 |Yes |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
+| Power and Cooling Modules (PCM) da 764W |2 |Yes |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Batteria di backup |2 |Yes |[Sostituire il modulo batteria di backup nel dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
+| Unità disco |12 |Yes |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabella 1** Componenti Hardware nel chassis principale
 
@@ -79,10 +79,10 @@ Lo chassis principale e lo chassis EBOD sono diversi nei moduli I/O. Inoltre, i 
 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |No  |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controller EBOD |2 |Sì |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 580W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Controller EBOD |2 |Yes |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
+| Power and Cooling Modules (PCM) da 580W |2 |Yes |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Unità disco |12 |Yes |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabella 2** componenti Hardware nell'enclosure EBOD
 
@@ -92,7 +92,7 @@ I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anterio
 
 **Figura 1** Parte anteriore del dispositivo
 
-| Etichetta | DESCRIZIONE |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 0 - 11 |Unità di dischi (totale pari a 12) |
 
@@ -102,7 +102,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 2** Pannello posteriore dello chassis principale
 
-| Etichetta | DESCRIZIONE |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,14 +113,14 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 3** pannello posteriore dell’enclosure EBOD
 
-| Etichetta | DESCRIZIONE |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
 | 3 |Controller 0 EBOD |
 | 4 |Controller 1 EBOD |
 
-## <a name="field-replaceable-units"></a>Unità sostituibile sul campo 
+## <a name="field-replaceable-units"></a>Unità sostituibile sul campo
 Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il dispositivo StorSimple:
 
 * Chassis (incluso il pannello operativo integrato)

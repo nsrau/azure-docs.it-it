@@ -5,17 +5,17 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 632b23a726b8e006152662ef7814aa4b7ef887fc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550139"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69984545"
 ---
-Questa sezione vengono fornite informazioni su versioni precedenti di dimensioni delle macchine virtuali. Queste dimensioni possono ancora essere usate, ma sono disponibili generazioni più recenti. 
+In questa sezione vengono fornite informazioni sulle generazioni precedenti di dimensioni di macchine virtuali. Queste dimensioni possono ancora essere usate, ma sono disponibili generazioni più recenti. 
 
 ## <a name="f-series"></a>Serie F
 
@@ -25,11 +25,11 @@ Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU p
 
 ACU: 210 - 250
 
-Archiviazione Premium:  Non supportato
+Archiviazione Premium:  Non supportata
 
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
+Caching archiviazione Premium:  Non supportata
 
-| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione         | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1500                     |
@@ -45,49 +45,30 @@ ACU: 210 - 250
 
 Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium:  Supportato
+Caching archiviazione Premium:  Supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |4 |4.000/32 (12) |3.200/48 |2 / 750 |
-| Standard_F2s |2 |4 |8 |8 |8.000/64 (24) |6.400/96 |2 / 1500 |
-| Standard_F4s |4 |8 |16 |16 |16.000/128 (48) |12.800/192 |4 / 3000 |
-| Standard_F8s |8 |16 |32 |32 |32.000/256 (96) |25.600/384 |8 / 6000 |
-| Standard_F16s |16 |32 |64 |64 |64.000/512 (192) |51.200/768 |8 / 12000 |
+| Standard_F1s |1 |2 |4 |4 |4000/32 (12) |3200/48 |2 / 750 |
+| Standard_F2s |2 |4 |8 |8 |8000/64 (24) |6400/96 |2 / 1500 |
+| Standard_F4s |4 |8 |16 |16 |16000/128 (48) |12800/192 |4 / 3000 |
+| Standard_F8s |8 |16 |32 |32 |32000/256 (96) |25600/384 |8 / 6000 |
+| Standard_F16s |16 |32 |64 |64 |64000/512 (192) |51200/768 |8 / 12000 |
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una macchina virtuale serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).  
 
-## <a name="ls-series"></a>Serie Ls
+## <a name="nvv2-series"></a>Serie NVv2
 
-La serie Ls offre fino a 32 vCPU e usa il [processore Intel® Xeon® della famiglia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie Ls offre le stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni vCPU.
+**Raccomandazione di dimensioni più recenti**: [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
-La serie Ls non supporta la creazione di una cache locale per aumentare il numero di operazioni di I/O al secondo che è possibile ottenere tramite i dischi dati permanenti. L'elevata velocità effettiva e IOPS del disco locale rende le VM serie Ls ideali per gli archivi NoSQL, ad esempio Apache Cassandra e MongoDB che replicano dati tra più macchine virtuali per eseguire il salvataggio permanente in caso di errore di una singola macchina virtuale.
+Le macchine virtuali serie NVv2 sono basate su GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e sulla tecnologia NVIDIA GRID con CPU Intel Broadwell. Queste macchine virtuali sono specifiche per applicazioni con grafica accelerata per GPU e desktop virtuali in cui i clienti vogliono visualizzare i propri dati, simulare risultati da visualizzare, lavorare in CAD o eseguire il rendering e lo streaming di contenuti. Queste macchine virtuali possono anche eseguire carichi di lavoro con precisione singola, ad esempio per la codifica e il rendering. Le macchine virtuali NVv2 supportano Archiviazione Premium e offrono una memoria di sistema (RAM) doppia rispetto alla serie NV precedente.  
 
-ACU: 180-240
+Ogni GPU nelle istanze NVv2 viene fornita con una licenza GRID. Questa licenza consente di usare un'istanza NV come workstation virtuale per un singolo utente oppure consente a 25 utenti simultanei di connettersi a una macchina virtuale per uno scenario di applicazione virtuale.
 
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
- 
-| Dimensione          | vCPU | Memoria (GiB) | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea (IOPS/Mbps) | Velocità effettiva massima del disco non memorizzato nella cache (IOPS/MBps) | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) | 
-|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5.000/125  | 2 / 4,000  | 
-| Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10.000 / 250 | 4 / 8,000  | 
-| Standard_L16s  | 16 | 128 | 2,807 | 64 | 80.000 / 800 | 20.000 / 500 | 8 / 16.000 | 
-| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40.000 /1.000     | 8 / 20,000 | 
-
-La massima velocità effettiva del disco possibile con le macchine virtuali serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
-
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 che usa l'interfaccia della riga di comando e PowerShell
-
-Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell'interfaccia della riga di comando:
-
-* Standard_A0 è ExtraSmall
-* Standard_A1 è Small
-* Standard_A2 è Medium
-* Standard_A3 è Large
-* Standard_A4 è ExtraLarge
+| Dimensione | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |

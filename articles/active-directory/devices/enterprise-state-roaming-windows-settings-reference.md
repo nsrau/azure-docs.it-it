@@ -2,27 +2,21 @@
 title: Riferimento alle impostazioni di roaming di Windows 10 | Microsoft Docs
 description: Elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10.
 services: active-directory
-keywords: enterprise state roaming, cloud windows
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9489228b6ba81ae8d09e0f6880634532d0c836c6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353266"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481799"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -30,12 +24,12 @@ Di seguito è riportato un elenco completo di tutte le impostazioni di cui verr�
 ## <a name="devices-and-endpoints"></a>Dispositivi ed endpoint
 La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account supportati dal framework di sincronizzazione, backup e ripristino in Windows 10.
 
-| Tipo di account e operazione | Desktop | Mobile |
+| Tipo di account e operazione | Desktop | Cellulare |
 | --- | --- | --- |
-| Azure Active Directory: sincronizzazione |Sì |No  |
-| Azure Active Directory: backup e ripristino |No  |No  |
-| Account Microsoft: sincronizzazione |Sì |Sì |
-| Account Microsoft: backup e ripristino |No  |Sì |
+| Azure Active Directory: sincronizzazione |Yes |No |
+| Azure Active Directory: backup e ripristino |No |No |
+| Account Microsoft: sincronizzazione |Yes |Yes |
+| Account Microsoft: backup e ripristino |No |Yes |
 
 ## <a name="what-is-backup"></a>Cosa si intende per backup
 Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.
@@ -67,7 +61,7 @@ Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa ri
 La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle impostazioni e alle app che possono essere disabilitate soltanto tramite la sincronizzazione dall'interno dell'app stessa o disabilitando la sincronizzazione per l'intero dispositivo con la gestione dei dispositivi mobili (software MDM) o le impostazioni dei Criteri di gruppo.
 Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non appartengono a un gruppo.
 
-| Impostazioni | Desktop | Mobile | Group |
+| Impostazioni | Desktop | Cellulare | Group |
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
@@ -77,18 +71,18 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
 | **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X |Interne |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |
-| **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Linguaggio |
-| **Data, ora e area**: formato 24 ore |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: data e ora |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: fuso orario | |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: ora legale |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: paese/area geografica |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: primo giorno della settimana |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: formato regionale (impostazioni locali) |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: data breve |sync |X |Linguaggio |
-| **Data, ora e opzioni internazionali**: data estesa |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |language |
+| **Data, ora e area**: formato 24 ore |sync |X |language |
+| **Data, ora e opzioni internazionali**: data e ora |sync |X |language |
+| **Data, ora e opzioni internazionali**: fuso orario | |X |language |
+| **Data, ora e opzioni internazionali**: ora legale |sync |X |language |
+| **Data, ora e opzioni internazionali**: paese/area geografica |sync |X |language |
+| **Data, ora e opzioni internazionali**: primo giorno della settimana |sync |X |language |
+| **Data, ora e opzioni internazionali**: formato regionale (impostazioni locali) |sync |X |language |
+| **Data, ora e opzioni internazionali**: data breve |sync |X |language |
+| **Data, ora e opzioni internazionali**: data estesa |sync |X |language |
 | **Data, ora e opzioni internazionali**: ora breve |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: ora estesa |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: ora estesa |sync |X |language |
 | **Personalizzazione del desktop**: tema del desktop (sfondo, colore di sistema, segnali acustici sistema predefiniti, screen saver) |sync |X |Tema |
 | **Personalizzazione del desktop**: sfondo presentazione |sync |X |Tema |
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
@@ -184,4 +178,3 @@ Versione minima sistema operativo supportata di Windows Creators Update (Build 1
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni generali, vedere [Panoramica di Enterprise State Roaming](enterprise-state-roaming-overview.md).
-

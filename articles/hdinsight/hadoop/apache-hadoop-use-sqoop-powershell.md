@@ -2,19 +2,18 @@
 title: Eseguire processi Apache Sqoop tramite PowerShell e Azure HDInsight
 description: Informazioni su come usare Azure PowerShell da una workstation per eseguire importazioni ed esportazioni con Apache Sqoop tra un cluster Apache Hadoop e un database SQL di Azure.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607363"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450140"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop tramite Azure PowerShell per Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -23,7 +22,7 @@ Informazioni su come usare Azure PowerShell per eseguire processi Apache Sqoop i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
+Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
 * Una workstation con Azure PowerShell [modulo di AZ](https://docs.microsoft.com/powershell/azure/overview) installato.
 

@@ -1,5 +1,5 @@
 ---
-title: Revisione delle espressioni endpoint
+title: 'Esercitazione: Revisione delle espressioni di endpoint - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112280"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387515"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni. È consigliabile includere l'esaminazione delle espressioni endpoint come parte normale della manutenzione programmata di LUIS. 
@@ -74,35 +74,28 @@ Seguire questa procedura:
     
     [![Screenshot del comando di esame delle espressioni endpoint con evidenziato l'interruttore relativo alla visualizzazione entità](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    L'espressione `I'm looking for a job with Natural Language Processing` non ha la finalità corretta. 
+
+    Il motivo della previsione errata di questa espressione è che la finalità **ApplyForJob** è associata a 21 espressioni rispetto alle 7 espressioni in **GetJobInformation**. La finalità con più espressioni otterrà una previsione maggiore. È importante che la quantità e la qualità delle espressioni tra le diverse finalità siano bilanciate.
+
+1.  Per allineare questa espressione, selezionare la finalità corretta e contrassegnare l'entità Job in tale finalità. Aggiungere l'espressione modificata all'app selezionando la casella di controllo verde. 
+
     |Espressione|Finalità corretta|Entità mancanti|
     |:--|:--|:--|
-    |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Job - "Natural Language Process"|
 
-    Questa espressione non ha la finalità corretta e ha un punteggio inferiore al 50%. La finalità **ApplyForJob** è associata a 21 espressioni rispetto alle sette espressioni in **GetJobInformation**. Oltre ad allineare correttamente l'espressione endpoint, è necessario aggiungere altre espressioni alla finalità **GetJobInformation**. Questo è un esercizio che deve essere completato autonomamente dall'utente. Ogni finalità, ad eccezione della finalità **None**, deve avere approssimativamente lo stesso numero di espressioni di esempio. La finalità **None** deve avere il 10% delle espressioni totali nell'app. 
+    Per convertire `natural language processing` da un'entità keyPhrase a un'entità Job, selezionare la frase e quindi selezionare **Job** dall'elenco. Se si vuole selezionare solo parte del testo di keyPhrase per un'entità diversa, è necessario rimuovere keyPhrase come entità, assegnare un'etichetta con un'entità diversa e quindi riapplicare l'entità keyPhrase all'app. 
 
-1. Per la finalità `I'm looking for a job with Natual Language Processing` selezionare la finalità corretta, **GetJobInformation** nella colonna **Aligned intent** (Finalità allineata). 
+    L'aggiunta dell'espressione ne determina lo spostamento da **Review endpoint utterances** (Esamina espressioni endpoint) alla finalità **GetJobInformation**. L'espressione endpoint è ora un'espressione di esempio per tale finalità. 
 
-    [![Screenshot della schermata di esame delle espressioni endpoint con allineamento di espressione e finalità](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    Oltre ad allineare correttamente l'espressione, è necessario aggiungere altre espressioni alla finalità **GetJobInformation**. Questo è un esercizio che deve essere completato autonomamente dall'utente. Ogni finalità, ad eccezione della finalità **None**, deve avere approssimativamente lo stesso numero di espressioni di esempio. La finalità **None** deve avere il 10% delle espressioni totali nell'app. 
 
-1. Nella stessa espressione l'entità per `Natural Language Processing` è keyPhrase. Dovrebbe trattarsi invece ci un'entità **Job**. Selezionare `Natural Language Processing` e quindi selezionare l'entità **Job** dall'elenco.
+    Esaminare le espressioni rimanenti in questa finalità, assegnando etichette alle espressioni e correggendo il valore di **Aligned intent** (Finalità allineata), in caso di errori.
 
-    [![Screenshot della schermata di esame delle espressioni endpoint con etichetta per l'entità nell'espressione](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    Nell'elenco **Controlla le espressioni di endpoint** non dovrebbero essere più presenti tali espressioni. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità e assegnando etichette a eventuali entità mancanti, fino allo svuotamento dell'elenco. 
 
-1. Nella stessa riga selezionare il segno di spunta racchiuso in un cerchio nella colonna **Add to aligned intent** (Aggiungi alla finalità allineata). 
-
-    [![Screenshot della schermata di finalizzazione dell'allineamento delle espressioni nella finalità](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Questa azione sposta l'espressione da **Review endpoint utterances** (Esamina espressioni endpoint) alla finalità **GetJobInformation**. L'espressione endpoint è ora un'espressione di esempio per tale finalità. 
-
-1. Esaminare le espressioni rimanenti in questa finalità, assegnando etichette alle espressioni e correggendo il valore di **Aligned intent** (Finalità allineata), in caso di errori.
-
-1. Quando tutte le espressioni sono corrette, selezionare la casella di controllo in ogni riga e quindi selezionare **Add selected** (Aggiungi elementi selezionati) per allineare correttamente le espressioni. 
-
-    [![Screenshot della schermata di finalizzazione delle espressioni rimanenti per la finalità allineata](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
-
-1. Queste espressioni non dovrebbero essere più incluse nell'elenco. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità e assegnando etichette a eventuali entità mancanti, fino allo svuotamento dell'elenco. 
-
-1. Selezionare la finalità successiva nell'elenco di filtri, quindi continuare a correggere le espressioni e ad assegnare etichette alle entità. Occorre ricordare che l'ultimo passaggio per ogni finalità consiste nel selezionare **Add to aligned intent** (Aggiungi alla finalità allineata) nella riga dell'espressione o nel selezionare la casella corrispondente a ogni finalità e quindi selezionare **Add selected** (Aggiungi elementi selezionati) sopra la tabella.
+    Selezionare la finalità successiva nell'elenco di filtri, quindi continuare a correggere le espressioni e ad assegnare etichette alle entità. Occorre ricordare che l'ultimo passaggio per ogni finalità consiste nel selezionare **Add to aligned intent** (Aggiungi alla finalità allineata) nella riga dell'espressione o nel selezionare la casella corrispondente a ogni finalità e quindi selezionare **Add selected** (Aggiungi elementi selezionati) sopra la tabella.
 
     Continuare finché tutte le finalità e le entità nell'elenco di filtri dispongono di un elenco vuoto. Questa app è molto piccola. Il processo di revisione richiede solo qualche minuto. 
 

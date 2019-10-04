@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731957"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359903"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Panoramica dei criteri SSL per il gateway applicazione
 
@@ -35,7 +35,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 
 |Proprietà  |Valore  |
 |---|---|
-|NOME     | AppGwSslPolicy20150501        |
+|Name     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
 |Predefinito| True (se non vengono specificati criteri predefiniti) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
@@ -44,7 +44,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
   
 |Proprietà  |Valore  |
 |   ---      |  ---       |
-|NOME     | AppGwSslPolicy20170401        |
+|Name     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
 |Predefinito| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
@@ -65,7 +65,7 @@ Se è necessario configurare un criterio SSL predefinito per i propri requisiti,
 ### <a name="ssl-protocol-versions"></a>Versioni del protocollo SSL
 
 * Per impostazione predefinita, i protocolli SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
-* Criteri SSL personalizzati offre la possibilità di selezionare uno qualsiasi dei tre protocolli seguenti come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* I criteri SSL personalizzati offrono la possibilità di selezionare uno dei tre protocolli seguenti come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
 * Se non sono definiti criteri SSL, sono abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
 
 ### <a name="cipher-suites"></a>Pacchetti di crittografia
@@ -101,6 +101,9 @@ Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i qua
 - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+
+> [!NOTE]
+> I pacchetti di crittografia SSL usati per la connessione sono basati anche sul tipo di certificato usato. Nelle connessioni da client a gateway applicazione, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nel listener del gateway applicazione. Nel gateway applicazione per le connessioni al pool back-end, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nei server del pool back-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

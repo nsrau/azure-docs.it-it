@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61297019"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Pubblicare un'applicazione del catalogo di servizi tramite il portale di Azure
 

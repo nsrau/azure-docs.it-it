@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ee79da6219452ace4f7e71bd670de3cfdc968fb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232365"
 documentType: LandingData
 title: Database SQL di Azure - scalabilità
 metadata:
@@ -18,43 +12,43 @@ metadata:
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Il database SQL di Azure consente di scalare facilmente il database aggiungendo più potenza di calcolo (aumento) o aggiungendo più unità di database (scale-out).
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: Il database SQL di Azure consente di scalare facilmente il database aggiungendo più potenza di calcolo (aumento) o aggiungendo più unità di database (scale-out).
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Aumentare
+            href: /azure/sql-database/sql-database-scale-resources
+            html: <p>Aggiungere o rimuovere facilmente risorse nel database SQL per trovare il miglior rapporto prezzo/prestazioni o ridurre i problemi di prestazioni.</p>
+          - title: Scalabilità orizzontale in lettura
+            href: /azure/sql-database/sql-database-read-scale-out
+            html: '<p>Il livello business critical fornisce una replica gratuita del database in cui è possibile eseguire report, analisi e altre query di sola lettura su una copia dei dati.</p>'
+          - title: Partizionamento orizzontale del database
+            href: /azure/sql-database/sql-database-elastic-scale-introduction
+            html: <p>È possibile usare più partizioni di database per lo scale-out del database oltre i limiti massimi di archiviazione e calcolo per singoli database.</p>
+          - title: Query elastiche
+            href: /azure/sql-database/sql-database-elastic-query-overview
+            html: <p>Le query elastiche consentono di eseguire query Transact-SQL standard su un set di partizioni di database distribuiti a livello globale.</p>
+          - title: Transazioni elastiche
+            href: /azure/sql-database/sql-database-elastic-transactions-overview
+            html: <p>Usare transazioni distribuite a livello globale per garantire un accesso a livello di transazione coerente ai dati distribuiti.</p>
+          - title: Processi tra database
+            href: /azure/sql-database/elastic-jobs-overview
+            html: <p>Gestire un set di database tramite processi elastici tra database.</p>
+  - title: Altre risorse
     items:
-    - title: Aumentare
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Aggiungere o rimuovere facilmente risorse nel database SQL per trovare il miglior rapporto prezzo/prestazioni o ridurre i problemi di prestazioni.</p>
-    - title: Scalabilità orizzontale in lettura
-      href: /azure/sql-database/sql-database-read-scale-out
-      html: <p>Il livello business critical fornisce una replica gratuita del database in cui è possibile eseguire report, analisi e altre query di sola lettura su una copia dei dati.</p>
-    - title: Partizionamento orizzontale del database
-      href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>È possibile usare più partizioni di database per lo scale-out del database oltre i limiti massimi di archiviazione e calcolo per singoli database.</p>
-    - title: Query elastiche
-      href: /azure/sql-database/sql-database-elastic-query-overview
-      html: <p>Le query elastiche consentono di eseguire query Transact-SQL standard su un set di partizioni di database distribuiti a livello globale.</p>
-    - title: Transazioni elastiche
-      href: /azure/sql-database/sql-database-elastic-transactions-overview
-      html: <p>Usare transazioni distribuite a livello globale per garantire un accesso a livello di transazione coerente ai dati distribuiti.</p>
-    - title: Processi tra database
-      href: /azure/sql-database/elastic-jobs-overview
-      html: <p>Gestire un set di database tramite processi elastici tra database.</p>
-- title: Altre risorse
-  items:
-  - type: paragraph
-    text: Informazioni sulle funzionalità aggiuntive utili per la scalabilità dei dati.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Server collegato</a> è una funzionalità principale del motore di database di SQL Server che consente di eseguire query distribuite dal codice Transact-SQL ad altri motori di database.
-    - html: La <a href="sql-database-geo-replication-overview.md">replica geografica</a> consente di inserire un numero qualsiasi di repliche leggibili in aree diverse.
+      - type: paragraph
+        text: Informazioni sulle funzionalità aggiuntive utili per la scalabilità dei dati.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Server collegato</a> è una funzionalità principale del motore di database di SQL Server che consente di eseguire query distribuite dal codice Transact-SQL ad altri motori di database.'
+          - html: La <a href="sql-database-geo-replication-overview.md">replica geografica</a> consente di inserire un numero qualsiasi di repliche leggibili in aree diverse.

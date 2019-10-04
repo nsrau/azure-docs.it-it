@@ -2,22 +2,26 @@
 title: Aggiornamento ad Azure Search .NET Management SDK versione 2 - Ricerca di Azure
 description: Eseguire l'aggiornamento ad Azure Search .NET Management SDK versione 2 da versioni precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.custom: seodec2018
-ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316871"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182244"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Aggiornamento ad Azure Search .NET Management SDK versione 2
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Aggiornamento alla versione di .NET Management SDK di ricerca di Azure 
+
+> [!Important]
+> Questo contenuto è ancora in fase di creazione. La versione 3,0 di Azure Search Management .NET SDK è disponibile in NuGet. Questa guida alla migrazione verrà aggiornata per spiegare come eseguire l'aggiornamento alla nuova versione. 
+>
+
 Se si usa la versione 1.0.2 o successiva di [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 2.
 
 La versione 2 di Azure Search .NET Management SDK contiene alcune modifiche rispetto alle versioni precedenti. ma per lo più secondarie, quindi il codice potrà essere modificato facilmente. Per le istruzioni su come modificare il codice per usare la nuova versione dell'SDK, vedere [Passaggi per eseguire l'aggiornamento](#UpgradeSteps) .
@@ -42,7 +46,7 @@ Se la compilazione non riesce, è possibile che siano state implementate alcune 
 
 Dopo avere corretto gli errori di compilazione, è possibile apportare modifiche all'applicazione per sfruttare la nuova funzionalità, se si vuole. Le nuove funzionalità nell'SDK sono descritte in dettaglio in [Novità della versione 2](#WhatsNew).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 I commenti degli utenti sull'SDK saranno molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".
 
 Grazie per avere usato Ricerca di Azure.

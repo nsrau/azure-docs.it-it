@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Creare una pagina Web di ricerca personalizzata | Ricerca personalizzata Bing'
-titlesuffix: Azure Cognitive Services
-description: Descrive come configurare un'istanza di ricerca personalizzata e integrarla in una pagina Web.
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come configurare un'istanza di Ricerca personalizzata Bing e integrarla in una pagina Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100735"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564702"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -35,7 +35,7 @@ Sono descritte queste attività:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- Se Visual Studio 2017 o versioni successive non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creare un'istanza di Ricerca personalizzata
 

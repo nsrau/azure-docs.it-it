@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60580855"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonare da un backup dell'array virtuale StorSimple
 

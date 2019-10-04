@@ -1,6 +1,6 @@
 ---
 title: Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST - Azure | Microsoft Docs
-description: Informazioni su come elencare le assegnazioni di rifiuto per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo per le risorse di Azure e l'API REST.
+description: Informazioni su come elencare le assegnazioni per utenti, gruppi e applicazioni che usano il controllo di accesso basato sui ruoli (RBAC) per le risorse di Azure e l'API REST di negazione.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,22 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118296"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST
 
-Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come usare l'API REST a elenco negare le assegnazioni.
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare negare le assegnazioni con l'API REST.
 
 > [!NOTE]
-> Al momento, l'unico modo per aggiungere le proprie assegnazioni di rifiuto è tramite Azure Blueprints. Per altre informazioni, vedere [Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+> È possibile creare direttamente il proprio negare le assegnazioni. Per informazioni su come negare le assegnazioni vengono create, vedere [negare le assegnazioni](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,11 +45,11 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
-    | Scope | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Risorsa |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{deny-assignment-id}* con l'identificatore dell'assegnazione di rifiuto da recuperare.
 
@@ -69,15 +69,15 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
-    | Scope | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Risorsa |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di rifiuto.
 
-    | Filtro | DESCRIZIONE |
+    | Filtro | Descrizione |
     | --- | --- |
     | (nessun filtro) | Elenca tutte le assegnazioni di ruolo in corrispondenza, al di sopra e al di sotto dell'ambito specificato. |
     | `$filter=atScope()` | Elenca le assegnazioni di rifiuto per il solo ambito specificato e quanto sopra. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
@@ -95,7 +95,7 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di rifiuto. È obbligatorio applicare un filtro.
 
-    | Filtro | DESCRIZIONE |
+    | Filtro | Descrizione |
     | --- | --- |
     | `$filter=atScope()` | Elenca le assegnazioni di rifiuto per il solo ambito radice. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
     | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Elenca le assegnazioni di rifiuto con il nome specificato. |

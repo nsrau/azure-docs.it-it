@@ -10,11 +10,11 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811608"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: secondo parametro per Accumulate
 * TResult: tipo restituito di Terminate
 
-Ad esempio: 
+Ad esempio:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1067,11 +1067,11 @@ Un oggetto definito dall'utente viene in genere chiamato in modo esplicito negli
 ## <a name="use-user-defined-extractors"></a>Usare estrattori definiti dall'utente
 U-SQL consente di importare dati esterni con un'istruzione EXTRACT. L'istruzione EXTRACT consente di usare estrattori UDO predefiniti.  
 
-* *Extractors.Text()*: consente di eseguire l'estrazione da file di testo delimitati di varie codifiche.
+* *Extractors.Text()* : consente di eseguire l'estrazione da file di testo delimitati di varie codifiche.
 
-* *Extractors.Csv()*: consente di eseguire l'estrazione da file di testo delimitati da virgole (con estensione csv) di varie codifiche.
+* *Extractors.Csv()* : consente di eseguire l'estrazione da file di testo delimitati da virgole (con estensione csv) di varie codifiche.
 
-* *Extractors.Tsv()*: consente di eseguire l'estrazione da file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
+* *Extractors.Tsv()* : consente di eseguire l'estrazione da file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
 
 Può essere utile per sviluppare un estrattore personalizzato. Questo può essere opportuno durante un'importazione di dati, se si vuole eseguire una o più delle attività seguenti:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Usare outputter definiti dall'utente
 L'outputter definito dall'utente è un altro oggetto definito dall'utente di U-SQL che consente di estendere una funzionalità predefinita di U-SQL. Come per l'estrattore, esistono diversi outputter integrati.
 
-* *Outputters.Text()*: scrive i dati in file di testo delimitati di varie codifiche.
-* *Outputters.Csv()*: scrive i dati in file di testo delimitati da virgole (con estensione csv) di varie codifiche.
-* *Outputters.Tsv()*: scrive i dati in file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
+* *Outputters.Text()* : scrive i dati in file di testo delimitati di varie codifiche.
+* *Outputters.Csv()* : scrive i dati in file di testo delimitati da virgole (con estensione csv) di varie codifiche.
+* *Outputters.Tsv()* : scrive i dati in file di testo delimitati da tabulazioni (con estensione tsv) di varie codifiche.
 
 L'outputter personalizzato consente di scrivere i dati in un formato definito personalizzato. Questo può essere utile per le attività seguenti:
 

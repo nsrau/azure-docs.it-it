@@ -3,23 +3,22 @@ title: Aggiornare un cluster di Azure Service Fabric usando il nome comune dei c
 description: Informazioni su come passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/01/2019
-ms.author: aljo
-ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/06/2019
+ms.author: atsenthi
+ms.openlocfilehash: 3618339349d618b371a40d3b37ebc30192c067ca
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387189"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764817"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
 Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati. In questo articolo viene descritto come aggiornare un cluster di Service Fabric in esecuzione per usare il nome comune del certificato anziché l'identificazione personale del certificato.
@@ -68,7 +67,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
     -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
@@ -127,7 +126,7 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
     },
     ```
 
-    Valutare anche la rimozione di *certificateThumbprint*, che potrebbe non essere più necessario.
+    Prendere in considerazione anche la rimozione del *CertificateThumbprint*, a cui potrebbe non essere più fatto riferimento nel modello di gestione risorse.
 
 2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** aggiungere `"commonNames": ["[parameters('certificateCommonName')]"],` e rimuovere `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

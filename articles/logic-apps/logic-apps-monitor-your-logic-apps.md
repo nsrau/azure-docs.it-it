@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112314"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261358"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -35,7 +35,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 2. Selezionare l'app per la logica, quindi scegliere **Panoramica**.
 
-   Il portale di Azure visualizza la cronologia delle esecuzioni e la cronologia dei trigger per l'app per la logica, Ad esempio: 
+   Il portale di Azure visualizza la cronologia delle esecuzioni e la cronologia dei trigger per l'app per la logica, Esempio:
 
    ![Cronologia delle esecuzioni e cronologia dei trigger delle app per la logica](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 3. Per visualizzare i passaggi da una specifica esecuzione, selezionarla in **Cronologia esecuzioni**. 
 
-   La vista di monitoraggio mostra ogni passaggio di tale esecuzione, Ad esempio: 
+   La vista di monitoraggio mostra ogni passaggio di tale esecuzione, Esempio:
 
    ![Azioni per una specifica esecuzione](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
    È ad esempio possibile ottenere l'**ID di correlazione** dell'esecuzione, che potrebbe essere necessario quando si usa l'[API REST per App per la logica](https://docs.microsoft.com/rest/api/logic).
 
-5. Per ottenere informazioni dettagliate su un passaggio specifico, scegliere il passaggio. È ora possibile esaminare dettagli come input, output ed eventuali errori verificatisi per tale passaggio, Ad esempio: 
+5. Per ottenere informazioni dettagliate su un passaggio specifico, scegliere il passaggio. È ora possibile esaminare dettagli come input, output ed eventuali errori verificatisi per tale passaggio, Esempio:
 
    ![Dettagli del passaggio](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -74,13 +74,13 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Attivare la registrazione diagnostica per l'app per la logica
 
-Per ottimizzare il debug con i dettagli di runtime e gli eventi, è possibile configurare la registrazione con diagnostica [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). Monitoraggio di Azure è un servizio di Azure che consente di monitorare il cloud e negli ambienti che consentono di mantenerne la disponibilità e prestazioni locali. 
+Per eseguire il debug più completo con dettagli ed eventi di runtime, è possibile configurare la registrazione diagnostica con i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md). Monitoraggio di Azure è un servizio di Azure che monitora gli ambienti cloud e locali per consentirti di mantenerne la disponibilità e le prestazioni. 
 
 Prima di iniziare, è necessario avere un'area di lavoro Log Analytics. Informazioni su [come creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
-2. Nel menu del pannello app per la logica, sotto **Monitoring**, scegliere **diagnostica** > **le impostazioni di diagnostica**.
+2. Nel menu del pannello dell'app per la logica, in **monitoraggio** **, scegliere** > diagnostica **Impostazioni**di diagnostica.
 
    ![Andare a Monitoraggio, Diagnostica, Impostazioni di diagnostica](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -127,7 +127,7 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Immettere la stringa di ricerca](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Altre informazioni sulle [come trovare i dati nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
+   Altre informazioni su [come trovare i dati nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
 
 5. Nella barra a sinistra della pagina dei risultati scegliere l'intervallo di tempo che si vuole visualizzare.
 Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
@@ -155,12 +155,12 @@ Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estendere l'uso dei dati di diagnostica con altri servizi
 
-Insieme ai log di monitoraggio di Azure, è possibile estendere come si usano dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
+Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui si usano i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
 
 * [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio: 
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Esempio:
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -178,7 +178,7 @@ In base alle opzioni che si vuole configurare, assicurarsi prima di tutto di [cr
 
 Per monitorare metriche specifiche o le soglie superate per l'app per la logica, configurare gli [avvisi in Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Impostare gli avvisi senza [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md), seguire questa procedura. Per le azioni e criteri di avviso più avanzati [configurare i log di monitoraggio di Azure](#azure-diagnostics) troppo.
+Per configurare gli avvisi senza i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md), seguire questa procedura. Per le azioni e i criteri di avviso più avanzati, configurare anche i [log di monitoraggio di Azure](#azure-diagnostics) .
 
 1. Nel menu del pannello dell'app per la logica, in **Monitoraggio** scegliere **Diagnostica** > **Regole di avviso** > **Aggiungi avviso**, come illustrato qui:
 
@@ -270,9 +270,29 @@ L'evento `ActionCompleted`, ad esempio, ha le proprietà `clientTrackingId` e `t
     }
   }
   ```
+  Di seguito è riportato un altro esempio in cui viene usata l'azione **Inizializza variabile** . Nell'esempio vengono aggiunte proprietà rilevate dall'input dell'azione in cui l'input è una matrice, non un record.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare modelli per la distribuzione delle app per la logica e la gestione dei rilasci](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Scenari B2B con Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitorare i messaggi B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

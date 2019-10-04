@@ -3,21 +3,20 @@ title: Attività ExecutePipeline in Azure Data Factory | Microsoft Docs
 description: Informazioni su come usare l'attività ExecutePipeline per richiamare una pipeline di Data Factory da un'altra pipeline di Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998712"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141711"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Attività ExecutePipeline in Azure Data Factory
 L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
@@ -60,13 +59,13 @@ L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamar
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività di esecuzione della pipeline. | string | Sì
-type | deve essere impostato su: **ExecutePipeline**. | string | Sì
-pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Sì
-Parametri | Parametri da passare alla pipeline chiamata | Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | No 
-waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. Il valore predefinito è false. | Boolean | No 
+name | Nome dell'attività di esecuzione della pipeline. | String | Sì
+type | deve essere impostato su: **ExecutePipeline**. | String | Yes
+pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Yes
+parameters | Parametri da passare alla pipeline chiamata | Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | No
+waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. Il valore predefinito è false. | Boolean | No
 
 ## <a name="sample"></a>Esempio
 Questo scenario include due pipeline:

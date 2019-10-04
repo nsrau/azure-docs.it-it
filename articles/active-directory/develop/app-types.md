@@ -3,8 +3,8 @@ title: Tipi di applicazioni nella versione 1.0 | Azure
 description: Vengono descritti i tipi di app e gli scenari supportati dall'endpoint v2.0 di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540654"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
 
@@ -34,11 +34,11 @@ Il diagramma seguente illustra questi scenari e tipi di applicazioni, oltre che 
 
 Azure AD supporta i cinque scenari di applicazione principali descritti di seguito:
 
-- **[Applicazione a pagina singola](single-page-application.md)**: un utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
-- **[Da Web browser ad applicazione Web](web-app.md)**: un utente deve accedere a un'applicazione Web protetta da Azure AD.
-- **[Da applicazione nativa ad API Web](native-app.md)**: un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere le risorse da un'API Web protetta da Azure AD.
-- **[Da applicazione Web ad API Web](web-api.md)**: un'applicazione Web deve ottenere le risorse da un'API Web protetta da Azure AD.
-- **[Da applicazione server o daemon ad API Web](service-to-service.md)**: un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
+- **[Applicazione a pagina singola](single-page-application.md)** : un utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
+- **[Da Web browser ad applicazione Web](web-app.md)** : un utente deve accedere a un'applicazione Web protetta da Azure AD.
+- **[Da applicazione nativa ad API Web](native-app.md)** : un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere le risorse da un'API Web protetta da Azure AD.
+- **[Da applicazione Web ad API Web](web-api.md)** : un'applicazione Web deve ottenere le risorse da un'API Web protetta da Azure AD.
+- **[Da applicazione server o daemon ad API Web](service-to-service.md)** : un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere le risorse da un'API Web protetta da Azure AD.
 
 Fare clic sui collegamenti per ottenere altre informazioni su ogni tipo di app e comprendere gli scenari generali prima di iniziare a usare il codice. È possibile ottenere anche informazioni sulle differenze che è necessario conoscere quando si scrive un'app specifica che funziona con l'endpoint v1.0 o v2.0.
 
@@ -63,7 +63,7 @@ Le applicazioni che usano l'outsourcing per l'autenticazione ad Azure AD devono 
   * **Chiave**: la chiave inviata insieme a un ID applicazione durante l'autenticazione ad Azure AD per chiamare un'API Web.
 * Azure AD deve assicurarsi che l'applicazione disponga delle autorizzazioni necessarie per accedere ai dati della directory, ad altre applicazioni nell'organizzazione e così via.
 
-Per altre informazioni, vedere come [registrare un'app con l'endpoint v1.0 di Azure AD](quickstart-v1-add-azure-ad-app.md).
+Per i dettagli, vedere come [registrare un'app](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>App a tenant singolo e multi-tenant
 

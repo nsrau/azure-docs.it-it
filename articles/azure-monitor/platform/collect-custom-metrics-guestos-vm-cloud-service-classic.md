@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482624"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844943"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
@@ -33,7 +33,9 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario aver installato [Azure PowerShell](/powershell/azure) oppure [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+
+- Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Eseguire il provisioning del servizio cloud e dell'account di archiviazione 
 
@@ -176,7 +178,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 2. Nel menu a sinistra selezionare **Monitoraggio**.
 
-3. Nel pannello **Monitoraggio** fare clic sulla scheda **Metriche (anteprima)**.
+3. Nel pannello **Monitoraggio** fare clic sulla scheda **Metriche (anteprima)** .
 
 4. Nell'elenco a discesa della risorsa selezionare Servizio cloud (versione classica).
 

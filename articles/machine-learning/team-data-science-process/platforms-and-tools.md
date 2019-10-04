@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786490"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626368"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -48,7 +48,7 @@ Include inoltre **strumenti di Machine Learning e intelligenza artificiale** com
 
 La macchina virtuale data science è attualmente disponibile nei sistemi operativi **Windows** e **Linux CentOS**. Scegliere le dimensioni della macchina virtuale data science da usare (numero di core CPU e quantità di memoria) in base alle esigenze dei progetti di data science che si prevede di eseguirvi. 
 
-Per altre informazioni sull'edizione di Windows della macchina virtuale data science, vedere [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) (Macchina virtuale data science di Microsoft) in Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) (Macchina virtuale data science di Linux).
+Per altre informazioni sull'edizione di Windows della macchina virtuale data science, vedere [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) (Macchina virtuale data science di Microsoft) in Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) (Macchina virtuale data science di Linux).
 
 Per informazioni su come eseguire in modo efficiente alcune attività di data science comuni sulla macchina virtuale data science, vedere [Ten things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md) (Dieci operazioni che è possibile eseguire sulla macchina virtuale data science)
 

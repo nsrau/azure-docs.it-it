@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c2e23b0d60ca242549ebf2c058ea8f44f2b1c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520152"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881790"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -97,6 +97,9 @@ Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli
 Per altre informazioni su come configurare il provisioning automatico, vedere [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 È ora possibile creare un account di test. Attendere 20 minuti per verificare che l'account sia stato sincronizzato con Workplace by Facebook.
+
+> [!NOTE]
+> Stiamo lavorando a stretto contatto con il team di Facebook per garantire che l'applicazione Azure AD sia approvata e soddisfi le nuove linee guida.   
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

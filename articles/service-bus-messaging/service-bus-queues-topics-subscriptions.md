@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
 ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125815"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 

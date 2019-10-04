@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Ruby"
-titlesuffix: Azure Cognitive Services
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Ruby"
+titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con Ruby e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: 35659a77f80bd3b3d105b9ea91513784dbca01c4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e892d9917d0cc295236ee5e134348248dd4817a1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539004"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034507"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Guida introduttiva all'API Ricerca entità Bing con Ruby
 
@@ -146,4 +146,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../search-the-web.md)
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

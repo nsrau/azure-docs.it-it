@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878886"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Applicazioni Big Data open source compatibili con Data Lake Storage Gen1
 
@@ -38,6 +38,6 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Az
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 e 3.6 |
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

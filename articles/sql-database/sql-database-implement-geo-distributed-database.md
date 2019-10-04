@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338990"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568101"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Esercitazione: Implementare un database con distribuzione geografica
 
@@ -34,12 +33,12 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- un database SQL di Azure. Per crearne uno, usare:
+- Un database singolo nel database SQL di Azure. Per crearne uno, usare:
   - [Portale](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)

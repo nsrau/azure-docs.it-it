@@ -1,21 +1,21 @@
 ---
-title: Classi di risorse per la gestione del carico di lavoro - Azure SQL Data Warehouse | Microsoft Docs
+title: Le classi di risorse per la gestione del carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
 description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 03/15/2019
+ms.subservice: workload-management
+ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520055"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595526"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 
@@ -79,11 +79,12 @@ Le classi di risorse dinamiche vengono implementate con i ruoli predefiniti del 
 
 Se si approfondiscono i dettagli delle classi di risorse dinamiche della Prima generazione, alcuni dettagli aggiungono ulteriore complessità per la comprensione del comportamento specifico:
 
-- La classe di risorse smallrc funziona con un modello di memoria fissa, ad esempio una classe di risorse statica.  Le query smallrc non ottengono più memoria in modo dinamico quando aumenta il livello di servizio.
+**On Gen1**
+- La classe di risorse smallrc funziona con un modello di memoria fissa, ad esempio una classe di risorse statica.  Le query smallrc non ottengono più memoria in modo dinamico quando aumenta il livello di servizio. 
 - Quando cambiano i livelli di servizio, la concorrenza delle query disponibile può aumentare o diminuire.
-- Aumentando o diminuendo i livelli del servizio non cambia in modo proporzionale la memoria allocata alle stesse classi di risorse.
+- Scalabilità dei livelli di servizio non fornisce una modifica proporzionale alla memoria allocata per le classi di risorse stesso.
 
-**Solo con la Seconda generazione**, le classi di risorse dinamiche sono realmente dinamiche nel gestire i punti indicati in precedenza.  La nuova regola è 3-10-22-70 per le allocazioni in percentuale di memoria per le classi di risorse small-medium-large-xlarge, **indipendentemente dal livello di servizio**.  La tabella seguente contiene i dettagli consolidati delle percentuali di allocazione della memoria e il numero minimo di query simultanee eseguite, indipendentemente dal livello di servizio.
+**In Gen2**, classi di risorse dinamiche sono realmente dinamiche addressing quanto indicato in precedenza.  La nuova regola è 3-10-22-70 per le allocazioni in percentuale di memoria per le classi di risorse small-medium-large-xlarge, **indipendentemente dal livello di servizio**.  La tabella seguente contiene i dettagli consolidati delle percentuali di allocazione della memoria e il numero minimo di query simultanee eseguite, indipendentemente dal livello di servizio.
 
 | Classe di risorse | Percentuale di memoria | Numero minimo di query simultanee |
 |:--------------:|:-----------------:|:----------------------:|
@@ -274,7 +275,7 @@ L'istruzione seguente crea l'elemento Table1 usato negli esempi precedenti.
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 

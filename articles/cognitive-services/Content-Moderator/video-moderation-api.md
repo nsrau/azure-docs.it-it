@@ -1,6 +1,6 @@
 ---
 title: Analizzare contenuto video per individuare materiale inappropriato in C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come analizzare contenuto video per individuare materiale inappropriato di tipo vario usando Content Moderator SDK per .NET
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864793"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564303"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizzare contenuto video per individuare materiale inappropriato in C#
 
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Se si desidera usare un file video locale, il caso più semplice, aggiungerlo al progetto e immettere il percorso come valore `INPUT_FILE`; i percorsi relativi sono relativi alla directory di esecuzione.
 
-È necessario anche creare il file _preset.json_ nella directory corrente e usarlo per specificare un numero di versione. Ad esempio: 
+È necessario anche creare il file _preset.json_ nella directory corrente e usarlo per specificare un numero di versione. Ad esempio:
 
 ```JSON
 {

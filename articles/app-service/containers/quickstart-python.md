@@ -4,25 +4,23 @@ description: Distribuire la prima app Hello World Python nel servizio app di Azu
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 08/23/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607773"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070965"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Python nel Servizio app di Azure in Linux (anteprima)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creare un'app Python nel Servizio app di Azure in Linux
 
 In questo argomento di avvio rapido si distribuirà una semplice app Python nel [servizio app in Linux](app-service-linux-intro.md), che fornisce un servizio di hosting web ad alta scalabilità e con funzioni di auto-correzione. Si userà inoltre l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) tramite Azure Cloud Shell, interattivo e basato sul browser, in modo da poter seguire la procedura con un computer Mac, Linux o Windows.
 
@@ -83,7 +81,7 @@ In Cloud Shell creare una directory quickstart e passare ad essa.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
@@ -106,7 +104,7 @@ Checking connectivity... done.
 
 Passare alla directory contenente il codice di esempio ed eseguire il comando `az webapp up`.
 
-Nell'esempio seguente sostituire `<app-name>` con un nome di app univoco.
+Nell'esempio seguente sostituire `<app-name>` con un nome di app univoco a livello globale. *I caratteri validi sono `a-z`, `0-9` e `-`* .
 
 ```bash
 cd python-docs-hello-world
@@ -159,7 +157,7 @@ Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'im
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
-In Cloud Shell digitare `code application.py` per aprire l'editor di Cloud Shell.
+In Cloud Shell immettere `code application.py` per aprire l'editor di Cloud Shell.
 
 ![Code application.py](media/quickstart-python/code-applicationpy.png)
 
@@ -171,7 +169,7 @@ return "Hello Azure!"
 
 Salvare le modifiche e uscire dall'editor. Usare il comando `^S` per salvare e `^Q` per uscire.
 
-Ridistribuire l'app usando il comando [`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up). Sostituire il nome dell'app in `<app-name>` e specificare un percorso in `<location-name>` (usando uno dei valori indicati dal comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations)).
+Ridistribuire l'app usando il comando [`az webapp up`](/cli/azure/webapp#az-webapp-up). Sostituire il nome dell'app in `<app-name>` e specificare un percorso in `<location-name>` (usando uno dei valori indicati dal comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations)).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -185,7 +183,7 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
 
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
+Nel menu a sinistra scegliere **Servizi app** e quindi selezionare il nome dell'app Azure.
 
 ![Passaggio all'app di Azure nel portale](./media/quickstart-python/app-service-list.png)
 
@@ -199,10 +197,8 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'immagine incorporata di Python nel servizio app in Linux è attualmente in anteprima ed è possibile personalizzare il comando usato per avviare l'app. È anche possibile creare app Python di produzione usando un contenitore personalizzato.
-
 > [!div class="nextstepaction"]
-> [Esercitazione: App Python con PostgreSQL](tutorial-python-postgresql-app.md)
+> [Esercitazione: App Web Python (Django) con PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare un'app Python](how-to-configure-python.md)

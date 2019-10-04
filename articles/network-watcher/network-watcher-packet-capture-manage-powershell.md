@@ -3,8 +3,8 @@ title: Gestire le acquisizioni di pacchetti con Azure Network Watcher - PowerShe
 description: Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher tramite PowerShell
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 267b2c375ef9672c8e5bd7cb8280b4dd40dbcd0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 4158c2c5ce69d1811b20c9937c1d064f4fe657ee
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045544"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163954"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher tramite PowerShell
 
@@ -130,8 +130,7 @@ Dopo aver completato i passaggi precedenti, l'agente di acquisizione di pacchett
 Il passaggio successivo consente di recuperare l'istanza di Network Watcher. Questa variabile viene passata al cmdlet `New-AzNetworkWatcherPacketCapture` nel passaggio 4.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ### <a name="step-2"></a>Passaggio 2

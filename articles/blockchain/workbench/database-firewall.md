@@ -1,21 +1,21 @@
 ---
 title: Configurare il firewall del database SQL di Azure Blockchain Workbench
-description: Informazioni su come configurare il firewall del database SQL di Azure Blockchain Workbench.
+description: Informazioni su come configurare il firewall del database SQL di Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b8d5ac13b6c4b327a03eb85032a13407601c1ee
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330178"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845227"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurare il firewall del database di Azure Blockchain Workbench
 
@@ -25,7 +25,7 @@ Questo articolo illustra come configurare una regola del firewall tramite il por
 
 Per connettersi al database in cui si desidera configurare una regola:
 
-1. Accedere al portale di Azure con un account che abbia autorizzazioni di **Proprietario** per le risorse di Azure Blockchain Workbench.
+1. Accedere al portale di Azure con un account con autorizzazioni **proprietario** per le risorse di Azure blockchain Workbench.
 2. Nel riquadro di spostamento a sinistra scegliere **Gruppi di risorse**.
 3. Scegliere il nome del gruppo di risorse per la distribuzione di Blockchain Workbench.
 4. Selezionare **Tipo** per ordinare l'elenco di risorse e quindi scegliere **SQL server**.

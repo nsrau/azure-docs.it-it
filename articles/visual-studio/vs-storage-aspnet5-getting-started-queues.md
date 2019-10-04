@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione code e ai servizi connessi di Visual Studi
 description: Informazioni su come iniziare a usare l'archiviazione code di Azure in un progetto ASP.NET Core in Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 04977069-5b2d-4cba-84ae-9fb2f5eb1006
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8e370c6f7c59da8522bb4fb1403b6107a9c9c41
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508474"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510992"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione code e ai servizi connessi di Visual Studio (ASP.NET Core)
 
@@ -66,7 +66,7 @@ Per accedere alle code nei progetti ASP.NET Core, includere gli elementi seguent
 
 ### <a name="create-a-queue-in-code"></a>Creare una coda in codice
 
-Per creare la coda di Azure nel codice, chiamare `CreateIfNotExistsAsync`:
+Per creare la coda di Azure nel codice, `CreateIfNotExistsAsync`chiamare:
 
 ```cs
 // Create the CloudQueue if it does not exist.

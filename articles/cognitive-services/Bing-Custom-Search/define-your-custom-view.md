@@ -1,6 +1,6 @@
 ---
 title: Configurare l'esperienza di API Ricerca personalizzata Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Descrive come creare un sito e servizi di ricerca verticale
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234816"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854093"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -25,9 +25,9 @@ Il portale consente di creare un'istanza di ricerca che specifica le sezioni Web
 
 Quando si definiscono le sezioni Web, usare il comando seguente:
 
-| Nome della sezione | DESCRIZIONE                                                                                                                                                                                                                                                                                                |
+| Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Ad esempio, se si specifica `microsoft.com`, Bing restituisce risultati anche da `support.microsoft.com` o `technet.microsoft.com`. |
+| Domain     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si `microsoft.com`specifica, Bing restituisce anche i `support.microsoft.com` risultati `technet.microsoft.com`da o. |
 | Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Quando si crea l'istanza di ricerca personalizzata, è possibile specificare le 
 
 Se si conoscono le sezioni da includere nell'istanza, aggiungerle all'elenco **Active** (Elementi attivi) dell'istanza. 
 
-Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. A tale scopo, effettuare l'operazione seguente: 
+Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. A tale scopo, effettuare le seguenti operazioni: 
 
 1. selezionare "Bing" nell'elenco a discesa nel riquadro di anteprima e inserire una query di ricerca
 
@@ -74,7 +74,7 @@ Dopo l'aggiunta di sezioni Web agli elenchi **Active** (Elementi attivi), il por
 
 ## <a name="search-for-images-and-videos"></a>Eseguire la ricerca di immagini e video
 
-È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
+È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
 
 Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bing-Image-Search/overview.md) e [Ricerca video Bing](../Bing-Video-Search/search-the-web.md), ma effettuano la ricerca nell'intero Web e non richiedono il parametro di query `customConfig`. Consultare questi set di documentazione per altre informazioni sull'uso di immagini e video. 
 
@@ -83,7 +83,7 @@ Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bi
 È possibile testare l'istanza di ricerca usando il riquadro di anteprima sul lato destro del portale per inviare le query di ricerca e visualizzare i risultati. 
 
 1. Sotto la casella di ricerca, selezionare **My Instance**(Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing**. 
-2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
+2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
 3. Immettere una query e premere INVIO o fare clic sull'icona di ricerca per visualizzare i risultati dalla configurazione corrente. È possibile modificare il tipo di ricerca da eseguire facendo clic su **Web**, **Image**(Immagine), o **Video** per ottenere i risultati corrispondenti. 
 
 <a name="adjustrank"></a>
@@ -94,7 +94,7 @@ Il portale consente di modificare la classificazione di ricerca di contenuto da 
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Blocco      | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). Bing esclude il contenuto dal sito selezionato dalla visualizzazione nei risultati di ricerca.                    |
+| Blocca      | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). Bing esclude il contenuto dal sito selezionato dalla visualizzazione nei risultati di ricerca.                    |
 | Aumento priorità      | Aumenta la priorità del contenuto del dominio o della pagina secondaria nei risultati della ricerca.                                                                                        |
 | Abbassamento di livello     | Abbassa di livello il contenuto del dominio o della pagina secondaria nei risultati della ricerca. Selezionare se si vuole abbassare di livello il contenuto dal dominio o dalla pagina secondaria a cui appartiene la pagina Web. |
 | Aggiungere in alto | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco **Pinned** (Elementi aggiunti in alto). Questo fa sì che la pagina Web compaia come miglior risultato di ricerca per una data query di ricerca.                   |
@@ -118,9 +118,9 @@ Il portale consente inoltre di aggiungere gli URL in cima ai risultati della ric
 
 È possibile aggiungere una pagina Web in cima in due modi:
 
-* Nella scheda **Pinned**  (Elementi aggiunti in alto) immettere l'URL della pagina Web da appuntare in cima e la query corrispondente.
+* Nella scheda **bloccata** immettere l'URL della pagina Web da aggiungere alla parte superiore e la query corrispondente.
 
-* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si desidera aggiungere alla query e fare clic su **Pin to top**(Aggiungere in alto). La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
+* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore**. La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
 
 ### <a name="specify-the-pins-match-condition"></a>Indicare la condizione di corrispondenza dell'elemento aggiunto in alto
 
@@ -129,7 +129,7 @@ Per impostazione predefinita, le pagine Web vengono aggiunte in cima ai risultat
 > [!NOTE]
 > tutti i confronti tra query di ricerca dell'utente e query di ricerca dell'elemento da aggiungere sono maiuscole/minuscole.
 
-| Valore | DESCRIZIONE                                                                          |
+| Value | Descrizione                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Starts with (Inizia con) | Affinché vi sia una corrispondenza per l'elemento aggiunto in alto, la stringa di query dell'utente deve iniziare con la stringa di query dell'elemento aggiunto in alto |
 | Ends with (Finisce con)   | Affinché vi sia una corrispondenza per l'elemento aggiunto in alto, la stringa di query dell'utente deve finire con la stringa di query dell'elemento aggiunto in alto.  |
@@ -144,7 +144,7 @@ Per modificare l'ordine degli elementi aggiunti, è possibile effettuare il tras
 
 Se più elementi aggiunti in alto soddisfano una condizione di corrispondenza, Ricerca personalizzata Bing userà il più alto dell'elenco.
 
-## <a name="view-statistics"></a>Visualizzare le statistiche
+## <a name="view-statistics"></a>Visualizza statistiche
 
 Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere le [pagine sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), viene aggiunta la scheda **Statistics** (Statistiche) per le istanze di produzione. La scheda Statistics (Statistiche) mostra i dettagli sul modo in cui vengono usati gli endpoint di Ricerca personalizzata, inclusi volume delle chiamate, query principali, distribuzione geografica, codici di risposta e ricerca sicura. È possibile filtrare i dettagli con i controlli forniti.
 
@@ -159,5 +159,5 @@ Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere l
 
 - [Chiamare la ricerca personalizzata](./search-your-custom-view.md)
 - [Configurare l'esperienza dell'interfaccia utente ospitata](./hosted-ui.md)
-- [Usare indicatori di effetto per evidenziare il testo](./hit-highlighting.md)
+- [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
 - [Sfogliare pagine Web](./page-webpages.md)

@@ -1,21 +1,21 @@
 ---
 title: Report di Collaborative Translation Framework (CTF) - API Traduzione testuale
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: swmachan
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513703"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595929"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -23,8 +23,6 @@ ms.locfileid: "60513703"
 > Questo metodo è deprecato. Non è disponibile nella versione 3.0 dell'API Traduzione testuale.
 > 
 > Collaborative Translations Framework (CTF), precedentemente disponibile per la versione 2.0 dell'API Traduzione testuale, è stato deprecato a partire dal 1 febbraio 2018. Le funzioni AddTranslation e AddTranslationArray consentono agli utenti di attivare le correzioni tramite Collaborative Translation Framework. Dal 31 gennaio 2018, queste due funzioni non accettano più l'invio di nuove frasi e gli utenti ricevono un messaggio di errore. Queste funzioni sono state ritirate e non verranno sostituite.
-> 
-> Nell'API Translator Hub è disponibile una funzionalità simile, che consente di compilare un sistema di traduzione con terminologia e stile personalizzati e che si può richiamare usando l'ID categoria nell'API Traduzione testuale. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). API Translator Hub: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 L'API di creazione report di Collaborative Translation Framework (CTF) restituisce statistiche e il contenuto effettivo dell'archivio CTF. Questa API è diversa dal metodo GetTranslations() in quanto:
 * Restituisce il contenuto tradotto e il conteggio totale solo per lo specifico account (appId o account di Azure Marketplace).
@@ -74,19 +72,19 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | from | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
-| to | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| in | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | user | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
-| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take | **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 100.|
 
 > [!NOTE]
@@ -96,18 +94,18 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 
 Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserTranslationCount presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | Da | Lingua di origine|
-| Rating| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+| Classificazione| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 | A| Lingua di destinazione|
-| Uri| URI applicato nella chiamata al metodo AddTranslation()|
+| URI| URI applicato nella chiamata al metodo AddTranslation()|
 | Utente| Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | Message | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -145,19 +143,19 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | from| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
-| to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| in| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | user| **Facoltativo. Stringa usata per filtrare i risultati in base all'iniziatore dell'invio**|
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
-| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take| **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 50.|
 
 > [!NOTE]
@@ -172,15 +170,15 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | Da| Lingua di origine|
 | OriginalText| Testo nella lingua di origine usato durante l'invio della richiesta|
-|Rating |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+|Classificazione |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 |A|    Lingua di destinazione|
 |TranslatedText|    Traduzione così come inviata nella chiamata al metodo AddTranslation()|
-|Uri|   URI applicato nella chiamata al metodo AddTranslation()|
+|URI|   URI applicato nella chiamata al metodo AddTranslation()|
 |Utente   |Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | Message | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|

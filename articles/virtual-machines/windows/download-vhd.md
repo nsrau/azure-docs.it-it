@@ -4,23 +4,22 @@ description: Scaricare un disco rigido virtuale Windows tramite il portale di Az
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: c1c09382102045dd248b6771d8d0ea1ef090b6eb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329371"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079611"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -52,11 +51,11 @@ Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di
 Per scaricare il file VHD, è necessario generare un URL di [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando viene generato, all'URL viene assegnata una scadenza.
 
 1.  Nel menu del pannello della macchina virtuale fare clic su **Dischi**.
-2.  Selezionare il disco del sistema operativo per la VM e quindi fare clic su **Esporta**.
+2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi fare clic su **esportazione disco**.
 3.  Impostare la scadenza dell'URL su *36000*.
 4.  Fare clic su **Genera URL**.
 
-    ![Generare l'URL](./media/download-vhd/export-generate.png)
+    ![Generare l'URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > La scadenza viene aumentata rispetto all'impostazione predefinita per fornire un tempo sufficiente a scaricare il file VHD di grandi dimensioni di un sistema operativo Windows Server. A seconda della connessione, il download di un file VHD che contiene il sistema operativo Windows Server può richiedere alcune ore. Se si scarica un disco rigido virtuale per un disco dati, il tempo predefinito è sufficiente. 

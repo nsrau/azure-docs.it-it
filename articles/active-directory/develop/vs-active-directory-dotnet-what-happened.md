@@ -1,11 +1,10 @@
 ---
 title: Modifiche apportate a un progetto MVC quando ci si connette ad Azure AD
 description: Viene descritto cosa succede al progetto MVC quando ci si connette ad Azure AD mediante i servizi relazionati di Visual Studio.
-services: active-directory
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c4328ea6145d32616f1784d94976dab29216fbc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249817"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852014"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
@@ -145,7 +144,7 @@ Modifiche aggiuntive se è stata selezionata l'opzione **Lettura dati directory*
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup di file (Visual Studio 2015)
 
-Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei file modificati e rimossi. Tutti i file interessati vengono salvati nella cartella `Backup/AzureAD`. Visual Studio 2017 non crea backup.
+Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei file modificati e rimossi. Tutti i file interessati vengono salvati nella cartella `Backup/AzureAD`. Visual Studio 2017 e versioni successive non crea backup.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

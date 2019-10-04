@@ -3,9 +3,9 @@ title: Espressioni di routing e tag
 description: Questo argomento illustra le espressioni di routing e tag per gli hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: jowargo
-ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/23/2019
+ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828163"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213047"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
 

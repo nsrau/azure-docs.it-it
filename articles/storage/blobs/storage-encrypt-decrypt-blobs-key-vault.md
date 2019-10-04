@@ -5,15 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/14/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330330"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003427"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Azure Key Vault
 
@@ -22,7 +23,7 @@ Questa esercitazione illustra come usare la crittografia di archiviazione lato c
 
 **Tempo previsto per il completamento**: 20 minuti
 
-Per informazioni generali sull'Insieme di credenziali delle chiavi di Azure, vedere [Cos'è l'Insieme di credenziali delle chiavi di Azure?](../../key-vault/key-vault-whatis.md)
+Per informazioni generali sull'Insieme di credenziali delle chiavi di Azure, vedere [Cos'è l'Insieme di credenziali delle chiavi di Azure?](../../key-vault/key-vault-overview.md)
 
 Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere l'articolo relativo alla [crittografia lato client e all'Insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -47,7 +48,7 @@ Ecco una breve descrizione del funzionamento della crittografia lato client:
 
 ## <a name="set-up-your-azure-key-vault"></a>Impostare l'insieme di credenziali delle chiavi di Azure
 
-Per procedere con questa esercitazione, è necessario effettuare le operazioni seguenti, descritte nell'esercitazione [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md):
+Per procedere con questa esercitazione, è necessario eseguire i passaggi seguenti, descritti nella Guida introduttiva all'esercitazione [: Impostare e recuperare un segreto da Azure Key Vault usando un'app](../../key-vault/quick-create-net.md)Web .NET:
 
 * Creare un insieme di credenziali delle chiavi.
 * Aggiungere una chiave o un segreto all'insieme di credenziali delle chiavi.
@@ -65,7 +66,9 @@ In Visual Studio creare una nuova applicazione console.
 Aggiungere i pacchetti NuGet necessari nella console Gestione pacchetti.
 
 ```powershell
-Install-Package WindowsAzure.Storage
+Install-Package Microsoft.Azure.ConfigurationManager
+Install-Package Microsoft.Azure.Storage.Common
+Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
@@ -89,11 +92,12 @@ Aggiungere le direttive `using` seguenti e assicurarsi di aggiungere al progetto
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Configuration;
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 using Microsoft.Azure.KeyVault;
-using System.Threading;        
+using System.Threading;
 using System.IO;
 ```
 
@@ -106,8 +110,8 @@ private async static Task<string> GetToken(string authority, string resource, st
 {
     var authContext = new AuthenticationContext(authority);
     ClientCredential clientCred = new ClientCredential(
-        ConfigurationManager.AppSettings["clientId"],
-        ConfigurationManager.AppSettings["clientSecret"]);
+        CloudConfigurationManager.GetSetting("clientId"),
+        CloudConfigurationManager.GetSetting("clientSecret"));
     AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
     if (result == null)
@@ -119,16 +123,16 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Accedere all'archiviazione e all'insieme di credenziali delle chiavi nel programma
 
-Nella funzione Main aggiungere il codice seguente.
+Nel metodo Main () aggiungere il codice seguente.
 
 ```csharp
 // This is standard code to interact with Blob storage.
 StorageCredentials creds = new StorageCredentials(
-    ConfigurationManager.AppSettings["accountName"],
-       ConfigurationManager.AppSettings["accountKey"]);
+    CloudConfigurationManager.GetSetting("accountName"),
+    CloudConfigurationManager.GetSetting("accountKey");
 CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
 CloudBlobClient client = account.CreateCloudBlobClient();
-CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
 contain.CreateIfNotExists();
 
 // The Resolver object is used to interact with Key Vault for Azure Storage.
@@ -154,8 +158,9 @@ Aggiungere il codice seguente per crittografare un BLOB e caricarlo nell'account
 ```csharp
 // Retrieve the key that you created previously.
 // The IKey that is returned here is an RsaKey.
-// Remember that we used the names contosokeyvault and testrsakey1.
-var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+var rsa = cloudResolver.ResolveKeyAsync(
+            "https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", 
+            CancellationToken.None).GetAwaiter().GetResult();
 
 // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
@@ -165,14 +170,12 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
 // Upload using the UploadFromStream method.
-using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 > [!NOTE]
 > Se si osserva il costruttore BlobEncryptionPolicy, è possibile notare che è in grado di accettare una chiave e/o un resolver. Tenere presente che al momento non è possibile usare un resolver per la crittografia perché non supporta attualmente una chiave predefinita.
-> 
-> 
 
 ## <a name="decrypt-blob-and-download"></a>Decrittografare un BLOB ed eseguire il download
 
@@ -194,8 +197,6 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 > [!NOTE]
 > Esistono un paio di altri tipi di resolver per semplificare la gestione delle chiavi, ovvero: AggregateKeyResolver e CachingKeyResolver.
-> 
-> 
 
 ## <a name="use-key-vault-secrets"></a>Uso dei segreti dell'insieme di credenziali delle chiavi
 

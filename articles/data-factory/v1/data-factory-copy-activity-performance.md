@@ -14,15 +14,15 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60488221"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-copy-activity-performance.md)
 > * [Versione 2 (corrente)](../copy-activity-performance.md)
 
@@ -209,8 +209,8 @@ Configurare l'impostazione **enableStaging** nell'attività di copia per specifi
 | Proprietà | Descrizione | Valore predefinito | Obbligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
-| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/>  L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
-| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/>  Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
+| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
+| **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
 | **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
 
 Di seguito è riportata una definizione di esempio di attività di copia con le proprietà descritte nella tabella precedente:

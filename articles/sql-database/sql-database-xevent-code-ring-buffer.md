@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331027"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566153"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
 
@@ -30,7 +29,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 1. Crea una tabella con i dati a scopo dimostrativo.
 2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql_statement_starting**.
    
-   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
+   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'** .
    * Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring_buffer**.
 3. Avvia la sessione dell'evento.
 4. Esegue un paio di semplici istruzioni SQL UPDATE.
@@ -55,7 +54,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. Ad esempio: 
+Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. Ad esempio:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -223,7 +222,7 @@ Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazio
 
 Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
-L'output è illustrato nella sezione seguente. Sembra lungo, ma è solo due  **\<evento >** elementi.
+L'output è illustrato nella sezione seguente. Sembra lungo, ma si tratta solo di due  **\<elementi > Eventi** .
 
 &nbsp;
 

@@ -2,24 +2,17 @@
 title: Gestione dei lead per il marketplace cloud | Azure Marketplace e AppSource
 description: Panoramica dei vari argomenti relativi alla pubblicazione di offerte ed elementi tecnici in Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nunoc
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
-ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: pabutler
+ms.openlocfilehash: a89921d4b5ec25bc0c924646d3bd41aecf3e8d9c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735542"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870932"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestione dei lead per il marketplace cloud
 
@@ -138,7 +131,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Nome dell'offerta > 
 
 oid = 00Do0000000ZHog 
 

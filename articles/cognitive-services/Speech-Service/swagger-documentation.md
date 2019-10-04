@@ -1,5 +1,5 @@
 ---
-title: Documentazione di Swagger - Servizi Voce
+title: Documentazione di spavalderia-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La documentazione di Swagger consente di generare automaticamente gli SDK per diversi linguaggi di programmazione. Tutte le operazioni nel servizio sono supportate da Swagger
 services: cognitive-services
@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: HT
+ms.openlocfilehash: 232435a424d2461bce4598356a986473cb1d3644
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580988"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552579"
 ---
 # <a name="swagger-documentation"></a>Documentazione di Swagger
 
-I servizi Voce offrono una specifica di Swagger per interagire con alcune API REST usate per importare dati, creare modelli, testare l'accuratezza dei modelli, creare endpoint personalizzati, inserire in coda trascrizioni batch e gestire sottoscrizioni. La maggior parte delle operazioni disponibili tramite il Portale del Servizio riconoscimento vocale personalizzato possono essere completate a livello di codice usando queste API. 
+I servizi Voce offrono una specifica di Swagger per interagire con alcune API REST usate per importare dati, creare modelli, testare l'accuratezza dei modelli, creare endpoint personalizzati, inserire in coda trascrizioni batch e gestire sottoscrizioni. La maggior parte delle operazioni disponibili tramite il Portale del Servizio riconoscimento vocale personalizzato possono essere completate a livello di codice usando queste API.
 
 > [!NOTE]
 > Sia le operazioni di riconoscimento vocale che quelle di sintesi vocale sono supportate e disponibili come API REST, documentate nella specifica di Swagger.

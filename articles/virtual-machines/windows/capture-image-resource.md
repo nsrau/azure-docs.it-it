@@ -4,35 +4,34 @@ description: Creare un'immagine gestita di un disco rigido virtuale o una macchi
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787945"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273872"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
 È possibile creare una risorsa di tipo immagine gestita da una macchina virtuale (VM) generalizzata che è stata archiviata come disco gestito o come disco non gestito in un account di archiviazione. L'immagine è quindi utilizzabile per creare più macchine virtuali. Per informazioni sulla fatturazione delle immagini gestite, vedere [Prezzi per Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
 
 Sysprep rimuove tutte le informazioni sull'account personale e sulla sicurezza e quindi prepara la macchina da usare come immagine. Per informazioni su Sysprep, vedere [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
 
-Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per altre informazioni, vedere [Sysprep support for server roles](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) (Supporto di Sysprep per i ruoli server).
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [supporto Sysprep per ruoli server](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [scenari non supportati](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
 > Dopo aver eseguito Sysprep in una VM, quest'ultima viene considerata *generalizzata* e non può essere riavviata. Il processo di generalizzazione di una macchina virtuale è irreversibile. Per mantenere in funzionamento la VM originale, è consigliabile creare una [copia della VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalizzarla. 
@@ -51,7 +50,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
    
 4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
    
-5. Selezionare **OK**.
+5. Scegliere **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -88,7 +87,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 La creazione di un'immagine direttamente nella VM garantisce che l'immagine includa tutti i dischi associati alla VM, compresi il disco del sistema operativo e gli eventuali dischi dati. Questo esempio illustra come creare un'immagine gestita da una VM che usa dischi gestiti.
 
-Prima di iniziare, assicurarsi di avere la versione più recente del modulo Azure PowerShell. Per trovare la versione, eseguire `Get-Module -ListAvailable Az` in PowerShell. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Installare Azure PowerShell in Windows con PowerShellGet). Se si esegue PowerShell in locale, eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Prima di iniziare, verificare di avere la versione più recente del modulo Azure PowerShell. Per trovare la versione, eseguire `Get-Module -ListAvailable Az` in PowerShell. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Installare Azure PowerShell in Windows con PowerShellGet). Se si esegue PowerShell in locale, eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 
 > [!NOTE]
@@ -206,9 +205,9 @@ Per creare un'immagine gestita da uno snapshot di una VM generalizzata, seguire 
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Creare un'immagine da un disco rigido virtuale in un account di archiviazione
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Creare un'immagine da una macchina virtuale che usa un account di archiviazione
 
-Creare un'immagine gestita da un disco rigido virtuale del sistema operativo generalizzato in un account di archiviazione. È necessario l'URI del disco rigido virtuale nell'account di archiviazione, con il formato seguente: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
+Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.Core.Windows.NET/*vhdcontainer* /  *vhdfilename. vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
 
 
 1.  Creare alcune variabili.

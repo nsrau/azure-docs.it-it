@@ -1,35 +1,32 @@
 ---
-title: Il Centro sicurezza di Azure per la Guida alle indagini sui dispositivi IoT Preview | Microsoft Docs
-description: Questa Guida alle procedure spiega come usare il Centro sicurezza di Azure per IoT per analizzare un dispositivo IoT sospetto usando Log Analitica.
+title: Guida alle indagini sui dispositivi per il Centro sicurezza di Azure | Microsoft Docs
+description: Questa guida illustra come usare il Centro sicurezza di Azure per l'analisi di un dispositivo per le cose sospette usando Log Analytics.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007883"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596245"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
-> [!IMPORTANT]
-> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il Centro sicurezza di Azure per gli avvisi del servizio Internet fornisce indicazioni chiare quando si sospetta che i dispositivi Internet siano coinvolti in attività sospette o quando sono presenti indicazioni per la compromissione di un dispositivo. 
 
-Il Centro sicurezza di Azure (ASC) per l'evidenza e gli avvisi del servizio IoT offrono indiscutibilmente quando i dispositivi IoT sono sospetta di coinvolgimento in attività sospette o quando le indicazioni presenti che un dispositivo sia compromesso. 
-
-In questa Guida, usare i suggerimenti di indagine forniti per aiutare a determinare potenziali rischi per l'organizzazione, decidere come correggere e scoprire i sistemi migliori per impedire attacchi simili in futuro.  
+In questa guida, usare i suggerimenti per l'analisi forniti per determinare i potenziali rischi per l'organizzazione, decidere come correggere e individuare i modi migliori per evitare attacchi simili in futuro.  
 
 > [!div class="checklist"]
 > * Trovare i dati del dispositivo
@@ -38,44 +35,44 @@ In questa Guida, usare i suggerimenti di indagine forniti per aiutare a determin
 
 ## <a name="how-can-i-access-my-data"></a>Come è possibile accedere ai dati?
 
-Per impostazione predefinita, il Centro sicurezza di Azure per IoT archivia gli avvisi di sicurezza e le raccomandazioni nell'area di lavoro Log Analytics. È anche possibile scegliere di archiviare i dati di sicurezza non elaborati.
+Per impostazione predefinita, il Centro sicurezza di Azure per le cose archivia gli avvisi di sicurezza e le raccomandazioni nell'area di lavoro Log Analytics. È anche possibile scegliere di archiviare i dati di sicurezza non elaborati.
 
-Per trovare l'area di lavoro Log Analytics per l'archiviazione dei dati:
+Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 
 1. Aprire l'hub IoT. 
-1. Sotto **sicurezza**, fare clic su **Panoramica**, quindi selezionare **impostazioni**.
+1. In **sicurezza**fare clic su **Panoramica**e quindi selezionare **Impostazioni**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics. 
 1. Fare clic su **Save**. 
 
 In seguito alla configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro Log Analytics:
 
-1. Selezionare e fare clic su un avviso del Centro sicurezza di Azure per IoT nell'hub IoT. 
+1. Selezionare e fare clic su un centro sicurezza di Azure per gli avvisi relativi all'intero hub. 
 1. Fare clic su **Further investigation** (Ulteriori indagini). 
 1. Selezionare **To see which devices have this alert click here and view the DeviceId column** (Per vedere quali dispositivi hanno questo avviso fare clic qui e visualizzare la colonna DeviceId).
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Procedure di indagine per dispositivi IoT sospetti
 
-Per accedere a informazioni dettagliate e dati non elaborati sui dispositivi IoT, visitare l'area di lavoro di Log Analitica [per accedere ai dati](#how-can-i-access-my-data).
+Per visualizzare informazioni dettagliate e dati non elaborati sui dispositivi Internet, passare all'area di lavoro Log Analytics [per accedere ai dati](#how-can-i-access-my-data).
 
-Controllare e analizzare i dati del dispositivo per i dettagli seguenti e le attività usando le query kql seguenti.
+Vedere le query KQL di esempio seguenti per iniziare a esaminare gli avvisi e le attività nel dispositivo.
 
 ### <a name="related-alerts"></a>Avvisi correlati
 
 Per sapere se gli altri avvisi sono stati attivati intorno alla stessa ora, usare la query kql seguente:
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
 ### <a name="users-with-access"></a>Utenti con accesso
 
 Per scoprire quali utenti hanno accesso a questo dispositivo, usare la query kql seguente: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -87,16 +84,16 @@ Per scoprire quali utenti hanno accesso a questo dispositivo, usare la query kql
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
+ ```
 Usare questi dati per scoprire: 
-  1. Quali utenti hanno accesso al dispositivo
-  2. Sono gli utenti con accesso con i livelli di autorizzazione come previsto? 
+- Quali utenti hanno accesso al dispositivo
+- Gli utenti con accesso hanno i livelli di autorizzazione previsti?
 
-### <a name="open-ports"></a>Aprire le porte
+### <a name="open-ports"></a>Porte aperte
 
-Per scoprire quali porte nel dispositivo sono attualmente in uso o sono state usate, utilizzare la seguente query kql: 
+Per individuare le porte del dispositivo attualmente in uso o usate, usare la query KQL seguente: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -112,18 +109,18 @@ Per scoprire quali porte nel dispositivo sono attualmente in uso o sono state us
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. Quali socket di ascolto sono attualmente attivi sul dispositivo
-  2. Deve essere consentito il socket in attesa che sono attualmente attivi?
-  3. Sono presenti eventuali indirizzi remoti sospetti connessi al dispositivo?
+Usare questi dati per scoprire:
+- Quali socket di ascolto sono attualmente attivi sul dispositivo
+- Devono essere consentiti i socket in ascolto attualmente attivi?
+- Sono presenti indirizzi remoti sospetti connessi al dispositivo?
 
 ### <a name="user-logins"></a>Account di accesso utente
 
-Per scoprire gli utenti connessi al dispositivo usano kql nella query seguente: 
+Per trovare gli utenti che hanno eseguito l'accesso al dispositivo, usare la query KQL seguente: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -143,18 +140,18 @@ Per scoprire gli utenti connessi al dispositivo usano kql nella query seguente:
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. Quali utenti hanno eseguito l'accesso al dispositivo
-  2. Sono gli utenti che è connesso, dovrà accedere?
-  3. Se gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti
+Usare i risultati della query per scoprire:
+- Quali utenti hanno eseguito l'accesso al dispositivo
+- Gli utenti che hanno eseguito l'accesso dovrebbero accedere?
+- Se gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti
   
-### <a name="process-list"></a>Elenco dei processi
+### <a name="process-list"></a>Elenco processi
 
-Per scoprire se l'elenco dei processi è come previsto, usare la query kql seguente: 
+Per sapere se l'elenco dei processi è quello previsto, usare la query KQL seguente: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -179,13 +176,13 @@ Per scoprire se l'elenco dei processi è come previsto, usare la query kql segue
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+Usare i risultati della query per scoprire:
 
-  1. Se sono stati eseguiti processi sospetti sul dispositivo
-  2. Se i processi sono stati eseguiti dagli utenti appropriati
-  3. Se le esecuzioni della riga di comando contenevano gli argomenti corretti e previsti
+- Se sono stati eseguiti processi sospetti sul dispositivo
+- Se i processi sono stati eseguiti dagli utenti appropriati
+- Se le esecuzioni della riga di comando contenevano gli argomenti corretti e previsti
 
 ## <a name="next-steps"></a>Passaggi successivi
 

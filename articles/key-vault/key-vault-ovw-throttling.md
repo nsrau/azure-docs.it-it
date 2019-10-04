@@ -1,25 +1,22 @@
 ---
-title: Guida alla limitazione delle richieste per Azure Key Vault
+title: Indicazioni sulla limitazione del servizio Azure Key Vault
 description: La limitazione delle richieste di Key Vault consente di limitare il numero di chiamate simultanee per evitare l'uso eccessivo delle risorse.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
-ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304932"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883041"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
+# <a name="azure-key-vault-throttling-guidance"></a>Indicazioni sulla limitazione del servizio Azure Key Vault
 
 La limitazione delle richieste è un processo che consente di limitare il numero di chiamate simultanee al servizio di Azure per prevenire l'uso eccessivo delle risorse. Azure Key Vault è progettato per gestire un volume di richieste elevato. In caso di un numero eccessivamente elevato di richieste, la limitazione delle richieste del client aiuta a mantenere le prestazioni ottimali e l'affidabilità del servizio di Azure Key Vault.
 
@@ -34,7 +31,7 @@ Nel caso l'utente abbia delle esigenze aziendali per cui sono necessarie delle l
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Come limitare le richieste per l'app in risposta ai limiti del servizio
 
-Di seguito sono riportati **procedure consigliate** è necessario implementare quando il servizio viene applicata una limitazione:
+Di seguito sono riportate le **procedure** consigliate da implementare quando il servizio è limitato:
 - Ridurre il numero di operazioni per ogni richiesta.
 - Ridurre la frequenza delle richieste.
 - Evitare tentativi immediati. 
@@ -115,7 +112,7 @@ Di seguito è riportato il codice che implementa il backoff esponenziale.
 ```
 
 
-Usando il codice in un client C\# dell'applicazione è molto semplice. L'esempio seguente mostra come fare, usando la classe HttpClient.
+L'uso di questo codice in un'\# applicazione client C è semplice. L'esempio seguente mostra come fare, usando la classe HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
@@ -148,7 +145,7 @@ Quando si genera il codice di errore HTTP 429, iniziare a limitare le richieste 
 
 A questo punto, il codice di risposta HTTP 429 dovrebbe non essere più visualizzato.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Per un approfondimento sulla limitazione delle richieste nel cloud di Microsoft, vedere [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) (Modello di limitazione delle richieste).
 

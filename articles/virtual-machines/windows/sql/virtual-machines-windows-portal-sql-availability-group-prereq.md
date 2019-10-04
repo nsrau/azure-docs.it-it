@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 62232283fb0b2f499601615702fef3292bb88317
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995164"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100725"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
@@ -81,7 +80,7 @@ Per creare la rete virtuale:
 
     La tabella seguente descrive le impostazioni per la rete virtuale:
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Spazio degli indirizzi** |10.33.0.0/24 |
@@ -89,7 +88,7 @@ Per creare la rete virtuale:
    | **Intervallo di indirizzi subnet** |10.33.0.0/29 |
    | **Sottoscrizione** |Specificare la sottoscrizione da usare. Se è disponibile una sola sottoscrizione, il valore di **Sottoscrizione** non è impostato. |
    | **Gruppo di risorse** |Scegliere **Utilizza esistente** e selezionare il nome del gruppo di risorse. |
-   | **Posizione** |Specificare la località di Azure. |
+   | **Location** |Specificare la località di Azure. |
 
    Lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, sul portale verrà suggerito uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
@@ -121,7 +120,7 @@ La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
@@ -131,7 +130,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 | **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.1.0/24 |
 | **Sottoscrizione** |Specificare la sottoscrizione da usare. |
 | **Gruppo di risorse** |**SQL-HA-RG** |
-| **Posizione** |Specificare la stessa località scelta per il gruppo di risorse. |
+| **Location** |Specificare la stessa località scelta per il gruppo di risorse. |
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
@@ -174,7 +173,7 @@ Ripetere i passaggi precedenti per creare due macchine virtuali. Assegnare un no
 
 La tabella seguente descrive le impostazioni per queste due macchine:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |Primo controller di dominio: *ad-primary-dc*.</br>Secondo controller di dominio: *ad-secondary-dc*. |
 | **Tipo di disco VM** |SSD |
@@ -182,7 +181,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Password** |Contoso!0000 |
 | **Sottoscrizione** |*Sottoscrizione in uso* |
 | **Gruppo di risorse** |Nome gruppo di risorse |
-| **Posizione** |*Località corrente* |
+| **Location** |*Località corrente* |
 | **Dimensione** |DS1_V2 |
 | **Archiviazione** | **Usa dischi gestiti** - **Sì** |
 | **Rete virtuale** |autoHAVNET |
@@ -190,7 +189,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Indirizzo IP pubblico** |*Lo stesso nome della VM* |
 | **Gruppo di sicurezza di rete** |*Lo stesso nome della VM* |
 | **Set di disponibilità** |adavailabilityset </br>**Domini di errore**:2 </br>**Domini di aggiornamento**:2|
-| **Diagnostica** |Attivato |
+| **Diagnostica** |Enabled |
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]
@@ -206,7 +205,7 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 1. Nel portale aprire il gruppo di risorse **SQL-HA-RG** e selezionare la macchina virtuale **ad-primary-dc**. In **ad-primary-dc** fare clic su **Connetti** per aprire un file RDP per l'accesso desktop remoto.
 
     ![Connettersi a una macchina virtuale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Accedere con l'account amministratore (**\DomainAdmin**) e la password (**Contoso!0000**) configurati.
+2. Accedere con l'account amministratore ( **\DomainAdmin**) e la password (**Contoso!0000**) configurati.
 3. Per impostazione predefinita, verrà visualizzato il dashboard **Server Manager** .
 4. Fare clic sul collegamento **Aggiungi ruoli e funzionalità** sul dashboard.
 
@@ -315,7 +314,7 @@ Nei passaggi successivi vengono configurati gli account Active Directory (AD). L
 | |Account di installazione<br/> |sqlserver-0 <br/>Account del servizio SQL Agent e SQL Server |sqlserver-1<br/>Account del servizio SQL Agent e SQL Server
 | --- | --- | --- | ---
 |**Nome** |Installa |SQLSvc1 | SQLSvc2
-|**Utente SamAccountName** |Installa |SQLSvc1 | SQLSvc2
+|**Utente SamAccountName** |Installazione |SQLSvc1 | SQLSvc2
 
 Usare i passaggi seguenti per creare ogni account.
 
@@ -368,7 +367,7 @@ Creare successivamente tre VM, tra cui due VM di SQL Server e una VM per un nodo
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Selezionare l'elemento della raccolta appropriato |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |
-|  **Elementi di base** |**Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |
+| **Elementi di base** |**Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |
 | Configurazione della macchina virtuale - **Dimensioni** |**DIMENSIONI** = DS1\_V2 (1 vCPU, 3,5 GB) |**DIMENSIONI** = DS2\_V2 (2 vCPU, 7 GB)</br>Le dimensioni devono supportare l'archiviazione su unità SSD (Supporto disco Premium )) |**DIMENSIONI** = DS2\_V2 (2 vCPU, 7 GB) |
 | Configurazione della macchina virtuale - **Impostazioni** |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |**Archiviazione**: Usare dischi gestiti.<br/>**Rete virtuale** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Indirizzo IP pubblico** generato automaticamente.<br/>**Gruppo di sicurezza di rete** = nessuno<br/>**Monitoraggio e diagnostica** = abilitato<br/>**Account di archiviazione di diagnostica**: usare un account di archiviazione generato automaticamente<br/>**Set di disponibilità** = sqlAvailabilitySet<br/> |
 | Configurazione della macchina virtuale - **Impostazioni SQL Server** |Non applicabile |**Connettività SQL** = privata (nella rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = disabilitata<br/>**Configurazione dell'archiviazione** = generale<br/>**Applicazione automatica delle patch** = domenica alle 2:00<br/>**Backup automatizzato** = disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata |**Connettività SQL** = privata (nella rete virtuale)<br/>**Porta** = 1433<br/>**Autenticazione SQL** = disabilitata<br/>**Configurazione dell'archiviazione** = generale<br/>**Applicazione automatica delle patch** = domenica alle 2:00<br/>**Backup automatizzato** = disabilitato</br>**Integrazione dell'insieme di credenziali delle chiavi di Azure** = Disabilitata |
@@ -464,7 +463,7 @@ Per aggiungere le funzionalità del cluster di failover, seguire questa procedur
 Ripetere i passaggi nell'altra VM di SQL Server.
 
   >[!NOTE]
-  > Questo passaggio, insieme a effettivamente l'aggiunta di macchine virtuali di SQL Server al cluster di failover, è ora possibile automatizzare con [macchina virtuale di SQL Azure CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Questo passaggio, insieme alla possibilità di eseguire il join delle VM SQL Server al cluster di failover, ora può essere automatizzato con l'interfaccia della riga di comando della [VM SQL di Azure](virtual-machines-windows-sql-availability-group-cli.md) e i [modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurare il firewall in ogni macchina virtuale di SQL Server

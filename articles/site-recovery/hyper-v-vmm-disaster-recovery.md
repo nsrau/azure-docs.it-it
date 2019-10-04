@@ -1,20 +1,19 @@
 ---
-title: Configurazione del ripristino di emergenza per macchine virtuali Hyper-V sui siti locali con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza per macchine virtuali Hyper-V tra siti locali con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza per macchine virtuali Hyper-V sui siti locali con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794516"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813752"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
 
@@ -123,7 +122,7 @@ Selezionare il server VMM di destinazione e il cloud:
 
 Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo stesso sistema operativo. Se gli host eseguono versioni diverse di Windows Server, saranno necessari più criteri di replica.
 
-1. Per creare nuovi criteri di replica, fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** > **+Crea e associa**.
+1. Per creare nuovi criteri di replica, fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** >  **+Crea e associa**.
 2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il tipo di origine e di destinazione deve essere **Hyper-V**.
 3. In **Versione host Hyper-V** selezionare il sistema operativo in esecuzione nell'host.
 4. In **Tipo di autenticazione** e **Porta di autenticazione** specificare come viene autenticato il traffico tra il server host Hyper-V primario e quello di ripristino.

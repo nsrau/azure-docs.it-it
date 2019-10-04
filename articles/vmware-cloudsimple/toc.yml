@@ -1,0 +1,176 @@
+- name: Soluzione VMware di CloudSimple
+  href: /azure/vmware-cloudsimple
+  items:
+    - name: Panoramica
+      items:
+        - name: Informazioni sulla soluzione VMware di CloudSimple
+          href: cloudsimple-vmware-solutions-overview.md
+        - name: Concetti chiave per l'amministrazione
+          href: key-concepts.md
+    - name: Guida introduttiva
+      expanded: true
+      items:
+        - name: Pianificazione della rete
+          href: cloudsimple-network-checklist.md
+        - name: Inizializzare ed effettuare il provisioning di capacità
+          href: quickstart-create-cloudsimple-service.md
+        - name: Configurare l'ambiente cloud privato
+          href: quickstart-create-private-cloud.md
+        - name: Creare VM di VMware nel cloud privato
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
+        - name: Utilizzare VM di VMware in Azure
+          href: quickstart-create-vmware-virtual-machine.md
+    - name: Concetti
+      items:
+        - name: Service
+          href: cloudsimple-service.md
+        - name: Nodi
+          href: cloudsimple-node.md
+        - name: Cloud privato
+          href: cloudsimple-private-cloud.md
+        - name: Macchine virtuali
+          href: cloudsimple-virtual-machines.md
+        - name: VLAN e subnet
+          href: cloudsimple-vlans-subnets.md
+        - name: Tabelle del firewall
+          href: cloudsimple-firewall-tables.md
+        - name: Gateway VPN
+          href: cloudsimple-vpn-gateways.md
+        - name: IP pubblico
+          href: cloudsimple-public-ip-address.md
+        - name: Connessione di rete di Azure
+          href: cloudsimple-azure-network-connection.md
+        - name: Gestione account
+          href: cloudsimple-account.md
+        - name: Gestione attività
+          href: cloudsimple-activity.md
+        - name: VMware nel cloud privato
+          href: vmware-components.md
+        - name: Panoramica della sicurezza
+          href: cloudsimple-security.md
+        - name: Quota di nodi
+          href: node-quota.md
+        - name: Manutenzione e aggiornamenti
+          href: cloudsimple-maintenance-updates.md
+        - name: Domande frequenti
+          href: cloudsimple-faq.md
+    - name: Esercitazioni
+      items:
+        - name: Creare il servizio CloudSimple
+          href: create-cloudsimple-service.md
+        - name: Accedere al portale di CloudSimple
+          href: access-cloudsimple-portal.md
+        - name: Configurazione del firewall locale
+          href: on-premises-firewall-configuration.md
+        - name: Accedere al client vSphere
+          href: vcenter-access.md
+        - name: Gestire nodi
+          items:
+            - name: Effettuare il provisioning dei nodi
+              href: create-nodes.md
+            - name: Eliminare nodi
+              href: delete-nodes.md
+        - name: Gestire le risorse del cloud privato
+          items:
+            - name: Creare un cloud privato
+              href: create-private-cloud.md
+            - name: Gestire i cloud privati
+              href: manage-private-cloud.md
+            - name: Espandere un cloud privato
+              href: expand-private-cloud.md
+            - name: Ridurre un cloud privato
+              href: shrink-private-cloud.md
+            - name: Eseguire il mapping della sottoscrizione di Azure
+              href: azure-subscription-mapping.md
+            - name: Riassegnare i privilegi
+              href: escalate-private-cloud-privileges.md
+            - name: Eliminare un cloud privato
+              href: delete-private-cloud.md
+        - name: Monitorare l'attività di CloudSimple
+          href: monitor-activity.md
+        - name: Configurare le funzionalità di rete del cloud privato
+          items:
+            - name: Creare e gestire VLAN e subnet
+              href: create-vlan-subnet.md
+            - name: Configurare tabelle e regole del firewall
+              href: firewall.md
+            - name: Allocare indirizzi IP pubblici
+              href: public-ips.md
+            - name: Configurare connessioni VPN
+              href: vpn-gateway.md
+            - name: Connessione di rete virtuale a CloudSimple
+              href: virtual-network-connection.md
+        - name: Gestire gli account del portale di CloudSimple
+          items:
+            - name: Visualizzare il riepilogo degli account
+              href: account.md
+            - name: Visualizzare l'elenco di utenti
+              href: users.md
+        - name: Configurare macchine virtuali CloudSimple
+          items:
+            - name: Creare una macchina virtuale CloudSimple in Azure
+              href: azure-create-vm.md
+            - name: Gestire macchine virtuali CloudSimple in Azure
+              href: azure-manage-vm.md
+    - name: Guide alle procedure
+      items:
+        - name: Proteggere l'ambiente
+          href: private-cloud-secure.md
+        - name: Gestione del cloud privato
+          items:
+            - name: Riassegnare i privilegi di Cloud privato
+              href: escalate-privileges.md
+            - name: Configurazione dei carichi di lavoro DNS e DHCP
+              href: dns-dhcp-setup.md
+            - name: Eseguire la migrazione di carichi di lavoro usando reti estese di livello 2
+              href: migration-layer-2-vpn.md
+        - name: Funzionalità di rete del cloud privato
+          items:
+            - name: Connessione VPN al cloud privato
+              href: set-up-vpn.md
+            - name: Connessione di rete locale con ExpressRoute
+              href: on-premises-connection.md
+            - name: Connessione di rete virtuale di Azure con ExpressRoute
+              href: azure-expressroute-connection.md
+            - name: Configurare la risoluzione dei nomi DNS
+              href: on-premises-dns-setup.md
+        - name: Piattaforma VMware
+          items:
+            - name: Informazioni sul modello di autorizzazioni del cloud privato
+              href: learn-private-cloud-permissions.md
+            - name: Origini delle identità di vCenter
+              href: set-vcenter-identity.md
+            - name: Analisi gateway applicazione di Azure con VM di VMware
+              href: azure-application-gateway.md
+            - name: Configurare un server vCenter del cloud privato come endpoint di automazione vRealize
+              href: configure-server-vrealize-automation-endpoint.md
+            - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
+              href: migrate-workloads.md
+            - name: Migrazione tramite Azure Data Box
+              href: migration-using-azure-data-box.md
+            - name: Assicurare la disponibilità elevata delle applicazioni in VMware in Azure
+              href: ensuring-high-availability.md
+            - name: Scegliere una soluzione di bilanciamento del carico
+              href: load-balancers.md
+        - name: Ecosistema di VMware
+          items:
+            - name: Eseguire il backup delle macchine virtuali del carico di lavoro
+              href: backup-workloads-veeam.md
+            - name: Configurare il cloud privato come sito di ripristino di emergenza con Zerto
+              href: disaster-recovery-zerto.md
+            - name: Configurare il cloud privato come sito di ripristino di emergenza con VMware SRM
+              href: disaster-recovery-site-recovery-manager.md
+            - name: Guida della soluzione VMware Horizon
+              href: horizon-guide.md
+            - name: Configurare la crittografia di vSAN per il cloud privato
+              href: vsan-encryption.md
+            - name: Ottimizzare il cloud privato per Oracle RAC
+              href: oracle-real-application-clusters.md
+        - name: Integrazione dei componenti di base di Azure
+          items:
+            - name: Origine delle identità di Azure AD in vCenter del cloud privato
+              href: azure-ad.md
+            - name: Connessione di rete locale con ExpressRoute
+              href: on-premises-connection.md
+            - name: Connessione di rete virtuale di Azure con ExpressRoute
+              href: azure-expressroute-connection.md

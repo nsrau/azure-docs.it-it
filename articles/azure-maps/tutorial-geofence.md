@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085321"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694917"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per completare i passaggi di questa esercitazione è prima necessario vedere [Gestire l'account e le chiavi](how-to-manage-account-keys.md) per creare e gestire la sottoscrizione dell'account con il piano tariffario S1.
+Per completare i passaggi di questa esercitazione, seguire le istruzioni in [Gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
 
 ## <a name="upload-geofences"></a>Caricare i recinti virtuali
 
@@ -56,7 +56,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il parametro GEOJSON nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione primaria di Mappe di Azure.
    
     ![Parametri chiave-valore di Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -148,10 +148,24 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
    }
    ```
 
-5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. L'intestazione di posizione contiene l'URI per accedere o scaricare i dati per un uso futuro. Include anche un valore `udId` univoco per i dati caricati.
+5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. Una volta completata la richiesta, l'intestazione **Location** conterrà l'URI di stato per controllare lo stato corrente della richiesta di caricamento. L'URI di stato avrà il formato seguente. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copiare l'URI di stato e aggiungervi un parametro `subscription-key` con un valore corrispondente alla chiave di sottoscrizione dell'account Mappe di Azure. Il formato dell'URI di stato deve essere simile a quello riportato di seguito:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Per ottenere l'`udId`, aprire una nuova scheda nell'app Postman e selezionare il metodo GET HTTP nella scheda Builder (Generatore) ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare l'udId per un uso successivo.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configurare un gestore di eventi

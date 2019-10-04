@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61442926"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
 
@@ -136,7 +136,7 @@ Il passaggio successivo consiste nel configurare il microservizio di gestione di
 
 1. Scegliere il gruppo di risorse **ContosoRM**.
 
-1. Trovare il processo di streaming Analisi di flusso di Azure nell'elenco delle risorse. Il nome della risorsa inizia per **streamingjobs-**.
+1. Trovare il processo di streaming Analisi di flusso di Azure nell'elenco delle risorse. Il nome della risorsa inizia per **streamingjobs-** .
 
 1. Nella parte superiore fare clic sul pulsante per arrestare i processi di streaming di Analisi di flusso di Azure.
 

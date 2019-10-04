@@ -10,17 +10,16 @@ ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913161"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073987"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).
@@ -39,7 +38,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Quota | DESCRIZIONE |
+| Gestione quote | DESCRIZIONE |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -53,7 +52,7 @@ Per altre informazioni su quote, funzionalità e limiti specifici per i vari SKU
 
 ### <a name="quota-enforcement"></a>Applicazione delle quote
 
-Se l'uso di un'app supera la quota *Tempo CPU (breve)*, *Tempo CPU (giorno)* o *Larghezza di banda*, l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
+Se l'uso di un'app supera la quota *Tempo CPU (breve)* , *Tempo CPU (giorno)* o *Larghezza di banda*, l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
 
 ![Messaggio di errore 403][http403]
 

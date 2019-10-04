@@ -1,21 +1,19 @@
 ---
-title: Come usare l'archiviazione code da PHP | Microsoft Docs
+title: Come usare l'archiviazione di Accodamento da PHP-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in PHP.
-services: storage
-author: roygara
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: php
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 01/11/2018
-ms.author: rogarana
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011421"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721436"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Come usare l'archiviazione di accodamento da PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,14 +21,14 @@ ms.locfileid: "58011421"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Panoramica
-In questa guida viene illustrato come eseguire scenari comuni usando il servizio di archiviazione code di Azure. Gli esempi sono scritti usando le classi della [libreria client di Archiviazione di Azure per PHP][download]. Gli scenari presentati includono l'inserimento, la visualizzazione, il recupero e l'eliminazione dei messaggi in coda, oltre alle procedure di creazione ed eliminazione di code.
+In questa guida viene illustrato come eseguire scenari comuni usando il servizio di archiviazione code di Azure. Gli esempi sono scritti tramite le classi della [libreria client di archiviazione di Azure per php][download]. Gli scenari presentati includono l'inserimento, la visualizzazione, il recupero e l'eliminazione dei messaggi in coda, oltre alle procedure di creazione ed eliminazione di code.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
-Per creare un'applicazione PHP che acceda al servizio di archiviazione code di Azure, è sufficiente fare riferimento alle classi in [Libreria client di Archiviazione di Azure per PHP][download] dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
+L'unico requisito per la creazione di un'applicazione PHP che accede all'archiviazione code di Azure è il riferimento delle classi nella [libreria client di archiviazione di Azure per php][download] dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
 In questa guida si usano le funzionalità del servizio di archiviazione code che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
@@ -45,14 +43,14 @@ In questa guida si usano le funzionalità del servizio di archiviazione code che
       }
     }
     ```
-2. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
+2. Scaricare **[Composer. phar][composer-phar]** nella radice del progetto.
 3. Aprire un prompt dei comandi ed eseguire il comando seguente nella radice del progetto
    
     ```
     php composer.phar install
     ```
 
-In alternativa andare alla [libreria client PHP di Archiviazione di Microsoft Azure][download] su GitHub per clonare il codice sorgente.
+In alternativa, passare alla [libreria client PHP di archiviazione di Azure][download] su GitHub per clonare il codice sorgente.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di accodamento
 Per utilizzare le API per l'archiviazione di accodamento di Azure, è necessario:
@@ -87,7 +85,7 @@ UseDevelopmentStorage=true
 Per creare un client del Servizio di accodamento di Azure, è necessario usare la classe **QueueRestProxy**. È possibile utilizzare le tecniche seguenti:
 
 * Passare la stringa di connessione direttamente.
-* Usare variabili di ambiente nell'app Web per archiviare la stringa di connessione. Vedere il documento sulle [impostazioni di configurazione di app Web di Azure](../../app-service/web-sites-configure.md) per la configurazione delle stringhe di connessione.
+* Usare variabili di ambiente nell'app Web per archiviare la stringa di connessione. Vedere il documento sulle [impostazioni di configurazione di app Web di Azure](../../app-service/configure-common.md) per la configurazione delle stringhe di connessione.
 Per gli esempi illustrati in questo articolo, la stringa di connessione viene passata direttamente.
 
 ```php
@@ -99,7 +97,7 @@ $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>
 $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 Un oggetto **QueueRestProxy** consente di creare una coda usando il metodo **createQueue**. Quando si crea una coda, è possibile impostare le opzioni per la coda, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare i metadati in una coda.
 
 ```php
@@ -419,7 +417,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle co
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
 

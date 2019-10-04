@@ -14,18 +14,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eba2c0aeb37f2bc2283e7afb108bb4578981120e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203708"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147230"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In questo articolo verrà descritto come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari trattati includono:
+In questo articolo verrà descritto come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php). Gli scenari trattati includono:
 
 - Creazione di argomenti e sottoscrizioni 
 - Creazione di filtri di sottoscrizione 
@@ -34,14 +34,14 @@ In questo articolo verrà descritto come usare gli argomenti e le sottoscrizioni
 - Eliminazione di argomenti e sottoscrizioni
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [benefici per gli abbonati di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i [passaggi nella Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni dell'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare uno **spazio dei nomi** del bus di servizio e ottenere la stringa di **connessione**.
 
     > [!NOTE]
-    > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **PHP** in questa Guida introduttiva. 
+    > In questa Guida introduttiva si creerà un **argomento** e una **sottoscrizione** all'argomento usando **php** . 
 
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
-Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
+Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
 > [!NOTE]
 > L'installazione di PHP deve avere anche l'[estensione OpenSSL](https://php.net/openssl) installata e abilitata.
@@ -51,12 +51,28 @@ Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficie
 Questo articolo illustra come usare le funzionalità del servizio che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Installazione tramite Composer
+1. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Scaricare **[Composer. phar] [Composer-Phar]** nella radice del progetto.
+3. Aprire un prompt dei comandi ed eseguire il comando seguente nella radice del progetto
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare le API del bus di servizio:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require-once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require-once] .
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServiceBusService**.
@@ -67,7 +83,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -101,7 +117,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 È possibile eseguire operazioni di gestione per gli argomenti del bus di servizio usando la classe `ServiceBusRestProxy`. Un oggetto `ServiceBusRestProxy` è costruito tramite il metodo factory `ServicesBuilder::createServiceBusService` con una stringa di connessione appropriata che incapsula le autorizzazioni di token per gestirlo.
 
 L'esempio seguente mostra come creare un'istanza di `ServiceBusRestProxy` e chiamare il metodo `ServiceBusRestProxy->createTopic` per creare un argomento denominato `mytopic` in uno spazio dei nomi `MySBNamespace`:
@@ -136,7 +152,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="create-a-subscription"></a>Creare una sottoscrizione
+## <a name="create-a-subscription"></a>Crea una sottoscrizione
 È possibile creare le sottoscrizioni di un argomento con il metodo `ServiceBusRestProxy->createSubscription`. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
@@ -168,7 +184,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Creare sottoscrizioni con i filtri
-È anche possibile configurare filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento. Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni su SqlFilters, vedere la sezione relativa alla [proprietà SqlFilter.SqlExpression][sqlfilter].
+È anche possibile configurare filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento. Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni su sqlfilters, vedere [Proprietà SqlFilter. SqlExpression][sqlfilter].
 
 > [!NOTE]
 > Ogni regola in una sottoscrizione elabora i messaggi in arrivo indipendentemente, aggiungendo i messaggi risultanti alla sottoscrizione stessa. Ogni nuova sottoscrizione presenta anche un oggetto **Rule** predefinito con un filtro che aggiunge tutti i messaggi dall'argomento alla sottoscrizione. Per ricevere solo messaggi corrispondenti al filtro in uso, è necessario rimuovere la regola predefinita. È possibile rimuovere la regola predefinita usando il metodo `ServiceBusRestProxy->deleteRule`.
@@ -236,7 +252,7 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati ad argomenti del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage]. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard, nonché proprietà usate per contenere proprietà personalizzate specifiche dell'applicazione. L'esempio seguente illustra come inviare cinque messaggi di prova all'argomento `mytopic` creato in precedenza. Il metodo `setProperty` viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
+I messaggi inviati ad argomenti del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage]. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard, nonché proprietà che possono essere usate per contenere proprietà personalizzate specifiche dell'applicazione. L'esempio seguente illustra come inviare cinque messaggi di prova all'argomento `mytopic` creato in precedenza. Il metodo `setProperty` viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -344,8 +360,11 @@ catch(ServiceException $e){
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
+> [!NOTE]
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
+
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions].
+Per ulteriori informazioni, vedere [code, argomenti e sottoscrizioni][Queues, topics, and subscriptions].
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

@@ -1,22 +1,22 @@
 ---
 title: Guida introduttiva per Azure Application Insights | Microsoft Docs
-description: Vengono fornite istruzioni per configurare rapidamente un'app per dispositivi mobili per il monitoraggio con Application Insights e App Center
+description: Fornisce istruzioni per configurare rapidamente un'app per dispositivi mobili per il monitoraggio con Application Insights e App Center
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 40b3e0260e08ab5a8870c726042d06d80393fb15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080726"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849089"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="onboard-to-app-center"></a>Caricare in App Center
 
-Prima di poter usare Application Insights con l'app per dispositivi mobili, è necessario caricare l'app in [App Center](https://docs.microsoft.com/mobile-center/). Application Insights non riceve dati di telemetria direttamente dall'app per dispositivi mobili. L'app invia dati di telemetria personalizzati su un evento ad App Center. Pertanto, App Center esporta continuamente copie di questi eventi personalizzati in Application Insights quando vengono ricevuti gli eventi.
+Prima di poter usare Application Insights con l'app per dispositivi mobili, è necessario caricare l'app in [App Center](https://docs.microsoft.com/mobile-center/). Application Insights non riceve dati di telemetria direttamente dall'app per dispositivi mobili. L'app invia dati di telemetria personalizzati su un evento ad App Center. Pertanto, App Center esporta continuamente copie di questi eventi personalizzati in Application Insights quando vengono ricevuti gli eventi. Ciò non si applica ad [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) o al [plug-in React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native), dove i dati di telemetria vengono inviati direttamente ad Application Insights.
 
 Per caricare l'app, attenersi alla guida introduttiva di App Center per ogni piattaforma supportata dall'app. Creare istanze di App Center separate per ogni piattaforma:
 
@@ -67,18 +67,18 @@ Per assicurarsi che gli eventi personalizzati vengano ricevuti, passare alla sch
 
 Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center, è necessario creare una risorsa di Application Insights di tipo App Center nel portale di Azure:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Application Insights**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
-    ![Aggiunta di una risorsa di Application Insights](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > Se è la prima volta che si crea una risorsa di Application Insights, consultare il documento [Create an Application Insights Resource (Creare una risorsa di Application Insights)](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per ulteriori informazioni.
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
     | Impostazioni        |  Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
-   | **Tipo di applicazione** | Applicazione App Center | Tipo di app da monitorare |
-   | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
+     | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
    | **Posizione** | Un percorso del menu | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
 3. Fare clic su **Create**(Crea).
@@ -87,9 +87,9 @@ Se l'app supporta più piattaforme, iOS, Android e così via, è consigliabile c
 
 ## <a name="export-to-application-insights"></a>Esportare in Application Insights
 
-Nella pagina **Panoramica** della nuova risorsa di Application Insights, nella sezione **Informazioni di base** in alto copiare la chiave di strumentazione per questa risorsa.
+Nella pagina **Panoramica** della nuova risorsa di Application Insights. Copiare la chiave di strumentazione dalla risorsa.
 
-Nell'istanza di App Center per l'app:
+Nell'istanza di [App Center](https://appcenter.ms/) per l'app:
 
 1. Nella pagina **Impostazioni** fare clic su **Esporta**.
 2. Scegliere **Nuova esportazione**, selezionare **Application Insights**, quindi fare clic su **Personalizza**.
@@ -106,13 +106,11 @@ Per consentire all'utente di avere un numero maggiore di dati durante la prima c
 
 Application Insights può eseguire query, segmentare, filtrare e analizzare i dati di telemetria relativi agli eventi personalizzati delle app, oltre agli strumenti di analisi offerti da App Center.
 
-1. **Eseguire query sui dati di telemetria relativi agli eventi personalizzati.** Nella pagina **Panoramica** di Application Insights scegliere **Analytics**. 
+1. **Eseguire query sui dati di telemetria relativi agli eventi personalizzati.** Nella pagina **Panoramica** di Application Insights scegliere **Log (Analytics)** .
 
-   ![Pulsante Analytics in Application Insights](./media/mobile-center-quickstart/analytics.png)
-
-   Verrà aperto il portale Analytics di Application Insights associato alla risorsa di Application Insights. Il portale Analytics consente di eseguire direttamente una query sui dati tramite il linguaggio di query di Log Analytics, pertanto è possibile porre domande complesse in modo arbitrario sull'app e i suoi utenti.
+   Verrà aperto il portale Log (Analytics) di Application Insights associato alla risorsa di Application Insights. Il portale Log (Analytics) consente di eseguire direttamente una query sui dati tramite il linguaggio di query di Log Analytics, pertanto è possibile porre domande complesse in modo arbitrario sull'app e i suoi utenti.
    
-   Aprire una nuova scheda nel portale di Analytics, quindi incollare la query seguente. Restituisce il conteggio del numero di singoli utenti che hanno inviato singoli eventi personalizzati dall'app nelle ultime 24 ore, ordinati in base ai singoli conteggi.
+   Aprire una nuova scheda nel portale di Log (Analytics), quindi incollare la query seguente. Restituisce il conteggio del numero di singoli utenti che hanno inviato singoli eventi personalizzati dall'app nelle ultime 24 ore, ordinati in base ai singoli conteggi.
 
    ```AIQL
    customEvents
@@ -121,7 +119,7 @@ Application Insights può eseguire query, segmentare, filtrare e analizzare i da
    | order by dcount_user_Id desc 
    ```
 
-   ![Portale Analytics](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Portale di Log (Analytics)](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Selezionare la query facendo clic su un punto qualsiasi della query nell'editor di testo.
    2. Quindi fare clic su **Vai** per eseguire la query. 
@@ -131,17 +129,17 @@ Application Insights può eseguire query, segmentare, filtrare e analizzare i da
 
 2. **Segmentare e filtrare i dati di telemetria relativi a un evento personalizzato.** Nella pagina **Panoramica** di Application Insights scegliere **Utenti** nella tabella dei contenuti.
 
-   ![Icona dello strumento Utenti](./media/mobile-center-quickstart/users-icon.png)
+   ![Icona dello strumento Utenti](./media/mobile-center-quickstart/users-icon-001.png)
 
    Lo strumento Utenti mostra il numero di utenti dell'app che hanno fatto clic su determinati pulsanti, hanno visitato determinate pagine o eseguito altre azioni di cui si esegue il monitoraggio come un evento con l'SDK di App Center. Se si sta cercando un modo per segmentare e filtrare gli eventi di App Center, lo strumento Utenti è un'ottima scelta.
 
-   ![Strumento Utenti](./media/mobile-center-quickstart/users.png) 
+   ![Strumento Utenti](./media/mobile-center-quickstart/users-001.png) 
 
    Segmentare, ad esempio, l'uso per area geografica scegliendo **Paese o area geografica** nel menu a discesa **Split by** (Dividi per).
 
 3. **Analizzare i modelli di conversione, conservazione e navigazione nell'app.** Nella pagina **Panoramica** di Application Insights scegliere **Flussi utente** nella tabella dei contenuti.
 
-   ![Strumento Flussi utenti](./media/mobile-center-quickstart/user-flows.png)
+   ![Strumento Flussi utenti](./media/mobile-center-quickstart/user-flows-001.png)
 
    Lo strumento Flussi utenti mostra gli utenti che inviano gli eventi in seguito a un evento iniziale. È utile per ottenere un quadro complessivo dell'uso che gli utenti fanno dell'app. Consente anche di vedere le pagine più visitate dell'app o le stesse azioni ripetute più volte.
 

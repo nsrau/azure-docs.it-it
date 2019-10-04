@@ -2,18 +2,18 @@
 title: Incorporare un report nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come incorporare nell'applicazione un report che si trova nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: bdfaaf3ecd5beb7cea56f017006921a86ecfb3f6
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4e125e57c290688d5a65f6d70143100cbd3462cb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519259"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669056"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporare un report nelle raccolte di aree di lavoro di Power BI
 
@@ -143,7 +143,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 Il report verrà automaticamente incorporato in base alle dimensioni del contenitore. Per eseguire l'override delle dimensioni predefinite dell'elemento incorporato, è sufficiente aggiungere stili in linea o un attributo di classe CSS per larghezza e altezza.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempio introduttivo](get-started-sample.md)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

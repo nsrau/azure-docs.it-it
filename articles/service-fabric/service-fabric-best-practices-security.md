@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 350aef037f019733e02331623758c14a3c64ab50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386976"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828518"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
-Per altre informazioni sulle [procedure consigliate per la sicurezza di Azure](https://docs.microsoft.com/azure/security/), vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+Per altre informazioni sulle [procedure consigliate per la sicurezza di Azure](https://docs.microsoft.com/azure/security/), vedere [Procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## <a name="key-vault"></a>Key Vault
 
@@ -152,6 +152,18 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 Dopo aver crittografato i valori protetti [specificare i segreti crittografati nell'applicazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application) e [decrittografare i segreti crittografati dal codice del servizio](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
 
+## <a name="include-certificate-in-service-fabric-applications"></a>Includi certificato nelle applicazioni Service Fabric
+
+Per consentire all'applicazione di accedere ai segreti, includere il certificato aggiungendo un elemento **SecretsCertificate** al manifesto dell'applicazione.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autenticare le applicazioni di Service Fabric per le risorse di Azure usando l'identità del servizio gestita
 
 Per informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
@@ -188,7 +200,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Nel codice dell'applicazione di Service Fabric, ottenere un token di accesso per Azure Resource Manager, eseguendo una chiamata REST simile alla seguente:
+Nel codice dell'applicazione Service Fabric [ottenere un token di accesso](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) per Azure Resource Manager rendendo un oggetto Rest simile al seguente:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -201,6 +213,20 @@ L'esempio seguente mostra come eseguire questa operazione per la risorsa Cosmos 
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Baseline della sicurezza di Windows
+Si [consiglia di implementare una configurazione standard del settore che sia ampiamente nota e ben collaudata, ad esempio le linee di base della sicurezza Microsoft, anziché creare manualmente una baseline](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). un'opzione per il provisioning di questi nei set di scalabilità di macchine virtuali consiste nell'usare il gestore estensioni DSC (Desired state Configuration) di Azure per configurare le macchine virtuali in linea, in modo che eseguano il software di produzione.
+
+## <a name="azure-firewall"></a>Firewall di Azure
+[Azure firewall è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. ](https://docs.microsoft.com/azure/firewall/overview); in questo modo è possibile limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
+
+- \* download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+Queste regole del firewall sono complementari ai gruppi di sicurezza di rete in uscita consentiti, che includono ServiceFabric e archiviazione, come destinazioni consentite dalla rete virtuale.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -235,6 +261,18 @@ Per impostazione predefinita, Windows Defender Antivirus è installato in Window
 
 > [!NOTE]
 > Se non si usa Windows Defender, fare riferimento alla documentazione dell'antimalware in uso per informazioni sulle regole di configurazione. Windows Defender non è supportato in Linux.
+
+## <a name="platform-isolation"></a>Isolamento piattaforma
+Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'accesso al Runtime Service Fabric stesso, che si manifesta in forme diverse: le [variabili di ambiente](service-fabric-environment-variables-reference.md) che puntano a percorsi di file nell'host corrispondente ai file dell'applicazione e dell'infrastruttura, endpoint di comunicazione tra processi che accetta richieste specifiche dell'applicazione e il certificato client che l'infrastruttura prevede che l'applicazione usi per l'autenticazione. Nell'eventualità che il servizio ospiti un codice non attendibile, è consigliabile disabilitare questo accesso al runtime di SF, a meno che non sia necessario esplicitamente. L'accesso al runtime viene rimosso usando la dichiarazione seguente nella sezione policies del manifesto dell'applicazione: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

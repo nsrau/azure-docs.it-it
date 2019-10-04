@@ -3,19 +3,20 @@ title: Come registrare i dialoghi in un modello di Conversation Learner - Serviz
 titleSuffix: Azure
 description: Informazioni su come registrare i dialoghi in un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 388942e8195048d7528a54e5a290f1724c8e876b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170497"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703965"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Informazioni su come registrare i dialoghi in un modello di Conversation Learner
 

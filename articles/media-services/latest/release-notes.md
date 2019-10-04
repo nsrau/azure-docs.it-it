@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266988"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801399"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -34,15 +34,83 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="september-2019"></a>2019 settembre
+
+Media Services V3 annuncia l'anteprima di 24 ore x 365 giorni di Live Linear encoding of Live Events.
+ 
+## <a name="august-2019"></a>Agosto 2019
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>La coppia di aree di Sudafrica è aperta per servizi multimediali 
+
+Servizi multimediali è ora disponibile nelle aree Sud Africa settentrionale e Sud Africa occidentale.
+
+Per altre informazioni, vedere [cloud e aree in cui è disponibile Media Services V3](azure-clouds-regions.md).
+
+## <a name="july-2019"></a>2019 luglio
+
+### <a name="content-protection"></a>Protezione del contenuto
+
+Quando si esegue il flusso di contenuti protetti con la restrizione dei token, gli utenti finali devono ottenere un token inviato come parte della richiesta di recapito della chiave. La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Per ulteriori informazioni, vedere [prevenzione della riproduzione dei token](content-protection-overview.md#token-replay-prevention).
+
+Questa funzionalità è attualmente disponibile negli Stati Uniti centro-occidentali e negli Stati Uniti centro-occidentali.
+
+## <a name="june-2019"></a>Giugno 2019
+
+### <a name="video-subclipping"></a>Suddivisione video
+
+È ora possibile tagliare o sottotagliare un video quando lo si codifica usando un [processo](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Questa funzionalità può essere utilizzata con qualsiasi [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) . 
+
+Vedere gli esempi:
+
+* [Sottoclip di un video con .NET](subclip-video-dotnet-howto.md)
+* [Sottoclip di un video con REST](subclip-video-rest-howto.md)
+
+## <a name="may-2019"></a>Maggio 2019
+
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Supporto di monitoraggio di Azure per i log di diagnostica e le metriche di servizi multimediali
+
+È ora possibile usare monitoraggio di Azure per visualizzare i dati di telemetria emmited da servizi multimediali.
+
+* Usare i log di diagnostica di monitoraggio di Azure per monitorare le richieste inviate dall'endpoint di distribuzione delle chiavi di servizi multimediali. 
+* Monitorare le metriche emesse dagli [endpoint di streaming](streaming-endpoint-concept.md)di servizi multimediali.   
+
+Per informazioni dettagliate, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Supporto per tracce audio multifunzione nella creazione dinamica dei pacchetti 
+
+Quando si esegue lo streaming di asset che includono più tracce audio con più codec e lingue, la creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) supporta ora più tracce audio per l'output HLS (versione 4 o successive).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>La coppia di regioni coreana è aperta per servizi multimediali 
+
+Servizi multimediali è ora disponibile nelle aree Corea centrale e Corea meridionale. 
+
+Per altre informazioni, vedere [cloud e aree in cui è disponibile Media Services V3](azure-clouds-regions.md).
+
+### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
+
+Sono stati aggiunti aggiornamenti che includono miglioramenti delle prestazioni di servizi multimediali.
+
+* Sono state aggiornate le dimensioni massime del file supportate per l'elaborazione. Vedere, [quote e limitazioni](limits-quotas-constraints.md).
+* [Miglioramenti della velocità di codifica](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
+## <a name="april-2019"></a>Aprile 2019
+
+### <a name="new-presets"></a>Nuovi set di impostazioni
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) è stato aggiunto ai set di impostazioni predefiniti dell'analizzatore.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) è stato aggiunto ai set di impostazioni predefiniti del codificatore. Per altre informazioni, vedere [codifica compatibile](cae-experimental.md)con i contenuti. 
+
 ## <a name="march-2019"></a>Marzo 2019
 
-Creazione dinamica dei pacchetti ora supporta Atmos. Dolby Per altre informazioni, vedere [codec Audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+La creazione dinamica dei pacchetti ora supporta Dolby Atmos. Per altre informazioni, vedere [codec audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs).
 
-È ora possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Per altre informazioni, vedere [associare filtri a localizzatore di Streaming](filters-concept.md#associate-filters-with-streaming-locator).
+È ora possibile specificare un elenco di filtri per asset o account, che si applicano al localizzatore di streaming. Per altre informazioni, vedere [associare filtri a streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Febbraio 2019
 
-Servizi multimediali v3 è ora supportato in cloud nazionali di Azure. Non tutte le funzionalità sono già disponibili in tutti i cloud. Per informazioni, vedere [Cloud e aree in cui sono presenti Servizi multimediali di Azure v3](azure-clouds-regions.md).
+Media Services V3 è ora supportato nei cloud nazionali di Azure. Non tutte le funzionalità sono già disponibili in tutti i cloud. Per informazioni, vedere [Cloud e aree in cui sono presenti Servizi multimediali di Azure v3](azure-clouds-regions.md).
 
 L'evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
 
@@ -188,7 +256,7 @@ Se sono stati creati filtri di asset o di account tra il 28/09 e il 12/10 con le
 
 ### <a name="net-sdk"></a>.NET SDK
 
-Le funzionalità seguenti sono disponibili in .NET SDK:
+In .NET SDK sono presenti le funzionalità seguenti:
 
 * **Transforms** e **Jobs** per codificare o analizzare i contenuti multimediali. Per alcuni esempi, vedere [Eseguire lo streaming di file](stream-files-tutorial-with-api.md) e [Analyze](analyze-videos-tutorial-with-api.md) (Analizzare).
 * **Localizzatori di streaming** per pubblicare ed eseguire lo streaming dei contenuti ai dispositivi degli utenti finali
@@ -201,6 +269,10 @@ Le funzionalità seguenti sono disponibili in .NET SDK:
 
 * Durante l'invio di un processo, è possibile specificare di inserire un video di origine usando gli URL HTTPS, gli URL SAS o i percorsi ai file che si trovano nell'archivio Blob di Azure. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
 
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+
+Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](media-services-overview.md)
+[Panoramica](media-services-overview.md)

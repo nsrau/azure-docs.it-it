@@ -4,22 +4,21 @@ description: Requisiti di onboarding per SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880696"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101185"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
 
@@ -33,7 +32,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Connettività di rete**
 
-- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Di conseguenza, i clienti non si verifichino altri costi oltre il collegamento ExpressRoute tra origini locali e Azure.
+- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
 
 **Sistema operativo**
 

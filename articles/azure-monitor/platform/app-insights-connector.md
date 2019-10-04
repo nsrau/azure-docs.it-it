@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346809"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849179"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -49,12 +49,12 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
+| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -142,7 +142,7 @@ I componenti della prospettiva vengono aggiornati a seconda della query di ricer
 
 I pannelli di Connettore di Application Insights sono progettati per consentire di passare all'app Application Insights selezionata *quando si usa il portale di Azure*. È possibile usare la soluzione come piattaforma di monitoraggio ad alto livello che contribuisce alla risoluzione dei problemi di un'app. Quando viene riscontrato un potenziale problema in una delle applicazioni connesse, è possibile analizzarlo nella ricerca di Log Analytics oppure passare direttamente all'app di Application Insights.
 
-A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
+A tale scopo, fare clic sui puntini di sospensione ( **...** ) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
 
 >[!NOTE]
 >**Apri in Application Insights** non è disponibile nel portale di Azure.
@@ -181,7 +181,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="generic-fields"></a>Campi generici
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,10 +192,10 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Paese | Paese in cui ha origine la richiesta |
+| Country | Paese/area geografica in cui ha avuto origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
 | city | Città o paese in cui ha origine la richiesta |
-| isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = generata dall'utente o false = metodo automatizzato |
+| isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = metodo automatico o false = utente generato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
 | IsAuthenticated | True o false |
@@ -249,7 +249,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="request-specific-fields"></a>Campi specifici di richiesta
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Richiesta |

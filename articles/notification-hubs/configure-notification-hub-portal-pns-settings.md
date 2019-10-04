@@ -2,24 +2,26 @@
 title: Configurare notifiche push in Hub di notifica di Azure | Microsoft Docs
 description: Informazioni su come configurare Hub di notifica di Azure nel portale di Azure usando le impostazioni Platform Notification System (PNS).
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: jowargo
-ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 9a17b96da376843c07a4324856bf8943aa385cac
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480124"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212460"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configurare notifiche push in un hub di notifica nel portale di Azure
 
-Hub di notifica di Azure offre un motore di push facile da usare e di cui è possibile aumentare il numero di istanze. Usare Hub di notifica per inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle e Baidu) e da qualsiasi back-end (cloud o locale). Per altre informazioni, vedere [Informazioni su Hub di notifica di Azure](notification-hubs-push-notification-overview.md).
+Hub di notifica di Azure offre un motore di push facile da usare e di cui è possibile aumentare il numero di istanze. Usare Hub di notifica per inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Baidu) e da qualsiasi back-end (cloud o locale). Per altre informazioni, vedere [Informazioni su Hub di notifica di Azure](notification-hubs-push-notification-overview.md).
 
 In questo argomento di avvio rapido si useranno le impostazioni Platform Notification System (PNS) in Hub di notifica per configurare le notifiche push su più piattaforme. Questo argomento di avvio rapido illustra i passaggi da eseguire nel portale di Azure.
 
@@ -47,7 +49,7 @@ Per configurare Apple Push Notification Service (APNS):
 
      ![Screenshot della configurazione di un token APNS nel portale di Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
-Per altre informazioni, vedere [Effettuare il push di notifiche a iOS con Hub di notifica di Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Per altre informazioni, vedere [Inviare notifiche push a iOS tramite Hub di notifica di Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
 ## <a name="google-firebase-cloud-messaging"></a>Google Firebase Cloud Messaging
 
@@ -95,17 +97,6 @@ Per configurare Servizio notifica push Microsoft (MPNS) per Windows Phone:
 
 Per altre informazioni, vedere [Effettuare il push di notifiche alle app Windows Phone con Hub di notifica](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-Per configurare le notifiche push per Amazon Device Messaging (ADM):
-
-1. Nella pagina **Hub di notifica** del portale di Azure, selezionare **Amazon (ADM)** nel menu a sinistra.
-2. Immettere i valori per **ID client** e **Segreto client**.
-3. Selezionare **Salva**.
-    
-   ![Screenshot delle impostazioni ADM nel portale di Azure](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-Per altre informazioni, vedere [Introduzione ad Hub di notifica per le app per Kindle](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
 
@@ -131,5 +122,4 @@ Per altre informazioni su come effettuare il push di notifiche a diverse piattaf
 - [Effettuare il push di notifiche ai dispositivi Android con Hub di notifica e Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Inviare notifiche a un'app della piattaforma UWP in un dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Effettuare il push di notifiche a un'app Windows Phone 8 con MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Effettuare il push di notifiche a un'applicazione Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Effettuare il push di notifiche con Hub di notifica e push cloud Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)

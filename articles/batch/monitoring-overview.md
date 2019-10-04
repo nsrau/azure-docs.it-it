@@ -3,20 +3,19 @@ title: Monitorare Azure Batch | Microsoft Docs
 description: Informazioni su servizi di monitoraggio Azure, metriche, log di diagnostica e altre funzionalità di monitoraggio per Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848025"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260961"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -34,14 +33,14 @@ Un modo per recuperare gli eventi dal log attività consiste nell'usare il porta
 
 ## <a name="batch-account-level-monitoring"></a>Monitoraggio a livello di account Batch
 
-Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e facoltativamente [i log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
+Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e facoltativamente [i log di diagnostica](../azure-monitor/platform/resource-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
  
 > [!NOTE]
 > Le metriche sono disponibili per impostazione predefinita nell'account Batch senza alcuna configurazione aggiuntiva e hanno una cronologia incrementale di 30 giorni. È necessario abilitare la registrazione diagnostica per un account Batch e si potrebbe incorrere in costi aggiuntivi per archiviare o elaborare i dati dei log di diagnostica. 
 
 ## <a name="batch-resource-monitoring"></a>Monitoraggio delle risorse Batch
 
-Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo stato delle risorse, inclusi processi, attività, nodi e pool. Ad esempio: 
+Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo stato delle risorse, inclusi processi, attività, nodi e pool. Esempio:
 
 * [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md)
 * [Creare query per elencare le risorse di Batch in modo efficiente](batch-efficient-list-queries.md)

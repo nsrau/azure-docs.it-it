@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60718370"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -54,7 +54,7 @@ Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di 
 
 ## <a name="use-setupentrypoint"></a>Usare SetupEntryPoint
 
-Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio: 
+Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.

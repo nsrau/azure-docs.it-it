@@ -4,16 +4,16 @@ description: Ancoraggi nello spazio di Azure è un servizio cloud gestito e una 
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753594"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927504"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -57,7 +57,7 @@ Per garantire la trasparenza, di seguito è riportata un'immagine di un ambiente
 
 Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del servizio Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) e all'[Informativa sulla privacy di Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata](./media/sparce-point-cloud.png)
+![Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata](./media/sparse-point-cloud.png)
 *Figura 1: Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata*
 
 
@@ -78,14 +78,14 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 Le date di disponibilità generale (GA) saranno annunciate a breve.
 
 **D: Sono previste delle limitazioni?**
- 
+
 **R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrs@microsoft.com). Durante questa fase di anteprima, non sono state ancora pubblicate la suddivisione in livelli e la struttura dei prezzi, ma si prevede di farlo presto.
 
 **D: In quali aree è disponibile Ancoraggi nello spazio di Azure?**
 
 **R:** È possibile creare subito un account di Ancoraggi nello spazio di Azure nell'area di Azure Stati Uniti orientali 2. Ciò significa che sia l'ambiente di calcolo che l'archiviazione alla base di questo servizio risiedono in questa area. Detto questo, non esistono restrizioni per la posizione in cui si trovano i client. In futuro si estenderà la disponibilità del servizio a livello di area a tutte le principali aree di Azure.
 
-**D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?** 
+**D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?**
 
 **R:** È possibile trovare i dettagli sui prezzi durante l'anteprima nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
@@ -120,8 +120,8 @@ Iniziare a [sviluppare un'app qui](index.yml).
 
 **D: Funziona con Unreal?**
 
-**R:** Il supporto per Unreal sarà presto disponibile.
+**R:** Il supporto per Unreal verrà considerato in futuro.
 
-**D: Funziona con Xamarin?**
+**D: Quali porte e protocolli vengono utilizzati da Ancoraggi nello spazio di Azure?**
 
-**R:** Sì. Anche se non viene fornito un SDK Xamarin, gli sviluppatori possono usare Ancoraggi nello spazio di Azure nelle app Xamarin grazie all'integrazione con l'API Ancoraggi nello spazio di Azure.
+**R:** Ancoraggi nello spazio di Azure comunica tramite porta TCP 443 usando un protocollo crittografato. Per l'autenticazione, viene utilizzata [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), che comunica tramite HTTPS sulla porta 443.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667209"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348713"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulare gli errori durante i carichi di lavoro del servizio
 Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppatori di non preoccuparsi della gestione dei singoli errori. Tuttavia, sono disponibili scenari in cui potrebbe essere necessaria un'interfoliazione esplicita del carico di lavoro client e degli errori. L'interfoliazione del carico di lavoro client e degli errori garantisce che il servizio stia effettivamente eseguendo un’azione quando si verifica un errore. Dato il livello di controllo fornito dalla testabilità, questi errori potrebbero verificarsi in momenti precisi dell'esecuzione del carico di lavoro. L’induzione degli errori in stati diversi nell'applicazione può consentire di individuare bug e migliorare la qualità.
@@ -27,12 +27,12 @@ Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppat
 ## <a name="sample-custom-scenario"></a>Esempio di scenario personalizzato
 In questo test viene illustrato uno scenario in cui si verifica l'interfoliazione del carico di lavoro di business con [errori normali e anomali](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Per ottenere risultati ottimali, gli errori devono essere indotti nel corso delle operazioni del servizio o del calcolo.
 
-Di seguito viene illustrato un esempio di un servizio che espone quattro carichi di lavoro: A, B, C e D. Ognuna corrisponde a un set di flussi di lavoro e potrebbe essere calcolo, archiviazione o una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono:
+Di seguito viene illustrato un esempio di un servizio che espone quattro carichi di lavoro: A, B, C e D. Ogni corrisponde a un set di flussi di lavoro e può essere di calcolo, di archiviazione o di una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono:
 
-* RestartNode: Errore anomalo per simulare un riavvio del computer.
-* RestartDeployedCodePackage: Arresto anomalo di errore anomalo per simulare processo host del servizio.
+* RestartNode Errore anomalo per simulare il riavvio del computer.
+* RestartDeployedCodePackage: Errore anomalo per simulare gli arresti anomali del processo host del servizio.
 * RemoveReplica: Errore normale per simulare la rimozione della replica.
-* MovePrimary: Errore normale per simulare replica Sposta attivate dal bilanciamento del carico di Service Fabric.
+* L' Errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -116,7 +116,7 @@ class Test
             // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
-            await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
+            await fabricClient.TestManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
             // Wait for the workload to finish successfully.
             await workloadTask;
@@ -128,16 +128,16 @@ class Test
         switch (fault)
         {
             case ServiceFabricFaults.RestartNode:
-                await client.ClusterManager.RestartNodeAsync(selector, CompletionMode.Verify);
+                await client.FaultManager.RestartNodeAsync(selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RestartCodePackage:
-                await client.ApplicationManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
+                await client.FaultManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RemoveReplica:
-                await client.ServiceManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
+                await client.FaultManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
                 break;
             case ServiceFabricFaults.MovePrimary:
-                await client.ServiceManager.MovePrimaryAsync(selector.PartitionSelector);
+                await client.FaultManager.MovePrimaryAsync(selector.PartitionSelector);
                 break;
         }
     }

@@ -7,25 +7,24 @@ ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
+author: stevestein
 ms.reviewer: ''
-ms.author: carlrab
-manager: craigg
+ms.author: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 27a2eb025db014a1c71152a13339bc46510eae77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e43a027507a52965dd56bbf6015f18d2b2ebc2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357809"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569863"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Usare Use PowerShell per creare pool elastici e spostare database tra pool elastici
 
-Questo esempio di script di PowerShell crea due pool elastici e sposta un database da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico nella dimensione di calcolo di un database singolo.
+Questo esempio di script di PowerShell crea due pool elastici e sposta un database da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico nelle dimensioni di calcolo di un database singolo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

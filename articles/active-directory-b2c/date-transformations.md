@@ -2,26 +2,26 @@
 title: Esempi di trasformazione delle attestazioni di data per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione delle attestazioni di data per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384236"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936794"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo offre esempi per l'uso delle trasformazioni delle attestazioni di data dello schema del framework di gestione delle identità di Azure Active Directory (Azure AD) B2C. Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni di Data dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -29,8 +29,8 @@ Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | stringa | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
-| inputClaim | rightOperand | stringa | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
+| InputClaim | leftOperand | string | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
+| InputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
@@ -143,7 +143,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operator | stringa | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | Operatore | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | risultato | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
